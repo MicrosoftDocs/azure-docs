@@ -8,12 +8,12 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/03/2021
+ms.date: 04/08/2021
 ---
 
-# Create and manage API keys for an Azure Cognitive Search service
+# Create and manage API keys for authentication to Azure Cognitive Search
 
-All requests to a search service need a read-only API key that was generated specifically for your service. The API key is the sole mechanism for authenticating inbound requests to your search service endpoint and is required on every request. 
+When connecting to a search service, all requests need to include a read-only API key that was generated specifically for your service. The API key is the sole mechanism for authenticating inbound requests to your search service endpoint and is required on every request. 
 
 + In [REST solutions](search-get-started-rest.md), the `api-key` is typically specified in a request header
 

@@ -1,10 +1,12 @@
 ---
 title: Use the Azure portal to create Service Bus topics and subscriptions
-description: 'Quickstart: In this quickstart, you learn how to create a Service Bus topic and subscriptions to that topic by using the Azure portal.' 
+description: 'Quickstart: In this quickstart, you learn how to create a Service Bus topic and subscriptions to that topic by using the Azure portal.'
 author: spelluru
-ms.topic: quickstart
-ms.date: 06/23/2020
 ms.author: spelluru
+ms.date: 06/23/2020
+ms.topic: quickstart
+ms.custom:
+  - mode-portal
 # Customer intent: In a retail scenario, how do I update inventory assortment and send a set of messages from the back office to the stores?
 ---
 
@@ -37,4 +39,3 @@ In this article, you created a Service Bus namespace, a topic in the namespace, 
 - [JavaScript](service-bus-nodejs-how-to-use-topics-subscriptions.md)
 - [Python](service-bus-python-how-to-use-topics-subscriptions.md)
 - [PHP](service-bus-php-how-to-use-topics-subscriptions.md)
-- [Ruby](service-bus-ruby-how-to-use-topics-subscriptions.md)

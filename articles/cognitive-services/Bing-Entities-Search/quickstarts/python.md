@@ -40,8 +40,8 @@ Although this application is written in Python, the API is a RESTful Web service
     import json
     
     subscriptionKey = 'ENTER YOUR KEY HERE'
-    host = 'api.cognitive.microsoft.com'
-    path = '/bing/v7.0/entities'
+    host = 'api.bing.microsoft.com'
+    path = '/v7.0/search'
     mkt = 'en-US'
     query = 'italian restaurants near me'
     ```

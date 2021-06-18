@@ -56,7 +56,8 @@ This section describes the core benefits that WAF on Application Gateway provide
 
 - SQL-injection protection.
 - Cross-site scripting protection.
-- Protection against other common web attacks, such as command injection, HTTP request smuggling, HTTP response splitting, and remote file inclusion.
+- Protection against other common web attacks, such as command injection, HTTP request smuggling, HTTP response splitting, 
+and remote file inclusion.
 - Protection against HTTP protocol violations.
 - Protection against HTTP protocol anomalies, such as missing host user-agent and accept headers.
 - Protection against crawlers and scanners.

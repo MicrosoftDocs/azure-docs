@@ -98,7 +98,7 @@
   - name: Oracle
     href: ./workloads/oracle/oracle-database-quick-create.md
   - name: Azure for Gaming
-    href: https://docs.microsoft.com/gaming/azure/
+    href: /gaming/azure/
   - name: Elasticsearch
     href: ./linux/tutorial-elasticsearch.md
   - name: Mainframe rehosting
@@ -140,7 +140,7 @@
         href: dcv2-series.md
       - name: Dv2 and DSv2-series
         href: dv2-dsv2-series.md
-      - name: Dv3 and Dsv3-series
+      - name: Dv3 and DSv3-series
         href: dv3-dsv3-series.md
       - name: Dav4 and Dasv4-series
         href: dav4-dasv4-series.md
@@ -155,6 +155,8 @@
         href: sizes-compute.md
       - name: Fsv2-series
         href: fsv2-series.md
+      - name: FX-series
+        href: fx-series.md
     - name: Memory optimized
       items:
       - name: Overview
@@ -206,6 +208,8 @@
         href: ncv3-series.md
       - name: NCasT4_v3-series
         href: nct4-v3-series.md
+      - name: NDasrA100_v4-series
+        href: nda100-v4-series.md
       - name: ND-series
         href: nd-series.md
       - name: NDv2-series
@@ -251,6 +255,8 @@
         href: hbv3-series.md
       - name: HC-series
         href: hc-series.md
+    - name: States and billing
+      href: states-billing.md
     - name: vCPU quotas
       items:
       - name: CLI
@@ -260,7 +266,7 @@
         displayName: vCPU, quota, limit
         href: ./windows/quotas.md
     - name: Azure VMs with no temp disk
-      href: azure-vms-no-temp-disk.md
+      href: azure-vms-no-temp-disk.yml
     - name: Azure VM sizes naming conventions
       href: vm-naming-conventions.md
     - name: Previous generations
@@ -430,6 +436,10 @@
         href: ./extensions/features-windows.md
       - name: Windows VM Agent
         href: ./extensions/agent-windows.md
+    - name: Azure Backup for SQL Server
+      items:
+      - name: Azure Backup for SQL Server
+        href: ./extensions/backup-azure-sql-server-running-azure-vm.md
     - name: Azure Disk Encryption
       items:
       - name: Linux
@@ -446,10 +456,8 @@
       - name: Windows
         displayName: Azure Key Vault, key vault, encryption
         href: ./extensions/key-vault-windows.md
-    - name: Azure Backup for SQL Server
-      items:
-      - name: Azure Backup for SQL Server
-        href: ./extensions/backup-azure-sql-server-running-azure-vm.md
+    - name: Azure Policy Guest Configuration
+      href: ./extensions/guest-configuration.md
     - name: Custom Script
       items:
       - name: Linux - version 2
@@ -562,7 +570,7 @@
     - name: Issues with Python 3-enabled Linux systems
       href: ./extensions/issues-using-vm-extensions-python-3.md
   - name: Nested virtualization
-    href: https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization
+    href: /virtualization/hyper-v-on-windows/user-guide/nested-virtualization
   - name: Migrate to Azure Resource Manager
     items:
     - name: Retirement starting March 1, 2023
@@ -591,7 +599,7 @@
       href: migration-classic-resource-manager-community-tools.md
     - name: FAQ
       displayName: classic, migration, classic to ARM, CSES, Cloud Services
-      href: migration-classic-resource-manager-faq.md
+      href: migration-classic-resource-manager-faq.yml
 - name: Images
   items:
   - name: Find Azure Marketplace images
@@ -632,9 +640,6 @@
       - name: FreeBSD
         displayName: Linux distribution specific requirements, FreeBSD
         href: ./linux/freebsd-intro-on-azure.md
-      - name: FreeBSD Packet Filter
-        displayName: Linux distribution specific requirements, FreeBSD
-        href: ./linux/freebsd-pf-nat.md
       - name: Oracle Linux
         displayName: Linux distribution specific requirements, Oracle
         href: ./linux/oracle-create-upload-vhd.md
@@ -786,13 +791,15 @@
     - name: Resource Manager Templates
       items:
       - name: Create a Shared Image Gallery
-        href: https://azure.microsoft.com/resources/templates/101-sig-create/
+        href: https://azure.microsoft.com/resources/templates/sig-create/
       - name: Create an Image Definition in a Shared Image Gallery
-        href: https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/
+        href: https://azure.microsoft.com/resources/templates/sig-image-definition-create/
       - name: Create an Image Version in a Shared Image Gallery
-        href: https://azure.microsoft.com/resources/templates/101-sig-image-version-create/
+        href: https://azure.microsoft.com/resources/templates/sig-image-version-create/
       - name: Create a VM from Image Version
-        href: https://azure.microsoft.com/resources/templates/101-vm-from-sig/
+        href: https://azure.microsoft.com/resources/templates/vm-from-sig/
+    - name: Ansible
+      href: /azure/developer/ansible/vm-configure-from-azure-shared-image-gallery?tabs=ansible
     - name: Troubleshoot shared images
       displayName: Shared Image Gallery, SIG, sig, gallery, image, troubleshooting
       href: troubleshooting-shared-images.md
@@ -803,7 +810,7 @@
       href: managed-disk-from-image-version.md
     - name: Purchase plan information
       href: marketplace-images.md
-  - name: Image builder (Preview)
+  - name: Image builder
     items:
     - name: Overview
       displayName: Image builder, images, building
@@ -942,8 +949,6 @@
       href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md?context=/azure/virtual-machines/context/context
   - name: Understand VM reboots
     href: understand-vm-reboots.md
-  - name: States and billing
-    href: states-billing.md
   - name: Azure Regions
     href: regions.md
 - name: Disks
@@ -961,6 +966,8 @@
     href: disks-shared-enable.md
   - name: Encryption
     items:
+    - name: Disk encryption overview
+      href: disk-encryption-overview.md
     - name: Server-side encryption
       items:
       - name: Server-side encryption overview
@@ -1035,7 +1042,9 @@
         - name: Disk encryption troubleshooting
           href: ./linux/disk-encryption-troubleshooting.md
         - name: Disk encryption FAQ
-          href: ./linux/disk-encryption-faq.md
+          href: ./linux/disk-encryption-faq.yml
+        - name: Upgrade from previous to current version
+          href: ./linux/disk-encryption-upgrade.md
         - name: Disk encryption - previous version
           items:
           - name: Overview
@@ -1066,7 +1075,7 @@
         - name: Disk encryption troubleshooting
           href: ./windows/disk-encryption-troubleshooting.md
         - name: Disk encryption FAQ
-          href: ./windows/disk-encryption-faq.md
+          href: ./windows/disk-encryption-faq.yml
         - name: Disk encryption - previous version
           items:
           - name: Overview
@@ -1197,13 +1206,13 @@
     - name: Windows
       displayName: detach a disk
       href: ./windows/detach-disk.md
-  - name: Expand OS disk
+  - name: Expand a disk
     items:
     - name: Linux
-      displayName: Expand OS disk
+      displayName: Expand a disk - Linux
       href: ./linux/expand-disks.md
     - name: Windows
-      displayName: Expand OS disk
+      displayName: Expand a disk - Windows
       href: ./windows/expand-os-disk.md
   - name: Manage storage
     items:
@@ -1254,7 +1263,7 @@
         displayName: Find unattached disks
         href: disks-find-unattached-portal.md
     - name: Disks FAQs
-      href: faq-for-disks.md
+      href: faq-for-disks.yml
   - name: Code samples
     items:
     - name: CLI
@@ -1305,6 +1314,8 @@
       href: ./windows/nsg-quickstart-portal.md
   - name: Assign public IP address
     href: ../virtual-network/virtual-network-deploy-static-pip-arm-cli.md?context=/azure/virtual-machines/context/context
+  - name: Use a custom domain name
+    href: custom-domain.md
   - name: Use multiple NICs
     items:
     - name: Linux using CLI
@@ -1333,11 +1344,11 @@
   - name: Security baselines
     items:
     - name: Linux
-      href: ./linux/security-baseline.md
+      href: /security/benchmark/azure/baselines/virtual-machines-linux-security-baseline?context=/azure/virtual-machines/context/context
       displayname: Security baselines
     - name: Windows
       displayName: Security baselines
-      href: ./windows/security-baseline.md
+      href: /security/benchmark/azure/baselines/virtual-machines-windows-security-baseline?context=/azure/virtual-machines/context/context
   - name: Recommendations
     href: security-recommendations.md
   - name: Trusted launch
@@ -1434,11 +1445,17 @@
       displayName: Configured managed identies
       href: ../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md?context=/azure/virtual-machines/context/context
   - name: Linux Active Directory sign-in
-    href: ./linux/login-using-aad.md
+    displayName: aad
+    items:
+    - name: SSH with Azure Active Directory
+      href: ../active-directory/devices/howto-vm-sign-in-azure-ad-linux.md
+      items:
+      - name: Previous version being deprecated August 15, 2021
+        href: ./linux/login-using-aad.md
 - name: Updates and maintenance
   items:
   - name: Overview
-    displayName: Updates and maintenance
+    displayName: maintenance, updates, live-migration
     href: updates-maintenance-overview.md
   - name: Automatic OS image upgrade
     items:
@@ -1447,12 +1464,18 @@
       href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md?context=/azure/virtual-machines/context/context
     - name: Maintenance control for OS image upgrade
       items:
-      - name: Overview (Preview)
+      - name: Overview
         displayName: Maintenance control for OS image upgrade, OS, image, upgrade
         href: virtual-machine-scale-sets-maintenance-control.md
-      - name: PowerShell (Preview)
+      - name: PowerShell 
         displayName: Maintenance control for OS image upgrade, OS, image, upgrade
         href: virtual-machine-scale-sets-maintenance-control-powershell.md
+      - name: CLI 
+        displayName: Maintenance control for OS image upgrade, OS, image, upgrade
+        href: virtual-machine-scale-sets-maintenance-control-cli.md
+      - name: Portal 
+        displayName: Maintenance control for OS image upgrade, OS, image, upgrade
+        href: virtual-machine-scale-sets-maintenance-control-portal.md
   - name: Automatic VM guest patching (Preview)
     items:
     - name: Overview
@@ -1530,7 +1553,7 @@
       href: ../azure-monitor/agents/agents-overview.md?context=/azure/virtual-machines/context/context
     - name: FAQ
       displayName: Agents
-      href: ../azure-monitor/faq.md?context=/azure/virtual-machines/context/context#agents
+      href: /azure-monitor/faq.yml#agents
     - name: Azure Diagnostics extension
       items:
       - name: Overview
@@ -1600,10 +1623,10 @@
         href: ../azure-monitor/vm/vminsights-overview.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
       - name: General Availability FAQ
         displayName: Azure monitor for VMs
-        href: ../azure-monitor/vm/vminsights-ga-release-faq.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
+        href: ../azure-monitor/vm/vminsights-ga-release-faq.yml?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
       - name: FAQ
         displayName: Azure monitor for VMs
-        href: ../azure-monitor/faq.md?context=/azure/virtual-machines/context/context
+        href: ../azure-monitor/faq.yml?context=/azure/virtual-machines/context/context
       - name: Enable monitoring
         items:
         - name: Enable monitoring overview
@@ -1762,6 +1785,8 @@
   - name: Overview
     displayName: Infrastrucure automation overview
     href: infrastructure-automation.md
+  - name: User data
+    href: user-data.md
   - name: Custom data
     href: custom-data.md
   - name: Ansible
@@ -1772,14 +1797,16 @@
     href: /azure/developer/jenkins/
   - name: Azure DevOps
     href: ./linux/tutorial-azure-devops-blue-green-strategy.md
-- name: Troubleshoot
-  href: /troubleshoot/azure/virtual-machines/welcome-virtual-machines
+- name: Support and troubleshooting
+  href: vm-support-help.md
 - name: Resources
   items:
   - name: Cloud adoption framework
     href: /azure/cloud-adoption-framework/get-started/
   - name: Architecture center
     href: /azure/architecture/
+  - name: Migration tools
+    href: /azure/cloud-adoption-framework/migrate/azure-migration-guide/?tabs=MigrationTools
   - name: Microsoft Q&A
     href: /answers/topics/azure-virtual-machines.html
   - name: Azure Quickstart templates
@@ -1817,6 +1844,7 @@
   - name: FAQ
     items:
     - name: Linux
-      href: ./linux/faq.md
+      href: ./linux/faq.yml
     - name: Windows
-      href: ./windows/faq.md
+      href: ./windows/faq.yml
+

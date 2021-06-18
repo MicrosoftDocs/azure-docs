@@ -9,7 +9,11 @@ ms.reviewer: caleteet
 
 # Use the Ethereum Blockchain connector with Azure Logic Apps
 
-Use the [Ethereum Blockchain connector](/connectors/blockchainethereum/) with [Azure Logic Apps](../../logic-apps/index.yml) to perform smart contract actions and respond to smart contract events. This article explains how you might use the Ethereum Blockchain connector to send blockchain information to another service or call a blockchain function. For example, let's say you want to create a REST-based microservice that returns information from a blockchain ledger. By using a logic app, you can accept HTTP requests that query information stored in a blockchain ledger.
+Use the [Ethereum Blockchain connector](/connectors/blockchainethereum/) with [Azure Logic Apps](../../logic-apps/index.yml) to perform smart contract actions and respond to smart contract events.
+
+[!INCLUDE [Retirement note](./includes/retirement.md)]
+
+This article explains how you might use the Ethereum Blockchain connector to send blockchain information to another service or call a blockchain function. For example, let's say you want to create a REST-based microservice that returns information from a blockchain ledger. By using a logic app, you can accept HTTP requests that query information stored in a blockchain ledger.
 
 ## Prerequisites
 

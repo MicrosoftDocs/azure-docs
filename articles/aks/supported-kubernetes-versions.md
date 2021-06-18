@@ -103,11 +103,12 @@ You can reference upcoming version releases and deprecations on the [AKS Kuberne
 
 For new **minor** versions of Kubernetes:
   * AKS publishes a pre-announcement with the planned date of a new version release and respective old version deprecation on the [AKS Release notes](https://aka.ms/aks/releasenotes) at least 30 days prior to removal.
+  * AKS uses [Azure Advisor](../advisor/advisor-overview.md) to alert users if a new version will cause issues in their cluster because of deprecated APIs. Azure Advisor is also used to alert the user if they are currently out of support.
   * AKS publishes a [service health notification](../service-health/service-health-overview.md) available to all users with AKS and portal access, and sends an email to the subscription administrators with the planned version removal dates.
 
-    ````
-    To find out who is your subscription administrators or to change it, please refer to [manage Azure subscriptions](../cost-management-billing/manage/add-change-subscription-administrator.md#assign-a-subscription-administrator).
-    ````
+    > [!NOTE]
+    > To find out who is your subscription administrators or to change it, please refer to [manage Azure subscriptions](../cost-management-billing/manage/add-change-subscription-administrator.md#assign-a-subscription-administrator).
+    
   * Users have **30 days** from version removal to upgrade to a supported minor version release  to continue receiving support.
 
 For new **patch** versions of Kubernetes:
@@ -138,16 +139,24 @@ For the past release history, see [Kubernetes](https://en.wikipedia.org/wiki/Kub
 
 |  K8s version | Upstream release  | AKS preview  | AKS GA  | End of life |
 |--------------|-------------------|--------------|---------|-------------|
-| 1.17  | Dec-09-19  | Jan 2019   | Jul 2020  | 1.20 GA | 
-| 1.18  | Mar-23-20  | May 2020   | Aug 2020  | 1.21 GA | 
+| 1.18  | Mar-23-20  | May 2020   | Aug 2020  | *1.21 GA | 
 | 1.19  | Aug-04-20  | Sep 2020   | Nov 2020  | 1.22 GA | 
 | 1.20  | Dec-08-20  | Jan 2021   | Mar 2021  | 1.23 GA |
-| 1.21  | Apr-08-21* | May 2021   | Jun 2021  | 1.24 GA |
+| 1.21  | Apr-08-21 | May 2021   | Jun 2021  | 1.24 GA |
+| 1.22  | Aug-04-21 | Sept 2021   | Oct 2021  | 1.25 GA |
+| 1.23  | Dec 2021 | Jan 2022   | Feb 2022  | 1.26 GA |
 
-\* The Kubernetes 1.21 Upstream release is subject to change as the Upstream calender as yet to be finalized.
-
+>[!NOTE]
+>AKS version 1.18 will continue to be available until July 31st 2021. After this date, AKS will return to its regular three version window support. It is important to note the following as the support from June 30th to July 31st 2021 will be limited in scope. Below lists what the users will be limited to:
+> - Creation of new clusters and nodepools on 1.18.
+> - CRUD operations on 1.18 clusters.
+> - Azure Support of non-Kubernetes related, platform issues. Platform issues include trouble with networking, storage, or compute running on Azure. Any support requests for K8s patching and troubleshooting will be requested to upgrade into a supported version.
 
 ## FAQ
+
+**How does Microsoft notify me of new Kubernetes versions?**
+
+The AKS team publishes pre-announcements with planned dates of the new Kubernetes versions in our documentation, our [GitHub](https://github.com/Azure/AKS/releases) as well as emails to subscription administrators who own clusters that are going to fall out of support.  In addition to announcements, AKS also uses [Azure Advisor](../advisor/advisor-overview.md) to notify the customer inside the Azure Portal to alert users if they are out of support, as well as alerting them of deprecated APIs that will affect their application or development process. 
 
 **How often should I expect to upgrade Kubernetes versions to stay in support?**
 
@@ -215,5 +224,5 @@ For information on how to upgrade your cluster, see [Upgrade an Azure Kubernetes
 
 <!-- LINKS - Internal -->
 [aks-upgrade]: upgrade-cluster.md
-[az-aks-get-versions]: /cli/azure/aks#az-aks-get-versions
+[az-aks-get-versions]: /cli/azure/aks#az_aks_get_versions
 [preview-terms]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/

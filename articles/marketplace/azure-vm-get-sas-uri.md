@@ -1,23 +1,22 @@
 ---
-title: Generate a SAS URI for a VM image - Azure Marketplace
+title: Generate a SAS URI for a VM image
 description: Generate a shared access signature (SAS) URI for a virtual hard disks (VHD) in Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: krsh
-ms.date: 03/10/2021
+ms.date: 04/21/2021
 
 ---
 
-# How to generate a SAS URI for a VM image
+# Generate a SAS URI for a VM image
 
 > [!NOTE]
-> You don’t need a SAS URI to publish your VM. You can simply share an image in Parter Center. Refer to [Create a virtual machine using an approved base](./azure-vm-create-using-approved-base.md) or [Create a virtual machine using your own image](./azure-vm-create-using-own-image.md) instructions.
+> You don’t need a SAS URI to publish your VM. You can simply share an image in Parter Center. Refer to [Create a virtual machine using an approved base](azure-vm-create-using-approved-base.md) or [Create a virtual machine using your own image](azure-vm-create-using-own-image.md) instructions.
 
 Generating SAS URIs for your VHDs has these requirements:
 
-- They only support unmanaged VHDs.
 - Only List and Read permissions are required. Don’t provide Write or Delete access.
 - The duration for access (expiry date) should be a minimum of three weeks from when the SAS URI is created.
 - To protect against UTC time changes, set the start date to one day before the current date. For example, if the current date is June 16, 2020, select 6/15/2020.
@@ -170,6 +169,6 @@ Check the SAS URI before publishing it on Partner Center to avoid any issues rel
 
 ## Next steps
 
-- If you run into issues, see [VM SAS failure messages](azure-vm-sas-failure-messages.md).
+- If you run into issues, see [VM SAS failure messages](azure-vm-sas-failure-messages.md)
 - [Sign in to Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership)
 - [Create a virtual machine offer on Azure Marketplace](azure-vm-create.md)

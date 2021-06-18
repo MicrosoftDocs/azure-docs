@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/16/2021
+ms.date: 06/18/2021
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
@@ -14,7 +14,7 @@ ms.subservice: blobs
 
 # Store business-critical blob data with immutable storage
 
-Immutable storage for Azure Blob storage enables users to store business-critical data objects in a WORM (Write Once, Read Many) state. This state makes the data non-erasable and non-modifiable for a user-specified interval. For the duration of the retention interval, blobs can be created and read, but cannot be modified or deleted. Immutable storage is available for general-purpose v1, general-purpose v2, BlobStorage, and BlockBlobStorage accounts in all Azure regions.
+Immutable storage for Azure Blob storage enables users to store business-critical data objects in a WORM (Write Once, Read Many) state. This state makes the data non-erasable and non-modifiable for a user-specified interval. For the duration of the retention interval, blobs can be created and read, but cannot be modified or deleted. Immutable storage is available for general-purpose v1, general-purpose v2, premium block blob, and legacy blob accounts in all Azure regions.
 
 For information about how to set and clear legal holds or create a time-based retention policy using the Azure portal, PowerShell, or Azure CLI, see [Set and manage immutability policies for Blob storage](storage-blob-immutability-policies-manage.md).
 
@@ -137,7 +137,7 @@ Immutable storage can be used with any blob type as it is set at the container l
 
 **Do I need to create a new storage account to use this feature?**
 
-No, you can use immutable storage with any existing or newly created general-purpose v1, general-purpose v2, BlobStorage, or BlockBlobStorage accounts. General-purpose v1 storage accounts are supported but we recommend upgrading to general-purpose v2 such that you can take advantage of more features. For information on upgrading an existing general-purpose v1 storage account, see [Upgrade a storage account](../common/storage-account-upgrade.md).
+No, you can use immutable storage with any existing or newly created general-purpose v1, general-purpose v2, premium block blob, and legacy blob accounts. General-purpose v1 storage accounts are supported but we recommend upgrading to general-purpose v2 such that you can take advantage of more features. For information on upgrading an existing general-purpose v1 storage account, see [Upgrade a storage account](../common/storage-account-upgrade.md).
 
 **Can I apply both a legal hold and time-based retention policy?**
 
@@ -171,9 +171,9 @@ In the case of non-payment, normal data retention policies will apply as stipula
 
 Yes. When a time-based retention policy is first created, it is in an *unlocked* state. In this state, you can make any desired change to the retention interval, such as increase or decrease and even delete the policy. After the policy is locked, it stays locked until the retention interval expires. This locked policy prevents deletion and modification to the retention interval. We strongly recommend that you use the *unlocked* state only for trial purposes and lock the policy within a 24-hour period. These practices help you comply with SEC 17a-4(f) and other regulations.
 
-**Can I use soft delete alongside Immutable blob policies?**
+**Can I use soft delete alongside immutable blob policies?**
 
-Yes, if your compliance requirements allow for soft delete to be enabled. [Soft delete for Azure Blob storage](./soft-delete-blob-overview.md) applies for all containers within a storage account regardless of a legal hold or time-based retention policy. We recommend enabling soft delete for additional protection before any immutable WORM policies are applied and confirmed.
+Yes, if your compliance requirements allow for soft delete to be enabled. [Soft delete for Azure Blob storage](./soft-delete-blob-overview.md) applies ti all containers within a storage account regardless of whether a legal hold or time-based retention policy is in effect. Microsoft recommends enabling soft delete for additional protection before any immutability policies are applied. If soft delete is enabled on a container and then an immutability policy is added to the container, any blobs that have already been soft deleted will be permanently deleted once the soft delete retention policy has expired. Soft-deleted blobs can be restored during the soft delete retention period. Any blobs that have not yet been soft deleted are protected by the immutability policy and cannot be soft deleted until after the immutable policy has expired (for time-based retention) or removed (for legal holds).
 
 **For an HNS-enabled account, can I rename or move a blob when the blob is in the immutable state?**
 No, both the name and the directory structure are considered important container-level data that cannot be modified once the immutable policy is in place. Rename and move are only available for HNS-enabled accounts in general.

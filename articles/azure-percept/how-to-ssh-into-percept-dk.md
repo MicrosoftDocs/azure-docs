@@ -1,8 +1,8 @@
 ---
 title: Connect to your Azure Percept DK over SSH
 description: Learn how to SSH into your Azure Percept DK with PuTTY
-author: elqu20
-ms.author: v-elqu
+author: mimcco
+ms.author: mimcco
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 03/18/2021
@@ -18,7 +18,7 @@ Follow the steps below to set up an SSH connection to your Azure Percept DK thro
 - A Windows, Linux, or OS X based host computer with Wi-Fi capability
 - An SSH client (see the next section for installation guidance)
 - An Azure Percept DK (dev kit)
-- An SSH login, created during the [Azure Percept DK setup experience](./quickstart-percept-dk-set-up.md)
+- An SSH account, created during the [Azure Percept DK setup experience](./quickstart-percept-dk-set-up.md)
 
 ## Install your preferred SSH client
 
@@ -28,7 +28,7 @@ If your host computer runs Windows, you may have two SSH client options to choos
 
 ### OpenSSH
 
-Windows 10 includes a built-in SSH client called OpenSSH that can be run with a simple command inside of a command prompt. We recommend using OpenSSH with Azure Percept if it is available to you. To check if your Windows computer has OpenSSH installed, follow these steps:
+Windows 10 includes a built-in SSH client called OpenSSH that can be run with a simple command in a command prompt. We recommend using OpenSSH with Azure Percept if it's available to you. To check if your Windows computer has OpenSSH installed, follow these steps:
 
 1. Go to **Start** -> **Settings**.
 
@@ -36,11 +36,11 @@ Windows 10 includes a built-in SSH client called OpenSSH that can be run with a 
 
 1. Under **Apps & features**, select **Optional features**.
 
-1. Type **OpenSSH Client** into the **Installed features** search bar. If OpenSSH appears, the client is already installed, and you may move on to the next section. If you do not see OpenSSH, click **Add a feature**.
+1. Type **OpenSSH Client** into the **Installed features** search bar. If OpenSSH appears, the client is already installed, and you may move on to the next section. If you do not see OpenSSH, select **Add a feature**.
 
     :::image type="content" source="./media/how-to-ssh-into-percept-dk/open-ssh-install.png" alt-text="Screenshot of settings showing OpenSSH installation status.":::
 
-1. Select **OpenSSH Client** and click **Install**. You may now move on to the next section. If OpenSSH is not available to install on your computer, follow the steps below to install PuTTY, a third-party SSH client.
+1. Select **OpenSSH Client** and select **Install**. You may now move on to the next section. If OpenSSH is not available to install on your computer, follow the steps below to install PuTTY, a third-party SSH client.
 
 ### PuTTY
 
@@ -48,9 +48,9 @@ If your Windows computer does not include OpenSSH, we recommend using [PuTTY](ht
 
 1. Go to the [PuTTY download page](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html).
 
-1. Under **Package files**, click on the 32-bit or 64-bit .msi file to download the installer. If you are unsure of which version to choose, check out the [FAQs](https://www.chiark.greenend.org.uk/~sgtatham/putty/faq.html#faq-32bit-64bit).
+1. Under **Package files**, select the 32-bit or 64-bit .msi file to download the installer. If you are unsure of which version to choose, check out the [FAQs](https://www.chiark.greenend.org.uk/~sgtatham/putty/faq.html#faq-32bit-64bit).
 
-1. Click on the installer to start the installation process. Follow the prompts as required.
+1. Select the installer to start the installation process. Follow the prompts as required.
 
 1. Congratulations! You have successfully installed the PuTTY SSH client.
 
@@ -58,7 +58,7 @@ If your Windows computer does not include OpenSSH, we recommend using [PuTTY](ht
 
 1. Power on your Azure Percept DK.
 
-1. If your dev kit is already connected to a network over Ethernet or Wi-Fi, skip to the next step. Otherwise, connect your host computer directly to the dev kit’s Wi-Fi access point. Like connecting to any other Wi-Fi network, open the network and internet settings on your computer, click on the following network, and enter the network password when prompted:
+1. If your dev kit is already connected to a network over Ethernet or Wi-Fi, skip to the next step. Otherwise, connect your host computer directly to the dev kit’s Wi-Fi access point. Like connecting to any other Wi-Fi network, open the network and internet settings on your computer, select the following network, and enter the network password when prompted:
 
     - **Network name**: depending on your dev kit's operating system version, the name of the Wi-Fi access point is either **scz-xxxx** or **apd-xxxx** (where “xxxx” is the last four digits of the dev kit’s MAC address)
     - **Password**: can be found on the Welcome Card that came with the dev kit
@@ -93,7 +93,7 @@ If your Windows computer does not include OpenSSH, we recommend using [PuTTY](ht
 
 ### Using PuTTY
 
-1. Open PuTTY. Enter the following into the **PuTTY Configuration** window and click **Open** to SSH into your dev kit:
+1. Open PuTTY. Enter the following into the **PuTTY Configuration** window and select **Open** to SSH into your dev kit:
 
     1. Host Name: [IP address]
     1. Port: 22

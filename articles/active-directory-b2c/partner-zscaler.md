@@ -91,7 +91,7 @@ After you've configured Azure AD B2C, the rest of the IdP configuration resumes.
 >[!Note]
 >This step is required only if you haven’t already configured custom policies. If you already have one or more custom policies, you can skip this step.
 
-To configure custom policies on your Azure AD B2C tenant, see [Get started with custom policies in Azure Active Directory B2C](./custom-policy-get-started.md).
+To configure custom policies on your Azure AD B2C tenant, see [Get started with custom policies in Azure Active Directory B2C](./tutorial-create-user-flows.md?pivots=b2c-custom-policy).
 
 ### Step 3: Register ZPA as a SAML application in Azure AD B2C
 
@@ -144,7 +144,7 @@ Go to a ZPA user portal or a browser-access application, and test the sign-up or
 
 For more information, review the following articles:
 
-- [Get started with custom policies in Azure AD B2C](./custom-policy-get-started.md)
+- [Get started with custom policies in Azure AD B2C](./tutorial-create-user-flows.md?pivots=b2c-custom-policy)
 - [Register a SAML application in Azure AD B2C](./saml-service-provider.md)
 - [Step-by-step configuration guide for ZPA](https://help.zscaler.com/zpa/step-step-configuration-guide-zpa)
 - [Configure an IdP for single sign-on](https://help.zscaler.com/zpa/configuring-idp-single-sign)

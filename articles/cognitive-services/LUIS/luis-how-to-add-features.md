@@ -34,7 +34,7 @@ Review [concepts](luis-concept-feature.md) to understand when and why to use a f
 
     Once you have entered enough values for LUIS, suggestions appear. You can **+ Add all** of the proposed values, or select individual terms.
 
-1. Keep **These values are interchangeable** checked if the phrases can be used interchangeably.
+1. Keep **These values are interchangeable** checked if the phrases can be used interchangeably. Interchangeable phrase list feature serves as a list of synonyms for training. Non-interchangeable phrase list serves as separate features for training (meaning that features are similar but the intent changes when you swap phrases).
 
 1. The phrase list can apply to the entire app with the **Global** setting, or to a specific model (intent or entity). If you create the phrase list, as a _feature_ from an intent or entity, the toggle is not set for global. In this case, the meaning of the toggle is that the feature is local only to that model, therefore, _not global_ to the application.
 

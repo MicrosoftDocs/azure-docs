@@ -20,6 +20,8 @@ The key value pairs provide an easy way for users to define a prefix suffix comb
 > [!IMPORTANT]
 > We don't recommend setting both Connection String and Instrumentation key. In the event that a user does set both, whichever was set last will take precedence. 
 
+> [!TIP]
+> We recommend the use of connection strings over instrumentation keys.
 
 ## Scenario overview 
 
@@ -27,7 +29,7 @@ Customer scenarios where we visualize this having the most impact:
 
 - Firewall exceptions or proxy redirects 
 
-    In cases where monitoring for intranet web server is required, our earlier solution asked customers to add individual service endpoints to your configuration. For more information, see [here](../faq.md#can-i-monitor-an-intranet-web-server). 
+    In cases where monitoring for intranet web server is required, our earlier solution asked customers to add individual service endpoints to your configuration. For more information, see [here](../faq.yml#can-i-monitor-an-intranet-web-server-). 
     Connection strings offer a better alternative by reducing this effort to a single setting. A simple prefix, suffix amendment allows automatic population and redirection of all endpoints to the right services. 
 
 - Sovereign or Hybrid cloud environments
@@ -81,7 +83,7 @@ Here's a list of valid suffixes
 - applicationinsights.us
 
 
-See also: https://docs.microsoft.com/azure/azure-monitor/app/custom-endpoints#regions-that-require-endpoint-modification
+See also: [Regions that require endpoint modification](./custom-endpoints.md#regions-that-require-endpoint-modification)
 
 
 ##### Valid prefixes
@@ -293,7 +295,7 @@ Get started at development time with:
 
 * [ASP.NET](./asp-net.md)
 * [ASP.NET Core](./asp-net-core.md)
-* [Java](./java-get-started.md)
+* [Java](./java-in-process-agent.md)
 * [Node.js](./nodejs.md)
 * [Python](./opencensus-python.md)
 

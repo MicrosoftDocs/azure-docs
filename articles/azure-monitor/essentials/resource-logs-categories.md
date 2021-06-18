@@ -2,18 +2,19 @@
 title: Azure Monitor Resource Logs supported services and categories
 description: Reference of Azure Monitor Understand the supported services and event schema for Azure resource logs.
 ms.topic: reference
-ms.date: 03/30/2021
+ms.date: 05/26/2021
 ---
 
 # Supported categories for Azure Resource Logs
 
 > [!NOTE]
-> Resource logs were previously known as diagnostic logs. The name was changed in October 2019 as the types of logs gathered by Azure Monitor shifted to include more than just the Azure resource.
+> This list is largely auto-generated. Any modification made to this list via GitHub may be written over without warning. Contact the author of this article for details on how to make permanent updates.
 
 [Azure Monitor resource logs](../essentials/platform-logs-overview.md) are logs emitted by Azure services that describe the operation of those services or resources. All resource logs available through Azure Monitor share a common top-level schema, with flexibility for each service to emit unique properties for their own events.
 
-A combination of the resource type (available in the `resourceId` property) and the `category` uniquely identify a schema. There is a common schema for all resource logs with service-specific fields then added for different log categories. For more information,  see [Common and service-specific schema for Azure Resource Logs]()
+Resource logs were previously known as diagnostic logs. The name was changed in October 2019 as the types of logs gathered by Azure Monitor shifted to include more than just the Azure resource.
 
+A combination of the resource type (available in the `resourceId` property) and the `category` uniquely identify a schema. There is a common schema for all resource logs with service-specific fields then added for different log categories. For more information,  see [Common and service-specific schema for Azure Resource Logs]()
 
 ## Costs
 
@@ -70,6 +71,7 @@ If you think there is something is missing, you can open a GitHub comment at the
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
+|Audit|Audit|Yes|
 |HttpRequest|HTTP Requests|Yes|
 
 
@@ -196,6 +198,13 @@ If you think there is something is missing, you can open a GitHub comment at the
 |ChatOperational|Operational Chat Logs|No|
 |SMSOperational|Operational SMS Logs|No|
 |Usage|Usage Records|No|
+
+
+## Microsoft.ConnectedVehicle/platformAccounts
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|Logs|MCVP Logs|Yes|
 
 
 ## Microsoft.ContainerRegistry/registries
@@ -445,6 +454,7 @@ If you think there is something is missing, you can open a GitHub comment at the
 |EventRoutesOperation|EventRoutesOperation|No|
 |ModelsOperation|ModelsOperation|No|
 |QueryOperation|QueryOperation|No|
+|ResourceProviderOperation|ResourceProviderOperation|Yes|
 
 
 ## Microsoft.DocumentDB/databaseAccounts
@@ -459,6 +469,7 @@ If you think there is something is missing, you can open a GitHub comment at the
 |PartitionKeyRUConsumption|PartitionKeyRUConsumption|No|
 |PartitionKeyStatistics|PartitionKeyStatistics|No|
 |QueryRuntimeStatistics|QueryRuntimeStatistics|No|
+|TableApiRequests|TableApiRequests|Yes|
 
 
 ## Microsoft.EventGrid/domains
@@ -610,7 +621,7 @@ If you think there is something is missing, you can open a GitHub comment at the
 |KeyDeliveryRequests|Key Delivery Requests|No|
 
 
-## Microsoft.Network/applicationGateways
+## Microsoft.Network/applicationgateways
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
@@ -958,7 +969,7 @@ If you think there is something is missing, you can open a GitHub comment at the
 |AppServiceEnvironmentPlatformLogs|App Service Environment Platform Logs|No|
 
 
-## microsoft.web/sites
+## Microsoft.Web/sites
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|

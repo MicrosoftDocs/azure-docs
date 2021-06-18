@@ -13,7 +13,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/26/2020
+ms.date: 04/26/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
@@ -30,6 +30,7 @@ Microsoft Azure storage of Standard HDD, Standard SSD, Azure premium storage, an
 There are several more redundancy methods, which are all described in the article [Azure Storage replication](../../../storage/common/storage-redundancy.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) that apply to some of the different storage types Azure has to offer. 
 
 Also keep in mind that different Azure storage types influence the single VM availability SLAs as released in [SLA for Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines).
+
 
 ### Azure managed disks
 
@@ -65,6 +66,10 @@ For SAP HANA certified and supported Azure storage types read the article [SAP H
 
 The sections describing the different Azure storage types will give you more background about the restrictions and possibilities using the SAP supported storage. 
 
+### Storage choices when using DBMS replication
+Our reference architectures foresee the usage of DBMS functionality like SQL Server Always On, HANA System Replication, Db2 HADR, or Oracle Data Guard. In case, you are using these technologies between two or multiple Azure virtual machines, the storage types chosen for each of the VMs is required to be the same. That means if the storage chose for the redo log volume of a DBMS system is Azure premium storage on one VM, the same volume is required to be based on Azure premium storage with all the other VMs that are in the same high availability synchronization configuration. The same is true for the data volumes used for the database files.
+  
+
 ## Storage recommendations for SAP storage scenarios
 Before going into the details, we are presenting the summary and recommendations already at the beginning of the document. Whereas the details for the particular types of Azure storage are following this section of the document. Summarizing the storage recommendations for the SAP storage scenarios in a table, it looks like:
 
@@ -77,9 +82,9 @@ Before going into the details, we are presenting the summary and recommendations
 | DBMS log volume SAP HANA M/Mv2 VM families | not supported | not supported | recommended<sup>1</sup> | recommended | recommended<sup>2</sup> | 
 | DBMS Data volume SAP HANA Esv3/Edsv4 VM families | not supported | not supported | recommended | recommended | recommended<sup>2</sup> |
 | DBMS log volume SAP HANA Esv3/Edsv4 VM families | not supported | not supported | not supported | recommended | recommended<sup>2</sup> | 
-| DBMS Data volume non-HANA | not supported | restricted suitable (non-prod) | recommended | recommended | not supported |
-| DBMS log volume non-HANA M/Mv2 VM families | not supported | restricted suitable (non-prod) | recommended<sup>1</sup> | recommended | not supported |
-| DBMS log volume non-HANA non-M/Mv2 VM families | not supported | restricted suitable (non-prod) | suitable for up to medium workload | recommended | not supported |
+| DBMS Data volume non-HANA | not supported | restricted suitable (non-prod) | recommended | recommended | Only for specific Oracle releases on Oracle Linux |
+| DBMS log volume non-HANA M/Mv2 VM families | not supported | restricted suitable (non-prod) | recommended<sup>1</sup> | recommended | Only for specific Oracle releases on Oracle Linux |
+| DBMS log volume non-HANA non-M/Mv2 VM families | not supported | restricted suitable (non-prod) | suitable for up to medium workload | recommended | Only for specific Oracle releases on Oracle Linux |
 
 
 <sup>1</sup> With usage of [Azure Write Accelerator](../../how-to-enable-write-accelerator.md) for M/Mv2 VM families for log/redo log volumes
@@ -234,6 +239,7 @@ ANF storage is currently supported for several SAP workload scenarios:
 	- [High availability for SAP NetWeaver on Azure VMs on SUSE Linux Enterprise Server with Azure NetApp Files for SAP applications](./high-availability-guide-suse-netapp-files.md)
 	- [Azure Virtual Machines high availability for SAP NetWeaver on Red Hat Enterprise Linux with Azure NetApp Files for SAP applications](./high-availability-guide-rhel-netapp-files.md)
 - SAP HANA deployments using NFS v4.1 shares for /hana/data and /hana/log volumes and/or NFS v4.1 or NFS v3 volumes for /hana/shared volumes as documented in the article [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md)
+- Oracle deployments in Oracle Linux guest OS using [dNFS](https://docs.oracle.com/en/database/oracle/oracle-database/19/ntdbi/creating-an-oracle-database-on-direct-nfs.html#GUID-2A0CCBAB-9335-45A8-B8E3-7E8C4B889DEA) for Oracle data and redo log volumes. Some more details can be found in the article [Azure Virtual Machines Oracle DBMS deployment for SAP workload](./dbms_guide_oracle.md)
 
 > [!NOTE]
 > No other DBMS workload is supported for Azure NetApp Files based NFS or SMB shares. Updates and changes will be provided if this is going to change.

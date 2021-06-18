@@ -6,7 +6,7 @@ services: azure-communication-services
 author: peiliu
 ms.service: azure-communication-services
 ms.topic: how-to
-ms.date: 03/10/2021
+ms.date: 05/27/2021
 ms.author: peiliu
 ms.reviewer: mikben
 zone_pivot_groups: acs-js-csharp-java-python
@@ -17,20 +17,27 @@ Get started with Azure Communication Services by using managed identities. The C
 
 This quickstart shows you how to authorize access to the Identity and SMS SDKs from an Azure environment that supports managed identities. It also describes how to test your code in a development environment.
 
+## Prerequisites
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free)
+- An active Azure Communication Services resource, see [create a Communication Services resource](./create-communication-resource.md) if you do not have one.
+- To send an SMS you will need a [Phone Number](./telephony-sms/get-phone-number.md).
+- A setup managed identity for a development environment, see [Authorize access with managed identity](./managed-identity-from-cli.md)
+
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [.NET](./includes/managed-identity-net.md)]
+[!INCLUDE [.NET](./includes/managed-identity/managed-identity-net.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
-[!INCLUDE [JavaScript](./includes/managed-identity-js.md)]
+[!INCLUDE [JavaScript](./includes/managed-identity/managed-identity-js.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-[!INCLUDE [Java](./includes/managed-identity-java.md)]
+[!INCLUDE [Java](./includes/managed-identity/managed-identity-java.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-[!INCLUDE [Python](./includes/managed-identity-python.md)]
+[!INCLUDE [Python](./includes/managed-identity/managed-identity-python.md)]
 ::: zone-end
 
 ## Next steps

@@ -3,14 +3,13 @@ title: Plan Azure Active Directory My Apps configuration
 description: Planning guide to effectively use My Apps in your organization.
 services: active-directory
 author: barbaraselden
-manager: daveba
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 02/29/2020
-ms.author: kenwith
-ms.reviewer: baselden
+ms.author: baselden
 ---
 
 # Plan Azure Active Directory My Apps configuration
@@ -77,7 +76,7 @@ For more information, see [Configure how end-users consent to applications](../m
 
 ### Group owner consent for apps accessing data
 
-Group and team owners can authorize applications, such as applications published by third-party vendors, to access your organization's data associated with a group. See [Resource-specific consent in Microsoft Teams](https://docs.microsoft.com/microsoftteams/resource-specific-consent) to learn more. 
+Group and team owners can authorize applications, such as applications published by third-party vendors, to access your organization's data associated with a group. See [Resource-specific consent in Microsoft Teams](/microsoftteams/resource-specific-consent) to learn more. 
 
 You can configure whether you'd like to allow or disable this feature.
 
@@ -134,7 +133,7 @@ The extension allows users to launch any app from its search bar, finding access
 
 #### Plan for mobile access
 
-For applications that use password-based SSO or accessed by using [Microsoft Azure AD Application Proxy](../manage-apps/application-proxy.md), you must use Microsoft Edge mobile. For other applications, any mobile browser can be used. 
+For applications that use password-based SSO or accessed by using [Microsoft Azure AD Application Proxy](../app-proxy/application-proxy.md), you must use Microsoft Edge mobile. For other applications, any mobile browser can be used. 
 
 ### Linked SSO
 
@@ -252,5 +251,4 @@ You can use [Privileged Identity Management](../privileged-identity-management/p
 
 [Plan a deployment of Azure AD Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)
 
-[Plan an Application Proxy deployment](application-proxy-deployment-plan.md)
-
+[Plan an Application Proxy deployment](../app-proxy/application-proxy-deployment-plan.md)

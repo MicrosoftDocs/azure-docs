@@ -60,7 +60,7 @@ npm install -g @angular/cli@8                    # Install the Angular CLI
 ng new my-application --routing=true --style=css # Generate a new Angular app
 cd my-application                                # Change to the app directory
 npm install @angular/material@8 @angular/cdk@8   # Install the Angular Material component library (optional, for UI)
-npm install msal @azure/msal-angular             # Install MSAL and MSAL Angular in your application
+npm install msal @azure/msal-angular@1           # Install MSAL and MSAL Angular in your application
 ng generate component page-name                  # To add a new page (such as a home or profile page)
 ```
 

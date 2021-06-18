@@ -67,12 +67,6 @@ globaldb:PRIMARY> db.coll.insert({id:1, location: "Paris", ttl: 20.5}) //TTL val
 globaldb:PRIMARY> db.coll.insert({id:1, location: "Paris", ttl: NumberLong(2147483649)}) //TTL value is greater than Int32.MaxValue (2,147,483,648). 
 ``` 
 
-## How to activate the per-document TTL feature
-
-The per-document TTL feature can be activated with Azure Cosmos DB's API for MongoDB.
-
-:::image type="content" source="./media/mongodb-ttl/mongodb_portal_ttl.png" alt-text="Screenshot of the Per-document TTL feature activation in Portal":::
-
 ## Next steps
 * [Expire data in Azure Cosmos DB automatically with time to live](../cosmos-db/time-to-live.md)
 * [Indexing your Cosmos database configured with Azure Cosmos DB's API for MongoDB](../cosmos-db/mongodb-indexing.md)

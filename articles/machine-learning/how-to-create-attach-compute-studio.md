@@ -8,9 +8,9 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 08/06/2020
-ms.topic: conceptual
-ms.custom: how-to, contperf-fy21q1
+ms.date: 06/18/2021
+ms.topic: how-to
+ms.custom: contperf-fy21q1
 ---
 # Create compute targets for model training and deployment in Azure Machine Learning studio
 
@@ -62,10 +62,10 @@ Follow the previous steps to view the list of compute targets. Then use these st
 
 1. Fill out the form for your compute type:
 
-  * [Compute instance](#compute-instance)
-  * [Compute clusters](#amlcompute)
-  * [Inference clusters](#inference-clusters)
-  * [Attached compute](#attached-compute)
+    * [Compute instance](#compute-instance)
+    * [Compute clusters](#amlcompute)
+    * [Inference clusters](#inference-clusters)
+    * [Attached compute](#attached-compute)
 
 1. Select __Create__.
 
@@ -74,7 +74,7 @@ Follow the previous steps to view the list of compute targets. Then use these st
     :::image type="content" source="media/how-to-create-attach-studio/view-list.png" alt-text="View compute status from a list":::
 
 
-### Compute instance
+### <a name="compute-instance"></a> Compute instance
 
 Use the [steps above](#portal-create) to create the compute instance.  Then fill out the form as follows:
 
@@ -87,7 +87,7 @@ Use the [steps above](#portal-create) to create the compute instance.  Then fill
 |Virtual machine type |  Choose CPU or GPU. This type cannot be changed after creation     |
 |Virtual machine size     |  Supported virtual machine sizes might be restricted in your region. Check the [availability list](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)     |
 |Enable/disable SSH access     |   SSH access is disabled by default.  SSH access cannot be. changed after creation. Make sure to enable access if you plan to debug interactively with [VS Code Remote](how-to-set-up-vs-code-remote.md)   |
-|Advanced settings     |  Optional. Configure a virtual network. Specify the **Resource group**, **Virtual network**, and **Subnet** to create the compute instance inside an Azure Virtual Network (vnet). For more information, see these [network requirements](./how-to-secure-training-vnet.md) for vnet.  |
+|Advanced settings     |  Optional. Configure a virtual network. Specify the **Resource group**, **Virtual network**, and **Subnet** to create the compute instance inside an Azure Virtual Network (vnet). For more information, see these [network requirements](./how-to-secure-training-vnet.md) for vnet.  Also use advanced settings to specify a [setup script](how-to-create-manage-compute-instance.md#setup-script). |
 
 ### <a name="amlcompute"></a> Compute clusters
 
@@ -145,6 +145,7 @@ Use the [steps above](#portal-create) to attach a compute.  Then fill out the fo
     * Azure Databricks (for use in machine learning pipelines)
     * Azure Data Lake Analytics (for use in machine learning pipelines)
     * Azure HDInsight
+    * Kubernetes (preview)
 
 1. Fill out the form and provide values for the required properties.
 
@@ -154,8 +155,17 @@ Use the [steps above](#portal-create) to attach a compute.  Then fill out the fo
     > * [Create and use SSH keys on Linux or macOS](../virtual-machines/linux/mac-create-ssh-keys.md)
     > * [Create and use SSH keys on Windows](../virtual-machines/linux/ssh-from-windows.md)
 
-1. Select __Attach__. 
+1. Select __Attach__.
 
+[!INCLUDE [arc-enabled-machine-learning-create-training-compute](../../includes/machine-learning-create-arc-enabled-training-computer-target.md)]
+
+> [!IMPORTANT]
+> To attach an Azure Kubernetes Services (AKS) or Arc enabled Kubernetes cluster, you must be subscription owner or have permission to access AKS cluster resources under the subscription. Otherwise, the cluster list on "attach new compute" page will be blank.
+
+To detach your compute use the following steps:
+
+1. In Azure Machine Learning studio, select __Compute__, __Attached compute__, and the compute you wish to remove.
+1. Use the __Detach__ link to detach your compute.
 
 ## Next steps
 

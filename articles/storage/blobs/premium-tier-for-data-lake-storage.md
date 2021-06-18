@@ -52,7 +52,7 @@ Some Blob storage features might not be available or might only have partial sup
 
 ## Enabling the premium performance tier 
 
-You can use the premium tier for Azure Data Lake Storage by creating a BlockBlobStorage account with the **Hierarchical namespace** setting **enabled**. For complete guidance, see [Create a BlockBlobStorage account](storage-blob-create-account-block-blob.md) account.
+You can use the premium tier for Azure Data Lake Storage by creating a BlockBlobStorage account with the **Hierarchical namespace** setting **enabled**. For complete guidance, see [Create a BlockBlobStorage account](../common/storage-account-create.md) account.
 
 When you create the account, make sure to choose the **Premium** performance option and the **BlockBlobStorage** account kind.
 
@@ -107,4 +107,3 @@ Use the premium tier for Azure Data Lake Storage with your favorite analytics se
 - [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md)
   HDInsight currently supports an account that uses the premium performance tier along with an HBase cluster that has accelerated writes enabled.
 - [Quickstart: Create a Synapse workspace](../../synapse-analytics/quickstart-create-workspace.md)
-

@@ -1,7 +1,7 @@
 ---
-title: Create automated ML classification models
+title: 'Tutorial: AutoML- train no-code classification models'
 titleSuffix: Azure Machine Learning
-description: Learn how to train & deploy classification models with Azure Machine Learning's automated machine learning (automated ML)  interface.
+description: Train a classification model without writing a single line of code using Azure Machine Learning automated ML in the studio UI.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,27 +9,30 @@ ms.topic: tutorial
 author: cartacioS
 ms.author: sacartac
 ms.reviewer: nibaccam
-ms.date: 12/21/2020
-ms.custom: automl
+ms.date: 06/11/2021
+ms.custom: automl, FY21Q4-aml-seo-hack, contperf-fy21q4
+
 # Customer intent: As a non-coding data scientist, I want to use automated machine learning techniques so that I can build a classification model.
 ---
 
-# Tutorial: Create a classification model with automated ML in Azure Machine Learning
+# Tutorial: Train a classification model with no-code AutoML in the Azure Machine Learning studio
 
-
-In this tutorial, you learn how to create a simple classification model without writing a single line of code using automated machine learning in the Azure Machine Learning studio. This classification model predicts if a client will subscribe to a fixed term deposit with a financial institution.
+Learn how to train a classification model with no-code AutoML using Azure Machine Learning automated ML in the Azure Machine Learning studio. This classification model predicts if a client will subscribe to a fixed term deposit with a financial institution.
 
 With automated machine learning, you can automate away time intensive tasks. Automated machine learning rapidly iterates over many combinations of algorithms and hyperparameters to help you find the best model based on a success metric of your choosing.
 
-For a time-series forecasting example, see [Tutorial: Demand forecasting & AutoML](tutorial-automated-ml-forecast.md).
-
-In this tutorial, you learn how to do the following tasks:
+You won't write any code in this tutorial, you'll use the studio interface to perform training.  You'll learn how to do the following tasks:
 
 > [!div class="checklist"]
 > * Create an Azure Machine Learning workspace.
 > * Run an automated machine learning experiment.
 > * View experiment details.
 > * Deploy the model.
+
+Also try automated machine learning for these other model types:
+
+* For a no-code example of forecasting, see [Tutorial: Demand forecasting & AutoML](tutorial-automated-ml-forecast.md).
+* For a code first example of a regression model, see the [Tutorial: Regression model with AutoML](tutorial-auto-train-models.md).
 
 ## Prerequisites
 
@@ -48,7 +51,7 @@ There are many [ways to create a workspace](how-to-manage-workspace.md). In this
 >[!IMPORTANT] 
 > Take note of your **workspace** and **subscription**. You'll need these to ensure you create your experiment in the right place. 
 
-## Get started in Azure Machine Learning studio
+## Sign in to the studio
 
 You complete the following experiment set-up and run steps  via the Azure Machine Learning studio at https://ml.azure.com, a consolidated web interface that includes machine learning tools to perform data science scenarios for data science practitioners of all skill levels. The studio is not supported on Internet Explorer browsers.
 

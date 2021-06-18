@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: include
 author: mingshen-ms
 ms.author: krsh
-ms.date: 03/25/2021
+ms.date: 04/16/2021
 ---
 
 ## Generalize the image
@@ -35,6 +35,9 @@ The following process generalizes a Linux VM and redeploys it as a separate VM. 
 
 ### Capture image
 
+> [!NOTE]
+> The Azure subscription containing the SIG must be under the same tenant as the publisher account in order to publish. Also, the publisher account must have at least Contributor access to the subscription containing SIG.
+
 Once your VM is ready, you can capture it in a Azure shared image gallery. Follow the below steps to capture:
 
 1. On [Azure portal](https://ms.portal.azure.com/), go to your Virtual Machine’s page.
@@ -47,19 +50,39 @@ Once your VM is ready, you can capture it in a Azure shared image gallery. Follo
 8. Select **Review + create** to review your choices.
 9. Once the validation is passed, select **Create**.
 
-The Azure subscription containing the SIG must be under the same tenant as the publisher account in order to publish. Also, the publisher account must have an Owner access to the SIG. 
+## Set the right permissions
 
-To grant access:
+If your Partner Center account is the owner of the subscription hosting Shared Image Gallery, nothing further is needed for permissions.
 
-1. Go to the Shared Image Gallery.
+If you only have read access to the subscription, use one of the following two options.
+
+### Option one – Ask the owner to grant owner permission
+
+Steps for the owner to grant owner permission:
+
+1. Go to the Shared Image Gallery (SIG).
 2. Select **Access control** (IAM) on the left panel.
-3. Select **Add** and then **Add role assignment**.
-4. Select a **Role** or **Owner**.
-5. Under **Assign access to** select **User, group, or service principal**.
-6. Select the Azure email of the person who will be publishing the image.
-7. Select **Save**.
+3. Select **Add**, then **Add role assignment**.<br>
+    :::image type="content" source="../media/create-vm/add-role-assignment.png" alt-text="The add role assignment window is shown.":::
+1. For **Role**, select **Owner**.
+1. For **Assign access to**, select **User, group, or service principal**.
+1. For **Select**, enter the Azure email of the person who will publish the image.
+1. Select **Save**.
 
-:::image type="content" source="../media/create-vm/add-role-assignment.png" alt-text="Displays the add role assignment window.":::
+### Option Two – Run a command
+
+Ask the owner to run either one of these commands (in either case, use the SusbscriptionId of the subscription where you created the Shared image gallery).
+
+```azurecli
+az login
+az provider register --namespace Microsoft.PartnerCenterIngestion --subscription {subscriptionId}
+```
+ 
+```powershell
+Connect-AzAccount
+Select-AzSubscription -SubscriptionId {subscriptionId}
+Register-AzResourceProvider -ProviderNamespace Microsoft.PartnerCenterIngestion
+```
 
 > [!NOTE]
 > You don’t need to generate SAS URIs as you can now publish a SIG Image on Partner Center. However, if you still need to refer to the SAS URI generation steps, see [How to generate a SAS URI for a VM image](../azure-vm-get-sas-uri.md).

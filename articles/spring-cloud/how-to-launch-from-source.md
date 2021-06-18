@@ -73,8 +73,8 @@ The service instance will take about five minutes to deploy.
 Set your default resource group name and Azure Spring Cloud instance name using the following commands:
 
 ```azurecli
-az configure --defaults group=<service group name>
-az configure --defaults spring-cloud=<service instance name>
+az config set defaults.group=<service group name>
+az config set defaults.spring-cloud=<service instance name>
 ```
 
 ## Create the Azure Spring Cloud application
@@ -160,6 +160,6 @@ In this quickstart, you learned how to:
 > * Assign public IP for your application gateway
 
 > [!div class="nextstepaction"]
-> [Spring Cloud logs, metrics, tracing](spring-cloud-quickstart-logs-metrics-tracing.md)
+> [Spring Cloud logs, metrics, tracing](./quickstart-logs-metrics-tracing.md)
 
 More samples are available on GitHub: [Azure Spring Cloud Samples](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/service-binding-cosmosdb-sql).

@@ -2,8 +2,8 @@
 title: Source control
 description: Learn how to configure source control in Azure Data Factory
 ms.service: data-factory
-author: dcstwh
-ms.author: weetok
+author: nabhishek
+ms.author: abnarain
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/26/2021

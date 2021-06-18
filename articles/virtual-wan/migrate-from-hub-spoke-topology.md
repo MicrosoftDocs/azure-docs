@@ -1,11 +1,11 @@
 ---
 title: 'Architecture: Migrate to Azure Virtual WAN'
-description: Learn how to migrate to Azure Virtual WAN.
+description: Learn how to migrate from an existing customer-managed hub-and-spoke topology, to a design that leverages Microsoft-managed Virtual WAN hubs.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 09/30/2020
+ms.date: 04/27/2021
 ms.author: cherylmc
 
 ---

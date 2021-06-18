@@ -2,7 +2,7 @@
 author: memildin
 ms.service: security-center
 ms.topic: include
-ms.date: 03/22/2021
+ms.date: 06/14/2021
 ms.author: memildin
 ms.custom: generated
 ---
@@ -17,7 +17,7 @@ There are **12** recommendations in this category.
 |IoT Devices - Agent sending underutilized messages |IoT agent message size capacity is currently underutilized, causing an increase in the number of sent messages. Adjust message intervals for better utilization<br />(No related policy) |Low |
 |IoT Devices - Auditd process stopped sending events |Security events originated from Auditd process are no longer received from this device<br />(No related policy) |High |
 |IoT Devices - Open Ports On Device |A listening endpoint was found on the device<br />(No related policy) |Medium |
-|IoT Devices - Operating system baseline validation failure |Security related system configuration issues identified<br />(No related policy) |Medium |
+|IoT Devices - Operating system baseline validation failure |Security-related system configuration issues identified<br />(No related policy) |Medium |
 |IoT Devices - Permissive firewall policy in one of the chains was found |An allowed firewall policy was found in main firewall Chains (INPUT/OUTPUT). The policy should Deny all traffic by default define rules to allow necessary communication to/from the device<br />(No related policy) |Medium |
 |IoT Devices - Permissive firewall rule in the input chain was found |A rule in the firewall has been found that contains a permissive pattern for a wide range of IP addresses or Ports<br />(No related policy) |Medium |
 |IoT Devices - Permissive firewall rule in the output chain was found |A rule in the firewall has been found that contains a permissive pattern for a wide range of IP addresses or ports<br />(No related policy) |Medium |

@@ -55,4 +55,4 @@ The Cassandra API enables you to interact with data stored in Azure Cosmos DB us
 
 * To learn about Apache Cassandra features supported by Azure Cosmos DB Cassandra API, see [Cassandra support](cassandra-support.md) article.
 
-* Read the [Frequently Asked Questions](cassandra-faq.md).
+* Read the [Frequently Asked Questions](cassandra-faq.yml).

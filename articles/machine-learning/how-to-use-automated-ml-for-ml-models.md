@@ -1,26 +1,25 @@
 ---
-title: Use AutoML to create models & deploy 
+title: Set up AutoML with the studio UI
 titleSuffix: Azure Machine Learning
-description: Create, review, and deploy automated machine learning models with the Azure Machine Learning studio.
+description: Learn how to set up AutoML training runs without a single line of code with Azure Machine Learning automated ML in the Azure Machine Learning studio.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.author: nibaccam
-author: aniththa
+author: cartacioS
 ms.reviewer: nibaccam
-ms.date: 12/20/2020
-ms.topic: conceptual
-ms.custom: how-to, automl
+ms.date: 06/11/2021
+ms.topic: how-to
+ms.custom: automl, FY21Q4-aml-seo-hack, contperf-fy21q4
 ---
 
-# Create, review, and deploy automated machine learning models with Azure Machine Learning
+# Set up no-code AutoML training with the studio UI 
 
+In this article, you learn how to set up AutoML training runs without a single line of code using Azure Machine Learning automated ML in the [Azure Machine Learning studio](overview-what-is-machine-learning-studio.md).
 
-In this article, you learn how to create, explore, and deploy automated machine learning models without a single line of code in Azure Machine Learning studio.
-
-Automated machine learning is a process in which the best machine learning algorithm to use for your specific data is selected for you. This process enables you to generate machine learning models quickly. [Learn more about automated machine learning](concept-automated-ml.md).
+Automated machine learning, AutoML, is a process in which the best machine learning algorithm to use for your specific data is selected for you. This process enables you to generate machine learning models quickly. [Learn more about how Azure Machine Learning implements automated machine learning](concept-automated-ml.md).
  
-For an end to end example, try the [tutorial for creating a classification model with Azure Machine Learning's automated ML interface](tutorial-first-experiment-automated-ml.md). 
+For an end to end example, try the [Tutorial: AutoML- train no-code classification models](tutorial-first-experiment-automated-ml.md). 
 
 For a Python code-based experience, [configure your automated machine learning experiments](how-to-configure-auto-train.md) with the Azure Machine Learning SDK.
 
@@ -42,7 +41,7 @@ For a Python code-based experience, [configure your automated machine learning e
 
  If this is your first time doing any experiments, you'll see an empty list and links to documentation. 
 
-Otherwise, you'll see a list of your recent automated machine learning experiments, including those created with the SDK. 
+Otherwise, you'll see a list of your recent automated  ML experiments, including those created with the SDK. 
 
 ## Create and run experiment
 
@@ -175,16 +174,24 @@ Drill down on any of the completed models to see training run details, like a mo
 
 [![Iteration details](media/how-to-use-automated-ml-for-ml-models/iteration-details.png)](media/how-to-use-automated-ml-for-ml-models/iteration-details-expanded.png)
 
-## Model explanations
 
-To better understand your model, see which data features (raw or engineered) influenced the model's predictions with the model explanations dashboard. 
+On the Data transformation tab, you can see a diagram of what data preprocessing, feature engineering, scaling techniques and the machine learning algorithm that were applied to generate this model.
 
-The model explanations dashboard provides an overall analysis of the trained model along with its predictions and explanations. It also lets you drill into an individual data point and its individual feature importances. [Learn more about the explanation dashboard visualizations and specific plots](how-to-machine-learning-interpretability-aml.md#visualizations).
+>[!IMPORTANT]
+> The Data transformation tab is in preview. This capability should be considered [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) and may change at any time.
+
+![Data transformation](./media/how-to-use-automated-ml-for-ml-models/data-transformation.png)
+
+## Model explanations (preview)
+
+To better understand your model, you can see which data features (raw or engineered) influenced the model's predictions with the model explanations dashboard. 
+
+The model explanations dashboard provides an overall analysis of the trained model along with its predictions and explanations. It also lets you drill into an individual data point and its individual feature importances. [Learn more about the explanation dashboard visualizations](how-to-machine-learning-interpretability-aml.md#visualizations).
 
 To get explanations for a particular model, 
 
-1. On the **Models** tab, select the model you want to use. 
-1. Select the **Explain model** button and provide a compute that can be used to generate the explanations.
+1. On the **Models** tab, select the model you want to understand. 
+1. Select the **Explain model** button, and provide a compute that can be used to generate the explanations.
 1. Check the **Child runs** tab for the status. 
 1. Once complete, navigate to the **Explanations (preview)** tab which contains the explanations dashboard. 
 

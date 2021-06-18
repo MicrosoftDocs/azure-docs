@@ -7,6 +7,10 @@
     href: ../understand/mca-overview.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
 - name: Concepts
   items:
+  - name: Checklist after signing your agreement
+    href: microsoft-customer-agreement-get-started.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+  - name: Manage tenants in your agreement
+    href: manage-tenants.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
   - name: Understand your usage and billing cycle
     href: ../understand/mca-understand-your-invoice.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
   - name: Usage and charges file terms
@@ -40,7 +44,7 @@
     href: ../manage/pay-by-invoice.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
   - name: Pay your bill
     href: ../understand/pay-bill.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
-  - name: Get billing ownership
+  - name: Transfer billing ownership
     href: ../manage/mca-request-billing-ownership.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
   - name: Migrate EA to Microsoft Customer Agreement APIs
     href: ../costs/migrate-cost-management-api.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
@@ -50,3 +54,7 @@
     href: ../manage/ea-pricing.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
   - name: EA tasks in a Microsoft Customer Agreement
     href: ../manage/mca-enterprise-operations.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+  - name: Troubleshoot
+    items:
+    - name: Subscription access
+      href: troubleshoot-subscription-access.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json

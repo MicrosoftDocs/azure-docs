@@ -17,4 +17,4 @@ From the portal homepage, search for your Azure Digital Twins instance to pull u
 
 From here, you can view the metrics for your instance and create custom views.
 
-For more on viewing Azure Digital Twins metrics, see [*How-to: View metrics with Azure Monitor*](../articles/digital-twins/troubleshoot-metrics.md).
+For more on viewing Azure Digital Twins metrics, see [How-to: View metrics with Azure Monitor](../articles/digital-twins/troubleshoot-metrics.md).

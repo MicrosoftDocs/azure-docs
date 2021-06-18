@@ -1,7 +1,7 @@
 ---
 title: Work with large data sets
 description: Understand how to get, format, page, and skip records in large data sets while working with Azure Resource Graph.
-ms.date: 01/27/2021
+ms.date: 05/17/2021
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ---
@@ -38,7 +38,7 @@ az graph query -q "Resources | project name | order by name asc" --first 200 --o
 Search-AzGraph -Query "Resources | project name | order by name asc" -First 200
 ```
 
-In the [REST API](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources), the
+In the [REST API](/rest/api/azureresourcegraph/resourcegraph(2021-03-01)/resources/resources), the
 control is **$top** and is part of **QueryRequestOptions**.
 
 The control that is _most restrictive_ will win. For example, if your query uses the **top** or
@@ -79,25 +79,25 @@ az graph query -q "Resources | project name | order by name asc" --skip 10 --out
 Search-AzGraph -Query "Resources | project name | order by name asc" -Skip 10
 ```
 
-In the [REST API](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources), the
+In the [REST API](/rest/api/azureresourcegraph/resourcegraph(2021-03-01)/resources/resources), the
 control is **$skip** and is part of **QueryRequestOptions**.
 
 ## Paging results
 
 When it's necessary to break a result set into smaller sets of records for processing or because a
 result set would exceed the maximum allowed value of _1000_ returned records, use paging. The
-[REST API](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources)
+[REST API](/rest/api/azureresourcegraph/resourcegraph(2021-03-01)/resources/resources)
 **QueryResponse** provides values to indicate of a results set has been broken up:
-**resultTruncated** and **$skipToken**. **resultTruncated** is a boolean value that informs the
+**resultTruncated** and **$skipToken**. **resultTruncated** is a Boolean value that informs the
 consumer if there are more records not returned in the response. This condition can also be
 identified when the **count** property is less than the **totalRecords** property. **totalRecords**
 defines how many records that match the query.
 
- **resultTruncated** is **true** when either paging is disabled or not possible because no `id`
- column or when there are less resources available than a query is requesting. When
- **resultTruncated** is **true**, the **$skipToken** property isn't set.
+**resultTruncated** is **true** when either paging is disabled or not possible because no `id`
+column or when there are less resources available than a query is requesting. When
+**resultTruncated** is **true**, the **$skipToken** property isn't set.
 
-The following examples show how to **skip** the first 3000 records and return the **first** 1000
+The following examples show how to **skip** the first 3,000 records and return the **first** 1,000
 records after those records skipped with Azure CLI and Azure PowerShell:
 
 ```azurecli-interactive
@@ -113,7 +113,7 @@ Search-AzGraph -Query "Resources | project id, name | order by id asc" -First 10
 > the query, the response won't include the **$skipToken**.
 
 For an example, see
-[Next page query](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources#next-page-query)
+[Next page query](/rest/api/azureresourcegraph/resourcegraph(2021-03-01)/resources/resources#next-page-query)
 in the REST API docs.
 
 ## Formatting results
@@ -123,8 +123,9 @@ is configured with the **resultFormat** parameter as part of the request options
 is the default value for **resultFormat**.
 
 Results from Azure CLI are provided in JSON by default. Results in Azure PowerShell are a
-**PSCustomObject** by default, but they can quickly be converted to JSON using the `ConvertTo-Json`
-cmdlet. For other SDKs, the query results can be configured to output the _ObjectArray_ format.
+**PSResourceGraphResponse** object, but they can quickly be converted to JSON using the
+`ConvertTo-Json` cmdlet on the **Data** property. For other SDKs, the query results can be
+configured to output the _ObjectArray_ format.
 
 ### Format - Table
 

@@ -7,7 +7,8 @@ ms.subservice: hotpatch
 ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 02/22/2021
-ms.author: jushiman
+ms.author: jushiman 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Hotpatch for new virtual machines (Preview)

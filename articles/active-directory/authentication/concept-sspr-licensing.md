@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/08/2021
+ms.date: 06/03/2021
 
 ms.author: justinha
 author: justinha
@@ -23,8 +23,6 @@ This article details the different ways that self-service password reset can be 
 
 ## Compare editions and features
 
-SSPR requires a license only for the tenant. 
-
 The following table outlines the different SSPR scenarios for password change, reset, or on-premises writeback, and which SKUs provide the feature.
 
 | Feature | Azure AD Free | Microsoft 365 Business Standard | Microsoft 365 Business Premium | Azure AD Premium P1 or P2 |
@@ -38,6 +36,8 @@ The following table outlines the different SSPR scenarios for password change, r
 
 For additional licensing information, including costs, see the following pages:
 
+
+* [Microsoft 365 licensing guidance for security & compliance](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-tenantlevel-services-licensing-guidance/microsoft-365-security-compliance-licensing-guidance)
 * [Azure Active Directory pricing](https://azure.microsoft.com/pricing/details/active-directory/)
 * [Azure Active Directory features and capabilities](https://www.microsoft.com/cloud-platform/azure-active-directory-features)
 * [Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security)
