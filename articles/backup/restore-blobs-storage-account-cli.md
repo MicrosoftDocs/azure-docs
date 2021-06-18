@@ -21,7 +21,7 @@ In this article, you'll learn how to:
 
 - Track the restore operation status
 
-We will refer to an existing Backup Vault _TestBkpVault_, under the resource group _testBkpVaultRG_ in the examples.
+We'll refer to an existing Backup vault _TestBkpVault_, under the resource group _testBkpVaultRG_ in the examples.
 
 ## Restoring Azure Blobs within a storage account
 
@@ -259,7 +259,7 @@ az dataprotection backup-instance restore trigger -g testBkpVaultRG --vault-name
 
 Track all the jobs using the [az dataprotection job list](/cli/azure/dataprotection/job?view=azure-cli-latest&preserve-view=true#az_dataprotection_job_list) command. You can list all jobs and fetch a particular job detail.
 
-You can also use Az.ResourceGraph to track all jobs across all backup vaults. Use the [az dataprotection job list-from-resourcegraph](/cli/azure/dataprotection/job?view=azure-cli-latest&preserve-view=true#az_dataprotection_job_list_from_resourcegraph) command to get the relevant job which can be across any backup vault.
+You can also use Az.ResourceGraph to track all jobs across all Backup vaults. Use the [az dataprotection job list-from-resourcegraph](/cli/azure/dataprotection/job?view=azure-cli-latest&preserve-view=true#az_dataprotection_job_list_from_resourcegraph) command to get the relevant job which can be across any Backup vault.
 
 ```azurepowershell-interactive
 az dataprotection job list-from-resourcegraph --datasource-type AzureDisk --operation Restore

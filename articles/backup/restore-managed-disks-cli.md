@@ -20,15 +20,15 @@ In this article, you'll learn how to:
 
 - Track the restore operation status
 
-We will refer to an existing Backup Vault _TestBkpVault_, under the resource group _testBkpVaultRG_ in the examples.
+We'll refer to an existing Backup vault _TestBkpVault_, under the resource group _testBkpVaultRG_ in the examples.
 
 ## Restore to create a new disk
 
 ### Setting up permissions
 
-Backup Vault uses managed identity to access other Azure resources. To restore from backup, Backup Vault’s managed identity requires a set of permissions on the resource group where the disk is to be restored.
+Backup vault uses managed identity to access other Azure resources. To restore from backup, Backup vault’s managed identity requires a set of permissions on the resource group where the disk is to be restored.
 
-Backup Vault uses a system-assigned managed identity, which is restricted to one per resource and is tied to the lifecycle of this resource. You can grant permissions to the managed identity by using the Azure role-based access control (Azure RBAC). Managed identity is a service principal of a special type that may only be used with Azure resources. Learn more about [Managed Identities](../active-directory/managed-identities-azure-resources/overview.md).
+Backup vault uses a system-assigned managed identity, which is restricted to one per resource and is tied to the lifecycle of this resource. You can grant permissions to the managed identity by using the Azure role-based access control (Azure RBAC). Managed identity is a service principal of a special type that may only be used with Azure resources. Learn more about [Managed Identities](../active-directory/managed-identities-azure-resources/overview.md).
 
 Assign the relevant permissions for vault's system-assigned managed identity on the target resource group where the disks will be restored/created as mentioned [here](restore-managed-disks.md#restore-to-create-a-new-disk).
 
@@ -183,7 +183,7 @@ az dataprotection recovery-point list --backup-instance-name diskrg-CLITestDisk-
 
 ### Preparing the restore request
 
-Construct the ARM ID of the new disk to be created with the target resource group, to which permissions were assigned as detailed [above](#setting-up-permissions), and the required disk name. We will use an example of a disk named _CLITestDisk2_, under a resource group _targetrg_, under a different subscription.
+Construct the ARM ID of the new disk to be created with the target resource group, to which permissions were assigned as detailed [above](#setting-up-permissions), and the required disk name. We'll use an example of a disk named _CLITestDisk2_, under a resource group _targetrg_, under a different subscription.
 
 ```azurecli-interactive
 $targetDiskId = /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourceGroups/targetrg/providers/Microsoft.Compute/disks/CLITestDisk2
@@ -236,7 +236,7 @@ az dataprotection backup-instance restore trigger -g testBkpVaultRG --vault-name
 
 Track all jobs using the [az dataprotection job list](/cli/azure/dataprotection/job?view=azure-cli-latest&preserve-view=true#az_dataprotection_job_list) command. You can list all jobs and fetch a particular job detail.
 
-You can also use Az.ResourceGraph to track all jobs across all Backup Vaults. Use the [az dataprotection job list-from-resourcegraph](/cli/azure/dataprotection/job?view=azure-cli-latest&preserve-view=true#az_dataprotection_job_list_from_resourcegraph) command to get the relevant job that can be across any Backup Vault.
+You can also use Az.ResourceGraph to track all jobs across all Backup vaults. Use the [az dataprotection job list-from-resourcegraph](/cli/azure/dataprotection/job?view=azure-cli-latest&preserve-view=true#az_dataprotection_job_list_from_resourcegraph) command to get the relevant job that can be across any Backup vault.
 
 ```azurepowershell-interactive
 az dataprotection job list-from-resourcegraph --datasource-type AzureDisk --operation Restore
