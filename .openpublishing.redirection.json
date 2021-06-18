@@ -3024,11 +3024,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/service-bus-messaging/migrate-java-apps-wild-fly.md",
-      "redirect_url": "/azure/app-service/configure-language-java#use-service-bus-as-a-message-broker",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/app-service/containers/app-service-java-enterprise.md",
       "redirect_url": "/azure/app-service/configure-language-java?pivots=platform-linux",
       "redirect_document_id": false
@@ -31631,161 +31626,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/service-bus-messaging/policy-samples.md",
-      "redirect_url": "/azure/service-bus-messaging/policy-reference",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/service-bus-messaging/service-bus-messaging-security-attributes.md",
-      "redirect_url": "/azure/service-bus-messaging/security-baseline",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/service-bus-messaging/service-bus-messaging-security-controls.md",
-      "redirect_url": "/azure/service-bus-messaging/security-baseline",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/service-bus-messaging/service-bus-metrics-azure-monitor.md",
-      "redirect_url": "/azure/service-bus-messaging/monitor-service-bus-reference",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/service-bus-messaging/service-bus-migrate-acs-sas.md",
-      "redirect_url": "/azure/service-bus-messaging/service-bus-sas",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/service-bus-messaging/service-bus-dotnet-advanced-message-queuing.md",
-      "redirect_url": "/azure/service-bus-messaging/service-bus-amqp-dotnet",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/service-bus-messaging/service-bus-java-how-to-use-amqp.md",
-      "redirect_url": "/azure/service-bus-messaging/service-bus-amqp-java",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/service-bus-messaging/service-bus-amqp-apache.md",
-      "redirect_url": "/azure/service-bus-messaging/service-bus-amqp-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/service-bus-messaging/service-bus-partitioned-queues-and-topics-amqp-overview.md",
-      "redirect_url": "/azure/service-bus-messaging/service-bus-amqp-protocol-guide",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/service-bus-messaging/service-bus-brokered-tutorial-dotnet.md",
-      "redirect_url": "/azure/service-bus-messaging/service-bus-dotnet-get-started-with-queues",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/service-bus-messaging/service-bus-brokered-tutorial-rest.md",
-      "redirect_url": "/azure/service-bus-messaging/service-bus-dotnet-get-started-with-queues",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/service-bus-messaging/service-bus-create-queues.md",
-      "redirect_url": "/azure/service-bus-messaging/service-bus-dotnet-get-started-with-queues",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/service-bus-messaging/service-bus-create-topics-subscriptions.md",
-      "redirect_url": "/azure/service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/service-bus-messaging/service-bus-amqp-java.md",
-      "redirect_url": "/azure/service-bus-messaging/service-bus-java-how-to-use-jms-api-amqp",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/service-bus-messaging/service-bus-java-amqp-overview.md",
-      "redirect_url": "/azure/service-bus-messaging/service-bus-java-how-to-use-jms-api-amqp",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/service-bus-messaging/service-bus-role-based-access-control.md",
-      "redirect_url": "/azure/service-bus-messaging/service-bus-managed-service-identity",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/service-bus-messaging/service-bus-automation-manage.md",
-      "redirect_url": "/azure/service-bus-messaging/service-bus-management-libraries",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/service-bus-messaging/service-bus-event-hubs-manage-with-ps.md",
-      "redirect_url": "/azure/service-bus-messaging/service-bus-manage-with-ps",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/service-bus-messaging/service-bus-powershell-how-to-provision.md",
-      "redirect_url": "/azure/service-bus-messaging/service-bus-manage-with-ps",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/service-bus-messaging/service-bus-architecture.md",
-      "redirect_url": "/azure/service-bus-messaging/service-bus-messaging-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md",
-      "redirect_url": "/azure/service-bus-messaging/service-bus-messaging-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/service-bus-messaging/service-bus-nodejs-how-to-use-queues-new-package.md",
-      "redirect_url": "/azure/service-bus-messaging/service-bus-nodejs-how-to-use-queues",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/service-bus-messaging/service-bus-nodejs-how-to-use-topics-subscriptions-new-package.md",
-      "redirect_url": "/azure/service-bus-messaging/service-bus-nodejs-how-to-use-topics-subscriptions",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/service-bus-messaging/service-bus-paired-namespaces.md",
-      "redirect_url": "/azure/service-bus-messaging/service-bus-outages-disasters",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/service-bus-messaging/service-bus-amqp-php.md",
-      "redirect_url": "/azure/service-bus-messaging/service-bus-php-how-to-use-queues",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/service-bus-messaging/service-bus-amqp-python.md",
-      "redirect_url": "/azure/service-bus-messaging/service-bus-python-how-to-use-queues",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/service-bus-messaging/service-bus-tutorial-topics-subscriptions-powershell.md",
-      "redirect_url": "/azure/service-bus-messaging/service-bus-quickstart-powershell",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/service-bus-messaging/service-bus-sas-overview.md",
-      "redirect_url": "/azure/service-bus-messaging/service-bus-sas",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/service-bus-messaging/service-bus-shared-access-signature-authentication.md",
-      "redirect_url": "/azure/service-bus-messaging/service-bus-sas",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/service-bus-messaging/service-bus-ruby-how-to-use-queues.md",
-      "redirect_url": "https://github.com/Azure/azure-sdk-for-ruby",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/service-bus-messaging/service-bus-ruby-how-to-use-topics-subscriptions.md",
-      "redirect_url": "https://github.com/Azure/azure-sdk-for-ruby",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/service-fabric/policy-samples.md",
       "redirect_url": "/azure/service-fabric/policy-reference",
       "redirect_document_id": false
@@ -45663,11 +45503,6 @@
     {
       "source_path_from_root": "/articles/event-grid/update-tier.md",
       "redirect_url": "https://azure.microsoft.com/pricing/details/event-grid/",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/service-bus-messaging/service-bus-pricing-billing.md",
-      "redirect_url": "https://azure.microsoft.com/pricing/details/service-bus/",
       "redirect_document_id": false
     },
     {
