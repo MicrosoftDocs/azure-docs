@@ -120,9 +120,9 @@ appInsights.defaultClient.aadTokenCredential = credential;
 
 ### [Java](#tab/java)
 
-1. Download Java Agent beta version 3.2.x and later from [App Insights Java releases](https://github.com/microsoft/ApplicationInsights-Java/releases) to use the Azure AD feature. 
+1. Support for Azure AD in the Application Insights Java agent is included starting with [Java 3.2.0-BETA](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.2.0-BETA). 
 
-1. [Configure your application with Java agent.](java-in-process-agent.md#quickstart)
+1. [Configure your application with the Java agent.](java-in-process-agent.md#quickstart)
 
     >> [!IMPORTANT]
     > Use the full connection string which includes “IngestionEndpoint” while configuring your app with Java agent. For example `InstrumentationKey=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX;IngestionEndpoint=https://XXXX.applicationinsights.azure.com/`.
@@ -187,7 +187,8 @@ Below is an example on how to configure Java agent to use service principal for 
 ### [Python](#tab/python)
 
 > [!NOTE]
-> Azure AD authentication is only available for Python v2.7, v3.6 and v3.7.
+> Azure AD authentication is only available for Python v2.7, v3.6 and v3.7. Support for Azure AD in the Application Insights Opencensus Python SDK
+is included starting with beta version [opencensus-ext-azure 1.1b0](https://pypi.org/project/opencensus-ext-azure/1.1b0/).
 
 
 Construct the appropriate [credentials](/python/api/overview/azure/identity-readme?view=azure-python#credentials) and pass it into the constructor of the Azure Monitor exporter. Make sure your connection string is set up with the instrumentation key and ingestion endpoint of your resource.
@@ -257,7 +258,7 @@ tracer = Tracer(
 
 After the Azure AD authentication is enabled, you can choose to disable local authentication. This will allow you to ingest telemetry authenticated exclusively by Azure AD. 
 
-You can disable local authentication by using the Azure portal, programmatically or Azure Policy.
+You can disable local authentication by using the Azure portal or programmatically.
 
 ### Azure portal
 
@@ -327,59 +328,7 @@ Below is an example Azure Resource Manager template that you can use to create a
 }
 
 ```
-### Azure Policy
 
-Azure policy for ‘DisableLocalAuth’ will deny from users to create a new Application Insights resource without this property setting to ‘true’. The policy name is ‘Application Insights components should block non-AAD auth ingestion’.
-To apply this policy to your subscription, [create a new policy assignment and assign the policy](../..//governance/policy/assign-policy-portal.md).
-
-Below is the policy template definition:
-```JSON
-{
-    "properties": {
-        "displayName": "Application Insights components should block non-AAD auth ingestion",
-        "policyType": "BuiltIn",
-        "mode": "Indexed",
-        "description": "Improve Application Insights security by disabling log ingestion that are not AAD-based.",
-        "metadata": {
-            "version": "1.0.0",
-            "category": "Monitoring"
-        },
-        "parameters": {
-            "effect": {
-                "type": "String",
-                "metadata": {
-                    "displayName": "Effect",
-                    "description": "The effect determines what happens when the policy rule is evaluated to match"
-                },
-                "allowedValues": [
-                    "audit",
-                    "deny",
-                    "disabled"
-                ],
-                "defaultValue": "audit"
-            }
-        },
-        "policyRule": {
-            "if": {
-                "allOf": [
-                    {
-                        "field": "type",
-                        "equals": "Microsoft.Insights/components"
-                    },
-                    {
-                        "field": "Microsoft.Insights/components/DisableLocalAuth",
-                        "notEquals": "true"                        
-                    }
-                ]
-            },
-            "then": {
-                "effect": "[parameters('effect')]"
-            }
-        }
-    }
-}
-
-```
 ## Troubleshooting
 
 This section provides distinct troubleshooting scenarios and steps that users can take to resolve any issue before they raise a support ticket. 
