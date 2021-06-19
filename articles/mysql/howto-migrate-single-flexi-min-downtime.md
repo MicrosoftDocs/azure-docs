@@ -61,15 +61,14 @@ To configure Data in replication, perform the following steps:
 4.	Based on the SSL enforcement for the source server, create a user in the source server with the replication permission by running the appropriate command.
     If you’re using SSL, run the following command:
     ```sql
-    CREATE USER '<username>'@'%' IDENTIFIED BY '<Password>';
-    GRANT REPLICATION SLAVE ON *.* TO ' <username>@'%' REQUIRE SSL;
+    CREATE USER 'syncuser'@'%' IDENTIFIED BY 'yourpassword';
+    GRANT REPLICATION SLAVE ON *.* TO ' syncuser'@'%' REQUIRE SSL;
     ```
-    
-    If you’re not using SSL, run the following command:
-    ```sql
-    CREATE USER '<username>'@'%' IDENTIFIED BY '<Password>';
-    GRANT REPLICATION SLAVE ON *.* TO ' <username>@'%';
-    ```
+     If you’re not using SSL, run the following command:
+     ```sql
+    CREATE USER 'syncuser'@'%' IDENTIFIED BY 'yourpassword';
+    GRANT REPLICATION SLAVE ON *.* TO ' syncuser'@'%';
+     ```
     
 5.	To back up the database using mydumper, run the following command:
     ```bash
@@ -114,7 +113,8 @@ The variables in this command are explained below:
         ```sql
         CALL mysql.az_replication_change_master('<Primary_server>.mysql.database.azure.com', '=<username>@<primary_server>', '<Password>, 3306, '<File_Name>', <Position>, @cert);
         ```
-        >[!Note] Determine the position and file name from the information obtained in step 6.
+        >[!Note] 
+        >Determine the position and file name from the information obtained in step 6.
     * If SSL enforcement is enabled, then run the following command:
         ```sql
         CALL mysql.az_replication_change_master('<Primary_server>.mysql.database.azure.com', '=<username>@<primary_server>', '<Password>, 3306, '<File_Name>', <Position>, ‘’);
