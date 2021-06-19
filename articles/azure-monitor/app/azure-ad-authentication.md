@@ -24,7 +24,7 @@ Below are SDKs/scenarios not supported in the Public Preview:
 
 ## Prerequisites to enable Azure AD authentication ingestion
 
-- Familiarity with the following:
+- Familiarity with:
     - [Managed identity](../../active-directory/managed-identities-azure-resources/overview.md). 
     - [Service principal](../../active-directory/develop/howto-create-service-principal-portal.md).
     - [Assigning Azure roles](../../role-based-access-control/role-assignments-portal.md). 
@@ -32,7 +32,7 @@ Below are SDKs/scenarios not supported in the Public Preview:
 
 ## Configuring and enabling Azure AD based authentication 
 
-1. Create an Identity if you don't have already using either managed identity or service principal:
+1. Create an identity if you don't have one using either managed identity or service principal:
 
     1. Using managed identity (Recommended):
 
@@ -60,7 +60,7 @@ Application Insights .NET SDK supports the credential classes provided by [Azure
 - `DefaultAzureCredential` is recommended for local development.
 - `ClientSecretCredential` is recommended for service principals. 
 
-Here is an example of manually creating and configuring a `TelemetryConfiguration` using .NET:
+Below is an example of manually creating and configuring a `TelemetryConfiguration` using .NET:
 
 ```csharp
 var config = new TelemetryConfiguration
@@ -72,7 +72,7 @@ config.SetAzureTokenCredential(credential);
 
 ```
 
-Here is an example of configuring the `TelemetryConfiguration` using ASP.NET Core:
+Below is an example of configuring the `TelemetryConfiguration` using ASP.NET Core:
 ```csharp
 services.Configure<TelemetryConfiguration>(config =>
 {
@@ -128,7 +128,7 @@ appInsights.defaultClient.aadTokenCredential = credential;
     > Use the full connection string which includes “IngestionEndpoint” while configuring your app with Java agent. For example `InstrumentationKey=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX;IngestionEndpoint=https://XXXX.applicationinsights.azure.com/`.
 
     > [!NOTE]
-    >  If you are migrating from 2.X SDK to 3.X Java agent, see [Upgrading from Application Insights Java 2.x SDK](java-standalone-upgrade-from-2x.md) for more information.
+    >  For more information about migrating from 2.X SDK to 3.X Java agent, see [Upgrading from Application Insights Java 2.x SDK](java-standalone-upgrade-from-2x.md).
 
 1. Add the json configuration to ApplicationInsights.json configuration file depending on the authentication being used by you. We recommend users to use managed identities.
 
@@ -256,7 +256,7 @@ tracer = Tracer(
 
 ## Disable local authentication
 
-After the Azure AD authentication is enabled, you can choose to disable local authentication. This will allow you to ingest telemetry authenticated exclusively by Azure AD. 
+After the Azure AD authentication is enabled, you can choose to disable local authentication. This will allow you to ingest telemetry authenticated exclusively by Azure AD and impacts data access (for example, through API Keys). 
 
 You can disable local authentication by using the Azure portal or programmatically.
 
@@ -270,7 +270,7 @@ You can disable local authentication by using the Azure portal or programmatical
 
     :::image type="content" source="./media/azure-ad-authentication/disable.png" alt-text="Screenshot of local authentication with the enabled/disabled button highlighted.":::
 
-1. Once your resource has disabled local authentication, you will see the corresponding info in the **Overview** pane.
+1. Once your resource has disabled local authentication, you'll see the corresponding info in the **Overview** pane.
 
     :::image type="content" source="./media/azure-ad-authentication/overview.png" alt-text="Screenshot of overview tab with the disabled(click to change) highlighted.":::
 
@@ -339,7 +339,7 @@ The ingestion service will return specific errors, regardless of the SDK languag
 
 #### HTTP/1.1 400 Incorrect API was used - v2 API does not support authentication
 
-This indicates that the Application Insights resource has been configured for Azure AD only, but the SDK has not been correctly configured and is sending to the incorrect API.
+This indicates that the Application Insights resource has been configured for Azure AD only, but the SDK hasn't been correctly configured and is sending to the incorrect API.
 
 > [!NOTE]
 >  "v2/track" does not support Azure AD. When the SDK is correctly configured, telemetry will be sent to "v2.1/track".
@@ -354,16 +354,11 @@ Next steps should be to identify exceptions in the SDK logs or network errors fr
 
 #### HTTP/1.1 403 Forbidden - provided credentials do not grant the access to ingest the telemetry into the component
 
-This indicates that the SDK has been configured with credentials that have not been given permission to the Application Insights resource or subscription.
+This indicates that the SDK has been configured with credentials that haven't been given permission to the Application Insights resource or subscription.
 
 Next steps should be to review the Application Insights resource's access control. The SDK must be configured with a credential that has been granted the "Monitoring Metrics Publisher" role.
 
 ### [ASP.NET and .NET](#tab/net)
-
-#### Http Traffic
-
-You can inspect network traffic using a tool like Fiddler.
-If Azure AD is enabled in the SDK, outbound traffic will include the HTTP Header “Authorization”.
 
 #### Event Source
 
@@ -374,7 +369,7 @@ If the SDK fails to get a token, the exception message is logged as:
 
 ### [Node.js](#tab/nodejs)
 
-Internal logs could be turned on using following setup, once this is enabled, error logs will be shown in the console, including any error related to Azure AD integration like failure to generate the token when wrong credentials are supplied or errors when ingestion endpoint fails to authenticate using the provided credentials.
+Internal logs could be turned on using the following setup. Once this is enabled, error logs will be shown in the console, including any error related to Azure AD integration. For example, failure to generate the token when wrong credentials are supplied or errors when ingestion endpoint fails to authenticate using the provided credentials.
 
 ```javascript
 let appInsights = require("applicationinsights");
@@ -401,7 +396,7 @@ If Azure AD is enabled in the agent, outbound traffic will include the HTTP Head
 
 #### 401 Unauthorized 
 
-If the following WARN message is seen in the log file `WARN c.m.a.TelemetryChannel - Failed to send telemetry with status code: 401, please check your credentials`, it indicates the agent was not successful in sending telemetry. You have probably not enabled Azure AD authentication on the agent, but your Application Insights resource is configured with `DisableLocalAuth: true`. Make sure you are passing in a valid credential and that it has permission to access your Application Insights resource.
+If the following WARN message is seen in the log file `WARN c.m.a.TelemetryChannel - Failed to send telemetry with status code: 401, please check your credentials`, it indicates the agent wasn't successful in sending telemetry. You've probably not enabled Azure AD authentication on the agent, but your Application Insights resource is configured with `DisableLocalAuth: true`. Make sure you're passing in a valid credential and that it has permission to access your Application Insights resource.
 
 
 If using fiddler, you might see the following response header: `HTTP/1.1 401 Unauthorized - please provide the valid authorization token`.
@@ -409,31 +404,31 @@ If using fiddler, you might see the following response header: `HTTP/1.1 401 Una
 
 #### CredentialUnavailableException
 
-If the following exception is seen in the log file  `com.azure.identity.CredentialUnavailableException: ManagedIdentityCredential authentication unavailable. Connection to IMDS endpoint cannot be established`, it indicates the agent was not successful in acquiring the access token and the probable reason might be you have provided invalid/wrong “clientId” in your User Assigned Managed Identity configuration
+If the following exception is seen in the log file  `com.azure.identity.CredentialUnavailableException: ManagedIdentityCredential authentication unavailable. Connection to IMDS endpoint cannot be established`, it indicates the agent wasn't successful in acquiring the access token and the probable reason might be you've provided invalid/wrong “clientId” in your User Assigned Managed Identity configuration
 
 
 #### Failed to send telemetry
 
-If the following WARN message is seen in the log file, `WARN c.m.a.TelemetryChannel - Failed to send telemetry with status code: 403, please check your credentials`, it indicates the agent was not successful in sending telemetry. This might be due to the provided credentials do not grant the access to ingest the telemetry into the component
+If the following WARN message is seen in the log file, `WARN c.m.a.TelemetryChannel - Failed to send telemetry with status code: 403, please check your credentials`, it indicates the agent wasn't successful in sending telemetry. This might be because of the provided credentials don't grant the access to ingest the telemetry into the component
 
 If using fiddler, you might see the following response header: `HTTP/1.1 403 Forbidden - provided credentials do not grant the access to ingest the telemetry into the component`.
 
 Root cause might be one of the following reasons:
-- You have created the resource with “system-assigned managed identity” enabled or you might have associated the “user-assigned identity” with the resource but forgot to add the “Monitoring Metrics Publisher” role to the resource (if using SAMI) or “user-assigned identity” (if using UAMI).
-- You have provided the right credentials to get the access tokens, but the credentials do not belong to the right Application Insights resource. Make sure you see your resource (vm, app service etc.) or user-assigned identity with “Monitoring Metrics Publisher” roles in your Application Insights resource.
+- You've created the resource with “system-assigned managed identity” enabled or you might have associated the “user-assigned identity” with the resource but forgot to add the “Monitoring Metrics Publisher” role to the resource (if using SAMI) or “user-assigned identity” (if using UAMI).
+- You've provided the right credentials to get the access tokens, but the credentials don't belong to the right Application Insights resource. Make sure you see your resource (vm, app service etc.) or user-assigned identity with “Monitoring Metrics Publisher” roles in your Application Insights resource.
 
 #### Invalid TenantId
 
-If the following exception is seen in the log file `com.microsoft.aad.msal4j.MsalServiceException: Specified tenant identifier ‘' is neither a valid DNS name, nor a valid external domain.`, it indicates the agent was not successful in acquiring the access token and the probable reason might be you have provided invalid/wrong “tenantId” in your client secret configuration.
+If the following exception is seen in the log file `com.microsoft.aad.msal4j.MsalServiceException: Specified tenant identifier ‘' is neither a valid DNS name, nor a valid external domain.`, it indicates the agent wasn't successful in acquiring the access token and the probable reason might be you've provided invalid/wrong “tenantId” in your client secret configuration.
 
 #### Invalid client secret
 
-If the following exception is seen in the log file `com.microsoft.aad.msal4j.MsalServiceException: Invalid client secret is provided`, it indicates the agent was not successful in acquiring the access token and the probable reason might be you have provided invalid/wrong “clientSecret” in your client secret configuration.
+If the following exception is seen in the log file `com.microsoft.aad.msal4j.MsalServiceException: Invalid client secret is provided`, it indicates the agent wasn't successful in acquiring the access token and the probable reason might be you've provided invalid/wrong “clientSecret” in your client secret configuration.
 
 
 #### Invalid ClientId
 
-If the following exception is seen in the log file `com.microsoft.aad.msal4j.MsalServiceException: Application with identifier '’ was not found in the directory '’`, it indicates the agent was not successful in acquiring the access token and the probable reason might be you have provided invalid/wrong “clientId” in your client secret configuration
+If the following exception is seen in the log file `com.microsoft.aad.msal4j.MsalServiceException: Application with identifier '’ was not found in the directory '’`, it indicates the agent wasn't successful in acquiring the access token and the probable reason might be you've provided invalid/wrong “clientId” in your client secret configuration
 
  This can happen if the application has not been installed by the administrator of the tenant or consented to by any user in the tenant. You may have sent your authentication request to the wrong tenant.
 
@@ -441,19 +436,19 @@ If the following exception is seen in the log file `com.microsoft.aad.msal4j.Msa
 
 #### Error starts with “credential error” (with no status code)
 
-Something is incorrect about the credential you are using and the client is not able to obtain a token for authorization. It is usually due to lacking the required data for the state. An example would be passing in a system ManagedIdentityCredential but the resource is not configured to use system-managed identity.
+Something is incorrect about the credential you're using and the client isn't able to obtain a token for authorization. It's usually due to lacking the required data for the state. An example would be passing in a system ManagedIdentityCredential but the resource isn't configured to use system-managed identity.
 
 #### Error starts with “authentication error” (with no status code)
 
-Client failed to authenticate with the given credential. Usually occurs when the credential used does not have correct role assignments.
+Client failed to authenticate with the given credential. Usually occurs when the credential used doesn't have correct role assignments.
 
 #### I’m getting a status code 400 in my error logs
 
-You are probably missing a credential or your credential is set to `None`, but your Application Insights resource is configured with `DisableLocalAuth: true`. Make sure you are passing in a valid credential and that it has permission to access your Application Insights resource.
+You're probably missing a credential or your credential is set to `None`, but your Application Insights resource is configured with `DisableLocalAuth: true`. Make sure you're passing in a valid credential and that it has permission to access your Application Insights resource.
 
 #### I’m getting a status code 403 in my error logs
 
-Usually occurs when the provided credentials do not grant access to ingest telemetry for the Application Insights resource. Make sure your AI resource has the correct role assignments.
+Usually occurs when the provided credentials don't grant access to ingest telemetry for the Application Insights resource. Make sure your AI resource has the correct role assignments.
 
 ---
 ## Next Steps
