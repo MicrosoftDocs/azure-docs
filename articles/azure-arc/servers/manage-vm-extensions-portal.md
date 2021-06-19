@@ -7,7 +7,7 @@ ms.topic: conceptual
 
 # Enable Azure VM extensions from the Azure portal
 
-This article shows you how to deploy, upgrade, and uninstall Azure VM extensions supported by Azure Arc enabled servers, to a Linux or Windows hybrid machine through the Azure portal.
+This article shows you how to deploy, update, and uninstall Azure VM extensions supported by Azure Arc enabled servers, on a Linux or Windows hybrid machine through the Azure portal.
 
 > [!NOTE]
 > The Key Vault VM extension (preview) does not support deployment from the Azure portal, only using the Azure CLI, the Azure PowerShell, or using an Azure Resource Manager template.
@@ -17,7 +17,7 @@ This article shows you how to deploy, upgrade, and uninstall Azure VM extensions
 
 ## Enable extensions from the portal
 
-VM extensions can be applied your Arc for server managed machine through the Azure portal.
+VM extensions can be applied to your Arc for server managed machine through the Azure portal.
 
 1. From your browser, go to the [Azure portal](https://portal.azure.com).
 
@@ -33,7 +33,7 @@ VM extensions can be applied your Arc for server managed machine through the Azu
 
     To complete the installation, you are required to provide the workspace ID and primary key. If you are not familiar with how to find this information, see [obtain workspace ID and key](../../azure-monitor/agents/log-analytics-agent.md#workspace-id-and-key).
 
-4. After confirming the required information provided, select **Create**. A summary of the deployment is displayed and you can review the status of the deployment.
+4. After confirming the required information provided, select **Review + Create**. A summary of the deployment is displayed and you can review the status of the deployment.
 
 >[!NOTE]
 >While multiple extensions can be batched together and processed, they are installed serially. Once the first extension installation is complete, installation of the next extension is attempted.
@@ -52,7 +52,7 @@ You can get a list of the VM extensions on your Arc enabled server from the Azur
 
 ## Update extensions
 
-When a new version of a supported extension is released, you can update the extension to that latest release. Arc enabled servers will present a banner in the Azure portal when you navigate to Arc enabled servers, informing you there are upgrades available for one or more extensions installed on a machine. When you view the list of installed extensions for a selected Arc enabled server, you'll notice a column labeled **Update available**. If a newer version of an extension is released, the **Update available** value for that extension shows a value of **Yes**. 
+When a new version of a supported extension is released, you can update the extension to that latest release. Arc enabled servers will present a banner in the Azure portal when you navigate to Arc enabled servers, informing you there are updates available for one or more extensions installed on a machine. When you view the list of installed extensions for a selected Arc enabled server, you'll notice a column labeled **Update available**. If a newer version of an extension is released, the **Update available** value for that extension shows a value of **Yes**. 
 
 Updating an extension to the newest version does not affect the configuration of that extension. You are not required to respecify configuration information for any extension you update.
 
@@ -76,7 +76,7 @@ You can update one extension by one of three ways:
     :::image type="content" source="media/manage-vm-extensions-portal/vm-extensions-update-from-extension.png" alt-text="Update extension from selected extension." border="true":::
 
 1. By selecting the extension from the list of installed extensions, and select the **Update** option from the top of the page.
-1. By selecting one or more extensions that are eligible for an upgrade from the list of installed extensions, and then select the **Update** option.
+1. By selecting one or more extensions that are eligible for an update from the list of installed extensions, and then select the **Update** option.
 
     :::image type="content" source="media/manage-vm-extensions-portal/vm-extensions-update-selected.png" alt-text="Update selected extension." border="true":::
 
