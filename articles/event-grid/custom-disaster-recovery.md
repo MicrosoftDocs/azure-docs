@@ -32,7 +32,7 @@ Make sure to note this URL as you'll need it later.
 
    ![View new site](./media/blob-event-quickstart-portal/view-site.png)
 
-[!INCLUDE [event-grid-register-provider-portal.md](./includes/event-grid-register-provider-portal.md)]
+[!INCLUDE [event-grid-register-provider-portal.md](../../includes/event-grid-register-provider-portal.md)]
 
 
 ## Create your primary and secondary topics

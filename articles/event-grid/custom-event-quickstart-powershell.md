@@ -32,7 +32,7 @@ The following example creates a resource group named *gridResourceGroup* in the 
 New-AzResourceGroup -Name gridResourceGroup -Location westus2
 ```
 
-[!INCLUDE [event-grid-register-provider-powershell.md](./includes/event-grid-register-provider-powershell.md)]
+[!INCLUDE [event-grid-register-provider-powershell.md](../../includes/event-grid-register-provider-powershell.md)]
 
 ## Create a custom topic
 

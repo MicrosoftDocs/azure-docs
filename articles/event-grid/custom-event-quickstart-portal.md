@@ -12,7 +12,7 @@ Azure Event Grid is an eventing service for the cloud. In this article, you use 
 ## Prerequisites
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [event-grid-register-provider-portal.md](./includes/event-grid-register-provider-portal.md)]
+[!INCLUDE [event-grid-register-provider-portal.md](../../includes/event-grid-register-provider-portal.md)]
 
 ## Create a custom topic
 

@@ -24,7 +24,7 @@ Before subscribing to the custom topic, create a function to handle the events.
     :::image type="content" source="./media/custom-event-to-function/new-function-page.png" alt-text="New Function page":::
 4. Use the **Code + Test** page to see the existing code for the function and update it. 
 
-[!INCLUDE [event-grid-register-provider-portal.md](./includes/event-grid-register-provider-portal.md)]
+[!INCLUDE [event-grid-register-provider-portal.md](../../includes/event-grid-register-provider-portal.md)]
 
 ## Create a custom topic
 

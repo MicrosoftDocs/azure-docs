@@ -24,7 +24,7 @@ The following example creates a resource group named *gridResourceGroup* in the 
 az group create --name gridResourceGroup --location westus2
 ```
 
-[!INCLUDE [event-grid-register-provider-cli.md](./includes/event-grid-register-provider-cli.md)]
+[!INCLUDE [event-grid-register-provider-cli.md](../../includes/event-grid-register-provider-cli.md)]
 
 ## Create a Custom Topic
 
