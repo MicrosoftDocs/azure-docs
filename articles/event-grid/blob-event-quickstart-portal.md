@@ -68,7 +68,7 @@ Before subscribing to the events for the Blob storage, let's create the endpoint
 
    ![View new site](./media/blob-event-quickstart-portal/view-site.png)
 
-[!INCLUDE [event-grid-register-provider-portal.md](../.../../includes/event-grid-register-provider-portal.md)]
+[!INCLUDE [event-grid-register-provider-portal.md](../../includes/event-grid-register-provider-portal.md)]
 
 ## Subscribe to the Blob storage
 
