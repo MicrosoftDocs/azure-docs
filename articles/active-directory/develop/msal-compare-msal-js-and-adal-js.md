@@ -24,9 +24,9 @@ ms.author: v-doeris
 
 ## Prerequisites
 
-- You must set the **Platform** / **Reply URL Type** to **Single-page application** on App Registration portal (:warning: if you have other platforms added in your app registration, such as **Web**, you need to make sure the redirect URIs do not overlap. Read more on this: [Redirect URI restrictions](reply-url.md).)
-- You must provide [polyfills](https://docs.microsoft.com/azure/active-directory/develop/msal-js-use-ie-browser) for ES6 features that MSAL.js rely on (e.g. promises) in order to run your apps on **Internet Explorer**
-- Make sure you have migrated your Azure AD apps to [v2 endpoint](https://docs.microsoft.com/azure/active-directory/azuread-dev/azure-ad-endpoint-comparison) if you haven't already
+- You must set the **Platform** / **Reply URL Type** to **Single-page application** on App Registration portal (if you have other platforms added in your app registration, such as **Web**, you need to make sure the redirect URIs do not overlap. See: [Redirect URI restrictions](./reply-url.md))
+- You must provide [polyfills](./msal-js-use-ie-browser.md) for ES6 features that MSAL.js rely on (e.g. promises) in order to run your apps on **Internet Explorer**
+- Make sure you have migrated your Azure AD apps to [v2 endpoint](../azuread-dev/azure-ad-endpoint-comparison.md) if you haven't already
 
 ## Install and import MSAL
 
@@ -303,6 +303,158 @@ Once your changes are done, run the app and test your authentication scenario:
 ```console
 npm start
 ```
+
+## Example: Securing web apps with ADAL Node vs. MSAL Node
+
+The snippets below demonstrates the minimal code required for a single-page application authenticating users with the Microsoft identity platform and getting an access token for Microsoft Graph using first ADAL.js and then MSAL.js:
+
+<table>
+<tr><td> Using ADAL.js </td><td> Using MSAL.js </td></tr>
+<tr>
+<td>
+
+```javascript
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.18/js/adal.min.js"></script>
+</head>
+
+<div>
+    <button id="loginButton">Login</button>
+    <button id="logoutButton" style="visibility: hidden;">Logout</button>
+    <button id="tokenButton" style="visibility: hidden;">Get Token</button>
+</div>
+
+<body>
+    <script type="text/javascript" src="./adal.js"></script>
+    <script>
+
+        const loginButton = document.getElementById("loginButton");
+        const logoutButton = document.getElementById("logoutButton");
+        const tokenButton = document.getElementById("tokenButton");
+
+        var authContext = new AuthenticationContext({
+            instance: 'https://login.microsoftonline.com/',
+            clientId: "ENTER_CLIENT_ID",
+            tenant: "ENTER_TENANT_ID",
+            cacheLocation: "sessionStorage",
+            redirectUri: "http://localhost:3000",
+            popUp: true,
+            callback: function (errorDesc, token, error, tokenType) {
+                console.log('Hello ' + authContext.getCachedUser().profile.upn + '!')
+
+                loginButton.style.visibility = "hidden";
+                logoutButton.style.visibility = "visible";
+                tokenButton.style.visibility = "visible";
+            }
+        });
+
+        authContext.log({
+            level: 3,
+            log: function (message) {
+                console.log(message);
+            },
+            piiLoggingEnabled: false
+        });
+
+        loginButton.addEventListener('click', function () {
+            authContext.login();
+        });
+
+        logoutButton.addEventListener('click', function () {
+            authContext.logOut();
+        });
+
+        tokenButton.addEventListener('click', () => {
+            authContext.acquireTokenPopup("https://graph.microsoft.com", null, null, function (error, token) {
+                console.log(error, token);
+            })
+        });
+    </script>
+</body>
+
+</html>
+```
+
+</td>
+<td>
+
+```javascript
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script type="text/javascript" src="https://alcdn.msauth.net/browser/2.14.2/js/msal-browser.min.js"></script>
+</head>
+
+<div>
+    <button id="loginButton">Login</button>
+    <button id="logoutButton" style="visibility: hidden;">Logout</button>
+    <button id="tokenButton" style="visibility: hidden;">Get Token</button>
+</div>
+
+<body>
+    <script>
+        const loginButton = document.getElementById("loginButton");
+        const logoutButton = document.getElementById("logoutButton");
+        const tokenButton = document.getElementById("tokenButton");
+
+        const pca = new msal.PublicClientApplication({
+            auth: {
+                clientId: "ENTER_CLIENT_ID",
+                authority: "https://login.microsoftonline.com/ENTER_TENANT_ID",
+                redirectUri: "http://localhost:3000",
+            },
+            cache: {
+                cacheLocation: "sessionStorage"
+            },
+            system: {
+                loggerOptions: {
+                    loggerCallback(loglevel, message, containsPii) {
+                        console.log(message);
+                    },
+                    piiLoggingEnabled: false,
+                    logLevel: msal.LogLevel.Verbose,
+                }
+            }
+        });
+
+        loginButton.addEventListener('click', () => {
+            pca.loginPopup().then((response) => {
+                console.log(`Hello ${response.account.username}!`);
+
+                loginButton.style.visibility = "hidden";
+                logoutButton.style.visibility = "visible";
+                tokenButton.style.visibility = "visible";
+            })
+        });
+
+        logoutButton.addEventListener('click', () => {
+            pca.logoutPopup().then((response) => {
+                window.location.reload();
+            })
+        });
+
+        tokenButton.addEventListener('click', () => {
+            pca.acquireTokenPopup({
+                scopes: ["User.Read"]
+            }).then((response) => {
+                console.log(response);
+            })
+        });
+    </script>
+</body>
+
+</html>
+```
+
+</td>
+</tr>
+</table>
 
 ## Next steps
 
