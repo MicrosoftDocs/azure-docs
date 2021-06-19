@@ -15,7 +15,7 @@ ms.custom: "include file"
 If you don't have an [Azure subscription](../articles/guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 
 ## Create a Service Bus namespace
-Follow instructions in this tutorial: [Quickstart: Use the Azure portal to create a Service Bus topic and subscriptions to the topic](../articles/service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal.md) to do the following tasks:
+Follow instructions in this tutorial: [Quickstart: Use the Azure portal to create a Service Bus topic and subscriptions to the topic](../service-bus-quickstart-topics-subscriptions-portal.md) to do the following tasks:
 
 - Create a **premium** Service Bus namespace. 
 - Get the connection string. 

@@ -15,7 +15,7 @@ Event Hubs captures diagnostic logs for the following categories:
 
 | Category | Description | 
 | -------- | ----------- | 
-| Archive Logs | Captures information about [Event Hubs Capture](../articles/event-hubs/event-hubs-capture-overview.md) operations, specifically, logs related to capture errors. |
+| Archive Logs | Captures information about [Event Hubs Capture](../event-hubs-capture-overview.md) operations, specifically, logs related to capture errors. |
 | Operational Logs | Capture all management operations that are performed on the Azure Event Hubs namespace. Data operations aren't captured, because of the high volume of data operations that are conducted on Azure Event Hubs. |
 | Auto scale logs | Captures auto-inflate operations done on an Event Hubs namespace. |
 | Kafka coordinator logs | Captures Kafka coordinator operations related to Event Hubs. |
@@ -178,7 +178,7 @@ Event Hubs virtual network (VNet) connection event JSON includes elements listed
 | `Count` | Number of occurrences for the given action |
 | `ResourceId` | Azure Resource Manager resource ID. |
 
-Virtual network logs are generated only if the namespace allows access from **selected networks** or from **specific IP addresses** (IP filter rules). If you don't want to restrict the access to your namespace using these features and still want to get virtual network logs to track IP addresses of clients connecting to the Event Hubs namespace, you could use the following workaround. [Enable IP filtering](../articles/event-hubs/event-hubs-ip-filtering.md), and add the total addressable IPv4 range (1.0.0.0/1 - 255.0.0.0/1). Event Hubs IP filtering doesn't support IPv6 ranges. Note that you may see private endpoint addresses in the IPv6 format in the log. 
+Virtual network logs are generated only if the namespace allows access from **selected networks** or from **specific IP addresses** (IP filter rules). If you don't want to restrict the access to your namespace using these features and still want to get virtual network logs to track IP addresses of clients connecting to the Event Hubs namespace, you could use the following workaround. [Enable IP filtering](../event-hubs-ip-filtering.md), and add the total addressable IPv4 range (1.0.0.0/1 - 255.0.0.0/1). Event Hubs IP filtering doesn't support IPv6 ranges. Note that you may see private endpoint addresses in the IPv6 format in the log. 
 
 #### Example
 
