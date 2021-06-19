@@ -1,11 +1,11 @@
 ---
-title: Tutorial: Minimal Downtime Migration of Azure Database for MySQL – Single Server to Azure Database for MySQL – Flexible Server
+title: "Tutorial: Minimal Downtime Migration of Azure Database for MySQL – Single Server to Azure Database for MySQL – Flexible Server"
 description: This article describes how to perform a minimal-downtime migration of Azure Database for MySQL – Single Server to Azure Database for MySQL – Flexible Server.
 author: SudheeshGH
 ms.author: sunaray
 ms.service: mysql
 ms.topic: how-to
-ms.date: 06/18/2021
+ms.date: 19/06/2021
 ---
 
 # Tutorial: Minimal Downtime Migration of Azure Database for MySQL – Single Server to Azure Database for MySQL – Flexible Server
@@ -28,9 +28,9 @@ In this tutorial, you learn how to:
 To complete this tutorial, you need:
 * An instance of Azure Database for MySQL Single Server running version 5.7 or 8.0. 
 >[!Note]
-> If you are running Azure Database for MySQL Single Server version 5.6, upgrade your instance to 5.7 and then configure data in replication. To learn more, see [Major version upgrade in Azure Database for MySQL - Single Server](https://docs.microsoft.com/azure/mysql/how-to-major-version-upgrade).
-* An instance of Azure Database for MySQL Flexible Server. For more information, see the article [Create an instance in Azure Database for MySQL Flexible Server](https://docs.microsoft.com/azure/mysql/flexible-server/quickstart-create-server-portal).
-* To connect and create a database using MySQL Workbench. For more information, see the article [Use MySQL Workbench to connect and query data](https://docs.microsoft.com/azure/mysql/flexible-server/connect-workbench).
+> If you are running Azure Database for MySQL Single Server version 5.6, upgrade your instance to 5.7 and then configure data in replication. To learn more, see [Major version upgrade in Azure Database for MySQL - Single Server](how-to-major-version-upgrade.md).
+* An instance of Azure Database for MySQL Flexible Server. For more information, see the article [Create an instance in Azure Database for MySQL Flexible Server](./flexible-server/quickstart-create-server-portal).
+* To connect and create a database using MySQL Workbench. For more information, see the article [Use MySQL Workbench to connect and query data](./flexible-server/connect-workbench.md).
 * To ensure that you have an Azure VM running Linux in same region (or on the same VNet, in case of private access) that hosts your source and target databases.
 * To install mysql client or MySQL Workbench (the client tools) on your Azure VM. Ensure that you can connect to both the primary and replica server. For the purposes of this article, mysql client is installed.
 * To install mydumper/myloader on your Azure VM. For more information, see the article [mydumper/myloader](concepts-migrate-mydumper-myloader.md).
@@ -38,8 +38,8 @@ To complete this tutorial, you need:
 
 ## Configure networking requirements
 To configure the Data-in replication, you need to ensure that the target can connect to the source over port 3306. Based on the type of endpoint set up on the source, perform the appropriate following steps.
-* If a public endpoint is enabled on the source, then ensure that the target can connect to the source by enabling “Allow access to Azure services” in the firewall rule. To learn more, see [Firewall rules - Azure Database for MySQL}(https://docs.microsoft.com/azure/mysql/concepts-firewall-rules#connecting-from-azure). 
-* If a private endpoint and “[Deny public access](https://docs.microsoft.com/azure/mysql/concepts-data-access-security-private-link#deny-public-access-for-azure-database-for-mysql” is enabled on the source, then install the private link in the same VNet that hosts the target. To learn more, see [Private Link - Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/concepts-data-access-security-private-link).
+* If a public endpoint is enabled on the source, then ensure that the target can connect to the source by enabling “Allow access to Azure services” in the firewall rule. To learn more, see [Firewall rules - Azure Database for MySQL](./concepts-firewall-rules.md#connecting-from-azure). 
+* If a private endpoint and “[Deny public access](concepts-data-access-security-private-link.md#deny-public-access-for-azure-database-for-mysql)” is enabled on the source, then install the private link in the same VNet that hosts the target. To learn more, see [Private Link - Azure Database for MySQL](concepts-data-access-security-private-link.md).
 
 ## Configure Data-in replication 
 To configure Data in replication, perform the following steps:
@@ -49,9 +49,11 @@ To configure Data in replication, perform the following steps:
     ```sql
     SHOW VARIABLES LIKE 'log_bin';
     ```
->[!Note] With Azure Database for MySQL Single Server with the large storage, which supports up to 16TB, this enabled by default.
+>[!Note]
+> With Azure Database for MySQL Single Server with the large storage, which supports up to 16TB, this enabled by default.
 
->[!Tip] With Azure Database for MySQL Single Server, which supports up to 4TB, this is not enabled by default. However, if you promote a [read replica](https://docs.microsoft.com/azure/mysql/howto-read-replicas-portal) for the source server and then delete read replica, the parameter will be set to ON.
+>[!Tip] 
+>With Azure Database for MySQL Single Server, which supports up to 4TB, this is not enabled by default. However, if you promote a [read replica](howto-read-replicas-portal.md) for the source server and then delete read replica, the parameter will be set to ON.
 4.	Based on the SSL enforcement for the source server, create a user in the source server with the replication permission by running the appropriate command.
     If you’re using SSL, run the following command:
     ```sql
@@ -122,7 +124,8 @@ The variables in this command are explained below:
     ```sql
     show slave status \G; 
     ```
->[!Note] If you are using MySQL Workbench the \G modifier is not required.
+>[!Note] 
+>If you are using MySQL Workbench the \G modifier is not required.
 
 If the state of *Slave_IO_Running* and *Slave_SQL_Running* are Yes and the value of *Seconds_Behind_Master* is 0, then replication is working well. Seconds_Behind_Master indicates how late the replica is. If the value is something other than 0, then  the replica is processing updates.
 
@@ -143,7 +146,7 @@ To test replication, try adding some data to the customer tables on the primary 
     select count(*) from customers;
     ```
 ## To ensure a successful cutover, perform the following tasks:
-1.	Configure the appropriate server-level firewall and virtual network rules to connect to target Server. You can compare the firewall rules for the [source](https://docs.microsoft.com/azure/mysql/howto-manage-firewall-using-portal) and [target](https://docs.microsoft.com/azure/mysql/flexible-server/how-to-manage-firewall-portal#create-a-firewall-rule-after-server-is-created) from the portal.
+1.	Configure the appropriate server-level firewall and virtual network rules to connect to target Server. You can compare the firewall rules for the [source](howto-manage-firewall-using-portal.md) and [target](./flexible-server/how-to-manage-firewall-portal#create-a-firewall-rule-after-server-is-created.md) from the portal.
 2.	Configure appropriate logins and database level permissions in the target server. You can run *SELECT * FROM mysql.user;* on the source and target servers to compare.
 3.	Make sure that all the incoming connections to Azure Database for MySQL Single Server are stopped. 
     >[!Tip] You can set the Azure Database for MySQL Single Server to read only.
@@ -154,8 +157,8 @@ To test replication, try adding some data to the customer tables on the primary 
 At this point, your applications are connected to the new Azure Database for MySQL Flexible server and changes in the source will no longer replicate to the target. 
 
 ## Next steps
-Learn more about Data-in replication  [Replicate data into Azure Database for MySQL Flexible Server](https://docs.microsoft.com/azure/mysql/flexible-server/concepts-data-in-replication) and [Configure Azure Database for MySQL Flexible Server Data-in replication](https://docs.microsoft.com/azure/mysql/flexible-server/how-to-data-in-replication)
-Learn more about [troubleshooting common errors in Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/howto-troubleshoot-common-errors).
-Learn more about [migrating MySQL to Azure Database for MySQL offline using Azure Database Migration Service](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-offline-portal).
+Learn more about Data-in replication  [Replicate data into Azure Database for MySQL Flexible Server](flexible-server/concepts-data-in-replication.md) and [Configure Azure Database for MySQL Flexible Server Data-in replication](./flexible-server/how-to-data-in-replication.md)
+Learn more about [troubleshooting common errors in Azure Database for MySQL](howto-troubleshoot-common-errors.md).
+Learn more about [migrating MySQL to Azure Database for MySQL offline using Azure Database Migration Service](../dms/tutorial-mysql-azure-mysql-offline-portal.md).
 
 

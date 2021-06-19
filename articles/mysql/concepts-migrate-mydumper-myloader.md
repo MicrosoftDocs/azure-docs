@@ -5,7 +5,7 @@ author: SudheeshGH
 ms.author: sunaray
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 06/18/2021
+ms.date: 19/06/2021
 ---
 
 # Migrate large databases to Azure Database for MySQL using mydumper/myloader
@@ -29,7 +29,7 @@ Before you begin migrating your MySQL database, you need to:
 >[!Note]
 > Prior to installing the tools, consider the following points:
 > * If your source is on-premises and has a high bandwidth connection to Azure (using ExpressRoute), consider installing the tool on an Azure VM. 
-> * If you have a challenge in the bandwidth between the source and target, consider installing mydumper near the source and myloader near the target server. You can use tools **[Azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10)** to move the data from on-premises or other cloud solutions to Azure.
+> * If you have a challenge in the bandwidth between the source and target, consider installing mydumper near the source and myloader near the target server. You can use tools **[Azcopy](../storage/common/storage-use-azcopy-v10.md)** to move the data from on-premises or other cloud solutions to Azure.
 
 3. Install mysql client, do the following steps: 
      * Update the package index on the Azure VM running Linux by running the following command:
@@ -48,7 +48,8 @@ To install mydumper/myloader, do the following steps.
     ```bash
     $ wget https://github.com/maxbube/mydumper/releases/download/v0.10.1/mydumper_0.10.1-2.$(lsb_release -cs)_amd64.deb
     ```
-> [!Note] $(lsb_release -cs) helps to identify your distribution.
+> [!Note] 
+> $(lsb_release -cs) helps to identify your distribution.
 2.	To install the .deb package for mydumper, run the following command:
     ```bash
     $ dpkg -i mydumper_0.10.1-2.$(lsb_release -cs)_amd64.deb
@@ -98,7 +99,8 @@ This command uses the following variables:
 
 After the database is restored, it’s always recommended to validate the data consistency between the source and the target databases.
 
->[!Note] Submit any issues or feedback regarding the mydumper/myloader tools **[here](https://github.com/maxbube/mydumper/issues)**.
+>[!Note] 
+>Submit any issues or feedback regarding the mydumper/myloader tools **[here](https://github.com/maxbube/mydumper/issues)**.
 
 
 ## Next steps
