@@ -32,6 +32,7 @@ To complete this tutorial, you need the following resources and privileges:
 * An Azure Active Directory Domain Services managed domain enabled and configured in your Azure AD tenant.
     * If needed, the first tutorial [creates and configures an Azure Active Directory Domain Services managed domain][create-azure-ad-ds-instance].
 * A user account that's a part of the managed domain.
+* Unique Linux VM names with no more than 15 characters long to avoid truncated names that can cause conflicts in AD.
 
 ## Create and connect to an Ubuntu Linux VM
 
