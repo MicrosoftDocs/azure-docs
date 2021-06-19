@@ -146,16 +146,20 @@ For full control over the IP addresses, both inbound and outbound, we recommend 
 
 To find out if your function app runs in an App Service Environment:
 
+# [Azure Porta](#tab/portal)
+
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Navigate to the function app.
 3. Select the **Overview** tab.
 4. The App Service plan tier appears under **App Service plan/pricing tier**. The App Service Environment pricing tier is **Isolated**.
- 
-As an alternative, you can use the [Cloud Shell](../cloud-shell/quickstart.md):
+
+# [Azure CLI](#tab/azurecli)
 
 ```azurecli-interactive
 az webapp show --resource-group <group_name> --name <app_name> --query sku --output tsv
 ```
+
+---
 
 The App Service Environment `sku` is `Isolated`.
 
