@@ -12,6 +12,10 @@ ms.date: 19/06/2021
 
 You can migrate and instance of Azure Database for MySQL – Single Server to of Azure Database for MySQL – Flexible Server with minimum downtime to your applications by using a combination of open-source tools such as mydumper/myloader together with Data-in replication. 
 
+> [!NOTE]
+> This article contains references to the term _slave_, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
+>
+
 Data-in replication is a technique that replicates data changes from the source server to the destination server based on the binary log file position method, such that the MySQL instance operating as the source (where the database changes originate) writes updates and changes as “events” to the binary log. The information in the binary log is stored in different logging formats according to the database changes being recorded. Replicas are configured to read the binary log from the source and to execute the events in the binary log on the replica's local database.
 
 If you set up Data-in replication to synchronize data from one instance of Azure Database for MySQL to another, you can do a selective cutover of your applications from the primary (or source database) to the replica (or target database).
