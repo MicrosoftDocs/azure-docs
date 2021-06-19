@@ -112,7 +112,11 @@ In this step you will give your Azure Cognitive Search service permission to rea
 
 ### 3 - Create the data source
 
-The [REST API](/rest/api/searchservice/create-data-source), Azure portal, and the [.NET SDK](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourceconnection) support the managed identity connection string. Below is an example of how to create a data source to index data from a storage account using the [REST API](/rest/api/searchservice/create-data-source) and a managed identity connection string. The managed identity connection string format is the same for the REST API, .NET SDK, and the Azure portal.
+Create the data source and provide either a system-assigned managed identity or a user-assigned managed identity (preview).
+
+#### Option 1 - Create the data source with a system-assigned managed identity
+
+The [REST API](/rest/api/searchservice/create-data-source), Azure portal, and the [.NET SDK](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourceconnection) support using a system-assigned managed identity. Below is an example of how to create a data source to index data from a storage account using the [REST API](/rest/api/searchservice/create-data-source) and a managed identity connection string. The managed identity connection string format is the same for the REST API, .NET SDK, and the Azure portal.
 
 When indexing from a storage account, the data source must have the following required properties:
 
@@ -139,6 +143,43 @@ api-key: [admin key]
     "type" : "azureblob",
     "credentials" : { "connectionString" : "ResourceId=/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.Storage/storageAccounts/storage-account-name/;" },
     "container" : { "name" : "my-container", "query" : "<optional-virtual-directory-name>" }
+}   
+```
+
+#### Option 2 - Create the data source with a user-assigned managed identity
+
+The 2021-04-30-preview REST API support the user-assigned managed identity. Below is an example of how to create a data source to index data from a storage account using the [REST API](/rest/api/searchservice/create-data-source), a managed identity connection string, and the user-assigned managed identity.
+
+When indexing from a storage account, the data source must have the following required properties:
+
+* **name** is the unique name of the data source within your search service.
+* **type**
+    * Azure Blob storage: `azureblob`
+    * Azure Table storage: `azuretable`
+    * Azure Data Lake Storage Gen2: `adlsgen2`
+* **credentials**
+    * When using a managed identity to authenticate, the **credentials** format is different than when not using a managed identity. Here you will provide a ResourceId that has no account key or password. The ResourceId must include the subscription ID of the storage account, the resource group of the storage account, and the storage account name.
+    * Managed identity format: 
+        * *ResourceId=/subscriptions/**your subscription ID**/resourceGroups/**your resource group name**/providers/Microsoft.Storage/storageAccounts/**your storage account name**/;*
+* **container** specifies a container or table name in your storage account. By default, all blobs within the container are retrievable. If you only want to index blobs in a particular virtual directory, you can specify that directory using the optional **query** parameter.
+* **identity** contains the collection of user-assigned managed identities. Only one user-assigned managed identity should be provided when creating the data source.
+    * **userAssignedIdentities** includes the details of the user assigned managed identity.
+        * User-assigned managed identity format: 
+            * /subscriptions/**subscription ID**/resourcegroups/**resource group name**/providers/Microsoft.ManagedIdentity/userAssignedIdentities/**name of managed identity***
+
+Example of how to create a blob data source object using the [REST API](/rest/api/searchservice/create-data-source):
+
+```http
+POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
+Content-Type: application/json
+api-key: [admin key]
+
+{
+    "name" : "blob-datasource",
+    "type" : "azureblob",
+    "credentials" : { "connectionString" : "ResourceId=/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.Storage/storageAccounts/storage-account-name/;" },
+    "container" : { "name" : "my-container", "query" : "<optional-virtual-directory-name>" },
+    "identity" : { "userAssignedIdentity" : "/subscriptions/[subscription ID]/resourcegroups/[resource group name]/providers/Microsoft.ManagedIdentity/userAssignedIdentities/[name of managed identity]" }
 }   
 ```
 
