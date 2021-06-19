@@ -5,7 +5,7 @@ author: SudheeshGH
 ms.author: sunaray
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 19/06/2021
+ms.date: 06/18/2021
 ---
 
 # Migrate large databases to Azure Database for MySQL using mydumper/myloader

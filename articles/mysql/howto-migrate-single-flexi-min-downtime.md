@@ -5,7 +5,7 @@ author: SudheeshGH
 ms.author: sunaray
 ms.service: mysql
 ms.topic: how-to
-ms.date: 19/06/2021
+ms.date: 06/18/2021
 ---
 
 # Tutorial: Minimal Downtime Migration of Azure Database for MySQL – Single Server to Azure Database for MySQL – Flexible Server
@@ -33,7 +33,7 @@ To complete this tutorial, you need:
 * An instance of Azure Database for MySQL Single Server running version 5.7 or 8.0. 
 >[!Note]
 > If you are running Azure Database for MySQL Single Server version 5.6, upgrade your instance to 5.7 and then configure data in replication. To learn more, see [Major version upgrade in Azure Database for MySQL - Single Server](how-to-major-version-upgrade.md).
-* An instance of Azure Database for MySQL Flexible Server. For more information, see the article [Create an instance in Azure Database for MySQL Flexible Server](./flexible-server/quickstart-create-server-portal).
+* An instance of Azure Database for MySQL Flexible Server. For more information, see the article [Create an instance in Azure Database for MySQL Flexible Server](./flexible-server/quickstart-create-server-portal.md).
 * To connect and create a database using MySQL Workbench. For more information, see the article [Use MySQL Workbench to connect and query data](./flexible-server/connect-workbench.md).
 * To ensure that you have an Azure VM running Linux in same region (or on the same VNet, in case of private access) that hosts your source and target databases.
 * To install mysql client or MySQL Workbench (the client tools) on your Azure VM. Ensure that you can connect to both the primary and replica server. For the purposes of this article, mysql client is installed.
@@ -66,7 +66,6 @@ To configure Data in replication, perform the following steps:
     ```
     
     If you’re not using SSL, run the following command:
-    
     ```sql
     CREATE USER '<username>'@'%' IDENTIFIED BY '<Password>';
     GRANT REPLICATION SLAVE ON *.* TO ' <username>@'%';
@@ -121,13 +120,13 @@ The variables in this command are explained below:
         CALL mysql.az_replication_change_master('<Primary_server>.mysql.database.azure.com', '=<username>@<primary_server>', '<Password>, 3306, '<File_Name>', <Position>, ‘’);
         ```
 9.	To start replication from the replica server, call the below stored procedure. 
-    ```sql
-    call  mysql.az_replication_start
-    ```
+        ```sql
+        call  mysql.az_replication_start
+        ```
 10.	To check the replication status, on the replica server, run the following command:
-    ```sql
-    show slave status \G; 
-    ```
+        ```sql
+        show slave status \G; 
+        ```
 >[!Note] 
 >If you are using MySQL Workbench the \G modifier is not required.
 
@@ -150,10 +149,11 @@ To test replication, try adding some data to the customer tables on the primary 
     select count(*) from customers;
     ```
 ## To ensure a successful cutover, perform the following tasks:
-1.	Configure the appropriate server-level firewall and virtual network rules to connect to target Server. You can compare the firewall rules for the [source](howto-manage-firewall-using-portal.md) and [target](./flexible-server/how-to-manage-firewall-portal#create-a-firewall-rule-after-server-is-created.md) from the portal.
+1.	Configure the appropriate server-level firewall and virtual network rules to connect to target Server. You can compare the firewall rules for the [source](howto-manage-firewall-using-portal.md) and [target](./flexible-server/how-to-manage-firewall-portal.md#create-a-firewall-rule-after-server-is-created) from the portal.
 2.	Configure appropriate logins and database level permissions in the target server. You can run *SELECT * FROM mysql.user;* on the source and target servers to compare.
 3.	Make sure that all the incoming connections to Azure Database for MySQL Single Server are stopped. 
-    >[!Tip] You can set the Azure Database for MySQL Single Server to read only.
+    >[!Tip] 
+    >You can set the Azure Database for MySQL Single Server to read only.
 4.	Ensure that the replica has caught up with the primary by running *show slave status \G* and confirming that the value for the *Seconds_Behind_Master* parameter is 0.
 5.	Redirect clients and client applications to the target instance of Azure Database for MySQL Flexible Server.
 6.	Perform the final cutover by running the mysql.az_replication_stop stored procedure, which will stop replication from the replica server. 
