@@ -8,12 +8,10 @@ ms.author: rhurey
 ---
 
 
-Use the following instructions to create a [custom subdomain name for Cognitive Services](../cognitive-services-custom-subdomains.md) for your Speech resource.
+Use the following instructions to create a [custom subdomain name for Cognitive Services](../../../cognitive-services-custom-subdomains.md) for your Speech resource.
 
 > [!WARNING]
-> A Speech resource with a custom domain name enabled uses a different way to interact with Speech service. You might have to adjust your application code for both of these scenarios: [with private endpoint](#adjust-an-application-to-use-a-speech-resource-with-a-private-endpoint) and [*without* private endpoint](#adjust-an-application-to-use-a-speech-resource-without-private-endpoints).
->
-> When you turn on a custom domain name, the operation is [not reversible](../cognitive-services-custom-subdomains.md#can-i-change-a-custom-domain-name). The only way to go back to the [regional name](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) is to create a new Speech resource.
+> When you turn on a custom domain name, the operation is [not reversible](../../../cognitive-services-custom-subdomains.md#can-i-change-a-custom-domain-name). The only way to go back to the [regional name](../../../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) is to create a new Speech resource.
 >
 > If your Speech resource has a lot of associated custom models and projects created via [Speech Studio](https://speech.microsoft.com/), we strongly recommend trying the configuration with a test resource before you modify the resource used in production.
 
@@ -122,7 +120,7 @@ Set-AzCognitiveServicesAccount -ResourceGroupName $resourceGroup `
 
 # [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../../../includes/azure-cli-prepare-your-environment.md)]
 
 This section requires the latest version of the Azure CLI. If you're using Azure Cloud Shell, the latest version is already installed.
 

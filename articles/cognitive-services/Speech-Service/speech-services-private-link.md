@@ -35,6 +35,10 @@ Setting up a Speech resource for the private endpoint scenarios requires perform
 This article describes the usage of the private endpoints with Speech service. Usage of the VNet service endpoints is described [here](speech-service-vnet-service-endpoint.md).
 
 ## Create a custom domain name
+> [!WARNING]
+> A Speech resource with a custom domain name enabled uses a different way to interact with Speech service. You might have to adjust your application code for both of these scenarios: [with private endpoint](#adjust-an-application-to-use-a-speech-resource-with-a-private-endpoint) and [*without* private endpoint](#adjust-an-application-to-use-a-speech-resource-without-private-endpoints).
+>
+
 [!INCLUDE [Custom Domain include](includes/how-to/custom-domain.md)]
 
 ## Turn on private endpoints
