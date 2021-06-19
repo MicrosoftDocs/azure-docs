@@ -118,7 +118,14 @@ Prepare the microSD card for installation of the Raspberry Pi OS image.
 
    ![The Raspberry Pi OS with Preferences menu](./media/iot-hub-raspberry-pi-kit-node-get-started/1-raspbian-preferences-menu.png)
 
-4. On the **Interfaces** tab, set **I2C** and **SSH** to **Enable**, and then click **OK**. If you don't have physical sensors and want to use simulated sensor data, this step is optional.
+4. On the **Interfaces** tab, set **SSH** and **I2C** to **Enable**, and then click **OK**. 
+ 
+    | Interface | Description |
+    | --------- | ----------- |
+    | *SSH* | Secure Shell (SSH) is used to remote into the Raspberry Pi with a remote command-line. This is the preferred method for issuing the commands to your Raspberry Pi remotely in this document. |
+    | *I2C* | Inter-integrated Circuit (I2C) is a communications protocol used to interface with hardware such as sensors. This interface is required for interfacing with physical sensors in this topic.|
+
+    If you don't have physical sensors and want to use simulated sensor data from your Raspberry Pi device, you can leave **I2C** disabled.
 
    ![Enable I2C and SSH on Raspberry Pi](./media/iot-hub-raspberry-pi-kit-node-get-started/2-enable-i2c-ssh-on-raspberry-pi.png)
 
