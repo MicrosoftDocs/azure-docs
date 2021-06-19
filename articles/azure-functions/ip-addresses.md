@@ -61,7 +61,7 @@ az functionapp show --resource-group <GROUP_NAME> --name <APP_NAME> --query poss
 The set of `outboundIpAddresses` is currently available to the function app. The set of `possibleOutboundIpAddresses` includes IP addresses that will be available only if the function app [scales to other pricing tiers](#outbound-ip-address-changes).
 
 > [!NOTE]
-> When a function app that runs on the [Consumption plan](consumption-plan.md) or the [Premium plan](functions-premium-plan.md) is scaled, a new range of outbound IP addresses may be assigned. When running on either of these plans, you may need to add the entire data center to an allowlist.
+> When a function app that runs on the [Consumption plan](consumption-plan.md) or the [Premium plan](functions-premium-plan.md) is scaled, a new range of outbound IP addresses may be assigned. When running on either of these plans, you can't rely on the reported outbound IP addresses to create a definitive allowlist. To be able to include all potential outbound addresses used during dynamic scaling, you'll need to add the entire data center to your allowlist.
 
 ## Data center outbound IP addresses
 
