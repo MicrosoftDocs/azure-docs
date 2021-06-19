@@ -49,7 +49,7 @@ There are two types of managed identity assignments:
 
 * A [**User-assigned**](#create-a-user-assigned-managed-identity-in-the-azure-portal) managed identity is **created** as a standalone Azure resource and assigned to one or more Azure service instances. Here, you'll assign the identity to your storage account. A user-assigned identity is managed separately from the resources that use it and has an independent lifecycle.
 
-## Enable a system-assigned managed identity in the Azure portal
+## Enable a system-assigned managed identity
 
 >[!IMPORTANT]
 >
@@ -77,26 +77,35 @@ There are two types of managed identity assignments:
 >
 > If you are unable to assign a role in the Azure portal because the Add > Add role assignment option is disabled or you get the permissions error, "you do not have permissions to add role assignment at this scope", check that you are currently signed in as a user with an assigned a role that has Microsoft.Authorization/roleAssignments/write permissions such as Owner or User Access Administrator at the Storage scope for the storage resource.
 
-5. In the **Add role assignment** pop-up window complete the fields as follows and select **Save**:
+ 5. In this step you are going to assign a **Storage Blob Data Reader** role to your Form Recognizer service. In the **Add role assignment** pop-up window complete the fields as follows and select **Save**:
 
     | Field | Value|
     |------|--------|
     |**Scope**| ***Storage***|
     |**Subscription**| ***The subscription associated with your storage resource***.|
     |**Resource**| ***The name of your storage resource***|
-    |**Role** | ***Storage Blob Data Reader***|
+    |**Role** | ***Storage Blob Data Reader***—allowed read access to Azure Storage blob containers and data.|
 
      :::image type="content" source="media/managed-identities/add-role-assignment-window.png" alt-text="Screenshot: add role assignments page in the Azure portal.":::
 
+1. After you've received the Added Role assignment, confirmation pop-up message, refresh the page to see the added role assignment. If you don't see the change right away, wait and try refreshing the page once more. When you assign roles or remove role assignments, it can take up to 30 minutes for changes to take effect.
+
+
+    :::image type="content" source="media/managed-identities/add-role-assignment-confirmation.png" alt-text="Screenshot: Added role assignment confirmation pop-up message.":::
+
+
+    :::image type="content" source="media/managed-identities/assigned-roles-window.png" alt-text="Screenshot: Azure role assignments window.":::
+
+
 You have completed the steps to enable a service-assigned managed identity. With this identity credential, you can grant specific access rights to a single Azure service. If you need to assign a managed identity to  multiple Azure services, you'll need to create a user-assigned managed identity.
 
-## Create a user-assigned managed identity in the Azure portal
+## Create a user-assigned managed identity
 
 >[!IMPORTANT]
 >
  > * To enable a user-assigned managed identity you need Microsoft.Authorization/roleAssignments/write permissions, such as [**Owner**](/azure/role-based-access-control/built-in-roles#owner), [**User Access Administrator**](/azure/role-based-access-control/built-in-roles#user-access-administrator), or [**Managed Identity Contributor**](/azure/role-based-access-control/built-in-roles#managed-identity-contributor).
 
-### Create a Managed Identity resource
+### Create a user-assigned managed identity resource
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using an account associated with your Azure subscription.
 
@@ -121,9 +130,12 @@ You have completed the steps to enable a service-assigned managed identity. With
 
     :::image type="content" source="media/managed-identities/create-user-managed-identity-in-portal.png" alt-text="Screenshot: create a user-assigned managed identity resource in the Azure portal":::
 
-#### Assign a role to your user-assigned managed identity
+#### Assign roles to your user-assigned managed identity 
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using an account associated with your Azure subscription.
+You are going to create two role assignments—**Reader** and **Storage Blob Data Reader**. You will need both **user-assigned** identities to use your custom domain. 
+
+Sign in to the [Azure portal](https://portal.azure.com) using an account associated with your Azure subscription. 
+
 
 1. Navigate to your storage account page.
 
@@ -133,20 +145,33 @@ You have completed the steps to enable a service-assigned managed identity. With
 
 1. Select **Add role assignment** from the drop-down window.
 
-1. In the pop-up window, complete the following fields and select **Save**
+1. In the pop-up window, complete the following fields and select **Save**.
 
     | Field | Value |
     |------|--------|
-    |**Role**| ***Storage Blob Data Reader***|
+    |**Role**| ***Reader***|
     |**Assign access to**|***User assigned managed identity***|
     |**Subscription**| ***The subscription associated with your storage resource***|
     |**Select**|***Enter your preferred user-assigned identity.***|
 
-    :::image type="content" source="media/managed-identities/add-role-assignment-pop-up.png" alt-text="Screenshot: the add role assignment pop-up window fields.":::
+    :::image type="content" source="media/managed-identities/add-role-assignment-blob-data-reader.png" alt-text="Screenshot: add role assignment pop-up to add storage blob data reader role.":::
 
-### Assign a user-assigned managed identity to a resource
+1. On the **Access Control (IAM)** page select **&plus;  Add** from the main window once more.
 
-1. Once you have created your user-assigned identity and assigned it the **Storage Blob Data Reader** role, navigate to your Form Recognizer resource page in the Azure portal.
+1. Select **Add role assignment** from the drop-down window.
+
+1. In the pop-up window, complete the following fields and select **Save**.
+
+    | Field | Value |
+    |------|--------|
+    |**Role**|***Storage Blob Data Reader*** |
+    |**Assign access to**|***User assigned managed identity***|
+    |**Subscription**| ***The subscription associated with your storage resource***|
+    |**Select**|***Enter your preferred user-assigned identity.***|
+
+    :::image type="content" source="media/managed-identities/add-role-assignment-reader.png" alt-text="Screenshot: add role assignment pop-up to add reader role:":::
+
+1. Once you have created your user-assigned identity and assigned it the **Reader** and **Storage Blob Data Reader** roles, navigate to your Form Recognizer resource page in the Azure portal.
 
 1. In the left rail, Select **Identity** from the Resource Management list:
 
@@ -161,7 +186,7 @@ You have completed the steps to enable a service-assigned managed identity. With
     | Field | Value |
     |------|--------|
     |**Subscription** | ***The subscription associated with your storage resource*** |
-    | **User assigned managed identities** | ***Select the same user-assigned managed identity resource that was assigned the Storage Blob Data Reader role in the [assign a role to your user-assigned managed identity](#assign-a-role-to-your-user-assigned-managed-identity).***
+    | **User assigned managed identities** | ***If you have created more than one user-assigned managed identity, select the same identity resource that was assigned the **Reader** and **Storage Blob Data Reader** roles in the [assign a role to your user-assigned managed identity](#assign-a-role-to-your-user-assigned-managed-identity).***
 
  That's it! You've learned how to implement system-assigned and user-assigned managed identities for your Form Recognizer and Azure storage resources. Now, you can train a custom model or analyze documents using files stored in your BYOS account.
 
