@@ -66,7 +66,7 @@ A deployment manifest is a JSON document that describes which modules to deploy,
  1. Click **Next** to continue to the routes section
 
     > [!NOTE]
-    > If you are using an Azure VM as an edge device, add an inbound port rule to allow inbound traffic on the port 4438. For instructions on adding the rule, see [How to open ports to a VM](../articles/virtual-machines/windows/nsg-quickstart-portal.md).
+    > If you are using an Azure VM as an edge device, add an inbound port rule to allow inbound traffic on the port 4438. For instructions on adding the rule, see [How to open ports to a VM](../../virtual-machines/windows/nsg-quickstart-portal.md).
 
 
 ### Setup routes

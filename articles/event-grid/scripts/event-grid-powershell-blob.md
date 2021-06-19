@@ -10,7 +10,7 @@ ms.date: 07/08/2020
 
 This script creates an Event Grid subscription to the events for a Blob storage account.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
