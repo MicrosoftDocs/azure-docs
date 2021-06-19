@@ -151,20 +151,6 @@ Add the duration column to get the numbers for all queries, not just those that 
 
    ![Sort queries by duration](./media/search-monitor-usage/azurediagnostics-table-sortby-duration.png "Sort queries by duration")
 
-<!-- 1. Advance to this more complex version if you want the full set of query operations, a time range, and other selection criteria.
-
-   ```kusto
-   let ['_startTime']=datetime('2021-01-26T22:28:00Z');
-   let ['_endTime']=datetime('2021-01-26T22:28:00Z');
-    
-   AzureDiagnostics
-   | where TimeGenerated between(['_startTime'] .. ['_endTime']) // Time range filtering
-   | where OperationName in ("Query.Search", "Query.Suggest", "Query.Lookup", "Query.Autocomplete")
-   | where DurationMs > 250
-   | order by DurationMs desc 
-   | take 100 -->
-   ```
-
 ## Create a metric alert
 
 A  metric alert establishes a threshold at which you will either receive a notification or trigger a corrective action that you define in advance. 
