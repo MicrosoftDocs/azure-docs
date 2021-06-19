@@ -5,7 +5,7 @@ author: mgoedtel
 ms.author: magoedte
 ms.service: azure-arc
 ms.topic: quickstart
-ms.date: 05/25/2021
+ms.date: 06/18/2021
 ms.custom: template-quickstart, references_regions, devx-track-azurecli
 keywords: "Kubernetes, Arc, Azure, cluster"
 ---
@@ -24,7 +24,7 @@ In this quickstart, you'll learn the benefits of Azure Arc enabled Kubernetes an
     * Self-managed Kubernetes cluster using [Cluster API](https://cluster-api.sigs.k8s.io/user/quick-start.html)
     * If you want to connect a OpenShift cluster to Azure Arc, you need to execute the following command just once on your cluster before running `az connectedk8s connect`:
         
-        ```azurecli-interactive
+        ```console
         oc adm policy add-scc-to-user privileged system:serviceaccount:azure-arc:azure-arc-kube-aad-proxy-sa
         ```
 
@@ -39,7 +39,7 @@ In this quickstart, you'll learn the benefits of Azure Arc enabled Kubernetes an
 * [Install or upgrade Azure CLI](/cli/azure/install-azure-cli) to version >= 2.16.0
 * Install the `connectedk8s` Azure CLI extension of version >= 1.0.0:
   
-  ```azurecli-interactive
+  ```console
   az extension add --name connectedk8s
   ```
 >[!NOTE]
@@ -63,13 +63,13 @@ In this quickstart, you'll learn the benefits of Azure Arc enabled Kubernetes an
 ## 1. Register providers for Azure Arc enabled Kubernetes
 
 1. Enter the following commands:
-    ```azurecli-interactive
+    ```console
     az provider register --namespace Microsoft.Kubernetes
     az provider register --namespace Microsoft.KubernetesConfiguration
     az provider register --namespace Microsoft.ExtendedLocation
     ```
 2. Monitor the registration process. Registration may take up to 10 minutes.
-    ```azurecli-interactive
+    ```console
     az provider show -n Microsoft.Kubernetes -o table
     az provider show -n Microsoft.KubernetesConfiguration -o table
     az provider show -n Microsoft.ExtendedLocation -o table
@@ -79,7 +79,7 @@ In this quickstart, you'll learn the benefits of Azure Arc enabled Kubernetes an
 
 Run the following command:  
 
-```azurecli-interactive
+```console
 az group create --name AzureArcTest --location EastUS --output table
 ```
 
@@ -93,7 +93,8 @@ eastus      AzureArcTest
 ## 3. Connect an existing Kubernetes cluster
 
 Run the following command:
-```azurecli-interactive
+
+```console
 az connectedk8s connect --name AzureArcTest1 --resource-group AzureArcTest
 ```
 
@@ -143,7 +144,7 @@ Helm release deployment succeeded
 
 Run the following command:  
 
-```azurecli-interactive
+```console
 az connectedk8s list --resource-group AzureArcTest --output table
 ```
 
@@ -182,7 +183,7 @@ If your cluster is behind an outbound proxy server, Azure CLI and the Azure Arc 
 
 2. Run the connect command with proxy parameters specified:
 
-    ```azurecli-interactive
+    ```console
     az connectedk8s connect --name <cluster-name> --resource-group <resource-group> --proxy-https https://<proxy-server-ip-address>:<port> --proxy-http http://<proxy-server-ip-address>:<port> --proxy-skip-range <excludedIP>,<excludedCIDR> --proxy-cert <path-to-cert-file>
     ```
 
@@ -196,8 +197,8 @@ Azure Arc enabled Kubernetes deploys a few operators into the `azure-arc` namesp
 
 1. View these deployments and pods using:
 
-    ```azurecli-interactive
-    kubectl -name azure-arc get deployments,pods
+    ```console
+    kubectl get deployments,pods -n azure-arc
     ```
 
 1. Verify all pods are in a `Running` state.
@@ -228,15 +229,15 @@ Azure Arc enabled Kubernetes deploys a few operators into the `azure-arc` namesp
 
 You can delete the Azure Arc enabled Kubernetes resource, any associated configuration resources, *and* any agents running on the cluster using Azure CLI using the following command:
 
-```azurecli-interactive
+```console
 az connectedk8s delete --name AzureArcTest1 --resource-group AzureArcTest
 ```
 
 >[!NOTE]
->Deleting the Azure Arc enabled Kubernetes resource using Azure portal removes any associated configuration resources, but *does not* remove any agents running on the cluster. Best practice is to delete the Azure Arc enabled Kubernetes resource using `az connectedk8s delete` instead of Azure portal.
+> Deleting the Azure Arc enabled Kubernetes resource using Azure portal removes any associated configuration resources, but *does not* remove any agents running on the cluster. Best practice is to delete the Azure Arc enabled Kubernetes resource using `az connectedk8s delete` instead of Azure portal.
 
 ## Next steps
 
 Advance to the next article to learn how to deploy configurations to your connected Kubernetes cluster using GitOps.
 > [!div class="nextstepaction"]
-> [Deploy configurations using Gitops](tutorial-use-gitops-connected-cluster.md)
+> [Deploy configurations using GitOps](tutorial-use-gitops-connected-cluster.md)
