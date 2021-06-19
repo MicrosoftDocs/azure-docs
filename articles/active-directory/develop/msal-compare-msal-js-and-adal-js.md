@@ -24,7 +24,7 @@ ms.author: v-doeris
 
 ## Prerequisites
 
-- You must set the **Platform** / **Reply URL Type** to **Single-page application** on App Registration portal (:warning: if you have other platforms added in your app registration, such as **Web**, you need to make sure the reply/redirect URIs do not overlap. Read more on this [here](https://docs.microsoft.com/azure/active-directory/develop/reply-url#localhost-exceptions).)
+- You must set the **Platform** / **Reply URL Type** to **Single-page application** on App Registration portal (:warning: if you have other platforms added in your app registration, such as **Web**, you need to make sure the redirect URIs do not overlap. Read more on this: [Redirect URI restrictions](reply-url.md).)
 - You must provide [polyfills](https://docs.microsoft.com/azure/active-directory/develop/msal-js-use-ie-browser) for ES6 features that MSAL.js rely on (e.g. promises) in order to run your apps on **Internet Explorer**
 - Make sure you have migrated your Azure AD apps to [v2 endpoint](https://docs.microsoft.com/azure/active-directory/azuread-dev/azure-ad-endpoint-comparison) if you haven't already
 
@@ -171,7 +171,6 @@ Others were deprecated, while MSAL.js offers new methods:
 
 In addition, as MSAL.js is implemented in TypeScript unlike ADAL.js, it exposes various types and interfaces that you can make use of in your projects. See the [MSAL.js API reference](https://azuread.github.io/microsoft-authentication-library-for-js/ref/) for more.
 
-
 ## Use scopes instead of resources
 
 An important difference between the Azure AD **v1.0** vs. **v2.0** endpoints is about how the resources are accessed. When using ADAL.js with the **v1.0** endpoint, you would first register a permission on app registration portal, and then request an access token for a resource (such as Microsoft Graph) as shown below:
@@ -230,13 +229,13 @@ const getAccessToken = async() => {
 
 ## Cache and retrieve tokens
 
-Like ADAL.js, MSAL.js caches tokens and other authentication artifacts in browser storage, using the [Web Storage API](https://developer.mozilla.org/docs/Web/API/Web_Storage_API). You are recommended to use `sessionStorage` option (see: [configuration](#configure-msal)) because it is more secure in storing tokens that are acquired by your users, but `localStorage` will give you [Single Sign On](./msal-js-sso) across tabs and user sessions.
+Like ADAL.js, MSAL.js caches tokens and other authentication artifacts in browser storage, using the [Web Storage API](https://developer.mozilla.org/docs/Web/API/Web_Storage_API). You are recommended to use `sessionStorage` option (see: [configuration](#configure-msal)) because it is more secure in storing tokens that are acquired by your users, but `localStorage` will give you [Single Sign On](./msal-js-sso.md) across tabs and user sessions.
 
 Importantly, you are not supposed to access the cache directly. Instead, you should use an appropriate MSAL.js API for retrieving authentication artifacts like access tokens or user accounts.
 
 ## Renew tokens with refresh tokens
 
-ADAL.js uses the [OAuth 2.0 implicit flow](./v2-oauth2-implicit-grant-flow) which does not return refresh tokens for security reasons (refresh tokens have longer lifetime than access tokens and are therefore more dangerous in the hands of malicious actors). Hence, ADAL.js performs token renewal using a hidden Iframe so that the user is not repeatedly prompted to authenticate.
+ADAL.js uses the [OAuth 2.0 implicit flow](./v2-oauth2-implicit-grant-flow.md) which does not return refresh tokens for security reasons (refresh tokens have longer lifetime than access tokens and are therefore more dangerous in the hands of malicious actors). Hence, ADAL.js performs token renewal using a hidden Iframe so that the user is not repeatedly prompted to authenticate.
 
 With the auth code flow with PKCE support, apps using MSAL.js 2.x obtain refresh tokens along with id and access tokens, which can be used to renew them. The usage of refresh tokens is abstracted away, and the developers are not supposed to build logic around them. Instead, MSAL manages token renewal using refresh tokens by itself. Your previous token cache with ADAL.js will not be transferable to MSAL.js, as the token cache schema has changed and incompatible with the schema used in ADAL.js.
 
@@ -244,7 +243,7 @@ With the auth code flow with PKCE support, apps using MSAL.js 2.x obtain refresh
 
 When using MSAL.js, the most common type of error you might face is the `interaction_in_progress` error. This error is thrown when an interactive API (`loginPopup`, `loginRedirect`, `acquireTokenPopup`, `acquireTokenRedirect`) is invoked while another interactive API is still in progress. The `login*` and `acquireToken*` APIs are *async* so you will need to ensure that the resulting promises have resolved before invoking another one.
 
-Another common error is `interaction_required`. This error is often resolved by simply initiating an interactive token acquisition prompt. For instance, the web API you are trying to access might have a [conditional access](../conditional-access/overview) policy in place, requiring the user to perform [multi-factor authentication](../authentication/concept-mfa-howitworks) (MFA). In that case, handling `interaction_required` error by triggering `acquireTokenPopup` or `acquireTokenRedirect` will prompt the user for MFA, allowing them to fullfil it.
+Another common error is `interaction_required`. This error is often resolved by simply initiating an interactive token acquisition prompt. For instance, the web API you are trying to access might have a [conditional access](../conditional-access/overview.md) policy in place, requiring the user to perform [multi-factor authentication](../authentication/concept-mfa-howitworks.md) (MFA). In that case, handling `interaction_required` error by triggering `acquireTokenPopup` or `acquireTokenRedirect` will prompt the user for MFA, allowing them to fullfil it.
 
 Yet another common error you might face is `consent_required`, which occurs when permissions required for obtaining an access token for a protected resource are not consented by the user. As in `interaction_required`, the solution for `consent_required` error is often initiating an interactive token acquisition prompt, using either `acquireTokenPopup` or `acquireTokenRedirect`.
 
