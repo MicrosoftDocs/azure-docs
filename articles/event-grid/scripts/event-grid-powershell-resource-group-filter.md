@@ -10,17 +10,17 @@ ms.date: 07/08/2020
 
 This script creates an Event Grid subscription to the events for a resource group. It uses a filter to get only events for a specified resource in the resource group.
 
-[!INCLUDE [quickstarts-free-trial-note](.././includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Sample script - stable
 
-[!INCLUDE [updated-for-az](.././includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 [!code-powershell[main](../../../powershell_scripts/event-grid/filter-events/filter-events.ps1 "Filter events")]
 
 ## Sample script - preview module
 
-[!INCLUDE [requires-azurerm](.././includes/requires-azurerm.md)]
+[!INCLUDE [requires-azurerm](../../../includes/requires-azurerm.md)]
 
 The preview sample script requires the Event Grid module. To install, run
 `Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`

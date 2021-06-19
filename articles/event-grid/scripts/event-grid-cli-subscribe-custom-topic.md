@@ -11,9 +11,9 @@ ms.custom: devx-track-azurecli
 
 This script creates an Event Grid subscription to the events for a custom topic.
 
-[!INCLUDE [sample-cli-install](.././includes/sample-cli-install.md)]
+[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-[!INCLUDE [quickstarts-free-trial-note](.././includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 The preview sample script requires the Event Grid extension. To install, run `az extension add --name eventgrid`.
 

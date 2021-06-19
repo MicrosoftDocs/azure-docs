@@ -11,9 +11,9 @@ ms.custom: devx-track-azurecli
 
 This script creates an Event Grid subscription to the events for a Blob storage account. 
 
-[!INCLUDE [sample-cli-install](.././includes/sample-cli-install.md)]
+[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-[!INCLUDE [quickstarts-free-trial-note](.././includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Sample script
 
