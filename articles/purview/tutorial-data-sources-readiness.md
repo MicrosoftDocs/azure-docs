@@ -145,7 +145,7 @@ Run the script by completing these steps:
    Set-ExecutionPolicy -ExecutionPolicy Unrestricted
    ```
 
-3. Run the script by using the following parameters. Replace the `DataType`, `PurviewName` and `SubscriptionID` placeholders.
+3. Run the script with the following parameters. Replace the `DataType`, `PurviewName`, and `SubscriptionID` placeholders.
 
    ```powershell
    .\purview-data-sources-readiness-checklist.ps1 -AzureDataType <DataType> -PurviewAccount <PurviewName> -PurviewSub <SubscriptionID>
@@ -188,7 +188,7 @@ You can choose all or any of these data sources as the input parameter when you 
 - RBAC. Check whether Azure Purview MSI is assigned the **Storage Blob Data Reader** role in each of the subscriptions below the selected scope.
 - RBAC. Check whether Azure Purview MSI is assigned the **Reader** role on the selected scope.
 - Service endpoint. Check whether service endpoint is on, and check whether **Allow trusted Microsoft services to access this storage account** is enabled.
-- Networking: check whether private endpoint is created for storage and enabled for Blob Storage.
+- Networking: Check whether private endpoint is created for storage and enabled for Blob Storage.
 
 #### Azure Data Lake Storage Gen1 (ADLSGen1)
 
