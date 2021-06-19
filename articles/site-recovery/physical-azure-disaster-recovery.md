@@ -99,11 +99,11 @@ Select what to replicate, and to replicate it to.
 
 Set up the configuration server, register it in the vault, and discover VMs.
 
-1. Click **Site Recovery** > **Prepare Infrastructure** > **Source**.
-2. If you don’t have a configuration server, click **+Configuration server**.
-3. In **Add Server**, check that **Configuration Server** appears in **Server type**.
-4. Download the Site Recovery Unified Setup installation file.
-5. Download the vault registration key. You need this when you run Unified Setup. The key is valid for five days after you generate it.
+1. Click **Site Recovery** > **Prepare Infrastructure** > **Source**. (THIS IS NOT PRESENT IN AZURE PORTAL ANYMORE. AS AN ADMIN, I ONLY SEE Vmware/HyperV/Azure VM. I DON't SEE ANY OPTION FOR ON PREM VM. WHEN SELECTING VMWARE, I AM PROMPTED TO DOWNLOAD OVF template WHICH I CANNOT USE ON PHYSICAL SERVER)
+3. If you don’t have a configuration server, click **+Configuration server**.
+4. In **Add Server**, check that **Configuration Server** appears in **Server type**.
+5. Download the Site Recovery Unified Setup installation file.
+6. Download the vault registration key. You need this when you run Unified Setup. The key is valid for five days after you generate it.
 
    ![Screenshot showing the options to download the installation file and registration key.](./media/physical-azure-disaster-recovery/source-environment.png)
 
