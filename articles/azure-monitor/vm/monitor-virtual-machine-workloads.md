@@ -16,15 +16,11 @@ This article describes how to monitor workloads that are running on the guest op
 > This article is part of the [Monitoring virtual machines and their workloads in Azure Monitor scenario](monitor-virtual-machine.md).
 
 
-## Known applications
-Azure Monitor includes complete monitoring for the following applications.
-
-| Application | Insight |
-|:---|:---|
-| SQL Server | [SQL insights](../insights/sql-insights-overview.md) |
 
 ## Configure additional data collection
 VM insights collects only performance data from the guest operating system of enabled machines. You can enable the collection of additional performance data, events, and other monitoring data from the agent by configuring the Log Analytics workspace. It only needs to be configured once, since any agent connecting to the workspace will automatically download the configuration and immediately start collecting the defined data. 
+
+See [Agent data sources in Azure Monitor](../agents/agent-data-sources.md) for a list of the data sources available and details on configuring them. 
 
 > [!NOTE]
 > You cannot selectively configure data collection for different machines. All machines connected to the workspace will use the configuration for that workspace.
@@ -34,12 +30,12 @@ VM insights collects only performance data from the guest operating system of en
 > [!IMPORTANT]
 > Be careful to only collect the data that you require since there are costs associated with any data collected in your workspace. The data that you collect should only support particular analysis and alerting scenarios 
 
-See [Agent data sources in Azure Monitor](../agents/agent-data-sources.md) for a list of the data sources available and details on configuring them. 
+
 
 ## Windows or Syslog event
-This is a very common monitoring scenario with the operating system and applications writing to the Windows events or Syslog. Create an alert when a Windows or Syslog event is created. You can alert as soon as a single event is found or wait for a series of matching events within a particular time window.
+This is a common monitoring scenario with the operating system and applications writing to the Windows events or Syslog. Create an alert as soon as a single event is found or wait for a series of matching events within a particular time window.
 
-To collect these events, onfigure Log Analytics workspace to collect [Windows events](../agents/data-sources-windows-events.md) or [Syslog events](../agents/data-sources-windows-events.md). There is a cost for the ingestion and retention of this data in the workspace.
+To collect these events, configure Log Analytics workspace to collect [Windows events](../agents/data-sources-windows-events.md) or [Syslog events](../agents/data-sources-windows-events.md). There is a cost for the ingestion and retention of this data in the workspace.
 
 Windows events are stored in the [Event](/azure/azure-monitor/reference/tables/event) table and Syslog events in the [Syslog](/azure/azure-monitor/reference/tables/syslog) table in the Log Analytics workspace.
 
@@ -88,7 +84,7 @@ Syslog
 
 
 ## Custom performance counters
-You may need performance counters created by applications or the guest operating system that aren't collected by VM insights. Configure the Log Analytics workspace to collect this [performance data](../agents/data-sources-windows-events.md). There is a cost for the ingestion and retention of this data in the workspace. Be careful to not collect performance data that's already being collected by VM insights. Only configure performance counters to be collected by the workspace if you want to collect counters not already collected by VM insights.
+You may need performance counters created by applications or the guest operating system that aren't collected by VM insights. Configure the Log Analytics workspace to collect this [performance data](../agents/data-sources-windows-events.md). There is a cost for the ingestion and retention of this data in the workspace. Be careful to not collect performance data that's already being collected by VM insights. 
 
 Performance data configured by the workspace are stored in the [Perf](/azure/azure-monitor/reference/tables/perf) table. This has a different structure than the [InsightsMetrics](/azure/azure-monitor/reference/tables/insightsmetrics) table used by VM insights.
 
@@ -120,15 +116,23 @@ Some applications will write events written to a text log stored on the virtual 
 Events from the text log are stored in a table named similar to **MyTable_CL**.  You define the name and structure of the log when you configure it. 
 
 ### Sample log queries
+The column names used here are for example only. You define the column names for your particular log when you define it. The column names for your log will most likely be different.
+
+**Count the number of events by code**
 
 ```kusto
-// To be completed.
+MyApp_CL
+| summarize count() by code
 ```
 
 ### Sample alert rule
 
+**Alert on any error event**
+
 ```kusto
-// To be completed.
+MyApp_CL
+| where status == "Error"
+| summarize AggregatedValue = count() by Computer, bin(TimeGenerated, 15m)
 ```
 ## IIS logs
 IIS running on Windows machines will write logs to a text file. Configure Log Analytics workspace to collect [IIS logs](../agents/data-sources-iis-logs.md). There is a cost for the ingestion and retention of this data in the workspace.
@@ -137,14 +141,30 @@ Records from the IIS log are stored in the [W3CIISLog](/azure/azure-monitor/refe
 
 ### Sample log queries
 
+
+**Count of IIS log entries by URL for the host www.contoso.com**
+
 ```kusto
-// To be completed.
+W3CIISLog 
+| where csHost=="www.contoso.com" 
+| summarize count() by csUriStem
+```
+
+**Total bytes received by each IIS machine**
+
+```kusto
+W3CIISLog 
+| summarize sum(csBytes) by Computer
 ```
 
 ### Sample alert rule
 
+**Alert on any record with a return status of 500**
+
 ```kusto
-// To be completed.
+W3CIISLog 
+| where scStatus==500
+| summarize AggregatedValue = count() by Computer, bin(TimeGenerated, 15m)
 ```
 
 ## Service or deamon
@@ -165,8 +185,11 @@ When you enable Change Tracking and Inventory, two new tables are created in you
 
 ### Sample log queries
 
+**List all **
+
 ```kusto
-// To be completed.
+ConfigurationChange
+| where ConfigChangeType == "Daemons" and SvcName contains "ssh" and SvcState!= "Running"
 ```
 
 
@@ -284,6 +307,11 @@ A synthetic transaction connects to an application or service running on the VM 
 |:---|:---|
 | [URL test](../app/monitor-web-app-availability.md) | Ensures that HTTP is available and returning a web page. |
 | [Multistep test](../app/availability-multistep.md) | Simulates a user session. |
+
+
+## SQL Server
+## Known applications
+Use [SQL insights](../insights/sql-insights-overview.md) to monitor SQL Server running on your virtual machines.
 
 
 ## Convert management pack logic
