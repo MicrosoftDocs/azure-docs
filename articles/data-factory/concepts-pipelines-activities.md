@@ -5,7 +5,7 @@ author: dcstwh
 ms.author: weetok
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 19/06/2021
+ms.date: 06/19/2021
 ---
 
 # Pipelines and activities in Azure Data Factory
