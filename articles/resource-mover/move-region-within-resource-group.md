@@ -13,10 +13,6 @@ ms.author: raynew
 
 In this article, learn how to move resources in a specific resource group to a different Azure region. In the resource group, you select the resources you want to move. Then, you move them using [Azure Resource Mover](overview.md).
 
-> [!IMPORTANT]
-> Azure Resource Mover is currently in public preview.
-
-
 ## Prerequisites
 
 - You need *Owner* access on the subscription in which resources you want to move are located.
