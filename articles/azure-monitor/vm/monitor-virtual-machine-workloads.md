@@ -31,6 +31,28 @@ See [Agent data sources in Azure Monitor](../agents/agent-data-sources.md) for a
 > Be careful to only collect the data that you require since there are costs associated with any data collected in your workspace. The data that you collect should only support particular analysis and alerting scenarios 
 
 
+## Convert management pack logic
+A significant number of customers implementing Azure Monitor currently monitor their virtual machine workloads using management packs in System Center Operations Manager. There are no migration tools to convert assets from Operations Manager to Azure Monitor since the platforms are fundamentally different. Your migration will instead constitute a standard Azure Monitor implementation while you continue to use Operations Manager. As you customize Azure Monitor to meet your requirements for different applications and components and as it gains more features, then you can start to retire different management packs and agents in Operations Manager.
+
+Rather than attempting to replicate the entire functionality of a management pack, analyze the critical monitoring provided by the management pack and whether you can replicate those monitoring requirements using on the methods described in the previous sections. In many cases, you can configure data collection and alert rules in Azure Monitor that will replicate enough functionality that you can retire a particular management pack. Management packs can often include hundreds and even thousands of rules and monitors.
+
+In most scenarios Operations Manager combines data collection and alerting conditions in the same rule or monitor. In Azure Monitor, you must configure data collection and an alert rule for any alerting scenarios. 
+
+One strategy is to focus on those monitors and rules that have triggered alerts in your environment. Refer to [existing reports available in Operations Manager](/system-center/scom/manage-reports-installed-during-setup) such as **Alerts** and **Most Common Alerts** which can help you identify alerts over time. You can also run the following query on the Operations Database to evaluate the most common recent alerts. 
+
+
+```sql
+select AlertName, COUNT(AlertName) as 'Total Alerts' from
+Alert.vAlertResolutionState ars
+inner join Alert.vAlertDetail adt on ars.AlertGuid = adt.AlertGuid
+inner join Alert.vAlert alt on ars.AlertGuid = alt.AlertGuid
+group by AlertName
+order by 'Total Alerts' DESC
+```
+
+Evaluate the output to identify specific alerts for migration. Ignore any alerts that have been tuned out or known to be problematic. Review your management packs to identify any additional critical alerts of interest that have never fired. 
+
+
 
 ## Windows or Syslog event
 This is a common monitoring scenario with the operating system and applications writing to the Windows events or Syslog. Create an alert as soon as a single event is found or wait for a series of matching events within a particular time window.
@@ -168,7 +190,7 @@ W3CIISLog
 ```
 
 ## Service or deamon
-To monitor the status of a Windows service or Linux daemon, enable the [Change Tracking and Inventory](../../automation/change-tracking/overview.md) solution in [Azure Automation(../../automation/overview.md). Azure Monitor has no ability to monitor the status a service or daemon, There are some possible methods such as looking for events in the Windows event log, but this is unreliable. You could also look for the process associated with the service running on the machine from the [VMProcess](/azure/azure-monitor/reference/tables/vmprocess) table, but this only updated every hour which is not typically sufficient for alerting.
+To monitor the status of a Windows service or Linux daemon, enable the [Change Tracking and Inventory](../../automation/change-tracking/overview.md) solution in [Azure Automation](../../automation/overview.md). Azure Monitor has no ability to monitor the status a service or daemon, There are some possible methods such as looking for events in the Windows event log, but this is unreliable. You could also look for the process associated with the service running on the machine from the [VMProcess](/azure/azure-monitor/reference/tables/vmprocess) table, but this only updated every hour which is not typically sufficient for alerting.
 
 > [!NOTE]
 > The Change Tracking and Analysis solution is different the [Change Analysis](vminsights-change-analysis.md) feature in VM insights. This feature is in public preview and not yet included in this scenario. 
@@ -228,11 +250,13 @@ ConfigurationData
 Port monitoring verifies that a machine is listening on a particular port. There are two potential strategies for port monitoring described below.
 
 ### Dependency agent tables
-Use the [VMConnection](/azure/azure-monitor/reference/tables/vmconnection) and [VMBoundPort](/azure/azure-monitor/reference/tables/vmboundport) to analyze ports and connections on the machine. – Analysis of network connection data with Azure Monitor for virtual machines
-The VMBoundPort table is updated every minute with each process running on the computer and the port is listening on. You could create a log query alert  similar to the missing heartbeat alert to find processes that have stopped or to alert when the machine isn’t listening on a particular port. 
+Use the [VMConnection](/azure/azure-monitor/reference/tables/vmconnection) and [VMBoundPort](/azure/azure-monitor/reference/tables/vmboundport) to analyze ports and connections on the machine. The VMBoundPort table is updated every minute with each process running on the computer and the port is listening on. You could create a log query alert  similar to the missing heartbeat alert to find processes that have stopped or to alert when the machine isn’t listening on a particular port. 
+
+### Sample log queries
+
+**Review the count of ports open on your VMs, which is useful when assessing which VMs configuration and security vulnerabilities.**
 
 ```kusto
-// Review the count of ports open on your VMs, which is useful when assessing which VMs configuration and security vulnerabilities.
 VMBoundPort
 | where Ip != "127.0.0.1"
 | summarize by Computer, Machine, Port, Protocol
@@ -240,18 +264,17 @@ VMBoundPort
 | order by OpenPorts desc
 ```
 
+**List the bound ports on your VMs, which is useful when assessing which VMs configuration and security vulnerabilities.**
 
 ```kusto
-// List the bound ports on your VMs, which is useful when assessing which VMs configuration and security vulnerabilities.
 VMBoundPort
 | distinct Computer, Port, ProcessName
 ```
 
 
-
+**Analyze network activity by port to determine how your application or service is configured.**
 
 ```kusto
-// Analyze network activity by port to determine how your application or service is configured.
 VMBoundPort
 | where Ip != "127.0.0.1"
 | summarize BytesSent=sum(BytesSent), BytesReceived=sum(BytesReceived), LinksEstablished=sum(LinksEstablished), LinksTerminated=sum(LinksTerminated), arg_max(TimeGenerated, LinksLive) by Machine, Computer, ProcessName, Ip, Port, IsWildcardBind
@@ -259,17 +282,18 @@ VMBoundPort
 | order by Machine, Computer, Port, Ip, ProcessName
 ```
 
+**Bytes sent and received trends for your VMs.**
+
 ```kusto
-//Bytes sent and received trends for your VMs.
 VMConnection
 | summarize sum(BytesSent), sum(BytesReceived) by bin(TimeGenerated,1hr), Computer
 | order by Computer desc
-//| limit 5000
 | render timechart
 ```
 
+**Connection failures over time, to determine if the failure rate is stable or changing.**
+
 ```kusto
-// Connection failures over time, to determine if the failure rate is stable or changing.
 VMConnection
 | where Computer == <replace this with a computer name, e.g. ‘acme-demo’>
 | extend bythehour = datetime_part("hour", TimeGenerated)
@@ -279,8 +303,9 @@ VMConnection
 | render timechart
 ```
 
+**Link status trends, to analyze the behavior and connection status of a machine.**
+
 ```kusto
-// Link status trends, to analyze the behavior and connection status of a machine.
 VMConnection
 | where Computer == <replace this with a computer name, e.g. ‘acme-demo’>
 | summarize  dcount(LinksEstablished), dcount(LinksLive), dcount(LinksFailed), dcount(LinksTerminated) by bin(TimeGenerated, 1h)
@@ -293,15 +318,13 @@ Connection Manager requires the Network Watcher extension on client machine init
 
 There is an additional cost for Connection Manager. See [Network Watcher pricing](https://azure.microsoft.com/pricing/details/network-watcher/) for details.
 
-Create a metric alert rule to create an alert from Connection Manager, see [Generate alerts](../../network-watcher/connection-monitor.md#generate-alerts) for details.
-
-## Process on local machine
+## Run a process on local machine
 Monitoring of some workloads requires a local process, for example a PowerShell script running on the local machine to connect to an application and collect and/or process data. You can use [Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md) which is part of [Azure Automation](../../automation/automation-intro.md) to run a local PowerShell script. There is no direct charge for hybrid runbook worker, but there is a cost for each runbook that it uses.
 
 The runbook can access any resources on the local machine to gather required data, but it can’t send data directly to Azure Monitor or create an alert. To create an alert, have the runbook write an entry to a custom log and then configure that log to be collected by Azure Monitor. Create a log query alert rule that fires on that log entry.
 
 ## Synthetic transactions
-A synthetic transaction connects to an application or service running on the VM simulating a user connection or actual user traffic. If the application is available, then you can assume that the machine is running properly. [Application insights](../app/app-insights-overview.md) in Azure Monitor provides this functionality. This only works for applications that are accessible from the internet. For internal applications, you must open a firewall to allow access from specific Microsoft URLs performing the test, or use an alternate monitoring solution such as System Center Operations Manager.
+A synthetic transaction connects to an application or service running on a machine, simulating a user connection or actual user traffic. If the application is available, then you can assume that the machine is running properly. [Application insights](../app/app-insights-overview.md) in Azure Monitor provides this functionality. This only works for applications that are accessible from the internet. For internal applications, you must open a firewall to allow access from specific Microsoft URLs performing the test, or use an alternate monitoring solution such as System Center Operations Manager.
 
 |Method | Description |
 |:---|:---|
@@ -310,30 +333,8 @@ A synthetic transaction connects to an application or service running on the VM 
 
 
 ## SQL Server
-## Known applications
+
 Use [SQL insights](../insights/sql-insights-overview.md) to monitor SQL Server running on your virtual machines.
-
-
-## Convert management pack logic
-A significant number of customers implementing Azure Monitor currently monitor their virtual machine workloads using management packs in System Center Operations Manager. There are no migration tools to convert assets from Operations Manager to Azure Monitor since the platforms are fundamentally different. Your migration will instead constitute a standard Azure Monitor implementation while you continue to use Operations Manager. As you customize Azure Monitor to meet your requirements for different applications and components and as it gains more features, then you can start to retire different management packs and agents in Operations Manager.
-
-In many cases, you can configure data collection and alert rules in Azure Monitor that will replicate enough functionality that you can retire a particular management pack. Management packs can often include hundreds and even thousands of rules and monitors. Rather than attempting to replicate the entire functionality of a management pack, analyze the critical monitoring provided by the management pack and whether you can replicate those monitoring requirements using on the methods described in the previous sections.
-
-You must configure data collection and an alert rule for any alerting scenarios. In most scenarios Operations Manager combines data collection and alerting conditions in the same rule or monitor. 
-
-One strategy is to focus on those monitors and rules that have triggered alerts in your environment. Refer to [existing reports available in Operations Manager](/system-center/scom/manage-reports-installed-during-setup) such as **Alerts** and **Most Common Alerts** which can help you identify alerts over time. You can also run the following query on the Operations Database to evaluate the most common recent alerts. 
-
-
-```sql
-select AlertName, COUNT(AlertName) as 'Total Alerts' from
-Alert.vAlertResolutionState ars
-inner join Alert.vAlertDetail adt on ars.AlertGuid = adt.AlertGuid
-inner join Alert.vAlert alt on ars.AlertGuid = alt.AlertGuid
-group by AlertName
-order by 'Total Alerts' DESC
-```
-
-Evaluate the output to identify specific alerts for migration. Ignore any alerts that have been tuned out or known to be problematic. Review your management packs to identify any additional critical alerts of interest that have never fired. 
 
 
 
