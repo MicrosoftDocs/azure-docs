@@ -13,7 +13,7 @@ Welcome to what's new in the Azure Monitor docs from May, 2021. This article lis
 
 **Updated articles**
 
-- [Azure Monitor Frequently Asked Questions](faq.md)
+- [Azure Monitor Frequently Asked Questions](faq.yml)
 - [Azure Monitor partner integrations](partners.md)
 
 ## Alerts

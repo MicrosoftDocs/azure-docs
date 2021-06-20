@@ -141,7 +141,7 @@ To customize the device template:
     In Azure IoT Central, you can add a property that's relevant to the device. As an example, a cloud property could be an alerting threshold specific to an installation area, asset information, or other maintenance information.
 1. Select **Save** to save any changes.
 
-To learn more, see [Cloud properties](../core/quick-create-simulated-device.md#add-cloud-properties).
+To learn more, see [Cloud properties](../core/concepts-device-templates.md#cloud-properties).
 
 
 ### Views
@@ -150,20 +150,20 @@ The water consumption monitor device template comes with predefined views. The v
 
   ![Device template views](./media/tutorial-waterconsumptionmonitoring/water-consumption-monitoring-device-template-views.png)
 
-To learn more, see [Views](../core/quick-create-simulated-device.md#views).
+To learn more, see [Views](../core/concepts-device-templates.md#views).
 
 ### Publish the device template
 
 Navigate to device templates page and select **Publish** to save any changes made to the device template.
 
-To learn more, see [How to publish templates](../core/quick-create-simulated-device.md#publish-device-template).
+To learn more, see [How to publish templates](../core/howto-set-up-template.md#publish-a-device-template).
 
 ### Create a new device template
 
 Select **+ New** to create a new device template and follow the creation process.
 You can create a custom device template from scratch, or you can choose a device template from the Azure Device Catalog.
 
-To learn more, see [How to add device templates](../core/quick-create-simulated-device.md#add-a-device-template).
+To learn more, see [How to add device templates](../core/howto-set-up-template.md).
 
 ## Explore simulated devices
 
@@ -190,7 +190,7 @@ In Azure IoT Central, you can create simulated devices to test your device templ
 
 Add new devices by selecting **+ New** on the **Devices** tab.
 
-To learn more, see [How to add new devices](../core/quick-create-simulated-device.md#add-a-simulated-device).
+To learn more, see [Manage devices](../core/howto-manage-devices.md).
 
 ## Explore rules
 

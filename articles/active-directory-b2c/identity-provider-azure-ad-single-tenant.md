@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/15/2021
+ms.date: 06/17/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit, project-no-code
@@ -68,6 +68,10 @@ If you want to get the `family_name` and `given_name` claims from Azure AD, you 
 1. For the **Token type**, select **ID**.
 1. Select the optional claims to add, `family_name` and `given_name`.
 1. Click **Add**.
+
+## [Optional] Verify your app authenticity
+
+[Publisher verification](../active-directory/develop/publisher-verification-overview.md) helps your users understand the authenticity of the app you [registered](#register-an-azure-ad-app). A verified app means that the publisher of the app has [verified](/partner-center/verification-responses) their identity using their Microsoft Partner Network (MPN). Learn how to [mark your app as publisher verified](../active-directory/develop/mark-app-as-publisher-verified.md). 
 
 ::: zone pivot="b2c-user-flow"
 
@@ -236,4 +240,4 @@ If the sign-in process is successful, your browser is redirected to `https://jwt
 
 ## Next steps
 
-[Publisher verification](../active-directory/develop/publisher-verification-overview.md) helps your users understand the authenticity of the app you [registered](#register-an-azure-ad-app). A verified app means that the publisher of the app has [verified](/partner-center/verification-responses) their identity using their Microsoft Partner Network (MPN). Learn how to [mark your app as publisher verified](../active-directory/develop/mark-app-as-publisher-verified.md). 
+Learn how to [pass the Azure AD token to your application](idp-pass-through-user-flow.md).
