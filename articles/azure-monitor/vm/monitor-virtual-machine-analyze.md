@@ -54,7 +54,7 @@ Access the single machine analysis experience from the **Monitoring** section of
 - **Workbooks.** Open the workbook gallery with the VM insights workbooks for single machines. See [VM insights workbooks](vminsights-workbooks.md#vm-insights-workbooks) for a list of the VM insights workbooks designed for individual machines.  
 
 ## Multiple machine experience
-Access the mulitple machine analysis experience from the **Monitor** menu in the Azure portal for each Azure virtual machine and Azure Arc enabled server. These options provide access to all data so that you can select the virtual machines that you're interested in comparing.
+Access the multiple machine analysis experience from the **Monitor** menu in the Azure portal for each Azure virtual machine and Azure Arc enabled server. These options provide access to all data so that you can select the virtual machines that you're interested in comparing.
 
 
 :::image type="content" source="media/monitor-virtual-machines/monitor-menu.png" alt-text="Analyze multiple VMs in the Azure portal" lightbox="media/monitor-virtual-machines/monitor-menu.png":::
@@ -71,9 +71,9 @@ Access the mulitple machine analysis experience from the **Monitor** menu in the
 
 - **Workbooks**  Open the workbook gallery with the VM insights workbooks for multiple machines. See [VM insights workbooks](vminsights-workbooks.md#vm-insights-workbooks) for a list of the VM insights workbooks designed for multiple machines. 
 
-- **Virtual Machines.**  Open [VM insights](../vm/vminsights-overview.md) with the **Get Started** tab open. This displays all machines in your Azure subscription,identifying which are being monitored. Use this view to onboard individual machines that aren't already being monitored.
+- **Virtual Machines.**  Open [VM insights](../vm/vminsights-overview.md) with the **Get Started** tab open. This displays all machines in your Azure subscription, identifying which are being monitored. Use this view to onboard individual machines that aren't already being monitored.
 
-    Click on the **Performance** tab to compare trends of critical performance counters for multiple machines over different periods of time. Select all machines in a subscription or resource groupto include in the view. See [How to chart performance with VM insights](vminsights-performance.md#view-performance-directly-from-an-azure-vm) for details on using the map view for a single machine.
+    Click on the **Performance** tab to compare trends of critical performance counters for multiple machines over different periods of time. Select all machines in a subscription or resource group to include in the view. See [How to chart performance with VM insights](vminsights-performance.md#view-performance-directly-from-an-azure-vm) for details on using the map view for a single machine.
 
     Click on the Map tab to view running processes on machines, dependencies between machines and external processes. Select all machines in a subscription or resource group, or inspect the data for a single machine. See [Use the Map feature of VM insights to understand application components](vminsights-maps.md#view-a-map-from-azure-monitor) for details on using the map view for multiple machines.  |
  
@@ -81,7 +81,7 @@ Access the mulitple machine analysis experience from the **Monitor** menu in the
 For many features of Azure Monitor, you don't need to understand the different types of data it uses and where it's stored. You can use VM insights, for example, without any understanding of what data is being used to populate the Performance view, Map view, and workbooks. You just focus on the logic that you're analyzing. As you dig deeper though, there are cases where you will need to understand the difference between [Metrics](../essentials/data-platform-metrics.md) and [Logs](../logs/data-platform-logs.md)  since different features of Azure Monitor use different kinds of data, and the type of alerting that you use for a particular scenario will depend on having that data available in a particular location.
 
 
-This can confusing if you're new to Azure Monitor, but the following details should help you understand the differences between the types of data. 
+This can be confusing if you're new to Azure Monitor, but the following details should help you understand the differences between the types of data. 
 
 - Any non-numeric data such as events is stored in Logs. Metrics can only include numeric data that's sampled at regular intervals.
 - Numeric data can be stored in both Metrics and Logs so it can be analyzed in different ways and support different types of alerts.
@@ -107,7 +107,7 @@ Use the **Map** view to see running processes on machines and their dependencies
 :::image type="content" source="media/monitor-virtual-machines/vminsights-map.png" alt-text="VM insights map" lightbox="media/monitor-virtual-machines/vminsights-map.png":::
 
 ## Analyze metric data with metrics explorer
-Metrics explorer allows you plot charts, visually correlate trends, and investige spikes and dips in metrics' values. See [Getting started with Azure Metrics Explorer](../essentials/metrics-getting-started.md) for details on using this tool. 
+Metrics explorer allows you plot charts, visually correlate trends, and investigate spikes and dips in metrics' values. See [Getting started with Azure Metrics Explorer](../essentials/metrics-getting-started.md) for details on using this tool. 
 
 There are three namespaces used by virtual machines:
 
@@ -155,14 +155,14 @@ VM insights includes the following workbooks. You can use these workbooks or use
 |----------|-------------|
 | Performance | Provides a customizable version of the Top N List and Charts view in a single workbook that leverages all of the Log Analytics performance counters that you have enabled.|
 | Performance counters | A Top N chart view across a wide set of performance counters. |
-| Connections | Connections provides an in-depth view of the inbound and outbound connections from your monitored VMs. |
-| Active Ports | Provides a list of the processes that have bound to the ports on the monitored VMs and their activity in the chosen timeframe. |
-| Open Ports | Provides the number of ports open on your monitored VMs and the details on those open ports. |
-| Failed Connections | Display the count of failed connections on your monitored VMs, the failure trend, and if the percentage of failures is increasing over time. |
+| Connections | Provides an in-depth view of the inbound and outbound connections from your monitored machines. |
+| Active Ports | Provides a list of the processes that have bound to the ports on the monitored machines and their activity in the chosen timeframe. |
+| Open Ports | Provides the number of ports open on your monitored machines and the details on those open ports. |
+| Failed Connections | Display the count of failed connections on your monitored machines, the failure trend, and if the percentage of failures is increasing over time. |
 | Security and Audit | An analysis of your TCP/IP traffic that reports on overall connections, malicious connections, where the IP endpoints reside globally.  To enable all features, you will need to enable Security Detection. |
-| TCP Traffic | A ranked report for your monitored VMs and their sent, received, and total network traffic in a grid and displayed as a trend line. |
+| TCP Traffic | A ranked report for your monitored machines and their sent, received, and total network traffic in a grid and displayed as a trend line. |
 | Traffic Comparison | Compare network traffic trends for a single machine or a group of machines. |
-| Log Analytics agent | Analyze the health of your agents including the number of agents connecting to a workspace, which are unhealthy, and the affect of the agent on the performance of the machine. This workbook isn't available from VM insights like the other workbooks. Go to **Workbooks** in the Azure Monitor menu and select **Public Templates**. |
+| Log Analytics agent | Analyze the health of your agents including the number of agents connecting to a workspace, which are unhealthy, and the effect of the agent on the performance of the machine. This workbook isn't available from VM insights like the other workbooks. Go to **Workbooks** in the Azure Monitor menu and select **Public Templates**. |
 
 See [Create interactive reports VM insights with workbooks](vminsights-workbooks.md) for detailed instructions on creating your own custom workbooks.
 

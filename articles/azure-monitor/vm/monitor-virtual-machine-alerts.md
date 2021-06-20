@@ -325,7 +325,7 @@ Scroll down to **Alert logic** and select **Metric measurement** for the **Based
 
 Scroll down to **Alert logic** and select **Metric measurement** for the **Based on** property. Provide a **Threshold** value to compare to the value returned from the query. In this example, we'll use *80*. In **Trigger Alert Based On**, specify how many times the threshold must be exceeded before an alert is created. For example, you may not care if the processor exceeds a threshold once and then returns to normal, but you do care if it continues to exceed the threshold over multiple consecutive measurements. For this example, we'll set **Consecutive breaches** to *3*.
 
-Scroll down to **Evaluated based on**. **Period** specifies the time span for the query. Specify a value of **15** minutes, which means that the query will only use data collected in the last 15 minutes. **Frequency** specifies how often the query is run. A lower value will make the alert rule more responsive but also have a higher cost. Specify **15** to run the query every minutes.
+Scroll down to **Evaluated based on**. **Period** specifies the time span for the query. Specify a value of **15** minutes, which means that the query will only use data collected in the last 15 minutes. **Frequency** specifies how often the query is run. A lower value will make the alert rule more responsive but also have a higher cost. Specify **15** to run the query every 15 minutes.
 
 :::image type="content" source="media/monitor-virtual-machines/log-alert-metric-rule.png" alt-text="Metric measurement alert query rule" lightbox="media/monitor-virtual-machines/log-alert-metric-rule.png":::
 
@@ -357,7 +357,7 @@ Click the **Condition** to view the configuration. The query is already filled i
 
 Scroll down to **Alert logic** and select **Number of results** for the **Based on** property. For this example, we want an alert if any records are returned, which means that at least one virtual machine has a processor above 80%. Select *Greater than* for the **Operator** and *0* for the **Threshold value**.
 
-Scroll down to **Evaluated based on**. **Period** specifies the time span for the query. Specify a value of **15** minutes, which means that the query will only use data collected in the last 15 minutes. **Frequency** specifies how often the query is run. A lower value will make the alert rule more responsive but also have a higher cost. Specify **15** to run the query every minutes.
+Scroll down to **Evaluated based on**. **Period** specifies the time span for the query. Specify a value of **15** minutes, which means that the query will only use data collected in the last 15 minutes. **Frequency** specifies how often the query is run. A lower value will make the alert rule more responsive but also have a higher cost. Specify **15** to run the query every 15 minutes.
 
 :::image type="content" source="media/monitor-virtual-machines/log-alert-number-rule.png" alt-text="Number of results alert query rule" lightbox="media/monitor-virtual-machines/log-alert-number-rule.png":::
 

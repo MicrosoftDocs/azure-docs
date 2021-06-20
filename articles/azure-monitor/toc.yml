@@ -161,7 +161,7 @@
       - name: Overview
         href: vm/monitor-virtual-machine.md
       - name: Configure monitoring
-        href: vm/monitor-virtual-machine-onboard.md
+        href: vm/monitor-virtual-machine-configure.md
       - name: Analyze data
         href: vm/monitor-virtual-machine-analyze.md
       - name: Monitor security

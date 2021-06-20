@@ -189,8 +189,8 @@ W3CIISLog
 | summarize AggregatedValue = count() by Computer, bin(TimeGenerated, 15m)
 ```
 
-## Service or deamon
-To monitor the status of a Windows service or Linux daemon, enable the [Change Tracking and Inventory](../../automation/change-tracking/overview.md) solution in [Azure Automation](../../automation/overview.md). Azure Monitor has no ability to monitor the status a service or daemon, There are some possible methods such as looking for events in the Windows event log, but this is unreliable. You could also look for the process associated with the service running on the machine from the [VMProcess](/azure/azure-monitor/reference/tables/vmprocess) table, but this only updated every hour which is not typically sufficient for alerting.
+## Service or daemon
+To monitor the status of a Windows service or Linux daemon, enable the [Change Tracking and Inventory](../../automation/change-tracking/overview.md) solution in [Azure Automation](../../automation/automation-intro.md). Azure Monitor has no ability to monitor the status a service or daemon, There are some possible methods such as looking for events in the Windows event log, but this is unreliable. You could also look for the process associated with the service running on the machine from the [VMProcess](/azure/azure-monitor/reference/tables/vmprocess) table, but this only updated every hour which is not typically sufficient for alerting.
 
 > [!NOTE]
 > The Change Tracking and Analysis solution is different the [Change Analysis](vminsights-change-analysis.md) feature in VM insights. This feature is in public preview and not yet included in this scenario. 
