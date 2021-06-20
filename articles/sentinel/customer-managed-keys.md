@@ -32,7 +32,7 @@ This article provides background information and steps to configure a customer-m
 >
 > - Currently, only System Assigned Identities are supported with Azure Sentinel CMK. Therefore, the dedicated Log Analytics cluster's identity should be of System Assigned type. It is recommended that it will be the identity automatically assigned to the Log Analytics cluster upon its creation.
 >
-> - Please consult Azure Sentinel's Product Group about any CMK changes to a workspace or a Log Analytics cluster at azuresentinelCMK@microsoft.com.
+> - Please consult Azure Sentinel's Product Group about any CMK changes to a production workspace or a Log Analytics cluster at azuresentinelCMK@microsoft.com.
 >
 > - Upon completing the steps in this guide, and prior to using the workspace, please contact azuresentinelCMK@microsoft.com for onboarding confirmation.
 >
