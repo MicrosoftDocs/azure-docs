@@ -188,7 +188,7 @@ After successfully signing in to the storage virtual machine interfaces, the scr
 If the test snapshot runs successfully with the script, you can schedule the actual storage snapshots. Otherwise, if unsuccessful, investigate the problems before you move forward. The test snapshot should stay around until the first real snapshots are done.
 
 
-### Step 7: Do snapshots
+### Step 7: Take snapshots
 
 When the preparation steps are finished, you can start to configure and schedule the actual storage snapshots. The script to be scheduled works with SAP HANA scale-up and scale-out configurations. For periodic and regular execution of the backup script, schedule the script by using the cron utility. 
 

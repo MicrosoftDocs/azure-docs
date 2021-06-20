@@ -276,6 +276,9 @@
         - name: Upgrade host OS
           displayName: upgrade compute cluster, upgrade compute instance, upgrade ubuntu
           href: how-to-compute-cluster-instance-os-upgrade.md
+        - name: Azure Arc enabled machine learning
+          displayName: Azure Arc, Kubernetes, on-premise, multi-cloud
+          href: how-to-attach-arc-kubernetes.md
         - name: Azure Kubernetes Service
           displayName: AKS, inference
           href: how-to-create-attach-kubernetes.md
@@ -489,6 +492,8 @@
             items:
             - name: Deploy an ML model with a managed online endpoint
               href: how-to-deploy-managed-online-endpoints.md
+            - name: Deploy a custom container with a managed online endpoint
+              href: how-to-deploy-custom-container.md
             - name: Safe rollout for online endpoints
               href: how-to-safely-rollout-managed-endpoints.md
             - name: Use managed online endpoints in studio
@@ -529,8 +534,6 @@
           href: how-to-deploy-functions.md
         - name: Azure Cognitive Search
           href: how-to-deploy-model-cognitive-search.md
-        - name: Use custom Docker image
-          href: how-to-deploy-custom-docker-image.md
         - name: IoT Edge
           href: ../iot-edge/tutorial-deploy-machine-learning.md?context=azure%2fmachine-learning%2fservice%2fcontext%2fml-context
         - name: FPGA inference
