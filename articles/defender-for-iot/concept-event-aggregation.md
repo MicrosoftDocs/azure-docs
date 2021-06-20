@@ -1,7 +1,7 @@
 ---
 title: Event aggregation (Preview)
 description: Defender for IoT security agents collects data and system events from your local device, and sends the data to the Azure cloud for processing, and analytics.
-ms.date: 06/16/2021
+ms.date: 06/20/2021
 ms.topic: conceptual
 ---
 
@@ -75,9 +75,9 @@ The data collected for each event:
 
 - **Transport_protocol** – Can be TCP, UDP, or ICMP.
 
-- **Application protocol** – The domain name server (DNS).
+- **Application protocol** – The application protocol assosiated with the connection.
 
-- **Extra details** – Additional details of the connection. For example, `host name`. 
+- **Extended properties** – Additional details of the connection. For example, `host name`. 
 
 ## Baseline (trigger based) 
 
