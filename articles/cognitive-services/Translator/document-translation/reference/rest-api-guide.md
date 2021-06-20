@@ -25,7 +25,7 @@ Document Translation is a cloud-based feature of the Azure Translator service an
 |[**Get documents status**](get-documents-status.md)|This method returns the status of a document translation job.|
 |[**Get document status**](get-document-status.md)| This method returns the status for a specific document|
 |[**Get translations status**](get-translations-status.md)| This method returns a list of batch requests submitted by a user and the status for each request.|
-|[**Get translation status**](get-translation-status) | This method returns the status for a specific document translation request. It includes the overall request status and the status for documents that are being translated as part of that request.|
+|[**Get translation status**](get-translation-status.md) | This method returns the status for a specific document translation request. It includes the overall request status and the status for documents that are being translated as part of that request.|
 |[**Cancel translation (DELETE)**](cancel-translation.md)| This method cancels a document translation that is currently processing or queued. |
 
 > [!div class="nextstepaction"]

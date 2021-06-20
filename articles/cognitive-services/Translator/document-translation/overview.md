@@ -15,7 +15,7 @@ This documentation contains the following article types:
 
 * [**Quickstarts**](get-started-with-document-translation.md) are getting-started instructions to guide you through making requests to the service.
 * [**How-to guides**](create-sas-tokens.md) contain instructions for using the feature in more specific or customized ways. 
-* [**Reference**](reference/document-translation-reference-guide.md) provide REST API settings, values , keywords and configuration.
+* [**Reference**](reference/rest-api-guide.md) provide REST API settings, values , keywords and configuration.
 
 ## Document Translation key features
 
