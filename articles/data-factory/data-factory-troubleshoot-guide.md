@@ -4,7 +4,7 @@ description: Learn how to troubleshoot external control activities in Azure Data
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 12/30/2020
+ms.date: 04/30/2020
 ms.author: abnarain
 ---
 

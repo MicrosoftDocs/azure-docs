@@ -69,6 +69,7 @@ The following code example creates a managed endpoint that,
 
 :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/managed-identities/2-sai-deployment.yml":::
 
+For a reference to the YAML, see [Managed online endpoints (preview) YAML reference](reference-online-endpoint-yaml.md).
 
 ## Configure variables for your deployment
 
@@ -116,6 +117,7 @@ Check the status of the endpoint with the following.
 
 ::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-sai.sh" id="check_endpoint_Status" :::
 
+If you encounter any issues, see [Troubleshooting managed online endpoints deployment and scoring (preview)](how-to-troubleshoot-managed-online-endpoints.md).
 
 ## Give storage permission to system-assigned managed identity
 
@@ -189,3 +191,8 @@ In this Azure Machine Learning tutorial, you used the machine learning CLI for t
 * For more information on using the CLI, see [Use the CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md).
 * To refine JSON queries to only return specific data, see [Query Azure CLI command output](/cli/azure/query-azure-cli).
 * For more information on the YAML schema, see [online endpoint YAML reference](reference-online-endpoint-yaml.md) document.
+* To see which compute resources you can use, see [Managed online endpoints SKU list (preview)](reference-managed-online-endpoints-vm-sku-list.md).
+* For more on costs, see [View costs for an Azure Machine Learning managed online endpoint (preview)](how-to-view-online-endpoints-costs.md).
+* For more on deployment, see [Safe rollout for online endpoints (preview)](how-to-safely-rollout-managed-endpoints.md).
+* For information on monitoring endpoints, see [Monitor managed online endpoints (preview)](how-to-monitor-online-endpoints.md).
+* For information on limitations for managed endpoints, see [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints-preview).
