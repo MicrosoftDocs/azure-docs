@@ -28,7 +28,7 @@ This article provides background information and steps to configure a customer-m
 >
 > - Once a workspace is onboarded as a CMK workspace, setting it as a non-CMK workspace by de-linking it from the dedicated Log Analytics CMK cluster, or setting the dedicated Log Analytics cluster as non-CMK is not supported and might lead to undefined and undesired behavior.
 >
-> - Once a workspace was onboarded to Azure Sentinel as a non-CMK workspace, linking it to a CMK Log Analytics cluster, or changing the Log Analytic cluster its currently linked to as a CMK cluster, is not supported, and will lead to its Azure Sentinel data being encrypted by a Microsoft Managed Key instead of the Customer Managed Key.
+> - Once a workspace was onboarded to Azure Sentinel as a non-CMK workspace, linking it to a CMK Log Analytics cluster, or setting the Log Analytic cluster its currently linked to, as a CMK cluster, is not supported, and will lead to its Azure Sentinel data being encrypted by a Microsoft Managed Key instead of the Customer Managed Key.
 >
 > - Currently, only System Assigned Identities are supported with Azure Sentinel CMK. Therefore, the dedicated Log Analytics cluster's identity should be of System Assigned type. It is recommended that it will be the identity automatically assigned to the Log Analytics cluster upon its creation.
 >
