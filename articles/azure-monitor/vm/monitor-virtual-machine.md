@@ -16,7 +16,7 @@ This article introduces the scenario, provides general concepts for monitoring v
 
 | Article | Description |
 |:---|:---|
-| [Enable monitoring](monitor-virtual-machine-onboard.md) | Configuration of Azure Monitor required to monitor virtual machines. This includes enabling VM insights and enabling each virtual machines for monitoring.  |
+| [Enable monitoring](monitor-virtual-machine-configure) | Configuration of Azure Monitor required to monitor virtual machines. This includes enabling VM insights and enabling each virtual machines for monitoring.  |
 | [Analyze](monitor-virtual-machine-analyze.md) | Analyze monitoring data collected by Azure Monitor from virtual machines and their guest operating systems and applications to identify trends and critical information. |
 | [Alerts](monitor-virtual-machine-alerts.md)   | Create alerts to proactively identify critical issues in your monitoring data. |
 | [Monitor security](monitor-virtual-machine-security.md) | Describes Azure services for monitoring security of virtual machines. |
