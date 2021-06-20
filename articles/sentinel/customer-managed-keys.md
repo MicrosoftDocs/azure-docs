@@ -36,7 +36,7 @@ This article provides background information and steps to configure a customer-m
 >
 > - Upon completing the steps in this guide, and prior to using the workspace, please contact azuresentinelCMK@microsoft.com for onboarding confirmation.
 >
-> - The CMK capability requires a dedicated Log Analytics cluster with 1TB a day or more of reserved capacity. Several workspaces can be linked to the same dedicated cluster. You will receive information about additional pricing when you apply to Microsoft to provision CMK on your Azure subscription. Learn more about [Log Analytics dedicated cluster](../azure-monitor/logs/manage-cost-storage.md#log-analytics-dedicated-clusters).
+> - The CMK capability requires a dedicated Log Analytics cluster with 1TB a day or more of reserved capacity. Several workspaces can be linked to the same dedicated cluster, and they will share the same customer managed key. You will receive information about additional pricing when you apply to Microsoft to provision CMK on your Azure subscription. Learn more about [Log Analytics dedicated cluster](../azure-monitor/logs/manage-cost-storage.md#log-analytics-dedicated-clusters).
 
 ## How CMK works 
 
