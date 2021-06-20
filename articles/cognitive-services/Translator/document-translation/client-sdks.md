@@ -167,7 +167,7 @@ That's it! You've created a program to translate documents in a blob container u
 [documenttranslation_nuget_package]: https://www.nuget.org/packages/Azure.AI.Translation.Document/1.0.0-beta.2
 [documenttranslation_client_library_docs]: /dotnet/api/overview/azure/ai.translation.document-readme-pre?view=azure-dotnet-preview&preserve-view=true
 [documenttranslation_docs]: overview.md
-[documenttranslation_rest_api]: reference/document-translation-rest-api-guide.md
+[documenttranslation_rest_api]: reference/rest-api-guide.md
 [documenttranslation_samples]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Translation.Document_1.0.0-beta.1/sdk/translation/Azure.AI.Translation.Document/samples/README.md
 
 ### [Python](#tab/python)
@@ -240,7 +240,7 @@ That's it! You've created a program to translate documents in a blob container u
 <!-- LINKS -->
 [python-dt-pypi]: https://aka.ms/azsdk/python/texttranslation/pypi
 [python-dt-client-library]: https://aka.ms/azsdk/python/documenttranslation/docs
-[python-rest-api]: reference/document-translation-rest-api-guide.md
+[python-rest-api]: reference/rest-api-guide.md
 [python-dt-product-docs]: overview.md
 [python-dt-samples]: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-translation-document_1.0.0b1/sdk/translation/azure-ai-translation-document/samples
 
