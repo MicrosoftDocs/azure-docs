@@ -101,7 +101,7 @@
     - name: Reference
       items:
       - name:  REST API reference guide
-        href: document-translation/rest-api-guide.md
+        href: document-translation/reference/rest-api-guide.md
       - name: Get supported document formats
         href: document-translation/reference/get-supported-document-formats.md
       - name: Get supported glossary formats
