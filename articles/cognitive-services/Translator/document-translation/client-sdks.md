@@ -12,10 +12,10 @@ ms.date: 06/14/2021
 ms.author: lajanuar
 ---
 
-# Document Translation client libraries and SDKs (preview)
+# Document Translation client libraries and SDKs (prerelease)
 <!-- markdownlint-disable MD024 -->
 > [!IMPORTANT]
-> Preview versions are still in development and aren't meant for production use. They're made available on an introductory basis so customers can get early access and provide feedback. Certain features may not be supported or might have constrained capabilities.
+> Prerelease versions are still in development and are subject to change—do not use them in production applications.. They're made available on an introductory basis so customers can get early access and provide feedback. Certain features may not be supported or might have constrained capabilities. 
 
 [Document Translation](overview.md) is a cloud-based feature of the [Azure Translator](../translator-info-overview.md) service. You can translate entire documents or process batch document translations in various file formats while preserving original document structure and format. In this article, you'll learn how to use the Document Translation service C#/.NET and Python client libraries. For the REST API, see our [Quickstart](get-started-with-document-translation.md) guide.
 
@@ -37,11 +37,11 @@ To get started, you'll need:
   * Your **source** container or blob must have designated  **read** and **list** access.
   * Your **target** container or blob must have designated  **write** and **list** access.
 
-For more information, see* [Create SAS tokens](create-sas-tokens.md).
+For more information, *see* [Create SAS tokens](create-sas-tokens.md).
 
 ### [C#/.NET](#tab/csharp)
 
-[Source code][documenttranslation_client_src] | [Package (NuGet)][documenttranslation_nuget_package] | [API reference documentation][documenttranslation_refdocs] | [Product documentation][documenttranslation_docs] | [Samples][documenttranslation_samples]
+| [Package (NuGet)][documenttranslation_nuget_package] | [Client library][documenttranslation_client_library_docs] |  [REST API][documenttranslation_rest_api] | [Product documentation][documenttranslation_docs] | [Samples][documenttranslation_samples] |
 
 ## Set up your project
 
@@ -69,10 +69,24 @@ Build succeeded.
 
 ## Install the client library
 
-Within the application directory, install the Document Translation client library for .NET with the following command:
+Within the application directory, install the Document Translation client library for .NET using one of the following methods:
 
+**.NET CLI**
 ```console
 dotnet add package Azure.AI.Translation.Document --version 1.0.0-beta.2
+```
+**NuGet Package Manager**
+```console
+Install-Package Azure.AI.Translation.Document -Version 1.0.0-beta.2
+```
+
+**NuGet PackageReference**
+```xml
+<ItemGroup>
+    <!-- ... -->
+<PackageReference Include="Azure.AI.Translation.Document" Version="1.0.0-beta.2" />
+    <!-- ... -->
+</ItemGroup>
 ```
 
 From the project directory, open the Program.cs file in your preferred editor or IDE. Add the following using directives:
@@ -146,19 +160,19 @@ That's it! You've created a program to translate documents in a blob container u
 ## Next steps
 
 > [!div class="nextstepaction"]
- > [**Explore common-scenario C# code samples**](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Translation.Document_1.0.0-beta.2/sdk/translation/Azure.AI.Translation.Document/samples)
+ > [**Explore more C# code samples**](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Translation.Document_1.0.0-beta.2/sdk/translation/Azure.AI.Translation.Document/samples)
 
 <!-- LINKS -->
 
-[documenttranslation_client_src]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Translation.Document_1.0.0-beta.1/sdk/translation/Azure.AI.Translation.Document/src
-[documenttranslation_refdocs]: /dotnet/api/overview/azure/ai.translation.document-readme-pre?view=azure-dotnet-preview&preserve-view=true
 [documenttranslation_nuget_package]: https://www.nuget.org/packages/Azure.AI.Translation.Document/1.0.0-beta.2
+[documenttranslation_client_library_docs]: /dotnet/api/overview/azure/ai.translation.document-readme-pre?view=azure-dotnet-preview&preserve-view=true
 [documenttranslation_docs]: overview.md
+[documenttranslation_rest_api]: reference/document-translation-rest-api-guide.md
 [documenttranslation_samples]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Translation.Document_1.0.0-beta.1/sdk/translation/Azure.AI.Translation.Document/samples/README.md
 
 ### [Python](#tab/python)
 
-[Source code][python-dt-src] | [Package (PyPI)][python-dt-pypi] | [API reference documentation][python-dt-ref-docs] | [Product documentation][python-dt-product-docs] | [Samples][python-dt-samples]
+| [Package (PyPI)][python-dt-pypi] |  [Client library][python-dt-client-library] |  [REST API][python-rest-api] | [Product documentation][python-dt-product-docs] | [Samples][python-dt-samples] |
 
 ## Set up your project
 
@@ -221,13 +235,13 @@ client = DocumentTranslationClient(endpoint, AzureKeyCredential(subscriptionKey)
 That's it! You've created a program to translate documents in a blob container using the Python client library.
 
 > [!div class="nextstepaction"]
-> [Explore common-scenario Python code samples](https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-translation-document_1.0.0b1/sdk/translation/azure-ai-translation-document/samples)
+> [Explore more Python code samples](https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-translation-document_1.0.0b1/sdk/translation/azure-ai-translation-document/samples)
 
 <!-- LINKS -->
-[python-dt-src]: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-translation-document_1.0.0b1/sdk/translation/azure-ai-translation-document/azure/ai/translation/document
 [python-dt-pypi]: https://aka.ms/azsdk/python/texttranslation/pypi
-[python-dt-product-docs]: /azure/cognitive-services/translator/document-translation/overview
-[python-dt-ref-docs]: https://aka.ms/azsdk/python/documenttranslation/docs
+[python-dt-client-library]: https://aka.ms/azsdk/python/documenttranslation/docs
+[python-rest-api]: reference/document-translation-rest-api-guide.md
+[python-dt-product-docs]: overview.md
 [python-dt-samples]: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-translation-document_1.0.0b1/sdk/translation/azure-ai-translation-document/samples
 
 ---

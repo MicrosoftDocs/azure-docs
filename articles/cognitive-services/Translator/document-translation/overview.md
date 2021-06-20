@@ -5,7 +5,7 @@ ms.topic: overview
 manager: nitinme
 ms.author: lajanuar
 author: laujan
-ms.date: 05/20/2021
+ms.date: 06/20/2021
 ---
 # What is Document Translation?
 
@@ -14,7 +14,8 @@ Document Translation is a cloud-based feature of the [Azure Translator](../trans
 This documentation contains the following article types:  
 
 * [**Quickstarts**](get-started-with-document-translation.md) are getting-started instructions to guide you through making requests to the service.
-* [**How-to guides**](create-sas-tokens.md) contain instructions for using the feature in more specific or customized ways.  
+* [**How-to guides**](create-sas-tokens.md) contain instructions for using the feature in more specific or customized ways. 
+* [**Reference**](reference/document-translation-reference-guide.md) provide REST API settings, values , keywords and configuration.
 
 ## Document Translation key features
 
