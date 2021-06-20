@@ -1542,17 +1542,17 @@
   - name: Monitoring VMs
     items:
     - name: Overview
-      href: vm/monitor-virtual-machine.md?context=/azure/virtual-machines
+      href: ../azure-monitor/vm/monitor-virtual-machine.md?context=/azure/virtual-machines
     - name: Configure monitoring
-      href: vm/monitor-virtual-machine-configure.md?context=/azure/virtual-machines
+      href: ../azure-monitor/vm/monitor-virtual-machine-configure.md?context=/azure/virtual-machines
     - name: Analyze data
-      href: vm/monitor-virtual-machine-analyze.md?context=/azure/virtual-machines
+      href: ../azure-monitor/vm/monitor-virtual-machine-analyze.md?context=/azure/virtual-machines
     - name: Monitor security
-      href: vm/monitor-virtual-machine-security.md?context=/azure/virtual-machines
+      href: ../azure-monitor/vm/monitor-virtual-machine-security.md?context=/azure/virtual-machines
     - name: Create alerts
-      href: vm/monitor-virtual-machine-alerts.md?context=/azure/virtual-machines
+      href: ../azure-monitor/vm/monitor-virtual-machine-alerts.md?context=/azure/virtual-machines
     - name: Monitor workloads
-      href: vm/monitor-virtual-machine-workloads.md?context=/azure/virtual-machines
+      href: ../azure-monitor/vm/monitor-virtual-machine-workloads.md?context=/azure/virtual-machines
   - name: Agents
     items:
     - name: Agents overview
