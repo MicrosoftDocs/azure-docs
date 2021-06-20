@@ -166,7 +166,7 @@
         href: vm/monitor-virtual-machine-analyze.md
       - name: Monitor security
         href: vm/monitor-virtual-machine-security.md
-      - name: Alerts
+      - name: Create alerts
         href: vm/monitor-virtual-machine-alerts.md
       - name: Monitor workloads
         href: vm/monitor-virtual-machine-workloads.md

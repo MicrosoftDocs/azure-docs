@@ -5,7 +5,7 @@ ms.service:  azure-monitor
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 05/26/2021
+ms.date: 06/21/2021
 
 ---
 
@@ -312,7 +312,7 @@ InsightsMetrics
 ```
 
 
-#### Create the alert rule
+#### Alert rule
 Select **Logs** from the Azure Monitor menu to Open Log Analytics. Make sure that the correct workspace is selected for your scope. If not, click **Select scope** in the top left and select the correct workspace. Paste in the query that has the logic you want and click **Run** to verify that it returns the correct results.
 
 :::image type="content" source="media/monitor-virtual-machines/log-alert-metric-queryresults.png" alt-text="Metric measurement alert query results" lightbox="media/monitor-virtual-machines/log-alert-metric-queryresults.png":::
@@ -345,10 +345,11 @@ InsightsMetrics
 ```
 
 
-#### Create the alert rule
-Select **Logs** from the Azure Monitor menu to Open Log Analytics. Make sure that the correct workspace is selected for your scope. If not, click **Select scope** in the top left and select the correct workspace. Paste in the query that has the logic you want and click **Run** to verify that it returns the correct results.
+#### Alert rule
+Select **Logs** from the Azure Monitor menu to Open Log Analytics. Make sure that the correct workspace is selected for your scope. If not, click **Select scope** in the top left and select the correct workspace. Paste in the query that has the logic you want and click **Run** to verify that it returns the correct results. You probably don't have a machine currently over threshold, so change to a lower threshold temporarily to verify results and then set the appropriate threshold before creating the alert rule.
 
-![Number results alert query results in Log Analytics]()
+
+:::image type="content" source="media/monitor-virtual-machines/log-alert-number-queryresults.png" alt-text="Number of results alert query results" lightbox="media/monitor-virtual-machines/log-alert-number-queryresults.png":::
 
 Click **New alert rule** to create a rule with the current query. The rule will use your workspace for the **Resource**.
 
@@ -358,7 +359,7 @@ Scroll down to **Alert logic** and select **Number of results** for the **Based 
 
 Scroll down to **Evaluated based on**. **Period** specifies the time span for the query. Specify a value of **15** minutes, which means that the query will only use data collected in the last 15 minutes. **Frequency** specifies how often the query is run. A lower value will make the alert rule more responsive but also have a higher cost. Specify **15** to run the query every minutes.
 
-![Final number of results alert rule]()
+:::image type="content" source="media/monitor-virtual-machines/log-alert-number-rule.png" alt-text="Number of results alert query rule" lightbox="media/monitor-virtual-machines/log-alert-number-rule.png":::
 
 
 
