@@ -26,13 +26,13 @@ This article provides background information and steps to configure a customer-m
 >
 > - Onboarding a CMK workspace to Sentinel is supported only via REST API and not via the Azure Portal.
 >
-> - Once a workspace is onboarded as a CMK workspace, setting it as a non-CMK workspace, de-linking it from the dedicated Log Analytics cluster, or setting the dedicated Log Analytics cluster an non-cmk is not supported and might lead to undefined and undesired behavior.
+> - Once a workspace is onboarded as a CMK workspace, setting it as a non-CMK workspace by de-linking it from the dedicated Log Analytics CMK cluster, or setting the dedicated Log Analytics cluster as non-CMK is not supported and might lead to undefined and undesired behavior.
 >
 > - Once a workspace was onboarded to Azure Sentinel as a non-CMK workspace, linking it to a CMK Log Analytics cluster, or changing the Log Analytic cluster its currently linked to as a CMK cluster, is not supported, and will lead to its Azure Sentinel data being encrypted by a Microsoft Managed Key instead of the Customer Managed Key.
 >
-> - Currently, only System Assigned Identities are supported with Azure Sentinel CMK. Therefore, the dedicated Log Analytics cluster's identity should be of System Assigned type. It is recommended that this will be the identity automatically assigned to the Log Analytics cluster upon its creation.
+> - Currently, only System Assigned Identities are supported with Azure Sentinel CMK. Therefore, the dedicated Log Analytics cluster's identity should be of System Assigned type. It is recommended that it will be the identity automatically assigned to the Log Analytics cluster upon its creation.
 >
-> - Please consult with Azure Sentinel Product Group about any CMK changes to a workspace or a Log Analytics cluster at azuresentinelCMK@microsoft.com.
+> - Please consult Azure Sentinel's Product Group about any CMK changes to a workspace or a Log Analytics cluster at azuresentinelCMK@microsoft.com.
 >
 > - Upon completing the steps in this guide, and prior to using the workspace, please contact azuresentinelCMK@microsoft.com for onboarding confirmation.
 >
@@ -95,7 +95,7 @@ Onboard the workspace to Azure Sentinel via the Onboarding API. For more informa
 ## Key Encryption Key revocation or deletion
 
 
-In the event that a user revokes the key encryption key, either by deleting it or removing access for Azure Sentinel, Azure Sentinel will
+In the event that a user revokes the key encryption key, either by deleting it or removing access for the dedicated cluster and Cosmos DB Resource Provider, Azure Sentinel will
 honor the change and behave as if the data is no longer available, within one hour. At this point, any operation that uses persistent storage resources such as
 data ingestion, persistent configuration changes, and incident creation, will be prevented. Previously stored data will not be deleted but will remain
 inaccessible. Inaccessible data is governed by the data-retention policy and will be purged in accordance with that policy.
@@ -108,7 +108,7 @@ The way to revoke access is by disabling the customer managed key in the key vau
 
 To understand more about how this works in Azure Monitor, see [Azure Monitor CMK revocation](../azure-monitor/logs/customer-managed-keys.md#key-revocation).
 
-## Key encryption key rotation
+## Customer managed key rotation
 
 
 Azure Sentinel and Log Analytics support key rotation. When a user performs key rotation in Key Vault, Azure Sentinel supports the new key within an hour.
@@ -123,7 +123,7 @@ version.
 After rotating a key, you must explicitly update the dedicated Log Analytics cluster resource in Log
 Analytics with the new Azure Key Vault key version. For more information, see [Azure Monitor CMK rotation](../azure-monitor/logs/customer-managed-keys.md#key-rotation).
 
-## Replacing a key
+## Replacing a customer managed key
 
 Azure Sentinel and Log Analytics support replacing a customer managed key. In order to replace the key, create another key in the same key vault or another key vault and configure it according to the key creatin instructions above. Then, update the dedicated Log Analytics cluster with the new key. Sentinel will detect the key change and will use it across all Azure Sentinel's data storage resources within 1 hour.
 
