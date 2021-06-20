@@ -97,7 +97,7 @@
       - name: Create SAS tokens for Document Translation
         href: document-translation/create-sas-tokens.md
       - name: Create and use managed identities
-        href: managed-identity.md
+        href: document/translation/managed-identity.md
     - name: Reference
       items:
       - name: Get supported document formats
