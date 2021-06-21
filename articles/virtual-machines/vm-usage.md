@@ -127,7 +127,7 @@ Microsoft.ClassicCompute represents classic resources deployed via the Azure Ser
 ### Why is the InstanceID field blank for my Virtual Machine usage?
 If you deploy via the classic deployment model, the InstanceID string is not available.
 ### Why are the tags for my VMs not flowing to the usage details?
-Tags only flow to you the Usage CSV for Resource Manager VMs only. Classic resource tags are not available in the usage details.
+Tags flow to the Usage CSV for Resource Manager VMs only. Classic resource tags are not available in the usage details.
 ### How can the consumed quantity be more than 24 hours one day?
 In the Classic model, billing for resources is aggregated at the Cloud Service level. If you have more than one VM in a Cloud Service that uses the same billing meter, your usage is aggregated together. VMs deployed via Resource Manager are billed at the VM level, so this aggregation will not apply.
 ### Why is pricing not available for DS/FS/GS/LS sizes on the pricing page?
