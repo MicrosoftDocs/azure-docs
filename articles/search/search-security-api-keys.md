@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 06/21/2021
 ---
 
-# Create and manage API keys for authentication to Azure Cognitive Search
+# Use API keys for Azure Cognitive Search authentication
 
 Key-based authentication uses access keys (or an *API key* as it's called in Cognitive Search) that are unique to your service to authenticate requests. Passing a valid API key on the request is considered proof that the request is from an authorized client. In Cognitive Search, key-based authentication is used for all inbound operations. 
 
