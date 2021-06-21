@@ -8,7 +8,7 @@ ms.date: 05/19/2021
 
 # Deploy and configure Azure VMware Solution
 
-In this article, you'll use the information from the [planning section](production-ready-deployment-steps.md) to deploy and configure Azure VMware Solution. 
+In this article, you'll use the information from the [planning section](quickstart-production-ready-deployment-steps.md) to deploy and configure Azure VMware Solution. 
 
 The diagram shows the deployment workflow of Azure VMware Solution. 
 
@@ -70,4 +70,4 @@ You should have connectivity between the Azure Virtual Network where the Express
 In the next section, you'll connect Azure VMware Solution to your on-premises network through ExpressRoute.
 
 > [!div class="nextstepaction"]
-> [Connect to your on-premises environment](tutorial-expressroute-global-reach-private-cloud.md)
+> [Connect to your on-premises environment](quickstart-expressroute-global-reach-private-cloud.md)

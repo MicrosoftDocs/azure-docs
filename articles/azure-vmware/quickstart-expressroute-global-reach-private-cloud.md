@@ -72,7 +72,7 @@ You should now see in your **on-premises edge router** where the ExpressRoute co
 Continue to the next tutorial to learn how to deploy and configure VMware HCX solution for your Azure VMware Solution private cloud.
 
 > [!div class="nextstepaction"]
-> [Deploy and configure VMware HCX](tutorial-deploy-vmware-hcx.md)
+> [Deploy and configure VMware HCX](quickstart-configure-vmware-hcx.md)
 
 
 <!-- LINKS - external-->

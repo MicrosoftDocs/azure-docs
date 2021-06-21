@@ -6,16 +6,18 @@
     href: introduction.md
   - name: Platform updates
     href: azure-vmware-solution-platform-updates.md
-- name: Quick start
+- name: Quickstart
   items:
     - name: 1 - Plan the deployment
-      href: production-ready-deployment-steps.md
+      href: quickstart-production-ready-deployment-steps.md
     - name: 2 - Deploy Azure VMware Solution
-      href: deploy-azure-vmware-solution.md
-    - name: 3 - Connect to on-premises
-      href: tutorial-expressroute-global-reach-private-cloud.md
-    - name: 4 - Deploy and configure VMware HCX
-      href: tutorial-deploy-vmware-hcx.md
+      href: quickstart-deploy-azure-vmware-solution.md
+    - name: 3 - Connect to on-premises environment
+      href: quickstart-expressroute-global-reach-private-cloud.md
+    - name: 4 - Install VMware HCX Connector
+      href: quickstart-install-vmware-hcx.md
+    - name: 5 - Configure on-premises VMware HCX Connector
+      href: quickstart-configure-vmware-hcx.md
 - name: Tutorials
   items:
   - name: 1 - Network planning checklist
@@ -28,13 +30,9 @@
     href: tutorial-configure-networking.md
   - name: 5 - Create an NSX-T network segment
     href: tutorial-nsx-t-network-segment.md
-  - name: 6 - Peer on-premises to private cloud
-    href: tutorial-expressroute-global-reach-private-cloud.md
-  - name: 7 - Deploy and configure VMware HCX
-    href: tutorial-deploy-vmware-hcx.md
-  - name: 8 - Expand or shrink clusters in a private cloud
+  - name: 6 - Expand or shrink clusters in a private cloud
     href: tutorial-scale-private-cloud.md
-  - name: 9 - Delete a private cloud
+  - name: 7 - Delete a private cloud
     href: tutorial-delete-private-cloud.md
 - name: Concepts
   items:

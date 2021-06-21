@@ -27,7 +27,7 @@ It's important to request a host quota early as you prepare to create your Azure
 Identify the subscription you plan to use to deploy Azure VMware Solution.  You can either create a new subscription or reuse an existing one.
 
 >[!NOTE]
->The subscription must be associated with a Microsoft Enterprise Agreement or a Cloud Solution Provider Azure plan. For more information, see [How to enable Azure VMware Solution resource](deploy-azure-vmware-solution.md#step-1-register-the-microsoftavs-resource-provider).
+>The subscription must be associated with a Microsoft Enterprise Agreement or a Cloud Solution Provider Azure plan. For more information, see [How to enable Azure VMware Solution resource](quickstart-deploy-azure-vmware-solution.md#step-1-register-the-microsoftavs-resource-provider).
 
 ## Identify the resource group
 
@@ -117,4 +117,4 @@ If you do extend network segments, identify those networks now following these g
 Now that you've gathered and documented the needed information continue to the next section to create your Azure VMware Solution private cloud.
 
 > [!div class="nextstepaction"]
-> [Deploy Azure VMware Solution](deploy-azure-vmware-solution.md)> 
+> [Deploy Azure VMware Solution](quickstart-deploy-azure-vmware-solution.md)> 

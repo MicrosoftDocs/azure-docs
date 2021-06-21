@@ -71,14 +71,16 @@ landingContent:
     linkLists:
       - linkListType: deploy
         links:
-          - text: 1 - Plan the deployment
-            url: production-ready-deployment-steps.md
-          - text: 2 - Deploy Azure VMware Solution
-            url: deploy-azure-vmware-solution.md
-          - text: 3 - Connect to on-premises
-            url: tutorial-expressroute-global-reach-private-cloud.md
-          - text: 4 - Deploy and configure HCX
-            url: tutorial-deploy-vmware-hcx.md
+        - text: 1 - Plan the deployment
+          url: quickstart-production-ready-deployment-steps.md
+        - text: 2 - Deploy Azure VMware Solution
+          url: quickstart-deploy-azure-vmware-solution.md
+        - text: 3 - Connect to on-premises environment
+          url: quickstart-expressroute-global-reach-private-cloud.md
+        - text: 4 - Install VMware HCX Connector
+          url: quickstart-install-vmware-hcx.md
+        - text: 5 - Configure on-premises VMware HCX Connector
+          url: quickstart-configure-vmware-hcx.md
       - linkListType: tutorial
         links:
           - text: Network planning checklist 
@@ -91,8 +93,6 @@ landingContent:
             url: tutorial-configure-networking.md
           - text: Create an NSX-T network segment 
             url: tutorial-nsx-t-network-segment.md
-          - text: Peer on-premises to private cloud 
-            url: tutorial-expressroute-global-reach-private-cloud.md
           - text: Expand or shrink clusters in a private cloud 
             url: tutorial-scale-private-cloud.md
           - text: Delete a private cloud

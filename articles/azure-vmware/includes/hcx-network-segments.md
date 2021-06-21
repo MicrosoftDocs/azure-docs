@@ -5,7 +5,7 @@ ms.topic: include
 ms.date: 03/13/2021
 ---
 
-<!-- Used in avs-production-ready-deployment.md and tutorial-deploy-vmware-hcx.md -->
+<!-- Used in avs-production-ready-deployment.md and quickstart-configure-vmware-hcx.md -->
 
 There are varying ways to configure VMware HCX network segments on-premises. The following outlines a simple configuration that supports a pilot or small production use case.  When designing for hundreds or thousands of workloads, this configuration may need to change, depending on the needs of the migration.  
 

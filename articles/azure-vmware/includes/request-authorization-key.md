@@ -5,7 +5,7 @@ ms.topic: include
 ms.date: 03/15/2021
 ---
 
-<!-- used in tutorial-expressroute-global-reach-private-cloud.md and create-ipsec-tunnel.md -->
+<!-- used in quickstart-expressroute-global-reach-private-cloud.md and create-ipsec-tunnel.md -->
 
 1. In the Azure portal, navigate to the Azure VMware Solution private cloud. Select **Manage** > **Connectivity** > **ExpressRoute** and then select **+ Request an authorization key**.
 
