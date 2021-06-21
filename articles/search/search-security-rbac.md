@@ -17,15 +17,17 @@ Azure provides a [global role-based authorization (RBAC) model](../role-based-ac
 
 + Portal access. Role membership determines the level of *service administration* rights.
 
-+ Outbound indexer access to external Azure data sources. When you [configure a system or managed identity](search-howto-managed-identities-data-sources.md) for a search service, you can use RBAC on external data services, such as Azure Blob Storage or Azure SQL, to allow read operations from the trusted search service.
++ Outbound indexer access to external Azure data sources. When you [configure a managed identity](search-howto-managed-identities-data-sources.md), you can use RBAC on external data services, such as Azure Blob Storage, to allow read operations from the trusted search service.
 
 RBAC scenarios that are **not** supported includ:
 
-+ [Custom roles](../role-based-access-control/custom-roles.md).
++ [Custom roles](../role-based-access-control/custom-roles.md)
 
-+ Inbound requests to the search service, such as creating or querying an index. Use [key-based authentication](search-security-api-keys.md) instead.
++ Inbound requests to the search service, such as creating or querying an index (use [key-based authentication](search-security-api-keys.md) instead)
 
-+ User-identity access over search results (sometimes referred to as row-level security). For document-level security, you can create security filters to trim results by identity, removing documents for which the requestor should not have access. For more information, see [Security filters](search-security-trimming-for-azure-search.md).
++ User-identity access over search results (sometimes referred to as row-level security)
+
+  For document-level security, you can create [security filters](search-security-trimming-for-azure-search.md) to trim results by identity, removing documents for which the requestor should not have access.
 
 ## Azure roles used in Search
 
