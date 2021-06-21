@@ -23,11 +23,11 @@
     - name: "Python get started (Day 1)"
       expanded: true
       items:
-        - name: '1. "Hello world"'
+        - name: '1. Run a Python script'
           href: tutorial-1st-experiment-hello-world.md
         - name: 2. Train your model
           href: tutorial-1st-experiment-sdk-train.md
-        - name: 3. Bring your own data
+        - name: 3. Use your own data
           href: tutorial-1st-experiment-bring-data.md
     - name: Jupyter Notebooks
       items:
@@ -276,6 +276,9 @@
         - name: Upgrade host OS
           displayName: upgrade compute cluster, upgrade compute instance, upgrade ubuntu
           href: how-to-compute-cluster-instance-os-upgrade.md
+        - name: Azure Arc enabled machine learning
+          displayName: Azure Arc, Kubernetes, on-premise, multi-cloud
+          href: how-to-attach-arc-kubernetes.md
         - name: Azure Kubernetes Service
           displayName: AKS, inference
           href: how-to-create-attach-kubernetes.md
@@ -489,6 +492,8 @@
             items:
             - name: Deploy an ML model with a managed online endpoint
               href: how-to-deploy-managed-online-endpoints.md
+            - name: Deploy a custom container with a managed online endpoint
+              href: how-to-deploy-custom-container.md
             - name: Safe rollout for online endpoints
               href: how-to-safely-rollout-managed-endpoints.md
             - name: Use managed online endpoints in studio
@@ -529,8 +534,6 @@
           href: how-to-deploy-functions.md
         - name: Azure Cognitive Search
           href: how-to-deploy-model-cognitive-search.md
-        - name: Use custom Docker image
-          href: how-to-deploy-custom-docker-image.md
         - name: IoT Edge
           href: ../iot-edge/tutorial-deploy-machine-learning.md?context=azure%2fmachine-learning%2fservice%2fcontext%2fml-context
         - name: FPGA inference
@@ -635,6 +638,9 @@
     - name: Manage resource quotas
       displayName: limits
       href: how-to-manage-quotas.md
+    - name: Manage and optimize cost
+      displayName: cost-management,cost-optimization
+      href: how-to-manage-optimize-cost.md      
     - name: Manage resources VS Code
       displayName: vscode,resources
       href: how-to-manage-resources-vscode.md
@@ -661,9 +667,6 @@
     - name: Python SDK
       displayName: api, core, package, python, class
       href: /python/api/overview/azure/ml/intro
-    - name: R SDK
-      displayName: api, core, package, R, class
-      href: https://azure.github.io/azureml-sdk-for-r/reference/index.html
     - name: CLI (v1)
       displayName: extension, command line, command-line, az, ci/cd, automate, automated
       href: reference-azure-machine-learning-cli.md
@@ -676,7 +679,7 @@
       href: reference-online-endpoint-yaml.md
     - name: Machine learning pipeline YAML reference
       href: reference-pipeline-yaml.md
-    - name: Sovereign cloud parity
+    - name: Feature availability across regions
       href: reference-machine-learning-cloud-parity.md
     - name: Azure Policy built-ins
       displayName: samples, policies, definitions

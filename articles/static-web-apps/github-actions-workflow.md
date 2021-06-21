@@ -140,14 +140,15 @@ The `repo_token`, `action`, and `azure_static_web_apps_api_token` values are set
 
 ## Custom build commands
 
-You can have fine-grained control over what commands run during a deployment. The following commands can be defined under a job's `with` section.
+You can have fine-grained control over what commands run during the app or API build process. The following commands can be defined under a job's `with` section.
 
-The deployment always calls `npm install` before any custom command.
+> [!NOTE]
+> Currently, you can only define custom build commands for Node.js builds. The build process always calls `npm install` before any custom command.
 
 | Command             | Description                                                                                                                                                                                                                                                                                                                                                                                |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `app_build_command` | Defines a custom command to run during deployment of the static content application.<br><br>For example, to configure a production build for an Angular application create an npm script named `build-prod` to run `ng build --prod` and enter `npm run build-prod` as the custom command. If left blank, the workflow tries to run the `npm run build` or `npm run build:azure` commands. |
-| `api_build_command` | Defines a custom command to run during deployment of the Azure Functions API application.                                                                                                                                                                                                                                                                                                  |
+| `app_build_command` | Defines a custom command to build the static content application.<br><br>For example, to configure a production build for an Angular application create an npm script named `build-prod` to run `ng build --prod` and enter `npm run build-prod` as the custom command. If left blank, the workflow tries to run the `npm run build` or `npm run build:azure` commands. |
+| `api_build_command` | Defines a custom command to build the Azure Functions API application.                                                                                                                                                                                                                                                                                                  |
 
 ## Skip app build
 

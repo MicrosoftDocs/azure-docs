@@ -30,8 +30,6 @@ For more information, see [Deploy an application with Azure Resource Manager tem
 
 * To use a template from a CLI, you need either [Azure PowerShell](/powershell/azure/) or the [Azure CLI](/cli/azure/install-azure-cli).
 
-* Some scenarios require you to open a support ticket. For example, using a Private Link enabled workspace with a customer-managed key. For more information, see [Manage and increase quotas](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
-
 ## Limitations
 
 [!INCLUDE [register-namespace](../../includes/machine-learning-register-namespace.md)]
@@ -72,7 +70,7 @@ The example template has two **required** parameters:
 
 For more information on templates, see the following articles:
 
-* [Author Azure Resource Manager templates](../azure-resource-manager/templates/template-syntax.md)
+* [Author Azure Resource Manager templates](../azure-resource-manager/templates/syntax.md)
 * [Deploy an application with Azure Resource Manager templates](../azure-resource-manager/templates/deploy-powershell.md)
 * [Microsoft.MachineLearningServices resource types](/azure/templates/microsoft.machinelearningservices/allversions)
 

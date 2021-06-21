@@ -99,8 +99,6 @@ items:
         href: concepts/telephony-sms/messaging-policy.md
   - name: Voice and video calling
     items:
-      - name: Known issues
-        href: concepts/known-issues.md
       - name: Calling SDK overview
         href: concepts/voice-video-calling/calling-sdk-features.md
       - name: Voice and video concepts
@@ -111,6 +109,8 @@ items:
         href: concepts/call-flows.md
       - name: Call flow topologies
         href: concepts/detailed-call-flows.md
+      - name: Known issues
+        href: concepts/known-issues.md
   - name: UI Library
     items:
       - name: UI Library overview

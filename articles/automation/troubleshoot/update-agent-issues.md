@@ -52,7 +52,7 @@ The operating system check verifies whether the Hybrid Runbook Worker is running
 
 ### .NET 4.6.2
 
-The .NET Framework check verifies that the system has [.NET Framework 4.6.2](https://www.microsoft.com/en-us/download/details.aspx?id=53345) or later installed.
+The .NET Framework check verifies that the system has [.NET Framework 4.6.2](https://dotnet.microsoft.com/download/dotnet-framework/net462) or later installed.
 
 ### WMF 5.1
 

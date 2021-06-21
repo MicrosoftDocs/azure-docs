@@ -14,21 +14,24 @@ ms.custom: references_regions
 # Semantic search in Azure Cognitive Search
 
 > [!IMPORTANT]
-> Semantic search is in public preview, available through the preview REST API and portal. Preview features are offered as-is, under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/), and are not guaranteed to have the same implementation at general availability. These features are billable. For more information, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
+> Semantic search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and beta SDKs. These features are billable. For more information about, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
 
-Semantic search is a collection of query-related capabilities that add semantic relevance and language understanding to search results. This article is a high-level introduction to semantic search all-up, with descriptions of each feature and how they work collectively. The embedded video describes the technology, and the section at the end covers availability and pricing.
+Semantic search is a collection of query-related capabilities that bring semantic relevance and language understanding to search results. This article is a high-level introduction to semantic search all-up, with descriptions of each feature and how they work collectively. The embedded video describes the technology, and the section at the end covers availability and pricing.
 
 Semantic search is a premium feature. We recommend this article for background, but if you'd rather get started, follow these steps:
 
-1. [Check regional and service tier requirements](#availability-and-pricing).
-1. [Sign up for the preview program](https://aka.ms/SemanticSearchPreviewSignup). It can take up to two business days to process the request.
-1. Upon acceptance, create or modify queries to return [semantic captions and highlights](semantic-how-to-query-request.md).
-1. Add a few more query properties to also return [semantic answers](semantic-answers.md).
-1. Optionally, include a [spell check](speller-how-to-add.md) property to maximize precision and recall.
+> [!div class="checklist"]
+> * [Check regional and service tier requirements](#availability-and-pricing).
+> * [Sign up for the preview program](https://aka.ms/SemanticSearchPreviewSignup). It can take up to two business days to process the request.
+> * Upon acceptance, create or modify queries to [return semantic captions and highlights](semantic-how-to-query-request.md).
+> * Add a few more query properties to also return [semantic answers](semantic-answers.md).
+> * Optionally, invoke [spell check](speller-how-to-add.md) to maximize precision and recall.
 
 ## What is semantic search?
 
-Semantic search is an optional layer of query-related AI. When enabled on your search service, it extends the traditional query execution pipeline in two ways. First, it adds an optional semantic ranking model; and second, it returns captions and answers in the response.
+Semantic search is collection of features that improve the quality of search results. When enabled on your search service, it extends the query execution pipeline in two ways. First, it adds secondary ranking over an initial result set, promoting the most semantically relevant results to the top of the list. Second, it extracts and returns captions and answers in the response, which you can render on a search page to improve the user's search experience.
+
+## How semantic ranking works
 
 *Semantic ranking* looks for context and relatedness among terms, elevating matches that make more sense given the query. Language understanding finds summarizations or *captions* and *answers* within your content and includes them in the response, which can then be rendered on a search results page for a more productive search experience.
 
@@ -40,9 +43,9 @@ The following video provides an overview of the capabilities.
 
 > [!VIDEO https://www.youtube.com/embed/yOf0WfVd_V0]
 
-## Feature description and workflow
+## Features in semantic search
 
-Semantic search improves precision and recall with the addition of the following capabilities:
+Semantic search improves precision and recall through these new capabilities:
 
 | Feature | Description |
 |---------|-------------|
@@ -69,11 +72,15 @@ To use semantic capabilities in queries, you'll need to make small modifications
 
 ## Semantic capabilities and limitations
 
-Semantic search is a newer technology so it's important to set expectations about what it can and cannot do.
+Semantic search is a newer technology so it's important to set expectations about what it can and cannot do. It improves the quality of search results in two ways:
 
-It improves the quality of search results in two ways. First, the promotion of documents that are semantically closer to the intent of original query is a significant benefit. Second, results are more immediately consumable when captions, and potentially answers, are present on the page. At all times, the engine is working with existing content. Language models used in semantic search are designed to extract an intact string that looks like an answer, but won't try to compose a new string as an answer to a query, or as a caption for a matching document.
+* First, it promotes matches that are semantically closer to the intent of original query.
 
-Semantic search is not a logic engine and does not infer information from different pieces of content within the document or corpus of documents. For example, given a query for "resort hotels in a desert" absent any geographical input, the engine won't produce matches for hotels located in Arizona or Nevada, even though both states have deserts. Similarly, if the query includes the clause "in the last 5 years", the engine won't calculate a time interval based on the current date to return.
+* Second, it makes results more easily consumable when captions, and potentially answers, are present on the page.
+
+At all times, the engine is working with existing content, and the language models work best on searchable content that is structured as prose. Language models used in semantic search are designed to extract an intact string from your content that looks like an answer, but won't try to compose a new string as an answer to a query, or as a caption for a matching document.
+
+Semantic search cannot correlate or infer information from different pieces of content within the document or corpus of documents. For example, given a query for "resort hotels in a desert" absent any geographical input, the engine won't produce matches for hotels located in Arizona or Nevada, even though both states have deserts. Similarly, if the query includes the clause "in the last 5 years", the engine won't calculate a time interval based on the current date to return.
 
 In Cognitive Search, mechanisms that might be helpful for the above scenarios include [synonym maps](search-synonyms.md) that allow you to build associations among terms that are outwardly different, or [date filters](search-query-odata-filter.md) specified as an OData expression.
 
