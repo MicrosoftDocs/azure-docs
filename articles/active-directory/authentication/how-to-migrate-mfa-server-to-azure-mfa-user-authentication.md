@@ -219,3 +219,82 @@ Now you are ready to enable the staged rollout feature. Staged rollout helps you
 * Enable the staged rollout of cloud authentication for your selected authentication method. 
 * Add the group(s) you created for staged rollout. Remember that you will add users to groups iteratively, and that they cannot be dynamic groups or nested groups. 
 
+## Register users for Azure MFA
+
+There are two ways to register users for Azure MFA: 
+
+* Register for combined security (MFA and self-service-password reset) 
+* Migrate phone numbers from MFA Server
+
+The Microsoft Authenticator app can be used as a passwordless sign in method as well as a second factor for MFA with either method.
+
+### Register for combined security registration (recommended)
+
+We recommend having your users register for combined security information, which is a single place to register their authentication methods and devices for both MFA and SSPR. 
+While it is possible to migrate data from the MFA Server to Azure AD MFA, the following challenges occur:
+
+* Only phone numbers can be migrated.
+* Authenticator apps will need to be reregistered.
+* Stale data can be migrated.
+
+Microsoft provides communication templates that you can provide to your users to guide them through the combined registration process. 
+These include templates for email, posters, table tents, and a variety of other assets. Users register their information at `https://aka.ms/mysecurityinfo`, which takes them to the combined security registration screen. 
+
+We recommend that you [secure the security registration process with Conditional Access](../conditional-access/howto-conditional-access-policy-registration.md) that requires the registration to occur from a trusted device or location. For information on tracking registration statuses, see [Authentication method activity for Azure Active Directory](howto-authentication-methods-activity.md).
+> [!NOTE]
+> Users who MUST register their combined security information from a non-trusted location or device can be issued a Temporary Access Pass or alternatively, temporarily excluded from the policy.
+
+### Migrate phone numbers from MFA Server
+
+While you can migrate users’ registered MFA phone numbers and hardware tokens, you cannot migrate device registrations such as their Microsoft Authenticator app settings. 
+Migrating phone numbers can lead to stale numbers being migrated, and make users more likely to stay on phone-based MFA instead of setting up more secure methods like [passwordless sign-in with the Microsoft Authenticator app](howto-authentication-passwordless-phone.md). 
+We therefore recommend that regardless of the migration path you choose, that you have all users register for [combined security information](howto-registration-mfa-sspr-combined.md). 
+Combined security information enables users to also register for self-service password reset.
+
+If having users register their combined security information is not an option, it is possible to export the users along with their phone numbers from MFA Server and import the phone numbers into Azure AD. 
+
+#### Export User Phone Numbers from MFA Server 
+
+1. Open the Multi-Factor Authentication Server admin console on the MFA Server. 
+1. Select **File** > **Export Users**.
+3)	Save the CSV file. The default name is Multi-Factor Authentication Users.csv.
+
+#### Interpret and format the .csv file
+
+The .csv file contains a number of fields not necessary for migration and will need to be edited and formatted prior to importing the phone numbers into Azure AD. 
+
+When opening the .csv file, columns of interest include Username, Primary Phone, Primary Country Code, Backup Country Code, Backup Phone, Backup Extension. You must interpret this data and format it, as necessary.
+
+#### Tips to Avoid Errors During Import
+
+* The CSV file will need to be modified prior to using the Authentication Methods API to import the phone numbers into Azure AD. 
+* We recommend simplifying the .csv to three columns: UPN, PhoneType, and PhoneNumber. 
+
+  ![Screenshot of a csv example.](media/how-to-migrate-mfa-server-to-azure-mfa-user-authentication/csv-example.png)
+
+* Make sure the exported MFA Server Username matches the Azure AD UserPrincipalName. If it does not, update the username in the CSV file to match what is in Azure AD, otherwise the user will not be found.
+
+Users may have already registered phone numbers in Azure AD. 
+When importing the phone numbers using the Authentication Methods API, you must decide whether to overwrite the existing phone number or to add the imported number as an alternate phone number.
+
+The following PowerShell cmdlets takes the CSV file you supply and add the exported phone numbers as a phone number for each UPN using the Authentication Methods API. You must replace "myPhones" with the name of your CSV file.
+
+
+```powershell
+$csv = import-csv myPhones.csv
+$csv|% { New-MgUserAuthenticationPhoneMethod -UserId $_.UPN -phoneType $_.PhoneType -phoneNumber $_.PhoneNumber} 
+```
+
+For more information about managing users’ authentication methods, see [Manage authentication methods for Azure AD Multi-Factor Authentication](howto-mfa-userdevicesettings.md).
+
+### Add users to the appropriate groups 
+
+* If you created new conditional access policies, add the appropriate users to those groups. 
+* If you created on-premises security groups for claims rules, add the appropriate users to those groups. 
+* Only after you have added users to the appropriate conditional access rules, add users to the group that you created for staged rollout. Once done, they will begin to use the Azure authentication method that you selected (PHS or PTA) and Azure AD MFA when they are required to perform multi-factor authentication.
+
+> [!IMPORTANT] 
+> Nested and dynamic groups are not supported in the staged rollout process. Do not use these types of groups. 
+
+We do not recommend that you reuse groups that are used for security. Therefore, if you are using a security group to secure a group of high-value apps via a Conditional Access policy, that should be the only use of that group.
+
