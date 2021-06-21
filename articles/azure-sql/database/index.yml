@@ -28,8 +28,6 @@ landingContent:
         links:
           - text: What's new? 
             url: doc-changes-updates-release-notes.md?tabs=single-database        
-          - text: Feedback? Take the survey! 
-            url: https://microsoft.qualtrics.com/jfe/form/SV_ePOznHhP4gDKfGu?channel=456 
       - linkListType: quickstart
         links:
           - text: Create SQL Database
