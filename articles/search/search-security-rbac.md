@@ -8,30 +8,33 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/28/2021
+ms.date: 06/21/2021
 ---
 
 # Authorize access through Azure roles in Azure Cognitive Search
 
-Azure provides a [global role-based authorization model](../role-based-access-control/role-assignments-portal.md) for all services managed through the portal or Resource Manager APIs. The authorization model provides Owner, Contributor, and Reader roles, which determine the level of *service administration* for Active Directory users, groups, and security principals assigned to each role. Cognitive Search uses these three roles to authorize access for search service administration.
+Azure provides a [global role-based authorization (RBAC) model](../role-based-access-control/role-assignments-portal.md) for all services managed through the portal or Resource Manager APIs. You can use RBAC in two scenarios:
 
-Cognitive Search does not support:
++ Portal access. Azure roles include Owner, Contributor, and Reader roles, where role membership consists of Azure Active Directory users and groups. In Cognitive Search, membership in any of these roles determines the level of *service administration* rights.
 
-+ [Custom roles](../role-based-access-control/custom-roles.md).
-+ Role-based access control (Azure RBAC) over content-related operations, such as creating or querying an index, or any other object on the service.
++ Outbound indexer access to external Azure data sources. When you configure a system or managed identity for a search service, you can use RBAC on external data services, such as Azure Blob Storage or Azure SQL, to allow read operations from the trusted service.
 
-  Authorization for performing content operations requires either an [admin API key or query API key](search-security-api-keys.md).
+Common RBAC scenarios that Cognitive Search does **not** support included:
+
++ [Custom roles](../role-based-access-control/custom-roles.md)
+
++ RBAC over inbound requests concerning content-related operations, such as creating or querying an index, or any other object on the service. For inbound requests, use [key-based authentication](search-security-api-keys.md).
 
 > [!Note]
 > For identity-based access over search results (sometimes referred to as row-level security), you can create security filters to trim results by identity, removing documents for which the requestor should not have access. For more information, see [Security filters](search-security-trimming-for-azure-search.md).
 
-## Roles used in Cognitive Search
+## Azure roles used in Search
 
 For Azure Cognitive Search, roles are associated with permission levels that support the following management tasks:
 
 | Role | Task |
 | --- | --- |
-| Owner |Create or delete the service. Create, update, or delete any object on the service: API keys, indexes, synonym maps, indexers, indexer data sources, and skillsets. </br></br>Full access to all service information exposed in the portal or through the Management REST API, Azure PowerShell, or Azure CLI. </br></br>Assign role membership.</br></br>Subscription administrators and service owners have automatic membership in the Owners role. |
+| Owner |Create or delete the service. Create, update, or delete any object on the service: API keys, indexes, synonym maps, indexers, indexer data sources, and skillsets. </br></br>Full access to all service information exposed in the portal or through the Management REST API, Azure PowerShell, or Azure CLI. </br></br>Assign role membership. </br></br>Subscription administrators and service owners have automatic membership in the Owners role. |
 | Contributor | Same level of access as Owner, minus role assignments. [Search Service Contributor](../role-based-access-control/built-in-roles.md#search-service-contributor) is equivalent to the generic Contributor built-in role. |
 | Reader | Limited access to partial service information. In the portal, the Reader role can access information in the service Overview page, in the Essentials section and under the Monitoring tab. All other tabs and pages are off limits. </br></br>Under the Essentials section: resource group, status, location, subscription name and ID, tags, URL, pricing tier, replicas, partitions, and search units. </br></br>On the Monitoring tab, view service metrics: search latency, percentage of throttled requests, average queries per second. </br></br>There is no access to the Usage tab (storage, counts of indexes or indexers created on the service) or to any information in the Indexes, Indexers, Data sources, Skillsets, or Debug sessions tabs. |
 
@@ -65,4 +68,4 @@ Additionally, for content-related operations in the portal, such as creating or 
 
 + [Manage using PowerShell](search-manage-powershell.md) 
 + [Performance and optimization in Azure Cognitive Search](search-performance-optimization.md)
-+ [What is Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md).
++ [What is Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md)?
