@@ -19,10 +19,9 @@ After completing the setup steps, you'll be able to run the simulated live video
 
 * An active Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/).  
 [!INCLUDE [the video analyzer account and storage account must be in the same subscription and region](./includes/note-account-storage-same-subscription.md)]
-* An x86-64 or an ARM64 device running one of the [supported Linux operating systems](../../iot-edge/support.md#operating-systems), on which you have an administrative privileges.
-* [Create and setup IoT Hub](../../iot-hub/iot-hub-create-through-portal.md)
-* [Register IoT Edge device](../../iot-edge/how-to-register-device.md)
-* [Install the Azure IoT Edge runtime on Debian-based Linux systems](../../iot-edge/how-to-install-iot-edge.md)
+* An IoT Edge device on which you have admin privileges
+   * [Deploy to an IoT Edge device](deploy-iot-edge-device.md)
+   * [Deploy to an IoT Edge for Linux on Windows](deploy-iot-edge-linux-on-windows.md)
 * [Visual Studio Code](https://code.visualstudio.com/), with the following extensions:
 
     * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
@@ -31,7 +30,7 @@ After completing the setup steps, you'll be able to run the simulated live video
 > You might be prompted to install Docker while you're installing the Azure IoT Tools extension. Feel free to ignore the prompt.
 
 ## Preparing your IoT Edge device
-Azure Video Analyzer module should be configured to run on the IoT Edge device with a non-privileged local user account. The module needs certain local folders for storing application configuration data.
+Azure Video Analyzer module should be configured to run on the IoT Edge device with a non-privileged local user account. The module needs certain local folders for storing application configuration data. The RTSP camera simulator module needs video files with which it can synthesize a live video feed.
 
 https://aka.ms/ava/prepare-device  
   
@@ -64,20 +63,20 @@ When you create an Azure Video Analyzer account, you have to associate an Azure 
     - **Subscription**: Choose the subscription to create the Video Analyzer account under.
     - **Resource group**: Choose a resource group to create the Video Analyzer account in or click **Create new** to create a new resource group.
     - **Video Analyzer account name**: This is the name for your Video Analyzer account. The name must be all lowercase letters or numbers with no spaces and 3 to 24 characters in length.
-    - **Location**: Choose a location to deploy your Video Analyzer account, for example **West US**.
-    - **Storage account**: Create a new storage account. It is recommended to select a [standard general-purpose v2](/azure/storage/common/storage-account-overview#types-of-storage-accounts) storage account.
-    - **User identity**: Create and name a new user identity.
+    - **Location**: Choose a location to deploy your Video Analyzer account, for example **West US 2**.
+    - **Storage account**: Create a new storage account. It is recommended to select a [standard general-purpose v2](../../storage/common/storage-account-overview.md#types-of-storage-accounts) storage account.
+    - **User identity**: Create and name a new user-assigned managed identity.
 
 1. Click **Review + create** at the bottom of the form.
 
 ### Create a container registry
-1. Select **Create a resource** > **Containers** > **Container Registry**.\
+1. Select **Create a resource** > **Containers** > **Container Registry**.
 1. In the **Basics** tab, enter values for **Resource group** ***(use the same **Resource group** from the previous sections)*** and **Registry name**. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters.
 1. Accept default values for the remaining settings. Then select **Review + create**. After reviewing the settings, select **Create**.
 
-## Deploying Edge Modules
+## Deploying edge modules
 
-### Deploying Video Analyzer Edge Module
+### Deploying Video Analyzer edge module
 
 1. Navigate to your Video Analyzer account
 1. Select **Edge Modules** under the **Edge** blade
@@ -141,10 +140,10 @@ When you create an Azure Video Analyzer account, you have to associate an Azure 
     ```
 1. Select **Add** at the bottom of your screen
 1. Select **Routes**
-1. Under **NAME**, enter **AVAToHub**, and under **VALUE**, enter **FROM /messages/modules/avaedge/outputs/* INTO $upstream**
+1. Under **NAME**, enter **AVAToHub**, and under **VALUE**, enter FROM /messages/modules/avaedge/outputs/* INTO $upstream
 1. Select **Review + create**, then select **Create** and your **avaedge** edge module will be deployed
 
-### Deploying RTSP SIM Edge Module
+### Deploying RTSP camera simulator edge module
 1. Navigate to your IoT Hub
 1. Select **IoT Edge** under the **Automatic Device Management**
 1. Select the **Device ID** for your IoT Edge Device
@@ -167,7 +166,7 @@ When you create an Azure Video Analyzer account, you have to associate an Azure 
 
 ### Verify your deployment
 
-On the device details page, verify that the **avaedge** module is listed as both, **Specified in Deployment** and **Reported by Device**.  
+On the device details page, verify that the **avaedge** and **rtspsim** modules are listed as both, **Specified in Deployment** and **Reported by Device**.  
 
 It may take a few moments for the modules to be started on the device and then reported back to IoT Hub. Refresh the page to see an updated status.
 Status code: 200 –OK means that [the IoT Edge runtime](../../iot-edge/iot-edge-runtime.md) is healthy and is operating fine.  
@@ -806,4 +805,4 @@ You can try to invoke `pipelineTopologyList` and observe that the module contain
 
 * Try the [quickstart for recording videos to the cloud when motion is detected](detect-motion-record-video-clips-cloud.md)
 * Try the [quickstart for analyzing live video](analyze-live-video-use-your-model-http.md)
-* Learn more about [diagnostic messages](monitor-log-edge.md) 
+* Learn more about [diagnostic messages](monitor-log-edge.md)

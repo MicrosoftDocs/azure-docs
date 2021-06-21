@@ -4,7 +4,7 @@ description: "Learn how to configure a public endpoint for Azure SQL Managed Ins
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: security
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurepowershell
 ms.topic: how-to
 author: srdan-bozovic-msft
 ms.author: srbozovi

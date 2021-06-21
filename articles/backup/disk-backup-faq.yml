@@ -3,7 +3,7 @@ metadata:
   title: Frequently asked questions about Azure Disk Backup
   description: Get answers to frequently asked questions about Azure Disk Backup
   ms.topic: conceptual
-  ms.date: 01/07/2021
+  ms.date: 05/27/2021
     
 title: Frequently asked questions about Azure Disk Backup
 summary: |
@@ -99,6 +99,8 @@ sections:
           "Microsoft.Compute/disks/read"
           
           "Microsoft.Compute/disks/beginGetAccess/action"
+
+          "Microsoft.Authorization/*/read"
           
           Following are the actions used in the **Disk Snapshot Contributor** role assigned on the **Snapshot resource group**:
           
@@ -123,6 +125,8 @@ sections:
           "Microsoft.Compute/snapshots/endGetAccess/action"
           
           "Microsoft.Compute/disks/beginGetAccess/action"
+
+          "Microsoft.Authorization/*/read"
           
           Following are the actions used in the **Disk Restore Operator** role assigned on **Target Resource Group**:
           
@@ -131,6 +135,8 @@ sections:
           "Microsoft.Compute/disks/read"
           
           "Microsoft.Resources/subscriptions/resourceGroups/read"
+
+          "Microsoft.Authorization/*/read"
           
           >[!NOTE]
           >The permissions on these roles may change in the future, based on the features being added by the Azure Backup service.

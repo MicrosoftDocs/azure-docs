@@ -109,7 +109,7 @@ If you would like to know the oldest and newest audit events held in Azure Monit
 AuditLogs | where TimeGenerated > ago(3653d) | summarize OldestAuditEvent=min(TimeGenerated), NewestAuditEvent=max(TimeGenerated) by Type
 ```
 
-For more information on the columns that are stored for audit events in Azure Monitor, see [Interpret the Azure AD audit logs schema in Azure Monitor](../reports-monitoring/reference-azure-monitor-audit-log-schema.md).
+For more information on the columns that are stored for audit events in Azure Monitor, see [Interpret the Azure AD audit logs schema in Azure Monitor](../reports-monitoring/overview-reports.md).
 
 ## Create custom Azure Monitor queries using Azure PowerShell
 

@@ -43,12 +43,12 @@ The following example show schema for **Microsoft.KeyVault.SecretNewVersionCreat
       "eventTime":"2019-07-25T01:08:33.1036736Z",
       "data":{
          "Id":"https://sample-kv.vault.azure.net/secrets/newsecret/ee059b2bb5bc48398a53b168c6cdcb10",
-         "vaultName":"sample-kv",
-         "objectType":"Secret",
-         "objectName ":"newsecret",
-         "version":" ee059b2bb5bc48398a53b168c6cdcb10",
-         "nbf":"1559081980",
-         "exp":"1559082102"
+         "VaultName":"sample-kv",
+         "ObjectType":"Secret",
+         "ObjectName ":"newsecret",
+         "Version":" ee059b2bb5bc48398a53b168c6cdcb10",
+         "NBF":"1559081980",
+         "EXP":"1559082102"
       },
       "dataVersion":"1",
       "metadataVersion":"1"
@@ -70,12 +70,12 @@ The following example show schema for **Microsoft.KeyVault.SecretNewVersionCreat
       "time":"2019-07-25T01:08:33.1036736Z",
       "data":{
          "Id":"https://sample-kv.vault.azure.net/secrets/newsecret/ee059b2bb5bc48398a53b168c6cdcb10",
-         "vaultName":"sample-kv",
-         "objectType":"Secret",
-         "objectName ":"newsecret",
-         "version":" ee059b2bb5bc48398a53b168c6cdcb10",
-         "nbf":"1559081980",
-         "exp":"1559082102"
+         "VaultName":"sample-kv",
+         "ObjectType":"Secret",
+         "ObjectName ":"newsecret",
+         "Version":" ee059b2bb5bc48398a53b168c6cdcb10",
+         "NBF":"1559081980",
+         "EXP":"1559082102"
       },
       "specversion":"1.0"
    }
@@ -123,12 +123,12 @@ The data object has the following properties:
 | Property | Type | Description |
 | ---------- | ----------- |---|
 | `id` | string | The ID of the object that triggered this event |
-| `vaultName` | string | The key vault name of the object that triggered this event |
-| `objectType` | string | The type of the object that triggered this event |
-| `objectName` | string | The name of the object that triggered this event |
-| `version` | string | The version of the object that triggered this event |
-| `nbf` | number | The not-before date in seconds since 1970-01-01T00:00:00Z of the object that triggered this event |
-| `exp` | number | The expiration date in seconds since 1970-01-01T00:00:00Z of the object that triggered this event |
+| `VaultName` | string | The key vault name of the object that triggered this event |
+| `ObjectType` | string | The type of the object that triggered this event |
+| `ObjectName` | string | The name of the object that triggered this event |
+| `Version` | string | The version of the object that triggered this event |
+| `NBF` | number | The not-before date in seconds since 1970-01-01T00:00:00Z of the object that triggered this event |
+| `EXP` | number | The expiration date in seconds since 1970-01-01T00:00:00Z of the object that triggered this event |
 
 ## Tutorials and how-tos
 |Title  |Description  |

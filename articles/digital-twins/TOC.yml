@@ -41,6 +41,8 @@
     href: concepts-query-language.md
   - name: Query Units
     href: concepts-query-units.md
+  - name: Querying with Azure Data Explorer
+    href: concepts-data-explorer-plugin.md   
   - name: Developer interfaces
     items:
     - name: Azure Digital Twins Explorer
@@ -65,24 +67,28 @@
     items:
     - name: Set up an instance and authentication
       items:
-      - name: Portal version
+      - name: Portal
         href: how-to-set-up-instance-portal.md
-      - name: CLI version
+      - name: CLI
         href: how-to-set-up-instance-cli.md
-      - name: PowerShell version
+      - name: PowerShell
         href: how-to-set-up-instance-powershell.md
-      - name: Scripted version
+      - name: Setup script sample
         href: how-to-set-up-instance-scripted.md
     - name: Enable private access with Private Link
       items:
-      - name: Portal version
+      - name: Portal
         href: how-to-enable-private-link-portal.md
-      - name: CLI version
+      - name: CLI
         href: how-to-enable-private-link-cli.md
     - name: Write app authentication code
       href: how-to-authenticate-client.md
     - name: Create an app registration
-      href: how-to-create-app-registration.md
+      items:
+      - name: Portal
+        href: how-to-create-app-registration-portal.md
+      - name: CLI
+        href: how-to-create-app-registration-cli.md
     - name: Move instance to a different region
       href: how-to-move-regions.md
   - name: Design models
@@ -107,7 +113,7 @@
       href: how-to-query-graph.md
   - name: Develop client apps
     items:
-    - name: Make requests with Postman
+    - name: Make API requests with Postman
       href: how-to-use-postman.md
     - name: Integrate with Azure SignalR Service
       href: how-to-integrate-azure-signalr.md
@@ -119,20 +125,18 @@
       href: how-to-provision-using-device-provisioning-service.md
     - name: Integrate with Logic Apps
       href: how-to-integrate-logic-apps.md
+    - name: Ingest OPC UA data to Azure Digital Twins
+      href: how-to-ingest-opcua-data.md
   - name: Connect output
     items:
     - name: Manage endpoints and routes
       items:
-      - name: Portal version
+      - name: Portal
         href: how-to-manage-routes-portal.md
-      - name: APIs and CLI version
+      - name: APIs and CLI
         href: how-to-manage-routes-apis-cli.md
-    - name: Enable a managed identity for routing events
-      items:
-      - name: Portal version
-        href: how-to-enable-managed-identities-portal.md
-      - name: CLI version
-        href: how-to-enable-managed-identities-cli.md
+    - name: Route events with a managed identity
+      href: how-to-route-with-managed-identity.md
     - name: Integrate with Azure Maps
       href: how-to-integrate-maps.md
     - name: Integrate with Azure Time Series Insights
@@ -158,7 +162,7 @@
       - name: 404 Sub-Domain not found
         href: troubleshoot-error-404.md
       - name: Azure Digital Twins Explorer authentication
-        href: troubleshoot-error-azure-digital-twins-explorer-authentication.md
+        href: troubleshoot-error-azure-digital-twins-explorer-authentication.md  
 - name: Reference
   items:
   - name: REST API reference
@@ -303,6 +307,14 @@
         href: /samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/
       - name: Device simulator service
         href: https://github.com/Azure/device-simulation-dotnet/tree/master
+  - name: Ontologies
+    items:
+      - name: Smart buildings
+        href: https://github.com/Azure/opendigitaltwins-building
+      - name: Smart cities
+        href: https://github.com/Azure/opendigitaltwins-smartcities
+      - name: Energy grids
+        href: https://github.com/Azure/opendigitaltwins-energygrid/
   - name: DTDL
     items:
     - name: DTDL extension for VS Code

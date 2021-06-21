@@ -5,7 +5,7 @@
   - name: What is Azure Monitor?
     href: overview.md
   - name: FAQ
-    href: faq.md
+    href: faq.yml
   - name: What's new?
     href: whats-new.md
   - name: Migrate from Operations Manager
@@ -31,6 +31,8 @@
       href: vm/quick-collect-windows-computer.md
   - name: Monitor applications
     items:
+    - name: ASP.NET Core application
+      href: app/dotnet-quickstart.md
     - name: Node.js application
       href: app/nodejs-quick-start.md
     - name: Mobile application
@@ -362,7 +364,7 @@
     - name: Overview
       href: agents/agents-overview.md
     - name: FAQ
-      href: faq.md#agents
+      href: /azure-monitor/faq.yml#agents
     - name: Azure Monitor Agent
       items:
       - name: Overview
@@ -374,9 +376,12 @@
       - name: Data collection
         displayname: data collection rule,Azure Monitor agent
         href: agents/data-collection-rule-azure-monitor-agent.md
+      - name: Deploy at scale
+        displayname: Deploy Azure Monitor agent at scale
+        href: deploy-scale.md#azure-monitor-agent  
       - name: FAQ
         displayname: Azure Monitor agent FAQ
-        href: faq.md#azure-monitor-agent-preview
+        href: /azure/azure-monitor/faq#azure-monitor-agent-preview
     - name: Log Analytics agent
       items:
       - name: Overview
@@ -626,7 +631,7 @@
     - name: Application Insights overview
       href: app/app-insights-overview.md
     - name: FAQ
-      href: ./faq.md
+      href: ./faq.yml
     - name: Code-based monitoring
       items:
       - name: .NET
@@ -768,7 +773,7 @@
     - name: OpenTelemetry
       items: 
       - name: FAQ
-        href: faq.md#opentelemetry
+        href: /azure-monitor/faq.yml#opentelemetry
     - name: Create a resource (classic)
       href: app/create-new-resource.md
     - name: Create a resource (workspace-based)
@@ -873,6 +878,8 @@
     - name: Smart Detection
       href: app/proactive-diagnostics.md
       items:
+      - name: Upgrade to alerts
+        href: alerts/alerts-smart-detections-migration.md
       - name: Failure anomalies
         href: app/proactive-failure-diagnostics.md
       - name: Performance anomalies
@@ -920,6 +927,8 @@
       items:
       - name: Access control
         href: app/resources-roles-access-control.md
+      - name: Azure AD authentication 
+        href: app/azure-ad-authentication.md
       - name: IP address collection
         href: app/ip-collection.md
         displayname: geolocation, IP collection, IP tracking, IP storage
@@ -1006,9 +1015,9 @@
     - name: Overview
       href: vm/vminsights-overview.md
     - name: General Availability FAQ
-      href: vm/vminsights-ga-release-faq.md  
+      href: vm/vminsights-ga-release-faq.yml  
     - name: FAQ
-      href: faq.md#vm-insights
+      href: /azure-monitor/faq.yml#vm-insights
     - name: Configure workspace
       href: vm/vminsights-configure-workspace.md
     - name: Install agents
@@ -1062,7 +1071,7 @@
     - name: Overview
       href: containers/container-insights-overview.md
     - name: FAQ
-      href: faq.md#container-insights
+      href: /azure-monitor/faq.yml#container-insights
     - name: Enable monitoring
       items:
       - name: Enable monitoring overview 
@@ -1154,7 +1163,7 @@
       - name: Overview
         href: insights/sql-insights-overview.md
       - name: FAQ
-        href: faq.md#sql-insights-preview
+        href: /azure-monitor/faq.yml#sql-insights-preview
       - name: Enable
         href: insights/sql-insights-enable.md
       - name: Alerts
@@ -1204,7 +1213,7 @@
             - name: Pricing
               href: insights/network-performance-monitor-pricing-faq.md
             - name: FAQ
-              href: insights/network-performance-monitor-faq.md
+              href: insights/network-performance-monitor-faq.yml
         - name: Office 365
           href: insights/solution-office-365.md
         - name: Service Map solution
