@@ -47,10 +47,10 @@ Apps in App Service are hosted on worker roles. The Basic and higher pricing pla
 
 ![How regional VNet Integration works][5]
 
-When regional VNet Integration is enabled, your app makes outbound calls to the internet through the same channels as normal. The outbound addresses that are listed in the app properties portal are the addresses still used by your app. What changes for your app are the calls to service endpoint secured services, or RFC 1918 addresses go into your VNet. If WEBSITE_VNET_ROUTE_ALL is set to 1, all outbound traffic can be sent into your VNet.
+When regional VNet Integration is enabled, your app makes outbound calls to service endpoint secured services, or RFC 1918 addresses go into your VNet. The outbound addresses that are listed in the app properties portal are the addresses still used by your app. If you enable all traffic routing, all outbound traffic is sent into your VNet. If all traffic routing is not enabled, outbound traffic to the internet will go through the same channels as normal.
 
 > [!NOTE]
-> `WEBSITE_VNET_ROUTE_ALL` is currently not supported in Windows containers.
+> Routing all traffic is currently not supported in Windows containers.
 > 
 
 The feature supports only one virtual interface per worker. One virtual interface per worker means one regional VNet Integration per App Service plan. All of the apps in the same App Service plan can use the same VNet Integration. If you need an app to connect to an additional VNet, you need to create another App Service plan. The virtual interface used isn't a resource that customers have direct access to.
@@ -210,9 +210,6 @@ $vNetParams = @{
 }
 New-AzResource @vNetParams
 ```
-
-
-For gateway-required VNet Integration, you can integrate App Service with an Azure virtual network by using PowerShell. For a ready-to-run script, see [Connect an app in Azure App Service to an Azure virtual network](https://gallery.technet.microsoft.com/scriptcenter/Connect-an-app-in-Azure-ab7527e3).
 
 
 <!--Image references-->
