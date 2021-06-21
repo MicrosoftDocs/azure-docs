@@ -15,13 +15,13 @@ zone_pivot_groups: app-service-containers-windows-linux
 > [!NOTE]
 >Azure Storage in App Service Windows container is **in preview** and **not supported** for **production scenarios**.
 
-This guide shows how to mount Azure Storage Files as a network share to a Windows container in App Service. Only [Azure Files Shares](../storage/files/storage-how-to-use-files-cli.md) and [Premium Files Shares](../storage/files/storage-how-to-create-file-share.md) are supported. The benefits of custom mounted storage include:
+This guide shows how to mount Azure Storage Files as a network share in a Windows container in App Service. Only [Azure Files Shares](../storage/files/storage-how-to-use-files-cli.md) and [Premium Files Shares](../storage/files/storage-how-to-create-file-share.md) are supported. The benefits of custom-mounted storage include:
 
 ::: zone-end
 
 ::: zone pivot="container-linux"
 
-This guide shows how to mount Azure Storage to a built-in Linux container or a custom Linux container in App Service. The benefits of custom mounted storage include:
+This guide shows how to mount Azure Storage as a network share in a built-in Linux container or a custom Linux container in App Service. The benefits of custom-mounted storage include:
 
 ::: zone-end
 
@@ -77,10 +77,10 @@ The following features are supported for Linux containers:
 ::: zone pivot="container-windows"
 
 - Storage mounts are not supported for native Windows (non-containerized) apps.
-- [Storage firewall](../storage/common/storage-network-security.md) is supported only through [service endpoints](../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) and [private endpoints](../storage/common/storage-private-endpoints.md) (when [VNET integration](web-sites-integrate-with-vnet.md) is used). Custom DNS support is currently unavailable when the mounted Azure Storage account uses a private endpoint. 
+- [Storage firewall](../storage/common/storage-network-security.md), [service endpoints](../storage/common/storage-network-security.md#grant-access-from-a-virtual-network), and [private endpoints](../storage/common/storage-private-endpoints.md) are not supported.
 - FTP/FTPS access to mounted storage not supported (use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)).
 - Azure CLI, Azure PowerShell, and Azure SDK support is in preview.
-- Mapping `D:\` or `D:\home` to custom mounted storage is not supported.
+- Mapping `D:\` or `D:\home` to custom-mounted storage is not supported.
 - Drive letter assignments (`C:` to `Z:`) are not supported.
 - Storage mounts cannot be used together with clone settings option during [deployment slot](deploy-staging-slots.md) creation.
 - Storage mounts are not backed up when you [back up your app](manage-backup.md). Be sure to follow best practices to back up the Azure Storage accounts. 
@@ -90,9 +90,9 @@ The following features are supported for Linux containers:
 ::: zone pivot="container-linux"
 
 - [Storage firewall](../storage/common/storage-network-security.md) is supported only through [service endpoints](../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) and [private endpoints](../storage/common/storage-private-endpoints.md) (when [VNET integration](web-sites-integrate-with-vnet.md) is used). Custom DNS support is currently unavailable when the mounted Azure Storage account uses a private endpoint.
-- FTP/FTPS access to custom mounted storage is not supported (use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)).
+- FTP/FTPS access to custom-mounted storage is not supported (use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)).
 - Azure CLI, Azure PowerShell, and Azure SDK support is in preview.
-- Mapping `/` or `/home` to custom mounted storage is not supported.
+- Mapping `/` or `/home` to custom-mounted storage is not supported.
 - Storage mounts cannot be used together with clone settings option during [deployment slot](deploy-staging-slots.md) creation.
 - Storage mounts are not backed up when you [back up your app](manage-backup.md). Be sure to follow best practices to back up the Azure Storage accounts. 
 
@@ -177,13 +177,13 @@ az webapp config storage-account list --resource-group <resource-group> --name <
 
 To validate that the Azure Storage is mounted successfully for your app:
 
-1. [Open an SSH session](configure-linux-open-ssh-session.md) into your container . To SSH follow steps mentioned here  
-1. In the terminal, execute the following command:
+1. [Open an SSH session](configure-linux-open-ssh-session.md) into your container.
+1. In the SSH terminal, execute the following command:
 
     ```bash
     df –h 
     ```
-1. Check if the the storage share is mounted. If it's not present, there's an issue with mounting the storage share.
+1. Check if the storage share is mounted. If it's not present, there's an issue with mounting the storage share.
 1. Check latency or general reachability of the storage mount with the following command:
 
     ```bash
@@ -200,12 +200,12 @@ To validate that the Azure Storage is mounted successfully for your app:
     1. In the storage mount configuration, update the access the key to use the regenerated **key2**.
     1. Regenerate **key1**.
 - If you delete an Azure Storage account, container, or share, remove the corresponding storage mount configuration in your app to avoid possible error scenarios. 
-- The mounted Azure Storage account can be either Standard or Premium performance tier. Based on your app capacity and throughput requirements, choose the appropriate performance tier for your storage account. See the the scalability and performance targets that correspond to your storage type:
+- The mounted Azure Storage account can be either Standard or Premium performance tier. Based on your app capacity and throughput requirements, choose the appropriate performance tier for your storage account. See the scalability and performance targets that correspond to your storage type:
     - [For Files](../storage/files/storage-files-scale-targets.md)
     - [For Blobs](../storage/blobs/scalability-targets.md)  
 - If your app [scales to multiple instances](../azure-monitor/autoscale/autoscale-get-started.md), all the instances connect to the same mounted Azure Storage account. To avoid performance bottlenecks and throughput issues, choose the appropriate performance tier for your storage account.  
 - It's not recommended to use storage mounts for local databases (such as SQLite) or for any other applications and components that rely on file handles and locks. 
-- When using Azure Storage [private endpoints](../storage/common/storage-private-endpoints.md) with your app you need to set the following two app settings:
+- When using Azure Storage [private endpoints](../storage/common/storage-private-endpoints.md) with your app, you need to set the following two app settings:
     - `WEBSITE_DNS_SERVER` = `168.63.129.16`
     - `WEBSITE_VNET_ROUTE_ALL` = `1`
 - If you [initiate a storage failover](../storage/common/storage-initiate-account-failover.md) and the storage account is mounted to your app, the mount will fail to connect until you either restart the app or remove and add the Azure Storage mount. 
