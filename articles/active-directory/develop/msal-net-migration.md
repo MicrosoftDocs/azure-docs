@@ -37,7 +37,7 @@ Before digging in the details of MSAL.NET vs ADAL.NET, you might want to check i
 
 For details about the decision tree below, read [MSAL.NET or Microsoft.Identity.Web?](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/MSAL.NET-or-Microsoft.Identity.Web)
 
-!["Block diagram explaining how to choose if you need to use MSAL.NET and Microsoft.Identity.Web or both when migrating from ADAL.NET"](https://docs.microsoft.com/azure/active-directory/develop/media/msal-net-migration/decision-diagram.png)
+!["Block diagram explaining how to choose if you need to use MSAL.NET and Microsoft.Identity.Web or both when migrating from ADAL.NET"](media/msal-net-migration/decision-diagram.png)
 
 ## Examples of 1P Migrations
 

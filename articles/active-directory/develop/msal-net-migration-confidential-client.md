@@ -76,7 +76,7 @@ It does not have a parameter of type `UserAssertion`. If it does, then your app 
 
 #### Update the code of daemon scenarios
 
-[!INCLUDE [Common steps](first-party-includes/msal-adoption-steps-confidential-clients.md)]
+[!INCLUDE [Common steps](includes/msal-adoption-steps-confidential-clients.md)]
 
 In this case we replace the call to `AuthenticationContext.AcquireTokenAsync` by a call to `IConfidentialClientApplication.AcquireTokenClient`.
 
@@ -184,11 +184,6 @@ If you don't want to use the default in-memory app token cache, or want to imple
 
 Learn more about demon scenario and how its implemented with MSAL.NET or Microsoft.Identity.Web in new applications [by reading through this overview](scenario-daemon-overview.md).
 
-
-#### More about the daemon scenario
-
-If you want to learn more about the daemon scenario and how it's implemented with MSAL.NET or Microsoft.Identity.Web in new applications, see [Scenario: Daemon application that calls web APIs](scenario-daemon-overview.md)
-
 ## [On Behalf of](#tab/obo)
 
 ### Migrate on behalf of calls (OBO) in web APIs
@@ -206,7 +201,7 @@ The ADAL code for your app uses OBO if it contains a call to `AuthenticationCont
 
 #### Update the code using OBO
 
-[!INCLUDE [Common steps](first-party-includes/msal-adoption-steps-confidential-clients.md)]
+[!INCLUDE [Common steps](includes/msal-adoption-steps-confidential-clients.md)]
 
 In this case we replace the call to `AuthenticationContext.AcquireTokenAsync` by a call to `IConfidentialClientApplication.AcquireTokenOnBehalfOf`.
 
@@ -340,7 +335,7 @@ The ADAL code for your app uses auth code flow if it contains a call to `Authent
 
 #### Update the code using auth code flow
 
-[!INCLUDE [Common steps](first-party-includes/msal-adoption-steps-confidential-clients.md)] 
+[!INCLUDE [Common steps](includes/msal-adoption-steps-confidential-clients.md)] 
 
 In this case we replace the call to `AuthenticationContext.AcquireTokenAsync` by a call to `IConfidentialClientApplication.AcquireTokenByAuthorizationCode`.
 
@@ -383,7 +378,7 @@ public partial class AuthWrapper
                                       redirectUri,
                                       clientAssertionCert,
                                       resourceId,
-                                      sendX5c: true); ;
+                                      sendX5c: true);
   return authResult;
  }
 }
@@ -432,6 +427,8 @@ public partial class AuthWrapper
 </tr>
 </table>
 
+By calling `AcquireTokenByAuthorizationCode`, you really add a token to the token cache. Then, in your controllers, you'll use `AcquireTokenSilent` to request tokens for the user, but, for instance for other resources or other tenants.
+
 #### Token caching
 
 Since your web app uses `AcquireTokenByAuthorizationCode`, your app need to leverage a distributed token cache for token caching. For details see [token cache for a web app or web API (confidential client application)](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/token-cache-serialization#token-cache-for-a-web-app-or-web-api-confidential-client-application) and [read through sample code](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2/tree/master/ConfidentialClientTokenCache)
@@ -456,14 +453,16 @@ Some of the key features that come with MSAL.NET are resilience, security, perfo
 Using MSAL.NET ensures your app is resilient. This is achieved through the following:
 
 <!-- 1P
-- [Automatic region detection](msal-net-regional-adoption.md) enabled by `.WithAzureRegion()`.
+- [Automatic region detection](msal-net-regional-adoption.md) enabled by `.WithAzureRegion()`. The regional ESTS endpoint is only used for `AcquireTokenForClient` and is not yet supported in sovereign clouds (ETA FY22Q1)
 -->
 - AAD Cached Credential Service(CCS) benefits. CCS operates as an AAD backup.
 - Proactive renewal of tokens if you enable long lived tokens.
 
 ### Security
 
-`.WithSendX5C` helps you rotate the certificate credentials by leveraging [Subject Name and Issuer Authentication](https://aka.ms/msal-net-sni)
+`.WithSendX5C` helps you rotate the certificate credentials by leveraging [Subject Name and Issuer Authentication](https://aka.ms/msal-net-sni).
+
+You can also acquire Proof of Possession (PoP) tokens if this is required by the web API that you want to call. For details see [Proof Of Possession (PoP) tokens in MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Proof-Of-Possession-(PoP)-tokens)
 
 ### Performance and scalability
 
@@ -477,6 +476,31 @@ app = ConfidentialClientApplicationBuilder.Create(ClientId)
         .WithLegacyCacheCompatibility(false)
         .Build();
 ```
+
+## Troubleshooting
+
+This section of the article assumes that your ADAL.NET code was working, and that when you upgraded your app to MSAL.NET, keeping the same ClientID, you see errors.
+
+### AADSTS700027 exception
+
+if you get an exception with the following message: `AADSTS700027: Client assertion contains an invalid signature. [Reason - The key was not found.]`:
+
+- Check that you are using the latest version of MSAL.NET,
+- Check that the authority host set when building the confidential client application is the same as the authority host you used with ADAL. In particular, is it the same cloud? (PPE, PROD, GGC, DE, Gallatin, etc ...)
+- Check that, if you were sending x5c to help the certificate rotation in ADAL (`sendX5c:true`), now use `.WithSendX5C(true)` on the AcquireTokenXXX() method with MSAL.
+
+### AADSTS700030 exception
+
+if you get an exception with the following message: `AADSTS90002: Tenant 'cf61953b-e41a-46b3-b500-663d279ea744' not found. This may happen if there are no active subscriptions for the tenant. Check to make sure you have the correct tenant ID. Check with your subscription administrator.`:
+
+- Check that you are using the latest version of MSAL.NET,
+- Check that the authority host set when building the confidential client application is the same as the authority host you used with ADAL. In particular, is it the same cloud? (PPE, PROD, GGC, DE, Gallatin, etc ...)
+
+<!--
+### AADSTS100007 exception
+
+if you get an exception with the following message: `AADSTS100007: Regional Cache Auth Service token requests for audience App that is not MSI are forbidden.`
+-->
 
 ## Next steps
 
