@@ -1,7 +1,7 @@
 ---
 title: Enable VM extension from Azure portal
 description: This article describes how to deploy virtual machine extensions to Azure Arc enabled servers running in hybrid cloud environments from the Azure portal.
-ms.date: 06/18/2021
+ms.date: 06/21/2021
 ms.topic: conceptual
 ---
 
