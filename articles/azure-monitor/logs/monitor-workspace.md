@@ -49,7 +49,7 @@ Ingestion operations are issues that occurred during data ingestion including no
 
  
 #### Operation: Data collection stopped  
-Data collection stopped due to reaching the daily limit.
+"Data collection stopped due to daily limit of free data reached. Ingestion status = OverQuota"
 
 In the past 7 days, logs collection reached the daily set limit. The limit is set either as the workspace is set to "free tier", or daily collection limit was configured for this workspace.
 Note, after reaching the set limit, your data collection will automatically stop for the day and will resume only during the next collection day. 
@@ -63,9 +63,7 @@ Or, you can decide to ([Manage your maximum daily data volume](./manage-cost-sto
 * Data collection rate is calculated per day, and will reset at the start of the next day, you can also monitor collection resume event by [Create an alert](./manage-cost-storage.md#alert-when-daily-cap-reached) on "Data collection resumed" Operation event.
 
 #### Operation: Ingestion rate
-Ingestion rate limit approaching\passed the limit.
-
- Your ingestion rate has passed the 80%; at this point there is not issue. Note, data collected exceeding the threshold will be dropped. </br>
+"The data ingestion volume rate crossed the threshold in your workspace: {0:0.00} MB per one minute and data has been dropped." 
 
 Recommended Actions:
 *	Check _LogOperation table for ingestion rate event 
@@ -81,15 +79,15 @@ For further information: </br>
 
  
 #### Operation: Maximum table column count
-Custom fields count have reached the limit.
+"Data of type \<**table name**\> was dropped because number of fields \<**new fields count**\> is above the limit of \<**current field count limit**\> custom fields per data type." 
 
 Recommended Actions: 
 For custom tables, you can move to [Parsing the data](./parse-text.md) in queries.
 
 #### Operation: Field content validation
-One of the fields of the data being ingested had more than 32 Kb in size, so it got truncated.
+"The following fields' values \<**field name**\> of type \<**table name**\> have been trimmed to the max allowed size, \<**field size limit**\> bytes. Please adjust your input accordingly." 
 
-Log Analytics limits ingested fields size to 32 Kb, larger size fields will be trimmed to 32 Kb. We don’t recommend sending fields larger than 32 Kb as the trim process might remove important information. 
+Field larger then the limit size was proccessed by Azure logs, the field was trimed to the allowed field limit. We don’t recommend sending fields larger than the allowed limit as this will resualt in data loss. 
 
 Recommended Actions:
 Check the source of the affected data type:
@@ -100,6 +98,8 @@ Check the source of the affected data type:
 
 ### Data collection
 #### Operation: Azure Activity Log collection
+"Access to the subscription was lost. Ensure that the \<**subscription id**\> subscription is in the \<**tenant id**\> Azure Active Directory tenant. If the subscription is transferred to another tenant, there is no impact to the services, but information for the tenant could take up to an hour to propagate. '"
+
 Description: In some situations, like moving a subscription to a different tenant, the Azure Activity logs might stop flowing in into the workspace. In those situations, we need to reconnect the subscription following the process described in this article.
 
 Recommended Actions: 
@@ -111,6 +111,8 @@ Recommended Actions:
 
 ### Agent
 #### Operation: Linux Agent
+"Two successive configuration applications from OMS Settings failed"
+
 Config settings on the portal have changed.
 
 Recommended Action
