@@ -16,9 +16,13 @@ ms.custom: devx-track-dotnet
 
 Cosmos DB slow requests can happen for multiple reasons. This guide is to help root cause the different issues.
 
+## Request rate to large causing 429 (Throttles)
+
+Throttled requests are the most common reason for slow requests. Cosmos DB will throttle requests if it exceeds the allocated RUs for the database or container. The SDK has built in logic to retry on these requests. The [request rate too large](troubleshoot-request-rate-too-large#how-to-investigate) troubleshooting explains how to check if the requests are being throttled and how to scale the Cosmos DB service to avoid the issue in the future.
+
 ## Application design
 
-Most issues are caused by not following these guidelines. Follow the [performance guide](performance-tips-dotnet-sdk-v3-sql). 
+Not following the SDK practices will result in different issues that will cause slow or failed requests. Follow the [performance guide](performance-tips-dotnet-sdk-v3-sql). 
 
 Key points:
 1. Application in same region as Cosmos DB service
@@ -26,15 +30,12 @@ Key points:
 3. Use Direct + TCP connectivity mode
 4. Avoid High CPU. Make sure to look at Max CPU and not average, which is the default for most logging systems. Anything above roughly 40% can cause the latency to start to increase.
 
-## Request rate to large causing 429 (Throttles)
-
-This is the most common reason for slow requests. Cosmos DB will throttle requests if it exceeds the allocated RUs for the database or container. The SDK has built in logic to retry on these requests. The [request rate too large](troubleshoot-request-rate-too-large#how-to-investigate) troubleshooting explains how to check if the requests are being throttled and how to scale the Cosmos DB service to avoid the issue in the future.
 
 ## Capture the diagnostics
 
-All responses in the SDK including CosmosException have a Diagnostics property. The diagnostics records all the information related to the single request including if there was retries or any transient failures. This is needed for the Cosmos DB team to be able to root cause any latency issues.
+All responses in the SDK including CosmosException have a Diagnostics property. The diagnostics records all the information related to the single request including if there was retries or any transient failures. CosmosDiagnostics is needed for the Cosmos DB team to be able to root cause any latency issues.
 
-The Diagnostics is returned as a string and should not be parsed. The string changes with each version as it is improved to better troubleshoot different scenarios.
+The Diagnostics is returned as a string. The string changes with each version as it is improved to better troubleshooting different scenarios. The string will have breaking changes to the formatting with each version of the SDK and it should not be parsed.
 
 ```c#
 try
@@ -62,7 +63,7 @@ if (response.Diagnostics.GetClientElapsedTime() > ConfigurableSlowRequestTimeSpa
 
 
 ## Understanding the diagnostics in 3.19 and greater
-The json structure should not be parsed as it will change with each version of the SDK. The json represents a tree structure of the request going through the SDK. This is covering a few key things to look.
+The json structure has breaking changes with each version of the SDK making not safe to be parsed. The json represents a tree structure of the request going through the SDK. This is covering a few key things to look.
 
 ### CPU History
 High CPU utilization is the most common case. For optimal latency, CPU usage should be roughly 40 percent. Use 10 seconds as the interval to monitor maximum (not average) CPU utilization. CPU spikes are more common with cross-partition queries where it might do multiple connections for a single query.
@@ -99,7 +100,7 @@ Single store result for a single request
 | Number of requests | Scenario | Description | 
 |----------|-------------|-------------|
 | Single to all | Request Timeout or HttpRequestExceptions | This points to [SNAT Port exhaustion](troubleshoot-dot-net-sdk.md#snat) or lack of resources on the machine to processes request in time |
-| Single or small percentage | All | This doesn't violate the Cosmos DB SLA. A single or small percentage of slow requests can be caused by several different transient issues and should be expected | 
+| Single or small percentage (SLA is not violated) | All | A single or small percentage of slow requests can be caused by several different transient issues and should be expected | 
 | All | All | An issue with the infrastructure or networking. |
 | SLA Violated | No changes to application and SLA dropped | This likely an issue with Cosmos DB service |
 
@@ -126,13 +127,14 @@ Single store result for a single request
 
 | Number of requests | Scenario | Description | 
 |----------|-------------|-------------|
-| Single to all | StoreResult contains TransportException | This points to [SNAT Port exhaustion](troubleshoot-dot-net-sdk.md#snat) or lack of resources on the machine to processes request in time |
-| Single or small percentage | All | This doesn't violate the Cosmos DB SLA. A single or small percentage of slow requests can be caused by several different transient issues and should be expected | 
+| Single to all | StoreResult contains TransportException | Points to [SNAT Port exhaustion](troubleshoot-dot-net-sdk.md#snat) or lack of resources on the machine to processes request in time |
+| Single or small percentage (SLA is not violated) | All | A single or small percentage of slow requests can be caused by several different transient issues and should be expected | 
 | All | All | An issue with the infrastructure or networking. |
-| SLA Violated | Requests contain multiple failure error codes like 410 | This likely points to an issue with the Cosmos DB service |
-| SLA Violated | StorePhysicalAddress is the same with no failure status code | This likely an issue with Cosmos DB service |
-| SLA Violated | StorePhysicalAddress have the same partition ID but different replica IDs with no failure status code | This likely is an issue with the Cosmos DB service |
-| SLA Violated | StorePhysicalAddress are random with no failure status code | This likely points to an issue with the machine |
+| SLA Violated | Requests contain multiple failure error codes like 410 and IsValid is true | Points to an issue with the Cosmos DB service |
+| SLA Violated | Requests contain multiple failure error codes like 410 and IsValid is false | Points to an issue with the machine |
+| SLA Violated | StorePhysicalAddress is the same with no failure status code | Likely an issue with Cosmos DB service |
+| SLA Violated | StorePhysicalAddress have the same partition ID but different replica IDs with no failure status code | Likely an issue with the Cosmos DB service |
+| SLA Violated | StorePhysicalAddress are random with no failure status code | Points to an issue with the machine |
 
 RntbdRequestStats show the time for the different stages of sending and receiving a request.
 
