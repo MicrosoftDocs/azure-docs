@@ -46,8 +46,7 @@ To add a maintenance window, you can use the `az aks maintenanceconfiguration ad
 
 > [!IMPORTANT]
 > Planned Maintenance windows are specified in Coordinated Universal Time (UTC).
-
-> [!IMPORTANT]
+>
 > At this time, you must set `default` as the value for `--name`. Using any other name will cause your maintenance window to not run.
 
 ```azurecli-interactive
