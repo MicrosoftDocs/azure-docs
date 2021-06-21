@@ -111,7 +111,7 @@ You can modify settings in PowerShell.
     $TargetResourceSettingObj.TargetResourceName="PSDemoVM-target"
     ```
 
-4)	Update the move resource destination settings. In this example, we change the name of the VM from <i>PSDemoVM<i> to <i>PSDemoVMTarget</i>.
+4)	Update the move resource destination settings. In this example, we change the name of the VM from *PSDemoVM* to *PSDemoVMTarget*.
 
     ```azurepowershell
     Update-AzResourceMoverMoveResource -ResourceGroupName "RG-MoveCollection-demoRMS" -MoveCollectionName "PS-centralus-westcentralus-demoRMS" -SourceId "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/PSDemoRM/providers/Microsoft.Compute/virtualMachines/PSDemoVM" -Name "PSDemoVM" -ResourceSetting $TargetResourceSettingObj
