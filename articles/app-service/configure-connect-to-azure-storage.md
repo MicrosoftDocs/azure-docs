@@ -100,7 +100,7 @@ The following features are supported for Linux containers:
 
 ::: zone pivot="container-windows"
 
-## Mount storage to your Windows container
+## Mount storage to Windows container
 
 Use the [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account#az_webapp_config_storage_account_add) command. For example:
 
@@ -121,18 +121,18 @@ az webapp config storage-account list --resource-group <resource-group> --name <
 
 ::: zone pivot="container-linux"
 
-## Mount storage to your Linux container
+## Mount storage to Linux container
 
 # [Azure portal](#tab/portal)
 
-1. In the [Azure portal](https://porta.azure.com), navigate to your app.
+1. In the [Azure portal](https://porta.azure.com), navigate to the app.
 1. From the left navigation, click **Configuration** > **Path Mappings** > **New Azure Storage Mount**. 
-1. Configure your storage mount according to the following table. When finished, click **OK**.
+1. Configure the storage mount according to the following table. When finished, click **OK**.
 
     | Setting | Description |
     |-|-|
     | **Name** | Name of the mount configuration. |
-    | **Configuration options** | Select Basic if your storage account is not using [service endpoints](../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) or [private endpoints](../storage/common/storage-private-endpoints.md). Otherwise, select **Advanced**. |
+    | **Configuration options** | Select **Basic** if the storage account is not using [service endpoints](../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) or [private endpoints](../storage/common/storage-private-endpoints.md). Otherwise, select **Advanced**. |
     | **Storage accounts** | Azure Storage account. |
     | **Storage type** | Select the type based on the storage you want to mount. Azure Blobs only supports read-only access. |
     | **Storage container** or **Share name** | Files share or Blobs container to mount. |
@@ -140,7 +140,7 @@ az webapp config storage-account list --resource-group <resource-group> --name <
     | **Mount path** | Directory inside the Linux container to mount to Azure Storage. Do not use `/` (the root directory). |
 
     > [!CAUTION]
-    > The directory specified in **Mount path** in your Linux container should be empty. Any content stored in this directory is deleted when your Azure Storage is mounted (if you specify a directory under `/home`, for example). If you are migrating files for an existing app, make a backup of your app and its content before you begin.
+    > The directory specified in **Mount path** in the Linux container should be empty. Any content stored in this directory is deleted when the Azure Storage is mounted (if you specify a directory under `/home`, for example). If you are migrating files for an existing app, make a backup of the app and its content before you begin.
     >
     
 # [Azure CLI](#tab/cli)
@@ -155,7 +155,7 @@ az webapp config storage-account add --resource-group <group-name> --name <app-n
 - `--mount-path` is the directory inside the Linux container to mount to Azure Storage. Do not use `/` (the root directory).
 
 > [!CAUTION]
-> The directory specified in `--mount-path` in your Linux container should be empty. Any content stored in this directory is deleted when your Azure Storage is mounted (if you specify a directory under `/home`, for example). If you are migrating files for an existing app, make a backup of your app and its content before you begin.
+> The directory specified in `--mount-path` in the Linux container should be empty. Any content stored in this directory is deleted when the Azure Storage is mounted (if you specify a directory under `/home`, for example). If you are migrating files for an existing app, make a backup of the app and its content before you begin.
 >
 
 Verify your configuration by running the following command:
@@ -169,15 +169,15 @@ az webapp config storage-account list --resource-group <resource-group> --name <
 ::: zone-end
 
 > [!NOTE]
-> Adding, editing, or deleting a storage mount causes your app to be restarted. 
+> Adding, editing, or deleting a storage mount causes the app to be restarted. 
 
 ::: zone pivot="container-linux"
 
 ## Test the mounted storage
 
-To validate that the Azure Storage is mounted successfully for your app:
+To validate that the Azure Storage is mounted successfully for the app:
 
-1. [Open an SSH session](configure-linux-open-ssh-session.md) into your container.
+1. [Open an SSH session](configure-linux-open-ssh-session.md) into the container.
 1. In the SSH terminal, execute the following command:
 
     ```bash
@@ -192,23 +192,23 @@ To validate that the Azure Storage is mounted successfully for your app:
 
 ## Best practices
 
-- To avoid potential issues related to latency, place your app and your Azure Storage account in the same Azure region. Note, however, if your app and Azure Storage account are in same Azure region, and if you grant access from App Service IP addresses in your [Azure Storage firewall configuration](../storage/common/storage-network-security.md), then these IP restrictions are not honored.
-- The mount path in your container app should be empty. Any content stored at this path is deleted when your Azure Storage is mounted (if you specify a directory under `/home`, for example). If you are migrating files for an existing app, make a backup of your app and its content before you begin.
-- Mounting your storage to `/home` is not recommended because it may result in performance bottlenecks for your app. 
-- In your Azure Storage account, avoid [regenerating the access key](../storage/common/storage-account-keys-manage.md) that's used to mount the storage in your app. Your storage account contains two different keys. Use a stepwise approach to ensure that the storage mount remains available to your app during key regeneration. For example, assuming that you used **key1** to configure storage mount in your app:
+- To avoid potential issues related to latency, place the app and the Azure Storage account in the same Azure region. Note, however, if the app and Azure Storage account are in same Azure region, and if you grant access from App Service IP addresses in the [Azure Storage firewall configuration](../storage/common/storage-network-security.md), then these IP restrictions are not honored.
+- The mount path in the container app should be empty. Any content stored at this path is deleted when the Azure Storage is mounted (if you specify a directory under `/home`, for example). If you are migrating files for an existing app, make a backup of the app and its content before you begin.
+- Mounting the storage to `/home` is not recommended because it may result in performance bottlenecks for the app. 
+- In the Azure Storage account, avoid [regenerating the access key](../storage/common/storage-account-keys-manage.md) that's used to mount the storage in the app. The storage account contains two different keys. Use a stepwise approach to ensure that the storage mount remains available to the app during key regeneration. For example, assuming that you used **key1** to configure storage mount in your app:
     1. Regenerate **key2**. 
     1. In the storage mount configuration, update the access the key to use the regenerated **key2**.
     1. Regenerate **key1**.
-- If you delete an Azure Storage account, container, or share, remove the corresponding storage mount configuration in your app to avoid possible error scenarios. 
-- The mounted Azure Storage account can be either Standard or Premium performance tier. Based on your app capacity and throughput requirements, choose the appropriate performance tier for your storage account. See the scalability and performance targets that correspond to your storage type:
+- If you delete an Azure Storage account, container, or share, remove the corresponding storage mount configuration in the app to avoid possible error scenarios. 
+- The mounted Azure Storage account can be either Standard or Premium performance tier. Based on the app capacity and throughput requirements, choose the appropriate performance tier for the storage account. See the scalability and performance targets that correspond to the storage type:
     - [For Files](../storage/files/storage-files-scale-targets.md)
     - [For Blobs](../storage/blobs/scalability-targets.md)  
-- If your app [scales to multiple instances](../azure-monitor/autoscale/autoscale-get-started.md), all the instances connect to the same mounted Azure Storage account. To avoid performance bottlenecks and throughput issues, choose the appropriate performance tier for your storage account.  
+- If your app [scales to multiple instances](../azure-monitor/autoscale/autoscale-get-started.md), all the instances connect to the same mounted Azure Storage account. To avoid performance bottlenecks and throughput issues, choose the appropriate performance tier for the storage account.  
 - It's not recommended to use storage mounts for local databases (such as SQLite) or for any other applications and components that rely on file handles and locks. 
-- When using Azure Storage [private endpoints](../storage/common/storage-private-endpoints.md) with your app, you need to set the following two app settings:
+- When using Azure Storage [private endpoints](../storage/common/storage-private-endpoints.md) with the app, you need to set the following two app settings:
     - `WEBSITE_DNS_SERVER` = `168.63.129.16`
     - `WEBSITE_VNET_ROUTE_ALL` = `1`
-- If you [initiate a storage failover](../storage/common/storage-initiate-account-failover.md) and the storage account is mounted to your app, the mount will fail to connect until you either restart the app or remove and add the Azure Storage mount. 
+- If you [initiate a storage failover](../storage/common/storage-initiate-account-failover.md) and the storage account is mounted to the app, the mount will fail to connect until you either restart the app or remove and add the Azure Storage mount. 
 
 ::: zone-end
 
