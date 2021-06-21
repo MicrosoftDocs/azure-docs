@@ -27,7 +27,7 @@ When you federate your on-premises environment with Azure AD, you establish a tr
 * The various settings configured on the trust by Azure AD Connect
 * The issuance transform rules (claim rules) set by Azure AD Connect
 * How to back-up and restore your claim rules between upgrades and configuration updates. 
-* Best practices for securing and monitoring the AD FS trust with Azure AD
+* Best practice for securing and monitoring the AD FS trust with Azure AD
 
 ## Settings controlled by Azure AD Connect
 
@@ -113,7 +113,7 @@ You can restore the issuance transform rules using the suggested steps below
 > [!NOTE]
 > Make sure that your additional rules do not conflict with the rules configured by Azure AD Connect.
 
-## Best practices for securing and monitoring the AD FS trust with Azure AD
+## Best practice for securing and monitoring the AD FS trust with Azure AD
 When you federate your AD FS with Azure AD, it is critical that the federation configuration (trust relationship configured between AD FS and Azure AD) is monitored closely, and any unusual or suspicious activity is captured. To do so, we recommend setting up alerts and getting notified whenever any changes are made to the federation configuration. To learn how to setup alerts, see [Monitor changes to federation configuration](how-to-connect-monitor-federation-changes.md). 
 
 
