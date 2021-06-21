@@ -40,7 +40,7 @@ The feature is fully supported for both Windows and Linux apps, including [custo
 
 ### Integration routing scope
 
-You can configure the routing scope applied to your regional VNet integration by enabling routing of all traffic. If all traffic routing is not enabled, your app routes only [RFC1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3) traffic into your VNet. If you want to route all of your outbound traffic into your VNet, make sure this all traffic routing is enabled.
+You can configure the routing scope applied to your regional VNet integration by enabling routing of all traffic. If all traffic routing is not enabled, your app routes only [RFC1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3) traffic into your VNet. If you want to route all of your outbound traffic into your VNet, make sure that all traffic routing is enabled.
 
 > [!NOTE]
 > When you route all of your outbound traffic into your VNet, all traffic is subject to the NSGs and UDRs that are applied to your integration subnet. When all traffic routing is enabled, outbound traffic is still sent from the addresses that are listed in your app properties, unless you provide routes that direct the traffic elsewhere.
@@ -74,11 +74,11 @@ Regional VNet Integration enables you to reach Azure services that are secured w
 
 ### Network security groups
 
-You can use network security groups (NSG) to block inbound and outbound traffic to resources in a VNet. An app that uses regional VNet Integration can use a [network security group][VNETnsg] to block outbound traffic to resources in your VNet or the internet. To block traffic to public addresses, you must ensure you [route all](#routing-scope) traffic to the VNet. When route all is not enabled, NSGs are only applied to RFC 1918 traffic.
+You can use network security groups (NSG) to block inbound and outbound traffic to resources in a VNet. An app that uses regional VNet Integration can use a [network security group][VNETnsg] to block outbound traffic to resources in your VNet or the internet. To block traffic to public addresses, you must ensure you [route all traffic](#integration-routing-scope) to the VNet. When all traffic routing is not enabled, NSGs are only applied to RFC1918 traffic.
+
+An NSG that's applied to your integration subnet is in effect regardless of any route tables applied to your integration subnet. 
 
 The inbound rules in an NSG do not apply to your app because VNet Integration affects only outbound traffic from your app. To control inbound traffic to your app, use the Access Restrictions feature.
-
- An NSG that's applied to your integration subnet is in effect regardless of any routes applied to your integration subnet. If `WEBSITE_VNET_ROUTE_ALL` is set to `1` and you don't have any routes that affect public address traffic on your integration subnet, all of your outbound traffic is still subject to NSGs assigned to your integration subnet.
 
 ### Route tables
 
@@ -93,7 +93,7 @@ Border Gateway Protocol (BGP) routes also affect your app traffic. If you have B
 After your app integrates with your VNet, it uses the same DNS server that your VNet is configured with, and if no custom DNS is specified it will use Azure default DNS and any private zones linked to the VNet.
 
 > [!NOTE]
-> For Linux Apps you need to enable routing of all traffic.
+> For Linux Apps you need to enable routing of all traffic to use Azure DNS private zones.
 
 ### Private endpoints
 
