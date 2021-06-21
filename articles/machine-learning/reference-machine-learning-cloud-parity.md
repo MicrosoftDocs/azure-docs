@@ -28,7 +28,7 @@ The information in the rest of this document provides information on what featur
 
 | Feature | Public cloud status  | US-Virginia | US-Arizona| 
 |----------------------------------------------------------------------------|:----------------------:|:--------------------:|:-------------:|
-| **Automated machine learning** | | | |
+| **[Automated machine learning](concept-automated-ml.md)** | | | |
 | Create and run experiments in notebooks                                    | GA                   | YES                | YES         |
 | Create and run experiments in studio web experience                        | Public Preview       | YES                | YES         |
 | Industry-leading forecasting capabilities                                  | GA                   | YES                | YES         |
@@ -36,7 +36,7 @@ The information in the rest of this document provides information on what featur
 | Large data support (up to 100 GB)                                          | Public Preview       | YES                | YES         |
 | Azure Databricks integration                                              | GA                   | NO                 | NO          |
 | SQL, CosmosDB, and HDInsight integrations                                   | GA                   | YES                | YES         |
-| **Machine Learning pipelines** |   |  | | 
+| **[Machine Learning pipelines](concept-ml-pipelines.md)** |   |  | | 
 | Create, run, and publish pipelines using the Azure ML SDK                   | GA                   | YES                | YES         |
 | Create pipeline endpoints using the Azure ML SDK                           | GA                   | YES                | YES         |
 | Create, edit, and delete scheduled runs of pipelines using the Azure ML SDK | GA                   | YES*               | YES*        |
@@ -44,62 +44,62 @@ The information in the rest of this document provides information on what featur
 | Create, run, visualize, and publish pipelines in Azure ML designer          | GA      | YES                | YES         |
 | Azure Databricks Integration with ML Pipeline                             | GA                   | NO                 | NO          |
 | Create pipeline endpoints in Azure ML designer                             | GA      | YES                | YES         |
-| **Integrated notebooks** |   |  | | 
+| **[Integrated notebooks](how-to-run-jupyter-notebooks.md)** |   |  | | 
 | Workspace notebook and file sharing                                        | GA                   | YES                | YES         |
 | R and Python support                                                       | GA                   | YES                | YES         |
 | Virtual Network support                                                    | Public Preview       | NO                 | NO          |
-| **Compute instance** |   |  | | 
+| **[Compute instance](concept-compute-instance.md)** |   |  | | 
 | Managed compute Instances for integrated Notebooks                         | GA                   | YES                | YES         |
 | Jupyter, JupyterLab Integration                                            | GA                   | YES                | YES         |
 | Virtual Network (VNet) support                                             | Public Preview       | YES                | YES         |
 | **SDK support** |  |  | | 
-| R SDK support                                                              | Public Preview       | YES                | YES         |
-| Python SDK support                                                         | GA                   | YES                | YES         |
-| **Security** |   | | | 
+| [R SDK support](https://azure.github.io/azureml-sdk-for-r/reference/index.html)                                                              | Public Preview       | YES                | YES         |
+| [Python SDK support](/python/api/overview/azure/ml/)                                                         | GA                   | YES                | YES         |
+| **[Security](concept-enterprise-security.md)** |   | | | 
 | Virtual Network (VNet) support for training                                | GA                   | YES                | YES         |
 | Virtual Network (VNet) support for inference                               | GA                   | YES                | YES         |
 | Scoring endpoint authentication                                            | Public Preview       | YES                | YES         |
-| Workplace Private link                                                     | Public Preview       | NO                 | NO          |
+| Workplace private endpoint                                                 | Public Preview       | NO                 | NO          |
 | ACI behind VNet                                                            | Public Preview       | NO                 | NO          |
 | ACR behind VNet                                                            | Public Preview       | NO                 | NO          |
 | Private IP of AKS cluster                                                  | Public Preview       | NO                 | NO          |
 | **Compute** |   | | |
-| quota management across workspaces                                         | GA                   | YES                | YES         |
-| **Data for machine learning** |   | | |
+| [quota management across workspaces](how-to-manage-quotas.md)                                         | GA                   | YES                | YES         |
+| **[Data for machine learning](concept-data.md)** |   | | |
 | Create, view, or edit datasets and datastores from the SDK                  | GA                   | YES                | YES         |
 | Create, view, or edit datasets and datastores from the UI                   | GA                   | YES                | YES         |
 | View, edit, or delete dataset drift monitors from the SDK                   | Public Preview       | YES                | YES         |
 | View, edit, or delete dataset drift monitors from the UI                    | Public Preview       | YES                | YES         |
 | **Machine learning lifecycle** |   | | |
-| Model profiling                                                            | GA                   | YES                | PARTIAL     |
-| The Azure DevOps extension for Machine Learning & the Azure ML CLI         | GA                   | YES                | YES         |
-| FPGA-based Hardware Accelerated Models                                     | GA                   | NO                 | NO          |
-| Visual Studio Code integration                                             | Public Preview       | NO                 | NO          |
-| Event Grid integration                                                     | Public Preview       | NO                 | NO          |
-| Integrate Azure Stream Analytics with Azure Machine Learning               | Public Preview       | NO                 | NO          |
-| **Labeling** |   | | |
+| [Model profiling](how-to-deploy-profile-model.md)                                                            | GA                   | YES                | PARTIAL     |
+| [The Azure ML CLI 1.0](reference-azure-machine-learning-cli.md)     | GA                   | YES                | YES         |
+| [FPGA-based Hardware Accelerated Models](how-to-deploy-fpga-web-service.md)                                     | GA                   | NO                 | NO          |
+| [Visual Studio Code integration](how-to-setup-vs-code.md)                                             | Public Preview       | NO                 | NO          |
+| [Event Grid integration](how-to-use-event-grid.md)                                                     | Public Preview       | NO                 | NO          |
+| [Integrate Azure Stream Analytics with Azure Machine Learning](../stream-analytics/machine-learning-udf.md)               | Public Preview       | NO                 | NO          |
+| **[Labeling](how-to-create-labeling-projects.md)** |   | | |
 | Labeling Project Management Portal                                        | GA                   | YES                | YES         |
 | Labeler Portal                                                            | GA                   | YES                | YES         |
 | Labeling using private workforce                                          | GA                   | YES                | YES         |
 | ML assisted labeling (Image classification and object detection)           | Public Preview       | YES                | YES         |
-| **Responsible ML** |   | | |
+| **[Responsible ML](concept-responsible-ml.md)** |   | | |
 | Explainability in UI                                                       | Public Preview       | NO                 | NO          |
 | Differential privacy SmartNoise toolkit                                    | OSS                  | NO                 | NO          |
-| custom tags in Azure Machine Learning to implement datasheets              | GA                   | NO                 | NO          |
+| Custom tags in Azure Machine Learning to implement datasheets              | GA                   | NO                 | NO          |
 | Fairness AzureML Integration                                               | Public Preview       | NO                 | NO          |
 | Interpretability  SDK                                                      | GA                   | YES                | YES         |
 | **Training** |   | | |
-| Experimentation log streaming                                              | GA                   | YES                | YES         |
-| Reinforcement Learning                                                     | Public Preview       | NO                 | NO          |
-| Experimentation UI                                                         | GA                   | YES                | YES         |
-| .NET integration ML.NET 1.0                                                | GA                   | YES                | YES         |
+| [Experimentation log streaming](how-to-track-monitor-analyze-runs.md)                                              | GA                   | YES                | YES         |
+| [Reinforcement Learning](how-to-use-reinforcement-learning.md)                                                     | Public Preview       | NO                 | NO          |
+| [Experimentation UI](how-to-track-monitor-analyze-runs.md)                                                         | Public Preview                   | YES                | YES         |
+| [.NET integration ML.NET 1.0](/dotnet/machine-learning/tutorials/object-detection-model-builder)                                                | GA                   | YES                | YES         |
 | **Inference** |   | | |
-| Batch inferencing                                                          | GA                   | YES                | YES         |
-| Data Box Edge with FPGA                                                    | Public Preview       | NO                 | NO          |
+| [Batch inferencing](tutorial-pipeline-batch-scoring-classification.md)                                                          | GA                   | YES                | YES         |
+| [Data Box Edge with FPGA](how-to-deploy-fpga-web-service.md#deploy-to-a-local-edge-server)                                                    | Public Preview       | NO                 | NO          |
 | **Other** |   | | |
-| Open Datasets                                                              | Public Preview       | YES                | YES         |
-| Custom Cognitive Search                                                    | Public Preview       | YES                | YES         |
-| Many Models                                                                | Public Preview       | NO                 | NO          |
+| [Open Datasets](/azure/open-datasets/samples)                                                              | Public Preview       | YES                | YES         |
+| [Custom Cognitive Search](how-to-deploy-model-cognitive-search.md)                                                    | Public Preview       | YES                | YES         |
+| [Many Models Solution Accelerator](https://github.com/microsoft/solution-accelerator-many-models)                                                                | Public Preview       | NO                 | NO          |
 
 
 ### Azure Government scenarios

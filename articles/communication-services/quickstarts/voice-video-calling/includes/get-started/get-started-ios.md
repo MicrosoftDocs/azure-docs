@@ -124,7 +124,11 @@ The following classes and interfaces handle some of the major features of the Az
 
 ## Authenticate the client
 
-Initialize a `CallAgent` instance with a User Access Token which will enable us to make and receive calls. Add the following code to the `onAppear` callback in **ContentView.swift**:
+Initialize a `CallAgent` instance with a User Access Token which will enable us to make and receive calls. 
+
+In the following code, you will need to replace `<USER ACCESS TOKEN>` with a valid user access token for your resource. Refer to the [user access token](../../../access-tokens.md) documentation if you don't already have a token available.
+
+Add the following code to the `onAppear` callback in **ContentView.swift**:
 
 ```swift
 var userCredential: CommunicationTokenCredential?
@@ -150,7 +154,7 @@ self.callClient?.createCallAgent(userCredential: userCredential!) { (agent, erro
 }
 ```
 
-You need to replace `<USER ACCESS TOKEN>` with a valid user access token for your resource. Refer to the [user access token](../../../access-tokens.md) documentation if you don't already have a token available.
+
 
 ## Start a call
 

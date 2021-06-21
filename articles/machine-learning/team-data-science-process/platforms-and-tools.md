@@ -7,7 +7,7 @@ editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 06/18/2021
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
@@ -19,7 +19,8 @@ Microsoft provides a full spectrum of analytics resources for both cloud or on-p
 
 The analytics resources available to data science teams using the TDSP include:
 
-- Data Science Virtual Machines (both Windows and Linux CentOS)
+- Azure Machine Learning 
+- Data Science Virtual Machines (either Windows and Linux Ubuntu)
 - HDInsight Spark Clusters
 - Azure Synapse Analytics
 - Azure Data Lake
@@ -30,20 +31,33 @@ The analytics resources available to data science teams using the TDSP include:
 
 In this document, we briefly describe the resources and provide links to the tutorials and walkthroughs the TDSP teams have published. They can help you learn how to use them step by step and start using them to build your intelligent applications. More information on these resources is available on their product pages. 
 
+
+## Azure Machine Learning 
+
+Azure Machine Learning is our primary recommended platform for data science development.  This PaaS (platform as a service) provides both standalone operation, or integration with any of the other platforms and tools mentioned on this webpage. [Azure Machine Learning](../overview-what-is-azure-ml.md) (AzureML) is an end-to-end platform that encompasses:
+
++ Fully Managed Compute
+  + Compute Instances
+  + Compute Clusters for distributed ML tasks
+  + Inference Clusters for real-time scoring
++ Datastores (for example Blob, ADLS Gen2, SQL DB)
++ Experiment tracking
++ Model management
++ Notebooks
++ Environments (manage conda and R dependencies)
++ Labeling
++ Pipelines (automate End-to-End Data science workflows)
+
+
 ## Data Science Virtual Machine (DSVM)
 
-The data science virtual machine offered on both Windows and Linux by Microsoft, contains popular tools for data science modeling and development activities. It includes tools such as:
+The data science virtual machine offered on both Windows and Linux by Microsoft, contains popular tools for data science modeling and development activities. 
 
-- Microsoft R Server Developer Edition 
-- Anaconda Python distribution
-- Jupyter notebooks for Python and R 
-- Visual Studio Community Edition with Python and R Tools on Windows / Eclipse on Linux
-- Power BI desktop for Windows
-- SQL Server 2016 Developer Edition on Windows / Postgres on Linux
+The Data Science Virtual Machine is an easy way to explore data and do machine learning in the cloud. The Data Science Virtual Machines are pre-configured with the complete operating system, security patches, drivers, and popular data science and development software. You can choose the hardware environment, ranging from lower-cost CPU-centric machines to very powerful machines with multiple GPUs, NVMe storage, and large amounts of memory. For machines with GPUs, all drivers are installed, all machine learning frameworks are version-matched for GPU compatibility, and acceleration is enabled in all application software that supports GPUs.
 
-It also includes **ML and AI tools** like xgboost, mxnet, and Vowpal Wabbit.
+The Data Science Virtual Machine comes with the most useful data-science tools pre-installed.  See [Tools included on the Data Science Virtual Machine](/azure/machine-learning/data-science-virtual-machine/tools-included) for the most recent list of tools and versions.
 
-Currently DSVM is available in **Windows** and **Linux CentOS** operating systems. Choose the size of your DSVM (number of CPU cores and the amount of memory) based on the needs of the data science projects that you are planning to execute on it. 
+Currently DSVM is available in **Windows** and **Linux Ubuntu** operating systems. Choose the size of your DSVM (number of CPU cores and the amount of memory) based on the needs of the data science projects that you are planning to execute on it. 
 
 For more information on Windows edition of DSVM, see [Microsoft Data Science Virtual Machine](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019) on the Azure Marketplace. For the Linux edition of the DSVM, see [Linux Data Science Virtual Machine](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804).
 
@@ -104,7 +118,7 @@ The TDSP team from Microsoft has published two end-to-end walkthroughs that show
 
 ### Install Git Credential Manager on Windows
 
-If you are following the TDSP on **Windows**, you need to install the **Git Credential Manager (GCM)** to communicate with the Git repositories. To install GCM, you first need to install **Chocolaty**. To install Chocolaty and the GCM, run the following commands in Windows PowerShell as an **Administrator**:  
+If you are following the TDSP on **Windows**, you need to install the **Git Credential Manager (GCM)** to communicate with the Git repositories. To install GCM, you first need to install **Chocolatey**. To install Chocolatey and the GCM, run the following commands in Windows PowerShell as an **Administrator**:  
 
 ```powershell
 iwr https://chocolatey.org/install.ps1 -UseBasicParsing | iex

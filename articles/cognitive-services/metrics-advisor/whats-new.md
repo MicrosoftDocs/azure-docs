@@ -25,6 +25,20 @@ If you want to learn about the latest updates to Metrics Advisor client SDKs see
 * [Python SDK change log](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/metricsadvisor/azure-ai-metricsadvisor/CHANGELOG.md)
 * [JavaScript SDK change log](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/metricsadvisor/ai-metrics-advisor/CHANGELOG.md)
 
+## June 2021
+
+### New articles
+
+* [Tutorial: Write a valid query to onboard metrics data](tutorials/write-a-valid-query.md)
+* [Tutorial: Enable anomaly notification in Metrics Advisor](tutorials/enable-anomaly-notification.md)
+
+### Updated articles
+
+* [Updated metrics onboarding flow](how-tos/onboard-your-data.md)
+* [Enriched guidance when adding data feeds from different sources](data-feeds-from-different-sources.md)
+* [Updated new notification channel using Microsoft Teams](how-tos/alerts.md#teams-hook)
+* [Updated incident diagnostic experience](how-tos/diagnose-an-incident.md)
+
 ## October 2020
 
 ### New articles
@@ -33,4 +47,4 @@ If you want to learn about the latest updates to Metrics Advisor client SDKs see
 
 ### Updated articles
 
-* [Update on how Metric Advisor builds an incident tree for multi-dimensional metrics](faq.md#how-does-metric-advisor-build-an-incident-tree-for-multi-dimensional-metrics)
+* [Update on how Metric Advisor builds an incident tree for multi-dimensional metrics](/azure/cognitive-services/metrics-advisor/faq#how-does-metric-advisor-build-a-diagnostic-tree-for-multi-dimensional-metrics)

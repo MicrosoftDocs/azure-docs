@@ -1,13 +1,14 @@
 ---
 title: Azure Video Analyzer for Media (formerly Video Indexer) release notes | Microsoft Docs
 description: To stay up-to-date with the most recent developments, this article provides you with the latest updates on Azure Video Analyzer for Media (formerly Video Indexer).
-services: media-services
+services: azure-video-analyzer
 documentationcenter: ''
 author: Juliako
 manager: femila
 editor: ''
 ms.workload: na
 ms.topic: article
+ms.subservice: azure-video-analyzer-media
 ms.custom: references_regions
 ms.date: 05/06/2021
 ms.author: juliako
@@ -47,9 +48,7 @@ Three new Git-Hub projects are available at our [GitHub repository](https://gith
  
 ### New option to toggle bounding boxes (for observed people) on the player  
 
-When indexing a video through our advanced video settings, you can view our new observed people capabilities.
-
-If there are people detected in your media file, you can enable a bounding box on the detected person through the media player.
+When indexing a video through our advanced video settings, you can view our new observed people capabilities. If there are people detected in your media file, you can enable a bounding box on the detected person through the media player.
 
 ## April 2021
 

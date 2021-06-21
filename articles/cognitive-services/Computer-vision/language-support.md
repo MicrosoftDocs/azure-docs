@@ -24,7 +24,7 @@ Computer Vision's OCR APIs support several languages. They do not require you to
 |:-----|:----:|:-----:|:---:|:---:|
 |Afrikaans|`af`|✔ | | |
 |Albanian |`sq`|✔ | | |
-|Arabic | `ar`| ✔ | | |
+|Arabic | `ar`|  | ✔ | |
 |Asturian |`ast`|✔ | | |
 |Basque  |`eu`| ✔ | | |
 |Bislama   |`bi`|✔ | | |

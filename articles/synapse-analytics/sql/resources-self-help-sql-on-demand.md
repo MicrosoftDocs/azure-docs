@@ -449,11 +449,39 @@ CREATE EXTERNAL FILE FORMAT [SynapseParquetFormat]
 WITH ( FORMAT_TYPE = PARQUET)
 ```
 
-### Operation [[operation name]] is not allowed for a replicated database.
+### Operation is not allowed for a replicated database.
    
 If you are trying to create some SQL objects, users, or change permissions in a database, you might get the errors like 'Operation CREATE USER is not allowed for a replicated database'. This error is returned when you try to create some objects in a database that is [shared with Spark pool](../metadata/database.md). The databases that are replicated from Apache Spark pools are read-only. You cannot create new objects into replicated database using T-SQL.
 
 Create a separate database and reference the synchronized [tables](../metadata/table.md) using 3-part names and cross-database queries.
+
+## Cosmos DB
+
+### Some rows are not returned
+
+- There is a synchronization delay between transactional and analytical store. The document that you entered in the Cosmos DB transactional store might appear in analytical store after 2-3 minutes.
+- The document might violate some [schema constraints](../../cosmos-db/analytical-store-introduction.md#schema-constraints). 
+
+### Query returns `NULL` values
+
+Synapse SQL will return `NULL` instead of the values that you see in the transaction store in the following cases:
+- There is a synchronization delay between transactional and analytical store. The value that you entered in Cosmos DB transactional store might appear in analytical store after 2-3 minutes.
+- Possibly wrong column name or path expression in the `WITH` clause. Column name (or path expression after the column type) in the `WITH` clause must match the property names in Cosmos DB collection. Comparison is case-sensitive (for example, `productCode` and `ProductCode` are different properties). Make sure that your column names exactly match the Cosmos DB property names.
+- The property might not be moved to the analytical storage because it violates some [schema constraints](../../cosmos-db/analytical-store-introduction.md#schema-constraints), such as more than 1000  properties or more than 127 nesting levels.
+- If you are using well-defined [schema representation](../../cosmos-db/analytical-store-introduction.md#schema-representation) the value in transactional store might have a wrong type. Well-defined schema locks the types for each property by sampling the documents. Any value added in the transactional store that doesn't match the type is treated as a wrong value and not migrated to the analytical store. 
+- If you are using full-fidelity [schema representation](../../cosmos-db/analytical-store-introduction.md#schema-representation) make sure that you are adding type suffix after property name like `$.price.int64`. If you don't see a value for the referenced path, maybe it is stored under different type path, for example `$.price.float64`. See [how to query Cosmos Db collections in the full-fidelity schema](query-cosmos-db-analytical-store.md#query-items-with-full-fidelity-schema).
+
+### Column is not compatible with external data type
+
+The value specified in the `WITH` clause doesn't not match the underlying Cosmos DB types in analytical storage and cannot be implicitly converted. Use `VARCHAR` type in the schema.
+
+### Performance issues
+
+If you are experiencing some unexpected performance issues, make sure that you applied the best practices, such as:
+- Make sure that you have placed the client application, serverless pool, and Cosmos DB analytical storage in [the same region](best-practices-serverless-sql-pool.md#colocate-your-cosmosdb-analytical-storage-and-serverless-sql-pool).
+- Make sure that you are using the `WITH` clause with [optimal data types](best-practices-serverless-sql-pool.md#use-appropriate-data-types).
+- Make sure that you are using [Latin1_General_100_BIN2_UTF8 collation](best-practices-serverless-sql-pool.md#use-proper-collation-to-utilize-predicate-pushdown-for-character-columns) when you filter your data using string predicates.
+- If you have repeating queries that might be cached, try to use [CETAS to store query results in Azure Data Lake Storage](best-practices-serverless-sql-pool.md#use-cetas-to-enhance-query-performance-and-joins).
 
 ## Delta Lake
 
@@ -461,8 +489,6 @@ Delta Lake support is currently in public preview in serverless SQL pools. There
 - Make sure that you are referencing root Delta Lake folder in the [OPENROWSET](./develop-openrowset.md) function or external table location.
   - Root folder must have a sub-folder named `_delta_log`. The query will fail if there is no `_delta_log` folder. If you don't see that folder, then you are referencing plain Parquet files that must be [converted to Delta Lake](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#convert-parquet-to-delta) using Apache Spark pools.
   - Do not specify wildcards to describe the partition schema. Delta Lake query will automatically identify the Delta Lake partitions. 
-- You cannot use schema inference in the [OPENROWSET](/azure/synapse-analytics/sql/develop-openrowset) function if you have nested/complex types in the files. Make sure that you explicitly specify the schema in `WITH` clause.
-- Make sure that you have both Read and list permission on the underlying Delta Lake folders.
 - Delta Lake tables created in the Apache Spark pools are not synchronized in serverless SQL pool. You cannot query Apache Spark pools Delta Lake tables using T-SQL language.
 - External tables do not support partitioning. Use [partitioned views](create-use-views.md#delta-lake-partitioned-views) on Delta Lake folder to leverage the partition elimination.
   - The [partitioned views](create-use-views.md#delta-lake-partitioned-views) on Delta Lake should not have the `OPENROWSET` function with the `WITH` clause. Due to the known issue in preview, you need to use schema inference and remove the `WITH` clause.
@@ -471,6 +497,61 @@ Delta Lake support is currently in public preview in serverless SQL pools. There
 - Delta Lake support is not available in dedicated SQL pools. Make sure that you are using serverless pools to query Delta Lake files.
 
 You can propose ideas and enhancements on [Azure Synapse feedback site](https://feedback.azure.com/forums/307516-azure-synapse-analytics?category_id=171048).
+
+### Content of directory on path cannot be listed
+
+The following error is returned when serverless SQL pool cannot read the Delta Lake transaction log folder.
+
+```
+Msg 13807, Level 16, State 1, Line 6
+Content of directory on path 'https://.....core.windows.net/.../_delta_log/*.json' cannot be listed.
+```
+
+Make sure that `_delta_log` folder exists (maybe you are querying plain Parquet files that are not converted to Delta Lake format). If the `_delta_log` folder exists, make sure that you have both read and list permission on the underlying Delta Lake folders.
+
+Easiest way is to grant yourself 'Storage Blob Data Contributor' role on the storage account you're trying to query. 
+- [Visit full guide on Azure Active Directory access control for storage for more information](../../storage/common/storage-auth-aad-rbac-portal.md). 
+- [Visit Control storage account access for serverless SQL pool in Azure Synapse Analytics](develop-storage-files-storage-access-control.md)
+
+### Query failed because of a topology change or compute container failure
+
+Some Delta Lake queries on partitioned data sets might fail with this error message if your database collation is not `Latin1_General_100_BIN2_UTF8`. Create a database with `Latin1_General_100_BIN2_UTF8` collation and execute the queries on that database instead of master and other databases with the default collation.
+
+```sql
+CREATE DATABASE mydb 
+    COLLATE Latin1_General_100_BIN2_UTF8;
+```
+
+### Column of type 'VARCHAR' is not compatible with external data type 'Parquet column is of nested type'
+
+You are trying to read Delta Lake files that contain some nested type columns without specifying WITH clause (using automatic schema inference). Automatic schema inference doesn't work with the nested columns in Delta Lake.
+
+Use the `WITH` clause and explicitly assign the `VARCHAR` type to the nested columns.
+
+### Cannot find value of partitioning column in file 
+
+Delta Lake data sets may have `NULL` values in the partitioning columns. This is currently not supported in serverless SQL pool. In this case you will get the error that looks like:
+
+```
+Resolving Delta logs on path 'https://....core.windows.net/.../' failed with error: Cannot find value of partitioning column '<column name>' in file 'https://......core.windows.net/...../<column name>=__HIVE_DEFAULT_PARTITION__/part-00042-2c0d5c0e-8e89-4ab8-b514-207dcfd6fe13.c000.snappy.parquet'.
+```
+
+Try to update your Delta Lake data set using Apache Spark pools and use some value (empty string or `"null"`) instead of `null` in the partitioning column.
+
+## Constraints
+
+There are some general system constraints that may affect your workload:
+
+| Property | Limitation |
+|---|---|
+| Max number of Synapse workspaces per subscription | 20 |
+| Max number of databases per serverless pool | 20 (not including databases synchronized from Apache Spark pool) |
+| Max number of databases synchronized from Apache Spark pool | Not limited |
+| Max number of databases objects per database | The sum of the number of all objects in a database cannot exceed 2,147,483,647 (see [limitations in SQL Server database engine](https://docs.microsoft.com/sql/sql-server/maximum-capacity-specifications-for-sql-server#objects) ) |
+| Max identifier length (in characters) | 128 (see [limitations in SQL Server database engine](https://docs.microsoft.com/sql/sql-server/maximum-capacity-specifications-for-sql-server#objects) )|
+| Max query duration | 30 min |
+| Max size of the result set | 80 GB (shared between all currently executing concurrent queries) |
+| Max concurrency | Not limited and depends on the query complexity and amount of data scanned. One serverless SQL pool can concurrently handle 1000 active sessions that are executing lightweight queries, but the numbers will drop if the queries are more complex or scan a larger amount of data. |
 
 ## Next steps
 

@@ -394,7 +394,7 @@ try
 }
 catch (ex)
 {
-    appInsights.trackException(ex);
+    appInsights.trackException({exception: ex});
 }
 ```
 
@@ -1125,4 +1125,4 @@ To determine how long data is kept, see [Data retention and privacy](./data-rete
 ## <a name="next"></a>Next steps
 
 * [Search events and logs](./diagnostic-search.md)
-* [Troubleshooting](../faq.md)
+* [Troubleshooting](../faq.yml)
