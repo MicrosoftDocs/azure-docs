@@ -634,6 +634,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "sample-active-directory-aspnetcore-webapp-openidconnect-v2",
+      "url": "https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2",
+      "branch": "aspnetcore3-1",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "cognitive-services-content-moderator-samples",
       "url": "https://github.com/Azure-Samples/cognitive-services-content-moderator-samples",
       "branch": "master",
