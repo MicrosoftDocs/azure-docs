@@ -35,7 +35,7 @@ Key points:
 
 All responses in the SDK including CosmosException have a Diagnostics property. The diagnostics records all the information related to the single request including if there was retries or any transient failures. CosmosDiagnostics is needed for the Cosmos DB team to be able to root cause any latency issues.
 
-The Diagnostics is returned as a string. The string changes with each version as it is improved to better troubleshooting different scenarios. The string will have breaking changes to the formatting with each version of the SDK and it should not be parsed.
+The Diagnostics is returned as a string. The string changes with each version as it is improved to better troubleshooting different scenarios. The string will have breaking changes to the formatting with each version of the SDK. Do not parse the string to avoid the breaking changes.
 
 ```c#
 try
@@ -99,10 +99,10 @@ Single store result for a single request
 
 | Number of requests | Scenario | Description | 
 |----------|-------------|-------------|
-| Single to all | Request Timeout or HttpRequestExceptions | This points to [SNAT Port exhaustion](troubleshoot-dot-net-sdk.md#snat) or lack of resources on the machine to processes request in time |
+| Single to all | Request Timeout or HttpRequestExceptions | Points to [SNAT Port exhaustion](troubleshoot-dot-net-sdk.md#snat) or lack of resources on the machine to processes request in time |
 | Single or small percentage (SLA is not violated) | All | A single or small percentage of slow requests can be caused by several different transient issues and should be expected | 
-| All | All | An issue with the infrastructure or networking. |
-| SLA Violated | No changes to application and SLA dropped | This likely an issue with Cosmos DB service |
+| All | All | Points to an issue with the infrastructure or networking. |
+| SLA Violated | No changes to application and SLA dropped | Points to an issue with Cosmos DB service |
 
 ```json
 "HttpResponseStats": [
@@ -138,13 +138,13 @@ Single store result for a single request
 
 RntbdRequestStats show the time for the different stages of sending and receiving a request.
 
-* ChannelAcquisitionStarted: This is the time to get or create a new connection. New connections can be created for numerous different regions. This can be caused by multiple scenarios like another connection was unexpectedly closed or to many requests where getting sent through the existing connection so additional connections are being created.
-* Pipelined time is large this points to possibly a very large request.
-* Transit Time is large this points to a networking issue. Compare this number to the BELatencyInMs. If the BELatencyInMs is small then the time was spent on the network and not on the Cosmos DB service.
+* ChannelAcquisitionStarted: The time to get or create a new connection. New connections can be created for numerous different regions. For example a connection was unexpectedly closed or to many requests where getting sent through the existing connections so a new connection is being created. 
+* Pipelined time is large points to possibly a large request.
+* Transit Time is large this points to a networking issue. Compare this number to the BELatencyInMs. If the BELatencyInMs is small, then the time was spent on the network and not on the Cosmos DB service.
 
 Multiple StoreResults for single request:
 
-* Strong and bounded staleness consistency will always have at least 2 store results
+* Strong and bounded staleness consistency will always have at least two store results
 * Check the status code of each StoreResult. The SDK retries automatically on multiple different [transient failures](troubleshoot-dot-net-sdk-request-timeout.md). The SDK is constantly being improved to cover more scenarios. 
 
 ```json
