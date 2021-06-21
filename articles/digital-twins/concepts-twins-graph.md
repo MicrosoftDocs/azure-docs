@@ -40,6 +40,8 @@ The result of this process is a set of nodes (the digital twins) connected via e
 
 [!INCLUDE [visualizing with Azure Digital Twins explorer](../../includes/digital-twins-visualization.md)]
 
+:::image type="content" source="media/concepts-azure-digital-twins-explorer/azure-digital-twins-explorer-demo.png" alt-text="Screenshot of Azure Digital Twins Explorer showing sample models and twins." lightbox="media/concepts-azure-digital-twins-explorer/azure-digital-twins-explorer-demo.png":::
+
 ## Create with the APIs
 
 This section shows what it looks like to create digital twins and relationships from a client application. It contains .NET code examples that utilize the [DigitalTwins APIs](/rest/api/digital-twins/dataplane/twins), to provide additional context on what goes on inside each of these concepts.
