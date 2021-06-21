@@ -7,8 +7,8 @@ ms.subservice: deployment-configuration
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: 
 ms.topic: how-to
-author: danimir
-ms.author: danil
+author: urosmil
+ms.author: urmilano
 ms.reviewer: mathoma
 ms.date: 06/26/2019
 ---

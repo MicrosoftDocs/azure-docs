@@ -32,6 +32,8 @@
   - name: Versioning policy
     href: concepts-version-policy.md
     displayName: version, postgresql
+  - name: Major version upgrades
+    href: how-to-upgrade-using-dump-and-restore.md
   - name: Known issues & limitations
     href: concepts-known-issues-limitations.md
     displayName: issues, limitations, postgresql 
@@ -149,7 +151,7 @@
         href: concepts-connectivity-architecture.md
         displayName: security, architecture
       - name: Threat protection with Azure Defender
-        href: ../security-center/defender-for-databases-introduction.md
+        href: ../security-center/defender-for-databases-usage.md?toc=/azure/postgresql/toc.json&bc=/azure/postgresql/breadcrumb/toc.json
         displayName: security, advanced threat protection
       - name: Azure AD authentication
         href: concepts-aad-authentication.md
@@ -351,11 +353,6 @@
       - name: Troubleshoot data encryption
         href: howto-data-encryption-troubleshoot.md
         displayName: debug, security, encryption
-    - name: Advanced threat protection
-      items:
-      - name: Azure portal
-        href: howto-database-threat-protection-portal.md
-        displayName: advanced thread, security
     - name: Virtual network
       items:
       - name: Azure portal
@@ -408,8 +405,6 @@
       items:
       - name: Azure portal
         href: howto-move-regions-portal.md
-    - name: Major version upgrades
-      href: how-to-upgrade-using-dump-and-restore.md
 - name: Flexible Server (Preview)
   expanded: true
   items:
@@ -471,7 +466,9 @@
     - name: Scheduled maintenance
       href: flexible-server/concepts-maintenance.md
     - name: Connection pooling (PgBouncer)
-      href: flexible-server/concepts-pgbouncer.md      
+      href: flexible-server/concepts-pgbouncer.md   
+    - name: Server parameters
+      href: flexible-server/concepts-server-parameters.md      
     - name: Business continuity
       items:
       - name: Business continuity overview
@@ -717,6 +714,9 @@
       - name: Troubleshoot connection errors
         href: howto-hyperscale-troubleshoot-common-connection-issues.md
         displayName: connection errors, hyperscale
+      - name: Troubleshoot read-only access
+        href: howto-hyperscale-troubleshoot-read-only.md
+        displayName: read-only, hyperscale
       - name: Useful diagnostic queries
         href: howto-hyperscale-useful-diagnostic-queries.md
   - name: API Reference

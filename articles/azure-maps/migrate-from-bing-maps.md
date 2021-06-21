@@ -48,7 +48,7 @@ The following table provides a high-level list of Bing Maps features and the rel
 | Autosuggest                           | ✓                  |
 | Directions (including truck)          | ✓                  |
 | Distance Matrix                       | ✓                  |
-| Elevations                            | ✓ (Preview)        |
+| Elevations                            | ✓      |
 | Imagery – Static Map                  | ✓                  |
 | Imagery Metadata                      | ✓                  |
 | Isochrones                            | ✓                  |

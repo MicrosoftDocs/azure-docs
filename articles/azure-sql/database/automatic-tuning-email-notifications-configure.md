@@ -7,9 +7,9 @@ ms.subservice: performance
 ms.custom: sqldbrb=1, devx-track-azurepowershell
 ms.devlang: 
 ms.topic: how-to
-author: danimir
-ms.author: danil
-ms.reviewer: wiassaf, sstein
+author: NikaKinska
+ms.author: nnikolic
+ms.reviewer: mathoma, wiassaf
 ms.date: 06/03/2019
 ---
 # Email notifications for automatic tuning

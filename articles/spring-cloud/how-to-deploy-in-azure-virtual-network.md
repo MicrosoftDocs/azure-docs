@@ -83,24 +83,24 @@ Select the virtual network **azure-spring-cloud-vnet** you previously created.
 
     ![Screenshot that shows the Access control screen.](./media/spring-cloud-v-net-injection/access-control.png)
 
-1. Assign the [Owner](../role-based-access-control/built-in-roles.md#owner) role to the [user | group | service-principal | managed-identity] at [management-group | subscription | resource-group | resource] scope.
+1. Assign the *Owner* role to the **Azure Spring Cloud Resource Provider**. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md#step-2-open-the-add-role-assignment-pane).
 
-    For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+    ![Screenshot that shows owner assignment to resource provider.](./media/spring-cloud-v-net-injection/assign-owner-resource-provider.png)
 
-You can also do this step by running the following Azure CLI command:
+    You can also do this step by running the following Azure CLI command:
 
-```azurecli
-VIRTUAL_NETWORK_RESOURCE_ID=`az network vnet show \
-    --name ${NAME_OF_VIRTUAL_NETWORK} \
-    --resource-group ${RESOURCE_GROUP_OF_VIRTUAL_NETWORK} \
-    --query "id" \
-    --output tsv`
+    ```azurecli
+        VIRTUAL_NETWORK_RESOURCE_ID=`az network vnet show \
+        --name ${NAME_OF_VIRTUAL_NETWORK} \
+        --resource-group ${RESOURCE_GROUP_OF_VIRTUAL_NETWORK} \
+        --query "id" \
+        --output tsv`
 
-az role assignment create \
-    --role "Owner" \
-    --scope ${VIRTUAL_NETWORK_RESOURCE_ID} \
-    --assignee e8de9221-a19c-4c81-b814-fd37c6caf9d2
-```
+    az role assignment create \
+        --role "Owner" \
+        --scope ${VIRTUAL_NETWORK_RESOURCE_ID} \
+        --assignee e8de9221-a19c-4c81-b814-fd37c6caf9d2
+    ```
 
 ## Deploy an Azure Spring Cloud instance
 
@@ -184,7 +184,7 @@ The route tables to which your custom vnet is associated must meet the following
 
 * You can associate your Azure route tables with your vnet only when you create a new Azure Spring Cloud service instance. You cannot change to use another route table after Azure Spring Cloud has been created.
 * Both the microservice application subnet and the service runtime subnet must associate with different route tables or neither of them.
-* Permissions must be assigned before instance creation. Be sure to grant Azure *Spring Cloud Owner* permission to your route tables.
+* Permissions must be assigned before instance creation. Be sure to grant **Azure Spring Cloud Resource Provider** the *Owner* permission to your route tables.
 * The associated route table resource cannot be updated after cluster creation. While the route table resource cannot be updated, custom rules can be modified on the route table.
 * You cannot reuse a route table with multiple instances due to potential conflicting routing rules.
 

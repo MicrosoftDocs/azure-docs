@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/17/2021
+ms.date: 06/08/2021
 ms.author: jeedes
 ---
 
@@ -54,8 +54,8 @@ To configure and test Azure AD SSO with Zenya, perform the following steps:
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
     1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
     1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
-1. **[Configure Zenya SSO](#configure-iprova-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create Zenya test user](#create-iprova-test-user)** - to have a counterpart of B.Simon in Zenya that is linked to the Azure AD representation of user.
+1. **[Configure Zenya SSO](#configure-zenya-sso)** - to configure the single sign-on settings on application side.
+    1. **[Create Zenya test user](#create-zenya-test-user)** - to have a counterpart of B.Simon in Zenya that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Retrieve configuration information from Zenya
@@ -66,7 +66,8 @@ In this section, you retrieve information from Zenya to configure Azure AD singl
 	
      `https://<SUBDOMAIN>.zenya.work/saml2info` 
      `https://<SUBDOMAIN>.iprova.nl/saml2info` 
-  	 `https://<SUBDOMAIN>.iprova.be/saml2info` 
+  	 `https://<SUBDOMAIN>.iprova.be/saml2info`
+	 `https://<SUBDOMAIN>.iprova.eu/saml2info` 
 
 	![View the Zenya SAML2 info page](media/iprova-tutorial/information.png)
 
@@ -142,7 +143,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 6. Scroll down to **Access control**.
 
-	![iProva Access control settings](media/iprova-tutorial/access-control.png)
+	![Zenya Access control settings](media/iprova-tutorial/access-control.png)
 
 7. Find the setting **Users are automatically logged on with their network accounts**, and change it to **Yes, authentication via SAML**. Additional options now appear.
 
@@ -204,4 +205,4 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 ## Next steps
 
-Once you configure iProva you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Once you configure Zenya you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

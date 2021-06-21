@@ -257,7 +257,7 @@ In this article, you learned concepts and workflow for key phrase extraction by 
 ## See also
 
  [Text Analytics overview](../overview.md)
- [Frequently asked questions (FAQ)](../text-analytics-resource-faq.md)</br>
+ [Frequently asked questions (FAQ)](../text-analytics-resource-faq.yml)</br>
  [Text Analytics product page](//go.microsoft.com/fwlink/?LinkID=759712)
 
 ## Next steps
@@ -265,3 +265,4 @@ In this article, you learned concepts and workflow for key phrase extraction by 
 * [Text Analytics overview](../overview.md)
 * [Using the Text Analytics client library](../quickstarts/client-libraries-rest-api.md)
 * [What's new](../whats-new.md)
+* [Model versions](../concepts/model-versioning.md)
