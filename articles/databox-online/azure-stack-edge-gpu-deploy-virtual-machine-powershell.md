@@ -52,13 +52,14 @@ The subscription is used to deploy the VMs.
     Here's some example output:
 
     ```output
-    PS C:\windows\system32> Get-AzSubscription
+    PS C:\WINDOWS\system32> Get-AzSubscription
     
-    Name                 Id                 TenantId          State
-    ----                 --                --------           -----
-    Default Provider Subscription A4257FDE-B946-4E01-ADE7-674760B8D1A3 c0257de7-538f-415c-993a-1b87a031879d Enabled
+    Name                          Id                                   TenantId
+    ----                          --                                   --------
+    Default Provider Subscription d64617ad-6266-4b19-45af-81112d213322 c0257de7-53...
     
-    PS C:\windows\system32>
+    
+    PS C:\WINDOWS\system32>
     ```
         
 1. Get a list of the registered resource providers that are running on the device. The list ordinarily includes compute, network, and storage.
@@ -73,31 +74,35 @@ The subscription is used to deploy the VMs.
     Here's some example output:
 
     ```output
-    Get-AzResourceProvider
+    PS C:\WINDOWS\system32>  Get-AzResourceProvider
+        
+    ProviderNamespace : Microsoft.AzureBridge
+    RegistrationState : Registered
+    ResourceTypes     : {locations, operations, locations/ingestionJobs}
+    Locations         : {DBELocal}
+    
     ProviderNamespace : Microsoft.Compute
     RegistrationState : Registered
     ResourceTypes     : {virtualMachines, virtualMachines/extensions, locations, operations...}
     Locations         : {DBELocal}
-    ZoneMappings      :
     
     ProviderNamespace : Microsoft.Network
     RegistrationState : Registered
     ResourceTypes     : {operations, locations, locations/operations, locations/usages...}
     Locations         : {DBELocal}
-    ZoneMappings      :
     
     ProviderNamespace : Microsoft.Resources
     RegistrationState : Registered
     ResourceTypes     : {tenants, locations, providers, checkresourcename...}
     Locations         : {DBELocal}
-    ZoneMappings      :
     
     ProviderNamespace : Microsoft.Storage
     RegistrationState : Registered
     ResourceTypes     : {storageaccounts, storageAccounts/blobServices, storageAccounts/tableServices,
                         storageAccounts/queueServices...}
     Locations         : {DBELocal}
-    ZoneMappings      :
+    
+    PS C:\WINDOWS\system32>
     ```
 
 ### [AzureRM](#tab/azure-rm)
@@ -176,8 +181,15 @@ New-AzResourceGroup -Name <Resource group name> -Location DBELocal
 Here's some example output:
 
 ```output
-PS C:\Windows\system32> New-AzResourceGroup -Name rg191113014333 -Location DBELocal 
-Successfully created Resource Group:rg191113014333
+PS C:\WINDOWS\system32> New-AzResourceGroup -Name myaseazrg -Location DBELocal
+
+ResourceGroupName : myaseazrg
+Location          : dbelocal
+ProvisioningState : Succeeded
+Tags              :
+ResourceId        : /subscriptions/d64617ad-6266-4b19-45af-81112d213322/resourceGroups/myaseazrg
+
+PS C:\WINDOWS\system32>
 ```
 
 ### [AzureRM](#tab/azure-rm)
@@ -210,49 +222,33 @@ New-AzStorageAccount -Name <Storage account name> -ResourceGroupName <Resource g
 Here's some example output:
 
 ```output
-New-AzStorageAccount -Name sa191113014333  -ResourceGroupName rg191113014333 -SkuName Standard_LRS -Location DBELocal
+PS C:\WINDOWS\system32> New-AzStorageAccount -Name myaseazsa -ResourceGroupName myaseazrg -Location DBELocal -SkuName Standard_LRS
 
-ResourceGroupName      : rg191113014333
-StorageAccountName     : sa191113014333
-Id                     : /subscriptions/a4257fde-b946-4e01-ade7-674760b8d1a3/resourceGroups/rg191113014333/providers/Microsoft.Storage/storageaccounts/sa191113014333
-Location               : DBELocal
-Sku                    : Microsoft.Azure.Management.Storage.Models.Sku
-Kind                   : Storage
-Encryption             : Microsoft.Azure.Management.Storage.Models.Encryption
-AccessTier             :
-CreationTime           : 5/13/2021 6:22:58 PM 
-CustomDomain           :
-Identity               :
-LastGeoFailoverTime    :
-PrimaryEndpoints       : Microsoft.Azure.Management.Storage.Models.Endpoints
-PrimaryLocation        : DBELocal
-ProvisioningState      : Succeeded
-SecondaryEndpoints     :
-SecondaryLocation      :
-StatusOfPrimary        : Available
-StatusOfSecondary      :
-Tags                   :
-EnableHttpsTrafficOnly : False
-NetworkRuleSet         :
-Context                : Microsoft.WindowsAzure.Commands.Common.Storage.LazyAzureStorageContext
-ExtendedProperties     : {}
+StorageAccountName ResourceGroupName PrimaryLocation SkuName      Kind    AccessTier CreationTime
+------------------ ----------------- --------------- -------      ----    ---------- ------------
+myaseazsa          myaseazrg         DBELocal        Standard_LRS Storage            6/10/2021 11:45...
+
+PS C:\WINDOWS\system32>
 ```
 
 To get the storage account key, run the `Get-AzStorageAccountKey` command. Here's some example output:
 
 ```output
-PS C:\Windows\system32> Get-AzStorageAccountKey
+PS C:\WINDOWS\system32> Get-AzStorageAccountKey
 
 cmdlet Get-AzStorageAccountKey at command pipeline position 1
 Supply values for the following parameters:
 (Type !? for Help.)
-ResourceGroupName: my-resource-ase
-Name:myasestoracct
+ResourceGroupName: myaseazrg
+Name: myaseazsa
 
-KeyName Value
-------- -----
-key1 /IjVJN+sSf7FMKiiPLlDm8mc9P4wtcmhhbnCa7...
-key2 gd34TcaDzDgsY9JtDNMUgLDOItUU0Qur3CBo6Q...
+KeyName Value                                                                                    Permis
+                                                                                                  sions
+------- -----                                                                                    ------
+key1    gv3OF57tuPDyzBNc1M7fhil2UAiiwnhTT6zgiwE3TlF/CD217Cvw2YCPcrKF47joNKRvzp44leUe5HtVkGx8RQ==   Full
+key2    kmEynIs3xnpmSxWbU41h5a7DZD7v4gGV3yXa2NbPbmhrPt10+QmE5PkOxxypeSqbqzd9si+ArNvbsqIRuLH2Lw==   Full
+
+PS C:\WINDOWS\system32>
 ```
 
 ### [AzureRM](#tab/azure-rm)
@@ -317,7 +313,7 @@ key2 gd34TcaDzDgsY9JtDNMUgLDOItUU0Qur3CBo6Q...
 
 You already added the blob URI in the hosts file for the client that you're using to connect to Azure Blob Storage in **Modify host file for endpoint name resolution** of [Connecting to Azure Resource Manager on your Azure Stack Edge device](./azure-stack-edge-gpu-connect-resource-manager.md#step-5-modify-host-file-for-endpoint-name-resolution). This entry was used to add the blob URI:
 
-\<Device IP address \> \<storage name\>.blob.\<appliance name\>.\<dnsdomain\>
+`<Device IP address>` `<storage name>.blob.<appliance name>.<dnsdomain>`
 
 ## Install certificates
 
@@ -354,9 +350,9 @@ $StorageAccountKey = (Get-AzStorageAccountKey -ResourceGroupName <ResourceGroupN
 
 $endPoint = (Get-AzStorageAccount -name <StorageAccountName> -ResourceGroupName <ResourceGroupName>).PrimaryEndpoints.Blob
 
-$StorageAccountContext = New-AzStorageContext -StorageAccountName <StorageAccountName> -StorageAccountKey <StorageAccountKey> -Endpoint <Endpoint>
+$StorageAccountContext = New-AzStorageContext -StorageAccountName <StorageAccountName> -StorageAccountKey $StorageAccountKey -Endpoint $endpoint
 
-$StorageAccountSAS = New-AzStorageAccountSASToken -Service Blob,File,Queue,Table -ResourceType Container,Service,Object -Permission "acdlrw" -Context <StorageAccountContext> -Protocol HttpsOnly
+$StorageAccountSAS = New-AzStorageAccountSASToken -Service Blob,File,Queue,Table -ResourceType Container,Service,Object -Permission "acdlrw" -Context $StorageAccountContext -Protocol HttpsOnly
 
 <AzCopy exe path> cp "Full VHD path" "<BlobEndPoint>/<ContainerName><StorageAccountSAS>"
 ```
