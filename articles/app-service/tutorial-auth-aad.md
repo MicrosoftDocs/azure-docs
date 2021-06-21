@@ -4,8 +4,8 @@ description: Learn how to use App Service authentication and authorization to se
 keywords: app service, azure app service, authN, authZ, secure, security, multi-tiered, azure active directory, azure ad
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 04/29/2020
-ms.custom: "devx-track-csharp, seodec18"
+ms.date: 04/26/2021
+ms.custom: "devx-track-csharp, seodec18, devx-track-azurecli"
 zone_pivot_groups: app-service-platform-windows-linux
 ---
 
@@ -50,8 +50,9 @@ You can follow the steps in this tutorial on macOS, Linux, Windows.
 
 To complete this tutorial:
 
-* <a href="https://git-scm.com/" target="_blank">Install Git</a>
-* <a href="https://dotnet.microsoft.com/download/dotnet-core/3.1" target="_blank">Install the latest .NET Core 3.1 SDK</a>
+- <a href="https://git-scm.com/" target="_blank">Install Git</a>
+- <a href="https://dotnet.microsoft.com/download/dotnet-core/3.1" target="_blank">Install the latest .NET Core 3.1 SDK</a>
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Create local .NET Core app
 
@@ -72,8 +73,6 @@ Navigate to `http://localhost:5000` and try adding, editing, and removing todo i
 ![ASP.NET Core API running locally](./media/tutorial-auth-aad/local-run.png)
 
 To stop ASP.NET Core at any time, press `Ctrl+C` in the terminal.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## Deploy apps to Azure
 
@@ -140,7 +139,7 @@ http://<back-end-app-name>.azurewebsites.net
 http://<front-end-app-name>.azurewebsites.net
 ```
 
-![ASP.NET Core API running in Azure App Service](./media/tutorial-auth-aad/azure-run.png)
+:::image type="content" source="./media/tutorial-auth-aad/azure-run.png" alt-text="Screenshot of an Azure App Service Rest API Sample in a browser window, which shows a To do list app.":::
 
 > [!NOTE]
 > If your app restarts, you may have noticed that new data has been erased. This behavior by design because the sample ASP.NET Core app uses an in-memory database.
@@ -220,7 +219,7 @@ Navigate to `http://<front-end-app-name>.azurewebsites.net` and add a few items,
 
 Navigate to `http://<back-end-app-name>.azurewebsites.net` to see the items added from the front-end app. Also, add a few items, such as `from back end 1` and `from back end 2`, then refresh the front-end app to see if it reflects the changes.
 
-![ASP.NET Core API running in Azure App Service](./media/tutorial-auth-aad/remote-api-call-run.png)
+:::image type="content" source="./media/tutorial-auth-aad/remote-api-call-run.png" alt-text="Screenshot of an Azure App Service Rest API Sample in a browser window, which shows a To do list app with items added from the front-end app.":::
 
 ## Configure auth
 
@@ -234,27 +233,25 @@ In the [Azure portal](https://portal.azure.com) menu, select **Resource groups**
 
 In **Resource groups**, find and select your resource group. In **Overview**, select your back-end app's management page.
 
-![ASP.NET Core API running in Azure App Service](./media/tutorial-auth-aad/portal-navigate-back-end.png)
+:::image type="content" source="./media/tutorial-auth-aad/portal-navigate-back-end.png" alt-text="Screenshot of the Resource groups window, showing the Overview for an example resource group and a back-end app's management page selected.":::
 
-In your back-end app's left menu, select **Authentication / Authorization**, then enable App Service Authentication by selecting **On**.
+In your back-end app's left menu, select **Authentication**, and then click **Add identity provider**.
 
-In **Action to take when request is not authenticated**, select **Log in with Azure Active Directory**.
+In the **Add an identity provider** page, select **Microsoft** as the **Identity provider** to sign in Microsoft and Azure AD identities.
 
-Under **Authentication Providers**, select **Azure Active Directory**.
+For **App registration** > **App registration type**, select **Create new app registration**.
 
-![ASP.NET Core API running in Azure App Service](./media/tutorial-auth-aad/configure-auth-back-end.png)
+For **App registration** > **Supported account types**, select **Current tenant-single tenant**.
 
-Select **Express**, then accept the default settings to create a new AD app and select **OK**.
+In the **App Service authentication settings** section, leave **Authentication** set to **Require authentication** and **Unauthenticated requests** set to **HTTP 302 Found redirect: recommended for websites**.
 
-In the **Authentication / Authorization** page, select **Save**.
+At the bottom of the **Add an identity provider** page, click **Add** to enable authentication for your web app.
 
-Once you see the notification with the message `Successfully saved the Auth Settings for <back-end-app-name> App`, refresh the portal page.
+:::image type="content" source="./media/tutorial-auth-aad/configure-auth-back-end.png" alt-text="Screenshot of the back-end app's left menu showing Authentication/Authorization selected and settings selected in the right menu.":::
 
-Select **Azure Active Directory** again, and then select the **Azure AD App**.
+The **Authentication** page opens. Copy the **Client ID** of the Azure AD application to a notepad. You need this value later.
 
-Copy the **Client ID** of the Azure AD application to a notepad. You need this value later.
-
-![ASP.NET Core API running in Azure App Service](./media/tutorial-auth-aad/get-application-id-back-end.png)
+:::image type="content" source="./media/tutorial-auth-aad/get-application-id-back-end.png" alt-text="Screenshot of the Azure Active Directory Settings window showing the Azure AD App, and the Azure AD Applications window showing the Client ID to copy.":::
 
 If you stop here, you have a self-contained app that's already secured by the App Service authentication and authorization. The remaining sections show you how to secure a multi-app solution by "flowing" the authenticated user from the front end to the back end. 
 
@@ -279,13 +276,13 @@ In the [Azure portal](https://portal.azure.com) menu, select **Azure Active Dire
 
 Select **App registrations** > **Owned applications** > **View all applications in this directory**. Select your front-end app name, then select **API permissions**.
 
-![ASP.NET Core API running in Azure App Service](./media/tutorial-auth-aad/add-api-access-front-end.png)
+:::image type="content" source="./media/tutorial-auth-aad/add-api-access-front-end.png" alt-text="Screenshot of Microsoft - App registrations window with Owned applications, a front-end app name, and API permissions selected.":::
 
 Select **Add a permission**, then select **APIs my organization uses** > **\<back-end-app-name>**.
 
 In the **Request API permissions** page for the back-end app, select **Delegated permissions** and **user_impersonation**, then select **Add permissions**.
 
-![ASP.NET Core API running in Azure App Service](./media/tutorial-auth-aad/select-permission-front-end.png)
+:::image type="content" source="./media/tutorial-auth-aad/select-permission-front-end.png" alt-text="Screenshot of the Request API permissions page showing Delegated permissions, user_impersonation, and the Add permission button selected.":::
 
 ### Configure App Service to return a usable access token
 
@@ -295,7 +292,7 @@ Navigate to [Azure Resource Explorer](https://resources.azure.com) and using the
 
 The [Azure Resource Explorer](https://resources.azure.com) is now opened with your front-end app selected in the resource tree. At the top of the page, click **Read/Write** to enable editing of your Azure resources.
 
-![ASP.NET Core API running in Azure App Service](./media/tutorial-auth-aad/resources-enable-write.png)
+:::image type="content" source="./media/tutorial-auth-aad/resources-enable-write.png" alt-text="Screenshot of the Read Only and Read/Write buttons at the top of the Azure Resource Explorer page, with the Read/Write button selected.":::
 
 In the left browser, drill down to **config** > **authsettings**.
 
@@ -305,7 +302,7 @@ In the **authsettings** view, click **Edit**. Set `additionalLoginParams` to the
 "additionalLoginParams": ["response_type=code id_token","resource=<back-end-client-id>"],
 ```
 
-![ASP.NET Core API running in Azure App Service](./media/tutorial-auth-aad/additional-login-params-front-end.png)
+:::image type="content" source="./media/tutorial-auth-aad/additional-login-params-front-end.png" alt-text="Screenshot of a code example in the authsettings view showing the additionalLoginParams string with an example of a client ID.":::
 
 Save your settings by clicking **PUT**.
 
@@ -363,7 +360,7 @@ While the server code has access to request headers, client code can access `GET
 
 ### Configure CORS
 
-In the Cloud Shell, enable CORS to your client's URL by using the [`az webapp cors add`](/cli/azure/webapp/cors#az-webapp-cors-add) command. Replace the _\<back-end-app-name>_ and _\<front-end-app-name>_ placeholders.
+In the Cloud Shell, enable CORS to your client's URL by using the [`az webapp cors add`](/cli/azure/webapp/cors#az_webapp_cors_add) command. Replace the _\<back-end-app-name>_ and _\<front-end-app-name>_ placeholders.
 
 ```azurecli-interactive
 az webapp cors add --resource-group myAuthResourceGroup --name <back-end-app-name> --allowed-origins 'https://<front-end-app-name>.azurewebsites.net'

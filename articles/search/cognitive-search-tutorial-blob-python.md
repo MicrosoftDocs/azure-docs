@@ -9,18 +9,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 06/12/2020
+ms.date: 09/25/2020
 ms.custom: devx-track-python
 ---
 
 # Tutorial: Use Python and AI to generate searchable content from Azure blobs
 
-If you have unstructured text or images in Azure Blob storage, an [AI enrichment pipeline](cognitive-search-concept-intro.md) can extract information and create new content that is useful for full-text search or knowledge mining scenarios. Although a pipeline can process images, this Python tutorial focuses on text, applying language detection and natural language processing to create new fields that you can leverage in queries, facets, and filters.
+If you have unstructured text or images in Azure Blob Storage, an [AI enrichment pipeline](cognitive-search-concept-intro.md) can extract information and create new content that is useful for full-text search or knowledge mining scenarios. Although a pipeline can process images, this Python tutorial focuses on text, applying language detection and natural language processing to create new fields that you can leverage in queries, facets, and filters.
 
 This tutorial uses Python and the [Search REST APIs](/rest/api/searchservice/) to perform the following tasks:
 
 > [!div class="checklist"]
-> * Start with whole documents (unstructured text) such as PDF, HTML, DOCX, and PPTX in Azure Blob storage.
+> * Start with whole documents (unstructured text) such as PDF, HTML, DOCX, and PPTX in Azure Blob Storage.
 > * Define a pipeline that extracts text, detects language, recognizes entities, and detects key phrases.
 > * Define an index to store the output (raw content, plus pipeline-generated name-value pairs).
 > * Execute the pipeline to start transformations and analysis, and to create and load the index.
@@ -45,7 +45,7 @@ If you don't have an Azure subscription, open a [free account](https://azure.mic
 
 ## 1 - Create services
 
-This tutorial uses Azure Cognitive Search for indexing and queries, Cognitive Services on the backend for AI enrichment, and Azure Blob storage to provide the data. This tutorial stays under the free allocation of 20 transactions per indexer per day on Cognitive Services, so the only services you need to create are search and storage.
+This tutorial uses Azure Cognitive Search for indexing and queries, Cognitive Services on the backend for AI enrichment, and Azure Blob Storage to provide the data. This tutorial stays under the free allocation of 20 transactions per indexer per day on Cognitive Services, so the only services you need to create are search and storage.
 
 If possible, create both in the same region and resource group for proximity and manageability. In practice, your Azure Storage account can be in any region.
 
@@ -55,7 +55,7 @@ If possible, create both in the same region and resource group for proximity and
 
 1. Search for *storage account* and select Microsoft's Storage Account offering.
 
-   ![Create Storage account](media/cognitive-search-tutorial-blob/storage-account.png "Create Storage account")
+   :::image type="content" source="media/cognitive-search-tutorial-blob/storage-account.png" alt-text="Create Storage account" border="false":::
 
 1. In the Basics tab, the following items are required. Accept the defaults for everything else.
 
@@ -77,7 +77,7 @@ If possible, create both in the same region and resource group for proximity and
 
 1. Select *cog-search-demo* and then click **Upload** to open the folder where you saved the download files. Select all of the non-image files. You should have 7 files. Click **OK** to upload.
 
-   ![Upload sample files](media/cognitive-search-tutorial-blob/sample-files.png "Upload sample files")
+   :::image type="content" source="media/cognitive-search-tutorial-blob/sample-files.png" alt-text="Upload sample files" border="false":::
 
 1. Before you leave Azure Storage, get a connection string so that you can formulate a connection in Azure Cognitive Search. 
 
@@ -103,7 +103,7 @@ Since this tutorial only uses 7 transactions, you can skip resource provisioning
 
 The third component is Azure Cognitive Search, which you can [create in the portal](search-create-service-portal.md). You can use the Free tier to complete this walk through. 
 
-As with Azure Blob storage, take a moment to collect the access key. Further on, when you begin structuring requests, you will need to provide the endpoint and admin api-key used to authenticate each request.
+As with Azure Blob Storage, take a moment to collect the access key. Further on, when you begin structuring requests, you will need to provide the endpoint and admin api-key used to authenticate each request.
 
 ### Get an admin api-key and URL for Azure Cognitive Search
 
@@ -113,7 +113,7 @@ As with Azure Blob storage, take a moment to collect the access key. Further on,
 
    Get the query key as well. It's a best practice to issue query requests with read-only access.
 
-   ![Get the service name and admin and query keys](media/search-get-started-nodejs/service-name-and-keys.png)
+   :::image type="content" source="media/search-get-started-javascript/service-name-and-keys.png" alt-text="Get the service name and admin and query keys" border="false":::
 
 All requests require an api-key in the header of every request sent to your service. A valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
 
@@ -186,13 +186,13 @@ The request should return a status code of 201 confirming success.
 
 In the Azure portal, on the search service dashboard page, verify that the cogsrch-py-datasource appears in the **Data sources** list. Click **Refresh** to update the page.
 
-![Data sources tile in the portal](./media/cognitive-search-tutorial-blob-python/py-data-source-tile.png "Data sources tile in the portal")
+:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-data-source-tile.png" alt-text="Data sources tile in the portal" border="false":::
 
 ### Step 2: Create a skillset
 
 In this step, you will define a set of enrichment steps to apply to your data. You call each enrichment step a *skill*, and the set of enrichment steps a *skillset*. This tutorial uses [built-in cognitive skills](cognitive-search-predefined-skills.md) for the skillset:
 
-+ [Entity Recognition](cognitive-search-skill-entity-recognition.md) for extracting the names of organizations from content in the blob container.
++ [Entity Recognition](cognitive-search-skill-entity-recognition-v3.md) for extracting the names of organizations from content in the blob container.
 
 + [Language Detection](cognitive-search-skill-language-detection.md) to identify the content's language.
 
@@ -299,7 +299,7 @@ Each skill executes on the content of the document. During processing, Azure Cog
 
 A graphical representation of the skillset is shown below.
 
-![Understand a skillset](media/cognitive-search-tutorial-blob/skillset.png "Understand a skillset")
+:::image type="content" source="media/cognitive-search-tutorial-blob/skillset.png" alt-text="Understand a skillset" border="false":::
 
 Outputs can be mapped to an index, used as input to a downstream skill, or both, as is the case with language code. In the index, a language code is useful for filtering. As an input, language code is used by text analysis skills to inform the linguistic rules around word breaking.
 
@@ -311,7 +311,7 @@ In this section, you define the index schema by specifying the fields to include
 
 This exercise uses the following fields and field types:
 
-| field-names: | id         | content   | languageCode | keyPhrases         | organizations     |
+| field-names: | ID         | content   | languageCode | keyPhrases         | organizations     |
 |--------------|----------|-------|----------|--------------------|-------------------|
 | field-types: | Edm.String|Edm.String| Edm.String| List<Edm.String>  | List<Edm.String>  |
 
@@ -468,11 +468,11 @@ pprint(json.dumps(r.json(), indent=1))
 
 In the response, monitor the `"lastResult"` for its `"status"` and `"endTime"` values. Periodically run the script to check the status. When the indexer has completed, the status will be set to "success", an "endTime" will be specified, and the response will include any errors and warnings that occurred during enrichment.
 
-![Indexer is created](./media/cognitive-search-tutorial-blob-python/py-indexer-is-created.png "Indexer is created")
+:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-indexer-is-created.png" alt-text="Indexer is created" border="false":::
 
 Warnings are common with some source file and skill combinations and do not always indicate a problem. Many warnings are benign. For example, if you index a JPEG file that does not have text, you will see the warning in this screenshot.
 
-![Example indexer warning](./media/cognitive-search-tutorial-blob-python/py-indexer-warning-example.png "Example indexer warning")
+:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-indexer-warning-example.png" alt-text="Example indexer warning" border="false":::
 
 ## 5 - Search
 
@@ -489,7 +489,7 @@ pprint(json.dumps(r.json(), indent=1))
 
 The results should look similar to the following example. The screenshot only shows a part of the response.
 
-![Query index for all fields](./media/cognitive-search-tutorial-blob-python/py-query-index-for-fields.png "Query the index for all fields")
+:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-query-index-for-fields.png" alt-text="Query index for all fields" border="false":::
 
 The output is the index schema, with the name, type, and attributes of each field.
 
@@ -504,7 +504,7 @@ pprint(json.dumps(r.json(), indent=1))
 
 The results should look similar to the following example. The screenshot only shows a part of the response.
 
-![Query index for the contents of organizations](./media/cognitive-search-tutorial-blob-python/py-query-index-for-organizations.png "Query the index to return the contents of organizations")
+:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-query-index-for-organizations.png" alt-text="Query index for the contents of organizations" border="false":::
 
 Repeat for additional fields: `content`, `languageCode`, `keyPhrases`, and `organizations` in this exercise. You can return multiple fields via `$select` using a comma-delimited list.
 
@@ -518,7 +518,7 @@ In the early experimental stages of development, the most practical approach for
 
 You can use the portal to delete indexes, indexers, data sources, and skillsets. When you delete the indexer, you can optionally, selectively delete the index, skillset, and data source at the same time.
 
-![Delete search objects](./media/cognitive-search-tutorial-blob-python/py-delete-indexer-delete-all.png "Delete search objects in the portal")
+:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-delete-indexer-delete-all.png" alt-text="Delete search objects in the portal" border="false":::
 
 You can also delete them using a script. The following script shows how to delete a skillset. 
 

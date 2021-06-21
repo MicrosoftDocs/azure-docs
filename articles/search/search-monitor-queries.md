@@ -8,14 +8,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/18/2020
+ms.date: 01/26/2021
 ---
 
 # Monitor query requests in Azure Cognitive Search
 
 This article explains how to measure query performance and volume using metrics and resource logging. It also explains how to collect the input terms used in queries - necessary information when you need to assess the utility and effectiveness of your search corpus.
 
-Historical data that feeds into metrics is preserved for 30 days. For longer retention, or to report on operational data and query strings, be sure to enable a [diagnostic setting](search-monitor-logs.md) that specifies a storage option for persisting logged events and metrics.
+The Azure portal shows basic metrics about query latency, query load (QPS), and throttling. Historical data that feeds into these metrics is preserved for 30 days. For longer retention, or to report on operational data and query strings, you must enable a [diagnostic setting](search-monitor-logs.md) that specifies a storage option for persisting logged events and metrics.
 
 Conditions that maximize the integrity of data measurement include:
 
@@ -96,7 +96,7 @@ In the following screenshot, the first number is the count (or number of metrics
 
 For a quick look at the current numbers, the **Monitoring** tab on the service Overview page shows three metrics (**Search latency**, **Search queries per second (per search unit)**, **Throttled Search Queries Percentage**) over fixed intervals measured in hours, days, and weeks, with the option of changing the aggregation type.
 
-For deeper exploration, open metrics explorer from the **Monitoring** menu so that you can layer, zoom in, and visualize data to explore trends or anomalies. Learn more about metrics explorer by completing this [tutorial on creating a metrics chart](../azure-monitor/learn/tutorial-metrics-explorer.md).
+For deeper exploration, open metrics explorer from the **Monitoring** menu so that you can layer, zoom in, and visualize data to explore trends or anomalies. Learn more about metrics explorer by completing this [tutorial on creating a metrics chart](../azure-monitor/essentials/tutorial-metrics-explorer.md).
 
 1. Under the Monitoring section, select **Metrics** to open the metrics explorer with the scope set to your search service.
 
@@ -112,7 +112,7 @@ For deeper exploration, open metrics explorer from the **Monitoring** menu so th
 
 1. Zoom into an area of interest on the line chart. Put the mouse pointer at the beginning of the area, click and hold the left mouse button, drag to the other side of area, and release the button. The chart will zoom in on that time range.
 
-## Identify strings used in queries
+## Return query strings entered by users
 
 When you enable resource logging, the system captures query requests in the **AzureDiagnostics** table. As a prerequisite, you must have already enabled [resource logging](search-monitor-logs.md), specifying a log analytics workspace or another storage option.
 
@@ -120,8 +120,8 @@ When you enable resource logging, the system captures query requests in the **Az
 
 1. Run the following expression to search Query.Search operations, returning a tabular result set consisting of the operation name, query string, the index queried, and the number of documents found. The last two statements exclude query strings consisting of an empty or unspecified search, over a sample index, which cuts down the noise in your results.
 
-   ```
-   AzureDiagnostics
+   ```kusto
+      AzureDiagnostics
    | project OperationName, Query_s, IndexName_s, Documents_d
    | where OperationName == "Query.Search"
    | where Query_s != "?api-version=2020-06-30&search=*"
@@ -140,9 +140,9 @@ Add the duration column to get the numbers for all queries, not just those that 
 
 1. Under the Monitoring section, select **Logs** to query for log information.
 
-1. Run the following query to return queries, sorted by duration in milliseconds. The longest-running queries are at the top.
+1. Run the following basic query to return queries, sorted by duration in milliseconds. The longest-running queries are at the top.
 
-   ```
+   ```Kusto
    AzureDiagnostics
    | project OperationName, resultSignature_d, DurationMs, Query_s, Documents_d, IndexName_s
    | where OperationName == "Query.Search"
@@ -178,10 +178,6 @@ When pushing the limits of a particular replica-partition configuration, setting
    ![Alert details](./media/search-monitor-usage/alert-details.png "Alert details")
 
 If you specified an email notification, you will receive an email from "Microsoft Azure" with a subject line of "Azure: Activated Severity: 3 `<your rule name>`".
-
-<!-- ## Report query data
-
-Power BI is an analytical reporting tool useful for visualizing data, including log information. If you are collecting data in Blob storage, a Power BI template makes it easy to spot anomalies or trends. Use this link to download the template. -->
 
 ## Next steps
 

@@ -1,15 +1,16 @@
 ---
 title: Migrate Azure AD Domain Services from a Classic virtual network | Microsoft Docs
 description: Learn how to migrate an existing Azure AD Domain Services managed domain from the Classic virtual network model to a Resource Manager-based virtual network.
-author: iainfoulds
+author: justinha
 manager: daveba
 
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/10/2020
-ms.author: iainfou
+ms.date: 09/24/2020
+ms.author: justinha 
+ms.custom: devx-track-azurepowershell
 
 ---
 
@@ -136,6 +137,14 @@ There are some restrictions on the virtual networks that a managed domain can be
 
 For more information on virtual network requirements, see [Virtual network design considerations and configuration options][network-considerations].
 
+You must also create a network security group to restrict traffic in the virtual network for the managed domain. An Azure standard load balancer is created during the migration process that requires these rules to be place. This network security group secures Azure AD DS and is required for the managed domain to work correctly.
+
+For more information on what rules are required, see [Azure AD DS network security groups and required ports](network-considerations.md#network-security-groups-and-required-ports).
+
+### LDAPS and TLS/SSL certificate expiration
+
+If your managed domain is configured for LDAPS, confirm that your current TLS/SSL certificate is valid for more than 30 days. A certificate that expires within the next 30 days causes the migration processes to fail. If needed, renew the certificate and apply it to your managed domain, then begin the migration process.
+
 ## Migration steps
 
 The migration to the Resource Manager deployment model and virtual network is split into 5 main steps:
@@ -144,8 +153,8 @@ The migration to the Resource Manager deployment model and virtual network is sp
 |---------|--------------------|-----------------|-----------|-------------------|
 | [Step 1 - Update and locate the new virtual network](#update-and-verify-virtual-network-settings) | Azure portal | 15 minutes | No downtime required | N/A |
 | [Step 2 - Prepare the managed domain for migration](#prepare-the-managed-domain-for-migration) | PowerShell | 15 – 30 minutes on average | Downtime of Azure AD DS starts after this command is completed. | Roll back and restore available. |
-| [Step 3 - Move the managed domain to an existing virtual network](#migrate-the-managed-domain) | PowerShell | 1 – 3 hours on average | One domain controller is available once this command is completed, downtime ends. | On failure, both rollback (self-service) and restore are available. |
-| [Step 4 - Test and wait for the replica domain controller](#test-and-verify-connectivity-after-the-migration)| PowerShell and Azure portal | 1 hour or more, depending on the number of tests | Both domain controllers are available and should function normally. | N/A. Once the first VM is successfully migrated, there's no option for rollback or restore. |
+| [Step 3 - Move the managed domain to an existing virtual network](#migrate-the-managed-domain) | PowerShell | 1 – 3 hours on average | One domain controller is available once this command is completed. | On failure, both rollback (self-service) and restore are available. |
+| [Step 4 - Test and wait for the replica domain controller](#test-and-verify-connectivity-after-the-migration)| PowerShell and Azure portal | 1 hour or more, depending on the number of tests | Both domain controllers are available and should function normally, downtime ends. | N/A. Once the first VM is successfully migrated, there's no option for rollback or restore. |
 | [Step 5 - Optional configuration steps](#optional-post-migration-configuration-steps) | Azure portal and VMs | N/A | No downtime required | N/A |
 
 > [!IMPORTANT]
@@ -163,7 +172,9 @@ Before you begin the migration process, complete the following initial checks an
 
     Make sure that network settings don't block necessary ports required for Azure AD DS. Ports must be open on both the Classic virtual network and the Resource Manager virtual network. These settings include route tables (although it's not recommended to use route tables) and network security groups.
 
-    To view the ports required, see [Network security groups and required ports][network-ports]. To minimize network communication problems, it's recommended to wait and apply a network security group or route table to the Resource Manager virtual network after the migration successfully completed.
+    Azure AD DS needs a network security group to secure the ports needed for the managed domain and block all other incoming traffic. This network security group acts as an extra layer of protection to lock down access to the managed domain. To view the ports required, see [Network security groups and required ports][network-ports].
+
+    If you use secure LDAP, add a rule to the network security group to allow incoming traffic for *TCP* port *636*. For more information, see [Lock down secure LDAP access over the internet](tutorial-configure-ldaps.md#lock-down-secure-ldap-access-over-the-internet)
 
     Make a note of this target resource group, target virtual network, and target virtual network subnet. These resource names are used during the migration process.
 
@@ -249,16 +260,14 @@ At this stage, you can optionally move other existing resources from the Classic
 
 ## Test and verify connectivity after the migration
 
-It can take some time for the second domain controller to successfully deploy and be available for use in the managed domain.
+It can take some time for the second domain controller to successfully deploy and be available for use in the managed domain. The second domain controller should be available 1-2 hours after the migration cmdlet finishes. With the Resource Manager deployment model, the network resources for the managed domain are shown in the Azure portal or Azure PowerShell. To check if the second domain controller is available, look at the **Properties** page for the managed domain in the Azure portal. If two IP addresses shown, the second domain controller is ready.
 
-With the Resource Manager deployment model, the network resources for the managed domain are shown in the Azure portal or Azure PowerShell. To learn more about what these network resources are and do, see [Network resources used by Azure AD DS][network-resources].
-
-When at least one domain controller is available, complete the following configuration steps for network connectivity with VMs:
+After the second domain controller is available, complete the following configuration steps for network connectivity with VMs:
 
 * **Update DNS server settings** To let other resources on the Resource Manager virtual network resolve and use the managed domain, update the DNS settings with the IP addresses of the new domain controllers. The Azure portal can automatically configure these settings for you.
 
     To learn more about how to configure the Resource Manager virtual network, see [Update DNS settings for the Azure virtual network][update-dns].
-* **Restart domain-joined VMs** - As the DNS server IP addresses for the Azure AD DS domain controllers change, restart any domain-joined VMs so they then use the new DNS server settings. If applications or VMs have manually configured DNS settings, manually update them with the new DNS server IP addresses of the domain controllers that are shown in the Azure portal.
+* **Restart domain-joined VMs (optional)** As the DNS server IP addresses for the Azure AD DS domain controllers change, you can restart any domain-joined VMs so they then use the new DNS server settings. If applications or VMs have manually configured DNS settings, manually update them with the new DNS server IP addresses of the domain controllers that are shown in the Azure portal. Rebooting domain-joined VMs prevents connectivity issues caused by IP addresses that don’t refresh.
 
 Now test the virtual network connection and name resolution. On a VM that's connected to the Resource Manager virtual network, or peered to it, try the following network communication tests:
 
@@ -267,7 +276,7 @@ Now test the virtual network connection and name resolution. On a VM that's conn
 1. Verify name resolution of the managed domain, such as `nslookup aaddscontoso.com`
     * Specify the DNS name for your own managed domain to verify that the DNS settings are correct and resolves.
 
-The second domain controller should be available 1-2 hours after the migration cmdlet finishes. To check if the second domain controller is available, look at the **Properties** page for the managed domain in the Azure portal. If two IP addresses shown, the second domain controller is ready.
+To learn more about other network resources, see [Network resources used by Azure AD DS][network-resources].
 
 ## Optional post-migration configuration steps
 
@@ -292,13 +301,6 @@ If needed, you can update the fine-grained password policy to be less restrictiv
 1. If a VM is exposed to the internet, review for generic account names like *administrator*, *user*, or *guest* with high sign-in attempts. Where possible, update those VMs to use less generically named accounts.
 1. Use a network trace on the VM to locate the source of the attacks and block those IP addresses from being able to attempt sign-ins.
 1. When there are minimal lockout issues, update the fine-grained password policy to be as restrictive as necessary.
-
-### Creating a network security group
-
-Azure AD DS needs a network security group to secure the ports needed for the managed domain and block all other incoming traffic. This network security group acts as an extra layer of protection to lock down access to the managed domain, and isn't automatically created. To create the network security group and open the required ports, review the following steps:
-
-1. In the Azure portal, select your Azure AD DS resource. On the overview page, a button is displayed to create a network security group if there's none associated with Azure AD Domain Services.
-1. If you use secure LDAP, add a rule to the network security group to allow incoming traffic for *TCP* port *636*. For more information, see [Configure secure LDAP][secure-ldap].
 
 ## Roll back and restore from migration
 
@@ -354,7 +356,7 @@ With your managed domain migrated to the Resource Manager deployment model, [cre
 [notifications]: notifications.md
 [password-policy]: password-policy.md
 [secure-ldap]: tutorial-configure-ldaps.md
-[migrate-iaas]: ../virtual-machines/windows/migration-classic-resource-manager-overview.md
+[migrate-iaas]: ../virtual-machines/migration-classic-resource-manager-overview.md
 [join-windows]: join-windows-vm.md
 [tutorial-create-management-vm]: tutorial-create-management-vm.md
 [troubleshoot-domain-join]: troubleshoot-domain-join.md

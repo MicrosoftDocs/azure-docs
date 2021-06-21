@@ -68,7 +68,7 @@ If the extensions don't work for you, try adding two new sync rules, described i
 #### Add an inbound sync rule
 An inbound sync rule means the source for the attribute is a connector space, and the target is the metaverse. For example, to have a new attribute flow from on-premises Active Directory to Azure Active Directory, create a new inbound sync rule. Launch the **Synchronization Rules Editor**, select **Inbound** as the direction, and select **Add new rule**. 
 
- ![Synchronization Rules Editor](media/how-to-connect-fix-default-rules/default3a.png)
+ ![Screenshot that shows the "Synchronization Rules Editor" with "Inbound" and "Add new rule" selected.](media/how-to-connect-fix-default-rules/default3a.png)
 
 Follow your own naming convention to name the rule. Here, we use **Custom In from AD - User**. This means that the rule is a custom rule, and is an inbound rule from the Active Directory connector space to the metaverse.   
 
@@ -171,7 +171,7 @@ Select **Preview…**
 
 In the Preview window, select **Generate Preview** and **Import Attribute Flow** in the left pane.
 
-![Preview](media/how-to-connect-fix-default-rules/default14.png)
+![Screenshot that shows the "Preview" window with "Import Attribute Flow" and "Generate Preview" selected.](media/how-to-connect-fix-default-rules/default14.png)
  
 Here, notice that the newly added rule is run on the object, and has set the `cloudFiltered` attribute to true.
 

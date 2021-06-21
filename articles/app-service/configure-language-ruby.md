@@ -4,7 +4,7 @@ description: Learn how to configure a pre-built Ruby container for your app. Thi
 ms.topic: quickstart
 ms.date: 06/18/2020
 ms.reviewer: astay; kraigb
-ms.custom: mvc, seodec18
+ms.custom: mvc, seodec18, devx-track-azurecli
 ---
 
 # Configure a Linux Ruby app for Azure App Service
@@ -150,4 +150,4 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 > [Tutorial: Rails app with PostgreSQL](tutorial-ruby-postgres-app.md)
 
 > [!div class="nextstepaction"]
-> [App Service Linux FAQ](faq-app-service-linux.md)
+> [App Service Linux FAQ](faq-app-service-linux.yml)

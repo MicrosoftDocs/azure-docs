@@ -1,38 +1,52 @@
 ---
-title: Ranking Similarity Algorithm
+title: Configure the similarity algorithm
 titleSuffix: Azure Cognitive Search
-description: How to set the similarity algorithm to try new similarity algorithm for ranking
-
+description: Learn how to enable BM25 on older search services, and how BM25 parameters can be modified to better accommodate the content of your indexes.
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/13/2020
+ms.date: 03/12/2021
 ---
 
-# Ranking algorithm in Azure Cognitive Search
+# Configure the similarity ranking algorithm in Azure Cognitive Search
 
-> [!IMPORTANT]
-> Starting July 15, 2020, newly created search services will use the BM25 ranking function automatically, which has proven in most cases to provide search rankings that align better with user expectations than the current default ranking. Beyond superior ranking, BM25 also enables configuration options for tuning results based on factors such as document size.  
->
-> With this change, you will most likely see slight changes in the ordering of your search results. For those who want to test the impact of this change, the BM25 algorithm is available in the api-version 2019-05-06-Preview and in 2020-06-30.  
+Azure Cognitive Search supports two similarity ranking algorithms:
 
-This article describes how you can use the new BM25 ranking algorithm on existing search services for new indexes created and queried using the preview API.
++ A *classic similarity* algorithm, used by all search services up until July 15, 2020.
++ An implementation of the *Okapi BM25* algorithm, used in all search services created after July 15.
 
-Azure Cognitive Search is in the process of adopting the official Lucene implementation of the Okapi BM25 algorithm, *BM25Similarity*, which will replace the previously used *ClassicSimilarity* implementation. Like the older ClassicSimilarity algorithm, BM25Similarity is a TF-IDF-like retrieval function that uses the term frequency (TF) and the inverse document frequency (IDF) as variables to calculate relevance scores for each document-query pair, which is then used for ranking. 
+BM25 ranking is the new default because it tends to produce search rankings that align better with user expectations. It comes with [parameters](#set-bm25-parameters) for tuning results based on factors such as document size. 
 
-While conceptually similar to the older Classic Similarity algorithm, BM25 takes its root in probabilistic information retrieval to improve upon it. BM25 also offers advanced customization options, such as allowing the user to decide how the relevance score scales with the term frequency of matched terms.
+For new services created after July 15, 2020, BM25 is used automatically and is the sole similarity algorithm. If you try to set similarity to ClassicSimilarity on a new service, an HTTP 400 error will be returned because that algorithm is not supported by the service.
 
-## How to test BM25 today
+For older services created before July 15, 2020, classic similarity remains the default algorithm. Older services can upgrade to BM25 on a per-index basis, as explained below. If you are switching from classic to BM25, you can expect to see some differences how search results are ordered.
 
-When you create a new index, you can set a **similarity** property to specify the algorithm. You can use the `api-version=2019-05-06-Preview`, as shown below, or `api-version=2020-06-30`.
+> [!NOTE]
+> Semantic ranking, currently in preview for standard services in selected regions, is an additional step forward in producing more relevant results. Unlike the other algorithms, it is an add-on feature that iterates over an existing result set. For more information, see [Semantic search overview](semantic-search-overview.md) and [Semantic ranking](semantic-ranking.md).
 
-```
-PUT https://[search service name].search.windows.net/indexes/[index name]?api-version=2019-05-06-Preview
-```
+## Enable BM25 scoring on older services
 
-```json  
+If you are running a search service that was created prior to July 15, 2020, you can enable BM25 by setting a Similarity property on new indexes. The property is only exposed on new indexes, so if want BM25 on an existing index, you must drop and [rebuild the index](search-howto-reindex.md) with a new Similarity property set to "Microsoft.Azure.Search.BM25Similarity".
+
+Once an index exists with a Similarity property, you can switch between BM25Similarity or ClassicSimilarity. 
+
+The following links describe the Similarity property in the Azure SDKs. 
+
+| Client library | Similarity property |
+|----------------|---------------------|
+| .NET  | [SearchIndex.Similarity](/dotnet/api/azure.search.documents.indexes.models.searchindex.similarity) |
+| Java | [SearchIndex.setSimilarity](/java/api/com.azure.search.documents.indexes.models.searchindex.setsimilarity) |
+| JavaScript | [SearchIndex.Similarity](/javascript/api/@azure/search-documents/searchindex#similarity) |
+| Python | [similarity property on SearchIndex](/python/api/azure-search-documents/azure.search.documents.indexes.models.searchindex) |
+
+### REST example
+
+You can also use the [REST API](/rest/api/searchservice/create-index), as the following example illustrates:
+
+```http
+PUT https://[search service name].search.windows.net/indexes/[index name]?api-version=2020-06-30
 {
     "name": "indexName",
     "fields": [
@@ -55,53 +69,33 @@ PUT https://[search service name].search.windows.net/indexes/[index name]?api-ve
 }
 ```
 
-The **similarity** property is useful during this interim period when both algorithms are available, on existing services only. 
+## Set BM25 parameters
 
-| Property | Description |
-|----------|-------------|
-| similarity | Optional. Valid values include *"#Microsoft.Azure.Search.ClassicSimilarity"* or *"#Microsoft.Azure.Search.BM25Similarity"*. <br/> Requires `api-version=2019-05-06-Preview` or later on a search service created prior to July 15, 2020. |
+BM25 similarity adds two user customizable parameters to control the calculated relevance score. You can set BM25 parameters during index creation, or as an index update if the BM25 algorithm was specified during index creation.
 
-For new services created after July 15, 2020, BM25 is used automatically and is the sole similarity algorithm. If you try to set **similarity** to `ClassicSimilarity` on a new service, a 400 error will be returned because that algorithm is not supported on a new service.
-
-For existing services created before July 15, 2020, the Classic similarity remains the default algorithm. If the **similarity** property is omitted or set to null, the index uses the Classic algorithm. If you want to use the new algorithm, you will need to set **similarity** as described above.
-
-## BM25 similarity parameters
-
-BM25 similarity adds two user customizable parameters to control the calculated relevance score.
-
-### k1
-
-The *k1* parameter controls the scaling function between the term frequency of each matching terms to the final relevance score of a document-query pair.
-
-A value of zero represents a "binary model", where the contribution of a single matching term is the same for all matching documents, regardless of how many times that term appears in the text, while a larger k1 value allows the score to continue to increase as more instances of the same term is found in the document. By default, Azure Cognitive Search uses a value of 1.2 for the k1 parameter. Using a higher k1 value can be important in cases where we expect multiple terms to be part of a search query. In those cases, we might want to favor documents that match many of the different query terms being searched over documents that only match a single one, multiple times. For example, when querying the index for documents containing the terms "Apollo Spaceflight", we might want to lower the score of an article about Greek Mythology which contains the term "Apollo" a few dozen times, without mentions of "Spaceflight", compared to another article which explicitly mentions both "Apollo" and "Spaceflight" a handful of times only. 
- 
-### b
-
-The *b* parameter controls how the length of a document affects the relevance score.
-
-A value of 0.0 means the length of the document will not influence the score, while a value of 1.0 means the impact of term frequency on relevance score will be normalized by the document's length. The default value used in Azure Cognitive Search for the b parameter is 0.75. Normalizing the term frequency by the document's length is useful in cases where we want to penalize longer documents. In some cases, longer documents (such as a complete novel), are more likely to contain many irrelevant terms, compared to much shorter documents.
+| Property | Type | Description |
+|----------|------|-------------|
+| k1 | number | Controls the scaling function between the term frequency of each matching terms to the final relevance score of a document-query pair. Values are usually 0.0 to 3.0, with 1.2 as the default. </br></br>A value of 0.0 represents a "binary model", where the contribution of a single matching term is the same for all matching documents, regardless of how many times that term appears in the text, while a larger k1 value allows the score to continue to increase as more instances of the same term is found in the document. </br></br>Using a higher k1 value can be important in cases where we expect multiple terms to be part of a search query. In those cases, we might want to favor documents that match many of the different query terms being searched over documents that only match a single one, multiple times. For example, when querying the index for documents containing the terms "Apollo Spaceflight", we might want to lower the score of an article about Greek Mythology that contains the term "Apollo" a few dozen times, without mentions of "Spaceflight", compared to another article that explicitly mentions both "Apollo" and "Spaceflight" a handful of times only. |
+| b | number | Controls how the length of a document affects the relevance score. Values are between 0 and 1, with 0.75 as the default. </br></br>A value of 0.0 means the length of the document will not influence the score, while a value of 1.0 means the impact of term frequency on relevance score will be normalized by the document's length. </br></br>Normalizing the term frequency by the document's length is useful in cases where we want to penalize longer documents. In some cases, longer documents (such as a complete novel), are more likely to contain many irrelevant terms, compared to much shorter documents. |
 
 ### Setting k1 and b parameters
 
-To customize the b or k1 values, simply add them as properties to the similarity object when using BM25:
+To set or modify b or k1 values, add them to the BM25 similarity object. Setting or changing these values on an existing index will take the index offline for at least a few seconds, causing active indexing and query requests to fail. Consequently, you should set the "allowIndexDowntime=true" parameter of the update request:
 
-```json
+```http
+PUT https://[search service name].search.windows.net/indexes/[index name]?api-version=2020-06-30&allowIndexDowntime=true
+{
     "similarity": {
         "@odata.type": "#Microsoft.Azure.Search.BM25Similarity",
         "b" : 0.5,
         "k1" : 1.3
     }
-```
-
-The similarity algorithm can only be set at index creation time. This means the similarity algorithm being used cannot be changed for existing indexes. The *"b"* and *"k1"* parameters can be modified when updating an existing index definition that uses BM25. Changing those values on an existing index will take the index offline for at least a few seconds, causing your indexing and query requests to fail. Because of that, you will need to set the "allowIndexDowntime=true" parameter in the query string of your update request:
-
-```http
-PUT https://[search service name].search.windows.net/indexes/[index name]?api-version=[api-version]&allowIndexDowntime=true
+}
 ```
 
 ## See also  
 
-+ [REST API Reference](/rest/api/searchservice/)   
-+ [Add scoring profiles to your index](index-add-scoring-profiles.md)    
-+ [Create Index API](/rest/api/searchservice/create-index)   
-+ [Azure Cognitive Search .NET SDK](/dotnet/api/overview/azure/search?view=azure-dotnet)
++ [REST API Reference](/rest/api/searchservice/)
++ [Add scoring profiles to your index](index-add-scoring-profiles.md)
++ [Create Index API](/rest/api/searchservice/create-index)
++ [Azure Cognitive Search .NET SDK](/dotnet/api/overview/azure/search)

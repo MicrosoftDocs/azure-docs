@@ -14,9 +14,15 @@ ms.author: cherylmc
 
 # Azure Virtual WAN logs and metrics
 
-You can monitor Azure Virtual WAN using Azure Monitor. Virtual WAN is a networking service that brings together many networking, security, and routing functionalities to provide a single operational interface. Virtual WAN VPN gateways, ExpressRoute gateways, and Azure Firewall have logging and metrics available through Azure Monitor. For Azure Firewall information, see [Azure Firewall logs and metrics](../firewall/logs-and-metrics.md).
+You can monitor Azure Virtual WAN using Azure Monitor. Virtual WAN is a networking service that brings together many networking, security, and routing functionalities to provide a single operational interface. Virtual WAN VPN gateways, ExpressRoute gateways, and Azure Firewall have logging and metrics available through Azure Monitor.
 
 This article discusses metrics and diagnostics that are available through the portal. Metrics are lightweight and can support near real-time scenarios, making them useful for alerting and fast issue detection.
+
+## Monitoring Secured Hub (Azure Firewall) 
+
+You can monitor the Secured Hub using Azure Firewall logs. You can also use activity logs to audit operations on Azure Firewall resources.
+
+If you have chosen to secure your Virtual Hub using Azure Firewall, relevant logs and metrics are available here: [Azure Firewall logs and metrics](../firewall/logs-and-metrics.md).
 
 ## Metrics
 
@@ -59,11 +65,11 @@ The following steps help you locate and view metrics:
 
 3. Select **Metrics**.
 
-   :::image type="content" source="./media/logs-metrics/metrics.png" alt-text="metrics":::
+   :::image type="content" source="./media/logs-metrics/metrics.png" alt-text="Screenshot shows a site to site V P N pane with View in Azure Monitor selected.":::
 
 4. On the **Metrics** page, you can view the metrics that you are interested in.
 
-   :::image type="content" source="./media/logs-metrics/metrics-page.png" alt-text="metrics page":::
+   :::image type="content" source="./media/logs-metrics/metrics-page.png" alt-text="Screenshot that shows the 'Metrics' page with the categories highlighted.":::
 
 ## <a name="diagnostic"></a>Diagnostic logs
 
@@ -90,11 +96,11 @@ The following steps help you locate and view diagnostics:
 
 1. In the portal, navigate to your Virtual WAN resource. In the **Overview** section of the Virtual WAN page in the portal, select **Essentials** to expand the view and obtain resource group information. Copy the resource group information.
 
-   :::image type="content" source="./media/logs-metrics/3.png" alt-text="metrics page":::
+   :::image type="content" source="./media/logs-metrics/3.png" alt-text="Screenshot that shows the 'Overview' section with an arrow pointing to the 'Copy' button.":::
 
 2. In the Monitoring section, navigate to the resource group. Select **Diagnostic settings**, then input the resource information. This is the resource information that you copied in Step 2 from the [View gateway metrics](#metrics-steps) section, earlier in this article.
 
-   :::image type="content" source="./media/logs-metrics/4.png" alt-text="metrics page":::
+   :::image type="content" source="./media/logs-metrics/4.png" alt-text="Screenshot that shows the 'Monitoring' section with an arrow pointing to the 'Resource' drop-down.":::
 
 3. On the results page, select **+Add diagnostic setting**, then select an option. You can choose to send to Log Analytics, stream to an event hub, or to simply archive to a storage account.
 
@@ -120,5 +126,5 @@ Replace the values below, after the **= =**, as needed.
 
 ## Next steps
 
-* To learn how to monitor Azure Firewall logs and metrics, see [Tutorial: Monitor Azure Firewall logs](../firewall/tutorial-diagnostics.md).
-* To learn more about metrics in Azure Monitor, see [Metrics in Azure Monitor](../azure-monitor/platform/data-platform-metrics.md).
+* To learn how to monitor Azure Firewall logs and metrics, see [Tutorial: Monitor Azure Firewall logs](../firewall/firewall-diagnostics.md).
+* To learn more about metrics in Azure Monitor, see [Metrics in Azure Monitor](../azure-monitor/essentials/data-platform-metrics.md).

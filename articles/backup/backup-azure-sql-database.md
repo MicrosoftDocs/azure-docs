@@ -27,7 +27,7 @@ This solution leverages the SQL native APIs to take backups of your SQL database
 * The plugin sends the data directly to the Recovery Services vault, thus eliminating the need for a staging location. The data is encrypted and stored by the Azure Backup service in storage accounts.
 * When the data transfer is complete, coordinator confirms the commit with the backup service.
 
-  ![SQL Backup architecture](./media/backup-azure-sql-database/backup-sql-overview.png)
+  ![SQL Backup architecture](./media/backup-azure-sql-database/azure-backup-sql-overview.png)
 
 ## Before you start
 
@@ -35,7 +35,7 @@ Before you start, verify the following requirements:
 
 1. Make sure you have a SQL Server instance running in Azure. You can [quickly create a SQL Server instance](../azure-sql/virtual-machines/windows/sql-vm-create-portal-quickstart.md) in the marketplace.
 2. Review the [feature considerations](sql-support-matrix.md#feature-considerations-and-limitations) and [scenario support](sql-support-matrix.md#scenario-support).
-3. [Review common questions](faq-backup-sql-server.md) about this scenario.
+3. [Review common questions](faq-backup-sql-server.yml) about this scenario.
 
 ## Set VM permissions
 

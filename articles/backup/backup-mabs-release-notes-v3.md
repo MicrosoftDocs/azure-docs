@@ -55,7 +55,7 @@ This article provides the known issues and workarounds for Microsoft Azure Backu
 4. [Install](/sql/ssms/download-sql-server-management-studio-ssms) SQL Server Management Studio (SSMS).
 5. Configure Reporting using the parameters as documented in [SSRS configuration with SQL 2017](./backup-azure-microsoft-azure-backup.md#upgrade-mabs).
 6. [Install](backup-azure-microsoft-azure-backup.md) MABS V3.
-7. [Restore](/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms) SQL using SSMS and run DPM-Sync tool as described [here](/system-center/dpm/back-up-the-dpm-server?view=sc-dpm-2019#using-dpmsync).
+7. [Restore](/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms) SQL using SSMS and run DPM-Sync tool as described [here](/system-center/dpm/back-up-the-dpm-server#using-dpmsync).
 8. Update the ‘DataBaseVersion’ property in dbo.tbl_DLS_GlobalSetting table using the following command:
 
     ```sql

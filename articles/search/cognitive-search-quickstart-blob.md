@@ -8,17 +8,19 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 06/07/2020
+ms.date: 03/21/2021
 ---
 # Quickstart: Create an Azure Cognitive Search cognitive skillset in the Azure portal
 
-A skillset is an AI-based feature that extracts information and structure from large undifferentiated text or image files, and makes the content both indexable and searchable in Azure Cognitive Search. 
+This quickstart demonstrates skillset support in the portal, showing how Optical Character Recognition (OCR) and entity recognition can be used to create searchable text content from images and application files.
 
-In this quickstart, you'll combine services and data in the Azure cloud to create the skillset. Once everything is in place, you'll run the **Import data** wizard in the Azure portal to pull it all together. The end result is a searchable index populated with data created by AI processing that you can query in the portal ([Search explorer](search-explorer.md)).
+To prepare, you'll create a few resources and upload sample images and application content files. Once everything is in place, you'll run the **Import data** wizard in the Azure portal to pull it all together. The end result is a searchable index populated with data created by AI processing that you can query in the portal ([Search explorer](search-explorer.md)).
+
+Prefer to start with code? See [Tutorial: Use REST and AI to generate searchable content from Azure blobs](cognitive-search-tutorial-blob.md) or an [Tutorial: Use .NET and AI to generate searchable content from Azure blobs](cognitive-search-tutorial-blob-dotnet.md) instead.
 
 ## Prerequisites
 
-Before you begin, you must have the following:
+Before you begin, have the following prerequisites in place:
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
 
@@ -39,13 +41,13 @@ In the following steps, set up a blob container in Azure Storage to store hetero
 
    + Choose the same region as Azure Cognitive Search to avoid bandwidth charges. 
 
-   + Choose the StorageV2 (general purpose V2) account type if you want to try out the knowledge store feature later, in another walkthrough. Otherwise, choose any type.
+   + Choose the StorageV2 (general purpose V2).
 
 1. Open the Blob services pages and create a container. You can use the default public access level. 
 
-1. In container, click **Upload** to upload the sample files you downloaded in the first step. Notice that you have a wide range of content types, including images and application files that are not full text searchable in their native formats.
+1. In Container, click **Upload** to upload the sample files you downloaded in the first step. Notice that you have a wide range of content types, including images and application files that are not full text searchable in their native formats.
 
-   ![Source files in Azure blob storage](./media/cognitive-search-quickstart-blob/sample-data.png)
+   :::image type="content" source="media/cognitive-search-quickstart-blob/sample-data.png" alt-text="Source files in Azure Blob Storage" border="false":::
 
 You are now ready to move on the Import data wizard.
 
@@ -55,13 +57,13 @@ You are now ready to move on the Import data wizard.
 
 1. [Find your search service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) and on the Overview page, click **Import data** on the command bar to set up cognitive enrichment in four steps.
 
-   ![Import data command](media/cognitive-search-quickstart-blob/import-data-cmd2.png)
+   :::image type="content" source="media/cognitive-search-quickstart-blob/import-data-cmd2.png" alt-text="Import data command" border="false":::
 
 ### Step 1 - Create a data source
 
 1. In **Connect to your data**, choose **Azure Blob storage**, select the Storage account and container you created. Give the data source a name, and use default values for the rest. 
 
-   ![Azure blob configuration](./media/cognitive-search-quickstart-blob/blob-datasource.png)
+   :::image type="content" source="media/cognitive-search-quickstart-blob/blob-datasource.png" alt-text="Azure blob configuration" border="false":::
 
     Continue to the next page.
 
@@ -71,7 +73,7 @@ Next, configure AI enrichment to invoke OCR, image analysis, and natural languag
 
 1. For this quickstart, we are using the **Free** Cognitive Services resource. The sample data consists of 14 files, so the free allotment of 20 transaction on Cognitive Services is sufficient for this quickstart. 
 
-   ![Attach Cognitive Services attach base service](media/cognitive-search-quickstart-blob/cog-search-attach.png)
+   :::image type="content" source="media/cognitive-search-quickstart-blob/cog-search-attach.png" alt-text="Attach Cognitive Services attach base service" border="false":::
 
 1. Expand **Add enrichments** and make four selections. 
 
@@ -81,7 +83,7 @@ Next, configure AI enrichment to invoke OCR, image analysis, and natural languag
 
    Choose entity recognition (people, organizations, locations) and image analysis skills.
 
-   ![Attach Cognitive Services select services for skillset](media/cognitive-search-quickstart-blob/skillset.png)
+   :::image type="content" source="media/cognitive-search-quickstart-blob/skillset.png" alt-text="Attach Cognitive Services select services for skillset" border="false":::
 
    Continue to the next page.
 
@@ -97,9 +99,9 @@ For this quickstart, the wizard does a good job setting reasonable defaults:
 
 + Default attributes are **Retrievable** and **Searchable**. **Searchable** allows full text search a field. **Retrievable** means field values can be returned in results. The wizard assumes you want these fields to be retrievable and searchable because you created them via a skillset.
 
-  ![Index fields](media/cognitive-search-quickstart-blob/index-fields.png)
+  :::image type="content" source="media/cognitive-search-quickstart-blob/index-fields.png" alt-text="Index fields" border="false":::
 
-Notice the strikethrough and question mark on the **Retrievable** attribute by the `content` field. For text-heavy blob documents, the `content` field contains the bulk of the file, potentially running into thousands of lines. 
+Notice the strike-through and question mark on the **Retrievable** attribute by the `content` field. For text-heavy blob documents, the `content` field contains the bulk of the file, potentially running into thousands of lines. 
 A field like this is unwieldy in search results and you should exclude it for this demo. 
 
 However, if you need to pass file contents to client code, make sure that **Retrievable** stays selected. Otherwise, consider clearing this attribute on `content` if the extracted elements (such as `people`, `organizations`, `locations`, and so forth) are sufficient.
@@ -114,7 +116,7 @@ The indexer is a high-level resource that drives the indexing process. It specif
 
 1. In the **Indexer** page, you can accept the default name and click the **Once** schedule option to run it immediately. 
 
-   ![Indexer definition](media/cognitive-search-quickstart-blob/indexer-def.png)
+   :::image type="content" source="media/cognitive-search-quickstart-blob/indexer-def.png" alt-text="Indexer definition" border="false":::
 
 1. Click **Submit** to create and simultaneously run the indexer.
 
@@ -122,7 +124,7 @@ The indexer is a high-level resource that drives the indexing process. It specif
 
 Cognitive skills indexing takes longer to complete than typical text-based indexing, especially OCR and image analysis. To monitor progress, go to the Overview page and click **Indexers** in the middle of page.
 
-  ![Azure Cognitive Search notification](./media/cognitive-search-quickstart-blob/indexer-notification.png)
+  :::image type="content" source="media/cognitive-search-quickstart-blob/indexer-notification.png" alt-text="Azure Cognitive Search notification" border="false":::
 
 Warnings are normal given the wide range of content types. Some content types aren't valid for certain skills and on lower tiers it's common to encounter [indexer limits](search-limits-quotas-capacity.md#indexer-limits). For example, truncation notifications of 32,000 characters are an indexer limit on the Free tier. If you ran this demo on a higher tier, many truncation warnings would go away.
 
@@ -130,11 +132,11 @@ To check warnings or errors, click on the Warning status on the Indexers list to
 
 On that page, click Warning status again to view the list of warnings similar to the one shown below. 
 
-  ![Indexer warning list](./media/cognitive-search-quickstart-blob/indexer-warnings.png)
+  :::image type="content" source="media/cognitive-search-quickstart-blob/indexer-warnings.png" alt-text="Indexer warning list" border="false":::
 
 Details appear when you click a specific status line. This warning says that that merging stopped after reaching a maximum threshold (this particular PDF is large).
 
-  ![Warning details](./media/cognitive-search-quickstart-blob/warning-detail.png)
+  :::image type="content" source="media/cognitive-search-quickstart-blob/warning-detail.png" alt-text="Warning details" border="false":::
 
 ## Query in Search explorer
 
@@ -153,13 +155,13 @@ Results are returned as JSON, which can be verbose and hard to read, especially 
 
 Query strings are case-sensitive so if you get an "unknown field" message, check **Fields** or **Index Definition (JSON)** to verify name and case. 
 
-  ![Search explorer example](./media/cognitive-search-quickstart-blob/search-explorer.png)
+  :::image type="content" source="media/cognitive-search-quickstart-blob/search-explorer.png" alt-text="Search explorer example" border="false":::
 
 ## Takeaways
 
 You've now created your first skillset and learned important concepts useful for prototyping an enriched search solution using your own data.
 
-Some key concepts that we hope you picked up include the dependency on Azure data sources. A skillset is bound to an indexer, and indexers are Azure and source-specific. Although this quickstart uses Azure Blob storage, other Azure data sources are possible. For more information, see [Indexers in Azure Cognitive Search](search-indexer-overview.md). 
+Some key concepts that we hope you picked up include the dependency on Azure data sources. A skillset is bound to an indexer, and indexers are Azure and source-specific. Although this quickstart uses Azure Blob Storage, other Azure data sources are possible. For more information, see [Indexers in Azure Cognitive Search](search-indexer-overview.md). 
 
 Another important concept is that skills operate over content types, and when working with heterogeneous content, some inputs will be skipped. Also, large files or fields might exceed the indexer limits of your service tier. It's normal to see warnings when these events occur. 
 

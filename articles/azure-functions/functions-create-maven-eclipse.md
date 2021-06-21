@@ -1,10 +1,10 @@
 ---
 title: Create an Azure function app with Java and Eclipse 
 description: How-to guide to create and publish a simple HTTP triggered serverless app using Java and Eclipse to Azure Functions.
-author: jeffhollan
+author: ggailey777
 ms.topic: how-to
 ms.date: 07/01/2018
-ms.author: jehollan
+ms.author: glenga
 ms.custom: mvc, devcenter, devx-track-java
 ---
 
@@ -63,7 +63,7 @@ Set breakpoints and inspect objects in your function using the IDE. When finishe
 
 ## Deploy the function to Azure
 
-The deploy process to Azure Functions uses account credentials from the Azure CLI. [Log in with the Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest) before continuing using your computer's command prompt.
+The deploy process to Azure Functions uses account credentials from the Azure CLI. [Log in with the Azure CLI](/cli/azure/authenticate-azure-cli) before continuing using your computer's command prompt.
 
 ```azurecli
 az login

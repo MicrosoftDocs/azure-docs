@@ -2,7 +2,7 @@
 title: Review your access to groups & apps in access reviews - Azure AD
 description: Learn how to review your own access to groups or applications in Azure Active Directory access reviews.
 services: active-directory
-author: barclayn
+author: ajburnle
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -11,8 +11,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/17/2020
-ms.author: barclayn
+ms.date: 12/22/2020
+ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ---
@@ -60,13 +60,13 @@ Once you have opened the access review, you can see your access.
 
     If the request is to review access for others, the page will look different. For more information, see [Review access to groups or applications](perform-access-review.md).
 
-    ![Open access review asking whether you still need access to a group](./media/review-your-access/perform-access-review.png)
+    ![Screenshot that shows an open access review asking whether you still need access to a group.](./media/review-your-access/perform-access-review.png)
 
 1. Click **Yes** to keep your access or click **No** to remove your access.
 
 1. If you click **Yes**, you might need to specify a justification in the **Reason** box.
 
-    ![Completed access review asking whether you still need access to a group](./media/review-your-access/perform-access-review-submit.png)
+    ![Screenshot that shows a completed access review that asks whether you still need access to a group, with "Yes" selected.](./media/review-your-access/perform-access-review-submit.png)
 
 1. Click **Submit**.
 

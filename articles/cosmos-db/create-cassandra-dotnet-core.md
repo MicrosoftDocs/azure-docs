@@ -8,11 +8,12 @@ author: TheovanKraay
 ms.author: thvankra
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 05/18/2020
+ms.date: 10/01/2020
 ms.custom: devx-track-dotnet
 ---
 
 # Quickstart: Build a Cassandra app with .NET Core and Azure Cosmos DB
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)
@@ -38,7 +39,7 @@ In addition, you need:
 <a id="create-account"></a>
 ## Create a database account
 
-[!INCLUDE [cosmos-db-create-dbaccount-cassandra](../../includes/cosmos-db-create-dbaccount-cassandra.md)]
+[!INCLUDE [cosmos-db-create-dbaccount-cassandra](includes/cosmos-db-create-dbaccount-cassandra.md)]
 
 
 ## Clone the sample application
@@ -152,6 +153,12 @@ Now go back to the Azure portal to get your connection string information and co
 
     `private const string Password = "2Ggkr662ifxz2Mg...==";`
 
+1. Go back to portal and copy the CONTACT POINT value. Paste the CONTACT POINT value from the portal over `<PROVIDE>` on line 16.
+
+    Line 16 of Program.cs should now look similar to 
+
+    `private const string CASSANDRACONTACTPOINT = "quickstart-cassandra-api.cassandra.cosmos.azure.com";`
+
 1. Save the Program.cs file.
     
 ## Run the .NET Core app
@@ -175,11 +182,11 @@ Now go back to the Azure portal to get your connection string information and co
 
 ## Review SLAs in the Azure portal
 
-[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
+[!INCLUDE [cosmosdb-tutorial-review-slas](includes/cosmos-db-tutorial-review-slas.md)]
 
 ## Clean up resources
 
-[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
+[!INCLUDE [cosmosdb-delete-resource-group](includes/cosmos-db-delete-resource-group.md)]
 
 ## Next steps
 

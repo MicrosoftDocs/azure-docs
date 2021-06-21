@@ -1,12 +1,14 @@
 ---
-title: Playback of multi-day recordings  - Azure
-description: In this tutorial, you will learn how to use Azure Media Service APIs to playback a multi-day continuous video recording.
+title: Playback of multi-day recordings with Live Video Analytics - Azure
+description: In this tutorial, you learn how to use Azure Media Service APIs to playback a multi-day continuous video recording.
 ms.topic: tutorial
 ms.date: 05/27/2020
 
 ---
 
-# Tutorial: Playback of multi-day recordings  
+# Tutorial: Playback of multi-day recordings with Live Video Analytics
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 This tutorial builds up on the [continuous video recording](continuous-video-recording-concept.md) (CVR) tutorial. In this tutorial, you will learn how to use Azure Media Service APIs to playback a multi-day continuous video recording from the cloud. 
 
@@ -53,7 +55,7 @@ As part of the [CVR tutorial](continuous-video-recording-tutorial.md), you would
 }
 ```
 
-Next, in Visual Studio code, open src/ams-asset-player. This folder contains the necessary files for this tutorial. Open the appsettings.json file, and copy its contents into a new file, appsettings.development.json. Make the following edits to the latter file:
+Next, in Visual Studio code, open src/ams-asset-player. This folder contains the necessary files for this tutorial. Open the appsettings.json file, and copy its contents into a new file, appsettings.development.json. Make the following edits to the newly created appsettings.development.json:
 
 ```
   "AMS" : {
@@ -66,13 +68,21 @@ Next, in Visual Studio code, open src/ams-asset-player. This folder contains the
 } 
 ```
 
-In Visual Studio Code, you can click the Run icon on the left (or Ctrl+Shift+D) to bring up the available applications to run:
+1. In Visual Studio Code, open the **Extensions** tab (or press Ctrl+Shift+X) and search for Azure IoT Hub.
+1. Right click and select **Extension Settings**.
 
-![Run](./media/playback-multi-day-recordings-tutorial/run.png)
- 
-Select the AMS Asset Player application from the drop down box, as shown below, and hit F5 to start debugging.
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Extension Settings":::
+1. Search and enable “Show Verbose Message”.
 
-![Debug](./media/playback-multi-day-recordings-tutorial/debug.png)
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Show Verbose Message":::
+1. <!--In Visual Studio Code, you can click-->Click the Run icon on the left (or Ctrl+Shift+D) to bring up the available applications to run:
+
+    ![Screenshot shows a menu in Visual Studio Code with the run item selected.](./media/playback-multi-day-recordings-tutorial/run.png)
+1. Select the AMS Asset Player application from the drop down box, as shown below, and hit F5 to start debugging.
+
+    ![Screenshot show a menu in Visual Studio Code with AMS Asset Player selected.](./media/playback-multi-day-recordings-tutorial/debug.png)
 
 The sample application will build and launch your default browser app, and open up the AMS Asset Player page.
 

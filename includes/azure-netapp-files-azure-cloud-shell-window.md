@@ -10,7 +10,7 @@ ms.author: b-juche
 ms.custom: include file
 ---
 
-1. Specify the subscription that has been whitelisted for Azure NetApp Files:
+1. Specify the subscription that has been approved for Azure NetApp Files:
     
     ```azurecli-interactive
     az account set --subscription <subscriptionId>

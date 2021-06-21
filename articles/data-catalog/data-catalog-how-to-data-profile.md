@@ -7,8 +7,9 @@ ms.service: data-catalog
 ms.topic: how-to
 ms.date: 08/01/2019
 ---
-
 # How to data profile data sources in Azure Data Catalog
+
+[!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
 
 ## Introduction
 

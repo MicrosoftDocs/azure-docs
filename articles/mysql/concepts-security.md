@@ -1,8 +1,8 @@
 ---
 title: Security - Azure Database for MySQL
 description: An overview of the security features in Azure Database for MySQL.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
@@ -42,7 +42,7 @@ While creating the Azure Database for MySQL server, you provide credentials for 
 
 ## Threat protection
 
-You can opt in to [Advanced Threat Protection](concepts-data-access-and-security-threat-protection.md) which detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit servers.
+You can opt in to [Azure Defender for open-source relational databases](../security-center/defender-for-databases-introduction.md) which detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit servers.
 
 [Audit logging](concepts-audit-logs.md) is available to track activity in your databases. 
 

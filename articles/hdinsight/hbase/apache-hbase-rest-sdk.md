@@ -1,9 +1,6 @@
 ---
 title: Use the HBase .NET SDK - Azure HDInsight 
 description: Use the HBase .NET SDK to create and delete tables, and to read and write data.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: "hdinsightactive, devx-track-csharp"
@@ -111,7 +108,7 @@ await client.StoreCellsAsync("RestSDKTable", set);
 
 HBase implements [Cloud BigTable](https://cloud.google.com/bigtable/), so the data format looks like the following image:
 
-![Apache HBase sample data output](./media/apache-hbase-rest-sdk/hdinsight-table-roles.png)
+:::image type="content" source="./media/apache-hbase-rest-sdk/hdinsight-table-roles.png" alt-text="Apache HBase sample data output" border="true":::
 
 ## Select data
 
@@ -169,7 +166,7 @@ try
     {
 	    foreach (var row in next.rows)
         {
-    	    // ... read the rows
+            // ... read the rows
         }
     }
 }
@@ -185,4 +182,4 @@ finally
 ## Next steps
 
 * [Get started with an Apache HBase example in HDInsight](apache-hbase-tutorial-get-started-linux.md)
-* Build an end-to-end application with [Analyze real-time Twitter sentiment with Apache HBase](../hdinsight-hbase-analyze-twitter-sentiment.md)
+* Build an end-to-end application with [Analyze real-time Twitter sentiment with Apache HBase](./apache-hbase-tutorial-get-started-linux.md)

@@ -3,6 +3,7 @@ title: Maintenance notifications
 description: Overview of maintenance notifications for virtual machines running in Azure.
 author: shants123
 ms.service: virtual-machines
+ms.subservice: maintenance-control
 ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 8/12/2020
@@ -14,14 +15,14 @@ ms.author: shants
 
 Azure periodically performs updates to improve the reliability, performance, and security of the host infrastructure for virtual machines. Updates are changes like patching the hosting environment or upgrading and decommissioning hardware. A majority of these updates are completed without any impact to the hosted virtual machines. However, there are cases where updates do have an impact:
 
-- If the maintenance does not require a reboot, Azure uses in-place migration to pause the VM while the host is updated. These types maintenance operations are applied fault domain by fault domain. Progress is stopped if any warning health signals are received.
+- If the maintenance does not require a reboot, Azure pauses the VM for few seconds while the host is updated. These types of maintenance operations are applied fault domain by fault domain. Progress is stopped if any warning health signals are received.
 
 - If maintenance requires a reboot, you get a notice of when the maintenance is planned. You are given a time window of about 35 days where you can start the maintenance yourself, when it works for you.
 
 
 Planned maintenance that requires a reboot is scheduled in waves. Each wave has different scope (regions).
 
-- A wave starts with a notification to customers. By default, notification is sent to the Service Administrator and Co-Administrators. You can add more recipients and messaging options like email, SMS, and webhooks, using [Activity Log Alerts](../service-health/alerts-activity-log-service-notifications-portal.md).  
+- A wave starts with a notification to customers. By default, the notification is sent to the subscription admin and co-admins. You can add more recipients and messaging options like email, SMS, and webhooks, using [Activity Log Alerts](../service-health/alerts-activity-log-service-notifications-portal.md).  
 - Once a notification goes out, a *self-service window* is made available. During this window, you can query which of your virtual machines are affected and start maintenance based on your own scheduling needs. The self-service window is typically about 35 days.
 - After the self-service window, a *scheduled maintenance window* begins. At some point during this window, Azure schedules and applies the required maintenance to your virtual machine. 
 
@@ -76,7 +77,7 @@ For more information about high availability, see [Availability for virtual mach
 
 **Q: How do I get notified about planned maintenance?**
 
-**A:** A planned maintenance wave starts by setting a schedule to one or more Azure regions. Soon after, an email notification is sent to the subscription Admins (one email per subscription). Additional channels and recipients for this notification could be configured using Activity Log Alerts. In case you deploy a virtual machine to a region where planned maintenance is already scheduled, you will not receive the notification but rather need to check the maintenance state of the VM.
+**A:** A planned maintenance wave starts by setting a schedule to one or more Azure regions. Soon after, an email notification is sent to the subscription admins, co-admins, owners, and contributors (one email per subscription). Additional channels and recipients for this notification could be configured using Activity Log Alerts. In case you deploy a virtual machine to a region where planned maintenance is already scheduled, you will not receive the notification but rather need to check the maintenance state of the VM.
 
 **Q: I don't see any indication of planned maintenance in the portal, PowerShell, or CLI. What is wrong?**
 

@@ -3,13 +3,13 @@ title: "PowerShell: Restore an automatic backup of a database in SQL Database"
 description: Use an Azure PowerShell example script to restore a database in SQL Database to an earlier point in time from automatic backups.
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
-ms.custom: 
+ms.subservice: backup-restore
+ms.custom: devx-track-azurepowershell
 ms.devlang: PowerShell
 ms.topic: sample
-author: mashamsft
-ms.author: mathoma
-ms.reviewer: carlrab
+author: shkale-msft
+ms.author: shkale
+ms.reviewer: mathoma
 ms.date: 03/27/2019
 ---
 
@@ -43,7 +43,7 @@ This script uses the following commands. Each command in the table links to comm
 
 | Command | Notes |
 |---|---|
-| [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | Creates a resource group in which all resources are stored. |
+| [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Creates a resource group in which all resources are stored. |
 | [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Creates a server that hosts databases and elastic pools. |
 | [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) | Creates a database in a server. |
 | [Get-AzSqlDatabaseGeoBackup](/powershell/module/az.sql/get-azsqldatabasegeobackup) | Gets a geo-redundant backup of a standalone or pooled database. |

@@ -2,6 +2,8 @@
 title: Artificial intelligence (AI)
 description: LUIS uses artificial intelligence (AI) to provide language understanding to your data, based on the schema you defined.
 ms.topic: conceptual
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.date: 08/07/2020
 ms.custom: cog-serv-seo-aug-2020
 ---
@@ -31,7 +33,7 @@ Natural language processing is available to your LUIS app in the following ways:
 * Configurable NLP aspects in LUIS:
     * [Tokenization](luis-language-support.md#tokenization)
     * Morphology through diacritics, punctuation, and word forms [API settings](luis-reference-application-settings.md)
-* Pre- or post-processing of the query utterance provided by other [Cognitive Services](../Welcome.md) such as:
+* Pre- or post-processing of the query utterance provided by other [Cognitive Services](../what-are-cognitive-services.md) such as:
     * [Translation](../translator/translator-info-overview.md)
 
 ## Natural language understanding (NLU)

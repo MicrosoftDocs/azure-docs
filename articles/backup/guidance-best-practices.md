@@ -37,13 +37,13 @@ Azure Backup enables data protection for various workloads (on-premises and clou
 
 * **Malicious delete protection –** Protect against any accidental and malicious attempts for deleting your backups via soft delete of backups. The deleted backup data is stored for 14 days free of charge and allows it to be recovered from this state.
 
-* **Secure encrypted backups-** Azure Backup ensures your backup data is stored in a secure manner, leveraging built-in security capabilities of the Azure platform like RBAC and Encryption.
+* **Secure encrypted backups-** Azure Backup ensures your backup data is stored in a secure manner, leveraging built-in security capabilities of the Azure platform like Azure RBAC and Encryption.
 
 * **Backup data lifecycle management -** Azure Backup automatically cleans up older backup data to comply with the retention policies. You can also tier your data from operational storage to vault storage.
 
 ### Management plane
 
-* **Access control** – The Recovery Services vault provides the management capabilities and is accessible via the Azure portal, SDK, CLI, and even REST APIs. It's also an RBAC boundary, providing you the option to restrict access to backups only to authorized Backup Admins.
+* **Access control** – Vaults (Recovery Services and Backup vaults) provide the management capabilities and are accessible via the Azure portal, Backup Center, Vault dashboards, SDK, CLI, and even REST APIs. It's also an Azure RBAC boundary, providing you the option to restrict access to backups only to authorized Backup Admins.
 
 * **Policy management** – Azure Backup Policies within each vault define when the backups should be triggered and how long they need to be retained. You can also manage these policies and apply them across multiple items.
 
@@ -53,7 +53,7 @@ Azure Backup enables data protection for various workloads (on-premises and clou
 
 ## Vault considerations
 
-Azure Backup uses Recovery Services vaults to orchestrate and manage backups. It also uses vaults to store backed-up data. Effective vault design helps organizations establish a structure to organize and manage backup assets in Azure to support your business priorities. Consider the following guidelines when creating a vault:  
+Azure Backup uses  vaults (Recovery Services and Backup vaults) to orchestrate and manage backups. It also uses vaults to store backed-up data. Effective vault design helps organizations establish a structure to organize and manage backup assets in Azure to support your business priorities. Consider the following guidelines when creating a vault:  
 
 ### Align to subscription design strategy
 
@@ -66,8 +66,9 @@ You can use a single vault or multiple vaults to organize and manage your backup
 * If your workloads are all managed by a single subscription and single resource, then you can use a single vault to monitor and manage your backup estate.
 
 * If your workloads are spread across subscriptions, then you can create multiple vaults, one or more per subscription.
-  * To simplify monitoring of operational activities across all the vaults, subscriptions and tenants, you can use Backup Explorer and reports. [Learn more here](monitor-azure-backup-with-backup-explorer.md) to get an aggregated view.
-  * If you needed consistent policy across vaults, then you can use Azure policy to propagate backup policy across multiple vaults. You can write a custom [Azure Policy definition](../governance/policy/concepts/definition-structure.md) that uses the [‘deployifnotexists’](../governance/policy/concepts/effects.md#deployifnotexists) effect to propagate a backup policy across multiple vaults. You assign can [assign](../governance/policy/assign-policy-portal.md) this Azure Policy definition to a particular scope (subscription or RG), so that it deploys a 'backup policy' resource to all Recovery Services vaults in the scope of the Azure Policy assignment. The settings of the backup policy (such as backup frequency, retention, and so on) should be specified by the user as parameters in the Azure Policy assignment.
+  * Backup Center allows you to have a single pane of glass to manage all tasks related to Backup. [Learn more here]().
+  * You can customize your views with workbook templates. Backup Explorer is one such template for Azure VMs. [Learn more here](monitor-azure-backup-with-backup-explorer.md).
+  * If you needed consistent policy across vaults, then you can use Azure policy to propagate backup policy across multiple vaults. You can write a custom [Azure Policy definition](../governance/policy/concepts/definition-structure.md) that uses the [‘deployifnotexists’](../governance/policy/concepts/effects.md#deployifnotexists) effect to propagate a backup policy across multiple vaults. You can also [assign](../governance/policy/assign-policy-portal.md) this Azure Policy definition to a particular scope (subscription or RG), so that it deploys a 'backup policy' resource to all Recovery Services vaults in the scope of the Azure Policy assignment. The settings of the backup policy (such as backup frequency, retention, and so on) should be specified by the user as parameters in the Azure Policy assignment.
 
 * As your organizational footprint grows, you might want to move workloads across subscriptions for the following reasons: align by backup policy, consolidate vaults, trade-off on lower redundancy to save on cost (move from GRS to LRS).  Azure Backup supports moving a Recovery Services vault across Azure subscriptions, or to another resource group within the same subscription. [Learn more here](backup-azure-move-recovery-services-vault.md).
 
@@ -172,7 +173,7 @@ Azure Backup requires movement of data from your workload to the Recovery Servic
 
 * *SAP HANA databases on Azure VM, SQL Server databases on Azure VM* - requires connectivity to the Azure Backup service, Azure Storage, and Azure Active Directory. This can be achieved by using private endpoints or by allowing access to the required public IP addresses or FQDNs. Not allowing proper connectivity to the required Azure services may lead to failure in operations like database discovery, configuring backup, performing backups, and restoring data. For complete network guidance while using NSG tags, Azure firewall, and HTTP Proxy, refer to these [SQL](backup-sql-server-database-azure-vms.md#establish-network-connectivity) and [SAP HANA](./backup-azure-sap-hana-database.md#establish-network-connectivity) articles.
 
-* *Hybrid* - the MARS (Microsoft Azure Recovery Services) agent requires network access for all critical operations - install, configure, backup, and restore. The MARS agent can connect to the Azure Backup service over [Azure ExpressRoute](install-mars-agent.md#use-azure-expressroute) by using public peering (available for old circuits) and Microsoft peering, using [private endpoints](install-mars-agent.md#private-endpoints) or via [proxy/firewall with appropriate access controls](install-mars-agent.md#verify-internet-access).
+* *Hybrid* - the MARS (Microsoft Azure Recovery Services) agent requires network access for all critical operations - install, configure, backup, and restore. The MARS agent can connect to the Azure Backup service over [Azure ExpressRoute](install-mars-agent.md#azure-expressroute-support) by using public peering (available for old circuits) and Microsoft peering, using [private endpoints](install-mars-agent.md#private-endpoint-support) or via [proxy/firewall with appropriate access controls](install-mars-agent.md#verify-internet-access).
 
 ### Private Endpoints for Azure Backup
 
@@ -232,9 +233,9 @@ As a backup user or administrator, you should be able to monitor all backup solu
   * Identifying key trends at different levels of granularity.
 
 * In addition,
-  * You can send data (for example, jobs, policies, and so on) to the **Log Analytics** workspace. This will enable the features of Azure Monitor Logs to enable correlation of data with other monitoring data collected by Azure Monitor, consolidate log entries from multiple Azure subscriptions and tenants into one location for analysis together, use log queries to perform complex analysis and gain deep insights on Log entries. [Learn more here](../azure-monitor/platform/activity-log.md#send-to-log-analytics-workspace).
-  * You can send data to Event Hub to send entries outside of Azure, for example to a third-party SIEM (Security Information and Event Management) or other log analytics solution. [Learn more here](../azure-monitor/platform/activity-log.md#send-to-azure-event-hubs).
-  * You can send data to an Azure Storage account if you want to retain your log data longer than 90 days for audit, static analysis, or backup. If you only need to retain your events for 90 days or less, you don't need to set up archives to a storage account, since Activity Log events are kept in the Azure platform for 90 days. [Learn more](../azure-monitor/platform/activity-log.md#send-to--azure-storage).
+  * You can send data (for example, jobs, policies, and so on) to the **Log Analytics** workspace. This will enable the features of Azure Monitor Logs to enable correlation of data with other monitoring data collected by Azure Monitor, consolidate log entries from multiple Azure subscriptions and tenants into one location for analysis together, use log queries to perform complex analysis and gain deep insights on Log entries. [Learn more here](../azure-monitor/essentials/activity-log.md#send-to-log-analytics-workspace).
+  * You can send data to Event Hub to send entries outside of Azure, for example to a third-party SIEM (Security Information and Event Management) or other log analytics solution. [Learn more here](../azure-monitor/essentials/activity-log.md#send-to-azure-event-hubs).
+  * You can send data to an Azure Storage account if you want to retain your log data longer than 90 days for audit, static analysis, or backup. If you only need to retain your events for 90 days or less, you don't need to set up archives to a storage account, since Activity Log events are kept in the Azure platform for 90 days. [Learn more](../azure-monitor/essentials/activity-log.md#send-to--azure-storage).
 
 ### Alerting
 
@@ -255,4 +256,4 @@ As a backup user or administrator, you should be able to monitor all backup solu
 We recommend that you read the following articles as starting points for using Azure Backup:
 
 * [Azure Backup overview](backup-overview.md)
-* [Frequently Asked Questions](backup-azure-backup-faq.md)
+* [Frequently Asked Questions](backup-azure-backup-faq.yml)

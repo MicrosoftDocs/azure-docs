@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/20/2017
+ms.date: 11/03/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ---
@@ -31,14 +31,17 @@ You learn how to:
 
 ## Prerequisites
 
-[!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
+- An understanding of Managed identities. If you're not familiar with the managed identities for Azure resources feature, see this [overview](overview.md). 
+- An Azure account, [sign up for a free account](https://azure.microsoft.com/free/).
+- You also need a Linux Virtual machine that has system assigned managed identities enabled.
+  - If you need to create  a virtual machine for this tutorial, you can follow the article titled [Create a Linux virtual machine with the Azure portal](../../virtual-machines/linux/quick-create-portal.md#create-virtual-machine)
 
-## Grant your VM access to a Resource Group in Azure Resource Manager 
+## Grant access
 
 Using managed identities for Azure resources, your code can get access tokens to authenticate to resources that support Azure AD authentication. The Azure Resource Manager API supports Azure AD authentication. First, we need to grant this VM's identity access to a resource in Azure Resource Manager, in this case the Resource Group in which the VM is contained.  
 
 1. Navigate to the tab for **Resource Groups**.
-2. Select the specific **Resource Group** you created earlier.
+2. Select the specific **Resource Group** you used for your virtual machine.
 3. Go to **Access control(IAM)** in the left panel.
 4. Click to **Add** a new role assignment for your VM. Choose **Role** as **Reader**.
 5. In the next dropdown, **Assign access to** the resource **Virtual Machine**.
@@ -47,7 +50,7 @@ Using managed identities for Azure resources, your code can get access tokens to
 
     ![Alt image text](media/msi-tutorial-linux-vm-access-arm/msi-permission-linux.png)
 
-## Get an access token using the VM's system-assigned managed identity and use it to call Resource Manager 
+## Get an access token using the VM's system-assigned managed identity and use it to call Resource Manager
 
 To complete these steps, you will need an SSH client. If you are using Windows, you can use the SSH client in the [Windows Subsystem for Linux](/windows/wsl/about). If you need assistance configuring your SSH client's keys, see [How to Use SSH keys with Windows on Azure](../../virtual-machines/linux/ssh-from-windows.md), or [How to create and use an SSH public and private key pair for Linux VMs in Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
 

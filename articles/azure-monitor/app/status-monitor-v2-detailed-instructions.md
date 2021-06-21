@@ -25,7 +25,7 @@ To get started, you need an instrumentation key. For more information, see [Crea
 PowerShell needs Administrator-level permissions to make changes to your computer.
 ### Execution policy
 - Description: By default, running PowerShell scripts is disabled. We recommend allowing RemoteSigned scripts for only the Current scope.
-- Reference: [About Execution Policies](/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6) and [Set-ExecutionPolicy](/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6).
+- Reference: [About Execution Policies](/powershell/module/microsoft.powershell.core/about/about_execution_policies) and [Set-ExecutionPolicy](/powershell/module/microsoft.powershell.security/set-executionpolicy).
 - Command: `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process`.
 - Optional parameter:
     - `-Force`. Bypasses the confirmation prompt.
@@ -67,14 +67,14 @@ These instructions were written and tested on a computer running Windows 10 and 
 These steps will prepare your server to download modules from PowerShell Gallery.
 
 > [!NOTE] 
-> PowerShell Gallery is supported on Windows 10, Windows Server 2016, and PowerShell 6.
+> PowerShell Gallery is supported on Windows 10, Windows Server 2016, and PowerShell 6+.
 > For information about earlier versions, see [Installing PowerShellGet](/powershell/scripting/gallery/installing-psget).
 
 
 1. Run PowerShell as Admin with an elevated execution policy.
 2. Install the NuGet package provider.
     - Description: You need this provider to interact with NuGet-based repositories like PowerShell Gallery.
-    - Reference: [Install-PackageProvider](/powershell/module/packagemanagement/install-packageprovider?view=powershell-6).
+    - Reference: [Install-PackageProvider](/powershell/module/packagemanagement/install-packageprovider).
     - Command: `Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201`.
     - Optional parameters:
         - `-Proxy`. Specifies a proxy server for the request.
@@ -94,7 +94,7 @@ These steps will prepare your server to download modules from PowerShell Gallery
 
 3. Configure PowerShell Gallery as a trusted repository.
     - Description: By default, PowerShell Gallery is an untrusted repository.
-    - Reference: [Set-PSRepository](/powershell/module/powershellget/set-psrepository?view=powershell-6).
+    - Reference: [Set-PSRepository](/powershell/module/powershellget/set-psrepository).
     - Command: `Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted`.
     - Optional parameter:
         - `-Proxy`. Specifies a proxy server for the request.
@@ -140,7 +140,7 @@ These steps will download the Az.ApplicationMonitor module from PowerShell Galle
 1. Ensure that all prerequisites for PowerShell Gallery are met.
 2. Run PowerShell as Admin with an elevated execution policy.
 3. Install the Az.ApplicationMonitor module.
-    - Reference: [Install-Module](/powershell/module/powershellget/install-module?view=powershell-6).
+    - Reference: [Install-Module](/powershell/module/powershellget/install-module).
     - Command: `Install-Module -Name Az.ApplicationMonitor`.
     - Optional parameters:
         - `-Proxy`. Specifies a proxy server for the request.
@@ -166,7 +166,7 @@ For more information, see [Installing a PowerShell Module](/powershell/scripting
 #### Unzip nupkg as a zip file by using Expand-Archive (v1.0.1.0)
 
 - Description: The base version of Microsoft.PowerShell.Archive (v1.0.1.0) can't unzip nupkg files. Rename the file with the .zip extension.
-- Reference: [Expand-Archive](/powershell/module/microsoft.powershell.archive/expand-archive?view=powershell-6).
+- Reference: [Expand-Archive](/powershell/module/microsoft.powershell.archive/expand-archive).
 - Command:
 
     ```console
@@ -180,7 +180,7 @@ For more information, see [Installing a PowerShell Module](/powershell/scripting
 #### Unzip nupkg by using Expand-Archive (v1.1.0.0)
 
 - Description: Use a current version of Expand-Archive to unzip nupkg files without changing the extension.
-- Reference: [Expand-Archive](/powershell/module/microsoft.powershell.archive/expand-archive?view=powershell-6) and [Microsoft.PowerShell.Archive](https://www.powershellgallery.com/packages/Microsoft.PowerShell.Archive/1.1.0.0).
+- Reference: [Expand-Archive](/powershell/module/microsoft.powershell.archive/expand-archive) and [Microsoft.PowerShell.Archive](https://www.powershellgallery.com/packages/Microsoft.PowerShell.Archive/1.1.0.0).
 - Command:
 
     ```console
@@ -193,7 +193,7 @@ For more information, see [Installing a PowerShell Module](/powershell/scripting
 Install the manually downloaded PowerShell module into a PowerShell directory so it will be discoverable by PowerShell sessions.
 For more information, see [Installing a PowerShell Module](/powershell/scripting/developer/module/installing-a-powershell-module).
 
-If you're installing the module into any other directory, manually import the module by using [Import-Module](/powershell/module/microsoft.powershell.core/import-module?view=powershell-6).
+If you're installing the module into any other directory, manually import the module by using [Import-Module](/powershell/module/microsoft.powershell.core/import-module).
 
 > [!IMPORTANT] 
 > DLLs will install via relative paths.
@@ -212,7 +212,7 @@ When you monitor a computer on your private intranet, you'll need to route HTTP 
 The PowerShell commands to download and install Az.ApplicationMonitor from the PowerShell Gallery support a `-Proxy` parameter.
 Review the preceding instructions when you write your installation scripts.
 
-The Application Insights SDK will need to send your app's telemetry to Microsoft. We recommend that you configure proxy settings for your app in your web.config file. For more information, see [Application Insights FAQ: Proxy passthrough](../faq.md#proxy-passthrough).
+The Application Insights SDK will need to send your app's telemetry to Microsoft. We recommend that you configure proxy settings for your app in your web.config file. For more information, see [Application Insights FAQ: Proxy passthrough](../faq.yml).
 
 
 ## Enable monitoring
@@ -227,9 +227,9 @@ See the [API reference](./status-monitor-v2-api-reference.md#enable-applicationi
 
  View your telemetry:
 
-- [Explore metrics](../platform/metrics-charts.md) to monitor performance and usage.
+- [Explore metrics](../essentials/metrics-charts.md) to monitor performance and usage.
 - [Search events and logs](./diagnostic-search.md) to diagnose problems.
-- [Use Analytics](../log-query/log-query-overview.md) for more advanced queries.
+- [Use Analytics](../logs/log-query-overview.md) for more advanced queries.
 - [Create dashboards](./overview-dashboard.md).
 
  Add more telemetry:

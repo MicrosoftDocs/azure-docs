@@ -4,7 +4,6 @@ description: Learn how to containerize your Service Fabric Reliable Services and
 
 ms.topic: conceptual
 ms.date: 5/23/2018
-ms.author: anmola
 ms.custom: devx-track-csharp
 ---
 # Containerize your Service Fabric Reliable Services and Reliable Actors on Windows

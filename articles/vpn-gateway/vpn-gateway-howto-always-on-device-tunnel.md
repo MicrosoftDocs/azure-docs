@@ -27,7 +27,7 @@ Configure the VPN gateway to use IKEv2 and certificate-based authentication usin
 
 To remove the profile, run the following command:
 
-![Cleanup](./media/vpn-gateway-howto-always-on-device-tunnel/cleanup.png)
+![Screenshot shows a PowerShell window that runs the command Remove-VpnConnection -Name MachineCertTest.](./media/vpn-gateway-howto-always-on-device-tunnel/cleanup.png)
 
 ## Next steps
 

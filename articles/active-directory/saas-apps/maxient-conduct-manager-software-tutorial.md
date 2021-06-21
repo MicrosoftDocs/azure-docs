@@ -21,7 +21,7 @@ In this tutorial, you'll learn how to integrate Maxient Conduct Manager Software
 * Enable your users to be automatically signed-in to Maxient Conduct Manager Software with their Azure AD accounts.
 
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -59,7 +59,7 @@ Configure and test Azure AD SSO with Maxient Conduct Manager Software. For SSO t
 To configure and test Azure AD SSO with Maxient Conduct Manager Software, complete the following building blocks:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to authenticate for use with the Maxient Conduct Manager Software
-    1. **[Assign all users to use Maxient](#assign-all-users-to-be-able-to-authenticate-for-the-maxient-conduct-manager-software)** - to allow everyone at your institution to be able to authenticate.
+   - **[Set "User Assignment Required?" to No](#set-user-assignment-required-to-no)** - to allow everyone at your institution to be able to authenticate.
 1. **[Test Azure AD Setup With Maxient](#test-with-maxient)** - to verify whether the configuration works, and the correct attributes are being released
 
 ## Configure Azure AD SSO
@@ -86,21 +86,15 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![The Certificate download link](common/copy-metadataurl.png)
 
-### Assign All Users to be Able to Authenticate for the Maxient Conduct Manager Software
+<a name="set-user-assignment-required-to-no"></a>
+	
+### Set "User Assignment Required?" to No
 
-In this section, you will grant access for all accounts to authenticate using the Azure system for the Maxient Conduct Manager Software.  It is important to note that this step is **REQUIRED** for Maxient to function properly.  Maxient leverages your Azure AD system to *authenticate* users. The *authorization* of users is performed within the Maxient system for the particular function they’re trying to perform. Maxient does not use attributes from your directory to make those decisions.
+It is important to note that this step is **REQUIRED** for Maxient to function properly.  Maxient leverages your Azure AD system to *authenticate* users. The *authorization* of users is performed within the Maxient system for the particular function they’re trying to perform. Maxient does not use attributes from your directory to make those decisions.
 
 1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
 1. In the applications list, select **Maxient Conduct Manager Software**.
-1. In the app's overview page, find the **Manage** section and select **Users and groups**.
-
-   ![The "Users and groups" link](common/users-groups-blade.png)
-
-1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
-
-	![The Add User link](common/add-assign-user.png)
-
-1. In the **Users and groups** dialog, select all users (or the appropriate groups) and **assign** them to be able to authenticate with Maxient.
+1. In the app's overview page, toggle the "User Assignment Required" setting to No.
 
 ## Test with Maxient 
 
@@ -108,11 +102,10 @@ If a support ticket has not already been opened with a Maxient Implementation/Su
 	
 ## Additional resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Try Maxient Conduct Manager Software with Azure AD](https://aad.portal.azure.com/)
-

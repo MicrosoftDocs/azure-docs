@@ -4,7 +4,7 @@ description: Learn how to deploy a Linux Service Fabric cluster into an existing
 
 ms.topic: conceptual
 ms.date: 02/14/2019
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ---
 # Deploy a Linux Service Fabric cluster into an Azure virtual network
 
@@ -101,7 +101,7 @@ The template in this article deploy a cluster that uses the certificate thumbpri
 
 ### Create a cluster using an existing certificate
 
-The following script uses the [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest) command and template to deploy a new cluster secured with an existing certificate. The command also creates a new key vault in Azure and uploads your certificate.
+The following script uses the [az sf cluster create](/cli/azure/sf/cluster) command and template to deploy a new cluster secured with an existing certificate. The command also creates a new key vault in Azure and uploads your certificate.
 
 ```azurecli
 ResourceGroupName="sflinuxclustergroup"
@@ -127,7 +127,7 @@ az sf cluster create --resource-group $ResourceGroupName --location $Location \
 
 ### Create a cluster using a new, self-signed certificate
 
-The following script uses the [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest) command and a template to deploy a new cluster in Azure. The command also creates a new key vault in Azure, adds a new self-signed certificate to the key vault, and downloads the certificate file locally.
+The following script uses the [az sf cluster create](/cli/azure/sf/cluster) command and a template to deploy a new cluster in Azure. The command also creates a new key vault in Azure, adds a new self-signed certificate to the key vault, and downloads the certificate file locally.
 
 ```azurecli
 ResourceGroupName="sflinuxclustergroup"

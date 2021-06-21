@@ -7,7 +7,7 @@ documentationcenter: na
 author: KumudD
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
@@ -23,7 +23,7 @@ Any public IPs that you reserve are associated with an Azure region of your choi
 > [!WARNING]
 > Use caution to not delete your public IP addresses accidentally. Deleting a public IP removes it from your subscription and you will not be able to recover it (not even with the help of Azure support).
 
-In addition to reserving individual IPv6 addresses, you can reserve contiguous ranges of Azure IPv6 addresses (known as IP prefix) for your use.  Similar to individual IP addresses, reserved prefixes are associated with an Azure region of your choice and with your Azure subscription. Reserving a predictable, contiguous range of addresses has many uses. For example, you can greatly simplify IP *whitelisting* of your Azure-hosted applications by your company and your customers as your static IP ranges can be readily programmed into on-premises firewalls.  You can create individual public IPs from your IP prefix as needed and when you delete those individual Public IPs they are *returned* to your reserved range so that you can reuse them later. All the IP addresses in your IP Prefix are reserved for your exclusive use until such time as you delete your Prefix.
+In addition to reserving individual IPv6 addresses, you can reserve contiguous ranges of Azure IPv6 addresses (known as IP prefix) for your use.  Similar to individual IP addresses, reserved prefixes are associated with an Azure region of your choice and with your Azure subscription. Reserving a predictable, contiguous range of addresses has many uses. For example, you can greatly simplify IP *filtering* of your Azure-hosted applications by your company and your customers as your static IP ranges can be readily programmed into on-premises firewalls.  You can create individual public IPs from your IP prefix as needed and when you delete those individual Public IPs they are *returned* to your reserved range so that you can reuse them later. All the IP addresses in your IP Prefix are reserved for your exclusive use until such time as you delete your Prefix.
 
 
 

@@ -3,7 +3,7 @@ title: Select a disk type for Azure IaaS VMs - managed disks
 description: Learn about the available Azure disk types for virtual machines, including ultra disks, premium SSDs, standard SSDs, and Standard HDDs.
 author: roygara
 ms.author: rogarana
-ms.date: 06/03/2020
+ms.date: 05/12/2021
 ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
@@ -37,7 +37,7 @@ When you provision an ultra disk, you can independently configure the capacity a
 Some key capabilities of ultra disks are:
 
 - Disk capacity: Ultra disks capacity ranges from 4 GiB up to 64 TiB.
-- Disk IOPS: Ultra disks support IOPS limits of 300 IOPS/GiB, up to a maximum of 160 K IOPS per disk. To achieve the IOPS that you provisioned, ensure that the selected Disk IOPS are less than the VM IOPS limit. The minimum guaranteed IOPS per disk is 2 IOPS/GiB, with an overall baseline minimum of 100 IOPS. For example, if you had a 4 GiB ultra disk, you will have a minimum of 100 IOPS, instead of eight IOPS.
+- Disk IOPS: Ultra disks support IOPS limits of 300 IOPS/GiB, up to a maximum of 160 K IOPS per disk. To achieve the IOPS that you provisioned, ensure that the selected Disk IOPS are less than the VM IOPS limit. The minimum guaranteed IOPS per disk is 1 IOPS/GiB, with an overall baseline minimum of 100 IOPS. For example, if you had a 4 GiB ultra disk, you will have a minimum of 100 IOPS, instead of 8 IOPS.
 - Disk throughput: With ultra disks, the throughput limit of a single disk is 256 KiB/s for each provisioned IOPS, up to a maximum of 2000 MBps per disk (where MBps = 10^6 Bytes per second). The minimum guaranteed throughput per disk is 4KiB/s for each provisioned IOPS, with an overall baseline minimum of 1 MBps.
 - Ultra disks support adjusting the disk performance attributes (IOPS and throughput) at runtime without detaching the disk from the virtual machine. Once a disk performance resize operation has been issued on a disk, it can take up to an hour for the change to actually take effect. There is a limit of four performance resize operations during a 24 hour window. It is possible for a performance resize operation to fail due to a lack of performance bandwidth capacity.
 
@@ -52,8 +52,10 @@ Some key capabilities of ultra disks are:
 |64     |19,200         |2,000         |
 |128     |38,400         |2,000         |
 |256     |76,800         |2,000         |
-|512     |80,000         |2,000         |
+|512     |153,600         |2,000         |
 |1,024-65,536 (sizes in this range increasing in increments of 1 TiB)     |160,000         |2,000         |
+
+Ultra disks are designed to provide sub-millisecond latencies and target IOPS and throughput described in the preceding table 99.99% of the time.
 
 ### GA scope and limitations
 
@@ -66,7 +68,7 @@ If you would like to start using ultra disks, see our article on the subject: [U
 
 Azure premium SSDs deliver high-performance and low-latency disk support for virtual machines (VMs) with input/output (IO)-intensive workloads. To take advantage of the speed and performance of premium storage disks, you can migrate existing VM disks to Premium SSDs. Premium SSDs are suitable for mission-critical production applications. Premium SSDs can only be used with VM series that are premium storage-compatible.
 
-To learn more about individual VM types and sizes in Azure for Windows or Linux, including which sizes are premium storage-compatible, see [Sizes for virtual machines in Azure](sizes.md). To learn more about individual VM types and sizes in Azure for Linux, including which sizes are premium storage-compatible, see [Sizes for virtual machines in Azure](sizes.md). From either of those articles, you need to check each individual VM size article to determine if it is premium storage-compatible.
+To learn more about individual VM types and sizes in Azure for Windows or Linux, including which sizes are premium storage-compatible, see [Sizes for virtual machines in Azure](sizes.md). From this article, you need to check each individual VM size article to determine if it is premium storage-compatible.
 
 ### Disk size
 [!INCLUDE [disk-storage-premium-ssd-sizes](../../includes/disk-storage-premium-ssd-sizes.md)]
@@ -75,9 +77,9 @@ When you provision a premium storage disk, unlike standard storage, you are guar
 
 ## Bursting
 
-Premium SSD sizes smaller than P30 now offer disk bursting and can burst their IOPS per disk up to 3,500 and their bandwidth up to 170 Mbps. Bursting is automated and operates based on a credit system. Credits are automatically accumulated in a burst bucket when disk traffic is below the provisioned performance target and credits are automatically consumed when traffic bursts beyond the target, up to the max burst limit. The max burst limit defines the ceiling of disk IOPS & Bandwidth even if you have burst credits to consume from. Disk bursting provides better tolerance on unpredictable changes of IO patterns. You can best leverage it for OS disk boot and applications with spiky traffic.    
+Premium SSD sizes smaller than P30 now offer disk bursting and can burst their IOPS per disk up to 3,500 and their bandwidth up to 170 MB/s. Bursting is automated and operates based on a credit system. Credits are automatically accumulated in a burst bucket when disk traffic is below the provisioned performance target and credits are automatically consumed when traffic bursts beyond the target, up to the max burst limit. The max burst limit defines the ceiling of disk IOPS & Bandwidth even if you have burst credits to consume from. Disk bursting provides better tolerance on unpredictable changes of IO patterns. You can best leverage it for OS disk boot and applications with spiky traffic.    
 
-Disks bursting support will be enabled on new deployments of applicable disk sizes by default, with no user action required. For existing disks of the applicable sizes, you can enable bursting with either of two the options: detach and reattach the disk or stop and restart the attached VM. All burst applicable disk sizes will start with a full burst credit bucket when the disk is attached to a Virtual Machine that supports a max duration at peak burst limit of 30 mins. To learn more about how bursting work on Azure Disks, see [Premium SSD bursting](linux/disk-bursting.md). 
+Disks bursting support will be enabled on new deployments of applicable disk sizes by default, with no user action required. For existing disks of the applicable sizes, you can enable bursting with either of two the options: detach and reattach the disk or stop and restart the attached VM. All burst applicable disk sizes will start with a full burst credit bucket when the disk is attached to a Virtual Machine that supports a max duration at peak burst limit of 30 mins. To learn more about how bursting work on Azure Disks, see [Premium SSD bursting](./disk-bursting.md). 
 
 ### Transactions
 

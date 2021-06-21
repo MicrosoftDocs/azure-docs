@@ -1,19 +1,13 @@
 ---
-title: Create Azure data factory using .NET SDK
-description: Create an Azure data factory to copy data from one location in Azure Blob storage to another location. 
-services: data-factory
-documentationcenter: ''
+title: Create Azure Data Factory using .NET SDK
+description: Create an Azure Data Factory and pipeline using .NET SDK to copy data from one location in Azure Blob storage to another location. 
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
-
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: 
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 06/24/2019
-ms.author: jingwang
+ms.date: 03/27/2021
+ms.author: jingwang 
+ms.custom: devx-track-azurepowershell
 ---
 # Quickstart: Create a data factory and pipeline using .NET SDK
 
@@ -23,20 +17,16 @@ ms.author: jingwang
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-This quickstart describes how to use .NET SDK to create an Azure data factory. The pipeline you create in this data factory **copies** data from one folder to another folder in an Azure blob storage. For a tutorial on how to **transform** data using Azure Data Factory, see [Tutorial: Transform data using Spark](tutorial-transform-data-spark-portal.md).
+This quickstart describes how to use .NET SDK to create an Azure Data Factory. The pipeline you create in this data factory **copies** data from one folder to another folder in an Azure blob storage. For a tutorial on how to **transform** data using Azure Data Factory, see [Tutorial: Transform data using Spark](tutorial-transform-data-spark-portal.md).
 
 > [!NOTE]
 > This article does not provide a detailed introduction of the Data Factory service. For an introduction to the Azure Data Factory service, see [Introduction to Azure Data Factory](introduction.md).
 
-[!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)] 
+[!INCLUDE [data-factory-quickstart-prerequisites](includes/data-factory-quickstart-prerequisites.md)] 
 
 ### Visual Studio
 
 The walkthrough in this article uses Visual Studio 2019. The procedures for Visual Studio 2013, 2015, or 2017 differ slightly.
-
-### Azure .NET SDK
-
-Download and install [Azure .NET SDK](https://azure.microsoft.com/downloads/) on your machine.
 
 ## Create an application in Azure Active Directory
 
@@ -44,7 +34,7 @@ From the sections in *How to: Use the portal to create an Azure AD application a
 
 1. In [Create an Azure Active Directory application](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal), create an application that represents the .NET application you are creating in this tutorial. For the sign-on URL, you can provide a dummy URL as shown in the article (`https://contoso.org/exampleapp`).
 2. In [Get values for signing in](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in), get the **application ID** and **tenant ID**, and note down these values that you use later in this tutorial. 
-3. In [Certificates and secrets](../active-directory/develop/howto-create-service-principal-portal.md#upload-a-certificate-or-create-a-secret-for-signing-in), get the **authentication key**, and note down this value that you use later in this tutorial.
+3. In [Certificates and secrets](../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options), get the **authentication key**, and note down this value that you use later in this tutorial.
 4. In [Assign the application to a role](../active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application), assign the application to the **Contributor** role at the subscription level so that the application can create data factories in the subscription.
 
 ## Create a Visual Studio project
@@ -76,6 +66,7 @@ Next, create a C# .NET console application in Visual Studio:
     using System.Collections.Generic;
     using System.Linq;
     using Microsoft.Rest;
+    using Microsoft.Rest.Serialization;
     using Microsoft.Azure.Management.ResourceManager;
     using Microsoft.Azure.Management.DataFactory;
     using Microsoft.Azure.Management.DataFactory.Models;
@@ -109,12 +100,16 @@ Next, create a C# .NET console application in Visual Studio:
    string blobDatasetName = "BlobDataset";
    string pipelineName = "Adfv2QuickStartPipeline";
    ```
+> [!NOTE]
+> For Sovereign clouds, you must use the appropriate cloud-specific endpoints for ActiveDirectoryAuthority and ResourceManagerUrl (BaseUri). 
+>  For example, in US Azure Gov you would use authority of https://login.microsoftonline.us instead of https://login.microsoftonline.com, and use https://management.usgovcloudapi.net instead of https://management.azure.com/, and then create the data factory management client. 
+>  You can use Powershell to easily get the endpoint Urls for various clouds by executing “Get-AzEnvironment | Format-List”, which will return a list of endpoints for each cloud environment.
 
 3. Add the following code to the **Main** method that creates an instance of **DataFactoryManagementClient** class. You use this object to create a data factory, a linked service, datasets, and a pipeline. You also use this object to monitor the pipeline run details.
 
    ```csharp
    // Authenticate and create a data factory management client
-   var context = new AuthenticationContext("https://login.windows.net/" + tenantID);
+   var context = new AuthenticationContext("https://login.microsoftonline.com/" + tenantID);
    ClientCredential cc = new ClientCredential(applicationId, authenticationKey);
    AuthenticationResult result = context.AcquireTokenAsync(
        "https://management.azure.com/", cc).Result;
@@ -122,6 +117,7 @@ Next, create a C# .NET console application in Visual Studio:
    var client = new DataFactoryManagementClient(cred) {
        SubscriptionId = subscriptionId };
    ```
+
 
 ## Create a data factory
 

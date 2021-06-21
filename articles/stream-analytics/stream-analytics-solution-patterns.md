@@ -1,9 +1,8 @@
 ---
 title: Azure Stream Analytics solution patterns
 description: Learn about common solution patterns for Azure Stream Analytics, such as dashboarding, event messaging, data stores, reference data enrichment, and monitoring.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: sidramadoss
+ms.author: sidram
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
@@ -15,7 +14,7 @@ Like many other services in Azure, Stream Analytics is best used with other serv
 
 ## Create a Stream Analytics job to power real-time dashboarding experience
 
-With Azure Stream Analytics, you can quickly stand up real-time dashboards and alerts. A simple solution ingests events from Event Hubs or IoT Hub, and [feeds the Power BI dashboard with a streaming data set](/power-bi/service-real-time-streaming). For more information, see the detailed tutorial [Analyze phone call data with Stream Analytics and visualize results in Power BI dashboard](stream-analytics-manage-job.md).
+With Azure Stream Analytics, you can quickly stand up real-time dashboards and alerts. A simple solution ingests events from Event Hubs or IoT Hub, and [feeds the Power BI dashboard with a streaming data set](/power-bi/service-real-time-streaming). For more information, see the detailed tutorial [Analyze fraudulent call data with Stream Analytics and visualize results in Power BI dashboard](stream-analytics-real-time-fraud-detection.md).
 
 ![ASA Power BI dashboard](media/stream-analytics-solution-patterns/power-bi-dashboard.png)
 

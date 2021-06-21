@@ -4,12 +4,13 @@ description: Learn how to audit the control plane operations such as add a regio
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 06/25/2020
+ms.date: 10/05/2020
 ms.author: sngun
 
 ---
 
 # How to audit Azure Cosmos DB control plane operations
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Control Plane in Azure Cosmos DB is a RESTful service that enables you to perform a diverse set of operations on the Azure Cosmos account. It exposes a public resource model (for example: database, account) and various operations to the end users to perform actions on the resource model. The control plane operations include changes to the Azure Cosmos account or container. For example, operations such as create an Azure Cosmos account, add a region, update throughput, region failover, add a VNet etc. are some of the control plane operations. This article explains how to audit the control plane operations in Azure Cosmos DB. You can run the control plane operations on Azure Cosmos accounts by using Azure CLI, PowerShell or Azure portal, whereas for containers, use Azure CLI or PowerShell.
 
@@ -23,7 +24,7 @@ The following are some example scenarios where auditing control plane operations
 
 ## Disable key based metadata write access
 
-Before you audit the control plane operations in Azure Cosmos DB, disable the key-based metadata write access on your account. When key based metadata write access is disabled, clients connecting to the Azure Cosmos account through account keys are prevented from accessing the account. You can disable write access by setting the `disableKeyBasedMetadataWriteAccess` property to true. After you set this property, changes to any resource can happen from a user with the proper Role-based access control(RBAC) role and credentials. To learn more on how to set this property, see the [Preventing changes from SDKs](role-based-access-control.md#prevent-sdk-changes) article. 
+Before you audit the control plane operations in Azure Cosmos DB, disable the key-based metadata write access on your account. When key based metadata write access is disabled, clients connecting to the Azure Cosmos account through account keys are prevented from accessing the account. You can disable write access by setting the `disableKeyBasedMetadataWriteAccess` property to true. After you set this property, changes to any resource can happen from a user with the proper Azure role and credentials. To learn more on how to set this property, see the [Preventing changes from SDKs](role-based-access-control.md#prevent-sdk-changes) article. 
 
 After the `disableKeyBasedMetadataWriteAccess` is turned on, if the SDK based clients run create or update operations, an error *"Operation 'POST' on resource 'ContainerNameorDatabaseName' is not allowed through Azure Cosmos DB endpoint* is returned. You have to turn on access to such operations for your account, or perform the create/update operations through Azure Resource Manager, Azure CLI or Azure PowerShell. To switch back, set the disableKeyBasedMetadataWriteAccess to **false** by using Azure CLI as described in the [Preventing changes from Cosmos SDK](role-based-access-control.md#prevent-sdk-changes) article. Make sure to change the value of `disableKeyBasedMetadataWriteAccess` to false instead of true.
 
@@ -180,15 +181,15 @@ AzureDiagnostics 
 ```
 
 ```kusto
-AzureDiagnostics 
-| where Category =="ControlPlaneRequests"
-| where  OperationName startswith "SqlContainersUpdate"
+AzureDiagnostics
+| where Category == "ControlPlaneRequests"
+| where OperationName startswith "SqlContainersUpdate"
 ```
 
 ```kusto
-AzureDiagnostics 
-| where Category =="ControlPlaneRequests"
-| where  OperationName startswith "SqlContainersThroughputUpdate"
+AzureDiagnostics
+| where Category == "ControlPlaneRequests"
+| where OperationName startswith "SqlContainersThroughputUpdate"
 ```
 
 Query to get the activityId and the caller who initiated the container delete operation:
@@ -205,6 +206,21 @@ AzureActivity
 | summarize by Caller, HTTPRequest, activityId_g)
 on activityId_g
 | project Caller, activityId_g
+```
+
+Query to get index or ttl updates. You can then compare the output of this query with an earlier update to see the change in index or ttl.
+
+```Kusto
+AzureDiagnostics
+| where Category =="ControlPlaneRequests"
+| where  OperationName == "SqlContainersUpdate"
+| project resourceDetails_s
+```
+
+**output:**
+
+```json
+{id:skewed,indexingPolicy:{automatic:true,indexingMode:consistent,includedPaths:[{path:/*,indexes:[]}],excludedPaths:[{path:/_etag/?}],compositeIndexes:[],spatialIndexes:[]},partitionKey:{paths:[/pk],kind:Hash},defaultTtl:1000000,uniqueKeyPolicy:{uniqueKeys:[]},conflictResolutionPolicy:{mode:LastWriterWins,conflictResolutionPath:/_ts,conflictResolutionProcedure:}
 ```
 
 ## Next steps

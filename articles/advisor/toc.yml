@@ -13,6 +13,10 @@
     - name: ARM template
       displayName: Resource Manager
       href: advisor-alerts-arm.md
+- name: Concepts
+  items:
+  - name: Security baseline
+    href: /security/benchmark/azure/baselines/advisor-security-baseline?toc=/azure/advisor/toc.json
 - name: Tutorials
   items:
   - name: Get started with Advisor
@@ -41,6 +45,8 @@
     href: advisor-quick-fix.md
   - name: Advisor data in Azure Resource Graph
     href: advisor-azure-resource-graph.md
+  - name: Consume Advisor score 
+    href: azure-advisor-score.md
 - name: Reference
   items:
   - name: Security Center
@@ -52,9 +58,9 @@
   - name: REST API
     href: /rest/api/advisor/
   - name: Azure CLI
-    href: /cli/azure/advisor?view=azure-cli-latest
+    href: /cli/azure/advisor
   - name: PowerShell
-    href: /powershell/module/az.advisor/?view=azps-1.2.0
+    href: /powershell/module/az.advisor/
 - name: Resources
   items:
   - name: Azure Roadmap

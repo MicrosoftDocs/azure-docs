@@ -6,12 +6,13 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: nodejs
 ms.topic: reference
-ms.date: 08/12/2020
+ms.date: 04/06/2021
 ms.author: anfeldma
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 
 ---
 # Azure Cosmos DB Node.js SDK for SQL API: Release notes and resources
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 > [!div class="op_single_selector"]
 > * [.NET SDK v3](sql-api-sdk-dotnet-standard.md)
 > * [.NET SDK v2](sql-api-sdk-dotnet.md)
@@ -23,18 +24,19 @@ ms.custom: devx-track-javascript
 > * [Sync Java SDK v2](sql-api-sdk-java.md)
 > * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
 > * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
-> * [Spark Connector](sql-api-sdk-java-spark.md)
+> * [Spark 3 OLTP Connector](sql-api-sdk-java-spark-v3.md)
+> * [Spark 2 OLTP Connector](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
 > * [REST Resource Provider](/rest/api/cosmos-db-resource-provider/)
-> * [SQL](sql-api-query-reference.md)
+> * [SQL](./sql-query-getting-started.md)
 > * [Bulk executor - .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Bulk executor - Java](sql-api-sdk-bulk-executor-java.md)
 
 |Resource  |Link  |
 |---------|---------|
 |Download SDK  |   [NPM](https://www.npmjs.com/package/@azure/cosmos) 
-|API Documentation  |  [JavaScript SDK reference documentation](https://docs.microsoft.com/javascript/api/%40azure/cosmos/?view=azure-node-latest)
+|API Documentation  |  [JavaScript SDK reference documentation](/javascript/api/%40azure/cosmos/)
 |SDK installation instructions  |  [Installation instructions](https://github.com/Azure/azure-sdk-for-js)
 |Contribute to SDK | [GitHub](https://github.com/Azure/azure-cosmos-js/tree/master)
 | Samples | [Node.js code samples](sql-api-nodejs-samples.md)
@@ -348,7 +350,7 @@ Not always the most visible changes, but they help our team ship better code, fa
 * Added the support for Time To Live(TTL) feature for documents.
 
 ### <a name="1.6.0"></a>1.6.0
-* Implemented [partitioned collections](partition-data.md) and [user-defined performance levels](performance-levels.md).
+* Implemented [partitioned collections](partitioning-overview.md) and [user-defined performance levels](performance-levels.md).
 
 ### <a name="1.5.6"></a>1.5.6
 * Fixed RangePartitionResolver.resolveForRead bug where it was not returning links due to a bad concat of results.
@@ -467,8 +469,7 @@ Microsoft provides notification at least **12 months** in advance of retiring an
 | [1.0.0](#1.0.0) |April 08, 2015 |August 30, 2020 |
 
 ## FAQ
-[!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
+[!INCLUDE [cosmos-db-sdk-faq](includes/cosmos-db-sdk-faq.md)]
 
 ## See also
 To learn more about Cosmos DB, see [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) service page.
-

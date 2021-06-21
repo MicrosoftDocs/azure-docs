@@ -1,17 +1,18 @@
 ---
 title: Build a graph database with Java in Azure Cosmos DB 
 description: Presents a Java code sample you can use to connect to and query graph data in Azure Cosmos DB using Gremlin.
-author: luisbosquez
+author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 03/26/2019
-ms.author: lbosq
+ms.author: chrande
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
 ---
 
 # Quickstart: Build a graph database with the Java SDK and the Azure Cosmos DB Gremlin API
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Gremlin console](create-graph-gremlin-console.md)
@@ -34,11 +35,11 @@ In this quickstart, you create and manage an Azure Cosmos DB Gremlin (graph) API
 
 Before you can create a graph database, you need to create a Gremlin (Graph) database account with Azure Cosmos DB.
 
-[!INCLUDE [cosmos-db-create-dbaccount-graph](../../includes/cosmos-db-create-dbaccount-graph.md)]
+[!INCLUDE [cosmos-db-create-dbaccount-graph](includes/cosmos-db-create-dbaccount-graph.md)]
 
 ## Add a graph
 
-[!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
+[!INCLUDE [cosmos-db-create-graph](includes/cosmos-db-create-graph.md)]
 
 ## Clone the sample application
 
@@ -164,7 +165,7 @@ You can now go back to Data Explorer and see the vertices added to the graph, an
 
 1. In your Azure Cosmos DB account in the Azure portal, select **Data Explorer**, expand **sample-graph**, select **Graph**, and then select **Apply Filter**. 
 
-   :::image type="content" source="./media/create-graph-java/azure-cosmosdb-data-explorer-expanded.png" alt-text="Create new documents in Data Explorer in the Azure portal":::
+   :::image type="content" source="./media/create-graph-java/azure-cosmosdb-data-explorer-expanded.png" alt-text="Screenshot shows Graph selected from the A P I with the option to Apply Filter.":::
 
 2. In the **Results** list, notice the new users added to the graph. Select **ben** and notice that the user is connected to robin. You can move the vertices around by dragging and dropping, zoom in and out by scrolling the wheel of your mouse, and expand the size of the graph with the double-arrow. 
 
@@ -172,7 +173,7 @@ You can now go back to Data Explorer and see the vertices added to the graph, an
 
 3. Let's add a few new users. Select **New Vertex** to add data to your graph.
 
-   :::image type="content" source="./media/create-graph-java/azure-cosmosdb-data-explorer-new-vertex.png" alt-text="Create new documents in Data Explorer in the Azure portal":::
+   :::image type="content" source="./media/create-graph-java/azure-cosmosdb-data-explorer-new-vertex.png" alt-text="Screenshot shows the New Vertex pane where you can enter values.":::
 
 4. In the label box, enter *person*.
 
@@ -223,11 +224,11 @@ That completes the resource creation part of this tutorial. You can continue to 
 
 ## Review SLAs in the Azure portal
 
-[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
+[!INCLUDE [cosmosdb-tutorial-review-slas](includes/cosmos-db-tutorial-review-slas.md)]
 
 ## Clean up resources
 
-[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
+[!INCLUDE [cosmosdb-delete-resource-group](includes/cosmos-db-delete-resource-group.md)]
 
 ## Next steps
 

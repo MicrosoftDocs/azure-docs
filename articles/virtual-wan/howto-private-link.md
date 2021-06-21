@@ -7,7 +7,7 @@ author: erjosito
 
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 08/18/2020
+ms.date: 09/22/2020
 ms.author: jomore
 ms.custom: fasttrack-new
 
@@ -68,7 +68,7 @@ $ sqlcmd -S wantest.database.windows.net -U $username -P $password -Q "$query"
 10.1.3.75
 ```
 
-As you can see, we are using a special SQL query that gives us the source IP address that the SQL server sees from the client. In this case the server sees the client with its private IP (`10.1.3.75`), which means that the traffic does not travel through the public Internet but goes straight into the private endpoint.
+As you can see, we are using a special SQL query that gives us the source IP address that the SQL server sees from the client. In this case the server sees the client with its private IP (`10.1.3.75`), which means that the traffic goes from the VNet straight into the private endpoint.
 
 Note that you need to set the variables `username` and `password` to match the credentials defined in the Azure SQL Database to make the examples in this guide work.
 

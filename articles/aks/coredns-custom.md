@@ -2,10 +2,10 @@
 title: Customize CoreDNS for Azure Kubernetes Service (AKS)
 description: Learn how to customize CoreDNS to add subdomains or extend custom DNS endpoints using Azure Kubernetes Service (AKS)
 services: container-service
-author: jnoller
+author: palma21
 ms.topic: article
 ms.date: 03/15/2019
-ms.author: jenoller
+ms.author: jpalma
 
 #Customer intent: As a cluster operator or developer, I want to learn how to customize the CoreDNS configuration to add sub domains or extend to custom DNS endpoints within my network
 ---
@@ -178,6 +178,24 @@ data:
     test.override: | # you may select any name here, but it must end with the .override file extension
           hosts example.hosts example.org { # example.hosts must be a file
               10.0.0.1 example.org
+              fallthrough
+          }
+```
+
+To specify one or more lines in host table using INLINE:
+
+```yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: coredns-custom # this is the name of the configmap you can overwrite with your changes
+  namespace: kube-system
+data:
+    test.override: | # you may select any name here, but it must end with the .override file extension
+          hosts { 
+              10.0.0.1 example1.org
+              10.0.0.2 example2.org
+              10.0.0.3 example3.org
               fallthrough
           }
 ```

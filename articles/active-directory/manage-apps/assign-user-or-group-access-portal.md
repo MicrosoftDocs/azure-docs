@@ -2,14 +2,14 @@
 title: Manage user assignment for an app in Azure Active Directory
 description: Learn how to assign and unassign users, and groups, for an app using Azure Active Directory for identity management.
 services: active-directory
-author: kenwith
-manager: celestedg
+author: mtillman
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/21/2020
-ms.author: kenwith
+ms.author: mtillman
 ms.reviewer: luleon
 ---
 
@@ -23,7 +23,7 @@ For greater control, certain types of enterprise applications can be configured 
 > When you assign a group to an application, only users in the group will have access. The assignment does not cascade to nested groups.
 
 > [!NOTE]
-> Group-based assignment requires Azure Active Directory Premium P1 or P2 edition. Group-based assignment is supported for Security groups only. Nested group memberships and Office 365 groups are not currently supported. For more licensing requirements for the features discussed in this article, see the [Azure Active Directory pricing page](https://azure.microsoft.com/pricing/details/active-directory). 
+> Group-based assignment requires Azure Active Directory Premium P1 or P2 edition. Group-based assignment is supported for Security groups only. Nested group memberships and Microsoft 365 groups are not currently supported. For more licensing requirements for the features discussed in this article, see the [Azure Active Directory pricing page](https://azure.microsoft.com/pricing/details/active-directory). 
 
 ## Configure an application to require user assignment
 
@@ -39,6 +39,9 @@ When assignment is *not required*, either because you've set this option to **No
 
 This setting doesn't affect whether or not an application appears on My Apps. Applications appear on users' My Apps access panels once you've assigned a user or group to the application. For background, see [Managing access to apps](what-is-access-management.md).
 
+> [!NOTE]
+> When an application requires assignment, user consent for that application is not allowed. This is true even if users consent for that app would have otherwise been allowed. Be sure to [grant tenant-wide admin consent](../manage-apps/grant-admin-consent.md) to apps that require assignment. 
+
 To require user assignment for an application:
 1. Sign in to the [Azure portal](https://portal.azure.com) with an administrator account or as an owner of the application.
 2. Select **Azure Active Directory**. In the left navigation menu, select **Enterprise applications**.
@@ -53,7 +56,7 @@ To require user assignment for an application:
 To learn how to assign, or unassign, a user or group using the Azure portal, see the [Quickstart Series on Application Management](add-application-portal-assign-users.md).
 
 ## Assign or unassign users, and groups, for an app using the Graph API
-You can use the Graph API to assign or unassign users, and groups, for an app. To learn more, see [App role assignments](https://docs.microsoft.com/graph/api/resources/approleassignment).
+You can use the Graph API to assign or unassign users, and groups, for an app. To learn more, see [App role assignments](/graph/api/resources/approleassignment).
 
 ## Assign users, and groups, to an app using PowerShell
 1. Open an elevated Windows PowerShell command prompt.
@@ -76,11 +79,11 @@ You can use the Graph API to assign or unassign users, and groups, for an app. T
     # Assign the user to the app role
     New-AzureADUserAppRoleAssignment -ObjectId $user.ObjectId -PrincipalId $user.ObjectId -ResourceId $sp.ObjectId -Id $appRole.Id
     ```
-For more information about how to assign a user to an application role, see the documentation for [New-AzureADUserAppRoleAssignment](https://docs.microsoft.com/powershell/module/azuread/new-azureaduserapproleassignment?view=azureadps-2.0).
+For more information about how to assign a user to an application role, see the documentation for [New-AzureADUserAppRoleAssignment](/powershell/module/azuread/new-azureaduserapproleassignment).
 
 To assign a group to an enterprise app, you must replace `Get-AzureADUser` with `Get-AzureADGroup` and replace `New-AzureADUserAppRoleAssignment` with `New-AzureADGroupAppRoleAssignment`.
 
-For more information about how to assign a group to an application role, see the documentation for [New-AzureADGroupAppRoleAssignment](https://docs.microsoft.com/powershell/module/azuread/new-azureadgroupapproleassignment?view=azureadps-2.0).
+For more information about how to assign a group to an application role, see the documentation for [New-AzureADGroupAppRoleAssignment](/powershell/module/azuread/new-azureadgroupapproleassignment).
 
 ### Example
 
@@ -143,12 +146,12 @@ This example assigns the user Britta Simon to the [Microsoft Workplace Analytics
 ## Related articles
 
 - [Learn more about end-user access to applications](end-user-experiences.md)
-- [Plan an Azure AD My Apps deployment](access-panel-deployment-plan.md)
+- [Plan an Azure AD My Apps deployment](my-apps-deployment-plan.md)
 - [Managing access to apps](what-is-access-management.md)
  
 ## Next steps
 
 - [See all of my groups](../fundamentals/active-directory-groups-view-azure-portal.md)
-- [Remove a user or group assignment from an enterprise app](remove-user-or-group-access-portal.md)
+- [Remove a user or group assignment from an enterprise app]()
 - [Disable user sign-ins for an enterprise app](disable-user-sign-in-portal.md)
-- [Change the name or logo of an enterprise app](change-name-or-logo-portal.md)
+- [Change the name or logo of an enterprise app](./add-application-portal-configure.md)

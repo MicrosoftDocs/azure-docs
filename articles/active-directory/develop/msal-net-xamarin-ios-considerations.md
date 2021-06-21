@@ -1,7 +1,7 @@
 ---
 title: Xamarin iOS considerations (MSAL.NET) | Azure
 titleSuffix: Microsoft identity platform
-description: Learn about considerations for using Xamarin iOS with Microsoft Authentication Library for .NET (MSAL.NET).
+description: Learn about considerations for using Xamarin iOS with the Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -19,7 +19,7 @@ ms.custom: "devx-track-csharp, aaddev"
 
 # Considerations for using Xamarin iOS with MSAL.NET
 
-When you use Microsoft Authentication Library for .NET (MSAL.NET) on Xamarin iOS, you should:
+When you use the Microsoft Authentication Library for .NET (MSAL.NET) on Xamarin iOS, you should:
 
 - Override and implement the `OpenUrl` function in `AppDelegate`.
 - Enable keychain groups.
@@ -78,7 +78,7 @@ For more information, see the [iOS entitlements documentation](https://developer
 
 ### Enable token cache sharing across iOS applications
 
-Starting in MSAL 2.x, you can specify a keychain access group to persist the token cache across multiple applications. This setting enables you to share the token cache among several applications that have the same keychain access group. You can share the token cash among [ADAL.NET](https://aka.ms/adal-net) applications, MSAL.NET Xamarin.iOS applications, and native iOS applications that were developed in [ADAL.objc](https://github.com/AzureAD/azure-activedirectory-library-for-objc) or [MSAL.objc](https://github.com/AzureAD/microsoft-authentication-library-for-objc).
+Starting in MSAL 2.x, you can specify a keychain access group to persist the token cache across multiple applications. This setting enables you to share the token cache among several applications that have the same keychain access group. You can share the token cache among [ADAL.NET](https://aka.ms/adal-net) applications, MSAL.NET Xamarin.iOS applications, and native iOS applications that were developed in [ADAL.objc](https://github.com/AzureAD/azure-activedirectory-library-for-objc) or [MSAL.objc](https://github.com/AzureAD/microsoft-authentication-library-for-objc).
 
 By sharing the token cache, you allow single sign-on (SSO) among all of the applications that use the same keychain access group.
 

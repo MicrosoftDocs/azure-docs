@@ -8,8 +8,9 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 08/12/2019
+ms.date: 3/18/2021
 ms.author: sudbalas
+ms.custom: "devx-track-azurepowershell, devx-track-azurecli"
 #Customer intent: As an Azure Key Vault administrator, I want to back up a secret, key, or certificate in my key vault.
 ---
 # Azure Key Vault backup
@@ -20,11 +21,14 @@ This document shows you how to back up secrets, keys, and certificates stored in
 
 Azure Key Vault automatically provides features to help you maintain availability and prevent data loss. Back up secrets only if you have a critical business justification. Backing up secrets in your key vault may introduce operational challenges such as maintaining multiple sets of logs, permissions, and backups when secrets expire or rotate.
 
-Key Vault maintains availability in disaster scenarios and will automatically fail over requests to a paired region without any intervention from a user. For more information, see [Azure Key Vault availability and redundancy](https://docs.microsoft.com/azure/key-vault/general/disaster-recovery-guidance).
+Key Vault maintains availability in disaster scenarios and will automatically fail over requests to a paired region without any intervention from a user. For more information, see [Azure Key Vault availability and redundancy](./disaster-recovery-guidance.md).
 
-If you want protection against accidental or malicious deletion of your secrets, configure soft-delete and purge protection features on your key vault. For more information, see [Azure Key Vault soft-delete overview](https://docs.microsoft.com/azure/key-vault/general/soft-delete-overview).
+If you want protection against accidental or malicious deletion of your secrets, configure soft-delete and purge protection features on your key vault. For more information, see [Azure Key Vault soft-delete overview](./soft-delete-overview.md).
 
 ## Limitations
+
+> [!IMPORTANT]
+> Key Vault does not support the ability to backup more than 500 past versions of a key, secret, or certificate object. Attempting to backup a key, secret, or certificate object may result in an error. It is not possible to delete previous versions of a key, secret, or certificate.
 
 Key Vault doesn't currently provide a way to back up an entire key vault in a single operation. Any attempt to use the commands listed in this document to do an automated backup of a key vault may result in errors and won't be supported by Microsoft or the Azure Key Vault team. 
 
@@ -81,8 +85,9 @@ Follow the steps in this section to back up and restore objects by using the Azu
 5. Go to the location where you stored the encrypted blob.
 6. Select **OK**.
 
-## Back up and restore from the Azure CLI
+## Back up and restore from the Azure CLI or Azure PowerShell
 
+# [Azure CLI](#tab/azure-cli)
 ```azurecli
 ## Log in to Azure
 az login
@@ -110,9 +115,36 @@ az keyvault key restore --file {File Path} --vault-name {Key Vault Name} --subsc
 
 ## Restore a secret in Key Vault
 az keyvault secret restore --file {File Path} --vault-name {Key Vault Name} --subscription {SUBSCRIPTION ID}
-
 ```
+# [Azure PowerShell](#tab/powershell)
+
+```azurepowershell
+## Log in to Azure
+Connect-AzAccount
+
+## Set your subscription
+Set-AzContext -Subscription '{AZURE SUBSCRIPTION ID}'
+
+## Back up a certificate in Key Vault
+Backup-AzKeyVaultCertificate -VaultName '{Certificate Name}' -Name '{Key Vault Name}'
+
+## Back up a key in Key Vault
+Backup-AzKeyVaultKey -VaultName '{Key Name}' -Name '{Key Vault Name}'
+
+## Back up a secret in Key Vault
+Backup-AzKeyVaultSecret -VaultName '{Key Vault Name}' -Name '{Secret Name}'
+
+## Restore a certificate in Key Vault
+Restore-AzKeyVaultCertificate -VaultName '{Key Vault Name}' -InputFile '{File Path}'
+
+## Restore a key in Key Vault
+Restore-AzKeyVaultKey -VaultName '{Key Vault Name}' -InputFile '{File Path}'
+
+## Restore a secret in Key Vault
+Restore-AzKeyVaultSecret -VaultName '{Key Vault Name}' -InputFile '{File Path}'
+```
+---
 
 ## Next steps
 
-Turn on [logging and monitoring](https://docs.microsoft.com/azure/key-vault/general/logging) for Key Vault.
+Turn on [logging and monitoring](./logging.md) for Key Vault.

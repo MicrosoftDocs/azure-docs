@@ -4,8 +4,8 @@ description: Learn how to use Azure Blob to configure leads for Microsoft AppSou
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 05/01/2020
 ---
 
@@ -28,7 +28,7 @@ ms.date: 05/01/2020
 3. In the Azure portal, create a storage account using the following procedure.  
     1. Select **+Create a resource** in the left menu bar.  The **New** pane (blade) will be displayed to the right.
     2. Select **Storage** in the **New** pane.  A **Featured** list is displayed to the right.
-    3. Select the **Storage Account** to begin account creation.  Follow the instructions in the article [Create a storage account](../../storage/common/storage-quickstart-create-account.md?tabs=azure-portal).
+    3. Select the **Storage Account** to begin account creation.  Follow the instructions in the article [Create a storage account](../../storage/common/storage-account-create.md?tabs=azure-portal).
 
     ![Steps to create an Azure storage account](./media/commercial-marketplace-lead-management-instructions-azure-blob/azure-storage-create.png)
 
@@ -40,21 +40,21 @@ ms.date: 05/01/2020
 
 5. From your storage account pane, select **Access keys** and copy the *Connection string* value for the key. Save this value as this is the *Storage Account Connection String* value that you will need to provide in the publishing portal to receive leads for your marketplace offer.
 
-     An example of a connection sting is:
+     An example of a connection string is:
 
      ```sql
      DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net
      ```
 
-    ![Azure storage key](./media/commercial-marketplace-lead-management-instructions-azure-blob/azure-storage-keys-2.png)
+    ![Screenshot that shows the "Access keys" page with the "Connection string" text box highlighted.](./media/commercial-marketplace-lead-management-instructions-azure-blob/azure-storage-keys-2.png)
 
 6. From your storage account page, select **Blobs**.
 
-   ![Azure storage key](./media/commercial-marketplace-lead-management-instructions-azure-blob/select-blobs.png)
+   ![Screenshot of Azure storage account page with Blobs selected](./media/commercial-marketplace-lead-management-instructions-azure-blob/select-blobs.png)
 
 7. Once on the blobs page, select the **+ Container** button.
 
-8. Type a **name** for your new container. The container name must be lowercase, must start with a letter or number, and can include only letters, numbers, and the dash (-) character. For more information about container and blob names, see [Naming and referencing containers, blobs, and metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
+8. Type a **name** for your new container. The container name must be lowercase, must start with a letter or number, and can include only letters, numbers, and the dash (-) character. For more information about container and blob names, see [Naming and referencing containers, blobs, and metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
     Save this value as this is the *Container Name* value that you need to provide in the publishing portal to receive leads for your marketplace offer.
 
@@ -87,5 +87,3 @@ When you are ready to configure the lead management information for your offer i
 
     > [!NOTE]
     > You must finish configuring the rest of the offer and publish it before you can receive leads for the offer.
-
-

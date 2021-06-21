@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/28/2017
+ms.date: 11/03/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ---

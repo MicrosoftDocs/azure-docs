@@ -1,13 +1,14 @@
 ---
 title: Azure Linux VM Agent Overview 
 description: Learn how to install and configure Linux Agent (waagent) to manage your virtual machine's interaction with Azure Fabric Controller.
-author: axayjo
-ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
 ms.topic: article
+ms.service: virtual-machines
+ms.subservice: extensions
+ms.author: amjads
+author: amjads1
+ms.collection: linux
 ms.date: 10/17/2016
-ms.author: akjosh
-ms.custom: H1Hack27Feb2017
+
 ---
 # Understanding and using the Azure Linux Agent
 
@@ -87,7 +88,7 @@ The Linux agent depends on some system packages in order to function properly:
 * Network tools: ip-route
 * Kernel support for mounting UDF filesystems.
 
-Ensure your VM has access to IP address 168.63.129.16. For more information, see [What is IP address 168.63.129.16](https://docs.microsoft.com/azure/virtual-network/what-is-ip-address-168-63-129-16).
+Ensure your VM has access to IP address 168.63.129.16. For more information, see [What is IP address 168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md).
 
 
 ## Installation

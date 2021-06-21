@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/23/2020
+ms.date: 02/04/2021
 ms.author: memildin
 
 ---
@@ -22,9 +22,9 @@ ms.author: memildin
 This article describes the common security threat of subdomain takeover and the steps you can take to mitigate against it.
 
 
-## What is subdomain takeover?
+## What is a subdomain takeover?
 
-Subdomain takeovers are a common, high-severity threat for organizations that regularly create, and delete many resources. A subdomain takeover can occur when you have a [DNS record](https://docs.microsoft.com/azure/dns/dns-zones-records#dns-records) that points to a deprovisioned Azure resource. Such DNS records are also known as "dangling DNS" entries. CNAME records are especially vulnerable to this threat. Subdomain takeovers enable malicious actors to redirect traffic intended for an organization’s domain to a site performing malicious activity.
+Subdomain takeovers are a common, high-severity threat for organizations that regularly create, and delete many resources. A subdomain takeover can occur when you have a [DNS record](../../dns/dns-zones-records.md#dns-records) that points to a deprovisioned Azure resource. Such DNS records are also known as "dangling DNS" entries. CNAME records are especially vulnerable to this threat. Subdomain takeovers enable malicious actors to redirect traffic intended for an organization’s domain to a site performing malicious activity.
 
 A common scenario for a subdomain takeover:
 
@@ -48,7 +48,7 @@ A common scenario for a subdomain takeover:
 
     1. The threat actor provisions an Azure resource with the same FQDN of the resource you previously controlled. In this example, `app-contogreat-dev-001.azurewebsites.net`.
 
-    1. Traffic being sent to the subdomain `myapp.contoso.com` is now routed to the malicious actor’s resource where they control the content.
+    1. Traffic being sent to the subdomain `greatapp.contoso.com` is now routed to the malicious actor’s resource where they control the content.
 
 
 
@@ -104,24 +104,19 @@ Run the query as a user who has:
 - at least reader level access to the Azure subscriptions
 - read access to Azure resource graph
 
-If you're a global administrator of your organization’s tenant, elevate your account to have access to all of your organization’s subscription using the guidance in [Elevate access to manage all Azure subscriptions and management groups](https://docs.microsoft.com/azure/role-based-access-control/elevate-access-global-admin).
+If you're a global administrator of your organization’s tenant, elevate your account to have access to all of your organization’s subscription using the guidance in [Elevate access to manage all Azure subscriptions and management groups](../../role-based-access-control/elevate-access-global-admin.md).
 
 
 > [!TIP]
-> Azure Resource Graph has throttling and paging limits that you should consider if you have a large Azure environment. [Learn more](https://docs.microsoft.com/azure/governance/resource-graph/concepts/work-with-data) about working with large Azure resource data sets. 
+> Azure Resource Graph has throttling and paging limits that you should consider if you have a large Azure environment. 
+> 
+> [Learn more about working with large Azure resource data sets](../../governance/resource-graph/concepts/work-with-data.md).
 > 
 > The tool uses subscription batching to avoid these limitations.
 
 ### Run the script
 
-There are two versions of the script, both have the same input parameters and produce similar output:
-
-|Script  |Information  |
-|---------|---------|
-|**Get-DanglingDnsRecordsPsCore.ps1**    |Parallel mode is supported only in PowerShell version 7 and higher, else will run serial mode.|
-|**Get-DanglingDnsRecordsPsDesktop.ps1** |Only supported in PowerShell desktop/version lower than 6, as this script uses [Windows Workflow](https://docs.microsoft.com/dotnet/framework/windows-workflow-foundation/overview).|
-
-Learn more and download the PowerShell scripts from GitHub: https://aka.ms/DanglingDNSDomains.
+Learn more about the PowerShell script, **Get-DanglingDnsRecords.ps1**, and download it from GitHub: https://aka.ms/Get-DanglingDnsRecords.
 
 ## Remediate dangling DNS entries 
 
@@ -146,10 +141,19 @@ Ensuring that your organization has implemented processes to prevent dangling DN
 
 Some Azure services offer features to aid in creating preventative measures and are detailed below. Other methods to prevent this issue must be established through your organization’s best practices or standard operating procedures.
 
+### Enable Azure Defender for App Service
+
+Azure Security Center's integrated cloud workload protection platform (CWPP), Azure Defender, offers a range of plans to protect your Azure, hybrid, and multi-cloud resources and workloads.
+
+The **Azure Defender for App Service** plan includes dangling DNS detection. With this plan enabled, you'll get security alerts if you decommission an App Service website but don't remove its custom domain from your DNS registrar.
+
+Azure Defender's dangling DNS protection is available whether your domains are managed with Azure DNS or an external domain registrar and applies to App Service on both Windows and Linux.
+
+Learn more about this and other benefits of this Azure Defender plan in [Introduction to Azure Defender for App Service](../../security-center/defender-for-app-service-introduction.md).
 
 ### Use Azure DNS alias records
 
-Azure DNS's [alias records](https://docs.microsoft.com/azure/dns/dns-alias#scenarios) can prevent dangling references by coupling the lifecycle of a DNS record with an Azure resource. For example, consider a DNS record that's qualified as an alias record to point to a public IP address or a Traffic Manager profile. If you delete those underlying resources, the DNS alias record becomes an empty record set. It no longer references the deleted resource. It's important to note that there are limits to what you can protect with alias records. Today, the list is limited to:
+Azure DNS's [alias records](../../dns/dns-alias.md#scenarios) can prevent dangling references by coupling the lifecycle of a DNS record with an Azure resource. For example, consider a DNS record that's qualified as an alias record to point to a public IP address or a Traffic Manager profile. If you delete those underlying resources, the DNS alias record becomes an empty record set. It no longer references the deleted resource. It's important to note that there are limits to what you can protect with alias records. Today, the list is limited to:
 
 - Azure Front Door
 - Traffic Manager profiles
@@ -158,7 +162,7 @@ Azure DNS's [alias records](https://docs.microsoft.com/azure/dns/dns-alias#scena
 
 Despite the limited service offerings today, we recommend using alias records to defend against subdomain takeover whenever possible.
 
-[Learn more](https://docs.microsoft.com/azure/dns/dns-alias#capabilities) about the capabilities of Azure DNS's alias records.
+[Learn more about the capabilities of Azure DNS's alias records](../../dns/dns-alias.md#capabilities).
 
 
 
@@ -168,7 +172,7 @@ When creating DNS entries for Azure App Service, create an asuid.{subdomain} TXT
 
 These records don't prevent someone from creating the Azure App Service with the same name that's in your CNAME entry. Without the ability to prove ownership of the domain name, threat actors can't receive traffic or control the content.
 
-[Learn more](https://docs.microsoft.com/Azure/app-service/app-service-web-tutorial-custom-domain) about how to map an existing custom DNS name to Azure App Service.
+[Learn more about how to map an existing custom DNS name to Azure App Service](../../app-service/app-service-web-tutorial-custom-domain.md).
 
 
 
@@ -182,13 +186,13 @@ It's often up to developers and operations teams to run cleanup processes to avo
 
     - Put "Remove DNS entry" on the list of required checks when decommissioning a service.
 
-    - Put [delete locks](https://docs.microsoft.com/azure/azure-resource-manager/management/lock-resources) on any resources that have a custom DNS entry. A delete lock serves as an indicator that the mapping must be removed before the resource is deprovisioned. Measures like this can only work when combined with internal education programs.
+    - Put [delete locks](../../azure-resource-manager/management/lock-resources.md) on any resources that have a custom DNS entry. A delete lock serves as an indicator that the mapping must be removed before the resource is deprovisioned. Measures like this can only work when combined with internal education programs.
 
 - **Create procedures for discovery:**
 
     - Review your DNS records regularly to ensure that your subdomains are all mapped to Azure resources that:
 
-        - Exist - Query your DNS zones for resources pointing to Azure subdomains such as *.azurewebsites.net or *.cloudapp.azure.com (see [this reference list](azure-domains.md)).
+        - Exist - Query your DNS zones for resources pointing to Azure subdomains such as *.azurewebsites.net or *.cloudapp.azure.com (see the [Reference list of Azure domains](azure-domains.md)).
         - You own - Confirm that you own all resources that your DNS subdomains are targeting.
 
     - Maintain a service catalog of your Azure fully qualified domain name (FQDN) endpoints and the application owners. To build your service catalog, run the following Azure Resource Graph query script. This script projects the FQDN endpoint information of the resources you have access to and outputs them in a CSV file. If you have access to all the subscriptions for your tenant, the script considers all those subscriptions as shown in the following sample script. To limit the results to a specific set of subscriptions, edit the script as shown.
@@ -204,8 +208,10 @@ It's often up to developers and operations teams to run cleanup processes to avo
 
 To learn more about related services and Azure features you can use to defend against subdomain takeover, see the following pages.
 
-- [Azure DNS supports using alias records for custom domains](https://docs.microsoft.com/azure/dns/dns-alias#prevent-dangling-dns-records)
+- [Enable Azure Defender for App Service](../../security-center/defender-for-app-service-introduction.md) - to receive alerts when dangling DNS entries are detected
 
-- [Use the Domain Verification ID when adding Custom Domains in Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain#get-domain-verification-id) 
+- [Prevent dangling DNS records with Azure DNS](../../dns/dns-alias.md#prevent-dangling-dns-records)
 
-- [Quickstart: Run your first Resource Graph query using Azure PowerShell](https://docs.microsoft.com/azure/governance/resource-graph/first-query-powershell)
+- [Use a domain verification ID when adding custom domains in Azure App Service](../../app-service/app-service-web-tutorial-custom-domain.md#3-get-a-domain-verification-id)
+
+- [Quickstart: Run your first Resource Graph query using Azure PowerShell](../../governance/resource-graph/first-query-powershell.md)

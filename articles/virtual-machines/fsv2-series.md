@@ -3,7 +3,7 @@ title: Fsv2-series
 description: Specifications for the Fsv2-series VMs.
 author: brbell
 ms.service: virtual-machines
-ms.subservice: sizes
+ms.subservice: vm-sizes-compute
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
@@ -15,15 +15,15 @@ The Fsv2-series runs on the Intel® Xeon® Platinum 8272CL (Cascade Lake) proces
 
 Fsv2-series VMs feature Intel® Hyper-Threading Technology.
 
-ACU: 195 - 210
-
-Premium Storage:  Supported
-
-Premium Storage caching:  Supported
-
-Live Migration: Supported
-
-Memory Preserving Updates: Supported
+[ACU](acu.md): 195 - 210<br>
+[Premium Storage](premium-storage-performance.md): Supported<br>
+[Premium Storage caching](premium-storage-performance.md): Supported<br>
+[Live Migration](maintenance-and-updates.md): Supported<br>
+[Memory Preserving Updates](maintenance-and-updates.md): Supported<br>
+[VM Generation Support](generation-2.md): Generation 1 and 2<br>
+[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported (*Requires a minimum of 4 vCPU*)<br>
+[Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br>
+<br>
 
 | Size | vCPU's | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS/MBps (cache size in GiB) | Max uncached disk throughput: IOPS/MBps | Max NICs|Expected network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|---|

@@ -23,7 +23,7 @@ This article includes answers to frequently asked questions (FAQs) about Azure A
 ## General questions
 **Q: I manage multiple Azure AD directories. How do I switch to the one that has Azure Active Directory Premium?**
 
-To switch between different Azure AD tenants, select the currently signed-in **User Name** on the upper-right corner, and then choose the appropriate account. If the account is not listed here, select **Sign out**, and then use the global admin credentials of the directory that has Azure Active Directory Premium enabled to sign in.
+To switch between different Azure AD tenants, select the currently signed-in **User Name** on the upper-right corner, and then choose the appropriate account. If the account is not listed here, select **Sign out**, and then use the global admin credentials of the directory that has Azure Active Directory Premium (P1 or P2) enabled to sign in.
 
 **Q: What version of identity roles are supported by Azure AD Connect Health?**
 
@@ -41,8 +41,8 @@ Note that the features provided by the service may differ based on the role and 
 
 **Q: How many licenses do I need to monitor my infrastructure?**
 
-* The first Connect Health Agent requires at least one Azure AD Premium license.
-* Each additional registered agent requires 25 additional Azure AD Premium licenses.
+* The first Connect Health Agent requires at least one Azure AD Premium (P1 or P2) license.
+* Each additional registered agent requires 25 additional Azure AD Premium (P1 or P2) licenses.
 * Agent count is equivalent to the total number of agents that are registered across all monitored roles (AD FS, Azure AD Connect, and/or AD DS).
 * AAD Connect Health licensing does not require you to assign the license to specific users. You only need to have the requisite number of valid licenses.
 
@@ -123,6 +123,10 @@ You might reimage a server or create a new server with the same details (such as
 
 In this case, manually delete the entry that belongs to the older server. The data for this server should be out of date.
 
+**Q: Can I install the Azure AD Connect health agent on Windows Server Core?**
+
+No.  Installation on Server Core is not supported.
+
 ## Health Agent registration and data freshness
 
 **Q: What are common reasons for the Health Agent registration failures and how do I troubleshoot issues?**
@@ -192,6 +196,7 @@ Please use PowerShell cmdlet <i>Get-AdfsProperties -AuditLevel</i> to ensure aud
 
 **Q: When will the agent certificate be automatic renewed before expiration?**
 The agent certification will be automatic renewed **6 months** before its expiration date. If it is not renewed, please ensure the network connection of the agent is stable. Restart the agent services or update to the latest version may also solve the issue.
+
 
 
 ## Related links

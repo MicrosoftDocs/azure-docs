@@ -1,6 +1,6 @@
 ---
 title: Java app with Azure Cosmos DB Cassandra API using Java 4.0 SDK
-description: This quickstart shows how to use the Azure Cosmos DB Cassandra API to create a profile application with the Azure portal and Java 
+description: This quickstart shows how to use the Azure Cosmos DB Cassandra API to create a profile application with the Azure portal and Java 4.0 SDK.
 ms.service: cosmos-db
 author: TheovanKraay
 ms.author: thvankra
@@ -12,6 +12,7 @@ ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
 ---
 
 # Quickstart: Build a Java app to manage Azure Cosmos DB Cassandra API data (v4 Driver)
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)
@@ -35,7 +36,7 @@ In this quickstart, you create an Azure Cosmos DB Cassandra API account, and use
 
 Before you can create a document database, you need to create a Cassandra account with Azure Cosmos DB.
 
-[!INCLUDE [cosmos-db-create-dbaccount-cassandra](../../includes/cosmos-db-create-dbaccount-cassandra.md)]
+[!INCLUDE [cosmos-db-create-dbaccount-cassandra](includes/cosmos-db-create-dbaccount-cassandra.md)]
 
 ## Clone the sample application
 
@@ -214,11 +215,11 @@ Now go back to the Azure portal to get your connection string information and co
 
 ## Review SLAs in the Azure portal
 
-[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
+[!INCLUDE [cosmosdb-tutorial-review-slas](includes/cosmos-db-tutorial-review-slas.md)]
 
 ## Clean up resources
 
-[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
+[!INCLUDE [cosmosdb-delete-resource-group](includes/cosmos-db-delete-resource-group.md)]
 
 ## Next steps
 

@@ -45,7 +45,7 @@ The tools on these sites measure DNS latencies and display the resolved IP addre
 
     One of the simplest tools is WebSitePulse. Enter the URL to see DNS resolution time, First Byte, Last Byte, and other performance statistics. You can choose from three different test locations. In this example, you see that the first execution shows that DNS lookup takes 0.204 sec.
 
-    ![pulse1](./media/traffic-manager-performance-considerations/traffic-manager-web-site-pulse.png)
+    ![Screenshot that shows the "WebSitePulse" tool with the "DNS" lookup result highlighted.](./media/traffic-manager-performance-considerations/traffic-manager-web-site-pulse.png)
 
     Because the results are cached, the second test for the same Traffic Manager endpoint the DNS lookup takes 0.002 sec.
 
@@ -75,7 +75,6 @@ The tools on these sites measure DNS latencies and display the resolved IP addre
 
 [Test your Traffic Manager settings](traffic-manager-testing-settings.md)
 
-[Operations on Traffic Manager (REST API Reference)](https://go.microsoft.com/fwlink/?LinkId=313584)
+[Operations on Traffic Manager (REST API Reference)](/previous-versions/azure/reference/hh758255(v=azure.100))
 
-[Azure Traffic Manager Cmdlets](https://docs.microsoft.com/powershell/module/az.trafficmanager)
-
+[Azure Traffic Manager Cmdlets](/powershell/module/az.trafficmanager)

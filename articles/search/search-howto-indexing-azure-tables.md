@@ -1,7 +1,7 @@
 ---
-title: Search over Azure Table storage content
+title: Search over Azure Table Storage
 titleSuffix: Azure Cognitive Search
-description: Learn how to index data stored in Azure Table storage with an Azure Cognitive Search indexer.
+description: Learn how to index data stored in Azure Table Storage with an Azure Cognitive Search indexer.
 
 manager: nitinme
 author: mgottein 
@@ -12,13 +12,13 @@ ms.topic: conceptual
 ms.date: 07/11/2020
 ---
 
-# How to index tables from Azure Table storage with Azure Cognitive Search
+# How to index tables from Azure Table Storage with Azure Cognitive Search
 
-This article shows how to use Azure Cognitive Search to index data stored in Azure Table storage.
+This article shows how to use Azure Cognitive Search to index data stored in Azure Table Storage.
 
-## Set up Azure Table storage indexing
+## Set up Azure Table Storage indexing
 
-You can set up an Azure Table storage indexer by using these resources:
+You can set up an Azure Table Storage indexer by using these resources:
 
 * [Azure portal](https://ms.portal.azure.com)
 * Azure Cognitive Search [REST API](/rest/api/searchservice/Indexer-operations)
@@ -65,6 +65,8 @@ For more information on the Create Datasource API, see [Create Datasource](/rest
 
 You can provide the credentials for the table in one of these ways: 
 
+- **Managed identity connection string**: `ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.Storage/storageAccounts/<your storage account name>/;` 
+This connection string does not require an account key, but you must follow the instructions for [Setting up a connection to an Azure Storage account using a managed identity](search-howto-managed-identities-storage.md).
 - **Full access storage account connection string**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>` You can get the connection string from the Azure portal by going to the **Storage account blade** > **Settings** > **Keys** (for classic storage accounts) or **Settings** > **Access keys** (for Azure Resource Manager storage accounts).
 - **Storage account shared access signature connection string**: `TableEndpoint=https://<your account>.table.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=t&sp=rl` The shared access signature should have the list and read permissions on containers (tables in this case) and objects (table rows).
 -  **Table shared access signature**: `ContainerSharedAccessUri=https://<your storage account>.table.core.windows.net/<table name>?tn=<table name>&sv=2016-05-31&sig=<the signature>&se=<the validity end time>&sp=r` The shared access signature should have query (read) permissions on the table.

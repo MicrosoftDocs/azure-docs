@@ -7,14 +7,15 @@ author: MashaMSFT
 tags: azure-resource-manager
 ms.assetid: aa5bf144-37a3-4781-892d-e0e300913d03
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/04/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.custom: "seo-lt-2019"
+ms.custom: "seo-lt-2019, devx-track-azurepowershell"
 
 ---
 # Use Azure quickstart templates to configure an availability group for SQL Server on Azure VM
@@ -24,18 +25,23 @@ This article describes how to use the Azure quickstart templates to partially au
 
    | Template | Description |
    | --- | --- |
-   | [101-sql-vm-ag-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-ag-setup) | Creates the Windows failover cluster and joins the SQL Server VMs to it. |
-   | [101-sql-vm-aglistener-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-aglistener-setup) | Creates the availability group listener and configures the internal load balancer. This template can be used only if the Windows failover cluster was created with the **101-sql-vm-ag-setup** template. |
+   | [sql-vm-ag-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.sqlvirtualmachine/sql-vm-ag-setup) | Creates the Windows failover cluster and joins the SQL Server VMs to it. |
+   | [sql-vm-aglistener-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.sqlvirtualmachine/sql-vm-aglistener-setup) | Creates the availability group listener and configures the internal load balancer. This template can be used only if the Windows failover cluster was created with the **101-sql-vm-ag-setup** template. |
    | &nbsp; | &nbsp; |
 
 Other parts of the availability group configuration must be done manually, such as creating the availability group and creating the internal load balancer. This article provides the sequence of automated and manual steps.
+
+While this article uses the Azure Quickstart templates to configure the availability group environment, it is also possible to do so using the [Azure portal](availability-group-azure-portal-configure.md), [PowerShell or the Azure CLI](availability-group-az-commandline-configure.md), or [Manually](availability-group-manually-configure-tutorial.md) as well. 
+
+> [!NOTE]
+> It's now possible to lift and shift your availability group solution to SQL Server on Azure VMs using Azure Migrate. See [Migrate availability group](../../migration-guides/virtual-machines/sql-server-availability-group-to-sql-on-azure-vm.md) to learn more. 
  
 
 ## Prerequisites 
 To automate the setup of an Always On availability group by using quickstart templates, you must have the following prerequisites: 
 - An [Azure subscription](https://azure.microsoft.com/free/).
 - A resource group with a domain controller. 
-- One or more domain-joined [VMs in Azure running SQL Server 2016 (or later) Enterprise edition](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) that are in the same availability set or availability zone and that have been [registered with the SQL VM resource provider](sql-vm-resource-provider-register.md).  
+- One or more domain-joined [VMs in Azure running SQL Server 2016 (or later) Enterprise edition](./create-sql-vm-portal.md) that are in the same availability set or availability zone and that have been [registered with the SQL IaaS Agent extension](sql-agent-extension-manually-register-single-vm.md).  
 - Two available (not used by any entity) IP addresses: one for the internal load balancer, and one for the availability group listener within the same subnet as the availability group. If an existing load balancer is being used, you need only one available IP address.  
 
 ## Permissions
@@ -46,11 +52,11 @@ The following permissions are necessary to configure the Always On availability 
 
 
 ## Create cluster
-After your SQL Server VMs have been registered with the SQL VM resource provider, you can join your SQL Server VMs to *SqlVirtualMachineGroups*. This resource defines the metadata of the Windows failover cluster. Metadata includes the version, edition, fully qualified domain name, Active Directory accounts to manage both the cluster and SQL Server, and the storage account as the cloud witness. 
+After your SQL Server VMs have been registered with the SQL IaaS Agent extension, you can join your SQL Server VMs to *SqlVirtualMachineGroups*. This resource defines the metadata of the Windows failover cluster. Metadata includes the version, edition, fully qualified domain name, Active Directory accounts to manage both the cluster and SQL Server, and the storage account as the cloud witness. 
 
 Adding SQL Server VMs to the *SqlVirtualMachineGroups* resource group bootstraps the Windows Failover Cluster Service to create the cluster and then joins those SQL Server VMs to that cluster. This step is automated with the **101-sql-vm-ag-setup** quickstart template. You can implement it by using the following steps:
 
-1. Go to the [**101-sql-vm-ag-setup**](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-ag-setup) quickstart template. Then, select **Deploy to Azure** to open the quickstart template in the Azure portal.
+1. Go to the [**sql-vm-ag-setup**](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.sqlvirtualmachine/sql-vm-ag-setup) quickstart template. Then, select **Deploy to Azure** to open the quickstart template in the Azure portal.
 1. Fill out the required fields to configure the metadata for the Windows failover cluster. You can leave the optional fields blank.
 
    The following table shows the necessary values for the template: 
@@ -78,7 +84,11 @@ Adding SQL Server VMs to the *SqlVirtualMachineGroups* resource group bootstraps
 >[!NOTE]
 > Credentials provided during template deployment are stored only for the length of the deployment. After deployment finishes, those passwords are removed. You'll be asked to provide them again if you add more SQL Server VMs to the cluster. 
 
+## Configure quorum
 
+Although the disk witness is the most resilient quorum option, it requires an Azure shared disk which imposes some limitations to the availability group. As such, the cloud witness is the recommended quorum solution for clusters hosting availability groups for SQL Server on Azure VMs. 
+
+If you have an even number of votes in the cluster, configure the [quorum solution](hadr-cluster-quorum-configure-how-to.md) that best suits your business needs. For more information, see [Quorum with SQL Server VMs](hadr-windows-server-failover-cluster-overview.md#quorum). 
 
 ## Validate cluster 
 
@@ -98,7 +108,10 @@ Manually create the availability group as you normally would, by using [SQL Serv
 > Do *not* create a listener at this time, because the **101-sql-vm-aglistener-setup**  quickstart template does that automatically in step 4. 
 
 ## Create load balancer
-The Always On availability group listener requires an internal instance of Azure Load Balancer. The internal load balancer provides a “floating” IP address for the availability group listener that allows for faster failover and reconnection. If the SQL Server VMs in an availability group are part of the same availability set, you can use a Basic load balancer. Otherwise, you need to use a Standard load balancer. 
+
+[!INCLUDE [sql-ag-use-dnn-listener](../../includes/sql-ag-use-dnn-listener.md)]
+
+The Always On availability group listener requires an internal instance of Azure Load Balancer. The internal load balancer provides a "floating" IP address for the availability group listener that allows for faster failover and reconnection. If the SQL Server VMs in an availability group are part of the same availability set, you can use a Basic load balancer. Otherwise, you need to use a Standard load balancer. 
 
 > [!IMPORTANT]
 > The internal load balancer should be in the same virtual network as the SQL Server VM instances. 
@@ -132,7 +145,7 @@ You just need to create the internal load balancer. In step 4, the **101-sql-vm-
 
 ## Create listener 
 
-Create the availability group listener and configure the internal load balancer automatically by using the **101-sql-vm-aglistener-setup**  quickstart template. The template provisions the Microsoft.SqlVirtualMachine/SqlVirtualMachineGroups/AvailabilityGroupListener resource. The  **101-sql-vm-aglistener-setup** quickstart template, via the SQL VM resource provider, does the following actions:
+Create the availability group listener and configure the internal load balancer automatically by using the **101-sql-vm-aglistener-setup**  quickstart template. The template provisions the Microsoft.SqlVirtualMachine/SqlVirtualMachineGroups/AvailabilityGroupListener resource. The  **101-sql-vm-aglistener-setup** quickstart template, via the SQL IaaS Agent extension, does the following actions:
 
 - Creates a new frontend IP resource (based on the IP address value provided during deployment) for the listener. 
 - Configures the network settings for the cluster and the internal load balancer. 
@@ -144,7 +157,7 @@ Create the availability group listener and configure the internal load balancer 
    
    
 To configure the internal load balancer and create the availability group listener, do the following:
-1. Go to the [101-sql-vm-aglistener-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-aglistener-setup) quickstart template and select **Deploy to Azure** to start the quickstart template in the Azure portal.
+1. Go to the [sql-vm-aglistener-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.sqlvirtualmachine/sql-vm-aglistener-setup) quickstart template and select **Deploy to Azure** to start the quickstart template in the Azure portal.
 1. Fill out the required fields to configure the internal load balancer, and create the availability group listener. You can leave the optional fields blank. 
 
    The following table shows the necessary values for the template: 
@@ -170,9 +183,9 @@ To configure the internal load balancer and create the availability group listen
 >If your deployment fails halfway through, you'll need to manually [remove the newly created listener](#remove-listener) by using PowerShell before you redeploy the **101-sql-vm-aglistener-setup** quickstart template. 
 
 ## Remove listener
-If you later need to remove the availability group listener that the template configured, you must go through the SQL VM resource provider. Because the listener is registered through the SQL VM resource provider, just deleting it via SQL Server Management Studio is insufficient. 
+If you later need to remove the availability group listener that the template configured, you must go through the SQL IaaS Agent extension. Because the listener is registered through the SQL IaaS Agent extension, just deleting it via SQL Server Management Studio is insufficient. 
 
-The best method is to delete it through the SQL VM resource provider by using the following code snippet in PowerShell. Doing so removes the availability group listener metadata from the SQL VM resource provider. It also physically deletes the listener from the availability group. 
+The best method is to delete it through the SQL IaaS Agent extension by using the following code snippet in PowerShell. Doing so removes the availability group listener metadata from the SQL IaaS Agent extension. It also physically deletes the listener from the availability group. 
 
 ```PowerShell
 # Remove the availability group listener
@@ -184,7 +197,7 @@ Remove-AzResource -ResourceId '/subscriptions/<SubscriptionID>/resourceGroups/<r
 This section discusses some known issues and their possible resolution. 
 
 **Availability group listener for availability group '\<AG-Name>' already exists**
-The selected availability group used in the Azure quickstart template for the availability group listener already contains a listener. Either it is physically within the availability group, or its metadata remains within the SQL VM resource provider. Remove the listener by using [PowerShell](#remove-listener) before redeploying the **101-sql-vm-aglistener-setup** quickstart template. 
+The selected availability group used in the Azure quickstart template for the availability group listener already contains a listener. Either it is physically within the availability group, or its metadata remains within the SQL IaaS Agent extension. Remove the listener by using [PowerShell](#remove-listener) before redeploying the **101-sql-vm-aglistener-setup** quickstart template. 
 
 **Connection only works from primary replica**
 This behavior is likely from a failed **101-sql-vm-aglistener-setup** template deployment that has left the configuration of the internal load balancer in an inconsistent state. Verify that the backend pool lists the availability set, and that rules exist for the health probe and for the load-balancing rules. If anything is missing, the configuration of the internal load balancer is an inconsistent state. 
@@ -192,7 +205,7 @@ This behavior is likely from a failed **101-sql-vm-aglistener-setup** template d
 To resolve this behavior, remove the listener by using [PowerShell](#remove-listener), delete the internal load balancer via the Azure portal, and start again at step 3. 
 
 **BadRequest - Only SQL virtual machine list can be updated**
-This error might occur when you're deploying the **101-sql-vm-aglistener-setup** template if the listener was deleted via SQL Server Management Studio (SSMS), but was not deleted from the SQL VM resource provider. Deleting the listener via SSMS does not remove the metadata of the listener from the SQL VM resource provider. The listener must be deleted from the resource provider through [PowerShell](#remove-listener). 
+This error might occur when you're deploying the **101-sql-vm-aglistener-setup** template if the listener was deleted via SQL Server Management Studio (SSMS), but was not deleted from the SQL IaaS Agent extension. Deleting the listener via SSMS does not remove the metadata of the listener from the SQL IaaS Agent extension. The listener must be deleted from the resource provider through [PowerShell](#remove-listener). 
 
 **Domain account does not exist**
 This error can have two causes. Either the specified domain account doesn't exist, or it's missing the [User Principal Name (UPN)](/windows/desktop/ad/naming-properties#userprincipalname) data. The **101-sql-vm-ag-setup** template expects a domain account in the UPN form (that is, user@domain.com), but some domain accounts might be missing it. This typically happens when a local user has been migrated to be the first domain administrator account when the server was promoted to a domain controller, or when a user was created through PowerShell. 
@@ -214,13 +227,10 @@ After you make these changes, try to deploy the Azure quickstart template once m
 
 ## Next steps
 
-For more information, see the following articles: 
+To learn more, see:
 
 * [Overview of SQL Server VMs](sql-server-on-azure-vm-iaas-what-is-overview.md)
-* [FAQ for SQL Server VMs](frequently-asked-questions-faq.md)
+* [FAQ for SQL Server VMs](frequently-asked-questions-faq.yml)
 * [Pricing guidance for SQL Server VMs](pricing-guidance.md)
 * [Release notes for SQL Server VMs](../../database/doc-changes-updates-release-notes.md)
 * [Switching licensing models for a SQL Server VM](licensing-model-azure-hybrid-benefit-ahb-change.md)
-
-
-

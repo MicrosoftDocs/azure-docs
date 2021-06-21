@@ -9,13 +9,13 @@ ms.date: 05/08/2020
 ms.author: yolasors
 ---
 
-# Review pull requests in pre-production environments in Azure Static Web Apps Preview
+# Review pull requests in pre-production environments in Azure Static Web Apps
 
 This article demonstrates how to use pre-production environments to review changes to applications deployed with [Azure Static Web Apps](overview.md).
 
 A pre-production (staging) environment is a fully-functional staged version of your application that includes changes not available in production.
 
-Azure Static Web Apps generates a GitHub Actions workflow in the repository. When a a pull request is created against a branch that the workflow watches, the pre-production environment is built. The pre-production environment stages the app, enables you to perform reviews before pushing to production.
+Azure Static Web Apps generates a GitHub Actions workflow in the repository. When a pull request is created against a branch that the workflow watches, the pre-production environment is built. The pre-production environment stages the app, enables you to perform reviews before pushing to production.
 
 Multiple pre-production environments can co-exist at the same time when using Azure Static Web Apps. Each time you create a pull request against the watched branch, a staged version with your changes is deployed to a distinct pre-production environment.
 
@@ -28,7 +28,7 @@ There are many benefits of using pre-production environments. For example, you c
 - Perform sanity checks before deploying to production.
 
 > [!NOTE]
-> During preview, a [maximum of only one staging environment](quotas.md) is allowed at a time.
+> Pull requests and pre-production environments are currently only supported in GitHub Actions deployments.
 
 ## Prerequisites
 
@@ -99,12 +99,16 @@ To verify the changes in production,  open your production URL to load the live 
 
 ## Limitations
 
-Staged versions of your application are currently accessible publicly by their URL, even if your GitHub repository is private.
+- Staged versions of your application are currently accessible publicly by their URL, even if your GitHub repository is private.
 
-> [!WARNING]
-> Be careful when publishing sensitive content to staged versions, as access to pre-production environments are not restricted.
+    > [!WARNING]
+    > Be careful when publishing sensitive content to staged versions, as access to pre-production environments are not restricted.
 
-The number of pre-production environments available for each app deployed with Static Web Apps depends of the SKU tier you are using. For example, with the Free tier you can have 1 pre-production environment in addition to the production environment.
+- The number of pre-production environments available for each app deployed with Static Web Apps depends of the [hosting plan](plans.md) you are using. For example, with the Free tier you can have 3 pre-production environments in addition to the production environment.
+
+- Pre-production environments are not geo-distributed.
+
+- Currently, only GitHub Actions deployments support pre-production environments.
 
 ## Next steps
 

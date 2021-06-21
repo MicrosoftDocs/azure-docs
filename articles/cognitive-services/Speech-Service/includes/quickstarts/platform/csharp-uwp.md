@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 10/10/2019
+ms.date: 10/15/2020
 ms.author: erhopf
 ---
 
@@ -23,13 +23,12 @@ This guide shows how to install the [Speech SDK](~/articles/cognitive-services/s
 
 This quickstart requires:
 
+* On Windows, you need the [Microsoft Visual C++ Redistributable for Visual Studio 2019](https://support.microsoft.com/en-us/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0) for your platform. Installing this for the first time may require a restart.
 * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) (any edition)
 
 ## Create a Visual Studio project and install the Speech SDK
 
 [!INCLUDE [](~/includes/cognitive-services-speech-service-quickstart-uwp-create-proj.md)]
-
-You can now move on to [Next steps](#next-steps) below.
 
 ## Next steps
 

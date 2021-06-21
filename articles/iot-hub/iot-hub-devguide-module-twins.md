@@ -1,12 +1,12 @@
 ---
 title: Understand Azure IoT Hub module twins | Microsoft Docs
 description: Developer guide - use module twins to synchronize state and configuration data between IoT Hub and your devices
-author: ash2017
+author: nehsin
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 06/29/2020
-ms.author: asrastog
+ms.date: 09/29/2020
+ms.author: nehsin
 ms.custom: ['Role: Cloud Development', 'Role: IoT Device']
 ---
 
@@ -234,7 +234,7 @@ Tags, desired properties, and reported properties are JSON objects with the foll
 
 * **Keys**: All keys in JSON objects are UTF-8 encoded, case-sensitive, and up-to 1 KB in length. Allowed characters exclude UNICODE control characters (segments C0 and C1), and `.`, `$`, and SP.
 
-* **Values**: All values in JSON objects can be of the following JSON types: boolean, number, string, object. Arrays are not allowed.
+* **Values**: All values in JSON objects can be of the following JSON types: boolean, number, string, object. Arrays are also supported.
 
     * Integers can have a minimum value of -4503599627370496 and a maximum value of 4503599627370495.
 

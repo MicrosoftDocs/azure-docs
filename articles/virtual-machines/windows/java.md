@@ -1,9 +1,9 @@
 ---
 title: Create and Manage an Azure Virtual Machine Using Java 
 description: Use Java and Azure Resource Manager to deploy a virtual machine and all its supporting resources.
-services: virtual-machines-windows
+services: virtual-machines
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 07/17/2017
@@ -13,7 +13,7 @@ ms.author: cynthn
 ---
 # Create and manage Windows VMs in Azure using Java
 
-An [Azure Virtual Machine](overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (VM) needs several supporting Azure resources. This article covers creating, managing, and deleting VM resources using Java. You learn how to:
+An [Azure Virtual Machine](overview.md) (VM) needs several supporting Azure resources. This article covers creating, managing, and deleting VM resources using Java. You learn how to:
 
 > [!div class="checklist"]
 > * Create a Maven project
@@ -28,7 +28,7 @@ It takes about 20 minutes to do these steps.
 
 ## Create a Maven project
 
-1. If you haven't already done so, install [Java](https://aka.ms/azure-jdks).
+1. If you haven't already done so, install [Java](/azure/developer/java/fundamentals/java-jdk-long-term-support).
 2. Install [Maven](https://maven.apache.org/download.cgi).
 3. Create a new folder and the project:
     
@@ -283,7 +283,7 @@ input.nextLine();
 ```
 
 > [!NOTE]
-> This tutorial creates a virtual machine running a version of the Windows Server operating system. To learn more about selecting other images, see [Navigate and select Azure virtual machine images with Windows PowerShell and the Azure CLI](../linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> This tutorial creates a virtual machine running a version of the Windows Server operating system. To learn more about selecting other images, see [Navigate and select Azure virtual machine images with Windows PowerShell and the Azure CLI](../linux/cli-ps-findimage.md).
 > 
 >
 

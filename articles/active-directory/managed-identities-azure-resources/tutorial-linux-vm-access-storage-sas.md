@@ -6,14 +6,14 @@ documentationcenter: ''
 author: barclayn
 manager: daveba
 editor: daveba
-
+ms.custom: subject-rbac-steps
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/20/2017
+ms.date: 05/24/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ---
@@ -65,19 +65,15 @@ Later we will upload and download a file to the new storage account. Because fil
 
     ![Create storage container](./media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
-## Grant your VM's system-assigned managed identity access to use a storage SAS 
+## Grant your VM's system-assigned managed identity access to use a storage SAS
 
-Azure Storage does not natively support Azure AD authentication.  However, you can use your VM's system-assigned managed identity to retrieve a storage SAS from the Resource Manager, then use the SAS to access storage.  In this step, you grant your VM's system-assigned managed identity access to your storage account SAS.   
+Azure Storage does not natively support Azure AD authentication.  However, you can use your VM's system-assigned managed identity to retrieve a storage SAS from Resource Manager, then use the SAS to access storage.  In this step, you grant your VM's system-assigned managed identity access to your storage account SAS. Grant access by assigning the [Storage Account Contributor](../../role-based-access-control/built-in-roles.md#storage-account-contributor) role to the managed-identity at the scope of the resource group that contains your storage account.
+ 
+For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).”
 
-1. Navigate back to your newly created storage account.
-2. Click the **Access control (IAM)** link in the left panel.  
-3. Click **+ Add role assignment** on top of the page to add a new role assignment for your VM
-4. Set **Role** to "Storage Account Contributor", on the right side of the page. 
-5. In the next dropdown, set **Assign access to** the resource "Virtual Machine".  
-6. Next, ensure the proper subscription is listed in **Subscription** dropdown, then set **Resource Group** to "All resource groups".  
-7. Finally, under **Select** choose your Linux Virtual Machine in the dropdown, then click **Save**.  
+>[!NOTE]
+> For more information on the various roles that you can use to grant permissions to storage review [Authorize access to blobs and queues using Azure Active Directory](../../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights)
 
-    ![Alt image text](./media/msi-tutorial-linux-vm-access-storage/msi-storage-role-sas.png)
 
 ## Get an access token using the VM's identity and use it to call Azure Resource Manager
 
@@ -151,7 +147,7 @@ echo "This is a test file." > test.txt
 
 Next, authenticate with the CLI `az storage` command using the SAS credential, and upload the file to the blob container. For this step, you will need to [install the latest Azure CLI](/cli/azure/install-azure-cli) on your VM, if you haven't already.
 
-```azurecli-interactive
+```azurecli
  az storage blob upload --container-name 
                         --file 
                         --name
@@ -173,7 +169,7 @@ Additionally, you can download the file using the Azure CLI and authenticating w
 
 Request: 
 
-```azurecli-interactive
+```azurecli
 az storage blob download --container-name
                          --file 
                          --name 

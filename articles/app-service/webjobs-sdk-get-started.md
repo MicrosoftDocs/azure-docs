@@ -261,13 +261,13 @@ In this section, you build and run the project locally and trigger the function 
 
 1. Enter *queue* as the name for the queue, and then select **OK**.
 
-   ![Create queue](./media/webjobs-sdk-get-started/create-queue.png)
+   ![Screenshot that shows where you create the queue and name it "queue". ](./media/webjobs-sdk-get-started/create-queue.png)
 
 1. Right-click the node for the new queue, and then select **View Queue**.
 
 1. Select the **Add Message** icon.
 
-   ![Create queue](./media/webjobs-sdk-get-started/create-queue-message.png)
+   ![Screenshot that highlights the Add Message icon.](./media/webjobs-sdk-get-started/create-queue-message.png)
 
 1. In the **Add Message** dialog, enter *Hello World!* as the **Message text**, and then select **OK**. There is now a message in the queue.
 
@@ -308,7 +308,7 @@ In this section, you do the following tasks to set up Application Insights loggi
 
 ### Create App Service app and Application Insights instance
 
-1. If you don't already have an App Service app that you can use, [create one](quickstart-dotnet-framework.md). When you create your app, you can also create a connected Application Insights resource. When you do this, the `APPINSIGHTS_INSTRUMENTATIONKEY` is set for you in your app.
+1. If you don't already have an App Service app that you can use, [create one](./quickstart-dotnetcore.md?tabs=netframework48). When you create your app, you can also create a connected Application Insights resource. When you do this, the `APPINSIGHTS_INSTRUMENTATIONKEY` is set for you in your app.
 
 1. If you don't already have an Application Insights resource that you can use, [create one](../azure-monitor/app/create-new-resource.md ). Set **Application type** to **General**, and skip the sections that follow **Copy the instrumentation key**.
 

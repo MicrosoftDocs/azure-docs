@@ -124,7 +124,7 @@ If you can only get the response access token, you can decode it (as shown above
 HTTP 403 means that the request was authenticated (it knows the requesting identity) but the identity does not have permission to access the requested resource. There are two causes:
 
 - There is no access policy for the identity.
-- The IP address of the requesting resource is not whitelisted in the key vault's firewall settings.
+- The IP address of the requesting resource is not approved in the key vault's firewall settings.
 
 HTTP 403 often occurs when the customer's application is not using the client ID that the customer thinks it is. That usually means that the access policies is not correctly set up for the actual calling identity.
 
@@ -162,5 +162,3 @@ Throttling is worked around using these techniques:
 - If the number of requests cannot be reduced by caching and timed backoff does not work, then consider splitting the keys up into multiple Key Vaults. The service limit for a single subscription is 5x the individual Key Vault limit. If using more than 5 Key Vaults, consideration should be given to using multiple subscriptions. 
 
 Detailed guidance including request to increase limits, can be find here: [Key Vault throttling guidance](overview-throttling.md)
-
-

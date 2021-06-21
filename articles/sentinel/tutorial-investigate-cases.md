@@ -1,4 +1,4 @@
-﻿---
+---
 title: Investigate incidents with Azure Sentinel| Microsoft Docs
 description: In this tutorial, learn how to use Azure Sentinel to create advanced alert rules that generate incidents you can assign and investigate.
 services: sentinel
@@ -13,17 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/23/2019
+ms.date: 04/08/2021
 ms.author: yelevin
 
 ---
 # Tutorial: Investigate incidents with Azure Sentinel
 
 > [!IMPORTANT]
-> The investigation graph is currently in public preview.
-> This feature is provided without a service level agreement, and it's not recommended for production workloads.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
+> The investigation graph is now in **General Availability**.
 
 This tutorial helps you investigate incidents with Azure Sentinel. After you connected your data sources to Azure Sentinel, you want to be notified when something suspicious happens. To enable you to do this, Azure Sentinel lets you create advanced alert rules, that generate incidents that you can assign and investigate.
 
@@ -38,7 +35,7 @@ An incident can include multiple alerts. It's an aggregation of all the relevant
 ## Prerequisites
 - You'll only be able to investigate the incident if you used the entity mapping fields when you set up your analytics rule. The investigation graph requires that your original incident includes entities.
 
-- If you have a guest user that needs to assign incidents, the user must be assigned the [Directory Reader](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) role in your Azure AD tenant. Regular (non-guest) users have this role assigned by default.
+- If you have a guest user that needs to assign incidents, the user must be assigned the [Directory Reader](../active-directory/roles/permissions-reference.md#directory-readers) role in your Azure AD tenant. Regular (non-guest) users have this role assigned by default.
 
 ## How to investigate incidents
 
@@ -50,9 +47,15 @@ An incident can include multiple alerts. It's an aggregation of all the relevant
 
 1. To begin an investigation, select a specific incident. On the right, you can see detailed information for the incident including its severity, summary of the number of entities involved, the raw events that triggered this incident, and the incident’s unique ID.
 
-1. To view more details about the alerts and entities in the incident, select **View full details** in the incident page and review the relevant tabs that summarize the incident information. In the **Alerts** tab, review the alert itself. You can see all relevant information about the alert – the query that triggered the alert, the number of results returned per query, and the ability to run playbooks on the alerts. To drill down even further into the incident, select the number of **Events**. This opens the query that generated the results and the events that triggered the alert in Log Analytics. In the **Entities** tab, you can see all the entities that you mapped as part of the alert rule definition.
+1. To view more details about the alerts and entities in the incident, select **View full details** in the incident page and review the relevant tabs that summarize the incident information. 
 
-    ![View alert details](media/tutorial-investigate-cases/alert-details.png)
+    ![View alert details](media/tutorial-investigate-cases/incident-timeline.png)
+
+    For example:
+
+    - In the **Timeline** tab, review the timeline of alerts and bookmarks in the incident, which can help you reconstruct the timeline of attacker activity.
+    - In the **Alerts** tab, review the alert itself. You can see all relevant information about the alert – the query that triggered the alert, the number of results returned per query, and the ability to run playbooks on the alerts. To drill down even further into the incident, select the number of **Events**. This opens the query that generated the results and the events that triggered the alert in Log Analytics. 
+    - In the **Entities** tab, you can see all the entities that you mapped as part of the alert rule definition.
 
 1. If you're actively investigating an incident, it's a good idea to set the incident's status to **In progress** until you close it.
 
@@ -78,10 +81,14 @@ To use the investigation graph:
 
 1. Select an incident, then select **Investigate**. This takes you to the investigation graph. The graph provides an illustrative map of the entities directly connected to the alert and each resource connected further.
 
-   > [!IMPORTANT] 
-   > You'll only be able to investigate the incident if you used the entity mapping fields when you set up your analytics rule. The investigation graph requires that your original incident includes entities.
 
-   ![View map](media/tutorial-investigate-cases/map1.png)
+    [ ![View map.](media/tutorial-investigate-cases/investigation-map.png) ](media/tutorial-investigate-cases/investigation-map.png#lightbox)
+
+   > [!IMPORTANT] 
+   > - You'll only be able to investigate the incident if you used the entity mapping fields when you set up your analytics rule. The investigation graph requires that your original incident includes entities.
+   >
+   > - Azure Sentinel currently supports investigation of **incidents up to 30 days old**.
+
 
 1. Select an entity to open the **Entities** pane so you can review information on that entity.
 
@@ -115,7 +122,9 @@ Once you have resolved a particular incident (for example, when your investigati
 - False Positive - incorrect data
 - Undetermined
 
-:::image type="content" source="media/tutorial-investigate-cases/closing-reasons-dropdown.png" alt-text="{alt-text}":::
+:::image type="content" source="media/tutorial-investigate-cases/closing-reasons-dropdown.png" alt-text="Screenshot that highlights the classifications available in the Select classification list.":::
+
+For more information about false positives and benign positives, see [Handle false positives in Azure Sentinel](false-positives.md).
 
 After choosing the appropriate classification, add some descriptive text in the **Comment** field. This will be useful in the event you need to refer back to this incident. Click **Apply** when you’re done, and the incident will be closed.
 

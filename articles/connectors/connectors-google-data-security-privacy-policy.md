@@ -35,7 +35,7 @@ Under this policy, when you use a Gmail consumer account, you can use the Gmail 
 
 * Google services: Gmail, Google Calendar, Google Contacts, Google Drive, Google Sheets, and Google Tasks
 
-* Approved Microsoft services: Dynamics 365, Excel Online, Microsoft Teams, Office 365, OneDrive, and SharePoint Online
+* Approved Microsoft services: Dynamics 365, Excel Online, Microsoft Teams, Microsoft 365, OneDrive, and SharePoint Online
 
 * Connectors for customer-managed data sources: FTP, RSS, SFTP, SMTP, and SQL Server
 

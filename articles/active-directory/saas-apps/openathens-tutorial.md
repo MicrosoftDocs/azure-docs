@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/24/2019
+ms.date: 02/03/2021
 ms.author: jeedes
 ---
 
@@ -20,8 +20,6 @@ In this tutorial, you'll learn how to integrate OpenAthens with Azure Active Dir
 * Control in Azure AD who has access to OpenAthens.
 * Enable your users to be automatically signed-in to OpenAthens with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
-
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## Prerequisites
 
@@ -37,22 +35,22 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 * OpenAthens supports **IDP** initiated SSO
 * OpenAthens supports **Just In Time** user provisioning
 
-## Adding OpenAthens from the gallery
+## Add OpenAthens from the gallery
 
 To configure the integration of OpenAthens into Azure AD, you need to add OpenAthens from the gallery to your list of managed SaaS apps.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
+1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
 1. On the left navigation pane, select the **Azure Active Directory** service.
 1. Navigate to **Enterprise Applications** and then select **All Applications**.
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **OpenAthens** in the search box.
 1. Select **OpenAthens** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-## Configure and test Azure AD single sign-on for OpenAthens
+## Configure and test Azure AD SSO for OpenAthens
 
 Configure and test Azure AD SSO with OpenAthens using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in OpenAthens.
 
-To configure and test Azure AD SSO with OpenAthens, complete the following building blocks:
+To configure and test Azure AD SSO with OpenAthens, perform the following steps:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
     * **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
@@ -65,9 +63,9 @@ To configure and test Azure AD SSO with OpenAthens, complete the following build
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
-1. In the [Azure portal](https://portal.azure.com/), on the **OpenAthens** application integration page, find the **Manage** section and select **single sign-on**.
+1. In the Azure portal, on the **OpenAthens** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
@@ -112,15 +110,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
 1. In the applications list, select **OpenAthens**.
 1. In the app's overview page, find the **Manage** section and select **Users and groups**.
-
-   ![The "Users and groups" link](common/users-groups-blade.png)
-
 1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
-
-	![The Add User link](common/add-assign-user.png)
-
 1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
-1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
+1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
 ## Configure OpenAthens SSO
@@ -129,23 +121,23 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Select **Connections** from the list under the **Management** tab.
 
-	![Configure single sign-on](./media/openathens-tutorial/tutorial_openathens_application1.png)
+	![Screenshot that shows the "OpenAthens" company site page with "Connections" selected from the "Management" tab.](./media/openathens-tutorial/connections.png)
 
 1. Select **SAML 1.1/2.0**, and then select the **Configure** button.
 
-	![Configure single sign-on](./media/openathens-tutorial/tutorial_openathens_application2.png)
+	![Screenshot that shows the "Select local authentication system type." dialog with "S A M L 1.1/2.0" and the "Configure" button selected.](./media/openathens-tutorial/saml.png)
 
 1. To add the configuration, select the **Browse** button to upload the metadata .xml file that you downloaded from the Azure portal, and then select **Add**.
 
-	![Configure single sign-on](./media/openathens-tutorial/tutorial_openathens_application3.png)
+	![Screenshot that shows the "Add S A M L authentication system." dialog with the "Browse" action and "Add button selected.](./media/openathens-tutorial/configure.png)
 
 1. Perform the following steps under the **Details** tab.
 
-	![Configure single sign-on](./media/openathens-tutorial/tutorial_openathens_application4.png)
+	![Configure single sign-on](./media/openathens-tutorial/add.png)
 
 	a. In **Display name mapping**, select **Use attribute**.
 
-	b. In the **Display name attribute** text box, enter the value `http://schema.microsoft.com/identity/claims/displayname`.
+	b. In the **Display name attribute** text box, enter the value `http://schemas.microsoft.com/identity/claims/displayname`.
 
 	c. In **Unique user mapping**, select **Use attribute**.
 
@@ -159,7 +151,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     h. From the **</> Relying Party** tab, copy the **Metadata URL** and open this in the browser to download the **SP metadata XML** file. Upload this SP metadata file on the **Basic SAML Configuration** section in Azure AD.
 
-    ![Configure single sign-on](./media/openathens-tutorial/tutorial_openathens_application5.png)
+    ![Screenshot that shows the "Relying party" tab selected and the "Metadata U R L" highlighted.](./media/openathens-tutorial/metadata.png)
 
 ### Create OpenAthens test user
 
@@ -167,16 +159,12 @@ In this section, a user called Britta Simon is created in OpenAthens. OpenAthens
 
 ## Test SSO
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+In this section, you test your Azure AD single sign-on configuration with following options.
 
-When you click the OpenAthens tile in the Access Panel, you should be automatically signed in to the OpenAthens for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Click on Test this application in Azure portal and you should be automatically signed in to the OpenAthens for which you set up the SSO.
 
-## Additional resources
+* You can use Microsoft My Apps. When you click the OpenAthens tile in the My Apps, you should be automatically signed in to the OpenAthens for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+## Next steps
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
-- [Try OpenAthens with Azure AD](https://aad.portal.azure.com/)
+Once you configure OpenAthens you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

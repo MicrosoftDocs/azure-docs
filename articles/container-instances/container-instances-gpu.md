@@ -128,7 +128,7 @@ Another way to deploy a container group with GPU resources is by using a [Resour
     },
     "variables": {
       "containername": "gpucontainer",
-      "containerimage": "microsoft/samples-tf-mnist-demo:gpu"
+      "containerimage": "mcr.microsoft.com/azuredocs/samples-tf-mnist-demo:gpu"
     },
     "resources": [
       {
@@ -231,8 +231,8 @@ az container delete --resource-group myResourceGroup --name gpucontainergrouprm 
 [azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest
 
 <!-- LINKS - Internal -->
-[az-container-create]: /cli/azure/container#az-container-create
-[az-container-show]: /cli/azure/container#az-container-show
-[az-container-logs]: /cli/azure/container#az-container-logs
-[az-container-show]: /cli/azure/container#az-container-show
-[az-deployment-group-create]: /cli/azure/deployment/group#az-deployment-group-create
+[az-container-create]: /cli/azure/container#az_container_create
+[az-container-show]: /cli/azure/container#az_container_show
+[az-container-logs]: /cli/azure/container#az_container_logs
+[az-container-show]: /cli/azure/container#az_container_show
+[az-deployment-group-create]: /cli/azure/deployment/group#az_deployment_group_create

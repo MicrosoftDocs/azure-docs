@@ -25,6 +25,8 @@ Unless the steps described in this article are followed, ILB ASEs are not automa
 
 Zonal ILB ASEs can be created in any of the following regions:
 
+- Australia East
+- Canada Central
 - Central US
 - East US
 - East US 2

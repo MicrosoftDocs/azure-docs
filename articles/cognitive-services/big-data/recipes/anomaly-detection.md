@@ -15,7 +15,7 @@ ms.custom: devx-track-python
 
 # Recipe: Predictive maintenance with the Cognitive Services for Big Data
 
-This recipe shows how you can use Azure Synapse Analytics and Cognitive Services on Spark for predictive maintenance of IoT devices. We'll follow along with the [CosmosDB and Synapse Link](https://github.com/Azure-Samples/cosmosdb-synapse-link-samples) sample. To keep things simple, in this recipe we'll read the data straight from a CSV file rather than getting streamed data through CosmosDB and Synapse Link. We strongly encourage you to look over the Synapse Link sample.
+This recipe shows how you can use Azure Synapse Analytics and Cognitive Services on Apache Spark for predictive maintenance of IoT devices. We'll follow along with the [CosmosDB and Synapse Link](https://github.com/Azure-Samples/cosmosdb-synapse-link-samples) sample. To keep things simple, in this recipe we'll read the data straight from a CSV file rather than getting streamed data through CosmosDB and Synapse Link. We strongly encourage you to look over the Synapse Link sample.
 
 ## Hypothetical scenario
 
@@ -26,13 +26,13 @@ There could be outliers in the data in random frequency. In those situations, RP
 ## Prerequisites
 
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
-* [Azure Synapse workspace](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-workspace) configured with a [Spark pool](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-apache-spark-pool)
+* [Azure Synapse workspace](../../../synapse-analytics/quickstart-create-workspace.md) configured with a [serverless Apache Spark pool](../../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md)
 
 ## Setup
 
 ### Create an Anomaly Detector resource
 
-Azure Cognitive Services are represented by Azure resources that you subscribe to. Create a resource for Translator using the [Azure portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) or [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli). You can also:
+Azure Cognitive Services are represented by Azure resources that you subscribe to. Create a resource for Translator using the [Azure portal](../../cognitive-services-apis-create-account.md) or [Azure CLI](../../cognitive-services-apis-create-account-cli.md). You can also:
 
 - View an existing resource in the  [Azure portal](https://portal.azure.com/).
 
@@ -55,7 +55,7 @@ assert (location is not None)
 Next, let's read the IoTSignals file into a DataFrame. Open a new notebook in your Synapse workspace and create a DataFrame from the file.
 
 ```python
-df_device_info = spark.read.csv("wasbs://publicwasb@mmlspark.blob.core.windows.net/iot/IoTSignals.csv", header=True, inferSchema=True)
+df_signals = spark.read.csv("wasbs://publicwasb@mmlspark.blob.core.windows.net/iot/IoTSignals.csv", header=True, inferSchema=True)
 ```
 
 ### Run anomaly detection using Cognitive Services on Spark

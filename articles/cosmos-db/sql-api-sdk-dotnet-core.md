@@ -6,13 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 08/12/2020
+ms.date: 06/15/2021
 ms.author: anfeldma
 ms.custom: devx-track-dotnet
 
 
 ---
 # Azure Cosmos DB .NET Core SDK v2 for SQL API: Release notes and resources
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 > [!div class="op_single_selector"]
 > * [.NET SDK v3](sql-api-sdk-dotnet-standard.md)
 > * [.NET SDK v2](sql-api-sdk-dotnet.md)
@@ -24,7 +25,8 @@ ms.custom: devx-track-dotnet
 > * [Sync Java SDK v2](sql-api-sdk-java.md)
 > * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
 > * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
-> * [Spark Connector](sql-api-sdk-java-spark.md)
+> * [Spark 3 OLTP Connector](sql-api-sdk-java-spark-v3.md)
+> * [Spark 2 OLTP Connector](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api
 > * [REST Resource Provider](/azure/azure-resource-manager/management/azure-services-resource-providers)
@@ -32,16 +34,14 @@ ms.custom: devx-track-dotnet
 > * [Bulk executor - .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Bulk executor - Java](sql-api-sdk-bulk-executor-java.md)
 
-| |  |
+| | Links |
 |---|---|
 |**SDK download**| [NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/)|
-|**API documentation**|[.NET API reference documentation](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)|
+|**API documentation**|[.NET API reference documentation](/dotnet/api/overview/azure/cosmosdb)|
 |**Samples**|[.NET code samples](sql-api-dotnet-samples.md)|
 |**Get started**|[Get started with the Azure Cosmos DB .NET](sql-api-sdk-dotnet.md)|
 |**Web app tutorial**|[Web application development with Azure Cosmos DB](sql-api-dotnet-application.md)|
 |**Current supported framework**|[.NET Standard 1.6 and .NET Standard 1.5](https://www.nuget.org/packages/NETStandard.Library)|
-
-## Release Notes
 
 > [!NOTE]
 > If you are using .NET Core, please see the latest version 3.x of the [.NET SDK](sql-api-sdk-dotnet-standard.md), which targets .NET Standard.

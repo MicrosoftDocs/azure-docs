@@ -3,16 +3,16 @@ title: Elastic Database Jobs (preview)
 description: 'Configure Elastic Database Jobs (preview) to run Transact-SQL (T-SQL) scripts across a set of one or more databases in Azure SQL Database'
 services: sql-database
 ms.service: sql-database
-ms.subservice: scale-out
+ms.subservice: elastic-jobs
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
 author: srinia
 ms.author: srinia
-ms.reviewer: sstein
+ms.reviewer: mathoma
 ms.date: 12/18/2018
 ---
-# Create, configure, and manage elastic jobs
+# Create, configure, and manage elastic jobs (preview)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 In this article, you will learn how to create, configure, and manage elastic jobs.
@@ -45,7 +45,7 @@ Jobs use [database scoped credentials](/sql/t-sql/statements/create-database-sco
 Setting up the proper credentials to run a job can be a little confusing, so keep the following points in mind:
 
 - The database scoped credentials must be created in the *Job database*.
-- **All target databases must have a login with [sufficient permissions](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine) for the job to complete successfully** (`jobuser` in the diagram below).
+- **All target databases must have a login with [sufficient permissions](/sql/relational-databases/security/permissions-database-engine) for the job to complete successfully** (`jobuser` in the diagram below).
 - Credentials can be reused across jobs, and the credential passwords are encrypted and secured from users who have read-only access to job objects.
 
 The following image is designed to assist in understanding and setting up the proper job credentials. **Remember to create the user in every database (all *target user dbs*) the job needs to run**.
@@ -57,7 +57,7 @@ The following image is designed to assist in understanding and setting up the pr
 A few best practice considerations for working with Elastic Jobs:
 
 - Limit usage of the APIs to trusted individuals.
-- Credentials should have the least privileges necessary to perform the job step. For more information, see [Authorization and Permissions](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/authorization-and-permissions-in-sql-server).
+- Credentials should have the least privileges necessary to perform the job step. For more information, see [Authorization and Permissions](/dotnet/framework/data/adonet/sql/authorization-and-permissions-in-sql-server).
 - When using a server and/or pool target group member, it is highly suggested to create a separate credential with rights on the master database to view/list databases that is used to expand the database lists of the server(s) and/or pool(s) prior to the job execution.
 
 ## Agent performance, capacity, and limitations
@@ -72,7 +72,7 @@ Currently, the preview is limited to 100 concurrent jobs.
 
 To ensure resources aren't overburdened when running jobs against databases in a SQL elastic pool, jobs can be configured to limit the number of databases a job can run against at the same time.
 
-Set the number of concurrent databases a job runs on by setting the `sp_add_jobstep` stored procedure's `@max_parallelism` parameter in T-SQL, or `Add-AzSqlElasticJobStep -MaxParallelism` in PowerShell.
+Set the number of concurrent databases a job runs on by setting the `sp_add_jobstep` stored procedure's `@max_parallelism` parameter in T-SQL.
 
 ## Best practices for creating jobs
 

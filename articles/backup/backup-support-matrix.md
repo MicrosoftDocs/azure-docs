@@ -2,7 +2,7 @@
 title: Azure Backup support matrix
 description: Provides a summary of support settings and limitations for the Azure Backup service.
 ms.topic: conceptual
-ms.date: 02/17/2019
+ms.date: 06/11/2021
 ms.custom: references_regions 
 ---
 
@@ -20,7 +20,7 @@ Other support matrices are available:
 
 ## Vault support
 
-Azure Backup uses Recovery Services vaults to orchestrate and manage backups. It also uses vaults to store backed-up data.
+Azure Backup uses Recovery Services vaults to orchestrate and manage backups for the following workload types - Azure VMs, SQL in Azure VMs, SAP HANA in Azure VMs, Azure File shares and on-premises workloads using Azure Backup Agent, Azure Backup Server and System Center DPM. It also uses Recovery Services vaults to store backed-up data for these workloads.
 
 The following table describes the features of Recovery Services vaults:
 
@@ -28,12 +28,14 @@ The following table describes the features of Recovery Services vaults:
 --- | ---
 **Vaults in subscription** | Up to 500 Recovery Services vaults in a single subscription.
 **Machines in a vault** | Up to 2000 datasources across all workloads (like Azure VMs, SQL Server VM, MABS Servers, and so on) can be protected in a single vault.<br><br>Up to 1,000 Azure VMs in a single vault.<br/><br/> Up to 50 MABS servers can be registered in a single vault.
-**Data sources** | Maximum size of an individual [data source](./backup-azure-backup-faq.md#how-is-the-data-source-size-determined) is 54,400 GB. This limit doesn't apply to Azure VM backups. No limits apply to the total amount of data you can back up to the vault.
+**Data sources** | Maximum size of an individual [data source](./backup-azure-backup-faq.yml#how-is-the-data-source-size-determined-) is 54,400 GB. This limit doesn't apply to Azure VM backups. No limits apply to the total amount of data you can back up to the vault.
 **Backups to vault** | **Azure VMs:** Once a day.<br/><br/>**Machines protected by DPM/MABS:** Twice a day.<br/><br/> **Machines backed up directly by using the MARS agent:** Three times a day.
 **Backups between vaults** | Backup is within a region.<br/><br/> You need a vault in every Azure region that contains VMs you want to back up. You can't back up to a different region.
 **Move vaults** | You can [move vaults](./backup-azure-move-recovery-services-vault.md) across subscriptions or between resource groups in the same subscription. However, moving vaults across regions isn't supported.
 **Move data between vaults** | Moving backed-up data between vaults isn't supported.
 **Modify vault storage type** | You can modify the storage replication type (either geo-redundant storage or locally redundant storage) for a vault before backups are stored. After backups begin in the vault, the replication type can't be modified.
+**Zone-redundant storage (ZRS)** | Available in the UK South (UKS) and South East Asia (SEA) regions.
+**Private Endpoints** | See [this section](./private-endpoints.md#before-you-start) for requirements to create private endpoints for a recovery service vault.  
 
 ## On-premises backup support
 
@@ -61,7 +63,7 @@ Here's what's supported if you want to back up Azure VMs:
 
 **Machine** | **What's backed up** | **Location** | **Features**
 --- | --- | --- | ---
-**Azure VM backup by using VM extension** | Entire VM | Back up to vault. | Extension installed when you enable backup for a VM.<br/><br/> Back up once a day.<br/><br/> App-aware backup for Windows VMs; file-consistent backup for Linux VMs. You can configure app-consistency for Linux machines by using custom scripts.<br/><br/> Restore VM or disk.<br/><br/> Can't back up an Azure VM to an on-premises location.
+**Azure VM backup by using VM extension** | Entire VM | Back up to vault. | Extension installed when you enable backup for a VM.<br/><br/> Back up once a day.<br/><br/> App-aware backup for Windows VMs; file-consistent backup for Linux VMs. You can configure app-consistency for Linux machines by using custom scripts.<br/><br/> Restore VM or disk.<br/><br/>[Backup and restore of Active Directory domain controllers](active-directory-backup-restore.md) is supported.<br><br> Can't back up an Azure VM to an on-premises location.
 **Azure VM backup by using MARS agent** | Files, folders, system state | Back up to vault. | Back up three times a day.<br/><br/> If you want to back up specific files or folders rather than the entire VM, the MARS agent can run alongside the VM extension.
 **Azure VM with DPM** | Files, folders, volumes, system state, app data | Back up to local storage of Azure VM that's running DPM. DPM then backs up to vault. | App-aware snapshots.<br/><br/> Full granularity for backup and recovery.<br/><br/> Linux supported for VMs (Hyper-V/VMware).<br/><br/> Oracle not supported.
 **Azure VM with MABS** | Files, folders, volumes, system state, app data | Back up to local storage of Azure VM that's running MABS. MABS then backs up to the vault. | App-aware snapshots.<br/><br/> Full granularity for backup and recovery.<br/><br/> Linux supported for VMs (Hyper-V/VMware).<br/><br/> Oracle not supported.
@@ -144,10 +146,10 @@ Azure Backup has added the Cross Region Restore feature to strengthen data avail
 
 | Backup Management type | Supported                                                    | Supported Regions |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
-| Azure VM               | Yes.   Supported for encrypted VMs and VMs with lesser than 4-TB  disks | All Azure public regions.  |
-| MARS Agent/On premises | No                                                           | N/A               |
-| SQL /SAP HANA          | No                                                           | N/A               |
-| AFS                    | No                                                           | N/A               |
+| Azure VM               | Supported for Azure VMs (including encrypted Azure VMs) with both managed and unmanaged disks. Not supported for classic VMs. | Available in all Azure public regions and sovereign regions, except for UG IOWA and UG Virginia. |
+| SQL /SAP HANA | Available      | Available in all Azure public regions and sovereign regions, except for France Central, UG IOWA, and UG Virginia. |
+| MARS Agent/On premises  | No                                                           | N/A               |
+| AFS (Azure file shares)                 | No                                                           | N/A               |
 
 ## Next steps
 

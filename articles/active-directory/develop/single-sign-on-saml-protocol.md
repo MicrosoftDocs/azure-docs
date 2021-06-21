@@ -47,7 +47,7 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 | ID | Required | Azure AD uses this attribute to populate the `InResponseTo` attribute of the returned response. ID must not begin with a number, so a common strategy is to prepend a string like "id" to the string representation of a GUID. For example, `id6c1c178c166d486687be4aaf5e482730` is a valid ID. |
 | Version | Required | This parameter should be set to **2.0**. |
 | IssueInstant | Required | This is a DateTime string with a UTC value and [round-trip format ("o")](/dotnet/standard/base-types/standard-date-and-time-format-strings). Azure AD expects a DateTime value of this type, but doesn't evaluate or use the value. |
-| AssertionConsumerServiceUrl | Optional | If provided, this parameter must match the `RedirectUri` of the cloud service in Azure AD. |
+| AssertionConsumerServiceURL | Optional | If provided, this parameter must match the `RedirectUri` of the cloud service in Azure AD. |
 | ForceAuthn | Optional | This is a boolean value. If true, it means that the user will be forced to re-authenticate, even if they have a valid session with Azure AD. |
 | IsPassive | Optional | This is a boolean value that specifies whether Azure AD should authenticate the user silently, without user interaction, using the session cookie if one exists. If this is true, Azure AD will attempt to authenticate the user using  the session cookie. |
 

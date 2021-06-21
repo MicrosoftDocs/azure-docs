@@ -4,7 +4,7 @@ description: Learn how to integrate with Azure Firewall to secure outbound traff
 author: ccompy
 ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
 ms.topic: article
-ms.date: 07/13/2020
+ms.date: 03/25/2021
 ms.author: ccompy
 ms.custom: seodec18, references_regions
 
@@ -96,7 +96,7 @@ Azure Firewall can send logs to Azure Storage, Event Hub, or Azure Monitor logs.
 AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
 ```
 
-Integrating your Azure Firewall with Azure Monitor logs is useful when first getting an application working when you are not aware of all of the application dependencies. You can learn more about Azure Monitor logs from [Analyze log data in Azure Monitor](../../azure-monitor/log-query/log-query-overview.md).
+Integrating your Azure Firewall with Azure Monitor logs is useful when first getting an application working when you are not aware of all of the application dependencies. You can learn more about Azure Monitor logs from [Analyze log data in Azure Monitor](../../azure-monitor/logs/log-query-overview.md).
  
 ## Dependencies
 
@@ -142,6 +142,8 @@ With an Azure Firewall, you automatically get everything below configured with t
 |login.windows.com:443 |
 |login.windows.net:443 |
 |login.microsoftonline.com:443 |
+|\*.login.microsoftonline.com:443|
+|\*.login.microsoft.com:443|
 |client.wns.windows.com:443 |
 |definitionupdates.microsoft.com:443 |
 |go.microsoft.com:80 |
@@ -151,6 +153,9 @@ With an Azure Firewall, you automatically get everything below configured with t
 |wdcpalt.microsoft.com:443 |
 |wdcp.microsoft.com:443 |
 |ocsp.msocsp.com:443 |
+|ocsp.msocsp.com:80 |
+|oneocsp.microsoft.com:80 |
+|oneocsp.microsoft.com:443 |
 |mscrl.microsoft.com:443 |
 |mscrl.microsoft.com:80 |
 |crl.microsoft.com:443 |
@@ -158,6 +163,7 @@ With an Azure Firewall, you automatically get everything below configured with t
 |www.thawte.com:443 |
 |crl3.digicert.com:80 |
 |ocsp.digicert.com:80 |
+|ocsp.digicert.com:443 |
 |csc3-2009-2.crl.verisign.com:80 |
 |crl.verisign.com:80 |
 |ocsp.verisign.com:80 |
@@ -218,6 +224,7 @@ With an Azure Firewall, you automatically get everything below configured with t
 |rteventservice.trafficmanager.net:443 |
 |ctldl.windowsupdate.com:80 |
 |ctldl.windowsupdate.com:443 |
+|global-dsms.dsms.core.windows.net:443 |
 
 #### Wildcard HTTP/HTTPS dependencies 
 
@@ -246,6 +253,7 @@ With an Azure Firewall, you automatically get everything below configured with t
 |security.ubuntu.com:80 |
 |oryx-cdn.microsoft.io:443 |
 | \*.cdn.mscr.io:443 |
+| \*.data.mcr.microsoft.com:443 |
 |mcr.microsoft.com:443 |
 |\*.data.mcr.microsoft.com:443 |
 |packages.fluentbit.io:80 |
@@ -346,10 +354,9 @@ Linux is not available in US Gov regions and is thus not listed as an optional c
 |management.core.usgovcloudapi.net:80 |
 |management.usgovcloudapi.net:80 |
 |maupdateaccountff.blob.core.usgovcloudapi.net:80 |
-|mscrl.microsoft.com
-|ocsp.digicert.0 |
-|ocsp.msocsp.co|
-|ocsp.verisign.0 |
+|mscrl.microsoft.com:80
+|ocsp.digicert.com:80 |
+|ocsp.verisign.com:80 |
 |rteventse.trafficmanager.net:80 |
 |settings-n.data.microsoft.com:80 |
 |shavamafestcdnprod1.azureedge.net:80 |
@@ -388,6 +395,7 @@ Linux is not available in US Gov regions and is thus not listed as an optional c
 |definitionupdates.microsoft.com:443 |
 |download.windowsupdate.com:443 |
 |fairfax.warmpath.usgovcloudapi.net:443 |
+|gcs.monitoring.core.usgovcloudapi.net:443 |
 |flighting.cp.wd.microsoft.com:443 |
 |gcwsprodgmdm2billing.queue.core.usgovcloudapi.net:443 |
 |gcwsprodgmdm2billing.table.core.usgovcloudapi.net:443 |
@@ -407,6 +415,9 @@ Linux is not available in US Gov regions and is thus not listed as an optional c
 |mscrl.microsoft.com:443 |
 |ocsp.digicert.com:443 |
 |ocsp.msocsp.com:443 |
+|ocsp.msocsp.com:80 |
+|oneocsp.microsoft.com:80 |
+|oneocsp.microsoft.com:443 |
 |ocsp.verisign.com:443 |
 |rteventservice.trafficmanager.net:443 |
 |settings-win.data.microsoft.com:443 |
@@ -418,6 +429,7 @@ Linux is not available in US Gov regions and is thus not listed as an optional c
 |www.microsoft.com:443 |
 |www.msftconnecttest.com:443 |
 |www.thawte.com:443 |
+|global-dsms.dsms.core.usgovcloudapi.net:443 |
 
 <!--Image references-->
 [1]: ./media/firewall-integration/firewall-apprule.png

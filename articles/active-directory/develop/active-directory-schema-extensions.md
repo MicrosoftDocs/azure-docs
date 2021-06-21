@@ -7,7 +7,7 @@ author: rwike77
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.custom: aaddev 
+ms.custom: aaddev
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/29/2020
@@ -29,13 +29,13 @@ The identifier for a directory schema extension attribute is of the form *Extens
 Directory schema extension attributes can be registered and populated in one of two ways:
 
 - By configuring AD Connect to create them and to sync data into them from on premises AD. See [Azure AD Connect Sync Directory Extensions](../hybrid/how-to-connect-sync-feature-directory-extensions.md).
-- Using Microsoft Graph to register, set the values of, and read from directory schema extension attributes [Directory schema extensions | Graph API concepts](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-directory-schema-extensions) and/or PowerShell+ [Managing extension attributes with AzureAD PowerShell cmdlets](/powershell/azure/active-directory/using-extension-attributes-sample?view=azureadps-2.0).
+- By using Microsoft Graph to register, set the values of, and read from [schema extensions](/graph/extensibility-overview). [PowerShell cmdlets](/powershell/azure/active-directory/using-extension-attributes-sample) are also available.
 
 ### Emitting claims with data from directory schema extension attributes created with AD Connect
 Directory schema extension attributes created and synced using AD Connect are always associated with the application ID used by AD Connect. They can be used as a source for claims both by configuring them as claims in the **Enterprise Applications** configuration in the Portal UI for SAML applications registered using the Gallery or the non-Gallery application configuration experience under **Enterprise Applications**, and via a claims-mapping policy for applications registered via the Application registration experience.  Once a directory extension attribute created via AD Connect is in the directory, it will show in the SAML SSO claims configuration UI.
 
 ### Emitting claims with data from directory schema extension attributes created for an application using Graph or PowerShell
-If a directory schema extension attribute is registered for an application using Microsoft Graph or PowerShell (via an applications initial setup or provisioning step for instance), the same application can be configured in Azure Active Directory to receive data in that attribute from a user object in a claim when the user signs in.  The application can be configured to receive data in directory schema extensions that are registered on that same application using [optional claims](active-directory-optional-claims.md#configuring-directory-extension-optional-claims).  These can be set in the application manifest.  This enables a multi-tenant application to register directory schema extension attributes for its own use. When the application is provisioned into a tenant the associated directory schema extensions become available to be set on users in that tenant, and to be consumed.  Once it's configured in the tenant and consent granted, it can be used to store and retrieve data via graph and to map to claims in tokens Microsoft identity platform emits to applications.
+If a directory schema extension attribute is registered for an application using Microsoft Graph or PowerShell (via an applications initial setup or provisioning step for instance), the same application can be configured in Azure Active Directory to receive data in that attribute from a user object in a claim when the user signs in.  The application can be configured to receive data in directory schema extensions that are registered on that same application using [optional claims](active-directory-optional-claims.md#configuring-directory-extension-optional-claims).  These can be set in the application manifest.  This enables a multi-tenant application to register directory schema extension attributes for its own use. When the application is provisioned into a tenant the associated directory schema extensions become available to be set on users in that tenant, and to be consumed.  Once it's configured in the tenant and consent granted, it can be used to store and retrieve data via graph and to map to claims in tokens the Microsoft identity platform emits to applications.
 
 Directory schema extension attributes can be registered and populated for any application.
 
@@ -52,7 +52,7 @@ For example, here is a claims-mapping policy to emit a single claim from a direc
                 "Source": "User",
                 "ExtensionID": "extension_xxxxxxx_test",
                 "JWTClaimType": "http://schemas.contoso.com/identity/claims/exampleclaim"
-            }, 
+            },
         ]
     }
 }
@@ -66,5 +66,5 @@ Where *xxxxxxx* is the application ID the extension was registered with.
 > The "Id" parameter in the claims schema used for built-in directory attributes is "ExtensionID" for directory extension attributes.
 
 ## Next steps
-- Learn how to [add custom or additional claims to the SAML 2.0 and JSON Web Tokens (JWT) tokens](active-directory-optional-claims.md). 
+- Learn how to [add custom or additional claims to the SAML 2.0 and JSON Web Tokens (JWT) tokens](active-directory-optional-claims.md).
 - Learn how to [customize claims emitted in tokens for a specific app](active-directory-claims-mapping.md).

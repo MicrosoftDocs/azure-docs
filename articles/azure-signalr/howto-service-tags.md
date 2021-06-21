@@ -13,7 +13,7 @@ ms.author: dayshen
 
 # Use service tags for Azure SignalR Service
 
-You can use [Service Tags](../virtual-network/security-overview.md#service-tags) for Azure SignalR Service when configuring [Network Security Group](../virtual-network/security-overview.md#network-security-groups). It allows you to define outbound network security rule to Azure SignalR Service endpoints without need to hardcode IP addresses.
+You can use [Service Tags](../virtual-network/network-security-groups-overview.md#service-tags) for Azure SignalR Service when configuring [Network Security Group](../virtual-network/network-security-groups-overview.md#network-security-groups). It allows you to define outbound network security rule to Azure SignalR Service endpoints without need to hardcode IP addresses.
 
 Azure SignalR Service manages these service tags. You can't create your own service tag or modify an existing one. Microsoft manages these address prefixes that match to the service tag and automatically updates the service tag as addresses change.
 
@@ -42,4 +42,4 @@ You can allow outbound traffic to Azure SignalR Service by adding a new outbound
 
 ## Next steps
 
-- [Network security groups: service tags](../virtual-network/security-overview.md#security-rules)
+- [Network security groups: service tags](../virtual-network/network-security-groups-overview.md#security-rules)

@@ -8,11 +8,12 @@ author: TheovanKraay
 ms.author: thvankra
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 05/18/2020
+ms.date: 10/01/2020
 ms.custom: devx-track-csharp
 ---
 
 # Quickstart: Build a Cassandra app with .NET SDK and Azure Cosmos DB
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)
@@ -38,7 +39,7 @@ In addition, you need:
 <a id="create-account"></a>
 ## Create a database account
 
-[!INCLUDE [cosmos-db-create-dbaccount-cassandra](../../includes/cosmos-db-create-dbaccount-cassandra.md)]
+[!INCLUDE [cosmos-db-create-dbaccount-cassandra](includes/cosmos-db-create-dbaccount-cassandra.md)]
 
 
 ## Clone the sample application
@@ -93,7 +94,7 @@ This step is optional. If you're interested to learn how the code creates the da
 * Insert user entities by using the IMapper object with a new session that connects to the uprofile keyspace.
 
     ```csharp
-    mapper.Insert<User>(new User(1, "LyubovK", "Dubai"));
+    mapper.Insert<User>(new User(1, "LyubovK", "Dubai"));
     ```
     
 * Query to get all user's information.
@@ -164,11 +165,11 @@ Now go back to the Azure portal to get your connection string information and co
 
 ## Review SLAs in the Azure portal
 
-[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
+[!INCLUDE [cosmosdb-tutorial-review-slas](includes/cosmos-db-tutorial-review-slas.md)]
 
 ## Clean up resources
 
-[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
+[!INCLUDE [cosmosdb-delete-resource-group](includes/cosmos-db-delete-resource-group.md)]
 
 ## Next steps
 

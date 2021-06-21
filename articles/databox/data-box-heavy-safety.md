@@ -152,7 +152,7 @@ This device complies with part 15 of the FCC Rules and Industry Canada license-e
 - This device may not cause harmful interference.
 - This device must accept any interference received, including interference that may cause undesired operation of the device.
 
-![Canada](./media/data-box-heavy-safety/canada.png)
+![Screenshot shows a notification required for Canada.](./media/data-box-heavy-safety/canada.png)
 
 CAN ICES-3(A)/NMB-3(A)
 Microsoft Corporation, One Microsoft Way, Redmond, WA 98052, USA.

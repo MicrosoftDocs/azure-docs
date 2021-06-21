@@ -10,7 +10,7 @@ ms.devlang:
 ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
-ms.reviewer: vanto, carlrab
+ms.reviewer: vanto, sstein
 ms.date: 08/25/2020
 ---
 

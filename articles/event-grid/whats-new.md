@@ -2,7 +2,7 @@
 title: What's new? Release notes - Azure Event Grid
 description: Learn what is new with Azure Event Grid, such as the latest release notes, known issues, bug fixes, deprecated functionality, and upcoming changes.
 ms.topic: overview
-ms.date: 07/23/2020
+ms.date: 04/27/2021
 ---
 
 # What's new in Azure Event Grid?
@@ -16,6 +16,24 @@ Azure Event Grid receives improvements on an ongoing basis. To stay up to date w
 - Bug fixes
 - Deprecated functionality
 - Plans for changes
+
+## 6.1.0-preview (2020-10)
+- [Managed identities for system topics](enable-identity-system-topics.md)
+- [Custom delivery properties](delivery-properties.md)
+- [Storage queue - message time-to-live (TTL)](delivery-properties.md#configure-time-to-live-on-outgoing-events-to-azure-storage-queues)
+- [Advanced filtering improvements](event-filtering.md#advanced-filtering)
+    - Support filtering on array data in incoming events
+    - Allow filtering on CloudEvents extensions context attributes
+    - New operators
+        - StringNotContains
+        - StringNotBeginsWith
+        - StringNotEndsWith
+        - NumberInRange
+        - NumberNotInRange
+        - IsNullOrUndefined
+        - IsNotNull
+- [Allow Event Grid schema to CloudEvents 1.0 schema transformations for custom topics and domains](cloudevents-schema.md#configure-event-grid-for-cloudevents)
+        
 
 ## 6.0.0 (2020-06)
 - Add support to new generally available (GA) service API version 2020-06-01.
@@ -35,7 +53,7 @@ Azure Event Grid receives improvements on an ongoing basis. To stay up to date w
 - This release includes additional bug fixes to enhance quality.
 - As version 5.3.1-preview, this release corresponds to the 2020-04-01-Preview API version, which includes the following new functionalities: 
     - [Support for IP Filtering when publishing events to domains and topics](configure-firewall.md)
-    - [Partner topics](partner-topics-overview.md)
+    - [Partner topics](./partner-events-overview.md)
     - [System topics as tracked resources in Azure portal](system-topics.md)
     - [Event delivery with managed service identity](managed-service-identity.md) 
     - [Private Link Service support](configure-private-endpoints.md)
@@ -44,7 +62,7 @@ Azure Event Grid receives improvements on an ongoing basis. To stay up to date w
 - This release includes various bug fixes to enhance quality.
 - As version 5.3.0-preview, this release corresponds to the 2020-04-01-Preview API version, which includes the following new functionalities: 
     - [Support for IP Filtering when publishing events to domains and topics](configure-firewall.md)
-    - [Partner topics](partner-topics-overview.md)
+    - [Partner topics](./partner-events-overview.md)
     - [System topics as tracked resources in Azure portal](system-topics.md)
     - [Event delivery with managed service identity](managed-service-identity.md) 
     - [Private Link Service support](configure-private-endpoints.md)
@@ -54,7 +72,7 @@ Azure Event Grid receives improvements on an ongoing basis. To stay up to date w
 - As version 5.2.0-preview, this release corresponds to the 2020-04-01-Preview API version.
 - It adds supports to the following new functionalities: 
     - [Support for IP Filtering when publishing events to domains and topics](configure-firewall.md)
-    - [Partner topics](partner-topics-overview.md)
+    - [Partner topics](./partner-events-overview.md)
     - [System topics as tracked resources in Azure portal](system-topics.md)
     - [Event delivery with managed service identity](managed-service-identity.md) 
     - [Private Link Service support](configure-private-endpoints.md)
@@ -68,14 +86,14 @@ Azure Event Grid receives improvements on an ongoing basis. To stay up to date w
 - This release corresponds to the `2019-06-01` API version.
 - It adds support to the following new functionalities:
 	* [Domains](event-domains.md)
-	* Pagination and search filter for resources list operations. For an example, see [Topics - List By Subscription](/rest/api/eventgrid/version2020-04-01-preview/topics/listbysubscription).
+	* Pagination and search filter for resources list operations. For an example, see [Topics - List By Subscription](/rest/api/eventgrid/version2020-10-15-preview/partnernamespaces/listbysubscription).
 	* [Service Bus queue as destination](handler-service-bus.md)
 	* [Advanced filtering](event-filtering.md#advanced-filtering)
 
 ## 4.1.0-preview (2019-03)
 - This release corresponds to the 2019-02-01-preview API version.
 - It adds support to the following new functionalities:
-	* Pagination and search filter for resources list operations. For an example, see [Topics - List By Subscription](/rest/api/eventgrid/version2020-04-01-preview/topics/listbysubscription).
+	* Pagination and search filter for resources list operations. For an example, see [Topics - List By Subscription](/rest/api/eventgrid/version2020-10-15-preview/partnernamespaces/listbysubscription).
 	* [Manual create/delete of domain topics](how-to-event-domains.md)
 	* [Service Bus Queue as destination](handler-service-bus.md)
 

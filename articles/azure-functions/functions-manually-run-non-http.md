@@ -43,7 +43,7 @@ You use this request location in Postman along with the function's master key in
 
 1. After copying the *_master* key, select **Code + Test**, and then select **Logs**. You'll see messages from the function logged here when you manually run the function from Postman.
 
-    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-function-log.png" alt-text="View the logs to see the master key test results." border="true":::
+    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-function-log.png" alt-text="Screenshot that shows the 'Code + Test' page with a message from the logs displayed." border="true":::
 
 > [!CAUTION]  
 > Due to the elevated permissions in your function app granted by the master key, you should not share this key with third parties or distribute it in an application. The key should only be sent to an HTTPS endpoint.

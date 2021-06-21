@@ -17,9 +17,9 @@ ms.custom: has-adal-ref
 
 ## Process of adding an OpenID application from the gallery
 
-1. In the [Azure portal](https://portal.azure.com), in the left pane, select **Azure Active Directory**.
+1. In the [Azure portal](https://portal.azure.com), select **Azure Active Directory**.
 
-    ![The Azure Active Directory button](common/select-azuread.png))
+    ![The Azure Active Directory button](common/select-azuread.png)
 
 2. Go to **Enterprise applications** > **All applications**.
 
@@ -33,17 +33,23 @@ ms.custom: has-adal-ref
 
     ![Openid in the results list](common/search-new-app.png)
 
-    > [!NOTE]
-    > For OpenID Connect and OAuth apps, the **Add** button is disabled by default. Here the tenant admin should select the sign-up button and provide the consent to the application. The application is then added to the customer tenant, where you can do the configurations. There's no need to add the application explicitly.
+
+1. In the Application name page, click on **Sign up** button.
 
     ![Add button](./media/openidoauth-tutorial/addbutton.png)
 
-5. When you select the sign-up link, you're redirected to the Azure Active Directory (Azure AD) page for sign-in credentials.
+    > [!NOTE]
+    > Here the tenant admin should select the sign-up button and provide the consent to the application. The application is then added to the customer tenant, where you can do the configurations. There's no need to add the application explicitly.
+
+5. You're redirected to the Application Login page or Azure Active Directory (Azure AD) page for sign-in credentials.
 
 6. After successful authentication, you accept the consent from the consent page. After that, the application home page appears.
 
     > [!NOTE]
     > You can add only one instance of the application. If you have already added one and tried to provide the consent again, it will not be added again in the tenant. So logically, you can use only one app instance in the tenant.
+
+1. Follow the below video to add an OpenID application from the gallery.
+    >[!VIDEO https://www.microsoft.com/videoplayer/embed/RE4HoNI]
 
 ## Authentication flow using OpenID Connect
 
@@ -70,13 +76,13 @@ By default, Azure AD promotes multitenant applications. They're easily accessed 
 ## Consent framework
 
 You can use the Azure AD consent framework to develop multitenant web and native client applications. These applications allow sign-in by user accounts from an Azure AD tenant, different from the one where the application is registered. They might also need to access web APIs such as:
-- The Microsoft Graph API, to access Azure AD, Intune, and services in Office 365.
+- The Microsoft Graph API, to access Azure AD, Intune, and services in Microsoft 365.
 - Other Microsoft services' APIs.
 - Your own web APIs.
 
 The framework is based on a user or an administrator giving consent to an application that asks to be registered in their directory. The registration might involve accessing directory data. After consent is given, the client application can call the Microsoft Graph API on behalf of the user, and use the information as needed.
 
-The [Microsoft Graph API](https://developer.microsoft.com/graph/) provides access to data in Office 365, like:
+The [Microsoft Graph API](https://developer.microsoft.com/graph/) provides access to data in Microsoft 365, like:
 
 - Calendars and messages from Exchange.
 - Sites and lists from SharePoint.
@@ -93,19 +99,19 @@ The following steps show you how the consent experience works for the applicatio
 
     a. Click on the **App registrations** from the left side of menu and open your application by typing the application name in search box.
 
-    ![Graph API](./media/openidoauth-tutorial/application.png)
+    ![Screenshot that shows "App registrations" selected from the left-side menu and the "Application I D" search box highlighted.](./media/openidoauth-tutorial/application.png)
 
     b. Click **View API Permissions**.
 
-    ![Graph API](./media/openidoauth-tutorial/api-permission.png)
+    ![Screenshot that shows the "Call A P I" page with the "View A P I Permissions" button selected.](./media/openidoauth-tutorial/api-permission.png)
 
     c. Click on **Add a permission**.
 
-    ![Graph API](./media/openidoauth-tutorial/add-permission.png)
+    ![Screenshot that shows the "A P I permissions" section with the "Add a permission" button selected.](./media/openidoauth-tutorial/add-permission.png)
 
     d. Click On **Microsoft Graph**.
 
-    ![Graph API](./media/openidoauth-tutorial/microsoft-graph.png)
+    ![Screenshot that shows the "Request A P I permissions" page with the "Microsoft A P I" tab and "Microsoft Graph" tile selected.](./media/openidoauth-tutorial/microsoft-graph.png)
 
     e. Select required options from **Delegated permissions** and **Application Permissions**.
 
@@ -115,7 +121,7 @@ The following steps show you how the consent experience works for the applicatio
 
 3. If the user is not already authenticated, the Azure AD /authorize endpoint prompts for sign-in.
 
-    ![Authentication](./media/openidoauth-tutorial/authentication.png)
+    ![A Screenshot of the sign-in prompt for the account](./media/openidoauth-tutorial/authentication.png)
 
 4. After the user has signed in, Azure AD determines if the user needs to be shown a consent page. This determination is based on whether the user (or their organization's administrator) has already granted the application consent.
 
@@ -145,3 +151,7 @@ A tenant administrator can disable the ability for regular users to consent to a
 The *prompt=admin_consent* parameter can also be used by applications that request permissions that don't require admin consent. An example is an application that requires an experience where the tenant admin "signs up" one time, and no other users are prompted for consent from that point on.
 
 Imagine that an application requires admin consent, and an admin signs in without the *prompt=admin_consent* parameter being sent. When the admin successfully consents to the application, it applies only for their user account. Regular users will still be unable to sign in or consent to the application. This feature is useful if you want to give the tenant administrator the ability to explore your application before allowing other users' access.
+
+## Next steps
+
+[Set up OIDC-based single sign-on (SSO) for an application in your Azure Active Directory (Azure AD) tenant](../manage-apps/add-application-portal-setup-oidc-sso.md)

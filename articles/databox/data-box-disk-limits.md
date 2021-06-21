@@ -30,9 +30,9 @@ This section describes the limits for Azure Storage service, and the required na
 
 For the latest information on Azure storage service limits and best practices for naming shares, containers, and files, go to:
 
-- [Naming and referencing containers](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)
-- [Naming and referencing shares](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata)
-- [Block blobs and page blob conventions](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs)
+- [Naming and referencing containers](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)
+- [Naming and referencing shares](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata)
+- [Block blobs and page blob conventions](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs)
 
 > [!IMPORTANT]
 > If there are any files or directories that exceed the Azure Storage service limits, or do not conform to Azure Files/Blob naming conventions, then these files or directories are not ingested into the Azure Storage via the Data Box service.
@@ -59,7 +59,7 @@ Here are the limits on the size of data that can be copied into a storage accoun
 
 | Type of data             | Default limit          |
 |--------------------------|------------------------|
-| block blob, page blob    | For current information about these limits, see [Azure Blob storage scale targets](https://docs.microsoft.com/azure/storage/blobs/scalability-targets#scale-targets-for-blob-storage), [Azure standard storage scale targets](https://docs.microsoft.com/azure/storage/common/scalability-targets-standard-account#scale-targets-for-standard-storage-accounts), and [Azure Files scale target](https://docs.microsoft.com/azure/storage/files/storage-files-scale-targets#file-share-and-file-scale-targets). <br /><br /> The limits include data from all the sources, including Data Box Disk.|
+| block blob, page blob    | For current information about these limits, see [Azure Blob storage scale targets](../storage/blobs/scalability-targets.md#scale-targets-for-blob-storage), [Azure standard storage scale targets](../storage/common/scalability-targets-standard-account.md#scale-targets-for-standard-storage-accounts), and [Azure Files scale targets](../storage/files/storage-files-scale-targets.md). <br /><br /> The limits include data from all the sources, including Data Box Disk.|
 
 
 ## Azure object size limits
@@ -71,7 +71,7 @@ Here are the sizes of the Azure objects that can be written. Make sure that all 
 | Block Blob        | ~ 4.75 TiB                                                 |
 | Page Blob         | 8 TiB <br> (Every file uploaded in Page Blob format must be 512 bytes aligned, else the upload fails. <br> Both the VHD and VHDX are 512 bytes aligned.) |
 |Azure Files        | 1 TiB <br> Max. size of share is 5 TiB     |
-| Managed disks     |4 TiB <br> For more information on size and limits, see: <li>[Scalability targets for managed disks](../virtual-machines/windows/disk-scalability-targets.md#managed-virtual-machine-disks)</li>|
+| Managed disks     |4 TiB <br> For more information on size and limits, see: <li>[Scalability targets for managed disks](../virtual-machines/disks-scalability-targets.md#managed-virtual-machine-disks)</li>|
 
 
 ## Azure block blob, page blob, and file naming conventions

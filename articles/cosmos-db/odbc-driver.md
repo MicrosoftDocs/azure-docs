@@ -3,6 +3,7 @@ title: Connect to Azure Cosmos DB using BI analytics tools
 description: Learn how to use the Azure Cosmos DB ODBC driver to create tables and views so that normalized data can be viewed in BI and data analytics software.
 author: SnehaGunda
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/02/2019
 ms.author: sngun
@@ -10,6 +11,7 @@ ms.author: sngun
 ---
 
 # Connect to Azure Cosmos DB using BI analytics tools with the ODBC driver
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 The Azure Cosmos DB ODBC driver enables you to connect to Azure Cosmos DB using BI analytics tools such as SQL Server Integration Services, Power BI Desktop, and Tableau so that you can analyze and create visualizations of your Azure Cosmos DB data in those solutions.
 
@@ -141,7 +143,7 @@ You can query Azure Cosmos DB from SQL Server Management Studio (SSMS) by settin
 
 1. Create a system data source as described in [Step 2](#connect), named for example `SDS Name`.
 
-1. [Install SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) and connect to the server. 
+1. [Install SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) and connect to the server. 
 
 1. In the SSMS query editor, create a linked server object `DEMOCOSMOS` for the data source with the following commands. Replace `DEMOCOSMOS` with the name for your linked server, and `SDS Name` with the name of your system data source.
 
@@ -199,7 +201,7 @@ Then in the **View Definitions** window, do the following:
 
 1. Click **New**, enter a name for the view, for example, EmployeesfromSeattleView and then click **OK**.
 
-1. In the **Edit view** window, enter an Azure Cosmos DB query. This must be an [Azure Cosmos DB SQL query](how-to-sql-query.md), for example `SELECT c.City, c.EmployeeName, c.Level, c.Age, c.Manager FROM c WHERE c.City = "Seattle"`, and then click **OK**.
+1. In the **Edit view** window, enter an Azure Cosmos DB query. This must be an [Azure Cosmos DB SQL query](./sql-query-getting-started.md), for example `SELECT c.City, c.EmployeeName, c.Level, c.Age, c.Manager FROM c WHERE c.City = "Seattle"`, and then click **OK**.
 
     :::image type="content" source="./media/odbc-driver/odbc-driver-create-view-2.png" alt-text="Add query when creating a view":::
 

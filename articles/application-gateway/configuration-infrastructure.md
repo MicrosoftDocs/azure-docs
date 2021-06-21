@@ -5,7 +5,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 09/09/2020
+ms.date: 06/14/2021
 ms.author: surmb
 ---
 
@@ -15,10 +15,10 @@ The application gateway infrastructure includes the virtual network, subnets, ne
 
 ## Virtual network and dedicated subnet
 
-An application gateway is a dedicated deployment in your virtual network. Within your virtual network, a dedicated subnet is required for the application gateway. You can have multiple instances of a given application gateway deployment in a subnet. You can also deploy other application gateways in the subnet. But you can't deploy any other resource in the application gateway subnet.
+An application gateway is a dedicated deployment in your virtual network. Within your virtual network, a dedicated subnet is required for the application gateway. You can have multiple instances of a given application gateway deployment in a subnet. You can also deploy other application gateways in the subnet. But you can't deploy any other resource in the application gateway subnet. You can't mix Standard_v2 and Standard Azure Application Gateway on the same subnet.
 
 > [!NOTE]
-> You can't mix Standard_v2 and Standard Azure Application Gateway on the same subnet.
+> [Virtual network service endpoint policies](../virtual-network/virtual-network-service-endpoint-policies-overview.md) are currently not supported in an Application Gateway subnet.
 
 ### Size of the subnet
 
@@ -30,7 +30,13 @@ Consider a subnet that has 27 application gateway instances and an IP address fo
 
 Application Gateway (Standard or WAF) SKU can support up to 32 instances (32 instance IP addresses + 1 private front-end IP + 5 Azure reserved) – so a minimum subnet size of /26 is recommended
 
-Application Gateway (Standard_v2 or WAF_v2 SKU) can support up to 125 instances (125 instance IP addresses + 1 private front-end IP + 5 Azure reserved) – so a minimum subnet size of /24 is recommended
+Application Gateway (Standard_v2 or WAF_v2 SKU) can support up to 125 instances (125 instance IP addresses + 1 private front-end IP + 5 Azure reserved). A minimum subnet size of /24 is recommended.
+
+> [!IMPORTANT]
+> Although a /24 subnet is not required per Application Gateway v2 SKU deployment, it is highly recommended. This is to ensure that Application Gateway v2 has sufficient space for autoscaling expansion and maintenance upgrades. You should ensure that the Application Gateway v2 subnet has sufficient address space to accommodate the number of instances required to serve your maximum expected traffic. If you specify the maximum instance count, then the subnet should have capacity for at least that many addresses. For capacity planning around instance count, see [instance count details](understanding-pricing.md#instance-count).
+
+> [!TIP]
+> It is possible to change the subnet of an existing Application Gateway within the same virtual network. You can do this using Azure PowerShell or Azure CLI. For more information, see [Frequently asked questions about Application Gateway](application-gateway-faq.yml#can-i-change-the-virtual-network-or-subnet-for-an-existing-application-gateway)
 
 ## Network security groups
 
@@ -50,15 +56,15 @@ Network security groups (NSGs) are supported on Application Gateway. But there a
 For this scenario, use NSGs on the Application Gateway subnet. Put the following restrictions on the subnet in this order of priority:
 
 1. Allow incoming traffic from a source IP or IP range with the destination as the entire Application Gateway subnet address range and destination port as your inbound access port, for example, port 80 for HTTP access.
-2. Allow incoming requests from source as **GatewayManager** service tag and destination as **Any** and destination ports as 65503-65534 for the Application Gateway v1 SKU, and ports 65200-65535 for v2 SKU for [back-end health status communication](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics). This port range is required for Azure infrastructure communication. These ports are protected (locked down) by Azure certificates. Without appropriate certificates in place, external entities can't initiate changes on those endpoints.
-3. Allow incoming Azure Load Balancer probes (*AzureLoadBalancer* tag) and inbound virtual network traffic (*VirtualNetwork* tag) on the [network security group](https://docs.microsoft.com/azure/virtual-network/security-overview).
+2. Allow incoming requests from source as **GatewayManager** service tag and destination as **Any** and destination ports as 65503-65534 for the Application Gateway v1 SKU, and ports 65200-65535 for v2 SKU for [back-end health status communication](./application-gateway-diagnostics.md). This port range is required for Azure infrastructure communication. These ports are protected (locked down) by Azure certificates. Without appropriate certificates in place, external entities can't initiate changes on those endpoints.
+3. Allow incoming Azure Load Balancer probes (*AzureLoadBalancer* tag) and inbound virtual network traffic (*VirtualNetwork* tag) on the [network security group](../virtual-network/network-security-groups-overview.md).
 4. Block all other incoming traffic by using a deny-all rule.
 5. Allow outbound traffic to the Internet for all destinations.
 
 ## Supported user-defined routes 
 
 > [!IMPORTANT]
-> Using UDRs on the Application Gateway subnet might cause the health status in the [back-end health view](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#back-end-health) to appear as **Unknown**. It also might cause generation of Application Gateway logs and metrics to fail. We recommend that you don't use UDRs on the Application Gateway subnet so that you can view the back-end health, logs, and metrics.
+> Using UDRs on the Application Gateway subnet might cause the health status in the [back-end health view](./application-gateway-diagnostics.md#back-end-health) to appear as **Unknown**. It also might cause generation of Application Gateway logs and metrics to fail. We recommend that you don't use UDRs on the Application Gateway subnet so that you can view the back-end health, logs, and metrics.
 
 - **v1**
 

@@ -31,7 +31,7 @@ The following table illustrates the costs for your virtual machine after you pur
 
 A reservation discount is "*use-it-or-lose-it*". So, if you don't have matching resources for any hour, then you lose a reservation quantity for that hour. You can't carry forward unused reserved hours.
 
-When you shut down a resource, the reservation discount automatically applies to another matching resource in the specified scope. If no matching resources are found in the specified scope, then the reserved hours are *lost*.
+When you shut down a resource or scale the number of VMs, the reservation discount automatically applies to another matching resource in the specified scope. If no matching resources are found in the specified scope, then the reserved hours are *lost*.
 
 ## Reservation discount for non-Windows VMs
 
@@ -52,7 +52,7 @@ When you're running Windows VM instances, the reservation is applied to cover th
 
 ## Discount can apply to different sizes
 
-When you buy a Reserved VM Instance and select **Optimized for instance size flexibility**, the discount coverage applies to the VM size you select. It can also apply to other VMs sizes that are in the same series instance size flexibility group. For more information, see [Virtual machine size flexibility with Reserved VM Instances](../../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
+When you buy a Reserved VM Instance and select **Optimized for instance size flexibility**, the discount coverage applies to the VM size you select. It can also apply to other VMs sizes that are in the same series instance size flexibility group. For more information, see [Virtual machine size flexibility with Reserved VM Instances](../../virtual-machines/reserved-vm-instance-size-flexibility.md).
 
 ## Premium storage VMs don't get non-premium discounts
 
@@ -101,7 +101,7 @@ If you have questions or need help,  [create a support request](https://go.micro
 To learn more about Azure Reservations, see the following articles:
 
 - [What are reservations for Azure?](../reservations/save-compute-costs-reservations.md)
-- [Prepay for Virtual Machines with Azure Reserved VM Instances](../../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Prepay for Virtual Machines with Azure Reserved VM Instances](../../virtual-machines/prepay-reserved-vm-instances.md)
 - [Prepay for SQL Database compute resources with Azure SQL Database reserved capacity](../../azure-sql/database/reserved-capacity-overview.md)
 - [Manage reservations for Azure](../reservations/manage-reserved-vm-instance.md)
 - [Understand reservation usage for your Pay-As-You-Go subscription](../reservations/understand-reserved-instance-usage.md)

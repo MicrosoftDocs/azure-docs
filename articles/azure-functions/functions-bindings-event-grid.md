@@ -41,7 +41,20 @@ Working with the trigger and bindings requires that you reference the appropriat
 [core tools]: ./functions-run-local.md
 [extension bundle]: ./functions-bindings-register.md#extension-bundles
 [NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid
-[Update your extensions]: ./install-update-binding-extensions-manual.md
+[Update your extensions]: ./functions-bindings-register.md
+[Azure Tools extension]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
+
+#### Event Grid extension 3.x and higher
+
+A new version of the Event Grid bindings extension is available as a [preview NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid/3.0.0-beta.2). For .NET applications, it  changes the types that you can bind to, replacing the types from `Microsoft.Azure.EventGrid.Models` with newer types from [Azure.Messaging.EventGrid](/dotnet/api/azure.messaging.eventgrid). [Cloud events](/dotnet/api/azure.messaging.cloudevent) are also supported in the new Event Grid extension.
+
+> [!NOTE]
+> The preview package is not included in an extension bundle and must be installed manually. For .NET apps, add a reference to the package. For all other app types, see [Update your extensions].
+
+[core tools]: ./functions-run-local.md
+[extension bundle]: ./functions-bindings-register.md#extension-bundles
+[NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage
+[Update your extensions]: ./functions-bindings-register.md
 [Azure Tools extension]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
 
 ### Functions 1.x

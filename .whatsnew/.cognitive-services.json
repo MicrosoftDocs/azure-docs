@@ -8,11 +8,17 @@
     },
     "inclusionCriteria": {
         "excludePullRequestTitles": true,
+        "minAdditionsToFile" : 10,
+        "maxFilesChanged": 200,
         "labels": [
             "label:cognitive-services/svc"
         ]
     },
     "areas": [
+        {
+            "name": ".",
+            "heading": "Miscellaneous"
+        },
         {
             "name": "Anomaly-Detector",
             "heading": "Anomaly Detector"
@@ -71,19 +77,19 @@
         },
         {
             "name": "Ink-Recognizer",
-            "heading": "Ink-Recognizer"
+            "heading": "Ink Recognizer"
         },
         {
             "name": "LUIS",
             "heading": "LUIS"
         },
         {
-            "name": "QnAMaker",
-            "heading": "QnA Maker"
+            "name": "metrics-advisor",
+            "heading": "Metrics Advisor"
         },
         {
-            "name": "Speaker-recognition",
-            "heading": "Speaker Recognition"
+            "name": "QnAMaker",
+            "heading": "QnA Maker"
         },
         {
             "name": "Speech-Service",

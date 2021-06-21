@@ -13,6 +13,12 @@
     href: documentation-government-get-started-connect-with-portal.md
   - name: Azure CLI
     href: documentation-government-get-started-connect-with-cli.md
+  - name: DoD DISA STIGs
+    items:
+    - name: Deploy Linux VM
+      href: documentation-government-stig-linux-vm.md
+    - name: Deploy Windows VM
+      href: documentation-government-stig-windows-vm.md
   - name: PowerShell
     href: documentation-government-get-started-connect-with-ps.md
   - name: Visual Studio
@@ -43,12 +49,14 @@
       href: documentation-government-manage-marketplace.md
   - name: Industry segments
     items:
-    - name: Export Control
+    - name: Export controls
       href: documentation-government-overview-itar.md
-    - name: Justice and Public Safety
+    - name: Justice and public safety
       href: documentation-government-overview-jps.md
     - name: Department of Defense
-      href: documentation-government-overview-dod.md        
+      href: documentation-government-overview-dod.md
+    - name: Worldwide public sector
+      href: documentation-government-overview-wwps.md
 - name: How-to guides
   items: 
   - name: Develop
@@ -79,7 +87,7 @@
       href: documentation-government-ase-disa-cap.md
 - name: Compliance
   items:
-  - name: Trusted Internet Connection with Azure
+  - name: Trusted Internet Connections with Azure
     href: compliance/compliance-tic.md
   - name: Azure services by audit scope
     href: compliance/azure-services-in-fedramp-auditscope.md
@@ -95,8 +103,12 @@
       href: documentation-government-extension.md
     - name: Marketplace for partners
       href: documentation-government-manage-marketplace-partners.md
-  - name: CSP for Azure Government
-    href: documentation-government-csp-application.md
+  - name: Cloud Solution Providers
+    items:
+    - name: CSP application process
+      href: documentation-government-csp-application.md
+    - name: Authorized reseller list
+      href: documentation-government-csp-list.md
 - name: Resources
   items:
   - name: Azure Government Website
@@ -112,4 +124,4 @@
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Trial
-    href: https://azuregov.microsoft.com/trial/azuregovtrial
+    href: https://azure.microsoft.com/en-us/global-infrastructure/government/request/

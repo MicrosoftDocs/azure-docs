@@ -1,12 +1,12 @@
 ---
 title: Send or receive events from Azure Event Hubs using Python (latest)
-description: This article provides a walkthrough for creating a Python application that sends/receives events to/from Azure Event Hubs using the latest azure-eventhub version 5 package.
+description: This article provides a walkthrough for creating a Python application that sends/receives events to/from Azure Event Hubs using the latest azure-eventhub package.
 ms.topic: quickstart
 ms.date: 02/11/2020
 ---
 
-# Send events to or receive events from event hubs by using Python (azure-eventhub version 5)
-This quickstart shows how to send events to and receive events from an event hub using the **azure-eventhub version 5** Python package.
+# Send events to or receive events from event hubs by using Python (azure-eventhub)
+This quickstart shows how to send events to and receive events from an event hub using the **azure-eventhub** Python package.
 
 ## Prerequisites
 If you're new to Azure Event Hubs, see [Event Hubs overview](event-hubs-about.md) before you do this quickstart. 
@@ -14,7 +14,7 @@ If you're new to Azure Event Hubs, see [Event Hubs overview](event-hubs-about.md
 To complete this quickstart, you need the following prerequisites:
 
 - **Microsoft Azure subscription**. To use Azure services, including Azure Event Hubs, you need a subscription.  If you don't have an existing Azure account, you can sign up for a [free trial](https://azure.microsoft.com/free/) or use your MSDN subscriber benefits when you [create an account](https://azure.microsoft.com).
-- Python 2.7 or 3.5 or later, with PIP installed and updated.
+- Python 2.7 or 3.6 or later, with PIP installed and updated.
 - The Python package for Event Hubs. 
 
     To install the package, run this command in a command prompt that has Python in its path:
@@ -45,7 +45,7 @@ In this section, you create a Python script to send events to the event hub that
     async def run():
         # Create a producer client to send messages to the event hub.
         # Specify a connection string to your event hubs namespace and
-     	    # the event hub name.
+        # the event hub name.
         producer = EventHubProducerClient.from_connection_string(conn_str="EVENT HUBS NAMESPACE - CONNECTION STRING", eventhub_name="EVENT HUB NAME")
         async with producer:
             # Create a batch.
@@ -71,8 +71,11 @@ In this section, you create a Python script to send events to the event hub that
 ## Receive events
 This quickstart uses Azure Blob storage as a checkpoint store. The checkpoint store is used to persist checkpoints (that is, the last read positions).  
 
-> [!NOTE]
-> If you are running on Azure Stack Hub, that platform may support a different version of Storage Blob SDK than those typically available on Azure. For example, if you are running [on Azure Stack Hub version 2002](/azure-stack/user/event-hubs-overview), the highest available version for the Storage service is version 2017-11-09. In this case, besides following steps in this section, you will also need to add code to target the Storage service API version 2017-11-09. For an example on how to target a specific Storage API version, see the [synchronous](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob/samples/receive_events_using_checkpoint_store_storage_api_version.py) and [asynchronous](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/samples/receive_events_using_checkpoint_store_storage_api_version_async.py) samples on GitHub. For more information on the Azure Storage service versions supported on Azure Stack Hub, please refer to [Azure Stack Hub storage: Differences and considerations](/azure-stack/user/azure-stack-acs-differences).
+
+> [!WARNING]
+> If you run this code on Azure Stack Hub, you will experience runtime errors unless you target a specific Storage API version. That's because the Event Hubs SDK uses the latest available Azure Storage API available in  Azure that may not be available on your Azure Stack Hub platform. Azure Stack Hub may support a different version of Storage Blob SDK than those typically available on Azure. If you are using Azure Blog Storage as a checkpoint store, check the [supported Azure Storage API version for your Azure Stack Hub build](/azure-stack/user/azure-stack-acs-differences?#api-version) and target that version in your code. 
+>
+> For example, If you are running on Azure Stack Hub version 2005, the highest available version for the Storage service is version 2019-02-02. By default, the Event Hubs SDK client library uses the highest available version on Azure (2019-07-07 at the time of the release of the SDK). In this case, besides following steps in this section, you will also need to add code to target the Storage service API version 2019-02-02. For an example on how to target a specific Storage API version, see the [synchronous](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob/samples/receive_events_using_checkpoint_store_storage_api_version.py) and [asynchronous](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/samples/receive_events_using_checkpoint_store_storage_api_version_async.py) samples on GitHub. 
 
 
 ### Create an Azure storage account and a blob container

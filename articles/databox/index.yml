@@ -36,7 +36,7 @@ landingContent:
       - linkListType: architecture
         links:
           - text: Choose Azure data transfer options
-            url: /azure/storage/common/storage-choose-data-transfer-solution
+            url: ../storage/common/storage-choose-data-transfer-solution.md
 
   # Card
   - title: Get started
@@ -52,7 +52,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Import data offline with Data Box 
-            url: https://docs.microsoft.com/learn/modules/move-data-with-azure-data-box/
+            url: /learn/modules/move-data-with-azure-data-box/
 
   # Card
   - title: View requirements
@@ -107,5 +107,3 @@ landingContent:
             url: data-box-disk-faq.md
           - text: Open Support ticket
             url: data-box-disk-contact-microsoft-support.md
-
-

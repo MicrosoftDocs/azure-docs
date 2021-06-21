@@ -4,7 +4,8 @@ description: Use Azure PowerShell to manage your resource groups through Azure R
 author: mumian
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.author: jgao
+ms.author: jgao 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Manage Azure Resource Manager resource groups by using Azure PowerShell
@@ -64,7 +65,7 @@ For more information about how Azure Resource Manager orders the deletion of res
 
 See [Deploy resources to an existing resource group](manage-resources-powershell.md#deploy-resources-to-an-existing-resource-group).
 
-To validate a resource group deployment, see [Test-AzResourceGroupDeployment](/powershell/module/Az.Resources/Test-AzResourceGroupDeployment?view=azps-1.3.0).
+To validate a resource group deployment, see [Test-AzResourceGroupDeployment](/powershell/module/Az.Resources/Test-AzResourceGroupDeployment).
 
 ## Deploy a resource group and resources
 
@@ -199,19 +200,19 @@ If you use the `-SkipResourceNameParameterization` parameter when exporting the 
 ]
 ```
 
-The export template feature doesn't support exporting Azure Data Factory resources. To learn about how you can export Data Factory resources, see [Copy or clone a data factory in Azure Data Factory](https://aka.ms/exportTemplateViaAdf).
+The export template feature doesn't support exporting Azure Data Factory resources. To learn about how you can export Data Factory resources, see [Copy or clone a data factory in Azure Data Factory](../../data-factory/copy-clone-data-factory.md).
 
-To export resources created through classic deployment model, you must [migrate them to the Resource Manager deployment model](https://aka.ms/migrateclassicresourcetoarm).
+To export resources created through classic deployment model, you must [migrate them to the Resource Manager deployment model](../../virtual-machines/migration-classic-resource-manager-overview.md).
 
 For more information, see [Single and multi-resource export to template in Azure portal](../templates/export-template-portal.md).
 
 ## Manage access to resource groups
 
-[Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) is the way that you manage access to resources in Azure. For more information, see [Manage access using RBAC and Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
+[Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) is the way that you manage access to resources in Azure. For more information, see [Add or remove Azure role assignments using Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
 ## Next steps
 
 - To learn Azure Resource Manager, see [Azure Resource Manager overview](overview.md).
-- To learn the Resource Manager template syntax, see [Understand the structure and syntax of Azure Resource Manager templates](../templates/template-syntax.md).
+- To learn the Resource Manager template syntax, see [Understand the structure and syntax of Azure Resource Manager templates](../templates/syntax.md).
 - To learn how to develop templates, see the [step-by-step tutorials](../index.yml).
 - To view the Azure Resource Manager template schemas, see [template reference](/azure/templates/).

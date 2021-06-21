@@ -15,7 +15,7 @@ When you create an application gateway using the Azure portal, you create a defa
 
 ## Rule type
 
-When you create a rule, you choose between [*basic* and *path-based*](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#request-routing-rules).
+When you create a rule, you choose between [*basic* and *path-based*](./application-gateway-components.md#request-routing-rules).
 
 - Choose basic if you want to forward all requests on the associated listener (for example, *blog<i></i>.contoso.com/\*)* to a single back-end pool.
 - Choose path-based if you want to route requests from specific URL paths to specific back-end pools. The path pattern is applied only to the path of the URL, not to its query parameters.

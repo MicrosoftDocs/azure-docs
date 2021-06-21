@@ -38,13 +38,13 @@ Managing Azure Active Directory requires the continuous execution of key operati
 | Monitor Hybrid Logs: Passthrough Authentication Agents | IAM Operations Team |
 | Monitor Hybrid Logs: Password Writeback Service | IAM Operations Team |
 | Monitor Hybrid Logs: On-premises password protection gateway | IAM Operations Team |
-| Monitor Hybrid Logs: Azure MFA NPS Extension (if applicable) | IAM Operations Team |
+| Monitor Hybrid Logs: Azure AD MFA NPS Extension (if applicable) | IAM Operations Team |
 
 As you review your list, you may find you need to either assign an owner for tasks that are missing an owner or adjust ownership for tasks with owners that aren’t aligned with the recommendations above.
 
 #### Owners recommended reading
 
-- [Assigning administrator roles in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md)
+- [Assigning administrator roles in Azure Active Directory](../roles/permissions-reference.md)
 - [Governance in Azure](../../governance/index.yml)
 
 ## Hybrid management
@@ -65,7 +65,7 @@ Unless one has been established, you should define a process to upgrade these co
 #### Hybrid management recommended reading
 
 - [Azure AD Connect: Automatic upgrade](../hybrid/how-to-connect-install-automatic-upgrade.md)
-- [Understand Azure AD Application Proxy connectors | Automatic updates](../manage-apps/application-proxy-connectors.md#automatic-updates)
+- [Understand Azure AD Application Proxy connectors | Automatic updates](../app-proxy/application-proxy-connectors.md#automatic-updates)
 
 ### Azure AD Connect Health alert baseline
 
@@ -81,15 +81,15 @@ As you monitor the health of your environment, you must immediately address any 
 
 ### On-premises agents logs
 
-Some identity and access management services require on-premises agents to enable hybrid scenarios. Examples include password reset, pass-through authentication (PTA), Azure AD Application Proxy, and Azure MFA NPS extension. It is key that the operations team baseline and monitor the health of these components by archiving and analyzing the component agent logs using solutions such as System Center Operations Manager or SIEM. It is equally important your Infosec Operations team or help desk understand how to troubleshoot patterns of errors.
+Some identity and access management services require on-premises agents to enable hybrid scenarios. Examples include password reset, pass-through authentication (PTA), Azure AD Application Proxy, and Azure AD MFA NPS extension. It is key that the operations team baseline and monitor the health of these components by archiving and analyzing the component agent logs using solutions such as System Center Operations Manager or SIEM. It is equally important your Infosec Operations team or help desk understand how to troubleshoot patterns of errors.
 
 #### On-premises agents logs recommended reading
 
-- [Troubleshoot Application Proxy](../manage-apps/application-proxy-troubleshoot.md)
-- [Self-service password reset troubleshooting- Azure Active Directory](../authentication/active-directory-passwords-troubleshoot.md#password-writeback-event-log-error-codes)
-- [Understand Azure AD Application Proxy connectors](../manage-apps/application-proxy-connectors.md)
+- [Troubleshoot Application Proxy](../app-proxy/application-proxy-troubleshoot.md)
+- [Self-service password reset troubleshooting- Azure Active Directory](../authentication/troubleshoot-sspr.md)
+- [Understand Azure AD Application Proxy connectors](../app-proxy/application-proxy-connectors.md)
 - [Azure AD Connect: Troubleshoot Pass-through Authentication](../hybrid/tshoot-connect-pass-through-authentication.md#collecting-pass-through-authentication-agent-logs)
-- [Troubleshoot error codes for the Azure MFA NPS extension](../authentication/howto-mfa-nps-extension-errors.md)
+- [Troubleshoot error codes for the Azure AD MFA NPS extension](../authentication/howto-mfa-nps-extension-errors.md)
 
 ### On-premises agents management
 
@@ -101,7 +101,7 @@ Adopting best practices can help the optimal operation of on-premises agents. Co
 
 #### On-premises agents management recommended reading
 
-- [Understand Azure AD Application Proxy connectors](../manage-apps/application-proxy-connectors.md)
+- [Understand Azure AD Application Proxy connectors](../app-proxy/application-proxy-connectors.md)
 - [Azure AD Pass-through Authentication - quickstart](../hybrid/how-to-connect-pta-quick-start.md#step-4-ensure-high-availability)
 
 ## Management at scale
@@ -120,9 +120,9 @@ If your organization currently has no program in place to monitor changes in Ide
 
 ### Notifications
 
-Microsoft sends email communications to administrators to notify various changes in the service, configuration updates that are needed, and errors that require admin intervention. It is important that customers set the notification email addresses so that notifications are sent to the proper team members who can acknowledge and act upon all notifications. We recommend you add multiple recipients to the [Office 365 Message Center](/office365/admin/manage/message-center) and request that notifications (including Azure AD Connect Health notifications) be sent to a distribution list or shared mailbox. If you only have one global admin account with an email address, be sure to configure at least two email-capable accounts.
+Microsoft sends email communications to administrators to notify various changes in the service, configuration updates that are needed, and errors that require admin intervention. It is important that customers set the notification email addresses so that notifications are sent to the proper team members who can acknowledge and act upon all notifications. We recommend you add multiple recipients to the [Message Center](/office365/admin/manage/message-center) and request that notifications (including Azure AD Connect Health notifications) be sent to a distribution list or shared mailbox. If you only have one global admin account with an email address, be sure to configure at least two email-capable accounts.
 
-There are two "From" addresses used by Azure AD: <o365mc@email2.microsoft.com>, which sends Office 365 Message Center notifications; and <azure-noreply@microsoft.com>, which sends notifications related to:
+There are two "From" addresses used by Azure AD: <o365mc@email2.microsoft.com>, which sends Message Center notifications; and <azure-noreply@microsoft.com>, which sends notifications related to:
 
 - [Azure AD Access Reviews](../governance/access-reviews-overview.md)
 - [Azure AD Connect Health](../hybrid/how-to-connect-health-operations.md#enable-email-notifications)
@@ -136,14 +136,14 @@ Refer to the following table to learn the type of notifications that are sent an
 | Notification source | What is sent | Where to check |
 |:-|:-|:-|
 | Technical contact | Sync errors | Azure portal - properties blade |
-| Office 365 Message Center | Incident and degradation notices of Identity Services and O365 backend services | Office Portal |
+| Message Center | Incident and degradation notices of Identity Services and Microsoft 365 backend services | Office Portal |
 | Identity Protection Weekly Digest | Identity Protection Digest | Azure AD Identity Protection blade |
 | Azure AD Connect Health | Alert notifications | Azure portal - Azure AD Connect Health blade |
 | Enterprise Applications Notifications | Notifications when certificates are about to expire and provisioning errors | Azure portal - Enterprise Application blade (each app has its own email address setting) |
 
 #### Notifications recommended reading
 
-- [Change your organization's address, technical contact, and more - Office 365](/office365/admin/manage/change-address-contact-and-more)
+- [Change your organization's address, technical contact, and more](/office365/admin/manage/change-address-contact-and-more)
 
 ## Operational surface area
 

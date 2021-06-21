@@ -1,53 +1,55 @@
 ---
-title: Use kubectl to deploy Kubernetes stateful app via dynamically provisioned share on Azure Stack Edge GPU device| Microsoft Docs
-description: Describes how to create and manage a Kubernetes stateful application deployment via a dynamically provisioned share using kubectl on a Microsoft Azure Stack Edge GPU device.
+title: Use kubectl to deploy Kubernetes stateful app via dynamically provisioned share on Azure Stack Edge Pro GPU device| Microsoft Docs
+description: Describes how to create and manage a Kubernetes stateful application deployment via a dynamically provisioned share using kubectl on a Microsoft Azure Stack Edge Pro GPU device.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/26/2020
+ms.date: 02/22/2021
 ms.author: alkohli
 ---
 
-# Use kubectl to run a Kubernetes stateful application with StorageClass on your Azure Stack Edge GPU device
+# Use kubectl to run a Kubernetes stateful application with StorageClass on your Azure Stack Edge Pro GPU device
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 This article shows you how to deploy a single-instance stateful application in Kubernetes using a StorageClass to dynamically provision storage and a deployment. The deployment uses `kubectl` commands on an existing Kubernetes cluster and deploys the MySQL application. 
 
-This procedure is intended for those who have reviewed the [Kubernetes storage on Azure Stack Edge device](azure-stack-edge-gpu-kubernetes-storage.md) and are familiar with the concepts of [Kubernetes storage](https://kubernetes.io/docs/concepts/storage/).
+This procedure is intended for those who have reviewed the [Kubernetes storage on Azure Stack Edge Pro device](azure-stack-edge-gpu-kubernetes-storage.md) and are familiar with the concepts of [Kubernetes storage](https://kubernetes.io/docs/concepts/storage/).
 
 
 ## Prerequisites
 
-Before you can deploy the stateful application, make sure that you have completed the following prerequisites on your device and the client that you will use to access the device:
+Before you can deploy the stateful application, complete the following prerequisites on your device and the client that you will use to access the device:
 
 ### For device
 
-- You have sign-in credentials to a 1-node Azure Stack Edge device.
+- You have sign-in credentials to a 1-node Azure Stack Edge Pro device.
     - The device is activated. See [Activate the device](azure-stack-edge-gpu-deploy-activate.md).
     - The device has the compute role configured via Azure portal and has a Kubernetes cluster. See [Configure compute](azure-stack-edge-gpu-deploy-configure-compute.md).
 
 ### For client accessing the device
 
-- You have a  Windows client system that will be used to access the Azure Stack Edge device.
-    - The client is running Windows PowerShell 5.0 or later. To download the latest version of Windows PowerShell, go to [Install Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
+- You have a  Windows client system that will be used to access the Azure Stack Edge Pro device.
+    - The client is running Windows PowerShell 5.0 or later. To download the latest version of Windows PowerShell, go to [Install Windows PowerShell](/powershell/scripting/install/installing-windows-powershell).
     
     - You can have any other client with a [Supported operating system](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device) as well. This article describes the procedure when using a Windows client. 
     
-    - You have completed the procedure described in [Access the Kubernetes cluster on Azure Stack Edge device](azure-stack-edge-gpu-create-kubernetes-cluster.md). You have:
+    - You have completed the procedure described in [Access the Kubernetes cluster on Azure Stack Edge Pro device](azure-stack-edge-gpu-create-kubernetes-cluster.md). You have:
       - Created a `userns1` namespace via the `New-HcsKubernetesNamespace` command. 
       - Created a user `user1` via the `New-HcsKubernetesUser` command. 
       - Granted the `user1` access to `userns1` via the `Grant-HcsKubernetesNamespaceAccess` command.       
       - Installed `kubectl` on the client  and saved the `kubeconfig` file with the user configuration to C:\\Users\\&lt;username&gt;\\.kube. 
     
-    - Make sure that the `kubectl` client version is skewed no more than one version from the Kubernetes master version running on your Azure Stack Edge device. 
+    - Make sure that the `kubectl` client version is skewed no more than one version from the Kubernetes master version running on your Azure Stack Edge Pro device. 
         - Use `kubectl version` to check the version of kubectl running on the client. Make a note of the full version.
-        - In the local UI of your Azure Stack Edge device, go to **Overview** and note the Kubernetes software number. 
+        - In the local UI of your Azure Stack Edge Pro device, go to **Overview** and note the Kubernetes software number. 
         - Verify these two versions for compatibility from the mapping provided in the Supported Kubernetes version<!-- insert link-->. 
 
 
-You are ready to deploy a stateful application on your Azure Stack Edge device. 
+You are ready to deploy a stateful application on your Azure Stack Edge Pro device. 
 
 
 ## Deploy MySQL
@@ -62,7 +64,7 @@ All `kubectl` commands you use to create and manage stateful application deploym
    kubectl get pods -n <your-namespace>
    ```
     
-   Here is an example of command usage:
+   Here's an example of command usage:
     
    ```powershell
     C:\Users\user>kubectl get pods -n "userns1"
@@ -74,7 +76,7 @@ All `kubectl` commands you use to create and manage stateful application deploym
 
 1. You will use the following YAML files. The `mysql-deployment.yml` file describes a deployment that runs MySQL and references the PVC. The file defines a volume mount for `/var/lib/mysql`, and then creates a PVC that looks for a 20-GB volume. A dynamic PV is provisioned and the PVC is bound to this PV.
 
-    Copy and save the following `mysql-deployment.yml` file to a folder on the Windows client that you are using to access the Azure Stack Edge device.
+    Copy and save the following `mysql-deployment.yml` file to a folder on the Windows client that you are using to access the Azure Stack Edge Pro device.
     
     ```yml
     apiVersion: v1
@@ -122,7 +124,7 @@ All `kubectl` commands you use to create and manage stateful application deploym
               claimName: mysql-pv-claim-sc
     ```
     
-2. Copy and save as a `mysql-pvc.yml` file to the same folder where you saved the `mysql-deployment.yml`. To use the builtin StorageClass that Azure Stack Edge device on an attached data disk, set the `storageClassName` field in the PVC object to `ase-node-local` and accessModes should be `ReadWriteOnce`. 
+2. Copy and save as a `mysql-pvc.yml` file to the same folder where you saved the `mysql-deployment.yml`. To use the builtin StorageClass that Azure Stack Edge Pro device on an attached data disk, set the `storageClassName` field in the PVC object to `ase-node-local` and accessModes should be `ReadWriteOnce`. 
 
     > [!NOTE] 
     > Make sure that the YAML files have correct indentation. You can check with [YAML lint](http://www.yamllint.com/) to validate and then save.
@@ -145,7 +147,7 @@ All `kubectl` commands you use to create and manage stateful application deploym
 
     `kubectl apply -f <URI path to the mysql-pv.yml file> -n <your-user-namespace>`
     
-    Here is a sample output of the deployment.
+    Here's a sample output of the deployment.
 
     
     ```powershell
@@ -153,13 +155,13 @@ All `kubectl` commands you use to create and manage stateful application deploym
     persistentvolumeclaim/mysql-pv-claim-sc created
     C:\Users\user>
     ```
-   Note the name of the PVC created, here it is `mysql-pv-claim-sc`. You will use it in a later step. 
+   Note the name of the PVC created - in this example, `mysql-pv-claim-sc`. You will use it in a later step.
 
 4. Deploy the contents of the `mysql-deployment.yml` file.
 
     `kubectl apply -f <URI path to mysql-deployment.yml file> -n <your-user-namespace>`
 
-    Here is a sample output of the deployment.
+    Here's a sample output of the deployment.
     
     ```powershell
     C:\Users\user>kubectl apply -f "C:\stateful-application\mysql-deployment.yml" -n userns1
@@ -220,7 +222,7 @@ All `kubectl` commands you use to create and manage stateful application deploym
 
     `kubectl get pods -l <app=label> -n <your-user-namespace>`
 
-    Here is a sample output.
+    Here's a sample output.
 
     
     ```powershell
@@ -234,7 +236,7 @@ All `kubectl` commands you use to create and manage stateful application deploym
 
     `kubectl describe pvc <your-pvc-name>`
 
-    Here is a sample output.
+    Here's a sample output.
 
     
     ```powershell
@@ -275,7 +277,7 @@ To verify that the application is running, type:
 
 When prompted, provide the password. The password is in your `mysql-deployment` file.
 
-Here is a sample output.
+Here's a sample output.
 
 ```powershell
 C:\Users\user>kubectl exec mysql-695c4d9dcd-rvzff -i -t -n userns1 -- mysql -p
@@ -303,7 +305,7 @@ kubectl delete deployment <deployment-name>,svc <service-name> -n <your-namespac
 kubectl delete pvc <your-pvc-name> -n <your-namespace>
 ```
 
-Here is sample output of when you delete the deployment and the service.
+Here's sample output of when you delete the deployment and the service.
 
 ```powershell
 C:\Users\user>kubectl delete deployment,svc mysql -n userns1
@@ -311,7 +313,7 @@ deployment.apps "mysql" deleted
 service "mysql" deleted
 C:\Users\user>
 ```
-Here is sample output of when you delete the PVC.
+Here's sample output of when you delete the PVC.
 
 ```powershell
 C:\Users\user>kubectl delete pvc mysql-pv-claim-sc -n userns1
@@ -323,4 +325,4 @@ C:\Users\user>
 ## Next steps
 
 To understand how to configure networking via kubectl, see 
-[Deploy a stateless application on an Azure Stack Edge device](azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module.md)
+[Deploy a stateless application on an Azure Stack Edge Pro device](azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module.md)

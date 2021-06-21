@@ -1,19 +1,22 @@
 ---
 title: 'Create an environment - Azure Time Series Insights | Microsoft Docs'
-description: Learn how to use the Azure portal to create a new Azure Time Series Insights environment. 
+description: Learn how to use the Azure portal to create a new Azure Time Series Insights environment.
 ms.service: time-series-insights
 services: time-series-insights
-author: deepakpalled
-ms.author: dpalled
-manager: diviso
-ms.reviewer: v-mamcge, jasonh, kfile
+author: tedvilutis
+ms.author: tvilutis
+manager: cnovak
+ms.reviewer: orspodek
 ms.workload: big-data
-ms.topic: conceptual 
-ms.date: 06/30/2020
+ms.topic: conceptual
+ms.date: 09/29/2020
 ms.custom: seodec18
 ---
 
 # Create a new Azure Time Series Insights Gen1 environment in the Azure portal
+
+> [!CAUTION]
+> This is a Gen1 article.
 
 This article describes how to create a new Azure Time Series Insights environment using the Azure portal.
 
@@ -45,7 +48,7 @@ Follow these steps to create an environment:
    Location | Nearest your event source | Preferably, choose the same data center location that contains your event source data, in effort to avoid added cross-region and cross-zone bandwidth costs and added latency when moving data out of the region.
    Pricing tier | S1 | Choose the throughput needed. For lowest costs and starter capacity, select S1.
    Capacity | 1 | Capacity is the multiplier applies to the ingress rate, storage capacity, and cost associated with the selected SKU.  You can change capacity of an environment after creation. For lowest costs, select a capacity of 1.
-  
+
 1. Select **Create** to begin the provisioning process. It may take a couple of minutes.
 
 1. To monitor the deployment process, select the **Notifications** symbol (bell icon).
@@ -60,9 +63,9 @@ Follow these steps to create an environment:
 
 ## Next steps
 
-* [Define data access policies](time-series-insights-data-access.md) to secure your environment.
+* [Define data access policies](./concepts-access-policies.md) to secure your environment.
 
-* [Add an Event Hub event source](time-series-insights-how-to-add-an-event-source-eventhub.md) to your Azure Time Series Insights environment.
+* [Add an Event Hub event source](./how-to-ingest-data-event-hub.md) to your Azure Time Series Insights environment.
 
 * [Send events](time-series-insights-send-events.md) to the event source.
 

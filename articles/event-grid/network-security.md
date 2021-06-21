@@ -1,6 +1,6 @@
 ---
 title: Network security for Azure Event Grid resources
-description: This article describes how to configure access from private endpoints
+description: This article describes how to use service tags for egress, IP firewall rules for ingress, and private endpoints for ingress with Azure Event Grid.
 author: VidyaKukke
 ms.topic: conceptual
 ms.date: 07/07/2020
@@ -11,14 +11,14 @@ ms.author: vkukke
 This article describes how to use the following security features with Azure Event Grid: 
 
 - Service tags for egress
-- IP Firewall rules for ingress (preview)
+- IP Firewall rules for ingress
 - Private endpoints for ingress
 
 
 ## Service tags
 A service tag represents a group of IP address prefixes from a given Azure service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change, minimizing the complexity of frequent updates to network security rules. For more information about service tags, see [Service tags overview](../virtual-network/service-tags-overview.md).
 
-You can use service tags to define network access controls on [network security groups](../virtual-network/security-overview.md#security-rules) or [Azure Firewall](../firewall/service-tags.md). Use service tags in place of specific IP addresses when you create security rules. By specifying the service tag name (for example, **AzureEventGrid**) in the appropriate *source* or *destination* field of a rule, you can allow or deny the traffic for the corresponding service.
+You can use service tags to define network access controls on [network security groups](../virtual-network/network-security-groups-overview.md#security-rules) or [Azure Firewall](../firewall/service-tags.md). Use service tags in place of specific IP addresses when you create security rules. By specifying the service tag name (for example, **AzureEventGrid**) in the appropriate *source* or *destination* field of a rule, you can allow or deny the traffic for the corresponding service.
 
 | Service tag | Purpose | Can use inbound or outbound? | Can be regional? | Can use with Azure Firewall? |
 | --- | -------- |:---:|:---:|:---:|
@@ -28,7 +28,7 @@ You can use service tags to define network access controls on [network security
 ## IP firewall 
 Azure Event Grid supports IP-based access controls for publishing to topics and domains. With IP-based controls, you can limit the publishers to a topic or domain to only a set of approved set of machines and cloud services. This feature complements the [authentication mechanisms](security-authentication.md) supported by Event Grid.
 
-By default, topic and domain are accessible from internet as long as the request comes with valid authentication and authorization. With IP firewall, you can restrict it further to only a set of IP addresses or IP address ranges in [CIDR (Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation. Publishers originating from any other IP address will be rejected and will receive a 403 (Forbidden) response.
+By default, topic and domain are accessible from the internet as long as the request comes with valid authentication and authorization. With IP firewall, you can restrict it further to only a set of IP addresses or IP address ranges in [CIDR (Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation. Publishers originating from any other IP address will be rejected and will receive a 403 (Forbidden) response.
 
 For step-by-step instructions to configure IP firewall for topics and domains, see [Configure IP firewall](configure-firewall.md).
 
@@ -39,8 +39,8 @@ You can use [private endpoints](../private-link/private-endpoint-overview.md) to
 
 Using private endpoints for your Event Grid resource enables you to:
 
-- Secure access to your topic or domain from a VNet over Microsoft backbone network as opposed to the public internet.
-- Securely connect from on-premises networks that connect to the VNet using VPN or ExpressRoutes with private-peering.
+- Secure access to your topic or domain from a VNet over the Microsoft backbone network as opposed to the public internet.
+- Securely connect from on-premises networks that connect to the VNet using VPN or Express Routes with private-peering.
 
 When you create a private endpoint for a topic or domain in your VNet, a consent request is sent for approval to the resource owner. If the user requesting the creation of the private endpoint is also an owner of the resource, this consent request is automatically approved. Otherwise, the connection is in **pending** state until approved. Applications in the VNet can connect to the Event Grid service over the private endpoint seamlessly, using the same connection strings and authorization mechanisms that they would use otherwise. Resource owners can manage consent requests and the private endpoints, through the **Private endpoints** tab for the resource in the Azure portal.
 

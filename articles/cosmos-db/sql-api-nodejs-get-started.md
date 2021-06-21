@@ -8,16 +8,17 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 04/20/2020
 ms.author: dech
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 #Customer intent: As a developer, I want to build a Node.js console application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
 
 ---
 # Tutorial: Build a Node.js console app with the JavaScript SDK to manage Azure Cosmos DB SQL API data
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
-> * [Java](sql-api-java-get-started.md)
-> * [Async Java](sql-api-async-java-get-started.md)
+> * [Java](./create-sql-api-java.md)
+> * [Async Java](./create-sql-api-java.md)
 > * [Node.js](sql-api-nodejs-get-started.md)
 > 
 
@@ -39,7 +40,7 @@ Make sure you have the following resources:
 
 * An active Azure account. If you don't have one, you can sign up for a [Free Azure Trial](https://azure.microsoft.com/pricing/free-trial/). 
 
-  [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
+  [!INCLUDE [cosmos-db-emulator-docdb-api](includes/cosmos-db-emulator-docdb-api.md)]
 
 * [Node.js](https://nodejs.org/) v6.0.0 or higher.
 
@@ -47,7 +48,7 @@ Make sure you have the following resources:
 
 Let's create an Azure Cosmos DB account. If you already have an account you want to use, you can skip ahead to [Set up your Node.js application](#SetupNode). If you are using the Azure Cosmos DB Emulator, follow the steps at [Azure Cosmos DB Emulator](local-emulator.md) to set up the emulator and skip ahead to [Set up your Node.js application](#SetupNode). 
 
-[!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
+[!INCLUDE [cosmos-db-create-dbaccount](includes/cosmos-db-create-dbaccount.md)]
 
 ## <a id="SetupNode"></a>Set up your Node.js application
 
@@ -217,6 +218,6 @@ When these resources are no longer needed, you can delete the resource group, Az
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Monitor an Azure Cosmos DB account](monitor-accounts.md)
+> [Monitor an Azure Cosmos DB account](./monitor-cosmos-db.md)
 
 [create-account]: create-sql-api-dotnet.md#create-account

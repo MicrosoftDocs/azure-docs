@@ -101,7 +101,7 @@ Always join Azure Backup Server to a domain. If you need to move Azure Backup Se
 
 ### Set Storage Replication
 
-The Recovery Services vault storage replication option allows you to choose between geo-redundant storage and locally redundant storage. By default, Recovery Services vaults use geo-redundant storage. If this vault is your primary vault, leave the storage option set to geo-redundant storage. Choose locally redundant storage if you want a cheaper option that's less durable. Read more about [geo-redundant](../storage/common/storage-redundancy.md) and [locally redundant](../storage/common/storage-redundancy.md) storage options in the [Azure Storage replication overview](../storage/common/storage-redundancy.md).
+The Recovery Services vault storage replication option allows you to choose between geo-redundant storage and locally redundant storage. By default, Recovery Services vaults use geo-redundant storage. If this vault is your primary vault, leave the storage option set to geo-redundant storage. Choose locally redundant storage if you want a cheaper option that's less durable. Read more about [geo-redundant](../storage/common/storage-redundancy.md#geo-redundant-storage), [locally redundant](../storage/common/storage-redundancy.md#locally-redundant-storage), and [zone-redundant](../storage/common/storage-redundancy.md#zone-redundant-storage) storage options in the [Azure Storage replication overview](../storage/common/storage-redundancy.md).
 
 To edit the storage replication setting:
 
@@ -237,7 +237,7 @@ Azure Backup Server shares code with Data Protection Manager. You'll see referen
 
     ![Provide location for installation of files](./media/backup-mabs-install-azure-stack/mabs-install-wizard-settings-11.png)
 
-    The scratch location is required to back up to Azure. Ensure the size of the scratch location is equivalent to at least 5% of the data planned to be backed up to Azure. For disk protection, separate disks need to be configured once the installation completes. For more information about storage pools, see [Prepare data storage](/system-center/dpm/plan-long-and-short-term-data-storage?view=sc-dpm-2019).
+    The scratch location is required to back up to Azure. Ensure the size of the scratch location is equivalent to at least 5% of the data planned to be backed up to Azure. For disk protection, separate disks need to be configured once the installation completes. For more information about storage pools, see [Prepare data storage](/system-center/dpm/plan-long-and-short-term-data-storage).
 
 6. On the **Security Settings** screen, provide a strong password for restricted local user accounts and select **Next**.
 
@@ -329,13 +329,19 @@ Once you know the state of the Azure connectivity and of the Azure subscription,
 
 ### Recovering from loss of connectivity
 
-If a firewall or a proxy is preventing access to Azure, add the following domain addresses in the firewall/proxy profile allow list:
+If your machine has limited internet access, ensure that firewall settings on the machine or proxy allow the following URLs and IP addresses:
 
-- `http://www.msftncsi.com/ncsi.txt`
-- \*.Microsoft.com
-- \*.WindowsAzure.com
-- \*.microsoftonline.com
-- \*.windows.net
+* URLs
+  * `www.msftncsi.com`
+  * `*.Microsoft.com`
+  * `*.WindowsAzure.com`
+  * `*.microsoftonline.com`
+  * `*.windows.net`
+  * `www.msftconnecttest.com`
+* IP addresses
+  * 20.190.128.0/18
+  * 40.126.0.0/18
+
 
 Once connectivity to Azure is restored to the Azure Backup Server, the Azure subscription state determines the operations that can be performed. Once the server is **Connected**, use the table in [Network connectivity](backup-mabs-install-azure-stack.md#network-connectivity) to see the available operations.
 
@@ -349,7 +355,7 @@ It's possible to change an Azure subscription from *Expired* or *Deprovisioned* 
 ## Troubleshooting
 
 If Microsoft Azure Backup server fails with errors during the setup phase (or backup or restore), see the [error codes document](https://support.microsoft.com/kb/3041338).
-You can also refer to [Azure Backup related FAQs](backup-azure-backup-faq.md)
+You can also refer to [Azure Backup related FAQs](backup-azure-backup-faq.yml)
 
 ## Next steps
 
@@ -358,5 +364,5 @@ The article, [Preparing your environment for DPM](/system-center/dpm/prepare-env
 You can use the following articles to gain a deeper understanding of workload protection using Microsoft Azure Backup Server.
 
 - [SQL Server backup](./backup-mabs-sql-azure-stack.md)
-- [SharePoint server backup](./backup-mabs-sharepoint-azure-stack.md)
+- [SharePoint Server backup](./backup-mabs-sharepoint-azure-stack.md)
 - [Alternate server backup](backup-azure-alternate-dpm-server.md)

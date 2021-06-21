@@ -1,6 +1,6 @@
 ---
-title: Create your first function in Azure with Kotlin and Maven
-description: Create and publish an HTTP triggered function to Azure with Kotlin and Maven.
+title: Create a Kotlin function in Azure Functions using Maven
+description: Create and publish an HTTP triggered function app to Azure Functions with Kotlin and Maven.
 author: dglover
 ms.service: azure-functions
 ms.topic: quickstart
@@ -11,7 +11,7 @@ ms.custom: devx-track-azurepowershell
 
 # Quickstart: Create your first function with Kotlin and Maven
 
-This article guides you through using the Maven command-line tool to build and publish a Kotlin function project to Azure Functions. When you're done, your function code runs on the [Consumption Plan](functions-scale.md#consumption-plan) in Azure and can be triggered using an HTTP request.
+This article guides you through using the Maven command-line tool to build and publish a Kotlin function project to Azure Functions. When you're done, your function code runs on the [Consumption Plan](consumption-plan.md) in Azure and can be triggered using an HTTP request.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -19,7 +19,7 @@ This article guides you through using the Maven command-line tool to build and p
 
 To develop functions using Kotlin, you must have the following installed:
 
-- [Java Developer Kit](https://aka.ms/azure-jdks), version 8
+- [Java Developer Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support), version 8
 - [Apache Maven](https://maven.apache.org), version 3.0 or above
 - [Azure CLI](/cli/azure)
 - [Azure Functions Core Tools](./functions-run-local.md#v2) version 2.6.666 or above
@@ -27,9 +27,9 @@ To develop functions using Kotlin, you must have the following installed:
 > [!IMPORTANT]
 > The JAVA_HOME environment variable must be set to the install location of the JDK to complete this quickstart.
 
-## Generate a new Functions project
+## Generate a new Azure Functions project
 
-In an empty folder, run the following command to generate the Functions project from a [Maven archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html).
+In an empty folder, run the following command to generate the Azure Functions project from a [Maven archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html).
 
 # [bash](#tab/bash)
 ```bash
@@ -153,22 +153,22 @@ Use `Ctrl-C` in the terminal to stop the function code.
 
 ## Deploy the function to Azure
 
-The deploy process to Azure Functions uses account credentials from the Azure CLI. [Sign in with the Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest) before continuing.
+The deploy process to Azure Functions uses account credentials from the Azure CLI. [Sign in with the Azure CLI](/cli/azure/authenticate-azure-cli) before continuing.
 
 ```azurecli
 az login
 ```
 
-Deploy your code into a new Function app using the `azure-functions:deploy` Maven target.
+Deploy your code into a new function app using the `azure-functions:deploy` Maven target.
 
 > [!NOTE]
-> When you use Visual Studio Code to deploy your Function app, remember to choose a non-free subscription, or you will get an error. You can watch your subscription on the left side of the IDE.
+> When you use Visual Studio Code to deploy your function app, remember to choose a non-free subscription, or you will get an error. You can watch your subscription on the left side of the IDE.
 
 ```
 mvn azure-functions:deploy
 ```
 
-When the deploy is complete, you see the URL you can use to access your Azure function app:
+When the deploy is complete, you see the URL you can use to access your function app:
 
 <pre>
 [INFO] Successfully deployed Function App with package.
@@ -193,7 +193,7 @@ Hello AzureFunctions!
 
 ## Make changes and redeploy
 
-Edit the `src/main.../Function.java` source file in the generated project to alter the text returned by your Function app. Change this line:
+Edit the `src/main.../Function.java` source file in the generated project to alter the text returned by your function app. Change this line:
 
 ```kotlin
 return request
@@ -226,7 +226,7 @@ Hi, AzureFunctionsTest
 
 ## Reference bindings
 
-To work with [Functions triggers and bindings](functions-triggers-bindings.md) other than HTTP trigger and Timer trigger, you need to install binding extensions. While not required by this article, you'll need to know how to do enable extensions when working with other binding types.
+To work with [Azure Functions triggers and bindings](functions-triggers-bindings.md) other than HTTP trigger and Timer trigger, you need to install binding extensions. While not required by this article, you'll need to know how to do enable extensions when working with other binding types.
 
 [!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 
@@ -234,7 +234,7 @@ To work with [Functions triggers and bindings](functions-triggers-bindings.md) o
 
 You've created a Kotlin function app with a simple HTTP trigger and deployed it to Azure Functions.
 
-- Review the  [Java Functions developer guide](functions-reference-java.md) for more information on developing Java and Kotlin functions.
+- Review the [Azure Functions Java developer guide](functions-reference-java.md) for more information on developing Java and Kotlin functions.
 - Add additional functions with different triggers to your project using the `azure-functions:add` Maven target.
 - Write and debug functions locally with [Visual Studio Code](https://code.visualstudio.com/docs/java/java-azurefunctions), [IntelliJ](functions-create-maven-intellij.md), and [Eclipse](functions-create-maven-eclipse.md). 
 - Debug functions deployed in Azure with Visual Studio Code. See the Visual Studio Code [serverless Java applications](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud) documentation for instructions.

@@ -22,7 +22,7 @@ In addition to the Azure Application Gateway, there are multiple marketplace opt
 ## Setup
 For this document, we configure the App Service Environment behind multiple load balanced instances of Barracuda WAF so that only traffic from the WAF can reach the App Service Environment and it is not accessible from the DMZ. We also have Azure Traffic Manager in front of the Barracuda WAF instances to load balance across Azure data centers and regions. A high-level diagram of the setup would look like the following image:
 
-![Architecture][Architecture] 
+![Diagram shows an optional Azure Traffic Manager connecting to instances of Web Application Firewall, connecting to Network A C L to only allow traffic from the firewall in an App Service Environment that contains Web, A P I, and Mobile App for two regions.][Architecture] 
 
 > [!NOTE]
 > With the introduction of [ILB support for App Service Environment](app-service-environment-with-internal-load-balancer.md), you can configure the ASE to be inaccessible from the DMZ and only be available to the private network. 
@@ -62,7 +62,7 @@ Once you log in, you should see a dashboard like the one in the following image 
 
 ![Management Dashboard][ManagementDashboard]
 
-Clicking on the **Services** tab lets you configure your WAF for services it is protecting. For more details on configuring your Barracuda WAF, see [their documentation](https://techlib.barracuda.com/waf/getstarted1). In the following example, an App Service app serving traffic on HTTP and HTTPS has been configured.
+Clicking on the **Services** tab lets you configure your WAF for services it is protecting. For more details on configuring your Barracuda WAF, see [their documentation](https://campus.barracuda.com/product/webapplicationfirewall/doc/4259884/configure-the-barracuda-web-application-firewall-from-the-web-interface/). In the following example, an App Service app serving traffic on HTTP and HTTPS has been configured.
 
 ![Management Add Services][ManagementAddServices]
 

@@ -1,11 +1,11 @@
 ---
 title: Extensions - Azure Database for PostgreSQL - Single Server
 description: Learn about the available Postgres extensions in Azure Database for PostgreSQL - Single Server
-author: rachel-msft
-ms.author: raagyema
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 07/10/2020
+ms.date: 03/25/2021
 ---
 # PostgreSQL extensions in Azure Database for PostgreSQL - Single Server
 PostgreSQL provides the ability to extend the functionality of your database using extensions. Extensions bundle multiple related SQL objects together in a single package that can be loaded or removed from your database with a single command. After being loaded in the database, extensions function like built-in features.
@@ -56,7 +56,7 @@ The following extensions are available in Azure Database for PostgreSQL servers 
 > |[postgis_topology](https://postgis.net/docs/Topology.html)             | 2.5.1           | PostGIS topology spatial types and functions|
 > |[postgres_fdw](https://www.postgresql.org/docs/11/postgres-fdw.html)                 | 1.0             | foreign-data wrapper for remote PostgreSQL servers|
 > |[tablefunc](https://www.postgresql.org/docs/11/tablefunc.html)                    | 1.0             | functions that manipulate whole tables, including crosstab|
-> |[timescaledb](https://docs.timescale.com/latest)                    | 1.3.2             | Enables scalable inserts and complex queries for time-series data|
+> |[timescaledb](https://docs.timescale.com/latest)                    |1.7.4             | Enables scalable inserts and complex queries for time-series data|
 > |[unaccent](https://www.postgresql.org/docs/11/unaccent.html)                     | 1.1             | text search dictionary that removes accents|
 > |[uuid-ossp](https://www.postgresql.org/docs/11/uuid-ossp.html)                    | 1.1             | generate universally unique identifiers (UUIDs)|
 
@@ -102,7 +102,7 @@ The following extensions are available in Azure Database for PostgreSQL servers 
 > |[postgis_topology](https://postgis.net/docs/Topology.html)             | 2.4.3           | PostGIS topology spatial types and functions|
 > |[postgres_fdw](https://www.postgresql.org/docs/10/postgres-fdw.html)                 | 1.0             | foreign-data wrapper for remote PostgreSQL servers|
 > |[tablefunc](https://www.postgresql.org/docs/10/tablefunc.html)                    | 1.0             | functions that manipulate whole tables, including crosstab|
-> |[timescaledb](https://docs.timescale.com/latest)                    | 1.1.1             | Enables scalable inserts and complex queries for time-series data|
+> |[timescaledb](https://docs.timescale.com/latest)                    | 1.7.4             | Enables scalable inserts and complex queries for time-series data|
 > |[unaccent](https://www.postgresql.org/docs/10/unaccent.html)                     | 1.1             | text search dictionary that removes accents|
 > |[uuid-ossp](https://www.postgresql.org/docs/10/uuid-ossp.html)                    | 1.1             | generate universally unique identifiers (UUIDs)|
 
@@ -148,11 +148,14 @@ The following extensions are available in Azure Database for PostgreSQL servers 
 > |[postgis_topology](https://postgis.net/docs/Topology.html)             | 2.3.2           | PostGIS topology spatial types and functions|
 > |[postgres_fdw](https://www.postgresql.org/docs/9.6/postgres-fdw.html)                 | 1.0             | foreign-data wrapper for remote PostgreSQL servers|
 > |[tablefunc](https://www.postgresql.org/docs/9.6/tablefunc.html)                    | 1.0             | functions that manipulate whole tables, including crosstab|
-> |[timescaledb](https://docs.timescale.com/latest)                    | 1.1.1             | Enables scalable inserts and complex queries for time-series data|
+> |[timescaledb](https://docs.timescale.com/latest)                    | 1.7.4             | Enables scalable inserts and complex queries for time-series data|
 > |[unaccent](https://www.postgresql.org/docs/9.6/unaccent.html)                     | 1.1             | text search dictionary that removes accents|
 > |[uuid-ossp](https://www.postgresql.org/docs/9.6/uuid-ossp.html)                    | 1.1             | generate universally unique identifiers (UUIDs)|
 
-## Postgres 9.5 extensions 
+## Postgres 9.5 extensions
+
+>[!NOTE]
+> PostgreSQL version 9.5 has been retired.
 
 The following extensions are available in Azure Database for PostgreSQL servers which have Postgres version 9.5.
 
@@ -199,7 +202,7 @@ The following extensions are available in Azure Database for PostgreSQL servers 
 
 ## pg_stat_statements
 The [pg_stat_statements extension](https://www.postgresql.org/docs/current/pgstatstatements.html) is preloaded on every Azure Database for PostgreSQL server to provide you a means of tracking execution statistics of SQL statements.
-The setting `pg_stat_statements.track`, which controls what statements are counted by the extension, defaults to `top`, meaning all statements issued directly by clients are tracked. The two other tracking levels are `none` and `all`. This setting is configurable as a server parameter through the [Azure portal](https://docs.microsoft.com/azure/postgresql/howto-configure-server-parameters-using-portal) or the [Azure CLI](https://docs.microsoft.com/azure/postgresql/howto-configure-server-parameters-using-cli).
+The setting `pg_stat_statements.track`, which controls what statements are counted by the extension, defaults to `top`, meaning all statements issued directly by clients are tracked. The two other tracking levels are `none` and `all`. This setting is configurable as a server parameter through the [Azure portal](./howto-configure-server-parameters-using-portal.md) or the [Azure CLI](./howto-configure-server-parameters-using-cli.md).
 
 There is a tradeoff between the query execution information pg_stat_statements provides and the impact on server performance as it logs each SQL statement. If you are not actively using the pg_stat_statements extension, we recommend that you set `pg_stat_statements.track` to `none`. Note that some third party monitoring services may rely on pg_stat_statements to deliver query performance insights, so confirm whether this is the case for you or not.
 
@@ -222,7 +225,7 @@ In Postgres 11 and above, you can configure prewarming to happen [automatically]
 ## TimescaleDB
 TimescaleDB is a time-series database that is packaged as an extension for PostgreSQL. TimescaleDB provides time-oriented analytical functions, optimizations, and scales Postgres for time-series workloads.
 
-[Learn more about TimescaleDB](https://docs.timescale.com/latest), a registered trademark of [Timescale, Inc.](https://www.timescale.com/). Azure Database for PostgreSQL provides the open-source version of Timescale. To learn which Timescale features are available in this version, see [the Timescale product comparison](https://www.timescale.com/products/).
+[Learn more about TimescaleDB](https://docs.timescale.com/latest), a registered trademark of [Timescale, Inc.](https://www.timescale.com/). Azure Database for PostgreSQL provides the TimescaleDB [Apache-2 edition](https://www.timescale.com/legal/licenses).
 
 ### Installing TimescaleDB
 To install TimescaleDB, you need to include it in the server's shared preload libraries. A change to Postgres's `shared_preload_libraries` parameter requires a **server restart** to take effect. You can change parameters using the [Azure portal](howto-configure-server-parameters-using-portal.md) or the [Azure CLI](howto-configure-server-parameters-using-cli.md).

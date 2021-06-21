@@ -37,7 +37,7 @@ Select the option for recommended steps to move the web app.
 
 You see the recommended actions to take before moving the resources. The information includes the original resource group for the web app.
 
-![Recommendations](./media/app-service-move-limitations/recommendations.png)
+![Screen capture shows recommended steps for moving Microsoft dot Web resources.](./media/app-service-move-limitations/recommendations.png)
 
 ## Move support
 

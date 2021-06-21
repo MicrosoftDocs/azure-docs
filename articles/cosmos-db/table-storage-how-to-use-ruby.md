@@ -11,6 +11,7 @@ ms.author: akshanka
 ms.reviewer: sngun
 ---
 # How to use Azure Table Storage and the Azure Cosmos DB Table API with Ruby
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
@@ -19,15 +20,15 @@ This article shows you how to create tables, store your data, and perform CRUD o
 
 ## Create an Azure service account
 
-[!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
+[!INCLUDE [cosmos-db-create-azure-service-account](includes/cosmos-db-create-azure-service-account.md)]
 
 **Create an Azure storage account**
 
-[!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
+[!INCLUDE [cosmos-db-create-storage-account](includes/cosmos-db-create-storage-account.md)]
 
 **Create an Azure Cosmos DB account**
 
-[!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
+[!INCLUDE [cosmos-db-create-tableapi-account](includes/cosmos-db-create-tableapi-account.md)]
 
 ## Add access to Azure storage or Azure Cosmos DB
 

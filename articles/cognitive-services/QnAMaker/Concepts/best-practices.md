@@ -1,8 +1,10 @@
 ---
 title: Best practices - QnA Maker
 description: Use these best practices to improve your knowledge base and provide better results to your application/chat bot's end users.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 02/15/2020
+ms.date: 11/09/2020
 ---
 
 # Best practices of a QnA Maker knowledge base
@@ -11,7 +13,7 @@ The [knowledge base development lifecycle](../Concepts/development-lifecycle-kno
 
 ## Extraction
 
-The QnA Maker service is continually improving the algorithms that extract QnAs from content and expanding the list of supported file and HTML formats. Follow the [guidelines](../Concepts/content-types.md) for data extraction based on your document type.
+The QnA Maker service is continually improving the algorithms that extract QnAs from content and expanding the list of supported file and HTML formats. Follow the [guidelines](../Concepts/data-sources-and-content.md) for data extraction based on your document type.
 
 In general, FAQ pages should be stand-alone and not combined with other information. Product manuals should have clear headings and preferably an index page.
 
@@ -36,7 +38,7 @@ Your user may enter questions with either a conversational style of text, `How d
 
 The best answers are simple answers but not too simple. Do not use answers such as `yes` and `no`. If your answer should link to other sources or provide a rich experience with media and links, use [metadata tagging](../how-to/edit-knowledge-base.md#add-metadata) to distinguish between answers, then [submit the query](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration) with metadata tags in the `strictFilters` property to get the correct answer version.
 
-|Answer|Follup-up prompts|
+|Answer|Follow-up prompts|
 |--|--|
 |Power down the Surface laptop with the power button on the keyboard.|* Key-combinations to sleep, shut down, and restart.<br>* How to hard-boot a Surface laptop<br>* How to change the BIOS for a Surface laptop<br>* Differences between sleep, shut down and restart|
 |Customer service is available via phone, Skype, and text message 24 hours a day.|* Contact information for sales.<br> * Office and store locations and hours for an in-person visit.<br> * Accessories for a Surface laptop.|
@@ -109,11 +111,17 @@ By default, QnA Maker searches through questions and answers. If you want to sea
 [Metadata](../How-To/edit-knowledge-base.md) adds the ability for a client application to know it should not take all answers but instead to narrow down the results of a user query based on metadata tags. The knowledge base answer can differ based on the metadata tag, even if the query is the same. For example, *"where is parking located"* can have a different answer if the location of the restaurant branch is different - that is, the metadata is *Location: Seattle* versus *Location: Redmond*.
 
 ### Use synonyms
-While there is some support for synonyms in the English language, use case-insensitive word alterations via the [Alterations API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) to add synonyms to keywords that take different form. Synonyms are added at the QnA Maker service-level and shared by all knowledge bases in the service.
+# [QnA Maker GA (stable release)](#tab/v1)
+While there is some support for synonyms in the English language, use case-insensitive word alterations via the [Alterations API](/rest/api/cognitiveservices/qnamaker/alterations/replace) to add synonyms to keywords that take different forms. Synonyms are added at the QnA Maker service-level and **shared by all knowledge bases in the service**.
+
+# [Custom question answering (preview release)](#tab/v2)
+While there is some support for synonyms in the English language, use case-insensitive word alterations via the [Alterations API](/rest/api/cognitiveservices/qnamaker/alterations/replace) to add synonyms to keywords that take different forms. Synonyms in Custom question answering (preview) are **added per knowledge base**.
 
 |Original word|Synonyms|
 |--|--|
 |buy|purchase<br>net-banking<br>net banking|
+
+---
 
 ### Use distinct words to differentiate questions
 QnA Maker's ranking algorithm, that matches a user query with a question in the knowledge base, works best if each question addresses a different need. Repetition of the same word set between questions reduces the likelihood that the right answer is chosen for a given user query with those words.
@@ -128,13 +136,13 @@ For example, you might have two separate QnAs with the following questions:
 Since these two QnAs are phrased with very similar words, this similarity could cause very similar scores for many user queries that are phrased like  *"where is the `<x>` location"*. Instead, try to clearly differentiate with queries like  *"where is the parking lot"* and *"where is the ATM"*, by avoiding words like "location" that could be in many questions in your KB.
 
 ## Collaborate
-QnA Maker allows users to [collaborate](../How-to/collaborate-knowledge-base.md) on a knowledge base. Users need access to the Azure QnA Maker resource group in order to access the knowledge bases. Some organizations may want to outsource the knowledge base editing and maintenance, and still be able to protect access to their Azure resources. This editor-approver model is done by setting up two identical [QnA Maker services](../How-to/set-up-qnamaker-service-azure.md) in different subscriptions and selecting one for the edit-testing cycle. Once testing is finished, the knowledge base contents are transferred with an [import-export](../Tutorials/migrate-knowledge-base.md) process to the QnA Maker service of the approver that will finally publish the knowledge base and update the endpoint.
+QnA Maker allows users to collaborate on a knowledge base. Users need access to the Azure QnA Maker resource group in order to access the knowledge bases. Some organizations may want to outsource the knowledge base editing and maintenance, and still be able to protect access to their Azure resources. This editor-approver model is done by setting up two identical [QnA Maker services](../How-to/set-up-qnamaker-service-azure.md) in different subscriptions and selecting one for the edit-testing cycle. Once testing is finished, the knowledge base contents are transferred with an [import-export](../Tutorials/migrate-knowledge-base.md) process to the QnA Maker service of the approver that will finally publish the knowledge base and update the endpoint.
 
 
 
 ## Active learning
 
-[Active learning](../How-to/use-active-learning.md) does the best job of suggesting alternative questions when it has a wide range of quality and quantity of user-based queries. It is important to allow client-applications' user queries to participate in the active learning feedback loop without censorship. Once questions are suggested in the QnA Maker portal, you can **[filter by suggestions](../How-To/improve-knowledge-base.md#accept-an-active-learning-suggestion-in-the-knowledge-base)** then review and accept or reject those suggestions.
+[Active learning](../How-to/use-active-learning.md) does the best job of suggesting alternative questions when it has a wide range of quality and quantity of user-based queries. It is important to allow client-applications' user queries to participate in the active learning feedback loop without censorship. Once questions are suggested in the QnA Maker portal, you can **[filter by suggestions](../How-To/improve-knowledge-base.md)** then review and accept or reject those suggestions.
 
 ## Next steps
 

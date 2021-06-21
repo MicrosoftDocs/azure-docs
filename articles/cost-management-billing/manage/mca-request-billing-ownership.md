@@ -1,29 +1,32 @@
 ---
-title: Get billing ownership of Azure subscriptions
-description: Learn how to request billing ownership of Azure subscriptions from other users.
+title: Transfer Azure subscription billing ownership for a Microsoft Customer Agreement
+description: Learn how to transfer billing ownership of Azure subscriptions.
 author: amberbhargava
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 08/20/2020
+ms.date: 04/29/2021
 ms.author: banders
 ---
 
-# Get billing ownership of Azure subscriptions from other accounts
+# Transfer Azure subscription billing ownership for a Microsoft Customer Agreement
 
-You might want to take over ownership of Azure subscriptions if the existing billing owner is leaving your organization, or when you want to pay for the subscriptions through your billing account. Taking ownership transfers subscription billing responsibilities to your account.
+You will need to transfer billing ownership for your Azure subscriptions when:
+- You want to move billing responsibilities for the subscriptions to a different billing owner.
+- You are transferring your Azure subscriptions from one licensing agreement to another. For example, from an Enterprise Agreement or a Microsoft Online Subscription Agreement (MOSA) to a Microsoft Customer Agreement. [Check if you have access to a Microsoft Customer Agreement](#check-for-access).
 
-This article applies to a billing account for a Microsoft Customer Agreement. [Check if you have access to a Microsoft Customer Agreement](#check-for-access).
-
-To request the billing ownership, you must be an **invoice section owner** or **invoice section contributor**. To learn more, see [invoice section roles tasks](understand-mca-roles.md#invoice-section-roles-and-tasks).
+The person that you're requesting billing ownership from must have one of the following roles:
+- For a Microsoft Customer Agreement, the person must have an owner or contributor role for the billing account or for the relevant billing profile or invoice section. For more information, see [billing roles and tasks](understand-mca-roles.md#invoice-section-roles-and-tasks).
+- For an Enterprise Agreement, the person must be an Account Owner.
+- For a Microsoft Online Subscription Agreement, the person must be an Account Administrator.
 
 ## Request billing ownership
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an invoice section owner or contributor for a billing account for Microsoft Customer Agreement.
 1. Search for **Cost Management + Billing**.  
     ![Screenshot that shows Azure portal search for cost management + billing](./media/mca-request-billing-ownership/billing-search-cost-management-billing.png)
-1. In the billing scopes page, select the billing account, which would be used to pay for the subscriptions' usage. The billing account should be of type **Microsoft Customer Agreement**.  
+1. In the billing scopes page, select **Billing scopes** and then select the billing account, which would be used to pay for the subscriptions' usage. The billing account should be of type **Microsoft Customer Agreement**.  
     [![Screenshot that shows search in portal for cost management + billing](./media/mca-request-billing-ownership/list-of-scopes.png)](./media/mca-request-billing-ownership/list-of-scopes.png#lightbox)
     > [!NOTE]
     > Azure portal remembers the last billing scope that you access and displays the scope the next time you come to Cost Management + Billing page. You won't see the billing scopes page if you have visited Cost Management + Billing earlier. If so, check that you are in the [right scope](#check-for-access). If not, [switch the scope](view-all-accounts.md#switch-billing-scope-in-the-azure-portal) to select the billing account for a Microsoft Customer Agreement.
@@ -37,7 +40,7 @@ To request the billing ownership, you must be an **invoice section owner** or **
 1. Select an invoice section from the list. Once you take over the ownership of the subscriptions, their usage will be assigned to this section of the billing profile's invoice.
 1. Select **Transfer requests** from the lower-left side and then select **Add a new request**.  
     [![Screenshot that shows selecting transfer requests](./media/mca-request-billing-ownership/mca-select-transfer-requests.png)](./media/mca-request-billing-ownership/mca-select-transfer-requests.png#lightbox)
-1. Enter the email address of the user you're requesting billing ownership from. The user must be an Account Administrator on a Microsoft Online Service Program billing account or an account owner on an Enterprise Agreement. For more information, see [view your billing accounts in Azure portal](view-all-accounts.md). Select **Send transfer request**.  
+1. Enter the email address of the user you're requesting billing ownership from. Select **Send transfer request**.  
     [![Screenshot that shows sending a transfer request](./media/mca-request-billing-ownership/mca-send-transfer-requests.png)](./media/mca-request-billing-ownership/mca-send-transfer-requests.png#lightbox)
 1. The user gets an email with instructions to review your transfer request.  
     ![Screenshot that shows review transfer request email](./media/mca-request-billing-ownership/mca-review-transfer-request-email.png)
@@ -64,6 +67,7 @@ To request the billing ownership, you must be an **invoice section owner** or **
 1. Select the invoice section from the list for which the transfer request was sent.
 1. Select **Transfer requests** from the lower-left side. The Transfer requests page displays the following information:  
     [![Screenshot that shows list of transfer requests](./media/mca-request-billing-ownership/mca-select-transfer-requests-for-status.png)](./media/mca-request-billing-ownership/mca-select-transfer-requests-for-status.png#lightbox)
+
    |Column|Definition|
    |---------|---------|
    |Request date|The date when the transfer request was sent|
@@ -124,7 +128,36 @@ You can request billing ownership of the subscription types listed below.
 
 ## Additional information
 
-The following section provides additional information about transferring subscriptions.
+The following sections provide additional information about transferring subscriptions.
+
+### Cancel a prior support plan
+
+If you have an Azure support plan and you transfer all of your Azure subscriptions to a new agreement, then you must cancel the support plan because it doesn't transfer with the subscriptions. For example, when you transfer a Microsoft Online Subscription Agreement (an Azure subscription purchased on the web) to the Microsoft Customer Agreement. To cancel your support plan:
+
+You must use your account administrator credentials for your old account if the credentials differ from those used to access your new Microsoft Customer Agreement account.
+
+1.	Sign in to the Azure portal at https://portal.azure.com.
+1.	Navigate to **Cost Management + Billing**.
+1.	Select **Billing Scopes** in the left pane.
+1.	Select the billing account associated with your Microsoft support plan.
+    - For a Microsoft Customer Agreement:
+        - Select **Recurring charges** in the left pane.
+        - In the right pane, to the right of the support plan line item, select the ellipsis (**...**) and then select **Turn off auto-renewal**.
+    - For a Microsoft Online Subscription Agreement (MOSA):
+        - Select **Subscriptions** in the left pane.
+        - Select the support plan subscription in the right pane and then select **Cancel**.
+
+### Access your historical invoices
+
+You may want to access your invoices for your old Microsoft Online Subscription Agreement account (an Azure subscription purchased on the web) after you transfer billing ownership to your new Microsoft Customer Agreement account. To do so, use the following steps:
+
+You must use your account administrator credentials for your old account if the credentials differ from those used to access your new Microsoft Customer Agreement account.
+
+1.	Sign in to the Azure portal at https://portal.azure.com/.
+1.	Navigate to **Cost Management + Billing**.
+1.	Select **Billing Scopes** in the left pane.
+1.	Select the billing account associated with your Microsoft Online Subscription Agreement account.
+1.	Select **Invoices** in the left pane to access your historical invoices.
 
 ### No service downtime
 
@@ -148,11 +181,7 @@ If you're transferring Enterprise Agreement (EA) subscriptions or Microsoft Cust
 
 ### Access to Azure services
 
-Access for existing users, groups, or service principals that was assigned using (Azure RBAC (role-based access control))[../role-based-access-control/overview.md] isn't affected during the transition.
-
-### Azure support plan
-
-Azure support doesn't transfer with the subscriptions. If the user transfers all Azure subscriptions, ask them to cancel their support plan.
+Access for existing users, groups, or service principals that was assigned using [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) isn't affected during the transition.
 
 ### Charges for transferred subscription
 

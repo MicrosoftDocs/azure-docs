@@ -1,5 +1,5 @@
 ---
-title: Configure front-end frameworks with Azure Static Web Apps Preview
+title: Configure front-end frameworks with Azure Static Web Apps
 description: Settings for popular front-end frameworks needed for Azure Static Web Apps
 services: static-web-apps
 author: craigshoemaker
@@ -9,7 +9,7 @@ ms.date: 07/18/2020
 ms.author: cshoe
 ---
 
-# Configure front-end frameworks and libraries with Azure Static Web Apps Preview
+# Configure front-end frameworks and libraries with Azure Static Web Apps
 
 The Azure Static Web Apps requires that you have the appropriate configuration values in the [build configuration file](github-actions-workflow.md) for your front-end framework or library.
 
@@ -19,7 +19,7 @@ The following table lists the settings for a series of frameworks and libraries<
 
 The intent of the table columns is explained by the following items:
 
-- **App artifact location**: Lists the value for `app_artifact_location`, which is the [folder for built versions of application files](github-actions-workflow.md#build-and-deploy).
+- **Output location**: Lists the value for `output_location`, which is the [folder for built versions of application files](github-actions-workflow.md#build-and-deploy).
 
 - **Custom build command**: When the framework requires  a command different from `npm run build` or `npm run azure:build`, you can define a [custom build command](github-actions-workflow.md#custom-build-commands).
 
@@ -30,6 +30,7 @@ The intent of the table columns is explained by the following items:
 | [Angular Universal](https://angular.io/guide/universal) | `dist/<APP_NAME>/browser` | `npm run prerender` |
 | [Aurelia](https://aurelia.io/) | `dist` | n/a |
 | [Backbone.js](https://backbonejs.org/) | `/` | n/a |
+| [Blazor](https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor) | `wwwroot` | n/a |
 | [Ember](https://emberjs.com/) | `dist` | n/a |
 | [Flutter](https://flutter.dev/) | `build/web` | `flutter build web` |
 | [Framework7](https://framework7.io/) | `www` | `npm run build-prod` |
@@ -46,6 +47,7 @@ The intent of the table columns is explained by the following items:
 | [Polymer](https://www.polymer-project.org/) | `build/default` | n/a |
 | [Preact](https://preactjs.com/) | `build` | n/a |
 | [React](https://reactjs.org/) | `build` | n/a |
+| [RedwoodJS](https://redwoodjs.com/) | `web/dist` | `yarn rw build` |
 | [Stencil](https://stenciljs.com/) | `www` | n/a |
 | [Svelte](https://svelte.dev/) | `public` | n/a |
 | [Three.js](https://threejs.org/) | `/` | n/a |

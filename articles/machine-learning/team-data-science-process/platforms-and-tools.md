@@ -7,7 +7,7 @@ editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 06/18/2021
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
@@ -19,9 +19,10 @@ Microsoft provides a full spectrum of analytics resources for both cloud or on-p
 
 The analytics resources available to data science teams using the TDSP include:
 
-- Data Science Virtual Machines (both Windows and Linux CentOS)
+- Azure Machine Learning 
+- Data Science Virtual Machines (either Windows and Linux Ubuntu)
 - HDInsight Spark Clusters
-- Synapse Analytics
+- Azure Synapse Analytics
 - Azure Data Lake
 - HDInsight Hive Clusters
 - Azure File Storage
@@ -30,20 +31,33 @@ The analytics resources available to data science teams using the TDSP include:
 
 In this document, we briefly describe the resources and provide links to the tutorials and walkthroughs the TDSP teams have published. They can help you learn how to use them step by step and start using them to build your intelligent applications. More information on these resources is available on their product pages. 
 
+
+## Azure Machine Learning 
+
+Azure Machine Learning is our primary recommended platform for data science development.  This PaaS (platform as a service) provides both standalone operation, or integration with any of the other platforms and tools mentioned on this webpage. [Azure Machine Learning](../overview-what-is-azure-ml.md) (AzureML) is an end-to-end platform that encompasses:
+
++ Fully Managed Compute
+  + Compute Instances
+  + Compute Clusters for distributed ML tasks
+  + Inference Clusters for real-time scoring
++ Datastores (for example Blob, ADLS Gen2, SQL DB)
++ Experiment tracking
++ Model management
++ Notebooks
++ Environments (manage conda and R dependencies)
++ Labeling
++ Pipelines (automate End-to-End Data science workflows)
+
+
 ## Data Science Virtual Machine (DSVM)
 
-The data science virtual machine offered on both Windows and Linux by Microsoft, contains popular tools for data science modeling and development activities. It includes tools such as:
+The data science virtual machine offered on both Windows and Linux by Microsoft, contains popular tools for data science modeling and development activities. 
 
-- Microsoft R Server Developer Edition 
-- Anaconda Python distribution
-- Jupyter notebooks for Python and R 
-- Visual Studio Community Edition with Python and R Tools on Windows / Eclipse on Linux
-- Power BI desktop for Windows
-- SQL Server 2016 Developer Edition on Windows / Postgres on Linux
+The Data Science Virtual Machine is an easy way to explore data and do machine learning in the cloud. The Data Science Virtual Machines are pre-configured with the complete operating system, security patches, drivers, and popular data science and development software. You can choose the hardware environment, ranging from lower-cost CPU-centric machines to very powerful machines with multiple GPUs, NVMe storage, and large amounts of memory. For machines with GPUs, all drivers are installed, all machine learning frameworks are version-matched for GPU compatibility, and acceleration is enabled in all application software that supports GPUs.
 
-It also includes **ML and AI tools** like xgboost, mxnet, and Vowpal Wabbit.
+The Data Science Virtual Machine comes with the most useful data-science tools pre-installed.  See [Tools included on the Data Science Virtual Machine](/azure/machine-learning/data-science-virtual-machine/tools-included) for the most recent list of tools and versions.
 
-Currently DSVM is available in **Windows** and **Linux CentOS** operating systems. Choose the size of your DSVM (number of CPU cores and the amount of memory) based on the needs of the data science projects that you are planning to execute on it. 
+Currently DSVM is available in **Windows** and **Linux Ubuntu** operating systems. Choose the size of your DSVM (number of CPU cores and the amount of memory) based on the needs of the data science projects that you are planning to execute on it. 
 
 For more information on Windows edition of DSVM, see [Microsoft Data Science Virtual Machine](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019) on the Azure Marketplace. For the Linux edition of the DSVM, see [Linux Data Science Virtual Machine](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804).
 
@@ -88,23 +102,23 @@ For more information on Azure HDInsight Hive Clusters, see [Use Hive and HiveQL 
 
 Azure File Storage is a service that offers file shares in the cloud using the standard Server Message Block (SMB) Protocol. Both SMB 2.1 and SMB 3.0 are supported. With Azure File storage, you can migrate legacy applications that rely on file shares to Azure quickly and without costly rewrites. Applications running in Azure virtual machines or cloud services or from on-premises clients can mount a file share in the cloud, just as a desktop application mounts a typical SMB share. Any number of application components can then mount and access the File storage share simultaneously.
 
-Especially useful for data science projects is the ability to create an Azure file store as the place to share project data with your project team members. Each of them then has access to the same copy of the data in the Azure file storage. They can also use this file storage to share feature sets generated during the execution of the project. If the project is a client engagement, your clients can create an Azure file storage under their own Azure subscription to share the project data and features with you. In this way, the client has full control of the project data assets. For more information on Azure File Storage, see [Get started with Azure File storage on Windows](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-files) and [How to use Azure File Storage with Linux](../../storage/files/storage-how-to-use-files-linux.md).
+Especially useful for data science projects is the ability to create an Azure file store as the place to share project data with your project team members. Each of them then has access to the same copy of the data in the Azure file storage. They can also use this file storage to share feature sets generated during the execution of the project. If the project is a client engagement, your clients can create an Azure file storage under their own Azure subscription to share the project data and features with you. In this way, the client has full control of the project data assets. For more information on Azure File Storage, see [Get started with Azure File storage on Windows](../../storage/files/storage-dotnet-how-to-use-files.md) and [How to use Azure File Storage with Linux](../../storage/files/storage-how-to-use-files-linux.md).
 
 
 ## SQL Server 2019 R and Python Services
 
 R Services (In-database) provides a platform for developing and deploying intelligent applications that can uncover new insights. You can use the rich and powerful R language, including the many packages provided by the R community, to create models and generate predictions from your SQL Server data. Because R Services (In-database) integrates the R language with SQL Server, analytics are kept close to the data, which eliminates the costs and security risks associated with moving data.
 
-R Services (In-database) supports the open source R language with a comprehensive set of SQL Server tools and technologies. They offer superior performance, security, reliability, and manageability. You can deploy R solutions using convenient and familiar tools. Your production applications can call the R runtime and retrieve predictions and visuals using Transact-SQL. You also use the ScaleR libraries to improve the scale and performance of your R solutions. For more information, see [SQL Server R Services](https://docs.microsoft.com/sql/advanced-analytics/r/sql-server-r-services).
+R Services (In-database) supports the open source R language with a comprehensive set of SQL Server tools and technologies. They offer superior performance, security, reliability, and manageability. You can deploy R solutions using convenient and familiar tools. Your production applications can call the R runtime and retrieve predictions and visuals using Transact-SQL. You also use the ScaleR libraries to improve the scale and performance of your R solutions. For more information, see [SQL Server R Services](/sql/advanced-analytics/r/sql-server-r-services).
 
-The TDSP team from Microsoft has published two end-to-end walkthroughs that show how to build data science solutions in SQL Server 2016 R Services: one for R programmers and one for SQL developers. For **R Programmers**, see [Data Science End-to-End Walkthrough](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough). For **SQL Developers**, see [In-Database Advanced Analytics for SQL Developers (Tutorial)](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers).
+The TDSP team from Microsoft has published two end-to-end walkthroughs that show how to build data science solutions in SQL Server 2016 R Services: one for R programmers and one for SQL developers. For **R Programmers**, see [Data Science End-to-End Walkthrough](/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough). For **SQL Developers**, see [In-Database Advanced Analytics for SQL Developers (Tutorial)](/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers).
 
 
 ## <a name="appendix"></a>Appendix: Tools to set up data science projects
 
 ### Install Git Credential Manager on Windows
 
-If you are following the TDSP on **Windows**, you need to install the **Git Credential Manager (GCM)** to communicate with the Git repositories. To install GCM, you first need to install **Chocolaty**. To install Chocolaty and the GCM, run the following commands in Windows PowerShell as an **Administrator**:  
+If you are following the TDSP on **Windows**, you need to install the **Git Credential Manager (GCM)** to communicate with the Git repositories. To install GCM, you first need to install **Chocolatey**. To install Chocolatey and the GCM, run the following commands in Windows PowerShell as an **Administrator**:  
 
 ```powershell
 iwr https://chocolatey.org/install.ps1 -UseBasicParsing | iex
@@ -149,4 +163,4 @@ If you are using Linux (CentOS) machines to run the git commands, you need to ad
 
 Full end-to-end walkthroughs that demonstrate all the steps in the process for **specific scenarios** are also provided. They are listed and linked with thumbnail descriptions in the [Example walkthroughs](walkthroughs.md) topic. They illustrate how to combine cloud, on-premises tools, and services into a workflow or pipeline to create an intelligent application. 
 
-For examples that show how to execute steps in the Team Data Science Process by using Azure Machine Learning Studio (classic), see the [With Azure ML](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) learning path.
+For examples that show how to execute steps in the Team Data Science Process by using Azure Machine Learning Studio (classic), see the [With Azure ML](./index.yml) learning path.

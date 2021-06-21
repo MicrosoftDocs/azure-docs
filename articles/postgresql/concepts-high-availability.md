@@ -1,8 +1,8 @@
 ---
 title: High availability - Azure Database for PostgreSQL - Single Server
 description: This article provides information on high availability in Azure Database for PostgreSQL - Single Server
-author: rachel-msft
-ms.author: raagyema
+author: sr-msft
+ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 6/15/2020
@@ -23,7 +23,7 @@ Azure Database for PostgreSQL is suitable for running mission critical databases
 ## Planned downtime mitigation
 Azure Database for PostgreSQL is architected to provide high availability during planned downtime operations. 
 
-![view of Elastic Scaling in Azure PostgreSQL](./media/concepts-high-availability/azure-postgresql-elastic-scaling.png)
+:::image type="content" source="./media/concepts-high-availability/azure-postgresql-elastic-scaling.png" alt-text="view of Elastic Scaling in Azure PostgreSQL":::
 
 1. Scale up and down PostgreSQL database servers in seconds
 2. Gateway that acts as a proxy to route client connects to the proper database server
@@ -34,8 +34,8 @@ Here are some planned maintenance scenarios:
 | ------------ | ----------- |
 | <b>Compute scale up/down | When the user performs compute scale up/down operation, a new database server is provisioned using the scaled compute configuration. In the old database server, active checkpoints are allowed to complete, client connections are drained, any uncommitted transactions are canceled, and then it is shut down. The storage is then detached from the old database server and attached to the new database server. When the client application retries the connection, or tries to make a new connection, the Gateway directs the connection request to the new database server.|
 | <b>Scaling Up Storage | Scaling up the storage is an online operation and does not interrupt the database server.|
-| <b>New Software Deployment (Azure) | New features rollout or bug fixes automatically happen as part of service’s planned maintenance. For more information, refer to the [documentation](https://docs.microsoft.com/azure/postgresql/concepts-monitoring#planned-maintenance-notification), and also check your [portal](https://aka.ms/servicehealthpm).|
-| <b>Minor version upgrades | Azure Database for PostgreSQL automatically patches database servers to the minor version determined by Azure. It happens as part of service's planned maintenance. This would incur a short downtime in terms of seconds, and the database server is automatically restarted with the new minor version. For more information, refer to the [documentation](https://docs.microsoft.com/azure/postgresql/concepts-monitoring#planned-maintenance-notification), and also check your [portal](https://aka.ms/servicehealthpm).|
+| <b>New Software Deployment (Azure) | New features rollout or bug fixes automatically happen as part of service’s planned maintenance. For more information, refer to the [documentation](./concepts-monitoring.md#planned-maintenance-notification), and also check your [portal](https://aka.ms/servicehealthpm).|
+| <b>Minor version upgrades | Azure Database for PostgreSQL automatically patches database servers to the minor version determined by Azure. It happens as part of service's planned maintenance. This would incur a short downtime in terms of seconds, and the database server is automatically restarted with the new minor version. For more information, refer to the [documentation](./concepts-monitoring.md#planned-maintenance-notification), and also check your [portal](https://aka.ms/servicehealthpm).|
 
 
 ##  Unplanned downtime mitigation
@@ -43,7 +43,7 @@ Here are some planned maintenance scenarios:
 Unplanned downtime can occur as a result of unforeseen failures, including underlying hardware fault, networking issues, and software bugs. If the database server goes down unexpectedly, a new database server is automatically provisioned in seconds. The remote storage is automatically attached to the new database server. PostgreSQL engine performs the recovery operation using WAL and database files, and opens up the database server to allow clients to connect. Uncommitted transactions are lost, and they have to be retried by the application. While an unplanned downtime cannot be avoided, Azure Database for PostgreSQL mitigates the downtime by automatically performing recovery operations at both database server and storage layers without requiring human intervention. 
 
 
-![view of High Availability in Azure PostgreSQL](./media/concepts-high-availability/azure-postgresql-built-in-high-availability.png)
+:::image type="content" source="./media/concepts-high-availability/azure-postgresql-built-in-high-availability.png" alt-text="view of High Availability in Azure PostgreSQL":::
 
 1. Azure PostgreSQL servers with fast-scaling capabilities.
 2. Gateway that acts as a proxy to route client connections to the proper database server
@@ -62,8 +62,8 @@ Here are some failure scenarios that require user action to recover:
 
 | **Scenario** | **Recovery plan** |
 | ---------- | ---------- |
-| <b> Region failure | Failure of a region is a rare event. However, if you need protection from a region failure, you can configure one or more read replicas in other regions for disaster recovery (DR). (See [this article](https://docs.microsoft.com/azure/postgresql/howto-read-replicas-portal) about creating and managing read replicas for details). In the event of a region-level failure, you can manually promote the read replica configured on the other region to be your production database server. |
-| <b> Logical/user errors | Recovery from user errors, such as accidentally dropped tables or incorrectly updated data, involves performing a [point-in-time recovery](https://docs.microsoft.com/azure/postgresql/concepts-backup) (PITR), by restoring and recovering the data until the time just before the error had occurred.<br> <br>  If you want to restore only a subset of databases or specific tables rather than all databases in the database server, you can restore the database server in a new instance, export the table(s) via [pg_dump](https://www.postgresql.org/docs/11/app-pgdump.html), and then use [pg_restore](https://www.postgresql.org/docs/11/app-pgrestore.html) to restore those tables into your database. |
+| <b> Region failure | Failure of a region is a rare event. However, if you need protection from a region failure, you can configure one or more read replicas in other regions for disaster recovery (DR). (See [this article](./howto-read-replicas-portal.md) about creating and managing read replicas for details). In the event of a region-level failure, you can manually promote the read replica configured on the other region to be your production database server. |
+| <b> Logical/user errors | Recovery from user errors, such as accidentally dropped tables or incorrectly updated data, involves performing a [point-in-time recovery](./concepts-backup.md) (PITR), by restoring and recovering the data until the time just before the error had occurred.<br> <br>  If you want to restore only a subset of databases or specific tables rather than all databases in the database server, you can restore the database server in a new instance, export the table(s) via [pg_dump](https://www.postgresql.org/docs/11/app-pgdump.html), and then use [pg_restore](https://www.postgresql.org/docs/11/app-pgrestore.html) to restore those tables into your database. |
 
 
 

@@ -42,7 +42,7 @@ The installation shows the following attributes, which are valid candidates:
 
 
 >[!NOTE]
-> Although Azure AD Connect supports synchronizing multi-valued Active Directory attributes to Azure AD as multi-valued directory extensions, there is currently no way to retrieve/consume the data uploaded in multi-valued directory extension attributes.
+> After Azure AD Connect synchronized multi-valued Active Directory attribute to Azure AD as a multi-valued attribute extension, it is possible to include attribute to the SAML claim. But, it is not possible to consume this data through API call.
 
 The list of attributes is read from the schema cache that's created during installation of Azure AD Connect. If you have extended the Active Directory schema with additional attributes, you must [refresh the schema](how-to-connect-installation-wizard.md#refresh-directory-schema) before these new attributes are visible.
 
@@ -66,6 +66,9 @@ These attributes are now available through the Microsoft Graph API, by using [Mi
 > In the Microsoft Graph API, you need to ask for the attributes to be returned. Explicitly select the attributes like this: `https://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com?$select=extension_9d98ed114c4840d298fad781915f27e4_employeeID,extension_9d98ed114c4840d298fad781915f27e4_division`.
 >
 > For more information, see [Microsoft Graph: Use query parameters](/graph/query-parameters#select-parameter).
+
+>[!NOTE]
+> It is not supported to sync attribute values from AADConnect to extension attributes that are not created by AADConnect. Doing so may produce performance issues and unexpected results. Only extension attributes that are created as shown in the above are supported for synchronization.
 
 ## Use the attributes in dynamic groups
 

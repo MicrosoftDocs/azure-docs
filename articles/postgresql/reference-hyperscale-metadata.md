@@ -28,7 +28,7 @@ coordinator node.
 
 > [!NOTE]
 >
-> Hyperscale server groups running older versions of the Citus Engine may not
+> Hyperscale (Citus) server groups running older versions of the Citus Engine may not
 > offer all the tables listed below.
 
 ### Partition table
@@ -157,9 +157,9 @@ the cluster.
 SELECT * from pg_dist_node;
  nodeid | groupid | nodename  | nodeport | noderack | hasmetadata | isactive | noderole | nodecluster | shouldhaveshards
 --------+---------+-----------+----------+----------+-------------+----------+----------+-------------+------------------
-	  1 |       1 | localhost |    12345 | default  | f           | t        | primary  | default     | t
-	  2 |       2 | localhost |    12346 | default  | f           | t        | primary  | default     | t
-	  3 |       3 | localhost |    12347 | default  | f           | t        | primary  | default     | t
+      1 |       1 | localhost |    12345 | default  | f           | t        | primary  | default     | t
+      2 |       2 | localhost |    12346 | default  | f           | t        | primary  | default     | t
+      3 |       3 | localhost |    12347 | default  | f           | t        | primary  | default     | t
 (3 rows)
 ```
 
@@ -599,5 +599,5 @@ with Hyperscale (Citus) MX for instance).
 
 ## Next steps
 
-* Learn how some [Hyperscale functions](reference-hyperscale-functions.md) alter system tables
+* Learn how some [Hyperscale (Citus) functions](reference-hyperscale-functions.md) alter system tables
 * Review the concepts of [nodes and tables](concepts-hyperscale-nodes.md)

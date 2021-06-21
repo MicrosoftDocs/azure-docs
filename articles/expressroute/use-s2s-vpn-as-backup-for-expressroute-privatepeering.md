@@ -7,7 +7,8 @@ author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 02/05/2020
-ms.author: duau
+ms.author: duau 
+ms.custom: devx-track-azurepowershell
 
 ---
 
@@ -312,13 +313,10 @@ To expedite BGP convergence following an ExpressRoute failure, [Configure BFD ov
 [2]: ./media/use-s2s-vpn-as-backup-for-expressroute-privatepeering/vpn-gw-config.png "VPN GW configuration"
 
 <!--Link References-->
-[DR-PP]: https://docs.microsoft.com/azure/expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering
-[Conf-CoExist]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-coexist-resource-manager
-[HA]: https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute
-[VPN Troubleshoot]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-troubleshoot-site-to-site-cannot-connect
-[VPN-alerts]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric
-[BFD]: https://docs.microsoft.com/azure/expressroute/expressroute-bfd
-[RST]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-reset-peering
-
-
-
+[DR-PP]: ./designing-for-disaster-recovery-with-expressroute-privatepeering.md
+[Conf-CoExist]: ./expressroute-howto-coexist-resource-manager.md
+[HA]: ./designing-for-high-availability-with-expressroute.md
+[VPN Troubleshoot]: ../vpn-gateway/vpn-gateway-troubleshoot-site-to-site-cannot-connect.md
+[VPN-alerts]: ../vpn-gateway/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric.md
+[BFD]: ./expressroute-bfd.md
+[RST]: ./expressroute-howto-reset-peering.md

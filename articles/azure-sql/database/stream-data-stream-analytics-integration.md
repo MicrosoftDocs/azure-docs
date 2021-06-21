@@ -6,7 +6,7 @@ ms.service: sql-database
 ms.subservice: development
 ms.custom: sqldbrb=1
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: how-to
 author: ajetasin
 ms.author: ajetasi
 ms.reviewer: sstein
@@ -26,7 +26,7 @@ Users can now ingest, process, view, and analyze real-time streaming data into a
 - Additional ease of use with preview data: Preview incoming data from the events source (Event Hub/IoT Hub) in the context of selected table
 
 > [!IMPORTANT]
-> An Azure Stream Analytics job can output to Azure SQL Database, Azure SQL Managed Instance, or Azure Synapse Analytics (formerly SQL Data Warehouse). For more information, see [Outputs](../../stream-analytics/stream-analytics-define-outputs.md).
+> An Azure Stream Analytics job can output to Azure SQL Database, Azure SQL Managed Instance, or Azure Synapse Analytics. For more information, see [Outputs](../../stream-analytics/stream-analytics-define-outputs.md).
 
 ## Prerequisites
 
@@ -119,6 +119,5 @@ To complete the steps in this article, you need the following resources:
 
 ## Next steps
 
-- [Azure Stream Analytics documentation](https://docs.microsoft.com/azure/stream-analytics/)
+- [Azure Stream Analytics documentation](../../stream-analytics/index.yml)
 - [Azure Stream Analytics solution patterns](../../stream-analytics/stream-analytics-solution-patterns.md)
- 

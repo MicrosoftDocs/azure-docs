@@ -1,8 +1,8 @@
 ---
 title: Configure SSL - Azure Database for MySQL
 description: Instructions for how to properly configure Azure Database for MySQL and associated applications to correctly use SSL connections
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 07/08/2020
@@ -33,7 +33,7 @@ Configure MySQL Workbench to connect securely over SSL.
 
 1. In the **SSL CA File:** field, enter the file location of the **BaltimoreCyberTrustRoot.crt.pem**.
 
-   ![Save SSL configuration](./media/howto-configure-ssl/mysql-workbench-ssl.png)
+   :::image type="content" source="./media/howto-configure-ssl/mysql-workbench-ssl.png" alt-text="Save SSL configuration":::
 
 For existing connections, you can bind SSL by right-clicking on the connection icon and choose edit. Then navigate to the **SSL** tab and bind the cert file.
 
@@ -54,7 +54,7 @@ mysql.exe -h mydemoserver.mysql.database.azure.com -u Username@mydemoserver -p -
 
 Using the Azure portal, visit your Azure Database for MySQL server, and then click **Connection security**. Use the toggle button to enable or disable the **Enforce SSL connection** setting, and then click **Save**. Microsoft recommends to always enable the **Enforce SSL connection** setting for enhanced security.
 
-![Screenshot of Azure portal to Enforce SSL connections in Azure Database for MySQL](./media/howto-configure-ssl/enable-ssl.png)
+:::image type="content" source="./media/howto-configure-ssl/enable-ssl.png" alt-text="Screenshot of Azure portal to Enforce SSL connections in Azure Database for MySQL":::
 
 ### Using Azure CLI
 
@@ -163,7 +163,7 @@ if ok := rootCertPool.AppendCertsFromPEM(pem); !ok {
 }
 mysql.RegisterTLSConfig("custom", &tls.Config{RootCAs: rootCertPool})
 var connectionString string
-connectionString = fmt.Sprintf("%s:%s@tcp(%s:3306)/%s?allowNativePasswords=true&tls=custom",'myadmin@mydemoserver' , 'yourpassword', 'mydemoserver.mysql.database.azure.com', 'quickstartdb')
+connectionString = fmt.Sprintf("%s:%s@tcp(%s:3306)/%s?allowNativePasswords=true&tls=custom","myadmin@mydemoserver" , "yourpassword", "mydemoserver.mysql.database.azure.com", 'quickstartdb')
 db, _ := sql.Open("mysql", connectionString)
 ```
 
@@ -243,6 +243,29 @@ using (var connection = new MySqlConnection(builder.ConnectionString))
 }
 ```
 
+### Node.js
+
+```node
+var fs = require('fs');
+var mysql = require('mysql');
+const serverCa = [fs.readFileSync("/var/www/html/BaltimoreCyberTrustRoot.crt.pem", "utf8")];
+var conn=mysql.createConnection({
+    host:"mydemoserver.mysql.database.azure.com",
+    user:"myadmin@mydemoserver",
+    password:"yourpassword",
+    database:"quickstartdb",
+    port:3306,
+    ssl: {
+        rejectUnauthorized: true,
+        ca: serverCa
+    }
+});
+conn.connect(function(err) {
+  if (err) throw err;
+});
+```
+
 ## Next steps
 
-Review various application connectivity options following [Connection libraries for Azure Database for MySQL](concepts-connection-libraries.md)
+* To learn about certificate expiry and rotation, refer [certificate rotation documentation](concepts-certificate-rotation.md)
+* Review various application connectivity options following [Connection libraries for Azure Database for MySQL](concepts-connection-libraries.md)

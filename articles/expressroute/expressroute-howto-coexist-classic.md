@@ -50,7 +50,7 @@ You can configure a Site-to-Site VPN connection as a backup for ExpressRoute. Th
 > 
 > 
 
-![Coexist](media/expressroute-howto-coexist-classic/scenario1.jpg)
+![Diagram that shows a Site-to-Site VPN connection as a backup for ExpressRoute.](media/expressroute-howto-coexist-classic/scenario1.jpg)
 
 ### Configure a Site-to-Site VPN to connect to sites not connected through ExpressRoute
 You can configure your network where some sites connect directly to Azure over Site-to-Site VPN, and some sites connect through ExpressRoute. 
@@ -82,7 +82,7 @@ There are two different sets of procedures to choose from in order to configure 
 This procedure will walk you through creating a VNet and create Site-to-Site and ExpressRoute connections that will coexist.
 
 1. You'll need to install the latest version of the Azure PowerShell cmdlets. See [How to install and configure Azure PowerShell](/powershell/azure/) for more information about installing the PowerShell cmdlets. Note that the cmdlets that you'll use for this configuration may be slightly different than what you might be familiar with. Be sure to use the cmdlets specified in these instructions. 
-2. Create a schema for your virtual network. For more information about the configuration schema, see [Azure Virtual Network configuration schema](https://msdn.microsoft.com/library/azure/jj157100.aspx).
+2. Create a schema for your virtual network. For more information about the configuration schema, see [Azure Virtual Network configuration schema](/previous-versions/azure/reference/jj157100(v=azure.100)).
    
     When you create your schema, make sure you use the following values:
    
@@ -226,7 +226,7 @@ If the gateway subnet is /27 or larger and the virtual network is connected via 
 4. Edit the network configuration file schema so that the gateway subnet is /27 or a shorter prefix (such as /26 or /25). See the following example. 
    
    > [!NOTE]
-   > If you don't have enough IP addresses left in your virtual network to increase the gateway subnet size, you need to add more IP address space. For more information about the configuration schema, see [Azure Virtual Network configuration schema](https://msdn.microsoft.com/library/azure/jj157100.aspx).
+   > If you don't have enough IP addresses left in your virtual network to increase the gateway subnet size, you need to add more IP address space. For more information about the configuration schema, see [Azure Virtual Network configuration schema](/previous-versions/azure/reference/jj157100(v=azure.100)).
    > 
    > 
    
@@ -250,4 +250,3 @@ If the gateway subnet is /27 or larger and the virtual network is connected via 
 
 ## Next steps
 For more information about ExpressRoute, see the [ExpressRoute FAQ](expressroute-faqs.md)
-

@@ -1,7 +1,7 @@
 ---
 title:  "Quickstart: Send a search request to the REST API using Node.js - Bing Entity Search"
 titleSuffix: Azure Cognitive Services
-description: Use this quickstart to send a request to the Bing Entity Search REST API using C#, and receive a JSON response.
+description: Use this quickstart to send a request to the Bing Entity Search REST API using Node.js and receive a JSON response.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,10 +11,15 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 # Quickstart: Send a search request to the Bing Entity Search REST API using Node.js
+
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Use this quickstart to make your first call to the Bing Entity Search API and view the JSON response. This simple JavaScript application sends a news search query to the API, and displays the response. The source code for this sample is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingEntitySearchv7.js).
 
@@ -41,8 +46,8 @@ Although this application is written in JavaScript, the API is a RESTful Web ser
 
     ```javascript
     let subscriptionKey = 'ENTER YOUR KEY HERE';
-    let host = 'api.cognitive.microsoft.com';
-    let path = '/bing/v7.0/entities';
+    let host = 'api.bing.microsoft.com';
+    let path = '/v7.0/search';
     
     let mkt = 'en-US';
     let q = 'italian restaurant near me';
@@ -78,7 +83,7 @@ Although this application is written in JavaScript, the API is a RESTful Web ser
     let json = JSON.stringify(JSON.parse(body), null, '  ');
     console.log (json);
     });
-        ```
+    ```
 
 ## Send a request
 
@@ -177,4 +182,4 @@ A successful response is returned in JSON, as shown in the following example:
 > [Build a single-page web app](../tutorial-bing-entities-search-single-page-app.md)
 
 * [What is the Bing Entity Search API?](../overview.md )
-* [Bing Entity Search API reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference).
+* [Bing Entity Search API reference](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference).

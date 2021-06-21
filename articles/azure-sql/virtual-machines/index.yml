@@ -6,13 +6,12 @@ summary: Find concepts, quickstarts, tutorials, and samples for SQL Server insta
 metadata:
   title: SQL Server on Azure VM documentation
   description: Find documentation about SQL Server installed to Azure virtual machines, both Windows and Linux.
-  services: sql-database
-  ms.service: sql-database
-  ms.subservice: single-database
+  services: virtual-machines-sql
+  ms.service:  virtual-machines-sql
+  ms.subservice: service-overview
   ms.topic: landing-page
   author: MashaMSFT
   ms.author: mathoma
-  ms.reviewer: carlrab
   ms.date: 05/27/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
@@ -49,7 +48,7 @@ landingContent:
           - text: Security considerations
             url: windows/security-considerations-best-practices.md
           - text: Performance guidelines
-            url: windows/performance-guidelines-best-practices.md
+            url: ./windows/performance-guidelines-best-practices-checklist.md
           - text: Pricing guidance 
             url: windows/pricing-guidance.md 
 
@@ -63,7 +62,7 @@ landingContent:
           - text: Manage with Azure portal
             url: windows/manage-sql-vm-portal.md
           - text: Register with SQL VM resource provider
-            url: windows/sql-vm-resource-provider-register.md
+            url: windows/sql-agent-extension-manually-register-single-vm.md
           - text: Automated patching
             url: windows/automated-patching.md 
           - text: Change license type 
@@ -89,7 +88,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Availability group (Az CLI)
-            url: windows/availability-group-az-cli-configure.md
+            url: ./windows/availability-group-az-commandline-configure.md
           - text: Clusterless availability group
             url: windows/availability-group-clusterless-workgroup-configure.md
           - text: FCI (Storage Spaces Direct) 
@@ -113,7 +112,7 @@ landingContent:
         - text: Azure SQL for beginners
           url: https://aka.ms/azuresql4beginners
         - text: Azure SQL fundamentals 
-          url: https://docs.microsoft.com/learn/paths/azure-sql-fundamentals/
+          url: /learn/paths/azure-sql-fundamentals/
         - text: Azure SQL hands-on labs
           url: https://aka.ms/asqlworkshop
         - text: Azure SQL bootcamp 
@@ -128,8 +127,8 @@ landingContent:
         links:
         - text: Azure portal
           url: windows/sql-vm-create-portal-quickstart.md
-        - text: Azure CLI samples
-          url: /cli/azure/sql/vm
+        - text: Azure CLI
+          url: /cli/azure/azure-cli-reference-for-sql#sql-virtual-machines-references
         - text: PowerShell samples
           url: windows/sql-vm-create-powershell-quickstart.md
         - text: ARM template samples 
@@ -151,12 +150,8 @@ landingContent:
           - text: Transact-SQL (T-SQL)
             url: /sql/t-sql/language-reference
           - text: Azure CLI
-            url: https://docs.microsoft.com/cli/azure/sql
+            url: /cli/azure/azure-cli-reference-for-sql#sql-virtual-machines-references
           - text: PowerShell
-            url: https://docs.microsoft.com/powershell/module/az.sql
+            url: /powershell/module/az.sql
           - text: REST API
-            url: https://docs.microsoft.com/rest/api/sql/
-
-
-
-
+            url: /rest/api/sql/

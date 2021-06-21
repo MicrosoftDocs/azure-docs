@@ -134,10 +134,10 @@ No, Azure AD Connect does not support a pure IPv6 environment.
 No, using Azure AD Connect over NAT is not supported. 
 
 ## Federation
-**Q: What do I do if I receive an email that asks me to renew my Office 365 certificate?**  
+**Q: What do I do if I receive an email that asks me to renew my Microsoft 365 certificate?**  
 For guidance about renewing the certificate, see [renew certificates](how-to-connect-fed-o365-certs.md).
 
-**Q: I have "Automatically update relying party" set for the Office 365 relying party. Do I have to take any action when my token signing certificate automatically rolls over?**  
+**Q: I have "Automatically update relying party" set for the Microsoft 365 relying party. Do I have to take any action when my token signing certificate automatically rolls over?**  
 Use the guidance that's outlined in the article [renew certificates](how-to-connect-fed-o365-certs.md).
 
 ## Environment
@@ -150,15 +150,15 @@ No.  They are not supported.
 **Q. If I disabled a synced device (for example: HAADJ) in the Azure portal, why it is re-enabled?**<br>
 Synced devices might be authored or mastered on premises. If a synced device is enabled on premises, it might be re-enabled in the Azure portal even if was previously disabled by an administrator. To disable a synced device, use the on-premises Active Directory to disable the computer account.
 
-**Q. If I block user sign-in at the Office 365 or Azure AD portal for synced users, why it is unblocked upon signing in again?**<br>
+**Q. If I block user sign-in at the Microsoft 365 or Azure AD portal for synced users, why it is unblocked upon signing in again?**<br>
 Synced users might be authored or mastered on premises. If the account is enabled on premises, it can unblock the sign-in block placed by administrator.
 
 ## Identity data
 **Q: Why doesn't the userPrincipalName (UPN) attribute in Azure AD match the on-premises UPN?**  
 For information, see these articles:
 
-* [Usernames in Office 365, Azure, or Intune don't match the on-premises UPN or alternate login ID](https://support.microsoft.com/kb/2523192)
-* [Changes aren't synced by the Azure Active Directory sync tool after you change the UPN of a user account to use a different federated domain](https://support.microsoft.com/kb/2669550)
+* [Usernames in Microsoft 365, Azure, or Intune don't match the on-premises UPN or alternate login ID](https://mskb.pkisolutions.com/kb/2523192)
+* [Changes aren't synced by the Azure Active Directory sync tool after you change the UPN of a user account to use a different federated domain](https://mskb.pkisolutions.com/kb/2669550)
 
 You can also configure Azure AD to allow the sync engine to update the UPN, as described in [Azure AD Connect sync service features](how-to-connect-syncservice-features.md).
 
@@ -196,7 +196,7 @@ Depending on the size of the environment, the process can take a couple of hours
 **Q: I received an email telling me that my auto upgrade no longer works and I need to install a new version. Why do I need to do this?**  
 Last year, we released a version of Azure AD Connect that, under certain circumstances, might have disabled the auto-upgrade feature on your server. We have fixed the issue in Azure AD Connect version 1.1.750.0. If you have been affected by the issue, you can mitigate it by running a PowerShell script to repair it or by manually upgrading to the latest version of Azure AD Connect. 
 
-To run the PowerShell script, [download the script](https://aka.ms/repairaadconnect) and run it on your Azure AD Connect server in an administrative PowerShell window. To learn how to run the script, [view this short video](https://aka.ms/repairaadcau).
+To run the PowerShell script, [download the script](/samples/browse/?redirectedfrom=TechNet-Gallery) and run it on your Azure AD Connect server in an administrative PowerShell window. To learn how to run the script, [view this short video](https://aka.ms/repairaadcau).
 
 To manually upgrade, you must download and run the latest version of the AADConnect.msi file.
  
@@ -248,16 +248,16 @@ Yes, auto upgrade also upgrades Azure AD Connect Health.
 Yes, you can auto-upgrade an Azure AD Connect server that is in staging mode.
 
 **Q: If auto upgrade fails and my Azure AD Connect server does not start, what should I do?**  
-In rare cases, the Azure AD Connect service does not start after you perform the upgrade. In these cases, rebooting the server usually fixes the issue. If the Azure AD Connect service still does not start, open a support ticket. For more information, see [Create a service request to contact Office 365 support](/archive/blogs/praveenkumar/how-to-create-service-requests-to-contact-office-365-support). 
+In rare cases, the Azure AD Connect service does not start after you perform the upgrade. In these cases, rebooting the server usually fixes the issue. If the Azure AD Connect service still does not start, open a support ticket. For more information, see [Create a service request to contact Microsoft 365 support](/archive/blogs/praveenkumar/how-to-create-service-requests-to-contact-office-365-support). 
 
 **Q: I’m not sure what the risks are when I upgrade to a newer version of Azure AD Connect. Can you call me to help me with the upgrade?**  
-If you need help upgrading to a newer version of Azure AD Connect, open a support ticket at [Create a service request to contact Office 365 support](/archive/blogs/praveenkumar/how-to-create-service-requests-to-contact-office-365-support).
+If you need help upgrading to a newer version of Azure AD Connect, open a support ticket at [Create a service request to contact Microsoft 365 support](/archive/blogs/praveenkumar/how-to-create-service-requests-to-contact-office-365-support).
 
 ## Operational best practice	
 Below are some best practices you should implement when syncing between Windows Server Active Directory and Azure Active Directory.
 
 **Apply Multi-Factor Authentication for all synced accounts**
-Azure Multi-Factor Authentication helps safeguard access to data and applications while maintaining simplicity for users. It provides additional security by requiring a second form of authentication and delivers strong authentication via a range of easy to use authentication methods. Users may or may not be challenged for MFA based on configuration decisions that an administrator makes. You can read more about MFA here: https://www.microsoft.com/security/business/identity/mfa?rtc=1
+Azure AD Multi-Factor Authentication helps safeguard access to data and applications while maintaining simplicity for users. It provides additional security by requiring a second form of authentication and delivers strong authentication via a range of easy to use authentication methods. Users may or may not be challenged for MFA based on configuration decisions that an administrator makes. You can read more about MFA here: https://www.microsoft.com/security/business/identity/mfa?rtc=1
 
 **Follow the Azure AD Connect server security guidelines**
 The Azure AD Connect server contains critical identity data and should be treated as a Tier 0 component as documented in the [Active Directory administrative tier model](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material). Please also refer to our [guidelines for securing your AADConnect server](./how-to-connect-install-prerequisites.md#azure-ad-connect-server).

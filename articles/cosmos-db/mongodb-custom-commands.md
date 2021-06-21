@@ -1,23 +1,25 @@
 ---
 title: MongoDB extension commands to manage data in Azure Cosmos DB’s API for MongoDB 
 description: This article describes how to use MongoDB extension commands to manage data stored in Azure Cosmos DB’s API for MongoDB.  
-author: LuisBosquez
+author: christopheranderson
 ms.service: cosmos-db
+ms.subservice: cosmosdb-mongo
 ms.topic: how-to
-ms.date: 05/28/2020
-ms.author: lbosq
-ms.custom: devx-track-javascript
+ms.date: 03/02/2021
+ms.author: chrande
+ms.custom: devx-track-js
 ---
 
 # Use MongoDB extension commands to manage data stored in Azure Cosmos DB’s API for MongoDB 
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
-The following document contains the custom action commands that are specific to Azure Cosmos DB's API for MongoDB. These commands can be used to create and obtain database resources that are specific to the [Azure Cosmos DB capacity model](databases-containers-items.md).
+The following document contains the custom action commands that are specific to Azure Cosmos DB's API for MongoDB. These commands can be used to create and obtain database resources that are specific to the [Azure Cosmos DB capacity model](account-databases-containers-items.md).
 
 By using the Azure Cosmos DB’s API for MongoDB, you can enjoy the benefits Cosmos DB such as global distribution, automatic sharding, high availability, latency guarantees, automatic, encryption at rest, backups, and many more, while preserving your investments in your MongoDB app. You can communicate with the Azure Cosmos DB’s API for MongoDB by using any of the open-source [MongoDB client drivers](https://docs.mongodb.org/ecosystem/drivers). The Azure Cosmos DB’s API for MongoDB enables the use of existing client drivers by adhering to the [MongoDB wire protocol](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
 
 ## MongoDB protocol support
 
-Azure Cosmos DB’s API for MongoDB is compatible with MongoDB server version 3.2 and 3.6. See [supported features and syntax](mongodb-feature-support.md) for more details. 
+Azure Cosmos DB’s API for MongoDB is compatible with MongoDB server version 4.0, 3.6, and 3.2. See supported features and syntax in [4.0](mongodb-feature-support-40.md), [3.6](mongodb-feature-support-36.md), and [3.2](mongodb-feature-support.md) articles for more details. 
 
 The following extension commands provide the ability to create and modify Azure Cosmos DB-specific resources via database requests:
 
@@ -83,7 +85,7 @@ db.runCommand({customAction: "CreateDatabase", autoScaleSettings: { maxThroughpu
 
 ## <a id="update-database"></a> Update database
 
-The update database extension command updates the properties associated with the specified database. The following table describes the parameters within the command:
+The update database extension command updates the properties associated with the specified database. Changing your database from provisioned throughput to autoscale and vice-versa is only supported in the Azure Portal. The following table describes the parameters within the command:
 
 |**Field**|**Type** |**Description** |
 |---------|---------|---------|
@@ -199,8 +201,9 @@ The create collection extension command creates a new MongoDB collection. The da
   customAction: "CreateCollection",
   collection: "<Collection Name>",
   shardKey: "<Shard key path>",
-  offerThroughput: (int), // Amount of throughput allocated to a specific collection
-
+  // Replace the line below with "autoScaleSettings: { maxThroughput: (int) }" to use Autoscale instead of Provisioned Throughput. Fill the required Autoscale max throughput setting.
+  offerThroughput: (int) // Provisioned Throughput enabled with required throughput amount set.
+  indexes: [{key: {_id: 1}}, ... ] // Optional indexes (3.6+ accounts only).
 }
 ```
 
@@ -213,6 +216,7 @@ The following table describes the parameters within the command:
 | `offerThroughput` | `int` | Optional | Provisioned throughput to set on the database. If this parameter is not provided, it will default to the minimum, 400 RU/s. * To specify throughput beyond 10,000 RU/s, the `shardKey` parameter is required.|
 | `shardKey` | `string` | Required for collections with large throughput | The path to the Shard Key for the sharded collection. This parameter is required if you set more than 10,000 RU/s in `offerThroughput`.  If it is specified, all documents inserted will require this key and value. |
 | `autoScaleSettings` | `Object` | Required for [Autoscale mode](provision-throughput-autoscale.md) | This object contains the settings associated with the Autoscale capacity mode. You can set up the `maxThroughput` value, which describes the highest amount of Request Units that the collection will be increased to dynamically. |
+| `indexes` | `Array` | Optionally configure indexes. This parameter is supported for 3.6+ accounts only. | When present, an index on _id is required. Each entry in the array must include a key of one or more fields, and may contain index options. For example, to create a compound unique index on the fields a and b use this entry: `{key: {a: 1, b: 1}, unique: true}`.
 
 ### Output
 
@@ -285,13 +289,15 @@ db.runCommand({customAction: "CreateCollection", collection: "testCollection", s
 
 ## <a id="update-collection"></a> Update collection
 
-The update collection extension command updates the properties associated with the specified collection.
+The update collection extension command updates the properties associated with the specified collection. Changing your collection from provisioned throughput to autoscale and vice-versa is only supported in the Azure Portal.
 
 ```javascript
 {
   customAction: "UpdateCollection",
   collection: "<Name of the collection that you want to update>",
-  offerThroughput: (int) // New throughput that will be set to the collection
+  // Replace the line below with "autoScaleSettings: { maxThroughput: (int) }" if using Autoscale instead of Provisioned Throughput. Fill the required Autoscale max throughput setting. Changing between Autoscale and Provisioned throughput is only supported in the Azure Portal.
+  offerThroughput: (int) // Provisioned Throughput enabled with required throughput amount set.
+  indexes: [{key: {_id: 1}}, ... ] // Optional indexes (3.6+ accounts only).
 }
 ```
 
@@ -303,6 +309,7 @@ The following table describes the parameters within the command:
 |  `collection`   |   `string`      |  	Name of the collection.       |
 | `offerThroughput`	| `int` |	Provisioned throughput to set on the collection.|
 | `autoScaleSettings` | `Object` | Required for [Autoscale mode](provision-throughput-autoscale.md). This object contains the settings associated with the Autoscale capacity mode. The `maxThroughput` value describes the highest amount of Request Units that the collection will be increased to dynamically. |
+| `indexes` | `Array` | Optionally configure indexes. This parameter is supported for 3.6+ accounts only. When present, the existing indexes of the collection are replaced by the set of indexes specified (including dropping indexes). An index on _id is required. Each entry in the array must include a key of one or more fields, and may contain index options. For example, to create a compound unique index on the fields a and b use this entry: `{key: {a: 1, b: 1}, unique: true}`.
 
 ## Output
 

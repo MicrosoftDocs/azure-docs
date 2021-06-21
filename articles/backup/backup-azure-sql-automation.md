@@ -3,7 +3,8 @@ title: SQL DB in Azure VM backup & restore via PowerShell
 description: Back up and restore SQL Databases in Azure VMs using Azure Backup and PowerShell.
 ms.topic: conceptual
 ms.date: 03/15/2019
-ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
+ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Back up and restore SQL databases in Azure VMs with PowerShell
@@ -97,7 +98,7 @@ The Recovery Services vault is a Resource Manager resource, so you must place it
 
 3. Specify the type of redundancy to use for the vault storage.
 
-    * You can use [locally redundant storage](../storage/common/storage-redundancy.md) or [geo-redundant storage](../storage/common/storage-redundancy.md).
+    * You can use [locally redundant storage](../storage/common/storage-redundancy.md#locally-redundant-storage), [geo-redundant storage](../storage/common/storage-redundancy.md#geo-redundant-storage) or [zone-redundant storage](../storage/common/storage-redundancy.md#zone-redundant-storage) .
     * The following example sets the **-BackupStorageRedundancy** option for the[Set-AzRecoveryServicesBackupProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) cmd for **testvault** set to **GeoRedundant**.
 
     ```powershell
@@ -263,7 +264,7 @@ Azure Backup can restore SQL Server databases that are running on Azure VMs as f
 * Restore to a specific date or time (to the second) by using transaction log backups. Azure Backup automatically determines the appropriate full differential backup and the chain of log backups that are required to restore based on the selected time.
 * Restore a specific full or differential backup to restore to a specific recovery point.
 
-Check the prerequisites mentioned [here](restore-sql-database-azure-vm.md#prerequisites) before restoring SQL DBs.
+Check the prerequisites mentioned [here](restore-sql-database-azure-vm.md#restore-prerequisites) before restoring SQL DBs.
 
 First fetch the relevant backed up SQL DB using the [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem) PowerShell cmdlet.
 
@@ -305,7 +306,7 @@ $FullRP = Get-AzRecoveryServicesBackupRecoveryPoint -Item $bkpItem -VaultId $tar
 If you want to restore the DB to a certain point-in-time, use [Get-AzRecoveryServicesBackupRecoveryLogChain](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackuprecoverylogchain) PowerShell cmdlet. The cmdlet returns a list of dates that represent start and end times of an unbroken, continuous log chain for that SQL backup item. The desired point-in-time should be within this range.
 
 ```powershell
-Get-AzRecoveryServicesBackupRecoveryLogChain -Item $bkpItem -Item -VaultId $targetVault.ID
+Get-AzRecoveryServicesBackupRecoveryLogChain -Item $bkpItem -VaultId $targetVault.ID
 ```
 
 The output will be similar to the following example.

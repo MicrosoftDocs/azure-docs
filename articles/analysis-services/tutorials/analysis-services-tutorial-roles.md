@@ -12,7 +12,7 @@ ms.reviewer: owend
 
 # Tutorial: Configure server administrator and user roles
 
- In this tutorial, you use SQL Server Management Studio (SSMS) to connect to your server in Azure to configure server administrator and model database roles. You're also introduced  to [Tabular Model Scripting Language (TMSL)](https://docs.microsoft.com/analysis-services/tabular-model-programming-compatibility-level-1200/tabular-model-programming-for-compatibility-level-1200). TMSL is a JSON-based scripting language for tabular models at the 1200 and higher compatibility levels. It can be used to automate many tabular modeling tasks. TMSL is often used with PowerShell, but in this tutorial, you use the XMLA query editor in SSMS. With this tutorial, you complete these tasks: 
+ In this tutorial, you use SQL Server Management Studio (SSMS) to connect to your server in Azure to configure server administrator and model database roles. You're also introduced  to [Tabular Model Scripting Language (TMSL)](/analysis-services/tabular-model-programming-compatibility-level-1200/tabular-model-programming-for-compatibility-level-1200). TMSL is a JSON-based scripting language for tabular models at the 1200 and higher compatibility levels. It can be used to automate many tabular modeling tasks. TMSL is often used with PowerShell, but in this tutorial, you use the XMLA query editor in SSMS. With this tutorial, you complete these tasks: 
   
 > [!div class="checklist"]
 > * Get your server name from the portal
@@ -29,7 +29,7 @@ To learn more about user security in Azure Analysis Services, see [Authenticatio
 - Created an [Azure Analysis Services server](../analysis-services-create-server.md) in your subscription.
 - Have [server administrator](../analysis-services-server-admins.md) permissions.
 - [Add the adventureworks sample model](../analysis-services-create-sample-model.md) to your server.
-- [Install the latest version of SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).
+- [Install the latest version of SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).
 
 ## Sign in to the Azure portal
 
@@ -78,7 +78,7 @@ In this task, you add a user or group account from your Azure AD to the server a
 
 ## Add a user to the model database administrator role
 
-In this task, you add a user or group account to the Internet Sales Administrator role that already exists in the model. This role has Full control (Administrator) permissions for the adventureworks sample model database. This task uses the [CreateOrReplace](https://docs.microsoft.com/analysis-services/tmsl/createorreplace-command-tmsl) TMSL command in a script created for you.
+In this task, you add a user or group account to the Internet Sales Administrator role that already exists in the model. This role has Full control (Administrator) permissions for the adventureworks sample model database. This task uses the [CreateOrReplace](/analysis-services/tmsl/createorreplace-command-tmsl) TMSL command in a script created for you.
 
 1. In **Object Explorer**, expand **Databases** > **adventureworks** > **Roles**. 
 2. Right-click **Internet Sales Administrator**, then click **Script Role as** > **CREATE OR REPLACE To** > **New Query Editor Window**.
@@ -94,7 +94,7 @@ In this task, you add a user or group account to the Internet Sales Administrato
 
 ## Add a new model database role and add a user or group
 
-In this task, you use the [Create](https://docs.microsoft.com/analysis-services/tmsl/create-command-tmsl) command in a TMSL script to create a new Internet Sales Global role, specify *read* permissions for the role, and add a user or group account from your Azure AD.
+In this task, you use the [Create](/analysis-services/tmsl/create-command-tmsl) command in a TMSL script to create a new Internet Sales Global role, specify *read* permissions for the role, and add a user or group account from your Azure AD.
 
 1. In **Object Explorer**, right-click **adventureworks**, and then click **New Query** > **XMLA**. 
 2. Copy and paste the following TMSL script into the query editor:
@@ -140,4 +140,3 @@ In this tutorial, you learned how to connect to your Azure AS server and explore
 
 > [!div class="nextstepaction"]
 > [Tutorial: Connect with Power BI Desktop](analysis-services-tutorial-pbid.md)
-

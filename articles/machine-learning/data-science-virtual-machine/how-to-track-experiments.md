@@ -3,8 +3,7 @@ title: Experiment tracking and deploying models
 titleSuffix: Azure Data Science Virtual Machine 
 description: Learn how to track and log experiments from the Data Science Virtual Machine with Azure Machine Learning and/or MLFlow.
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 
 author: samkemp
 ms.author: samkemp
@@ -22,11 +21,11 @@ The following diagram illustrates that with MLflow Tracking, you track an experi
 
 ## Prerequisites
 
-* You'll need to [provision an Azure Machine Learning Workspace](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace#create-a-workspace)
+* You'll need to [provision an Azure Machine Learning Workspace](../how-to-manage-workspace.md#create-a-workspace)
 
 ## Create a new notebook
 
-The Azure Machine Learning and MLFlow SDK are preinstalled on the Data Science VM and can be accessed in the **azureml_py36_\*** conda environment. In Jupyterlab, click on the launcher and select the following kernel:
+The Azure Machine Learning and MLFlow SDK are preinstalled on the Data Science VM and can be accessed in the **azureml_py36_\*** conda environment. In JupyterLab, click on the launcher and select the following kernel:
 
 ![kernel selection](./media/how-to-track-experiments/experiment-tracking-1.png)
 
@@ -200,4 +199,4 @@ Delete the Inference Compute you created in Step 1 so that you don't incur ongoi
 
 ## Next Steps
 
-* Learn more about [deploying models in AzureML](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where)
+* Learn more about [deploying models in AzureML](../how-to-deploy-and-where.md)

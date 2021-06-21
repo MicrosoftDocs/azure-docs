@@ -10,13 +10,13 @@ ms.subservice: team-data-science-process
 ms.topic: sample
 ms.date: 06/03/2020
 ms.author: tdsp
-ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, contperfq4
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, contperf-fy20q4
 ---
 # Data exploration and modeling with Spark
 
 Learn how to use HDInsight Spark to train machine learning models for taxi fare prediction using Spark MLlib.
 
-This sample showcases the various steps in the [Team Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/). A subset of the NYC taxi trip and fare 2013 dataset is used to load, explore and prepare data. Then, using Spark MLlib, binary classification and regression models are trained to predict whether a tip will be paid for the trip and estimate the tip amount.
+This sample showcases the various steps in the [Team Data Science Process](./index.yml). A subset of the NYC taxi trip and fare 2013 dataset is used to load, explore and prepare data. Then, using Spark MLlib, binary classification and regression models are trained to predict whether a tip will be paid for the trip and estimate the tip amount.
 
 ## Prerequisites
 
@@ -29,7 +29,7 @@ Setup steps and code are provided in this walkthrough for using an HDInsight Spa
 - [Spark 1.6 notebooks](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark1.6/): Provide information on how to perform data exploration, modeling, and scoring with several different algorithms.
 - [Spark 2.0 notebooks](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/): Provide information on how to perform regression and classification tasks. Datasets may vary, but the steps and concepts are applicable to various datasets.
 
-[!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
+[!INCLUDE [delete-cluster-warning](../../hdinsight/includes/hdinsight-delete-cluster-warning.md)]
 
 > [!NOTE]
 > The descriptions below are related to using Spark 1.6. For Spark 2.0 versions, please use the notebooks described and linked above. 
@@ -489,7 +489,8 @@ Time taken to execute above cell: 0.24 second
 
 ### Feature scaling
 
-Feature scaling, also known as data normalization, insures that features with widely disbursed values are not given excessive weigh in the objective function. The code for feature scaling uses the [StandardScaler](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.feature.StandardScaler) to scale the features to unit variance. It is provided by MLlib for use in linear regression with Stochastic Gradient Descent (SGD), a popular algorithm for training a wide range of other machine learning models such as regularized regressions or support vector machines (SVM).
+Feature scaling, also known as data normalization, insures that features with widely disbursed values are not given excessive weigh in the objective function. The code for feature scaling uses the [StandardScaler](https://spark.apache.org/docs/latest/api/python/reference/api/pyspark.mllib.classification.LogisticRegressionWithLBFGS.html#pyspark.mllib.classification.LogisticRegressionWithLBFGS
+) to scale the features to unit variance. It is provided by MLlib for use in linear regression with Stochastic Gradient Descent (SGD), a popular algorithm for training a wide range of other machine learning models such as regularized regressions or support vector machines (SVM).
 
 > [!NOTE]
 > We have found the LinearRegressionWithSGD algorithm to be sensitive to feature scaling.

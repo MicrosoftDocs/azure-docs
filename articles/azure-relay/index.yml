@@ -67,6 +67,6 @@ landingContent:
       - linkListType: reference      
         links:
           - text: .NET
-            url: /dotnet/api/microsoft.azure.relay?view=azure-dotnet
+            url: /dotnet/api/microsoft.azure.relay
           - text: REST
             url: /rest/api/relay/            

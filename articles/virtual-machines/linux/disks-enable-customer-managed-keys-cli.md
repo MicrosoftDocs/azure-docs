@@ -2,17 +2,17 @@
 title: Azure CLI - Enable customer-managed keys with SSE - managed disks
 description: Enable customer-managed keys on your managed disks with the Azure CLI.
 author: roygara
-
 ms.date: 08/24/2020
 ms.topic: how-to
 ms.author: rogarana
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.subservice: disks
+
 ---
 
 # Use the Azure CLI to enable server-side encryption with customer-managed keys for managed disks
 
-Azure Disk Storage allows you to manage your own keys when using server-side encryption (SSE) for managed disks, if you choose. For conceptual information on SSE with customer managed keys, as well as other managed disk encryption types, see the [Customer-managed keys](disk-encryption.md#customer-managed-keys) section of our disk encryption article.
+Azure Disk Storage allows you to manage your own keys when using server-side encryption (SSE) for managed disks, if you choose. For conceptual information on SSE with customer managed keys, as well as other managed disk encryption types, see the [Customer-managed keys](../disk-encryption.md#customer-managed-keys) section of our disk encryption article.
 
 ## Restrictions
 

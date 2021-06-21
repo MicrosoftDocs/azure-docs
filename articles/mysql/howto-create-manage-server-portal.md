@@ -1,16 +1,20 @@
 ---
 title: Manage server - Azure portal - Azure Database for MySQL
 description: Learn how to manage an Azure Database for MySQL server from the Azure portal.
-author: ajlam
-ms.author: andrela
+author: Bashar-MSFT
+ms.author: bahusse
 ms.service: mysql
 ms.topic: how-to
-ms.date: 3/18/2020
+ms.date: 1/26/2021
 ---
 
 # Manage an Azure Database for MySQL server using the Azure portal
 
 This article shows you how to manage your Azure Database for MySQL servers. Management tasks include compute and storage scaling, admin password reset, and viewing server details.
+
+> [!NOTE]
+> This article contains references to the term _slave_, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
+>
 
 ## Sign in
 
@@ -32,7 +36,7 @@ You can scale from General Purpose to Memory Optimized and vice-versa. Changing 
 
 2. Select **General Purpose** or **Memory Optimized**, depending on what you are scaling to.
 
-   ![Screenshot of Azure portal to choose Basic, General Purpose, or Memory Optimized tier in Azure Database for MySQL](./media/howto-create-manage-server-portal/change-pricing-tier.png)
+   :::image type="content" source="./media/howto-create-manage-server-portal/change-pricing-tier.png" alt-text="Screenshot of Azure portal to choose Basic, General Purpose, or Memory Optimized tier in Azure Database for MySQL":::
 
    > [!NOTE]
    > Changing tiers causes a server restart.
@@ -45,7 +49,7 @@ You can scale from General Purpose to Memory Optimized and vice-versa. Changing 
 
 2. Change the **vCore** setting by moving the slider to your desired value.
 
-    ![Screenshot of Azure portal to choose vCore option in Azure Database for MySQL](./media/howto-create-manage-server-portal/scaling-compute.png)
+    :::image type="content" source="./media/howto-create-manage-server-portal/scaling-compute.png" alt-text="Screenshot of Azure portal to choose vCore option in Azure Database for MySQL":::
 
     > [!NOTE]
     > Scaling vCores causes a server restart.
@@ -58,7 +62,7 @@ You can scale from General Purpose to Memory Optimized and vice-versa. Changing 
 
 2. Change the **Storage** setting by moving the slider up to your desired value.
 
-   ![Screenshot of Azure portal to choose Storage scale in Azure Database for MySQL](./media/howto-create-manage-server-portal/scaling-storage.png)
+   :::image type="content" source="./media/howto-create-manage-server-portal/scaling-storage.png" alt-text="Screenshot of Azure portal to choose Storage scale in Azure Database for MySQL":::
 
    > [!NOTE]
    > Storage cannot be scaled down.
@@ -71,13 +75,20 @@ You can change the administrator role's password using the Azure portal.
 
 1. Select your server in the Azure portal. In the **Overview** window select **Reset password**.
 
-   ![Screenshot of Azure portal to reset the password in Azure Database for MySQL](./media/howto-create-manage-server-portal/overview-reset-password.png)
+   :::image type="content" source="./media/howto-create-manage-server-portal/overview-reset-password.png" alt-text="Screenshot of Azure portal to reset the password in Azure Database for MySQL":::
 
 2. Enter a new password and confirm the password. The textbox will prompt you about password complexity requirements.
 
-   ![Screenshot of Azure portal to reset your password and save in Azure Database for MySQL](./media/howto-create-manage-server-portal/reset-password.png)
+   :::image type="content" source="./media/howto-create-manage-server-portal/reset-password.png" alt-text="Screenshot of Azure portal to reset your password and save in Azure Database for MySQL":::
 
 3. Select **OK** to save the new password.
+ 
+
+> [!IMPORTANT]
+> Resetting server admin password will automatically reset the server admin privileges to default. Consider resetting your server admin password if you accidentally revoked one or more of the server admin privileges.
+   
+> [!NOTE]
+> Server admin user has the following privileges by default: SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER
 
 ## Delete a server
 
@@ -85,11 +96,11 @@ You can delete your server if you no longer need it.
 
 1. Select your server in the Azure portal. In the **Overview** window select **Delete**.
 
-   ![Screenshot of Azure portal to Delete the server in Azure Database for MySQL](./media/howto-create-manage-server-portal/overview-delete.png)
+   :::image type="content" source="./media/howto-create-manage-server-portal/overview-delete.png" alt-text="Screenshot of Azure portal to Delete the server in Azure Database for MySQL":::
 
 2. Type the name of the server into the input box to confirm that this is the server you want to delete.
 
-   ![Screenshot of Azure portal to confirm the server delete in Azure Database for MySQL](./media/howto-create-manage-server-portal/confirm-delete.png)
+   :::image type="content" source="./media/howto-create-manage-server-portal/confirm-delete.png" alt-text="Screenshot of Azure portal to confirm the server delete in Azure Database for MySQL":::
 
    > [!NOTE]
    > Deleting a server is irreversible.

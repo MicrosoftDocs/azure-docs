@@ -13,12 +13,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 07/27/2020
+ms.date: 06/14/2021
 ms.author: b-juche
 ---
 # Create an NFS volume for Azure NetApp Files
 
-Azure NetApp Files supports creating volumes using NFS (NFSv3 and NFSv4.1), SMBv3, or dual protocol (NFSv3 and SMB). A volume's capacity consumption counts against its pool's provisioned capacity. This article shows you how to create an NFS volume. 
+Azure NetApp Files supports creating volumes using NFS (NFSv3 and NFSv4.1), SMB3, or dual protocol (NFSv3 and SMB). A volume's capacity consumption counts against its pool's provisioned capacity. 
+
+This article shows you how to create an NFS volume. For SMB volumes, see [Create an SMB volume](azure-netapp-files-create-volumes-smb.md). For dual-protocol volumes, see [Create a dual-protocol volume](create-volumes-dual-protocol.md).
 
 ## Before you begin 
 * You must have already set up a capacity pool.  
@@ -57,7 +59,7 @@ Azure NetApp Files supports creating volumes using NFS (NFSv3 and NFSv4.1), SMBv
 
         A volume name must be unique within each capacity pool. It must be at least three characters long. You can use any alphanumeric characters.   
 
-        You cannot use `default` as the volume name.
+        You cannot use `default` or `bin` as the volume name.
 
     * **Capacity pool**  
         Specify the capacity pool where you want the volume to be created.
@@ -66,6 +68,11 @@ Azure NetApp Files supports creating volumes using NFS (NFSv3 and NFSv4.1), SMBv
         Specify the amount of logical storage that is allocated to the volume.  
 
         The **Available quota** field shows the amount of unused space in the chosen capacity pool that you can use towards creating a new volume. The size of the new volume must not exceed the available quota.  
+
+    * **Throughput (MiB/S)**   
+        If the volume is created in a manual QoS capacity pool, specify the throughput you want for the volume.   
+
+        If the volume is created in an auto QoS capacity pool, the value displayed in this field is (quota x service level throughput).   
 
     * **Virtual network**  
         Specify the Azure virtual network (VNet) from which you want to access the volume.  
@@ -90,11 +97,12 @@ Azure NetApp Files supports creating volumes using NFS (NFSv3 and NFSv4.1), SMBv
 
 3. Click **Protocol**, and then complete the following actions:  
     * Select **NFS** as the protocol type for the volume.   
-    * Specify the **file path** that will be used to create the export path for the new volume. The export path is used to mount and access the volume.
 
-        The file path name can contain letters, numbers, and hyphens ("-") only. It must be between 16 and 40 characters in length. 
-
-        The file path must be unique within each subscription and each region. 
+    * Specify a unique **file path** for the volume. This path is used when you create mount targets. The requirements for the path are as follows:   
+        - It must be unique within each subnet in the region. 
+        - It must start with an alphabetical character.
+        - It can contain only letters, numbers, or dashes (`-`). 
+        - The length must not exceed 80 characters.
 
     * Select the NFS version (**NFSv3** or **NFSv4.1**) for the volume.  
 
@@ -102,6 +110,8 @@ Azure NetApp Files supports creating volumes using NFS (NFSv3 and NFSv4.1), SMBv
 
         Additional configurations are required if you use Kerberos with NFSv4.1. Follow the instructions in [Configure NFSv4.1 Kerberos encryption](configure-kerberos-encryption.md).
 
+    * If you want to enable Active Directory LDAP users and extended groups (up to 1024 groups) to access the volume, select the **LDAP** option. Follow instructions in [Configure ADDS LDAP with extended groups for NFS volume access](configure-ldap-extended-groups.md) to complete the required configurations. 
+ 
     * Optionally, [configure export policy for the NFS volume](azure-netapp-files-configure-export-policy.md).
 
     ![Specify NFS protocol](../media/azure-netapp-files/azure-netapp-files-protocol-nfs.png)
@@ -112,12 +122,13 @@ Azure NetApp Files supports creating volumes using NFS (NFSv3 and NFSv4.1), SMBv
  
     A volume inherits subscription, resource group, location attributes from its capacity pool. To monitor the volume deployment status, you can use the Notifications tab.
 
-
 ## Next steps  
 
 * [Configure NFSv4.1 default domain for Azure NetApp Files](azure-netapp-files-configure-nfsv41-domain.md)
 * [Configure NFSv4.1 Kerberos encryption](configure-kerberos-encryption.md)
+* [Configure ADDS LDAP over TLS for Azure NetApp Files](configure-ldap-over-tls.md)
+* [Configure ADDS LDAP with extended groups for NFS volume access](configure-ldap-extended-groups.md)
 * [Mount or unmount a volume for Windows or Linux virtual machines](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [Configure export policy for an NFS volume](azure-netapp-files-configure-export-policy.md)
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)
-* [Learn about virtual network integration for Azure services](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services)
+* [Learn about virtual network integration for Azure services](../virtual-network/virtual-network-for-azure-services.md)

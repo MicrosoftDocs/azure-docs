@@ -1,19 +1,18 @@
 ---
 title: Azure Functions output from Azure Stream Analytics
 description: This article describes Azure functions as output for Azure Stream Analytics.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 08/25/2020
+ms.date: 05/28/2021
 ---
 
 # Azure Functions output from Azure Stream Analytics
 
 Azure Functions is a serverless compute service that you can use to run code on-demand without having to explicitly provision or manage infrastructure. It lets you implement code that's triggered by events occurring in Azure or partner services. This ability of Azure Functions to respond to triggers makes it a natural output for Azure Stream Analytics. This output adapter enables users to connect Stream Analytics to Azure Functions, and run a script or piece of code in response to a variety of events.
 
-Azure Functions output from Stream Analytics is currently not available in the Azure China 21Vianet and Azure Germany (T-Systems International) regions.
+Azure Functions output from Stream Analytics is not available in the Azure China 21Vianet and Azure Germany (T-Systems International) regions. Connection to Azure Functions inside a virtual network (VNet) from an Stream Analytics job that is running in a multi-tenant cluster is also not supported.
 
 Azure Stream Analytics invokes Azure Functions via HTTP triggers. The Azure Functions output adapter is available with the following configurable properties:
 
@@ -42,6 +41,11 @@ The partition key is based on the PARTITION BY clause in the query. The number o
 
 The default batch size is 262,144 bytes (256 KB). The default event count per batch is 100. The batch size is configurable and can be increased or decreased in the Stream Analytics output options.
 
+## Limitation
+
+Azure Functions should complete its request in under 100 seconds as the HTTP client times out after 100 seconds. If it takes more than 100 seconds for Azure  Functions to process a batch of data,  there is a timeout that will trigger a retry. This retry can result in duplicate data because Azure Functions will process the data again and potentially produce the same output since it may have been outputted partially in the previous request
+
+
 ## Next steps
 
 * [Quickstart: Create a Stream Analytics job by using the Azure portal](stream-analytics-quick-create-portal.md)
@@ -49,4 +53,4 @@ The default batch size is 262,144 bytes (256 KB). The default event count per ba
 * [Quickstart: Create an Azure Stream Analytics job by using an ARM template](quick-create-azure-resource-manager.md)
 * [Quickstart: Create a Stream Analytics job using Azure PowerShell](stream-analytics-quick-create-powershell.md)
 * [Quickstart: Create an Azure Stream Analytics job by using Visual Studio](stream-analytics-quick-create-vs.md)
-* [Quickstart: Create an Azure Stream Analytics job in Visual Studio Code](quick-create-vs-code.md)
+* [Quickstart: Create an Azure Stream Analytics job in Visual Studio Code](quick-create-visual-studio-code.md)

@@ -3,8 +3,8 @@ title: Create and encrypt a Linux VM with the Azure portal
 description: In this quickstart, you learn how to use the Azure portal to create and encrypt a Linux virtual machine
 author: msmbaldwin
 ms.author: mbaldwin
-ms.service: virtual-machines-linux
-ms.subservice: security
+ms.service: virtual-machines
+ms.subservice: disks
 ms.topic: quickstart
 ms.date: 10/02/2019
 ---
@@ -33,7 +33,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
     :::image type="content" source="../media/disk-encryption/portal-quickstart-linux-vm-creation.png" alt-text="Linux VM creation screen":::
 
     > [!WARNING]
-    > The "Disks" tab features an "Encryption Type" field under **Disk options**. This field is used to specify encryption options for [Managed Disks](managed-disks-overview.md) + CMK, **not** for Azure Disk Encryption.
+    > The "Disks" tab features an "Encryption Type" field under **Disk options**. This field is used to specify encryption options for [Managed Disks](../managed-disks-overview.md) + CMK, **not** for Azure Disk Encryption.
     >
     > To avoid confusion, we suggest you skip the *Disks* tab entirely while completing this tutorial.
 
@@ -53,12 +53,12 @@ It will take a few minutes for your VM to be deployed. When the deployment is fi
 1. On the top bar, select **Additional Settings** .
 1. Under **Encryption settings** > **Disks to encrypt**, select **OS and data disks**.
 
-    :::image type="content" source="../media/disk-encryption/portal-quickstart-disks-to-encryption.png" alt-text="disks and encryption selection":::
+    :::image type="content" source="../media/disk-encryption/portal-quickstart-disks-to-encryption.png" alt-text="Screenshot that highlights OS and data disks.":::
 
 1. Under **Encryption settings**, choose **Select a key vault and key for encryption**.
 1. On the **Select key from Azure Key Vault** screen, select **Create New**.
 
-    :::image type="content" source="../media/disk-encryption/portal-qs-keyvault-create.png" alt-text="disks and encryption selection":::
+    :::image type="content" source="../media/disk-encryption/portal-qs-keyvault-create.png" alt-text="Screenshot that highlights Create new.":::
 
 1. To the left of **Key vault and key**, select **Click to select a key**.
 1. On the **Select key from Azure Key Vault**, under the **Key Vault** field, select **Create new**.

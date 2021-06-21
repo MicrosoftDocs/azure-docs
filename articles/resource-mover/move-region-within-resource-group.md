@@ -22,7 +22,7 @@ In this article, learn how to move resources in a specific resource group to a d
 - You need *Owner* access on the subscription in which resources you want to move are located.
     - The first time you add a resource for a  specific source and destination mapping in an Azure subscription, Resource Mover creates a [system-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) (formerly known as Managed Service Identify (MSI)) that's trusted by the subscription.
     - To create the identity, and to assign it the required role (Contributor or User Access administrator in the source subscription), the account you use to add resources needs *Owner* permissions on the subscription. [Learn more](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) about Azure roles.
-- The subscription needs enough quota to create the source resources in the target region. If it doesn't, request additional limits. [Learn more](/azure/azure-resource-manager/management/azure-subscription-service-limits).
+- The subscription needs enough quota to create the source resources in the target region. If it doesn't, request additional limits. [Learn more](../azure-resource-manager/management/azure-subscription-service-limits.md).
 - Verify pricing and charges associated with the target region to which you're moving VMs. Use the [pricing calculator](https://azure.microsoft.com/pricing/calculator/) to help you.
 - Check that the resources you want to move are supported by Resource Mover:
     - Azure VMs and associated disks
@@ -53,6 +53,9 @@ In this article, learn how to move resources in a specific resource group to a d
 
 Select resources you want to move. You move resources to a target region in the source region subscription. If you want to change the subscription, you can do that after the resources are moved.
 
+> [!NOTE]
+>  Don't select associated disks or the operation will fail. Associated disks are automatically included in a VM move.
+
 1. In the Azure portal, open the relevant resource group.
 2. In the resource group page, select the resources that you want to move.
 3. Select **Move** > **Move to another region**.
@@ -60,7 +63,6 @@ Select resources you want to move. You move resources to a target region in the 
     ![Selection for moving resources to a different region](./media/move-region-within-resource-group/select-move-region.png)
     
 4. In **Source + destination**, select the target region to which you want to move the resources. Then select **Next**.
-5. In **Metadata region**, select where you want to store metadata about resources you're moving.  A resource group is created specifically for this purpose. Then select **Next**.
 
 
     ![Source and destination page to select target region](./media/move-region-within-resource-group/source-target.png)

@@ -1,6 +1,6 @@
 ---
 title: Use Azure Table storage or Azure Cosmos DB Table API from Node.js
-description: Store structured data in the cloud using Azure Table storage or the Azure Cosmos DB Table API.
+description: Store structured data in the cloud using Azure Table storage or the Azure Cosmos DB Table API from Node.js.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: nodejs
@@ -8,9 +8,10 @@ ms.topic: sample
 ms.date: 07/23/2020
 author: sakash279
 ms.author: akshanka
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 # How to use Azure Table storage or the Azure Cosmos DB Table API from Node.js
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
@@ -19,15 +20,15 @@ This article shows you how to create tables, store your data, and perform CRUD o
 
 ## Create an Azure service account
 
-[!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
+[!INCLUDE [cosmos-db-create-azure-service-account](includes/cosmos-db-create-azure-service-account.md)]
 
 **Create an Azure storage account**
 
-[!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
+[!INCLUDE [cosmos-db-create-storage-account](includes/cosmos-db-create-storage-account.md)]
 
 **Create an Azure Cosmos DB Table API account**
 
-[!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
+[!INCLUDE [cosmos-db-create-tableapi-account](includes/cosmos-db-create-tableapi-account.md)]
 
 ## Configure your application to access Azure Storage or the Azure Cosmos DB Table API
 
@@ -132,7 +133,7 @@ To add an entity, first create an object that defines your entity properties. Al
 * **PartitionKey** - Determines the partition in which the entity is stored.
 * **RowKey** - Uniquely identifies the entity within the partition.
 
-Both **PartitionKey** and **RowKey** must be string values. For more information, see [Understanding the Table Service Data Model](https://msdn.microsoft.com/library/azure/dd179338.aspx).
+Both **PartitionKey** and **RowKey** must be string values. For more information, see [Understanding the Table Service Data Model](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model).
 
 The following is an example of defining an entity. The **dueDate** is defined as a type of `Edm.DateTime`. Specifying the type is optional, and types are inferred if not specified.
 
@@ -478,6 +479,6 @@ For more information, see the following resources.
 
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
 * [Azure Storage SDK for Node.js](https://github.com/Azure/azure-storage-node) repository on GitHub.
-* [Azure for Node.js Developers](https://docs.microsoft.com/azure/developer/javascript/)
+* [Azure for Node.js Developers](/azure/developer/javascript/)
 * [Create a Node.js web app in Azure](../app-service/quickstart-nodejs.md)
 * [Build and deploy a Node.js application to an Azure Cloud Service](../cloud-services/cloud-services-nodejs-develop-deploy-app.md) (using Windows PowerShell)

@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to install and configure an NGINX ingress controller with a static public IP address in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 08/17/2020
+ms.date: 04/23/2021
 
 
 #Customer intent: As a cluster operator or developer, I want to use an ingress controller with a static IP address to handle the flow of incoming traffic and secure my apps using automatically generated TLS certificates.
@@ -27,7 +27,9 @@ You can also:
 
 This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
 
-This article uses [Helm 3][helm] to install the NGINX ingress controller and cert-manager. Make sure that you are using the latest release of Helm and have access to the *ingress-nginx* and *jetstack* Helm repositories. For upgrade instructions, see the [Helm install docs][helm-install]. For more information on configuring and using Helm, see [Install applications with Helm in Azure Kubernetes Service (AKS)][use-helm].
+This article uses [Helm 3][helm] to install the NGINX ingress controller on a [supported version of Kubernetes][aks-supported versions]. Make sure that you are using the latest release of Helm and have access to the *ingress-nginx* and *jetstack* Helm repositories. The steps outlined in this article may not be compatible with previous versions of the Helm chart, NGINX ingress controller, or Kubernetes.
+
+For more information on configuring and using Helm, see [Install applications with Helm in Azure Kubernetes Service (AKS)][use-helm]. For upgrade instructions, see the [Helm install docs][helm-install].
 
 This article also requires that you are running the Azure CLI version 2.0.64 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
@@ -48,7 +50,7 @@ az network public-ip create --resource-group MC_myResourceGroup_myAKSCluster_eas
 ```
 
 > [!NOTE]
-> The above commands create an IP address that will be deleted if you delete your AKS cluster. Alternatively, you can create an IP address in a different resource group which can be managed separately from your AKS cluster. If you create an IP address in a different resource group, ensure the service principal used by the AKS cluster has delegated permissions to the other resource group, such as *Network Contributor*. For more information, see [Use a static public IP address and DNS label with the AKS load balancer][aks-static-ip].
+> The above commands create an IP address that will be deleted if you delete your AKS cluster. Alternatively, you can create an IP address in a different resource group which can be managed separately from your AKS cluster. If you create an IP address in a different resource group, ensure the cluster identity used by the AKS cluster has delegated permissions to the other resource group, such as *Network Contributor*. For more information, see [Use a static public IP address and DNS label with the AKS load balancer][aks-static-ip].
 
 Now deploy the *nginx-ingress* chart with Helm. For added redundancy, two replicas of the NGINX ingress controllers are deployed with the `--set controller.replicaCount` parameter. To fully benefit from running replicas of the ingress controller, make sure there's more than one node in your AKS cluster.
 
@@ -60,7 +62,7 @@ You must pass two additional parameters to the Helm release so the ingress contr
 The ingress controller also needs to be scheduled on a Linux node. Windows Server nodes shouldn't run the ingress controller. A node selector is specified using the `--set nodeSelector` parameter to tell the Kubernetes scheduler to run the NGINX ingress controller on a Linux-based node.
 
 > [!TIP]
-> The following example creates a Kubernetes namespace for the ingress resources named *ingress-basic*. Specify a namespace for your own environment as needed. If your AKS cluster is not RBAC enabled, add `--set rbac.create=false` to the Helm commands.
+> The following example creates a Kubernetes namespace for the ingress resources named *ingress-basic*. Specify a namespace for your own environment as needed. If your AKS cluster is not Kubernetes RBAC enabled, add `--set rbac.create=false` to the Helm commands.
 
 > [!TIP]
 > If you would like to enable [client source IP preservation][client-source-ip] for requests to containers in your cluster, add `--set controller.service.externalTrafficPolicy=Local` to the Helm install command. The client source IP is stored in the request header under *X-Forwarded-For*. When using an ingress controller with client source IP preservation enabled, TLS pass-through will not work.
@@ -83,6 +85,7 @@ helm install nginx-ingress ingress-nginx/ingress-nginx \
     --set controller.replicaCount=2 \
     --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
     --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux \
+    --set controller.admissionWebhooks.patch.nodeSelector."beta\.kubernetes\.io/os"=linux \
     --set controller.service.loadBalancerIP="STATIC_IP" \
     --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"="DNS_LABEL"
 ```
@@ -113,7 +116,7 @@ The NGINX ingress controller supports TLS termination. There are several ways to
 > [!NOTE]
 > This article uses the `staging` environment for Let's Encrypt. In production deployments, use `letsencrypt-prod` and `https://acme-v02.api.letsencrypt.org/directory` in the resource definitions and when installing the Helm chart.
 
-To install the cert-manager controller in an RBAC-enabled cluster, use the following `helm install` command:
+To install the cert-manager controller in an Kubernetes RBAC-enabled cluster, use the following `helm install` command:
 
 ```console
 # Label the cert-manager namespace to disable resource validation
@@ -129,7 +132,7 @@ helm repo update
 helm install \
   cert-manager \
   --namespace ingress-basic \
-  --version v0.16.1 \
+  --version v1.3.1 \
   --set installCRDs=true \
   --set nodeSelector."beta\.kubernetes\.io/os"=linux \
   jetstack/cert-manager
@@ -167,8 +170,12 @@ spec:
 To create the issuer, use the `kubectl apply` command.
 
 ```
-$ kubectl apply -f cluster-issuer.yaml --namespace ingress-basic
+kubectl apply -f cluster-issuer.yaml --namespace ingress-basic
+```
 
+The output should be similar to this example:
+
+```
 clusterissuer.cert-manager.io/letsencrypt-staging created
 ```
 
@@ -197,7 +204,7 @@ spec:
     spec:
       containers:
       - name: aks-helloworld
-        image: neilpeterson/aks-helloworld:v1
+        image: mcr.microsoft.com/azuredocs/aks-helloworld:v1
         ports:
         - containerPort: 80
         env:
@@ -235,7 +242,7 @@ spec:
     spec:
       containers:
       - name: ingress-demo
-        image: neilpeterson/aks-helloworld:v1
+        image: mcr.microsoft.com/azuredocs/aks-helloworld:v1
         ports:
         - containerPort: 80
         env:
@@ -270,7 +277,7 @@ In the following example, traffic to the address `https://demo-aks-ingress.eastu
 Create a file named `hello-world-ingress.yaml` and copy in the following example YAML.
 
 ```yaml
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: hello-world-ingress
@@ -288,25 +295,38 @@ spec:
   - host: demo-aks-ingress.eastus.cloudapp.azure.com
     http:
       paths:
-      - backend:
-          serviceName: aks-helloworld
-          servicePort: 80
-        path: /hello-world-one(/|$)(.*)
-      - backend:
-          serviceName: ingress-demo
-          servicePort: 80
-        path: /hello-world-two(/|$)(.*)
-      - backend:
-          serviceName: aks-helloworld
-          servicePort: 80
-        path: /(.*)
+      - path: /hello-world-one(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: aks-helloworld
+            port:
+              number: 80
+      - path: /hello-world-two(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: ingress-demo
+            port:
+              number: 80
+      - path: /(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: aks-helloworld
+            port:
+              number: 80
 ```
 
 Create the ingress resource using the `kubectl apply` command.
 
 ```
-$ kubectl apply -f hello-world-ingress.yaml --namespace ingress-basic
+kubectl apply -f hello-world-ingress.yaml --namespace ingress-basic
+```
 
+The output should be similar to this example:
+
+```
 ingress.extensions/hello-world-ingress created
 ```
 
@@ -470,8 +490,8 @@ You can also:
 <!-- LINKS - internal -->
 [use-helm]: kubernetes-helm.md
 [azure-cli-install]: /cli/azure/install-azure-cli
-[az-aks-show]: /cli/azure/aks#az-aks-show
-[az-network-public-ip-create]: /cli/azure/network/public-ip#az-network-public-ip-create
+[az-aks-show]: /cli/azure/aks#az_aks_show
+[az-network-public-ip-create]: /cli/azure/network/public-ip#az_network_public_ip_create
 [aks-ingress-internal]: ingress-internal-ip.md
 [aks-ingress-basic]: ingress-basic.md
 [aks-ingress-tls]: ingress-tls.md
@@ -482,3 +502,4 @@ You can also:
 [client-source-ip]: concepts-network.md#ingress-controllers
 [install-azure-cli]: /cli/azure/install-azure-cli
 [aks-static-ip]: static-ip.md
+[aks-supported versions]: supported-kubernetes-versions.md

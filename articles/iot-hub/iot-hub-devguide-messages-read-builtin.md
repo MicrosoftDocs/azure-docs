@@ -13,7 +13,7 @@ ms.custom: [amqp, 'Role: Cloud Development']
 
 # Read device-to-cloud messages from the built-in endpoint
 
-By default, messages are routed to the built-in service-facing endpoint (**messages/events**) that is compatible with [Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/). This endpoint is currently only exposed using the [AMQP](https://www.amqp.org/) protocol on port 5671. An IoT hub exposes the following properties to enable you to control the built-in Event Hub-compatible messaging endpoint **messages/events**.
+By default, messages are routed to the built-in service-facing endpoint (**messages/events**) that is compatible with [Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/). This endpoint is currently only exposed using the [AMQP](https://www.amqp.org/) protocol on port 5671 and [AMQP over WebSockets](http://docs.oasis-open.org/amqp-bindmap/amqp-wsb/v1.0/cs01/amqp-wsb-v1.0-cs01.html) on port 443. An IoT hub exposes the following properties to enable you to control the built-in Event Hub-compatible messaging endpoint **messages/events**.
 
 | Property            | Description |
 | ------------------- | ----------- |
@@ -65,12 +65,12 @@ The SDKs you can use to connect to the built-in Event Hub-compatible endpoint th
 
 The product integrations you can use with the built-in Event Hub-compatible endpoint that IoT Hub exposes include:
 
-* [Azure Functions](https://docs.microsoft.com/azure/azure-functions/). See [Processing data from IoT Hub with Azure Functions](https://azure.microsoft.com/resources/samples/functions-js-iot-hub-processing/).
-* [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/). See [Stream data as input into Stream Analytics](../stream-analytics/stream-analytics-define-inputs.md#stream-data-from-iot-hub).
-* [Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/). See [Add an IoT hub event source to your Time Series Insights environment](../time-series-insights/time-series-insights-how-to-add-an-event-source-iothub.md).
+* [Azure Functions](../azure-functions/index.yml). See [Processing data from IoT Hub with Azure Functions](https://azure.microsoft.com/resources/samples/functions-js-iot-hub-processing/).
+* [Azure Stream Analytics](../stream-analytics/index.yml). See [Stream data as input into Stream Analytics](../stream-analytics/stream-analytics-define-inputs.md#stream-data-from-iot-hub).
+* [Time Series Insights](../time-series-insights/index.yml). See [Add an IoT hub event source to your Time Series Insights environment](../time-series-insights/how-to-ingest-data-iot-hub.md).
 * [Apache Storm spout](../hdinsight/storm/apache-storm-develop-csharp-event-hub-topology.md). You can view the [spout source](https://github.com/apache/storm/tree/master/external/storm-eventhubs) on GitHub.
-* [Apache Spark integration](../hdinsight/spark/apache-spark-eventhub-streaming.md).
-* [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/).
+* [Apache Spark integration](../hdinsight/spark/apache-spark-ipython-notebook-machine-learning.md).
+* [Azure Databricks](/azure/azure-databricks/).
 
 ## Next steps
 

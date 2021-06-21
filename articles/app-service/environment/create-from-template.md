@@ -7,7 +7,7 @@ ms.assetid: 6eb7d43d-e820-4a47-818c-80ff7d3b6f8e
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurepowershell
 ---
 # Create an ASE by using an Azure Resource Manager template
 
@@ -157,12 +157,12 @@ To create an ASEv1 by using a Resource Manager template, see [Create an ILB ASE 
 
 
 <!--Links-->
-[quickstartilbasecreate]: https://azure.microsoft.com/documentation/templates/201-web-app-asev2-ilb-create
-[quickstartasev2create]: https://azure.microsoft.com/documentation/templates/201-web-app-asev2-create
-[quickstartconfiguressl]: https://azure.microsoft.com/documentation/templates/201-web-app-ase-ilb-configure-default-ssl
-[quickstartwebapponasev2create]: https://azure.microsoft.com/documentation/templates/201-web-app-asp-app-on-asev2-create
+[quickstartilbasecreate]: https://azure.microsoft.com/resources/templates/web-app-asev2-ilb-create
+[quickstartasev2create]: https://azure.microsoft.com/resources/templates/web-app-asev2-create
+[quickstartconfiguressl]: https://azure.microsoft.com/resources/templates/web-app-ase-ilb-configure-default-ssl
+[quickstartwebapponasev2create]: https://azure.microsoft.com/resources/templates/web-app-asp-app-on-asev2-create
 [examplebase64encoding]: https://powershellscripts.blogspot.com/2007/02/base64-encode-file.html 
-[configuringDefaultSSLCertificate]: https://azure.microsoft.com/documentation/templates/201-web-app-ase-ilb-configure-default-ssl/
+[configuringDefaultSSLCertificate]: https://azure.microsoft.com/resources/templates/web-app-ase-ilb-configure-default-ssl/
 [Intro]: ./intro.md
 [MakeExternalASE]: ./create-external-ase.md
 [MakeASEfromTemplate]: ./create-from-template.md
@@ -170,7 +170,7 @@ To create an ASEv1 by using a Resource Manager template, see [Create an ILB ASE 
 [ASENetwork]: ./network-info.md
 [UsingASE]: ./using-an-ase.md
 [UDRs]: ../../virtual-network/virtual-networks-udr-overview.md
-[NSGs]: ../../virtual-network/security-overview.md
+[NSGs]: ../../virtual-network/network-security-groups-overview.md
 [ConfigureASEv1]: app-service-web-configure-an-app-service-environment.md
 [ASEv1Intro]: app-service-app-service-environment-intro.md
 [mobileapps]: /previous-versions/azure/app-service-mobile/app-service-mobile-value-prop

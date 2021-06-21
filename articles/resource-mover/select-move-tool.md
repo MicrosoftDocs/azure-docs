@@ -24,8 +24,8 @@ You can move resources within Azure as follows:
 ## Compare move tools
 
 **Tool** | **When to use** | **Learn more**
---- | --- 
-**Move within resource group** | Move resources to a different resource group/subscription, or across regions.<br/><br/> If you move across regions, in the resource group you select the resources you want to move, and then you move to the Resource Mover hub, to verify dependencies and move the resources to the target region. | [Move resources to another resource group/subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md).<br/><br/> [Move resources to another region from a resource group](../azure-resource-manager/management/move-region.md).
+--- | --- | ---
+**Move within resource group** | Move resources to a different resource group/subscription, or across regions.<br/><br/> If you move across regions, in the resource group you select the resources you want to move, and then you move to the Resource Mover hub, to verify dependencies and move the resources to the target region. | [Move resources to another resource group/subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md).<br/><br/> [Move resources to another region from a resource group](move-region-within-resource-group.md).
 **Move from the Resource Mover hub** | Move resources across regions. <br/><br/> You can move to a target region, or to a specific availability zone, or availability set, within the target region. | [Move resources across regions in the Resource Mover hub]().
 **Move VMs with Site Recovery** | Use for moving Azure VMs between government and public clouds.<br/><br/> Use if you want to move VMs between availability zones in the same region. |[Move resources between government/public clouds](../site-recovery/region-move-cross-geos.md), [Move resources to availability zones in the same region](../site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md).
 

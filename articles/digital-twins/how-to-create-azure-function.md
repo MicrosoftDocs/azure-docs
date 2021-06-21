@@ -1,8 +1,8 @@
 ---
 # Mandatory fields.
-title: Set up an Azure function for processing data
+title: Set up a function in Azure to process data
 titleSuffix: Azure Digital Twins
-description: See how to create an Azure function that can access and be triggered by digital twins.
+description: See how to create a function in Azure that can access and be triggered by digital twins.
 author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 8/27/2020
@@ -15,285 +15,232 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Connect Azure Functions apps for processing data
+# Connect function apps in Azure for processing data
 
-Updating digital twins based on data is handled using [**event routes**](concepts-route-events.md) through compute resources, such as [Azure Functions](../azure-functions/functions-overview.md). An Azure function can be used to update a digital twin in response to:
-* device telemetry data coming from IoT Hub
-* property change or other data coming from another digital twin within the twin graph
+Digital twins can be updated based on data by using [event routes](concepts-route-events.md) through compute resources. For example, a function that's made by using [Azure Functions](../azure-functions/functions-overview.md) can update a digital twin in response to:
+* Device telemetry data from Azure IoT Hub.
+* A property change or other data from another digital twin within the twin graph.
 
-This article walks you through creating an Azure function for use with Azure Digital Twins. 
+This article shows you how to create a function in Azure for use with Azure Digital Twins. To create a function, you'll follow these basic steps:
 
-Here is an overview of the steps it contains:
+1. Create an Azure Functions project in Visual Studio.
+2. Write a function that has an [Azure Event Grid](../event-grid/overview.md) trigger.
+3. Add authentication code to the function so you can access Azure Digital Twins.
+4. Publish the function app to Azure.
+5. Set up [security](concepts-security.md) for the function app.
 
-1. Create an Azure Functions app in Visual Studio
-2. Write an Azure function with an [Event Grid](../event-grid/overview.md) trigger
-3. Add authentication code to the function (to be able to access Azure Digital Twins)
-4. Publish the function app to Azure
-5. Set up [security](concepts-security.md) access for the Azure function app
+## Prerequisite: Set up Azure Digital Twins
 
-## Create an Azure Functions app in Visual Studio
+[!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
 
-In Visual Studio 2019, select _File > New > Project_ and search for the _Azure Functions_ template, select _Next_.
+## Create a function app in Visual Studio
 
-:::image type="content" source="media/how-to-create-azure-function/create-azure-function-project.png" alt-text="Visual Studio: new project dialog":::
+In Visual Studio 2019, select **File** > **New** > **Project**. Search for the **Azure Functions** template. Select **Next**.
 
-Specify a name for the function app and select _Create_.
+:::image type="content" source="media/how-to-create-azure-function/create-azure-function-project.png" alt-text="Screenshot of Visual Studio showing the new project dialog. The Azure Functions project template is highlighted.":::
 
-:::image type="content" source="media/how-to-create-azure-function/configure-new-project.png" alt-text="Visual Studio: configure new project":::
+Specify a name for the function app and then select __Create__.
 
-Select the type of the function app *Event Grid trigger* and select _Create_.
+:::image type="content" source="media/how-to-create-azure-function/configure-new-project.png" alt-text="Screenshot of Visual Studio showing the dialog to configure a new project, including project name, location, and the choice to create a new solution.":::
 
-:::image type="content" source="media/how-to-create-azure-function/eventgridtrigger-function.png" alt-text="Visual Studio: Azure function project trigger dialog":::
+Select the function app type **Event Grid trigger** and then select __Create__.
 
-Once your function app is created, your visual studio will have auto populated code sample in **function.cs** file in your project folder. This short Azure function is used to log events.
+:::image type="content" source="media/how-to-create-azure-function/event-grid-trigger-function.png" alt-text="Screenshot of Visual Studio showing the dialog to create a new Azure Functions application. The Event Grid trigger option is highlighted.":::
 
-:::image type="content" source="media/how-to-create-azure-function/visual-studio-sample-code.png" alt-text="Visual Studio: Project window with sample code":::
+After your function app is created, Visual Studio generates a code sample in a *Function1.cs* file in your project folder. This short function is used to log events.
 
-## Write an Azure function with an Event Grid trigger
+:::image type="content" source="media/how-to-create-azure-function/visual-studio-sample-code.png" alt-text="Screenshot of Visual Studio. The project window for the new project is shown. Code for a sample function is shown in a file called Function1." lightbox="media/how-to-create-azure-function/visual-studio-sample-code.png":::
 
-You can write an Azure function by adding SDK to your function app. The function app interacts with Azure Digital Twins using the [Azure IoT Digital Twin client library for .NET (C#)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). 
+## Write a function that has an Event Grid trigger
 
-In order to use the SDK, you'll need to include the following packages into your project. You can either install the packages using visual studio NuGet package manager or add the packages using `dotnet` command-line tool. Choose either of these methods: 
+You can write a function by adding an SDK to your function app. The function app interacts with Azure Digital Twins by using the [Azure Digital Twins SDK for .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true). 
 
-**Option 1. Add packages using Visual Studio package manager:**
-    
-You can do this by right-selecting on your project and select _Manage NuGet Packages_ from the list. Then, in the window that opens, select _Browse_ tab and search for the following packages. Select _Install_ and _accept_ the License agreement to install the packages.
+To use the SDK, you'll need to include the following packages in your project. Install the packages by using the Visual Studio NuGet package manager. Or add the packages by using `dotnet` in a command-line tool.
 
-* `Azure.DigitalTwins.Core`
-* `Azure.Identity` 
+* [Azure.DigitalTwins.Core](https://www.nuget.org/packages/Azure.DigitalTwins.Core/)
+* [Azure.Identity](https://www.nuget.org/packages/Azure.Identity/)
+* [System.Net.Http](https://www.nuget.org/packages/System.Net.Http/)
+* [Azure.Core](https://www.nuget.org/packages/Azure.Core/)
 
-For configuration of the Azure SDK pipeline to set up properly for Azure Functions, you will also need the following packages. Repeat the same process as above to install all the packages.
+Next, in Visual Studio Solution Explorer, open the _Function1.cs_ file that includes your sample code. Add the following `using` statements for the packages.
 
-* `System.Net.Http`
-* `Azure.Core.Pipeline`
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="Function_dependencies":::
 
-**Option 2. Add packages using `dotnet` command-line tool:**
+## Add authentication code to the function
 
-```cmd/sh
-dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.3
-dotnet add package Azure.identity --version 1.2.2
-dotnet add package System.Net.Http
-dotnet add package Azure.Core.Pipeline
-```
-Next, in your Visual Studio Solution Explorer, open _function.cs_ file where you have sample code and add the following _using_ statements to your Azure function. 
+Now declare class-level variables and add authentication code that will allow the function to access Azure Digital Twins. Add the variables and code to your function in the _Function1.cs_ file.
 
-```csharp
-using Azure.DigitalTwins.Core;
-using Azure.Identity;
-using System.Net.Http;
-using Azure.Core.Pipeline;
-```
-## Add authentication code to the Azure function
+* **Code to read the Azure Digital Twins service URL as an environment variable.** It's a good practice to read the service URL from an environment variable rather than hard-coding it in the function. You'll set the value of this environment variable [later in this article](#set-up-security-access-for-the-function-app). For more information about environment variables, see [Manage your function app](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal).
 
-You will now declare class level variables and add authentication code that will allow the function to access Azure Digital Twins. You will add the following to your Azure function in the {your function name}.cs file.
+    :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="ADT_service_URL":::
 
-* Read ADT service URL as an environment variable. It is a good practice to read the service URL from an environment variable, rather than hard-coding it in the function.
-```csharp     
-private static readonly string adtInstanceUrl = Environment.GetEnvironmentVariable("ADT_SERVICE_URL");
-```
-* A static variable to hold an HttpClient instance. HttpClient is relatively expensive to create, and we want to avoid having to do this for every function invocation.
-```csharp
-private static readonly HttpClient httpClient = new HttpClient();
-```
-* You can use the managed identity credentials in Azure function.
-```csharp
-ManagedIdentityCredential cred = new ManagedIdentityCredential("https://digitaltwins.azure.net");
-```
-* Add a local variable _DigitalTwinsClient_ inside of your function to hold your Azure Digital Twins client instance to the function project. Do *not* make this variable static inside your class.
-```csharp
-DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), cred, new DigitalTwinsClientOptions { Transport = new HttpClientTransport(httpClient) });
-```
-* Add a null check for _adtInstanceUrl_ and wrap your function logic in a try catch block to catch any exceptions.
+* **A static variable to hold an HttpClient instance.** HttpClient is relatively expensive to create, so we want to avoid creating it for every function invocation.
 
-After these changes, your function code will be similar to the following:
+    :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="HTTP_client":::
 
-```csharp
-// Default URL for triggering event grid function in the local environment.
-// http://localhost:7071/runtime/webhooks/EventGrid?functionName={functionname}
-using System;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Host;
-using Microsoft.Azure.EventGrid.Models;
-using Microsoft.Azure.WebJobs.Extensions.EventGrid;
-using Microsoft.Extensions.Logging;
-using Azure.DigitalTwins.Core;
-using Azure.Identity;
-using System.Net.Http;
-using Azure.Core.Pipeline;
+* **Managed identity credentials.**
+    :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="ManagedIdentityCredential":::
 
-namespace adtIngestFunctionSample
-{
-    public class Function1
-    {
-        //Your Digital Twin URL is stored in an application setting in Azure Functions
-        private static readonly string adtInstanceUrl = Environment.GetEnvironmentVariable("ADT_SERVICE_URL");
-        private static readonly HttpClient httpClient = new HttpClient();
+* **A local variable _DigitalTwinsClient_.** Add the variable inside your function to hold your Azure Digital Twins client instance. Do *not* make this variable static inside your class.
+    :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="DigitalTwinsClient":::
 
-        [FunctionName("TwinsFunction")]
-        public void Run([EventGridTrigger] EventGridEvent eventGridEvent, ILogger log)
-        {
-            log.LogInformation(eventGridEvent.Data.ToString());
-            if (adtInstanceUrl == null) log.LogError("Application setting \"ADT_SERVICE_URL\" not set");
-            try
-            {
-                //Authenticate with Digital Twins
-                ManagedIdentityCredential cred = new ManagedIdentityCredential("https://digitaltwins.azure.net");
-                DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), cred, new DigitalTwinsClientOptions { Transport = new HttpClientTransport(httpClient) });
-                log.LogInformation($"ADT service client connection created.");
-                /*
-                * Add your business logic here
-                */
-            }
-            catch (Exception e)
-            {
-                log.LogError(e.Message);
-            }
+* **A null check for _adtInstanceUrl_.** Add the null check and then wrap your function logic in a try/catch block to catch any exceptions.
 
-        }
-    }
-}
-```
+After these changes, your function code will look like the following example.
+
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs":::
+
+Now that your application is written, you can publish it to Azure.
 
 ## Publish the function app to Azure
 
-To publish the function app to Azure, right-select the function project (not the solution) in Solution Explorer, and choose **Publish**.
+[!INCLUDE [digital-twins-publish-azure-function.md](../../includes/digital-twins-publish-azure-function.md)]
 
-> [!IMPORTANT] 
-> Publishing an Azure function will incur additional charges on your subscription, independent of Azure Digital Twins.
+### Verify the publication of your function
 
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function.png" alt-text="Visual Studio: publish Azure function ":::
+1. Sign in by using your credentials in the [Azure portal](https://portal.azure.com/).
+2. In the search box at the top of the window, search for your function app name and then select it.
 
-Select **Azure** as the publishing target and select **Next**.
+    :::image type="content" source="media/how-to-create-azure-function/search-function-app.png" alt-text="Screenshot showing the Azure portal. In the search field, enter the function app name." lightbox="media/how-to-create-azure-function/search-function-app.png":::
 
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-1.png" alt-text="Visual Studio: publish Azure function dialog, select Azure ":::
+3. On the **Function app** page that opens, in the menu on the left, choose **Functions**. If your function is successfully published, its name appears in the list.
 
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-2.png" alt-text="Visual Studio: publish function dialog, select Azure Function App(Windows) or (Linux) based on your machine":::
+    > [!Note] 
+    > You might have to wait a few minutes or refresh the page couple of times before your function appears in the list of published functions.
 
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-3.png" alt-text="Visual Studio: publish function dialog, Create a new Azure Function":::
+    :::image type="content" source="media/how-to-create-azure-function/view-published-functions.png" alt-text="Screenshot showing published functions in the Azure portal." lightbox="media/how-to-create-azure-function/view-published-functions.png":::
 
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-4.png" alt-text="Visual Studio: publish function dialog, Fill in the fields, and select create":::
+To access Azure Digital Twins, your function app needs a system-managed identity with permissions to access your Azure Digital Twins instance. You'll set that up next.
 
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-5.png" alt-text="Visual Studio: publish function dialog, Select your function app from the list, and finish":::
+## Set up security access for the function app
 
-On the following page, enter the desired name for the new function app, a resource group, and other details.
-For your Functions app to be able to access Azure Digital Twins, it needs to have a system-managed identity and have permissions to access your Azure Digital Twins instance.
+You can set up security access for the function app by using either the Azure CLI or the Azure portal. Follow the steps for your preferred option.
 
-Next, you can set up security access for the function using CLI or Azure portal. Choose either of these methods:
+# [CLI](#tab/cli)
 
-## Set up security access for the Azure function app
-You can set up security access for the Azure function app using one of these options:
+Run these commands in [Azure Cloud Shell](https://shell.azure.com) or a [local Azure CLI installation](/cli/azure/install-azure-cli).
+You can use the function app's system-managed identity to give it the **Azure Digital Twins Data Owner** role for your Azure Digital Twins instance. The role gives the function app permission in the instance to perform data plane activities. Then make the URL of the instance accessible to your function by setting an environment variable.
 
-### Option 1: Set up security access for the Azure function app using CLI
+### Assign an access role
 
-The Azure function skeleton from earlier examples requires that a bearer token to be passed to it, in order to be able to authenticate with Azure Digital Twins. To make sure that this bearer token is passed, you'll need to set up [Managed Service Identity (MSI)](../active-directory/managed-identities-azure-resources/overview.md) for the function app. This only needs to be done once for each function app.
+[!INCLUDE [digital-twins-permissions-required.md](../../includes/digital-twins-permissions-required.md)]
 
-You can create system-managed identity and assign the function app's identity to the _Azure Digital Twins Owner (Preview)_ role for your Azure Digital Twins instance. This will give the function app permission in the instance to perform data plane activities. Then, make the URL of Azure Digital Twins instance accessible to your function by setting an environment variable.
+The function skeleton in earlier examples requires a bearer token to be passed to it. If the bearer token isn't passed, the function app can't authenticate with Azure Digital Twins. 
 
- Use [Azure Cloud Shell](https://shell.azure.com) to run the commands.
+To make sure the bearer token is passed, set up [managed identities](../active-directory/managed-identities-azure-resources/overview.md) permissions so the function app can access Azure Digital Twins. You set up these permissions only once for each function app.
 
-Use the following command to create the system-managed identity. Take note of the _principalId_ field in the output.
 
-```azurecli	
-az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>	
-```
-Use the _principalId_ value in the following command to assign the function app's identity to the _Azure Digital Twins Owner (Preview)_ role for your Azure Digital Twins instance.
+1. Use the following command to see the details of the system-managed identity for the function. Take note of the `principalId` field in the output.
 
-```azurecli	
-az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Owner (Preview)"
-```
-Lastly, you can make the URL of your Azure Digital Twins instance accessible to your function by setting an environment variable. For more information on setting an environment variables, see [*Environment variables*](https://docs.microsoft.com/sandbox/functions-recipes/environment-variables). 
+    ```azurecli-interactive	
+    az functionapp identity show --resource-group <your-resource-group> --name <your-App-Service-function-app-name>	
+    ```
+
+    >[!NOTE]
+    > If the result is empty instead of showing identity details, create a new system-managed identity for the function by using this command:
+    > 
+    >```azurecli-interactive	
+    >az functionapp identity assign --resource-group <your-resource-group> --name <your-App-Service-function-app-name>	
+    >```
+    >
+    > The output displays details of the identity, including the `principalId` value required for the next step. 
+
+1. Use the `principalId` value in the following command to assign the function app's identity to the _Azure Digital Twins Data Owner_ role for your Azure Digital Twins instance.
+
+    ```azurecli-interactive	
+    az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Data Owner"
+    ```
+
+### Configure application settings
+
+Make the URL of your instance accessible to your function by setting an environment variable for it. For more information about environment variables, see [Manage your function app](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal). 
 
 > [!TIP]
-> The Azure Digital Twins instance's URL is made by adding *https://* to the beginning of your Azure Digital Twins instance's *hostName*. To see the hostName, along with all the properties of your instance, you can run `az dt show --dt-name <your-Azure-Digital-Twins-instance>`.
+> The Azure Digital Twins instance's URL is made by adding *https://* to the beginning of your instance's host name. To see the host name, along with all the properties of your instance, run `az dt show --dt-name <your-Azure-Digital-Twins-instance>`.
 
-```azurecli	
-az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=https://<your-Azure-Digital-Twins-instance-hostname>"
+```azurecli-interactive	
+az functionapp config appsettings set --resource-group <your-resource-group> --name <your-App-Service-function-app-name> --settings "ADT_SERVICE_URL=https://<your-Azure-Digital-Twins-instance-host-name>"
 ```
-### Option 2: Set up security access for the Azure function app using Azure portal
 
-A system assigned managed identity enables Azure resources to authenticate to cloud services (for example, Azure Key Vault) without storing credentials in code. Once enabled, all necessary permissions can be granted via Azure role-based-access-control. The lifecycle of this type of managed identity is tied to the lifecycle of this resource. Additionally, each resource (for example, Virtual Machine) can only have one system assigned managed identity.
+# [Azure portal](#tab/portal)
 
-In the [Azure portal](https://portal.azure.com/), search for _function app_ in the search bar with the function app name that you created earlier. Select the *Function App* from the list. 
+Complete the following steps in the [Azure portal](https://portal.azure.com/).
 
-:::image type="content" source="media/how-to-create-azure-function/portal-search-for-functionapp.png" alt-text="Azure portal: Search function app":::
+### Assign an access role
 
-On the function app window, select _Identity_ in the navigation bar on the left to enable managed identity.
-Under _System assigned_ tab, toggle the _Status_ to On and _save_ it. You will see a pop-up to _Enable system assigned managed identity_.
-Select _Yes_ button. 
+[!INCLUDE [digital-twins-permissions-required.md](../../includes/digital-twins-permissions-required.md)]
 
-:::image type="content" source="media/how-to-create-azure-function/enable-system-managed-identity.png" alt-text="Azure portal: enable system-managed identity":::
+A system-assigned managed identity enables Azure resources to authenticate to cloud services (for example, Azure Key Vault) without storing credentials in code. After you enable system-assigned managed identity, all necessary permissions can be granted through Azure role-based access control. 
 
-You can verify in the notifications that your function is successfully registered with Azure Active Directory.
+The lifecycle of this type of managed identity is tied to the lifecycle of this resource. Additionally, each resource can have only one system-assigned managed identity.
 
-:::image type="content" source="media/how-to-create-azure-function/notifications-enable-managed-identity.png" alt-text="Azure portal: notifications":::
+1. In the [Azure portal](https://portal.azure.com/), search for your function app by typing its name in the search box. Select your app from the results. 
 
-Also note the **object ID** shown on the _Identity_ page, as it will be used in the next section.
+    :::image type="content" source="media/how-to-create-azure-function/portal-search-for-function-app.png" alt-text="Screenshot of the Azure portal. The function app's name is in the portal search bar, and the search result is highlighted.":::
 
-:::image type="content" source="media/how-to-create-azure-function/object-id.png" alt-text="Copy the Object ID to use in future":::
+1. On the function app page, in the menu on the left, select __Identity__ to work with a managed identity for the function. On the __System assigned__ page, verify that the __Status__ is set to **On**. If it's not, set it now and then **Save** the change.
 
-### Assign access roles using Azure portal
+    :::image type="content" source="media/how-to-create-azure-function/verify-system-managed-identity.png" alt-text="Screenshot of the Azure portal. On the Identity page for the function app, the Status option is set to On." lightbox="media/how-to-create-azure-function/verify-system-managed-identity.png":::
 
-Select _Azure role assignments_ button, that opens up to Azure role assignments page. Then, select _+Add role assignment(Preview)_.
+1. Select __Azure role assignments__.
 
-:::image type="content" source="media/how-to-create-azure-function/add-role-assignments.png" alt-text="Azure portal: add role assignment":::
+    :::image type="content" source="media/how-to-create-azure-function/add-role-assignment-1.png" alt-text="Screenshot of the Azure portal. On the Azure Function's Identity page, under Permissions, the button Azure role assignments is highlighted." lightbox="media/how-to-create-azure-function/add-role-assignment-1.png":::
 
-On the _Add role assignment (Preview)_ window that opens up, select
+    Select __+ Add role assignment (Preview)__.
 
-* _Scope_: Resource group
-* _Subscription_: select your Azure subscription
-* _Resource group_: select your resource group from the dropdown
-* _Role_: select _Azure Digital Twins Owner (Preview)_ from the dropdown
+    :::image type="content" source="media/how-to-create-azure-function/add-role-assignment-2.png" alt-text="Screenshot of the Azure portal. On the Azure role assignments page, the button Add role assignment (Preview) is highlighted." lightbox="media/how-to-create-azure-function/add-role-assignment-2.png":::
 
-Save your details by selecting _Save_ button.
+1. On the __Add role assignment (Preview)__ page, select the following values:
 
-:::image type="content" source="media/how-to-create-azure-function/add-role-assignment.png" alt-text="Azure portal: add role assignment (Preview) ":::
+    * **Scope**: _Resource group_
+    * **Subscription**: Select your Azure subscription.
+    * **Resource group**: Select your resource group.
+    * **Role**: _Azure Digital Twins Data Owner_
 
-### Configure application settings using Azure portal
+    Save the details by selecting __Save__.
 
-You can make the URL of your Azure Digital Twins instance accessible to your function by setting an environment variable. For more information on this, see [*Environment variables*](https://docs.microsoft.com/sandbox/functions-recipes/environment-variables). Application settings are exposed as environment variables to access the digital twins instance. 
+    :::image type="content" source="media/how-to-create-azure-function/add-role-assignment-3.png" alt-text="Screenshot of the Azure portal, showing how to add a new role assignment. The dialog shows fields for Scope, Subscription, Resource group, and Role.":::
 
-You'll need ADT_INSTANCE_URL to create an application setting.
+### Configure application settings
 
-You can get ADT_INSTANCE_URL by appending **_https://_** to your instance host name. In the Azure portal, you can find your digital twins instance host name by searching for your instance in the search bar. Then, select _Overview_ on the left navigation bar to view the _Host name_. Copy this value to create an application setting.
+To make the URL of your Azure Digital Twins instance accessible to your function, you can set an environment variable. Application settings are exposed as environment variables to allow access to the Azure Digital Twins instance. For more information about environment variables, see [Manage your function app](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal). 
 
-:::image type="content" source="media/how-to-create-azure-function/adt-hostname.png" alt-text="Azure portal: Overview-> Copy hostname to use in the _Value_ field.":::
+To set an environment variable with the URL of your instance, first find your instance's host name: 
 
-You can now create an application setting following the steps below:
+1. Search for your instance in the [Azure portal](https://portal.azure.com). 
+1. In the menu on the left, select __Overview__. 
+1. Copy the __Host name__ value.
 
-* Search for your Azure function using function name in the search bar and select the function from the list
-* Select _Configuration_ on the navigation bar on the left to create a new application setting
-* In the _Application settings_ tab, select _+ New application setting_
+    :::image type="content" source="media/how-to-create-azure-function/instance-host-name.png" alt-text="Screenshot of the Azure portal. On the instance's Overview page, the host name value is highlighted.":::
 
-:::image type="content" source="media/how-to-create-azure-function/search-for-azure-function.png" alt-text="Azure portal: Search for existing Azure function":::
+You can now create an application setting:
 
-:::image type="content" source="media/how-to-create-azure-function/application-setting.png" alt-text="Azure portal: Configure application settings":::
+1. In the portal search bar, search for your function app and then select it from the results.
 
-In the window that opens up, use the value copied from above to create an application setting. \
-_Name_  : ADT_SERVICE_URL \
-_Value_ : https://{your-azure-digital-twins-hostname}
+    :::image type="content" source="media/how-to-create-azure-function/portal-search-for-function-app.png" alt-text="Screenshot of the Azure portal. The function app's name is being searched in the portal search bar. The search result is highlighted.":::
 
-Select _OK_ to create an application setting.
+1. On the left, select __Configuration__. Then on the __Application settings__ tab, select __+ New application setting__.
 
-:::image type="content" source="media/how-to-create-azure-function/add-application-setting.png" alt-text="Azure portal: Add application settings.":::
+    :::image type="content" source="media/how-to-create-azure-function/application-setting.png" alt-text="Screenshot of the Azure portal. On the Configuration tab for the function app, the button to create a New application setting is highlighted.":::
 
-You can view your application settings with application name under the _Name_ field. Then, save your application settings by selecting _Save_ button.
+1. In the window that opens, use the host name value you copied to create an application setting.
+    * **Name**: ADT_SERVICE_URL
+    * **Value**: https://<your-Azure-Digital-Twins-host-name>
+    
+    Select __OK__ to create an application setting.
+    
+    :::image type="content" source="media/how-to-create-azure-function/add-application-setting.png" alt-text="Screenshot of the Azure portal. On the Add/Edit application setting page, the Name and Value fields are filled out. The O K button is highlighted.":::
 
-:::image type="content" source="media/how-to-create-azure-function/application-setting-save-details.png" alt-text="Azure portal: View the application created and restart the application":::
+1. After you create the setting, it should appear on the __Application settings__ tab. Verify that **ADT_SERVICE_URL** appears on the list. Then save the new application setting by selecting __Save__.
 
-Any changes to the application settings need an application restart. Select _Continue_ to restart your application.
+    :::image type="content" source="media/how-to-create-azure-function/application-setting-save-details.png" alt-text="Screenshot of the Azure portal. On the application settings tab, the new A D T SERVICE URL setting and the Save button are both highlighted.":::
 
-:::image type="content" source="media/how-to-create-azure-function/save-application-setting.png" alt-text="Azure portal: Save application settings":::
+1. Any changes to the application settings require an application restart, so select __Continue__ to restart your application when prompted.
 
-You can view that application settings are updated by selecting _Notifications_ icon. If your application setting is not created, you can retry adding an application setting by following the above process.
+    :::image type="content" source="media/how-to-create-azure-function/save-application-setting.png" alt-text="Screenshot of the Azure portal. A note states that any changes to application settings will restart your application.":::
 
-:::image type="content" source="media/how-to-create-azure-function/notifications-update-web-app-settings.png" alt-text="Azure portal: Notifications for updating application settings":::
+---
 
 ## Next steps
 
-In this article, you followed the steps to set up an Azure function for use with Azure Digital Twins. Next, you can subscribe your Azure function to Event Grid, to listen on an endpoint. This endpoint could be:
-* An Event Grid endpoint attached to Azure Digital Twins to process messages coming from Azure Digital Twins itself (such as property change messages, telemetry messages generated by [digital twins](concepts-twins-graph.md) in the twin graph, or life-cycle messages)
-* The IoT system topics used by IoT Hub to send telemetry and other device events
-* An Event Grid endpoint receiving messages from other services
-
-Next, see how to build on your basic Azure function to ingest IoT Hub data into Azure Digital Twins:
-* [*How-to: Ingest telemetry from IoT Hub*](how-to-ingest-iot-hub-data.md)
+In this article, you set up a function app in Azure for use with Azure Digital Twins. Next, see how to build on your basic function to [ingest IoT Hub data into Azure Digital Twins](how-to-ingest-iot-hub-data.md).

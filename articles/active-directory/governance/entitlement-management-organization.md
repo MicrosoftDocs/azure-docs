@@ -3,7 +3,7 @@ title: Add a connected organization in Azure AD entitlement management - Azure A
 description: Learn how to allow people outside your organization to request access packages so that you can collaborate on projects.
 services: active-directory
 documentationCenter: ''
-author: barclayn
+author: ajburnle
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -12,8 +12,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/18/2020
-ms.author: barclayn
+ms.date: 12/11/2020
+ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 
@@ -28,14 +28,20 @@ With Azure Active Directory (Azure AD) entitlement management, you can collabora
 
 ## What is a connected organization?
 
-A connected organization is an external Azure AD directory or domain that you have a relationship with.
+A connected organization is another organization that you have a relationship with.  In order for the users in that organization to be able to access your resources, such as your SharePoint Online sites or apps, you'll need a representation of that organization's users in that directory.  Because in most cases the users in that organization aren't already in your Azure AD directory, you can use entitlement management to bring them into your Azure AD directory as needed.  
+
+There are three ways that entitlement management lets you specify the users that form a connected organization.  It could be
+
+* users in another Azure AD directory,
+* users in another non-Azure AD directory that has been configured for direct federation, or
+* users in another non-Azure AD directory, whose email addresses all have the same domain name in common.
 
 For example, suppose you work at Woodgrove Bank and you want to collaborate with two external organizations. These two organizations have different configurations:
 
 - Graphic Design Institute uses Azure AD, and their users have a user principal name that ends with *graphicdesigninstitute.com*.
 - Contoso does not yet use Azure AD. Contoso users have a user principal name that ends with *contoso.com*.
 
-In this case, you can configure two connected organizations. You create one connected organization for Graphic Design Institute and one for Contoso. If you then add the two connected organizations to a policy, users from each organization with a user principal name that matches the policy can request access packages. Users with a user principal name that has a domain of *graphicdesigninstitute.com* would match the Graphic Design Institute-connected organization and be allowed to submit requests. Users with a user principal name that has a domain of *contoso.com* would match the Contoso-connected organization and would also be allowed to request packages. And, because Graphic Design Institute uses Azure AD, any users with a principal name that matches a [verified domain](../fundamentals/add-custom-domain.md#verify-your-custom-domain-name) that's added to their tenant, such as *graphicdesigninstitute.example*, would also be able to request access packages by using the same policy.
+In this case, you can configure two connected organizations. You create one connected organization for Graphic Design Institute and one for Contoso. If you then add the two connected organizations to a policy, users from each organization with a user principal name that matches the policy can request access packages. Users with a user principal name that has a domain of contoso.com would match the Contoso-connected organization and would also be allowed to request packages. Users with a user principal name that has a domain of *graphicdesigninstitute.com* would match the Graphic Design Institute-connected organization and be allowed to submit requests. And, because Graphic Design Institute uses Azure AD, any users with a principal name that matches a [verified domain](../fundamentals/add-custom-domain.md#verify-your-custom-domain-name) that's added to their tenant, such as *graphicdesigninstitute.example*, would also be able to request access packages by using the same policy. If you have [email one-time passcode (OTP) authentication](../external-identities/one-time-passcode.md) turned on, that includes users from those domains who do not yet have Azure AD accounts who will authenticate using email OTP when accessing your resources. 
 
 ![Connected organization example](./media/entitlement-management-organization/connected-organization-example.png)
 
@@ -53,7 +59,7 @@ For a demonstration of how to add a connected organization, watch the following 
 
 To add an external Azure AD directory or domain as a connected organization, follow the instructions in this section.
 
-**Prerequisite role**: *Global administrator* or *User administrator*
+**Prerequisite role**: *Global administrator*, *Identity Governance administrator*,  or *User administrator*
 
 1. In the Azure portal, select **Azure Active Directory**, and then select **Identity Governance**.
 
@@ -64,6 +70,8 @@ To add an external Azure AD directory or domain as a connected organization, fol
 1. Select the **Basics** tab, and then enter a display name and description for the organization.
 
     ![The "Add connected organization" Basics pane](./media/entitlement-management-organization/organization-basics.png)
+
+1. The state will automatically be set to **Configured** when you create a new connected organization. For more information about state properties, see [State properties of connected organizations](#state-properties-of-connected-organizations)
 
 1. Select the **Directory + domain** tab, and then select **Add directory + domain**.
 
@@ -108,7 +116,7 @@ If the connected organization changes to a different domain, the organization's 
 
 1. In the left pane, select **Connected organizations**, and then select the connected organization to open it.
 
-1. In the connected organization's overview pane, select **Edit** to change the organization name or description.  
+1. In the connected organization's overview pane, select **Edit** to change the organization name, description, or state.  
 
 1. In the **Directory + domain** pane, select **Update directory + domain** to change to a different directory or domain.
 
@@ -127,13 +135,28 @@ If you no longer have a relationship with an external Azure AD directory or doma
 
 1. In the connected organization's overview pane, select **Delete** to delete it.
 
-    Currently, you can delete a connected organization only if there are no connected users.
-
     ![The connected organization Delete button](./media/entitlement-management-organization/organization-delete.png)
 
 ## Managing a connected organization programmatically
 
-You can also create, list, update, and delete connected organizations using Microsoft Graph. A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission can call the API to manage [connectedOrganization](/graph/api/resources/connectedorganization?view=graph-rest-beta) objects and set sponsors for them.
+You can also create, list, update, and delete connected organizations using Microsoft Graph. A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission can call the API to manage [connectedOrganization](/graph/api/resources/connectedorganization?view=graph-rest-beta&preserve-view=true) objects and set sponsors for them.
+
+## State properties of connected organizations
+
+There are two different types of state properties for connected organizations in Azure AD entitlement management currently, configured and proposed: 
+
+- A configured connected organization is a fully functional connected organization that allows users within that organization access to access packages. When an admin creates a new connected organization in the Azure portal, it will be in the **configured** state by default since the administrator created and wants to use this connected organization. Additionally, when a connected org is created programmatically via the API, the default state should be **configured** unless set to another state explicitly. 
+
+    Configured connected organizations will show up in the pickers for connected organizations and will be in scope for any policies that target “all” connected organizations.
+
+- A proposed connected organization is a connected organization that has been automatically created, but hasn't had an administrator create or approve the organization. When a user signs up for an access package outside of a configured connected organization, any automatically created connected organizations will be in the **proposed** state since no administrator in the tenant set-up that partnership. 
+    
+    Proposed connected organizations are not in scope for the “all configured connected organizations” setting on any policies but can be used in policies only for policies targeting specific organizations. 
+
+Only users from configured connected organizations can request access packages that are available to users from all configured organizations. Users from proposed connected organizations have an experience as if there is no connected organization for that domain; can only see and request access packages scoped to their specific organization or scoped to any user.
+
+> [!NOTE]
+> As part of rolling out this new feature, all connected organizations created before 09/09/20 were considered **configured**. If you had an access package that allowed users from any organization to sign up, you should review your list of connected organizations that were created before that date to ensure none are miscategorized as **configured**.  An admin can update the **State** property as appropriate. For guidance, see [Update a connected organization](#update-a-connected-organization).
 
 ## Next steps
 

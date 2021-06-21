@@ -66,4 +66,4 @@ repository.
 
 To learn more about Azure Relay, visit these links:
 * [What is Azure Relay?](relay-what-is-it.md)
-* [Relay FAQ](relay-faq.md)
+* [Relay FAQ](relay-faq.yml)

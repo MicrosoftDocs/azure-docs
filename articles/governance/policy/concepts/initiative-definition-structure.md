@@ -1,7 +1,7 @@
 ---
 title: Details of the initiative definition structure
 description: Describes how policy initiative definitions are used to group policy definitions for deployment to Azure resources in your organization.
-ms.date: 08/17/2020
+ms.date: 03/16/2021
 ms.topic: conceptual
 ---
 # Azure Policy initiative definition structure
@@ -111,7 +111,7 @@ there are some _common_ properties used by Azure Policy and in built-ins.
 
 - `version` (string): Tracks details about the version of the contents of a policy initiative
   definition.
-- `category` (string): Determines under which category in Azure portal the policy definition is
+- `category` (string): Determines under which category in the Azure portal the policy definition is
   displayed.
 
   > [!NOTE]
@@ -133,7 +133,7 @@ there are some _common_ properties used by Azure Policy and in built-ins.
 ## Parameters
 
 Parameters help simplify your policy management by reducing the number of policy definitions. Think
-of parameters like the fields on a form – `name`, `address`, `city`, `state`. These parameters
+of parameters like the fields on a form - `name`, `address`, `city`, `state`. These parameters
 always stay the same, however their values change based on the individual filling out the form.
 Parameters work the same way when building policy initiatives. By including parameters in a policy
 initiative definition, you can reuse that parameter in the included policies.
@@ -225,9 +225,9 @@ properties](#parameter-properties).
 
 ### strongType
 
-Within the `metadata` property, you can use **strongType** to provide a multi-select list of options
-within the Azure portal. **strongType** can be a supported _resource type_ or an allowed
-value. To determine if a _resource type_ is valid for **strongType**, use
+Within the `metadata` property, you can use **strongType** to provide a multiselect list of options
+within the Azure portal. **strongType** can be a supported _resource type_ or an allowed value. To
+determine whether a _resource type_ is valid for **strongType**, use
 [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider).
 
 Some resource types not returned by **Get-AzResourceProvider** are supported. Those resource types
@@ -288,24 +288,25 @@ passed the same initiative parameter:
 ]
 ```
 
-## <a name="policy-definition-groups"></a>Policy definitions groups (Preview)
+## Policy definition groups
 
-As part of Azure Policy's [Regulatory Compliance](./regulatory-compliance.md) (Preview) feature,
-policy definitions in an initiative definition can be grouped. This information is defined in the
-`policyDefinitionGroups` _array_ property. These groupings have additional details such as the
-**control** and **compliance domain** that the policy definition provides coverage towards.
-Additional grouping details may be found in a **policyMetadata** object created by Microsoft. For
-information, see [metadata objects](#metadata-objects).
+Policy definitions in an initiative definition can be grouped and categorized. Azure Policy's
+[Regulatory Compliance](./regulatory-compliance.md) (preview) feature uses this property to group
+definitions into **controls** and **compliance domains**. This information is defined in the
+`policyDefinitionGroups` _array_ property. Additional grouping details may be found in a
+**policyMetadata** object created by Microsoft. For information, see
+[metadata objects](#metadata-objects).
 
 ### Policy definition groups parameters
 
 Each _array_ element in `policyDefinitionGroups` must have both of the following properties:
 
-- `name` (string) \[required\]: The short name for the **control**. The value of this property is
-  used by `groupNames` in `policyDefinitions`.
-- `category` (string): The **compliance domain** of the control.
-- `displayName` (string): The friendly name for the **control**. Used by the portal.
-- `description` (string): A description of what the **control** does.
+- `name` (string) \[required\]: The short name for the **group**. In Regulatory Compliance, the
+  **control**. The value of this property is used by `groupNames` in `policyDefinitions`.
+- `category` (string): The hierarchy the group belongs to. In Regulatory Compliance, the
+  **compliance domain** of the control.
+- `displayName` (string): The friendly name for the **group** or **control**. Used by the portal.
+- `description` (string): A description of what the **group** or **control** covers.
 - `additionalMetadataId` (string): The location of the [policyMetadata](#metadata-objects) object
   that has additional details about the **control** and **compliance domain**.
 
@@ -333,7 +334,7 @@ This information is:
 - Displayed in the Azure portal on the overview of a **control** on a Regulatory Compliance
   initiative.
 - Available via REST API. See the `Microsoft.PolicyInsights` resource provider and the
-  [policyMetadata operation group](/rest/api/policy-insights/policymetadata/getresource).
+  [policyMetadata operation group](/rest/api/policy/policymetadata/getresource).
 - Available via Azure CLI. See the [az policy metadata](/cli/azure/policy/metadata) command.
 
 > [!IMPORTANT]

@@ -8,9 +8,13 @@ ms.reviewer: chroyal
 ---
 # Tutorial: Use Blockchain Data Manager to send data to Azure Cosmos DB
 
-In this tutorial, you use Blockchain Data Manager for Azure Blockchain Service to record blockchain transaction data in Azure Cosmos DB. Blockchain Data Manager captures, transforms, and delivers blockchain ledger data to Azure Event Grid Topics. From Azure Event Grid, you use an Azure Logic App connector to create documents in an Azure Cosmos DB database. When finished with tutorial, you can explore blockchain transaction data in Azure Cosmos DB Data Explorer.
+In this tutorial, you use Blockchain Data Manager for Azure Blockchain Service to record blockchain transaction data in Azure Cosmos DB.
 
-[![Blockchain transaction detail](./media/data-manager-cosmosdb/raw-msg.png)](./media/data-manager-cosmosdb/raw-msg.png#lightbox)
+[!INCLUDE [Retirement note](./includes/retirement.md)]
+
+Blockchain Data Manager captures, transforms, and delivers blockchain ledger data to Azure Event Grid Topics. From Azure Event Grid, you use an Azure Logic App connector to create documents in an Azure Cosmos DB database. When finished with tutorial, you can explore blockchain transaction data in Azure Cosmos DB Data Explorer.
+
+[![Screenshot shows blockchain transaction details.](./media/data-manager-cosmosdb/raw-msg.png)](./media/data-manager-cosmosdb/raw-msg.png#lightbox)
 
 In this tutorial, you:
 
@@ -155,7 +159,7 @@ You can delete the Azure Storage account or use it to configure more blockchain 
 
 ## Create Azure Cosmos DB
 
-[!INCLUDE [cosmos-db-create-storage-account](../../../includes/cosmos-db-create-dbaccount.md)]
+[!INCLUDE [cosmos-db-create-storage-account](../../cosmos-db/includes/cosmos-db-create-dbaccount.md)]
 
 ### Add a database and container
 
@@ -266,7 +270,7 @@ Now that you have connected your Blockchain Data Manager to Azure Cosmos DB, you
 
 1. Browse through the messages by selecting item ID and find the message with the matching transaction hash.
 
-    [![Blockchain transaction detail](./media/data-manager-cosmosdb/raw-msg.png)](./media/data-manager-cosmosdb/raw-msg.png#lightbox)
+    [![Screenshot shows the blockchain transaction details of a selected item.](./media/data-manager-cosmosdb/raw-msg.png)](./media/data-manager-cosmosdb/raw-msg.png#lightbox)
 
     The raw transaction message contains detail about the transaction. However, the property information is encrypted.
 

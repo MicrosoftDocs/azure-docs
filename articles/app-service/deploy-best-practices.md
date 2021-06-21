@@ -41,9 +41,9 @@ Whenever possible, use [deployment slots](deploy-staging-slots.md) when deployin
 
 If your project has designated branches for testing, QA, and staging, then each of those branches should be continuously deployed to a staging slot. (This is known as the [Gitflow design](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow).) This allows your stakeholders to easily assess and test the deployed the branch. 
 
-Continuous deployment should never be enabled for your production slot. Instead, your production branch (often master) should be deployed onto a non-production slot. When you are ready to release the base branch, swap it into the production slot. Swapping into production—instead of deploying to production—prevents downtime and allows you to roll back the changes by swapping again. 
+Continuous deployment should never be enabled for your production slot. Instead, your production branch (often main) should be deployed onto a non-production slot. When you are ready to release the base branch, swap it into the production slot. Swapping into production—instead of deploying to production—prevents downtime and allows you to roll back the changes by swapping again. 
 
-![Slot usage visual](media/app-service-deploy-best-practices/slot_flow_code_diagam.png)
+![Diagram that shows the flow between the Dev, Staging, and Main branches and the slots they are deployed to.](media/app-service-deploy-best-practices/slot_flow_code_diagam.png)
 
 ### Continuously deploy containers
 
@@ -65,7 +65,7 @@ App Service has [built-in continuous delivery](deploy-continuous-deployment.md) 
 
 ### Use GitHub Actions
 
-You can also automate your container deployment [with GitHub Actions](deploy-container-github-action.md).  The workflow file below will build and tag the container with the commit ID, push it to a container registry, and update the specified site slot with the new image tag.
+You can also automate your container deployment [with GitHub Actions](./deploy-ci-cd-custom-container.md).  The workflow file below will build and tag the container with the commit ID, push it to a container registry, and update the specified site slot with the new image tag.
 
 ```yaml
 name: Build and deploy a container image to Azure Web Apps
@@ -80,7 +80,7 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@main
 
     -name: Authenticate using a Service Principal
       uses: azure/actions/login@v1
@@ -109,7 +109,7 @@ jobs:
 
 The steps listed earlier apply to other automation utilities such as CircleCI or Travis CI. However, you need to use the Azure CLI to update the deployment slots with new image tags in the final step. To use the Azure CLI in your automation script, generate a Service Principal using the following command.
 
-```shell
+```azurecli
 az ad sp create-for-rbac --name "myServicePrincipal" --role contributor \
    --scopes /subscriptions/{subscription}/resourceGroups/{resource-group} \
    --sdk-auth

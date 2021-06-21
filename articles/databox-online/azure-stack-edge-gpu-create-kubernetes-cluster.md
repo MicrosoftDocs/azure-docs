@@ -1,31 +1,33 @@
 ---
-title: Create and manage a Kubernetes cluster on Azure Stack Edge GPU device| Microsoft Docs
-description: Describes how to create and manage a Kubernetes cluster on Azure Stack Edge GPU device via the Windows PowerShell interface.
+title: Create and manage a Kubernetes cluster on Azure Stack Edge Pro GPU device| Microsoft Docs
+description: Describes how to create and manage a Kubernetes cluster on Azure Stack Edge Pro GPU device via the Windows PowerShell interface.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 03/08/2021
 ms.author: alkohli
 ---
-# Connect to and manage a Kubernetes cluster via kubectl on your Azure Stack Edge GPU device
+# Connect to and manage a Kubernetes cluster via kubectl on your Azure Stack Edge Pro GPU device
 
-On your Azure Stack Edge device, a Kubernetes cluster is created when you configure compute role. Once the Kubernetes cluster is created, then you can connect to and manage the cluster locally from a client machine via a native tool such as *kubectl*.
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-This article describes how to connect to a Kubernetes cluster on your Azure Stack Edge device and then manage it using *kubectl*. 
+On your Azure Stack Edge Pro device, a Kubernetes cluster is created when you configure compute role. Once the Kubernetes cluster is created, then you can connect to and manage the cluster locally from a client machine via a native tool such as *kubectl*.
+
+This article describes how to connect to a Kubernetes cluster on your Azure Stack Edge Pro device and then manage it using *kubectl*. 
 
 
 ## Prerequisites
 
 Before you begin, make sure that:
 
-1. You've access to an Azure Stack Edge device.
+1. You've access to an Azure Stack Edge Pro device.
 
-2. You've activated your Azure Stack Edge device as described in [Activate Azure Stack Edge](azure-stack-edge-gpu-deploy-activate.md).
+2. You've activated your Azure Stack Edge Pro device as described in [Activate Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-activate.md).
 
-3. You've enabled compute role on the device. A Kubernetes cluster was also created on the device when you configured compute on the device as per the instructions in [Configure compute on your Azure Stack Edge device](azure-stack-edge-gpu-deploy-configure-compute.md).
+3. You've enabled compute role on the device. A Kubernetes cluster was also created on the device when you configured compute on the device as per the instructions in [Configure compute on your Azure Stack Edge Pro device](azure-stack-edge-gpu-deploy-configure-compute.md).
 
 4. You've access to a Windows client system running PowerShell 5.0 or later to access the device. You can have any other client with a [Supported operating system](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device) as well. 
 
@@ -39,11 +41,11 @@ After the Kubernetes cluster is created, you can access this cluster to create n
 [!INCLUDE [Connect to admin runspace](../../includes/azure-stack-edge-gateway-connect-minishell.md)]
 
 
-## Configure cluster access via RBAC
+## Configure cluster access via Kubernetes RBAC
 
 After the Kubernetes cluster is created, you can use the *kubectl* via cmdline to access the cluster. 
 
-In this approach, you create a namespace and a user. You then associate the user with the namespace. You also need to get *config* file that allows you to use a Kubernetes client to talk directly to the Kubernetes cluster that you created without having to connect to PowerShell interface of your Azure Stack Edge device.
+In this approach, you create a namespace and a user. You then associate the user with the namespace. You also need to get *config* file that allows you to use a Kubernetes client to talk directly to the Kubernetes cluster that you created without having to connect to PowerShell interface of your Azure Stack Edge Pro device.
 
 1. Create a namespace. Type:
 
@@ -61,7 +63,7 @@ In this approach, you create a namespace and a user. You then associate the user
     `New-HcsKubernetesUser -UserName <string>`
 
     > [!NOTE]
-    > You can't use *aseuser* as the username as it is reserved for a default user associated with IoT namespace for Azure Stack Edge.
+    > You can't use *aseuser* as the username as it is reserved for a default user associated with IoT namespace for Azure Stack Edge Pro.
 
     Here is a sample output of the config file:
    
@@ -98,7 +100,7 @@ In this approach, you create a namespace and a user. You then associate the user
 
 4. The config file should live in the `.kube` folder of your user profile on the local machine. Copy the file to that folder in your user profile.
 
-    ![Location of config file on client](media/azure-stack-edge-j-series-create-kubernetes-cluster/location-config-file.png)
+    ![Location of config file on client](media/azure-stack-edge-gpu-create-kubernetes-cluster/location-config-file.png)
 
 5. Associate the namespace with the user you created. Type:
 
@@ -108,7 +110,7 @@ In this approach, you create a namespace and a user. You then associate the user
 
     `[10.100.10.10]: PS>Grant-HcsKubernetesNamespaceAccess -Namespace "myasetest1" -UserName "aseuser1"`
 
-    Once you have the config file, you do not need physical access to the cluster. If your client can ping the Azure Stack Edge device IP, you should be able to direct the cluster using *kubectl* commands.
+    Once you have the config file, you do not need physical access to the cluster. If your client can ping the Azure Stack Edge Pro device IP, you should be able to direct the cluster using *kubectl* commands.
 
 6. Start a new PowerShell session on your client. You don't need to be connected to the device interface. You can now install `kubectl` on your client using the following command:
 
@@ -120,7 +122,7 @@ In this approach, you create a namespace and a user. You then associate the user
     For example, if the Kubernetes master node was running v1.15.2, install v1.15.2 on the client.
 
     > [!IMPORTANT]
-    > Download a client that is skewed no more than one minor version from the master. The client version but may lead the master by up to one minor version. For example, a v1.3 master should work with v1.1, v1.2, and v1.3 nodes, and should work with v1.2, v1.3, and v1.4 clients. For more information on Kubernetes client version, see [Kubernetes version and version skew support policy](https://kubernetes.io/docs/setup/release/version-skew-policy/#supported-version-skew). For more information on Kubernetes server version on Azure Stack Edge, go to Get Kubernetes server version.<!-- insert link-->
+    > Download a client that is skewed no more than one minor version from the master. The client version but may lead the master by up to one minor version. For example, a v1.3 master should work with v1.1, v1.2, and v1.3 nodes, and should work with v1.2, v1.3, and v1.4 clients. For more information on Kubernetes client version, see [Kubernetes version and version skew support policy](https://kubernetes.io/docs/setup/release/version-skew-policy/#supported-version-skew). For more information on Kubernetes server version on Azure Stack Edge Pro, go to Get Kubernetes server version.<!-- insert link-->
     > Sometimes, `kubectl` is preinstalled on your system if you are running Docker for Windows or other tools. It is important to download the specific version of `kubectl` as indicated in this section to work with this kubernetes cluster. 
 
     The installation takes several minutes.
@@ -160,11 +162,11 @@ You can now deploy your applications in the namespace, then view those applicati
 
 ## Remove Kubernetes cluster
 
-To remove the Kubernetes cluster, you will need to remove the compute configuration.
+To remove the Kubernetes cluster, you will need to remove the IoT Edge configuration.
 
-For detailed instructions, go to [Remove compute configuration](azure-stack-edge-j-series-manage-compute.md#remove-compute-configuration).
+For detailed instructions, go to [Manage IoT Edge configuration](azure-stack-edge-gpu-manage-compute.md#manage-iot-edge-configuration).
    
 
 ## Next steps
 
-- [Deploy a stateless application on your Azure Stack Edge](azure-stack-edge-j-series-deploy-stateless-application-kubernetes.md).
+- [Deploy a stateless application on your Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-stateless-application-kubernetes.md).

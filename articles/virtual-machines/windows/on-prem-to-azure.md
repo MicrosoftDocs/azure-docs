@@ -3,7 +3,8 @@ title: Migrate from AWS and other platforms to Managed Disks in Azure
 description: Create VMs in Azure using VHDs uploaded from other clouds like AWS or other virtualization platforms and take advantage of Azure Managed Disks.
 author: roygara
 manager: twooley
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.subervice: disks
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: conceptual
@@ -22,7 +23,7 @@ You can upload either generalized and specialized VHDs.
 - **Specialized VHD** - maintains the user accounts, applications, and other state data from your original VM. 
 
 > [!IMPORTANT]
-> Before uploading any VHD to Azure, you should follow [Prepare a Windows VHD or VHDX to upload to Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+> Before uploading any VHD to Azure, you should follow [Prepare a Windows VHD or VHDX to upload to Azure](prepare-for-upload-vhd-image.md)
 >
 >
 
@@ -37,7 +38,7 @@ You can upload either generalized and specialized VHDs.
 ## Overview of Managed Disks
 
 Azure Managed Disks simplifies VM management by removing the need to manage storage accounts. Managed Disks also benefit from better reliability of VMs in an Availability Set. It ensures that the disks of different VMs in an Availability Set are sufficiently isolated from each other to avoid a single point of failure. It automatically places disks of different VMs in an Availability Set in different Storage scale units (stamps) which limits the impact of single Storage scale unit failures caused due to hardware and software failures.
-Based on your needs, you can choose from four types of storage options. To learn about the available disk types, see our article [Select a disk type](disks-types.md).
+Based on your needs, you can choose from four types of storage options. To learn about the available disk types, see our article [Select a disk type](../disks-types.md).
 
 ## Plan for the migration to Managed Disks
 
@@ -89,4 +90,4 @@ Review the [pricing for Managed Disks](https://azure.microsoft.com/pricing/detai
 
 ## Next Steps
 
-- Before uploading any VHD to Azure, you should follow [Prepare a Windows VHD or VHDX to upload to Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+- Before uploading any VHD to Azure, you should follow [Prepare a Windows VHD or VHDX to upload to Azure](prepare-for-upload-vhd-image.md)

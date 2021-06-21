@@ -1,7 +1,7 @@
 ---
 title:  "Two-Class Averaged Perceptron: Module Reference"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Two-Class Averaged Perceptron module in Azure Machine Learning to create a machine learning model based on the averaged perceptron algorithm.  
+description: Learn how to use the Two-Class Averaged Perceptron module in the designer to create a binary classifier.  
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -13,7 +13,7 @@ ms.date: 04/22/2020
 ---
 # Two-Class Averaged Perceptron module
 
-This article describes a module in Azure Machine Learning designer (preview).
+This article describes a module in Azure Machine Learning designer.
 
 Use this module to create a machine learning model based on the averaged perceptron algorithm.  
   

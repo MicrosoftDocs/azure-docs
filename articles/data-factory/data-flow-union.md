@@ -1,16 +1,15 @@
 ---
-title: Mapping data flow union transformation
+title: Union transformation in mapping data flow
 description: Azure Data Factory mapping data flow New Branch Transformation
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 04/27/2020
 ---
 
-# Azure Data Factory mapping data flow union transformation
+# Union transformation in mapping data flow
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 

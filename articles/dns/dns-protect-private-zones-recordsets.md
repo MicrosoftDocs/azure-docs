@@ -2,11 +2,12 @@
 title: Protecting private DNS Zones and Records - Azure DNS
 description: In this learning path, get started protecting private DNS zones and record sets in Microsoft Azure DNS.
 services: dns
-author: asudbring
 ms.service: dns
+author: twooley
+ms.author: twooley
 ms.topic: how-to
-ms.date: 02/18/2020
-ms.author: allensu
+ms.date: 05/07/2021 
+ms.custom: devx-track-azurepowershell
 ---
 
 # How to protect private DNS zones and records
@@ -17,9 +18,9 @@ Private DNS zones and records are critical resources. Deleting a DNS zone or a s
 
 This article explains how Azure DNS enables you to protect your private DNS zones and records against such changes.  We apply two powerful securities features provided by Azure Resource Manager: [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md) and [resource locks](../azure-resource-manager/management/lock-resources.md).
 
-## Role-based access control
+## Azure role-based access control
 
-Azure role-based access control (Azure RBAC) enables fine-grained access management for Azure users, groups, and resources. With RBAC, you can grant the level of access that users need. For more information about how RBAC helps you manage access, see [What is Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md).
+Azure role-based access control (Azure RBAC) enables fine-grained access management for Azure users, groups, and resources. With Azure RBAC, you can grant the level of access that users need. For more information about how Azure RBAC helps you manage access, see [What is Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md).
 
 ### The Private DNS Zone Contributor role
 
@@ -27,11 +28,11 @@ The Private DNS Zone Contributor role is a built-in role for managing private DN
 
 The resource group *myPrivateDNS* contains five zones for Contoso Corporation. Granting the DNS administrator Private DNS Zone Contributor permissions to that resource group, enables full control over those DNS zones. It avoids granting unnecessary permissions. The DNS administrator can't create or stop virtual machines.
 
-The simplest way to assign RBAC permissions is [via the Azure portal](../role-based-access-control/role-assignments-portal.md).  
+The simplest way to assign Azure RBAC permissions is [via the Azure portal](../role-based-access-control/role-assignments-portal.md).  
 
 Open **Access control (IAM)** for the resource group, select **Add**, then select the **Private DNS Zone Contributor** role. Select the required users or groups to grant permissions.
 
-![Resource group level RBAC via the Azure portal](./media/dns-protect-private-zones-recordsets/rbac1.png)
+:::image type="content" source="./media/dns-protect-private-zones-recordsets/resource-group-rbac.png" alt-text="Screenshot of RBAC for private DNS resource group.":::
 
 Permissions can also be [granted using Azure PowerShell](../role-based-access-control/role-assignments-powershell.md):
 
@@ -56,15 +57,15 @@ az role assignment create \
 --resource-group "<resource group name>"
 ```
 
-### Private Zone level RBAC
+### Private Zone level Azure RBAC
 
 Azure RBAC rules can be applied to a subscription, a resource group or to an individual resource. That resource can be an individual DNS zone, or an individual record set.
 
 For example, the resource group *myPrivateDNS* contains the zone *private.contoso.com* and a subzone *customers.private.contoso.com*. CNAME records are created for each customer account. The administrator account used to manage CNAME records is assigned permissions to create records in the *customers.private.contoso.com* zone. The account can manage *customers.private.contoso.com* only.
 
-Zone-level RBAC permissions can be granted via the Azure portal.  Open **Access control (IAM)** for the zone, select **Add**, then select the **Private DNS Zone Contributor** role. Select the required users or groups to grant permissions.
+Zone-level Azure RBAC permissions can be granted via the Azure portal.  Open **Access control (IAM)** for the zone, select **Add**, then select the **Private DNS Zone Contributor** role. Select the required users or groups to grant permissions.
 
-![DNS Zone level RBAC via the Azure portal](./media/dns-protect-private-zones-recordsets/rbac2.png)
+:::image type="content" source="./media/dns-protect-private-zones-recordsets/zone-rbac.png" alt-text="Screenshot of RBAC for private DNS zone.":::
 
 Permissions can also be [granted using Azure PowerShell](../role-based-access-control/role-assignments-powershell.md):
 
@@ -91,17 +92,17 @@ az role assignment create \
 --scope "/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/privateDnsZones/<zone name>/"
 ```
 
-### Record set level RBAC
+### Record set level Azure RBAC
 
 Permissions are applied at the record set level.  The user is granted control to entries they need and are unable to make any other changes.
 
-Record-set level RBAC permissions can be configured via the Azure portal, using the **Access Control (IAM)** button in the record set page:
+Record-set level Azure RBAC permissions can be configured via the Azure portal, using the **Access Control (IAM)** button in the record set page:
 
-![Record set level RBAC via the Azure portal](./media/dns-protect-private-zones-recordsets/rbac3.png)
+:::image type="content" source="./media/dns-protect-private-zones-recordsets/record-set-rbac-1.png" alt-text="Screenshot of RBAC for private DNS record set.":::
 
-![Record set level RBAC via the Azure portal](./media/dns-protect-private-zones-recordsets/rbac4.png)
+:::image type="content" source="./media/dns-protect-private-zones-recordsets/record-set-rbac-2.png" alt-text="Screenshot of role assignment for private DNS record set.":::
 
-Record-set level RBAC permissions can also be [granted using Azure PowerShell](../role-based-access-control/role-assignments-powershell.md):
+Record-set level Azure RBAC permissions can also be [granted using Azure PowerShell](../role-based-access-control/role-assignments-powershell.md):
 
 ```azurepowershell-interactive
 # Grant permissions to a specific record set
@@ -183,7 +184,7 @@ az role create -inputfile <file path>
 
 The role can then be assigned in the same way as built-in roles, as described earlier in this article.
 
-For more information on how to create, manage, and assign custom roles, see [Custom Roles in Azure RBAC](../role-based-access-control/custom-roles.md).
+For more information on how to create, manage, and assign custom roles, see [Azure custom roles](../role-based-access-control/custom-roles.md).
 
 ## Resource locks
 
@@ -197,9 +198,9 @@ To prevent changes being made, apply a ReadOnly lock to the zone. This lock prev
 
 Zone level resource locks can be created via the Azure portal.  From the DNS zone page, select **Locks**, then select **+Add**:
 
-![Zone level resource locks via the Azure portal](./media/dns-protect-private-zones-recordsets/locks1.png)
+:::image type="content" source="./media/dns-protect-private-zones-recordsets/zone-locks.png" alt-text="Screenshot of locks for private DNS zone.":::
 
-Zone-level resource locks can also be created via [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcelock?view=latest):
+Zone-level resource locks can also be created via [Azure PowerShell](/powershell/module/az.resources/new-azresourcelock):
 
 ```azurepowershell-interactive
 # Lock a DNS zone
@@ -213,7 +214,7 @@ $rsg = "<resource group name>"
 New-AzResourceLock -LockLevel $lvl -LockName $lnm -ResourceName $rsc -ResourceType $rty -ResourceGroupName $rsg
 ```
 
-The equivalent command is also [available via the Azure CLI](https://docs.microsoft.com/cli/azure/lock?view=azure-cli-latest#az-lock-create):
+The equivalent command is also [available via the Azure CLI](/cli/azure/lock#az_lock_create):
 
 ```azurecli-interactive
 # Lock a DNS zone
@@ -282,5 +283,5 @@ It's possible to use both approaches - resource locks and custom roles - at the 
 
 ## Next steps
 
-* For more information about working with RBAC, see [Get started with access management in the Azure portal](../role-based-access-control/overview.md).
+* For more information about working with Azure RBAC, see [What is Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md).
 * For more information about working with resource locks, see [Lock resources with Azure Resource Manager](../azure-resource-manager/management/lock-resources.md).

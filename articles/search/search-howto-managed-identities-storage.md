@@ -1,7 +1,7 @@
 ---
-title: Set up a connection to a storage account using a managed identity (preview)
+title: Set up a connection to a storage account using a managed identity
 titleSuffix: Azure Cognitive Search
-description: Learn how to set up an indexer connection to an Azure Storage account using a managed identity (preview)
+description: Learn how to set up an indexer connection to an Azure Storage account using a managed identity
 
 manager: luisca
 author: markheff
@@ -9,13 +9,10 @@ ms.author: maheff
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/18/2020
+ms.date: 09/22/2020
 ---
 
-# Set up a connection to an Azure Storage account using a managed identity (preview)
-
-> [!IMPORTANT] 
-> Support for setting up a connection to a data source using a managed identity is currently in public preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads.
+# Set up a connection to an Azure Storage account using a managed identity
 
 This page describes how to set up an indexer connection to an Azure storage account using a managed identity instead of providing credentials in the data source object connection string.
 
@@ -29,7 +26,7 @@ Before learning more about this feature, it is recommended that you have an unde
 
 ### 1 - Turn on system-assigned managed identity
 
-When a system-assigned managed identity is enabled, Azure creates an identity for your search service that can be used to authenticate to other Azure services within the same tenant and subscription. You can then use this identity in role-based access control (RBAC) assignments that allow access to data during indexing.
+When a system-assigned managed identity is enabled, Azure creates an identity for your search service that can be used to authenticate to other Azure services within the same tenant and subscription. You can then use this identity in Azure role-based access control (Azure RBAC) assignments that allow access to data during indexing.
 
 ![Turn on system assigned managed identity](./media/search-managed-identities/turn-on-system-assigned-identity.png "Turn on system assigned managed identity")
 
@@ -48,23 +45,23 @@ In this step you will give your Azure Cognitive Search service permission to rea
     ![Add role assignment](./media/search-managed-identities/add-role-assignment-storage.png "Add role assignment")
 
 4. Select the appropriate role(s) based on the storage account type that you would like to index:
-    1. Azure Blob storage requires that you add your search service to the **Storage Blob Data Reader** role.
+    1. Azure Blob Storage requires that you add your search service to the **Storage Blob Data Reader** role.
     1. Azure Data Lake Storage Gen2 requires that you add your search service to the **Storage Blob Data Reader** role.
-    1. Azure Table storage requires that you add your search service to the **Reader and Data Access** role.
+    1. Azure Table Storage requires that you add your search service to the **Reader and Data Access** role.
 5.	Leave **Assign access to** as **Azure AD user, group or service principal**
 6.	Search for your search service, select it, then select **Save**
 
-    Example for Azure Blob storage and Azure Data Lake Storage Gen2:
+    Example for Azure Blob Storage and Azure Data Lake Storage Gen2:
 
     ![Add Storage Blob Data Reader role assignment](./media/search-managed-identities/add-role-assignment-storage-blob-data-reader.png "Add Storage Blob Data Reader role assignment")
 
-    Example for Azure Table storage:
+    Example for Azure Table Storage:
 
     ![Add reader and data access role assignment](./media/search-managed-identities/add-role-assignment-reader-and-data-access.png "Add reader and data access role assignment")
 
 ### 3 - Create the data source
 
-The [REST API](/rest/api/searchservice/create-data-source), Azure portal, and the [.NET SDK](/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet) support the managed identity connection string. Below is an example of how to create a data source to index data from a storage account using the [REST API](/rest/api/searchservice/create-data-source) and a managed identity connection string. The managed identity connection string format is the same for the REST API, .NET SDK, and the Azure portal.
+The [REST API](/rest/api/searchservice/create-data-source), Azure portal, and the [.NET SDK](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourceconnection) support the managed identity connection string. Below is an example of how to create a data source to index data from a storage account using the [REST API](/rest/api/searchservice/create-data-source) and a managed identity connection string. The managed identity connection string format is the same for the REST API, .NET SDK, and the Azure portal.
 
 When indexing from a storage account, the data source must have the following required properties:
 
@@ -143,9 +140,14 @@ For more details on the Create Indexer API, check out [Create Indexer](/rest/api
 
 For more information about defining indexer schedules see [How to schedule indexers for Azure Cognitive Search](search-howto-schedule-indexers.md).
 
+## Accessing secure data in storage accounts
+
+Azure storage accounts can be further secured using firewalls and virtual networks. If you want to index content from a blob storage account or Data Lake Gen2 storage account that is secured using a firewall or virtual network, follow the instructions for [Accessing data in storage accounts securely via trusted service exception](search-indexer-howto-access-trusted-service-exception.md).
+
 ## See also
 
 Learn more about Azure Storage indexers:
+
 * [Azure Blob indexer](search-howto-indexing-azure-blob-storage.md)
 * [Azure Data Lake Storage Gen2 indexer](search-howto-index-azure-data-lake-storage.md)
 * [Azure Table indexer](search-howto-indexing-azure-tables.md)
