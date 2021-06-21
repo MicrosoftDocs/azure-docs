@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 05/10/2021
+ms.date: 06/04/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -29,7 +29,6 @@ There are many security benefits of using Azure AD based authentication to login
 - Login to Windows VMs with Azure Active Directory also works for customers that use Federation Services.
 - Automate and scale Azure AD join with MDM auto enrollment with Intune of Azure Windows VMs that are part for your VDI deployments. Auto MDM enrollment requires Azure AD P1 license. Windows Server 2019 VMs do not support MDM enrollment.
 
-
 > [!NOTE]
 > Once you enable this capability, your Windows VMs in Azure will be Azure AD joined. You cannot join it to other domain like on-premises AD or Azure AD DS. If you need to do so, you will need to disconnect the VM from your Azure AD tenant by uninstalling the extension.
 
@@ -51,8 +50,6 @@ This feature is now available in the following Azure clouds:
 - Azure Government
 - Azure China
 
-
-
 ### Network requirements
 
 To enable Azure AD authentication for your Windows VMs in Azure, you need to ensure your VMs network configuration permits outbound access to the following endpoints over TCP port 443:
@@ -63,20 +60,17 @@ For Azure Global
 - `https://login.microsoftonline.com` - For authentication flows.
 - `https://pas.windows.net` - For Azure RBAC flows.
 
-
 For Azure Government
 - `https://enterpriseregistration.microsoftonline.us` - For device registration.
 - `http://169.254.169.254` - Azure Instance Metadata Service.
 - `https://login.microsoftonline.us` - For authentication flows.
 - `https://pasff.usgovcloudapi.net` - For Azure RBAC flows.
 
-
 For Azure China
 - `https://enterpriseregistration.partner.microsoftonline.cn` - For device registration.
 - `http://169.254.169.254` - Azure Instance Metadata Service endpoint.
 - `https://login.chinacloudapi.cn` - For authentication flows.
 - `https://pas.chinacloudapi.cn` - For Azure RBAC flows.
-
 
 ## Enabling Azure AD login in for Windows VM in Azure
 
@@ -256,7 +250,7 @@ The AADLoginForWindows extension must install successfully in order for the VM t
    > [!NOTE]
    > If the extension restarts after the initial failure, the log with the deployment error will be saved as `CommandExecution_YYYYMMDDHHMMSSSSS.log`. 
 "
-1. Open a PowerShell command prompt on the VM and verify these queries against the Instance Metadata Service (IMDS) Endpoint running on the Azure host returns:
+1. Open a PowerShell window on the VM and verify these queries against the Instance Metadata Service (IMDS) Endpoint running on the Azure host returns:
 
    | Command to run | Expected output |
    | --- | --- |
@@ -267,7 +261,7 @@ The AADLoginForWindows extension must install successfully in order for the VM t
    > [!NOTE]
    > The access token can be decoded using a tool like [calebb.net](http://calebb.net/). Verify the `appid` in the access token matches the managed identity assigned to the VM.
 
-1. Ensure the required endpoints are accessible from the VM using the command line:
+1. Ensure the required endpoints are accessible from the VM using PowerShell:
    
    - `curl https://login.microsoftonline.com/ -D -`
    - `curl https://login.microsoftonline.com/<TenantID>/ -D -`
@@ -292,7 +286,7 @@ This exit code translates to `DSREG_E_MSI_TENANTID_UNAVAILABLE` because the exte
 
 1. Verify the Azure VM can retrieve the TenantID from the Instance Metadata Service.
 
-   - RDP to the VM as a local administrator and verify the endpoint returns valid Tenant ID by running this command from an elevated command line on the VM:
+   - RDP to the VM as a local administrator and verify the endpoint returns valid Tenant ID by running this command from an elevated PowerShell window on the VM:
       
       - `curl -H Metadata:true http://169.254.169.254/metadata/identity/info?api-version=2018-02-01`
 
@@ -302,7 +296,7 @@ This exit code translates to `DSREG_E_MSI_TENANTID_UNAVAILABLE` because the exte
 
 This Exit code translates to `DSREG_AUTOJOIN_DISC_FAILED` because the extension is not able to reach the `https://enterpriseregistration.windows.net` endpoint.
 
-1. Verify the required endpoints are accessible from the VM using the command line:
+1. Verify the required endpoints are accessible from the VM using PowerShell:
 
    - `curl https://login.microsoftonline.com/ -D -`
    - `curl https://login.microsoftonline.com/<TenantID>/ -D -`

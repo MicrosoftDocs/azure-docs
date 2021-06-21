@@ -17,7 +17,7 @@ ms.custom: seodec18
 > 
 
 ### Overview
-The App Service Environment (ASE) is a Premium service option of Azure App Service that delivers an enhanced configuration capability that is not available in the multi-tenant stamps. The ASE feature essentially deploys the Azure App Service into a customer’s virtual network. To gain a greater understanding of the capabilities offered by App Service Environments read the [What is an App Service Environment][WhatisASE] documentation.
+The App Service Environment (ASE) is a Premium service option of Azure App Service that delivers an enhanced configuration capability that is not available in the multi-tenant stamps. The ASE feature essentially deploys the Azure App Service into a customer's virtual network. To gain a greater understanding of the capabilities offered by App Service Environments read the [What is an App Service Environment][WhatisASE] documentation.
 
 ### Before you create your ASE
 It is important to be aware of the things you cannot change. Those aspects you cannot change about your ASE after it is created are:

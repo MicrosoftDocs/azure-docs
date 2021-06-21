@@ -1,7 +1,7 @@
 ---
 title: Identify required appliances 
 description: Learn about hardware and virtual appliances for certified Defender for IoT sensors and the on-premises management console. 
-ms.date: 01/13/2021
+ms.date: 06/21/2021
 ms.topic: how-to
 ---
 
@@ -9,9 +9,9 @@ ms.topic: how-to
 
 This article provides information on certified Defender for IoT sensor appliances. Defender fort IoT can be deployed on physical and virtual appliances.
 
-This includes certified *pre-configured* appliances, on which software is already installed, as well as non-configured certified appliances on which you can download and install required software.
+This includes certified *pre-configured* appliances, on which software is already installed, and non-configured certified appliances on which you can download and install required software.
 
-The article also provides specifications for an on-premises management console appliance. The on-premises management console is not available as a preconfigured appliance.
+The article also provides specifications for an on-premises management console appliance. The on-premises management console is not available as a pre-configured appliance.
 
 - If you want to purchase a pre-configured sensor, review the models available in the [Sensor appliances](#sensor-appliances) section and then proceed with the purchase.
 
@@ -29,11 +29,11 @@ Defender for IoT supports both physical and virtual deployments.
 
 This section provides an overview of physical sensor models that are available. You can purchase sensors with preconfigured software or purchase sensors that are not preconfigured.
 
-| Deployment type | Corporate | Enterprise | SMB rack mount| SMB ruggedized|
+| Deployment type | Corporate | Enterprise | SMB rack mount| SMB Ruggedized |
 |--|--|--|--|--|
 | Image | :::image type="content" source="media/how-to-prepare-your-network/corporate-hpe-proliant-dl360-v2.png" alt-text="The corporate-level model."::: | :::image type="content" source="media/how-to-prepare-your-network/enterprise-and-smb-hpe-proliant-dl20-v2.png" alt-text="The enterprise-level model."::: | :::image type="content" source="media/how-to-prepare-your-network/enterprise-and-smb-hpe-proliant-dl20-v2.png" alt-text="The SMB-level model."::: | :::image type="content" source="media/how-to-prepare-your-network/office-ruggedized.png" alt-text="The SMB-ruggedized level model."::: |
 | Model | HPE ProLiant DL360 | HPE ProLiant DL20 | HPE ProLiant DL20 | HPE EL300 |
-| Monitoring ports | Up to 15 RJ45 or 8 OPT | Up to 8 RJ45 or 6 OPT | 4 RJ45 | Up to 5 |
+| Monitoring ports | Up to 15 RJ45 or 8 OPT | Up to 8 RJ45 or 6 OPT | Up to 4 RJ45 | Up to 5 RJ45 |
 | Maximum bandwidth [1](#anchortext) | 3 Gb/sec | 1 Gb/sec | 200 Mb/Sec | 100 Mb/sec |
 | Maximum protected devices | 30,000 | 15,000 | 1,000 | 800 |
 
@@ -54,7 +54,7 @@ This section provides an overview of the virtual sensors that are available.
 | Deployment type | Corporate | Enterprise | SMB |
 |--|--|--|--|
 | Maximum bandwidth | 2.5 Gb/sec | 800 Mb/sec | 160 Mb/sec |
-| Maximum protected devices | 30,000 | 10,000 | 2,500 |
+| Maximum protected devices | 30,000 | 10,000 | 800 |
 
 ## On-premises management console appliance
 
@@ -191,20 +191,20 @@ This section describes hardware specifications for the following appliances:
 | Component | Technical specifications |
 |--|--|
 | Construction | Aluminum, Fanless & Dust-proof Design |
-| Dimensions (height x width x depth) | 200.5mm (7.9”) tall, 232mm (9.14”) wide by 100mm (3.9”) deep |
+| Dimensions (height x width x depth) | 200.5 mm (7.9”) tall, 232 mm (9.14”) wide by 100 mm (3.9”) deep |
 | Weight | 4.91 KG (10.83 lbs.) |
 | CPU | Intel Core i7-8650U (1.9GHz/4-core/15W) |
 | Chipset | Intel® Q170 Platform Controller Hub |
-| Memory | 8GB DDR4 2133MHz Wide Temperature SODIMM |
-| Storage | 128GB 3ME3 Wide Temperature mSATA SSD |
+| Memory | 8 GB DDR4 2133 MHz Wide Temperature SODIMM |
+| Storage | 128 GB 3ME3 Wide Temperature mSATA SSD |
 | Network controller | 6x Gigabit Ethernet ports by Intel® I219 |
 | Device access  | 4 USBs: 2 fronts; 2 rears; 1 internal |
 | Power Adapter | 250V/10A |
 | Mounting | Mounting kit, Din Rail |
 | Operating Temperature | 0C to +70C  |
 | Humidity | 10%~90%, non-condensing |
-| Vibration | 0.3 grms 10Hz to 300Hz, 15 minutes per axis - Din rail   |
-| Shock | 10G 10ms, half-sine, three for each axis. (Both positive & negative pulse) – Din Rail |
+| Vibration | 0.3 gram 10 Hz to 300 Hz, 15 minutes per axis - Din rail   |
+| Shock | 10G 10 ms, half-sine, three for each axis. (Both positive & negative pulse) – Din Rail |
 
 ### Appliance BOM
 | Product | Description |

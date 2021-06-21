@@ -174,7 +174,8 @@ To avoid having to set an imagePullSecret for every Pod, consider adding the ima
 | AZURE_VOTE_IMAGE_REPO | The full path to the Azure Vote App repo, for example azurearctest.azurecr.io/azvote |
 | ENVIRONMENT_NAME | Dev |
 | MANIFESTS_BRANCH | `master` |
-| MANIFESTS_REPO | The Git connection string for your GitOps repo |
+| MANIFESTS_FOLDER | `azure-vote-manifests` |
+| MANIFESTS_REPO | `azure-cicd-demo-gitops` |
 | ORGANIZATION_NAME | Name of Azure DevOps organization |
 | PROJECT_NAME | Name of GitOps project in Azure DevOps |
 | REPO_URL | Full URL for GitOps repo |
@@ -205,8 +206,8 @@ The CD pipeline uses the security token of the running build to authenticate to 
 1. For the `<Project Name> Build Service (<Organization Name>)`, allow `Contribute`, `Contribute to pull requests`, and `Create branch`.
 
 For more information, see:
-- [Grant VC Permissions to the Build Service](https://docs.microsoft.com/azure/devops/pipelines/scripts/git-commands?view=azure-devops&tabs=yaml&preserve-view=true#version-control )
-- [Manage Build Service Account Permissions](https://docs.microsoft.com/azure/devops/pipelines/process/access-tokens?view=azure-devops&tabs=yaml&preserve-view=true#manage-build-service-account-permissions)
+- [Grant VC Permissions to the Build Service](/azure/devops/pipelines/scripts/git-commands?preserve-view=true&tabs=yaml&view=azure-devops#version-control )
+- [Manage Build Service Account Permissions](/azure/devops/pipelines/process/access-tokens?preserve-view=true&tabs=yaml&view=azure-devops#manage-build-service-account-permissions)
 
 
 ## Deploy the dev environment for the first time

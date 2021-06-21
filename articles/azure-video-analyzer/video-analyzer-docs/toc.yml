@@ -73,12 +73,12 @@
   items:
   - name: Pipeline
     href: pipeline.md
+  - name: Pipeline extension
+    href: pipeline-extension.md
   - name: Video recording
     href: video-recording.md
   - name: Scenarios 
     items:
-    - name: Pipeline extension
-      href: pipeline-extension.md
     - name: Event-based video recording
       href: event-based-video-recording-concept.md 
     - name: Continuous video recording
@@ -157,6 +157,8 @@
     href: https://azure.microsoft.com/updates/?category=media
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/video-analyzer/
+  - name: Available regions
+    href: https://azure.microsoft.com/global-infrastructure/services/?products=video-analyzer&regions=all
   - name: FAQs
     href: faq-edge.md 
   - name: Quotas and limitations

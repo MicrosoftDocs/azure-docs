@@ -7,9 +7,9 @@ ms.subservice: development
 ms.custom: sqldbrb=2
 ms.devlang: 
 ms.topic: how-to
-author: jovanpop-msft
-ms.author: jovanpop
-ms.reviewer:
+author: uc-msft
+ms.author: umajay
+ms.reviewer: mathoma
 ms.date: 04/19/2020
 ---
 # Getting started with JSON features in Azure SQL Database and Azure SQL Managed Instance
