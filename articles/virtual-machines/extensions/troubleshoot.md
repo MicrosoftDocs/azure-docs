@@ -65,6 +65,19 @@ Please refer to the following pages to troubleshoot the VM Agent:
 Some extensions have a specific page describing how to troubleshoot them. You can find the list of these extensions and pages on [Troubleshoot extensions
 ](https://docs.microsoft.com/azure/virtual-machines/extensions/overview#troubleshoot-extensions).
 
+### View the extension's status
+As explained above, the extension's status can be found by running the Powershell cmdlet:
+```azurepowershell
+Get-AzVM -ResourceGroupName $RGName -Name $vmName -Status
+```
+
+or the CLI command:
+```azurecli
+az vm extension show -g <RG Name> --vm-name <VM Name>  --name <Extension Name>
+```
+
+or in the Azure Portal, by browsing to the VM Blade / Settings / Extensions. You can then click on the extension and check its status and message.
+
 
 ### Rerun the extension on the VM
 If you are running scripts on the VM using Custom Script Extension, you could sometimes run into an error where VM was created successfully but the script has failed. Under these conditions, the recommended way to recover from this error is to remove the extension and rerun the template again.
