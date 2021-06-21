@@ -75,7 +75,7 @@ You can also access functionality related to delegated subscriptions or resource
 > [!TIP]
 > You can also [opt in to the new subscription filtering experience](../../azure-portal/set-preferences.md#opt-into-the-new-subscription-filtering-experience) to make your selections. If you do so, be sure that all directories and subscriptions are selected before you select the **Try it now** link, or else the new experience may not show all of the subscriptions to which you have access. If that happens, you can select **Switch back to the previous view** in the **Subscriptions + filters** pane, then repeat the opt in process with all directories and subscriptions selected.
 >
-> :::image type="content" source="../media/azure-portal-subscription-filtering-opt-in-MSP.png" alt-text="Screenshot showing the opt-in selections for the new subscription filter settings.":::
+> :::image type="content" source="../media/azure-portal-subscription-filtering-opt-in-delegated.png" alt-text="Screenshot showing the opt-in selections for the new subscription filter settings.":::
 
 ## Cloud Solution Provider (Preview)
 
