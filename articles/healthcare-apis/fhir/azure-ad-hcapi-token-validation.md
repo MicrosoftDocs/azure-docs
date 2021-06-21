@@ -12,7 +12,7 @@ ms.author: cavoeg
 ---
 # Azure API for FHIR access token validation
 
-How Azure API for FHIR validates the access token will depend on implementation and configuration. In this article, we will walk through the validation steps, which can be helpful when troubleshooting access issues.
+$$$$$ How Azure API for FHIR validates the access token will depend on implementation and configuration. In this article, we will walk through the validation steps, which can be helpful when troubleshooting access issues.
 
 ## Validate token has no issues with identity provider
 
