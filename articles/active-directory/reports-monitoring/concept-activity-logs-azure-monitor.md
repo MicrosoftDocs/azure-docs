@@ -26,7 +26,7 @@ ms.collection: M365-identity-device-management
 You can route Azure Active Directory (Azure AD) activity logs to several endpoints for long term retention and data insights. This feature allows you to:
 
 * Archive Azure AD activity logs to an Azure storage account, to retain the data for a long time.
-* Stream Azure AD activity logs to an Azure event hub for analytics, using popular Security Information and Event Management (SIEM) tools, such as Splunk and QRadar.
+* Stream Azure AD activity logs to an Azure event hub for analytics, using popular Security Information and Event Management (SIEM) tools, such as Splunk, QRadar, and Azure Sentinel.
 * Integrate Azure AD activity logs with your own custom log solutions by streaming them to an event hub.
 * Send Azure AD activity logs to Azure Monitor logs to enable rich visualizations, monitoring and alerting on the connected data.
 
