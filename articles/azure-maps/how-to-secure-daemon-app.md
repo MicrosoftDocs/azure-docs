@@ -47,7 +47,7 @@ The following steps outline this process:
 6. Remove your secrets `set` permission.
 7. To retrieve the shared key secret from Azure Key Vault, implement Azure Active Directory authentication in the daemon application.
 8. Create an Azure Maps REST API request with the shared key.
-9. Now, the daemon application can retrieve the shared key from the Key Vault. T
+Now, the daemon application can retrieve the shared key from the Key Vault.
 
 > [!TIP]
 > If the app is hosted in the Azure environment, it is recommended that you use a managed identity to reduce the cost and complexity of managing a secret for authentication. To learn how to set up a managed identity, see [Tutorial: Use a managed identity to connect Key Vault to an Azure web app in .NET](../key-vault/general/tutorial-net-create-vault-azure-web-app.md).
