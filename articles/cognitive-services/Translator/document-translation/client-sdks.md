@@ -15,7 +15,7 @@ ms.author: lajanuar
 # Document Translation client libraries and SDKs (prerelease)
 <!-- markdownlint-disable MD024 -->
 > [!IMPORTANT]
-> Prerelease versions are still in development and are subject to change—do not use them in production applications.. They're made available on an introductory basis so customers can get early access and provide feedback. Certain features may not be supported or might have constrained capabilities. 
+> Prerelease versions are still in development and are subject to change—do not use them in production applications. They're made available on an introductory basis so customers can get early access and provide feedback. Certain features may not be supported or might have constrained capabilities. 
 
 [Document Translation](overview.md) is a cloud-based feature of the [Azure Translator](../translator-info-overview.md) service. You can translate entire documents or process batch document translations in various file formats while preserving original document structure and format. In this article, you'll learn how to use the Document Translation service C#/.NET and Python client libraries. For the REST API, see our [Quickstart](get-started-with-document-translation.md) guide.
 
