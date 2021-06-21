@@ -60,14 +60,13 @@ For instance, look at the `jobs/train/lightgbm/iris` project directory in the ex
 
 ```tree
 .
-├── environment.yml
 ├── job-sweep.yml
 ├── job.yml
 └── src
     └── main.py
 ```
 
-This directory contains two job files, a conda environment file, and a source code subdirectory `src`. While this example only has a single file under `src`, the entire subdirectory is recursively uploaded and available for use in the job.
+This directory contains two job files and a source code subdirectory `src`. While this example only has a single file under `src`, the entire subdirectory is recursively uploaded and available for use in the job.
 
 The basic command job is configured via the `job.yml`:
 
@@ -89,7 +88,7 @@ While running this job locally is slower than running `python main.py` in a loca
 > [Docker](https://docker.io) needs to be installed and running locally. Python needs to be installed in the job's environment. For local runs which use `inputs`, the Python package `azureml-dataprep` needs to be installed in the job's environment.
 
 > [!TIP]
-> This will take a few minutes to pull the base Docker image and create the conda environment on top of it. Use prebuilt Docker images to avoid the image build time.
+> This will take a few minutes to pull the base Docker image. Use prebuilt Docker images to avoid the image build time.
 
 ## Create compute
 
