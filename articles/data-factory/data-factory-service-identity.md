@@ -5,7 +5,8 @@ author: nabhishek
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/25/2021
-ms.author: abnarain
+ms.author: abnarain 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Managed identity for Data Factory

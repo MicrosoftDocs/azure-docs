@@ -6,7 +6,8 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: sample
-ms.date: 06/12/2020
+ms.date: 06/12/2020 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Create a resource lock for Azure Cosmos Gremlin API database and graph using Azure PowerShell

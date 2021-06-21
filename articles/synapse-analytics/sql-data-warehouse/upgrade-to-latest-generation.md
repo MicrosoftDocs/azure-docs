@@ -10,7 +10,7 @@ ms.subservice: sql-dw
 ms.date: 02/19/2019
 ms.author: martinle
 ms.reviewer: jrasnick
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, devx-track-azurepowershell
 ---
 
 # Optimize performance by upgrading dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics

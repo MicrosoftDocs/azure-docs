@@ -58,12 +58,18 @@
       items:
         - name: .NET Core
           href: enable-dynamic-configuration-dotnet-core-push-refresh.md
-    - name: Use Key Vault references
+    - name: Key Vault references
       items:
-        - name: ASP.NET Core
-          href: use-key-vault-references-dotnet-core.md
-        - name: Spring Boot
-          href: use-key-vault-references-spring-boot.md
+        - name: Use Key Vault references
+          items:
+            - name: ASP.NET Core
+              href: use-key-vault-references-dotnet-core.md
+            - name: Spring Boot
+              href: use-key-vault-references-spring-boot.md
+        - name: Reload secrets and certificates automatically
+          items:
+            - name: .NET
+              href: reload-key-vault-secrets-dotnet.md
     - name: Build, deploy, and CI/CD
       items:
         - name: Push using Azure Pipelines

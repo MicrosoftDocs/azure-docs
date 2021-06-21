@@ -27,4 +27,4 @@ If you elect to make your offer available in the Cloud Solution Provider (CSP) p
 ## Next steps
 
 - [Test and publish a SaaS offer](test-publish-saas-offer.md)
-- [Active marketplace rewards](partner-center-portal/marketplace-rewards.md)
+- [Active marketplace rewards](marketplace-rewards.md)

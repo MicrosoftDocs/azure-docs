@@ -3,7 +3,7 @@ metadata:
   title: Answers to common questions
   description: 'Answers to common questions about'
   ms.topic: conceptual
-  ms.date: 05/10/2021
+  ms.date: 06/10/2021
     
 title: Azure Backup - Frequently asked questions
 summary: This article answers common questions about the Azure Backup service.
@@ -31,7 +31,7 @@ sections:
       - question: |
           How many policies can I create per vault?
         answer: |
-          You can only have up to 200 policies per vault. However, adding Backup policies through Azure Resource Manager (ARM) templates or PowerShell is limited to 50 over a span of 24 hours.
+          You can only have up to 200 policies per vault. However, adding new backup policies or editing current policies through Azure Resource Manager (ARM) templates or Azure automation clients such as Powershell, CLI is limited to 50 over a span of 24 hours.
 
       - question: |
           If my organization has one vault, how can I isolate data from different servers in the vault when restoring data?
@@ -66,7 +66,7 @@ sections:
       - question: |
           How can I move data from the Recovery Services vault to on-premises?
         answer: |
-          Exporting data directly from the Recovery Services vault to on-premises using Data Box is not supported. Data must be restored to a storage account, and then it can be moved to on-premises via [Data Box](../databox/data-box-overview.md) or [Import/Export](../import-export/storage-import-export-service.md).
+          To move backup data out of Recovery Services Vault, you need to restore the necessary data. If your vault contains backup of on-premises data, use the corresponding agent ([MARS](backup-azure-about-mars.md), [MABS](backup-azure-microsoft-azure-backup.md), or [DPM](backup-azure-dpm-introduction.md#why-back-up-dpm-to-azure)) to restore to on-premises. <br><br> We do not support exporting data directly from the Recovery Services vault to on-premises storage for backup of cloud workload ([Azure VMs](backup-azure-arm-restore-vms.md#restore-options), [SQL](restore-sql-database-azure-vm.md#restore-as-files), and [SAP HANA](sap-hana-db-restore.md#restore-as-files) in Azure VMs). However, you can restore these to the corresponding cloud resources in Azure Storage Accounts, and then move the data to on-premises. You can also export this data to on-premises via [Data Box](../databox/data-box-overview.md) or [Import/Export](../import-export/storage-import-export-service.md).
           
       - question: |
           What is the difference between a geo-redundant storage (GRS) vault with and without the Cross-Region Restore (CRR) capability enabled?

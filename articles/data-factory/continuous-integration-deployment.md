@@ -6,7 +6,8 @@ author: nabhishek
 ms.author: abnarain
 ms.reviewer: jburchel
 ms.topic: conceptual
-ms.date: 05/12/2021
+ms.date: 05/12/2021 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Continuous integration and delivery in Azure Data Factory
@@ -619,7 +620,7 @@ Remember to add the Data Factory scripts in your CI/CD pipeline before and after
 
 If you don't have Git configured, you can access the linked templates via **Export ARM Template** in the **ARM Template** list.
 
-When deploying your resources, you specify that the deployment is either an incremental update or a complete update. The difference between these two modes is how Resource Manager handles existing resources in the resource group that aren't in the template. Please review [Deployment Modes](https://docs.microsoft.com/azure/azure-resource-manager/templates/deployment-modes).
+When deploying your resources, you specify that the deployment is either an incremental update or a complete update. The difference between these two modes is how Resource Manager handles existing resources in the resource group that aren't in the template. Please review [Deployment Modes](../azure-resource-manager/templates/deployment-modes.md).
 
 ## Hotfix production environment
 

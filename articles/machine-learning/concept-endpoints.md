@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.author: seramasu
 author: rsethur
 ms.reviewer: laobri
-ms.date: 05/25/2021
+ms.date: 06/17/2021
 #Customer intent: As an MLOps administrator, I want to understand what a managed endpoint is and why I need it.
 ---
 
-# What are Azure Machine Learning endpoints (preview)?
+# What are Azure Machine Learning endpoints (preview)? 
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
@@ -136,7 +136,7 @@ Managed online endpoints can help streamline your deployment process. Managed on
 :::image type="content" source="media/concept-endpoints/endpoint-deployment-costs.png" alt-text="Screenshot cost chart of an endpoint and deployment":::
 
 - View costs 
-    - Manged online endpoints let you [monitor cost at the endpoint and deployment level](how-to-view-online-endpoints-costs.md)
+    - Managed online endpoints let you [monitor cost at the endpoint and deployment level](how-to-view-online-endpoints-costs.md)
 
 For a step-by-step tutorial, see [How to deploy managed online endpoints](how-to-deploy-managed-online-endpoints.md).
 
@@ -185,5 +185,7 @@ Specify the storage output location to any datastore and path. By default, batch
 - [How to deploy managed online endpoints with the Azure CLI](how-to-deploy-managed-online-endpoints.md)
 - [How to deploy batch endpoints with the Azure CLI](how-to-use-batch-endpoint.md)
 - [How to use managed online endpoints with the studio](how-to-use-managed-online-endpoint-studio.md)
+- [Deploy models with REST (preview)](how-to-deploy-with-rest.md)
 - [How to monitor managed online endpoints](how-to-monitor-online-endpoints.md)
 - [How to view online endpoint costs](how-to-view-online-endpoints-costs.md)
+- [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints-preview)

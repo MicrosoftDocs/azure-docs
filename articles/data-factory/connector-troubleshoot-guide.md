@@ -4,7 +4,7 @@ description: Learn how to troubleshoot connector issues in Azure Data Factory.
 author: jianleishen
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 05/18/2021
+ms.date: 06/07/2021
 ms.author: jianleishen
 ms.custom: has-adal-ref
 ---
@@ -557,17 +557,17 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
  
  - **Message**: `Failed to connect to Dynamics: %message;` 
  
- - **Cause**: You are seeing `Unable to Login to Dynamics CRM, message:ERROR REQUESTING Token FROM THE Authentication context - USER intervention required but not permitted by prompt behavior
-AADSTS50079: Due to a configuration change made by your administrator, or because you moved to a new location, you must enroll in multi-factor authentication to access '00000007-0000-0000-c000-000000000000'` if your use case meets **all** of the following three conditions:
+ - **Cause**: You are seeing `ERROR REQUESTING ORGS FROM THE DISCOVERY SERVERFCB 'EnableRegionalDisco' is disabled.` 
+ or otherwise `Unable to Login to Dynamics CRM, message:ERROR REQUESTING Token FROM THE Authentication context - USER intervention required but not permitted by prompt behavior AADSTS50079: Due to a configuration change made by your administrator, or because you moved to a new location, you must enroll in multi-factor authentication to access '00000007-0000-0000-c000-000000000000'` If your use case meets **all** of the following three conditions:
     - You are connecting to Dynamics 365, Common Data Service, or Dynamics CRM.
     - You are using Office365 Authentication.
-    - Your tenant and user is configured in Azure Active Directory for [conditional access](/azure/active-directory/conditional-access/overview) and/or Multi-Factor Authentication is required (see this [link](/powerapps/developer/data-platform/authenticate-office365-deprecation) to Dataverse doc).
+    - Your tenant and user is configured in Azure Active Directory for [conditional access](../active-directory/conditional-access/overview.md) and/or Multi-Factor Authentication is required (see this [link](/powerapps/developer/data-platform/authenticate-office365-deprecation) to Dataverse doc).
     
     Under these circumstances, the connection used to succeed before 6/8/2021.
     Starting 6/9/2021 connection will start to fail because of the deprecation of regional Discovery Service (see this [link](/power-platform/important-changes-coming#regional-discovery-service-is-deprecated)).
  
  -  **Recommendation**:  
-    If your tenant and user is configured in Azure Active Directory for [conditional access](/azure/active-directory/conditional-access/overview) and/or Multi-Factor Authentication is required, you must use ‘Azure AD service-principal’  to authenticate after 6/8/2021. Refer this [link](/azure/data-factory/connector-dynamics-crm-office-365#prerequisites) for detailed steps.
+    If your tenant and user is configured in Azure Active Directory for [conditional access](../active-directory/conditional-access/overview.md) and/or Multi-Factor Authentication is required, you must use ‘Azure AD service-principal’  to authenticate after 6/8/2021. Refer this [link](./connector-dynamics-crm-office-365.md#prerequisites) for detailed steps.
 
 
  - **Cause**: If you see `Office 365 auth with OAuth failed` in the error message, it means that your server might have some configurations not compatible with OAuth. 

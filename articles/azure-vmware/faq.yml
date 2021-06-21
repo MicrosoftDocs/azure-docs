@@ -4,7 +4,7 @@ metadata:
   description: "Get answers to common questions about Azure VMware Solution."
   ms.topic: troubleshooting
   ms.custom: contperf-fy21q4
-  ms.date:  05/25/2021
+  ms.date:  06/16/2021
     
 title: Common questions about Azure VMware Solution
 summary: This article answers commonly asked questions about Azure VMware Solution.
@@ -168,13 +168,13 @@ sections:
           > Any modification to that logical router or the NSX-T edge node VMs could affect connectivity to your private cloud.
 
       - question: Do I need to restrict access from the internet to VMs on logical networks in a private cloud?
-        answer: No. Network traffic inbound from the internet directly to private clouds isn't allowed by default.  However, you're able to expose Azure VMware Solution VMs to the internet through the [Public IP](public-ip-usage.md) option in your Azure portal for your Azure VMware Solution private cloud.
+        answer: No. Network traffic inbound from the internet directly to private clouds isn't allowed by default.  However, you're able to expose Azure VMware Solution VMs to the internet through the [Public IP](./enable-public-internet-access.md) option in your Azure portal for your Azure VMware Solution private cloud.
           
       - question: Do I need to restrict internet access from VMs on logical networks to the internet?
         answer: Yes. You'll need to use NSX-T manager to create a firewall to restrict VM access to the internet.
 
       - question: Which IP range can be used for DNS service IP and DHCP server IP?
-        answer: The address range shouldn't overlap with the IP range used in other virtual networks that are in your subscription and on-premises networks.
+        answer: The IP address range shouldn't overlap with the IP range used in other virtual networks in your subscription and on-premises networks.
 
       - question: Can Azure VMware Solution use Azure Virtual WAN hosted ExpressRoute Gateways?
         answer: Yes.
@@ -243,10 +243,10 @@ sections:
         answer: Clusters can scale between three (minimum) and 16 (maximum) ESXi hosts. Trial clusters are limited to three hosts.
 
       - question: Can I scale my private cloud clusters?
-        answer: Yes, clusters scale between three (minimum) and 16 (maximum) ESXi hosts. Trial clusters are limited to three hosts.
+        answer: Yes, clusters scale between three (minimum) and 16 (maximum) ESXi hosts. 
 
       - question: What are trial clusters?
-        answer: Trial clusters are three host clusters used for one-month evaluations of Azure VMware Solution private clouds.
+        answer: Trial clusters are limited to three hosts used for one-month evaluations of Azure VMware Solution private clouds.
 
 
   - name: Identity management
@@ -314,5 +314,6 @@ sections:
       - question:  Is it necessary to procure licenses and resources other than the AV36 instance when migrating from the on-premise VM environment with L2 extension?  
         answer: | 
           NO        
-          
 
+      - question: When does metering begin and end for trial Azure VMware Solution clusters?
+        answer: Trial clusters are limited to three hosts used for 30-day evaluations of Azure VMware Solution private clouds. After 30 days, clusters are automatically metered per their respective rates. If the trial clusters are deleted before the 30-day end date, the Azure VMware Solution trial will end at the time of deletion.

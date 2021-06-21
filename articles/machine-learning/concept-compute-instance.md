@@ -97,7 +97,9 @@ You can also clone the latest Azure Machine Learning samples to your folder unde
 
 Writing small files can be slower on network drives than writing to the compute instance local disk itself.  If you are writing many small files, try using a directory directly on the compute instance, such as a `/tmp` directory. Note these files will not be accessible from other compute instances.
 
-Do not store training data on the notebooks file share. You can use the `/tmp` directory on the compute instance for your temporary data.  However, do not write very large files of data on the OS disk of the compute instance. OS disk on compute instance has 128 GB capacity. You can also store temporary training data on temporary disk mounted on /mnt. Temporary disk size is configurable based on the VM size chosen and can store larger amounts of data if a higher size VM is chosen. You can also mount [datastores and datasets](concept-azure-machine-learning-architecture.md#datasets-and-datastores).
+Do not store training data on the notebooks file share. You can use the `/tmp` directory on the compute instance for your temporary data.  However, do not write very large files of data on the OS disk of the compute instance. OS disk on compute instance has 128 GB capacity. You can also store temporary training data on temporary disk mounted on /mnt. Temporary disk size is configurable based on the VM size chosen and can store larger amounts of data if a higher size VM is chosen. You can also mount [datastores and datasets](concept-azure-machine-learning-architecture.md#datasets-and-datastores). Any software packages you install are saved on the OS disk of compute instance. Please note customer managed key encryption is currently not supported for OS disk. The OS disk for compute instance is encrypted with Microsoft-managed keys. 
+
+
 
 ## Managing a compute instance
 

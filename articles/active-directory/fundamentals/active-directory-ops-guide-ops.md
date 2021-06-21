@@ -65,7 +65,7 @@ Unless one has been established, you should define a process to upgrade these co
 #### Hybrid management recommended reading
 
 - [Azure AD Connect: Automatic upgrade](../hybrid/how-to-connect-install-automatic-upgrade.md)
-- [Understand Azure AD Application Proxy connectors | Automatic updates](../manage-apps/application-proxy-connectors.md#automatic-updates)
+- [Understand Azure AD Application Proxy connectors | Automatic updates](../app-proxy/application-proxy-connectors.md#automatic-updates)
 
 ### Azure AD Connect Health alert baseline
 
@@ -85,9 +85,9 @@ Some identity and access management services require on-premises agents to enabl
 
 #### On-premises agents logs recommended reading
 
-- [Troubleshoot Application Proxy](../manage-apps/application-proxy-troubleshoot.md)
+- [Troubleshoot Application Proxy](../app-proxy/application-proxy-troubleshoot.md)
 - [Self-service password reset troubleshooting- Azure Active Directory](../authentication/troubleshoot-sspr.md)
-- [Understand Azure AD Application Proxy connectors](../manage-apps/application-proxy-connectors.md)
+- [Understand Azure AD Application Proxy connectors](../app-proxy/application-proxy-connectors.md)
 - [Azure AD Connect: Troubleshoot Pass-through Authentication](../hybrid/tshoot-connect-pass-through-authentication.md#collecting-pass-through-authentication-agent-logs)
 - [Troubleshoot error codes for the Azure AD MFA NPS extension](../authentication/howto-mfa-nps-extension-errors.md)
 
@@ -101,7 +101,7 @@ Adopting best practices can help the optimal operation of on-premises agents. Co
 
 #### On-premises agents management recommended reading
 
-- [Understand Azure AD Application Proxy connectors](../manage-apps/application-proxy-connectors.md)
+- [Understand Azure AD Application Proxy connectors](../app-proxy/application-proxy-connectors.md)
 - [Azure AD Pass-through Authentication - quickstart](../hybrid/how-to-connect-pta-quick-start.md#step-4-ensure-high-availability)
 
 ## Management at scale

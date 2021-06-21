@@ -5,7 +5,7 @@ description: Use this quickstart to connect your applications to the Metrics Adv
 services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: metrics-advisor
 ms.topic: quickstart
 ms.date: 10/14/2020
@@ -15,7 +15,7 @@ zone_pivot_groups: programming-languages-metrics-monitor
 
 # Quickstart: Use the client libraries or REST APIs to customize your solution
 
-Get started with the the Metrics Advisor REST API or client libraries. Follow these steps to install the package and try out the example code for basic tasks.
+Get started with the Metrics Advisor REST API or client libraries. Follow these steps to install the package and try out the example code for basic tasks.
 
 Use Metrics Advisor to perform:
 
@@ -69,5 +69,5 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 - [Onboard your data feeds](../how-tos/onboard-your-data.md)
     - [Manage data feeds](../how-tos/manage-data-feeds.md)
     - [Configurations for different data sources](../data-feeds-from-different-sources.md)
-- [Configure metrics and fine tune detecting configuration](../how-tos/configure-metrics.md)
+- [Configure metrics and fine tune detection configuration](../how-tos/configure-metrics.md)
 - [Adjust anomaly detection using feedback](../how-tos/anomaly-feedback.md)
