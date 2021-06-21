@@ -30,6 +30,8 @@
     href: quickstart-configure-your-solution.md
   - name: Investigate security recommendations
     href: quickstart-investigate-security-recommendations.md
+  - name: Investigate security alerts
+    href: quickstart-investigate-security-alerts.md
   - name: Classic
     items:
     - name: Security agent overview

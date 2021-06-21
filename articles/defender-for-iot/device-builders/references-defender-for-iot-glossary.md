@@ -17,8 +17,6 @@ This glossary provides a brief description of important terms and concepts for t
 
 ## C
 
-| Term | Description | Learn more |
-
 ## D
 
 | Term | Description | Learn more |
