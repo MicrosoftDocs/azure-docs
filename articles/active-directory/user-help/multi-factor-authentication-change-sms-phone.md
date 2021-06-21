@@ -27,7 +27,7 @@ When performing two-step verification using a mobile phone, you can choose to re
 
 1. On the **Security info** page, select the phone number that you want to change in your list of registered authentication methods, and then select **Change**.
 
-1. Select your country or region for your new number from the drop-down list, and then type your mobile device phone number.
+1. Select your country or region for your new number, and then enter your mobile device phone number.
 
 1. Select **Text me a code to receive text messages for verification**, then select **Next**.
 
