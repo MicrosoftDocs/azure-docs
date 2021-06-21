@@ -151,7 +151,6 @@ To upload a public key certificate:
 3. To the right of the text box, select the file icon.
 
 4. Choose a *.crt*, *.cer*, or *.pem* file.
-5. Select **Add**.
 
     :::image type="content" border="true" source="./media/how-to-manage-authentication/upload-certificate-file.png" alt-text="Upload certificate file.":::
 
