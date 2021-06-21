@@ -34,9 +34,6 @@ For more information, view [Package an application](service-fabric-package-apps.
 
 Then, you create a Resource Manager template, update the parameters file with application details, and deploy the template on the Service Fabric cluster. [Explore samples](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/tree/voting-sample-no-reverse-proxy/ARM-Managed-Cluster).
 
-> [!NOTE] 
-> If you are migrating application(s) from classic SFRP to managed clusters make sure to validate types are correctly specified or you will encounter errors. For example, 'upgradeReplicaSetCheckTimeout' is an integer for managed, but a string on classic SFRP. See [managed clusters applications resource types](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/managedclusters/applications?tabs=json)
-
 ### Create a storage account
 
 To deploy an application from a Resource Manager template, you must have a storage account. The storage account is used to stage the application image. 
@@ -176,6 +173,17 @@ To delete an application that was deployed by using the application resource mod
     ```powershell
     Remove-AzResource  -ResourceId <String> [-Force] [-ApiVersion <String>]
     ```
+
+
+## Migration from classic to managed
+
+If you are migrating application(s) from classic to managed clusters you will need to make sure to validate types are correctly specified or you will encounter errors. 
+
+The following items are called out specifically due to frequency of usage, but not not meant to be an exclusive list of differences. 
+
+* upgradeReplicaSetCheckTimeout is now an integer for managed, but a string on classic SFRP. 
+
+See [managed clusters applications resource types](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/managedclusters/applications?tabs=json) for full list of properties and types
 
 ## Next steps
 
