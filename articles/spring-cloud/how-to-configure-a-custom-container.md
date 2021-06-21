@@ -1,4 +1,3 @@
-```
 ---
 title:  How to configure a custom container on Azure Spring Cloud
 description: how to create a custom container application in Azure Spring Cloud
@@ -9,9 +8,6 @@ ms.topic: how-to
 ms.date: 06/21/2021
 ms.custom: devx-track-java
 ---
-```
-
-
 
 # How to configure a custom container on Azure Spring Cloud
 

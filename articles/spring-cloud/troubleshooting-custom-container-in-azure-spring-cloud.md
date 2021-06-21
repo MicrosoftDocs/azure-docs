@@ -1,4 +1,15 @@
-# Troubleshooting Custom Container in Azure Spring Cloud
+---
+title:  Troubleshooting Custom Container in Azure Spring Cloud
+description: how to troubleshoot a custom container application in Azure Spring Cloud
+author:  MikeDodaro
+ms.author: brendm
+ms.service: spring-cloud
+ms.topic: troubleshoot
+ms.date: 06/21/2021
+ms.custom: devx-track-java
+---
+
+# Troubleshooting Custom Container Applications in Azure Spring Cloud
 
 
 
