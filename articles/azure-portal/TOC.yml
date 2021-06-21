@@ -77,7 +77,7 @@
   items:
   - name: Keyboard shortcuts
     href: azure-portal-keyboard-shortcuts.md
-  - name: Safelist the Azure portal URLs
+  - name: Azure portal URLs
     href: azure-portal-safelist-urls.md
   - name: Structure of Azure dashboards
     href: azure-portal-dashboards-structure.md
