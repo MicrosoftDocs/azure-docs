@@ -127,6 +127,8 @@
       items:
       - name: $convert-data and FHIR Converter Extension Templates
         href: convert-data.md
+    - name: Disaster recovery for Azure API for FHIR
+      href: disaster-recovery.md
     - name: Patient-everything in FHIR
       href: patient-everything.md
     - name: $member-match operation
