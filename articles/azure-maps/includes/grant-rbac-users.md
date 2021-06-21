@@ -28,4 +28,4 @@ To efficiently manage the Azure Maps app and resource access of a large amount o
 To learn about how to effectively manage a large directory for users, see [Azure AD](../../active-directory/fundamentals/index.yml).
 
 > [!WARNING]
-> Azure Maps built-in role definitions provide a very large authorization access to many Azure Maps REST APIs. To restrict APIs access to a minimum, see [create a custom role definition and assign the system-assigned identity](../../role-based-access-control/custom-roles.md) to the custom role definition. This will enable the least privilege necessary for the application to access Azure Maps.
+> Azure Maps built-in role definitions provide a very large authorization access to many Azure Maps REST APIs. To restrict APIs access to a minimum, see [create a custom role definition and assign the system-assigned identity](../../role-based-access-control/custom-roles.md) to the custom role definition. This enables the least privilege necessary for the application to access Azure Maps.
