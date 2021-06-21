@@ -9,23 +9,19 @@ ms.date: 06/28/2021
 
 VMware HCX Advanced Connector is no longer pre-deployed in Azure VMware Solution. You'll install it through the Azure portal as an add-on. You'll still download the VMware HCX Connector OVA and deploy the virtual appliance to your on-premises vCenter. 
 
-VMware HCX Advanced Connector supports up to three site connections (on-premises to cloud, or cloud to cloud).  If you need more than three site connections, use [VMware HCX Enterprise](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/). Open a [support request](https://portal.azure.com/#create/Microsoft.Support) to have HCX Enterprise enabled. It's free and is subject to terms and conditions for a preview service. After the VMware HCX Enterprise service is generally available, you'll get a 30-day notice that billing will switch over. You'll also have the option to turn off or opt out of the service. Downgrading from HCX Enterprise to HCX Advanced is possible without redeploying, but you'll have to open a support ticket. If planning a downgrade, make sure no migrations are scheduled and features such as RAV, MON are not in use.
+VMware HCX Advanced Connector supports up to three site connections (on-premises to cloud, or cloud to cloud).  If you need more than three site connections, use [VMware HCX Enterprise](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/). Open a [support request](https://portal.azure.com/#create/Microsoft.Support) to have HCX Enterprise enabled. It's free and is subject to terms and conditions for a preview service. After the VMware HCX Enterprise service is generally available, you'll get a 30-day notice that billing will switch over. You'll also have the option to turn off or opt out of the service. Downgrading from HCX Enterprise to HCX Advanced is possible without redeploying, so you'll need to open a support ticket. If planning a downgrade, make sure no migrations are scheduled and features such as RAV, MON are not in use.
 
 
 >[!TIP]
 >You can also uninstall VMware HCX Advanced Connector through the portal. When you uninstall VMware HCX, make sure you don't have any active migrations in progress.
 
 
-
-
-
-
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * All tutorials include a list summarizing the steps to completion
-> * Each of these bullet points align to a key H2
-> * Use these green checkboxes in a tutorial
+> * Install VMware HCX through the Azure portal
+> * Download and deploy the VMware HCX Connector OVA
+> * Activate VMware HCX with a license key
 
 
 ## Prerequisites
@@ -130,15 +126,8 @@ After the services restart, you'll see vCenter showing as green on the screen th
 
 ## Next steps
 
-In this tutorial, you've:
-
-> [!div class="checklist"]
-> * 
-> * 
-> * 
-
 Continue to the next tutorial to configure the VMware HCX Connector.
 
 
-> [!div class="nextstepaction"]
-> [Configure VMware HCX in Azure VMware Solution](tutorial-configure-vmware-hcx.md)
+>[!div class="nextstepaction"]
+>[Configure VMware HCX in Azure VMware Solution](tutorial-configure-vmware-hcx.md)

@@ -17,9 +17,9 @@ The diagram shows the deployment workflow of Azure VMware Solution.
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * All tutorials include a list summarizing the steps to completion
-> * Each of these bullet points align to a key H2
-> * Use these green checkboxes in a tutorial
+> * Register the resource provider and create a private cloud
+> * Connect to a new or existing ExpressRoute virtual network gateway
+> * Validate the network connect
 
 ## Register the **Microsoft.AVS** resource provider
 

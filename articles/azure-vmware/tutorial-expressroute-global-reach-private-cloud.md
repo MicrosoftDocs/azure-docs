@@ -19,9 +19,9 @@ After deploying your Azure VMware Solution private cloud, you'll connect it to y
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * All tutorials include a list summarizing the steps to completion
-> * Each of these bullet points align to a key H2
-> * Use these green checkboxes in a tutorial
+> * Create an ExpressRoute auth key in the on-premises ExpressRoute circuit
+> * Peer the private cloud with your on-premises ExpressRoute circuit
+> * Verify on-premises network connectivity
 
 ## Prerequisites
 

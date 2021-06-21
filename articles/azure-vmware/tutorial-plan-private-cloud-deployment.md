@@ -14,9 +14,13 @@ Planning your Azure VMware Solution deployment is critical to ensure that you're
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * All tutorials include a list summarizing the steps to completion
-> * Each of these bullet points align to a key H2
-> * Use these green checkboxes in a tutorial
+> * Request a host quota for eligible Azure plan
+> * Identify the Azure subscription, resource group, and region
+> * Identify the size hosts and determin the number of clusters and hosts
+> * Identify the /22 CIDR IP segment for private cloud management
+> * Identify a single network segment used primarily for testing purposes
+> * Define the virtual network gateway
+> * Define VMware HCX network segments
 
 
 ## Request a host quota 
@@ -127,7 +131,7 @@ Optionally, you can extend network segments from on-premises to Azure VMware Sol
 
 
 ## Next steps
-Now that you've gathered and documented the needed information continue to the next section to create your Azure VMware Solution private cloud.
+Now that you've gathered and documented the information needed, continue to the next section to create your Azure VMware Solution private cloud.
 
 > [!div class="nextstepaction"]
-> [Deploy Azure VMware Solution](tutorial-deploy-azure-vmware-solution.md)> 
+> [Deploy Azure VMware Solution](tutorial-deploy-azure-vmware-solution.md)
