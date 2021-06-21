@@ -54,11 +54,11 @@ Connectivity to the other Azure resources from an Arc enabled server listed earl
 
 The Arc enabled servers Private Link Scope object has a number of limits you should consider when planning your Private Link setup.
 
-1. You can associate at most 1 Azure Arc Private Link Scope with a virtual network.
+1. You can associate at most one Azure Arc Private Link Scope with a virtual network.
 
 1. An Azure Arc enabled machine or server resource can only connect to one Azure Arc enabled servers Private Link Scope.
 
-1. All on-premises machines need to use the same private endpoint by resolving the correct private endpoint information (FQDN record name and private IP address) using the same DNS forwarder. For more information see, [Azure Private Endpoint DNS configuration](../../private-link/private-endpoint-dns.md)
+1. All on-premises machines need to use the same private endpoint by resolving the correct private endpoint information (FQDN record name and private IP address) using the same DNS forwarder. For more information, see [Azure Private Endpoint DNS configuration](../../private-link/private-endpoint-dns.md)
 
 1. The Azure Arc enabled machine or server, Azure Arc Private Link Scope, and virtual network must be in the same Azure region.
 
@@ -113,7 +113,7 @@ There are two ways you can achieve this:
     |Priority |150 (must be lower than any rules that block Internet access) |151 (must be lower than any rules that block Internet access) |
     |Name |AllowAADOutboundAccess |AllowAzOutboundAccess |
 
-1. Configure the firewall on your local network to allow outbound TCP 443 (HTTPS) access to Azure AD and Azure using the downloadable service tag files. The JSON file contains all the public IP address ranges used by Azure AD and Azure and is updated monthly to reflect any changes. Azure ADs service tag is `AzureActiveDirectory` and Azure's service tag is `AzureResourceManager`. You need to consult with your network admin and network firewall vendor to learn how to configure your firewall rules.
+1. Configure the firewall on your local network to allow outbound TCP 443 (HTTPS) access to Azure AD and Azure using the downloadable service tag files. The JSON file contains all the public IP address ranges used by Azure AD and Azure and is updated monthly to reflect any changes. Azure ADs service tag is `AzureActiveDirectory` and Azure's service tag is `AzureResourceManager`. Consult with your network administrator and network firewall vendor to learn how to configure your firewall rules.
 
 See the visual diagram under the section [How it works](#how-it-works) for the network traffic flows.
 
@@ -204,13 +204,13 @@ If you opted out of using Azure private DNS zones during private endpoint creati
 
 ### Single server scenarios
 
-If you’re only planning to use Private Links to support a small number of machines or servers, you may not want to update your entire network’s DNS configuration. In this case, you can add the private endpoint hostnames and IP addresses to your operating systems **Hosts** file. Depending on the OS configuration, the Hosts file can be the primary or alternative method for resolving hostname to IP address.
+If you’re only planning to use Private Links to support a few machines or servers, you may not want to update your entire network’s DNS configuration. In this case, you can add the private endpoint hostnames and IP addresses to your operating systems **Hosts** file. Depending on the OS configuration, the Hosts file can be the primary or alternative method for resolving hostname to IP address.
 
 #### Windows
 
 1. Using an account with administrator privileges, open **C:\Windows\System32\drivers\etc\hosts**.
 
-1. Add the private endpoint IPs and hostnames as shown in the table from step 3 under [Manual DNS server configuration](#manual-dns-server-configuration). Note that the hosts file requires the IP address first followed by a space and then the hostname.
+1. Add the private endpoint IPs and hostnames as shown in the table from step 3 under [Manual DNS server configuration](#manual-dns-server-configuration). The hosts file requires the IP address first followed by a space and then the hostname.
 
 1. Save the file with your changes. You may need to save to another directory first, then copy the file to the original path.
 
@@ -218,7 +218,7 @@ If you’re only planning to use Private Links to support a small number of mach
 
 1. Using an account with the **sudoers** privilege, run `sudo nano /etc/hosts` to open the hosts file.
 
-1. Add the private endpoint IPs and hostnames as shown in the table from step 3 under [Manual DNS server configuration](#manual-dns-server-configuration). Note that the hosts file asks for the IP address first followed by a space and then the hostname.
+1. Add the private endpoint IPs and hostnames as shown in the table from step 3 under [Manual DNS server configuration](#manual-dns-server-configuration). The hosts file asks for the IP address first followed by a space and then the hostname.
 
 1. Save the file with your changes.
 
