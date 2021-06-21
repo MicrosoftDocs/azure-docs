@@ -115,18 +115,18 @@ The variables in this command are explained below:
         ```
         >[!Note] 
         >Determine the position and file name from the information obtained in step 6.
-    * If SSL enforcement is enabled, then run the following command:
+    * If SSL enforcement is not enabled, then run the following command:
         ```sql
         CALL mysql.az_replication_change_master('<Primary_server>.mysql.database.azure.com', '=<username>@<primary_server>', '<Password>, 3306, '<File_Name>', <Position>, ‘’);
         ```
 9.	To start replication from the replica server, call the below stored procedure. 
-        ```sql
-        call  mysql.az_replication_start
-        ```
+       ```sql
+        call  mysql.az_replication_start;
+       ```
 10.	To check the replication status, on the replica server, run the following command:
-        ```sql
-        show slave status \G; 
-        ```
+     ```sql
+     show slave status \G; 
+     ```
 >[!Note] 
 >If you are using MySQL Workbench the \G modifier is not required.
 

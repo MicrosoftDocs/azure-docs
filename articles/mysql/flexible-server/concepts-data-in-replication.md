@@ -13,7 +13,9 @@ ms.date: 06/08/2021
 Data-in replication allows you to synchronize data from an external MySQL server into the Azure Database for MySQL Flexible service. The external server can be on-premises, in virtual machines, Azure Database for MySQL Single Server, or a database service hosted by other cloud providers. Data-in replication is based on the binary log (binlog) file position-based. To learn more about binlog replication, see the [MySQL binlog replication overview](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
 
 > [!Note]
-> GTID-based replication is currently not supported for Azure Database for MySQL Flexible Servers. 
+> * GTID-based replication is currently not supported for Azure Database for MySQL Flexible Servers. 
+>
+> * Configuring Data-in replication for zone redundant high availability servers is not supported.
 
 ## When to use Data-in replication
 
@@ -46,7 +48,8 @@ To learn more about this parameter, review the [MySQL documentation](https://dev
 - User must have permissions to configure binary logging and create new users on the source server.
 - If the source server has SSL enabled, ensure the SSL CA certificate provided for the domain has been included in the `mysql.az_replication_change_master` stored procedure. Refer to the following [examples](./how-to-data-in-replication.md#link-source-and-replica-servers-to-start-data-in-replication) and the `master_ssl_ca` parameter.
 - Ensure that the machine hosting the source server allows both inbound and outbound traffic on port 3306.
-- Ensure that the source server has a **public IP address**, that DNS is publicly accessible, or that the source server has a fully qualified domain name (FQDN).
+- In case of public access, ensure that the source server has a public IP address, that DNS is publicly accessible, or that the source server has a fully qualified domain name (FQDN).
+- In case of private access ensure that the source server name can be resolved and is accessible from the VNet where the Azure Database for MySQL instance is running.
 
 ## Next steps
 
