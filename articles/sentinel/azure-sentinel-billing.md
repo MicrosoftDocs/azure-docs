@@ -199,11 +199,11 @@ With ADX, you can store data at a lower price, but still explore the data using 
 
 For more information, see [Integrate Azure Data Explorer for long-term log retention](store-logs-in-azure-data-explorer.md).
 
-#### Use Data Collection Rules for your Windows Security Events
+#### Use data collection rules for your Windows Security Events
 
-The [Windows Security Events connector](https://docs.microsoft.com/en-us/azure/sentinel/connect-windows-security-events?tabs=LAA) lenables you to stream security events from any Windows server that's connected to your Azure Sentinel workspace, including physical, virtual, or on-premises servers, or in any cloud. This connector includes support for the Azure Monitor Agent (AMA), which uses data collection rules (DCR) to define the data to collect from each agent. 
+The [Windows Security Events connector](connect-windows-security-events.md?tabs=LAA) enables you to stream security events from any computer running Windows Server that's connected to your Azure Sentinel workspace, including physical, virtual, or on-premises servers, or in any cloud. This connector includes support for the Azure Monitor agent, which uses data collection rules to define the data to collect from each agent. 
 
-Data collection rules enable you to manage collection settings at scale, while still allowing unique, scoped configurations for subsets of machines. For more information, see [Configure data collection for the Azure Monitor agent](https://docs.microsoft.com/en-us/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent).
+Data collection rules enable you to manage collection settings at scale, while still allowing unique, scoped configurations for subsets of machines. For more information, see [Configure data collection for the Azure Monitor agent](../azure-monitor/agents/data-collection-rule-azure-monitor-agent.md).
 
 Besides for the predefined sets of events that you can select to ingest, such as All events, Minimal, or Common, data collection rules enable you to build custom filters and select specific events to ingest. The Azure Monitor Agent uses these rules to filter the data at the source, and then ingest only the events you've selected, while leaving everything else behind. Selecting specific events to ingest can help you optimize your costs and save more.
 
