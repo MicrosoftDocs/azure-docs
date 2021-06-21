@@ -81,6 +81,8 @@ We recommend that you harden your Azure AD Connect server to decrease the securi
 - Ensure every machine has a unique local administrator password. For more information, see [Local Administrator Password Solution (LAPS)](https://support.microsoft.com/help/3062591/microsoft-security-advisory-local-administrator-password-solution-laps) can configure unique random passwords on each workstation and server store them in Active Directory protected by an ACL. Only eligible authorized users can read or request the reset of these local administrator account passwords. You can obtain the LAPS for use on workstations and servers from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=46899). Additional guidance for operating an environment with LAPS and privileged access workstations (PAWs) can be found in [Operational standards based on clean source principle](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#operational-standards-based-on-clean-source-principle). 
 - Implement dedicated [privileged access workstations](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/) for all personnel with privileged access to your organization's information systems. 
 - Follow these [additional guidelines](/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface) to reduce the attack surface of your Active Directory environment.
+- Follow the [Monitor changes to federation configuration](how-to-connect-monitor-federation-changes.md) to setup alerts for changes bewteen you the trust established between your Idp and Azure AD. 
+
 
 
 ### SQL Server used by Azure AD Connect
