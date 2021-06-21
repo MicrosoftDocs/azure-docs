@@ -1,5 +1,5 @@
 ---
-title: Create and use managed identities in the Azure portal
+title: Create and use managed identities
 titleSuffix: Azure Cognitive Services
 description: Understand how to create and use managed identities in the Azure portal
 author: laujan
