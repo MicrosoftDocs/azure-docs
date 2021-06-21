@@ -14,30 +14,39 @@ ms.author: billmath
 ---
 
 
-# Setup alerts to monitor changes to federation configuration in your Azure AD
+# Monitor changes to federation configuration in your Azure AD
 
 When you federate your on-premises environment with Azure AD, you establish a trust relationship between the on-premises identity provider and Azure AD. 
 
-Due to this established trust, Azure AD honors the security token issued by the on-premises identity provider post authentication to grant access to resources protected by Azure AD. 
+Due to this established trust, Azure AD honors the security token issued by the on-premises identity provider post authentication, to grant access to resources protected by Azure AD. 
 
-Therefore, it is critical that this trust (federation configuration) is monitored closely, and any unusual or suspicious activity is captured. To do so, we recommend setting up alerts and getting notified whenever any changes are made to the federation configuration. This can be done as follows: 
+Therefore, it's critical that this trust (federation configuration) is monitored closely, and any unusual or suspicious activity is captured.
 
-1.  [Configure Azure AD audit logs](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) to flow to an Azure Log Analytics Workspace. 
+To monitor the trust relationship, we recommend you set up alerts to be notified when changes are made to the federation configuration.
+
+
+## Set up alerts to monitor the trust relationship
+
+Follow these steps to set up alerts to monitor the trust relationship:
+
+1. [Configure Azure AD audit logs](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) to flow to an Azure Log Analytics Workspace. 
 2. [Create an alert rule](https://docs.microsoft.com/azure/azure-monitor/alerts/alerts-log) that triggers based on Azure AD log query. 
 3. [Add an action group](https://docs.microsoft.com/azure/azure-monitor/alerts/action-groups) to the alert rule that gets notified when the alert condition is met.  
 
 After the environment is configured, the data flows as follows: 
- 1. Azure AD Logs get populated per the activity in the tenant.  
- 2. The log information flows to the Azure Log Analytics workspace.  
- 3. A background job from Azure Monitor executes the log query based on the configuration of the Alert Rule in the configuration step (2) above.  
- ```
+
+1. Azure AD Logs get populated per the activity in the tenant.  
+2. The log information flows to the Azure Log Analytics workspace.  
+3. A background job from Azure Monitor executes the log query based on the configuration of the Alert Rule in the configuration step (2) above.  
+    ```
      AuditLogs 
      |  extend TargetResource = parse_json(TargetResources) 
      | where ActivityDisplayName contains "Set federation settings on domain" or ActivityDisplayName contains "Set domain authentication" 
      | project TimeGenerated, SourceSystem, TargetResource[0].displayName, AADTenantId, OperationName, InitiatedBy, Result, ActivityDisplayName, ActivityDateTime, Type 
- ```
+     ```
+     
  4. If the result of the query matches the alert logic (that is, the number of results is greater than or equal to 1), then the action group kicks in. Let’s assume that it kicked in, so the flow continues in step 5.  
- 5. Notification sent out to the action group selected while configuring the alert.
+ 5. Notification is sent to the action group selected while configuring the alert.
 
 
 ## Next steps
