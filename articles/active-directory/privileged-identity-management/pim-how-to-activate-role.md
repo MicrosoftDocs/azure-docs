@@ -24,7 +24,7 @@ If you have been made *eligible* for an administrative role, then you must *acti
 
 This article is for administrators who need to activate their Azure AD role in Privileged Identity Management.
 
-## Activate a role for new version
+## Activate a role
 
 When you need to assume an Azure AD role, you can request activation by opening **My roles** in Privileged Identity Management.
 
