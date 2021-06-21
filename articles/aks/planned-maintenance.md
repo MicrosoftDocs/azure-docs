@@ -45,9 +45,9 @@ az extension update --name aks-preview
 To add a maintenance window, you can use the `az aks maintenanceconfiguration add` command.
 
 > [!IMPORTANT]
-> Planned Maintenance windows are specified in Coordinated Universal Time (UTC).
->
 > At this time, you must set `default` as the value for `--name`. Using any other name will cause your maintenance window to not run.
+>
+> Planned Maintenance windows are specified in Coordinated Universal Time (UTC).
 
 ```azurecli-interactive
 az aks maintenanceconfiguration add -g MyResourceGroup --cluster-name myAKSCluster --name default --weekday Monday  --start-hour 1
