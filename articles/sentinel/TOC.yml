@@ -25,6 +25,10 @@
     href: powerbi.md
 - name: Concepts
   items:
+  - name: Prerequisites
+    href: prerequisites.md
+  - name: Best practices
+    href: best-practices.md
   - name: Architecture
     items:
     - name: Roles and permissions

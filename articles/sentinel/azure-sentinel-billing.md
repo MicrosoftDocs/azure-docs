@@ -95,15 +95,19 @@ For data connectors that include both free and paid data types, you can select w
 
 ![Screenshot showing the Data connector page for MCAS, with the free Security Alerts selected and the paid MCASShadowITReporting not selected.](media/billing/data-types.png)
 
+> [!NOTE]
+> Data connectors listed as Public Preview do not generate cost. Data connectors generate cost only once becoming Generally Available.
+>
+
 ## Estimate Azure Sentinel costs
 
 If you're not yet using Azure Sentinel, you can use the [Azure Sentinel pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=azure-sentinel) to estimate the potential cost of using Azure Sentinel. Enter *Azure Sentinel* in the Search box and select the resulting Azure Sentinel tile. The pricing calculator helps you estimate your likely costs based on your expected data ingestion and retention.
 
 For example, you can enter the GB of daily data you expect to ingest in Azure Sentinel, and the region for your workspace. The calculator provides the aggregate monthly cost across these components:
 
-- Log Analytics data ingestion 
-- Azure Sentinel data analysis 
-- Log Analytics data retention 
+- Log Analytics data ingestion
+- Azure Sentinel data analysis
+- Log Analytics data retention
 
 ## Manage Azure Sentinel costs
 
