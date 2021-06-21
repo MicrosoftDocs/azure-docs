@@ -48,7 +48,7 @@ To add a maintenance window, you can use the `az aks maintenanceconfiguration ad
 > Planned Maintenance windows are specified in Coordinated Universal Time (UTC).
 
 > [!IMPORTANT]
-> At this time, planned maintenance only supports having your `--name` as `default`. Using any other name will cause your maintenance window to not run.
+> At this time, you must set `default` as the value for `--name`. Using any other name will cause your maintenance window to not run.
 
 ```azurecli-interactive
 az aks maintenanceconfiguration add -g MyResourceGroup --cluster-name myAKSCluster --name default --weekday Monday  --start-hour 1
