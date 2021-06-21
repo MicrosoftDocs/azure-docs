@@ -1,7 +1,7 @@
 ---
 title: 'Azure private multi-access edge compute'
 description: Learn about the Azure private multi-access edge compute (MEC) solution that brings together a portfolio of Microsoft compute, networking and application services managed from the cloud.
-services: private-multi-access-edge-compute-mec
+
 author: niravi-msft
 ms.service: private-multi-access-edge-compute-mec
 ms.topic: overview
@@ -68,12 +68,7 @@ Fusion Core enables ISVs to deploy applications on the same Azure Stack Edge nod
 **Azure Digital Twins**: Azure Digital Twins enables device sensors to be modeled in their business context considering spatial relationships, usage patterns, and other business context that turns a fleet of devices into a digital replica of a physical asset or environment. For more information, see [Azure Digital Twins](https://azure.microsoft.com/services/digital-twins/).
 
 ## Next steps
-- Learn more about [Metaswitch Fusion Core on Azure](metaswitch-fusion-core-overview.md)
-- Learn more about [Affirmed Private Network Service on Azure](affirmed-private-network-service-overview.md)
-- Learn about the solution architectures supported by Azure private MEC:
-    - [Low-latency network connections for industry](/azure/architecture/solution-ideas/articles/low-latency-network).
-    - [Video capture and analytics for retail](/azure/architecture/solution-ideas/articles/video-analytics).
-    - [IoT device connectivity for healthcare facilities](/azure/architecture/solution-ideas/articles/healthcare-network).
-
+- Learn more about [Metaswitch Fusion Core](metaswitch-fusion-core-overview.md)
+- Learn more about [Affirmed Private Network Service](affirmed-private-network-service-overview.md)
 
 
