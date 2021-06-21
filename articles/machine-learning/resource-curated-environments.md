@@ -24,7 +24,7 @@ This article lists the curated environments in Azure Machine Learning. Curated e
 - AzureML-pytorch-1.7-ubuntu18.04-py37-cuda11-gpu
      - An environment for deep learning with PyTorch containing the AzureML Python SDK and additional python packages.
      - The following Dockerfile can be customized for your personal workflows:
-      ```Dockerfile
+      ```
       FROM mcr.microsoft.com/azureml/openmpi4.1.0-cuda11.0.3-cudnn8-ubuntu18.04:20210615.v1
 
      ENV AZUREML_CONDA_ENVIRONMENT_PATH /azureml-envs/pytorch-1.7
@@ -69,7 +69,7 @@ This article lists the curated environments in Azure Machine Learning. Curated e
 - AzureML-lightgbm-3.2-ubuntu18.04-py37-cpu
      - An environment for machine learning with Scikit-learn, LightGBM, XGBoost, Dask containing the AzureML Python SDK and additional packages.
      - The following Dockerfile can be customized for your personal workflows:
-     ```Dockerfile
+     ```
      FROM mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:20210615.v1
 
      ENV AZUREML_CONDA_ENVIRONMENT_PATH /azureml-envs/lightgbm
@@ -109,7 +109,7 @@ This article lists the curated environments in Azure Machine Learning. Curated e
 - AzureML-sklearn-0.24-ubuntu18.04-py37-cuda11-gpu
      - An environment for tasks such as regression, clustering, and classification with Scikit-learn. Contains the AzureML Python SDK and additional python packages.
      - The following Dockerfile can be customized for your personal workflows:
-     ```Dockerfile
+     ```
      FROM mcr.microsoft.com/azureml/openmpi4.1.0-cuda11.0.3-cudnn8-ubuntu18.04:20210615.v1
 
      ENV AZUREML_CONDA_ENVIRONMENT_PATH /azureml-envs/sklearn-0.24.1
@@ -142,7 +142,7 @@ This article lists the curated environments in Azure Machine Learning. Curated e
 - AzureML-tensorflow-2.4-ubuntu18.04-py37-cuda11-gpu
      - An environment for deep learning with Tensorflow containing the AzureML Python SDK and additional python packages.
      - The following Dockerfile can be customized for your personal workflows:
-     ```Dockerfile
+     ```
      FROM mcr.microsoft.com/azureml/openmpi4.1.0-cuda11.0.3-cudnn8-ubuntu18.04:20210615.v1
 
      ENV AZUREML_CONDA_ENVIRONMENT_PATH /azureml-envs/tensorflow-2.4
