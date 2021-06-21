@@ -37,11 +37,11 @@ First you'll deprovision the VM by using the Azure VM agent to delete machine-sp
 
 The the VM needs to be marked as generalized on the platform. 
 
-    ```azurecli-interactive
-    az vm generalize \
-        --resource-group myResourceGroup \
-        --name myVM
-    ```
+```azurecli-interactive
+az vm generalize \
+   --resource-group myResourceGroup \
+   --name myVM
+```
 
 ## Windows 
 
@@ -52,7 +52,7 @@ Make sure the server roles running on the machine are supported by Sysprep. For 
 > [!IMPORTANT]
 > After you have run Sysprep on a VM, that VM is considered *generalized* and cannot be restarted. The process of generalizing a VM is not reversible. If you need to keep the original VM functioning, you should create a [copy of the VM](./windows/create-vm-specialized.md#option-3-copy-an-existing-azure-vm) and generalize its copy. 
 >
->Sysprep requires the drives to be fully decrypted. If you have enabled encryption on your VM, disable encryption before you run Sysprep.
+> Sysprep requires the drives to be fully decrypted. If you have enabled encryption on your VM, disable encryption before you run Sysprep.
 >
 > If you plan to run Sysprep before uploading your virtual hard disk (VHD) to Azure for the first time, make sure you have [prepared your VM](./windows/prepare-for-upload-vhd-image.md).  
 > 
@@ -72,7 +72,7 @@ To generalize your Windows VM, follow these steps:
    
 6. Select **OK**.
    
-    ![Start Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
+    :::image type="content" source="windows/media/upload-generalized-managed/sysprepgeneral.png" alt-text="![Start Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)":::
 
 6. When Sysprep completes, it shuts down the VM. Do not restart the VM.
 
@@ -90,6 +90,6 @@ To generalize your Windows VM, follow these steps:
 
 Once Sysprep has finished, set the status of the virtual machine to **Generalized**.
    
-    ```azurepowershell-interactive
-    Set-AzVm -ResourceGroupName $rgName -Name $vmName -Generalized
-	```
+```azurepowershell-interactive
+Set-AzVm -ResourceGroupName $rgName -Name $vmName -Generalized
+```
