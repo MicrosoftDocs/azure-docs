@@ -1,6 +1,6 @@
 ---
 title: Build large-scale data copy pipelines with metadata-driven approach in copy data tool 
-description: 'Provides information about the metadata-driven approach in copy data tool in Azure Data Factory UI'
+description: 'Provides information about the metadata-driven approach in ADF copy data tool'
 author: dearandyxu
 
 ms.service: data-factory
@@ -15,7 +15,7 @@ When you want to copy huge amounts of objects (for example, thousands of tables)
 
 Copy data tool in ADF eases the journey of building such metadata driven data copy pipelines. After you go through an intuitive flow from a wizard-based experience, the tool can generate parameterized pipelines and SQL scripts for you to create external control tables accordingly. After you run the generated scripts to create the control table in your SQL database, your pipelines will read the metadata from the control table and apply them on the copy jobs automatically.
 
-## Create metadata-driven jobs from copy data tool
+## Create metadata-driven copy jobs from copy data tool
 
 1. Select **Metadata-driven copy task** in copy data tool.
 
@@ -50,7 +50,7 @@ Copy data tool in ADF eases the journey of building such metadata driven data co
 
    You will see two SQL scripts.
    
-    - The first SQL script is used to create two control tables. The main control table stores the table list, file path and copy behaviors. The connection control table stores the connection value of your data store if you used parameterized linked service.  
+    - The first SQL script is used to create two control tables. The main control table stores the table list, file path or copy behaviors. The connection control table stores the connection value of your data store if you used parameterized linked service.  
     - The second SQL script is used to create a store procedure. It is used to update the watermark value in main control table when the incremental copy jobs complete every time. 
 
 8. Open **SSMS** to connect to your control table server, and run the two SQL scripts to create control tables and store procedure.
@@ -66,8 +66,8 @@ Copy data tool in ADF eases the journey of building such metadata driven data co
    ![Query control table script2](./media/copy-data-tool-metadata-driven/query-connection-control-table.png)
 
 10. Go back to ADF portal to view and debug pipelines. You will see a folder created by naming "MetadataDrivenCopyTask_###_######". **Click** the pipeline naming with "MetadataDrivenCopyTask_###_TopLevel" and click **debug run**. 
-   
-   You are required to input the following parameters:
+
+    You are required to input the following parameters:
    
    | Parameters name | Description | 
    |:--- |:--- |
@@ -83,7 +83,7 @@ Copy data tool in ADF eases the journey of building such metadata driven data co
    ![Enable trigger](./media/copy-data-tool-metadata-driven/enable-trigger.png)
 
 
-## Update control table from copy data tool
+## Update control table by copy data tool
 You can always directly update the control table by adding or removing the object to be copied or changing the copy behavior for each table. We also create UI experience in copy data tool to ease the journey of editing the control table.
 
 1. Right-click the top-level pipeline: **MetadataDrivenCopyTask_xxx_TopLevel**, and then select **Edit control table**.
@@ -104,7 +104,7 @@ You can always directly update the control table by adding or removing the objec
 ## Control tables
 
 ### Main control table
-Each row in control table contains the metadata for one object (for example, one table) to be copied 
+Each row in control table contains the metadata for one object (for example, one table) to be copied.
 
 | Column name | Description | 
 |:--- |:--- |
