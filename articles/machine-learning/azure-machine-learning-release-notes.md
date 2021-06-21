@@ -33,8 +33,6 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
     + Prevent flush task queue error on remote AzureML runs that use ExplanationClient by increasing timeout
   + **azureml-pipeline-core**
     + Add jar parameter to synapse step
-  + **azureml-pipeline-steps**
-    + Add jar parameter to synapse step
   + **azureml-train-automl-runtime**
     + Fix high cardinality guardrails to be more aligned with docs
 
