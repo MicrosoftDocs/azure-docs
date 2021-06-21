@@ -120,3 +120,32 @@ Use the following command to get real time logs from the App to verify the app i
 az spring-cloud app logs -n hello-world -s <service instance name> -g <resource group name> --lines 100 -f
 ```
 
+## Assign public endpoint
+
+To test the application, send an HTTP request to the your application from a browser. To do that, you need a public endpoint for the request.
+
+1. To assign the endpoint, run the following command.
+
+   ```
+   az spring-cloud app update -n <app-name> --assign-endpoint true
+   ```
+
+2. To get the URL of the endpoint, run the following command.
+
+   Windows:
+
+   ```azcli
+   az spring-cloud app show -n <app-name> -o table
+   ```
+
+   Linux:
+
+   ```azcli
+   az spring-cloud app show --name <app-name> | grep url
+   ```
+
+> [!TIP]
+>
+> In current stage, http traffic between custom container apps or between custom container apps and spring apps should go through public endpoints assigned to the apps.
+>
+> This also applies to blue-green scenarios, custom container is not accessible through eureka but only public endpoints.
