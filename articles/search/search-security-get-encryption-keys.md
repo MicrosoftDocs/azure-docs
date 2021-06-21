@@ -12,9 +12,9 @@ ms.date: 06/21/2021
 ms.custom: devx-track-azurepowershell
 ---
 
-# Finding encrypted objects and information
+# Find encrypted objects and information
 
-In Azure Cognitive Search, customer-managed encryption keys are created, stored, and managed in Azure Key Vault. If you need to determine whether an object is encrypted, or what key name or version was used, use the REST API or an SDK to retrieve the **encryptionKey** property from an index or synonym map definition. 
+In Azure Cognitive Search, customer-managed encryption keys are created, stored, and managed in Azure Key Vault. If you need to determine whether an object is encrypted, or what key name or version was used, use the REST API or an Azure SDK to retrieve the **encryptionKey** property from an index or synonym map definition. 
 
 We recommend that you [enable logging](../key-vault/general/logging.md) on Key Vault so that you can monitor key usage.
 
@@ -34,7 +34,7 @@ Objects that are not encrypted with a customer-managed key will have an empty **
 
 The **encryptionKey** construct is the same for all encrypted objects.
 
-## 1 - Get the admin API key
+## Get the admin API key
 
 To retrieve object definitions from a search service, you will need to authenticate the request with admin rights. The easiest way to get the admin API key is through the portal.
 
@@ -44,9 +44,9 @@ To retrieve object definitions from a search service, you will need to authentic
 
 For the remaining steps, switch to PowerShell and the REST API. The portal does not show synonym maps, nor the encryption key properties of indexes.
 
-## 2 - Retrieve object properties
+## Retrieve object properties
 
-Use PowerShell and REST to run the following commands to set up the variables and get object definitions.
+Use PowerShell and REST to run the following commands to set up the variables and get object definitions. You can also use the Azure SDKs for [.NET](/dotnet/api/azure.search.documents.indexes.searchindexclient.getindexes), [Python](/python/api/azure-search-documents/azure.search.documents.indexes.searchindexclient), [JavaScript](/javascript/api/@azure/search-documents/searchindexclien), and [Java](/java/api/com.azure.search.documents.indexes.searchindexclient.getindex).
 
 ```powershell
 <# Connect to Azure #>

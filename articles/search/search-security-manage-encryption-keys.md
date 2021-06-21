@@ -1,5 +1,5 @@
 ---
-title:  Encryption-at-rest using customer-managed keys
+title:  Encrypt data using customer-managed keys
 titleSuffix: Azure Cognitive Search
 description: Supplement server-side encryption over indexes and synonym maps in Azure Cognitive Search using keys that you create and manage in Azure Key Vault.
 
