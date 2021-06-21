@@ -2,11 +2,11 @@
 title: "Tutorial: Deploy server-rendered Nuxt.js websites on Azure Static Web Apps"
 description: "Generate and deploy Nuxt.js dynamic sites with Azure Static Web Apps."
 services: static-web-apps
-author: christiannwamba
+author: georgewallace
 ms.service: static-web-apps
 ms.topic:  tutorial
 ms.date: 05/08/2020
-ms.author: chnwamba
+ms.author: gwallace
 ms.custom: devx-track-js
 ---
 
