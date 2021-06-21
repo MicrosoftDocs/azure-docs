@@ -1,0 +1,68 @@
+---
+title:  Using DICOMweb&trade;Standard APIs with DICOM Services 
+description: In this tutorial, you'll learn how to use DICOMweb&trade;Standard APIs with the DICOM Services. 
+author: stevewohl
+ms.service: healthcare-apis
+ms.subservice: fhir
+ms.topic: tutorial
+ms.date: 06/21/2021
+ms.author: aersoy
+---
+
+# Using DICOMweb&trade;Standard APIs with DICOM Services
+
+This tutorial provides an overview of how to use the DICOMweb&trade; Standard APIs with the DICOM Services.
+
+The DICOM Services supports a subset of the DICOMweb&trade; Standard. This support includes:
+
+* Store (STOW-RS)
+* Retrieve (WADO-RS)
+* Search (QIDO-RS)
+
+Additionally, the following non-standard API(s) are supported:
+
+* Delete
+* Change Feed
+
+To learn more about our support of the DICOM Web Standard APIs, see the [DICOM Conformance Statement](dicom-conformance-statement.md) reference document.
+
+## Prerequisites
+
+To use the DICOMweb&trade; Standard APIs, you must have an instance of the DICOM Services deployed. If you haven't already deployed an instance of the DICOM Services, see [Deploy DICOM Services using the Azure portal](deploy-dicom-services-in-azure.md).
+
+## Overview of various methods to use with DICOM Services
+
+Because the DICOM Services is exposed as a REST API, you can access it using any modern development language. For language-agnostic information on working with the service, see [DICOM Conformance Statement](dicom-conformance-statement.md).
+
+To see language-specific examples, refer to the examples below. If you open the Postman Collection, you can view examples in several languages including Go, Java, JavaScript, C#, PHP, C, NodeJS, Objective-C, OCaml, PowerShell, Python, Ruby, and Swift.
+
+### C#
+
+The C# examples use the library included in this repo to simplify access to the API. Refer to the [C# examples](../tutorials/use-dicom-web-standard-apis-with-c%23.md) to learn how to use C# with the Medical Imaging Server for DICOM.
+
+### cURL
+
+cURL is a common command-line tool for calling web endpoints that is available for nearly any operating system. [Download cURL](https://curl.haxx.se/download.html) to get started. To use the examples, you'll need to replace the server name with your instance name, and download the [example DICOM files](../dcms) in this repo to a known location on your local file system. Refer to the [cURL examples](../tutorials/use-dicom-web-standard-apis-with-curl.md) to learn how to use cURL with the Medical Imaging Server for DICOM.
+
+### Postman
+
+Postman is an excellent tool for designing, building, and testing REST APIs. [Download Postman](https://www.postman.com/downloads/) to get started. You can learn how to effectively use Postman at the [Postman learning site](https://learning.postman.com/).
+
+One important caveat with Postman and the DICOMweb&trade; Standard is that Postman can only support uploading DICOM files using the single part payload defined in the DICOM standard. This reason is because Postman cannot support custom separators in a multipart/related POST request. For more information, see [Multipart POST not working for me # 576](https://github.com/postmanlabs/postman-app-support/issues/576). Thus, all examples in the Postman collection for uploading DICOM documents using a multipart request are prefixed with [will not work - see description]. The examples for uploading using a single part request are included in the collection and are prefixed with "Store-Single-Instance".
+
+To use the Postman collection, you'll need to download the collection locally and import the collection through Postman. To access this collection, see [Postman Collection Examples](https://github.com/microsoft/dicom-server/blob/main/docs/resources/Conformance-as-Postman.postman_collection.json).
+
+## Summary
+
+This tutorial provided an overview of the APIs supported by the DICOM Service. Get started using these APIs with the following tools:
+
+- [Use DICOM Web Standard APIs with C#](../tutorials/use-dicom-web-standard-apis-with-c%23.md)
+- [Use DICOM Web Standard APIs with cURL](../tutorials/use-dicom-web-standard-apis-with-curl.md)
+- [Use DICOM Web Standard APIs with Postman Example Collection](../resources/Conformance-as-Postman.postman_collection.json)
+
+### Next Steps
+
+For more information about DICOM Services, see 
+
+>[!div class="nextstepaction"]
+>[Overview of DICOM Services](concepts_dicom_overview.md)

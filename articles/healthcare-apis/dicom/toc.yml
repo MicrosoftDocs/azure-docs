@@ -5,4 +5,38 @@ items:
   expanded: true
   items:
     - name: About DICOM service
-      href: dicom-overview.md
+      href: dicom-services-overview.md
+- name: Quickstarts
+  expanded: true
+  items:
+    - name: Deploy DICOM Services using the Azure portal
+      href: deploy-dicom-services-in-azure.md
+- name: Tutorials
+  expanded: true
+  items:
+    - name: Using DICOMweb Standard APIs with C#
+      href: dicomweb-standard-apis-c-sharp.md
+    - name: Using DICOMweb Standard APIs with cURL
+      href: dicomweb-standard-apis-curl.md
+    - name: Using DICOMweb Standard APIs with Python
+      href: dicomweb-standard-apis-python.md
+- name: Concepts
+  expanded: true
+  items:
+    - name: Using DICOMweb Standard APIs with DICOM Services
+      href: dicomweb-standard-apis-with-dicom-services.md
+    - name: Change Feed Overview
+      href: overview-dicom-change-feed.md
+- name: How-to guides
+  expanded: true
+  items:
+    - name: Pull DICOM changes using the Change Feed
+      href: pull-dicom-changes-from-change-feed.md
+- name: Resources
+  expanded: true
+  items:
+    - name: DICOM Conformance Statement
+      href: dicom-services-conformance-statement.md
+    - name: DICOM Services FAQs
+      href: dicom-services-faqs.yml
+
