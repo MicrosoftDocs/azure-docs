@@ -19,9 +19,9 @@ ms.date: 06/20/2021
  
     - 4C CPU
     
-    - 8 gb ram
+    - 8-GB ram
     
-    - 250 gig HDD
+    - 250 GB HDD
     
     - 2 vNICs
     
@@ -33,7 +33,7 @@ ms.date: 06/20/2021
     
     - **VM** - Connect a vNIC to a vSwitch in promiscuous mode.
     
-1. Run `ipconfig` every minute, for 3 minutes, to ensure data is streaming. You will know it is running appropriately if the number of RX packets increases each time. Repeat this step for each interface you have. 
+1. Run `ipconfig` every minute, for 3 minutes, to ensure data is streaming. The system is running appropriately if the number of RX packets increases each time. Repeat this step for each interface you have. 
 
 **Configure an Azure instance**:
 
@@ -42,11 +42,11 @@ Purchase, and set up an EIoT Hub. The minimum size needed is the smallest hub ($
 > [!Note]
 > Due to GDPR regulations, EU customers must set their instances to the EU **Europe West** cloud. Any customer outside of the EU, should set their instance to US **US East** cloud.
 
-Onboard a new subscription, and provide the subscription ID to your ADIoT contact to ensure it will not be billed.
+Onboard a new subscription, and provide the subscription ID to your ADIoT contact to ensure you will not be billed.
 
 ## Onboard a new subscription
 
-Even if you already have a subscription with Azure Defender for IoT, it is create and onboard a new subscription.
+Create, and onboard a new subscription, even if you already have a current subscription with Azure Defender for IoT.
 
 **To onboard a new subscription**:
 
@@ -71,9 +71,10 @@ Onboard a new sensor for this scenario.
 
 1. Navigate to the [Azure portal](https://ms.portal.azure.com/?enterpriseiot=true#home)
 
-1. On the getting started page select **Onboard sensor**.
+1. Select **Onboard sensor**.
 
     :::image type="content" source="media/eiot-deployment/onboard-sensor.png" alt-text="On the Getting Started page select Onboard sensor.":::
+
 1. Enter a name for your sensor.
 1. Select your subscription.
 1. For the Deploy for field, select **An enterprise network**.
@@ -85,11 +86,11 @@ Onboard a new sensor for this scenario.
 1. Select **Finish**.
 
 1. (Optional) If you have a firewall enabled, you must open up port 443 to allow the service to operate. 
-1. (Optional) If you are using a proxy environment, you will need to get your credentials and set the proxy to allow a connection to Azure. Proxies without passwords are not currently supported.
+1. (Optional) If you are using a proxy environment, enter your credentials, and set the proxy to allow a connection to Azure. Proxies without passwords are not supported.
 
 ## Install the sensor
 
-You will need to download a package and place it in the home directory.
+You will need to download a package, and move it in the home directory.
 
 1. Download the [package](https://eiotdsretemp.blob.core.windows.net/files/eiot-89cbc08bbc.deb?sp=r&st=2021-06-16T13:56:00Z&se=2021-06-16T18:56:00Z&spr=https&sv=2020-02-10&sr=b&sig=G0AStF9o1gJ3wEhCEWW7nu2hKz2q%2B4usYTen33T5Q4E%3D).
 
@@ -127,9 +128,9 @@ You will need to download a package and place it in the home directory.
 
 1. (Optional) If you are using a proxy, select **Yes**, and enter a server, port, username, and password for the proxy.
 
-1. If you are not using a proxy select **No**.
+    Select **No**, if you are not using a proxy.
 
-Once the installation finishes, you will test the validation.
+After the installation completes, you will test the validation.
 
 ## Validate your setup
 
@@ -152,7 +153,7 @@ Once the installation finishes, you will test the validation.
 
 1. Monitor port validation.
 
-    1. Run the `ipconfig` command every minute, for 3 minutes, to ensure data is streaming. You will know it is running appropriately if the number of RX packets increases each time. Repeat this step for each interface you have.
+    1. Run the `ipconfig` command every minute, for 3 minutes, to ensure data is streaming. The system is running appropriately if the number of RX packets increases each time. Repeat this step for each interface you have.
 
     1. Run the following command to see which interface is defined to handle port mirroring.
 
@@ -166,9 +167,9 @@ Once the installation finishes, you will test the validation.
     ```bash
     sudo docker logs -f compose_attributes-collector_1
     ```
-    You will know it is acting correctly if large numbers of messages are being sent tto the cloud. For example, `Sending 100000 messages to eventHub`.
+    You will know it is acting correctly if large numbers of messages are being sent to the cloud. For example, `Sending 100000 messages to eventHub`.
 
-1. Remove the senor using the following command,
+1. Remove the sensor using the following command,
 
     ```bash
     sudo apt purge -y adiot-sensor
