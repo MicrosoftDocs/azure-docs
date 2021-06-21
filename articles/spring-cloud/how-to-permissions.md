@@ -36,10 +36,11 @@ The developer role includes permissions to restart apps and see their log stream
 
 Follow these steps to start defining a role.
 
-1. In the Azure portal, open the subscription and resource group where you want the custom role to be assignable.
+1. In the Azure portal, open the subscription where you want the custom role to be assignable.
 2. Open **Access control (IAM)**.
 3. Click **+ Add**.
 4. Click **Add custom role**.
+#### [Portal](#tab/Azure-portal)
 5. Click **Next**.
 
    ![Create custom role](media/spring-cloud-permissions/create-custom-role.png)
@@ -92,6 +93,58 @@ From **Microsoft.AppPlatform/locations/operationStatus/operationId**, select:
 
 9. Click **Add**.
 
+#### [JSON](#tab/JSON)
+5. Click **Next**.
+
+6. Click the **JSON** tab.
+
+7. Click **Edit**, and delete the default text.
+
+   ![Edit custom role](media/spring-cloud-permissions/create-custom-role-edit-json.png)
+
+8. Paste the following JSON to define the Developer role.
+
+   ![Create custom role](media/spring-cloud-permissions/create-custom-role-json.png)
+
+```json
+{
+  "properties": {
+    "roleName": "Developer",
+    "description": "",
+    "assignableScopes": [
+      "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    ],
+    "permissions": [
+      {
+        "actions": [
+          "Microsoft.AppPlatform/Spring/write",
+          "Microsoft.AppPlatform/Spring/read",
+          "Microsoft.AppPlatform/Spring/listTestKeys/action",
+          "Microsoft.AppPlatform/Spring/apps/read",
+          "Microsoft.AppPlatform/Spring/apps/getResourceUploadUrl/action",
+          "Microsoft.AppPlatform/Spring/apps/bindings/read",
+          "Microsoft.AppPlatform/Spring/apps/domains/read",
+          "Microsoft.AppPlatform/Spring/apps/deployments/write",
+          "Microsoft.AppPlatform/Spring/apps/deployments/read",
+          "Microsoft.AppPlatform/Spring/apps/deployments/start/action",
+          "Microsoft.AppPlatform/Spring/apps/deployments/stop/action",
+          "Microsoft.AppPlatform/Spring/apps/deployments/restart/action",
+          "Microsoft.AppPlatform/Spring/apps/deployments/getLogFileUrl/action",
+          "Microsoft.AppPlatform/Spring/certificates/read",
+          "Microsoft.AppPlatform/locations/operationResults/Spring/read",
+          "Microsoft.AppPlatform/locations/operationStatus/operationId/read"
+        ],
+        "notActions": [],
+        "dataActions": [],
+        "notDataActions": []
+      }
+    ]
+  }
+}
+```
+9. Click **Save**.
+---
+
 10. Review the permissions.
 
 11. Click **Review and create**.
@@ -99,7 +152,10 @@ From **Microsoft.AppPlatform/locations/operationStatus/operationId**, select:
 ## Define DevOps engineer role
 This procedure defines a role with permissions to deploy, test, and restart Azure Spring Cloud apps.
 
-1. Repeat the procedure to navigate subscription, resource group,and access Access control (IAM).
+1. Repeat the procedure to navigate subscription and access Access control (IAM).
+
+#### [Portal](#tab/Azure-portal)
+
 2. Select the permissions for the DevOps engineer role:
 
 From **Microsoft.AppPlatform/Spring**, select:
@@ -155,10 +211,74 @@ From **Microsoft.AppPlatform/skus**, select:
 
 5. Click **Review and create**.
 
+#### [JSON](#tab/JSON)
+
+2. Click **Next**.
+
+3. Click the **JSON** tab.
+
+4. Click **Edit**, and delete the default text.
+
+   ![Edit custom role](media/spring-cloud-permissions/create-custom-role-edit-json.png)
+
+5. Paste the following JSON to define the DevOps engineer role.
+
+```json
+{
+  "properties": {
+    "roleName": "DevOps engineer",
+    "description": "",
+    "assignableScopes": [
+      "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    ],
+    "permissions": [
+      {
+        "actions": [
+          "Microsoft.AppPlatform/Spring/write",
+          "Microsoft.AppPlatform/Spring/delete",
+          "Microsoft.AppPlatform/Spring/read",
+          "Microsoft.AppPlatform/Spring/enableTestEndpoint/action",
+          "Microsoft.AppPlatform/Spring/disableTestEndpoint/action",
+          "Microsoft.AppPlatform/Spring/listTestKeys/action",
+          "Microsoft.AppPlatform/Spring/regenerateTestKey/action",
+          "Microsoft.AppPlatform/Spring/apps/write",
+          "Microsoft.AppPlatform/Spring/apps/delete",
+          "Microsoft.AppPlatform/Spring/apps/read",
+          "Microsoft.AppPlatform/Spring/apps/getResourceUploadUrl/action",
+          "Microsoft.AppPlatform/Spring/apps/validateDomain/action",
+          "Microsoft.AppPlatform/Spring/apps/bindings/write",
+          "Microsoft.AppPlatform/Spring/apps/bindings/delete",
+          "Microsoft.AppPlatform/Spring/apps/bindings/read",
+          "Microsoft.AppPlatform/Spring/apps/deployments/write",
+          "Microsoft.AppPlatform/Spring/apps/deployments/delete",
+          "Microsoft.AppPlatform/Spring/apps/deployments/read",
+          "Microsoft.AppPlatform/Spring/apps/deployments/start/action",
+          "Microsoft.AppPlatform/Spring/apps/deployments/stop/action",
+          "Microsoft.AppPlatform/Spring/apps/deployments/restart/action",
+          "Microsoft.AppPlatform/Spring/apps/deployments/getLogFileUrl/action",
+          "Microsoft.AppPlatform/Spring/apps/deployments/skus/read",
+          "Microsoft.AppPlatform/locations/checkNameAvailability/action",
+          "Microsoft.AppPlatform/locations/operationResults/Spring/read",
+          "Microsoft.AppPlatform/locations/operationStatus/operationId/read",
+          "Microsoft.AppPlatform/skus/read"
+        ],
+        "notActions": [],
+        "dataActions": [],
+        "notDataActions": []
+      }
+    ]
+  }
+}
+```
+6. Review the permissions.
+
+7. Click **Review and create**.
+---
 ## Define Ops - Site Reliability Engineering role
 This procedure defines a role with permissions to deploy, test, and restart Azure Spring Cloud apps.
 
-1. Repeat the procedure to navigate subscription, resource group,and access Access control (IAM).
+1. Repeat the procedure to navigate subscription and access Access control (IAM).
+#### [Portal](#tab/Azure-portal)
 
 2. Select the permissions for the Ops - Site Reliability Engineering role:
 
@@ -189,10 +309,58 @@ From **Microsoft.AppPlatform/locations/operationStatus/operationId**, select:
 
 5. Click **Review and create**.
 
-## Define Azure Pipelines/Provisioning role
-This Jenkins/GitHub Actions role can create and configure everything in Azure Spring Cloud and apps with a service instance. This role is for releasing or deploying code.
+#### [JSON](#tab/JSON)
 
-1. Repeat the procedure to navigate subscription, resource group, and access Access control (IAM).
+2. Click **Next**.
+
+3. Click the **JSON** tab.
+
+4. Click **Edit**, and delete the default text.
+
+   ![Edit custom role](media/spring-cloud-permissions/create-custom-role-edit-json.png)
+
+5. Paste the following JSON to define the Ops - Site Reliability Engineering role.
+ 
+```json
+{
+  "properties": {
+    "roleName": "Ops - Site Reliability Engineering",
+    "description": "",
+    "assignableScopes": [
+      "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    ],
+    "permissions": [
+      {
+        "actions": [
+          "Microsoft.AppPlatform/Spring/read",
+          "Microsoft.AppPlatform/Spring/listTestKeys/action",
+          "Microsoft.AppPlatform/Spring/apps/read",
+          "Microsoft.AppPlatform/Spring/apps/deployments/read",
+          "Microsoft.AppPlatform/Spring/apps/deployments/start/action",
+          "Microsoft.AppPlatform/Spring/apps/deployments/stop/action",
+          "Microsoft.AppPlatform/Spring/apps/deployments/restart/action",
+          "Microsoft.AppPlatform/Spring/apps/deployments/getLogFileUrl/action",
+          "Microsoft.AppPlatform/locations/operationResults/Spring/read",
+          "Microsoft.AppPlatform/locations/operationStatus/operationId/read"
+        ],
+        "notActions": [],
+        "dataActions": [],
+        "notDataActions": []
+      }
+    ]
+  }
+}
+```
+6. Review the permissions.
+
+7. Click **Review and create**.
+---
+## Define Azure Pipelines/Provisioning role
+
+This Jenkins/Github Actions role can create and configure everything in Azure Spring Cloud and apps with a service instance. This role is for releasing or deploying code.
+
+1. Repeat the procedure to navigate subscription and access Access control (IAM).
+#### [Portal](#tab/Azure-portal)
 
 2. Open the **Permissions** options.
 
@@ -250,8 +418,68 @@ From **Microsoft.AppPlatform/skus**, select:
 5. Review the permissions.
 
 6. Click **Review and create**.
+#### [JSON](#tab/JSON)
 
+2. Click **Next**.
 
+3. Click the **JSON** tab.
+
+4. Click **Edit**, and delete the default text.
+
+   ![Edit custom role](media/spring-cloud-permissions/create-custom-role-edit-json.png)
+
+5. Paste the following JSON to define the Azure Pipelines/Provisioning role.
+
+```json
+{
+  "properties": {
+    "roleName": "Azure Pipelines/Provisioning",
+    "description": "",
+    "assignableScopes": [
+      "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    ],
+    "permissions": [
+      {
+        "actions": [
+          "Microsoft.AppPlatform/Spring/write",
+          "Microsoft.AppPlatform/Spring/delete",
+          "Microsoft.AppPlatform/Spring/read",
+          "Microsoft.AppPlatform/Spring/enableTestEndpoint/action",
+          "Microsoft.AppPlatform/Spring/disableTestEndpoint/action",
+          "Microsoft.AppPlatform/Spring/listTestKeys/action",
+          "Microsoft.AppPlatform/Spring/regenerateTestKey/action",
+          "Microsoft.AppPlatform/Spring/apps/write",
+          "Microsoft.AppPlatform/Spring/apps/delete",
+          "Microsoft.AppPlatform/Spring/apps/read",
+          "Microsoft.AppPlatform/Spring/apps/getResourceUploadUrl/action",
+          "Microsoft.AppPlatform/Spring/apps/validateDomain/action",
+          "Microsoft.AppPlatform/Spring/apps/bindings/write",
+          "Microsoft.AppPlatform/Spring/apps/bindings/delete",
+          "Microsoft.AppPlatform/Spring/apps/bindings/read",
+          "Microsoft.AppPlatform/Spring/apps/deployments/write",
+          "Microsoft.AppPlatform/Spring/apps/deployments/delete",
+          "Microsoft.AppPlatform/Spring/apps/deployments/read",
+          "Microsoft.AppPlatform/Spring/apps/deployments/start/action",
+          "Microsoft.AppPlatform/Spring/apps/deployments/stop/action",
+          "Microsoft.AppPlatform/Spring/apps/deployments/restart/action",
+          "Microsoft.AppPlatform/Spring/apps/deployments/getLogFileUrl/action",
+          "Microsoft.AppPlatform/skus/read",
+          "Microsoft.AppPlatform/locations/checkNameAvailability/action",
+          "Microsoft.AppPlatform/locations/operationResults/Spring/read",
+          "Microsoft.AppPlatform/locations/operationStatus/operationId/read"
+        ],
+        "notActions": [],
+        "dataActions": [],
+        "notDataActions": []
+      }
+    ]
+  }
+}
+```
+6. Click **Add**.
+
+7. Review the permissions.
+---
 ## See also
 * [Create or update Azure custom roles using the Azure portal](../role-based-access-control/custom-roles-portal.md)
 

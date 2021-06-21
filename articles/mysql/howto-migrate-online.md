@@ -5,20 +5,21 @@ author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
-ms.date: 10/30/2020
+ms.date: 6/19/2021
 ---
 
 # Minimal-downtime migration to Azure Database for MySQL
+
 [!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
 
-You can perform MySQL migrations to Azure Database for MySQL with minimal downtime by using data-in replication. This functionality limits the amount of downtime that is incurred by the application.
+You can perform MySQL migrations to Azure Database for MySQL with minimal downtime by using Data-in replication, which limits the amount of downtime that is incurred by the application.
 
 You can also refer to [Database Migration Guide](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide) for detailed information and use cases about migrating databases to Azure Database for MySQL. This guide provides guidance that will lead the successful planning and execution of a MySQL migration to Azure.
 
 ## Overview
-For minimal downtime migrations, data-in replication, which relies on binlog based replication can be leveraged. Data-in replication is preferred for minimal downtime migrations by hands-on experts looking for control over migration. See [data-in replication](concepts-data-in-replication.md) for details.
+
+Using Data-in replication, you can configure the source as your primary and the target as your replica, so that there's continuous synching of any new transactions to Azure while the application remains running. After the data catches up on the target Azure side, you stop the application for a brief moment (minimum downtime), wait for the last batch of data (from the time you stop the application until the application is effectively unavailable to take any new traffic) to catch up in the target, and then update your connection string to point to Azure. When you're finished, your application will be live on Azure!
 
 ## Next steps
+
 - For more information about migrating databases to Azure Database for MySQL, see the [Database Migration Guide](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide).
-- View the video [Easily migrate MySQL/PostgreSQL apps to Azure managed service](https://medius.studios.ms/Embed/Video/THR2201?sid=THR2201), which contains a demo showing how to migrate MySQL apps to Azure Database for MySQL.
-- See the tutorial [Migrate MySQL to Azure Database for MySQL offline using DMS](../dms/tutorial-mysql-azure-mysql-offline-portal.md).
