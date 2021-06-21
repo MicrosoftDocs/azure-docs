@@ -59,7 +59,7 @@ The initial backup will be a full copy followed by incremental backups.
 
 Download and install the required resources.
 
-1. [Download](https://github.com/PowerShell/PowerShell/releases/tag/v7.0.3&preserve-view=true) the latest version of PowerShell (PowerShell 7).
+1. [Download](https://github.com/PowerShell/PowerShell/releases/tag/v7.0.3) the latest version of PowerShell (PowerShell 7).
 1. Use Az.RecoveryServices module version 4.2.0 available in Azure Cloud Shell.
 1. [Update](https://aka.ms/azurebackup_agent) all MARS agents to the latest version.
 1. Validate your passphrase. If you need to regenerate, follow the [validation steps](https://support.microsoft.com/topic/mandatory-update-for-azure-backup-for-microsoft-azure-recovery-services-agent-411e371c-aace-e134-de6b-bf9fda48026e#section-3).
@@ -261,7 +261,7 @@ For Original-Location Recovery (OLR):
 
 **Recommended action:**  [Learn](#azure-backup) about the supported containers for data move.
 
-#### UserErrorDataMoveNotSupportedAt ContainerLevel 
+#### UserErrorDataMoveNotSupportedAtContainerLevel 
 
 **Message:** Data move operation is not supported at container level. 
 
@@ -277,7 +277,7 @@ For Original-Location Recovery (OLR):
 
 **Recommended action:** Try the data move operation after some time.
 
-#### UserErrorDataMoveNotAllowedTargetVault NotEmpty 
+#### UserErrorDataMoveNotAllowedTargetVaultNotEmpty 
 
 **Message:** Data move operation is not allowed because target vault has some containers already registered. 
 
