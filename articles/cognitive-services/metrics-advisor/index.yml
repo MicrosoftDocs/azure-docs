@@ -10,7 +10,7 @@ metadata:
   description: 'Metrics Advisor is a time series monitoring platform that provides a set of APIs for data ingestion, anomaly detection, and diagnostics, without needing to know machine learning.'
   author: mrbullwinkle
   manager: nitinme
-  ms.service: cognitive-services
+  ms.service: applied-ai-services
   ms.subservice: metrics-advisor
   ms.topic: landing-page
   ms.date: 08/13/2020
@@ -31,6 +31,12 @@ landingContent:
           url: quickstarts/web-portal.md
         - text: Use the REST API or client libraries
           url: quickstarts/rest-api-and-client-library.md
+    - linkListType: video
+      links:
+        - text: Introducing Metrics Advisor
+          url: https://www.youtube.com/watch?v=0Y26cJqZMIM
+        - text: New to Cognitive Services
+          url: https://www.youtube.com/watch?v=7tCLJHdBZgM
 - title: How-to articles
   linkLists:
     - linkListType: how-to-guide
@@ -41,12 +47,12 @@ landingContent:
           url: data-feeds-from-different-sources.md
         - text: Manage data feeds
           url: how-tos/manage-data-feeds.md
-        - text: Configure metrics and fine tune detecting configuration
+        - text: Configure metrics and fine tune detection configuration
           url: how-tos/configure-metrics.md
         - text: Configure alerts and get notifications using a hook
           url: how-tos/alerts.md
         - text: Diagnose an incident
-          url: how-tos/diagnose-incident.md
+          url: how-tos/diagnose-an-incident.md
         - text: Adjust anomaly detection using feedback
           url: how-tos/anomaly-feedback.md
         - text: Build a metrics graph

@@ -117,7 +117,7 @@ If you open the [pipeline topology](https://raw.githubusercontent.com/Azure/vide
 1. Edit the *operations.json* file:
     * Change the link to the live pipeline topology:
 
-        `"topologyUrl" : "https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/grpcExtensionOpenVINO/topology.json"`
+        `"pipelineTopologyUrl" : "https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/grpcExtensionOpenVINO/topology.json"`
 
     * Under `pipelineTopologySet`, edit the name of the live pipeline topology to match the value in the preceding link:
 

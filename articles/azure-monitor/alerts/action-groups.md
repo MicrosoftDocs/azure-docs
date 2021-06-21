@@ -300,12 +300,14 @@ Pricing for supported countries/regions is listed in the [Azure Monitor pricing 
 | 351 | Portugal |
 | 1 | Puerto Rico |
 | 40 | Romania |
+| 7  | Russia  |
 | 65 | Singapore |
 | 27 | South Africa |
 | 82 | South Korea |
 | 34 | Spain |
 | 41 | Switzerland |
 | 886 | Taiwan |
+| 971 | UAE    |
 | 44 | United Kingdom |
 | 1 | United States |
 
