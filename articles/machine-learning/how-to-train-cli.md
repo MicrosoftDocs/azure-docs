@@ -9,7 +9,7 @@ ms.topic: how-to
 
 author: lostmygithubaccount
 ms.author: copeters
-ms.date: 06/08/2021
+ms.date: 06/18/2021
 ms.reviewer: laobri
 ---
 
@@ -60,14 +60,13 @@ For instance, look at the `jobs/train/lightgbm/iris` project directory in the ex
 
 ```tree
 .
-├── environment.yml
 ├── job-sweep.yml
 ├── job.yml
 └── src
     └── main.py
 ```
 
-This directory contains two job files, a conda environment file, and a source code subdirectory `src`. While this example only has a single file under `src`, the entire subdirectory is recursively uploaded and available for use in the job.
+This directory contains two job files and a source code subdirectory `src`. While this example only has a single file under `src`, the entire subdirectory is recursively uploaded and available for use in the job.
 
 The basic command job is configured via the `job.yml`:
 
@@ -89,7 +88,7 @@ While running this job locally is slower than running `python main.py` in a loca
 > [Docker](https://docker.io) needs to be installed and running locally. Python needs to be installed in the job's environment. For local runs which use `inputs`, the Python package `azureml-dataprep` needs to be installed in the job's environment.
 
 > [!TIP]
-> This will take a few minutes to pull the base Docker image and create the conda environment on top of it. Use prebuilt Docker images to avoid the image build time.
+> This will take a few minutes to pull the base Docker image. Use prebuilt Docker images to avoid the image build time.
 
 ## Create compute
 
@@ -100,6 +99,8 @@ You can create an Azure Machine Learning compute cluster from the command line. 
 Note that you are not charged for compute at this point as `cpu-cluster` and `gpu-cluster` will remain at 0 nodes until a job is submitted. Learn more about how to [manage and optimize cost for AmlCompute](how-to-manage-optimize-cost.md#use-azure-machine-learning-compute-cluster-amlcompute).
 
 Use `az ml compute create -h` for more details on compute create options.
+
+[!INCLUDE [arc-enabled-kubernetes](../../includes/machine-learning-create-arc-enabled-training-computer-target.md)]
 
 ## Basic Python training job
 
