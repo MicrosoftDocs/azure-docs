@@ -9,7 +9,7 @@ ms.date: 08/17/2020
 
 ---	
 
-# Deploy Azure Monitor for SAP Solutions with the Azure portal
+# Deploy Azure Monitor for SAP Solutions by using the Azure portal
 
 You can create Azure Monitor for SAP Solutions resources through the [Azure portal](https://azure.microsoft.com/features/azure-portal). This method provides a browser-based user interface to deploy Azure Monitor for SAP Solutions and configure providers.
 
@@ -38,7 +38,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 The SAP start service provides a host of services, including monitoring the SAP system. We're using SAPControl, which is a SOAP web service interface that exposes these capabilities. The SAPControl web service interface differentiates between [protected and unprotected](https://wiki.scn.sap.com/wiki/display/SI/Protected+web+methods+of+sapstartsrv) web service methods. 
 
-To be able to fetch specific metrics, you need to unprotect some methods. To unprotect the required methods for the current release, follow these steps for each SAP system:
+To be able to fetch specific metrics, you need to unprotect some methods for the current release. Follow these steps for each SAP system:
 
 1. Open an SAP GUI connection to the SAP server.
 2. Log in by using an administrative account.
@@ -160,7 +160,7 @@ To install the NetWeaver provider on the Azure portal:
    1. For **Type**, select **OS (Linux)**. 
 
       >[!IMPORTANT]
-      > To configure OS (Linux) provider, ensure that latest version of Node_Exporter is installed in each host (BareMetal or VM) that you wish to monitor. Please install the [latest version of Node Exporter](https://prometheus.io/download/#node_exporter). For more information, [learn more](https://github.com/prometheus/node_exporter)
+      > To configure an OS (Linux) provider, ensure that [latest version of node_exporter](https://prometheus.io/download/#node_exporter) is installed in each host (bare metal or VM) that you want to monitor. [Learn more](https://github.com/prometheus/node_exporter).
 
    1. For **Name**, enter a name that will be the identifier for the bare-metal instance.
 
