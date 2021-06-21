@@ -4,7 +4,7 @@ description: How to create an Azure HPC Cache instance
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 05/05/2021
+ms.date: 06/21/2021
 ms.author: v-erkel 
 ms.custom: devx-track-azurepowershell
 ---
@@ -45,33 +45,57 @@ Cache capacity is a combination of two values:
 * The maximum data transfer rate for the cache (throughput), in GB/second
 * The amount of storage allocated for cached data, in TB
 
-You also can choose from two different types of cache infrastructure options.
+![Screenshot of cache sizing page in the Azure portal.](media/hpc-cache-create-capacity.png)
 
-* The throughput values listed under **Read-write caching** can be customized with several different cache sizes. You can configure these for read-only or read and write caching. They can support up to 10 storage targets, or up to 20 storage targets if configured with the largest possible cache storage size. (Read more about storage target limits in [Add storage targets](hpc-cache-add-storage.md#size-your-cache-correctly-to-support-your-storage-targets).)
+### Understand the relationship between throughput and cache size
 
-* The throughput values listed under **Read-only caching** have set cache sizes. Caches created with these processor types are preconfigured with NVME disks.
+Several factors can affect your HPC Cache's efficiency, but choosing an appropriate throughput value and cache storage size is one of the most important.
 
-  These high-throughput caches have other differences from the standard cache configuration:
+When you choose a throughput value, keep in mind that the actual data transfer rate depends on workload, network speeds, and the type of storage targets.
 
-  * Write caching is disabled for these configurations. They're optimized to speed up read access to data.
-  * These caches can't be stopped when not needed. Plan your workflow to minimize down time.
-  * They are compatible only with NFS-connected storage targets - either an on-premises storage system or NFS-enabled blob storage (not standard blob).
-  * They can support up to 20 storage targets.
+The values you choose set the maximum throughput for the entire cache system, but some of that is used for overhead tasks. For example, if a client requests a file that isn't already stored in the cache, or if the file is marked as stale, your cache uses some of its throughput to fetch it from back-end storage.
 
-To learn more about read and write caching, read [Understand cache usage models](cache-usage-models.md#basic-file-caching-concepts).
+Azure HPC Cache manages which files are cached and preloaded to maximize cache hit rates. Cache contents are continuously assessed, and files are moved to long-term storage when they're less frequently accessed.
 
-![Screenshot of maximum throughput menu in the portal. There are several size options under the heading "Read-write caching" and several under the heading "Read-only".](media/draft-rw-ro-cache-sizing.png)
+Choose a cache storage size that can comfortably hold the active set of working files, plus additional space for metadata and other overhead.
+
+Throughput and cache size also affect how many storage targets are supported for a particular cache. If you want to use more than 10 storage targets with your cache, you must choose the highest available cache storage size value available for your throughput size, or choose one of the high-throughput read-only configurations. Learn more in [Add storage targets](hpc-cache-add-storage.md#size-your-cache-correctly-to-support-your-storage-targets).
+
+If you need help sizing your cache correctly, contact Microsoft Service and Support.
+
+### Choose the cache type for your needs
+
+When you choose your cache capacity, you might notice that some throughput values have fixed cache size values, and others let you select from multiple cache size options. This is because there are two different styles of cache infrastructure:
+
+* Standard caches - listed under **Read-write caching** in the throughput menu
+
+  With standard caches, you can choose from several cache size values. These caches can be configured for read-only or for read and write caching.
+
+* High-throughput caches - listed under **Read-only caching** in the throughput menu
+
+  The high-throughput configurations have set cache sizes because they're preconfigured with NVME disks. They're designed to optimize file read access only.
+
+![Screenshot of maximum throughput menu in the portal. There are several size options under the heading "Read-write caching" and several under the heading "Read-only".](media/rw-ro-cache-sizing.png)
+
+This table explains some important differences between the two options.
+
+| Attribute | Standard cache | High-throughput cache |
+|--|--|--|
+| Throughput menu category |"Read-write caching"| "Read-only caching"|
+| Throughput sizes | 2, 4, or 8 GB/sec | 4.5, 9, or 16 GB/sec |
+| Cache sizes | 3, 6, or 12 TB for 2 GB/sec<br/> 6, 12, or 24 TB for 4 GB/sec<br/> 12, 24, or 48 TB for 8 GB/sec| 21 TB for 4.5 GB/sec <br/> 42 TB for 9 GB/sec <br/> 84 TB for 16 GB/sec |
+| Maximum number of storage targets | [10 or 20](hpc-cache-add-storage.md#size-your-cache-correctly-to-support-your-storage-targets) depending on cache size selection | 20 |
+| Compatible storage target types | Azure blob, on-premises NFS storage, NFS-enabled blob | on-premises NFS storage, NFS-enabled blob |
+| Caching styles | Read caching or read-write caching | Read caching only |
+| Cache can be stopped to save cost when not needed | Yes | No |
+
+Learn more about these options:
+
+* [Maximum number of storage targets](hpc-cache-add-storage.md#size-your-cache-correctly-to-support-your-storage-targets)
+* [Read and write caching modes](cache-usage-models.md#basic-file-caching-concepts)
+
 
 Choose one of the available throughput values. Also choose the cache storage size if your throughput size allows that option.
-
-> [!TIP]
-> If you want to use more than 10 storage targets with your cache, you must choose one of the high-throughput read-only configurations, or choose the highest available cache storage size value available for your throughput size. Learn more in [Add storage targets](hpc-cache-add-storage.md#size-your-cache-correctly-to-support-your-storage-targets).
-
-Keep in mind that the actual data transfer rate depends on workload, network speeds, and the type of storage targets. The values you choose set the maximum throughput for the entire cache system, but some of that is used for overhead tasks. For example, if a client requests a file that isn't already stored in the cache, or if the file is marked as stale, your cache uses some of its throughput to fetch it from back-end storage.
-
-Azure HPC Cache manages which files are cached and preloaded to maximize cache hit rates. Cache contents are continuously assessed, and files are moved to long-term storage when they're less frequently accessed. Choose a cache storage size that can comfortably hold the active set of working files, plus additional space for metadata and other overhead.
-
-![screenshot of cache sizing page](media/hpc-cache-create-capacity.png)
 
 ## Enable Azure Key Vault encryption (optional)
 
@@ -92,6 +116,10 @@ For a complete explanation of the customer-managed key encryption process, read 
 ![screenshot of encryption keys page with "customer managed" selected and key vault fields showing](media/create-encryption.png)
 
 Select **Customer managed** to choose customer-managed key encryption. The key vault specification fields appear. Select the Azure Key Vault to use, then select the key and version to use for this cache. The key must be a 2048-bit RSA key. You can create a new key vault, key, or key version from this page.
+
+Select xxx 
+
+[ xxx just explain this image: media/cmk-identities-asc12.png xxx ]
 
 After you create the cache, you must authorize it to use the key vault service. Read [Authorize Azure Key Vault encryption from the cache](customer-keys.md#3-authorize-azure-key-vault-encryption-from-the-cache) for details.
 
@@ -212,14 +240,14 @@ The message includes some useful information, including these items:
 > [!CAUTION]
 > The Az.HPCCache PowerShell module is currently in public preview. This preview version is provided
 > without a service level agreement. It's not recommended for production workloads. Some features
-> might not be supported or might have constrained capabilities. For more information, see
+> might not be supported or might have constrained capabilities. for more infomation, see
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Requirements
 
 If you choose to use PowerShell locally, this article requires that you install the Az PowerShell
 module and connect to your Azure account using the
-[Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet. For more information
+[Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet. for more infomation
 about installing the Az PowerShell module, see
 [Install Azure PowerShell](/powershell/azure/install-az-ps). If you choose to use Cloud Shell, see
 [Overview of Azure Cloud Shell](../cloud-shell/overview.md) for
