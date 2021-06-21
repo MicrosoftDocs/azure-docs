@@ -4,7 +4,7 @@ titleSuffix: Azure Maps
 description: How to configure a single page web application with non-interactive Azure role-based access control (Azure RBAC) and Azure Maps Web SDK.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 06/16/2021
+ms.date: 06/21/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
