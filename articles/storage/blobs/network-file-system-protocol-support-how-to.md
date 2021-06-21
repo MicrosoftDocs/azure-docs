@@ -61,6 +61,14 @@ Create a container in your storage account by using any of these tools or SDKs:
 |[Azure CLI](data-lake-storage-directory-file-acl-cli.md#create-a-container)|[JavaScript](data-lake-storage-directory-file-acl-javascript.md)|
 ||[REST](/rest/api/storageservices/create-container)|
 
+> [!NOTE]
+> By default, the root squash option of a new container is `no root squash`. But you can change that to `root squash` or `all squash`. For information about these squash options, see your operating system documentation.
+
+The following image shows the squash options as they appear in the Azure portal.
+
+> [!div class="mx-imgBorder"]
+> ![squash options in the Azure portal](./media/network-file-system-protocol-how-to/squash-options-azure-portal.png)
+
 ## Step 5: Mount the container
 
 Create a directory on your Linux system, and then mount a container in the storage account.
