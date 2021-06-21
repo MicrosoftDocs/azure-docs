@@ -18,7 +18,8 @@ ms.author: curtand
 
 When performing two-step verification using a mobile phone, you can choose to receive a numeric code via text message as one verification factor. If you received this code on the wrong phone or you didn’t expect to receive this code, please use the following steps to fix this problem.  
 
-Note: If your organization doesn't allow you to receive a text message for verification, you'll need to select another method or contact your administrator for more help.
+> [!Note]
+> If your organization doesn't allow you to receive a text message for verification, you'll need to select another method or contact your administrator for more help.
 
 ## Change the phone number that you use for verification
 
