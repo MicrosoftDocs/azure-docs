@@ -1,5 +1,5 @@
 ---
-title: Get encryption key information
+title: Find encryption key information
 titleSuffix: Azure Cognitive Search
 description: Retrieve the encryption key name and version used in an index or synonym map so that you can manage the key in Azure Key Vault.
 
@@ -8,19 +8,35 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 08/01/2020 
+ms.date: 06/21/2021 
 ms.custom: devx-track-azurepowershell
 ---
 
-# Get customer-managed key information from indexes and synonym maps
+# Finding encrypted objects and information
 
 In Azure Cognitive Search, customer-managed encryption keys are created, stored, and managed in Azure Key Vault. If you need to determine whether an object is encrypted, or what key name or version was used, use the REST API or an SDK to retrieve the **encryptionKey** property from an index or synonym map definition. 
 
 We recommend that you [enable logging](../key-vault/general/logging.md) on Key Vault so that you can monitor key usage.
 
-## Get the admin API key
+Objects that are not encrypted with a customer-managed key will have an empty **encryptionKey** property. Otherwise, you might see a definition similar to the following example.
 
-To get object definitions from a search service, you will need to authenticate with admin rights. The easiest way to get the admin API key is through the portal.
+```json
+"encryptionKey": {
+"keyVaultUri": "https://demokeyvault.vault.azure.net",
+"keyVaultKeyName": "myEncryptionKey",
+"keyVaultKeyVersion": "eaab6a663d59439ebb95ce2fe7d5f660",
+"accessCredentials": {
+    "applicationId": "00000000-0000-0000-0000-000000000000",
+    "applicationSecret": "myApplicationSecret"
+    }
+}
+```
+
+The **encryptionKey** construct is the same for all encrypted objects.
+
+## 1 - Get the admin API key
+
+To retrieve object definitions from a search service, you will need to authenticate the request with admin rights. The easiest way to get the admin API key is through the portal.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) and open the search service overview page.
 
@@ -28,9 +44,9 @@ To get object definitions from a search service, you will need to authenticate w
 
 For the remaining steps, switch to PowerShell and the REST API. The portal does not show synonym maps, nor the encryption key properties of indexes.
 
-## Use PowerShell and REST
+## 2 - Retrieve object properties
 
-Run the following commands to set up the variables and get object definitions.
+Use PowerShell and REST to run the following commands to set up the variables and get object definitions.
 
 ```powershell
 <# Connect to Azure #>
