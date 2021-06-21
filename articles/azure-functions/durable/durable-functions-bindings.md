@@ -100,6 +100,17 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
 main = df.Orchestrator.create(orchestrator_function)
 ```
 
+# [PowerShell](#tab/powershell)
+
+```powershell
+param($Context)
+
+$input = $Context.Input
+
+# Do some work
+
+$output
+```
 ---
 
 Most orchestrator functions call activity functions, so here is a "Hello World" example that demonstrates how to call an activity function:
@@ -143,6 +154,18 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
     return result
 
 main = df.Orchestrator.create(orchestrator_function)
+```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+param($Context)
+
+$name = $Context.Input.Name
+
+$output = Invoke-ActivityFunction -FunctionName 'SayHello' -Input $name
+
+$output
 ```
 
 ---
@@ -233,6 +256,12 @@ def main(name: str) -> str:
     return f"Hello {name}!"
 ```
 
+# [PowerShell](#tab/powershell)
+```powershell
+param($name)
+
+"Hello $name!"
+```
 ---
 
 ### Using input and output bindings
@@ -378,6 +407,34 @@ async def main(msg: func.QueueMessage, starter: str) -> None:
     client = df.DurableOrchestrationClient(starter)
     payload = msg.get_body().decode('utf-8')
     instance_id = await client.start_new("HelloWorld", client_input=payload)
+```
+
+# [PowerShell](#tab/powershell)
+
+**function.json**
+```json
+{
+  "bindings": [
+    {
+      "name": "input",
+      "type": "queueTrigger",
+      "queueName": "durable-function-trigger",
+      "direction": "in"
+    },
+    {
+      "name": "starter",
+      "type": "durableClient",
+      "direction": "in"
+    }
+  ]
+}
+```
+
+**run.ps1**
+```powershell
+param($[string] $input, $TriggerMetadata)
+
+$InstanceId = Start-NewOrchestration -FunctionName $FunctionName -Input $input
 ```
 
 ---
