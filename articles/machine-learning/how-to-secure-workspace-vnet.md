@@ -45,6 +45,23 @@ In this article you learn how to enable the following workspaces resources in a 
 
     For more information on Azure RBAC with networking, see the [Networking built-in roles](../role-based-access-control/built-in-roles.md#networking)
 
+### Azure Container Registry
+
+* Your Azure Container Registry must be Premium version. For more information on upgrading, see [Changing SKUs](../container-registry/container-registry-skus.md#changing-tiers).
+
+* Your Azure Container Registry must be in the same virtual network and subnet as the storage account and compute targets used for training or inference.
+
+* Your Azure Machine Learning workspace must contain an [Azure Machine Learning compute cluster](how-to-create-attach-compute-cluster.md).
+
+## Limitations
+
+### Azure Container Registry
+
+When ACR is behind a virtual network, Azure Machine Learning cannot use it to directly build Docker images. Instead, the compute cluster is used to build the images.
+
+    > [!IMPORTANT]
+    > The compute cluster used to build Docker images needs to be able to access the package repositories that are used to train and deploy your models. You may need to add network security rules that allow access to public repos, [use private Python packages](how-to-use-private-python-packages.md), or use [custom Docker images](how-to-train-with-custom-image.md) that already include the packages.
+
 ## Required public internet access
 
 [!INCLUDE [machine-learning-required-public-internet-access](../../includes/machine-learning-public-internet-access.md)]
@@ -88,13 +105,6 @@ To use an Azure storage account for the workspace in a virtual network, use the 
 
         For more information, see [Configure Azure Storage firewalls and virtual networks](../storage/common/storage-network-security.md#trusted-microsoft-services).
 
-    > [!IMPORTANT]
-    > When working with the Azure Machine Learning SDK, your development environment must be able to connect to the Azure Storage Account. When the storage account is inside a virtual network, the firewall must allow access from the development environment's IP address.
-    >
-    > To enable access to the storage account, visit the __Firewalls and virtual networks__ for the storage account *from a web browser on the development client*. Then use the __Add your client IP address__ check box to add the client's IP address to the __ADDRESS RANGE__. You can also use the __ADDRESS RANGE__ field to manually enter the IP address of the development environment. Once the IP address for the client has been added, it can access the storage account using the SDK.
-
-   [![The "Firewalls and virtual networks" pane in the Azure portal](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png#lightbox)
-
 > [!TIP]
 > When using a service endpoint, you can also disable public access. For more information, see [disallow public read access](../storage/blobs/anonymous-read-access-configure.md#allow-or-disallow-public-read-access-for-a-storage-account).
 
@@ -112,59 +122,7 @@ For more information, see [Use private endpoints for Azure Storage](../storage/c
 
 > [!TIP]
 > When using a private endpoint, you can also disable public access. For more information, see [disallow public read access](../storage/blobs/anonymous-read-access-configure.md#allow-or-disallow-public-read-access-for-a-storage-account).
-## Secure datastores and datasets
 
-In this section, you learn how to use datastore and datasets in the SDK experience with a virtual network. For more information on the studio experience, see [Use Azure Machine Learning studio in a virtual network](how-to-enable-studio-virtual-network.md).
-
-To access data using the SDK, you must use the authentication method required by the individual service that the data is stored in. For example, if you register a datastore to access Azure Data Lake Store Gen2, you must still use a service principal as documented in [Connect to Azure storage services](how-to-access-data.md#azure-data-lake-storage-generation-2).
-
-### Disable data validation
-
-> [!IMPORTANT]
-> By default, Azure Machine Learning performs data validity and credential checks when you attempt to access data using the SDK. If the data is behind a virtual network, Azure Machine Learning can't complete these checks. To bypass this check, **create datastores and datasets that skip validation**.
-
-**Skip validation for datastores**
-
- Azure Data Lake Store Gen1 and Azure Data Lake Store Gen2 skip validation by default, so no further action is necessary. However, for the following services you can use similar syntax to skip datastore validation:
-
-- Azure Blob storage
-- Azure fileshare
-- PostgreSQL
-- Azure SQL Database
-
-The following code sample creates a new Azure Blob datastore and sets `skip_validation=True`.
-
-```python
-blob_datastore = Datastore.register_azure_blob_container(workspace=ws,  
-
-                                                         datastore_name=blob_datastore_name,  
-
-                                                         container_name=container_name,  
-
-                                                         account_name=account_name, 
-
-                                                         account_key=account_key, 
-
-                                                         skip_validation=True ) // Set skip_validation to true
-```
-
-**Skip validation for datasets**
-
-The syntax to skip dataset validation is similar for the following dataset types:
-- Delimited file
-- JSON 
-- Parquet
-- SQL
-- File
-
-The following code creates a new JSON dataset and sets `validate=False`.
-
-```python
-json_ds = Dataset.Tabular.from_json_lines_files(path=datastore_paths, 
-
-validate=False) 
-
-```
 
 ## Secure Azure Key Vault
 
@@ -187,21 +145,6 @@ To use Azure Machine Learning experimentation capabilities with Azure Key Vault 
    [![The "Firewalls and virtual networks" section in the Key Vault pane](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png#lightbox)
 
 ## Enable Azure Container Registry (ACR)
-
-To use Azure Container Registry inside a virtual network, you must meet the following requirements:
-
-* Your Azure Container Registry must be Premium version. For more information on upgrading, see [Changing SKUs](../container-registry/container-registry-skus.md#changing-tiers).
-
-* Your Azure Container Registry must be in the same virtual network and subnet as the storage account and compute targets used for training or inference.
-
-* Your Azure Machine Learning workspace must contain an [Azure Machine Learning compute cluster](how-to-create-attach-compute-cluster.md).
-
-    When ACR is behind a virtual network, Azure Machine Learning cannot use it to directly build Docker images. Instead, the compute cluster is used to build the images.
-
-    > [!IMPORTANT]
-    > The compute cluster used to build Docker images needs to be able to access the package repositories that are used to train and deploy your models. You may need to add network security rules that allow access to public repos, [use private Python packages](how-to-use-private-python-packages.md), or use [custom Docker images](how-to-train-with-custom-image.md) that already include the packages.
-
-Once those requirements are fulfilled, use the following steps to enable Azure Container Registry.
 
 > [!TIP]
 > If you did not use an existing Azure Container Registry when creating the workspace, one may not exist. By default, the workspace will not create an ACR instance until it needs one. To force the creation of one, train or deploy a model using your workspace before using the steps in this section.
@@ -228,7 +171,9 @@ Once those requirements are fulfilled, use the following steps to enable Azure C
 
 1. Configure the ACR for the workspace to [Allow access by trusted services](../container-registry/allow-access-trusted-services.md).
 
-1. Use the Azure Machine Learning Python SDK to configure a compute cluster to build docker images. The following code snippet demonstrates how to do this:
+1. Create an Azure Machine Learning compute cluster. This is used to build Docker images when ACR is behind a VNet. For more information, see [Create a compute cluster](how-to-create-attach-compute-cluster.md).
+
+1. Use the Azure Machine Learning Python SDK to configure the workspace to build Docker images using the compute instance. The following code snippet demonstrates how to update the workspace to set a build compute. Replace `mycomputecluster` with the name of the cluster to use:
 
     ```python
     from azureml.core import Workspace
@@ -247,6 +192,7 @@ Once those requirements are fulfilled, use the following steps to enable Azure C
 
 > [!TIP]
 > When ACR is behind a VNet, you can also [disable public access](../container-registry/container-registry-access-selected-networks.md#disable-public-network-access) to it.
+
 ## Next steps
 
 This article is part two of a five-part virtual network series. See the rest of the articles to learn how to secure a virtual network:

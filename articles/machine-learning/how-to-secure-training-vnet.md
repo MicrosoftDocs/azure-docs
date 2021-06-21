@@ -324,6 +324,62 @@ If you don't want to use the default outbound rules and you do want to limit the
 
 Attach the VM or HDInsight cluster to your Azure Machine Learning workspace. For more information, see [Set up compute targets for model training](how-to-set-up-training-targets.md).
 
+## Datastores and datasets
+
+In this section, you learn how to use datastore and datasets in the SDK experience with a virtual network. For more information on the studio experience, see [Use Azure Machine Learning studio in a virtual network](how-to-enable-studio-virtual-network.md).
+
+To access data using the SDK, you must use the authentication method required by the individual service that the data is stored in. For example, if you register a datastore to access Azure Data Lake Store Gen2, you must still use a service principal as documented in [Connect to Azure storage services](how-to-access-data.md#azure-data-lake-storage-generation-2).
+
+### Disable data validation
+
+> [!IMPORTANT]
+> By default, Azure Machine Learning performs data validity and credential checks when you attempt to access data using the SDK. If the data is behind a virtual network, Azure Machine Learning can't complete these checks. To bypass this check, **create datastores and datasets that skip validation**.
+>
+> Skipping validation can hide problems with data connectivity, which will show up when you try to use the data. Always verify that you can access the datastore or dataset after it has been created. 
+
+**Skip validation for datastores**
+
+ Azure Data Lake Store Gen1 and Azure Data Lake Store Gen2 skip validation by default, so no further action is necessary. However, for the following services you can use similar syntax to skip datastore validation:
+
+- **Azure Blob storage**
+- **Azure fileshare**
+- **Azure SQL Database**
+- **PostgreSQL**
+
+The following code sample creates a new Azure Blob datastore and sets `skip_validation=True`.
+
+```python
+blob_datastore = Datastore.register_azure_blob_container(workspace=ws,  
+
+                                                         datastore_name=blob_datastore_name,  
+
+                                                         container_name=container_name,  
+
+                                                         account_name=account_name, 
+
+                                                         account_key=account_key, 
+
+                                                         skip_validation=True ) // Set skip_validation to true
+```
+
+**Skip validation for datasets**
+
+The syntax to skip dataset validation is similar for the following dataset types:
+- Delimited file
+- JSON 
+- Parquet
+- SQL
+- File
+
+The following code creates a new JSON dataset and sets `validate=False`.
+
+```python
+json_ds = Dataset.Tabular.from_json_lines_files(path=datastore_paths, 
+
+validate=False) 
+
+```
+
 ## Next steps
 
 This article is part three of a five-part virtual network series. See the rest of the articles to learn how to secure a virtual network:
