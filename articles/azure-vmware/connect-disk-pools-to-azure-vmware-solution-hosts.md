@@ -55,16 +55,6 @@ You can only connect the disk pool to an Azure VMware Solution private cloud in 
 ## Connect a disk pool to your private cloud
 You'll connect to a disk pool surfaced through an iSCSI target as the VMware datastore of an Azure VMware Solution private cloud.
 
-### [PowerShell](#tab/powershell)
-
-Ensure you have the [latest version of Azure PowerShell](/powershell/azure/install-Az-ps).
-
-
-
-
-
-### [Azure CLI](#tab/azure-cli)
-
 1. Install `vmware `extension.
 
    - Check if the extension is installed: 
@@ -108,57 +98,15 @@ Ensure you have the [latest version of Azure PowerShell](/powershell/azure/insta
    az vmware datastore list --resource-group MyResourceGroup --cluster Cluster-1 --private-cloud MyPrivateCloud
    ```
 
-
----
-
 ## Delete an iSCSI datastore from your private cloud
 
-### [PowerShell](#tab/powershell)
-
-
-
-
-### [Azure CLI](#tab/azure-cli)
 
 ```azurecli
 az vmware datastore delete --name MyCloudSANDatastore1 --resource-group MyResourceGroup --cluster Cluster-1 --private-cloud MyPrivateCloud
 ```
 
----
-
 ## Disconnect a disk pool from your private cloud
 There is no maintenance window required for this operation. You can view logs for auditing purposes. 
-
-### [PowerShell](#tab/powershell)
-
-
-### [Azure CLI](#tab/azure-cli)
-
----
-
-## Remove clusters from the disk pool
-
---we need an intro paragraph explaining what they are doing and why--
-
-
-### [PowerShell](#tab/powershell)
-
-
-
-### [Azure CLI](#tab/azure-cli)
-
----
-
-
-
-## Add private cloud as an iSCSI initiator
-[when would you do this and why?]
-- Add an Azure VMware Solution private cloud as an iSCSI initiator to allow access to the disk pool over iSCSI protocol.
-
-## Create VMware instance with storage volume
-[when would you do this and why?]
-- Create a VMware instance in Azure VMware Solution with storage volume created on the datastore backed by Azure disk pool.
-
 
 
 ## Next steps
