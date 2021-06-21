@@ -29,7 +29,7 @@ To view your Azure Maps authentication details:
 
       :::image type="content" border="true" source="./media/how-to-manage-authentication/select-all-resources.png" alt-text="Select Azure Maps account.":::
 
-3. Select **Authentication** in the **Settings** menu.
+3. Under **Settings** in the left pane, select **Authentication**.
 
       :::image type="content" border="true" source="./media/how-to-manage-authentication/view-authentication-keys.png" alt-text="Authentication details.":::
 
