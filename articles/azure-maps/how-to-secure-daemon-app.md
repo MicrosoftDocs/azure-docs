@@ -57,7 +57,7 @@ Now, the daemon application can retrieve the shared key from the Key Vault.
 Once an Azure Maps account is created, the Azure Maps `Client ID` value is present in the Azure portal authentication details page. This value represents the account that is to be used for REST API requests. This value should be stored in application configuration and retrieved before making HTTP requests. The goal of the scenario is to enable the daemon application to authenticate to Azure AD and call Azure Maps REST APIs.
 
 > [!TIP]
->To enable benefits of managed identity components, it's recommended that you host on Azure Virtual Machines, Virtual Machine Scale Sets, or App Services.
+>To enable benefits of managed identity components, we recommend that you host on Azure Virtual Machines, Virtual Machine Scale Sets, or App Services.
 
 ### Host a daemon on Azure resources
 
