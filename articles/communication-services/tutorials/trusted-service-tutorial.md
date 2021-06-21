@@ -14,7 +14,10 @@ ms.service: azure-communication-services
 
 # Build a trusted user access service using Azure Functions
 
-[!IMPORTANT] The endpoint created at the end of this tutorial is not secure. Make sure to read more on [Azure Function Security](https://docs.microsoft.com/azure/azure-functions/security-concepts). You will want to add security to the endpoint to make sure no bad actor can just provision tokens.
+This article describes how to use Azure Functions to build a trusted user access service.
+
+> [!IMPORTANT]
+> The endpoint created at the end of this tutorial isn't secure. Be sure to read about the security details in the [Azure Function Security](https://docs.microsoft.com/azure/azure-functions/security-concepts) article. You need to add security to the endpoint to ensure bad actors can't provision tokens.
 
 [!INCLUDE [Trusted Service JavaScript](./includes/trusted-service-js.md)]
 
