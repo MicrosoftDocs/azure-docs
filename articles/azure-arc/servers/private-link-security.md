@@ -119,12 +119,16 @@ See the visual diagram under the section [How it works](#how-it-works) for the n
 
 ## Create a Private Link Scope
 
-1. Go to **Create a resource** in the Azure portal and search for **Azure Arc Private Link Scope**.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. Go to **Create a resource** in the Azure portal and search for **Azure Arc Private Link Scope**. Or you can use the following link to open the [Azure Arc Private Link Scope](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.HybridCompute%2FprivateLinkScopes) page in the portal.
 
     :::image type="content" source="./media/private-link-security/find-scope.png" alt-text="Find Private Link Scope" border="true":::
 
-1. Select **create**.
+1. Select **Create**.
+
 1. Pick a Subscription and Resource Group. During the preview, your virtual network and Azure Arc enabled servers must be in the same subscription as the Azure Arc Private Link Scope.
+
 1. Give the Azure Arc Private Link Scope a name. It's best to use a meaningful and clear name.
 
    You can optionally require every Arc enabled machine or server associated with this Azure Arc Private Link Scope (preview) to send data to the service through the private endpoint. If you select **Enable public network access**, machines or servers associated with this Azure Arc Private Link Scope (preview) can communicate with the service over both private or public networks. You can change this setting after creating the scope if you change your mind.
