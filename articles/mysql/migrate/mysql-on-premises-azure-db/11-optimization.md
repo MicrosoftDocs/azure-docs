@@ -1,5 +1,5 @@
 ---
-title: "MySQL on-premises to Azure Database for MySQL migration guide Optimization"
+title: "Migrate MySQL on-premises to Azure Database for MySQL: Optimization"
 description: "In addition to the audit and activity logs, server performance can also be monitored with Azure Metrics."
 ms.service: mysql
 ms.subservice: migration-guide
@@ -8,10 +8,10 @@ author: arunkumarthiags
 ms.author: arthiaga
 ms.reviewer: maghan
 ms.custom:
-ms.date: 06/14/2021
+ms.date: 06/21/2021
 ---
 
-# MySQL on-premises to Azure Database for MySQL migration guide Optimization
+# Migrate MySQL on-premises to Azure Database for MySQL: Optimization
 
 ## Prerequisites
 
@@ -33,7 +33,7 @@ AzureDiagnostics
 | where Category == 'MySqlSlowLogs'
 | project TimeGenerated, LogicalServerName\_s, 
 event\_class\_s, start\_time\_t , q uery\_time\_d, 
-sql\_text\_s | top 5 by query\_time\_d desc
+sql\_text\_s| top 5 by query\_time\_d desc
 ```
 
 ## Query Performance Insight
@@ -78,6 +78,8 @@ They elected to monitor any potential issues for now and implement Azure Automat
 
   - Consider moving regions of the users or application needs change.  
 
+
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Business Continuity and Disaster Recovery (BCDR)](./12-business-continuity-and-disaster-recovery.md)
