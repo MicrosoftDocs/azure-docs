@@ -286,6 +286,8 @@
     href: https://azure.microsoft.com/documentation/videos/index/?services=storage
   - name: Azure Files and Azure NetApp Files comparison
     href: storage-files-netapp-comparison.md
+  - name: Azure Files, Blob Storage, and NetApp Files NFS comparison
+    href: ../common/nfs-comparison.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
   - name: NuGet packages (.NET)
     items:
     - name: Microsoft.Azure.Storage.Common (version 11.x)
