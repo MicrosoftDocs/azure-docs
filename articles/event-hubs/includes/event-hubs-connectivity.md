@@ -22,9 +22,9 @@ See the following table for the outbound ports you need to open to use these pro
 
 | Protocol | Ports | Details | 
 | -------- | ----- | ------- | 
-| AMQP | 5671 and 5672 | See [AMQP protocol guide](../articles/service-bus-messaging/service-bus-amqp-protocol-guide.md) | 
+| AMQP | 5671 and 5672 | See [AMQP protocol guide](../../service-bus-messaging/service-bus-amqp-protocol-guide.md) | 
 | HTTPS | 443 | This port is used for the HTTP/REST API and for AMQP-over-WebSockets. |
-| Kafka | 9093 | See [Use Event Hubs from Kafka applications](../articles/event-hubs/event-hubs-for-kafka-ecosystem-overview.md)
+| Kafka | 9093 | See [Use Event Hubs from Kafka applications](../event-hubs-for-kafka-ecosystem-overview.md)
 
 The HTTPS port is required for outbound communication also when AMQP is used over port 5671, because several management operations performed by the client SDKs and the acquisition of tokens from Azure Active Directory (when used) run over HTTPS. 
 
@@ -69,9 +69,9 @@ If you use the **zone redundancy** for your namespace, you need to do a few extr
     > The IP address returned by the `nslookup` command isn't a static IP address. However, it remains constant until the underlying deployment is deleted or moved to a different cluster.
 
 ### What client IPs are sending events to or receiving events from my namespace?
-First, enable [IP filtering](../articles/event-hubs/event-hubs-ip-filtering.md) on the namespace. 
+First, enable [IP filtering](../event-hubs-ip-filtering.md) on the namespace. 
 
-Then, Enable diagnostic logs for [Event Hubs virtual network connection events](../articles/event-hubs/event-hubs-diagnostic-logs.md#event-hubs-virtual-network-connection-event-schema) by following instructions in the [Enable diagnostic logs](../articles/event-hubs/event-hubs-diagnostic-logs.md#enable-diagnostic-logs). You'll see the IP address for which connection is denied.
+Then, Enable diagnostic logs for [Event Hubs virtual network connection events](../event-hubs-diagnostic-logs.md#event-hubs-virtual-network-connection-event-schema) by following instructions in the [Enable diagnostic logs](../event-hubs-diagnostic-logs.md#enable-diagnostic-logs). You'll see the IP address for which connection is denied.
 
 ```json
 {

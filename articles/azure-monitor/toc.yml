@@ -927,6 +927,8 @@
       items:
       - name: Access control
         href: app/resources-roles-access-control.md
+      - name: Azure AD authentication 
+        href: app/azure-ad-authentication.md
       - name: IP address collection
         href: app/ip-collection.md
         displayname: geolocation, IP collection, IP tracking, IP storage
