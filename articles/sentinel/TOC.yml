@@ -343,7 +343,7 @@
       href: customer-managed-keys.md
     - name: Manage your SOC with incident metrics
       href: manage-soc-with-incident-metrics.md
-    - name: Auditing Azure Sentinel with Azure Activity Logstash
+    - name: Auditing Azure Sentinel with Azure Activity Logs
       href: audit-sentinel-data.md
     - name: Remove Azure Sentinel from your workspaces
       href: offboard.md
@@ -369,6 +369,14 @@
       href: /cli/azure/sentinel
     - name: Azure Sentinel PowerShell
       href: /powershell/module/az.securityinsights/
+    - name: REST APIs
+      items:
+      - name: Azure Sentinel REST-API
+        href: /rest/api/securityinsights/
+      - name: Manage hunting queries with REST-API
+        href: hunting-with-rest-api.md
+      - name: Manage watchlists with REST-API
+        href: watchlist-with-rest-api.md
     - name: Azure RBAC roles
       items:
       - name: All Azure roles
@@ -403,14 +411,6 @@
         href: /azure/data-explorer/kql-quick-reference
       - name: Azure Monitor log query optimizations
         href: ../azure-monitor/logs/query-optimization.md
-    - name: REST APIs
-      items:
-      - name: Azure Sentinel REST-API
-        href: /rest/api/securityinsights/
-      - name: Manage hunting queries with REST-API
-        href: hunting-with-rest-api.md
-      - name: Manage watchlists with REST-API
-        href: watchlist-with-rest-api.md
     - name: MCAS alerts not onboarded to Microsoft 365 Defender
       href: microsoft-cloud-app-security-alerts-not-imported-microsoft-365-defender.md
 - name: Resources
