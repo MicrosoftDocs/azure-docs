@@ -62,6 +62,7 @@ The following Blob Storage features aren't yet supported.
 - [Point-in-time restore for block blobs](point-in-time-restore-overview.md)
 - [Soft delete for blobs](soft-delete-blob-overview.md)
 - [Soft delete for containers](soft-delete-container-overview.md)
+- [Blob snapshots](snapshots-overview.md)
 - [Static websites hosting](storage-blob-static-website.md)
 
 ## Blob storage APIs
@@ -70,7 +71,7 @@ NFS 3.0, Blob APIs and Data Lake Storage Gen2 APIs can operate on the same data.
 
 This section describes issues and limitations with using NFS 3.0, blob APIs and Data Lake Storage Gen2 APIs to operate on the same data. 
 
-- You cannot use NFS 3.0 and blob API or Data Lake Storage APIs to write to the same instance of a file. If you write to a file by using NFS, then that file's blocks won't be visible to calls to the [Get Block List](/rest/api/storageservices/get-block-list) blob API. The only exception is when using you are overwriting. You can overwrite a file/blob using either API. 
+- You cannot use NFS 3.0 and blob API or Data Lake Storage APIs to write to the same instance of a file. If you write to a file by using NFS, then that file's blocks won't be visible to calls to the [Get Block List](/rest/api/storageservices/get-block-list) blob API. The only exception is when using you are overwriting. You can overwrite a file/blob using either API. You can also overwrite with NSF 3.0 by using the zero-truncate option.
 
 - When you use the [List Blobs](/rest/api/storageservices/list-blobs) operation without specifying a delimiter, the results will include both directories and blobs. If you choose to use a delimiter, use only a forward slash (`/`). This is the only supported delimiter.
 

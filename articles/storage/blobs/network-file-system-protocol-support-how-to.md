@@ -43,7 +43,6 @@ As you configure the account, choose these values:
 |Account kind|BlockBlobStorage| General-purpose V2
 |Replication|Locally-redundant storage (LRS)| Locally-redundant storage (LRS), Zone-redundant storage (ZRS)
 |Connectivity method|Public endpoint (selected networks) or Private endpoint |Public endpoint (selected networks) or Private endpoint
-|Secure transfer required|Disabled|Disabled
 |Hierarchical namespace|Enabled|Enabled
 |NFS V3|Enabled |Enabled 
 
@@ -97,9 +96,10 @@ Create a directory on your Linux system, and then mount a container in the stora
 |---|---|
 |`Access denied by server while mounting`|Ensure that your client is running within a supported subnet. See the [Supported network locations](network-file-system-protocol-support.md#supported-network-connections).|
 |`No such file or directory`| Make sure to type the mount command and it's parameters directly into the terminal. If you copy and paste any part of this command into the terminal from another application, hidden characters in the pasted information might cause this error to appear.|
-|`EINVAL ("Invalid argument"`) |This error can appear when a client attempts to:<li>Write to a blob that was created from a blob endpoint.<li>Delete a blob that has a snapshot or is in a WORM (Write Once, Read Many) state.|
+|`EINVAL ("Invalid argument"`) |This error can appear when a client attempts to:<li>Write to a blob that was created from a blob endpoint.<li>Delete a blob that has a snapshot or is in a container that has an active WORM (Write Once, Read Many) policy.|
 |`EROFS ("Read-only file system"`) |This error can appear when a client attempts to:<li>Write to a blob or delete a blob that has an active lease.<li>Write to a blob or delete a blob that is in a WORM state. |
 |`NFS3ERR_IO/EIO ("Input/output error"`) |This error can appear when a client attempts to read, write, or set attributes on blobs that are stored in the archive access tier. |
+|`OperationNotSupportedOnSymLink` error| This error can be returned during a write operation via a Blob or Azure Data Lake Storage Gen2 API. Using these APIs to write or delete symbolic links that are created by using NFS 3.0 is not allowed. Make sure to use the NFS v3 endpoint to work with symbolic links. |
 
 ## See also
 
