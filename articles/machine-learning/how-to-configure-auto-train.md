@@ -8,7 +8,7 @@ ms.reviewer: nibaccam
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 09/29/2020
+ms.date: 06/11/2021
 ms.topic: how-to
 ms.custom: devx-track-python,contperf-fy21q1, automl, contperf-fy21q4, FY21Q4-aml-seo-hack
 ---
@@ -17,7 +17,7 @@ ms.custom: devx-track-python,contperf-fy21q1, automl, contperf-fy21q4, FY21Q4-am
 
 In this guide, learn how to set up an AutoML training run with the [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro) using Azure Machine Learning automated ML. Automated ML picks an algorithm and hyperparameters for you and generates a model ready for deployment. There are several options that you can use to configure these types of experiments.
 
-For an end to end example, see [Tutorial: Train a regression model with automated machine learning](tutorial-auto-train-models.md).
+For an end to end example, see [Tutorial: AutoML- train regression model](tutorial-auto-train-models.md).
 
 Configuration options available in automated ML:
 
@@ -148,7 +148,7 @@ Some examples include:
    ```
 
 
-1. Forecasting tasks require extra setup, see the [Autotrain a time-series forecast model](how-to-auto-train-forecast.md) article for more details. 
+1. Forecasting tasks require extra setup, see the [Set up AutoML for time-series forecasting](how-to-auto-train-forecast.md) article for more details. 
 
     ```python
     time_series_settings = {
@@ -208,10 +208,10 @@ Learn about the specific definitions of these metrics in [Understand automated m
 
 |Classification | Regression | Time Series Forecasting
 |--|--|--
-|`accuracy`| `spearman_correlation` | `spearman_correlation`
-|`AUC_weighted` | `normalized_root_mean_squared_error` | `normalized_root_mean_squared_error`
-|`average_precision_score_weighted` | `r2_score` | `r2_score`
-|`norm_macro_recall` | `normalized_mean_absolute_error` | `normalized_mean_absolute_error`
+|`accuracy`| `spearman_correlation` | `normalized_root_mean_squared_error`
+|`AUC_weighted` | `normalized_root_mean_squared_error` | `r2_score`
+|`average_precision_score_weighted` | `r2_score` | `normalized_mean_absolute_error`
+|`norm_macro_recall` | `normalized_mean_absolute_error` | 
 |`precision_score_weighted` |
 
 ### Primary metrics for classification scenarios 
@@ -245,8 +245,7 @@ See regression notes, above.
 
 | Metric | Example use case(s) |
 | ------ | ------- |
-| `spearman_correlation` | |
-| `normalized_root_mean_squared_error` | Price prediction (forecasting), Inventory optimization, Demand forecasting |
+| `normalized_root_mean_squared_error` | Price prediction (forecasting), Inventory optimization, Demand forecasting | |
 | `r2_score` | Price prediction (forecasting), Inventory optimization, Demand forecasting |
 | `normalized_mean_absolute_error` | |
 

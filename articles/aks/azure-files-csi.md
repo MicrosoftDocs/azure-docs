@@ -194,36 +194,7 @@ Filesystem                                                                      
 
  This option is optimized for random access workloads with in-place data updates and provides full POSIX file system support. This section shows you how to use NFS shares with the Azure File CSI driver on an AKS cluster.
 
-Make sure to check the [limitations](../storage/files/storage-files-compare-protocols.md#limitations) and [region availability](../storage/files/storage-files-compare-protocols.md#regional-availability) during the preview phase.
-
-### Register the `AllowNfsFileShares` preview feature
-
-To create a file share that leverages NFS 4.1, you must enable the `AllowNfsFileShares` feature flag on your subscription.
-
-Register the `AllowNfsFileShares` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
-
-```azurecli-interactive
-az feature register --namespace "Microsoft.Storage" --name "AllowNfsFileShares"
-```
-
-It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature list][az-feature-list] command:
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.Storage/AllowNfsFileShares')].{Name:name,State:properties.state}"
-```
-
-When ready, refresh the registration of the *Microsoft.Storage* resource provider by using the [az provider register][az-provider-register] command:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.Storage
-```
-
-### Create a storage account for the NFS file share
-
-[Create a `Premium_LRS` Azure storage account](../storage/files/storage-how-to-create-file-share.md) with following configurations to support NFS shares:
-- account kind: FileStorage
-- secure transfer required(enable HTTPS traffic only): false
-- select the virtual network of your agent nodes in Firewalls and virtual networks - so you might prefer to create the Storage Account in the MC_ resource group.
+Make sure to check the [limitations](../storage/files/files-nfs-protocol.md#limitations) and [region availability](../storage/files/files-nfs-protocol.md#regional-availability) during the preview phase.
 
 ### Create NFS file share storage class
 
@@ -236,8 +207,6 @@ metadata:
   name: azurefile-csi-nfs
 provisioner: file.csi.azure.com
 parameters:
-  resourceGroup: EXISTING_RESOURCE_GROUP_NAME  # optional, required only when storage account is not in the same resource group as your agent nodes
-  storageAccount: EXISTING_STORAGE_ACCOUNT_NAME
   protocol: nfs
 ```
 

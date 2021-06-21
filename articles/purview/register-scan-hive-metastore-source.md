@@ -69,10 +69,10 @@ On the Register sources (Hive Metastore) screen, do the following:
 
 2.  Enter the **Hive Cluster URL.** The Cluster URL can be either
     obtained from the Ambari URL or from Databricks workspace URL. For
-    example, hive.azurehdinsight.net
+    example, hive.azurehdinsight.net or adb-19255636414785.5.azuredatabricks.net
 
 3.  Enter the **Hive Metastore Server URL.** For example,
-    sqlserver://hive.database.windows.net
+    sqlserver://hive.database.windows.net or jdbc:spark://adb-19255636414785.5.azuredatabricks.net:443
 
 4.  Select a collection or create a new one (Optional)
 
@@ -87,8 +87,7 @@ To create and run a new scan, do the following:
 
 1.  In the Management Center, click on Integration runtimes. Make sure a
     self-hosted integration runtime is set up. If it is not set up, use
-    the steps mentioned
-    [here](./manage-integration-runtimes.md)
+    the steps mentioned [here](./manage-integration-runtimes.md)
     to setup a self-hosted integration runtime
 
 2.  Navigate to **Sources**.
@@ -111,28 +110,63 @@ To create and run a new scan, do the following:
     -   Provide the Metastore username in the User name input field
     -   Store the Metastore password in the secret key.
 
-    To understand more on credentials, refer to the link [here](manage-credentials.md)
+    To understand more on credentials, refer to the link [here](manage-credentials.md). 
+
+    **Databricks usage**: Navigate to your Databricks cluster -> Apps -> Launch Web Terminal. Run the cmdlet **cat /databricks/hive/conf/hive-site.xml**
+
+    The username and password can be accessed from the two properties as shown below
+
+    :::image type="content" source="media/register-scan-hive-metastore-source/databricks-credentials.png" alt-text="databricks-username-password-details" border="true":::
 
     d. **Metastore JDBC Driver Location**: Specify the path to the JDBC
     driver location on your VM where self-host integration runtime is
     running. This should be the path to valid JARs folder location.
 
+    If you are scanning Databricks, refer to the section on Databricks below.
+
     > [!Note]
     > The driver should be accessible to all accounts in the VM. Please do not install in a user account.
 
     e.  **Metastore JDBC Driver Class**: Provide the connection driver class
-    name. For example,\com.microsoft.sqlserver.jdbc.SQLServerDriver
+    name. For example,\com.microsoft.sqlserver.jdbc.SQLServerDriver.
+    
+    **Databricks usage**: Navigate to your Databricks cluster -> Apps -> Launch Web Terminal. Run the cmdlet **cat /databricks/hive/conf/hive-site.xml**
+    
+    The driver class can be accessed from the property as shown below.
+    :::image type="content" source="media/register-scan-hive-metastore-source/databricks-driver-class-name.png" alt-text="databricks-driver-class-details" border="true":::
 
     f.  **Metastore JDBC URL**: Provide the Connection URL value and define
     connection to Metastore DB server URL. For example,
     jdbc:sqlserver://hive.database.windows.net;database=hive;encrypt=true;trustServerCertificate=true;create=false;loginTimeout=300
 
+    **Databricks usage**: Navigate to your Databricks cluster -> Apps -> Launch Web Terminal. Run the cmdlet **cat /databricks/hive/conf/hive-site.xml**
+    
+    The JDBC URL can be accessed from the Connection URL property as shown below.
+    :::image type="content" source="media/register-scan-hive-metastore-source/databricks-jdbc-connection.png" alt-text="databricks-jdbc-url-details" border="true":::
+
+    To this url, append the path to the location where SSL certificate is placed on your VM. The SSL certificate can be downloaded from [here](../mysql/howto-configure-ssl.md).
+
+    So the metastore JDBC URL will be:
+    
+    jdbc:mariadb://consolidated-westus2-prod-metastore-addl-1.mysql.database.azure.com:3306/organization1829255636414785?trustServerCertificate=true&amp;useSSL=true&sslCA=D:\Drivers\SSLCert\BaltimoreCyberTrustRoot.crt.pem
+
     g.  **Metastore database name**: Provide the Hive Metastore Database name
+    
+    If you are scanning Databricks, refer to the section on Databricks below.
+
+    **Databricks usage**: Navigate to your Databricks cluster -> Apps -> Launch Web Terminal. Run the cmdlet **cat /databricks/hive/conf/hive-site.xml**
+
+    The database name can be accessed from the JDBC URL property as shown below. For Example: organization1829255636414785
+    :::image type="content" source="media/register-scan-hive-metastore-source/databricks-data-base-name.png" alt-text="databricks-database-name-details" border="true":::
 
     h.  **Schema**: Specify a list of Hive schemas to import. For example,
-    schema1; schema2. All user schemas are imported if that list is
+    schema1; schema2. 
+    
+    All user schemas are imported if that list is
     empty. All system schemas (for example, SysAdmin) and objects are
-    ignored by default. When the list is empty, all available schemas
+    ignored by default. 
+
+    When the list is empty, all available schemas
     are imported.
     Acceptable schema name patterns using SQL LIKE expressions syntax include using %, e.g. A%; %B; %C%; D
 
@@ -146,6 +180,9 @@ To create and run a new scan, do the following:
     i.  **Maximum memory available**: Maximum memory (in GB) available on
     customer's VM to be used by scanning processes. This is dependent on
     the size of Hive Metastore database to be scanned.
+    > [!Note]
+    > **For scanning Databricks metastore**
+    >
 
     :::image type="content" source="media/register-scan-hive-metastore-source/scan.png" alt-text="scan hive source" border="true":::
 
