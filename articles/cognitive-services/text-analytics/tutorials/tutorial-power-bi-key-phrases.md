@@ -41,7 +41,7 @@ In this tutorial, you'll learn how to:
 To get started, open Power BI Desktop and load the comma-separated value (CSV) file `FabrikamComments.csv` that you downloaded in [Prerequisites](#Prerequisites). This file represents a day's worth of hypothetical activity in a fictional small company's support forum.
 
 > [!NOTE]
-> Power BI can use data from a wide variety of web-based sources, such as SQL databases. See the [Power Query documentation](https://docs.microsoft.com/power-query/connectors/) for more information.
+> Power BI can use data from a wide variety of web-based sources, such as SQL databases. See the [Power Query documentation](/power-query/connectors/) for more information.
 
 In the main Power BI Desktop window, select the **Home** ribbon. In the **External data** group of the ribbon, open the **Get Data** drop-down menu and select **Text/CSV**.
 
