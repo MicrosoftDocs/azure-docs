@@ -72,7 +72,7 @@ Remove multiple resources as follows:
 
     **Output after running cmdlet**
 
-    ![Output text after removing multiple resources from a move collection](./media/remove-move-resources/remove-multiple-get-dependencies.png)
+    ![Output text after retrieving dependent resources that need to be removed](./media/remove-move-resources/remove-multiple-get-dependencies.png)
 
 
 3. Remove all resources, along with the virtual network:
