@@ -19,7 +19,7 @@ Azure provides a [global role-based authorization (RBAC) model](../role-based-ac
 
 + Outbound indexer access to external Azure data sources. When you [configure a managed identity](search-howto-managed-identities-data-sources.md), you can use RBAC on external data services, such as Azure Blob Storage, to allow read operations from the trusted search service.
 
-RBAC scenarios that are **not** supported includ:
+RBAC scenarios that are **not** supported include:
 
 + [Custom roles](../role-based-access-control/custom-roles.md)
 
