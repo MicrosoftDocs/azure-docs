@@ -1,26 +1,27 @@
 ---
-title: Add and call functions from Azure Logic Apps
-description: Call and run custom code in functions made in Azure from automated tasks and workflows in Azure Logic Apps
+title: Call Azure Functions from logic app workflows
+description: Run your own code in workflows created with Azure Logic Apps by creating and calling an Azure Function.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
-ms.topic: article
-ms.date: 10/01/2019
+ms.reviewer: estfan, azla
+ms.topic: how-to
+ms.date: 06/014/2021
 ms.custom: devx-track-js
 ---
 
-# Call functions from Azure Logic Apps
+# Create and run your own code from workflows in Azure Logic Apps by using Azure Functions
 
-When you want to run code that performs a specific job in your logic apps, you can create your own function by using [Azure Functions](../azure-functions/functions-overview.md). This service helps you create Node.js, C#, and F# functions so you don't have to build a complete app or infrastructure to run code. You can also [call logic apps from inside functions](#call-logic-app). Azure Functions provides serverless computing in the cloud and is useful for performing tasks such as these examples:
+When you want to run code that performs a specific job in your logic app workflow, you can create a function by using [Azure Functions](../azure-functions/functions-overview.md). This service helps you create Node.js, C#, and F# functions so you don't have to build a complete app or infrastructure to run code. You can also [call logic app workflows from inside an Azure function](#call-logic-app). Azure Functions provides serverless computing in the cloud and is useful for performing certain tasks, for example:
 
 * Extend your logic app's behavior with functions in Node.js or C#.
 * Perform calculations in your logic app workflow.
-* Apply advanced formatting or compute fields in your logic apps.
+* Apply advanced formatting or compute fields in your logic app workflows.
 
-To run code snippets without using Azure Functions, learn how to [add and run inline code](../logic-apps/logic-apps-add-run-inline-code.md).
+To run code snippets without using Azure Functions, learn how you can [add and run inline code](../logic-apps/logic-apps-add-run-inline-code.md).
 
 > [!NOTE]
-> Integration between Logic Apps and Azure Functions currently doesn't work with Slots enabled.
+> Azure Logic Apps doesn't support using Azure Functions with deployment slots enabled. Although this scenario might sometimes work, 
+> this behavior is unpredictable and might result in authorization problems when your workflow tries call the Azure function.
 
 ## Prerequisites
 
