@@ -8,14 +8,21 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/08/2021
+ms.date: 06/21/2021
 ---
 
-# Create and manage API keys for authentication to Azure Cognitive Search
+# Use API keys for Azure Cognitive Search authentication
 
-When connecting to a search service, all requests need to include a read-only API key that was generated specifically for your service. The API key is the sole mechanism for authenticating inbound requests to your search service endpoint and is required on every request. 
+Key-based authentication uses access keys (or an *API key* as it's called in Cognitive Search) that are unique to your service to authenticate requests. Passing a valid API key on the request is considered proof that the request is from an authorized client. In Cognitive Search, key-based authentication is used for all inbound operations. 
 
-+ In [REST solutions](search-get-started-rest.md), the `api-key` is typically specified in a request header
+> [!NOTE]
+> Alternative [role-based authentication](search-security-rbac.md) is currently limited to two scenarios: portal access, and outbound indexer data read operations.
+
+## Using API keys in search
+
+When connecting to a search service, all requests must include a read-only API key that was generated specifically for your service. The API key is the sole mechanism for authenticating inbound requests to your search service endpoint and is required on every request. 
+
++ In [REST solutions](search-get-started-rest.md), the API key is typically specified in a request header
 
 + In [.NET solutions](search-howto-dotnet-sdk.md), a key is often specified as a configuration setting and then passed as an [AzureKeyCredential](/dotnet/api/azure.azurekeycredential)
 
@@ -25,7 +32,7 @@ You can view and manage API keys in the [Azure portal](https://portal.azure.com)
 
 ## What is an API key?
 
-An API key is a unique string composed of randomly generated numbers and letters that is passed on every request to the search service. The service will accept the request, if both the request itself and the key are valid. 
+An API key is a unique string composed of randomly generated numbers and letters that are passed on every request to the search service. The service will accept the request, if both the request itself and the key are valid. 
 
 Two types of keys are used to access your search service: admin (read-write) and query (read-only).
 
