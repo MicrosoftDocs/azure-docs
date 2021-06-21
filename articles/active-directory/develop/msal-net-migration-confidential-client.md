@@ -427,7 +427,7 @@ public partial class AuthWrapper
 </tr>
 </table>
 
-By calling `AcquireTokenByAuthorizationCode`, you really add a token to the token cache. Then, in your controllers, you'll use `AcquireTokenSilent` to request tokens for the user, but, for instance for other resources or other tenants.
+Calling `AcquireTokenByAuthorizationCode` adds a token to the token cache. To acquire extra token(s) for other resources or tenants, use `AcquireTokenSilent` in your controllers.
 
 #### Token caching
 
@@ -453,7 +453,7 @@ Some of the key features that come with MSAL.NET are resilience, security, perfo
 Using MSAL.NET ensures your app is resilient. This is achieved through the following:
 
 <!-- 1P
-- [Automatic region detection](msal-net-regional-adoption.md) enabled by `.WithAzureRegion()`. The regional ESTS endpoint is only used for `AcquireTokenForClient` and is not yet supported in sovereign clouds (ETA FY22Q1)
+- [Automatic region detection](msal-net-regional-adoption.md) enabled by `.WithAzureRegion()`. The regional ESTS endpoint is only used for `AcquireTokenForClient` and is not yet supported in sovereign clouds (ETA FY22Q1).
 -->
 - AAD Cached Credential Service(CCS) benefits. CCS operates as an AAD backup.
 - Proactive renewal of tokens if you enable long lived tokens.
