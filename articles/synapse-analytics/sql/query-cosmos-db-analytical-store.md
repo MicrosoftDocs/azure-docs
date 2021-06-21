@@ -25,7 +25,7 @@ In this article, you'll learn how to write a query with a serverless SQL pool th
 - Make sure that you have prepared Analytical store:
   - Enable analytical store on [your Cosmos DB containers](../quickstart-connect-synapse-link-cosmos-db.md#enable-azure-cosmos-db-analytical-store).
   - Get the connection string with a read-only key that you will use to query analytical store. 
-  - Get the read-only [key that will be used to access Cosmos DB container](../cosmos-db/database-security.md#primary-keys)
+  - Get the read-only [key that will be used to access Cosmos DB container](../../cosmos-db/database-security.md#primary-keys)
 - Make sure that you have applied all [best practices](best-practices-serverless-sql-pool.md), such as:
   - Ensure that your Cosmos DB analytical storage is in the same region as serverless SQL pool.
   - Ensure that the client application (Power BI, Analysis service) is in the same region as serverless SQL pool.
