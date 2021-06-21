@@ -36,15 +36,15 @@ You can create images from VMs that already have accounts created on them or you
 
 6. If you want to delete the source VM after the image has been created, select **Automatically delete this virtual machine after creating the image**. This is not recommended.
 
-1. For **Gallery details**, select the gallery or create a new gallery by sleecting **Create new**. 
+1. For **Gallery details**, select the gallery or create a new gallery by selecting **Create new**.
 
-1. In **Operating system state** select [generalized or specialized]. For more information, see ([Generalized and specialized images](shared-image-galleries.md#generalized-and-specialized-images)). 
+1. In **Operating system state** select [generalized or specialized]. For more information, see ([Generalized and specialized images](shared-image-galleries.md#generalized-and-specialized-images)).
  
-1. Select an image definition or select **crete new** and provide a name and information for a new [Image definition](shared-image-galleries.md#image-definitions).
+1. Select an image definition or select **create new** and provide a name and information for a new [Image definition](shared-image-galleries.md#image-definitions).
 
-1. Enter an [image version](shared-image-galleries.md#image-versions) number. If this is the first version of this image, type *1.0.0*. 
+1. Enter an [image version](shared-image-galleries.md#image-versions) number. If this is the first version of this image, type *1.0.0*.
 
-1. If you want this version to be included when you specify *latest* for the image version, then leave **Exlude from latest** unchecked. 
+1. If you want this version to be included when you specify *latest* for the image version, then leave **Exclude from latest** unchecked.
 
 1. Select an **End of life** date. This date can be used to track when older images need to be retired.
 
