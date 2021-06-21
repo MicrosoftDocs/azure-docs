@@ -13,7 +13,7 @@ Event Grid on Kubernetes offers a rich set of features that help you integrate y
 
 Although Event Grid on Kubernetes and Azure Event Grid share many features and the goal is to provide the same user experience, there are some differences given the unique requirements they seek to meet and the stage in which they are on their software lifecycle. For example, the only type of topic available in Event Grid on Kubernetes are Event Grid Topics that sometimes are also referred as custom topics. Other types of topics (see below) are either not applicable or support for them is not yet available. The main differences between the two editions of Event Grid are presented in the table below.
 
-[!INCLUDE [event-grid-preview-feature-note.md](../../../includes/event-grid-preview-feature-note.md)]
+[!INCLUDE [event-grid-preview-feature-note.md](../includes/event-grid-preview-feature-note.md)]
 
 
 ## Event Grid on Kubernetes vs. Event Grid on Azure
