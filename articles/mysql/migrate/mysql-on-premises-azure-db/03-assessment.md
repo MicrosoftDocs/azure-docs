@@ -8,7 +8,7 @@ author: arunkumarthiags
 ms.author: arthiaga
 ms.reviewer: maghan
 ms.custom:
-ms.date: 06/18/2021
+ms.date: 06/21/2021
 ---
 
 # Migrate MySQL on-premises to Azure Database for MySQL: Assessment
@@ -25,7 +25,7 @@ Before jumping right into migrating a MySQL workload, there's a fair amount of d
 
 Azure Database for MySQL is a fully supported version of the MySQL community edition running as a platform as a service. However, there are [some limitations](../../concepts-limits.md) to become familiar with when doing an initial assessment.
 
-The most important of which include|
+The most important of which include:
 
   - Storage engine support for `InnoDB` and `Memory` only
 
@@ -44,11 +44,11 @@ Many of the other items are operational aspects that administrators should becom
 MySQL has a rich history starting in 1995. Since then, it has evolved into a widely used database management system. Azure Database for MySQL started with the support of MySQL version 5.6 and has continued to 5.7 and recently 8.0. For the latest on Azure Database for MySQL version support, reference [Supported Azure Database for MySQL server versions.](../../concepts-supported-versions.md) In the Post Migration Management section, we review how upgrades (such as 5.7.20 to 5.7.21) are applied to the MySQL instances in Azure.
 
 > [!NOTE]
-> The jump from 5.x to 8.0 was largely due to the Oracle acquisition of MySQL. To read more about MySQL history, navigate to the [MySQL wiki page. ](https://en.wikipedia.org/wiki/MySQL)
+> The jump from 5.x to 8.0 was largely due to the Oracle acquisition of MySQL. To read more about MySQL history, navigate to the [MySQL wiki page](https://en.wikipedia.org/wiki/MySQL).
 
 Knowing the source MySQL version is essential. The applications using the system may be using database objects and features that are specific to that version. Migrating a database to a lower version could cause compatibility issues and loss of functionality. It's also recommended the data and application instance are thoroughly tested before migrating to a newer version as the features introduced could break your application.
 
-Examples that may influence the migration path and version|
+Examples that may influence the migration path and version:
 
   - 5.6 | TIMESTAMP column for correct storage of milliseconds and full-text search
 
@@ -59,7 +59,7 @@ Examples that may influence the migration path and version|
     > [!NOTE]
     > MySQL 5.6 loses general support in February of 2021. MySQL workloads needs to migrate to MySQL version of 5.7 or greater.
 
-To check the MySQL server version|
+To check the MySQL server version:
 
 ```
 SHOW VARIABLES LIKE "%version%";
@@ -73,7 +73,7 @@ Azure Database for MySQL only supports [InnoDB](https://dev.mysql.com/doc/refman
 
 The MyISAM database and tables needs to be converted to InnoDB tables. After conversion, applications should be tested for compatibility and performance. In most cases, testing requires recreating the table and changing the target storage engine via DDL statements. It's unlikely this change needs to be performed during migration as it occurs during the schema creation in the Azure target. For more details, review the [converting tables developers documentation](https://dev.mysql.com/doc/refman/5.6/en/converting-tables-to-innodb.html) on the MySQL website.
 
-To find useful table information, use this query|
+To find useful table information, use this query:
 
 ```dotnetcli
     SELECT 
@@ -99,7 +99,7 @@ schema', 'sys')
 > [!NOTE]
 > Running query against INFORMATION\_SCHEMA across multiple databases might impact performance. Run during low usage periods.
 
-To convert a table from MyISAM to InnoDB, run the following|
+To convert a table from MyISAM to InnoDB, run the following:
 
 ```
 ALTER TABLE {table\_name} ENGINE=InnoDB;
@@ -108,7 +108,7 @@ ALTER TABLE {table\_name} ENGINE=InnoDB;
 > [!NOTE]
 > This conversion approach causes the table to lock, and all applications can wait until the operation is complete. The table locking makes the database appear offline for a short period.
 
-Instead, the table can be created with the same structure but with a different storage engine. Once created, copy the rows into the new table|
+Instead, the table can be created with the same structure but with a different storage engine. Once created, copy the rows into the new table:
 
 ```
 INSERT INTO {table\_name} SELECT * FROM {myisam\_table} ORDER BY {primary\_key\_columns}
@@ -121,7 +121,7 @@ INSERT INTO {table\_name} SELECT * FROM {myisam\_table} ORDER BY {primary\_key\_
 
 Data is one component of database migration. The database supporting objects must be migrated and validated to ensure the applications continue to run reliably.
 
-Here's a list of items you should inventory before and after the migration|
+Here's a list of items you should inventory before and after the migration:
 
   - Tables (schema)
 
@@ -141,7 +141,7 @@ Here's a list of items you should inventory before and after the migration|
 
 MySQL allows for the usage of functions that call external code. Unfortunately, data workloads using User-Defined Functions (UDFs) with external code cannot be migrated to Azure Database for MySQL. This is because the required MySQL function's backing so or dll code cannot be uploaded to the Azure server.
 
-Run the following query to find any UDFs that may be installed|
+Run the following query to find any UDFs that may be installed:
 
 ```
 SELECT * FROM mysql.func;
@@ -183,7 +183,7 @@ Linux workloads can utilize the [Microsoft Monitoring Agent (MMA)](../../../azur
 
 Equipped with the assessment information (CPU, memory, storage, etc.), the migration user's next choice is to decide on which Azure Database for MySQL [pricing tier](../../concepts-pricing-tiers.md) to start using.
 
-There are currently three tiers|
+There are currently three tiers:
 
   - **Basic** | Workloads requiring light compute and I/O performance.
 
@@ -208,7 +208,7 @@ Typically, the decision-making focuses on the storage and IOPS, or Input/output 
 
 After evaluating the entire WWI MySQL data workloads, WWI determined they would need at least 4 vCores and 20 GB of memory and at least 100 GB of storage space with an IOP capacity of 450 IOPS. Because of the 450 IOPS requirement, they need to allocate at least 150 GB of storage because of [Azure Database for MySQL IOPs allocation method.](../../concepts-pricing-tiers.md#storage) Additionally, they require at least up to 100% of your provisioned server storage as backup storage and one read replica. They don't anticipate an outbound egress of more than 5 GB.
 
-Using the [Azure Database for MySQL pricing calculator](https://azure.microsoft.com/pricing/details/mysql/), WWI was able to determine the costs for the Azure Database for MySQL instance. As of 9/2020, the total costs of ownership (TCO) are displayed in the following table for the WWI Conference Database|
+Using the [Azure Database for MySQL pricing calculator](https://azure.microsoft.com/pricing/details/mysql/), WWI was able to determine the costs for the Azure Database for MySQL instance. As of 9/2020, the total costs of ownership (TCO) are displayed in the following table for the WWI Conference Database.
 
 | Resource | Description | Quantity | Cost |
 |----------|-------------|----------|------|
@@ -219,7 +219,7 @@ Using the [Azure Database for MySQL pricing calculator](https://azure.microsoft.
 | **Network**                   | < 5GB/month egress               | Free                                                       |               |
 | **Total**                     |                                  |                                                            | $6563.52 / yr |
 
-After reviewing the initial costs, WWI's CIO confirmed they are on Azure for a period much longer than 3 years. They decided to use 3-year [reserve instances](../../concept-reserved-pricing.md) to save an extra \~$4K/yr|
+After reviewing the initial costs, WWI's CIO confirmed they are on Azure for a period much longer than 3 years. They decided to use 3-year [reserve instances](../../concept-reserved-pricing.md) to save an extra \~$4K/yr.
 
 | Resource | Description | Quantity | Cost |
 |----------|-------------|----------|------|
@@ -250,7 +250,7 @@ Lastly, modify the server name in the application connection strings or switch t
 
 ## WWI scenario
 
-WWI started the assessment by gathering information about their MySQL data estate. They were able to compile the following|
+WWI started the assessment by gathering information about their MySQL data estate, as shown in the following table.
 
 | Name | Source | Db Engine | Size | IOPS | Version | Owner | Downtime |
 |------|--------|-----------|------|------|---------|-------|----------|

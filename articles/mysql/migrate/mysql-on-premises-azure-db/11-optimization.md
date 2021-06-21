@@ -8,7 +8,7 @@ author: arunkumarthiags
 ms.author: arthiaga
 ms.reviewer: maghan
 ms.custom:
-ms.date: 06/18/2021
+ms.date: 06/21/2021
 ---
 
 # Migrate MySQL on-premises to Azure Database for MySQL: Optimization

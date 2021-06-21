@@ -8,7 +8,7 @@ author: arunkumarthiags
 ms.author: arthiaga
 ms.reviewer: maghan
 ms.custom:
-ms.date: 06/18/2021
+ms.date: 06/21/2021
 ---
 
 # Migrate MySQL on-premises to Azure Database for MySQL: Representative Use Case
@@ -44,7 +44,7 @@ The primary goals for migrating their databases and associated SQL workloads to 
 
 WWI used the [Cloud Adoption Framework (CAF)](/azure/cloud-adoption-framework/) to educate their team on following best practices guidelines for cloud migration. Then, using CAF as a higher-level migration guide, WWI customized their migration into three main stages. Finally, they defined activities that needed to be addressed within each stage to ensure a successful lift and shift cloud migration.
 
-These stages include|
+These stages includ:
 
 | Stage | Name | Activities |
 |-------|------|------------|
