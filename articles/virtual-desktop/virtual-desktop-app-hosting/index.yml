@@ -1,0 +1,38 @@
+### YamlMime:Landing
+
+title: Azure Virtual Desktop for Independent Software Vendors
+summary: summary # < 160 chars
+
+metadata:
+  title: Azure Virtual Desktop for Independent Software Vendors
+  description: A guide for independent software vendors for how to develop apps for Azure Virtual Desktop.
+  ms.service: virtual-desktop
+  services: virtual-desktop
+  ms.topic: landing-page
+  manager: femila
+  author: Heidilohr
+  ms.author: helohr
+  ms.date: 06/15/2021
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+
+landingContent:
+  # Card
+  - title: About Azure Virtual Desktop for independent software vendors
+    linkLists:
+      - linkListType: overview
+        links: 
+          - text: What is Azure Virtual Desktop, and how can I use it to host and stream my apps?
+            url: ../overview.md?toc=/azure/virtual-desktop/virtual-desktop-app-hosting/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+
+  # Card
+  - title: Get started with Azure Virtual Desktop
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: How to set up your deployment
+            url: ../configure-adfs-sso.md
+      - linkListType: how-to-guide
+        links:
+          - text: How to estimate costs
+            url: ../azure-monitor-costs.md
