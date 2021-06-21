@@ -158,7 +158,7 @@ To upload a public key certificate:
 
 To create a client secret:
 
-1. In the **Manage** menu, select **Certificates & secrets**.
+1. Under **Manage** in the left pane, select **Certificates & secrets**.
 
 2. Select **+ New client secret**.
 
