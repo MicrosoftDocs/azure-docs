@@ -20,7 +20,7 @@ ms.service: azure-communication-services
 
 ## Securing Azure Function
 
-As part of setting up an trusted service to provision access tokens for users, we need to take into account the security of that endpoint to make sure no can randomly create tokens for your service. Azure Functions provide built-in security features you can use to secure the endpoint using different types of authentication policies. Read more about [Azure Function Security](https://docs.microsoft.com/azure/azure-functions/security-concepts)
+As part of setting up an trusted service to provision access tokens for users, we need to take into account the security of that endpoint to make sure no bad actor can randomly create tokens for your service. Azure Functions provide built-in security features that you can use to secure the endpoint using different types of authentication policies. Read more about [Azure Function Security](https://docs.microsoft.com/azure/azure-functions/security-concepts)
 
 ## Clean up resources
 
