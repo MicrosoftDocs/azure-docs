@@ -12,19 +12,22 @@ ms.custom: portal
 
 ---
 
-# Remove machine specific information by generalizing a VM beofre creating an image
+# Remove machine specific information by generalizing a VM before creating an image
+
+Generalizing a VM is not necessary for creating an image in a [Shared Image Gallery](shared-image-galleries.md#generalized-and-specialized-images)) unless you specifically want to create a generalized image. Generalizing is required when creating a managed image outside of a gallery.
+
+Generalizing removes machine specific information so the image can be used to create multiple VMs. Once the VM has been generalized, you need to let the platform know that the VM has been generalized so that the boot sequence can be set correctly. Once a VM is generalized, it should not be restarted.
 
 
 ## Linux
 
-First you'll deprovision the VM by using the Azure VM agent to delete machine-specific files and data. Use the `waagent` command with the `-deprovision+user` parameter on your source Linux VM. For more information, see the [Azure Linux Agent user guide](../extensions/agent-linux.md). This process can't be reversed.
+First you'll deprovision the VM by using the Azure VM agent to delete machine-specific files and data. Use the `waagent` command with the `-deprovision+user` parameter on your source Linux VM. For more information, see the [Azure Linux Agent user guide](./extensions/agent-linux.md). This process can't be reversed.
 
 1. Connect to your Linux VM with an SSH client.
 2. In the SSH window, enter the following command:
-   
-    ```bash
+   ```bash
     sudo waagent -deprovision+user
-    ```
+   ```
    > [!NOTE]
    > Only run this command on a VM that you'll capture as an image. This command does not guarantee that the image is cleared of all sensitive information or is suitable for redistribution. The `+user` parameter also removes the last provisioned user account. To keep user account credentials in the VM, use only `-deprovision`.
  
@@ -47,11 +50,11 @@ Sysprep removes all your personal account and security information, and then pre
 Make sure the server roles running on the machine are supported by Sysprep. For more information, see [Sysprep support for server roles](/windows-hardware/manufacture/desktop/sysprep-support-for-server-roles) and [Unsupported scenarios](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview#unsupported-scenarios). 
 
 > [!IMPORTANT]
-> After you have run Sysprep on a VM, that VM is considered *generalized* and cannot be restarted. The process of generalizing a VM is not reversible. If you need to keep the original VM functioning, you should create a [copy of the VM](create-vm-specialized.md#option-3-copy-an-existing-azure-vm) and generalize its copy. 
+> After you have run Sysprep on a VM, that VM is considered *generalized* and cannot be restarted. The process of generalizing a VM is not reversible. If you need to keep the original VM functioning, you should create a [copy of the VM](./windows/create-vm-specialized.md#option-3-copy-an-existing-azure-vm) and generalize its copy. 
 >
 >Sysprep requires the drives to be fully decrypted. If you have enabled encryption on your VM, disable encryption before you run Sysprep.
 >
-> If you plan to run Sysprep before uploading your virtual hard disk (VHD) to Azure for the first time, make sure you have [prepared your VM](prepare-for-upload-vhd-image.md).  
+> If you plan to run Sysprep before uploading your virtual hard disk (VHD) to Azure for the first time, make sure you have [prepared your VM](./windows/prepare-for-upload-vhd-image.md).  
 > 
 > 
 
