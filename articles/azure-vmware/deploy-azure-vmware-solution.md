@@ -8,7 +8,7 @@ ms.date: 05/19/2021
 
 # Deploy and configure Azure VMware Solution
 
-In this article, you'll use the information from the [planning section](quickstart-production-ready-deployment-steps.md) to deploy and configure Azure VMware Solution. 
+In this article, you'll use the information from the [planning section](quickstart-quickstart-production-ready-deployment-steps.md) to deploy and configure Azure VMware Solution. 
 
 The diagram shows the deployment workflow of Azure VMware Solution. 
 

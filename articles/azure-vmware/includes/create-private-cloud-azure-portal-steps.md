@@ -23,7 +23,7 @@ You can create an Azure VMware Solution private cloud by using the Azure portal 
 1. On the **Basics** tab, enter values for the fields. 
 
    >[!TIP]
-   >You gathered this information during the [planning phase](../quickstart-production-ready-deployment-steps.md) of this quick start.
+   >You gathered this information during the [planning phase](../quickstart-quickstart-production-ready-deployment-steps.md) of this quick start.
 
    | Field   | Value  |
    | ---| --- |

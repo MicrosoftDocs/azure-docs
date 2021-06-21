@@ -9,6 +9,13 @@ ms.date: 06/28/2021
 
 
 
+> [!IMPORTANT]
+> Although the VMware Configuration Maximum tool describes site pairs maximum to be 25 between the on-premises HCX Connector and HCX Cloud Manager, licensing limits this to three for HCX Advanced and 10 for HCX Enterprise Edition.
+>
+> VMware HCX Enterprise is available with Azure VMware Solution as a preview service. It's free and is subject to terms and conditions for a preview service. After the VMware HCX Enterprise service is generally available, you'll get a 30-day notice that billing will switch over. You'll also have the option to turn off or opt out of the service. Downgrading from HCX Enterprise to HCX Advanced is possible without redeploying, but you'll have to log a support ticket for that action to take place. If planning a downgrade, make sure no migrations are scheduled and features such as RAV, MON are not in use.
+
+
+
 In this tutorial, you'll configure the on-premises VMware HCX Connector for your Azure VMware Solution private cloud. 
 
 First, review [Before you begin](#before-you-begin), [Software version requirements](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-54E5293B-8707-4D29-BFE8-EE63539CC49B.html), and the [Prerequisites](#prerequisites) sections.
@@ -49,6 +56,8 @@ Make sure that your on-premises vSphere environment (source environment) meets t
 
 * [All required ports](https://ports.vmware.com/home/VMware-HCX) are open for communication between on-premises components and Azure VMware Solution private.
 
+- [Define VMware HCX network segments](quickstart-production-ready-deployment-steps.md#define-vmware-hcx-network-segments).  The primary use cases for VMware HCX are workload migrations and disaster recovery.
+
 ### IP addresses
 
 [!INCLUDE [hcx-network-segments](includes/hcx-network-segments.md)]
@@ -78,7 +87,7 @@ For an end-to-end overview of this procedure, view the [Azure VMware Solution: H
 
 ## Create network profiles
 
-VMware HCX Connector deploys a subset of virtual appliances (automated) that require multiple IP segments. When you create your network profiles, you use the IP segments you identified during the [VMware HCX Network Segments pre-deployment preparation and planning stage](quickstart-production-ready-deployment-steps.md#define-vmware-hcx-network-segments).
+VMware HCX Connector deploys a subset of virtual appliances (automated) that require multiple IP segments. When you create your network profiles, you use the IP segments you identified during the [VMware HCX Network Segments pre-deployment preparation and planning stage](quickstart-quickstart-production-ready-deployment-steps.md#define-vmware-hcx-network-segments).
 
 You'll create four network profiles:
 

@@ -27,7 +27,7 @@ In this tutorial, you'll learn how to:
 ## Prerequisites
 
 - Appropriate administrative rights and permission to create a private cloud. You must be at minimum contributor level in the subscription.
-- Follow the information you gathered in the [planning](quickstart-production-ready-deployment-steps.md) article to deploy Azure VMware Solution.
+- Follow the information you gathered in the [planning](quickstart-quickstart-production-ready-deployment-steps.md) article to deploy Azure VMware Solution.
 - Ensure you have the appropriate networking configured as described in [Network planning checklist](tutorial-network-checklist.md).
 - Hosts have been provisioned and the Microsoft.AVS [resource provider has been registered](quickstart-deploy-azure-vmware-solution.md#step-1-register-the-microsoftavs-resource-provider).
 
