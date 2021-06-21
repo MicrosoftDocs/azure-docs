@@ -52,7 +52,7 @@ developers to work with data using a variety of standard APIs, such as SQL, Mong
 | ------------- | ------------- | -------------------- | -----------------------  |
 | 4.0.0         | 3.1.1         |        8             | 2.12                     |
 
-## Download
+## Download 
 
 You can use the maven coordinate of the jar to auto install the Spark Connector to your Databricks Runtime 8 from Maven:
 `com.azure.cosmos.spark:azure-cosmos-spark_3-1_2-12:4.1.0`
