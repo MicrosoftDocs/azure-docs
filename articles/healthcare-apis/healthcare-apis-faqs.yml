@@ -1,0 +1,63 @@
+### YamlMime:FAQ
+metadata:
+  title: FAQs about Azure Healthcare APIs
+  description: This document provides answers to the frequently asked questions about the Azure Healthcare APIs.
+  services: healthcare-apis
+  author: stevewohl
+  ms.service: healthcare-apis
+  ms.subservice: fhir
+  ms.topic: reference
+  ms.date: 06/21/2021
+  ms.author: ginle
+    
+title: Frequently asked questions about Azure Healthcare APIs
+summary: |
+
+sections:
+  - name: "Azure Healthcare APIs: The basics"
+    questions:
+      - question: What is the Azure Healthcare APIs?
+        answer: |
+          The Azure Healthcare APIs is a fully managed health data platform 
+          that enables the rapid exchange and persistence of Protected Health Information (PHI) and 
+          health data through interoperable open industry standards like Fast Healthcare Interoperability Resources (FHIR®) and Digital Imaging and Communications in Medicine (DICOM®).
+          
+          
+      - question: What do the Azure Healthcare APIs allow you to do?
+        answer: |
+          • Transform and ingest data into FHIR. For example, you can transform health data from 
+          legacy formats, such as HL7v2 or CDA, or from high frequency IoT data in device 
+          proprietary formats to FHIR.
+          
+          • Connect your data stored in Healthcare APIs with services across the Azure ecosystem 
+          and products across Microsoft to derive new insights through analytics and machine 
+          learning and to enable new workflows.
+           
+          • Manage advanced workloads with enterprise features that offer reliability, scalability, 
+          and security to ensure that your data is protected, meets privacy and compliance 
+          certifications required for the healthcare industry.
+          
+      - question: Can I migrate my existing production workload from Azure API for FHIR to Healthcare APIs?
+        answer: Yes, as we expand the Healthcare APIs platform, our goal is to minimize the impact to you and provide a seamless migration. Migration capabilities are not available during the Private Preview phase.
+
+      - question: What is the pricing of Azure Healthcare APIs?
+        answer: Azure Healthcare APIs introduces pricing that is based on consumption volumes (API call volume and data storage). With the new pricing model, your costs scale proportionally with the size and maturity of your workload. You will have the flexibility to set performance thresholds on data services to prevent cost overruns. 
+
+      - question: What regions are Healthcare APIs available?
+        answer: |
+          During the Private Preview phase, Healthcare APIs are available in the South Central US and North Europe regions. [UPDATE THIS LIST BEFORE GA]
+          
+      - question: Can you use IoT Central with IoT Connector for FHIR?
+        answer: |
+          Health data can be sent to Event Hubs, Azure IoT Hub or Azure IoT Central, and is converted to FHIR resources, which enables care teams to view patient data captured from IoT devices in context with clinical records in FHIR.
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          

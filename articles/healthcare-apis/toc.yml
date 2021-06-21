@@ -4,5 +4,14 @@ items:
 - name: Overview
   expanded: true
   items:
-    - name: About Healthcare APIs
+    - name: About Azure Healthcare APIs
       href: healthcare-apis-overview.md
+    - name: FAQs about Azure Healthcare APIs
+      href: healthcare-apis-faqs.yml
+- name: Workspace
+  expanded: true
+  items:
+    - name: Workspace Overview
+      href: workspace-overview.md
+    - name: Deploy workspace in the Azure portal
+      href: healthcare-apis-quickstart.md
