@@ -25,7 +25,7 @@ Review the [Azure Purview Private Link frequently asked questions (FAQ)](./catal
 1. Fill in the basic information, and on the **Networking** tab, set the connectivity method to **Private endpoint**. Set up your ingestion private endpoints by providing details for **Subscription**, **Virtual network**, and **Subnet** that you want to pair with your private endpoint.
 
    > [!NOTE]
-   > Create an ingestion private endpoint only if you intend to enable network isolation for end-to-end scan scenarios, for both your Azure and on-premises sources. We currently don't support ingestion private endpoints working with your AWS sources.
+   > Create an ingestion private endpoint only if you intend to enable network isolation for end-to-end scan scenarios, for both your Azure and on-premises sources. We currently don't support ingestion private endpoints that work with your AWS sources.
 
    :::image type="content" source="media/catalog-private-link/create-pe-azure-portal.png" alt-text="Screenshot that shows creating a private endpoint in the Azure portal.":::
 
