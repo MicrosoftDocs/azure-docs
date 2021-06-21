@@ -50,7 +50,7 @@ This architecture allows you to develop pipelines that maximize data movement th
 * Network bandwidth between the source and destination data stores
 * Source or destination data store input/output operations per second (IOPS) and bandwidth
 
-This full utilization means you can estimate the overall throughput by measuring the minimum throughput available with the following resources:
+This full utilization means you can estimate the overall throughout by measuring the minimum throughput available with the following resources:
 
 * Source data store
 * Destination data store
