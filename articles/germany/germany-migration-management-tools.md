@@ -36,7 +36,7 @@ For more information:
 - Learn how to [create a Traffic Manager profile](../traffic-manager/quickstart-create-traffic-manager-profile.md).
 - Read about the [Blue-Green scenario](https://azure.microsoft.com/blog/blue-green-deployments-using-azure-traffic-manager/).
 
-## Move backup data from Germany Central/Germany Northeast to Germany West Central
+## Azure Backup
 
 Azure Backup service provides simple, secure, and cost-effective solutions to back up your data and recover it from the Microsoft Azure cloud. The backup data move is now enabled from Germany Central (GEC) and Germany Northeast (GNE) to Germany West Central (GWC) via PowerShell cmdlets.
 
@@ -127,12 +127,14 @@ Run these cmdlets:
 1. `Set-AzContext -SubscriptionName $trgSub`
 1. `Copy-AzRecoveryServicesVault - CorrelationIdForDataMove $corr -SourceVault`
 
-You can monitor the operation using the Get-AzRecoveryServicesBackupJob cmdlet.
+You can monitor the operation using the `Get-AzRecoveryServicesBackupJob` cmdlet.
 
 >[!Note] 
 >- During the backup data move operation, all backup items are moved to a transient state. In this state, the new Recovery Points (RPs) are not created, and old RPs are not cleaned up.
 >- As this feature is enabled in GEC and GNE, we recommend you to perform these steps on a small vault and validate the movement. On success, perform these steps on all vaults.
->- Although the backup data move is triggered for the entire vault, the move happens per container (VMs, DPM and MABS servers, and MARS agents). Track the progress of the moves per container in the **Jobs** section. <br> ![monitor progress of move jobs.](./media/germany-migration-management-tools/track-move-jobs.png) 
+>- Along side the backup data move is triggered for the entire vault, the move happens per container (VMs, DPM and MABS servers, and MARS agents). Track the progress of the moves per container in the **Jobs** section. 
+
+ ![monitor progress of move jobs.](./media/germany-migration-management-tools/track-move-jobs.png)
 
 During the move operation, the following actions are blocked on the source vault:
 
@@ -142,7 +144,7 @@ During the move operation, the following actions are blocked on the source vault
 - Resume Backup
 - Modify Policy
 
-## Step 4: Check the status of the move job
+### Step 4: Check the status of the move job
 
 The backup data move operation happens per container. For Azure VM backups, the VM backups are considered as the containers. To indicate progress of the backup data move operation, a job is created for every container.
 
@@ -223,9 +225,9 @@ For Original-Location Recovery (OLR):
 >[!Note]
 >Limitations of using DPM: <br><br> <ul><li>Backup operation for all the machines registered to the DPM server are stopped when you connect the DPM server to the target-vault.</li><li>After the DPM server is re-registered to the new vault after restore, consistency checks takes place (time taken to complete the same will depend on the amount of data) before resuming backups.</li></ul>
 
-## Error codes
+### Error codes
 
-### UserErrorConflictingDataMoveOnVault 
+#### UserErrorConflictingDataMoveOnVault 
 
 **Message:** There is another data move operation currently running on vault. 
 
@@ -233,7 +235,7 @@ For Original-Location Recovery (OLR):
 
 **Recommended action:** Wait until the current data move operation completes, and then try again.
 
-### UserErrorOperationNotAllowedDuringDataMove
+#### UserErrorOperationNotAllowedDuringDataMove
 
 **Message:** This operation is not allowed since data move operation is in progress. 
 
@@ -245,9 +247,9 @@ For Original-Location Recovery (OLR):
 - Resume backup 
 - Modify policy.
 
-**Recommended action:** Wait until the data move operation completes, and then try again. [Learn more](#move-backup-data-from-germany-centralgermany-northeast-to-germany-west-central) about the supported operations.
+**Recommended action:** Wait until the data move operation completes, and then try again. [Learn more](#azure-backup) about the supported operations.
 
-### UserErrorNoContainersFoundForDataMove 
+#### UserErrorNoContainersFoundForDataMove 
 
 **Message:** There are no containers in this vault which are supported for data move operation. 
 
@@ -257,9 +259,9 @@ For Original-Location Recovery (OLR):
 - Source vault has only unsupported containers. 
 - Source vault has all containers which are previously moved to some target vault and you have passed IgnoreMoved = true in the API.
 
-**Recommended action:**  [Learn](#move-backup-data-from-germany-centralgermany-northeast-to-germany-west-central) about the supported containers for data move.
+**Recommended action:**  [Learn](#azure-backup) about the supported containers for data move.
 
-### UserErrorDataMoveNotSupportedAt ContainerLevel 
+#### UserErrorDataMoveNotSupportedAt ContainerLevel 
 
 **Message:** Data move operation is not supported at container level. 
 
@@ -275,7 +277,7 @@ For Original-Location Recovery (OLR):
 
 **Recommended action:** Try the data move operation after some time.
 
-### UserErrorDataMoveNotAllowedTargetVault NotEmpty 
+#### UserErrorDataMoveNotAllowedTargetVault NotEmpty 
 
 **Message:** Data move operation is not allowed because target vault has some containers already registered. 
 
@@ -283,30 +285,30 @@ For Original-Location Recovery (OLR):
 
 **Recommended action:** Try the data move operation on an empty target vault.
 
-### UserErrorUnsupportedSourceRegionForDataMove 
+#### UserErrorUnsupportedSourceRegionForDataMove 
 
 **Message:** Data move operation is not supported for this region. 
 
 **Scenario:** Source region not valid.
 
-**Recommended action:** Check the [list of supported regions](#move-backup-data-from-germany-centralgermany-northeast-to-germany-west-central) for data move.
+**Recommended action:** Check the [list of supported regions](#azure-backup) for data move.
 
-### UserErrorUnsupportedTargetRegionForDataMove 
+#### UserErrorUnsupportedTargetRegionForDataMove 
 
 **Message:** Data move operation is not supported to this region.
 
 **Scenario:** Target region ID not valid. 
 
-**Recommended action:** Check the [list of supported regions](#move-backup-data-from-germany-centralgermany-northeast-to-germany-west-central) for data move.
+**Recommended action:** Check the [list of supported regions](#azure-backup) for data move.
 
 
-### UserErrorDataMoveTargetVaultWithPrivate EndpointNotSupported 
+#### UserErrorDataMoveTargetVaultWithPrivate EndpointNotSupported 
 
 **Message:** Data cannot be moved as selected target vault has private endpoints. 
 
 **Scenario:** Private end points are enabled in the target vault. 
 
-**Recommended action: Delete the private endpoints and retry the move operation. [Learn more](#move-backup-data-from-germany-centralgermany-northeast-to-germany-west-central) about the supported operations.
+**Recommended action: Delete the private endpoints and retry the move operation. [Learn more](#azure-backup) about the supported operations.
 
 ### UserErrorDataMoveSourceVaultWithPrivate EndpointNotSupported 
 
@@ -316,21 +318,21 @@ For Original-Location Recovery (OLR):
 
 **Recommended action:** Delete the private endpoints and retry the move operation. [Learn more](../backup/private-endpoints.md#deleting-private-endpoints) about the supported operations.
 
-### UserErrorDataMoveSourceVaultWithCMK NotSupported 
+#### UserErrorDataMoveSourceVaultWithCMK NotSupported 
 
 **Message:** Data cannot be moved as selected source vault is encryption enabled. 
 
 **Scenario:** Customer-Managed Keys (CMK) are enabled in the source vault.
 
-**Recommended action:** [Learn](#move-backup-data-from-germany-centralgermany-northeast-to-germany-west-central) about the supported operations.
+**Recommended action:** [Learn](#azure-backup) about the supported operations.
 
-### UserErrorDataMoveTargetVaultWithCMKNotSupported 
+#### UserErrorDataMoveTargetVaultWithCMKNotSupported 
 
 **Message:** Data cannot be moved as selected target vault is encryption enabled. 
 
 **Scenario:** Customer-Managed Keys (CMK) are enabled in the target vault
 
-**Recommended action:** [Learn](#move-backup-data-from-germany-centralgermany-northeast-to-germany-west-central) about the supported operations.
+**Recommended action:** [Learn](#azure-backup) about the supported operations.
 
 ## Scheduler
 
@@ -477,7 +479,7 @@ You need to retry backup from scratch by running the same command (given below) 
 
 ### Is there a cost involved in moving this backup data?
 
-No. There is no additional cost for moving your backup data from one region to another. Azure Backup bears the cost of moving data across regions. Once the move operation is complete, you will have a 10-days no billing period only. After this period, billing will start in the Target vault.
+No. There is no additional cost for moving your backup data from one region to another. Azure Backup bears the cost of moving data across regions. Once the move operation is complete, you will have a 10-day no billing period only. After this period, billing will start in the Target vault.
 
 ### If I face issues in moving backup data, whom should I contact?
 
