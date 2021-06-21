@@ -14,20 +14,20 @@ ms.author: lajanuar
 # Create and use managed identities 
 
 > [!IMPORTANT]
-> * Managed identity for Document Translation is not currently available in the global region.
+>
+> * Managed identity for Document Translation is currently unavailable in the global region.
 
-In this article, we will walk through how to create and use managed identities for your Translator and Azure blob storage resources. If you have a private Azure storage account protected by a Virtual Network (VNet) or firewall or you want to eliminate the need to manage credentials, create a managed identity for your Translator resource:
+In this article, we will walk through how to create and use managed identities for your Translator and Azure blob storage resources. If you have a private Azure storage account protected by a Virtual Network (VNet) or firewall or you want to eliminate the need to manage credentials, you can create a managed identity for your Translator resource:
 
-  * Azure managed identities are service principals that create an Azure Active Directory (Azure AD) identity and specific permissions for Azure-managed resources. 
-  * You can use managed identities to grant access to any resource that supports Azure AD authentication. 
-  * To grant access, you assign a role to a managed identity using Azure role-based access control (Azure RBAC). There is no added cost to using managed identities in Azure.
-
+* Azure managed identities are service principals that create an Azure Active Directory (Azure AD) identity and specific permissions for Azure-managed resources. 
+* You can use managed identities to grant access to any resource that supports Azure AD authentication. 
+* To grant access, you assign a role to a managed identity using Azure role-based access control (Azure RBAC). There is no added cost to using managed identities in Azure.
 
 You can also secure access to documents for translation in your Azure blob storage account using the methods below:
 
 1. For all operations using documents from storage accounts available via the public Internet, you can provide a shared access signature (**SAS**) URL for your Azure blog storage container with restricted rights for a limited period and pass it in your POST requests. For more details, *see* [Create SAS tokens for your storage containers](create-sas-tokens.md)
 
-1. You can also include an access token in HTTP request as the `Authorization` header. The token value provided must be preceded by `Bearer`, for example: `Bearer YOUR_AUTH_TOKEN`. Authentication tokens are valid for 10 minutes. For more details *see* [Authenticate with an authentication token](../../authentication.md?tabs=powershell#authenticate-with-an-authentication-token.md).
+1. You can also include an access token in an HTTP request with the `Authorization` header. The token value provided must be preceded by `Bearer`, for example: `Bearer YOUR_AUTH_TOKEN`. Authentication tokens are valid for 10 minutes. For more details *see* [Authenticate with an authentication token](../../authentication.md?tabs=powershell#authenticate-with-an-authentication-token).
 
 > [!NOTE]
 > [**Azure Active Directory (Azure AD)**](/azure/active-directory/fundamentals/active-directory-whatis) is Microsoft's cloud-based identity and access management service that runs in Azure. It is an active directory of your organization's authorized users and groups. Users authenticate their identity as members of the directory using Single Sign-On (SSO) or multi-factor authentication.  Authenticated users have access to resources based on the Azure AD [**role-based access control (RBAC)**](/azure/role-based-access-control/overview) system.
