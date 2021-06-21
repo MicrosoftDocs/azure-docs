@@ -92,6 +92,7 @@ You'll connect to a disk pool surfaced through an iSCSI target as the VMware dat
    ```azurecli
    az vmware datastore show --name MyCloudSANDatastore1 --resource-group MyResourceGroup --cluster -Cluster-1 --private-cloud MyPrivateCloud
    ```
+
 5. List all the datastores in a private cloud cluster.
 
    ```azurecli
