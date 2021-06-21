@@ -2,14 +2,14 @@
 title: Configure sign-in auto-acceleration using Home Realm Discovery
 description: Learn how to configure Home Realm Discovery policy for Azure Active Directory authentication for federated users, including auto-acceleration and domain hints.
 services: active-directory
-author: iantheninja
+author: mtillman
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 02/12/2021
-ms.author: iangithinji
+ms.author: mtillman
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
 ---
