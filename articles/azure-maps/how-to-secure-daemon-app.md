@@ -86,7 +86,7 @@ To create a new application registration:
 
 2. Select **Azure Active Directory**.
 
-3. In the **Manage** menu, select **App registrations**.
+3. Under **Manage** in the left pane, select **App registrations**.
 
 4. Select the **+ New registration** tab.
 
