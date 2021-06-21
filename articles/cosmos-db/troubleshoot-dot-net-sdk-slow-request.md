@@ -18,11 +18,11 @@ Cosmos DB slow requests can happen for multiple reasons. This guide is to help r
 
 ## Request rate to large causing 429 (Throttles)
 
-Throttled requests are the most common reason for slow requests. Cosmos DB will throttle requests if it exceeds the allocated RUs for the database or container. The SDK has built in logic to retry on these requests. The [request rate too large](troubleshoot-request-rate-too-large#how-to-investigate) troubleshooting explains how to check if the requests are being throttled and how to scale the Cosmos DB service to avoid the issue in the future.
+Throttled requests are the most common reason for slow requests. Cosmos DB will throttle requests if it exceeds the allocated RUs for the database or container. The SDK has built in logic to retry on these requests. The [request rate too large](troubleshoot-request-rate-too-large.md#how-to-investigate) troubleshooting explains how to check if the requests are being throttled and how to scale the Cosmos DB service to avoid the issue in the future.
 
 ## Application design
 
-Not following the SDK practices will result in different issues that will cause slow or failed requests. Follow the [performance guide](performance-tips-dotnet-sdk-v3-sql). 
+Not following the SDK practices will result in different issues that will cause slow or failed requests. Follow the [performance guide](performance-tips-dotnet-sdk-v3-sql.md). 
 
 Key points:
 1. Application in same region as Cosmos DB service
@@ -145,7 +145,7 @@ RntbdRequestStats show the time for the different stages of sending and receivin
 Multiple StoreResults for single request:
 
 * Strong and bounded staleness consistency will always have at least 2 store results
-* Check the status code of each StoreResult. The SDK retries automatically on multiple different [transient failures](troubleshoot-dot-net-sdk-request-timeout). The SDK is constantly being improved to cover more scenarios. 
+* Check the status code of each StoreResult. The SDK retries automatically on multiple different [transient failures](troubleshoot-dot-net-sdk-request-timeout.md). The SDK is constantly being improved to cover more scenarios. 
 
 ```json
 "StoreResult": {
