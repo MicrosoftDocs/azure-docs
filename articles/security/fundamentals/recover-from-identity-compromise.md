@@ -1,6 +1,6 @@
 ---
-title: Use Microsoft security resources to help recover from systemic identity compromise | Microsoft Docs
-description: Learn how to use Microsoft security resources and recommendations to secure your system against systemic-identity compromises similar to the Nobelium attack (Solorigate) of December 2020.
+title: Use Microsoft and Azure security resources to help recover from systemic identity compromise | Microsoft Docs
+description: Learn how to use Microsoft and Azure security resources, such as Microsoft 365 Defender, Azure Sentinel, and Azure Active Directory, and Azure Security Center, and Microsoft recommendations to secure your system against systemic-identity compromises similar to the Nobelium attack (Solorigate) of December 2020.
 services: sentinel
 documentationcenter: na
 author: batamig
@@ -277,7 +277,7 @@ This section provides possible methods and steps to consider when building your 
 > [!IMPORTANT]
 > The exact steps required in your organization will depend on what persistence you've discovered in your investigation, and how confident you are that your investigation was complete and has discovered all possible entry and persistence methods.
 >
-> Ensure that any actions taken are performed from a trusted device, built from a [clean source](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material). For example, use a fresh, [privileged access workstation](/security/compass/concept-azure-managed-workstation).
+> Ensure that any actions taken are performed from a trusted device, built from a [clean source](/security/compass/privileged-access-access-model). For example, use a fresh, [privileged access workstation](/security/compass/privileged-access-deployment).
 >
 
 The following sections include the following types of recommendations for remediating and retaining administrative control:
