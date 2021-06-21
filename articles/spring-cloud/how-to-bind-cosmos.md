@@ -104,7 +104,7 @@ provider "azurerm" {
 variable "application_name" {
   type        = string
   description = "The name of your application"
-  default     = "yuchen-abc"
+  default     = "demo-abc"
 }
 
 resource "azurerm_resource_group" "example" {
