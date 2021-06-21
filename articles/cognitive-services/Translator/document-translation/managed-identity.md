@@ -27,7 +27,7 @@ You can also secure access to documents for translation in your Azure blob stora
 
 1. For all operations using documents from storage accounts available via the public Internet, you can provide a shared access signature (**SAS**) URL for your Azure blog storage container with restricted rights for a limited period and pass it in your POST requests. For more details, *see* [Create SAS tokens for your storage containers](create-sas-tokens.md)
 
-1. You can also include an access token in HTTP request as the `Authorization` header. The token value provided must be preceded by `Bearer`, for example: `Bearer YOUR_AUTH_TOKEN`. Authentication tokens are valid for 10 minutes. For more details *see* [Authenticate with an authentication token](../../authentication?tabs=powershell#authenticate-with-an-authentication-token.md).
+1. You can also include an access token in HTTP request as the `Authorization` header. The token value provided must be preceded by `Bearer`, for example: `Bearer YOUR_AUTH_TOKEN`. Authentication tokens are valid for 10 minutes. For more details *see* [Authenticate with an authentication token](../../authentication.md?tabs=powershell#authenticate-with-an-authentication-token.md).
 
 > [!NOTE]
 > [**Azure Active Directory (Azure AD)**](/azure/active-directory/fundamentals/active-directory-whatis) is Microsoft's cloud-based identity and access management service that runs in Azure. It is an active directory of your organization's authorized users and groups. Users authenticate their identity as members of the directory using Single Sign-On (SSO) or multi-factor authentication.  Authenticated users have access to resources based on the Azure AD [**role-based access control (RBAC)**](/azure/role-based-access-control/overview) system.
