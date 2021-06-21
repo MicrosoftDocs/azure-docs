@@ -38,7 +38,7 @@ Each step is explained in the subsequent sections of this article.
 >[!NOTE]
 >If you are planning on moving any applications to Azure Active Directory as a part of this migration, you should do so prior to your MFA migration. If you move all of your apps, you can skip sections of the MFA migration process. See the section on moving applications at the end of this article.
 
-## Process
+## Process to migrate to Azure AD and user authentication
 
 ![Process to migrate to Azure AD and user authentication.](media/how-to-migrate-mfa-server-to-azure-mfa-user-authentication/mfa-cloud-authentication-flow.png)
 
@@ -298,3 +298,24 @@ For more information about managing users’ authentication methods, see [Manage
 
 We do not recommend that you reuse groups that are used for security. Therefore, if you are using a security group to secure a group of high-value apps via a Conditional Access policy, that should be the only use of that group.
 
+
+
+
+## Move application authentication to Azure Active Directory
+
+If you migrate all your application authentication along with your MFA and user authentication, you will be able to deprecate significant portions of your on-premises infrastructure, reducing costs and risks. 
+If you move all application authentication, you can skip the [Prepare AD FS](#prepare-ad-fs) stage, simplifying your MFA migration.
+
+The process for moving all application authentication is illustrated in the following diagram.
+
+![Process to migrate applications to to Azure AD MFA.](media/how-to-migrate-mfa-server-to-azure-mfa-user-authentication/mfa-app-migration-flow.png)
+
+
+If it is not possible to move all your applications prior to the migration, move applications that you can before starting.
+For more information on migrating applications to Azure, see [Resources for migrating applications to Azure Active Directory](../manage-apps/migration-resources.md).
+
+## Next steps
+
+Migrate from Microsoft MFA Server to Azure multi-factor authentication (Overview)
+Migrate applications from Windows Active Directory to Azure Active Directory
+Plan your cloud authentication strategy
