@@ -45,7 +45,7 @@ The following steps outline this process:
 4. Temporarily assign access to secrets `set` permission for you as the developer.
 5. Set the shared key in the Key Vault secrets and reference the secret ID as configuration for the daemon application.
 6. Remove your secrets `set` permission.
-7. Implement Azure Active Directory authentication in the daemon application to retrieve the shared key secret from Azure Key Vault.
+7. To retrieve the shared key secret from Azure Key Vault, implement Azure Active Directory authentication in the daemon application.
 8. Create an Azure Maps REST API request with the shared key.
 9. Now, the daemon application can retrieve the shared key from the Key Vault. T
 
