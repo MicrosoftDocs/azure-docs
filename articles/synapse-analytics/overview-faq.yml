@@ -71,7 +71,7 @@ sections:
       - question: |
           Does Azure Synapse workspace Support CI/CD? 
         answer: |
-          Yes! All Pipeline artifacts, notebooks, SQL scripts, and Spark job definitions will reside in Git. All pool definitions will be stored in Git as ARM Templates. Dedicated SQL pool objects (schemas, tables, views, etc.) will be managed with database projects with CI/CD support.
+          Yes! All Pipeline artifacts, notebooks, SQL scripts, and Spark job definitions will reside in Git. All pool definitions will be stored in Git as Azure Resource Manager (ARM) templates. Dedicated SQL pool objects (schemas, tables, views, etc.) will be managed with database projects with CI/CD support.
 
   - name: Pipelines
     questions:
