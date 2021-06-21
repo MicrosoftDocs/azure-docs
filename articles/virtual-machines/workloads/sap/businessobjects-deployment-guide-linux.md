@@ -40,14 +40,14 @@ Here's the product version and file system layout for this example:
 
 ## Deploy Linux virtual machine via Azure portal
 
-In this section, you create two virtual machines with the Linux operating system image for the SAP BOBI platform. The high-level steps to create the virtual machines are as follows -
+In this section, you create two virtual machines with the Linux operating system image for the SAP BOBI platform. The high-level steps to create the virtual machines are as follows:
 
 1. Create a [resource group](../../../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups).
 
 2. Create a [virtual network](../../../virtual-network/quick-create-portal.md#create-a-virtual-network).
 
    - Don't use a single subnet for all Azure services in the SAP BI platform deployment. Based on SAP BI platform architecture, you need to create multiple subnets. In this deployment, you create three subnets: one each for the application, the file repository store, and Application Gateway.
-   - In Azure, Application Gateway and Azure NetApp Files must always be on a separate subnet. For more information, see [Azure Application Gateway](../../../application-gateway/configuration-overview.md) and [Guidelines for Azure NetApp Files Network Planning](../../../azure-netapp-files/azure-netapp-files-network-topologies.md).
+   - In Azure, Application Gateway and Azure NetApp Files must always be on a separate subnet. For more information, see [Azure Application Gateway](../../../application-gateway/configuration-overview.md) and [Guidelines for Azure NetApp Files network planning](../../../azure-netapp-files/azure-netapp-files-network-topologies.md).
 
 3. Create an availability set. To achieve redundancy for each tier in a multi-instance deployment, place virtual machines for each tier in an availability set. Make sure you separate the availability sets for each tier based on your architecture.
 
@@ -126,19 +126,19 @@ The steps in this section use the following prefix:
     # Premium SSD of 128 GB is attached to virtual machine, whose device name is sdc
     ```
 
-2. **[A]** Format block device for /usr/sap.
+2. **[A]** Format the block device for /usr/sap.
 
     ```bash
     sudo mkfs.xfs /dev/sdc
     ```
 
-3. **[A]** Create mount directory.
+3. **[A]** Create the mount directory.
 
     ```bash
     sudo mkdir -p /usr/sap
     ```
 
-4. **[A]** Get UUID of block device.
+4. **[A]** Get the UUID of the block device.
 
     ```bash
     sudo blkid
@@ -148,13 +148,13 @@ The steps in this section use the following prefix:
     /dev/sdc: UUID="0eb5f6f8-fa77-42a6-b22d-7a9472b4dd1b" TYPE="xfs"
     ```
 
-5. **[A]** Maintain file system mount entry in /etc/fstab.
+5. **[A]** Maintain the file system mount entry in /etc/fstab.
 
     ```bash
     sudo echo "UUID=0eb5f6f8-fa77-42a6-b22d-7a9472b4dd1b /usr/sap xfs defaults,nofail 0 2" >> /etc/fstab
     ```
 
-6. **[A]** Mount file system.
+6. **[A]** Mount the file system.
 
     ```bash
     sudo mount -a
@@ -303,7 +303,7 @@ In this section, you create a private link that allows SAP BOBI virtual machines
 9.  Select your **private DNS zone** from the dropdown list.
 10. Select **Review+Create**, and create a private endpoint.
 
-For more information, see [Private Link for Azure Database for MySQL](../../../mysql/concepts-data-access-security-private-link.md)
+For more information, see [Private Link for Azure Database for MySQL](../../../mysql/concepts-data-access-security-private-link.md).
 
 ### Create the CMS and audit databases
 
@@ -519,9 +519,9 @@ To configure the cluster name on Linux, follow the instructions in the [SAP Busi
 
 Filestore refers to the disk directories where the actual SAP BusinessObjects files are. The default location of file repository server for the SAP BOBI platform is located in the local installation directory. In a multi-instance deployment, it's important to set up the filestore on a shared storage, such as Azure NetApp Files. This allows access to the filestore from all storage tier servers.
 
-1. If you haven't already created NFS volumes, create them in Azure NetApp Files. (Follow the instructions in the previous section, "Provision Azure NetApp Files.")
+1. If you haven't already created NFS volumes, create them in Azure NetApp Files. (Follow the instructions in the earilier section "Provision Azure NetApp Files.")
 
-2. Mount the NFS volume. (Follow the instructions in the previous section, "Mount Azure NetApp Files volume.")
+2. Mount the NFS volume. (Follow the instructions in the earlier section "Mount the Azure NetApp Files volume.")
 
 3. Follow SAP Note [2512660](https://launchpad.support.sap.com/#/notes/0002512660) to change the path of file repository (both input and output).
 
@@ -664,7 +664,7 @@ To distribute traffic across a web server, you can either use Azure Load Balance
 
 The following diagram shows the setup of SAP BOBI platform when you're using an availability set running on Linux server. The architecture showcases the use of different services, like Azure Application Gateway, Azure NetApp Files, and Azure Database for MySQL. These services offer built-in redundancy, which reduces the complexity of managing different high availability solutions.
 
-Notice that the incoming traffic (HTTPS - TCP/443) is load-balanced by using Azure Application Gateway v1 SKU, which is highly available when deployed on two or more instances. Multiple instances of the web server, management servers, and processing servers are deployed in separate VMs to achieve redundancy, and each tier is deployed in separate availability sets. Azure NetApp Files has built-in redundancy within the datacenter, so your ANF volumes for the file repository server will be highly available. The CMS database is provisioned on Azure Database for MySQL, which has inherent high availability. For more information, see [High availability in Azure Database for MySQL](../../../mysql/concepts-high-availability.md).
+Notice that the incoming traffic (HTTPS - TCP/443) is load-balanced by using Azure Application Gateway v1 SKU, which is highly available when deployed on two or more instances. Multiple instances of the web server, management servers, and processing servers are deployed in separate VMs to achieve redundancy, and each tier is deployed in separate availability sets. Azure NetApp Files has built-in redundancy within the datacenter, so your Azure NetApp Files volumes for the file repository server will be highly available. The CMS database is provisioned on Azure Database for MySQL, which has inherent high availability. For more information, see [High availability in Azure Database for MySQL](../../../mysql/concepts-high-availability.md).
 
 ![Diagram that shows SAP BusinessObjects BI platform redundancy with availability sets.](media/businessobjects-deployment-guide/businessobjects-deployment-high-availability.png)
 
