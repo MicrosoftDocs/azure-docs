@@ -12,12 +12,12 @@ ms.topic: overview
 ms.service: azure-communication-services
 ---
 # Call Automation APIs overview
-Call Automation APIs enable organizations to connect with their customers or employees at scale through automated business logic. You can use these APIs to create automated outbound reminder calls for appointments or to provide proactive notifications for events like power outages or wildfires. Applications added to a call can monitor updates as participants join or leave, allowing you to implement rich reporting and logging capabilities. 
+Call Automation APIs enable organizations to connect with their customers or employees at scale through automated business logic. You can use these APIs to create automated outbound reminder calls for appointments or to provide notifications for events like power outages or wildfires. Applications added to a call can monitor updates as participants join or leave, allowing you to implement reporting and logging. 
 
 ![in and out-of-call apps](../media/call-automation-apps.png)
 
 Call Automation APIs are provided for both in-call (application-participant or app-participant) actions, and out-of-call actions. Two key differences between these sets of APIs are:
-1. In-call APIs require that an application first join the call as a participant. App-participants are billed at [standard PSTN and VoIP rates](https://azure.microsoft.com/en-in/pricing/details/communication-services/).
+1. In-call APIs require that an application joins the call as a participant. App-participants are billed at [standard PSTN and VoIP rates](https://azure.microsoft.com/en-in/pricing/details/communication-services/).
 2. In-call APIs use the `callConnectionId` associated with app-participant, while Out-of-Call APIs use the `serverCallId` associated with the call instance. 
 
 ## Use cases
@@ -40,7 +40,7 @@ Call Automation APIs are provided for both in-call (application-participant or a
 > [!NOTE] 
 > In-Call actions are attributed to the App-participant associated with the `callConnectionId` used in the API call.
 
-In-call APIs enable an application to perform actions in a call as an app-participant. When an application answers or joins a call, a `callConnectionId` is assigned, which is used to perform in-call actions such as:
+In-call APIs enable an application to take actions in a call as an app-participant. When an application answers or joins a call, a `callConnectionId` is assigned, which is used for in-call actions such as:
 - Add or remove call participants.
 - Play audio prompts and listen for DTMF responses.
 - Listen to call roster updates and events.
@@ -72,7 +72,7 @@ Out-of-call APIs are available for actions such as:
 [View the complete list of out-of-call APIs](../../samples) //need real URL//
                                                         
 ### Out-of-Call Events //These should be links to sample JSON//
-Event notifications are sent as JSON payloads to the calling application via the `callbackUri` providing in the originating API call. Actions with correspondin out-of-call events are:
+Event notifications are sent as JSON payloads to the calling application via the `callbackUri` providing in the originating API call. Actions with corresponding out-of-call events are:
 - Call Recording (Start, Stop, Pause, Resume)
 - Invite participant result
 
