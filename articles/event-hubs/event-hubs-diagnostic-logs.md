@@ -34,7 +34,7 @@ Diagnostic logs are disabled by default. To enable diagnostic logs, follow these
     For more information about configuring diagnostics, see the [overview of Azure diagnostic logs](../azure-monitor/essentials/platform-logs-overview.md).
 
 ## Diagnostic logs categories
-[!INCLUDE [event-hubs-diagnostic-log-schema](../../includes/event-hubs-diagnostic-log-schema.md)]
+[!INCLUDE [event-hubs-diagnostic-log-schema](./includes/event-hubs-diagnostic-log-schema.md)]
 
 
 

@@ -98,7 +98,7 @@ from_file()
 The previous examples simply get the recognized text from `result.text`, but to handle errors and other responses, you'll need to write some code to handle the result. The following code evaluates the [`result.reason`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.resultreason) property and:
 
 * Prints the recognition result: `speechsdk.ResultReason.RecognizedSpeech`
-* If there is no recognition match, inform the user: `speechsdk.ResultReason.NoMatch `
+* If there is no recognition match, inform the user: `speechsdk.ResultReason.NoMatch`
 * If an error is encountered, print the error message: `speechsdk.ResultReason.Canceled`
 
 ```Python
@@ -204,7 +204,7 @@ Single words or complete phrases can be added to a Phrase List. During recogniti
 > [!IMPORTANT]
 > The Phrase List feature is available in the following languages: en-US, de-DE, en-AU, en-CA, en-GB, en-IN, es-ES, fr-FR, it-IT, ja-JP, pt-BR, zh-CN
 >
-> For other locales and if you have a large number of phrases, [training a custom model](../../../custom-speech-overview.md) will likely be the better choice to improve accuracy.
+> The Phrase List feature should be used with no more than a few hundred phrases. If you have a larger list or for languages that are not currently supported, [training a custom model](../../../custom-speech-overview.md) will likely be the better choice to improve accuracy.
 >
 > Do not use the Phrase List feature with custom endpoints. Instead, train a custom model that includes the phrases.
 

@@ -294,7 +294,11 @@
   - name: Data types
     href: data-types.md
   - name: Frequently asked questions
+<<<<<<< HEAD
     href: /azure/purview/frequently-asked-questions.yml
+=======
+    href: frequently-asked-questions.yml
+>>>>>>> fcf78c0685d1b155f0ebfb74b1beff9791274e9e
   - name: Templates for cloud consistency
     href: template-cloud-consistency.md
   - name: Deployment modes

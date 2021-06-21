@@ -8,7 +8,7 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 09/28/2020
+ms.date: 06/18/2021
 ms.topic: how-to
 ms.custom: devx-track-python, contperf-fy21q1
 ---
@@ -72,7 +72,9 @@ Select the compute target where your training script will run on. If no compute 
 The example code in this article assumes that you have already created a compute target `my_compute_target` from the "Prerequisites" section.
 
 >[!Note]
->Azure Databricks is not supported as a compute target for model training. You can use Azure Databricks for data preparation and deployment tasks. 
+>Azure Databricks is not supported as a compute target for model training. You can use Azure Databricks for data preparation and deployment tasks.
+
+[!INCLUDE [arc-enabled-kubernetes](../../includes/machine-learning-create-arc-enabled-training-computer-target.md)]
 
 ## Create an environment
 Azure Machine Learning [environments](concept-environments.md) are an encapsulation of the environment where your machine learning training happens. They specify the Python packages, Docker image, environment variables, and software settings around your training and scoring scripts. They also specify runtimes (Python, Spark, or Docker).
