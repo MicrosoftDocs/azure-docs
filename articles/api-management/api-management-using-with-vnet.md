@@ -193,8 +193,7 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
   * Enable [service endpoints][ServiceEndpoints] on the subnet in which the API Management service is deployed for:
       * Azure Sql
       * Azure Storage
-      * Azure EventHub
-      * Azure ServiceBus, and
+      * Azure EventHub, and
       * Azure KeyVault. 
   
     By enabling endpoints directly from API Management-delegated subnet to these services, you can use the Microsoft Azure backbone network, providing optimal routing for service traffic. If you use service endpoints with a force tunneled API Management, the above Azure services traffic isn't force tunneled. The other API Management service dependency traffic is force tunneled and can't be lost. If lost, the API Management service would not function properly.
