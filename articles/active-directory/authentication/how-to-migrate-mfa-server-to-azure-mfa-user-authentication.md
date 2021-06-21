@@ -213,10 +213,10 @@ Once you have configured the servers, you can add Azure AD MFA as an additional 
 
 Now you are ready to enable the staged rollout feature. Staged rollout helps you to iteratively move your users to either PHS or PTA. 
 
-* Be sure to review the supported scenarios. 
-* First you will need to do either the prework for PHS or the prework for PTA. We  recommend PHS. 
-* Next you will do the prework for seamless SSO. 
-* Enable the staged rollout of cloud authentication for your selected authentication method. 
+* Be sure to review the [supported scenarios](../hybrid/how-to-connect-staged-rollout.md#supported-scenarios). 
+* First you will need to do either the [prework for PHS](../hybrid/how-to-connect-staged-rollout.md#pre-work-for-password-hash-sync) or the [prework for PTA](../hybrid/how-to-connect-staged-rollout.md#pre-work-for-pass-through-authentication). We  recommend PHS. 
+* Next you will do the [prework for seamless SSO](../hybrid/how-to-connect-staged-rollout.md#pre-work-for-seamless-sso). 
+* [Enable the staged rollout of cloud authentication](../hybrid/how-to-connect-staged-rollout.md#enable-a-staged-rollout-of-a-specific-feature-on-your-tenant) for your selected authentication method. 
 * Add the group(s) you created for staged rollout. Remember that you will add users to groups iteratively, and that they cannot be dynamic groups or nested groups. 
 
 ## Register users for Azure MFA
@@ -298,7 +298,10 @@ For more information about managing users’ authentication methods, see [Manage
 
 We do not recommend that you reuse groups that are used for security. Therefore, if you are using a security group to secure a group of high-value apps via a Conditional Access policy, that should be the only use of that group.
 
+## Monitoring
 
+
+## Clean up tasks
 
 
 ## Move application authentication to Azure Active Directory
