@@ -63,7 +63,13 @@ Azure Defender for IoT ensures quick and frictionless deployment of network sens
     
     - **VM** - Connect a vNIC to a vSwitch in promiscuous mode.
     
-1. Run `ipconfig` every minute, for 3 minutes, to ensure data is streaming. The system is running appropriately if the number of RX packets increases each time. Repeat this step for each interface you have. 
+1. Validate incoming traffic to the monitoring port with the following command:
+
+    ```bash
+    ifconfig <moinitoring interface>
+    ```
+
+    If the number of RX packets increases each time, the interface is receiving incoming traffic. Repeat this step for each interface you have. 
 
 **Configure an Azure instance**:
 
@@ -185,14 +191,20 @@ After the installation completes, you will test the validation.
 
 1. Monitor port validation.
 
-    1. Run the `ipconfig` command every minute, for 3 minutes, to ensure data is streaming. The system is running appropriately if the number of RX packets increases each time. Repeat this step for each interface you have.
+    1. Validate incoming traffic to the monitoring port with the following command:
+
+        ```bash
+        ifconfig <moinitoring interface>
+        ```
+
+       If the number of RX packets increases each time, the interface is receiving incoming traffic. Repeat this step for each interface you have. 
 
     1. Run the following command to see which interface is defined to handle port mirroring.
 
-    ```bash
-    sudo docker logs compose_horizon_1
-    ````
-    :::image type="content" source="media/eiot-deployment/defined-interface.png" alt-text="Run the command to see which interface is defined to handle port monitoring.":::
+        ```bash
+        sudo docker logs compose_horizon_1
+        ````
+        :::image type="content" source="media/eiot-deployment/defined-interface.png" alt-text="Run the command to see which interface is defined to handle port monitoring.":::
 
 1. Run the following command to check the traffic D2C sanity
 
