@@ -39,10 +39,12 @@ For details about the decision tree below, read [MSAL.NET or Microsoft.Identity.
 
 !["Block diagram explaining how to choose if you need to use MSAL.NET and Microsoft.Identity.Web or both when migrating from ADAL.NET"](media/msal-net-migration/decision-diagram.png)
 
+<!-- 1P
 ## Examples of 1P Migrations
 
 [See examples](https://identitydivision.visualstudio.com/DevEx/_wiki/wikis/DevEx.wiki/20413/1P-ADAL.NET-to-MSAL.NET-migration-examples) of other 1P teams who have already, or are currently, migrating from ADAL to one of the MSAL+ solutions above. See their code, and in some cases read about their migration story.
-
+ -->
+ 
 ## Next steps
 
 - Learn how to [migrate confidential client applications built on top of ASP.NET MVC or .NET classic from ADAL.NET to MSAL.NET](msal-net-migration-confidential-client.md).
