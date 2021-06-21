@@ -100,5 +100,5 @@ Access the Azure portal using the **Admin On Behalf Of** (AOBO) procedure from P
 
 ## Next steps
 
-Before you can deploy Azure VMware Solution, you must first [register the resource provider](tutorial-deploy-azure-vmware-solution.md#step-1-register-the-microsoftavs-resource-provider) with your subscription to enable the service.   
+Before you can deploy Azure VMware Solution, you must first [register the resource provider](tutorial-deploy-azure-vmware-solution.mdregister-the-microsoftavs-resource-provider) with your subscription to enable the service.   
 
