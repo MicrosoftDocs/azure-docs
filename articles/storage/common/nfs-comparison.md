@@ -1,12 +1,11 @@
 ---
-title: Compare access to Azure Files, Blob Storage, and Azure Netapp Files with NFS
+title: Compare NFS access to Azure Files, Blob Storage, and Azure Netapp Files
 description: Compare NFS access for Azure Files, Azure Blob Storage, and Azure NetApp Files.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
 ms.date: 06/21/2021
 ms.author: rogarana
-ms.subservice: files
 ---
 
 # Compare access to Azure Files, Blob Storage, and Azure Netapp Files with NFS
