@@ -222,7 +222,7 @@ A.  To speed up the copy process:
 
 
 ### Q. Can I leverage Data Box to import data to a storage account with Private Endpoints configured?
-A.  Yes. Data can be imported to a storage account that has private endpoint connections enabled, however please ensure that "Allow trusted Microsoft services to access this storage account" is checked under the Networking section of the storage account to allow the Data Box service to import the data.
+A. Yes. You can import data to a storage account that has private endpoint connections enabled. To let Data Box service import the data, select "Allow trusted Microsoft services to access this storage account" under the Networking section of the storage account.
 
 
 ### Q. Can I use multiple storage accounts with Data Box?
