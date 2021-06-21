@@ -40,14 +40,14 @@
   items:
   - name: Private clouds and clusters
     href: concepts-private-clouds-clusters.md
-  - name: Private cloud networking and interconnectivity
+  - name: Networking and interconnectivity
     href: concepts-networking.md
-  - name: Storage in private clouds
+  - name: Storage 
     href: concepts-storage.md
-  - name: Access and identity for private clouds
+  - name: Access and identity
     href: concepts-identity.md
-  - name: Monitor and repair private clouds
-    href: concepts-private-clouds-clusters.md#host-monitoring-and-remediation
+  - name: Monitor and protection
+    href: concepts-monitor-protection.md
   - name: API Management
     href: concepts-api-management.md
   - name: Hub and spoke
@@ -55,7 +55,7 @@
 - name: How-to guides
   items:
   - name: Create an Azure VMware Solution assessment
-    href: /azure/migrate/how-to-create-azure-vmware-solution-assessment?context=/azure/azure-vmware/context/context
+    href: ../migrate/how-to-create-azure-vmware-solution-assessment.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
   - name: Request host quota for Azure VMware Solution
     href: request-host-quota-azure-vmware-solution.md
   - name: Save costs with a reserved instance
@@ -73,7 +73,7 @@
   - name: Configure NSX components using Azure 
     href: configure-nsx-network-components-azure-portal.md
   - name: Configure GitHub Enterprise Server
-    href: github-enterprise-server.md
+    href: ./configure-github-enterprise-server.md
   - name: Enable public internet access
     href: enable-public-internet-access.md
   - name: Configure a site-to-site VPN in vWAN 
@@ -84,30 +84,30 @@
     href: rotate-cloudadmin-credentials.md
   - name: Disaster recovery 
     items:
-    - name: Deploy disaster recovery for VMs
-      href: disaster-recovery-for-virtual-machines.md
+    - name: Deploy disaster recovery using VMware HCX
+      href: deploy-disaster-recovery-using-vmware-hcx.md
     - name: Disaster recovery to Azure Site Recovery
       items:
       - name: Prepare Azure
-        href: /azure/site-recovery/avs-tutorial-prepare-azure?context=/azure/azure-vmware/context/context
+        href: ../site-recovery/avs-tutorial-prepare-azure.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
       - name: Prepare Azure VMware Solution 
-        href: /azure/site-recovery/avs-tutorial-prepare-avs?context=/azure/azure-vmware/context/context
+        href: ../site-recovery/avs-tutorial-prepare-avs.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
       - name: Set up replication
-        href: /azure/site-recovery/avs-tutorial-replication?context=/azure/azure-vmware/context/context
+        href: ../site-recovery/avs-tutorial-replication.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
       - name: Run a disaster recovery drill 
-        href: /azure/site-recovery/avs-tutorial-dr-drill-azure?context=/azure/azure-vmware/context/context
+        href: ../site-recovery/avs-tutorial-dr-drill-azure.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
       - name: Fail over to Azure 
-        href: /azure/site-recovery/avs-tutorial-failover?context=/azure/azure-vmware/context/context
+        href: ../site-recovery/avs-tutorial-failover.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
       - name: Reprotect VMs
-        href: /azure/site-recovery/avs-tutorial-reprotect?context=/azure/azure-vmware/context/context
+        href: ../site-recovery/avs-tutorial-reprotect.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
       - name: Fail back from Azure 
-        href: /azure/site-recovery/avs-tutorial-failback?context=/azure/azure-vmware/context/context
+        href: ../site-recovery/avs-tutorial-failback.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
   - name: Azure native integration
     items:
-    - name: Protect VMs with Azure Security Center
+    - name: Protect, monitor, and manage VMs
+      href: integrate-azure-native-services.md
+    - name: Integrate Azure Security Center
       href: azure-security-integration.md
-    - name: Monitor and manage VMs
-      href: lifecycle-management-of-azure-vmware-solution-vms.md
     - name: Integrate Azure NetApp Files
       href: netapp-files-with-azure-vmware-solution.md
     - name: Protect web apps with Azure Application Gateway
@@ -141,7 +141,7 @@
   - name: FAQ
     items:
     - name: General
-      href: faq.yml
+      href: ./faq.yml
     - name: Customer communication
       href: /azure/azure-vmware/faq#customer-communication
     - name: Configuration and setup 

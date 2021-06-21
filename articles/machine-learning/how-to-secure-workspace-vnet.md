@@ -8,7 +8,7 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
-ms.date: 03/17/2021
+ms.date: 06/10/2021
 ms.topic: how-to
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1
 
@@ -52,8 +52,8 @@ Azure Private Link lets you connect to your workspace using a private endpoint. 
 
 For more information on setting up a Private Link workspace, see [How to configure Private Link](how-to-configure-private-link.md).
 
-> [!Warning]
-> Securing a workspace with private endpoints does not ensure end-to-end security by itself. You must follow the steps in the rest of this article, and the VNet series, to secure individual components of your solution.
+> [!WARNING]
+> Securing a workspace with private endpoints does not ensure end-to-end security by itself. You must follow the steps in the rest of this article, and the VNet series, to secure individual components of your solution. For example, if you use a private endpoint for the workspace, but your Azure Storage Account is not behind the VNet, traffic between the workspace and storage does not use the VNet for security.
 
 ## Secure Azure storage accounts with service endpoints
 

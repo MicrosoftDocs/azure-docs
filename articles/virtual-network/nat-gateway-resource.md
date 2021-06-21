@@ -82,7 +82,7 @@ NAT gateways are defined with a property on a subnet within a virtual network. F
 For more information on the Azure Resource Manager template used in this example, see:
 
 - [Quickstart: Create a NAT gateway - Resource Manager template](quickstart-create-nat-gateway-template.md)
-- [Virtual Network NAT](https://azure.microsoft.com/resources/templates/101-nat-gateway-1-vm/)
+- [Virtual Network NAT](https://azure.microsoft.com/resources/templates/nat-gateway-1-vm/)
 
 ## Design Guidance
 

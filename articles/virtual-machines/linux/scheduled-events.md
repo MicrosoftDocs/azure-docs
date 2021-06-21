@@ -64,17 +64,18 @@ As a result, check the `Resources` field in the event to identify which VMs are 
 ### Endpoint Discovery
 For VNET enabled VMs, Metadata Service is available from a static nonroutable IP, `169.254.169.254`. The full endpoint for the latest version of Scheduled Events is: 
 
- > `http://169.254.169.254/metadata/scheduledevents?api-version=2019-08-01`
+ > `http://169.254.169.254/metadata/scheduledevents?api-version=2020-07-01`
 
 If the VM is not created within a Virtual Network, the default cases for cloud services and classic VMs, additional logic is required to discover the IP address to use. 
 To learn how to [discover the host endpoint](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm), see this sample.
 
 ### Version and Region Availability
-The Scheduled Events service is versioned. Versions are mandatory; the current version is `2019-08-01`.
+The Scheduled Events service is versioned. Versions are mandatory; the current version is `2020-07-01`.
 
 | Version | Release Type | Regions | Release Notes | 
 | - | - | - | - | 
-| 2019-08-01 | General Availability | All | <li> Added support for EventSource |
+| 2020-07-01 | General Availability | All | <li> Added support for Event Duration |
+| 2019-08-01 | General Availability | All | <li> Added support for Event Source |
 | 2019-04-01 | General Availability | All | <li> Added support for Event Description |
 | 2019-01-01 | General Availability | All | <li> Added support for virtual machine scale sets EventType 'Terminate' |
 | 2017-11-01 | General Availability | All | <li> Added support for Spot VM eviction EventType 'Preempt'<br> | 
@@ -105,7 +106,7 @@ You can query for scheduled events by making the following call:
 
 #### Bash
 ```
-curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-version=2019-08-01
+curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-version=2020-07-01
 ```
 
 A response contains an array of scheduled events. An empty array means that currently no events are scheduled.
@@ -123,6 +124,7 @@ In the case where there are scheduled events, the response contains an array of 
             "NotBefore": {timeInUTC},       
             "Description": {eventDescription},
             "EventSource" : "Platform" | "User",
+            "DurationInSeconds" : {timeInSeconds},
         }
     ]
 }
@@ -139,6 +141,7 @@ In the case where there are scheduled events, the response contains an array of 
 | NotBefore| Time after which this event can start. <br><br> Example: <br><ul><li> Mon, 19 Sep 2016 18:29:47 GMT  |
 | Description | Description of this event. <br><br> Example: <br><ul><li> Host server is undergoing maintenance. |
 | EventSource | Initiator of the event. <br><br> Example: <br><ul><li> `Platform`: This event is initiated by platform. <li>`User`: This event is initiated by user. |
+| DurationInSeconds | The expected duration of the interruption caused by the event.  <br><br> Example: <br><ul><li> `9`: The interruption caused by the event will last for 9 seconds. <li>`-1`: The default value used if the impact duration is either unknown or not applicable. |
 
 ### Event Scheduling
 Each event is scheduled a minimum amount of time in the future based on the event type. This time is reflected in an event's `NotBefore` property. 
@@ -175,7 +178,7 @@ The following JSON sample is expected in the `POST` request body. The request sh
 
 #### Bash sample
 ```
-curl -H Metadata:true -X POST -d '{"StartRequests": [{"EventId": "f020ba2e-3bc0-4c40-a10b-86575a9eabd5"}]}' http://169.254.169.254/metadata/scheduledevents?api-version=2019-01-01
+curl -H Metadata:true -X POST -d '{"StartRequests": [{"EventId": "f020ba2e-3bc0-4c40-a10b-86575a9eabd5"}]}' http://169.254.169.254/metadata/scheduledevents?api-version=2020-07-01
 ```
 
 > [!NOTE] 
@@ -192,7 +195,7 @@ import json
 import socket
 import urllib2
 
-metadata_url = "http://169.254.169.254/metadata/scheduledevents?api-version=2019-08-01"
+metadata_url = "http://169.254.169.254/metadata/scheduledevents?api-version=2020-07-01"
 this_host = socket.gethostname()
 
 

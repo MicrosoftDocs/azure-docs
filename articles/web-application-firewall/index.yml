@@ -34,9 +34,9 @@ landingContent:
       - linkListType: concept
         links:
           - text: Frequently asked questions - Application Gateway
-            url: ./ag/application-gateway-waf-faq.md
+            url: ./ag/application-gateway-waf-faq.yml
           - text: Frequently asked questions - Front Door
-            url: ./afds/waf-faq.md
+            url: ./afds/waf-faq.yml
           - text: What's new
             url: https://azure.microsoft.com/updates/?category=networking&query=Web%20Application%20Firewall
 
