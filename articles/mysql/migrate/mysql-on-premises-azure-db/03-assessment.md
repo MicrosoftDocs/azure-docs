@@ -50,11 +50,11 @@ Knowing the source MySQL version is essential. The applications using the system
 
 Examples that may influence the migration path and version:
 
-  - 5.6 | TIMESTAMP column for correct storage of milliseconds and full-text search
+  - 5.6: TIMESTAMP column for correct storage of milliseconds and full-text search
 
-  - 5.7 | Support for native JSON data type
+  - 5.7: Support for native JSON data type
 
-  - 8.0 | Support for NoSQL Document Store, atomic, and crash-safe DDL and JSON table functions
+  - 8.0: Support for NoSQL Document Store, atomic, and crash-safe DDL and JSON table functions
 
     > [!NOTE]
     > MySQL 5.6 loses general support in February of 2021. MySQL workloads needs to migrate to MySQL version of 5.7 or greater.
@@ -185,11 +185,11 @@ Equipped with the assessment information (CPU, memory, storage, etc.), the migra
 
 There are currently three tiers:
 
-  - **Basic** | Workloads requiring light compute and I/O performance.
+  - **Basic**: Workloads requiring light compute and I/O performance.
 
-  - **General Purpose** | Most business workloads requiring balanced compute and memory with scalable I/O throughput.
+  - **General Purpose**: Most business workloads requiring balanced compute and memory with scalable I/O throughput.
 
-  - **Memory Optimized** | High-performance database workloads requiring in-memory performance for faster transaction processing and higher concurrency.
+  - **Memory Optimized**: High-performance database workloads requiring in-memory performance for faster transaction processing and higher concurrency.
 
 The tier decision can be influenced by the RTO and RPO requirements of the data workload. When the data workload requires over 4 TB of storage, an extra step is required. Review and select [a region that supports](../../concepts-pricing-tiers.md#storage) up to 16 TB of storage.
 

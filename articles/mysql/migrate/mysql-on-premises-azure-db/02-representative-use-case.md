@@ -28,7 +28,7 @@ WWI would like to continue to take advantage of the many advanced capabilities a
 
 ### Migration goals
 
-The primary goals for migrating their databases and associated SQL workloads to the cloud include|
+The primary goals for migrating their databases and associated SQL workloads to the cloud include:
 
   - Improve their overall security posture with data at rest and in transit.
 
@@ -44,7 +44,7 @@ The primary goals for migrating their databases and associated SQL workloads to 
 
 WWI used the [Cloud Adoption Framework (CAF)](/azure/cloud-adoption-framework/) to educate their team on following best practices guidelines for cloud migration. Then, using CAF as a higher-level migration guide, WWI customized their migration into three main stages. Finally, they defined activities that needed to be addressed within each stage to ensure a successful lift and shift cloud migration.
 
-These stages includ:
+These stages include:
 
 | Stage | Name | Activities |
 |-------|------|------------|
