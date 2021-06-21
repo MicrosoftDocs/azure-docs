@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 06/014/2021
+ms.date: 06/14/2021
 ms.custom: devx-track-js
 ---
 
