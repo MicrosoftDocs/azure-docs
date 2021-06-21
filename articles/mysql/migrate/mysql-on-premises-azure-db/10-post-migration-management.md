@@ -8,7 +8,7 @@ author: arunkumarthiags
 ms.author: arthiaga
 ms.reviewer: maghan
 ms.custom:
-ms.date: 06/11/2021
+ms.date: 06/14/2021
 ---
 
 # MySQL on-premises to Azure Database for MySQL migration guide Post Migration Management
@@ -95,7 +95,7 @@ The [Planned maintenance notification](/azure/mysql/concepts-monitoring#planned-
 
 ## WWI scenario
 
-WWI decided to utilize the Azure Activity logs and enable MySQL logging to flow to a [Log Analytics workspace.](../../../azure-monitor/logs/design-logs-deployment.md) This workspace is configured to be a part of [Azure Sentinel](../../../sentinel/index.yml) such that any [Threat Analytics](/azure/mysql/concepts-data-access-and-security-threat-protection) events would be surfaced, and incidents created.
+WWI decided to utilize the Azure Activity logs and enable MySQL logging to flow to a [Log Analytics workspace.](../../../azure-monitor/logs/design-logs-deployment.md) This workspace is configured to be a part of [Azure Sentinel](../../../sentinel/index.yml) such that any [Threat Analytics](/azure/mysql/concepts-security#threat-protection) events would be surfaced, and incidents created.
 
 The MySQL DBAs installed the Azure Database for [MySQL Azure PowerShell cmdlets](/azure/mysql/quickstart-create-mysql-server-database-using-azure-powershell) to make managing the MySQL Server automated versus having to log to the Azure portal each time.
 

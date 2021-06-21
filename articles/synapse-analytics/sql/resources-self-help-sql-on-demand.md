@@ -449,7 +449,7 @@ CREATE EXTERNAL FILE FORMAT [SynapseParquetFormat]
 WITH ( FORMAT_TYPE = PARQUET)
 ```
 
-### Operation [[operation name]] is not allowed for a replicated database.
+### Operation is not allowed for a replicated database.
    
 If you are trying to create some SQL objects, users, or change permissions in a database, you might get the errors like 'Operation CREATE USER is not allowed for a replicated database'. This error is returned when you try to create some objects in a database that is [shared with Spark pool](../metadata/database.md). The databases that are replicated from Apache Spark pools are read-only. You cannot create new objects into replicated database using T-SQL.
 
@@ -474,6 +474,13 @@ Synapse SQL will return `NULL` instead of the values that you see in the transac
 ### Column is not compatible with external data type
 
 The value specified in the `WITH` clause doesn't not match the underlying Cosmos DB types in analytical storage and cannot be implicitly converted. Use `VARCHAR` type in the schema.
+
+### Performance issues
+
+If you are experiencing some unexpected performance issues, make sure that you applied the best practices, such as:
+- Make sure that you have placed the client application, serverless pool, and Cosmos DB analytical storage in [the same region](best-practices-serverless-sql-pool.md#colocate-your-cosmosdb-analytical-storage-and-serverless-sql-pool).
+- Make sure that you are using [Latin1_General_100_BIN2_UTF8 collation](best-practices-serverless-sql-pool.md#use-proper-collation-to-utilize-predicate-pushdown-for-character-columns) when you filter your data using string predicates.
+- If you have repeating queries that might be cached, try to use [CETAS to store query results in Azure Data Lake Storage](best-practices-serverless-sql-pool.md#use-cetas-to-enhance-query-performance-and-joins).
 
 ## Delta Lake
 
@@ -501,6 +508,10 @@ Content of directory on path 'https://.....core.windows.net/.../_delta_log/*.jso
 
 Make sure that `_delta_log` folder exists (maybe you are querying plain Parquet files that are not converted to Delta Lake format). If the `_delta_log` folder exists, make sure that you have both read and list permission on the underlying Delta Lake folders.
 
+Easiest way is to grant yourself 'Storage Blob Data Contributor' role on the storage account you're trying to query. 
+- [Visit full guide on Azure Active Directory access control for storage for more information](../../storage/common/storage-auth-aad-rbac-portal.md). 
+- [Visit Control storage account access for serverless SQL pool in Azure Synapse Analytics](develop-storage-files-storage-access-control.md)
+
 ### Query failed because of a topology change or compute container failure
 
 Some Delta Lake queries on partitioned data sets might fail with this error message if your database collation is not `Latin1_General_100_BIN2_UTF8`. Create a database with `Latin1_General_100_BIN2_UTF8` collation and execute the queries on that database instead of master and other databases with the default collation.
@@ -512,7 +523,9 @@ CREATE DATABASE mydb
 
 ### Column of type 'VARCHAR' is not compatible with external data type 'Parquet column is of nested type'
 
-You are trying to read Delta Lake files that contain some nested type columns without specifying WITH clause (using automatic schema inference). Automatic schema inference doesn't work with the nested columns in Delta Lake. Use the `WITH` clause and explicitly assign the `VARCHAR` type to the nested columns.
+You are trying to read Delta Lake files that contain some nested type columns without specifying WITH clause (using automatic schema inference). Automatic schema inference doesn't work with the nested columns in Delta Lake.
+
+Use the `WITH` clause and explicitly assign the `VARCHAR` type to the nested columns.
 
 ### Cannot find value of partitioning column in file 
 
@@ -523,6 +536,21 @@ Resolving Delta logs on path 'https://....core.windows.net/.../' failed with err
 ```
 
 Try to update your Delta Lake data set using Apache Spark pools and use some value (empty string or `"null"`) instead of `null` in the partitioning column.
+
+## Constraints
+
+There are some general system constraints that may affect your workload:
+
+| Property | Limitation |
+|---|---|
+| Max number of Synapse workspaces per subscription | 20 |
+| Max number of databases per serverless pool | 20 (not including databases synchronized from Apache Spark pool) |
+| Max number of databases synchronized from Apache Spark pool | Not limited |
+| Max number of databases objects per database | The sum of the number of all objects in a database cannot exceed 2,147,483,647 (see [limitations in SQL Server database engine](https://docs.microsoft.com/sql/sql-server/maximum-capacity-specifications-for-sql-server#objects) ) |
+| Max identifier length (in characters) | 128 (see [limitations in SQL Server database engine](https://docs.microsoft.com/sql/sql-server/maximum-capacity-specifications-for-sql-server#objects) )|
+| Max query duration | 30 min |
+| Max size of the result set | 80 GB (shared between all currently executing concurrent queries) |
+| Max concurrency | Not limited and depends on the query complexity and amount of data scanned. One serverless SQL pool can concurrently handle 1000 active sessions that are executing lightweight queries, but the numbers will drop if the queries are more complex or scan a larger amount of data. |
 
 ## Next steps
 
