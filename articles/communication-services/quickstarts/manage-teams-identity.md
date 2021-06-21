@@ -52,7 +52,7 @@ The Administrator role has extended permissions in AAD. Members of this role can
 Users must be authenticated against AAD applications with Azure Communication Service's `VoIP` permission. If you don't have an existing application that you would like to use for this quickstart, you can create new application registration. 
 
 The following application settings influence the experience:
-- Property *Supported account types* defines whether the *Application* is single tenant ("Accounts in this organizational directory only") or multitenant ("Accounts in any organizational directory"). For this scenario, you can use multitenant.
+- Property *Supported account types* defines whether the *Application* is single tenant ("Accounts in this organizational directory only") or multi-tenant ("Accounts in any organizational directory"). For this scenario, you can use multi-tenant.
 - *Redirect URI* defines URI where authentication request is redirected after authentication. For this scenario, you can use "Public client/native(mobile & desktop)" and fill in "http://localhost" as URI.
 
 [Here you can find detailed documentation.](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app#register-an-application). 
@@ -262,7 +262,7 @@ var teamsAccessToken = identityClient.ExchangeTeamsToken(aadUserToken.AccessToke
 Console.WriteLine("\nTeams access token expires on: " + teamsAccessToken.Value.ExpiresOn);
 ```
 
-If all conditions defined in the prerequirements are met, then you would get valid Teams access token valid for 24 hours.
+If all conditions defined in the requirements are met, then you would get valid Teams access token valid for 24 hours.
 
 #### Run the code
 Run the application from your application directory with the dotnet run command.
@@ -294,7 +294,6 @@ User represents the Fabrikam's users of Contoso's *Application*. User experience
 1. Contoso's *Server* exchanges AAD user token for Teams' access token using ACS identity SDK and returns Teams' access token to the *Client application*.
 
 With valid Teams' access token in *Client application*, developer can integrate ACS calling SDK and build custom Teams endpoint.
-
 
 ## Next steps
 
