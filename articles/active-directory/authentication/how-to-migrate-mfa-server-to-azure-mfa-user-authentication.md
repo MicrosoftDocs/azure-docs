@@ -314,12 +314,14 @@ This change ensures only Azure MFA is used as an authentication provider.
 ### Decommission the MFA Server
 
 Follow your enterprise server decommissioning process to remove the MFA Servers in your environment.
+
 Possible considerations when decommissions the MFA Server include: 
+
 * We recommend reviewing MFA Server logs to ensure no users or applications are using it before you remove the server.
-* Uninstall Multi-Factor Authentication Server from the Control Panel on the server
+* Uninstall Multi-Factor Authentication Server from the Control Panel on the server.
 * Optionally clean up logs and data directories that are left behind after backing them up first. 
-* Uninstall the Multi-Factor Authentication Web Server SDK, if applicable including any files left over inetpub\wwwroot\MultiFactorAuthWebServiceSdk and/or MultiFactorAuth directories
-* For pre-8.0.x versions of MFA Server, it may also be necessary to remove the Multi-Factor Auth Phone App Web Service
+* Uninstall the Multi-Factor Authentication Web Server SDK, if applicable including any files left over inetpub\wwwroot\MultiFactorAuthWebServiceSdk and/or MultiFactorAuth directories.
+* For pre-8.0.x versions of MFA Server, it may also be necessary to remove the Multi-Factor Auth Phone App Web Service.
 
 ## Move application authentication to Azure Active Directory
 
