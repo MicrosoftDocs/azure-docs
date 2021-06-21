@@ -56,7 +56,7 @@ Select resources you want to move. You move resources to a target region in the 
 2. In the resource group page, select the resources that you want to move.
 3. Select **Move** > **Move to another region**.
 
-    ![Selection for moving resources to a different region](./media/move-region-within-resource-group/select-move-region1.png)
+    ![Selection for moving resources to a different region](./media/move-region-within-resource-group/select-move-region.png)
     
 4. In **Source + destination**, select the target region to which you want to move the resources. Then select **Next**.
 
