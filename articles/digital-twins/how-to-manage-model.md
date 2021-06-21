@@ -89,14 +89,14 @@ Models are not necessarily returned in exactly the document form they were uploa
 
 ## Update models
 
-Once a model is uploaded to your Azure Digital Twins instance, the model interface is immutable. This means there's no traditional "editing" of models. Azure Digital Twins also does not allow re-upload of the same model.
+Once a model is uploaded to your Azure Digital Twins instance, the model interface is immutable. This means there's no traditional "editing" of models. Azure Digital Twins also does not allow re-upload of the same exact model while a matching model is already present in the instance.
 
-Instead, if you want to make changes to a model—such as updating `displayName` or `description`, or adding and removing properties—you'll need to upload a newer version of the model to replace the original model. 
+Instead, if you want to make changes to a model—such as updating `displayName` or `description`, or adding and removing properties—you'll need to replace the original model. 
 
 There are two strategies to choose from when replacing a model:
-* [Option 1: Upload new model version](#option-1-upload-new-model-version): Upload a second version of the model that is newer, and switch your twins over to it. Both the new and old versions of the model will exist in your instance until you delete one. 
+* [Option 1: Upload new model version](#option-1-upload-new-model-version): Upload the model, with a new version number, and update your twins to use that new model. Both the new and old versions of the model will exist in your instance until you delete one.
     - **Use this strategy when** you want to make sure twins stay valid at all times through the model transition, or you want to keep a record of what versions a model has gone through. This is also a good choice if you have many models that depend on the model you want to update.
-* [Option 2: Delete old model and re-upload](#option-2-delete-old-model-and-re-upload): Delete the original model and upload the new model with the same name in its place. Completely replaces the old model with the new one. 
+* [Option 2: Delete old model and re-upload](#option-2-delete-old-model-and-re-upload): Delete the original model and upload the new model with the same name and ID (DTMI value) in its place. Completely replaces the old model with the new one. 
     - **Use this strategy when** you want to remove all record of the older model. Twins will be invalid for a short time while you're transitioning them from the old model to the new one.
 
 ### Option 1: Upload new model version
@@ -131,12 +131,14 @@ This version of the model will then be available in your instance to use for dig
 
 #### 2. Update graph elements as needed
 
-Next, update the **twins and relationships** in your instance to use the new model version instead of the old. You can use the following instructions to [update twins](how-to-manage-twin.md#update-a-digital-twin) and [update relationships](how-to-manage-graph.md#update-relationships). 
+Next, update the **twins and relationships** in your instance to use the new model version instead of the old. You can use the following instructions to [update twins](how-to-manage-twin.md#update-a-digital-twins-model) and [update relationships](how-to-manage-graph.md#update-relationships). The patch operation to update a twin's model will look something like this:
+
+:::code language="json" source="~/digital-twins-docs-samples/models/patch-model-1.json":::
 
 >[!IMPORTANT]
 >When updating twins, you must use the **same patch** to update both the model ID (to the new model version) and any fields that must be altered on the twin to make it conform to the new model.
 
-You may also need to update other **models** in your instance that reference this model to make them refer to the new model version. This will be another model update operation, so return to the beginning of this section and repeat the process for any additional models that need updating.
+You may also need to update **relationships** and other **models** in your instance that reference this model, to make them refer to the new model version. This will be another model update operation, so return to the beginning of this section and repeat the process for any additional models that need updating.
 
 #### 3. (Optional) Decomission or delete old model version
 
