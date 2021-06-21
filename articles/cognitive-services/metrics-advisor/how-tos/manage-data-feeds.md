@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
-ms.date: 08/28/2020
+ms.date: 04/20/2021
 ms.author: mbullwin
 ---
 
@@ -28,19 +28,13 @@ Learn how to manage your onboarded data feeds in Metrics Advisor. This article g
 
 Only the administrator of a data feed is allowed to make changes to it. 
 
-To pause or reactivate a data feed:
+On the data feed list page, you can **pause, reactivate, delete** a data feed:
 
-1. On the data feed list page, click the operation you want to perform on the data feed.
+* **Pause/Reactivate**: Select the **Pause/Play** button to pause/reactivate a data feed.
 
-2. On the data feed details page, click the **Status** switch button.
+* **Delete**: Select **Delete** button to delete a data feed.
 
-To delete a data feed: 
-
-1. On the data feed list page, click **Delete** on the data feed.
-
-2. In the data feed details page, click **Delete**.
-
-When changing the start time, you need to verify the schema again. You can change it by using **Edit parameters**.
+If you change the ingestion start time, you need to verify the schema again. You can change it by clicking **Edit** in the data feed detail page.
 
 ##  Backfill your data feed
 
@@ -57,8 +51,8 @@ Workspace access is controlled by the Metrics Advisor resource, which uses Azure
 
 Metrics Advisor lets you grant permissions to different groups of people on different data feeds. There are two types of roles: 
 
-- Administrator: Has full permissions to manage a data feed, including modify and delete.
-- Viewer: Has access to a read-only view of the data feed.
+- **Administrator**: Has full permissions to manage a data feed, including modify and delete.
+- **Viewer**: Has access to a read-only view of the data feed.
  
 
 ## Advanced settings
@@ -91,7 +85,7 @@ There are several optional advanced settings when creating a new data feed, they
 > [!NOTE]
 > This setting won't affect your data source and will not affect the data charts displayed on the portal. The auto-filling only occurs during anomaly detection.
 
-Some time series are not continuous. When there are missing data points, Metrics Advisor will use the specified value to fill them before anomaly detection for better accuracy.
+Sometimes series are not continuous. When there are missing data points, Metrics Advisor will use the specified value to fill them before anomaly detection to improve accuracy.
 The options are: 
 
 * Using the value from the previous actual data point. This is used by default.
@@ -113,16 +107,16 @@ Once you've filled in the action link, click **Go to action link** on the incide
 | `%timestamp` | - | Timestamp of an anomaly or end time of a persistent incident |
 | `%tagset` | `%tagset`, <br> `[%tagset.get("Dim1")]`, <br> `[ %tagset.get("Dim1", "filterVal")]` | Dimension values of an anomaly or top anomaly of an incident.   <br> The `filterVal` is used to filter out matching values within the square brackets.   |
 
-Examples :
+Examples:
 
-* If the action link template is `https://action-link/metric/%metric?detectConfigId=%detect_config`,
+* If the action link template is `https://action-link/metric/%metric?detectConfigId=%detect_config`:
   * The action link `https://action-link/metric/1234?detectConfigId=2345` would go to anomalies or incidents under metric `1234` and detect config `2345`.
 
-* If the action link template is `https://action-link?[Dim1=%tagset.get('Dim1','')&][Dim2=%tagset.get('Dim2','')]`, 
+* If the action link template is `https://action-link?[Dim1=%tagset.get('Dim1','')&][Dim2=%tagset.get('Dim2','')]`:
     * The action link would be `https://action-link?Dim1=Val1&Dim2=Val2` when the anomaly is `{ "Dim1": "Val1", "Dim2": "Val2" }`. 
-    * The action link would be `https://action-link?Dim2=Val2` when the anomaly is `{ "Dim1": "", "Dim2": "Val2" } `, since `[Dim1=***&]` is skipped for the dimension value empty string. 
+    * The action link would be `https://action-link?Dim2=Val2` when the anomaly is `{ "Dim1": "", "Dim2": "Val2" }`, since `[Dim1=***&]` is skipped for the dimension value empty string. 
 
-* If the action link template is `https://action-link?filter=[Name/Dim1 eq '%tagset.get('Dim1','')' and ][Name/Dim2 eq '%tagset.get('Dim2','')']`, 
+* If the action link template is `https://action-link?filter=[Name/Dim1 eq '%tagset.get('Dim1','')' and ][Name/Dim2 eq '%tagset.get('Dim2','')']`: 
     * The action link would be `https://action-link?filter=Name/Dim1 eq 'Val1' and Name/Dim2 eq 'Val2'` when the anomaly is `{ "Dim1": "Val1", "Dim2": "Val2" }`, 
     * The action link would be `https://action-link?filter=Name/Dim2 eq 'Val2'` when anomaly is `{ "Dim1": "", "Dim2": "Val2" }` since `[Name/Dim1 eq '***' and ]` is skipped for the dimension value empty string. 
    

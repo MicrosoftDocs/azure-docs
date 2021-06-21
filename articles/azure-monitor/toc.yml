@@ -378,7 +378,7 @@
         href: agents/data-collection-rule-azure-monitor-agent.md
       - name: Deploy at scale
         displayname: Deploy Azure Monitor agent at scale
-        href: deploy-scale.md#azure-monitor-agent-preview  
+        href: deploy-scale.md#azure-monitor-agent  
       - name: FAQ
         displayname: Azure Monitor agent FAQ
         href: /azure/azure-monitor/faq#azure-monitor-agent-preview
@@ -927,6 +927,8 @@
       items:
       - name: Access control
         href: app/resources-roles-access-control.md
+      - name: Azure AD authentication 
+        href: app/azure-ad-authentication.md
       - name: IP address collection
         href: app/ip-collection.md
         displayname: geolocation, IP collection, IP tracking, IP storage
