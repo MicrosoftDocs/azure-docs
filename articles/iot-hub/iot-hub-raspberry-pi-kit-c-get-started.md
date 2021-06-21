@@ -229,6 +229,15 @@ One way to monitor messages received by your IoT hub from your device is to use 
 
 For more ways to process data sent by your device, continue on to the next section.
 
+## Clean up resources
+
+You can use the resources created in this topic with other tutorials and quickstarts in this document set. If you plan to continue on to work with other quickstarts or with the tutorials, do not clean up the resources created in this topic. If you do not plan to continue, use the following steps to delete all resources created by this topic in the Azure portal.
+
+1. From the left-hand menu in the Azure portal, select **All resources** and then select the IoT Hub you created. 
+1. At the top of the IoT Hub overview pane, click **Delete**.
+1. Enter your hub name and click **Delete** again to confirm permanently deleting the IoT Hub.
+
+
 ## Next steps
 
 You’ve run a sample application to collect sensor data and send it to your IoT hub.
