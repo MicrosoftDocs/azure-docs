@@ -47,7 +47,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 ## Step 2. Configure Bpanda to support provisioning with Azure AD
 1. Reach out to support@mid.de for more information on your authentication Tenant URL.
 
-2. A client secret for further generating access tokens. This must have been transmitted to you in a secure way. Reach out to support@mid.de for more information.
+2. A client secret for further generating access tokens. This secret must have been transmitted to you in a secure way. Reach out to support@mid.de for more information.
 
 3. For establishing a successful connection between Azure AD and Bpanda, an access token must be retrieved in either of the following ways.
 
