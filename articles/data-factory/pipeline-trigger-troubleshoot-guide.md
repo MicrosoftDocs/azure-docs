@@ -207,7 +207,7 @@ When the Azure account lacks the required access via a role membership, it unabl
 
 The Azure account needs to be assigned to a role with sufficient permissions in the storage account's access control (IAM) for the event trigger publish to succeed.  The role can be the Owner role, Contributor role, or any custom role with the **Microsoft.EventGrid/EventSubscriptions/Write** permission to the storage account.   
 
-[Role-based access control for an event trigger](./how-to-create-event-trigger#role-based-access-control)
+[Role-based access control for an event trigger](./how-to-create-event-trigger.md#role-based-access-control)
 [Storage Event Trigger - Permission and RBAC setting](https://techcommunity.microsoft.com/t5/azure-data-factory/storage-event-trigger-permission-and-rbac-setting/ba-p/2101782)
 
 ### ForEach activities do not run in parallel mode
