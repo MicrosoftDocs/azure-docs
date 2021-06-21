@@ -2,12 +2,12 @@
 title: Use Azure Private Link to securely connect networks to Azure Arc
 description: Learn how to use Azure Private Link to securely connect networks to Azure Arc.
 ms.topic: conceptual
-ms.date: 03/31/2021
+ms.date: 06/21/2021
 ---
 
 # Use Azure Private Link to securely connect networks to Azure Arc
 
-[Azure Private Link](../../private-link/private-link-overview.md) allows you to securely link Azure PaaS services to your virtual network using private endpoints. For many services, you just set up an endpoint per resource. This means you can connect your on-premises or multi-cloud servers with Azure Arc and send all traffic over an Express Route or site-to-site VPN connection instead of using public networks.
+[Azure Private Link](../../private-link/private-link-overview.md) allows you to securely link Azure PaaS services to your virtual network using private endpoints. For many services, you just set up an endpoint per resource. This means you can connect your on-premises or multi-cloud servers with Azure Arc and send all traffic over an Azure [ExpressRoute](../../expressroute/expressroute-introduction.md) or site-to-site [VPN connection](../../vpn-gateway/vpn-gateway-about-vpngateways.md) instead of using public networks.
 
 Starting with Azure Arc enabled servers, you can use a Private Link Scope model to allow multiple servers or machines to communicate with their Azure Arc resources using a single private endpoint.
 
@@ -49,6 +49,24 @@ Connectivity to the other Azure resources from an Arc enabled server listed earl
 * Traffic from the Private Endpoint to your resources will go over the Microsoft Azure backbone, and not routed to public networks.
 
 * You can configure each of your components to allow or deny ingestion and queries from public networks. That provides a resource-level protection, so that you can control traffic to specific resources.
+
+## Restrictions and limitations
+
+The Arc enabled servers Private Link Scope object has a number of limits you should consider when planning your Private Link setup.
+
+1. You can associate at most 1 Azure Arc Private Link Scope with a virtual network.
+
+1. An Azure Arc enabled machine or server resource can only connect to one Azure Arc enabled servers Private Link Scope.
+
+1. All on-premises machines need to use the same private endpoint by resolving the correct private endpoint information (FQDN record name and private IP address) using the same DNS forwarder. For more information see, [Azure Private Endpoint DNS configuration](../../private-link/private-endpoint-dns.md)
+
+1. The Azure Arc enabled machine or server, Azure Arc Private Link Scope, and virtual network must be in the same Azure region.
+
+1. Traffic to Azure Active Directory and Azure Resource Manager service tags must be allowed through your on-premises network firewall during the preview. These services will offer their own private endpoints in the future.
+
+1. Other Azure services that you will use, for example Azure Monitor, requires their own private endpoints in your virtual network.
+
+1. Azure Arc enabled servers Private Link Scope is not currently available in Azure US Government regions.
 
 ## Planning your Private Link setup
 
@@ -261,22 +279,6 @@ For Arc enabled servers that were set up prior to your private link scope, you c
     :::image type="content" source="./media/private-link-security/select-servers-private-link-scope.png" alt-text="Selecting Azure Arc resources" border="true":::
 
 It may take up to 15 minutes for the Private Link Scope to accept connections from the recently associated server(s).
-
-## Restrictions and limitations
-
-The Arc enabled servers Private Link Scope object has a number of limits you should consider when planning your Private Link setup.
-
-1. You can associate at most 1 Azure Arc Private Link Scope with a virtual network.
-
-1. An Azure Arc enabled machine or server resource can only connect to one Azure Arc enabled servers Private Link Scope
-
-1. The Azure Arc enabled machine or server, Azure Arc Private Link Scope, and virtual network must be in the same subscription and Azure region.
-
-1. Traffic to Azure Active Directory and Azure Resource Manager service tags must be allowed through your on-premises network firewall during the preview. These services will offer their own private endpoints in the future.
-
-1. Other Azure services that you will use, for example Azure Monitor, requires their own private endpoints in your virtual network.
-
-1. Azure Arc enabled servers Private Link Scope is not currently available in Azure US Government regions.
 
 ## Troubleshooting
 
