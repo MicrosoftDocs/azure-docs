@@ -55,7 +55,7 @@ If you don't have a deployed Azure Spring Cloud instance, follow the steps in th
     ```
 #### [Terraform](#tab/Terraform)
 
-The following Terraform script shows how to set up an Azure Spring Cloud app with Azure Database for MySQL.
+The following Terraform script shows how to set up an Azure Spring Cloud app with Azure Cache for Redis.
 
 ```terraform
 provider "azurerm" {
