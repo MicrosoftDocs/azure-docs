@@ -10,6 +10,11 @@ ms.author: rogarana
 
 # Compare access to Azure Files, Blob Storage, and Azure NetApp Files with NFS
 
+This article provides a comparison between each of these offerings if you access them through the [Network File System (NFS)](https://en.wikipedia.org/wiki/Network_File_System) protocol. This comparison doesn't apply if you access them through any other method.
+
+For more general comparisons, see the [this article](storage-introduction.md) to compare Azure Blob Storage and Azure Files, or [this article](../files/storage-files-netapp-comparison.md) to compare Azure Files and Azure NetApp Files.
+
+## Comparison
 
 |Category  |Azure Blob Storage  |Azure Files  |Azure NetApp Files  |
 |---------|---------|---------|---------|
