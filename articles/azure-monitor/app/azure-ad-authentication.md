@@ -2,7 +2,7 @@
 title: Azure AD authentication for Application Insights (Preview)
 description: Learn how to enable Azure Active Directory (Azure AD) authentication to ensure that only authenticated telemetry is ingested in your Application Insights resources.
 ms.topic: conceptual
-ms.date: 06/17/2021
+ms.date: 06/21/2021
 
 ---
 # Azure AD authentication for Application Insights (Preview)
@@ -32,7 +32,7 @@ Below are SDKs/scenarios not supported in the Public Preview:
 
 ## Configuring and enabling Azure AD based authentication 
 
-1. Create an identity if you don't have one using either managed identity or service principal:
+1. Create an identity, if you already don't have one, using either managed identity or service principal:
 
     1. Using managed identity (Recommended):
 
@@ -42,7 +42,7 @@ Below are SDKs/scenarios not supported in the Public Preview:
 
         For more information on how to create an Azure AD application and service principal that can access resources, see [Create a service principal](../../active-directory/develop/howto-create-service-principal-portal.md).
 
-1. Assign role to the Azure Service 
+1. Assign role to the Azure Service. 
 
     Follow the steps in [Assign Azure roles](../../role-based-access-control/role-assignments-portal.md) to add the "Monitoring Metrics Publisher" role from the target Application Insights resource to the Azure resource from which the telemetry is sent. 
 
@@ -53,7 +53,8 @@ Below are SDKs/scenarios not supported in the Public Preview:
 
 ### [ASP.NET and .NET](#tab/net)
 
-Support for Azure AD in the Application Insights .NET SDK is included starting with [version 2.18-Beta2](https://www.nuget.org/packages/Microsoft.ApplicationInsights/2.18.0-beta2).
+> [!NOTE]
+> Support for Azure AD in the Application Insights .NET SDK is included starting with [version 2.18-Beta2](https://www.nuget.org/packages/Microsoft.ApplicationInsights/2.18.0-beta2).
 
 Application Insights .NET SDK supports the credential classes provided by [Azure Identity](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/identity/Azure.Identity#credential-classes).
 
@@ -86,7 +87,8 @@ services.AddApplicationInsightsTelemetry(new ApplicationInsightsServiceOptions
 ```
 ### [Node.js](#tab/nodejs)
  
-Support for Azure AD in the Application Insights Node.JS is included starting with [version 2.1.0-beta.1](https://www.npmjs.com/package/applicationinsights/v/2.1.0-beta.1).
+> [!NOTE]
+> Support for Azure AD in the Application Insights Node.JS is included starting with [version 2.1.0-beta.1](https://www.npmjs.com/package/applicationinsights/v/2.1.0-beta.1).
 
 Application Insights Node.JS supports the credential classes provided by [Azure Identity](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/identity/identity#credential-classes).
 
@@ -120,11 +122,12 @@ appInsights.defaultClient.aadTokenCredential = credential;
 
 ### [Java](#tab/java)
 
-1. Support for Azure AD in the Application Insights Java agent is included starting with [Java 3.2.0-BETA](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.2.0-BETA). 
+> [!NOTE]
+> Support for Azure AD in the Application Insights Java agent is included starting with [Java 3.2.0-BETA](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.2.0-BETA). 
 
 1. [Configure your application with the Java agent.](java-in-process-agent.md#quickstart)
 
-    >> [!IMPORTANT]
+    > [!IMPORTANT]
     > Use the full connection string which includes “IngestionEndpoint” while configuring your app with Java agent. For example `InstrumentationKey=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX;IngestionEndpoint=https://XXXX.applicationinsights.azure.com/`.
 
     > [!NOTE]
@@ -262,7 +265,7 @@ You can disable local authentication by using the Azure portal or programmatical
 
 ### Azure portal
 
-1.	From your Application Insights resource, select **Properties** under the *Configure* heading in the left-hand menu bar. Then select **Enabled (click to change)** if the local authentication is enabled. 
+1.	From your Application Insights resource, select **Properties** under the *Configure* heading in the left-hand menu. Then select **Enabled (click to change)** if the local authentication is enabled. 
 
     :::image type="content" source="./media/azure-ad-authentication/enabled.png" alt-text="Screenshot of Properties under the *Configure* selected and enabled (click to change) local authentication button.":::
 
