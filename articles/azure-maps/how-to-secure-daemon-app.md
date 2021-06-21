@@ -120,7 +120,7 @@ To assign delegated API permissions to Azure Maps:
 
 7. Select the **APIs my organization uses** tab.
 
-8. Type **Azure Maps** in the search box.
+8. In the search box, enter **Azure Maps**.
 
 9. Select **Azure Maps**.
 
