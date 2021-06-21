@@ -1,5 +1,5 @@
 ---
-title: Change the mobile device for text message two-step verification - Azure Active Directory | Microsoft Docs
+title: Common problems using text message two-step verification - Azure Active Directory | Microsoft Docs
 description: Learn how to set up a different mobile device as your two-factor verification method.
 services: active-directory
 author: curtand
@@ -14,7 +14,7 @@ ms.author: curtand
 ---
 
 
-# Change the mobile device for text message two-step verification
+# Common problems with text message two-step verification
 
  You can receive a verification code in a text message as one verification step for two-step verification. If you didn’t expect to receive a code or received a code on the wrong phone, use the following steps to fix this problem.  
 
