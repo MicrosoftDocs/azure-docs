@@ -191,12 +191,10 @@
       items: 
       - name: Overview
         href: how-to-migrate-mfa-server-to-azure-mfa.md
-      - name: Options
-        items: 
-        - name: Migrate to Azure MFA and user authentication
-          href: how-to-migrate-mfa-server-to-azure-mfa-user-authentication.md
-        - name: Migrate to Azure MFA with Federation
-          href: how-to-migrate-mfa-server-to-azure-mfa-with-federation.md
+      - name: Migrate to Azure MFA and user authentication
+        href: how-to-migrate-mfa-server-to-azure-mfa-user-authentication.md
+      - name: Migrate to Azure MFA with Federation
+        href: how-to-migrate-mfa-server-to-azure-mfa-with-federation.md
     - name: Deploy MFA on-premises
       href: howto-mfaserver-deploy.md
     - name: Install the user portal
