@@ -41,7 +41,7 @@ The following steps outline this process:
 
 1. [Create an Azure Key Vault](../key-vault/general/quick-create-portal.md).
 2. Create an [Azure AD service principal](../active-directory/fundamentals/service-accounts-principal.md) by creating an App registration or managed identity. The created principal is responsible for accessing the Azure Key Vault.
-3. Assign the service principal access to Azure Key secrets `get` permission. For details on how to set permissions, see [Assign a Key Vault access policy using the Azure portal](../key-vault/general/assign-access-policy-portal.md).
+3. Assign the service principal access to Azure Key secrets `get` permission. For details about how to set permissions, see [Assign a Key Vault access policy using the Azure portal](../key-vault/general/assign-access-policy-portal.md).
 4. Temporarily assign access to secrets `set` permission for you as the developer.
 5. Set the shared key in the Key Vault secrets and reference the secret ID as configuration for the daemon application.
 6. Remove your secrets `set` permission.
