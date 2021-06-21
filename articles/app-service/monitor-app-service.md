@@ -90,7 +90,7 @@ myHttp | join myConsole on TimeGen | project TimeGen, CsUriStem, ScStatus, Resul
 
 ## Alerts
 
-Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues in your system before your customers notice them. You can set alerts on [metrics](/azure/azure-monitor/platform/alerts-metric-overview), [logs](/azure/azure-monitor/platform/alerts-unified-log), and the [activity log](/azure/azure-monitor/platform/activity-log-alerts). Different types of alerts have benefits and drawbacks
+Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues in your system before your customers notice them. You can set alerts on [metrics](/azure/azure-monitor/platform/alerts-metric-overview), [logs](/azure/azure-monitor/platform/alerts-unified-log), and the [activity log](/azure/azure-monitor/platform/activity-log-alerts). Different types of alerts have benefits and drawbacks.
 
 If you are creating or running an application which run on App Service [Azure Monitor Application Insights](/azure/azure-monitor/overview#application-insights) may offer additional types of alerts.
 
@@ -98,8 +98,13 @@ The following table lists common and recommended alert rules for App Service.
 
 | Alert type | Condition | Description  |
 |:---|:---|:---|
-| | | |
-| | | |
+| Metric | average connections is greater than 300 | |
+| Metric | total http 404 is greater than 5| |
+| Metric | total http server errors is greater than <logic undefined>| |
+| Activity Log | Signal name='Create or Update Web App (microsoft.web/sites)' |
+| Activity Log | Signal name='Delete Web App (microsoft.web/sites)'
+| Activity Log | Signal name='Restart Web App (microsoft.web/sites)'|
+| Activity Log | Signal name='Stop Web App (microsoft.web/sites)'|
 
 ## Next steps
 
