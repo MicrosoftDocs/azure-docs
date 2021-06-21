@@ -13,9 +13,9 @@ ms.date: 06/17/2021
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-If you're new to Azure Data Factory, see [Introduction to Azure Data Factory](introduction.md).
+Many times, when processing data for ETL jobs, you will need to change the column names before writing the results. Sometimes this is needed to align column names to a well-known target schema. Other times, you may need to set column names at runtime based on evolving schemas. In this tutorial, you'll learn how to use data flows to set column names for your destination files and database tables dynamically using configuration files and parameters.
 
-In this tutorial, you'll learn best practices that can be applied when writing files to ADLS Gen2 or Azure Blob Storage using data flows. You'll need access to an Azure Blob Storage Account or Azure Data Lake Store Gen2 account for reading a parquet file and then storing the results in folders.
+If you're new to Azure Data Factory, see [Introduction to Azure Data Factory](introduction.md).
 
 ## Prerequisites
 * **Azure subscription**. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
@@ -62,7 +62,7 @@ In this step, you'll create a pipeline that contains a data flow activity.
 
     ![Screenshot that shows where you name your data flow when you create a new data flow.](media/tutorial-data-flow/activity2.png)
 
-## Build transformation logic in the data flow canvas
+## Build dynamic column mapping in data flows
 
 You will take any source data (in this tutorial, we'll use a Parquet file source) and use a sink transformation to land the data in Parquet format using the most effective mechanisms for data lake ETL.
 
