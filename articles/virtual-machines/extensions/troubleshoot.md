@@ -54,6 +54,18 @@ Extensions:  {
 
 ## Troubleshooting extension failures
 
+### Verify that the VM Agent is running and Ready
+The VM Agent is required to manage, install and execute extensions. If the VM Agent is not running or is failing to report a Ready status to the Azure platform, then the extensions will not work correctly.
+
+Please refer to the following pages to troubleshoot the VM Agent:
+[Troubleshooting Windows Azure Guest Agent](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/windows-azure-guest-agent)
+[Troubleshoot the Azure Linux Agent](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/linux-azure-guest-agent)
+
+### Check for your specific extension troubleshooting guide
+Some extensions have a specific page describing how to troubleshoot them. You can find the list of these extensions and pages on [Troubleshoot extensions
+](https://docs.microsoft.com/azure/virtual-machines/extensions/overview#troubleshoot-extensions).
+
+
 ### Rerun the extension on the VM
 If you are running scripts on the VM using Custom Script Extension, you could sometimes run into an error where VM was created successfully but the script has failed. Under these conditions, the recommended way to recover from this error is to remove the extension and rerun the template again.
 Note: In future, this functionality would be enhanced to remove the need for uninstalling the extension.
