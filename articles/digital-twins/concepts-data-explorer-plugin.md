@@ -36,18 +36,18 @@ In order to get the plugin running on your own ADX cluster that contains time se
 
 This command requires **All Databases admin** permission. For more information on the command, see the [.enable plugin documentation](/azure/data-explorer/kusto/management/enable-plugin). 
 
-Once the plugin is enabled, you can invoke it within an ADX Kusto query like this: 
+Once the plugin is enabled, you can invoke it within an ADX Kusto query with the following command. There are two placeholders, `<Azure-Digital-Twins-endpoint>` and `<Azure-Digital-Twins-query>`, which are strings representing the Azure Digital Twins instance endpoint and Azure Digital Twins query, respectively. 
 
 ```kusto
-evaluate azure_digital_twins_query_request(Azure Digital Twinsendpoint, Azure Digital Twinsquery) 
+evaluate azure_digital_twins_query_request(<Azure-Digital-Twins-endpoint>, <Azure-Digital-Twins-query>) 
 ```
-
-where `Azure Digital Twinsendpoint` and `Azure Digital Twinsquery` are strings representing the Azure Digital Twins instance endpoint and Azure Digital Twins query, respectively. 
 
 The plugin works by calling the [Azure Digital Twins query API](/rest/api/digital-twins/dataplane/query), and the [query language structure](concepts-query-language.md) is the same as when using the API. 
 
 >[!IMPORTANT]
 >The user of the plugin must be granted the **Azure Digital Twins Data Reader** role or the **Azure Digital Twins Data Owner** role, as the user's Azure AD token is used to authenticate. Information on how to assign this role can be found in [Concepts: Security for Azure Digital Twins solutions](concepts-security.md#authorization-azure-roles-for-azure-digital-twins).
+
+For more information on using the plugin, see the [Kusto documentation for the azure_digital_twins_query_request plugin](/azure/data-explorer/kusto/query/azure-digital-twins-query-request-plugin).
 
 To see example queries and complete a walkthrough with sample data, see [Azure Digital Twins query plugin for ADX: Sample queries and walkthrough](https://github.com/Azure-Samples/azure-digital-twins-getting-started/tree/main/adt-adx-queries) in GitHub.
 
@@ -61,7 +61,7 @@ There are various ways to ingest IoT data into ADX. Here are two that you might 
 
 If you're ingesting time series data directly into ADX, you'll likely need to convert this raw time series data into a schema suitable for joint Azure Digital Twins/ADX queries.
 
-An [update policy](/azure/data-explorer/kusto/management/updatepolicy.md) in ADX allows you to automatically transform and append data to a target table whenever new data is inserted into a source table. 
+An [update policy](/azure/data-explorer/kusto/management/updatepolicy) in ADX allows you to automatically transform and append data to a target table whenever new data is inserted into a source table. 
 
 You can use an update policy to enrich your raw time series data with the corresponding **twin ID** from Azure Digital Twins, and persist it to a target table. Using the twin ID, the target table can then be joined against the digital twins selected by the Azure Digital Twins plugin. 
 
@@ -123,8 +123,8 @@ For instance, if you want to represent a property with three fields for roll, pi
 
 ## Next steps
 
-View sample queries using the Azure Digital Twins query plugin for ADX, including a walkthrough that runs the queries in an example scenario:
-* [Azure Digital Twins query plugin for ADX: Sample queries and walkthrough](https://github.com/Azure-Samples/azure-digital-twins-getting-started/tree/main/adt-adx-queries) 
+* View the plugin documentation for the Kusto language in ADX: [azure_digital_twins_query_request plugin](/azure/data-explorer/kusto/query/azure-digital-twins-query-request-plugin)
 
-Read about another strategy for analyzing historical data in Azure Digital Twins:
-* [How-to: Integrate with Azure Time Series Insights](how-to-integrate-time-series-insights.md)
+* View sample queries using the plugin, including a walkthrough that runs the queries in an example scenario: [Azure Digital Twins query plugin for ADX: Sample queries and walkthrough](https://github.com/Azure-Samples/azure-digital-twins-getting-started/tree/main/adt-adx-queries) 
+
+* Read about another strategy for analyzing historical data in Azure Digital Twins: [How-to: Integrate with Azure Time Series Insights](how-to-integrate-time-series-insights.md)
