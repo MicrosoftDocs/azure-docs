@@ -2,7 +2,7 @@
 title: Configure NSX network components using Azure VMware Solution 
 description: Learn how to use the Azure VMware Solution to configure NSX-T network segments.
 ms.topic: how-to
-ms.date: 05/28/2021
+ms.date: 06/17/2021
 
 # Customer intent: As an Azure service administrator, I want to configure NSX network components using a simplified view of NSX-T operations a VMware administrator needs daily. The simplified view is targeted at users unfamiliar with NSX-T Manager.
 
@@ -25,7 +25,7 @@ You'll have four options to configure NSX-T components in the Azure VMware Solut
 - **DNS** – Create a DNS forwarder to send DNS requests to a designated DNS server for resolution.  
 
 >[!IMPORTANT]
->You'll still have access to the NSX-T Manager console, where you can use the advanced settings mentioned and other NSX-T features. 
+>You can still use NSX-T Manager for the advanced settings mentioned and other NSX-T features. 
 
 ## Prerequisites
 Virtual machines (VMs) created or migrated to the Azure VMware Solution private cloud should be attached to a network segment. 
@@ -36,7 +36,9 @@ You can create and configure an NSX-T segment from the Azure VMware Solution con
 >[!NOTE]
 >If you plan to use DHCP, you'll need to [configure a DHCP server or DHCP relay](#create-a-dhcp-server-or-dhcp-relay-using-the-azure-portal) before you can create and configure an NSX-T segment.
 
-1. In your Azure VMware Solution private cloud, under **Workload Networking**, select **Segments** > **Add**. Provide the details for the new logical segment and select **OK**.
+1. In your Azure VMware Solution private cloud, under **Workload Networking**, select **Segments** > **Add**. 
+
+2. Provide the details for the new logical segment and select **OK**.
 
    :::image type="content" source="media/configure-nsx-network-components-azure-portal/add-new-nsxt-segment.png" alt-text="Screenshot showing how to add a new segment.":::
 
@@ -52,7 +54,7 @@ You can create and configure an NSX-T segment from the Azure VMware Solution con
 
       - **Type** - Overlay segment supported by Azure VMware Solution.
 
-   The segment is now visible in the Azure VMware Solution console, NSX-T Manger, and vCenter.
+The segment is now visible in the Azure VMware Solution console, NSX-T Manger, and vCenter.
 
 ## Create a DHCP server or DHCP relay using the Azure portal
 

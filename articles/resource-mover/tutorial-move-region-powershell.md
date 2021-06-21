@@ -45,7 +45,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 Most move resources operations are the same whether using the Azure portal or PowerShell, with a couple of exceptions.
 
-**Operation** | **PowerShell** | **Portal**
+**Operation** | **Portal** | **PowerShell**
 --- | --- | ---
 **Create a move collection** | A move collection (a list of all the resources you're moving) is created automatically. Required identity permissions are assigned in the backend by the portal. | You use PowerShell cmdlets to:<br/><br/> - Create a resource group for the move collection and specify the location for it.<br/><br/> - Assign a managed identity to the collection.<br/><br/> - Add resources to the collection.
 **Remove a move collection** | You can't directly remove a move collection in the portal. | You use a PowerShell cmdlet to remove a move collection.
@@ -406,7 +406,7 @@ Invoke-AzResourceMoverDiscard -ResourceGroupName "RG-MoveCollection-demoRMS" -Mo
 
 ## Delete source resources
 
-After committing the move, and verifying that resources work as expected in the target region, you can delete each source resource in the [Azure portal](../azure-resource-manager/management/manage-resources-portal.md#delete-resources), [using PowerShell](../azure-resource-manager/management/manage-resources-powershell.md#delete-resources), or [Azure CLI](../azure-resource-manager/management/manage-resources-cli.md#delete-resources).
+After committing the move, and verifying that resources work as expected in the target region, you can delete each source resource in the [Azure portal](../azure-resource-manager/management/manage-resources-portal.md#delete-resources), using [PowerShell](../azure-resource-manager/management/manage-resources-powershell.md#delete-resources), or using [Azure CLI](../azure-resource-manager/management/manage-resources-cli.md#delete-resources).
 
 ## Next steps
 

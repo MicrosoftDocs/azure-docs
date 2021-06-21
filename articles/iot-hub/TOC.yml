@@ -7,24 +7,10 @@
 - name: Quickstarts
   expanded: true
   items:
-    - name: Send telemetry
-      items:
-        - name: Get started
-          href: quickstart-send-telemetry-cli.md
-        - name: C
-          href: quickstart-send-telemetry-c.md
-        - name: Node.js
-          href: quickstart-send-telemetry-node.md
-        - name: .NET
-          href: quickstart-send-telemetry-dotnet.md
-        - name: Java
-          href: quickstart-send-telemetry-java.md
-        - name: Python
-          href: quickstart-send-telemetry-python.md
-        - name: Android
-          href: quickstart-send-telemetry-android.md
-        - name: iOS
-          href: quickstart-send-telemetry-ios.md
+    - name: Codeless quickstart using CLI
+      href: quickstart-send-telemetry-cli.md
+    - name: Send telemetry using SDK
+      href: ../iot-develop/quickstart-send-telemetry-iot-hub.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json
     - name: Control a device
       items:
         - name: Node.js
@@ -37,22 +23,6 @@
           href: quickstart-control-device-python.md
         - name: Android
           href: quickstart-control-device-android.md
-    - name: Communicate using device streams (preview)
-      items:
-        - name: .NET
-          href: quickstart-device-streams-echo-csharp.md
-        - name: Node.js
-          href: quickstart-device-streams-echo-nodejs.md
-        - name: C
-          href: quickstart-device-streams-echo-c.md
-    - name: SSH/RDP using device streams (preview)
-      items:
-        - name: .NET
-          href: quickstart-device-streams-proxy-csharp.md
-        - name: Node.js
-          href: quickstart-device-streams-proxy-nodejs.md
-        - name: C
-          href: quickstart-device-streams-proxy-c.md
     - name: Auto-route messages using an ARM template
       displayName: Resource Manager
       href: horizontal-arm-route-messages.md
@@ -128,8 +98,6 @@
       href: iot-hub-event-grid-routing-comparison.md
     - name: Device configuration best practices
       href: iot-hub-configuration-best-practices.md
-    - name: Azure IoT SDKs platform support
-      href: iot-hub-device-sdk-platform-support.md
     - name: Overview of IoT Hub device streams (preview)
       href: iot-hub-device-streams-overview.md
     - name: Developer guide
@@ -187,8 +155,16 @@
           href: iot-hub-devguide-quotas-throttling.md
         - name: Pricing examples
           href: iot-hub-devguide-pricing.md
-        - name: Device and service SDKs
-          href: iot-hub-devguide-sdks.md
+        - name: IoT Hub SDKs
+          items:
+            - name: SDK overview
+              href: iot-hub-devguide-sdks.md
+            - name: SDK platform support
+              href: iot-hub-device-sdk-platform-support.md
+            - name: Develop without the SDK
+              href: iot-hub-devguide-no-sdk.md   
+            - name: Manage connectivity and reliable messaging
+              href: iot-hub-reliability-features-in-sdks.md
         - name: MQTT support
           href: iot-hub-mqtt-support.md
         - name: MQTT 5 support (preview)
@@ -227,10 +203,7 @@
     - name: Develop
       items:
         - name: Use device and service SDKs
-          href: iot-hub-devguide-sdks.md
           items:
-            - name: Azure IoT SDKs platform support
-              href: iot-hub-device-sdk-platform-support.md
             - name: Use the IoT device SDK for C
               href: iot-hub-device-sdk-c-intro.md
               items:
@@ -244,12 +217,8 @@
               href: iot-hub-devguide-develop-for-constrained-devices.md
             - name: Develop for mobile devices
               href: iot-hub-how-to-develop-for-mobile-devices.md
-            - name: Manage connectivity and reliable messaging
-              href: iot-hub-reliability-features-in-sdks.md
             - name: Develop for Android Things platform
               href: iot-hub-how-to-android-things.md
-        - name: Develop without an Azure IoT SDK
-          href: iot-hub-devguide-no-sdk.md
         - name: Query Avro data from a hub route
           href: iot-hub-query-avro-data.md
         - name: Send cloud-to-device messages
@@ -542,7 +511,7 @@
       - name: IoT Service SDKs
         href: ./iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks
       - name: IoT Device SDKs
-        href: ./iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks
+        href: ../iot-develop/about-iot-sdks.md
     - name: Azure IoT samples
       items:
       - name: C# (.NET)

@@ -25,7 +25,7 @@ To complete this tutorial:
 
 You must have an Azure Cosmos DB account that uses the SQL API before you create the output binding.
 
-[!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
+[!INCLUDE [cosmos-db-create-dbaccount](../cosmos-db/includes/cosmos-db-create-dbaccount.md)]
 
 ## Add an output binding
 

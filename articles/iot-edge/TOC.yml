@@ -181,18 +181,30 @@
         href: how-to-deploy-cli-at-scale.md
       - name: Visual Studio Code
         href: how-to-deploy-vscode-at-scale.md
-  - name: Monitor and diagnose deployments
+  - name: Monitor and diagnose
     items:
       - name: Monitor IoT Edge deployments
         href: how-to-monitor-iot-edge-deployments.md
       - name: Monitor module twins
-        href: how-to-monitor-module-twins.md  
-      - name: EdgeAgent direct methods
+        href: how-to-monitor-module-twins.md
+      - name: Use edgeAgent direct methods
         href: how-to-edgeagent-direct-method.md
-      - name: Retrieve IoT Edge logs
+      - name: Retrieve logs with direct methods
         href: how-to-retrieve-iot-edge-logs.md
       - name: Access built-in metrics
         href: how-to-access-built-in-metrics.md
+      - name: Azure Monitor integration
+        items:
+        - name: Collect and transport metrics
+          href: how-to-collect-and-transport-metrics.md
+        - name: Explore curated visualizations
+          href: how-to-explore-curated-visualizations.md
+        - name: Create alert rules
+          href: how-to-create-alerts.md
+        - name: Add custom metrics
+          href: how-to-add-custom-metrics.md
+        - name: FAQ and troubleshooting
+          href: how-to-troubleshoot-monitoring-and-faq.md
   - name: Use IoT Edge devices as gateways
     items:
     - name: Gateways for IoT devices
@@ -239,9 +251,11 @@
         href: how-to-continuous-integration-continuous-deployment-classic.md
   - name: Troubleshoot
     items:
-    - name: Standard diagnostic steps
+    - name: Diagnose IoT Edge devices
       href: troubleshoot.md
-    - name: Common error resolutions
+    - name: Troubleshoot in the Azure portal
+      href: troubleshoot-in-portal.md
+    - name: Resolve common errors
       href: troubleshoot-common-errors.md
 - name: Reference
   items:
