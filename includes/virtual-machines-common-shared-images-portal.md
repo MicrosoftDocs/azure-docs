@@ -51,18 +51,42 @@ Create the gallery image definition inside of your gallery. In this example, the
 
 ## Create an image version
 
-Create an image version from a managed image. In this example, the image version is *1.0.0* and it's replicated to both *West Central US* and *South Central US* datacenters. When choosing target regions for replication, remember that you also have to include the *source* region as a target for replication.
+n this example, the image version is *1.0.0* and it's replicated to both *West Central US* and *South Central US* datacenters. When choosing target regions for replication, remember that you also have to include the *source* region as a target for replication.
 
 Allowed characters for image version are numbers and periods. Numbers must be within the range of a 32-bit integer. Format: *MajorVersion*.*MinorVersion*.*Patch*.
 
 The steps for creating an image version are slightly different, depending on whether the source is a generalized image or a snapshot of a specialized VM. 
 
-### Option: Generalized
 
 1. In the page for your image definition, select **Add version** from the top of the page.
-1. In **Region**, select the region where your managed image is stored. Image versions need to be created in the same region as the managed image they are created from.
-1. For **Name**, type *1.0.0*. The image version name should follow *major*.*minor*.*patch* format using integers. 
-1. In **Source image**, select your source managed image from the drop-down.
+1. In **Region**, select the region where you want the image created.
+1. For **Version number**, type a number like *1.0.0*. The image version name should follow *major*.*minor*.*patch* format using integers. 
+1. In **Source image**, select your source managed image from the drop-down. See the tabs below for specific details for each source type.
+
+### [Disks or snapshots](#tab/disk)
+
+1. For **OS disk** select the disk or snapshot from the drop-down.
+1. To add a data disk, type the LUN number and then select the data disk from the drop-down. 
+
+
+### [Image version](#tab/version)
+
+1. Select the **Source gallery** from the drop-down.
+1. Select the correct image definition from the drop-down.
+1. Select the existing image version that you want to use from the drop-down.
+
+
+
+### [managed image](#tab/managed)
+
+Select the **Source image** from the drop-down. The managed image must be in the same region that you chose in **Instance details**.
+
+### [VHD](#tab/vhd)
+
+Select **Browse** to choose the storage account for the VHD.
+
+---
+
 1. In **Exclude from latest**, leave the default value of *No*.
 1. For **End of life date**, select a date from the calendar that is a couple of months in the future.
 1. In **Replication**, leave the **Default replica count** as 1. You need to replicate to the source region, so leave the first replica as the default and then pick a second replica region to be *East US*.
@@ -72,18 +96,7 @@ The steps for creating an image version are slightly different, depending on whe
 
 It can take a while to replicate the image to all of the target regions.
 
-### Option: Specialized
-
-1. In the page for your image definition, select **Add version** from the top of the page.
-1. In **Region**, select the region where your snapshot is stored. Image versions need to be created in the same region as the source they are created from.
-1. For **Name**, type *1.0.0*. The image version name should follow *major*.*minor*.*patch* format using integers. 
-1. In **OS disk snapshot**, select the snapshot from your source VM from the drop-down. If your source VM had a data disk that you would like to include, select the correct **LUN** number from the drop-down, and then select the snapshot of the data disk for **Data disk snapshot**. 
-1. In **Exclude from latest**, leave the default value of *No*.
-1. For **End of life date**, select a date from the calendar that is a couple of months in the future.
-1. In **Replication**, leave the **Default replica count** as 1. You need to replicate to the source region, so leave the first replica as the default and then pick a second replica region to be *East US*.
-1. When you are done, select **Review + create**. Azure will validate the configuration.
-1. When image version passes validation, select **Create**.
-1. When the deployment is finished, select **Go to resource**.
+You can also capture an existing VM as an image, from the portal. For more information, see [Create an image of a VM in the portal](../articles/virtual-machines/capture-image-portal.md).
 
 ## Share the gallery
 

@@ -788,6 +788,8 @@
         - name: Windows
           displayName: Shared Image Gallery, SIG, sig, gallery, image, create
           href: ./windows/shared-images-portal.md
+      - name: Capture a VM in the portal
+        href: capture-image-portal.md
     - name: Resource Manager Templates
       items:
       - name: Create a Shared Image Gallery

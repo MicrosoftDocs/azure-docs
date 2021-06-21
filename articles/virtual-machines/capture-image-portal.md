@@ -1,24 +1,24 @@
 ---
-title: Create an image of a VM using the portal
+title: Capture an image of a VM using the portal
 description: Create an image of a VM using the Azure portal. 
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: imaging
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 06/16/2021
+ms.date: 06/21/2021
 ms.author: cynthn
 ms.custom: portal
 
 ---
-# Create an image from the portal
+# Create an image of a VM in the portal
 
 A image can be created from a VM and then used to create multiple VMs.
 
-You can create images from VMs that already have accounts created on them or you can generalize the VM before creating the image to remove machine accounts and other machines specific information. To generalize a Windows VM using Sysprep, see [Generalized a Windows VM](generalize.md). To remove machine specific accounts from a Linux VM, use `sudo waagent -deprovision+user`. 
+For images stored in a Shared Image Gallery, you can use VMs that already have accounts created on them (specialized) or you can generalize the VM before creating the image to remove machine accounts and other machines specific information. To generalize a VM, see [Generalized a Windows VM](generalize.md). For more information, see [Generalized and specialized images](shared-image-galleries.md#generalized-and-specialized-images).
 
 
-## Create a managed image in the portal 
+## Capture a VM in the portal 
 
 1. Go to the [Azure portal](https://portal.azure.com), then search for and select **Virtual machines**.
 
@@ -50,7 +50,6 @@ You can create images from VMs that already have accounts created on them or you
 
 1. Under [Replication](shared-image-galleries.md#replication), select a default replica count and then select any additional regions where you would like your image replicated.
 
-
 8. When you are done, select **Review + create**.
 
 1. After validation passes, select **Create** to create the image.
@@ -58,4 +57,5 @@ You can create images from VMs that already have accounts created on them or you
 
 
 ## Next steps
+
 - [Shared Image Galleries overview](shared-image-galleries.md)	
