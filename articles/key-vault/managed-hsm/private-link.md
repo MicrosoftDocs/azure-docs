@@ -196,7 +196,7 @@ Aliases:  <your-hsm-name>.managed.azure.net
 ## Limitations and Design Considerations
 
 > [!NOTE]
-> The number of managed HSMs with private endpoints enabled per subscription is an adjustable limit. The limit shown below is the default limit. If you would like to request a limit increase for your service, please create an Azure support ticket. We will approve these requests on a case by case basis.
+> The number of managed HSMs with private endpoints enabled per subscription is an adjustable limit. The limit shown below is the default limit. If you would like to request a limit increase for your subscription, please create an Azure support ticket. We will approve these requests on a case by case basis.
 
 **Pricing**: For pricing information, see [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link/).
 
