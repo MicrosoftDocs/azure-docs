@@ -916,6 +916,8 @@
         href: idid-manager-tutorial.md
       - name: IDrive
         href: idrive-tutorial.md
+      - name: IDrive360
+        href: idrive360-tutorial.md  
       - name: Igloo Software
         href: igloo-software-tutorial.md
       - name: iHASCO Training
@@ -1170,6 +1172,8 @@
         href: logmein-tutorial.md
       - name: Logz.io - Azure AD Integration
         href: logzio-cloud-observability-for-engineers-tutorial.md
+      - name: Loop Flow CRM
+        href: loop-flow-crm-tutorial.md  
       - name: Lucidchart
         href: lucidchart-tutorial.md
       - name: Luum
@@ -2523,6 +2527,8 @@
         href: theorgwiki-provisioning-tutorial.md
       - name: TravelPerk
         href: travelperk-provisioning-tutorial.md
+      - name: Tribeloo
+        href: tribeloo-provisioning-tutorial.md
       - name: Twingate
         href: twingate-provisioning-tutorial.md
       - name: UNIFI
