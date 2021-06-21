@@ -207,11 +207,13 @@ When you enable Change Tracking and Inventory, two new tables are created in you
 
 ### Sample log queries
 
-**List all **
+**List all services and daemons that have recently started**
 
 ```kusto
 ConfigurationChange
-| where ConfigChangeType == "Daemons" and SvcName contains "ssh" and SvcState!= "Running"
+| where ConfigChangeType == "Daemons" or ConfigChangeType == "WindowsServices"
+| where SvcState == "Running"
+| sort by Computer, SvcName
 ```
 
 
