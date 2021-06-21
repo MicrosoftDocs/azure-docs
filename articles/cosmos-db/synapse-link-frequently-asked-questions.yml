@@ -26,6 +26,11 @@ sections:
           Azure Synapse Link is supported for the Azure Cosmos DB SQL (Core) API and for the Azure Cosmos DB API for MongoDB. 
 
       - question: |
+          Is Azure Synapse Link supported for Azure Cosmos DB serverless?
+        answer: |
+          Currently it is not possible to enable the Synapse Link feature on a serverless account.
+
+      - question: |
           Is Azure Synapse Link supported for multi-region Azure Cosmos DB accounts?
         answer: |
           Yes, for multi-region Azure Cosmos accounts, the data stored in the analytical store is also globally distributed. Regardless of single write region or multiple write regions, analytical queries performed from Azure Synapse Analytics can be served from the closest local region.
@@ -186,7 +191,7 @@ sections:
       - question: | 
           Is it possible to use customer-managed keys with Azure Synapse Link?
         answer: |
-          Yes, Azure Synapse Link supports configuring customr-managed keys usings your Azure Cosmos DB account's managed identity. You can seamlessly encrypt the data across transactional and analytical stores using the same customer-managed keys in an automatic and transparent manner. To learn more, see  [configuring customer-managed keys using Azure Cosmos DB accounts' managed identities](how-to-setup-cmk.md#using-managed-identity) artice.
+          Yes, Azure Synapse Link supports configuring customer-managed keys using your Azure Cosmos DB account's managed identity. You can seamlessly encrypt the data across transactional and analytical stores using the same customer-managed keys in an automatic and transparent manner. To learn more, see  [configuring customer-managed keys using Azure Cosmos DB accounts' managed identities](how-to-setup-cmk.md#using-managed-identity) artice.
       
       - question: |
            Does Azure Synapse link provide network isolation with Azure Synapse managed virtual networks?
