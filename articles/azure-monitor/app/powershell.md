@@ -468,4 +468,4 @@ Other automation articles:
 * [Create an Application Insights resource](./create-new-resource.md#creating-a-resource-automatically) - quick method without using a template.
 * [Create web tests](../alerts/resource-manager-alerts-metric.md#availability-test-with-metric-alert)
 * [Send Azure Diagnostics to Application Insights](powershell-azure-diagnostics.md)
-* [Create release annotations](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)
+* [Create release annotations](annotations.md)
