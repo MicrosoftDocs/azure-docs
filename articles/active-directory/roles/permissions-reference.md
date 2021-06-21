@@ -931,6 +931,7 @@ Users in this role can read settings and administrative information across Micro
 >- [Teams admin center](https://admin.teams.microsoft.com) - Global Reader cannot read **Teams lifecycle**, **Analytics & reports**, **IP phone device management** and **App catalog**.
 >- [Privileged Access Management (PAM)](/office365/securitycompliance/privileged-access-management-overview) doesn't support the Global Reader role.
 >- [Azure Information Protection](/azure/information-protection/what-is-information-protection) - Global Reader is supported [for central reporting](/azure/information-protection/reports-aip) only, and when your Azure AD organization isn't on the [unified labeling platform](/azure/information-protection/faqs#how-can-i-determine-if-my-tenant-is-on-the-unified-labeling-platform).
+> - SharePoint - Global Reader currently can't access SharePoint using PowerShell.
 >
 > These features are currently in development.
 >
