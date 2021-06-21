@@ -136,17 +136,17 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Log in to your Check Point Infinity Portal company site as an administrator.
 
-1. Navigate to **Global Settings** > **Account Settings** and click **Define** under SSO Authentication.
+2. Navigate to **Global Settings** > **Account Settings** and click **Define** under SSO Authentication.
    
    ![Account](./media/checkpoint-infinity-portal-tutorial/define.png "Account") 
 
-1. In the **SSO Authentication** page, perform the following steps:
+3. In the **SSO Authentication** page, perform the following steps:
 
    1. In the **SELECT IDENTITY PROVIDER** section, select **SAML 2.0** and click **NEXT**.
      
       ![Authentication](./media/checkpoint-infinity-portal-tutorial/identity-provider.png "Authentication")
 
-   1. In the **VERIFY DOMAIN** section, perform the following steps:
+   2. In the **VERIFY DOMAIN** section, perform the following steps:
 
       ![Verify Domain](./media/checkpoint-infinity-portal-tutorial/domain.png "Verify Domain")
  
@@ -158,7 +158,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
       d. Click **NEXT** once the domain name is validated. 
 
-   1. In the **ALLOW CONNECTIVITY** section, perform the following steps:
+   3. In the **ALLOW CONNECTIVITY** section, perform the following steps:
     
       ![Allow Connectivity](./media/checkpoint-infinity-portal-tutorial/connectivity.png "Allow Connectivity") 
 
@@ -170,11 +170,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
       
       d. Click **NEXT**.
 
-   1. In the **CONFIGURE** section, click **Select File** and upload the **Federation Metadata XML** file which you have downloaded from the Azure portal and click **NEXT**. 
+   4. In the **CONFIGURE** section, click **Select File** and upload the **Federation Metadata XML** file which you have downloaded from the Azure portal and click **NEXT**. 
 
       ![Configure](./media/checkpoint-infinity-portal-tutorial/service.png "Configure") 
 
-   1. In the **CONFIRM IDENTITY PROVIDER** section, review the configurations and click **SUBMIT**.
+   5. In the **CONFIRM IDENTITY PROVIDER** section, review the configurations and click **SUBMIT**.
      
       ![Submit Configuration](./media/checkpoint-infinity-portal-tutorial/confirm.png "Submit Configuration") 
 
