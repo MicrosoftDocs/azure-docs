@@ -43,7 +43,7 @@ To learn about configuring PUs for a premium tier namespace, see [Configure proc
 > To learn more about quotas and limits, see [Azure Event Hubs - quotas and limits](event-hubs-quotas.md).
 
 ## Partitions
-[!INCLUDE [event-hubs-partitions](../../includes/event-hubs-partitions.md)]
+[!INCLUDE [event-hubs-partitions](./includes/event-hubs-partitions.md)]
 
 
 

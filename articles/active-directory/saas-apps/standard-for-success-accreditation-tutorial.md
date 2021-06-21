@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/21/2021
+ms.date: 06/18/2021
 ms.author: jeedes
 
 ---
@@ -34,9 +34,6 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Standard for Success Accreditation supports **SP and IDP** initiated SSO.
 
-> [!NOTE]
-> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
-
 ## Add Standard for Success Accreditation from the gallery
 
 To configure the integration of Standard for Success Accreditation into Azure AD, you need to add Standard for Success Accreditation from the gallery to your list of managed SaaS apps.
@@ -47,7 +44,6 @@ To configure the integration of Standard for Success Accreditation into Azure AD
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Standard for Success Accreditation** in the search box.
 1. Select **Standard for Success Accreditation** from the results panel and then add the app. Wait a few seconds while the app is added to your tenant.
-
 
 ## Configure and test Azure AD SSO for Standard for Success Accreditation
 
@@ -72,9 +68,12 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
+1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
-    In the **Reply URL** text box, type a URL using the following pattern:
+    a. In the **Identifier** text box, type a value using the following pattern: 
+    `api://<ApplicationId>`
+
+    b. In the **Reply URL** text box, type a URL using the following pattern:
     `https://edu.sfsed.com/access/saml_consume?did=<INSTITUTION-ID>`
 
 1. Click **Set additional URLs** and perform the following steps if you wish to configure the application in **SP** initiated mode:
@@ -86,7 +85,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://edu.sfsed.com/access/saml_consume?did=<INSTITUTION-ID>`
 
     > [!NOTE]
-    > These values are not real. Update these values with the actual Reply URL, Sign-on URL and Relay State. Contact [Standard for Success Accreditation Client support team](mailto:help_he@standardforsuccess.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > These values are not real. Update these values with the actual Identifier, Reply URL, Sign-on URL and Relay State. Contact [Standard for Success Accreditation Client support team](mailto:help_he@standardforsuccess.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. In the **SAML Signing Certificate** section, click **Edit** button to open **SAML Signing Certificate** dialog.
 
@@ -99,6 +98,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Set up Standard for Success Accreditation** section, copy the appropriate URL(s) based on your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
+
 ### Create an Azure AD test user
 
 In this section, you'll create a test user in the Azure portal called B.Simon.
@@ -159,7 +159,6 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     d. Scroll to the bottom and Click **Create User**.
 
-
 ## Test SSO 
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
@@ -176,9 +175,6 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 You can also use Microsoft My Apps to test the application in any mode. When you click the Standard for Success Accreditation tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Standard for Success Accreditation for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
-
 ## Next steps
 
 Once you configure Standard for Success Accreditation you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
-
-

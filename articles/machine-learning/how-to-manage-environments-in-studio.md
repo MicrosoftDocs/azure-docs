@@ -45,8 +45,8 @@ To create an environment:
 1. Select the **Create** button. 
 
 Create an environment by specifying one of the following:
-* Pip requirements [file](https://pip.pypa.io/en/stable/cli/pip_install/#requirements-file-format)
-* Conda yaml [file](https://conda.io/projects/conda/latest/user-guide/tasks/manage-environments.html#sharing-an-environment)
+* Pip requirements [file](https://pip.pypa.io/en/stable/cli/pip_install)
+* Conda yaml [file](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html)
 * Docker [image](https://hub.docker.com/search?q=&type=image)
 * [Dockerfile](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
 

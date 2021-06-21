@@ -212,6 +212,8 @@
     href: remotefx-graphics-performance-counters.md
   - name: Azure Monitor
     href: troubleshoot-azure-monitor.md
+  - name: Management issues
+    href: troubleshoot-management-issues.md
 - name: Reference
   items:
   - name: Security best practices

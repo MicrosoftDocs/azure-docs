@@ -18,8 +18,8 @@ Azure Data Factory and Azure Synapse Analytics data flows provide a low-code mec
 
 | Compute Option              | Performance                                                  |
 | :-------------------- | :----------------------------------------------------------- |
-| General Purpose Data Flows | Best performing runtime for data flows when working with large datasets and many calculations |
-| Memory Optimized Data Flows | Good for general use cases in production workloads |
+| General Purpose Data Flows | Good for general use cases in production workloads |
+| Memory Optimized Data Flows | Best performing runtime for data flows when working with large datasets and many calculations |
 | Compute Optimized Data Flows | Not recommended for production workloads |
 
 ## Migration steps 

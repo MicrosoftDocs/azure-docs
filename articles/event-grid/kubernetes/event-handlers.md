@@ -15,7 +15,7 @@ The way to configure Event Grid to send events to a destination is through the c
 
 In general, Event Grid on Kubernetes can send events to any destination via **Webhooks**. Webhooks are HTTP(s) endpoints exposed by a service or workload to which Event Grid has access. The webhook can be a workload hosted in the same cluster, in the same network space, on the cloud, on-prem or anywhere that Event Grid can reach. 
 
-[!INCLUDE [event-grid-preview-feature-note.md](../../../includes/event-grid-preview-feature-note.md)]
+[!INCLUDE [event-grid-preview-feature-note.md](../includes/event-grid-preview-feature-note.md)]
 
 Through Webhooks, Event Grid supports the following destinations **hosted on a Kubernetes cluster**:
 
