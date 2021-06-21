@@ -74,8 +74,8 @@ The single server service is equipped with built-in performance monitoring and a
 The service runs community version of MySQL. This allows full application compatibility and requires minimal refactoring cost to migrate existing application developed on MySQL engine to single server service. The migration to the single server can be performed using one of the following options:
 
 - **Dump and Restore** – For offline migrations, where users can afford some downtime, dump and restore using community tools like mysqldump/mydumper can provide fastest way to migrate. See [Migrate using dump and restore](concepts-migrate-dump-restore.md) for details. 
-- **Azure Database Migration Service** – For seamless and simplified migrations to single server with minimal downtime, [Azure Database Migration Service](../dms/tutorial-mysql-azure-mysql-online.md) can be leveraged. 
-- **Data-in replication** – For minimal downtime migrations, data-in replication, which relies on binlog based replication can also be leveraged. Data-in replication is preferred for minimal downtime migrations by hands-on experts looking for more control over migration. See [data-in replication](concepts-data-in-replication.md) for details.
+- **Azure Database Migration Service** – For seamless and simplified migrations to single server with high speed data migration, [Azure Database Migration Service](../dms/tutorial-mysql-azure-mysql-offline-portal.md) can be leveraged. 
+- **Data-in replication** – For minimal downtime migrations, data-in replication, which relies on binlog based replication can be leveraged. Data-in replication is preferred for minimal downtime migrations by hands-on experts looking for control over migration. See [data-in replication](concepts-data-in-replication.md) for details.
 
 ## Contacts
 For any questions or suggestions you might have about working with Azure Database for MySQL, send an email to the Azure Database for MySQL Team ([@Ask Azure DB for MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com)). This email address is not a technical support alias.

@@ -120,7 +120,7 @@ See [Monitoring concepts](concepts-monitoring.md) to learn more.
 The service runs the community version of MySQL. This allows full application compatibility and requires minimal refactoring cost to migrate existing application developed on MySQL engine to single server service. The migration to the single server can be performed using one of the following options:
 
 - **Dump and Restore** – For offline migrations, where users can afford some downtime, dump and restore using community tools like mysqldump/mydumper can provide fastest way to migrate. See Migrate using dump and restore for details. 
-- **Azure Database Migration Service** – For seamless and simplified migrations to single server with minimal downtime, [Azure Database Migration Service](../../dms/tutorial-mysql-azure-mysql-online.md) can be leveraged. 
+- **Azure Database Migration Service** – For seamless and simplified migrations to single server with high speed data migration, [Azure Database Migration Service](../../dms/tutorial-mysql-azure-mysql-offline-portal.md) can be leveraged. 
 
 ## Azure regions
 
