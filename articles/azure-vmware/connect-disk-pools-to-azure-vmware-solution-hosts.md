@@ -1,22 +1,21 @@
 ---
 title: Connect disk pools to Azure VMware Solution hosts
-description: Learn how to scale Azure VMware Solution hosts using disk pools instead of scaling clusters. You can use block storage for active working sets and tier less frequently accessed data from vSAN to disks. You can also replicate data from on-premises or primary VMware environment to disk storage for the secondary site.
+description: Learn how to connect Azure disk pools to Azure VMware Solution hosts. 
 ms.topic: how-to 
 ms.date: 06/28/2021
 
-#Customer intent: As an Azure service administrator, I want to scale my AVS hosts using disk pools instead of scaling clusters. So that I can use block storage for active working sets and to tier less frequently accessed data from vSAN to disks. I can also replicate data from on-premises or primary VMware environment to disk storage for the secondary site.  
+#Customer intent: As an Azure service administrator, I want to scale my AVS hosts using disk pools instead of scaling clusters. So that I can use block storage for active working sets and tier less frequently accessed data from vSAN to disks. I can also replicate data from on-premises or primary VMware environment to disk storage for the secondary site.   
 
 ---
 
 # Connect disk pools to Azure VMware Solution hosts
 
-[Azure disk pools](../virtual-machines/disks-pools.md) offer persistent block storage to applications and workloads backed by Azure Disks. Use disks as the persistent storage for Azure VMware Solution for optimal cost and performance. For example, if you host data-intensive workloads, you can scale up by using disk pools instead of scaling clusters. You can also use disks to replicate data from on-premises or primary VMware environment to disk storage for the secondary site.
+[Azure disk pools](../virtual-machines/disks-pools.md) offer persistent block storage to applications and workloads backed by Azure Disks. You can use disks as the persistent storage for Azure VMWare Solution for optimal cost and performance. For example, you can scale up by using disk pools instead of scaling clusters if you host storage-intensive workloads. You can also use disks to replicate data from on-premises or primary VMware environment to disk storage for the secondary site.
 
 Azure Disks are attached to the managed iSCSI controller, a virtual machine deployed under the managed resource group. Disks get deployed as storage targets to a disk pool, and each storage target shows as an iSCSI LUN under the iSCSI target. You can expose a disk pool as an iSCSI target connected to Azure VMware Solution hosts as a datastore. A disk pool surfaces as a single endpoint for all underlying disks added as storage targets. Each disk pool can have only one iSCSI controller.
 
 >[!TIP]
->To scale storage independent of the Azure VMware Solution hosts, we support surfacing Azure and [Premium Disks](/azure/virtual-machines/disks-types#premium-ssd) as the datastores.
-
+>To scale storage independent of the Azure VMware Solution hosts, we support surfacing Premium Disks](/azure/virtual-machines/disks-types#premium-ssd) as the datastores.
 
 The diagram shows how disk pools work with Azure VMware Solution hosts. Each iSCSI controller can access each managed disk over iSCSI, and the Azure VMware Solution hosts can access the iSCSI controller over iSCSI.
 
@@ -26,22 +25,14 @@ The diagram shows how disk pools work with Azure VMware Solution hosts. Each iSC
 
 ## Supported regions
 
-Disk pool in Azure VMware Solution currently supports the following regions:
-
-- East US
-
-- US West 2  
-
-- Canada Central
-
-You can only connect the disk pool to an Azure VMware Solution private cloud in the same region. If your private cloud is deployed in non-supported regions, you can redeploy in a supported region. Azure VMware Solution private cloud and disk pool colocation provide the best performance with minimal network latency.
+You can only connect the disk pool to an Azure VMware Solution private cloud in the same region. For a list of supported regions, see [Regional availability](/azure/virtual-machines/disks-pools#regional-availability).  If your private cloud is deployed in a non-supported region, you can redeploy it in a supported region. Azure VMware Solution private cloud and disk pool colocation provide the best performance with minimal network latency.
 
 
 ## Prerequisites
 
 - Scalability and performance requirements of your workloads identified. For details, see [Planning for Azure disk pools](../virtual-machines/disks-pools-planning.md).
 
-- [Azure VMware Solution private cloud](deploy-azure-vmware-solution.md) deployed with a [virtual network configured](deploy-azure-vmware-solution.md#step-3-connect-to-azure-virtual-network-with-expressroute). For more information, see [Network planning checklist](tutorial-network-checklist.md) and [Configure networking for your VMware private cloud](tutorial-configure-networking.md).
+- [Azure VMware Solution private cloud](deploy-azure-vmware-solution.md) deployed with a [virtual network configured](deploy-azure-vmware-solution.md#step-3-connect-to-azure-virtual-network-with-expressroute). For more information, see [Network planning checklist](tutorial-network-checklist.md) and [Configure networking for your VMware private cloud](tutorial-configure-networking.md). 
 
    - If you select Ultra Disks, use either the Ultra Performance or ErGw3AZ (10 Gbps) SKU for the Azure VMware Solution private cloud and then [enable ExpressRoute FastPath](/azure/expressroute/expressroute-howto-linkvnet-arm#configure-expressroute-fastpath).
 
@@ -81,7 +72,7 @@ You'll connect to a disk pool surfaced through an iSCSI target as the VMware dat
    az vmware datastore -h
    ```
 
-3. Create an iSCSI datastore in the Azure VMware Solution private cloud cluster using Microsoft.StoragePool provided iSCSI target.
+3. Create and attach an iSCSI datastore in the Azure VMware Solution private cloud cluster using Microsoft.StoragePool provided iSCSI target.
 
    ```azurecli
    az vmware datastore disk-pool-volume create --name iSCSIDatastore1 --resource-group MyResourceGroup --cluster Cluster-1 --private-cloud MyPrivateCloud --target-id /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/ResourceGroup1/providers/Microsoft.StoragePool/diskPools/mpio-diskpool/iscsiTargets/mpio-iscsi-target --lun-name lun0
@@ -101,13 +92,19 @@ You'll connect to a disk pool surfaced through an iSCSI target as the VMware dat
 
 ## Delete an iSCSI datastore from your private cloud
 
+Although there is no maintenance window required for this operation, you must power off your VMs before proceeding.
 
 ```azurecli
 az vmware datastore delete --name MyCloudSANDatastore1 --resource-group MyResourceGroup --cluster Cluster-1 --private-cloud MyPrivateCloud
 ```
 
 ## Disconnect a disk pool from your private cloud
-There is no maintenance window required for this operation. You can view logs for auditing purposes. 
+Although there is no maintenance window required for this operation, you must power off your VMs before proceeding.
+
+>[!IMPORTANT]
+>Before you can disconnect a disk pool from your private cloud, you must first delete the iSCSI datastore.
+
+ 
 
 
 ## Next steps
@@ -121,3 +118,4 @@ Now that you've attached a disk pool to your Azure VMware Solution hosts, you ma
 - [Disabling iSCSI support on a disk](/azure/virtual-machines/disks-pools-deprovision#disable-iscsi-support). If you disable iSCSI support on a disk pool, you effectively can no longer use a disk pool.
 
 - [Moving disk pools to a different subscription](/azure/virtual-machines/disks-pools-move-resource). Moving a disk pool involves moving the disk pool itself, the disks contained in the disk pool, the disk pool's managed resource group, and all the resources contained in the managed resource group.
+
