@@ -30,11 +30,7 @@ landingContent:
           - text: Best practices
             url: ./best-practices.md
           - text: Frequently asked questions
-<<<<<<< HEAD
             url: /azure/purview/frequently-asked-questions.yml
-=======
-            url: frequently-asked-questions.yml
->>>>>>> fcf78c0685d1b155f0ebfb74b1beff9791274e9e
           - text: Template specs
             url: template-specs.md
           - text: Deployment modes
