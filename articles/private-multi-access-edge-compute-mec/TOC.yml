@@ -37,7 +37,7 @@
     - name: Azure private MEC product page
       href: https://go.microsoft.com/fwlink/?linkid=2165610
     - name: Network Function Manager product page
-    href: https://go.microsoft.com/fwlink/?linkid=2166098
+      href: https://go.microsoft.com/fwlink/?linkid=2166098
     - name: Azure Marketplace
       href: https://azuremarketplace.microsoft.com/marketplace/
     - name: Azure Roadmap
