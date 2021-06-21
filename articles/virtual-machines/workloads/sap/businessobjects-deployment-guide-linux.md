@@ -519,7 +519,7 @@ To configure the cluster name on Linux, follow the instructions in the [SAP Busi
 
 Filestore refers to the disk directories where the actual SAP BusinessObjects files are. The default location of file repository server for the SAP BOBI platform is located in the local installation directory. In a multi-instance deployment, it's important to set up the filestore on a shared storage, such as Azure NetApp Files. This allows access to the filestore from all storage tier servers.
 
-1. If you haven't already created NFS volumes, create them in Azure NetApp Files. (Follow the instructions in the earilier section "Provision Azure NetApp Files.")
+1. If you haven't already created NFS volumes, create them in Azure NetApp Files. (Follow the instructions in the earlier section "Provision Azure NetApp Files.")
 
 2. Mount the NFS volume. (Follow the instructions in the earlier section "Mount the Azure NetApp Files volume.")
 
