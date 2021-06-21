@@ -119,3 +119,40 @@ az vm reapply -g <RG Name> -n <VM Name>
 ```
 
 If a "VM Reapply" didn't work, you can add a new empty Data Disk to the VM from the Azure Management Portal, and then remove it later once the certificate has been added back.
+
+
+### Look at the extension logs inside the VM
+
+If the previous steps didn't work and if your extension is still in a failed state, the next step is to look at its logs inside the Virtual Machine.
+
+On a **Windows** VM, the extension logs will typically reside in 
+```
+C:\WindowsAzure\Logs\Plugins
+```
+And the Extension settings and status files will be in 
+```
+C:\Packages\Plugins
+```
+<br/>
+
+On a **Linux** VM,  the extension logs will typically reside in 
+```
+/var/log/azure/
+```
+And the Extension settings and status files will be in 
+```
+/var/lib/waagent/
+```
+
+
+Each extension is different, but they usually follow similar principles:
+
+Extension packages and binaries are downloaded on the VM (eg. _"/var/lib/waagent/custom-script/download/1"_ for Linux or _"C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.10.12\Downloads\0"_ for Windows). 
+
+Their configuration and settings are passed from Azure Platform to the extension handler through the VM Agent (eg. _"/var/lib/waagent/Microsoft.Azure.Extensions.CustomScript-2.1.3/config"_ for Linux or  _"C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.10.12\RuntimeSettings"_ for Windows)
+
+Extension handlers inside the VM are writing to a status file (eg. _"/var/lib/waagent/Microsoft.Azure.Extensions.CustomScript-2.1.3/status/1.status"_ for Linux or _"C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.10.12\Status"_ for Windows) which will then be reported to the Azure Platform. That status is the one reported through Powershell, CLI or in the VM's extension blade in the Azure Portal.
+
+They also write detailed logs of their execution (eg. _"/var/log/azure/custom-script/handler.log"_ for Linux or _"C:\WindowsAzure\Logs\Plugins\Microsoft.Compute.CustomScriptExtension\1.10.12\CustomScriptHandler.log"_ for Windows).
+
+
