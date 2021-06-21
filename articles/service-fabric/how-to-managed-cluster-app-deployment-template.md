@@ -175,7 +175,7 @@ To delete an application that was deployed by using the application resource mod
     ```
 
 
-## Migration from classic to managed
+## Migration from classic to managed clusters
 
 If you are migrating application(s) from classic to managed clusters you will need to make sure to validate types are correctly specified or you will encounter errors. 
 
