@@ -11,7 +11,7 @@ items:
   - name: Terminology 
     href: overview-terminology.md
   - name: FAQ 
-    href: overview-faq.md
+    href: overview-faq.yml
 - name: Quickstarts
   expanded: true
   items:
@@ -42,7 +42,7 @@ items:
   - name: 8 Monitor
     href: get-started-monitor.md
     displayName: get, started
-  - name: 9 Explore the Knowledge Center
+  - name: 9 Explore the Knowledge center
     href: get-started-knowledge-center.md
     displayName: get, started
   - name: 10 Add an administrator
@@ -66,6 +66,7 @@ items:
         href: quickstart-create-workspace-powershell.md
         displayName: quickstart
       - name: ARM template
+        displayname: Resource Manager
         href: quickstart-deployment-template-workspaces.md
       displayName: quickstart
     - name: Link a Power BI workspace
@@ -1195,6 +1196,8 @@ items:
       href: machine-learning/what-is-machine-learning.md
   - name: Quickstarts
     items:
+    - name: Use a sample notebook from the gallery
+      href: machine-learning/quickstart-gallery-sample-notebook.md
     - name: Create a new Azure Machine Learning linked service
       href: machine-learning/quickstart-integrate-azure-machine-learning.md
   - name: Concepts
@@ -1226,6 +1229,9 @@ items:
       href: ./machine-learning/tutorial-cognitive-services-anomaly.md
     - name: Build machine learning applications using Microsoft Machine Learning for Apache Spark (Preview)
       href: ./machine-learning/tutorial-build-applications-use-mmlspark.md
+    - name: ADLS read/write using filesystem spec and linked service
+      displayname: machine learning
+      href: ./machine-learning/tutorial-spark-pool-filesystem-spec.md
 - name: Data Catalog and Governance
   items:
   - name: Quickstarts

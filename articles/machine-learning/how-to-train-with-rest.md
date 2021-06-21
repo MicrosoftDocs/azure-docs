@@ -43,7 +43,7 @@ A job is a resource that specifies all aspects of a computation job. It aggregat
 - How to run it?
 - Where to run it?
 
-There are many ways to submit an Azure Machine Learning job including the SDK, CLI, and visually with the studio. The following example submits a LightGBM training job with the REST API.
+There are many ways to submit an Azure Machine Learning job including the SDK, Azure CLI, and visually with the studio. The following example submits a LightGBM training job with the REST API.
 
 ## Create machine learning assets
 
@@ -68,7 +68,7 @@ API_VERSION="2021-03-01-preview"
 Running machine learning jobs requires compute resources. You can list your workspace's compute resources:
 
 ```bash
-curl "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.MachineLearningServices/workspaces/$WORKSPACE/computes?api-version=$API_VERSION \
+curl "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.MachineLearningServices/workspaces/$WORKSPACE/computes?api-version=$API_VERSION" \
 --header "Authorization: Bearer $TOKEN"
 ```
 
@@ -87,7 +87,7 @@ The LightGBM example needs to run in a LightGBM environment. Create the environm
 
 You can configure the docker image with `Docker` and add conda dependencies with `condaFile`: 
 
-:::code language="rest" source="~/azureml-examples-cli-preview/cli/how-to-train-rest.sh" id="create_environment":::
+:::code language="rest" source="~/azureml-examples-main/cli/train-rest.sh" id="create_environment":::
 
 ### Datastore
 
@@ -109,7 +109,7 @@ AZURE_STORAGE_KEY=$(az storage account keys list --account-name $AZURE_STORAGE_A
 
 Now that you have the datastore, you can create a dataset. For this example, use the common dataset `iris.csv` and point to it in the `path`. 
 
-:::code language="rest" source="~/azureml-examples-cli-preview/cli/how-to-train-rest.sh" id="create_data":::
+:::code language="rest" source="~/azureml-examples-main/cli/train-rest.sh" id="create_data":::
 
 ### Code
 
@@ -123,7 +123,7 @@ az storage blob upload-batch -d $AZUREML_DEFAULT_CONTAINER/src \
 
 Once you upload your code, you can specify your code with a PUT request and refer to the datastore with `datastoreId`. 
 
-:::code language="rest" source="~/azureml-examples-cli-preview/cli/how-to-train-rest.sh" id="create_code":::
+:::code language="rest" source="~/azureml-examples-main/cli/train-rest.sh" id="create_code":::
 
 ## Submit a training job
 
@@ -140,7 +140,7 @@ Now that your assets are in place, you can run the LightGBM job, which outputs a
 
 Use the following commands to submit the training job:
 
-:::code language="rest" source="~/azureml-examples-cli-preview/cli/how-to-train-rest.sh" id="create_job":::
+:::code language="rest" source="~/azureml-examples-main/cli/train-rest.sh" id="create_job":::
 
 ## Submit a hyperparameter sweep job
 
@@ -157,7 +157,7 @@ Azure Machine Learning also lets you efficiently tune training hyperparameters. 
 
 To create a sweep job with the same LightGBM example, use the following commands: 
 
-:::code language="rest" source="~/azureml-examples-cli-preview/cli/how-to-train-rest.sh" id="create_a_sweep_job":::
+:::code language="rest" source="~/azureml-examples-main/cli/train-rest.sh" id="create_a_sweep_job":::
 
 ## Next steps
 

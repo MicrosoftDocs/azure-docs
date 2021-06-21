@@ -17,7 +17,7 @@ ms.custom: devx-track-azurecli
 > * [Azure classic CLI](cache-manage-cli.md)
 >
 
-The Azure classic CLI is a great way to manage your Azure infrastructure from any platform. This article shows you how to create and manage your Azure Cache for Redis instances using the Azure classic CLI.
+The Azure classic CLI is a great way to manage your Azure infrastructure from any platform. This article shows how to create and manage your Azure Cache for Redis instances using the Azure classic CLI.
 
 [!INCLUDE [outdated-cli-content](../../includes/contains-classic-cli-content.md)]
 > [!NOTE]
@@ -47,11 +47,11 @@ The following properties are used when creating and updating Azure Cache for Red
 | Redis Configuration |-c, --redis-configuration |Redis Configuration. Enter a JSON formatted string of configuration keys and values here. Format:"{"":"","":""}" |
 | Redis Configuration |-f, --redis-configuration-file |Redis Configuration. Enter the path of a file containing configuration keys and values here. Format for the file entry: {"":"","":""} |
 | Shard Count |-r, --shard-count |Number of Shards to create on a Premium Cluster Cache with clustering. |
-| Virtual Network |-v, --virtual-network |When hosting your cache in a VNET, specifies the exact Resource Manager (ARM) resource ID of the virtual network to deploy the Azure Cache for Redis in. Example format: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
+| Virtual Network |-v, --virtual-network |When hosting your cache in a VNET, specifies the exact Resource Manager resource ID of the virtual network to deploy the Azure Cache for Redis in. Example format: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
 | key type |-t, --key-type |Type of key to renew. Valid values: [Primary, Secondary] |
 | StaticIP |-p, --static-ip \<static-ip\> |When hosting your cache in a VNET, specifies a unique IP address in the subnet for the cache. If not provided, one is chosen for you from the subnet. |
 | Subnet |t, --subnet \<subnet\> |When hosting your cache in a VNET, specifies the name of the subnet in which to deploy the cache. |
-| VirtualNetwork |-v, --virtual-network \<virtual-network\> |When hosting your cache in a VNET, specifies the exact ARM resource ID of the virtual network to deploy the Azure Cache for Redis in. Example format: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
+| VirtualNetwork |-v, --virtual-network \<virtual-network\> |When hosting your cache in a VNET, specifies the exact Resource Manager resource ID of the virtual network to deploy the Azure Cache for Redis in. Example format: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
 | Subscription |-s, --subscription |The subscription identifier. |
 
 ## See all Azure Cache for Redis commands

@@ -8,7 +8,8 @@ ms.date: 01/11/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.reviewer: klaasl
+ms.reviewer: klaasl 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Manage the access tier of a blob in an Azure Storage account

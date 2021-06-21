@@ -8,7 +8,8 @@ ms.date: 05/17/2021
 ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
-ms.reviewer: sadodd
+ms.reviewer: sadodd 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Change feed support in Azure Blob Storage

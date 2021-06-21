@@ -114,7 +114,7 @@ when attempting to use the Microsoft.Azure.CosmosDB.Table NuGet package, you hav
 
 ## FAQ
 
-[!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
+[!INCLUDE [cosmos-db-sdk-faq](includes/cosmos-db-sdk-faq.md)]
 
 ## See also
 

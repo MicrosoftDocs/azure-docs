@@ -32,7 +32,7 @@ npm install @azure/service-bus
 The following sample code shows you how to send a message to a queue.
 
 1. Open your favorite editor, such as [Visual Studio Code](https://code.visualstudio.com/).
-2. Create a file called `send.js` and paste the below code into it. This code will send a message to your queue. The message has a label (Scientist) and body (Einstein).
+2. Create a file called `send.js` and paste the below code into it. This code sends the names of scientists as messages to your queue.
 
     ```javascript
     const { ServiceBusClient } = require("@azure/service-bus");

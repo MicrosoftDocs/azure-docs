@@ -9,7 +9,8 @@ ms.date: 03/11/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.reviewer: hux
+ms.reviewer: hux 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Rehydrate blob data from the archive tier

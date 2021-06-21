@@ -9,6 +9,8 @@
     href: https://aka.ms/ma-pricing
   - name: What's new?
     href: whats-new.md
+  - name: Metrics Advisor FAQ
+    href: faq.yml
 - name: Quickstarts
   items:
   - name: Web portal
@@ -25,12 +27,12 @@
     href: data-feeds-from-different-sources.md
   - name: Manage data feeds
     href: how-tos/manage-data-feeds.md
-  - name: Configure metrics and fine tune detecting configuration
+  - name: Configure metrics and fine tune detection configuration
     href: how-tos/configure-metrics.md
   - name: Configure alerts and get notifications using a hook
     href: how-tos/alerts.md
   - name: Diagnose an incident
-    href: how-tos/diagnose-incident.md
+    href: how-tos/diagnose-an-incident.md
   - name: Adjust anomaly detection using feedback
     href: how-tos/anomaly-feedback.md
   - name: Build a metrics graph
@@ -43,6 +45,24 @@
   items:
     - name: Metrics Advisor key terms
       href:  glossary.md
+- name: Responsible use of AI
+  items:
+  - name: Transparency notes
+    items:
+    - name: Use cases for Metrics Advisor
+      href: /legal/cognitive-services/anomaly-detector/transparency-note?context=/azure/cognitive-services/metrics-advisor/context/context
+    - name: Characteristics and limitations
+      href: /legal/cognitive-services/anomaly-detector/characteristics-and-limitations?context=/azure/cognitive-services/metrics-advisor/context/context
+  - name: Integration and responsible use
+    href: /legal/cognitive-services/anomaly-detector/guidance-integration-responsible-use?context=/azure/cognitive-services/metrics-advisor/context/context
+  - name: Data, privacy and security
+    href: /legal/cognitive-services/anomaly-detector/data-privacy-security?context=/azure/cognitive-services/metrics-advisor/context/context
+- name: Tutorials
+  items:
+  - name: Enable notifications through different channel
+    href: tutorials/enable-anomaly-notification.md
+  - name: Write a valid query
+    href: tutorials/write-a-valid-query.md
 - name: Reference
   items:
   - name: Metrics Advisor REST API

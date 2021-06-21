@@ -142,7 +142,7 @@
     - name: Manage users and user access
       items:
       - name: Create and manage users
-        displayName: Active Directory, roles, permissions
+        displayName: Active Directory, roles, permissions, password, passwords, change, reset
         href: how-to-create-and-manage-users.md
       - name: Define global user access control
         href: how-to-define-global-user-access-control.md
@@ -179,7 +179,8 @@
       items:
       - name: Understand sensor alerts
         href: how-to-work-with-alerts-on-your-sensor.md
-      - name: Filter and manage alerts from the Alerts page 
+      - name: Filter and manage alerts from the Alerts page
+        displayName: alert, alerts, Important, pinned, recent, acknowledge, archive, archived, search, text,  
         href: how-to-view-alerts.md
       - name: About alert messages
         href: how-to-view-information-provided-in-alerts.md
@@ -338,7 +339,7 @@
       displayNAme: prototype, disable
       href: azure-rtos-security-module-api.md
     - name: Frequently asked questions- agent
-      displayName: FAQ, embedded, dependencies, data, quota, internet, 
+      displayName: FAQ, embedded, dependencies, data, quota, internet, password, change 
       href: resources-agent-frequently-asked-questions.md
     - name: Azure Roadmap
       href: https://azure.microsoft.com/roadmap/?category=security-identity
