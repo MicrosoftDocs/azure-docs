@@ -43,7 +43,7 @@ A job is a resource that specifies all aspects of a computation job. It aggregat
 - How to run it?
 - Where to run it?
 
-There are many ways to submit an Azure Machine Learning job including the SDK, CLI, and visually with the studio. The following example submits a LightGBM training job with the REST API.
+There are many ways to submit an Azure Machine Learning job including the SDK, Azure CLI, and visually with the studio. The following example submits a LightGBM training job with the REST API.
 
 ## Create machine learning assets
 
