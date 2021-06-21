@@ -26,8 +26,6 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
     + Improved documentation for platform property on Environment class
     + Changed default AML Compute node scale down time from 120 seconds to 1800 seconds
     + Updated default troubleshooting link displayed on the portal for troubleshooting failed runs to: https://aka.ms/azureml-run-troubleshooting
-  + **azureml-automl-core**
-    + Data Cleaning: Samples with target values in [None, "", "nan", np.nan] will be dropped prior to featurization and/or model training
   + **azureml-automl-runtime**
     + Fix high cardinality guardrails to be more aligned with docs
     + Data Cleaning: Samples with target values in [None, "", "nan", np.nan] will be dropped prior to featurization and/or model training
