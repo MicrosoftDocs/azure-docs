@@ -77,8 +77,8 @@ Onboard a new sensor for this scenario.
 
 1. Enter a name for your sensor.
 1. Select your subscription.
-1. For the Deploy for field, select **An enterprise network**.
-1. Select your Site.
+1. In the Deploy for field, select **An enterprise network**.
+1. Select your site.
 1. Enter a name.
 1. Select your zone.
 1. Select **Register**.
