@@ -112,7 +112,7 @@ To assign delegated API permissions to Azure Maps:
 
     :::image type="content" border="true" source="./media/how-to-manage-authentication/app-select.png" alt-text="Select app registrations.":::
 
-5. In the **Manage** menu, select **API permissions**.
+5. Under **Manage** in the left pane, select **API permissions**.
 
 6. Select **Add a permission**.
 
