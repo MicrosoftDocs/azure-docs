@@ -24,7 +24,7 @@ This article provides background information and steps to configure a customer-m
 > [!NOTE]
 > - The Azure Sentinel CMK capability is provided only to **new workspaces**.
 >
-> - Onboarding a CMK workspace to Sentinel is supported only via REST API and not via the Azure Portal.
+> - Onboarding a CMK workspace to Sentinel is supported only via REST API and not via the Azure Portal. Azure Resource Manager (ARM) templates are currently not supported for CMK onboarding.
 >
 > - Once a workspace is onboarded as a CMK workspace, setting it as a non-CMK workspace by de-linking it from the dedicated Log Analytics CMK cluster, or setting the dedicated Log Analytics cluster as non-CMK is not supported and might lead to undefined and undesired behavior.
 >
