@@ -10,7 +10,7 @@ ms.author: v-erkel
 
 # Edit storage targets
 
-You can remove or modify storage targets with the Azure portal or by using the Azure CLI.
+You can remove or modify storage targets with the Azure portal or by using the Azure CLI. You also can trigger actions on individual storage targets - like suspending service or writing cached data back to long-term storage - as described in Manage storage targets().
 
 Depending on the type of storage, you can modify these storage target values:
 
@@ -34,7 +34,7 @@ You can't edit a storage target's name, type, or back-end storage system (Blob c
 
 ### [Portal](#tab/azure-portal)
 
-To remove a storage target, open the **Storage targets** page. Select the storage target from the list and click the **Delete** button.
+To remove a storage target, open the **Storage targets** page. Click the '...' next to the storage target and choose **Delete** from the menu. The other options on this menu are explained in [Manage storage targets](#manage-storage-targets).
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -208,6 +208,32 @@ Use the **Namespace** page for your Azure HPC Cache to update namespace values. 
 ### Change ADLS-NFS usage models
 
 The configuration for ADLS-NFS usage models is identical to the NFS usage model selection. Read the portal instructions in [Change the usage model](#change-the-usage-model) in the NFS section above. Additional tools for updating ADLS-NFS storage targets are in development.
+
+
+## Manage storage targets
+
+You can xxx
+
+To learn more about cache-level management actions, read [Manage your cache](hpc-cache-manage.md).
+
+![Screenshot of the storage targets page in the Azure portal, with the cursor over the menu exposed by clicking on the three dots (...) symbol to the far right of the storage target's row in the list.](media/storage-target-manage-options.png)
+
+* Flush
+* Suspend
+* Force remove
+* Resume
+* Delete
+
+### Flush cached files to the storage target 
+
+### Suspend a storage target
+
+The suspend feature disables client access to a storage target, but doesn't permanently remove the storage target from your cache. You can use this option if you need to disable a back-end storage system for maintenance, repair, or replacement.  <!-- https://msazure.visualstudio.com/One/_workitems/edit/5301521 -->
+
+### Force remove a storage target
+<!-- https://msazure.visualstudio.com/One/_workitems/edit/8267141 -->
+
+
 
 
 ## Next steps
