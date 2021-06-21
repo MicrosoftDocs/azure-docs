@@ -52,7 +52,7 @@ To create a virtual network, use the following steps:
 
 1. Select __IP Addresses__ tab. The default settings should be similar to the following image:
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace/create-vnet-ipaddress-default.png" alt-text="Default IP Address screen":::
+    :::image type="content" source="./media/tutorial-create-secure-workspace/create-vnet-ip-address-default.png" alt-text="Default IP Address screen":::
 
     Use the following steps to configure the IP address and configure a subnet for training and scoring resources:
 
@@ -98,7 +98,7 @@ To create a virtual network, use the following steps:
 
 1. Select __Review + create__.
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace/create-vnet-ipaddress-final.png" alt-text="Screenshot showing the review + create button":::
+    :::image type="content" source="./media/tutorial-create-secure-workspace/create-vnet-ip-address-final.png" alt-text="Screenshot showing the review + create button":::
 
 1. Verify that the information is correct, and then select __Create__.
 
