@@ -25,17 +25,15 @@ landingContent:
         links:
           - text: What is Azure Logic Apps?
             url: logic-apps-overview.md
+          - text: Single-tenant versus multi-tenant and integration service environment
+            url: single-tenant-overview-compare.md
+          - text: What is Azure Arc enabled Logic Apps?
+            url: azure-arc-enabled-logic-apps-overview.md
       - linkListType: concept
         links:
           - text: Connectors overview for Azure Logic Apps
             url: ../connectors/apis-list.md
-          - text: Managed connectors
-            url: ../connectors/managed.md
-          - text: Available connectors for Azure Logic Apps
-            url: /connectors/connector-reference/connector-reference-logicapps-connectors
-          - text: Built-in triggers and actions
-            url: ../connectors/built-in.md
-          - text: Schedule recurring workflows
+          - text: Recurrence schedules for workflows
             url: concepts-schedule-automated-recurring-tasks-workflows.md
           - text: B2B enterprise integration
             url: logic-apps-enterprise-integration-overview.md
@@ -64,7 +62,7 @@ landingContent:
       - linkListType: get-started
         links:
           - text: "Template: Run timer jobs on a schedule"
-            url: https://azure.microsoft.com/resources/templates/301-logicapps-jobscheduler/
+            url: https://azure.microsoft.com/resources/templates/logicapps-jobscheduler/
       - linkListType: learn
         links:
           - text: Route and process data automatically
@@ -171,6 +169,8 @@ landingContent:
             url: logic-apps-limits-and-config.md
           - text: Pricing model
             url: logic-apps-pricing.md
+          - text: Available connector reference for Azure Logic Apps
+            url: /connectors/connector-reference/connector-reference-logicapps-connectors
           - text: Workflow Definition Language schema
             url: logic-apps-workflow-definition-language.md
           - text: Azure PowerShell

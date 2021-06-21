@@ -40,7 +40,7 @@ To create an application, navigate to the [IoT Central Application](https://ms.p
 
   Once you choose a location, you can't later move your application to a different location.
 
-After filling out all fields, select **Create**. To learn more, see the [Create an IoT Central application](quick-deploy-iot-central.md) quickstart.
+After filling out all fields, select **Create**. To learn more, see [Create an IoT Central application](howto-create-iot-central-application.md).
 
 ## Manage existing IoT Central applications
 

@@ -55,7 +55,7 @@ When you've decided which alert to investigate first:
 1. From the alert overview page, select the resource to investigate first.
 1. Begin your investigation from the left pane, which shows the high-level information about the security alert.
 
-    :::image type="content" source="./media/tutorial-security-incident/alert-details-left-pane.png" alt-text="The left pane of the alert details page highlighting the high-level information":::
+    :::image type="content" source="./media/tutorial-security-incident/alert-details-left-pane.png" alt-text="The left pane of the alert details page highlighting the high-level information.":::
 
     This pane shows:
     - Alert severity, status, and activity time
@@ -75,7 +75,7 @@ After investigating an alert and understanding its scope, you can respond to sec
 
 1.	Open the **Take action** tab to see the recommended responses.
 
-    :::image type="content" source="./media/tutorial-security-incident/alert-details-take-action.png" alt-text="Security alerts take action tab" lightbox="./media/tutorial-security-incident/alert-details-take-action.png":::
+    :::image type="content" source="./media/tutorial-security-incident/alert-details-take-action.png" alt-text="Security alerts take action tab." lightbox="./media/tutorial-security-incident/alert-details-take-action.png":::
 
 1.	Review the **Mitigate the threat** section for the manual investigation steps necessary to mitigate the issue.
 1.	To harden your resources and prevent future attacks of this kind, remediate the security recommendations in the **Prevent future attacks** section.
@@ -92,7 +92,7 @@ After investigating an alert and understanding its scope, you can respond to sec
     1. Marking the alert as **Useful** or **Not useful**.
     1. Select a reason and add a comment.
 
-        :::image type="content" source="./media/tutorial-security-incident/alert-feedback.png" alt-text="Provide feedback to Microsoft on the usefulness of an alert":::
+        :::image type="content" source="./media/tutorial-security-incident/alert-feedback.png" alt-text="Provide feedback to Microsoft on the usefulness of an alert.":::
 
     > [!TIP]
     > We review your feedback to improve our algorithms and provide better security alerts.

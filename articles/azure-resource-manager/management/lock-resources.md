@@ -26,7 +26,7 @@ When you apply a lock at a parent scope, all resources within that scope inherit
 > [!NOTE]
 > It's important to understand that locks don't apply to all types of operations. Azure operations can be divided into two categories - control plane and data plane. **Locks only apply to control plane operations**.
 
-Control plane operations are operations sent to `https://management.azure.com`. Data plane operations are operations sent to your instance of a service, such as `https://myaccount.blob.core.windows.net/`. For more information, see [Azure control plane and data plane](control-plane-and-data-plane.md).
+Control plane operations are operations sent to `https://management.azure.com`. Data plane operations are operations sent to your instance of a service, such as `https://myaccount.blob.core.windows.net/`. For more information, see [Azure control plane and data plane](control-plane-and-data-plane.md). To discover which operations use the control plane URL, see the [Azure REST API](/rest/api/azure/).
 
 This distinction means locks prevent changes to a resource, but they don't restrict how resources perform their own functions.  For example, a ReadOnly lock on a SQL Database logical server prevents you from deleting or modifying the server. It doesn't prevent you from creating, updating, or deleting data in the databases on that server. Data transactions are permitted because those operations aren't sent to `https://management.azure.com`.
 
@@ -190,7 +190,7 @@ To create a resource group and lock it, deploy the following template at the sub
 
 # [Bicep](#tab/bicep)
 
-The main Bicep file creates a resource group and uses a [module](../templates/bicep-modules.md) to create the lock.
+The main Bicep file creates a resource group and uses a [module](../bicep/modules.md) to create the lock.
 
 ```Bicep
 targetScope = 'subscription'
