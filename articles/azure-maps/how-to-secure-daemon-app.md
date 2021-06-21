@@ -50,7 +50,7 @@ The following steps outline this process:
 Now, the daemon application can retrieve the shared key from the Key Vault.
 
 > [!TIP]
-> If the app is hosted in the Azure environment, it is recommended that you use a managed identity to reduce the cost and complexity of managing a secret for authentication. To learn how to set up a managed identity, see [Tutorial: Use a managed identity to connect Key Vault to an Azure web app in .NET](../key-vault/general/tutorial-net-create-vault-azure-web-app.md).
+> If the app is hosted in the Azure environment, we recommend that you use a managed identity to reduce the cost and complexity of managing a secret for authentication. To learn how to set up a managed identity, see [Tutorial: Use a managed identity to connect Key Vault to an Azure web app in .NET](../key-vault/general/tutorial-net-create-vault-azure-web-app.md).
 
 ## Scenario: Azure AD role-based access control
 
