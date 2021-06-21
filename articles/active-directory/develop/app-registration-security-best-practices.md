@@ -15,7 +15,7 @@ ms.author: cchiedo
 ms.reviewer: saumadan, marsma
 ---
 
-# Application registration configuration best practices
+# Application registration security best practices for Azure AD application registration
 
 The following document describes security best practices for the following application registration properties.
 
