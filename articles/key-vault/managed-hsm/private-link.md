@@ -11,7 +11,10 @@ ms.custom: devx-track-azurecli
 
 ---
 
-# Integrate Managed HSM with Azure Private Link
+# Integrate Managed HSM with Azure Private Link (preview)
+
+>[!NOTE]
+> Azure private endpoints feature for Managed HSM is currently available as **a preview** in following regions: **UK South, Europe West, Canada Central, Australia Central**, and **Asia East**. It will be available in all the [other regions](https://azure.microsoft.com/global-infrastructure/services/?products=key-vault&regions=all) in next few days.
 
 Azure Private Link Service enables you to access Azure Services (for example, Managed HSM, Azure Storage, and Azure Cosmos DB etc.) and Azure hosted customer/partner services over a Private Endpoint in your virtual network.
 
@@ -90,10 +93,10 @@ az network private-endpoint create --resource-group {RG} --vnet-name {vNet NAME}
 az network private-endpoint show --resource-group {RG} --name {Private Endpoint Name}
 
 # Approve a Private Link Connection Request
-az keyvault private-endpoint-connection approve --approval-description {"OPTIONAL DESCRIPTION"} --resource-group {RG} --hsm-name {HSM NAME} –-name {PRIVATE LINK CONNECTION NAME}
+az keyvault private-endpoint-connection approve --description {"OPTIONAL DESCRIPTION"} --resource-group {RG} --hsm-name {HSM NAME} –-name {PRIVATE LINK CONNECTION NAME}
 
 # Deny a Private Link Connection Request
-az keyvault private-endpoint-connection reject --rejection-description {"OPTIONAL DESCRIPTION"} --resource-group {RG} --hsm-name {HSM NAME} –-name {PRIVATE LINK CONNECTION NAME}
+az keyvault private-endpoint-connection reject --description {"OPTIONAL DESCRIPTION"} --resource-group {RG} --hsm-name {HSM NAME} –-name {PRIVATE LINK CONNECTION NAME}
 
 # Delete a Private Link Connection Request
 az keyvault private-endpoint-connection delete --resource-group {RG} --hsm-name {HSM NAME} --name {PRIVATE LINK CONNECTION NAME}

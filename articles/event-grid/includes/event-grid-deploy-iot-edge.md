@@ -15,10 +15,10 @@
 There are several ways to deploy modules to an IoT Edge device and all of them work for Azure Event Grid on IoT Edge. This article describes the steps to deploy Event Grid on IoT Edge from the Azure portal.
 
 >[!NOTE]
-> In this tutorial, you will deploy the Event Grid module without persistence. It means that any topics and subscriptions you create in this tutorial will be deleted when you redeploy the module. For more information on how to setup persistence, see the following articles: [Persist state in Linux](../articles/event-grid/edge/persist-state-linux.md) or [Persist state in Windows](../articles/event-grid/edge/persist-state-windows.md). For production workloads, we recommend that you install the Event Grid module with persistence.
+> In this tutorial, you will deploy the Event Grid module without persistence. It means that any topics and subscriptions you create in this tutorial will be deleted when you redeploy the module. For more information on how to setup persistence, see the following articles: [Persist state in Linux](../edge/persist-state-linux.md) or [Persist state in Windows](../edge/persist-state-windows.md). For production workloads, we recommend that you install the Event Grid module with persistence.
 
 >[!IMPORTANT]
-> In this tutorial, Event Grid module will be deployed with client authentication turned-off, and allow HTTP subscribers. For production workloads, we recommend that you enable only HTTPS requests and subscribers with client authentication enabled. For more information on how to configure Event Grid module securely, see [Security and authentication](../articles/event-grid/edge/security-authentication.md).
+> In this tutorial, Event Grid module will be deployed with client authentication turned-off, and allow HTTP subscribers. For production workloads, we recommend that you enable only HTTPS requests and subscribers with client authentication enabled. For more information on how to configure Event Grid module securely, see [Security and authentication](../edge/security-authentication.md).
  
 ### Select your IoT Edge device
 
@@ -66,7 +66,7 @@ A deployment manifest is a JSON document that describes which modules to deploy,
  1. Click **Next** to continue to the routes section
 
     > [!NOTE]
-    > If you are using an Azure VM as an edge device, add an inbound port rule to allow inbound traffic on the port 4438. For instructions on adding the rule, see [How to open ports to a VM](../articles/virtual-machines/windows/nsg-quickstart-portal.md).
+    > If you are using an Azure VM as an edge device, add an inbound port rule to allow inbound traffic on the port 4438. For instructions on adding the rule, see [How to open ports to a VM](../../virtual-machines/windows/nsg-quickstart-portal.md).
 
 
 ### Setup routes
