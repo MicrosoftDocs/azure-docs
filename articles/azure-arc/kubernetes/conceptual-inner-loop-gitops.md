@@ -65,7 +65,7 @@ Suppose Alice wants to make changes to the application code and run and debug th
 1. Alice runs `devspace use context`, selects the Kubernetes cluster context.
 1.	Alice selects a namespace she wants to work with by running `devspace use namespace <namespace_name>`.
 1.	Alice can iterate through changes to the application code by running `devspace dev` to deploy and debug the application onto target cluster.
-1. Running `devspace dev` generates low-level manifests based on Alices’s local configuration and deploys the application. These low-level manifests are configured with devspace hooks in devspace.yaml
+1. Running `devspace dev` generates low-level manifests based on Alice’s local configuration and deploys the application. These low-level manifests are configured with devspace hooks in devspace.yaml
 1. Alice doesn't need to rebuild the container every time she makes code changes, since DevSpace will enable hot reloading, using file sync to copy her latest changes inside the container.
 1. Running `devspace dev` will also deploy any dependencies configured in devspace.yaml, such as back-end dependencies to front-end. 
 1. Alice tests her changes by accessing the application through the forwarding configured through devspace.yaml.
