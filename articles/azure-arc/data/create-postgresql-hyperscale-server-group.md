@@ -86,6 +86,10 @@ The main parameters should consider are:
 |A simple instance of Postgres that is ready to scale out when you need it.   |1 Postgres instance. It is not yet aware of the semantic for coordinator and worker. To scale it out after deployment, edit the configuration, increase the number of worker nodes and distribute the data.   |Use -w 0 or do not specify -w.   |The Citus extension that provides the Hyperscale capability is present on your deployment but is not yet loaded.   |
 |   |   |   |   |
 
+The table above can also be visualized as:
+
+:::image type="content" source="media/postgres-hyperscale/postgresql-hyperscale-deployment-parameters.png" alt-text="Postgres Hyperscale worker node parameter and associated Architecture":::
+
 While using -w 1 works, we do not recommend you use it. This deployment will not provide you much value. With it, you will get 2 instances of Postgres: 1 coordinator and 1 worker. With this setup you actually do not scale out the data since you deploy a single worker. As such you will not see an increased level of performance and scalability. We will remove the support of this deployment in a future release.
 
 - **the storage classes** you want your server group to use. It is important you set the storage class right at the time you deploy a server group as this cannot be changed after you deploy. If you were to change the storage class after deployment, you would need to extract the data, delete your server group, create a new server group, and import the data. You may specify the storage classes to use for the data, logs and the backups. By default, if you do not indicate storage classes, the storage classes of the data controller will be used.
