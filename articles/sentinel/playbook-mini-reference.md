@@ -26,6 +26,8 @@ For an introduction to playbooks, see [Automate threat response with playbooks i
 
 For the complete specification of the Azure Sentinel connector, see the [Logic Apps connector documentation](/connectors/azuresentinel/).
 
+For an overview of how to authenticate the connector to Azure Sentinel, see [Authenticate playbooks to Azure Sentinel](authenticate-playbooks-to-sentinel.md).
+
 ## Permissions required
 
 | Roles \ Connector components | Triggers | "Get" actions | Update incident,<br>add a comment |
@@ -151,16 +153,19 @@ The **Alert custom details** dynamic field, available in the **incident trigger*
 
 Since this field in the alert is customizable, its schema depends on the type of event being surfaced. You will have to supply data from an instance of this event to generate the schema that will determine how the custom details field will be parsed.
 
-For example, the following custom details...
+See the following example:
 
 !['custom details field from trigger'](./media/playbook-mini-reference/customDetailsValues.png)
 
+In these key-value pairs, the key (the left-hand column) represents the custom fields you create, and the value (the right-hand column) represents the fields from the event data that populate the custom fields.
+
+You can supply the following JSON code to generate the schema. The code shows the key names as arrays, and the values (shown as the actual values, not the column that contains the values) as items in the arrays.
+
 ```json
-Custom Details
 { "FirstCustomField": [ "1", "2" ], "SecondCustomField": [ "a", "b" ] }
 ```
 
-1. Add a new step consisting of the **Parse JSON** built-in action. You can enter 'parse json' in the Search field to find it.
+1. Add a new step using the **Parse JSON** built-in action. You can enter 'parse json' in the Search field to find it.
 
 1. Find and select **Alert Custom Details** in the **Dynamic content** list, under the incident trigger.
 
@@ -172,11 +177,11 @@ Custom Details
 
     ![Select 'use sample payload to generate schema' link](./media/playbook-mini-reference/generate-schema-link.png)
 
-1. Supply a sample payload. You can find a sample payload by looking in Log Analytics (the **Logs** blade) for another instance of this alert, and copying the custom details object (under **Extended Properties**).
+1. Supply a sample payload. You can find a sample payload by looking in Log Analytics (the **Logs** blade) for another instance of this alert, and copying the custom details object (under **Extended Properties**). In the screenshot below, we used the JSON code shown above.
 
     !['custom details field from trigger'](./media/playbook-mini-reference/samplePayload.png)
 
-1. The custom fields are ready to be used dynamic fields of type **Array**.
+1. The custom fields are ready to be used dynamic fields of type **Array**. You can see here the array and its items, both in the schema and in the list that appears under **Dynamic content**, that we described above.
 
     !['custom details field from trigger'](./media/playbook-mini-reference/fieldsReadyToUse.png)
 
