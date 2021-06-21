@@ -69,7 +69,7 @@ For more information on Auth code flow, refer to the [Auth code flow docs](https
 ## Credential configuration
 
 Credentials are a vital part of an application registration when you application is used as a confidential client. If your app registration is used only as a Public Client App (allows users to sign-in using a public endpoint), ensure that you do not have any credentials on your application object. Review the credentials used in your applications for freshness of use and their expiration. An unused credential on an application can result in security breach.
-While its convenient to use password secrets as a credential, we strongly recommend that you use x509 certificates as the only credential type for getting tokens as your application. Monitor your DevOps pipelines to ensure credentials of any kind are never committed into code repositories. If using Azure, we strongly recommend using Managed Identity so application credentials are automatically managed.
+While its convenient to use password secrets as a credential, we strongly recommend that you use x509 certificates as the only credential type for getting tokens as your application. Monitor your DevOps pipelines to ensure credentials of any kind are never committed into code repositories. If using Azure, we strongly recommend using Managed Identity so application credentials are automatically managed. Refer to the [managed identities documentation](../managed-identities-azure-resources/overview) for more details.
 
 ![credentials](media/active-directory-application-registration-best-practices/credentials.png)
 
