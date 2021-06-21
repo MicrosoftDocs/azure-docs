@@ -22,3 +22,8 @@ ms.subservice: files
 |Pricing     |[Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/)         |[Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/)         |[Azure NetApp Files pricing](https://azure.microsoft.com/pricing/details/netapp/)         |
 
 
+## Next steps
+
+- To access Blob storage with NFS, see [Network File System (NFS) 3.0 protocol support in Azure Blob Storage (preview)](../blobs/network-file-system-protocol-support.md).
+- To access Azure Files with NFS, see [NFS file shares in Azure Files](../files/files-nfs-protocol.md).
+- To access Azure NetApp Files with NFS, see [Quickstart: Set up Azure NetApp Files and create an NFS volume](../../azure-netapp-files/azure-netapp-files-quickstart-set-up-account-create-volumes.md).
