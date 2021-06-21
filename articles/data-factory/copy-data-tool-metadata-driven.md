@@ -11,23 +11,23 @@ ms.author: yexu
 # Build large-scale data copy pipelines with metadata-driven approach in copy data tool
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-When you want to copy huge amounts of objects (e.g. thousands of tables) or load data from big variety of sources, the appropriate approach is to input the name list of the objects with required copy behaviors in a control table, and then use parameterized pipelines to read the same from the control table and apply them to the jobs accordingly.  By doing so, you can maintain (e.g. add/remove) the objects list to be copied easily by just updating the object names in control table instead of redeploying the pipelines. What’s more, you will have single place to easily check which objects copied by which pipelines/triggers with defined copy behaviors. 
-Copy data tool in ADF ease the journey of building such kind of metadata driven data copy pipelines. After you go through an intuitive flow from a wizard based expereince, the tool can generate parameterized pipelines and SQL scripts for you to create external control tables accordingly. After you run the generated scripts to create the control table in your SQL database, your pipelines will read the metadata from the control table and apply them on the copy jobs automatically.
+When you want to copy huge amounts of objects (for example, thousands of tables) or load data from large variety of sources, the appropriate approach is to input the name list of the objects with required copy behaviors in a control table, and then use parameterized pipelines to read the same from the control table and apply them to the jobs accordingly.  By doing so, you can maintain (for example, add/remove) the objects list to be copied easily by just updating the object names in control table instead of redeploying the pipelines. What’s more, you will have single place to easily check which objects copied by which pipelines/triggers with defined copy behaviors. 
+Copy data tool in ADF eases the journey of building such metadata driven data copy pipelines. After you go through an intuitive flow from a wizard-based experience, the tool can generate parameterized pipelines and SQL scripts for you to create external control tables accordingly. After you run the generated scripts to create the control table in your SQL database, your pipelines will read the metadata from the control table and apply them on the copy jobs automatically.
 
 ## Create metadata-driven jobs from copy data tool
 
 1. Select **Metadata-driven copy task** in copy data tool.
    You need to input the connection and table name of your control table. The generated pipeline will read metadata from that.
 
-![Select task type](./media/copy-data-tool-metadata-driven/select task type.png)
+![Select task type](./media/copy-data-tool-metadata-driven/select-task-type.png)
 
-2. Input the **connection of your source database**. You can use [parameterized linked service](parameterize-linked-services.md) as well. If so, The parameter value is required to be writen to connection control table.
+2. Input the **connection of your source database**. You can use [parameterized linked service](parameterize-linked-services.md) as well. If so, The parameter value is required to be written to connection control table.
 
-![Select paraneterized linked service](./media/copy-data-tool-metadata-driven/select paraneterized linked service.png)
+![Select parameterized linked service](./media/copy-data-tool-metadata-driven/select-parameterized-linked-service.png)
 
 3. Select the **table name** you want to copy.
 
-![Select table](./media/copy-data-tool-metadata-driven/select table.png)
+![Select table](./media/copy-data-tool-metadata-driven/select-table.png)
 
 > [!NOTE]
 > If you select tabular data store on this page, you can configure either full load or incremental load in the next page. If you select storage store in this page, you can do full load only in the next page. Incrementally loading new files only from storage store is currently not supported.  
@@ -42,33 +42,33 @@ Copy data tool in ADF ease the journey of building such kind of metadata driven 
 
 6. In **Settings** page, You can decide the max number of copy activities to copy data from your source store concurrently via **Number of concurrent copy tasks**. The default value is 20. 
 
-![Settings](./media/copy-data-tool-metadata-driven/settings.png)
+![Settings page](./media/copy-data-tool-metadata-driven/settings.png)
 
 7. After pipeline deployment, you can copy or download the SQL scripts from UI for creating control table and store procedure. 
 
-![Download scripts](./media/copy-data-tool-metadata-driven/download scripts.png)
+![Download scripts](./media/copy-data-tool-metadata-driven/download-scripts.png)
 
-You will see 2 SQL scripts.
-    * The 1st SQL script is used to create 2 control tables. The main control table stores the table list, file path and copy behaviors. The connection control table stores the connection value of your data store if you used parameterized linked service.  
-    * The 2rd SQL script is used to create a store procedure. It is used to update the watermark value in main control table when the incremental copy jobs complete every time. 
+You will see two SQL scripts.
+    * The 1st SQL script is used to create two control tables. The main control table stores the table list, file path and copy behaviors. The connection control table stores the connection value of your data store if you used parameterized linked service.  
+    * The 2nd SQL script is used to create a store procedure. It is used to update the watermark value in main control table when the incremental copy jobs complete every time. 
 
-8. Open SSMS to connect to your control table server, and run the 2 SQL scripts to create control tables and store procedure.
+8. Open SSMS to connect to your control table server, and run the two SQL scripts to create control tables and store procedure.
 
-![Create control table script](./media/copy-data-tool-metadata-driven/create control table script.png)
+![Create control table script](./media/copy-data-tool-metadata-driven/create-control-table-script.png)
 
 9. Query the main control table and connection control table to review the metadata in it.
 
 Main control table:
-![Query control table script](./media/copy-data-tool-metadata-driven/query control table.png)
+![Query control table script](./media/copy-data-tool-metadata-driven/query-control-table.png)
 
 Connection control table:
-![Query control table script](./media/copy-data-tool-metadata-driven/query connection control table.png)
+![Query control table script](./media/copy-data-tool-metadata-driven/query-connection-control-table.png)
 
 10. Go back to ADF portal to view and debug pipelines. You will see a created folder naming with **"MetadataDrivenCopyTask_###_######"**. Click the pipeline naming with **"MetadataDrivenCopyTask_###_TopLevel"** and click **debug run**. 
    You are required to input the following parameters:
    
    * **Name**: MaxNumberOfConcurrentTasks 
-   * **Description**:  You can always change the max number of concurrent copy activity run before pipeline run. The default value will be the one you input in copy data tool. 
+   * **Description**:  You can always change the max number of concurrent copy activities run before pipeline run. The default value will be the one you input in copy data tool. 
 
    * **Name**: MainControlTableName 
    * **Description**:  You can always change the main control table name, so the pipeline will get the metadata from that table before run. 
@@ -77,55 +77,55 @@ Connection control table:
    * **Description**:  You can always change the connection control table name (optional), so the pipeline will get the metadata related to data store connection before run.
 
    * **Name**: MaxNumberOfObjectsReturnedFromLookupActivity 
-   * **Description**:  In order to avoid reaching the limit of output lookup activity, there is a way to define the max number of object returned by lookup activity. In most cases, the default value is not required to be changed. 
+   * **Description**:  In order to avoid reaching the limit of output lookup activity, there is a way to define the max number of objects returned by lookup activity. In most cases, the default value is not required to be changed. 
 
    * **Name**: windowStart
-   * **Description**: When you input dynamic value (e.g. yyyy/mm/dd) as folder path, the parameter is used to pass the current trigger time to pipeline in order to fill the dynamic folder path. When the pipeline is triggered by schedule trigger or tumbling windows trigger, users do not need to input the value of this parameter.
+   * **Description**: When you input dynamic value (for example, yyyy/mm/dd) as folder path, the parameter is used to pass the current trigger time to pipeline in order to fill the dynamic folder path. When the pipeline is triggered by schedule trigger or tumbling windows trigger, users do not need to input the value of this parameter.
    * **Sample value**: 2021-01-25T01:49:28Z
 
 11. Enable the trigger to operationalize the pipelines.
 
-![Enable trigger](./media/copy-data-tool-metadata-driven/enable trigger.png)
+![Enable trigger](./media/copy-data-tool-metadata-driven/enable-trigger.png)
 
 
 ## Update control table from copy data tool
 You can always directly update the control table by adding or removing the object to be copied or changing the copy behavior for each table.  
-We also create UI expereince in copy data tool to ease the jorney of editing the control table.
+We also create UI experience in copy data tool to ease the journey of editing the control table.
 
-1. Right click the top level pipeline: **MetadataDrivenCopyTask_xxx_TopLevel**, and then select **Edit control table**.
+1. Right-click the top-level pipeline: **MetadataDrivenCopyTask_xxx_TopLevel**, and then select **Edit control table**.
 
-![Edit control table](./media/copy-data-tool-metadata-driven/edit control table.png)
+![Edit control table](./media/copy-data-tool-metadata-driven/edit-control-table.png)
 
 2. Select rows from the control table to edit.
 
-![Edit control table](./media/copy-data-tool-metadata-driven/edit control table-select tables.png)
+![Edit control table](./media/copy-data-tool-metadata-driven/edit-control-table-select-tables.png)
 
-3. Go throughput the copy data tool, and it will come up with a new SQL script for you. Re-run the SQL script to update your control table.
+3. Go throughput the copy data tool, and it will come up with a new SQL script for you. Rerun the SQL script to update your control table.
 
-![Edit control table](./media/copy-data-tool-metadata-driven/edit control table-create script.png)
+![Edit control table](./media/copy-data-tool-metadata-driven/edit-control-table-create-script.png)
 
 > [!NOTE]
 > The pipeline will NOT be redeployed. The new created SQL script help you to update the control table only. 
 
-## Control tables illustrations
+## Control tables
 
 ### Main control table
-Each row in control table contains the metadata for one object (e.g. one table) to be copied 
+Each row in control table contains the metadata for one object (for example, one table) to be copied 
 
 | Column name | Description | 
 |:--- |:--- |
 | Id | Unique ID of the object to be copied. |
-| SourceObjectSettings | Metadata of source dataset. It can be schema name, table name etc. Here is an [example](https://docs.microsoft.com/en-us/azure/data-factory/connector-azure-sql-database#dataset-properties). |
+| SourceObjectSettings | Metadata of source dataset. It can be schema name, table name etc. Here is an [example](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database#dataset-properties). |
 | SourceConnectionSettingsName | The name of the source connection setting in connection control table. It is optional. |
-| CopySourceSettings | Metadata of source property in copy activity. It can be query, partitions etc. Here is an [example](https://docs.microsoft.com/en-us/azure/data-factory/connector-azure-sql-database#azure-sql-database-as-the-source). |
-| SinkObjectSettings | Metadata of destination dataset. It can be file name, folder path, table name etc. Here is an [example](https://docs.microsoft.com/en-us/azure/data-factory/connector-azure-data-lake-storage#azure-data-lake-storage-gen2-as-a-sink-type). If dynamic folder path specified, the variable value will not be written here in control table. |
+| CopySourceSettings | Metadata of source property in copy activity. It can be query, partitions etc. Here is an [example](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database#azure-sql-database-as-the-source). |
+| SinkObjectSettings | Metadata of destination dataset. It can be file name, folder path, table name etc. Here is an [example](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#azure-data-lake-storage-gen2-as-a-sink-type). If dynamic folder path specified, the variable value will not be written here in control table. |
 | SinkConnectionSettingsName | The name of the destination connection setting in connection control table. It is optional. |
-| CopySinkSettings | Metadata of sink property in copy activity. It can be preCopyScript, tableOption etc. Here is an [example](https://docs.microsoft.com/en-us/azure/data-factory/connector-azure-sql-database#azure-sql-database-as-the-sink). |
+| CopySinkSettings | Metadata of sink property in copy activity. It can be preCopyScript, tableOption etc. Here is an [example](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database#azure-sql-database-as-the-sink). |
 | CopyActivitySettings | Metadata of translator property in copy activity. It is used to define column mapping. |
-| TopLevelPipelineName | Top Pipeline name which can copy this object. |
-| TriggerName | Tigger name which can trigger the pipeline to copy this object. |
+| TopLevelPipelineName | Top Pipeline name, which can copy this object. |
+| TriggerName | Trigger name, which can trigger the pipeline to copy this object. |
 | DataLoadingBehaviorSettings |Full load vs. delta load. |
-| TaskId | The order of objects to be copied following the TaskId in control table (ORDER BY [TaskId] DESC). If you have huge amounts of objects to be copied but only limited concurrent number of copied allowed, you can changed the TaskId for each object to decide which objects can be copied earlier. The default value is 0. |
+| TaskId | The order of objects to be copied following the TaskId in control table (ORDER BY [TaskId] DESC). If you have huge amounts of objects to be copied but only limited concurrent number of copied allowed, you can change the TaskId for each object to decide which objects can be copied earlier. The default value is 0. |
 
 ### Main control table
 Each row in control table contains one connection setting for the data store.
@@ -135,8 +135,8 @@ Each row in control table contains one connection setting for the data store.
 | Name | Name of the parameterized connection in main control table. |
 | ConnectionSettings | The connection settings. It can be DB name, Server name etc. |
 
-## Pipelines illustrations
-You will see 3 levels of pipelines are generated by copy data tool.
+## Pipelines
+You will see three levels of pipelines are generated by copy data tool.
 
 ### Top level Pipeline: MetadataDrivenCopyTask_xxx_TopLevel
 This pipeline will calculate the total number of objects (tables etc.) required to be copied in this run, come up with the number of sequential batches based on the max allowed concurrent copy task, and then execute another pipeline to copy different batches sequentially. 
@@ -144,22 +144,22 @@ This pipeline will calculate the total number of objects (tables etc.) required 
 #### Parameters
 | Parameters name | Description | 
 |:--- |:--- |
-| MaxNumberOfConcurrentTasks | You can always change the max number of concurrent copy activity run before pipeline run. The default value will be the one you input in copy data tool. |
+| MaxNumberOfConcurrentTasks | You can always change the max number of concurrent copy activities run before pipeline run. The default value will be the one you input in copy data tool. |
 | MainControlTableName | The table name of main control table. The pipeline will get the metadata from this table before run |
 | ConnectionControlTableName | The table name of connection control table (optional). The pipeline will get the metadata related to data store connection before run |
-| MaxNumberOfObjectsReturnedFromLookupActivity | In order to avoid reaching the limit of output lookup activity, there is a way to define the max number of object returned by lookup activity. In most cases, the default value is not required to be changed.  |
-| windowStart | When you input dynamic value (e.g. yyyy/mm/dd) as folder path, the parameter is used to pass the current trigger time to pipeline in order to fill the dynamic folder path. When the pipeline is triggered by schedule trigger or tumbling windows trigger, users do not need to input the value of this parameter. Sample value: 2021-01-25T01:49:28Z |
+| MaxNumberOfObjectsReturnedFromLookupActivity | In order to avoid reaching the limit of output lookup activity, there is a way to define the max number of objects returned by lookup activity. In most cases, the default value is not required to be changed.  |
+| windowStart | When you input dynamic value (for example, yyyy/mm/dd) as folder path, the parameter is used to pass the current trigger time to pipeline in order to fill the dynamic folder path. When the pipeline is triggered by schedule trigger or tumbling windows trigger, users do not need to input the value of this parameter. Sample value: 2021-01-25T01:49:28Z |
 
 #### Activities
 | Activity name | Activity type | Description |
 |:--- |:--- |:--- |
 | GetSumOfObjectsToCopy  | Lookup | Calculate the total number of objects (tables etc.) required to be copied in this run. |
 | CopyBatchesOfObjectsSequentially | ForEach | Come up with the number of sequential batches based on the max allowed concurrent copy tasks, and then execute another pipeline to copy different batches sequentially.  |
-| CopyObjectsInOneBtach | Execute Pipeline | Execute another pipeline to copy one batch of objects. The objects belonging to this batch will be copied parallelly. | 
+| CopyObjectsInOneBtach | Execute Pipeline | Execute another pipeline to copy one batch of objects. The objects belonging to this batch will be copied in parallel. | 
 
 
 ### Middle level Pipeline: MetadataDrivenCopyTask_xxx_ MiddleLevel
-This pipeline will copy one batch of objects. The objects belonging to this batch will be copied parallelly. 
+This pipeline will copy one batch of objects. The objects belonging to this batch will be copied in parallel. 
 
 #### Parameters
 | Parameters name | Description | 
@@ -167,7 +167,7 @@ This pipeline will copy one batch of objects. The objects belonging to this batc
 | MaxNumberOfObjectsReturnedFromLookupActivity | In order to avoid reaching the limit of output lookup activity, there is a way to define the max number of objects returned by lookup activity.  In most case, the default value is not required to be changed.  | 
 | TopLayerPipelineName | The name of top layer pipeline. | 
 | TriggerName | The name of trigger. | 
-| CurrentSequentialNumberOfBatch | The id of sequential batch. | 
+| CurrentSequentialNumberOfBatch | The ID of sequential batch. | 
 | SumOfObjectsToCopy | The total number of objects to copy. | 
 | SumOfObjectsToCopyForCurrentBatch | The number of objects to copy in current batch. | 
 | MainControlTableName | The name of main control table. |
@@ -178,11 +178,11 @@ This pipeline will copy one batch of objects. The objects belonging to this batc
 |:--- |:--- |:--- |
 | DivideOneBatchIntoMultipleGroups | ForEach  | Divide objects from single batch into multiple parallel groups to avoid reaching the output limit of lookup activity. |
 | GetObjectsPerGroupToCopy | Lookup | Get objects (tables etc.) from control table required to be copied in this group. The order of objects to be copied following the TaskId in control table (ORDER BY [TaskId] DESC). |
-| CopyObjectsInOneGroup | Execute Pipeline | Execute another pipeline to copy objects from one group. The objects belonging to this group will be copied parallelly. |
+| CopyObjectsInOneGroup | Execute Pipeline | Execute another pipeline to copy objects from one group. The objects belonging to this group will be copied in parallel. |
 
 
 ### Bottom level pipeline: MetadataDrivenCopyTask_xxx_ BottomLevel
-This pipeline will copy objects from one group. The objects belonging to this group will be copied parallelly.  
+This pipeline will copy objects from one group. The objects belonging to this group will be copied in parallel.  
 
 #### Parameters
 | Parameters name | Description | 
@@ -203,7 +203,7 @@ This pipeline will copy objects from one group. The objects belonging to this gr
 
 ### Known limitations
 1. Copy data tool does not support metadata driven ingestion for incrementally copying new files only currently. But you can bring your own parameterized pipelines to achieve that.
-2. IR name, database type, file format type cannot be parameterized in ADF. For example, if you want to ingest data from both Oracle Server and SQL Server, you will need 2 different parameterized pipelines. But the single control table can be shared by 2 set of pipelines. 
+2. IR name, database type, file format type cannot be parameterized in ADF. For example, if you want to ingest data from both Oracle Server and SQL Server, you will need two different parameterized pipelines. But the single control table can be shared by two set of pipelines. 
 
 
 
