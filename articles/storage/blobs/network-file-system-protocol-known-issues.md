@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/17/2021
+ms.date: 06/21/2021
 ms.author: normesta
 ms.reviewer: yzheng
 
@@ -71,7 +71,7 @@ NFS 3.0, Blob APIs and Data Lake Storage Gen2 APIs can operate on the same data.
 
 This section describes issues and limitations with using NFS 3.0, blob APIs and Data Lake Storage Gen2 APIs to operate on the same data. 
 
-- You cannot use NFS 3.0 and blob API or Data Lake Storage APIs to write to the same instance of a file. If you write to a file by using NFS, then that file's blocks won't be visible to calls to the [Get Block List](/rest/api/storageservices/get-block-list) blob API. The only exception is when using you are overwriting. You can overwrite a file/blob using either API. You can also overwrite with NSF 3.0 by using the zero-truncate option.
+- You cannot use NFS 3.0 and blob API or Data Lake Storage APIs to write to the same instance of a file. If you write to a file by using NFS, then that file's blocks won't be visible to calls to the [Get Block List](/rest/api/storageservices/get-block-list) blob API. The only exception is when using you are overwriting. You can overwrite a file/blob using either API. You can also overwrite with NFS 3.0 by using the zero-truncate option.
 
 - When you use the [List Blobs](/rest/api/storageservices/list-blobs) operation without specifying a delimiter, the results will include both directories and blobs. If you choose to use a delimiter, use only a forward slash (`/`). This is the only supported delimiter.
 

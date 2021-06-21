@@ -5,10 +5,10 @@ author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/17/2021
+ms.date: 06/21/2021
 ms.author: normesta
 ms.reviewer: yzheng
-ms.custom: references_regions
+
 ---
 
 # Network File System (NFS) 3.0 protocol support in Azure Blob Storage
