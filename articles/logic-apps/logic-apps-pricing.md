@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 06/18/2021
+ms.date: 06/21/2021
 ---
 
 # Pricing and billing models for Azure Logic Apps
@@ -16,13 +16,17 @@ ms.date: 06/18/2021
 
 ## Consumption pricing (multi-tenant)
 
-The pay-for-use **Consumption** pricing and billing model applies to logic apps that you create, deploy, and run in the multi-tenant Azure Logic Apps environment. For example, you create such logic apps when you select the **Logic App (Consumption)** resource type or when you create [automation tasks](create-automation-tasks-azure-resources.md) in the Azure portal. For more information about creating multi-tenant based logic apps, review [Single-tenant versus multi-tenant and integration service environment](single-tenant-overview-compare.md).
+In multi-tenant Azure Logic Apps, logic app workflows follow the "pay-for-use" **Consumption** pricing and billing model. For example, you create such logic apps when you choose the **Logic App (Consumption)** resource type, use the **Azure Logic Apps (Consumption)** extension in Visual Studio Code, or when you create [automation tasks](create-automation-tasks-azure-resources.md). For more information about creating multi-tenant based logic apps, review [Single-tenant versus multi-tenant and integration service environment](single-tenant-overview-compare.md).
 
 <a name="consumption-built-in-managed-connector-billing"></a>
 
 ### Consumption billing for built-in operations and managed connectors
 
-In the Consumption model, metering and billing are based on the trigger and action *executions* in your logic app's workflow. These executions are metered and billed, regardless whether your workflow runs successfully or is even instantiated. For example, suppose your workflow starts with a polling trigger that regularly makes outbound calls to an endpoint. The outbound call is metered and billed as an execution, regardless whether the trigger fires or is skipped, which affects whether a workflow instance is created. If you have an operation that uses chunking or pagination such that the operation has to make multiple calls, all those calls are charged as a single execution. For example, if a single execution requires making 10 calls, you're charged only for that single execution.
+Metering and billing are based on the trigger and action *executions* in your logic app's workflow. These executions are metered and billed, regardless whether your workflow runs successfully or is even instantiated.
+
+For example, suppose your workflow starts with a polling trigger that regularly makes outbound calls to an endpoint. The outbound call is metered and billed as an execution, regardless whether the trigger fires or is skipped, which affects whether a workflow instance is created.
+
+If you have an operation that uses chunking or pagination such that the operation has to make multiple calls, all those calls are charged as a single execution. For example, if a single execution requires making 10 calls, you're charged only for that single execution.
 
 The following table provides more information about operation types and their billing models:
 
@@ -43,8 +47,9 @@ For more information, review the following documentation:
 
 ### Not metered
 
+* The monthly number of built-in operation executions that are included with the [Consumption plan](https://azure.microsoft.com/pricing/details/logic-apps/)
 * Triggers that are skipped due to unmet conditions
-* Actions that didn't run because the logic app stopped before finishing
+* Actions that didn't run because the workflow stopped before completion
 * [Disabled logic apps](#disabled-apps)
 
 ### Other related resources
@@ -69,7 +74,7 @@ To help you estimate more accurate consumption costs, review these tips:
 
 ## Standard pricing (single-tenant)
 
-The **Standard** pricing and billing model applies to logic apps that you create, deploy, and run in the single-tenant Azure Logic Apps environment. This model requires that you select a hosting plan and pricing tier when you create a **Logic App (Standard)** resource in the Azure portal or publish your logic app using the **Azure Logic Apps (Standard)** extension in Visual Studio Code. The selected hosting plan and pricing tier determines the pricing rates to use for metering and billing when your workflows run.
+In single-tenant Azure Logic Apps, logic app workflows follow the **Standard** pricing and billing model. For example, you create such logic apps when you use the **Logic App (Standard)** resource type, use the **Azure Logic Apps (Standard)** extension in Visual Studio Code. This model requires that logic apps use a hosting plan and a pricing tier, which determine the pricing to follow for metering and billing.
 
 > [!NOTE]
 > For new **Logic App (Standard)** resources, you must currently use the **Workflow Standard** hosting plan. 
@@ -81,9 +86,7 @@ For more information about creating single-tenant based logic apps, review [Sing
 
 ### Standard pricing tiers and billing rates
 
-With a hosting plan, each pricing tier includes a specific amount of compute, memory, and storage resources. For hourly rates per resource and per region, review the [Azure Logic Apps pricing page](https://azure.microsoft.com/pricing/details/logic-apps/).
-
-To better understand how pricing works, this example provides sample estimates for the *East US 2 region*.
+Each pricing tier includes a specific amount of compute, memory, and storage resources. For hourly rates per resource and per region, review the [Azure Logic Apps pricing page](https://azure.microsoft.com/pricing/details/logic-apps/). To learn more about how pricing works, this example provides sample estimates for the *East US 2 region*.
 
 * On the [Azure Logic Apps pricing page](https://azure.microsoft.com/pricing/details/logic-apps/), select the **East US 2** region to view the hourly rates, or review the following table:
 
@@ -114,13 +117,17 @@ To better understand how pricing works, this example provides sample estimates f
 
 ### Standard billing for built-in operations and managed connectors
 
-In the Standard model, metering and billing work somewhat differently than the Consumption model, but are still based on trigger and action *executions* in your logic app's workflow. These executions are metered and billed, regardless whether your workflow runs successfully or is even instantiated. For example, suppose your workflow starts with a polling trigger that regularly makes outbound calls to an endpoint. The outbound call is metered and billed as an execution, regardless whether the trigger fires or is skipped, which affects whether a workflow instance is created.
+Metering and billing for triggers and actions in your logic app's workflow are based on *executions*. These executions are metered and billed, regardless whether your workflow runs successfully or is even instantiated.
+
+For example, suppose your workflow starts with a polling trigger that regularly makes outbound calls to an endpoint. The outbound call is metered and billed as an execution, regardless whether the trigger fires or is skipped, which affects whether a workflow instance is created.
 
 The following list describes billing model differences between the Standard and Consumption logic app resource types in Azure Logic Apps:
 
-* The single-tenant workflow designer identifies managed connector operations by using the **Azure** label, not **Standard** or **Enterprise**. However, based on the managed connector operation's underlying type, metering and billing still use the same **Standard** and **Enterprise** connector prices as the Consumption plan. 
+* The single-tenant workflow designer identifies managed connector operations by using the **Azure** label, not **Standard** or **Enterprise**. However, metering and billing still use the same **Standard** and **Enterprise** connector prices as the Consumption plan, based on the underlying type for the managed connector operation.
 
-* If you have an operation that uses chunking or pagination such that the operation has to make multiple calls. In these cases, operations are metered *per call*, and *not* per execution. So, when you use chunking or pagination, managed connector executions might result in higher than expected or predicted costs. For example, in multi-tenant, when a trigger or action uses chunking or pagination and requires making multiple calls, all those calls are metered and charged as a single execution. In single-tenant, all those calls are metered and charged individually. In multi-tenant, if a single execution required making 10 calls, you're charged only for the single execution. In single-tenant, the same action execution is charged for each call, so the same single execution costs 10x more.
+* If you have an operation that uses chunking or pagination such that the operation has to make multiple calls, that operation is metered *per call* and *not per execution*. This scenario might result in costs that are higher than expected or predicted.
+
+  For example, in the multi-tenant environment, when a trigger or action uses chunking or pagination and requires making multiple calls, all those calls are metered and charged as a single execution. In single-tenant, all those calls are metered and charged individually. In multi-tenant, if a single execution required making 10 calls, you're charged only for the single execution. In single-tenant, the same action execution is charged for each call, so the same single execution costs 10x more.
 
 The following table provides more information about operation types and their billing models:
 
