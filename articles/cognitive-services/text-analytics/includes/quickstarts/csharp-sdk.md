@@ -13,7 +13,7 @@ ms.reviewer: assafi
 
 <a name="HOLTop"></a>
 
-# [Version 3.1 preview](#tab/version-3-1)
+# [Version 3.1](#tab/version-3-1)
 
 [v3.1 Reference documentation](/dotnet/api/azure.ai.textanalytics?preserve-view=true&view=azure-dotnet-preview) | [v3.1 Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics) | [v3.1 Package (NuGet)](https://www.nuget.org/packages/Azure.AI.TextAnalytics/5.1.0-beta.7) | [v3.1 Samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples)
 
@@ -38,7 +38,7 @@ ms.reviewer: assafi
 
 Using the Visual Studio IDE, create a new .NET Core console app. This will create a "Hello World" project with a single C# source file: *program.cs*.
 
-# [Version 3.1 preview](#tab/version-3-1)
+# [Version 3.1](#tab/version-3-1)
 
 Install the client library by right-clicking on the solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse** and search for `Azure.AI.TextAnalytics`. Check the **include prerelase** box, select version `5.1.0-beta.7`, and then **Install**. You can also use the [Package Manager Console](/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package).
 
@@ -52,7 +52,7 @@ Install the client library by right-clicking on the solution in the **Solution E
 
 ---
 
-# [Version 3.1 preview](#tab/version-3-1)
+# [Version 3.1](#tab/version-3-1)
 
 Open the *program.cs* file and add the following `using` directives:
 
@@ -149,7 +149,7 @@ If you're using version `3.x` of the service, you can use an optional `TextAnaly
 
 ## Authenticate the client
 
-# [Version 3.1 preview](#tab/version-3-1)
+# [Version 3.1](#tab/version-3-1)
 
 Make sure your main method from earlier creates a new client object with your endpoint and credentials.
 
@@ -169,7 +169,7 @@ var client = new TextAnalyticsClient(endpoint, credentials);
 
 ## Sentiment analysis
 
-# [Version 3.1 preview](#tab/version-3-1)
+# [Version 3.1](#tab/version-3-1)
 
 Create a new function called `SentimentAnalysisExample()` that takes the client that you created earlier, and call its `AnalyzeSentiment()` function. The returned `Response<DocumentSentiment>` object will contain the sentiment label and score of the entire input document, as well as a sentiment analysis for each sentence if successful. If there was an error, it will throw a `RequestFailedException`.
 
@@ -339,7 +339,7 @@ Document sentiment: Positive
 
 ## Language detection
 
-# [Version 3.1 preview](#tab/version-3-1)
+# [Version 3.1](#tab/version-3-1)
 
 
 Create a new function called `LanguageDetectionExample()` that takes the client that you created earlier, and call its  `DetectLanguage()` function. The returned `Response<DetectedLanguage>` object will contain the detected language along with its name and ISO-6391 code. If there was an error, it will throw a `RequestFailedException`.
@@ -392,7 +392,7 @@ Language:
 
 ## Named Entity Recognition (NER)
 
-# [Version 3.1 preview](#tab/version-3-1)
+# [Version 3.1](#tab/version-3-1)
 
 
 Create a new function called `EntityRecognitionExample()` that takes the client that you created earlier, call its `RecognizeEntities()` function and iterate through the results. The returned `Response<CategorizedEntityCollection>` object will contain the collection of detected entities `CategorizedEntity`. If there was an error, it will throw a `RequestFailedException`.
@@ -495,7 +495,7 @@ Named Entities:
 
 ## Entity linking
 
-# [Version 3.1 preview](#tab/version-3-1)
+# [Version 3.1](#tab/version-3-1)
 
 Create a new function called `EntityLinkingExample()` that takes the client that you created earlier, call its `RecognizeLinkedEntities()` function and iterate through the results. The returned `Response<LinkedEntityCollection>` object will contain the collection of detected entities `LinkedEntity`. If there was an error, it will throw a `RequestFailedException`. Since linked entities are uniquely identified, occurrences of the same entity are grouped under a `LinkedEntity` object as a list of `LinkedEntityMatch` objects.
 
@@ -653,7 +653,7 @@ Linked Entities:
 
 ## Key phrase extraction
 
-# [Version 3.1 preview](#tab/version-3-1)
+# [Version 3.1](#tab/version-3-1)
 
 Create a new function called `KeyPhraseExtractionExample()` that takes the client that you created earlier, and call its `ExtractKeyPhrases()` function. The returned `<Response<KeyPhraseCollection>` object will contain the list of detected key phrases. If there was an error, it will throw a `RequestFailedException`.
 
@@ -711,7 +711,7 @@ Key phrases:
 
 ## Use the API asynchronously with the Analyze operation
 
-# [Version 3.1 preview](#tab/version-3-1)
+# [Version 3.1](#tab/version-3-1)
 
 You can use the Analyze operation to perform asynchronous batch requests for: NER, key phrase extraction, sentiment analysis, and PII detection. The below sample shows a basic example on one operation. You can find a more advanced sample [on GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples/Sample_AnalyzeActions.md).
 

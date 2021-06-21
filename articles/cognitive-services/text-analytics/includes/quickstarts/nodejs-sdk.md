@@ -14,7 +14,7 @@ ms.custom: devx-track-js
 
 <a name="HOLTop"></a>
 
-# [Version 3.1 preview](#tab/version-3-1)
+# [Version 3.1](#tab/version-3-1)
 
 [v3 Reference documentation](/javascript/api/overview/azure/ai-text-analytics-readme?preserve-view=true&view=azure-node-preview) | [v3 Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics) | [v3 Package (NPM)](https://www.npmjs.com/package/@azure/ai-text-analytics/v/5.1.0-beta.6) | [v3 Samples](https://github.com/Azure/azure-sdk-for-js/tree/%40azure/ai-text-analytics_5.1.0-beta.6/sdk/textanalytics/ai-text-analytics/samples)
 
@@ -54,7 +54,7 @@ npm init
 ```
 ### Install the client library
 
-# [Version 3.1 preview](#tab/version-3-1)
+# [Version 3.1](#tab/version-3-1)
 
 Install the `@azure/ai-text-analytics` NPM packages:
 
@@ -82,7 +82,7 @@ npm install --save @azure/ai-text-analytics@5.0.0
 Your app's `package.json` file will be updated with the dependencies.
 Create a file named `index.js` and add the following:
 
-# [Version 3.1 preview](#tab/version-3-1)
+# [Version 3.1](#tab/version-3-1)
 
 ```javascript
 "use strict";
@@ -130,7 +130,7 @@ The response object is a list containing the analysis information for each docum
 
 ## Authenticate the client
 
-# [Version 3.1 preview](#tab/version-3-1)
+# [Version 3.1](#tab/version-3-1)
 
 Create a new `TextAnalyticsClient` object with your key and endpoint as parameters.
 
@@ -150,7 +150,7 @@ const textAnalyticsClient = new TextAnalyticsClient(endpoint,  new AzureKeyCrede
 
 ## Sentiment analysis
 
-# [Version 3.1 preview](#tab/version-3-1)
+# [Version 3.1](#tab/version-3-1)
 
 Create an array of strings containing the document you want to analyze. Call the client's `analyzeSentiment()` method and get the returned `SentimentBatchResult` object. Iterate through the list of results, and print each document's ID, document level sentiment with confidence scores. For each document, result contains sentence level sentiment along with offsets, length, and confidence scores.
 
@@ -246,7 +246,7 @@ ID: 0
 
 ## Opinion mining
 
-# [Version 3.1 preview](#tab/version-3-1)
+# [Version 3.1](#tab/version-3-1)
 
 In order to do sentiment analysis with opinion mining, create an array of strings containing the document you want to analyze. Call the client's `analyzeSentiment()` method with adding option flag `includeOpinionMining: true` and get the returned `SentimentBatchResult` object. Iterate through the list of results, and print each document's ID, document level sentiment with confidence scores. For each document, result contains not only sentence level sentiment as above, but also aspect and opinion level sentiment.
 
@@ -334,7 +334,7 @@ This feature is not available in version 3.0.
 
 ## Language detection
 
-# [Version 3.1 preview](#tab/version-3-1)
+# [Version 3.1](#tab/version-3-1)
 
 Create an array of strings containing the document you want to analyze. Call the client's `detectLanguage()` method and get the returned `DetectLanguageResultCollection`. Then iterate through the results, and print each document's ID with respective primary language.
 
@@ -396,7 +396,7 @@ ID: 0
 
 ## Named Entity Recognition (NER)
 
-# [Version 3.1 preview](#tab/version-3-1)
+# [Version 3.1](#tab/version-3-1)
 
 Create an array of strings containing the document you want to analyze. Call the client's `recognizeEntities()` method and get the `RecognizeEntitiesResult` object. Iterate through the list of results, and print the entity name, type, subtype, offset, length, and score.
 
@@ -533,7 +533,7 @@ Document ID: 1
 
 ## Entity linking
 
-# [Version 3.1 preview](#tab/version-3-1)
+# [Version 3.1](#tab/version-3-1)
 
 Create an array of strings containing the document you want to analyze. Call the client's `recognizeLinkedEntities()` method and get the `RecognizeLinkedEntitiesResult` object. Iterate through the list of results, and print the entity name, ID, data source, url, and matches. Every object in `matches` array will contain offset, length, and score for that match.
 
@@ -645,7 +645,7 @@ Document ID: 0
 
 ## Key phrase extraction
 
-# [Version 3.1 preview](#tab/version-3-1)
+# [Version 3.1](#tab/version-3-1)
 
 Create an array of strings containing the document you want to analyze. Call the client's `extractKeyPhrases()` method and get the returned `ExtractKeyPhrasesResult` object. Iterate through the results and print each document's ID, and any detected key phrases.
 
@@ -708,7 +708,7 @@ ID: 0
 
 ## Use the API asynchronously with the Analyze operation
 
-# [Version 3.1 preview](#tab/version-3-1)
+# [Version 3.1](#tab/version-3-1)
 
 You can use the Analyze operation to perform asynchronous batch requests for: NER, key phrase extraction, sentiment analysis, and PII detection. The below sample shows a basic example on one operation. You can find more advanced samples for [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/textanalytics/ai-text-analytics/samples/v5/javascript/beginAnalyzeActions.js) and [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/textanalytics/ai-text-analytics/samples/v5/typescript/src/beginAnalyzeActions.ts) on GitHub.
 

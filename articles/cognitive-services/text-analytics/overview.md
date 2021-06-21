@@ -55,7 +55,7 @@ Named Entity Recognition (NER) can [Identify and categorize entities](how-tos/te
 * sentiment analysis
 * key phrase extraction (preview)
 * language detection (preview)
-* Text Analytics for health (preview)
+* Text Analytics for health
 
 ## Asynchronous operations
 

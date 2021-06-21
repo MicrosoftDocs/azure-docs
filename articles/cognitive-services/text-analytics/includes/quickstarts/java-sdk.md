@@ -14,7 +14,7 @@ ms.reviewer: tasharm, assafi, sumeh
 
 <a name="HOLTop"></a>
 
-# [Version 3.1 preview](#tab/version-3-1)
+# [Version 3.1](#tab/version-3-1)
 
 [Reference documentation](/java/api/overview/azure/ai-textanalytics-readme?preserve-view=true&view=azure-java-preview) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-textanalytics_5.1.0-beta.7/sdk/textanalytics/azure-ai-textanalytics) | [Package](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.1.0-beta.7) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-textanalytics_5.1.0-beta.7/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics)
 
@@ -37,7 +37,7 @@ ms.reviewer: tasharm, assafi, sumeh
 
 ### Add the client library
 
-# [Version 3.1 preview](#tab/version-3-1)
+# [Version 3.1](#tab/version-3-1)
 
 Create a Maven project in your preferred IDE or development environment. Then add the following dependency to your project's *pom.xml* file. You can find the implementation syntax [for other build tools](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.1.0-beta.7) online.
 
@@ -92,7 +92,7 @@ public class TextAnalyticsSamples {
 
 Add the following main method to the class. You will define the methods called here later.
 
-# [Version 3.1 (Preview)](#tab/version-3-1)
+# [Version 3.1](#tab/version-3-1)
 
 ```java
 public static void main(String[] args) {
@@ -159,7 +159,7 @@ In your program's `main()` method, call the authentication method to instantiate
 
 ## Sentiment analysis
 
-# [Version 3.1 preview](#tab/version-3-1)
+# [Version 3.1](#tab/version-3-1)
 
 > [!NOTE]
 > In version `3.1`:
@@ -324,7 +324,7 @@ Detected primary language: French, ISO 6391 name: fr, score: 1.00.
 
 ## Named Entity Recognition (NER)
 
-# [Version 3.1 preview](#tab/version-3-1)
+# [Version 3.1](#tab/version-3-1)
 
 > [!NOTE]
 > In version `3.1`:
@@ -425,7 +425,7 @@ Recognized entity: last week, entity category: DateTime, entity sub-category: Da
 
 ## Entity linking
 
-# [Version 3.1 preview](#tab/version-3-1)
+# [Version 3.1](#tab/version-3-1)
 
 Create a new function called `recognizeLinkedEntitiesExample()` that takes the client that you created earlier, and call its `recognizeLinkedEntities()` function. The returned `LinkedEntityCollection` object will contain a list of `LinkedEntity` if successful, or an `errorMessage` if not. Since linked entities are uniquely identified, occurrences of the same entity are grouped under a `LinkedEntity` object as a list of `LinkedEntityMatch` objects.
 
@@ -485,7 +485,7 @@ Matches:
 Text: Altair 8800, Score: 0.88, Offset: 11, Length: 116
 ```
 
-# [Version 3.0 preview](#tab/version-3)
+# [Version 3.0](#tab/version-3)
 
 Create a new function called `recognizeLinkedEntitiesExample()` that takes the client that you created earlier, and call its `recognizeLinkedEntities()` function. The returned `LinkedEntityCollection` object will contain a list of `LinkedEntity` if successful, or an `errorMessage` if not. Since linked entities are uniquely identified, occurrences of the same entity are grouped under a `LinkedEntity` object as a list of `LinkedEntityMatch` objects.
 
@@ -572,7 +572,7 @@ veterinarian
 
 ## Use the API asynchronously with the Analyze operation
 
-# [Version 3.1 preview](#tab/version-3-1)
+# [Version 3.1](#tab/version-3-1)
 
 You can use the Analyze operation to perform asynchronous batch requests for: NER, key phrase extraction, sentiment analysis, and PII detection. The below sample shows a basic example on one operation. You can find a more advanced sample [on GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples/Sample_AnalyzeActions.md)
 

@@ -9,7 +9,7 @@ ms.author: aahi
 
 <a name="HOLTop"></a>
 
-# [Version 3.1 preview](#tab/version-3-1)
+# [Version 3.1](#tab/version-3-1)
 
 [v3.1 Reference documentation](/python/api/azure-ai-textanalytics/azure.ai.textanalytics?preserve-view=true&view=azure-python-preview) | [v3.1 Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics) | [v3.1 Package (PiPy)](https://pypi.org/project/azure-ai-textanalytics/5.1.0b7/) | [v3.1 Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/samples)
 
@@ -34,7 +34,7 @@ ms.author: aahi
 
 After installing Python, you can install the client library with:
 
-# [Version 3.1 preview](#tab/version-3-1)
+# [Version 3.1](#tab/version-3-1)
 
 ```console
 pip install azure-ai-textanalytics==5.1.0b7
@@ -69,7 +69,7 @@ endpoint = "<paste-your-text-analytics-endpoint-here>"
 
 ## Object model
 
-# [Version 3.1 preview](#tab/version-3-1)
+# [Version 3.1](#tab/version-3-1)
 
 The Text Analytics client is a `TextAnalyticsClient` object that authenticates to Azure. The client provides several methods for analyzing text. 
 
@@ -91,7 +91,7 @@ The response object is a list containing the analyzed information for each docum
 
 These code snippets show you how to do the following tasks with the Text Analytics client library for Python:
 
-# [Version 3.1 preview](#tab/version-3-1)
+# [Version 3.1](#tab/version-3-1)
 
 * [Authenticate the client](#authenticate-the-client)
 * [Sentiment Analysis](#sentiment-analysis)
@@ -116,7 +116,7 @@ These code snippets show you how to do the following tasks with the Text Analyti
 
 ## Authenticate the client
 
-# [Version 3.1 preview](#tab/version-3-1)
+# [Version 3.1](#tab/version-3-1)
 
 Create a function to instantiate the `TextAnalyticsClient` object with your `key` AND `endpoint` created above. Then create a new client. 
 
@@ -175,7 +175,7 @@ client = authenticate_client()
 
 ## Sentiment analysis
 
-# [Version 3.1 preview](#tab/version-3-1)
+# [Version 3.1](#tab/version-3-1)
 
 Create a new function called `sentiment_analysis_example()` that takes the client as an argument, then calls the `analyze_sentiment()` function. The returned response object will contain the sentiment label and score of the entire input document, as well as a sentiment analysis for each sentence.
 
@@ -278,7 +278,7 @@ Negative=0.02
 
 ## Opinion mining
 
-# [Version 3.1 preview](#tab/version-3-1)
+# [Version 3.1](#tab/version-3-1)
 
 
 In order to do sentiment analysis with opinion mining, create a new function called `sentiment_analysis_with_opinion_mining_example()` that takes the client as an argument, then calls the `analyze_sentiment()` function with option flag `show_opinion_mining=True`. The returned response object will contain not only the sentiment label and score of the entire input document with sentiment analysis for each sentence, but also aspect and opinion level sentiment analysis.
@@ -386,7 +386,7 @@ Press any key to continue . . .
 
 ```
 
-# [Version 3.0 preview](#tab/version-3)
+# [Version 3.0](#tab/version-3)
 
 This feature is not available in version 3.0.
 
@@ -394,7 +394,7 @@ This feature is not available in version 3.0.
 
 ## Language detection
 
-# [Version 3.1 preview](#tab/version-3-1)
+# [Version 3.1](#tab/version-3-1)
 
 Create a new function called `language_detection_example()` that takes the client as an argument, then calls the `detect_language()` function. The returned response object will contain the detected language in `primary_language` if successful, and an `error` if not.
 
@@ -451,7 +451,7 @@ Language:  French
 
 ## Named Entity Recognition (NER)
 
-# [Version 3.1 preview](#tab/version-3-1)
+# [Version 3.1](#tab/version-3-1)
 
 > [!NOTE]
 > In version `3.1`: 
@@ -572,7 +572,7 @@ Named Entities:
 
 ## Entity linking
 
-# [Version 3.1 preview](#tab/version-3-1)
+# [Version 3.1](#tab/version-3-1)
 
 Create a new function called `entity_linking_example()` that takes the client as an argument, then calls the `recognize_linked_entities()` function and iterates through the results. The returned response object will contain the list of detected entities in `entities` if successful, and an `error` if not. Since linked entities are uniquely identified, occurrences of the same entity are grouped under a `entity` object as a list of `match` objects.
 
@@ -734,7 +734,7 @@ Linked Entities:
 
 ## Key phrase extraction
 
-# [Version 3.1 preview](#tab/version-3-1)
+# [Version 3.1](#tab/version-3-1)
 
 Create a new function called `key_phrase_extraction_example()` that takes the client as an argument, then calls the `extract_key_phrases()` function. The result will contain the list of detected key phrases in `key_phrases` if successful, and an `error` if not. Print any detected key phrases.
 
@@ -807,7 +807,7 @@ key_phrase_extraction_example(client)
 
 ## Use the API asynchronously with the Analyze operation
 
-# [Version 3.1 preview](#tab/version-3-1)
+# [Version 3.1](#tab/version-3-1)
 
 You can use the Analyze operation to perform asynchronous batch requests for: NER, key phrase extraction, sentiment analysis, and PII detection. The below sample shows a basic example on one operation. You can find a more advanced sample [on GitHub](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/textanalytics/azure-ai-textanalytics/samples/sample_analyze_actions.py).
 
