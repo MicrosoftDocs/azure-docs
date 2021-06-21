@@ -28,7 +28,7 @@ See [Monitoring Load Balancer](monitor-load-balancer.md) for details on collecti
 | Byte count | Public and internal load balancer | Standard Load Balancer reports the data processed per front end. You may notice that the bytes are not distributed equally across the backend instances. This is expected as Azure's Load Balancer algorithm is based on flows. | Sum |
 | Packet count | Public and internal load balancer | Standard Load Balancer reports the packets processed per front end. | Sum |
 
-For more information, see a list of [all platform metrics supported in Azure Monitor](./azure-monitor/platform/metrics-supported.md).
+For more information, see a list of [all platform metrics supported in Azure Monitor for load balancer](./azure-monitor/platform/metrics-supported.md#microsoftnetworkloadbalancers).
 
 ## Metric Dimensions
 
@@ -62,31 +62,43 @@ This section refers to all of the Azure Monitor Logs Kusto tables relevant to Lo
 Diagnostics tables are currently unsupported by Azure Load Balancer.
 ## Activity log
 
-**PM had no information on this**
-
 The following table lists the operations related to Load Balancer that may be created in the Activity log.
 
-<!-- Fill in the table with the operations that can be created in the Activity log for the service. -->
 | Operation | Description |
 |:---|:---|
-| | |
-| | |
-
-<!-- NOTE: This information may be hard to find or not listed anywhere.  Please ask your PM for at least an incomplete list of what type of messages could be written here. If you can't locate this, contact azmondocs@microsoft.com for help -->
+| Microsoft.Network/loadBalancers/read | Gets a load balancer definition |
+| Microsoft.Network/loadBalancers/write | Creates a load balancer or updates an existing load balancer |
+| Microsoft.Network/loadBalancers/delete | Deletes a load balancer |
+| Microsoft.Network/loadBalancers/backendAddressPools/queryInboundNatRulePortMapping/action | Query inbound Nat rule port mapping. |
+| Microsoft.Network/loadBalancers/backendAddressPools/read | Gets a load balancer backend address pool definition |
+| Microsoft.Network/loadBalancers/backendAddressPools/write | Creates a load balancer backend address pool or updates an existing load balancer backend address pool |
+| Microsoft.Network/loadBalancers/backendAddressPools/delete | Deletes a load balancer backend address pool |
+| Microsoft.Network/loadBalancers/backendAddressPools/join/action | Joins a load balancer backend address pool. Not Alertable. |
+| Microsoft.Network/loadBalancers/backendAddressPools/backendPoolAddresses/read | Lists the backend addresses of the Load Balancer backend address pool |
+| Microsoft.Network/loadBalancers/frontendIPConfigurations/read | Gets a load balancer frontend IP configuration definition |
+| Microsoft.Network/loadBalancers/frontendIPConfigurations/join/action | Joins a Load Balancer Frontend IP Configuration. Not alertable. |
+| Microsoft.Network/loadBalancers/inboundNatPools/read | Gets a load balancer inbound nat pool definition |
+| Microsoft.Network/loadBalancers/inboundNatPools/join/action | Joins a load balancer inbound NAT pool. Not alertable. |
+| Microsoft.Network/loadBalancers/inboundNatRules/read | Gets a load balancer inbound nat rule definition |
+| Microsoft.Network/loadBalancers/inboundNatRules/write | Creates a load balancer inbound nat rule or updates an existing load balancer inbound nat rule |
+| Microsoft.Network/loadBalancers/inboundNatRules/delete | Deletes a load balancer inbound nat rule |
+| Microsoft.Network/loadBalancers/inboundNatRules/join/action | Joins a load balancer inbound nat rule. Not Alertable. |
+| Microsoft.Network/loadBalancers/loadBalancingRules/read | Gets a load balancer load balancing rule definition |
+| Microsoft.Network/loadBalancers/networkInterfaces/read | Gets references to all the network interfaces under a load balancer |
+| Microsoft.Network/loadBalancers/outboundRules/read | Gets a load balancer outbound rule definition |
+| Microsoft.Network/loadBalancers/probes/read | Gets a load balancer probe |
+| Microsoft.Network/loadBalancers/probes/join/action | Allows using probes of a load balancer. For example, with this permission healthProbe property of VM scale set can reference the probe. Not alertable. |
+| Microsoft.Network/loadBalancers/virtualMachines/read | Gets references to all the virtual machines under a load balancer |
 
 For more information on the schema of Activity Log entries, see [Activity  Log schema](/azure/azure-monitor/essentials/activity-log-schema). 
 
 ## Schemas
-<!-- REQUIRED. Please keep heading in this order -->
-
-**PM had no information on this one, wasn't sure what it was.**
 
 The following schemas are in use by Load Balancer
 
-<!-- List the schema and their usage. This can be for resource logs, alerts, event hub formats, etc depending on what you think is important. -->
+
 
 ## See Also
 
-<!-- replace below with the proper link to your main monitoring service article -->
 - See [Monitoring Azure Load Balancer](monitor-load-balancer.md) for a description of monitoring Azure Load Balancer.
 - See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resources) for details on monitoring Azure resources.
