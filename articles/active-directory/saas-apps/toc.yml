@@ -2493,6 +2493,8 @@
         href: snowflake-provisioning-tutorial.md
       - name: Smartsheet
         href: smartsheet-provisioning-tutorial.md
+      - name: Smallstep SSH
+        href: smallstep-ssh-provisioning-tutorial.md
       - name: Soloinsight-CloudGate SSO
         href: soloinsight-cloudgate-sso-provisioning-tutorial.md
       - name: Symantec Web Security Service (WSS)

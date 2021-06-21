@@ -132,6 +132,7 @@ This section guides you through the steps to configure the Azure AD provisioning
    |phoneNumbers[type eq "mobile"].value|String|
    |externalId|String|
    |title|String|
+   |preferredLanguage|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:organization|String|
