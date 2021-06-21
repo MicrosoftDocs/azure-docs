@@ -73,7 +73,7 @@ For installation steps, see [Install GPU extension](./azure-stack-edge-gpu-deplo
 
 **Suggested solution:** To resolve the issue, do these steps:
 
-1.	To find out what process is applying the lock, search the \var\log\azure\nvidia-vmext-status log for an error such as “dpkg is used by another process” or ”Another app is holding yum lock”.
+1.	To find out what process is applying the lock, search the \var\log\azure\nvidia-vmext-status log for an error such as “dpkg is used by another process” or ”Another app is holding `yum lock`”.
 
 1. Either wait for the process to finish, or end the process.
 
