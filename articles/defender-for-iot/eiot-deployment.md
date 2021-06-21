@@ -7,15 +7,45 @@ ms.date: 06/20/2021
 
 # Deploy EIoT 
 
-**INSERT INTRODUCTION PARAGRAPGH HERE**
+Thank you for joining our EIoT Private Preview program. We appreciate the time and efforts you are investing in order to help us to launch a better product.  
+
+The purpose of this document is to outline all the requirements that are needed to prepare the site before the deployment procedure. 
+
+##  Unified IoT Security - Solution Architecture 
+
+The Azure Defender for IoT (AD-IoT) team at Microsoft is responsible for securing IoT devices end-to-end whether they are on-premises, in the cloud, or in hybrid environments.  
+
+We are now extending agentless capabilities to go beyond operational environments, and advancing into the realm of enterprise environments. Thereby, delivering coverage to the entire breadth of IoT devices in your environment. This includes everything from corporate printers, cameras to purpose-built devices, proprietary, and unique devices.    
+
+:::image type="content" source="media/eiot-deployment/eiot-architecture.png" alt-text="This is a sample of the EIoT architecture.":::
+
+The expansion into the enterprise network, creates a unique opportunity to leverage Microsoft 365 Defender’s asset discovery capabilities.  
+
+The Private Preview of the new Defender for EIoT solution (covering Enterprise, OT, and M365D) includes:  
+
+### Automatic 3T discovery (IT/IoT/OT)  
+
+Use passive agentless network monitoring to gain insight into your complete inventory of all your IT, IoT, and OT devices. The discovery process continuously identifies and classifies devices in your network, and resolves all device details. The discovery process is performed with zero impact to the network.  
+
+### Single pane of glass   
+
+A centralized user experience lets the security team visualize, and secure all their IT, IoT, and OT devices regardless of where the devices is located.   
+
+### The power of unified SIEM and XDR  
+
+Azure Defender for IoT shares its high-resolution signal data with Microsoft Defender, and Azure Sentinel. This optimizes the users ability to perform incident response efficiently, and accurately with a complete story that is inclusive of the IoT devices involved. Azure Sentinel customers no longer need to switch consoles to put the story together!  
+
+### Easy deployment for a scalable solution   
+
+Azure Defender for IoT ensures quick and frictionless deployment of network sensors, both physical, or virtual appliances, with the support of our engineering team, and other departments.
 
 ## Prerequisites
 
-**Configure a sensor**;
+**Configure a sensor**:
 
 1. Set up a server, or VM.
 
-1. Ensure the minimum resources are set to;
+1. Ensure the minimum resources are set to:
  
     - 4C CPU
     
@@ -27,7 +57,7 @@ ms.date: 06/20/2021
     
     - OS: Ubuntu 18.04.1 or higher 
 
-1. Connect a NIC to  a switch.
+1. Connect a NIC to a switch.
 
     - **Physical device** - connect a monitoring network interface (NIC) to a switch monitoring (SPAN) port.
     
@@ -67,7 +97,7 @@ Create, and onboard a new subscription, even if you already have a current subsc
 
 Onboard a new sensor for this scenario.
 
-**To onboard a sensor**
+**To onboard a sensor**:
 
 1. Navigate to the [Azure portal](https://ms.portal.azure.com/?enterpriseiot=true#home)
 
@@ -91,6 +121,8 @@ Onboard a new sensor for this scenario.
 ## Install the sensor
 
 You will need to download a package, and move it in the home directory.
+
+**To install the sensor**:
 
 1. Download the [package](https://eiotdsretemp.blob.core.windows.net/files/eiot-89cbc08bbc.deb?sp=r&st=2021-06-16T13:56:00Z&se=2021-06-16T18:56:00Z&spr=https&sv=2020-02-10&sr=b&sig=G0AStF9o1gJ3wEhCEWW7nu2hKz2q%2B4usYTen33T5Q4E%3D).
 
