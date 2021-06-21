@@ -54,19 +54,19 @@ Connectivity to the other Azure resources from an Arc enabled server listed earl
 
 The Arc enabled servers Private Link Scope object has a number of limits you should consider when planning your Private Link setup.
 
-1. You can associate at most one Azure Arc Private Link Scope with a virtual network.
+- You can associate at most one Azure Arc Private Link Scope with a virtual network.
 
-1. An Azure Arc enabled machine or server resource can only connect to one Azure Arc enabled servers Private Link Scope.
+- An Azure Arc enabled machine or server resource can only connect to one Azure Arc enabled servers Private Link Scope.
 
-1. All on-premises machines need to use the same private endpoint by resolving the correct private endpoint information (FQDN record name and private IP address) using the same DNS forwarder. For more information, see [Azure Private Endpoint DNS configuration](../../private-link/private-endpoint-dns.md)
+- All on-premises machines need to use the same private endpoint by resolving the correct private endpoint information (FQDN record name and private IP address) using the same DNS forwarder. For more information, see [Azure Private Endpoint DNS configuration](../../private-link/private-endpoint-dns.md)
 
-1. The Azure Arc enabled machine or server, Azure Arc Private Link Scope, and virtual network must be in the same Azure region.
+- The Azure Arc enabled machine or server, Azure Arc Private Link Scope, and virtual network must be in the same Azure region.
 
-1. Traffic to Azure Active Directory and Azure Resource Manager service tags must be allowed through your on-premises network firewall during the preview. These services will offer their own private endpoints in the future.
+- Traffic to Azure Active Directory and Azure Resource Manager service tags must be allowed through your on-premises network firewall during the preview. 
 
-1. Other Azure services that you will use, for example Azure Monitor, requires their own private endpoints in your virtual network.
+- Other Azure services that you will use, for example Azure Monitor, requires their own private endpoints in your virtual network.
 
-1. Azure Arc enabled servers Private Link Scope is not currently available in Azure US Government regions.
+- Azure Arc enabled servers Private Link Scope is not currently available in Azure US Government regions.
 
 ## Planning your Private Link setup
 
@@ -99,7 +99,7 @@ Azure Arc enabled servers integrates with several Azure services to bring cloud 
 
 There are two ways you can achieve this:
 
-1. If your network is configured to route all Internet-bound traffic through the Azure VPN or Express Route circuit, you can configure the network security group (NSG) associated with your subnet in Azure to allow outbound TCP 443 (HTTPS) access to Azure AD and Azure using [service tags](../../virtual-network/service-tags-overview.md). The NSG rules should look like the following:
+- If your network is configured to route all Internet-bound traffic through the Azure VPN or Express Route circuit, you can configure the network security group (NSG) associated with your subnet in Azure to allow outbound TCP 443 (HTTPS) access to Azure AD and Azure using [service tags](../../virtual-network/service-tags-overview.md). The NSG rules should look like the following:
 
     |Setting |Azure AD rule | Azure rule |
     |--------|--------------|-----------------------------|
@@ -113,7 +113,7 @@ There are two ways you can achieve this:
     |Priority |150 (must be lower than any rules that block Internet access) |151 (must be lower than any rules that block Internet access) |
     |Name |AllowAADOutboundAccess |AllowAzOutboundAccess |
 
-1. Configure the firewall on your local network to allow outbound TCP 443 (HTTPS) access to Azure AD and Azure using the downloadable service tag files. The JSON file contains all the public IP address ranges used by Azure AD and Azure and is updated monthly to reflect any changes. Azure ADs service tag is `AzureActiveDirectory` and Azure's service tag is `AzureResourceManager`. Consult with your network administrator and network firewall vendor to learn how to configure your firewall rules.
+- Configure the firewall on your local network to allow outbound TCP 443 (HTTPS) access to Azure AD and Azure using the downloadable service tag files. The JSON file contains all the public IP address ranges used by Azure AD and Azure and is updated monthly to reflect any changes. Azure ADs service tag is `AzureActiveDirectory` and Azure's service tag is `AzureResourceManager`. Consult with your network administrator and network firewall vendor to learn how to configure your firewall rules.
 
 See the visual diagram under the section [How it works](#how-it-works) for the network traffic flows.
 
