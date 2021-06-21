@@ -16,39 +16,46 @@ You can migrate to Gen2 more easily by using *Microsoft managed migration*; a da
 
 Managed migration reduces the number of steps required to complete a migration. You won't have to configure a separate tool to move your data. Also, your workloads and applications can continue working with minimal modifications. For one, you won't have to point your workloads to Gen2 because requests are redirected automatically. Also, your applications can continue using Gen1 APIs because they are compatible with Gen2. 
 
-> [!NOTE]
-> Microsoft managed migration is in public preview, and is available in the (need list of regions) regions. To enroll in the preview, see [this form](https://www.microsoft.com).  
+> [!IMPORTANT]
+> Migrating from Gen1 to Gen2 by using the Azure portal is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability. 
 
 This article guides through the following tasks:
 
-- Step 1: Create a storage account that has Gen2 capabilities
+- Step 1: Enroll in the preview
 
-- Step 2: Run the managed migration tool
+- Step 2: Create a storage account that has Gen2 capabilities
 
-- Step 3. Test your applications
+- Step 3: Configure security for both Gen1 and Gen2 accounts
 
-- Step 4: Complete the migration
+- Step 3: Run the managed migration tool
+
+- Step 4. Test your applications
+
+- Step 5: Complete the migration
 
 Be sure to read the general guidance about how to migrate from Gen1 to Gen2. See [Migrate Azure Data Lake Storage from Gen1 to Gen2](data-lake-storage-migrate-gen1-to-gen2.md).
 
 > [!NOTE]
 > For easier reading, this article uses the term *Gen1* to refer to Azure Data Lake Storage Gen1, and the term *Gen2* to refer to Azure Data Lake Storage Gen2. 
 
+## Enroll in the preview
+
+To enroll in the preview, see [this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4SeyCfCfrtBlHWFupvoz_BUMEFNQzBSQTE0OU1aM0hXMDlBNEwzVTYyRy4u&wdLOR=cBC075B83-9324-4399-B94E-05A919D007C9).  
+
+After you've enrolled, create a storage account with Gen2 capabilities. Microsoft will contact you in approximately seven days to ensure that your new account is enabled for migration.
+
 ## Create a storage account with Gen2 capabilities
 
-Gen2 is not a dedicated storage account or service type. It's a set of capabilities that you can obtain by enabling the the **Hierarchical namespace** feature of an Azure storage account. Gen2 capabilities are supported in the following types of storage accounts:
+Azure Data Lake Storage Gen2 is not a dedicated storage account or service type. It's a set of capabilities that you can obtain by enabling the the **Hierarchical namespace** feature of an Azure storage account. 
 
-- [General-purpose v2](../common/storage-account-create.md)
-- [BlockBlobStorage](storage-blob-create-account-block-blob.md)
-
-For information about how to choose between them, see [storage account overview](../common/storage-account-overview.md).
-
-Create one of these types of storage accounts and make sure to use the following values. 
+To create an account that has Gen2 capabilities, see [Create a storage account to use with Azure Data Lake Storage Gen2](create-data-lake-storage-account.md). As you create the account, make sure to configure settings with the following values.
 
 | Setting | Value |
 |--|--|
+| **Storage account name** | Any name that you want. This name doesn't have to match the name of your Gen1 account |
 | **Location** | The same region used by the Data Lake Storage Gen1 account. |
-| **Replication** | LRS or ZRS |
+| **Replication** | LRS |
 | **Minimum TLS version** | 1.0 |
 | **NFS v3** | Disabled |
 | **Hierarchical namespace** | Enabled |
@@ -56,22 +63,35 @@ Create one of these types of storage accounts and make sure to use the following
 > [!NOTE]
 > The managed migration tool doesn't move account settings. Therefore, after you've created the account, you'll have to manually configure settings such as encryption, network firewalls, data protection. 
 
+## Configure security for both Gen1 and Gen2 accounts
+
+Something here about setting up Gen1 and Gen2 accounts with the appropriate security access.
+
 ## Run the managed migration tool
 
 The managed migration tool moves data and metadata (such as timestamps and ACLs) from your Gen1 account to your Gen2-enabled account. 
 
-1. Navigate to your Data Lake Storage Gen1 account in the Azure portal.
+1. Sign in to the [Azure portal](https://portal.azure.com/) to get started.
 
-2. In the left menu for the account, scroll to the **Data Lake Storage Gen2** section, then select **Data Lake Storage Gen2**. Then, choose
+2. Locate your Data Lake Storage Gen1 account and display the account overview.
+
+3. Select the **Migrate data** button.  
 
    > [!div class="mx-imgBorder"]
-   > ![Image Hint2](./media/managed-migration-tool/managed-migration-tool.png)
+   > ![Image Hint2](./media/data-lake-storage-migrate-gen1-to-gen2-azure-portal/migration-tool.png)
 
-3. In the **Storage account** drop-down list, choose your gen2 enabled account. 
+4. If you want to copy only data, select **Copy data to a new ADLS Gen2 account**.
 
-4. Select the **Testing only** option. That way the tool migrates your data and metadata such as ACLs and timestamps, but doesn't redirect the URL of your Gen1 account. Your Gen1 account remains active while you test your applications against Gen2.
+   A snapshot of your data is copied from Gen1 to Gen2 and post the data migration, both Gen1 and Gen2 accounts will be active. 
 
-5. Select the check box to give your consent, and then select the **Apply** button to begin the data migration.
+   If you want to perform a complete migration, select **Complete migration to a new ADLS gen 2 account**.
+   
+   Data will be copied from Gen1 to Gen2, and post the data copy, your Gen1 account URI will point to Gen2, you will not be able to access your Gen1 account post the migration. 
+
+5. Select the checkbox that provides Microsoft with your consent to perform the data migration, and then click the **Apply** button.
+
+
+
 
 ## Test your applications
  
