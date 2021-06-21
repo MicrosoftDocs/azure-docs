@@ -1,7 +1,7 @@
 ---
 title: Manage Azure portal settings and preferences
 description: Change Azure portal settings such as default subscription/directory, timeouts, menu mode, contrast, theme, notifications, language/region and more.
-ms.date: 06/17/2021
+ms.date: 06/21/2021
 ms.topic: how-to
 ---
 
@@ -50,9 +50,8 @@ The new subscription filtering experience can help you manage large numbers of s
 
 :::image type="content" source="./media/set-preferences/azure-portal-subscription-filtering-opt-in.png" alt-text="Screenshot showing the opt-in option for the new subscription filter settings.":::
 
-If you have access to delegated subscriptions through [Azure Lighthouse](../lighthouse/how-to/view-manage-customers.md), be sure that all directories and subscriptions are selected before you select the **Try it now** link, or else the new experience may not show all of the subscriptions to which you have access. If that happens, you can select **Switch back to the previous view** in the **Subscriptions + filters** pane, then repeat the opt in process with all directories and subscriptions selected.
-
-:::image type="content" source="media/set-preferences/azure-portal-subscription-filtering-opt-in-MSP.png" alt-text="Screenshot showing the subscription filter icon with delegated subscriptions.":::
+> [!IMPORTANT]
+> If you have access to delegated subscriptions through [Azure Lighthouse](../lighthouse/overview.md), be sure that all directories and subscriptions are selected before you select the **Try it now** link, or else the new experience may not show all of the subscriptions to which you have access. If that happens, you can select **Switch back to the previous view** in the **Subscriptions + filters** pane, then repeat the opt in process with all directories and subscriptions selected. For more information, see [Work in the context of a delegated subscription](../lighthouse/how-to/view-manage-customers.md#work-in-the-context-of-a-delegated-subscription).
 
 In the new experience, the **Subscriptions + filters** pane lets you create customized filters.  When you activate one of your filters, the full portal experience will be scoped to show only the subscriptions to which the filter applies. You can do this by selecting **Activate** in the **Subscription + filters** pane, or in the **Subscriptions + filters** section of the overview pane.
 
