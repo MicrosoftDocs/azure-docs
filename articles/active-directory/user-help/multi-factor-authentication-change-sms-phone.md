@@ -16,7 +16,7 @@ ms.author: curtand
 
 # Change the mobile device for text message two-step verification
 
-When performing two-step verification using a mobile phone, you can choose to receive a numeric code via text message as one verification factor. If you received this code on the wrong phone or you didn’t expect to receive this code, please use the following steps to fix this problem.  
+ You can receive a verification code in a text message as one verification step for two-step verification. If you didn’t expect to receive a code or received a code on the wrong phone, use the following steps to fix this problem.  
 
 > [!Note]
 > If your organization doesn't allow you to receive a text message for verification, you'll need to select another method or contact your administrator for more help.
@@ -39,10 +39,10 @@ When performing two-step verification using a mobile phone, you can choose to re
 
 ### If you already registered your phone number for two-step verification
 
-This could mean that someone knows your password and is attempting to take over your account. You should change your password immediately and notify your organization's administrator that this has happened.
+Receiving an unexpected text message could mean that someone knows your password and is attempting to take over your account. Change your password immediately and notify your organization's administrator about what happened.
 
 ### If you never registered your phone number for two-step verification
 
 You can reply to the text message with `STOP` in the body of the text message. This message prevents the provider from sending messages to your phone number in the future. You might need to reply to similar messages with different codes.  
 
-However, if you are an current user of two-step verification with Azure Active Directory, this message prevents you from using this phone number to sign in. If you want to begin receiving text messages again, reply to the initial text message with `START` in the body.
+However, if you're already using two-step verification, sending this message prevents you from using this phone number to sign in. If you want to begin receiving text messages again, reply to the initial text message with `START` in the body.
