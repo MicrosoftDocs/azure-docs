@@ -11,7 +11,7 @@ ms.custom: bfmigrate, devx-track-azurecli
 
 # Migrate management tool resources to global Azure
 
-[!INCLUDE [closureinfo](../../includes/germany-closure-info.md)]
+[!INCLUDE [closure info](../../includes/germany-closure-info.md)]
 
 This article has information that can help you migrate Azure management tools from Azure Germany to global Azure.
 
@@ -59,7 +59,7 @@ The initial backup will be a full copy followed by incremental backups.
 
 Download and install the required resources.
 
-1. [Download](https://github.com/PowerShell/PowerShell/releases/tag/v7.0.3&preserve-view=true) the latest version of PowerShell (Powershell 7).
+1. [Download](https://github.com/PowerShell/PowerShell/releases/tag/v7.0.3&preserve-view=true) the latest version of PowerShell (PowerShell 7).
 1. Use Az.RecoveryServices module version 4.2.0 available in Azure Cloud Shell.
 1. [Update](https://aka.ms/azurebackup_agent) all MARS agents to the latest version.
 1. Validate your passphrase. If you need to regenerate, follow the [validation steps](https://support.microsoft.com/topic/mandatory-update-for-azure-backup-for-microsoft-azure-recovery-services-agent-411e371c-aace-e134-de6b-bf9fda48026e#section-3).
@@ -75,7 +75,7 @@ Create a Target Vault (Vault 2) in GWC. To learn how to create a vault, see [Cre
 
 ### Step 3: - Use PowerShell to trigger Backup data move
 
-**Get the source vault from GNE or GEC**
+#### Get the source vault from GNE or GEC
 
 Run these cmdlets:
 
@@ -87,7 +87,7 @@ Run these cmdlets:
 >- `srcVault` = Source Vault
 >- `TestSourceRG` = Source Resource Group
 
-**Get the target vault in GWC**
+#### Get the target vault in GWC
 
 Run these cmdlets:
 
@@ -99,14 +99,14 @@ Run these cmdlets:
 >- `targetVault` = Target Vault
 >- `TestTargetRG` = Test Resource Group
 
-**Perform validation**
+#### Perform validation
  
 Run these cmdlets:
 
 1. `$validated = $false`
 1. `$validated = Test-AzRecoveryServicesDSMove -SourceVault $srcVault -TargetVault $trgVault`
 
-**Initialize/prepare DS move**
+#### Initialize/prepare DS move
 
 Run these cmdlets:
 
@@ -119,7 +119,7 @@ Run these cmdlets:
    ```
 1. `$corr`
 
-**Trigger DS move**
+#### Trigger DS move
 
 Run these cmdlets:
 
@@ -152,13 +152,14 @@ To monitor the jobs, run these cmdlets:
 1. `$Jobs = Get-AzRecoveryServicesBackupJob -Operation BackupDataMove -VaultId $trgVault.ID`
 1. `Get-AzRecoveryServicesBackupJobDetail -Job $Jobs[0] -VaultId $trgVault.ID`
 1. `$JobDetails.ErrorDetails`
+
 ### Step 5: Post move operations
 
 Once the backup data move operation for all containers to the target vault is complete, no further action is required for VM backups.
 
 
 
-**Verify the movement of containers is complete**
+#### Verify the movement of containers is complete
 
 To check if all containers from the source vault have moved to the target vault, go to the target vault and check for all containers in that vault.
 
@@ -168,7 +169,7 @@ Run the following cmdlet to list all VMs moved from the source vault to target v
 Get-AzRecoveryServicesBackupContainer -BackupManagementType “AzureVM” -VaultId $trgVault.ID`
 ```
 
-**Verify the movement of policies is complete**
+#### Verify the movement of policies is complete
 
 After the backup data is moved successfully to the new region, all policies that were applied to Azure VM backup items in the source vault are applied to the target vault.
 
@@ -180,19 +181,19 @@ Get-AzRecoveryServicesBackupProtectionPolicy -VaultId $trgVault.ID`
 
 These policies continue to apply on your backup data after the move operation so that the lifecycle management of the moved recovery points is continued.
 
-To avoid sudden clean-up of several recovery points (RPs) (that may have expired during the move process or may expire immediately after the move process), the clean-up of older recovery points is paused for a period of 10 days after the move. During this period, you are not billed for the additional data incurred by the old RPs.
+To avoid sudden clean-up of several recovery points (that may have expired during the move process or may expire immediately after the move process), the clean-up of older recovery points (RPs) are paused for a period of 10 days after the move. During this period, you are not billed for the additional data incurred by the old RPs.
 
 >[!Important]
 
->If you need to recover from these older RPs, recover them immediately the backup data move within this 10-days period. Once this safety period is complete, the policies applied on each of the backup items would take effect and will enforce clean-up of the old RPs.
+>If you need to recover from these older RPs, recover them immediately the backup data move within this 10-day period. Once this safety period is complete, the policies applied on each of the backup items would take effect and will enforce clean-up of the old RPs.
 
-**Restore operations**
+#### Restore operations
 
 **Restore Azure Virtual Machines**
 
 For Azure Virtual machines, you can restore from the recovery points in the target vault.
 
-**Configure MARS agent**
+#### Configure MARS agent
 
 1. Re-register to the target vault.
 1. Restore from the recovery points.
@@ -201,9 +202,9 @@ For Azure Virtual machines, you can restore from the recovery points in the targ
 >[!Note]
 >While the MARS agent is registered to the target vault, no new backups take place.
 
-**Configure DPM/MABS**
+#### Configure DPM/MABS
 
-_Recommended_
+**Recommended**
 
 Use the External DPM method to perform restore. For more information, see [Recover data from Azure Backup Server](../backup/backup-azure-alternate-dpm-server.md).
 
@@ -211,7 +212,7 @@ Use the External DPM method to perform restore. For more information, see [Recov
 >- Original-Location Recovery (OLR) is not supported.
 >- Backups will continue in VaultN for all the machines registered.
 
-_Other option_
+**Other option**
 
 For Original-Location Recovery (OLR):
 
@@ -258,7 +259,7 @@ For Original-Location Recovery (OLR):
 
 **Recommended action:**  [Learn](#move-backup-data-from-germany-centralgermany-northeast-to-germany-west-central) about the supported containers for data move.
 
-### UserErrorDataMoveNotSupportedAtContainerLevel 
+### UserErrorDataMoveNotSupportedAt ContainerLevel 
 
 **Message:** Data move operation is not supported at container level. 
 
@@ -266,7 +267,7 @@ For Original-Location Recovery (OLR):
 
 **Recommended action:** Try the vault level data move operation.
 
-### UserErrorDataMoveNotAllowedContainerRegistrationInProgress 
+### UserErrorDataMoveNotAllowedContainer RegistrationInProgress 
 
 **Message:** Data move operation is not allowed because a container registration operation is running in source vault. 
 
@@ -274,7 +275,7 @@ For Original-Location Recovery (OLR):
 
 **Recommended action:** Try the data move operation after some time.
 
-### UserErrorDataMoveNotAllowedTargetVaultNotEmpty 
+### UserErrorDataMoveNotAllowedTargetVault NotEmpty 
 
 **Message:** Data move operation is not allowed because target vault has some containers already registered. 
 
@@ -294,12 +295,12 @@ For Original-Location Recovery (OLR):
 
 **Message:** Data move operation is not supported to this region.
 
-**Scenario:** Target region id not valid. 
+**Scenario:** Target region ID not valid. 
 
 **Recommended action:** Check the [list of supported regions](#move-backup-data-from-germany-centralgermany-northeast-to-germany-west-central) for data move.
 
 
-### UserErrorDataMoveTargetVaultWithPrivateEndpointNotSupported 
+### UserErrorDataMoveTargetVaultWithPrivate EndpointNotSupported 
 
 **Message:** Data cannot be moved as selected target vault has private endpoints. 
 
@@ -307,7 +308,7 @@ For Original-Location Recovery (OLR):
 
 **Recommended action: Delete the private endpoints and retry the move operation. [Learn more](#move-backup-data-from-germany-centralgermany-northeast-to-germany-west-central) about the supported operations.
 
-### UserErrorDataMoveSourceVaultWithPrivateEndpointNotSupported 
+### UserErrorDataMoveSourceVaultWithPrivate EndpointNotSupported 
 
 **Message:** Data cannot be moved as selected source vault has private endpoints.
 
@@ -315,11 +316,11 @@ For Original-Location Recovery (OLR):
 
 **Recommended action:** Delete the private endpoints and retry the move operation. [Learn more](../backup/private-endpoints.md#deleting-private-endpoints) about the supported operations.
 
-### UserErrorDataMoveSourceVaultWithCMKNotSupported 
+### UserErrorDataMoveSourceVaultWithCMK NotSupported 
 
 **Message:** Data cannot be moved as selected source vault is encryption enabled. 
 
-**Scenario:** Customer Managed Keys (CMK) are enabled in the source vault.
+**Scenario:** Customer-Managed Keys (CMK) are enabled in the source vault.
 
 **Recommended action:** [Learn](#move-backup-data-from-germany-centralgermany-northeast-to-germany-west-central) about the supported operations.
 
@@ -327,7 +328,7 @@ For Original-Location Recovery (OLR):
 
 **Message:** Data cannot be moved as selected target vault is encryption enabled. 
 
-**Scenario:** Customer Managed Keys (CMK) are enabled in the target vault
+**Scenario:** Customer-Managed Keys (CMK) are enabled in the target vault
 
 **Recommended action:** [Learn](#move-backup-data-from-germany-centralgermany-northeast-to-germany-west-central) about the supported operations.
 
