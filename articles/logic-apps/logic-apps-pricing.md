@@ -22,11 +22,15 @@ In multi-tenant Azure Logic Apps, logic app workflows follow the "pay-for-use" *
 
 ### Consumption billing for built-in operations and managed connectors
 
-Metering and billing are based on the trigger and action *executions* in your logic app's workflow. These executions are metered and billed, regardless whether your workflow runs successfully or is even instantiated.
+Metering and billing for triggers and actions in your logic app's workflow are based on *executions*, whether your workflow runs successfully or is even instantiated. For example, suppose your workflow starts with a polling trigger that regularly makes outbound calls to an endpoint. The outbound call is metered and billed as an execution, regardless whether the trigger fires or is skipped, which affects whether a workflow instance is created.
 
-For example, suppose your workflow starts with a polling trigger that regularly makes outbound calls to an endpoint. The outbound call is metered and billed as an execution, regardless whether the trigger fires or is skipped, which affects whether a workflow instance is created.
+The following list describes billing model-related differences between **Consumption** in the multi-tenant environment and **Standard** in the single-tenant environment:
 
-If you have an operation that uses chunking or pagination such that the operation has to make multiple calls, all those calls are charged as a single execution. For example, if a single execution requires making 10 calls, you're charged only for that single execution.
+* In multi-tenant, the designer uses the **Standard** and **Enterprise** labels to identify managed connector operations, while in single-tenant, the designer uses only the combined **Azure** label. However, in both environments, metering and billing use the same **Standard** and **Enterprise** connector prices as described by the Consumption plan.
+
+* In multi--tenant, when an operation uses chunking or pagination and has to make multiple calls per execution, the operation is metered and charged only *per execution*, and *not per call*. In single-tenant, the same operation is metered and charged *per call*, and *not per execution*. This behavior means that such an execution might cost you more when running in single-tenant versus multi-tenant.
+
+  For example, suppose you have an operation that has chunking or pagination enabled. During one execution, the operation has to make 10 calls before getting all the necessary data. In multi-tenant, the operation is metered and charged only for the single execution. In single-tenant, the same execution is metered and charged for each call, so this execution can cost 10 times more.
 
 The following table provides more information about operation types and their billing models:
 
@@ -117,17 +121,17 @@ Each pricing tier includes a specific amount of compute, memory, and storage res
 
 ### Standard billing for built-in operations and managed connectors
 
-Metering and billing for triggers and actions in your logic app's workflow are based on *executions*. These executions are metered and billed, regardless whether your workflow runs successfully or is even instantiated.
+Metering and billing for triggers and actions in your logic app's workflow are based on *executions*, whether your workflow runs successfully or is even instantiated. For example, suppose your workflow starts with a polling trigger that regularly makes outbound calls to an endpoint. The outbound call is metered and billed as an execution, regardless whether the trigger fires or is skipped, which affects whether a workflow instance is created.
 
-For example, suppose your workflow starts with a polling trigger that regularly makes outbound calls to an endpoint. The outbound call is metered and billed as an execution, regardless whether the trigger fires or is skipped, which affects whether a workflow instance is created.
+The following list describes billing model-related differences between **Standard** in the single-tenant environment and **Consumption** in the multi-tenant environment:
 
-The following list describes billing model differences between the Standard and Consumption logic app resource types in Azure Logic Apps:
+* In single-tenant, the designer uses the **Azure** label to identify managed connector operations, while in multi-tenant, the designer uses the **Standard** and **Enterprise** labels. However, in both environments, metering and billing use the same **Standard** and **Enterprise** connector prices as described by the Consumption pricing plan.
 
-* The single-tenant workflow designer identifies managed connector operations by using the **Azure** label, not **Standard** or **Enterprise**. However, metering and billing still use the same **Standard** and **Enterprise** connector prices as the Consumption plan, based on the underlying type for the managed connector operation.
+* In single-tenant, when an operation uses chunking or pagination and has to make multiple calls per execution, the operation is metered and charged *per call*, and *not per execution*. In multi-tenant, the same operation is metered and charged *per execution*, and *not per call*. This behavior means that such an execution might cost you more when running in single-tenant versus multi-tenant.
 
-* If you have an operation that uses chunking or pagination such that the operation has to make multiple calls, that operation is metered *per call* and *not per execution*. This scenario might result in costs that are higher than expected or predicted.
+  For example, suppose you have an operation that has chunking or pagination enabled. If the operation has to make 10 calls before getting all the necessary data, that operation is metered and charged only for the single execution. However, in single-tenant, the same execution is metered and charged for each call, so this execution can cost 10 times more.
 
-  For example, in the multi-tenant environment, when a trigger or action uses chunking or pagination and requires making multiple calls, all those calls are metered and charged as a single execution. In single-tenant, all those calls are metered and charged individually. In multi-tenant, if a single execution required making 10 calls, you're charged only for the single execution. In single-tenant, the same action execution is charged for each call, so the same single execution costs 10x more.
+  For example, suppose you have an operation that has chunking or pagination enabled. During one execution, the operation has to make 10 calls before getting all the necessary data. In multi-tenant, the operation is metered and charged only for the single execution. In single-tenant, the same execution is metered and charged for each call, so this execution can cost 10 times more.
 
 The following table provides more information about operation types and their billing models:
 
