@@ -405,7 +405,7 @@
         href: /azure/data-explorer/kql-quick-reference
       - name: Azure Monitor log query optimizations
         href: ../azure-monitor/logs/query-optimization.md
-    - name: REST APIs
+    - name: REST APIs - samples
       items:
       - name: Manage hunting queries with REST-API
         href: hunting-with-rest-api.md
