@@ -213,7 +213,7 @@ After publishing the function, you're ready to subscribe to the event.
     :::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/event-hub-add-subscription-link.png" alt-text="Add event subscription link on the Events page for an Event Hubs namespace":::
 1. On the **Create Event Subscription** page, follow these steps:
     1. Enter a name for the **event subscription**. 
-    1. Enter a name for the **system topic**. A system topic provides an endpoint for the sender to send events. For more information, see [System topics](../articles/event-grid/system-topics.md)
+    1. Enter a name for the **system topic**. A system topic provides an endpoint for the sender to send events. For more information, see [System topics](../system-topics.md)
     1. For **Endpoint Type**, select **Azure Function**.
     1. For **Endpoint**, select the link.
     1. On the **Select Azure Function** page, follow these steps if they aren't automatically filled.
