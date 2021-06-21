@@ -27,7 +27,9 @@ To run code snippets without using Azure Functions, learn how you can [add and r
 
 * An Azure subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
 
-* An function app, which is a container for a function that's created in Azure Functions, along with the function you create. If you don't have a function app, [create your function app first](../azure-functions/functions-get-started.md). You can then create your function either outside your logic app in the Azure portal, or [from inside your logic app](#create-function-designer) in the Logic App Designer.
+* A function app, which is a container for a function that's created using Azure Functions, along with the function that you create.
+
+  If you don't have a function app, [create your function app first](../azure-functions/functions-get-started.md). You can then create your function either outside your logic app in the Azure portal, or [from inside your logic app](#create-function-designer) in the workflow designer.
 
 * When working with logic apps, the same requirements apply to function apps and functions whether they are existing or new:
 
@@ -37,11 +39,11 @@ To run code snippets without using Azure Functions, learn how you can [add and r
 
   * Your function uses the **HTTP trigger** template.
 
-    The HTTP trigger template can accept content that has `application/json` type from your logic app. When you add a function to your logic app, the Logic App Designer shows custom functions that are created from this template within your Azure subscription.
+    The HTTP trigger template can accept content that has `application/json` type from your logic app. When you add a function to your logic app, the workflow designer shows custom functions that are created from this template within your Azure subscription.
 
   * Your function doesn't use custom routes unless you've defined an [OpenAPI definition](../azure-functions/functions-openapi-definition.md) (formerly known as a [Swagger file](https://swagger.io/)).
 
-  * If you have an OpenAPI definition for your function, the Logic Apps Designer gives you a richer experience when your work with function parameters. Before your logic app can find and access functions that have OpenAPI definitions, [set up your function app by following these steps](#function-swagger).
+  * If you have an OpenAPI definition for your function, the workflow designer gives you a richer experience when your work with function parameters. Before your logic app can find and access functions that have OpenAPI definitions, [set up your function app by following these steps](#function-swagger).
 
 * The logic app where you want to add the function, including a [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) as the first step in your logic app
 
@@ -51,7 +53,7 @@ To run code snippets without using Azure Functions, learn how you can [add and r
 
 ## Find functions that have OpenAPI descriptions
 
-For a richer experience when you work with function parameters in the Logic Apps Designer, [generate an OpenAPI definition](../azure-functions/functions-openapi-definition.md), formerly known as a [Swagger file](https://swagger.io/), for your function. To set up your function app so your logic app can find and use functions that have Swagger descriptions, follow these steps:
+For a richer experience when you work with function parameters in the workflow designer, [generate an OpenAPI definition](../azure-functions/functions-openapi-definition.md), formerly known as a [Swagger file](https://swagger.io/), for your function. To set up your function app so your logic app can find and use functions that have Swagger descriptions, follow these steps:
 
 1. Make sure that your function app is actively running.
 
@@ -98,11 +100,11 @@ Now that you've created your function in Azure, follow the steps to [add functio
 
 ## Create functions inside logic apps
 
-You can create functions directly from your logic app's workflow by using the built-in Azure Functions action in the Logic App Designer, but you can use this method only for functions written in JavaScript. For other languages, you can create functions through the Azure Functions experience in the Azure portal. For more information, see [Create your first function in the Azure portal](../azure-functions/functions-get-started.md).
+You can create functions directly from your logic app's workflow by using the built-in Azure Functions action in the workflow designer, but you can use this method only for functions written in JavaScript. For other languages, you can create functions through the Azure Functions experience in the Azure portal. For more information, see [Create your first function in the Azure portal](../azure-functions/functions-get-started.md).
 
 However, before you can create your function in Azure, you must already have a function app, which is a container for your functions. If you don't have a function app, create that function app first. See [Create your first function in the Azure portal](../azure-functions/functions-get-started.md).
 
-1. In the [Azure portal](https://portal.azure.com), open your logic app in the Logic App Designer.
+1. In the [Azure portal](https://portal.azure.com), open your logic app in the designer.
 
 1. To create and add your function, follow the step that applies to your scenario:
 
@@ -110,7 +112,7 @@ However, before you can create your function in Azure, you must already have a f
 
    * Between existing steps in your logic app's workflow, move your mouse over the arrow, select the plus (+) sign, and then select **Add an action**.
 
-1. In the search box, enter "azure functions" as your filter. From the actions list, select the **Choose an Azure function** action, for example:
+1. In the search box, enter `azure functions`. From the actions list, select the action named **Choose an Azure function**, for example:
 
    ![Find functions in the Azure portal.](./media/logic-apps-azure-functions/find-azure-functions-action.png)
 
@@ -159,13 +161,13 @@ However, before you can create your function in Azure, you must already have a f
 
 ## Add existing functions to logic apps
 
-To call existing functions from your logic apps, you can add functions like any other action in the Logic App Designer.
+To call existing functions from your logic apps, you can add functions like any other action in the workflow designer.
 
-1. In the [Azure portal](https://portal.azure.com), open your logic app in the Logic App Designer.
+1. In the [Azure portal](https://portal.azure.com), open your logic app in the designer.
 
 1. Under the step where you want to add the function, select **New step**.
 
-1. Under **Choose an action**, in the search box, enter "azure functions" as your filter. From the actions list, select the **Choose an Azure function** action.
+1. Under **Choose an action**, in the search box, enter `azure functions`. From the actions list, select the action named **Choose an Azure function**, for example:
 
    ![Find a function in Azure.](./media/logic-apps-azure-functions/find-azure-functions-action.png)
 
@@ -199,7 +201,7 @@ When you want to trigger a logic app from inside a function, the logic app must 
 
 ## Enable authentication for functions
 
-To easily authenticate access to other resources that are protected by Azure Active Directory (Azure AD) without having to sign in and provide credentials or secrets, your logic app can use a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) (formerly known as Managed Service Identity or MSI). Azure manages this identity for you and helps secure your credentials because you don't have to provide or rotate secrets. Learn more about [Azure services that support managed identities for Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
+Your logic app can use a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) (formerly known as Managed Service Identity or MSI), if you want to easily authenticate access to resources protected by Azure Active Directory (Azure AD) without having to sign in and provide credentials or secrets. Azure manages this identity for you and helps secure your credentials because you don't have to provide or rotate secrets. Learn more about [Azure services that support managed identities for Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
 If you set up your logic app to use the system-assigned identity or a manually created, user-assigned identity, the function in your logic app can also use that same identity for authentication. For more information about authentication support for functions in logic apps, see [Add authentication to outbound calls](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
@@ -252,11 +254,11 @@ Before you start this task, find and put these values aside for later use:
 
   * To generate this object ID, [enable your logic app's system-assigned identity](../logic-apps/create-managed-service-identity.md#azure-portal-system-logic-app).
 
-  * Otherwise, to find this object ID, open your logic app in the Logic App Designer. On your logic app menu, under **Settings**, select **Identity** > **System assigned**.
+  * Otherwise, to find this object ID, open your logic app in the designer. On your logic app menu, under **Settings**, select **Identity** > **System assigned**.
 
 * The directory ID for your tenant in Azure Active Directory (Azure AD)
 
-  To get your tenant's directory ID, you can run the [`Get-AzureAccount`](/powershell/module/servicemanagement/azure.service/get-azureaccount) Powershell command. Or, in the Azure portal, follow these steps:
+  To get your tenant's directory ID, you can run the [`Get-AzureAccount`](/powershell/module/servicemanagement/azure.service/get-azureaccount) PowerShell command. Or, in the Azure portal, follow these steps:
 
   1. In the [Azure portal](https://portal.azure.com), find and select your function app.
 
@@ -310,7 +312,7 @@ Now you're ready to set up Azure AD authentication for your function app.
 
 1. When you're done, select **OK**.
 
-1. Return to the Logic App Designer and follow the [steps to authenticate access with the managed identity](../logic-apps/create-managed-service-identity.md#authenticate-access-with-identity).
+1. Return to the designer and follow the [steps to authenticate access with the managed identity](../logic-apps/create-managed-service-identity.md#authenticate-access-with-identity).
 
 ## Next steps
 
