@@ -35,7 +35,7 @@ For more information, view [Package an application](service-fabric-package-apps.
 Then, you create a Resource Manager template, update the parameters file with application details, and deploy the template on the Service Fabric cluster. [Explore samples](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/tree/voting-sample-no-reverse-proxy/ARM-Managed-Cluster).
 
 > [!NOTE] 
-> If you are migrating application(s) from classic SFRP to managed clusters make sure to validate types are correctly specified or you will encounter errors. For example, 'upgradeReplicaSetCheckTimeout' is an integer for managed, but a string on classic SFRP. See [managed clusters applications resource types](../templates/microsoft.servicefabric/managedclusters/applications?tabs=json)
+> If you are migrating application(s) from classic SFRP to managed clusters make sure to validate types are correctly specified or you will encounter errors. For example, 'upgradeReplicaSetCheckTimeout' is an integer for managed, but a string on classic SFRP. See [managed clusters applications resource types](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/managedclusters/applications?tabs=json)
 
 ### Create a storage account
 
