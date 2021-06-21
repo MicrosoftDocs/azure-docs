@@ -28,7 +28,7 @@ Examples of a daemon application are:
 [!INCLUDE [authentication details](./includes/view-authentication-details.md)]
 
 >[!IMPORTANT]
->Microsoft recommends implementing Azure Active Directory (Azure AD) and Azure role-based access control (Azure RBAC) for production applications. For an overview of Azure AD concepts, see [Authentication with Azure Maps](azure-maps-authentication.md).
+>For production applications, we recommend implementing Azure AD and Azure role-based access control (Azure RBAC). For an overview of Azure AD concepts, see [Authentication with Azure Maps](azure-maps-authentication.md).
 
 ## Scenario: Shared key authentication with Azure Key Vault
 
