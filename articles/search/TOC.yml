@@ -627,7 +627,7 @@
     - name: Developer course (Pluralsight)
       href: https://www.pluralsight.com/courses/microsoft-azure-textual-content-search-enabling
   - name: FAQ
-    href: search-faq-frequently-asked-questions.md
+    href: search-faq-frequently-asked-questions.yml
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/search/
   - name: Videos
