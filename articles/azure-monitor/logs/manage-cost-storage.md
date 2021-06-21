@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/11/2021
+ms.date: 06/21/2021
 ms.author: bwren 
 ms.custom: devx-track-azurepowershell
 ---
@@ -316,6 +316,19 @@ Higher usage is caused by one, or both of:
 
 If you observe high data ingestion reported using the `Usage` records (see [below](#data-volume-by-solution)), but you don't observe the same results summing `_BilledSize` directly on the [data type](#data-volume-for-specific-events), it's possible you have significant late arriving data. [Here](#late-arriving-data) is more information on how to diagnose this. 
 
+### Log Analytics Workspace Insights
+
+Start understanding your data voumes in the **Usage** tab of the [Log Analytics Workspace Insights workbook](log-analytics-workspace-insights-overview.md). On the **Usage Dashboard**, you can easily see:
+- Which data tables are ingesting the most data volume in the main table,  
+- What are the top resources contributing data, and 
+- What is the trend of data ingestion.
+
+You can pivot to the **Additional Queries** to easily execution more queries useful to understanding your data patterns. 
+
+Learn more about the [capabilities of the Usage tab](log-analytics-workspace-insights-overview.md#usage-tab). 
+
+While this workbook can anaswer many of the questions without even needing to run a query, to answer more specific questions or do deeper analyses, the queries in the next two sections will help to get you started. 
+
 ## Understanding nodes sending data
 
 To understand the number of nodes reporting heartbeats from the agent each day in the last month, use
@@ -547,7 +560,7 @@ Some suggestions for reducing the volume of logs collected include:
 | Solution data from computers that don't need the solution | Use [solution targeting](../insights/solution-targeting.md) to collect data from only required groups of computers. |
 | Application Insights | Review options for [managing Application Insights data volume](../app/pricing.md#managing-your-data-volume) |
 | [SQL Analytics](../insights/azure-sql.md) | Use [Set-AzSqlServerAudit](/powershell/module/az.sql/set-azsqlserveraudit) to tune the auditing settings. |
-| Azure Sentinel | Review any [Sentinel data sources](../../sentinel/connect-data-sources.md) which you recently enabled as sources of additional data volume. |
+| Azure Sentinel | Review any [Sentinel data sources](../../sentinel/connect-data-sources.md) which you recently enabled as sources of additional data volume. Learn more about [managing Sentinel costs](../../sentinel/azure-sentinel-billing.md#manage-azure-sentinel-costs) |
 
 ### Getting nodes as billed in the Per Node pricing tier
 
