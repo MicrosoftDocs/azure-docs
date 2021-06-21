@@ -156,3 +156,10 @@ Extension handlers inside the VM are writing to a status file (eg. _"/var/lib/wa
 They also write detailed logs of their execution (eg. _"/var/log/azure/custom-script/handler.log"_ for Linux or _"C:\WindowsAzure\Logs\Plugins\Microsoft.Compute.CustomScriptExtension\1.10.12\CustomScriptHandler.log"_ for Windows).
 
 
+### If the VM is recreated from an existing VM
+
+It could happen that you're creating an Azure VM based on a specialized Disk coming from another Azure VM. In that case, it's possible that the old VM contained  extensions, and so will have binaries, logs and status files left over. The new VM model will not be aware of the previous VM's extensions states, and it might report an incorrect status for these extensions. We strongly recommend to remove the extensions from the old VM before creating the new one, and then reinstall these extensions once the new VM is created.
+The same can happen when you create a generalized image from an existing Azure VM. We invite you to remove extensions to avoid inconsistent state from the extensions.
+
+
+
