@@ -70,32 +70,39 @@ For this tutorial, we're going to use a sample movies rating file and renaming a
 
 ### Tutorial objectives
 
-1. Choose any of your source datasets in a new data flow
-1. Use data flows to effectively partition your sink dataset
-1. Land your partitioned data in ADLS Gen2 lake folders
+1. Create a source dataset for the movies CSV file
+1. Create a lookup dataset for a field mapping JSON configuraiton file
+1. Convert the columns from the source to your target column names
 
 ### Start from a blank data flow canvas
 
 First, let's set up the data flow environment for each of the mechanisms described below for landing data in ADLS Gen2
 
-1. Click on the source transformation.
+1. Click on the source transformation and call it ```movies1```.
 1. Click the new button next to dataset in the bottom panel.
-1. Choose a dataset or create a new one. For this demo, we'll use a Parquet dataset called User Data.
-1. Add a Derived Column transformation. We'll use this as a way to set your desired folder names dynamically.
-1. Add a sink transformation.
+1. Choose either Blob or ADLS Gen2 depending on where you stored the moviesDB.csv file from above.
+1. Add a 2nd source, which we will use to source the configuration JSON file to lookup field mappings.
+1. Call this as ```columnmappings```.
+1. Add a 3rd source and call it ```movies2```. Configure this exactly the same as ```movies1```.
    
-### Hierarchical folder output
+### Parameterized column mapping
 
-It is very common to use unique values in your data to create folder hierarchies to partition your data in the lake. This is a very optimal way to organize and process data in the lake and in Spark (the compute engine behind data flows). However, there will be a small performance cost to organize your output in this way. Expect to see a small decrease in overall pipeline performance using this mechanism in the sink.
+In this first scenario, you will set output column names in you data flow by setting the column mapping based on matching incoming fields with a parameter that is a string array of columns and match each array index with the incoming column ordinal position. When executing this data flow from a pipeline, you will be able to set different column names on each pipeline execution by sending in this string array parameter to the data flow activity.
 
-1. Go back to the data flow designer and edit the data flow create above. Click on the sink transformation.
-1. Click Optimize > Set partitioning > Key
-1. Pick the column(s) you wish to use to set your hierarchical folder structure.
-1. Note the example below uses year and month as the columns for folder naming. The results will be folders of the form ```releaseyear=1990/month=8```.
-1. When accessing the data partitions in a data flow source, you will point to just the top-level folder above ```releaseyear``` and use a wildcard pattern for each subsequent folder, ex: ```**/**/*.parquet```
-1. To manipulate the data values, or even if need to generate synthetic values for folder names, use the Derived Column transformation to create the values you wish to use in your folder names.
+![Parameters](media/data-flow/dynacols3.png "Parameters")
 
-![Key partitioning](media/data-flow/key-parts.png "Key partitioning")
+1. Go back to the data flow designer and edit the data flow created above.
+1. Click on the parameters tab
+1. Create a new parameter and choose string array data type
+1. For the default value, enter ```['a','b','c']```
+1. Use the top ```movies1``` source to modify the column names to map to these array values
+1. Add a Select transformation
+1. We're going to change the first 3 column names to the new names defined in the parameter
+1. To do this, add 3 rule-based mapping entries in the bottom pane
+1. For the first column, the matching rule will be ```position==1``` and the name will be ```$parameter1[1]```
+1. Follow the same pattern for column 2 and 3:
+
+![Select transformation](media/data-flow/dynacols4.png "Select transformation")
    
 ### Name folder as data values
 
