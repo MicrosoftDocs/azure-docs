@@ -458,7 +458,7 @@ From June 21, 2021, you can move the backup data for the following workloads fro
 
 To ensure that data in the existing regions are not lost, Azure Backup has enabled backup data move from GEC and GNE to GWC.
 
-### While the migration happens, backups will stop in GEC and GNE. So, it is essential to protect the workloads in the new region before you start the migration operation.
+While the migration happens, backups will stop in GEC and GNE. So, it is essential to protect the workloads in the new region before you start the migration operation.
 
 ### What to do if the backup data move operation fails?
 
