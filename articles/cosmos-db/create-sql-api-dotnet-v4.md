@@ -44,7 +44,7 @@ Azure Cosmos DB is Microsoft's fast NoSQL database with open APIs for any scale.
 * Azure subscription. [Create one for free](https://azure.microsoft.com/free/). You can also [try Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription, free of charge and commitments. 
 * [NET Core 3 SDK](https://dotnet.microsoft.com/download/dotnet-core). You can verify which version is available in your environment by running `dotnet --version`.
 
-## Setting up
+## Set up
 
 This section walks you through creating an Azure Cosmos account and setting up a project that uses the Azure Cosmos DB SQL API client library for .NET to manage resources. 
 
@@ -139,9 +139,9 @@ The sample application needs to authenticate to your Azure Cosmos account. To au
 
 1. Open the **Keys** pane and copy the **URI** and **PRIMARY KEY** values for your account. You'll add the URI and key values to an environment variable in the next procedure.
 
-## <a id="object-model"></a>Object model
+## <a id="object-model"></a>Learn the object model
 
-Before you continue building the application, let's look into the hierarchy of resources in Azure Cosmos DB and the object model that's used to create and access these resources. The Azure Cosmos DB creates resources in the following order:
+Before you continue building the application, let's look into the hierarchy of resources in Azure Cosmos DB and the object model that's used to create and access these resources. Azure Cosmos DB creates resources in the following order:
 
 * Azure Cosmos account 
 * Databases 
@@ -158,7 +158,7 @@ To learn more about the hierarchy of entities, see the [Azure Cosmos DB resource
 * `GetItemQueryIterator`. This method creates a query for items under a container in an Azure Cosmos database by using a SQL statement with parameterized values. 
 * `DeleteAsync`. This method deletes the specified database from your Azure Cosmos account.
 
- ## <a id="code-examples"></a>Code examples
+ ## <a id="code-examples"></a>Configure code examples
 
 The sample code described in this article creates a family database in Azure Cosmos DB. The family database contains family details such as name, address, location, parents, children, and pets. 
 
@@ -168,7 +168,7 @@ Before you populate the data for your Azure Cosmos account, define the propertie
 
 ### Add the using directives and define the client object
 
-From the project directory, open the *Program.cs* file in your editor and add the following code by using directives at the top of your application:
+From the project directory, open the *Program.cs* file in your editor and add the following `using` directives at the top of your application:
 
 [!code-csharp[Main](~/cosmos-dotnet-v4-getting-started/src/Program.cs?name=Usings)]
 
@@ -201,7 +201,7 @@ Create a family item by adding the `AddItemsToContainerAsync` method with the fo
 
 ### Query the items
 
-After you insert an item, you can run a query to get the details of the Andersen family. The following code shows how to execute the query by using the SQL query directly. The SQL query to get the Andersen family details is: `SELECT * FROM c WHERE c.LastName = 'Andersen'`. Define the `QueryItemsAsync` method within the `Program` class and add the following code to it:
+After you insert an item, you can run a query to get the details of the Andersen family. The following code shows how to execute the query by using the SQL query directly. The SQL query to get the Andersen family details is `SELECT * FROM c WHERE c.LastName = 'Andersen'`. Define the `QueryItemsAsync` method within the `Program` class and add the following code to it:
 
 [!code-csharp[Main](~/cosmos-dotnet-v4-getting-started/src/Program.cs?name=QueryItemsAsync)]
 
