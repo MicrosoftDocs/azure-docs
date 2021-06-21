@@ -28,39 +28,34 @@ After creating a monitoring profile, you can configure your Azure Monitor SQL In
 
 ## Monitoring data 
 
-<!-- REQUIRED. Please keep headings in this order -->
 Azure SQL Database collects the same kinds of monitoring data as other Azure resources that are described in [Monitoring data from Azure resources](/azure/azure-monitor/insights/monitor-azure-resource#monitoring-data-from-Azure-resources). 
 
 See [Monitoring Azure SQL Database with Azure Monitor reference](monitoring-sql-database-azure-monitor-reference.md) for detailed information on the metrics and logs metrics created by Azure SQL Database.
 
 ## Collection and routing
 
-<!-- REQUIRED. Please keep headings in this order -->
-
 Platform metrics and the Activity log are collected and stored automatically, but can be routed to other locations by using a diagnostic setting.  
 
-Resource Logs are not collected and stored until you create a diagnostic setting and route them to one or more locations.
+Resource Logs are not collected and stored until you create a diagnostic setting and route them to one or more locations. Resource logs were previously referred to as diagnostic logs.
 
-<!-- Include any additional information on collecting logs.  The number of things that diagnostics settings control is expanding -->
+Diagnostic settings available include:
 
-See [Create diagnostic setting to collect platform logs and metrics in Azure](/azure/azure-monitor/platform/diagnostic-settings) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect. The categories for *Azure SQL Database* are listed in [Azure SQL Database monitoring data reference](monitor-service-reference.md#resource-logs).
+- **log**: SQLInsights, AutomaticTuning, QueryStoreRuntimeStatistics, QueryStoreWaitStatistics, Errors, DatabaseWaitStatistics, Timeouts, Blocks, Deadlocks    
+- **metric**: Basic, InstanceAndAppAdvanced, WorkloadManagement
+- **destination details**: Send to Log Analytics workspace, Archive to a storage account, Stream to an event hub, Send to partner solution
+    - The Log Analytics solution is recommended. For more information on these options, see [Create diagnostic settings in Azure portal](/azure/azure-monitor/essentials/diagnostic-settings.md&tabs=CMD#create-in-azure-portal).
 
-<!-- OPTIONAL: Add specific examples of configuration for this service. For example, CLI and PowerShell commands for creating diagnostic setting. Ideally, customers should set up a policy to automatically turn on collection for services. Azure monitor has Resource Manager template examples you can point to. See https://docs.microsoft.com/azure/azure-monitor/samples/resource-manager-diagnostic-settings.  Contact azmondocs@microsoft.com if you have questions.   -->
+For more information on the resource logs and diagnostics available, see [Diagnostic telemetry for export](metrics-diagnostic-telemetry-logging-streaming-export-configure?tabs=azure-portal#diagnostic-telemetry-for-export). 
+
+See [Create diagnostic setting to collect platform logs and metrics in Azure](/azure/azure-monitor/platform/diagnostic-settings) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect. The categories for Azure SQL Database are listed in [Azure SQL Database monitoring data reference](monitoring-sql-database-azure-monitor-reference.md#resource-logs).
 
 The metrics and logs you can collect are discussed in the following sections.
 
 ## Analyzing metrics
 
-<!-- REQUIRED. Please keep headings in this order 
-If you don't support metrics, say so. Some services may be only onboarded to logs -->
+You can analyze metrics for Azure SQL Database with metrics from other Azure services using metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Getting started with Azure Metrics Explorer](/azure/azure-monitor/platform/metrics-getting-started) for details on using this tool. 
 
-You can analyze metrics for *Azure SQL Database* with metrics from other Azure services using metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Getting started with Azure Metrics Explorer](/azure/azure-monitor/platform/metrics-getting-started) for details on using this tool. 
-
-<!-- Point to the list of metrics available in your monitor-service-reference article. -->
-For a list of the platform metrics collected for Azure SQL Database, see [Monitoring *[service-name]* data reference metrics](monitor-service-reference.md#metrics)  
-
-<!-- REQUIRED for services that use a Guest OS. That includes agent based services like Virtual Machines, Service Fabric, Cloud Services, and perhaps others. Delete the section otherwise -->
-Guest OS metrics must be collected by agents running on the virtual machines hosting your service. <!-- Add additional information as appropriate -->. For more information, see [Overview of Azure Monitor agents](/azure/azure-monitor/platform/agents-overview)  
+For a list of the platform metrics collected for Azure SQL Database, see [Monitoring Azure SQL Database data reference metrics](monitoring-sql-database-azure-monitor-reference.md#metrics)  
 
 For reference, you can see a list of [all resource metrics supported in Azure Monitor](/azure/azure-monitor/platform/metrics-supported).
 
@@ -68,25 +63,17 @@ For reference, you can see a list of [all resource metrics supported in Azure Mo
 
 ## Analyzing logs
 
-<!-- REQUIRED. Please keep headings in this order
-If you don't support resource logs, say so. Some services may be only onboarded to metrics and the activity log. -->
-
 Data in Azure Monitor Logs is stored in tables where each table has its own set of unique properties.  
 
-All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-schema#top-level-resource-logs-schema) The schema for [service name] resource logs is found in the [Azure SQL Database Data Reference](monitor-service-reference.md#schemas) 
+All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-schema#top-level-resource-logs-schema) The schema for [service name] resource logs is found in the [Azure SQL Database Data Reference](monitoring-sql-database-azure-monitor-reference.md#schemas) 
 
 The [Activity log](/azure/azure-monitor/platform/activity-log) is a type of platform log in Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.  
 
-For a list of the types of resource logs collected for Azure SQL Database, see [Monitoring Azure SQL Database data reference](monitor-service-reference.md#resource-logs)  
+For a list of the types of resource logs collected for Azure SQL Database, see [Monitoring Azure SQL Database data reference](monitoring-sql-database-azure-monitor-reference.md#resource-logs)  
 
-For a list of the tables used by Azure Monitor Logs and queryable by Log Analytics, see [Monitoring Azure SQL Database data reference](monitor-service-reference.md##azure-monitor-logs-tables)  
-
-<!--  Optional: Call out additional information to help your customers. For example, you can include additional information here about log usage or what logs are most important. Remember that the UI is subject to change quite often so you will need to maintain these screenshots yourself if you add them in. -->
+For a list of the tables used by Azure Monitor Logs and queryable by Log Analytics, see [Monitoring Azure SQL Database data reference](monitoring-sql-database-azure-monitor-reference.md##azure-monitor-logs-tables)  
 
 ### Sample Kusto queries
-
-<!-- REQUIRED if you support logs. Please keep headings in this order -->
-<!-- Add sample Log Analytics Kusto queries for your service. -->
 
 > [!IMPORTANT]
 > When you select **Logs** from the [service-name] menu, Log Analytics is opened with the query scope set to the current [Service resource]. This means that log queries will only include data from that resource. If you want to run a query that includes data from other [resource] or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](/azure/azure-monitor/log-query/scope/) for details.
@@ -95,9 +82,16 @@ For a list of the tables used by Azure Monitor Logs and queryable by Log Analyti
 
 Following are queries that you can use to help you monitor your [Service] resource. 
 
+**Log_write_percent** from the past hour
+
 <!-- Put in a code section here. -->  
 ```Kusto
-   
+AzureMetrics
+| where ResourceProvider == "MICROSOFT.SQL"
+| where TimeGenerated >= ago(60min)
+| where MetricName in ('log_write_percent')
+| parse _ResourceId with * "/microsoft.sql/servers/" Resource// subtract Resource name for _ResourceId
+| summarize Log_Maximum_last60mins = max(Maximum), Log_Minimum_last60mins = min(Minimum), Log_Average_last60mins = avg(Average) by Resource, MetricName
 ```
 
 ## Alerts
@@ -123,6 +117,6 @@ The following table lists common and recommended alert rules for [service-name].
 
 <!-- Add additional links. You can change the wording of these and add more if useful.   -->
 
-- See [Monitoring [service-name] data reference](monitor-service-reference.md) for a reference of the metrics, logs, and other important values created by [service name].
+- See [Monitoring [service-name] data reference](monitoring-sql-database-azure-monitor-reference.md) for a reference of the metrics, logs, and other important values created by [service name].
 *>.
 - See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resource) for details on monitoring Azure resources.
