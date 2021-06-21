@@ -26,7 +26,7 @@ In this article, you'll integrate Azure native services in your Azure VMware Sol
 1. [Create an Azure Automation account](../automation/automation-create-standalone-account.md). 
 
    >[!TIP]
-   >You can [use an Azure Resource Manager (ARM) template to create an Automation accoun](../automation/tutorial-create-automation-account-template.md). Using an ARM template takes fewer steps compared to other deployment methods.
+   >You can [use an Azure Resource Manager (ARM) template to create an Automation account](../automation/quickstart-create-automation-account-template.md). Using an ARM template takes fewer steps compared to other deployment methods.  
 
 1. [Enable Update Management from an Automation account](../automation/update-management/enable-from-automation-account.md).  This links your Log Analytics workspace to your automation account. It also enables Azure and non-Azure VMs in Update Management.
 
