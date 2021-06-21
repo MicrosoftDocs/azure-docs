@@ -92,11 +92,16 @@ HttpResponseStats are request going to [gateway](sql-sdk-connection-modes.md). E
 
 If the request is slow, first verify all the suggestions above don't yield results.
 
-* Always consistently slow; this points to a networking issue or infrastructure issue.
-* Slow only for a short period of time:  this might point to an issue with Cosmos DB service.
-* Single request: this likely a transient networking issues.
-* First request shows multiple HttpResponseStats: this is expected when the client first initializes.
-* Direct mode shows multiple HttpResponseStats on a few requests: some events might require the SDK to refresh the routing information and meta data.
+If it is still slow different patterns point to different issues:
+
+Single store result for a single request
+
+| Number of requests | Scenario | Description | 
+|----------|-------------|-------------|
+| Single to all | Request Timeout or HttpRequestExceptions | This points to SNAT Port exhaustion or lack of resources on the machine to processes request in time |
+| Single or small percentage | All | This doesn't violate the Cosmos DB SLA. A single or small percentage of slow requests can be caused by several different transient issues and should be expected | 
+| All | All | An issue with the infrastructure or networking. |
+| SLA Violated | No changes to application and SLA dropped | This likely an issue with Cosmos DB service |
 
 ```json
 "HttpResponseStats": [
@@ -117,19 +122,15 @@ StoreResult represents a single request to Cosmos DB using Direct + TCP.
 
 If it is still slow different patterns point to different issues:
 
-Single StoreResult is slow:
-
-* Always consistently slow requests points to a networking or infrastructure issue.
-* Single request or a very small percentage that does not violate Cosmos DB SLA. These should be ignored as it doesn't violate the Cosmos DB SLA. 
-* Multiple StoreResults with the same StorePhysicalAddress. This points to an issue with the Cosmos DB service. 
-* Multiple StoreResults to multiple StorePhysicalAddress from a single machine. There is something wrong with the machine
+Single store result for a single request
 
 | Number of requests | Scenario | Description | 
 |----------|-------------|-------------|
+| Single to all | StoreResult contains TransportException | This points to SNAT Port exhaustion or lack of resources on the machine to processes request in time |
 | Single or small percentage | All | This doesn't violate the Cosmos DB SLA. A single or small percentage of slow requests can be caused by several different transient issues and should be expected | 
 | All | All | An issue with the infrastructure or networking. |
 | SLA Violated | Requests contain multiple failure error codes like 410 | This likely points to an issue with the Cosmos DB service |
-| SLA Violated | StorePhysicalAddress is the same with no failure status code  | This likely an issue with Cosmos DB service |
+| SLA Violated | StorePhysicalAddress is the same with no failure status code | This likely an issue with Cosmos DB service |
 | SLA Violated | StorePhysicalAddress have the same partition ID but different replica IDs with no failure status code | This likely is an issue with the Cosmos DB service |
 | SLA Violated | StorePhysicalAddress are random with no failure status code | This likely points to an issue with the machine |
 
