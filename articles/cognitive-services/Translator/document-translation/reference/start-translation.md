@@ -58,7 +58,7 @@ Definition for the input batch translation request.
 |Name|Type|Required|Description|
 |--- |--- |--- |--- |
 |source|SourceInput[]|True|inputs.source listed below. Source of the input documents.|
-|storageType|StorageInputType[]|True|inputs.storageType listed below. Storage type of the input documents source string.|
+|storageType|StorageInputType[]|False|inputs.storageType listed below. Storage type of the input documents source string. Required for single document translation only.|
 |targets|TargetInput[]|True|inputs.target listed below. Location of the destination for the output.|
 
 **inputs.source**

@@ -1,6 +1,6 @@
 ---
 title: Link your partner ID to track your impact on delegated resources
-description: Learn how to associate your partner ID to receive partner earned credit (PEC) on customer resources you manage through Azure Lighthouse.
+description: Associate your partner ID to receive partner earned credit (PEC) on customer resources you manage through Azure Lighthouse.
 ms.date: 02/12/2021
 ms.topic: how-to
 ---

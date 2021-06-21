@@ -131,7 +131,7 @@ The following requirements apply to the Azure AD Password Protection proxy servi
 
 The Microsoft Azure AD Connect Agent Updater service is installed side by side with the Azure AD Password Protection Proxy service. Additional configuration is required in order for the Microsoft Azure AD Connect Agent Updater service to be able to function:
 
-* If your environment uses an HTTP proxy server, follow the guidelines specified in [Work with existing on-premises proxy servers](../manage-apps/application-proxy-configure-connectors-with-proxy-servers.md).
+* If your environment uses an HTTP proxy server, follow the guidelines specified in [Work with existing on-premises proxy servers](../app-proxy/application-proxy-configure-connectors-with-proxy-servers.md).
 * The Microsoft Azure AD Connect Agent Updater service also requires the TLS 1.2 steps specified in [TLS requirements](../app-proxy/application-proxy-add-on-premises-application.md#tls-requirements).
 
 > [!WARNING]
