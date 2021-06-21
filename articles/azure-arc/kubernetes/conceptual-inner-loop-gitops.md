@@ -9,17 +9,17 @@ ms.author: sudivate
 description: "This article provides a conceptual overview of Inner Loop Developer Experience for Teams Adopting GitOps "
 keywords: "GitOps, Kubernetes, K8s, Azure, Helm, Arc, AKS, Azure Kubernetes Service, containers, CI, CD, Azure DevOps, Inner loop, Dev Experience"
 ---
-# Inner Loop Developer Experience for Teams Adopting GitOps
+# Inner Loop Developer Experience for teams adopting GitOps
 
-## Inner Dev Loop Frameworks
+## Inner dev loop frameworks
 
-Teams doing cloud-native development likely will desire a robust inner dev loop framework to assist in the iterative process of writing code, building, and debugging. Building and deploying containers slows down the inner dev experience and impacts team productivity.
+Building and deploying containers can slow down the inner dev experience and impact team productivity. Cloud-native development teams will benefit from a robust inner dev loop framework. Inner dev loop frameworks assist in the iterative process of writing code, building, and debugging.
 
-A few capabilities to look for in an inner dev loop framework is.
+Inner dev loop frameworks capabilities include:
 
  
 1. Automate repetitive steps like building code, containers, and deploying to target cluster. 
-1. Easily work with remote and local cluster and support local tunnel debugging for hybrid setup.
+1. Easily working with remote and local clusters, and supporting local tunnel debugging for hybrid setup.
 1. Ability to configure custom flow for team-based productivity.  
 1. Allow handling of microservice dependencies. 
 1. Hot reloading, port forwarding, log, and terminal access. 
@@ -63,12 +63,13 @@ Suppose Alice wants to make changes to the application code and run and debug th
 
 1. Alice updates the local configuration for the development environment represented in .env file.
 1. Alice runs `devspace use context`, selects the Kubernetes cluster context.
-3.	Alice selects a namespace she wants to work with by running `devspace use namespace <namespace_name>`.
+1.	Alice selects a namespace she wants to work with by running `devspace use namespace <namespace_name>`.
 1.	Alice can iterate through changes to the application code by running `devspace dev` to deploy and debug the application onto target cluster.
-1.	Running `devspace dev` generates low-level manifests based on Alices’s local configuration and deploys the application. These low-level manifests are configured with devspace hooks in devspace.yaml
-1. Alice does not need to rebuild the container every time she makes code changes to code, because DevSpace will enable hot reloading using file sync to copy her latest changes inside the container.
+1. Running `devspace dev` generates low-level manifests based on Alices’s local configuration and deploys the application. These low-level manifests are configured with devspace hooks in devspace.yaml
+1. Alice doesn't need to rebuild the container every time she makes code changes, since DevSpace will enable hot reloading, using file sync to copy her latest changes inside the container.
 1. Running `devspace dev` will also deploy any dependencies configured in devspace.yaml, such as back-end dependencies to front-end. 
 1. Alice tests her changes by accessing the application through the forwarding configured through devspace.yaml.
-1. After Alice has finalized her changes, she can purge the deployment by running `devspace purge` and create a new pull request to merge her changes to the dev branch of the application repository.
+1. Once Alice finalizes her changes, she can purge the deployment by running `devspace purge` and create a new pull request to merge her changes to the dev branch of the application repository.
 
-Sample code for above workflow can be found at this [GitHub repo](https://github.com/Azure/arc-cicd-demo-src)
+> [!NOTE]
+> Find the sample code for above workflow at this [GitHub repo](https://github.com/Azure/arc-cicd-demo-src)
