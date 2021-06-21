@@ -67,7 +67,7 @@ exporting de-identified data are being added to the Healthcare APIs.
 To start working with the Azure Healthcare APIs, follow the 5-minute quick start to deploying a workspace.
 
 >[!div class="nextstepaction"]
->[Deploy workspace in the Azure portal](deploy-workspace-in-portal.md)
+>[Deploy workspace in the Azure portal](healthcare-apis-quickstart.md)
 
 >[!div class="nextstepaction"]
 >[Workspace overview](workspace-overview.md)

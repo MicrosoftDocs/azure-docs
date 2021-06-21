@@ -33,7 +33,7 @@ When you create a workspace, it must be configured for an Azure region, which ca
 
 Once the Azure Healthcare APIs resource is created, you’re now ready to create one or more service instances from the Azure portal. You can create multiple service instances of the same type or different types in one workspace. Within the workspace, you can apply shared configuration settings to child service instances, which are covered in the workspace and configuration settings section.
 
-:::image type="content" source="../media/azure-resource-group.png" alt-text="Azure Resource Group.":::
+:::image type="content" source="fhir/media/healthcareapis-workspace/azure-resource-group.png" alt-text="Azure Resource Group.":::
 
 Additionally, workspaces can be created using Azure Resource Manager (ARM) deployment templates, a process commonly known as infrastructure as code (IaC). This option provides the ability to customize the ARM templates and complete the workspace creation and service instance creation in a combined step. 
 
@@ -98,7 +98,7 @@ to. For more information, see [Azure RBAC](https://docs.microsoft.com/azure/role
 To start working with the Azure Healthcare APIs, follow the 5-minute quick start to deploying a workspace.
 
 >[!div class="nextstepaction"]
->[Deploy workspace in the Azure portal](deploy-workspace-in-portal.md)
+>[Deploy workspace in the Azure portal](healthcare-apis-quickstart.md)
 
 
 
