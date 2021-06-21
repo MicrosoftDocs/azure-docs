@@ -38,9 +38,9 @@ When you want your apps in plan to reach a VNet that's already connected to by a
 
 The feature is fully supported for both Windows and Linux apps, including [custom containers](../articles/app-service/quickstart-custom-container.md). All of the behaviors act the same between Windows apps and Linux apps.
 
-### Routing scope
+### Integration routing scope
 
-You can configure the routing scope applied to your regional VNet integration. If all traffic routing is not enabled, your app routes only [RFC1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3) traffic into your VNet. If you want to route all of your outbound traffic into your VNet, make sure this is configured.
+You can configure the routing scope applied to your regional VNet integration by enabling routing of all traffic. If all traffic routing is not enabled, your app routes only [RFC1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3) traffic into your VNet. If you want to route all of your outbound traffic into your VNet, make sure this all traffic routing is enabled.
 
 > [!NOTE]
 > When you route all of your outbound traffic into your VNet, all traffic is subject to the NSGs and UDRs that are applied to your integration subnet. When all traffic routing is enabled, outbound traffic is still sent from the addresses that are listed in your app properties, unless you provide routes that direct the traffic elsewhere.
@@ -49,7 +49,7 @@ You can configure the routing scope applied to your regional VNet integration. I
 
 You can use the following steps to enable routing of all traffic in your app through the portal: 
 
-REPLACE WITH UX FROM 
+REPLACE WITH UX FROM VNET INTEGRATION BLADE
 
 1. Go to the **Configuration** UI in your app portal. Select **New application setting**.
 1. Enter `WEBSITE_VNET_ROUTE_ALL` in the **Name** box, and enter `1` in the **Value** box.
@@ -59,9 +59,11 @@ REPLACE WITH UX FROM
 1. Select **OK**.
 1. Select **Save**.
 
-You can also configure routing scope using CLI:
+You can also configure traffic routing using CLI:
 
-
+```azurecli-interactive
+az webapp config set --resource-group myRG --name myWebApp --vnet-route-all-enabled [true|false]
+```
 
 ### Service endpoints
 
