@@ -19,7 +19,7 @@ When you create an Azure Maps account, keys and a client ID are generated. The k
 ## View authentication details
 
  >[!IMPORTANT]
- >It's recommended that you use the primary key as the subscription key when you [use Shared Key authentication to call Azure Maps](./azure-maps-authentication.md#shared-key-authentication). It is best to use the secondary key in scenarios such as rolling key changes. For more information, see [Authentication in Azure Maps](./azure-maps-authentication.md).
+ >We recommend that you use the primary key as the subscription key when you [use Shared Key authentication to call Azure Maps](./azure-maps-authentication.md#shared-key-authentication). It's best to use the secondary key in scenarios like rolling key changes. For more information, see [Authentication in Azure Maps](./azure-maps-authentication.md).
 
 To view your Azure Maps authentication details:
 
@@ -42,10 +42,10 @@ Depending on your application needs, there are specific pathways to application 
 
 ## Choose an authentication and authorization scenario
 
-The table below outlines common authentication and authorization scenarios in Azure Maps. The links in the table take you to detailed configuration information for each scenario.
+This table outlines common authentication and authorization scenarios in Azure Maps. Use the links to learn detailed configuration information for each scenario.
 
 > [!IMPORTANT]
-> Microsoft recommends implementing Azure Active Directory (Azure AD) with Azure role-based access control (Azure RBAC) for production applications.
+> For production applications, we recommend implementing Azure AD with Azure role-based access control (Azure RBAC).
 
 | Scenario                                                                                    | Authentication | Authorization | Development effort | Operational effort |
 | ------------------------------------------------------------------------------------------- | -------------- | ------------- | ------------------ | ------------------ |
@@ -60,29 +60,29 @@ The table below outlines common authentication and authorization scenarios in Az
 
 To view the built-in Azure Maps role definition:
 
-1. Select **Access control (IAM)** in the main menu.
+1. In the left pane, select **Access control (IAM)**.
 
 2. Select the **Roles** tab.
 
-3. Type *Azure Maps* in the search box.
+3. In the search box, enter **Azure Maps**.
 
-4. The results display the available built-in role definitions for Azure Maps.
+The results display the available built-in role definitions for Azure Maps.
 
-      :::image type="content" border="true" source="./media/how-to-manage-authentication/view-role-definitions.png" alt-text="View built-in Azure Maps role definitions.":::
+:::image type="content" border="true" source="./media/how-to-manage-authentication/view-role-definitions.png" alt-text="View built-in Azure Maps role definitions.":::
 
 ## View role assignments
 
 To view users and apps that have been granted access for Azure Maps, go to **Access Control (IAM)**. There, select **Role assignments**, and then filter by **Azure Maps**.
 
-1. Select **Access control (IAM)** in the main menu.
+1. In the left pane, select **Access control (IAM)**.
 
 2. Select the **Role assignments** tab.
 
-3. Type *Azure Maps* in the search box.
+3. In the search box, enter **Azure Maps**.
 
-4. The results display the current Azure Maps role assignments.
+The results display the current Azure Maps role assignments.
 
-   :::image type="content" border="true" source="./media/how-to-manage-authentication/view-amrbac.png" alt-text="View built-in View users and apps that have been granted access.":::
+:::image type="content" border="true" source="./media/how-to-manage-authentication/view-amrbac.png" alt-text="View built-in View users and apps that have been granted access.":::
 
 ## Request tokens for Azure Maps
 
@@ -97,14 +97,14 @@ For more information about requesting access tokens from Azure AD for users and 
 
 ## Manage and rotate shared keys
 
-Your Azure Maps subscription keys are similar to a root password for your Azure Maps account. Always be careful to protect your subscription keys. Use Azure Key Vault to manage and rotate your keys securely. Avoid distributing access keys to other users, hard-coding them, or saving them anywhere in plain text that is accessible to others. Rotate your keys if you believe that they may have been compromised.
+Your Azure Maps subscription keys are similar to a root password for your Azure Maps account. Always be careful to protect your subscription keys. Use Azure Key Vault to securely manage and rotate your keys. Avoid distributing access keys to other users, hard-coding them, or saving them anywhere in plain text that's accessible to others. If you believe that your keys may have been compromised, rotate them.
 
 > [!NOTE]
-> Microsoft recommends using Azure Active Directory (Azure AD) to authorize requests if possible, instead of Shared Key. Azure AD provides superior security and ease of use over Shared Key.
+> If possible, we recommend using Azure AD instead of Shared Key to authorize requests. Azure AD has better security than Shared Key, and it's easier to use.
 
 ### Manually rotate subscription keys
 
-Microsoft recommends that you rotate your subscription keys periodically to help keep your Azure Maps account secure. If possible, use Azure Key Vault to manage your access keys. If you aren't using Key Vault, you'll need to rotate your keys manually.
+To help keep your Azure Maps account secure, we recommend periodically rotating your subscription keys. If possible, use Azure Key Vault to manage your access keys. If you aren't using Key Vault, you'll need to manually rotate your keys.
 
 Two subscription keys are assigned so that you can rotate your keys. Having two keys ensures that your application maintains access to Azure Maps throughout the process.
 
@@ -118,7 +118,7 @@ To rotate your Azure Maps subscription keys in the Azure portal:
 6. Regenerate the secondary key in the same manner.
 
 > [!WARNING]
-> Microsoft recommends using only one of the keys in all of your applications at the same time. If you use Key 1 in some places and Key 2 in others, you won't be able to rotate your keys without some applications losing access.
+> We recommend using only one of the keys in all of your applications at the same time. If you use Key 1 in some places and Key 2 in others, you won't be able to rotate your keys without some applications losing access.
 
 ## Next steps
 

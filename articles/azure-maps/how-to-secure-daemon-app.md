@@ -16,7 +16,7 @@ custom.ms: subject-rbac-steps
 
 This article describes how to host daemon applications in a trusted and secure environment in Microsoft Azure Maps.
 
-Examples of a daemon application are:
+The following are examples of daemon applications:
 
 - Azure Web Job
 - Azure Function App
@@ -54,7 +54,7 @@ Now, the daemon application can retrieve the shared key from the Key Vault.
 
 ## Scenario: Azure AD role-based access control
 
-Once an Azure Maps account is created, the Azure Maps `Client ID` value is present in the Azure portal authentication details page. This value represents the account that is to be used for REST API requests. This value should be stored in application configuration and retrieved before making HTTP requests. The goal of the scenario is to enable the daemon application to authenticate to Azure AD and call Azure Maps REST APIs.
+After an Azure Maps account is created, the Azure Maps `Client ID` value is present in the Azure portal authentication details page. This value represents the account that is to be used for REST API requests. This value should be stored in application configuration and retrieved before making HTTP requests. The goal of the scenario is to enable the daemon application to authenticate to Azure AD and call Azure Maps REST APIs.
 
 > [!TIP]
 >To enable benefits of managed identity components, we recommend that you host on Azure Virtual Machines, Virtual Machine Scale Sets, or App Services.
@@ -70,7 +70,7 @@ Some managed identity benefits are:
 - Azure system-managed X509 certificate public key cryptography authentication.
 - Azure AD security with X509 certificates instead of client secrets.
 - Azure manages and renews all certificates associated with the Managed Identity resource.
-- Simplifies credential operational management by removing any need for a secured secret store service, such as Azure Key Vault.
+- Credential operational management is simplified because managed identity removes the need for a secured secret store service, such as Azure Key Vault.
 
 ### Host a daemon on non-Azure resources
 
@@ -92,7 +92,7 @@ To create a new application registration:
 
       :::image type="content" border="true" source="./media/how-to-manage-authentication/app-registration.png" alt-text="View app registrations.":::
 
-5. Enter a **Name** and choose a **Support account type**.
+5. Enter a **Name**, and then select a **Support account type**.
 
     :::image type="content" border="true" source="./media/how-to-manage-authentication/app-create.png" alt-text="Create app registration.":::
 
@@ -106,7 +106,7 @@ To assign delegated API permissions to Azure Maps:
 
 2. Select **Azure Active Directory**.
 
-3. In the **Manage** menu, select **App registrations**.
+3. Under **Manage** in the left pane, select **App registrations**.
 
 4. Select your application.
 
@@ -137,20 +137,20 @@ To assign delegated API permissions to Azure Maps:
 To implement server or application-based authentication into your application, you can choose one of two options:
 
 - Upload a public key certificate.
-- Create a client secret
+- Create a client secret.
 
 ##### Upload a public key certificate
 
 To upload a public key certificate:
 
-1. In the **Manage** menu, select **Certificates & secrets**.
+1. Under **Manage** in the left pane, select **Certificates & secrets**.
 
 2. Select **Upload certificate**.
    :::image type="content" border="true" source="./media/how-to-manage-authentication/upload-certificate.png" alt-text="Upload certificate.":::
 
 3. To the right of the text box, select the file icon.
 
-4. Choose a *.crt*, *.cer*, or *.pem* file.
+4. Select a *.crt*, *.cer*, or *.pem* file, and then select **Add**.
 
     :::image type="content" border="true" source="./media/how-to-manage-authentication/upload-certificate-file.png" alt-text="Upload certificate file.":::
 
@@ -164,7 +164,7 @@ To create a client secret:
 
    :::image type="content" border="true" source="./media/how-to-manage-authentication/new-client-secret.png" alt-text="New client secret.":::
 
-3. Type in a description for the client secret.
+3. Enter a description for the client secret.
 
 4. Select **Add**.
 
