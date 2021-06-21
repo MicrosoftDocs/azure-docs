@@ -6,10 +6,10 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 06/15/2021
+ms.date: 06/21/2021
 
-ms.author: BarbaraSelden
-author: justinha
+ms.author: BaSelden
+author: BarbaraSelden
 manager: daveba
 ms.reviewer: michmcla
 
@@ -300,6 +300,35 @@ We do not recommend that you reuse groups that are used for security. Therefore,
 
 ## Monitoring
 
+A number of [Azure Monitor workbooks](../reports-monitoring/howto-use-azure-monitor-workbooks.md) and usage & insights reports are available to monitor your deployment. 
+These can be found in Azure AD in the navigation pane under **Monitoring**. 
+
+### Monitoring Staged Rollout
+
+In the [workbooks](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Workbooks) section, select **Public Templates**. Under **Hybrid Auth** section select the **Groups, Users and Sign-ins in Staged Rollout** workbook.
+
+This workbook can be used to monitor the following: 
+* Users and groups added to Staged Rollout.
+* Users and groups removed from Staged Rollout.
+* Sign-in failures for users in staged rollout, and the reasons for failures.
+
+### Monitoring Azure MFA Registration
+Azure MFA registration can be monitored using the [Authentication methods usage & insights report](https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthenticationMethodsMenuBlade/AuthMethodsActivity/menuId/AuthMethodsActivity). This report can be found in Azure AD. Select **Monitoring**, then select **Usage & insights**. 
+
+![Screenshot of how to find the Usage and Insights report.](media/how-to-migrate-mfa-server-to-azure-mfa-user-authentication/usage-report.png)
+
+In Usage & insights, select **Authentication methods**. 
+
+Detailed Azure MFA registration information can be found on the Registration tab. You can drill down to view a list of registered users by selecting the **Users capable of Azure multi-factor authentication** hyperlink.
+
+![Screenshot of the Registration tab.](media/how-to-migrate-mfa-server-to-azure-mfa-user-authentication/registration-tab.png)
+
+### Monitoring App Sign-in Health
+
+Monitor applications you have moved to Azure AD with the App sign-in health workbook or the application activity usage report.
+
+* **App sign-in health workbook**. See [Monitoring application sign-in health for resilience](../fundamentals/monitor-sign-in-health-for-resilience.md) for detailed guidance on using this workbook.
+* **Azure AD application activity usage report**. This [report](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsageAndInsightsMenuBlade/Azure%20AD%20application%20activity) can be used to view the successful and failed sign-ins for individual applications as well as the ability to drill down and view sign-in activity for a specific application. 
 
 ## Clean up tasks
 
@@ -355,7 +384,6 @@ If you move all application authentication, you can skip the [Prepare AD FS](#pr
 The process for moving all application authentication is illustrated in the following diagram.
 
 ![Process to migrate applications to to Azure AD MFA.](media/how-to-migrate-mfa-server-to-azure-mfa-user-authentication/mfa-app-migration-flow.png)
-
 
 If it is not possible to move all your applications prior to the migration, move applications that you can before starting.
 For more information on migrating applications to Azure, see [Resources for migrating applications to Azure Active Directory](../manage-apps/migration-resources.md).

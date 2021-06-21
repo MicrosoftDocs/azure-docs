@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: how-to
 ms.date: 06/15/2021
 
-ms.author: BarbaraSelden
-author: justinha
+ms.author: BaSelden
+author: BarbaraSelden
 manager: daveba
 ms.reviewer: michmcla
 
