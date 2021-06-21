@@ -1,14 +1,14 @@
 ---
-title: Create a secure Azure Machine Learning workspace
+title: Create a secure workspace
 titleSuffix: Azure Machine Learning
-description: Tutorial of creating a secure Azure Machine Learning workspace
+description: Create an Azure Machine Learning workspace and required Azure services inside a secure virtual network.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.reviewer: larryfr
+ms.reviewer: jhirono
 ms.author: larryfr
 author: blackmist
-ms.date: 03/17/2021
+ms.date: 06/21/2021
 ms.topic: how-to
 
 ---
