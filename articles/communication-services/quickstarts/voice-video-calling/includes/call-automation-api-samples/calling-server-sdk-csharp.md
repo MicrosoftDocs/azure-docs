@@ -22,7 +22,7 @@ Before you get started, make sure to:
 - [.NET Framework 4.7.2](https://dotnet.microsoft.com/download/dotnet-framework/net472) (Make sure to install version that corresponds with your visual studio instance, 32 vs 64 bit).
 - Create an Azure Communication Services resource. For details, see [Create an Azure Communication Resource](https://docs.microsoft.com/azure/communication-services/quickstarts/create-communication-resource). You'll need to record your resource **connection string** for this sample.
 - Get a phone number for your new Azure Communication Services resource. For details, see [Get a phone number](https://docs.microsoft.com/azure/communication-services/quickstarts/telephony-sms/get-phone-number?pivots=platform-azp).
-- Download and install [Ngrok](https://www.ngrok.com/download). As the sample is run locally, Ngrok will enable the receiving of all the events.
+- Download and install [ngrok](https://www.ngrok.com/download). As the sample is run locally, ngrok will enable the receiving of all the events.
 - (Optional) Create Azure Speech resource for generating custom message to be played by application. Follow [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/overview#try-the-speech-service-for-free) to create the resource.
 
 > Note: the samples make use of the Microsoft Cognitive Services Speech SDK. By downloading the Microsoft Cognitive Services Speech SDK, you acknowledge its license, see [Speech SDK license agreement](https://aka.ms/csspeech/license201809).
@@ -34,9 +34,9 @@ Before you get started, make sure to:
 	- Connection String: Azure Communication Service resource's connection string.
 	- Source Phone: Phone number associated with the resource.
 	- DestinationIdentities: Destination identities to call. Multiple outbound calls are separated by a semi-colon and participants in an outbound call are separated by a coma.
-      For e.g. +14251002000, 8:acs:ab12b0ea-85ea-4f83-b0b6-84d90209c7c4_00000009-bce0-da09-54b7-xxxxxxxxxxxx; +14251002001, 8:acs:ab12b0ea-85ea-4f83-b0b6-84d90209c7c4_00000009-bce0-da09-555-xxxxxxxxxxxx).
+      For example +14251002000, 8:acs:ab12b0ea-85ea-4f83-b0b6-84d90209c7c4_00000009-bce0-da09-54b7-xxxxxxxxxxxx; +14251002001, 8:acs:ab12b0ea-85ea-4f83-b0b6-84d90209c7c4_00000009-bce0-da09-555-xxxxxxxxxxxx).
 	- NgrokExePath: Folder path where ngrok.exe is installed/saved.
-	- SecretPlaceholder: Secret/Password that would be part of callback and will be use to validate incoming requests.
+	- SecretPlaceholder: Secret/Password that would be part of callback and will be used to validate incoming requests.
 	- CognitiveServiceKey: (Optional) Cognitive service key used for generating custom message
 	- CognitiveServiceRegion: (Optional) Region associated with cognitive service
 	- CustomMessage: (Optional) Text for the custom message to be converted to speech.
@@ -78,14 +78,14 @@ await client.DeleteUserAsync(new CommunicationUserIdentifier(source)).ConfigureA
 
 ## Create a call
 
-Use `CreateCallConnectionAsync` method of `CallingServerClient` object to start a call. The following are the parameters for `CreateCallConnectionAsync` method :
-- `source`, is the source user identity of the caller. This is of type `CommunicationIdentifier`.
-- `targets`, is list of target indentities. This is of type `IEnumerable<CommunicationIdentifier>`.
-- `options`, is the options for the call. This is of type `CreateCallOptions`. The following are the parameters for `CreateCallOptions` method :
+Use `CreateCallConnectionAsync` method of `CallingServerClient` object to start a call. The following are the parameters for `CreateCallConnectionAsync` method:
+- `source`, is the source user identity of the caller of type `CommunicationIdentifier`.
+- `targets`, is list of target identities of type `IEnumerable<CommunicationIdentifier>`.
+- `options`, is the options for the call of type `CreateCallOptions`. The following are the parameters for `CreateCallOptions` method:
 
 	- `callbackUri`, is the callback URI of the application.
 	- `requestedModalities`, is request call modality. The type is `IEnumerable<MediaType>`. Values could be Audio or Video.
-	- `requestedCallEvents`, is the requested call back events. This is type of `IEnumerable<EventSubscriptionType>`. Use this parameter to subscribe to `EventSubscriptionType.ParticipantsUpdated` and `EventSubscriptionType.DtmfReceived` events
+	- `requestedCallEvents`, is the requested callback events. This is type of `IEnumerable<EventSubscriptionType>`. Use this parameter to subscribe to `EventSubscriptionType.ParticipantsUpdated` and `EventSubscriptionType.DtmfReceived` events
 
 - `cancellationToken`, is the cancellation token. The type is `CancellationToken`.
 
@@ -106,15 +106,15 @@ var call = await callClient.CreateCallConnectionAsync(source,
 	.ConfigureAwait(false);
 ```
 
-The `CreateCallConnectionAsync` method return `CallConnection` object which can be used for other call operations like play audio, cancel audio and hangup.
+The `CreateCallConnectionAsync` method return `CallConnection` object, which can be used for other call operations like play audio, cancel audio and hang up.
 
 ## Play audio
 
-Once a call connection is created you can use `PlayAudioAsync` method of `CallConnection` object to play an audio message for the callee. The following are the supported parameters for `PlayAudioAsync` method:
+Once a call connection is created, you can use `PlayAudioAsync` method of `CallConnection` object to play an audio message for the callee. The following are the supported parameters for `PlayAudioAsync` method:
 
 - `options`, required, is the play audio options. The type is `PlayAudioOptions`. The following are the supported parameters for `PlayAudioOptions` object:
 	- `AudioFileUri`, required, is the URI for the audio file having the message to be played.
-	- `OperationContext`, required, is the unique id for request context.
+	- `OperationContext`, required, is the unique ID for request context.
 	- `Loop`, optional, set as true to repeat the audio message.
 - `cancellationToken`, is the cancellation token. The type is `CancellationToken`.
 
@@ -131,7 +131,7 @@ Logger.LogMessage(Logger.MessageType.INFORMATION, "Performing PlayAudio operatio
 var response = await callConnection.PlayAudioAsync(playAudioRequest, reportCancellationToken).ConfigureAwait(false);
 ```
 
-The `PlayAudioAsync` method return `PlayAudioResponse` which can be used to get the `OperationStatus`. The `OperationStatus` could have the following values - NotStarted, Running, Completed or Failed.
+The `PlayAudioAsync` method return `PlayAudioResponse`, which can be used to get the `OperationStatus`. The `OperationStatus` could have the following values - NotStarted, Running, Completed, or Failed.
 
 ```csharp
 Logger.LogMessage(Logger.MessageType.INFORMATION, $"Play Audio state: {response.Value.Status}");
@@ -141,9 +141,9 @@ Logger.LogMessage(Logger.MessageType.INFORMATION, $"Play Audio state: {response.
 
 Use `AddParticipantAsync` method of `CallConnection` object to add a participant to the call. The following are the supported parameters for `AddParticipantAsync` method:
 
-- `participant`, is the participant identifier. This could be either a `CommunicationUserIdentifier` or `PhoneNumberIdentifier`.
+- `participant`, is the participant identifier of either type `CommunicationUserIdentifier` or `PhoneNumberIdentifier`.
 - `alternateCallerId`, is the source caller id.
-- `operationContext`, is the unique id for request context.
+- `operationContext`, is the unique ID for request context.
 - `cancellationToken`, optional, is the cancellation token.
 
 
@@ -168,7 +168,7 @@ else if (identifierKind == CommunicationIdentifierKind.PhoneIdentity)
 
 Use `CancelAllMediaOperationsAsync` method of `CallConnection` object to cancel the play audio operation. The following are the supported parameters for `CancelAllMediaOperationsAsync` method:
 
-- `operationContext`, is the unique id for request context.
+- `operationContext`, is the unique ID for request context.
 - `reportCancellationToken`, is the cancellation token. The type is `CancellationToken`.
 
 ```csharp
