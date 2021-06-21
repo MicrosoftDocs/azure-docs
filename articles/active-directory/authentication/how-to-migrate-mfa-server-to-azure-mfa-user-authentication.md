@@ -303,6 +303,30 @@ We do not recommend that you reuse groups that are used for security. Therefore,
 
 ## Clean up tasks
 
+Once you have moved all your users to Azure AD cloud authentication and Azure MFA, you should be ready to decommission your MFA Server. 
+We recommend reviewing MFA Server logs to ensure no users or applications are using it before you remove the server.
+
+### Convert your domains to managed authentication
+
+You should now convert your federated domains in Azure AD to managed and remove the staged rollout configuration. 
+This ensures new users use cloud authentication without being added to the migration groups.
+
+### Revert Claims Rules on AD FS and Remove MFA Server Authentication Provider
+
+Follow the steps under [Configure claims rules to invoke Azure AD MFA](#configure-claims-rules-to-invoke-azure-ad-mfa) to revert back to the backed up claims rules and remove any AzureMFAServerAuthentication claims rules. 
+
+For example, remove the following from the rule(s): 
+
+```console
+c:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", Value ==
+“**YourGroupSID**"] => issue(Type = "http://schemas.microsoft.com/claims/authnmethodsproviders",
+Value = "AzureMfaAuthentication");
+not exists([Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid",
+Value==“**YourGroupSid**"]) => issue(Type =
+"http://schemas.microsoft.com/claims/authnmethodsproviders", Value =
+"AzureMfaServerAuthentication");’
+```
+
 ### Disable MFA Server as an authentication provider in AD FS
 
 This change ensures only Azure MFA is used as an authentication provider.
