@@ -9,7 +9,7 @@ ms.date: 06/14/2021
 ms.author: ginle
 ---
 
-# What is the Azure Healthcare APIs workspace?
+# What is the workspace?
 
 The Azure Healthcare APIs workspace is a logical container for all your healthcare service instances such as Fast Healthcare Interoperability Resources (FHIR®) services, Digital Imaging and Communications in Medicine (DICOM®) services, and Internet of things (IoT) Connectors. The workspace also creates a compliance boundary (HIPAA, HITRUST) within which protected health information can travel.
 
