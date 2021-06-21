@@ -176,7 +176,7 @@ You need to scan sources in private networks, virtual networks, and behind priva
 
 1. Scan the source by using a self-hosted integration runtime (IR).
 
-    1. All on-premises source types like Azure SQL Server, Oracle, SAP, and others are currently supported only via self-hosted IR-based scans. The self-hosted IR must run within your private network and then be peered with your virtual network in Azure. Follow [these steps](#creating-an-ingestion-private-endpoint) to enable your Azure virtual network on your ingestion private endpoint.
+    1. All on-premises source types like Azure SQL Server, Oracle, SAP, and others are currently supported only via self-hosted IR-based scans. The self-hosted IR must run within your private network and then be peered with your virtual network in Azure. Follow [these steps](#create-an-ingestion-private-endpoint) to enable your Azure virtual network on your ingestion private endpoint.
 
     2. For all Azure source types like Azure Blob Storage and Azure SQL Database, you must explicitly choose to run the scan by using a self-hosted IR to ensure network isolation. Follow the steps in [Create and manage a self-hosted integration runtime](manage-integration-runtimes.md) to set up a self-hosted IR. Then set up your scan on the Azure source by choosing that self-hosted IR in the **Connect via integration runtime** dropdown list to ensure network isolation.
     

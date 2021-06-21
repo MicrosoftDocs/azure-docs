@@ -18,6 +18,8 @@ To set up Azure Purview by using Private Link, see [Use private endpoints for yo
 
 ## Common questions
 
+Check out the answers to the following common questions.
+
 ### What's the purpose of deploying the Azure Purview account private endpoint?
 
 The Azure Purview account private endpoint is used to add another layer of security by enabling scenarios where only client calls that originate from within the virtual network are allowed to access the account. This private endpoint is also a prerequisite for the portal private endpoint.
