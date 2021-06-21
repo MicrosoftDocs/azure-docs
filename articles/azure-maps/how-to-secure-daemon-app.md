@@ -136,7 +136,7 @@ To assign delegated API permissions to Azure Maps:
 
 To implement server or application-based authentication into your application, you can choose one of two options:
 
-- Upload a public key certificate
+- Upload a public key certificate.
 - Create a client secret
 
 ##### Upload a public key certificate
