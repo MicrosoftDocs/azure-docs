@@ -660,8 +660,8 @@
         tocHref: /azure/media-services/previous/
         topicHref: /azure/media-services/previous/
       - name: Video Indexer
-        tocHref: /azure/media-services/video-indexer/
-        topicHref: /azure/media-services/video-indexer/
+        tocHref: /azure/azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-overview
+        topicHref: /azure/azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-overview
       - name: Azure Media Player
         tocHref: /azure/media-services/azure-media-player/
         topicHref: /azure/media-services/azure-media-player/
@@ -1020,4 +1020,3 @@
     - name: Video Analyzer for Media
       tocHref: /azure/azure-video-analyzer/video-analyzer-for-media-docs/
       topicHref: /azure/azure-video-analyzer/video-analyzer-for-media-docs/
-    
