@@ -621,6 +621,8 @@
       href: https://azure.microsoft.com/pricing/calculator/
     - name: Videos
       href: https://azure.microsoft.com/documentation/videos/index/?services=storage
+    - name: Compare access with NFS to Azure Blob Storage, Azure Files, and Azure NetApp Files
+      href: ../common/nfs-comparison.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: NuGet packages (.NET)
       items:
       - name: Microsoft.Azure.Storage.Common (version 11.x)
@@ -925,8 +927,6 @@
         href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Microsoft Q&A question page
       href: /answers/topics/azure-blob-storage.html
-    - name: Compare access with NFS to Azure Blob Storage, Azure Files, and Azure NetApp Files
-      href: ../common/nfs-comparison.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Azure Storage on Stack Overflow
       href: https://stackoverflow.com/questions/tagged/windows-azure-storage
     - name: Pricing
