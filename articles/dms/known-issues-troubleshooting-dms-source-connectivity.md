@@ -81,7 +81,6 @@ Potential issues associated with connecting to a source AWS RDS SQL Server datab
 ## Known issues
 
 * [Known issues/migration limitations with online migrations to Azure SQL Database](./index.yml)
-* [Known issues/migration limitations with online migrations to Azure Database for MySQL](./known-issues-azure-mysql-online.md)
 * [Known issues/migration limitations with online migrations to Azure Database for PostgreSQL](./known-issues-azure-postgresql-online.md)
 
 ## Next steps

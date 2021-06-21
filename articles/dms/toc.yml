@@ -145,8 +145,6 @@
       items:     
       - name: SQL Managed Instance
         href: known-issues-azure-sql-db-managed-instance-online.md
-      - name: Azure DB for MySQL
-        href: known-issues-azure-mysql-online.md
       - name: PostgreSQL to Azure DB for PostgreSQL
         href: known-issues-azure-postgresql-online.md
       - name: MongoDB to Azure Cosmos DB API for MongoDB
