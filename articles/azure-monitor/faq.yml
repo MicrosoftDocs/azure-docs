@@ -188,7 +188,8 @@ sections:
       - question: |
           What's the difference between the Azure Monitor agents?
         answer: |
-          Azure Diagnostic extension is for Azure virtual machines and collects data to Azure Monitor Metrics, Azure Storage, and Azure Event Hubs. The Log Analytics agent is for virtual machines in Azure, another cloud environment, or on-premises and collects data to Azure Monitor Logs. The Dependency agent requires the Log Analytics agent and collected process details and dependencies. See [Overview of the Azure Monitor agents](agents/agents-overview.md).
+          Azure Diagnostic extension is for Azure virtual machines and collects data to Azure Monitor Metrics, Azure Storage, and Azure Event Hubs. The Log Analytics agent is for virtual machines in Azure, another cloud environment, or on-premises and collects data to Azure Monitor Logs. The Dependency agent requires the Log Analytics agent and collected process details and dependencies. 
+          The Azure Monitor Agent is the new, improved agent that will consolidate the features from all the above mentioned agents over time, whilst providing additional benefits like centralized data collection, filtering, multi homing and more. See [Overview of the Azure Monitor agents](agents/agents-overview.md).
           
       - question: |
           Does my agent traffic use my ExpressRoute connection?
@@ -253,7 +254,7 @@ sections:
           See [Network firewall requirements](agents/log-analytics-agent.md#network-requirements)for details on firewall requirements.
           
           
-  - name: Azure Monitor Agent (preview)
+  - name: Azure Monitor Agent
     questions:
       - question: |
           What is the upgrade path from Log Analytics agents to Azure Monitor Agent? How do we migrate?
