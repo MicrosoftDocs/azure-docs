@@ -1,9 +1,9 @@
 ---
 title: Azure IoT Hub Device Provisioning Service - TPM Attestation
 description: This article provides a conceptual overview of the TPM attestation flow using IoT Device Provisioning Service (DPS).
-author: nberdy
-ms.author: nberdy
-ms.date: 04/04/2019
+author: wesmc7777
+ms.author: wesmc
+ms.date: 06/21/2021
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps 
@@ -63,4 +63,5 @@ The device can then sign a SAS token using the decrypted nonce and reestablish a
 Now the device connects to IoT Hub, and you rest secure in the knowledge that your devices’ keys are securely stored. Now that you know how the Device Provisioning Service securely verifies a device’s identity using TPM, check out the following articles to learn more:
 
 * [Learn about the concepts of provisioning](about-iot-dps.md#provisioning-process)
-* [Get started using auto-provisioning](./quick-setup-auto-provision.md) using the SDKs to take care of the flow.
+* [Get started using auto-provisioning](./quick-setup-auto-provision.md) 
+* [Create TPM enrollments using the SDKs](./quick-enroll-device-tpm-java.md)
