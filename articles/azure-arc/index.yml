@@ -55,7 +55,7 @@ conceptualContent:
       links:
         - url: ./servers/learn/quick-enable-hybrid-vm.md
           itemType: get-started
-          text: Enable Arc-enabled servers agent
+          text: Deploy Arc-enabled servers agent
         - url: ./servers/learn/tutorial-enable-vm-insights.md
           itemType: tutorial
           text: Monitor a hybrid machine with Azure Monitor for VMs
