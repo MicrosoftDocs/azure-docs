@@ -281,7 +281,7 @@ At this point, you have a secure cluster running in Azure. Next, [connect to you
 For the JSON syntax and properties to use a template, see [Microsoft.ServiceFabric/clusters template reference](/azure/templates/microsoft.servicefabric/clusters).
 
 <!-- Links -->
-[azure-powershell]:https://docs.microsoft.com/powershell/azure/install-Az-ps
-[azure-CLI]:https://docs.microsoft.com/cli/azure/get-started-with-azure-cli
+[azure-powershell]:/powershell/azure/install-Az-ps
+[azure-CLI]:/cli/azure/get-started-with-azure-cli
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
 [customize-your-cluster-template]: service-fabric-cluster-creation-create-template.md
