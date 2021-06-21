@@ -170,7 +170,7 @@ To create a client secret:
 
    :::image type="content" border="true" source="./media/how-to-manage-authentication/new-client-secret-add.png" alt-text="Add new client secret.":::
 
-5. Copy the secret and store it securely in a service such as Azure Key Vault. Also, We'll use the secret in the [Request token with Managed Identity](#request-token-with-managed-identity) section of this article.
+5. Copy the secret and store it securely in a service such as Azure Key Vault. Also, We'll use the secret in the [Request token with Managed Identity](#request-a-token-with-managed-identity) section of this article.
 
       :::image type="content" border="true" source="./media/how-to-manage-authentication/copy-client-secret.png" alt-text="Copy client secret.":::
 
