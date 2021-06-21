@@ -4,7 +4,7 @@ description: Describes the functions to use in a Bicep file to retrieve values a
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 06/16/2021
 ---
 
 # Resource functions for Bicep
@@ -12,6 +12,7 @@ ms.date: 06/01/2021
 Resource Manager provides the following functions for getting resource values in your Bicep file:
 
 * [extensionResourceId](#extensionresourceid)
+* [getSecret](#getsecret)
 * [list*](#list)
 * [pickZones](#pickzones)
 * [reference](#reference)

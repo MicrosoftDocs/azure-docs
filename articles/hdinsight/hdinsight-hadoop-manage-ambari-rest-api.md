@@ -9,7 +9,7 @@ ms.date: 04/29/2020
 
 # Manage HDInsight clusters by using the Apache Ambari REST API
 
-[!INCLUDE [ambari-selector](../../includes/hdinsight-ambari-selector.md)]
+[!INCLUDE [ambari-selector](includes/hdinsight-ambari-selector.md)]
 
 Learn how to use the Apache Ambari REST API to manage and monitor Apache Hadoop clusters in Azure HDInsight.
 

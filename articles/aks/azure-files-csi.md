@@ -194,7 +194,7 @@ Filesystem                                                                      
 
  This option is optimized for random access workloads with in-place data updates and provides full POSIX file system support. This section shows you how to use NFS shares with the Azure File CSI driver on an AKS cluster.
 
-Make sure to check the [limitations](../storage/files/storage-files-compare-protocols.md#limitations) and [region availability](../storage/files/storage-files-compare-protocols.md#regional-availability).
+Make sure to check the [limitations](../storage/files/files-nfs-protocol.md#limitations) and [region availability](../storage/files/files-nfs-protocol.md#regional-availability) during the preview phase.
 
 ### Create NFS file share storage class
 

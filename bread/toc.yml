@@ -295,7 +295,13 @@
     items:
       - name: Apache Kafka for Confluent Cloud
         tocHref: /azure/partner-solutions/apache-kafka-confluent-cloud/
-        topicHref: /azure/partner-solutions/apache-kafka-confluent-cloud/
+        topicHref: /azure/partner-solutions/apache-kafka-confluent-cloud/overview
+      - name: Datadog
+        tocHref: /azure/partner-solutions/datadog/
+        topicHref: /azure/partner-solutions/datadog/overview
+      - name: Elastic
+        tocHref: /azure/partner-solutions/elastic/
+        topicHref: /azure/partner-solutions/elastic/overview
   - name: SignalR Service
     tocHref: /azure/azure-signalr/
     topicHref: /azure/azure-signalr/
@@ -654,8 +660,8 @@
         tocHref: /azure/media-services/previous/
         topicHref: /azure/media-services/previous/
       - name: Video Indexer
-        tocHref: /azure/media-services/video-indexer/
-        topicHref: /azure/media-services/video-indexer/
+        tocHref: /azure/azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-overview
+        topicHref: /azure/azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-overview
       - name: Azure Media Player
         tocHref: /azure/media-services/azure-media-player/
         topicHref: /azure/media-services/azure-media-player/
@@ -769,6 +775,9 @@
       - name: Web Application Firewall
         tocHref: /azure/web-application-firewall/
         topicHref: /azure/web-application-firewall/
+  - name: Network Function Manager
+    tocHref: /azure/network-function-manager/
+    topicHref: /azure/network-function-manager/
   - name: Notebooks
     tocHref: /azure/notebooks/
     topicHref: /azure/notebooks/azure-notebooks-overview
@@ -790,6 +799,9 @@
   - name: Power BI Workspace Collections
     tocHref: /azure/power-bi-workspace-collections/
     topicHref: /azure/power-bi-workspace-collections/
+  - name: Private multi-access edge compute
+    tocHref: /azure/private-multi-access-edge-compute-mec/
+    topicHref: /azure/private-multi-access-edge-compute-mec/
   - name: Private Link
     tocHref: /azure/private-link/
     topicHref: /azure/private-link/
@@ -1008,4 +1020,3 @@
     - name: Video Analyzer for Media
       tocHref: /azure/azure-video-analyzer/video-analyzer-for-media-docs/
       topicHref: /azure/azure-video-analyzer/video-analyzer-for-media-docs/
-    

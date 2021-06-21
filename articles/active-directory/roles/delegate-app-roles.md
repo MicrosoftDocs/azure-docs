@@ -62,6 +62,9 @@ In some cases, enterprise applications created from the application gallery incl
 1. Select **Owners** to see the list of the owners for the app.
 1. Select **Add** to select one or more owners to add to the app.
 
+> [!NOTE]
+> If the user setting "[Restrict access to Azure AD administration portal](../fundamentals/users-default-permissions.md)" is set to Yes, non-admin users wil not be able to use the Azure portal to manage the applications they own.
+
 > [!IMPORTANT]
 > Users and service principals can be owners of application registrations. Only users can be owners of enterprise applications. Groups cannot be assigned as owners of either.
 >
@@ -93,7 +96,7 @@ This separation allows you to create a single role definition and then assign it
 
 Tips when creating and using custom roles for delegating application management:
 - Custom roles only grant access in the most current app registration blades of the Azure portal. They do not grant access in the legacy app registrations blades.
-- Custom roles do not grant access to the Azure portal when the “Restrict access to Azure AD administration portal” user setting is set to Yes.
+- Custom roles do not grant access to the Azure portal when the “[Restrict access to Azure AD administration portal](../fundamentals/users-default-permissions.md)” user setting is set to Yes.
 - App registrations the user has access to using role assignments only show up in the ‘All applications’ tab on the App registration page. They do not show up in the ‘Owned applications’ tab.
 
 For more information on the basics of custom roles, see the [custom roles overview](custom-overview.md), as well as how to [create a custom role](custom-create.md) and how to [assign a role](custom-assign-powershell.md).

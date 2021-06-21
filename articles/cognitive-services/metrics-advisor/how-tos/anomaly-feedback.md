@@ -105,6 +105,6 @@ Another way to view feedback history is from a series. You will see several butt
 > Anyone who has access to the metric is permitted to give feedback, so you may see feedback given by other datafeed owners. If you edit the same point as someone else, your feedback will overwrite the previous feedback entry.       
 
 ## Next steps
-- [Diagnose an incident](diagnose-incident.md).
-- [Configure metrics and fine tune detecting configuration](configure-metrics.md)
+- [Diagnose an incident](diagnose-an-incident.md).
+- [Configure metrics and fine tune detection configuration](configure-metrics.md)
 - [Configure alerts and get notifications using a hook](../how-tos/alerts.md)

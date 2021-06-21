@@ -276,14 +276,14 @@ As explained in [Planning your Private Link setup](#planning-your-private-link-s
 * All in - the simplest and most secure approach is to add all of your Application Insights components to the AMPLS. For components that you wish to still access from other networks as well, leave the “Allow public internet access for ingestion/query” flags set to Yes (the default).
 * Isolate networks - if you are (or can align with) using spoke vnets, follow the guidance in [Hub-spoke network topology in Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke). Then, setup separate private link settings in the relevant spoke VNets. Make sure to separate DNS zones as well, since sharing DNS zones with other spoke networks will cause [DNS overrides](#the-issue-of-dns-overrides).
 * Use custom DNS zones for specific apps - this solution allows you to access select Application Insights components over a Private Link, while keeping all other traffic over the public routes.
-    - Set up a [custom private DNS zone](../../private-link/private-endpoint-dns.md), and give it a unique name, such as internal.monitor.azure.com
+    - Set up a [custom private DNS zone](../../private-link/private-endpoint-dns.md), called in.applicationinsights.azure.com
     - Create an AMPLS and a Private Endpoint, and choose **not** to auto-integrate with private DNS
     - Go to Private Endpoint -> DNS Configuration and review the suggested mapping of FQDNs.
-    - Choose to Add Configuration and pick the internal.monitor.azure.com zone you just created
+    - Choose to Add Configuration and pick the in.applicationinsights.azure.com zone you just created
     - Add records for the above
     ![Screenshot of configured DNS zone](./media/private-link-security/private-endpoint-global-dns-zone.png)
     - Go to your Application Insights component and copy its [Connection String](../app/sdk-connection-string.md).
-    - Apps or scripts that wish to call this component over a Private Link should use the connection string with the EndpointSuffix=internal.monitor.azure.com
+    - Apps or scripts that wish to call this component over a Private Link should use the connection string
 * Map endpoints through hosts files instead of DNS - to have a Private Link access only from a specific machine/VM in your network:
     - Set up an AMPLS and a Private Endpoint, and choose **not** to auto-integrate with private DNS 
     - Configure the above A records on a machine that runs the app in the hosts file
