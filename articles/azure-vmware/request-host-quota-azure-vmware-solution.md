@@ -11,7 +11,7 @@ ms.date: 05/13/2021
 In this how-to, you'll request host quota/capacity for [Azure VMware Solution](introduction.md). You'll submit a support ticket to have your hosts allocated. If you have an existing Azure VMware Solution private cloud and want more hosts allocated, you'll follow the same process.
 
 >[!IMPORTANT]
->It can take a few days to allocate the hosts, depending on the number requested.  So request what is needed for provisioning, so you don't need to request a quota increase as often.
+>It can take up to five business days to allocate the hosts, depending on the number requested.  So request what is needed for provisioning, so you don't need to request a quota increase as often.
 
 ## Eligibility criteria
 
@@ -100,5 +100,5 @@ Access the Azure portal using the **Admin On Behalf Of** (AOBO) procedure from P
 
 ## Next steps
 
-Before you can deploy Azure VMware Solution, you must first [register the resource provider](quickstart-deploy-azure-vmware-solution.md#step-1-register-the-microsoftavs-resource-provider) with your subscription to enable the service.   
+Before you can deploy Azure VMware Solution, you must first [register the resource provider](tutorial-deploy-azure-vmware-solution.md#step-1-register-the-microsoftavs-resource-provider) with your subscription to enable the service.   
 

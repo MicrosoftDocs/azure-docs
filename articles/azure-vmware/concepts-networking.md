@@ -53,7 +53,7 @@ The diagram below shows the on-premises to private cloud interconnectivity, whic
 
 :::image type="content" source="media/concepts/adjacency-overview-drawing-double.png" alt-text="Virtual network and on-premises full private cloud connectivity" border="false":::
 
-For full interconnectivity to your private cloud, you need to enable ExpressRoute Global Reach and then request an authorization key and private peering ID for Global Reach in the Azure portal. The authorization key and peering ID are used to establish Global Reach between an ExpressRoute circuit in your subscription and the ExpressRoute circuit for your private cloud. Once linked, the two ExpressRoute circuits route network traffic between your on-premises environments to your private cloud. For more information on the procedures, see the [tutorial for creating an ExpressRoute Global Reach peering to a private cloud](quickstart-expressroute-global-reach-private-cloud.md).
+For full interconnectivity to your private cloud, you need to enable ExpressRoute Global Reach and then request an authorization key and private peering ID for Global Reach in the Azure portal. The authorization key and peering ID are used to establish Global Reach between an ExpressRoute circuit in your subscription and the ExpressRoute circuit for your private cloud. Once linked, the two ExpressRoute circuits route network traffic between your on-premises environments to your private cloud. For more information on the procedures, see the [tutorial for creating an ExpressRoute Global Reach peering to a private cloud](tutorial-expressroute-global-reach-private-cloud.md).
 
 ## Limitations
 [!INCLUDE [azure-vmware-solutions-limits](includes/azure-vmware-solutions-limits.md)]
@@ -64,7 +64,7 @@ Now that you've covered Azure VMware Solution network and interconnectivity conc
 
 - [Azure VMware Solution storage concepts](concepts-storage.md)
 - [Azure VMware Solution identity concepts](concepts-identity.md)
-- [How to enable Azure VMware Solution resource](quickstart-deploy-azure-vmware-solution.md#step-1-register-the-microsoftavs-resource-provider)
+- [How to enable Azure VMware Solution resource](tutorial-deploy-azure-vmware-solution.md#step-1-register-the-microsoftavs-resource-provider)
 
 <!-- LINKS - external -->
 [enable Global Reach]: ../expressroute/expressroute-howto-set-global-reach.md

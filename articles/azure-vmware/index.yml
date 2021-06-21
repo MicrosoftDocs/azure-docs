@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page 
   author: shortpatti 
   ms.author: v-patsho 
-  ms.date: 05/11/2021 
+  ms.date: 06/28/2021 
 
 
 # card 1
@@ -72,15 +72,15 @@ landingContent:
       - linkListType: deploy
         links:
         - text: 1 - Plan the deployment
-          url: quickstart-production-ready-deployment-steps.md
+          url: tutorial-plan-private-cloud-deployment.md
         - text: 2 - Deploy Azure VMware Solution
-          url: quickstart-deploy-azure-vmware-solution.md
+          url: tutorial-deploy-azure-vmware-solution.md
         - text: 3 - Connect to on-premises environment
-          url: quickstart-expressroute-global-reach-private-cloud.md
+          url: tutorial-expressroute-global-reach-private-cloud.md
         - text: 4 - Install VMware HCX Connector
-          url: quickstart-install-vmware-hcx.md
+          url: tutorial-install-vmware-hcx.md
         - text: 5 - Configure on-premises VMware HCX Connector
-          url: quickstart-configure-vmware-hcx.md
+          url: tutorial-configure-vmware-hcx.md
       - linkListType: tutorial
         links:
           - text: Network planning checklist 

@@ -6,18 +6,18 @@
     href: introduction.md
   - name: Platform updates
     href: azure-vmware-solution-platform-updates.md
-- name: Quickstart
+- name: Get started
   items:
     - name: 1 - Plan the deployment
-      href: quickstart-production-ready-deployment-steps.md
+      href: tutorial-plan-private-cloud-deployment.md
     - name: 2 - Deploy Azure VMware Solution
-      href: quickstart-deploy-azure-vmware-solution.md
+      href: tutorial-deploy-azure-vmware-solution.md
     - name: 3 - Connect to on-premises environment
-      href: quickstart-expressroute-global-reach-private-cloud.md
+      href: tutorial-expressroute-global-reach-private-cloud.md
     - name: 4 - Install VMware HCX Connector
-      href: quickstart-install-vmware-hcx.md
+      href: tutorial-install-vmware-hcx.md
     - name: 5 - Configure on-premises VMware HCX Connector
-      href: quickstart-configure-vmware-hcx.md
+      href: tutorial-configure-vmware-hcx.md
 - name: Tutorials
   items:
   - name: 1 - Network planning checklist

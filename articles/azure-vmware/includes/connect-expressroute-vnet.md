@@ -5,7 +5,7 @@ ms.topic: include
 ms.date: 12/08/2020
 ---
 
-<!-- Used in quickstart-deploy-azure-vmware-solution.md and tutorial-configure-networking.md -->
+<!-- Used in tutorial-deploy-azure-vmware-solution.md and tutorial-configure-networking.md -->
 
 
 1. Request an ExpressRoute authorization key:
