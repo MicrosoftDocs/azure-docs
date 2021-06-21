@@ -16,17 +16,15 @@ ms.workload: na
 ms.date: 06/17/2021
 ms.author: yelevin
 ---
-# Authenticate playbooks to Azure Sentinel
+# Reference guide to using playbooks in Azure Sentinel
 
-This document explains the types of connection and authentication in the [Logic Apps Azure Sentinel connector](/connectors/azuresentinel/), that playbooks can use to interact with Azure Sentinel in order to have access to the information in your workspace's tables. It further shows you how to get to specific types of Azure Sentinel information that you are likely to need.
+This document explains the types of triggers and actions in the [Logic Apps Azure Sentinel connector](/connectors/azuresentinel/), that playbooks can use to interact with Azure Sentinel and the information in your workspace's tables. It further shows you how to get to specific types of Azure Sentinel information that you are likely to need.
 
-This document is a companion to our other playbook documentation - [Tutorial: Use playbooks with automation rules in Azure Sentinel](tutorial-respond-threats-playbook.md). The two documents will refer to each other back and forth.
+This document, along with our guide to [Authenticating playbooks to Azure Sentinel](authenticate-playbooks-to-sentinel.md), is a companion to our other playbook documentation - [Tutorial: Use playbooks with automation rules in Azure Sentinel](tutorial-respond-threats-playbook.md). These three documents will refer to each other back and forth.
 
 For an introduction to playbooks, see [Automate threat response with playbooks in Azure Sentinel](automate-responses-with-playbooks.md).
 
 For the complete specification of the Azure Sentinel connector, see the [Logic Apps connector documentation](/connectors/azuresentinel/).
-
-For an overview of how to authenticate the connector to Azure Sentinel, see [Authenticate playbooks to Azure Sentinel](authenticate-playbooks-to-sentinel.md).
 
 ## Permissions required
 
@@ -91,32 +89,32 @@ Use the **Alert - Get Incident** action beforehand to get the **Incident ARM ID*
 ### Update an incident
 -  Playbook is triggered **when an incident is created**
 
-    ![Incident trigger simple Update flow example](media/playbook-mini-reference/incident-simple-flow.png)
+    ![Incident trigger simple Update flow example](media/playbook-reference/incident-simple-flow.png)
 
 -  Playbook is triggered **when an alert is generated**
 
-    ![Alert trigger simple Update Incident flow example](media/playbook-mini-reference/alert-update-flow.png)
+    ![Alert trigger simple Update Incident flow example](media/playbook-reference/alert-update-flow.png)
       
 ### Use Incident Information
 
 Basic playbook to send incident details over mail:
 -  Playbook is triggered **when an incident is created**
 
-    ![Incident trigger simple Get flow example](media/playbook-mini-reference/incident-simple-mail-flow.png)
+    ![Incident trigger simple Get flow example](media/playbook-reference/incident-simple-mail-flow.png)
 
 -  Playbook is triggered **when an alert is generated**
 
-    ![Alert trigger simple Get Incident flow example](media/playbook-mini-reference/alert-simple-mail-flow.png)
+    ![Alert trigger simple Get Incident flow example](media/playbook-reference/alert-simple-mail-flow.png)
 
 ### Add a comment to the incident
 
 -  Playbook is triggered **when an incident is created**
 
-    ![Incident trigger simple add comment example](media/playbook-mini-reference/incident-comment.png)
+    ![Incident trigger simple add comment example](media/playbook-reference/incident-comment.png)
 
 -  Playbook is triggered **when an alert is generated**
 
-    !["Alert trigger simple add comment example"](media/playbook-mini-reference/alert-comment.png)
+    !["Alert trigger simple add comment example"](media/playbook-reference/alert-comment.png)
 
 ## Work with specific Entity types
 
@@ -139,7 +137,7 @@ Currently supported entity types are:
 - [URL](/connectors/azuresentinel/#entities---get-urls)
 - [FileHash](/connectors/azuresentinel/#entities---get-filehashes)
 
-    :::image type="content" source="media/playbook-mini-reference/entities-actions.png" alt-text="Entities Actions List":::
+    :::image type="content" source="media/playbook-reference/entities-actions.png" alt-text="Entities Actions List":::
 
 For other entity types, similar functionality can be achieved using Logic Apps' built-in actions:
 
@@ -155,7 +153,7 @@ Since this field in the alert is customizable, its schema depends on the type of
 
 See the following example:
 
-!['custom details field from trigger'](./media/playbook-mini-reference/customDetailsValues.png)
+![Custom details defined in analytics rule.](./media/playbook-reference/customDetailsValues.png)
 
 In these key-value pairs, the key (the left-hand column) represents the custom fields you create, and the value (the right-hand column) represents the fields from the event data that populate the custom fields.
 
@@ -169,23 +167,23 @@ You can supply the following JSON code to generate the schema. The code shows th
 
 1. Find and select **Alert Custom Details** in the **Dynamic content** list, under the incident trigger.
 
-    !['custom details field from trigger'](./media/playbook-mini-reference/customDetailsDynamicField.png)
+    ![Select "Alert custom details" from "Dynamic content."](./media/playbook-reference/customDetailsDynamicField.png)
 
     Note: this will create a **For each** loop, since an incident contains an array of alerts.
 
 1. Click on the **Use sample payload to generate schema** link.
 
-    ![Select 'use sample payload to generate schema' link](./media/playbook-mini-reference/generate-schema-link.png)
+    ![Select 'use sample payload to generate schema' link](./media/playbook-reference/generate-schema-link.png)
 
 1. Supply a sample payload. You can find a sample payload by looking in Log Analytics (the **Logs** blade) for another instance of this alert, and copying the custom details object (under **Extended Properties**). In the screenshot below, we used the JSON code shown above.
 
-    !['custom details field from trigger'](./media/playbook-mini-reference/samplePayload.png)
+    ![Enter sample JSON payload.](./media/playbook-reference/samplePayload.png)
 
 1. The custom fields are ready to be used dynamic fields of type **Array**. You can see here the array and its items, both in the schema and in the list that appears under **Dynamic content**, that we described above.
 
-    !['custom details field from trigger'](./media/playbook-mini-reference/fieldsReadyToUse.png)
-
+    ![Fields from schema ready to use.](./media/playbook-reference/fieldsReadyToUse.png)
     
 ## Next steps
 
-- bla bla
+In this article, you learned more about using the triggers and actions in Azure Sentinel playbooks to respond to threats. 
+- Learn how to [proactively hunt for threats](hunting.md) using Azure Sentinel.

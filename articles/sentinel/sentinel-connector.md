@@ -22,9 +22,9 @@ ms.author: yelevin
 
 Triggers and actions in the Azure Sentinel connector can operate on behalf of any identity that has the necessary permissions (read and/or write) on the relevant workspace. The connector supports multiple identity types:
 
-- [Managed identity (preview)](#authenticate-with-managed-identity)
-- [Azure AD user](#authenticate-as-an-azure-ad-user)
-- [Service principal (Azure AD application)](#authenticate-as-a-service-principal-azure-ad-application)
+- [Managed identity (preview)](authenticate-playbooks-to-sentinel.md#authenticate-with-managed-identity)
+- [Azure AD user](authenticate-playbooks-to-sentinel.md#authenticate-as-an-azure-ad-user)
+- [Service principal (Azure AD application)](authenticate-playbooks-to-sentinel.md#authenticate-as-a-service-principal-azure-ad-application)
 
 ### Permissions required
 
@@ -40,19 +40,18 @@ Triggers and actions in the Azure Sentinel connector can operate on behalf of an
 
 ## Known issues and limitations
 
-### Cannot trigger Logic App called by Azure Sentinel trigger using "Run Trigger" button
+### Cannot trigger a Logic App called by an Azure Sentinel trigger using the "Run Trigger" button
 
+A user cannot use the **Run trigger** button on the **Overview** blade of the **Logic Apps** service to trigger an Azure Sentinel playbook.
 
-This item refers to the button on the overview blade of the Logic Apps resource.
+Azure Logic Apps are triggered by a POST REST call, whose body is the input for the trigger. Logic Apps that start with Azure Sentinel triggers expect to see the content of an Azure Sentinel **alert** or **incident** in the body of the call. When the call comes from the Logic Apps Overview blade, the body of the call is empty, and therefore an error is generated.
 
-Triggering an Azure Logic Apps is made by a POST REST call, which its body is the input for the trigger. Logic Apps that start with Azure Sentinel triggers expect to get an alert or an incident in the body of the call. When trying to do so from Logic Apps overview blade, the call is empty, and there for an error is expected. Proper ways to trigger:
-
-Proper ways to trigger:
+These are the only proper ways to trigger Azure Sentinel playbooks:
 
 - Manual trigger in Azure Sentinel
-- Automated response of an analytic rule in Azure Sentinel
+- Automated response of an analytics rule (directly or through an automation rule) in Azure Sentinel
 - Use "Resubmit" button in an existing Logic Apps run blade
-- [Call directly the Logic Apps endpoint](/azure/logic-apps/logic-apps-http-endpoint#call-logic-app-through-endpoint-url) (attaching an alert/incident as the body)
+- [Call the Logic Apps endpoint directly](/azure/logic-apps/logic-apps-http-endpoint#call-logic-app-through-endpoint-url) (attaching an alert/incident as the body)
 
 ### Updating the same incident in parallel *For each* loops
 
