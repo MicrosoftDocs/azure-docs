@@ -221,6 +221,10 @@ A.  To speed up the copy process:
 - Copy files to the VM's disk.-->
 
 
+### Q. Can I leverage Data Box to import data to a storage account with Private Endpoints configured?
+A.  Yes. Data can be imported to a storage account that has private endpoint connections enabled, however please ensure that "Allow trusted Microsoft services to access this storage account" is checked under the Networking section of the storage account to allow the Data Box service to import the data.
+
+
 ### Q. Can I use multiple storage accounts with Data Box?
 A.  Yes. A maximum of 10 storage accounts, general purpose, classic, or blob storage are supported with Data Box. Both hot and cool blob are supported.
 
