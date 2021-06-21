@@ -1,10 +1,10 @@
 ---
-title: Azure FarmBeats as Event Grid source
+title: Azure FarmBeats as Event Grid source (Preview)
 description: Describes the properties and schema provided for Azure FarmBeats events with Azure Event Grid
 ms.topic: conceptual
 ms.date: 06/06/2021
 ---
-# Azure FarmBeats as Event Grid source
+# Azure FarmBeats as Event Grid source (Preview)
 This article provides the properties and schema for Azure FarmBeats events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md). 
 
 ## Available event types
@@ -15,13 +15,13 @@ This article provides the properties and schema for Azure FarmBeats events. For 
 |Microsoft.AgFoodPlatform.FarmChanged| Published when a farm is created/updated/deleted.
 |Microsoft.AgFoodPlatform.BoundaryChanged|Published when a boundary is created /updated/deleted.
 |Microsoft.AgFoodPlatform.FieldChanged|Published when a field is created /updated/deleted.
-|Microsoft.AgFoodPlatform.SeasonalField Changed|Published when a seasonal field is created /updated/deleted.
+|Microsoft.AgFoodPlatform.SeasonalFieldChanged|Published when a seasonal field is created /updated/deleted.
 |Microsoft.AgFoodPlatform.SeasonChanged|Published when a season is created /updated/deleted.
 |Microsoft.AgFoodPlatform.CropChanged|Published when a crop is created /updated/deleted.
 |Microsoft.AgFoodPlatform.CropVarietyChanged|Published when a crop variety is created /updated/deleted.
 |Microsoft.AgFoodPlatform.SatelliteDataIngestionJobStatusChange| Published when a satellite data ingestion job's status changes, for example, job is created, has progressed or completed.
-|Microsoft.AgFoodPlatform.WeatherDataIngestionJobStatusChange|Published when a satellite data ingestion job's status changes, for example, job is created, has progressed or completed.
-|Microsoft.AgFoodPlatform.FarmOperationDataIngestionJobStatusChange| Published when a satellite data ingestion job's status changes, for example, job is created, has progressed or completed.
+|Microsoft.AgFoodPlatform.WeatherDataIngestionJobStatusChange|Published when a weather data ingestion job's status changes, for example, job is created, has progressed or completed.
+|Microsoft.AgFoodPlatform.FarmOperationDataIngestionJobStatusChange| Published when a farm operations data ingestion job's status changes, for example, job is created, has progressed or completed.
 |Microsoft.AgFoodPlatform.ApplicationDataChanged|Published when application data is created /updated/deleted. This event is associate with farm operations data.
 |Microsoft.AgFoodPlatform.HarvestingDataChanged|Published when harvesting data is created /updated/deleted.This event is associated with farm operations data.
 |Microsoft.AgFoodPlatform.TillageDataChanged|Published when a tillage data is created or updated or deleted. This event is associated with farm operations data.

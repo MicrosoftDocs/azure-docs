@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/16/2021
+ms.date: 06/17/2021
 
 ms.author: justinha
 author: justinha
@@ -19,7 +19,7 @@ ms.custom: contperf-fy20q4
 ---
 # What authentication and verification methods are available in Azure Active Directory?
 
-Microsoft recommends passwordless authentication methods such as Windows Hello, FIDO2 security keys, and the Microsoft Authenticator app because they provide the most secure sign-in experience. As part of the sign-in experience for accounts in Azure Active Directory (Azure AD), there are different ways that Although a user can sign-in using other common methods such as a username and password, passwords should be replaced with more secure authentication methods.
+Microsoft recommends passwordless authentication methods such as Windows Hello, FIDO2 security keys, and the Microsoft Authenticator app because they provide the most secure sign-in experience. Although a user can sign-in using other common methods such as a username and password, passwords should be replaced with more secure authentication methods.
 
 ![Table of the strengths and preferred authentication methods in Azure AD](media/concept-authentication-methods/authentication-methods.png)
 

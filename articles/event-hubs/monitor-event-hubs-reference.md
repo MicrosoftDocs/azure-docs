@@ -74,7 +74,7 @@ Azure Event Hubs supports the following dimensions for metrics in Azure Monitor.
 |Entity Name| Name of the event hub.|
 
 ## Resource logs
-[!INCLUDE [event-hubs-diagnostic-log-schema](../../includes/event-hubs-diagnostic-log-schema.md)]
+[!INCLUDE [event-hubs-diagnostic-log-schema](./includes/event-hubs-diagnostic-log-schema.md)]
 
 
 
