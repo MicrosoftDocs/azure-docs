@@ -3,7 +3,7 @@ title: Manage Python 3 packages in Azure Automation
 description: This article tells how to manage Python 3 packages (preview) in Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 02/19/2021
+ms.date: 06/21/2021
 ms.topic: conceptual
 ---
 
@@ -17,11 +17,11 @@ In your Automation account, select **Python packages** under **Shared Resources*
 
 :::image type="content" source="media/python-3-packages/add-python-3-package.png" alt-text="Screenshot of the Python 3 packages page shows Python 3 packages in the left menu and Add a Python 2 package highlighted.":::
 
-On the **Add Python Package** page, select **Python 3** for the **Version**, and select a local package to upload. The package can be a **.whl** or **.tar.gz** file. When the package is selected, select **OK** to upload it.
+On the **Add Python Package** page, select **Python 3** for the **Version**, and select a local package to upload. The package can be a **.why** or **.tar.gz** file. When the package is selected, select **OK** to upload it.
 
 :::image type="content" source="media/python-3-packages/upload-package.png" alt-text="Screenshot shows the Add Python 3 Package page with an uploaded tar.gz file selected.":::
 
-Once a package has been imported, it's listed on the Python packages page in your Automation account, under the **Python 3 packages (preview)** tab. If you need to remove a package, select the package and click **Delete**.
+Once a package has been imported, it's listed on the Python packages page in your Automation account, under the **Python 3 packages (preview)** tab. If you need to remove a package, select the package and select **Delete**.
 
 :::image type="content" source="media/python-3-packages/python-3-packages-list.png" alt-text="Screenshot shows the Python 3 packages page after a package has been imported.":::
 
@@ -32,6 +32,22 @@ You can import a Python 3 package and its dependencies by importing the followin
 ```cmd
 https://github.com/azureautomation/runbooks/blob/master/Utility/Python/import_py3package_from_pypi.py
 ```
+
+### Packages as source files
+
+Automation supports only pure Python packages when they're imported as source tarfiles. However, Azure Sandbox might not have the required compilers for C/C++ binaries, so it's recommended to use wheel files instead. The [Python Package Index](https://pypi.org/) (PyPI) is a repository of software for the Python programming language. When selecting Python 3 package to import into Automation from PYPI, note the following filename parts:
+
+| Filename part | Description |
+|---|---|
+|cp38|Automation supports **Python 3.8.x** for Cloud Jobs.|
+|amd64|Azure sandbox processes are **Windows 64-bit** architecture.|
+
+For example, if you wanted to import pandas, you could select a wheel file with a name similar as `pandas-1.2.3-cp38-win_amd64.whl`.
+
+Some Python packages available on PyPI don't provide a wheel file. In these cases, download the source (zip or tarfile) and generate the wheel file using pip. As an example, follow these steps using a 64-bit machine with Python 3.8.x and wheel package installed.
+
+1. Download the source file `pandas-1.2.4.tar.gz`.
+1. Run pip to get the wheel file with the following command: `pip wheel --no-deps pandas-1.2.4.tar.gz`.
 
 #### Importing the script into a runbook
 For information on importing the runbook, see [Import a runbook from the Azure portal](manage-runbooks.md#import-a-runbook-from-the-azure-portal). Copy the file from GitHub to storage that the portal can access before you run the import.
