@@ -165,8 +165,8 @@ In order to make sure users are getting access to the right access packages, you
 
     ![Access package - Policy- Enable Requestor information setting](./media/entitlement-management-access-package-approval-policy/add-requestor-info-question.png)
 
-1. If the community of users who will need access to the access package don't all have a common preferred language, then you can improve the experience for users requesting access on myaccess.microsoft.com. To improve the experience, you can provide alternative display strings for different languages. For example, if a user's web browser is set to Spanish, and you have Spanish display strings configured, then those strings will be displayed to the requesting user. To configure localization for requests, click **localize**.
-    1. Once in the **localizes for question** pane, select the **language code** for the language in which you are localizing the question.
+1. If the community of users who will need access to the access package don't all have a common preferred language, then you can improve the experience for users requesting access on myaccess.microsoft.com. To improve the experience, you can provide alternative display strings for different languages. For example, if a user's web browser is set to Spanish, and you have Spanish display strings configured, then those strings will be displayed to the requesting user. To configure localization for requests, click **add localization**.
+    1. Once in the **Add localizations for question** pane, select the **language code** for the language in which you are localizing the question.
     1. In the language you configured, type the question in the **Localized Text** box.
     1. Once you have added all the localizations needed, click **Save**.
 
