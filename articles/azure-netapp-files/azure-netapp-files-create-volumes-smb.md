@@ -170,7 +170,7 @@ You can set permissions for a file or folder by using the **Security** tab of th
 * [Mount or unmount a volume for Windows or Linux virtual machines](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)
 * [Configure ADDS LDAP over TLS for Azure NetApp Files](configure-ldap-over-tls.md) 
-* [Convert existing SMB volumes to use Continuous Availability](convert-smb-continuous-availability.md)
+* [Enable Continuous Availability on existing SMB volumes](enable-continuous-availability-existing-SMB.md)
 * [SMB encryption](azure-netapp-files-smb-performance.md#smb-encryption)
 * [Troubleshoot SMB or dual-protocol volumes](troubleshoot-dual-protocol-volumes.md)
 * [Learn about virtual network integration for Azure services](../virtual-network/virtual-network-for-azure-services.md)

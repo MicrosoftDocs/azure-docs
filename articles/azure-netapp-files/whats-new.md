@@ -21,6 +21,12 @@ ms.author: b-juche
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
 
+## July 2021
+
+* [Enable Continuous Availability on existing SMB volumes](enable-continuous-availability-existing-SMB.md)   
+
+    You can now enable the SMB Continuous Availability feature on existing SMB volumes by editing the volume and selecting the **Enable Continuous Availability** option.  
+
 ## June 2021
 
 * [Azure NetApp Files storage service add-ons](storage-service-add-ons.md)
