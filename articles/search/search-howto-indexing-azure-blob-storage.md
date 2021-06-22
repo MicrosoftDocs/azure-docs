@@ -8,15 +8,19 @@ author: MarkHeff
 ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/22/2021
+ms.date: 05/14/2021
 ms.custom: contperf-fy21q3
 ---
 
 # How to configure blob indexing in Cognitive Search
 
-A blob indexer is used for ingesting content from Azure Blob storage into a Cognitive Search index. Blob indexers are frequently used in [AI enrichment](cognitive-search-concept-intro.md), where an attached [skillset](cognitive-search-working-with-skillsets.md) adds image and natural language processing to create searchable content. But you can also use blob indexers without AI enrichment, to ingest content from text-based documents such as PDFs, Microsoft Office documents, and file formats.
+A blob indexer is used for ingesting content from Azure Blob Storage into a Cognitive Search index. Blob indexers are frequently used in [AI enrichment](cognitive-search-concept-intro.md), where an attached [skillset](cognitive-search-working-with-skillsets.md) adds image and natural language processing to create searchable content. But you can also use blob indexers without AI enrichment, to ingest content from text-based documents such as PDFs, Microsoft Office documents, and file formats.
 
 This article shows you how to configure a blob indexer for either scenario. If you're unfamiliar with indexer concepts, start with [Indexers in Azure Cognitive Search](search-indexer-overview.md) and [Create a search indexer](search-howto-create-indexers.md) before diving into blob indexing.
+
+## Supported access tiers
+
+Blob storage [access tiers](../storage/blobs/storage-blob-storage-tiers.md) include hot, cool, and archive. Only hot and cool can be accessed by indexers. 
 
 <a name="SupportedFormats"></a>
 
@@ -113,6 +117,7 @@ In a search index, the document key uniquely identifies each document. The field
 > [!IMPORTANT]
 > If there is no explicit mapping for the key field in the index, Azure Cognitive Search automatically uses `metadata_storage_path` as the key and base-64 encodes key values (the second option above).
 >
+> If you use a custom metadata property as a key, avoid making changes to that property. Indexers will add duplicate documents for the same blob if the key property changes.
 
 #### Example
 

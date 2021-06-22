@@ -4,7 +4,7 @@ description: Prerequisites for using Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 04/14/2021
+ms.date: 05/06/2021
 ms.author: v-erkel
 ---
 
@@ -90,6 +90,8 @@ Check these permission-related prerequisites before starting to create your cach
 
 The cache supports Azure Blob containers, NFS hardware storage exports, and NFS-mounted ADLS blob containers (currently in preview). Add storage targets after you create the cache.
 
+The size of your cache determines how many storage targets it can support - up to 10 storage targets for most caches, or up to 20 for the largest sizes. Read [Size your cache correctly to support your storage targets](hpc-cache-add-storage.md#size-your-cache-correctly-to-support-your-storage-targets) for details.
+
 Each storage type has specific prerequisites.
 
 ### Blob storage requirements
@@ -124,7 +126,7 @@ If using an NFS storage system (for example, an on-premises hardware NAS system)
 
 More information is included in [Troubleshoot NAS configuration and NFS storage target issues](troubleshoot-nas.md).
 
-* Network connectivity: The Azure HPC Cache needs high-bandwidth network access between the cache subnet and the NFS system's data center. [ExpressRoute](../expressroute/index.yml) or similar access is recommended. If using a VPN, you might need to configure it to clamp TCP MSS at 1350 to make sure large packets are not blocked. Read [VPN packet size restrictions](troubleshoot-nas.md#adjust-vpn-packet-size-restrictions) for additional help troubleshooting VPN settings.
+* Network connectivity: The Azure HPC Cache needs high-bandwidth network access between the cache subnet and the NFS system's data center. [ExpressRoute](../expressroute/index.yml) or similar access is recommended. If using a VPN, you might need to configure it to clamp TCP MSS at 1350 to make sure large packets are not blocked. Read [VPN packet size restrictions](troubleshoot-nas.md#adjust-vpn-packet-size-restrictions) for more help troubleshooting VPN settings.
 
 * Port access: The cache needs access to specific TCP/UDP ports on your storage system. Different types of storage have different port requirements.
 

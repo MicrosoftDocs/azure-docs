@@ -1,36 +1,35 @@
 ---
-title: Create automated ML experiments
+title: Set up AutoML with Python
 titleSuffix: Azure Machine Learning
-description: Learn how to define data sources, computes, and configuration settings for your automated machine learning experiments.
+description: Learn how to set up an AutoML training run with the Azure Machine Learning Python SDK using Azure Machine Learning automated ML.
 author: cartacioS
 ms.author: sacartac
 ms.reviewer: nibaccam
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 09/29/2020
+ms.date: 06/11/2021
 ms.topic: how-to
-ms.custom: devx-track-python,contperf-fy21q1, automl
+ms.custom: devx-track-python,contperf-fy21q1, automl, contperf-fy21q4, FY21Q4-aml-seo-hack
 ---
 
-# Configure automated ML experiments in Python
+# Set up AutoML training with Python
 
+In this guide, learn how to set up an AutoML training run with the [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro) using Azure Machine Learning automated ML. Automated ML picks an algorithm and hyperparameters for you and generates a model ready for deployment. There are several options that you can use to configure these types of experiments.
 
-In this guide, learn how to define various configuration settings of your automated machine learning experiments with the [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro). Automated machine learning picks an algorithm and hyperparameters for you and generates a model ready for deployment. There are several options that you can use to configure automated machine learning experiments.
+For an end to end example, see [Tutorial: AutoML- train regression model](tutorial-auto-train-models.md).
 
-For an end to end example of an automated machine learning experiment, see [Tutorial: Train a classification model with automated machine learning](tutorial-auto-train-models.md).
-
-Configuration options available in automated machine learning:
+Configuration options available in automated ML:
 
 * Select your experiment type: Classification, Regression, or Time Series Forecasting
 * Data source, formats, and fetch data
 * Choose your compute target: local or remote
 * Automated machine learning experiment settings
-* Run an automated machine learning experiment
+* Run an automated ML experiment
 * Explore model metrics
 * Register and deploy model
 
-If you prefer a no code experience, you can also [Create your automated machine learning experiments in Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md).
+If you prefer a no-code experience, you can also [Set up no-code AutoML training in the Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md).
 
 ## Prerequisites
 
@@ -107,7 +106,7 @@ At this time, you need to provide your own **test data** for  model evaluation. 
 
 ## Compute to run experiment
 
-Next determine where the model will be trained. An automated machine learning training experiment can run on the following compute options. Learn the [pros and cons of local and remote compute](concept-automated-ml.md#local-remote) options. 
+Next determine where the model will be trained. An automated ML training experiment can run on the following compute options. Learn the [pros and cons of local and remote compute](concept-automated-ml.md#local-remote) options. 
 
 * Your **local** machine such as a local desktop or laptop – Generally when you have a small dataset and you are still in the exploration stage. See [this notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/local-run-classification-credit-card-fraud/auto-ml-classification-credit-card-fraud-local.ipynb) for a local compute example. 
  
@@ -121,7 +120,7 @@ Next determine where the model will be trained. An automated machine learning tr
 
 ## Configure your experiment settings
 
-There are several options that you can use to configure your automated machine learning experiment. These parameters are set by instantiating an `AutoMLConfig` object. See the [AutoMLConfig class](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) for a full list of parameters.
+There are several options that you can use to configure your automated ML experiment. These parameters are set by instantiating an `AutoMLConfig` object. See the [AutoMLConfig class](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) for a full list of parameters.
 
 Some examples include:
 
@@ -149,7 +148,7 @@ Some examples include:
    ```
 
 
-1. Forecasting tasks require extra setup, see the [Autotrain a time-series forecast model](how-to-auto-train-forecast.md) article for more details. 
+1. Forecasting tasks require extra setup, see the [Set up AutoML for time-series forecasting](how-to-auto-train-forecast.md) article for more details. 
 
     ```python
     time_series_settings = {
@@ -179,7 +178,7 @@ The three different `task` parameter values determine the list of algorithms, or
 The following table summarizes the supported models by task type. 
 
 > [!NOTE]
-> If you plan to export your auto ML created models to an [ONNX model](concept-onnx.md), only those algorithms indicated with an * are able to be converted to the ONNX format. Learn more about [converting models to ONNX](concept-automated-ml.md#use-with-onnx). <br> <br> Also note, ONNX only supports classification and regression tasks at this time. 
+> If you plan to export your automated ML created models to an [ONNX model](concept-onnx.md), only those algorithms indicated with an * are able to be converted to the ONNX format. Learn more about [converting models to ONNX](concept-automated-ml.md#use-with-onnx). <br> <br> Also note, ONNX only supports classification and regression tasks at this time. 
 
 Classification | Regression | Time Series Forecasting
 |-- |-- |--
@@ -203,7 +202,7 @@ Classification | Regression | Time Series Forecasting
 ### Primary Metric
 The `primary metric` parameter determines the metric to be used during model training for optimization. The available metrics you can select is determined by the task type you choose, and the following table shows valid primary metrics for each task type.
 
-Choosing a primary metric for automated machine learning to optimize depends on many factors. We recommend your primary consideration be to choose a metric which best represents your business needs. Then consider if the metric is suitable for your dataset profile (data size, range, class distribution, etc.).
+Choosing a primary metric for automated ML to optimize depends on many factors. We recommend your primary consideration be to choose a metric which best represents your business needs. Then consider if the metric is suitable for your dataset profile (data size, range, class distribution, etc.).
 
 Learn about the specific definitions of these metrics in [Understand automated machine learning results](how-to-understand-automated-ml.md).
 
@@ -217,7 +216,7 @@ Learn about the specific definitions of these metrics in [Understand automated m
 
 ### Primary metrics for classification scenarios 
 
-Post thresholded metrics, like `accuracy`, `average_precision_score_weighted`, `norm_macro_recall`, and `precision_score_weighted` may not optimize as well for datasets which are small, have very large class skew (class imbalance), or when the expected metric value is very close to 0.0 or 1.0. In those cases, `AUC_weighted` can be a better choice for the primary metric. After automated machine learning completes, you can choose the winning model based on the metric best suited to your business needs.
+Post thresholded metrics, like `accuracy`, `average_precision_score_weighted`, `norm_macro_recall`, and `precision_score_weighted` may not optimize as well for datasets which are small, have very large class skew (class imbalance), or when the expected metric value is very close to 0.0 or 1.0. In those cases, `AUC_weighted` can be a better choice for the primary metric. After automated ML completes, you can choose the winning model based on the metric best suited to your business needs.
 
 | Metric | Example use case(s) |
 | ------ | ------- |
@@ -253,7 +252,7 @@ See regression notes, above.
 
 ### Data featurization
 
-In every automated machine learning experiment, your data is automatically scaled and normalized to help *certain* algorithms that are sensitive to features that are on different scales. This scaling and normalization is referred to as featurization. 
+In every automated ML experiment, your data is automatically scaled and normalized to help *certain* algorithms that are sensitive to features that are on different scales. This scaling and normalization is referred to as featurization. 
 See [Featurization in AutoML](how-to-configure-auto-features.md#) for more detail and code examples. 
 
 When configuring your experiments in your `AutoMLConfig` object, you can enable/disable the setting `featurization`. The following table shows the accepted settings for featurization in the [AutoMLConfig object](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig). 
@@ -497,7 +496,7 @@ print_model(model_from_aml)
 
 ## <a name="monitor"></a> Monitor automated machine learning runs
 
-For automated machine learning runs, to access the charts from a previous run, replace `<<experiment_name>>` with the appropriate experiment name:
+For automated ML runs, to access the charts from a previous run, replace `<<experiment_name>>` with the appropriate experiment name:
 
 ```python
 from azureml.widgets import RunDetails
@@ -542,7 +541,7 @@ For details on how to create a deployment configuration and deploy a registered 
 
 Model interpretability allows you to understand why your models made predictions, and the underlying feature importance values. The SDK includes various packages for enabling model interpretability features, both at training and inference time, for local and deployed models.
 
-See the [how-to](how-to-machine-learning-interpretability-automl.md) for code samples on how to enable interpretability features specifically within automated machine learning experiments.
+See the [how-to](how-to-machine-learning-interpretability-automl.md) for code samples on how to enable interpretability features specifically within automated ML experiments.
 
 For general information on how model explanations and feature importance can be enabled in other areas of the SDK outside of automated machine learning, see the [concept](how-to-machine-learning-interpretability.md) article on interpretability.
 

@@ -7,6 +7,7 @@ author: dplessMSFT
 editor: ''
 tags: azure-service-management
 ms.service: virtual-machines-sql
+ms.subservice: performance
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
@@ -22,14 +23,16 @@ This article provides VM size guidance a series of best practices and guidelines
 
 There is typically a trade-off between optimizing for costs and optimizing for performance. This performance best practices series is focused on getting the *best* performance for SQL Server on Azure Virtual Machines. If your workload is less demanding, you might not require every recommended optimization. Consider your performance needs, costs, and workload patterns as you evaluate these recommendations.
 
+For comprehensive details, see the other articles in this series: [Checklist](performance-guidelines-best-practices-checklist.md), [Storage](performance-guidelines-best-practices-storage.md), [Security](security-considerations-best-practices.md), [HADR configuration](hadr-cluster-best-practices.md), [Collect baseline](performance-guidelines-best-practices-collect-baseline.md). 
+
 
 ## Checklist
 
 Review the following checklist for a brief overview of the VM size best practices that the rest of the article covers in greater detail: 
 
-- Use VM sizes with 4 or more vCPU like the [Standard_M8-4ms](/azure/virtual-machines/m-series), the [E4ds_v4](../../../virtual-machines/edv4-edsv4-series.md#edv4-series), or the [DS12_v2](../../../virtual-machines/dv2-dsv2-series-memory.md#dsv2-series-11-15) or higher. 
+- Use VM sizes with 4 or more vCPU like the [Standard_M8-4ms](../../../virtual-machines/m-series.md), the [E4ds_v4](../../../virtual-machines/edv4-edsv4-series.md#edv4-series), or the [DS12_v2](../../../virtual-machines/dv2-dsv2-series-memory.md#dsv2-series-11-15) or higher. 
 - Use [memory optimized](../../../virtual-machines/sizes-memory.md) virtual machine sizes for the best performance of SQL Server workloads. 
-- The [DSv2 11-15](../../../virtual-machines/dv2-dsv2-series-memory.md), [Edsv4](../../../virtual-machines/edv4-edsv4-series.md) series, the [M-](/azure/virtual-machines/m-series), and the [Mv2-](../../../virtual-machines/mv2-series.md) series offer the optimal memory-to-vCore ratio required for OLTP workloads. Both M series VMs offer the highest memory-to-vCore ratio required for mission critical workloads and are also ideal for data warehouse workloads. 
+- The [DSv2 11-15](../../../virtual-machines/dv2-dsv2-series-memory.md), [Edsv4](../../../virtual-machines/edv4-edsv4-series.md) series, the [M-](../../../virtual-machines/m-series.md), and the [Mv2-](../../../virtual-machines/mv2-series.md) series offer the optimal memory-to-vCore ratio required for OLTP workloads. Both M series VMs offer the highest memory-to-vCore ratio required for mission critical workloads and are also ideal for data warehouse workloads. 
 - Consider a higher memory-to-vCore ratio for mission critical and data warehouse workloads. 
 - Leverage the Azure Virtual Machine marketplace images as the SQL Server settings and storage options are configured for optimal SQL Server performance. 
 - Collect the target workload's performance characteristics and use them to determine the appropriate VM size for your business.
@@ -59,11 +62,11 @@ The [memory optimized virtual machine sizes](../../../virtual-machines/sizes-mem
 
 ### M, Mv2, and Mdsv2 series
 
-The [M-series](/azure/virtual-machines/m-series) offers vCore counts and memory for some of the largest SQL Server workloads.  
+The [M-series](../../../virtual-machines/m-series.md) offers vCore counts and memory for some of the largest SQL Server workloads.  
 
 The [Mv2-series](../../../virtual-machines/mv2-series.md) has the highest vCore counts and memory and is recommended for mission critical and data warehouse workloads. Mv2-series instances are memory optimized VM sizes providing unparalleled computational performance to support large in-memory databases and workloads with a high memory-to-CPU ratio that is perfect for relational database servers, large caches, and in-memory analytics.
 
-The [Standard_M64ms](/azure/virtual-machines/m-series) has a 28 memory-to-vCore ratio for example.
+The [Standard_M64ms](../../../virtual-machines/m-series.md) has a 28 memory-to-vCore ratio for example.
 
 [Mdsv2 Medium Memory series](../../..//virtual-machines/msv2-mdsv2-series.md) is a new M-series that is currently in [preview](https://aka.ms/Mv2MedMemoryPreview) that offers a range of M-series level Azure virtual machines with a midtier memory offering. These machines are well suited for SQL Server workloads with a minimum of 10 memory-to-vCore support up to 30.
 
@@ -171,7 +174,7 @@ The vCPU count can be constrained to one-half to one-quarter of the original VM 
 
 These new VM sizes have a suffix that specifies the number of active vCPUs to make them easier to identify. 
 
-For example, the [M64-32ms](../../../virtual-machines/constrained-vcpu.md) requires licensing only 32 SQL Server vCores with the memory, I/O, and throughput of the [M64ms](/azure/virtual-machines/m-series) and the [M64-16ms](../../../virtual-machines/constrained-vcpu.md) requires licensing only 16 vCores.  Though while the [M64-16ms](../../../virtual-machines/constrained-vcpu.md) has a quarter of the SQL Server licensing cost of the M64ms, the compute cost of the virtual machine will be the same.
+For example, the [M64-32ms](../../../virtual-machines/constrained-vcpu.md) requires licensing only 32 SQL Server vCores with the memory, I/O, and throughput of the [M64ms](../../../virtual-machines/m-series.md) and the [M64-16ms](../../../virtual-machines/constrained-vcpu.md) requires licensing only 16 vCores.  Though while the [M64-16ms](../../../virtual-machines/constrained-vcpu.md) has a quarter of the SQL Server licensing cost of the M64ms, the compute cost of the virtual machine will be the same.
 
 > [!NOTE] 
 > - Medium to large data warehouse workloads may still benefit from [constrained vCore VMs](../../../virtual-machines/constrained-vcpu.md), but data warehouse workloads are commonly characterized by fewer users and processes addressing larger amounts of data through query plans that run in parallel. 
@@ -184,8 +187,10 @@ For example, the [M64-32ms](../../../virtual-machines/constrained-vcpu.md) requi
 To learn more, see the other articles in this series:
 - [Quick checklist](performance-guidelines-best-practices-checklist.md)
 - [Storage](performance-guidelines-best-practices-storage.md)
+- [Security](security-considerations-best-practices.md)
+- [HADR settings](hadr-cluster-best-practices.md)
 - [Collect baseline](performance-guidelines-best-practices-collect-baseline.md)
 
 For security best practices, see [Security considerations for SQL Server on Azure Virtual Machines](security-considerations-best-practices.md).
 
-Review other SQL Server Virtual Machine articles at [SQL Server on Azure Virtual Machines Overview](sql-server-on-azure-vm-iaas-what-is-overview.md). If you have questions about SQL Server virtual machines, see the [Frequently Asked Questions](frequently-asked-questions-faq.md). 
+Review other SQL Server Virtual Machine articles at [SQL Server on Azure Virtual Machines Overview](sql-server-on-azure-vm-iaas-what-is-overview.md). If you have questions about SQL Server virtual machines, see the [Frequently Asked Questions](frequently-asked-questions-faq.yml).

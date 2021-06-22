@@ -34,4 +34,4 @@ This example reference architecture diagram is for a vertical industry chatbot t
 
 ## Next steps
 
-- [Configure Co-sell for a commercial marketplace offer](commercial-marketplace-co-sell.md)
+- [Configure Co-sell for a commercial marketplace offer](./co-sell-configure.md)

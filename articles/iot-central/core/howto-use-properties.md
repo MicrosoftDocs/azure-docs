@@ -8,11 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 
+# Solution developer
 ---
 
 # Use properties in an Azure IoT Central solution
 
-This how-to guide shows you how, as a device developer, to use device properties that are defined in a device template in your Azure IoT Central application.
+This how-to guide shows you how to use device properties that are defined in a device template in your Azure IoT Central application.
 
 Properties represent point-in-time values. For example, a device can use a property to report the target temperature it's trying to reach. By default, device properties are read-only in IoT Central. Writable properties let you synchronize state between your device and your Azure IoT Central application.
 

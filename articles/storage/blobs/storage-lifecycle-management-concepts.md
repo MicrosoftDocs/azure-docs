@@ -1,10 +1,10 @@
 ---
 title: Optimize costs by automating Azure Blob Storage access tiers
 description: Create automated rules for moving data between hot, cool, and archive tiers.
-author: twooley
+author: tamram
 
-ms.author: twooley
-ms.date: 04/23/2021
+ms.author: tamram
+ms.date: 06/14/2021
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
@@ -71,7 +71,7 @@ There are two ways to add a policy through the Azure portal.
 
 1. In the Azure portal, search for and select your storage account.
 
-1. Under **Blob service**, select **Lifecycle Management** to view or change your rules.
+1. Under **Data management**, select **Lifecycle Management** to view or change your rules.
 
 1. Select the **List View** tab.
 
@@ -82,12 +82,6 @@ There are two ways to add a policy through the Azure portal.
 1. Select **Base blobs** to set the conditions for your rule. In the following example, blobs are moved to cool storage if they haven't been modified for 30 days.
 
    :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-base-blobs.png" alt-text="Lifecycle management base blobs page in Azure portal":::
-
-   The **Last accessed** option is available in preview in the following regions:
-
-    - France Central
-    - Canada East
-    - Canada Central
 
    > [!IMPORTANT]
    > The last access time tracking preview is for non-production use only. Production service-level agreements (SLAs) are not currently available.
@@ -323,7 +317,7 @@ Filters include:
 | blobIndexMatch | An array of dictionary values consisting of Blob Index tag key and value conditions to be matched. Each rule can define up to 10 Blob Index tag condition. For example, if you want to match all blobs with `Project = Contoso` under `https://myaccount.blob.core.windows.net/` for a rule, the blobIndexMatch is `{"name": "Project","op": "==","value": "Contoso"}`. | If you don't define blobIndexMatch, the rule applies to all blobs within the storage account. | No |
 
 > [!NOTE]
-> Blob Index is in public preview, and is available in the **Canada Central**, **Canada East**, **France Central**, and **France South** regions. To learn more about this feature along with known issues and limitations, see [Manage and find data on Azure Blob Storage with Blob Index (Preview)](storage-manage-find-blobs.md).
+> To learn more about the Blob index feature along with known issues and limitations, see [Manage and find data on Azure Blob Storage with Blob Index](storage-manage-find-blobs.md).
 
 ### Rule actions
 

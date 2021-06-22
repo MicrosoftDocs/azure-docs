@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: metrics-advisor
 ms.topic: include
 ms.date: 11/09/2020
@@ -94,7 +94,7 @@ client = MetricsAdvisorAdministrationClient(service_endpoint,
 In a new method, create import statements like the example below. Replace `sql_server_connection_string` with your own SQL server connection string, and replace `query` with a query that returns your data at a single timestamp. You will also need to adjust the `DataFeedmetric` and `DataFeedDimension` values based on your custom data.
 
 > [!IMPORTANT]
-> The query should return at most one record for each dimension combination, at each timestamp. And all records returned by the query must have the same timestamps. Metrics Advisor will run this query for each timestamp to ingest your data. See the [FAQ section on queries](../../faq.md#how-do-i-write-a-valid-query-for-ingesting-my-data) for more information, and examples. 
+> The query should return at most one record for each dimension combination, at each timestamp. And all records returned by the query must have the same timestamps. Metrics Advisor will run this query for each timestamp to ingest your data. See the [FAQ section on queries](/azure/cognitive-services/metrics-advisor/faq#how-do-i-write-a-valid-query-for-ingesting-my-data) for more information, and examples. 
 
 Create a client with your keys and endpoint, and use `client.create_data_feed()` to configure the name, source, granularity, and schema. You can also set the ingestion time, rollup settings and more.
 
@@ -243,7 +243,7 @@ return detection_config
 
 ## Create a hook
 
-In a new method, create import statements like the example below. Create a client with your keys and endpoint, and use `client.create_hook()` to create a hook. Enter a description, a list of emails to send the alert to, and an external link for receiving the alert.  
+In a new method, create import statements like the example below. Create a client with your keys and endpoint, and use `client.create_hook()` to create a hook. Enter a description, a list of emails to send the alert to, and an external link which will appear in the alert.
 
 ```python
 def sample_create_hook():
@@ -262,7 +262,7 @@ hook = client.create_hook(
         name="email hook",
         description="my email hook",
         emails_to_alert=["alertme@alertme.com"],
-        external_link="https://example.com/handleAlerts", # you must enter a valid webhook url to post the alert payload
+        external_link="https://example.com/handleAlerts"   #A customized field configured by users, which will be displayed in the anomaly alert. It's usually been used to link to a troubleshooting guide to help further diagnose the issue.
     )
 )
 ```

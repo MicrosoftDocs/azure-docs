@@ -11,7 +11,6 @@ ms.author: spelluru
 > * [Node.js](../articles/service-bus-messaging/service-bus-nodejs-how-to-use-topics-subscriptions.md)
 > * [PHP](../articles/service-bus-messaging/service-bus-php-how-to-use-topics-subscriptions.md)
 > * [Python](../articles/service-bus-messaging/service-bus-python-how-to-use-topics-subscriptions.md)
-> * [Ruby](../articles/service-bus-messaging/service-bus-ruby-how-to-use-topics-subscriptions.md)
+> * [Ruby](https://github.com/Azure/azure-sdk-for-ruby)
 > 
-> 
-
+>

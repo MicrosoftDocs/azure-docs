@@ -1,26 +1,26 @@
 ---
 title: Upload image data in the cloud with Azure Storage | Microsoft Docs 
-description: Use Azure Blob storage with web apps to store app data to a storage account. This tutorial creates a web app that stores and displays images from Azure storage.
-author: twooley
+description: Use Azure Blob Storage with web apps to store app data to a storage account. This tutorial creates a web app that stores and displays images from Azure storage.
+author: normesta
 
 ms.service: storage
 ms.subservice: blobs
 ms.topic: tutorial
 ms.date: 06/24/2020
-ms.author: twooley
+ms.author: normesta
 ms.reviewer: dineshm
 ms.custom: "devx-track-js, devx-track-csharp, devx-track-azurecli"
 ---
 
 # Tutorial: Upload image data in the cloud with Azure Storage
 
-This tutorial is part one of a series. In this tutorial, you'll learn how to deploy a web app. The web app uses the Azure Blob storage client library to upload images to a storage account. When you're finished, you'll have a web app that stores and displays images from Azure storage.
+This tutorial is part one of a series. In this tutorial, you'll learn how to deploy a web app. The web app uses the Azure Blob Storage client library to upload images to a storage account. When you're finished, you'll have a web app that stores and displays images from Azure storage.
 
-# [\.NET v12](#tab/dotnet)
+# [.NET v12 SDK](#tab/dotnet)
 
 ![Image resizer app in .NET](media/storage-upload-process-images/figure2.png)
 
-# [JavaScript v12](#tab/javascript)
+# [JavaScript v12 SDK](#tab/javascript)
 
 ![Image resizer app in JavaScript](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
 
@@ -154,7 +154,7 @@ az webapp create --name $webapp --resource-group myResourceGroup --plan myAppSer
 
 ## Deploy the sample app from the GitHub repository
 
-# [\.NET v12](#tab/dotnet)
+# [.NET v12 SDK](#tab/dotnet)
 
 App Service supports several ways to deploy content to a web app. In this tutorial, you deploy the web app from a [public GitHub sample repository](https://github.com/Azure-Samples/storage-blob-upload-from-webapp). Configure GitHub deployment to the web app with the [az webapp deployment source config](/cli/azure/webapp/deployment/source) command.
 
@@ -172,7 +172,7 @@ az webapp deployment source config --name $webapp --resource-group myResourceGro
   --repo-url https://github.com/Azure-Samples/storage-blob-upload-from-webapp
 ```
 
-# [JavaScript v12](#tab/javascript)
+# [JavaScript v12 SDK](#tab/javascript)
 
 App Service supports several ways to deploy content to a web app. In this tutorial, you deploy the web app from a [public GitHub sample repository](https://github.com/Azure-Samples/azure-sdk-for-js-storage-blob-stream-nodejs). Configure GitHub deployment to the web app with the [az webapp deployment source config](/cli/azure/webapp/deployment/source) command.
 
@@ -192,7 +192,7 @@ az webapp deployment source config --name $webapp --resource-group myResourceGro
 
 ## Configure web app settings
 
-# [\.NET v12](#tab/dotnet)
+# [.NET v12 SDK](#tab/dotnet)
 
 The sample web app uses the [Azure Storage APIs for .NET](/dotnet/api/overview/azure/storage) to upload images. Storage account credentials are set in the app settings for the web app. Add app settings to the deployed app with the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings) command.
 
@@ -212,7 +212,7 @@ az webapp config appsettings set --name $webapp --resource-group myResourceGroup
     AzureStorageConfig__AccountKey=$blobStorageAccountKey
 ```
 
-# [JavaScript v12](#tab/javascript)
+# [JavaScript v12 SDK](#tab/javascript)
 
 The sample web app uses the [Azure Storage client library for JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage) to upload images. The storage account credentials are set in the app settings for the web app. Add app settings to the deployed app with the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings) command.
 
@@ -236,7 +236,7 @@ After you deploy and configure the web app, you can test the image upload functi
 
 To test the web app, browse to the URL of your published app. The default URL of the web app is `https://<web_app>.azurewebsites.net`.
 
-# [\.NET v12](#tab/dotnet)
+# [.NET v12 SDK](#tab/dotnet)
 
 Select the **Upload photos** region to specify and upload a file, or drag a file onto the region. The image disappears if successfully uploaded. The **Generated Thumbnails** section will remain empty until we test it later in this tutorial.
 
@@ -278,7 +278,7 @@ The following classes and methods are used in the preceding task:
 | [StorageSharedKeyCredential](/dotnet/api/azure.storage.storagesharedkeycredential) | [StorageSharedKeyCredential(String, String) constructor](/dotnet/api/azure.storage.storagesharedkeycredential.-ctor) |
 | [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) | [UploadAsync](/dotnet/api/azure.storage.blobs.blobclient.uploadasync) |
 
-# [JavaScript v12](#tab/javascript)
+# [JavaScript v12 SDK](#tab/javascript)
 
 Select **Choose File** to select a file, then click **Upload Image**. The **Generated Thumbnails** section will remain empty until we test it later in this tutorial.
 
@@ -378,7 +378,7 @@ router.post('/', uploadStrategy, async (req, res) => {
     await blockBlobClient.uploadStream(stream,
       uploadOptions.bufferSize, uploadOptions.maxBuffers,
       { blobHTTPHeaders: { blobContentType: "image/jpeg" } });
-    res.render('success', { message: 'File uploaded to Azure Blob storage.' });
+    res.render('success', { message: 'File uploaded to Azure Blob Storage.' });
   } catch (err) {
     res.render('error', { message: err.message });
   }
@@ -407,11 +407,11 @@ Choose a file with the file picker and select **Upload**.
 
 Navigate back to your app to verify that the image uploaded to the **thumbnails** container is visible.
 
-# [\.NET v12](#tab/dotnet)
+# [.NET v12 SDK](#tab/dotnet)
 
 ![.NET image resizer app with new image displayed](media/storage-upload-process-images/figure2.png)
 
-# [JavaScript v12](#tab/javascript)
+# [JavaScript v12 SDK](#tab/javascript)
 
 ![Node.js image resizer app with new image displayed](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
 

@@ -6,7 +6,8 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: sample
 ms.date: 10/07/2020
-ms.author: mjbrown
+ms.author: mjbrown 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Throughput (RU/s) operations with PowerShell for a database or graph for Azure Cosmos DB - Gremlin API

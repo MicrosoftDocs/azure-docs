@@ -7,10 +7,11 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/03/2020
+ms.date: 04/29/2021
 ms.author: tamram
 ms.reviewer: fryu
-ms.subservice: blobs
+ms.subservice: blobs 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Configure anonymous public read access for containers and blobs
@@ -191,13 +192,13 @@ You cannot change the public access level for an individual blob. Public access 
 To update the public access level for one or more existing containers in the Azure portal, follow these steps:
 
 1. Navigate to your storage account overview in the Azure portal.
-1. Under **Blob service** on the menu blade, select **Containers**.
+1. Under **Data storage** on the menu blade, select **Blob containers**.
 1. Select the containers for which you want to set the public access level.
 1. Use the **Change access level** button to display the public access settings.
 1. Select the desired public access level from the **Public access level** dropdown and click the OK button to apply the change to the selected containers.
 
-    ![Screenshot showing how to set public access level in the portal](./media/anonymous-read-access-configure/configure-public-access-container.png)
-
+    :::image type="content" source="media/anonymous-read-access-configure/configure-public-access-container.png" alt-text="Screenshot showing how to set public access level in the portal." lightbox="media/anonymous-read-access-configure/configure-public-access-container.png":::
+    
 When public access is disallowed for the storage account, a container's public access level cannot be set. If you attempt to set the container's public access level, you'll see that the setting is disabled because public access is disallowed for the account.
 
 :::image type="content" source="media/anonymous-read-access-configure/container-public-access-blocked.png" alt-text="Screenshot showing that setting container public access level is blocked when public access disallowed":::

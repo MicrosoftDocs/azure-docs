@@ -29,7 +29,7 @@ Microsoft tracks the regulatory standards themselves and automatically improves 
 
 ## What regulatory compliance standards are available in Security Center?
 
-By default, every subscription has the **Azure Security Benchmark** assigned. This is the Microsoft-authored, Azure-specific guidelines for security and compliance best practices based on common compliance frameworks. [Learn more about Azure Security Benchmark](https://docs.microsoft.com/security/benchmark/azure/introduction).
+By default, every subscription has the **Azure Security Benchmark** assigned. This is the Microsoft-authored, Azure-specific guidelines for security and compliance best practices based on common compliance frameworks. [Learn more about Azure Security Benchmark](/security/benchmark/azure/introduction).
 
 You can also add standards such as:
 
@@ -74,7 +74,7 @@ The following steps explain how to add a package to monitor your compliance with
     - **CMMC Level 3**
     - **New Zealand ISM Restricted**
     
-    ![Adding regulatory standards to Azure Security Center's regulatory compliance dashboard](./media/update-regulatory-compliance-packages/dynamic-regulatory-compliance-additional-standards.png)
+    ![Adding regulatory standards to Azure Security Center's regulatory compliance dashboard.](./media/update-regulatory-compliance-packages/dynamic-regulatory-compliance-additional-standards.png)
 
 1. Select **Add** and enter all the necessary details for the specific initiative such as scope, parameters, and remediation.
 
@@ -85,7 +85,7 @@ The following steps explain how to add a package to monitor your compliance with
     > [!NOTE]
     > It may take a few hours for a newly added standard to appear in the compliance dashboard.
 
-    :::image type="content" source="./media/security-center-compliance-dashboard/compliance-dashboard.png" alt-text="Regulatory compliance dashboard" lightbox="./media/security-center-compliance-dashboard/compliance-dashboard.png":::
+    :::image type="content" source="./media/security-center-compliance-dashboard/compliance-dashboard.png" alt-text="Regulatory compliance dashboard." lightbox="./media/security-center-compliance-dashboard/compliance-dashboard.png":::
 
 ## Remove a standard from your dashboard
 
@@ -102,11 +102,11 @@ To remove a standard:
 
     The security policy page opens. For the selected subscription, it shows the default policy, the industry and regulatory standards, and any custom initiatives you've created.
 
-    :::image type="content" source="./media/update-regulatory-compliance-packages/remove-standard.png" alt-text="Removing a regulatory standard from your regulatory compliance dashboard in Azure Security Center":::
+    :::image type="content" source="./media/update-regulatory-compliance-packages/remove-standard.png" alt-text="Removing a regulatory standard from your regulatory compliance dashboard in Azure Security Center.":::
 
 1. For the standard you want to remove, select **Disable**. A confirmation window appears.
 
-    :::image type="content" source="./media/update-regulatory-compliance-packages/remove-standard-confirm.png" alt-text="Confirm that you really want to remove the regulatory standard you selected":::
+    :::image type="content" source="./media/update-regulatory-compliance-packages/remove-standard-confirm.png" alt-text="Confirm that you really want to remove the regulatory standard you selected.":::
 
 1. Select **Yes**. The standard will be removed. 
 
@@ -117,6 +117,6 @@ In this article, you learned how to **add compliance standards** to monitor your
 
 For related material, see the following pages:
 
-- [Azure Security Benchmark](https://docs.microsoft.com/security/benchmark/azure/introduction)
+- [Azure Security Benchmark](/security/benchmark/azure/introduction)
 - [Security center regulatory compliance dashboard](security-center-compliance-dashboard.md) - Learn how to track and export your regulatory compliance data with Security Center and external tools
 - [Working with security policies](tutorial-security-policy.md)

@@ -4,7 +4,7 @@ description: Learn how to configure a Node.js app in the native Windows instance
 ms.custom: devx-track-js, devx-track-azurecli
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 06/02/2020
+ms.date: 04/23/2021
 zone_pivot_groups: app-service-platform-windows-linux
 
 ---
@@ -143,9 +143,34 @@ For more information on how App Service runs and builds Node.js apps in Linux, s
 
 The Node.js containers come with [PM2](https://pm2.keymetrics.io/), a production process manager. You can configure your app to start with PM2, or with NPM, or with a custom command.
 
-- [Run custom command](#run-custom-command)
-- [Run npm start](#run-npm-start)
-- [Run with PM2](#run-with-pm2)
+|Tool|Purpose|
+|--|--|
+|[Run with PM2](#run-with-pm2)|**Recommended** -  Production or staging use. PM2 provides a full-service app management platform.|
+|[Run npm start](#run-npm-start)|Development use only.|
+|[Run custom command](#run-custom-command)|Either development or staging.|
+
+
+### Run with PM2
+
+The container automatically starts your app with PM2 when one of the common Node.js files is found in your project:
+
+- *bin/www*
+- *server.js*
+- *app.js*
+- *index.js*
+- *hostingstart.js*
+- One of the following [PM2 files](https://pm2.keymetrics.io/docs/usage/application-declaration/#process-file): *process.json* and *ecosystem.config.js*
+
+You can also configure a custom start file with the following extensions:
+
+- A *.js* file
+- A [PM2 file](https://pm2.keymetrics.io/docs/usage/application-declaration/#process-file) with the extension *.json*, *.config.js*, *.yaml*, or *.yml*
+
+To add a custom start file, run the following command in the [Cloud Shell](https://shell.azure.com):
+
+```azurecli-interactive
+az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<filname-with-extension>"
+```
 
 ### Run custom command
 
@@ -176,27 +201,6 @@ To use a custom *package.json* in your project, run the following command in the
 az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<filename>.json"
 ```
 
-### Run with PM2
-
-The container automatically starts your app with PM2 when one of the common Node.js files is found in your project:
-
-- *bin/www*
-- *server.js*
-- *app.js*
-- *index.js*
-- *hostingstart.js*
-- One of the following [PM2 files](https://pm2.keymetrics.io/docs/usage/application-declaration/#process-file): *process.json* and *ecosystem.config.js*
-
-You can also configure a custom start file with the following extensions:
-
-- A *.js* file
-- A [PM2 file](https://pm2.keymetrics.io/docs/usage/application-declaration/#process-file) with the extension *.json*, *.config.js*, *.yaml*, or *.yml*
-
-To add a custom start file, run the following command in the [Cloud Shell](https://shell.azure.com):
-
-```azurecli-interactive
-az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<filname-with-extension>"
-```
 
 ## Debug remotely
 
@@ -376,6 +380,6 @@ When a working Node.js app behaves differently in App Service or has errors, try
 ::: zone pivot="platform-linux"
 
 > [!div class="nextstepaction"]
-> [App Service Linux FAQ](faq-app-service-linux.md)
+> [App Service Linux FAQ](faq-app-service-linux.yml)
 
 ::: zone-end

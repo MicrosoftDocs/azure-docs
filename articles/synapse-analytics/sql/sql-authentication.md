@@ -54,7 +54,7 @@ To create a login to serverless SQL pool, use the following syntax:
 ```sql
 CREATE LOGIN Mary WITH PASSWORD = '<strong_password>';
 -- or
-CREATE LOGIN Mary@domainname.net FROM EXTERNAL PROVIDER;
+CREATE LOGIN [Mary@domainname.net] FROM EXTERNAL PROVIDER;
 ```
 Once the login exists, you can create users in the individual databases within the serverless SQL pool endpoint and grant required permissions to these users. To create a use, you can use the following syntax:
 ```sql

@@ -7,7 +7,8 @@ ms.collection: linux
 author: bobbytreed
 ms.author: robreed
 ms.date: 04/26/2019
-ms.topic: how-to
+ms.topic: how-to 
+ms.custom: devx-track-azurepowershell
 manager: carmonm
 ---
 # Run shell scripts in your Linux VM by using Run Command

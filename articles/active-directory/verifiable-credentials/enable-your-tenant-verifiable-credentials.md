@@ -4,10 +4,10 @@ description: In this tutorial, you build the environment needed to deploy verifi
 documentationCenter: ''
 author: barclayn
 manager: daveba
-ms.service: identity
+ms.service: active-directory
 ms.topic: tutorial
 ms.subservice: verifiable-credentials
-ms.date: 04/01/2021
+ms.date: 05/18/2021
 ms.author: barclayn
 ms.reviewer: 
 
@@ -100,7 +100,7 @@ In this section, we use the rules and display files from the [Sample issuer app]
 
    ![display and rules files in a temp folder](media/enable-your-tenant-verifiable-credentials/display-rules-files-temp.png)
 
-2. Open up the MyFirstVC-rules.json file in your code editor. 
+2. Open the MyFirstVC-rules.json file in your code editor. 
 
     ```json
          {
@@ -125,19 +125,19 @@ In this section, we use the rules and display files from the [Sample issuer app]
       
     ```
 
-Now let's change the type field to "MyFirstVC". 
+   Now let's change the type field to "MyFirstVC". 
 
-  ```json
-   "type": ["MyFirstVC"]
+   ```json
+    "type": ["MyFirstVC"]
   
-  ```
+   ```
 
-Save this change.
+   Save this change.
 
- >[!NOTE]
+   >[!NOTE]
    > We are not changing the **"configuration"** or the **"client_id"** at this point in the tutorial. We still use the Microsoft B2C tenant we used in the [Get started](get-started-verifiable-credentials.md). We will use your Azure AD in the next tutorial.
 
-3. Open up the MyFirstVC-display.json file in your code editor.
+3. Open the MyFirstVC-display.json file in your code editor.
 
    ```json
        {
@@ -172,18 +172,21 @@ Save this change.
       }
    ```
 
-Lets make a few modifications so this verifiable credential looks visibly different from sample code's version. 
-    
-```json
-     "card": {
-        "title": "My First VC",
-        "issuedBy": "Your Issuer Name",
-        "backgroundColor": "#ffffff",
-        "textColor": "#000000",
-      }
-```
+   Let's make a few modifications so this verifiable credential looks visibly different from sample code's version. 
 
-Save these changes.
+    ```json
+         "card": {
+            "title": "My First VC",
+            "issuedBy": "Your Issuer Name",
+            "backgroundColor": "#ffffff",
+            "textColor": "#000000",
+          }
+    ```
+ 
+   >[!NOTE]
+   > To ensure that your credential is readable and accessible, we strongly recommend that you select text and background colors with a [contrast ratio](https://www.w3.org/WAI/WCAG21/Techniques/general/G18) of at least 4.5:1.  
+
+   Save these changes.
 
 ## Create a storage account
 

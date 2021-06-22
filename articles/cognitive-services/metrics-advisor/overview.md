@@ -1,20 +1,20 @@
 ---
-title: What is the Metrics Advisor service?
-titleSuffix: Azure Cognitive Services
+title: What is the Azure Metrics Advisor service?
+titleSuffix: Azure Applied AI Services
 description: What is Metrics Advisor?
 services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: metrics-advisor
 ms.topic: overview
 ms.date: 09/14/2020
 ms.author: mbullwin
 ---
 
-# What is Metrics Advisor (preview)? 
+# What is Azure Metrics Advisor (preview)? 
 
-Metrics Advisor is a part of Azure Cognitive Services that uses AI to perform data monitoring and anomaly detection in time series data. The service automates the process of applying models to your data, and provides a set of APIs and a web-based workspace for data ingestion, anomaly detection, and diagnostics - without needing to know machine learning. Developers can build AIOps, predicative maintenance, and business monitor applications on top of the service. Use Metrics Advisor to:
+Metrics Advisor is a part of [Azure Applied AI Services](../../applied-ai-services/what-are-applied-ai-services.md) that uses AI to perform data monitoring and anomaly detection in time series data. The service automates the process of applying models to your data, and provides a set of APIs and a web-based workspace for data ingestion, anomaly detection, and diagnostics - without needing to know machine learning. Developers can build AIOps, predicative maintenance, and business monitor applications on top of the service. Use Metrics Advisor to:
 
 * Analyze multi-dimensional data from multiple data sources
 * Identify and correlate anomalies

@@ -5,7 +5,7 @@ description: Learn how to diagnose an incidents using Metrics Advisor, and get d
 services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 08/19/2020

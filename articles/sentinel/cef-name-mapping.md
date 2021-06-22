@@ -55,7 +55,7 @@ For more information, see [Connect your external solution using Common Event For
 | dproc | DestinationProcessName | The name of the event’s destination process, such as `telnetd` or `sshd.` |
 | dpt | DestinationPort | Destination port. <br>Valid values: `*0` - `65535` |
 | dst | DestinationIP | The destination IpV4 address that the event refers to in an IP network. |
-| dtz | DeviceTimeZon | Timezone of the device generating the event |
+| dtz | DeviceTimeZone | Timezone of the device generating the event |
 | duid |DestinationUserId | Identifies the destination user by ID. |
 | duser | DestinationUserName |Identifies the destination user by name.|
 | dvc | DeviceAddress | The IPv4 address of the device generating the event. |
@@ -67,7 +67,6 @@ For more information, see [Connect your external solution using Common Event For
 
 |CEF key name  |CommonSecurityLog name  |Description  |
 |---------|---------|---------|
-|end     |  EndTime       | The time at which the activity related to the event ended.        |
 |externalId    |   ExternalID      | An ID used by the originating device. Typically, these values have increasing values that are each associated with an event.        |
 |fileCreateTime     |  FileCreateTime      | Time when the file was created.        |
 |fileHash     |   FileHash      |   Hash of a file.      |
@@ -106,7 +105,6 @@ For more information, see [Connect your external solution using Common Event For
 
 |CEF key name  |CommonSecurityLog name  |Description  |
 |---------|---------|---------|
-|Reason     |  Reason      |The reason an audit event was generated. <br><br>For example, `Bad password` or `Unknown user`.         |
 |Request     |   RequestURL      | The URL accessed for an HTTP request, including the protocol. For example, `http://www/secure.com`        |
 |requestClientApplication     |   RequestClientApplication      |   The user agent associated with the request.      |
 | requestContext | RequestContext | Describes the content from which the request originated, such as the HTTP Referrer. |
@@ -126,7 +124,6 @@ For more information, see [Connect your external solution using Common Event For
 | sproc | SourceProcessName | The name of the event's source process.|
 | spt | SourcePort | The source port number. <br>Valid port numbers are `0` - `65535`. |
 | src | SourceIP |The source that an event refers to in an IP network, as an IPv4 address. |
-| start | StartTime | The time when the activity that the event refers to started. |
 | suid | SourceUserID | Identifies the source user by ID. |
 | suser | SourceUserName | Identifies the source user by name. |
 | type | EventType | Event type. Value values include: <br>- `0`: base event <br>- `1`: aggregated <br>- `2`: correlation event <br>- `3`: action event <br><br>**Note**: This event can be omitted for base events. |

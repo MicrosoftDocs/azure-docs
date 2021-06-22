@@ -95,7 +95,7 @@ Now, we will need to validate the permissions on the storage account. To set the
 The channel name will now be the blob SAS URL that is generated from this process.  
 
 ## Create a sample Conda environment configuration file
-Last, verify the installation process by creating a sample Conda ```environment.yml``` file. If you have in a DEP enabled workspace, you must specify the ``nodefaults`` channel in your environment file.
+Last, verify the installation process by creating a sample Conda ```environment.yml``` file. If you have in a data exfiltration protection enabled workspace, you must specify the ``nodefaults`` channel in your environment file.
 
 Here is an example Conda configuration file:
 ```

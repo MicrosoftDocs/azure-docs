@@ -3,7 +3,8 @@ title: Deployment history
 description: Describes how to view Azure Resource Manager deployment operations with the portal, PowerShell, Azure CLI, and REST API.
 tags: top-support-issue
 ms.topic: conceptual
-ms.date: 09/23/2020
+ms.date: 09/23/2020 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 # View deployment history with Azure Resource Manager
 

@@ -210,4 +210,4 @@ When your changes in your PR are merged into main, that is when the versioning s
 ## Next steps
 
 * Learn about [testing for LUIS DevOps](luis-concept-devops-testing.md)
-* Learn how to [implement DevOps for LUIS with GitHub](luis-how-to-devops-with-github.md)
+* Learn how to [implement DevOps for LUIS with GitHub](./luis-concept-devops-automation.md)
