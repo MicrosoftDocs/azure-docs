@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 06/15/2021
+ms.date: 06/22/2021
 
 ms.author: BaSelden
 author: BarbaraSelden
@@ -15,7 +15,7 @@ ms.reviewer: michmcla
 
 ms.collection: M365-identity-device-management
 ---
-# Getting started with the Azure Multi-Factor Authentication Server
+# Migrate from Azure MFA Server to Azure multi-factor authentication
 
 Multi-factor authentication (MFA) is important to securing your infrastructure and assets from bad actors. Azure Multi-Factor Authentication Server (MFA Server) isn’t available for new deployments and will be deprecated. Customers who are using MFA Server should move to using cloud-based Azure Active Directory (Azure AD) multi-factor authentication. 
 In this documentation, we assume that you have a hybrid environment where:
@@ -102,7 +102,7 @@ We recommend that you use Password Hash Synchronization (PHS).
 
 ### Passwordless Authentication
 
-As part of enrolling users to use Microsoft Authenticator as a second factor, we recommend you enable passwordless phone sign-in as part of their registration. For more information, including other passwordless methods such as FIDO and Windows Hello for Business, visit [Plan a passwordless authentication deployment with Azure AD](howto-authentication-passwordless-deployment.md#plan-passwordless-authentication-with-the-microsoft-authenticator-app).
+As part of enrolling users to use Microsoft Authenticator as a second factor, we recommend you enable passwordless phone sign-in as part of their registration. For more information, including other passwordless methods such as FIDO and Windows Hello for Business, visit [Plan a passwordless authentication deployment with Azure AD](howto-authentication-passwordless-deployment.md#plan-for-and-deploy-the-microsoft-authenticator-app).
 
 ### Microsoft Identity Manager Self-service Password Reset 
 
@@ -148,7 +148,7 @@ Others might include:
   - The Cisco VPN supports both RADIUS and [SAML authentication for SSO](../saas-apps/cisco-anyconnect.md).
   - By moving from RADIUS authentication to SAML, you can integrate the Cisco VPN without deploying the NPS extension.
 - All VPNs
-  - We recommend federating your VPN as a SAML app if possible. This will allow you to use Conditional Access. For more information, see a [list of VPN vendors that are integrated into the Azure AD](../manage-apps/secure-hybrid-access#sha-through-vpn-and-sdp-applications.md) App gallery.
+  - We recommend federating your VPN as a SAML app if possible. This will allow you to use Conditional Access. For more information, see a [list of VPN vendors that are integrated into the Azure AD](../manage-apps/secure-hybrid-access.md#sha-through-vpn-and-sdp-applications) App gallery.
 
 
 ### Resources for deploying NPS
