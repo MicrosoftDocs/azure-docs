@@ -64,6 +64,10 @@ To get a list of IP addresses of the Batch service and Azure Machine Learning se
 > [!IMPORTANT]
 > The IP addresses may change over time.
 
+When adding a UDR for the IP addresses, set the __Next hop type__ to __Internet__. The following image shows an example UDR in the Azure Portal:
+
+:::image type="content" source="./media/how-to-enable-virtual-network/user-defined-route.png" alt-text="Image of a user-defined route configuration":::
+
 For information on configuring UDR, see [Route network traffic with a routing table](../virtual-network/tutorial-create-route-table-portal.md).
 
 ### Outbound configuration
