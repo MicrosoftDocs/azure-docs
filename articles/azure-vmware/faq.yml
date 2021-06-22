@@ -280,16 +280,16 @@ sections:
         answer: No. Currently, Azure VMware Solution doesn't offer multi-tenancy.
 
       - question: Does Azure VMware Solution provide an option for hoster partners to resell the service?
-        answer: Yes. Refer to [Request host quota for Azure VMware Solution](request-host-quota-azure-vmware-solution.md) for details.
+        answer: Yes. For more details, see [Request host quota for Azure VMware Solution](request-host-quota-azure-vmware-solution.md).
 
       - question: Does Azure VMware Solution enable a hoster partner to partition resources within the private cloud (SDDC) to manage for customers in a multi-tenanted way?
-        answer: No, an Azure VMware Solution private cloud cannot be shared between end customers 
+        answer: No, an Azure VMware Solution private cloud cannot be shared between end customers. 
 
       - question: I use Azure VMware Solution to create end-user applications or workloads accessed on multiple VMs through public IP. Can I sell this solution to multiple tenants?
         answer: Customers can create multi-tenant environments in their Azure VMware Solution private cloud and sell to customers provided the product is not a standard VM and have added substantial intellectual property embedded in the VM as an application.
 
       - question: As a hoster or customer, can I use my existing VMware Cloud Director (VCD) or new VCXD deployment in Azure VMware Solution?
-        answer: VMware does not allow VCD in the cloud or from on-premises to be licensed with any Hyperscaler, including Microsoft
+        answer: VMware does not allow VCD in the cloud or from on-premises to be licensed with any Hyperscaler, including Microsoft.
 
       - question: Can I connect VMware Cloud Director Service (CDS) to my Azure VMware Solution instance in Azure
         answer: Although technically possible, Microsoft does not allow Azure VMware Solution to be used through the new CDS service from VMware running on VMC.
