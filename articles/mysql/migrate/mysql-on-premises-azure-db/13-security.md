@@ -1,5 +1,5 @@
 ---
-title: "MySQL on-premises to Azure Database for MySQL migration guide Security"
+title: "Migrate MySQL on-premises to Azure Database for MySQL: Security"
 description: "Moving to a cloud-based service doesn’t mean the entire internet has access to it always."
 ms.service: mysql
 ms.subservice: migration-guide
@@ -8,10 +8,10 @@ author: arunkumarthiags
 ms.author: arthiaga
 ms.reviewer: maghan
 ms.custom:
-ms.date: 06/14/2021
+ms.date: 06/21/2021
 ---
 
-# MySQL on-premises to Azure Database for MySQL migration guide Security
+# Migrate MySQL on-premises to Azure Database for MySQL: Security
 
 ## Prerequisites
 
@@ -32,7 +32,7 @@ This tight integration allows administrators and applications to take advantage 
 
 ## Threat protection
 
-if a user or application credentials are compromised, logs are not likely to reflect any failed login attempts. Compromised credentials can allow bad actors to access and download the data. [Azure Threat Protection](/azure/mysql/concepts-data-access-and-security-threat-protection) can watch for anomalies in logins (such as unusual locations, rare users or brute force attacks) and other suspicious activities. Administrators can be notified in the event something does not `look` right.
+if a user or application credentials are compromised, logs are not likely to reflect any failed login attempts. Compromised credentials can allow bad actors to access and download the data. [Azure Threat Protection](/azure/mysql/concepts-security#threat-protection) can watch for anomalies in logins (such as unusual locations, rare users or brute force attacks) and other suspicious activities. Administrators can be notified in the event something does not `look` right.
 
 ## Audit logging
 
@@ -90,6 +90,8 @@ Review a set of potential [security baseline](/azure/mysql/security-baseline) ta
 
   - Utilize private endpoints for workloads that don't travel over the Internet.  
 
+
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Summary](./14-summary.md)

@@ -140,7 +140,7 @@ landingContent:
       - linkListType: reference
         links: 
           - text: FAQ
-            url: search-faq-frequently-asked-questions.md
+            url: search-faq-frequently-asked-questions.yml
           - text: Ask questions on Stack Overflow
             url: https://stackoverflow.com/questions/tagged/azure-search
           - text: Request a feature
