@@ -3,7 +3,7 @@ title: Don't validate MS Graph tokens | Azure
 description: Include file warning that MS Graph tokens don't validate.
 services: active-directory
 author: hpsin
-manager: mmacy
+manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
