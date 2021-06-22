@@ -73,10 +73,15 @@ Create a Maven project in your preferred IDE or development environment. Then ad
 Create a Java file named `TextAnalyticsSamples.java`. Open the file and add the following `import` statements:
 
 ```java
+import com.azure.ai.textanalytics.TextAnalyticsAsyncClient;
 import com.azure.core.credential.AzureKeyCredential;
 import com.azure.ai.textanalytics.models.*;
 import com.azure.ai.textanalytics.TextAnalyticsClientBuilder;
 import com.azure.ai.textanalytics.TextAnalyticsClient;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
 ```
 
 In the java file, add a new class and add your Azure resource's key and endpoint as shown below.
