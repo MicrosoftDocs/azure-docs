@@ -16,7 +16,7 @@ ms.reviewer: jrasnick
 > [!div class="op_single_selector"]
 > * [Azure Data Studio)](get-started-azure-data-studio.md)
 > * [Power BI](get-started-power-bi-professional.md)
-> * [Visual Studio](../sql/get-started-visual-studio)
+> * [Visual Studio](../sql/get-started-visual-studio.md)
 > * [sqlcmd](../sql/get-started-connect-sqlcmd.md)
 > * [SSMS](get-started-ssms.md)
 
