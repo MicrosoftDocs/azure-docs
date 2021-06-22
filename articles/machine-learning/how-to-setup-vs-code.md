@@ -29,7 +29,7 @@ The Azure Machine Learning extension for VS Code provides a user interface to:
 
 ## Prerequisites
 
-- Azure subscription. If you don't have one, sign up to try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
+- Azure subscription. If you don't have one, sign up to try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 - Visual Studio Code. If you don't have it, [install it](https://code.visualstudio.com/docs/setup/setup-overview).
 - [Python](https://www.python.org/downloads/)
 - (Optional) To create resources using the extension, you need to install the 2.0 CLI. For setup instructions, see [Install, set up, and use the 2.0 CLI (preview)](how-to-configure-cli.md).

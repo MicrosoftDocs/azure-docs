@@ -64,6 +64,8 @@ The console supports the following certificate types:
   > [!IMPORTANT]
   > We recommend that you don't use the default self-signed certificate. The certificate is not secure and should be used for test environments only. The owner of the certificate can't be validated, and the security of your system can't be maintained. Never use this option for production networks.
 
+See [Manage certificates](how-to-manage-individual-sensors.md#manage-certificates) for more information about working with certificates.
+
 ### Sign in and activate the sensor
 
 **To sign in and activate:**
@@ -74,7 +76,7 @@ The console supports the following certificate types:
 
 1. Enter the credentials defined during the sensor installation, or select the **Password recovery** option. If you purchased a preconfigured sensor from Arrow, generate a password first. For more information on password recovery, see [Investigate password failure at initial sign-in](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md#investigate-password-failure-at-initial-sign-in).
 
-1. After you sign in, the **Activation** dialog box opens. Select **Upload** and go to the activation file that you downloaded during sensor onboarding.
+1. After you sign in, the **Activation** dialog box opens. Select **Upload** and go to the activation file that you downloaded during the sensor onboarding.
 
    :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/activation-upload-screen-with-upload-button.png" alt-text="Select Upload and go to the activation file.":::
 
