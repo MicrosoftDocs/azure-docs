@@ -4,8 +4,8 @@ description: Learn requirements and steps for publishing integrated solutions to
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: vikrambmsft
-ms.author: vikramb
+author: Microsoft-BradleyWright
+ms.author: brwigh
 ms.date: 06/22/2021
 ---
 # Publish an integrated solution
