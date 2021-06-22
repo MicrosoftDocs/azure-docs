@@ -134,4 +134,5 @@ Now that you've stored the configuration file contents in memory, you can dynami
 
 ## Next steps
 
-Learn more about [data flow sinks](data-flow-sink.md).
+* The completed pipeline from this tutorial can be downloaded from [here](https://github.com/kromerm/adfdataflowdocs/blob/master/sampledata/DynaColsPipe.zip)
+* Learn more about [data flow sinks](data-flow-sink.md).
