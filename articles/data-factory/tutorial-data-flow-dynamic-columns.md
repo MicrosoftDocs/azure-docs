@@ -66,7 +66,7 @@ For this tutorial, we're going to use a sample movies rating file and renaming a
 
 ### Start from a blank data flow canvas
 
-First, let's set up the data flow environment for each of the mechanisms described below for landing data in ADLS Gen2
+First, let's set up the data flow environment for each of the mechanisms described below for landing data in ADLS Gen2.
 
 1. Click on the source transformation and call it ```movies1```.
 1. Click the new button next to dataset in the bottom panel.
@@ -74,11 +74,11 @@ First, let's set up the data flow environment for each of the mechanisms describ
 1. Add a 2nd source, which we will use to source the configuration JSON file to lookup field mappings.
 1. Call this as ```columnmappings```.
 1. For the dataset, point to a new JSON file that will store a configuration for column mapping. You can paste the into the JSON file for this tutorial example:
-```
-[
-{"prevcolumn":"title","newcolumn":"movietitle"},
-{"prevcolumn":"year","newcolumn":"releaseyear"}
-]
+    ```
+    [
+    {"prevcolumn":"title","newcolumn":"movietitle"},
+    {"prevcolumn":"year","newcolumn":"releaseyear"}
+    ]
 ```
 1. Set this source settings to ```array of documents```.
 1. Add a 3rd source and call it ```movies2```. Configure this exactly the same as ```movies1```.
@@ -108,9 +108,9 @@ In this first scenario, you will set output column names in you data flow by set
 
 Next, we'll create a cached sink for a later lookup. The cache will read an external JSON configuration file that can be used to rename columns dynamically on each pipeline execution of your data flow.
 
-1. Go back to the data flow designer and edit the data flow created above. Add a Sink transformation to the ```columnmappings``` source.
-1. Set sink type to ```Cache```.
-1. Under Settings, choose ```prevcolumn``` as the key column.
+    1. Go back to the data flow designer and edit the data flow created above. Add a Sink transformation to the ```columnmappings``` source.
+    1. Set sink type to ```Cache```.
+    1. Under Settings, choose ```prevcolumn``` as the key column.
 
 ### Lookup columns names from cached sink
 
