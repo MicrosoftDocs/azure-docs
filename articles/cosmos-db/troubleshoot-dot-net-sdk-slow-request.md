@@ -127,7 +127,7 @@ Single store result for a single request
 
 | Number of requests | Scenario | Description | 
 |----------|-------------|-------------|
-| Single to all | StoreResult contains TransportException | Points to [SNAT Port exhaustion](troubleshoot-dot-net-sdk.md#snat) or lack of resources on the machine to processes request in time |
+| Single to all | StoreResult contains TransportException | Points to [SNAT Port exhaustion](troubleshoot-dot-net-sdk.md#snat) or lack of resources on the machine to process request in time. |
 | Single or small percentage (SLA is not violated) | All | A single or small percentage of slow requests can be caused by several different transient issues and should be expected. | 
 | All | All | An issue with the infrastructure or networking. |
 | SLA Violated | Requests contain multiple failure error codes like 410 and IsValid is true | Points to an issue with the Cosmos DB service |
