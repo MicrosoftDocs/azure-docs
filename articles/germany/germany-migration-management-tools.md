@@ -2,7 +2,7 @@
 title: Migrate Azure management tools from Azure Germany to global Azure
 description: This article provides information about migrating your Azure management tools from Azure Germany to global Azure.
 ms.topic: article
-ms.date: 06/21/2021
+ms.date: 06/22/2021
 author: gitralf
 ms.author: ralfwi 
 ms.service: germany
@@ -125,7 +125,7 @@ Run these cmdlets:
 
 1. `Connect-AzAccount`
 1. `Set-AzContext -SubscriptionName $trgSub`
-1. `Copy-AzRecoveryServicesVault - CorrelationIdForDataMove $corr -SourceVault`
+1. `Copy-AzRecoveryServicesVault - CorrelationIdForDataMove $corr -SourceVault $srcVault -TargetVault $trgVault -Force`
 
 You can monitor the operation using the `Get-AzRecoveryServicesBackupJob` cmdlet.
 
