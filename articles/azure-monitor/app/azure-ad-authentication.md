@@ -187,7 +187,7 @@ Below is an example on how to configure Java agent to use service principal for 
   } 
 } 
 ```
-:::image type="content" source="media/azure-ad-authentication/client-secret-tenant-id.png" alt-text="Screenshot of Client secret with tenantID and ClientID." lightbox="media/java-ipa/authentication/client-secret-tenant-id.png":::
+:::image type="content" source="media/azure-ad-authentication/client-secret-tenant-id.png" alt-text="Screenshot of Client secret with tenantID and ClientID." lightbox="media/azure-ad-authentication/client-secret-tenant-id.png":::
 
 :::image type="content" source="media/azure-ad-authentication/client-secret-cs.png" alt-text="Screenshot of Client secret with client secret." lightbox="media/azure-ad-authentication/client-secret-cs.png":::
 
