@@ -120,7 +120,7 @@ You can integrate your ASE with Azure Monitor to send logs about the ASE to Azur
 |Scale operations have failed | An App Service plan ({0}) creation has failed. This may be due to the ASE operating at peak number of instances, or run out of subnet addresses. |
 |Scale operations have started | An App Service plan ({0}) has begun scaling. Current state: {1} I(2)v2. Desired state: {3} I{4}v2 workers.|
 |Scale operations have completed | An App Service plan ({0}) has finished scaling. Current state: {1} I{2}v2 workers. |
-|Scale operations was interrupted | An App Service plan ({0}) has was interrupted while scaling. Previous desired state: {1} I{2}v2 workers. New desired state: {3} I{4}v2 workers. |
+|Scale operations were interrupted | An App Service plan ({0}) was interrupted while scaling. Previous desired state: {1} I{2}v2 workers. New desired state: {3} I{4}v2 workers. |
 |Scale operations have failed | An App Service plan ({0}) has failed to scale. Current state: {1} I{2}v2 workers. |
 
 To enable logging on your ASE:
@@ -132,7 +132,7 @@ To enable logging on your ASE:
 1. Select **AppServiceEnvironmentPlatformLogs**.
 ![ASE diagnostic log settings][4]
 
-If you integrate with Log Analytics, you can see the logs by selecting **Logs** from the ASE portal and creating a query against **AppServiceEnvironmentPlatformLogs**. Logs are only emitted when your ASE has an event that will trigger it. If your ASE doesn't have such an event, there won't be any logs. To quickly see an example of logs in your Log Analytics workspace, perform a scale operation with one of the App Service plans in your ASE. You can then run a query against **AppServiceEnvironmentPlatformLogs** to see those logs. 
+If you integrate with Log Analytics, you can see the logs by selecting **Logs** from the ASE portal and creating a query against **AppServiceEnvironmentPlatformLogs**. Logs are only emitted when your ASE has an event that will trigger it. If your ASE doesn't have such an event, there won't be any logs. To quickly see an example of logs in your Log Analytics workspace, perform a scale operation with an App Service plan in your ASE. You can then run a query against **AppServiceEnvironmentPlatformLogs** to see those logs. 
 
 ### Creating an alert
 
@@ -147,7 +147,7 @@ To create an alert against your logs, follow the instructions in [Create, view, 
 
 ## Internal Encryption
 
-The App Service Environment operates as a black box system where you cannot see the internal components or the communication within the system. To enable higher throughput, encryption is not enabled by default between internal components. The system is secure as the traffic is completely inaccessible to being monitored or accessed. If you have a compliance requirement though that requires complete encryption of the data path from end to end encryption, you can enable this in the ASE **Configuration** UI.
+The App Service Environment operates as a black box system where you cannot see the internal components or the communication within the system. To enable higher throughput, encryption is not enabled by default between internal components. The system is secure as the traffic is inaccessible to being monitored or accessed. If you have a compliance requirement though that requires complete encryption of the data path from end to end encryption, you can enable this in the ASE **Configuration** UI.
 
 ![Enable internal encryption][5]
 
