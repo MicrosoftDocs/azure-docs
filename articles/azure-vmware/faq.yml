@@ -330,9 +330,9 @@ sections:
       - question: Will traffic between on-premises and Azure VMware Solution over ExpressRoute incur any outbound data transfer charge in the metered data plan?
         answer: Traffic in the Azure VMware Solution ExpressRoute circuit isn't metered in any way. Traffic from your ExpressRoute circuit connecting to your on-premises to Azure is charged according to ExpressRoute pricing plans.
 
-      - question:  Is it necessary to procure licenses and resources other than the [AV36](https://azure.microsoft.com/pricing/details/azure-vmware/) instance when migrating from the on-premise VM environment with L2 extension?  
+      - question:  Is it necessary to procure licenses and resources other than the AV36 instance when migrating from the on-premise VM environment with L2 extension?  
         answer: | 
-          NO        
+          No.        
 
       - question: When does metering begin and end for trial Azure VMware Solution clusters?
         answer: Trial clusters are limited to three hosts used for 30-day evaluations of Azure VMware Solution private clouds. After 30 days, clusters are automatically metered per their respective rates. If the trial clusters are deleted before the 30-day end date, the Azure VMware Solution trial will end at the time of deletion.
