@@ -107,9 +107,9 @@ In this first scenario, you will set output column names in you data flow by set
 
 Next, we'll create a cached sink for a later lookup. The cache will read an external JSON configuration file that can be used to rename columns dynamically on each pipeline execution of your data flow.
 
-    1. Go back to the data flow designer and edit the data flow created above. Add a Sink transformation to the ```columnmappings``` source.
-    1. Set sink type to ```Cache```.
-    1. Under Settings, choose ```prevcolumn``` as the key column.
+1. Go back to the data flow designer and edit the data flow created above. Add a Sink transformation to the ```columnmappings``` source.
+1. Set sink type to ```Cache```.
+1. Under Settings, choose ```prevcolumn``` as the key column.
 
 ### Lookup columns names from cached sink
 
