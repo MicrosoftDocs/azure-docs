@@ -22,7 +22,7 @@ In this article, you learn different approaches to testing a custom commands app
 Test in the portal is the simplest and quickest way to check if your custom command application work as expected. After the app is successfully trained, click `Test` button to start testing.
 
 > [!div class="mx-imgBorder"]
-> ![Test in the portal](media/custom-commands/create-basic-test-chat.png)
+> ![Test in the portal](media/custom-commands/create-basic-test-chat-no-mic.png)
 
 ## Test with Windows Voice Assistant Client
 

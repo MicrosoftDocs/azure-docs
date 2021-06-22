@@ -215,6 +215,7 @@ SUSE Linux Enterprise Server 15, SP1, SP2 | [9.38](https://support.microsoft.com
 **Setting** | **Support** | **Details**
 --- | --- | ---
 Size | Any Azure VM size with at least 2 CPU cores and 1-GB RAM | Verify [Azure virtual machine sizes](../virtual-machines/sizes.md).
+RAM | ASR driver consumes 6% of RAM.
 Availability sets | Supported | If you enable replication for an Azure VM with the default options, an availability set is created automatically, based on the source region settings. You can modify these settings.
 Availability zones | Supported |
 Hybrid Use Benefit (HUB) | Supported | If the source VM has a HUB license enabled, a test failover or failed over VM also uses the HUB license.
