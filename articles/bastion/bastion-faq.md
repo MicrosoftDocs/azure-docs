@@ -37,7 +37,7 @@ No. You don't need to install an agent or any software on your browser or your A
 
 Both RDP and SSH are a usage-based protocol. High usage of sessions will cause the bastion host to support a lower total number of sessions. The numbers below assume normal day-to-day workflows.
 
-[!INCLUDE [limits](bastion-limits.md)]
+[!INCLUDE [limits](../../includes/bastion-limits.md)]
 
 ### <a name="rdpfeaturesupport"></a>What features are supported in an RDP session?
 
@@ -45,7 +45,7 @@ At this time, only text copy/paste is supported. Features, such as file copy, ar
 
 ### <a name="aadj"></a>Does Bastion hardening work with AADJ VM extension-joined VMs?
 
-This feature doesn't work with AADJ VM extension-joined machines using Azure AD users. For more information, see [Windows Azure VMs and Azure AD](../articles/active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#requirements).
+This feature doesn't work with AADJ VM extension-joined machines using Azure AD users. For more information, see [Windows Azure VMs and Azure AD](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#requirements).
 
 ### <a name="browsers"></a>Which browsers are supported?
 
@@ -92,13 +92,13 @@ A session should be initiated only from the Azure portal. Sign in to the Azure p
 
 ### <a name="udr"></a>How do I handle deployment failures?
 
-Review any error messages and [raise a support request in the Azure portal](../articles/azure-portal/supportability/how-to-create-azure-support-request.md) as needed. Deployment failures may result from [Azure subscription limits, quotas, and constraints](../articles/azure-resource-manager/management/azure-subscription-service-limits.md). Specifically, customers may encounter a limit on the number of public IP addresses allowed per subscription that causes the Azure Bastion deployment to fail.
+Review any error messages and [raise a support request in the Azure portal](../azure-portal/supportability/how-to-create-azure-support-request.md) as needed. Deployment failures may result from [Azure subscription limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md). Specifically, customers may encounter a limit on the number of public IP addresses allowed per subscription that causes the Azure Bastion deployment to fail.
 
 ### <a name="dr"></a>How do I incorporate Azure Bastion in my Disaster Recovery plan?
 
 Azure Bastion is deployed within VNets or peered VNets, and is associated to an Azure region. You are responsible for deploying Azure Bastion to a Disaster Recovery (DR) site VNet. In the event of an Azure region failure, perform a failover operation for your VMs to the DR region. Then, use the Azure Bastion host that's deployed in the DR region to connect to the VMs that are now deployed there.
 
-## VNet peering
+## <a name="peering"></a>VNet peering
 
 ### Can I still deploy multiple Bastion hosts across peered virtual networks?
 
@@ -108,7 +108,7 @@ Yes. By default, a user sees the Bastion host that is deployed in the same virtu
 
 Yes, connectivity via Bastion will continue to work for peered VNets across different subscription for a single Tenant. Subscriptions across two different Tenants are not supported. To see Bastion in the **Connect** drop down menu, the user must select the subs they have access to in **Subscription > global subscription**.
 
-:::image type="content" source="./media/bastion-faq-peering-include/global-subscriptions.png" alt-text="Global subscriptions filter" lightbox="./media/bastion-faq-peering-include/global-subscriptions.png":::
+:::image type="content" source="./media/bastion-faq/global-subscriptions.png" alt-text="Global subscriptions filter." lightbox="./media/bastion-faq/global-subscriptions.png":::
 
 ### I have access to the peered VNet, but I can't see the VM deployed there.
 
