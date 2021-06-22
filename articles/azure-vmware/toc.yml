@@ -116,8 +116,8 @@
       href: deploy-traffic-manager-balance-workloads.md
     - name: Configure alerts and work with metrics 
       href: configure-alerts-for-azure-vmware-solution.md
-    - name: Connect disk pools to Azure VMware Solution hosts
-      href: configure-nsx-network-components-azure-portal.md
+    - name: Attach disk pools to Azure VMware Solution hosts
+      href: attach-disk-pools-to-azure-vmware-solution-hosts.md
   - name: VMware solutions
     items:
     - name: Configure vRealize Operations

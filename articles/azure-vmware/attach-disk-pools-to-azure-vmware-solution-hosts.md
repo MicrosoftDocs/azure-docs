@@ -1,6 +1,6 @@
 ---
-title: Connect disk pools to Azure VMware Solution hosts
-description: Learn how to connect Azure disk pools to Azure VMware Solution hosts. 
+title: Attach disk pools to Azure VMware Solution hosts
+description: Learn how to attach a disk pool surfaced through an iSCSI target as the VMware datastore of an Azure VMware Solution private cloud. 
 ms.topic: how-to 
 ms.date: 06/28/2021
 
@@ -8,7 +8,7 @@ ms.date: 06/28/2021
 
 ---
 
-# Connect disk pools to Azure VMware Solution hosts
+# Attach disk pools to Azure VMware Solution hosts
 
 [Azure disk pools](../virtual-machines/disks-pools.md) offer persistent block storage to applications and workloads backed by Azure Disks. You can use disks as the persistent storage for Azure VMWare Solution for optimal cost and performance. For example, you can scale up by using disk pools instead of scaling clusters if you host storage-intensive workloads. You can also use disks to replicate data from on-premises or primary VMware environment to disk storage for the secondary site.
 
@@ -43,8 +43,8 @@ You can only connect the disk pool to an Azure VMware Solution private cloud in 
    >[!IMPORTANT]
    > The disk pool must be deployed in the same subscription as the VMware cluster, and it must be attached to the same VNET as the VMware cluster.
 
-## Connect a disk pool to your private cloud
-You'll connect to a disk pool surfaced through an iSCSI target as the VMware datastore of an Azure VMware Solution private cloud.
+## Attach a disk pool to your private cloud
+You'll attach a disk pool surfaced through an iSCSI target as the VMware datastore of an Azure VMware Solution private cloud.
 
 1. Install `vmware `extension.
 
@@ -91,20 +91,18 @@ You'll connect to a disk pool surfaced through an iSCSI target as the VMware dat
    ```
 
 ## Delete an iSCSI datastore from your private cloud
+When you delete a private cloud datastore, the disk pool resources don't get deleted. There is no maintenance window required for this operation.
 
-Although there is no maintenance window required for this operation, you must power off your VMs before proceeding.
+1. Power off the VMs and remove all objects associated with the iSCSI datastores, which include:
+   - VMs (remove from inventory)
+   - Templates
+   - Snapshots
 
-```azurecli
-az vmware datastore delete --name MyCloudSANDatastore1 --resource-group MyResourceGroup --cluster Cluster-1 --private-cloud MyPrivateCloud
-```
+2. Delete the private cloud datastore.
 
-## Disconnect a disk pool from your private cloud
-Although there is no maintenance window required for this operation, you must power off your VMs before proceeding.
-
->[!IMPORTANT]
->Before you can disconnect a disk pool from your private cloud, you must first delete the iSCSI datastore.
-
- 
+   ```azurecli
+   az vmware datastore delete --name MyCloudSANDatastore1 --resource-group MyResourceGroup --cluster Cluster-1 --private-cloud MyPrivateCloud
+   ```
 
 
 ## Next steps

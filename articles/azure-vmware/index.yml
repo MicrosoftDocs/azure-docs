@@ -154,8 +154,8 @@ landingContent:
             url: deploy-traffic-manager-balance-workloads.md
           - text: Configure alerts and work with metrics 
             url: configure-alerts-for-azure-vmware-solution.md
-          - text: Connect disk pools to Azure VMware Solution hosts
-            url: configure-nsx-network-components-azure-portal.md
+          - text: Attach disk pools to Azure VMware Solution hosts
+            url: attach-disk-pools-to-azure-vmware-solution-hosts.md
 
 # card 6 == backup and restore
   - title: Backup and restore with Azure Backup Server
