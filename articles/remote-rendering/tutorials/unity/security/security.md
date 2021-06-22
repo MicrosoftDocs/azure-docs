@@ -187,11 +187,11 @@ AAD authentication will allow you to determine which individuals or groups are u
 
 The **RemoteRenderingCoordinator** script has a delegate named **ARRCredentialGetter**, which holds a method that returns a **AzureFrontendAccountInfo** object, which is used to configure the remote session management. We can assign a different method to **ARRCredentialGetter**, allowing us to use an Azure sign in flow, generating a **AzureFrontendAccountInfo** object that contains an Azure Access Token. This Access Token will be specific to the user that's signing in.
 
-1. Follow the [How To: Configure authentication - Authentication for deployed applications](../../../how-tos/authentication.md#authentication-for-deployed-applications), specifically you'll follow the instructions listed in the Azure Spatial Anchors documentation [Azure AD user authentication](../../../../spatial-anchors/concepts/authentication.md?tabs=csharp#azure-ad-user-authentication). Which involves registering a new Azure Active Directory application and configuring access to your ARR instance.
+1. Follow the [How To: Configure authentication - Authentication for deployed applications](../../../how-tos/authentication.md#authentication-for-deployed-applications), which involves registering a new Azure Active Directory application and configuring access to your ARR instance.
 1. After configuring the new AAD application, check your AAD application looks like the following images:
 
     **AAD Application -> Authentication**
-    ![App authentication](./media/app-authentication-public.png)
+    ![App authentication](./../../../how-tos/media/aad-app-setup.png)
 
     **AAD Application -> API Permissions**
     ![App APIs](./media/request-api-permissions-step-five.png)
@@ -199,7 +199,7 @@ The **RemoteRenderingCoordinator** script has a delegate named **ARRCredentialGe
 1. After configuring your Remote Rendering account, check your configuration looks like the following image:
 
     **AAR -> AccessControl (IAM)**
-    ![ARR Role](./media/azure-remote-rendering-role-assignment-complete.png)
+    ![ARR Role](./../../../how-tos/media/arr-role-assignments.png)
 
     >[!NOTE]
     > An *Owner* role is not sufficient to manage sessions via the client application. For every user you want to grant the ability to manage sessions you must provide the role **Remote Rendering Client**. For every user you want to manage sessions and convert models, you must provide the role **Remote Rendering Administrator**.
@@ -268,7 +268,7 @@ With the Azure side of things in place, we now need to modify how your code conn
 
         string redirect_uri = "https://login.microsoftonline.com/common/oauth2/nativeclient";
 
-        string[] scopes => new string[] { "https://sts." + AzureRemoteRenderingAccountAuthenticationDomain + "/mixedreality.signin" };
+        string[] scopes => new string[] { "https://sts.mixedreality.azure.com/mixedreality.signin" };
 
         public void OnEnable()
         {
