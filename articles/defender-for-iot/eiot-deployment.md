@@ -53,7 +53,7 @@ Azure Defender for IoT ensures quick and frictionless deployment of network sens
     
     - 250 GB HDD
     
-    - 2 vNICs
+    - 2 Network Adapters
     
     - OS: Ubuntu 18.04.1 or higher 
 
@@ -73,7 +73,7 @@ Azure Defender for IoT ensures quick and frictionless deployment of network sens
 
 **Configure an Azure instance**:
 
-Purchase, and set up an EIoT Hub. The minimum size needed is the smallest hub ($20).
+Purchase, and set up an Azure IoTHub. The minimum size needed is the smallest hub ($20).
 
 > [!Note]
 > Due to GDPR regulations, EU customers must set their instances to the EU **Europe West** cloud. Any customer outside of the EU, should set their instance to US **US East** cloud.
@@ -90,8 +90,6 @@ Create, and onboard a new subscription, even if you already have a current subsc
 
     > [!Note]
     > You must select the specific link provided in step #1 or you will not be able to compete the process listed below.
-
-1. Search for, and select **Defender for IoT**.
 
 1. On the getting started page, Select **Onboard a subscription**.
 
@@ -135,7 +133,7 @@ Onboard a new sensor for this scenario.
 
 1. (Optional) If you have a firewall enabled, you must open up port 443 to allow the service to operate.
 
-1. (Optional) If you are using a proxy environment, enter your credentials, and set the proxy to allow a connection to Azure. Proxies without passwords are not supported.
+1. (Optional) If you are using a proxy environment, enter your credentials, and set the proxy to allow a connection to Azure. **Proxies without passwords are not supported**.
 
 ## Install the sensor
 
@@ -179,9 +177,7 @@ You will need to download a package, and move it, and your activation file to th
 
 1. (Optional) If you are using a proxy, select **Yes**, and enter a server, port, username, and password for the proxy.
 
-    Select **No**, if you are not using a proxy.
-
-After the installation completes, you will test the validation.
+    If you are not using a proxy, select **No**,  and wait for the installation to complete.
 
 ## Validate your setup
 
