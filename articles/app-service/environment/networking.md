@@ -38,7 +38,7 @@ As you scale your App Service plans in your ASE, you'll use more addresses out o
 
 ## Ports
 
-The ASE receives application traffic on ports 80 and 443.  There is also a keep alive signal from the load balancer deployed with the ASE that must be allowed from in the Vnet into the ASE subnet on port 16001 or your apps will not be accessible. 
+The ASE receives application traffic on ports 80 and 443. If those ports are blocked, you can't reach your apps. Port 80 needs to be open from the load balancer to the ASE subnet as this port is used for keep alive traffic. 
 
 ## Extra configurations
 
