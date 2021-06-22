@@ -167,7 +167,7 @@ To check if all containers from the source vault have moved to the target vault,
 Run the following cmdlet to list all VMs moved from the source vault to target vault:
 
 ```azurepowershell
-Get-AzRecoveryServicesBackupContainer -BackupManagementType “AzureVM” -VaultId $trgVault.ID`
+Get-AzRecoveryServicesBackupContainer -BackupManagementType “AzureVM” -VaultId $trgVault.ID
 ```
 
 #### Verify the movement of policies is complete
@@ -177,7 +177,7 @@ After the backup data is moved successfully to the new region, all policies that
 To verify if all policies have moved from the source vault to the target vault, go to the target vault and run the following cmdlet to get the list of all moved policies:
 
 ```azurepowershell
-Get-AzRecoveryServicesBackupProtectionPolicy -VaultId $trgVault.ID`
+Get-AzRecoveryServicesBackupProtectionPolicy -VaultId $trgVault.ID
 ```
 
 These policies continue to apply on your backup data after the move operation so that the lifecycle management of the moved recovery points is continued.
