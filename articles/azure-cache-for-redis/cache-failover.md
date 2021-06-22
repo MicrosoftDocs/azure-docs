@@ -87,7 +87,7 @@ Certain client-side network-configuration changes can trigger "No connection ava
 
 Such changes can cause a connectivity issue that lasts less than one minute. Your client application will probably lose its connection to other external network resources, but also to the Azure Cache for Redis service.
 
-## Build Resiliency in Azure Cache for Redis
+## Build in Resiliency
 
 You can't avoid failovers completely. Instead, write your client applications to be resilient to connection breaks and failed requests. Most client libraries automatically reconnect to the cache endpoint, but few of them attempt to retry failed requests. Depending on the application scenario, it might make sense to use retry logic with backoff.
 
@@ -98,10 +98,6 @@ Refer to these design patterns to build resilient clients, especially the circui
 - [Reliability patterns - Cloud Design Patterns](/azure/architecture/framework/resiliency/reliability-patterns#resiliency)
 - [Retry guidance for Azure services - Best practices for cloud applications](/azure/architecture/best-practices/retry-service-specific)
 - [Implement retries with exponential backoff](/dotnet/architecture/microservices/implement-resilient-applications/implement-retries-exponential-backoff)
-
-<!--
-Because you can't avoid failovers completely, write your client applications for resiliency to connection breaks and failed requests. Although most client libraries automatically reconnect to the cache endpoint, few of them attempt to retry failed requests. Depending on the application scenario, it might make sense to use retry logic with backoff.
--->
 
 To test a client application's resiliency, use a [reboot](cache-administration.md#reboot) as a manual trigger for connection breaks.
 
