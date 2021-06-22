@@ -113,6 +113,8 @@
       items:
       - name: Best practices for landing data in the lake with ADLS Gen2
         href: tutorial-data-flow-write-to-lake.md
+      - name: Dynamically set column names
+        href: data-flow-tutorials.md
       - name: Transform data in the lake with Delta Lake
         href: tutorial-data-flow-delta-lake.md
       - name: Transform data with mapping data flows
