@@ -302,7 +302,7 @@ _Details:_
 
 This request enables searches for one or more instances within a single study and single series by DICOM attributes.
 
-For information about the supported DICOM attributes, see the [DICOM Conformance Statement](dicom-services-conformance-statement.md).
+For more information about the supported DICOM attributes, see the [DICOM Conformance Statement](dicom-services-conformance-statement.md)
 
 _Details:_
 * Path: ../studies/{study}/series/{series}/instances?SOPInstanceUID={instance}
