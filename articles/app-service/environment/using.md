@@ -117,7 +117,7 @@ You can integrate your ASE with Azure Monitor to send logs about the ASE to Azur
 |ASE upgrade has completed | A platform upgrade to the specified ASE has finished. |
 |App Service plan creation has started | An App Service plan ({0}) creation has started. Desired state: {1} I{2}v2 workers.
 |Scale operations have completed | An App Service plan ({0}) creation has finished. Current state: {1} I{2}v2 workers. |
-|Scale operations have failed | An App Service plan ({0}) creation has failed. This may be due to the ASE operating at peack number of instances, or run out of subnet addresses. |
+|Scale operations have failed | An App Service plan ({0}) creation has failed. This may be due to the ASE operating at peak number of instances, or run out of subnet addresses. |
 |Scale operations have started | An App Service plan ({0}) has begun scaling. Current state: {1} I(2)v2. Desired state: {3} I{4}v2 workers.|
 |Scale operations have completed | An App Service plan ({0}) has finished scaling. Current state: {1} I{2}v2 workers. |
 |Scale operations was interrupted | An App Service plan ({0}) has was interrupted while scaling. Previous desired state: {1} I{2}v2 workers. New desired state: {3} I{4}v2 workers. |
