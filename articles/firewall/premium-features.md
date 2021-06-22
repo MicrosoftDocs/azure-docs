@@ -45,7 +45,7 @@ To learn more about Azure Firewall Premium Intermediate CA certificate requireme
 
 A network intrusion detection and prevention system (IDPS) allows you to monitor your network for malicious activity, log information about this activity, report it, and optionally attempt to block it. 
 
-Azure Firewall Premium provides signature-based IDPS to allow rapid detection of attacks by looking for specific patterns, such as byte sequences in network traffic, or known malicious instruction sequences used by malware. The IDPS signatures are fully managed and continuously updated. IDPS can be applied to inbound traffic, spoke-to-spoke traffic (East-West), and outbound traffic.
+Azure Firewall Premium Preview provides signature-based IDPS to allow rapid detection of attacks by looking for specific patterns, such as byte sequences in network traffic, or known malicious instruction sequences used by malware. The IDPS signatures are applicable for both application and network level traffic (Layers 4-7), they are fully managed, and continuously updated. IDPS can be applied to inbound, spoke-to-spoke (East-West), and outbound traffic.
 
 The Azure Firewall signatures/rulesets include:
 - An emphasis on fingerprinting actual malware, Command and Control, exploit kits, and in the wild malicious activity missed by traditional prevention methods.
@@ -110,6 +110,7 @@ Azure Firewall Premium is supported in the following regions:
 - Brazil South (Public / Brazil)
 - Canada Central (Public / Canada)
 - Canada East (Public / Canada)
+- Central India (Public / India)
 - Central US (Public / United States)
 - Central US EUAP (Public / Canary (US))
 - East Asia (Public / Asia Pacific)
@@ -117,16 +118,22 @@ Azure Firewall Premium is supported in the following regions:
 - East US 2 (Public / United States)
 - France Central (Public / France)
 - France South (Public / France)
+- Germany West Central (Public / Germany)
 - Japan East (Public / Japan)
 - Japan West (Public / Japan)
 - Korea Central (Public / Korea)
 - Korea South (Public / Korea)
 - North Central US (Public / United States)
 - North Europe (Public / Europe)
+- Norway East (Public / Norway)
 - South Africa North (Public / South Africa)
 - South Central US (Public / United States)
+- South India (Public / India)
 - Southeast Asia (Public / Asia Pacific)
+- Sweden Central (Public / Sweden)
+- Switzerland North (Public / Switzerland)
 - UAE Central (Public / UAE)
+- UAE North (Public / UAE)
 - UK South (Public / United Kingdom)
 - UK West (Public / United Kingdom)
 - West Central US (Public / United States)
@@ -134,6 +141,7 @@ Azure Firewall Premium is supported in the following regions:
 - West India (Public / India)
 - West US (Public / United States)
 - West US 2 (Public / United States)
+- West US 3 (Public / United States)
 
 
 ## Known issues
