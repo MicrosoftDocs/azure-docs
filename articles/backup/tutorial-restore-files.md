@@ -16,13 +16,15 @@ Azure Backup creates recovery points that are stored in geo-redundant recovery v
 > * Connect a recovery point to a VM
 > * Restore files from a recovery point
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-If you choose to install and use the CLI locally, this tutorial requires that you're running the Azure CLI version 2.0.18 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
-
 ## Prerequisites
 
 This tutorial requires a Linux VM that has been protected with Azure Backup. To simulate an accidental file deletion and recovery process, you delete a page from a web server. If you need a Linux VM that runs a webserver and has been protected with Azure Backup, see [Back up a virtual machine in Azure with the CLI](quick-backup-vm-cli.md).
+
+Prepare your environment:
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+- This article requires version 2.0.18 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Backup overview
 
@@ -36,7 +38,7 @@ When the data transfer is complete, the snapshot is removed and a recovery point
 
 If you accidentally delete or make changes to a file, you can restore individual files from a recovery point. This process allows you to browse the files backed up in a recovery point and restore only the files you need. In this example, we delete a file from a web server to demonstrate the file-level recovery process.
 
-1. To connect to your VM, obtain the IP address of your VM with [az vm show](/cli/azure/vm#az-vm-show):
+1. To connect to your VM, obtain the IP address of your VM with [az vm show](/cli/azure/vm#az_vm_show):
 
      ```azurecli-interactive
      az vm show --resource-group myResourceGroup --name myVM -d --query [publicIps] --o tsv
@@ -72,7 +74,7 @@ If you accidentally delete or make changes to a file, you can restore individual
 
 To restore your files, Azure Backup provides a script to run on your VM that connects your recovery point as a local drive. You can browse this local drive, restore files to the VM itself, then disconnect the recovery point. Azure Backup continues to back up your data based on the assigned policy for schedule and retention.
 
-1. To list recovery points for your VM, use [az backup recoverypoint list](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-list). In this example, we select the most recent recovery point for the VM named *myVM* that's protected in *myRecoveryServicesVault*:
+1. To list recovery points for your VM, use [az backup recoverypoint list](/cli/azure/backup/recoverypoint#az_backup_recoverypoint_list). In this example, we select the most recent recovery point for the VM named *myVM* that's protected in *myRecoveryServicesVault*:
 
     ```azurecli-interactive
     az backup recoverypoint list \
@@ -84,7 +86,7 @@ To restore your files, Azure Backup provides a script to run on your VM that con
         --output tsv
     ```
 
-2. To obtain the script that connects, or mounts, the recovery point to your VM, use [az backup restore files mount-rp](/cli/azure/backup/restore/files#az-backup-restore-files-mount-rp). The following example obtains the script for the VM named *myVM* that's protected in *myRecoveryServicesVault*.
+2. To obtain the script that connects, or mounts, the recovery point to your VM, use [az backup restore files mount-rp](/cli/azure/backup/restore/files#az_backup_restore_files_mount_rp). The following example obtains the script for the VM named *myVM* that's protected in *myRecoveryServicesVault*.
 
     Replace *myRecoveryPointName* with the name of the recovery point that you obtained in the preceding command:
 
@@ -114,7 +116,7 @@ To restore your files, Azure Backup provides a script to run on your VM that con
 With the recovery script copied to your VM, you can now connect the recovery point and restore files.
 
 >[!NOTE]
-> Check [here](backup-azure-restore-files-from-vm.md#selecting-the-right-machine-to-run-the-script) to see if you can run the script on your VM before continuing.
+> Check [here](backup-azure-restore-files-from-vm.md#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script) to see if you can run the script on your VM before continuing.
 
 1. Connect to your VM with SSH. Replace *publicIpAddress* with the public IP address of your VM as follows:
 
@@ -134,7 +136,7 @@ With the recovery script copied to your VM, you can now connect the recovery poi
     ./myVM_we_1571974050985163527.sh
     ```
 
-    As the script runs, you're prompted to enter a password to access the recovery point. Enter the password shown in the output from the previous [az backup restore files mount-rp](/cli/azure/backup/restore/files#az-backup-restore-files-mount-rp) command that generated the recovery script.
+    As the script runs, you're prompted to enter a password to access the recovery point. Enter the password shown in the output from the previous [az backup restore files mount-rp](/cli/azure/backup/restore/files#az_backup_restore_files_mount_rp) command that generated the recovery script.
 
     The output from the script gives you the path for the recovery point. The following example output shows that the recovery point is mounted at */home/azureuser/myVM-20170919213536/Volume1*:
 
@@ -174,7 +176,7 @@ With the recovery script copied to your VM, you can now connect the recovery poi
     exit
     ```
 
-7. Unmount the recovery point from your VM with [az backup restore files unmount-rp](/cli/azure/backup/restore/files#az-backup-restore-files-unmount-rp). The following example unmounts the recovery point from the VM named *myVM* in *myRecoveryServicesVault*.
+7. Unmount the recovery point from your VM with [az backup restore files unmount-rp](/cli/azure/backup/restore/files#az_backup_restore_files_unmount_rp). The following example unmounts the recovery point from the VM named *myVM* in *myRecoveryServicesVault*.
 
     Replace *myRecoveryPointName* with the name of your recovery point that you obtained in the previous commands:
 

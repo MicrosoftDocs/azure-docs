@@ -1,16 +1,13 @@
 ---
 title: Create/Schedule Pipelines, Chain Activities in Data Factory 
 description: Learn to create a data pipeline in Azure Data Factory to move and transform data. Create a data driven workflow to produce ready to use information.
-services: data-factory
-documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
-manager: jroth
-ms.reviewer: maghan
+author: dcstwh
+ms.author: weetok
+ms.reviewer: jburchel
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 01/10/2018 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Pipelines and Activities in Azure Data Factory
@@ -29,7 +26,7 @@ This article helps you understand pipelines and activities in Azure Data Factory
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## Overview
-A data factory can have one or more pipelines. A pipeline is a logical grouping of activities that together perform a task. The activities in a pipeline define actions to perform on your data. For example, you may use a copy activity to copy data from a SQL Server database to an Azure Blob Storage. Then, use a Hive activity that runs a Hive script on an Azure HDInsight cluster to process/transform data from the blob storage to produce output data. Finally, use a second copy activity to copy the output data to an Azure Synapse Analytics (formerly SQL Data Warehouse) on top of which business intelligence (BI) reporting solutions are built.
+A data factory can have one or more pipelines. A pipeline is a logical grouping of activities that together perform a task. The activities in a pipeline define actions to perform on your data. For example, you may use a copy activity to copy data from a SQL Server database to an Azure Blob Storage. Then, use a Hive activity that runs a Hive script on an Azure HDInsight cluster to process/transform data from the blob storage to produce output data. Finally, use a second copy activity to copy the output data to an Azure Synapse Analytics on top of which business intelligence (BI) reporting solutions are built.
 
 An activity can take zero or more input [datasets](data-factory-create-datasets.md) and produce one or more output [datasets](data-factory-create-datasets.md). The following diagram shows the relationship between pipeline, activity, and dataset in Data Factory:
 
@@ -44,7 +41,7 @@ An input dataset represents the input for an activity in the pipeline and an out
 ### Data movement activities
 Copy Activity in Data Factory copies data from a source data store to a sink data store. Data Factory supports the following data stores. Data from any source can be written to any sink. Click a data store to learn how to copy data to and from that store.
 
-[!INCLUDE [data-factory-supported-data-stores](../../../includes/data-factory-supported-data-stores.md)]
+[!INCLUDE [data-factory-supported-data-stores](includes/data-factory-supported-data-stores.md)]
 
 > [!NOTE]
 > Data stores with * can be on-premises or on Azure IaaS, and require you to install [Data Management Gateway](data-factory-data-management-gateway.md) on an on-premises/Azure IaaS machine.
@@ -52,7 +49,7 @@ Copy Activity in Data Factory copies data from a source data store to a sink dat
 For more information, see [Data Movement Activities](data-factory-data-movement-activities.md) article.
 
 ### Data transformation activities
-[!INCLUDE [data-factory-transformation-activities](../../../includes/data-factory-transformation-activities.md)]
+[!INCLUDE [data-factory-transformation-activities](includes/data-factory-transformation-activities.md)]
 
 For more information, see [Data Transformation Activities](data-factory-data-transformation-activities.md) article.
 

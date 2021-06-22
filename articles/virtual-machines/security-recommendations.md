@@ -19,39 +19,39 @@ This article contains security recommendations for Azure Virtual Machines. Follo
 
 Some of this article's recommendations can be automatically addressed by Azure Security Center. Azure Security Center is the first line of defense for your resources in Azure. It periodically analyzes the security state of your Azure resources to identify potential security vulnerabilities. It then recommends how to address the vulnerabilities. For more information, see [Security recommendations in Azure Security Center](../security-center/security-center-recommendations.md).
 
-For general information about Azure Security Center, see [What is Azure Security Center?](../security-center/security-center-intro.md).
+For general information about Azure Security Center, see [What is Azure Security Center?](../security-center/security-center-introduction.md).
 
 ## General
 
 | Recommendation | Comments | Security Center |
 |-|----|--|
 | When you build custom VM images, apply the latest updates. | Before you create images, install the latest updates for the operating system and for all applications that will be part of your image.  | - |
-| Keep your VMs current. | You can use the [Update Management](../automation/update-management/update-mgmt-overview.md) solution in Azure Automation to manage operating system updates for your Windows and Linux computers in Azure. | [Yes](../security-center/security-center-apply-system-updates.md) |
+| Keep your VMs current. | You can use the [Update Management](../automation/update-management/overview.md) solution in Azure Automation to manage operating system updates for your Windows and Linux computers in Azure. | [Yes](../security-center/asset-inventory.md) |
 | Back up your VMs. | [Azure Backup](../backup/backup-overview.md) helps protect your application data and has minimal operating costs. Application errors can corrupt your data, and human errors can introduce bugs into your applications. Azure Backup protects your VMs that run Windows and Linux. | - |
-| Use multiple VMs for greater resilience and availability. | If your VM runs applications that must be highly available, use multiple VMs or [availability sets](../virtual-machines/windows/manage-availability.md). | - |
+| Use multiple VMs for greater resilience and availability. | If your VM runs applications that must be highly available, use multiple VMs or [availability sets](./availability.md). | - |
 | Adopt a business continuity and disaster recovery (BCDR) strategy. | Azure Site Recovery allows you to choose from different options designed to support business continuity. It supports different replication and failover scenarios. For more information, see  [About Site Recovery](../site-recovery/site-recovery-overview.md). | - |
 
 ## Data security
 
 | Recommendation | Comments | Security Center |
 |-|----|--|
-| Encrypt operating system disks. | [Azure Disk Encryption](../security/azure-security-disk-encryption-overview.md) helps you encrypt your Windows and Linux IaaS VM disks. Without the necessary keys, the contents of encrypted disks are unreadable. Disk encryption protects stored data from unauthorized access that would otherwise be possible if the disk were copied.| [Yes](../security-center/security-center-apply-disk-encryption.md) |
-| Encrypt data disks. | [Azure Disk Encryption](../security/azure-security-disk-encryption-overview.md) helps you encrypt your Windows and Linux IaaS VM disks. Without the necessary keys, the contents of encrypted disks are unreadable. Disk encryption protects stored data from unauthorized access that would otherwise be possible if the disk were copied.| -  |
+| Encrypt operating system disks. | [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md) helps you encrypt your Windows and Linux IaaS VM disks. Without the necessary keys, the contents of encrypted disks are unreadable. Disk encryption protects stored data from unauthorized access that would otherwise be possible if the disk were copied.| [Yes](../security-center/asset-inventory.md) |
+| Encrypt data disks. | [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md) helps you encrypt your Windows and Linux IaaS VM disks. Without the necessary keys, the contents of encrypted disks are unreadable. Disk encryption protects stored data from unauthorized access that would otherwise be possible if the disk were copied.| -  |
 | Limit installed software. | Limit installed software to what is required to successfully apply your solution. This guideline helps reduce your solution's attack surface. | - |
-| Use antivirus or antimalware. | In Azure, you can use antimalware software from security vendors such as Microsoft, Symantec, Trend Micro, and Kaspersky. This software helps protect your VMs from malicious files, adware, and other threats. You can deploy Microsoft Antimalware based on your application workloads. Microsoft Antimalware is available for Windows machines only. Use either basic secure-by-default or advanced custom configuration. For more information, see [Microsoft Antimalware for Azure Cloud Services and Virtual Machines](../security/azure-security-antimalware.md). | - |
+| Use antivirus or antimalware. | In Azure, you can use antimalware software from security vendors such as Microsoft, Symantec, Trend Micro, and Kaspersky. This software helps protect your VMs from malicious files, adware, and other threats. You can deploy Microsoft Antimalware based on your application workloads. Microsoft Antimalware is available for Windows machines only. Use either basic secure-by-default or advanced custom configuration. For more information, see [Microsoft Antimalware for Azure Cloud Services and Virtual Machines](../security/fundamentals/antimalware.md). | - |
 | Securely store keys and secrets. | Simplify the management of your secrets and keys by providing your application owners with a secure, centrally managed option. This management reduces the risk of an accidental compromise or leak. Azure Key Vault can securely store your keys in hardware security modules (HSMs) that are certified to FIPS 140-2 Level 2. If you need to use FIPs 140.2 Level 3 to store your keys and secrets, you can use [Azure Dedicated HSM](../dedicated-hsm/overview.md). | - |
 
 ## Identity and access management 
 
 | Recommendation | Comments | Security Center |
 |-|----|--|
-| Centralize VM authentication. | You can centralize the authentication of your Windows and Linux VMs by using [Azure Active Directory authentication](../active-directory/develop/authentication-scenarios.md). | - |
+| Centralize VM authentication. | You can centralize the authentication of your Windows and Linux VMs by using [Azure Active Directory authentication](../active-directory/develop/authentication-vs-authorization.md). | - |
 
 ## Monitoring
 
 | Recommendation | Comments | Security Center |
 |-|----|--|
-| Monitor your VMs. | You can use [Azure Monitor for VMs](../azure-monitor/insights/vminsights-overview.md) to monitor the state of your Azure VMs and virtual machine scale sets. Performance issues with a VM can lead to service disruption, which violates the security principle of availability. | - |
+| Monitor your VMs. | You can use [Azure Monitor for VMs](../azure-monitor/vm/vminsights-overview.md) to monitor the state of your Azure VMs and virtual machine scale sets. Performance issues with a VM can lead to service disruption, which violates the security principle of availability. | - |
 
 ## Networking
 
@@ -62,4 +62,4 @@ For general information about Azure Security Center, see [What is Azure Security
 
 ## Next steps
 
-Check with your application provider to learn about additional security requirements. For more information about developing secure applications, see [Secure-development documentation](../security/fundamentals/abstract-develop-secure-apps.md).
+Check with your application provider to learn about additional security requirements. For more information about developing secure applications, see [Secure-development documentation](https://azure.microsoft.com/resources/develop-secure-applications-on-azure/).

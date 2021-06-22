@@ -175,6 +175,9 @@ optional for Azure Site Recovery replication. If you create a private endpoint f
 need a private endpoint for the cache/log storage account in your bypass virtual network.
 
 > [!NOTE]
+> If private endpoints are not enabled on storage account, protection would still be successful. However, replication traffic would transit via internet to Azure Site Recovery public endpoints. To ensure replication traffic flows via private links, storage account must be enabled with private endpoints.
+
+> [!NOTE]
 > Private endpoints for storage can be created only on General Purpose v2 storage accounts. For
 > pricing information, see
 > [Azure Page Blobs pricing](https://azure.microsoft.com/pricing/details/storage/page-blobs/).

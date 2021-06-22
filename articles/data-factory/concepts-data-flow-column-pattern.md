@@ -6,7 +6,7 @@ ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 09/16/2020
+ms.date: 05/21/2021
 ---
 
 # Using column patterns in mapping data flow
@@ -18,7 +18,7 @@ Several mapping data flow transformations allow you to reference template column
 * If incoming source fields change often such as the case of changing columns in text files or NoSQL databases. This scenario is known as [schema drift](concepts-data-flow-schema-drift.md).
 * If you wish to do a common operation on a large group of columns. For example, wanting to cast every column that has 'total' in its column name into a double.
 
-Column patterns are currently available in the derived column, aggregate, select, and sink transformations.
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4Iui1]
 
 ## Column patterns in derived column and aggregate
 
@@ -28,7 +28,6 @@ To add a column pattern in a derived column, aggregate, or window transformation
 
 Use the [expression builder](concepts-data-flow-expression-builder.md) to enter the match condition. Create a boolean expression that matches columns based on the `name`, `type`, `stream`, `origin`, and `position` of the column. The pattern will affect any column, drifted or defined, where the condition returns true.
 
-The two expression boxes below the match condition specify the new names and values of the affected columns. Use `$$` to reference the existing value of the matched field. The left expression box defines the name and the right expression box defines the value.
 
 ![Screenshot shows the Derived column's settings tab.](media/data-flow/edit-column-pattern.png "Column Patterns")
 
@@ -37,6 +36,12 @@ The above column pattern matches every column of type double and creates one der
 To verify your matching condition is correct, you can validate the output schema of defined columns in the **Inspect** tab or get a snapshot of the data in the **Data preview** tab. 
 
 ![Screenshot shows the Output schema tab.](media/data-flow/columnpattern3.png "Column Patterns")
+
+### Hierarchical pattern matching
+
+You can build pattern matching inside of complex hierarchical structures as well. Expand the section `Each MoviesStruct that matches` where you will be prompted for each hierarchy in your data stream. You can then build matching patterns for properties within that chosen hierarchy.
+
+![Screenshot shows hierarchical column pattern.](media/data-flow/patterns-hierarchy.png "Column Patterns in Hierarchies")
 
 ## Rule-based mapping in select and sink
 
@@ -72,9 +77,9 @@ The above example matches on all subcolumns of complex column `a`. `a` contains 
 
 ## Pattern matching expression values.
 
-* `$$` translates to the name or value of each match at run time
+* `$$` translates to the name or value of each match at run time. Think of `$$` as equivalent to `this`.
 * `name` represents the name of each incoming column
-* `type` represents the data type of each incoming column
+* `type` represents the data type of each incoming column. The list of data types in the data flow type system can be found [here.](concepts-data-flow-overview.md#data-flow-data-types)
 * `stream` represents the name associated with each stream, or transformation in your flow
 * `position` is the ordinal position of columns in your data flow
 * `origin` is the transformation where a column originated or was last updated

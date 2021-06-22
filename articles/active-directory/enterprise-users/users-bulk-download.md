@@ -6,10 +6,10 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: daveba
-ms.date: 04/16/2020
+ms.date: 01/04/2021
 ms.topic: how-to
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: krbain
@@ -56,7 +56,6 @@ To download the list of users from the Azure AD admin center, you must be signed
    - postalCode
    - telephoneNumber
    - mobile
-   - authenticationPhoneNumber
    - authenticationAlternativePhoneNumber
    - authenticationEmail
    - alternateEmailAddress
@@ -72,7 +71,7 @@ You can see the status of your pending bulk requests in the **Bulk operation res
 
 ## Bulk download service limits
 
-Each bulk activity to create a list of users can run for up to one hour. This enables creation and download of a list of at least 500,000 users.
+Each bulk activity to create a list of users can run for up to one hour. This enables creation and download of a list of up to 500,000 users.
 
 ## Next steps
 

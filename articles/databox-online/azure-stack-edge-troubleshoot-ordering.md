@@ -1,18 +1,20 @@
 ---
-title: Use the Azure portal to troubleshoot Azure Stack Edge Pro ordering issues | Microsoft Docs 
-description: Describes how to troubleshoot Azure Stack Edge Pro ordering issues.
+title: Troubleshoot Azure Stack Edge ordering issues via the Azure portal  
+description: Describes how to troubleshoot Azure Stack Edge ordering issues.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 08/11/2020
+ms.date: 02/22/2021
 ms.author: alkohli
 ---
-# Troubleshoot your Azure Stack Edge Pro ordering issues
+# Troubleshoot your Azure Stack Edge ordering issues
 
-This article describes how to troubleshoot Azure Stack Edge Pro ordering issues.
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
+
+This article describes how to troubleshoot Azure Stack Edge ordering issues.
 
 In this tutorial, you learn how to:
 
@@ -28,7 +30,7 @@ In this tutorial, you learn how to:
 
 ![Unsupported subscription or region](media/azure-stack-edge-troubleshoot-ordering/azure-stack-edge-troubleshoot-ordering-01.png)
 
-**Suggested solution:**  Make sure that you used a supported subscription such as [Microsoft Enterprise Agreement (EA)](https://azure.microsoft.com/overview/sales-number/), [Cloud Solution Provider (CSP)](https://docs.microsoft.com/partner-center/azure-plan-lp), or [Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/). Pay-as-you-go subscriptions aren't supported. For more information, see [Azure Stack Edge resource prerequisites](azure-stack-edge-deploy-prep.md#prerequisites).
+**Suggested solution:**  Make sure that you used a supported subscription such as [Microsoft Enterprise Agreement (EA)](https://azure.microsoft.com/overview/sales-number/), [Cloud Solution Provider (CSP)](/partner-center/azure-plan-lp), or [Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/). Pay-as-you-go subscriptions aren't supported. For more information, see [Azure Stack Edge resource prerequisites](azure-stack-edge-deploy-prep.md#prerequisites).
 
 There's the possibility that Microsoft may allow a subscription type upgrade on a case-by-case basis. Contact [Microsoft support](https://azure.microsoft.com/support/options/) so that they can understand your needs and adjust these limits appropriately.
 
@@ -54,7 +56,7 @@ For more information, see [Register resource providers](azure-stack-edge-manage-
 
 ## Microsoft.DataBoxEdge not registered for subscription
 
-**Error:** In Azure portal, you select a subscription to use for Azure Stack Edge Pro or Data Box Gateway and get the following error:
+**Error:** In Azure portal, you select a subscription to use for Azure Stack Edge or Data Box Gateway and get the following error:
 
 *Resource provider(s): Microsoft.DataBoxEdge are not registered for subscription &lt;subscription name&gt; and you don't have permissions to register a resource provider for subscription &lt;subscription name&gt;*.
 
@@ -70,4 +72,4 @@ For more information, see [Register resource providers](azure-stack-edge-manage-
 
 ## Next steps
 
-* Learn more about how to [Troubleshoot your Azure Stack Edge Pro issues](azure-stack-edge-troubleshoot.md).
+* Learn more about how to [Troubleshoot your Azure Stack Edge issues](azure-stack-edge-troubleshoot.md).

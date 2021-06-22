@@ -42,12 +42,12 @@ Azure Key Vault is designed to support application keys and secrets. Key Vault i
 Following are security best practices for using Key Vault.
 
 **Best practice**: Grant access to users, groups, and applications at a specific scope.   
-**Detail**: Use RBAC’s predefined roles. For example, to grant access to a user to manage key vaults, you would assign the predefined role [Key Vault Contributor](../../role-based-access-control/built-in-roles.md) to this user at a specific scope. The scope in this case would be a subscription, a resource group, or just a specific key vault. If the predefined roles don’t fit your needs, you can [define your own roles](../../role-based-access-control/custom-roles.md).
+**Detail**: Use Azure RBAC predefined roles. For example, to grant access to a user to manage key vaults, you would assign the predefined role [Key Vault Contributor](../../role-based-access-control/built-in-roles.md) to this user at a specific scope. The scope in this case would be a subscription, a resource group, or just a specific key vault. If the predefined roles don’t fit your needs, you can [define your own roles](../../role-based-access-control/custom-roles.md).
 
 **Best practice**: Control what users have access to.   
 **Detail**: Access to a key vault is controlled through two separate interfaces: management plane and data plane. The management plane and data plane access controls work independently.
 
-Use RBAC to control what users have access to. For example, if you want to grant an application access to use keys in a key vault, you only need to grant data plane access permissions by using key vault access policies, and no management plane access is needed for this application. Conversely, if you want a user to be able to read vault properties and tags but not have any access to keys, secrets, or certificates, you can grant this user read access by using RBAC, and no access to the data plane is required.
+Use Azure RBAC to control what users have access to. For example, if you want to grant an application access to use keys in a key vault, you only need to grant data plane access permissions by using key vault access policies, and no management plane access is needed for this application. Conversely, if you want a user to be able to read vault properties and tags but not have any access to keys, secrets, or certificates, you can grant this user read access by using Azure RBAC, and no access to the data plane is required.
 
 **Best practice**: Store certificates in your key vault. Your certificates are of high value. In the wrong hands, your application's security or the security of your data can be compromised.   
 **Detail**: Azure Resource Manager can securely deploy certificates stored in Azure Key Vault to Azure VMs when the VMs are deployed. By setting appropriate access policies for the key vault, you also control who gets access to your certificate. Another benefit is that you manage all your certificates in one place in Azure Key Vault. See [Deploy Certificates to VMs from customer-managed Key Vault](/archive/blogs/kv/updated-deploy-certificates-to-vms-from-customer-managed-key-vault) for more information.
@@ -56,7 +56,7 @@ Use RBAC to control what users have access to. For example, if you want to grant
 **Detail**: Deletion of key vaults or key vault objects can be inadvertent or malicious. Enable the soft delete and purge protection features of Key Vault, particularly for keys that are used to encrypt data at rest. Deletion of these keys is equivalent to data loss, so you can recover deleted vaults and vault objects if needed. Practice Key Vault recovery operations on a regular basis.
 
 > [!NOTE]
-> If a user has contributor permissions (RBAC) to a key vault management plane, they can grant themselves access to the data plane by setting a key vault access policy. We recommend that you tightly control who has contributor access to your key vaults, to ensure that only authorized persons can access and manage your key vaults, keys, secrets, and certificates.
+> If a user has contributor permissions (Azure RBAC) to a key vault management plane, they can grant themselves access to the data plane by setting a key vault access policy. We recommend that you tightly control who has contributor access to your key vaults, to ensure that only authorized persons can access and manage your key vaults, keys, secrets, and certificates.
 >
 >
 
@@ -70,7 +70,7 @@ Use RBAC to control what users have access to. For example, if you want to grant
 Because the vast majority of attacks target the end user, the endpoint becomes one of the primary points of attack. An attacker who compromises the endpoint can use the user’s credentials to gain access to the organization’s data. Most endpoint attacks take advantage of the fact that users are administrators in their local workstations.
 
 **Best practice**: Use a secure management workstation to protect sensitive accounts, tasks, and data.   
-**Detail**: Use a [privileged access workstation](/windows-server/identity/securing-privileged-access/privileged-access-workstations) to reduce the attack surface in workstations. These secure management workstations can help you mitigate some of these attacks and ensure that your data is safer.
+**Detail**: Use a [privileged access workstation](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/) to reduce the attack surface in workstations. These secure management workstations can help you mitigate some of these attacks and ensure that your data is safer.
 
 **Best practice**: Ensure endpoint protection.   
 **Detail**: Enforce security policies across all devices that are used to consume data, regardless of the data location (cloud or on-premises).
@@ -98,7 +98,7 @@ For data moving between your on-premises infrastructure and Azure, consider appr
 Following are best practices specific to using Azure VPN Gateway, SSL/TLS, and HTTPS.
 
 **Best practice**: Secure access from multiple workstations located on-premises to an Azure virtual network.   
-**Detail**: Use [site-to-site VPN](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+**Detail**: Use [site-to-site VPN](../../vpn-gateway/tutorial-site-to-site-portal.md).
 
 **Best practice**: Secure access from an individual workstation located on-premises to an Azure virtual network.   
 **Detail**: Use [point-to-site VPN](../../vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal.md).

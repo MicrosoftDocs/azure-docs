@@ -7,7 +7,7 @@
     displayName: overview
     href: studio-classic-overview.md
   - name: Compare our ML products
-    href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/classic/context/ml-context
+    href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=%2fazure/machine-learning/classic/context/ml-context
 - name: Quickstarts
   items:
   - name: Create your first experiment
@@ -140,6 +140,20 @@
     - name: Gallery data
       displayName: export
       href: ai-gallery-control-personal-data-dsr.md 
+  - name: Migrate to Azure Machine Learning
+    items:
+    - name: Migration overview
+      href: migrate-overview.md
+    - name: Migrate datasets
+      href: migrate-register-dataset.md
+    - name: Rebuild experiments
+      href: migrate-rebuild-experiment.md
+    - name: Rebuild web services
+      href: migrate-rebuild-web-service.md
+    - name: Migrate client applications
+      href: migrate-rebuild-integrate-with-client-app.md
+    - name: Rebuild Execute R Script modules
+      href: migrate-execute-r-script.md      
 - name: Reference
   items:
   - name: Algorithm & module reference
@@ -161,6 +175,6 @@
   - name: Regional availability
     href: https://azure.microsoft.com/regions/services/    
   - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/machine-learning/
+    href: https://azure.microsoft.com/pricing/details/machine-learning-studio/
   - name: Custom neural networks (Net#)
     href: azure-ml-netsharp-reference-guide.md

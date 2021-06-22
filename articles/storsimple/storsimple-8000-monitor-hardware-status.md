@@ -70,7 +70,7 @@ Perform the following steps to view the hardware status of a device component:
 
    ![Screenshot showing the Controller 1 Components item selected. In the adjacent blade, the cluster node is in a failed state.](./media/storsimple-8000-monitor-hardware-status/hw-health4.png)  
 
-4. If you encounter a component that is not in a **Healthy** state, contact Microsoft Support. If alerts are enabled on your device, you will receive an email alert. If you need to replace a failed hardware component, see [StorSimple hardware component replacement](storsimple-hardware-component-replacement.md).
+4. If you encounter a component that is not in a **Healthy** state, contact Microsoft Support. If alerts are enabled on your device, you will receive an email alert. If you need to replace a failed hardware component, see [StorSimple hardware component replacement](./storsimple-8000-hardware-component-replacement.md).
 
 ## Component list for primary enclosure of StorSimple device
 The following table outlines the physical and logical components contained in the primary enclosure (present both in 8100 and 8600) of your on-premises StorSimple device.
@@ -142,6 +142,5 @@ The following table outlines the physical and logical components contained in th
 ## Next steps
 * To use the StorSimple Device Manager service to administer your device, go to [use the StorSimple Device Manager service to administer your StorSimple device](storsimple-8000-manager-service-administration.md).
 * If you need to troubleshoot a device component that has a degraded or failed status, refer to [StorSimple monitoring indicators](storsimple-monitoring-indicators.md).
-* To replace a failed hardware component, see [StorSimple hardware component replacement](storsimple-hardware-component-replacement.md).
+* To replace a failed hardware component, see [StorSimple hardware component replacement](./storsimple-8000-hardware-component-replacement.md).
 * If you continue to experience device issues, [contact Microsoft Support](storsimple-8000-contact-microsoft-support.md).
-

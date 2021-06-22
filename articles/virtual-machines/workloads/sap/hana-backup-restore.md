@@ -1,70 +1,69 @@
 ---
 title: HANA backup and restore on SAP HANA on Azure (Large Instances) | Microsoft Docs
-description: How to perform HANA backup and restore on SAP HANA on Azure (Large Instances)
+description: Learn how to back up and restore SAP HANA on HANA Large Instances.
 services: virtual-machines-linux
 documentationcenter:
-author: saghorpa
+author: Ajayan1008
 manager: gwallace
 editor:
-
-ms.service: virtual-machines-linux
-
+ms.service: virtual-machines-sap
+ms.subservice: baremetal-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/16/2020
-ms.author: saghorpa
+ms.date: 6/14/2021
+ms.author: madhukan
 ms.custom: H1Hack27Feb2017
 
 ---
 # Backup and restore of SAP HANA on HANA Large Instances
 
 >[!IMPORTANT]
->This article isn't a replacement for the SAP HANA administration documentation or SAP Notes. We expect that you have a solid understanding of and expertise in SAP HANA administration and operations, especially for backup, restore, high availability, and disaster recovery. In this article, screenshots from SAP HANA Studio are shown. Content, structure, and the nature of the screens of SAP administration tools and the tools themselves might change from SAP HANA release to release.
+>This article doesn't replace the SAP HANA administration documentation or SAP Notes. We expect you have expertise in SAP HANA administration and operations, especially with the topics of backup, restore, high availability, and disaster recovery. In this article, screenshots from SAP HANA Studio are shown. Content, structure, and the nature of the screens of SAP administration tools and the tools themselves might change from SAP HANA release to release.
 
-It's important that you exercise steps and processes taken in your environment and with your HANA versions and releases. Some processes described in this article are simplified for a better general understanding. They aren't meant to be used as detailed steps for eventual operation handbooks. If you want to create operation handbooks for your configurations, test and exercise your processes and document the processes related to your specific configurations. 
+In this article, we'll walk through the steps of backing up and restoring SAP HANA on HANA Large Instances (otherwise known as BareMetal Infrastructure). 
 
-One of the most important aspects of operating databases is to protect them from catastrophic events. The cause of these events can be anything from natural disasters to simple user errors.
+Some of the processes described in this article are simplified. They aren't intended as detailed steps to be included in operation handbooks. To create operation handbooks for your configurations, run and test your processes with your specific HANA versions and releases. You can then document the processes for your configurations.
 
-Backing up a database, with the ability to restore it to any point in time, such as before someone deleted critical data, enables restoration to a state that's as close as possible to the way it was prior to the disruption.
+One of the most important aspects of operating databases is to protect them from catastrophic events. Such events may be caused by anything from natural disasters to simple user errors. Backing up a database, with the ability to restore it to any point in time, such as before someone deleted critical data, offers critical protection. You can restore your database to a state that's as close as possible to the way it was prior to the disruption.
 
 Two types of backups must be performed to achieve the capability to restore:
 
 - Database backups: Full, incremental, or differential backups
 - Transaction log backups
 
-In addition to full-database backups performed at an application level, you can perform backups with storage snapshots. Storage snapshots don't replace transaction log backups. Transaction log backups remain important to restore the database to a certain point in time or to empty the logs from already committed transactions. Storage snapshots can accelerate recovery by quickly providing a roll-forward image of the database. 
+You can do full-database backups at an application level or do backups with storage snapshots. Storage snapshots don't replace transaction log backups. Transaction log backups remain important to restore the database to a certain point in time or to empty the logs from already committed transactions. Storage snapshots can accelerate recovery by quickly providing a roll-forward image of the database. 
 
 SAP HANA on Azure (Large Instances) offers two backup and restore options:
 
-- **Do it yourself (DIY).** After you make sure that there's enough disk space, perform full database and log backups by using one of the following disk backup methods. You can back up either directly to volumes attached to the HANA Large Instance units or to NFS shares that are set up in an Azure virtual machine (VM). In the latter case, customers set up a Linux VM in Azure, attach Azure Storage to the VM, and share the storage through a configured NFS server in that VM. If you perform the backup against volumes that directly attach to HANA Large Instance units, copy the backups to an Azure storage account. Do this after you set up an Azure VM that exports NFS shares that are based on Azure Storage. You can also use either an Azure Backup vault or Azure cold storage. 
+- **Do it yourself (DIY).** After you make sure there's enough disk space, do full database and log backups by using one of the following disk backup methods. You can back up directly to volumes attached to the HANA Large Instances. You can also back up to NFS shares set up in an Azure virtual machine (VM). In the latter case, you set up a Linux VM in Azure, attach Azure Storage to the VM, and share the storage through a configured NFS server in that VM. If you make backups against volumes that directly attach to HANA Large Instances, copy the backups to an Azure storage account. Do so after you set up an Azure VM that exports NFS shares based on Azure Storage. You can also use either an Azure Backup vault or Azure cold storage. 
 
-   Another option is to use a third-party data protection tool to store the backups after they're copied to an Azure storage account. The DIY backup option also might be necessary for data that you need to store for longer periods of time for compliance and auditing purposes. In all cases, the backups are copied into NFS shares represented through a VM and Azure Storage.
+   You can also use a third-party data protection tool to store the backups after they're copied to an Azure storage account. The DIY backup option might be ideal for data you need to keep longer for compliance and auditing purposes. In all cases, the backups are copied into NFS shares represented through a VM and Azure Storage.
 
-- **Infrastructure backup and restore functionality.** You also can use the backup and restore functionality that the underlying infrastructure of SAP HANA on Azure (Large Instances) provides. This option fulfills the need for backups and fast restores. The rest of this section addresses the backup and restore functionality that's offered with HANA Large Instances. This section also covers the relationship that backup and restore have to the disaster recovery functionality offered by HANA Large Instances.
+- **Infrastructure backup and restore.** You also can use the backup and restore capability of the underlying infrastructure of SAP HANA on Azure (Large Instances). This option fulfills the need for backups and fast restores. The rest of this section addresses the backup and restore functionality offered with HANA Large Instances. This section also covers the relationship that backup and restore have to the disaster recovery functionality offered by HANA Large Instances.
 
 > [!NOTE]
->   The snapshot technology that's used by the underlying infrastructure of HANA Large Instances has a dependency on SAP HANA snapshots. At this point, SAP HANA snapshots don't work in conjunction with multiple tenants of SAP HANA multitenant database containers. If only one tenant is deployed, SAP HANA snapshots do work and you can use this method.
+>   The snapshot technology used by the underlying infrastructure of HANA Large Instances has a dependency on SAP HANA snapshots. At this point, SAP HANA snapshots don't work in conjunction with multiple tenants of SAP HANA multitenant database containers. If only one tenant is deployed, SAP HANA snapshots do work and you can use this method.
 
 ## Use storage snapshots of SAP HANA on Azure (Large Instances)
 
 The storage infrastructure underlying SAP HANA on Azure (Large Instances) supports storage snapshots of volumes. Both backup and restoration of volumes is supported, with the following considerations:
 
 - Instead of full database backups, storage volume snapshots are taken on a frequent basis.
-- When a snapshot is triggered over /hana/data and /hana/shared, which includes /usr/sap, volumes, the snapshot technology initiates an SAP HANA snapshot before it runs the storage snapshot. This SAP HANA snapshot is the setup point for eventual log restorations after recovery of the storage snapshot. For an HANA snapshot to be successful, you need an active HANA instance. In an HSR scenario, a storage snapshot isn't supported on a current secondary node where an HANA snapshot can’t be performed.
+- When a snapshot is triggered over /hana/data and /hana/shared, which includes /usr/sap volumes, the snapshot technology starts an SAP HANA snapshot before it runs the storage snapshot. This SAP HANA snapshot is the setup point for eventual log restorations after recovery of the storage snapshot. For a HANA snapshot to be successful, you need an active HANA instance. In a scenario with HANA System Replication (HSR), a storage snapshot isn't supported on a current secondary node where a HANA snapshot can’t be performed.
 - After the storage snapshot runs successfully, the SAP HANA snapshot is deleted.
-- Transaction log backups are taken frequently and stored in the /hana/logbackups volume or in Azure. You can trigger the /hana/logbackups volume that contains the transaction log backups to take a snapshot separately. In that case, you don't need to run an HANA snapshot.
-- If you must restore a database to a certain point in time, for a production outage, request that Microsoft Azure Support or SAP HANA on Azure restore to a certain storage snapshot. An example is a planned restoration of a sandbox system to its original state.
-- The SAP HANA snapshot that's included in the storage snapshot is an offset point for applying transaction log backups that ran and were stored after the storage snapshot was taken.
+- Transaction log backups are taken frequently and stored in the /hana/logbackups volume or in Azure. You can trigger the /hana/logbackups volume that contains the transaction log backups to take a snapshot separately. In that case, you don't need to run a HANA snapshot.
+- If you must restore a database to a certain point in time, for a production outage, request that Microsoft Azure Support or SAP HANA on Azure restore to a certain storage snapshot. One example is a planned restoration of a sandbox system to its original state.
+- The SAP HANA snapshot included in the storage snapshot is an offset point for applying transaction log backups run and stored after the storage snapshot was taken.
 - These transaction log backups are taken to restore the database back to a certain point in time.
 
-You can perform storage snapshots that target three classes of volumes:
+You can do storage snapshots that target three classes of volumes:
 
 - A combined snapshot over /hana/data and /hana/shared, which includes /usr/sap. This snapshot requires the creation of an SAP HANA snapshot as preparation for the storage snapshot. The SAP HANA snapshot ensures that the database is in a consistent state from a storage point of view. For the restore process, that's a point to set up on.
 - A separate snapshot over /hana/logbackups.
-- An operating system partition.
+- An operating system (OS) partition.
 
-To get the latest snapshot scripts and documentation, see [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md). When you download the snapshot script package from [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/release.md), you get three files. One of the files is documented in a PDF for the functionality provided. After you download the tool set, follow the instructions in "Get the snapshot tools."
+To get the latest snapshot scripts and documentation, see [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md). When you download the snapshot script package from [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/release.md), you get three files. One of the files is documented in a PDF for the functionality provided. After you download the toolset, follow the instructions in "Get the snapshot tools."
 
 ## Storage snapshot considerations
 
@@ -76,29 +75,29 @@ The specific mechanics of storage snapshots for SAP HANA on Azure (Large Instanc
 - A specific storage snapshot at the point in time when it's taken consumes little storage.
 - As data content changes and the content in SAP HANA data files change on the storage volume, the snapshot needs to store the original block content and the data changes.
 - As a result, the storage snapshot increases in size. The longer the snapshot exists, the larger the storage snapshot becomes.
-- The more changes that are made to the SAP HANA database volume over the lifetime of a storage snapshot, the larger the space consumption of the storage snapshot.
+- The more changes made to the SAP HANA database volume over the lifetime of a storage snapshot, the larger the space consumption of the storage snapshot.
 
-SAP HANA on Azure (Large Instances) comes with fixed volume sizes for the SAP HANA data and log volumes. Performing snapshots of those volumes eats into your volume space. You need to:
+SAP HANA on Azure (Large Instances) comes with fixed volume sizes for the SAP HANA data and log volumes. Taking snapshots of those volumes eats into your volume space. You need to:
 
 - Determine when to schedule storage snapshots.
 - Monitor the space consumption of the storage volumes. 
 - Manage the number of snapshots that you store. 
 
-You can disable the storage snapshots when you either import masses of data or perform other significant changes to the HANA database. 
+You can disable the storage snapshots when you either import masses of data or make other significant changes to the HANA database. 
 
 
-The following sections provide information for performing these snapshots and include general recommendations:
+The following sections provide information for taking these snapshots and include general recommendations:
 
 - Although the hardware can sustain 255 snapshots per volume, you want to stay well below this number. The recommendation is 250 or less.
-- Before you perform storage snapshots, monitor and keep track of free space.
-- Lower the number of storage snapshots based on free space. You can lower the number of snapshots that you keep, or you can extend the volumes. You can order additional storage in 1-terabyte units.
+- Before you do storage snapshots, monitor and keep track of free space.
+- Lower the number of storage snapshots based on free space. You can lower the number of snapshots that you keep, or you can extend the volumes. You can order more storage in 1-terabyte units.
 - During activities such as moving data into SAP HANA with SAP platform migration tools (R3load) or restoring SAP HANA databases from backups, disable storage snapshots on the /hana/data volume. 
 - During larger reorganizations of SAP HANA tables, avoid storage snapshots if possible.
-- Storage snapshots are a prerequisite to taking advantage of the disaster recovery capabilities of SAP HANA on Azure (Large Instances).
+- Storage snapshots are a prerequisite to take advantage of the DR capabilities of SAP HANA on Azure (Large Instances).
 
 ## Prerequisites for using self-service storage snapshots
 
-To make sure that the snapshot script runs successfully, make sure that Perl is installed on the Linux operating system on the HANA Large Instances server. Perl comes preinstalled on your HANA Large Instance unit. To check the Perl version, use the following command:
+To make sure the snapshot script runs successfully, make sure that Perl is installed on the Linux OS on the HANA Large Instances server. Perl comes preinstalled on your HANA Large Instance. To check the Perl version, use the following command:
 
 `perl -v`
 
@@ -108,25 +107,25 @@ To make sure that the snapshot script runs successfully, make sure that Perl is 
 ## Set up storage snapshots
 
 To set up storage snapshots with HANA Large Instances, follow these steps.
-1. Make sure that Perl is installed on the Linux operating system on the HANA Large Instances server.
+1. Make sure that Perl is installed on the Linux OS on the HANA Large Instances server.
 1. Modify the /etc/ssh/ssh\_config to add the line _MACs hmac-sha1_.
-1. Create an SAP HANA backup user account on the master node for each SAP HANA instance you run, if applicable.
+1. Create an SAP HANA backup user account on the primary node for each SAP HANA instance you run, if applicable.
 1. Install the SAP HANA HDB client on all the SAP HANA Large Instances servers.
 1. On the first SAP HANA Large Instances server of each region, create a public key to access the underlying storage infrastructure that controls snapshot creation.
 1. Copy the scripts and configuration file from [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/release.md) to the location of **hdbsql** in the SAP HANA installation.
-1. Modify the *HANABackupDetails.txt* file as necessary for the appropriate customer specifications.
+1. Modify the *HANABackupDetails.txt* file as necessary for your specifications.
 
 Get the latest snapshot scripts and documentation from [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/release.md). For the steps listed previously, see [Microsoft snapshot tools for SAP HANA on Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md).
 
 ### Consideration for MCOD scenarios
-If you run an [MCOD scenario](https://launchpad.support.sap.com/#/notes/1681092) with multiple SAP HANA instances on one HANA Large Instance unit, you have separate storage volumes provisioned for each of the SAP HANA instances. For more information on MDC and other considerations, see "Important things to remember" in [Microsoft snapshot tools for SAP HANA on Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md).
+Let's say you run an [MCOD scenario](https://launchpad.support.sap.com/#/notes/1681092) with multiple SAP HANA instances on one HANA Large Instance. Then you have separate storage volumes provisioned for each of the SAP HANA instances. For more information on MDC and other considerations, see "Important things to remember" in [Microsoft snapshot tools for SAP HANA on Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md).
  
 
 ### Step 1: Install the SAP HANA HDB client
 
-The Linux operating system installed on SAP HANA on Azure (Large Instances) includes the folders and scripts necessary to run SAP HANA storage snapshots for backup and disaster recovery purposes. Check for more recent releases in [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/release.md). 
+The Linux OS installed on SAP HANA on Azure (Large Instances) includes the folders and scripts necessary to run SAP HANA storage snapshots for backup and DR purposes. Check for more recent releases in [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/release.md). 
 
-It's your responsibility to install the SAP HANA HDB client on the HANA Large Instance units while you install SAP HANA.
+It's your responsibility to install the SAP HANA HDB client on the HANA Large Instances while you install SAP HANA.
 
 ### Step 2: Change the /etc/ssh/ssh\_config
 
@@ -135,7 +134,7 @@ This step is described in "Enable communication with storage" in [Microsoft snap
 
 ### Step 3: Create a public key
 
-To enable access to the storage snapshot interfaces of your HANA Large Instance tenant, establish a sign-in procedure through a public key. 
+To enable access to the storage snapshot interfaces of your HANA Large Instance tenant, establish a procedure to sign in through a public key. 
 
 On the first SAP HANA on Azure (Large Instances) server in your tenant, create a public key to access the storage infrastructure. With a public key, a password isn't required to sign in to the storage snapshot interfaces. You also don't need to maintain password credentials with a public key. 
 
@@ -151,7 +150,7 @@ To set up and use a user account, see "Enable communication with SAP HANA" in [G
 
 ### Step 5: Authorize the SAP HANA user account
 
-In this step, you authorize the SAP HANA user account that you created so that the scripts don't need to submit passwords at runtime. The SAP HANA command `hdbuserstore` enables the creation of an SAP HANA user key. The key is stored on one or more SAP HANA nodes. The user key lets the user access SAP HANA without having to manage passwords from within the scripting process. The scripting process is discussed later in this article.
+In this step, you authorize the SAP HANA user account that you created so the scripts doesn't need to submit passwords at runtime. The SAP HANA command `hdbuserstore` enables the creation of an SAP HANA user key. The key is stored on one or more SAP HANA nodes. The user key lets the user access SAP HANA without having to manage passwords from within the scripting process. The scripting process is discussed later in this article.
 
 >[!IMPORTANT]
 >Run these configuration commands with the same user context that the snapshot commands are run in. Otherwise, the snapshot commands won't work properly.
@@ -164,15 +163,15 @@ The way the scripts are installed changed with release 4.1 of the scripts. For m
 
 For the exact sequence of commands, see "Easy installation of snapshot tools (default)" in [Microsoft snapshot tools for SAP HANA on Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md). We recommend the use of the default installation. 
 
-To upgrade from version 3.x to 4.1, see "Upgrade an existing install" in [Microsoft snapshot tools for SAP HANA on Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md). To uninstall the 4.1 tool set, see "Uninstallation of the snapshot tools" in [Microsoft snapshot tools for SAP HANA on Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md).
+To upgrade from version 3.x to 4.1, see "Upgrade an existing install" in [Microsoft snapshot tools for SAP HANA on Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md). To uninstall the 4.1 toolset, see "Uninstallation of the snapshot tools" in [Microsoft snapshot tools for SAP HANA on Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md).
 
 Don't forget to run the steps described in "Complete setup of snapshot tools" in [Microsoft snapshot tools for SAP HANA on Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md).
 
-The purpose of the different scripts and files as they got installed is described in "What are these snapshot tools?" in [Microsoft snapshot tools for SAP HANA on Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md).
+The purpose of the different installed scripts and files is described in "What are these snapshot tools?" in [Microsoft snapshot tools for SAP HANA on Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md).
 
-Before you configure the snapshot tools, make sure that you also configured HANA backup locations and settings correctly. For more information, see "SAP HANA Configuration" in [Microsoft snapshot tools for SAP HANA on Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md).
+Before you configure the snapshot tools, make sure you also configured HANA backup locations and settings correctly. For more information, see "SAP HANA Configuration" in [Microsoft snapshot tools for SAP HANA on Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md).
 
-The configuration of the snapshot tool set is described in "Config file - HANABackupCustomerDetails.txt" in [Microsoft snapshot tools for SAP HANA on Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md).
+The configuration of the snapshot toolset is described in "Config file - HANABackupCustomerDetails.txt" in [Microsoft snapshot tools for SAP HANA on Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md).
 
 #### Test connectivity with SAP HANA
 
@@ -182,14 +181,14 @@ For more information, see "Check connectivity with SAP HANA - testHANAConnection
 
 #### Test storage connectivity
 
-The next test step is to check the connectivity to the storage based on the data you put into the *HANABackupCustomerDetails.txt* configuration file. Then run a test snapshot. Before you run the `azure_hana_backup` command, you must run this test. For the sequence of commands for this test, see "Check connectivity with storage - testStorageSnapshotConnection"" in [Microsoft snapshot tools for SAP HANA on Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md).
+The next test step is to check connectivity to the storage based on the data you put into the *HANABackupCustomerDetails.txt* configuration file. Then run a test snapshot. Before you run the `azure_hana_backup` command, you must run this test. For the sequence of commands for this test, see "Check connectivity with storage - testStorageSnapshotConnection"" in [Microsoft snapshot tools for SAP HANA on Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md).
 
-After a successful sign-in to the storage virtual machine interfaces, the script continues with phase 2 and creates a test snapshot. The output is shown here for a three-node scale-out configuration of SAP HANA.
+After successfully signing in to the storage virtual machine interfaces, the script continues with phase 2 and creates a test snapshot. The output is shown here for a three-node scale-out configuration of SAP HANA.
 
-If the test snapshot runs successfully with the script, you can schedule the actual storage snapshots. If it isn't successful, investigate the problems before you move forward. The test snapshot should stay around until the first real snapshots are done.
+If the test snapshot runs successfully with the script, you can schedule the actual storage snapshots. Otherwise, if unsuccessful, investigate the problems before you move forward. The test snapshot should stay around until the first real snapshots are done.
 
 
-### Step 7: Perform snapshots
+### Step 7: Take snapshots
 
 When the preparation steps are finished, you can start to configure and schedule the actual storage snapshots. The script to be scheduled works with SAP HANA scale-up and scale-out configurations. For periodic and regular execution of the backup script, schedule the script by using the cron utility. 
 
@@ -203,27 +202,27 @@ When the script `azure_hana_backup` runs, it creates the storage snapshot in the
 
 To run the script, call it from the HDB executable folder to which it was copied. 
 
-The retention period is administered with the number of snapshots that are submitted as a parameter when you run the script. The amount of time that's covered by the storage snapshots is a function of the period of execution, and of the number of snapshots submitted as a parameter when the script runs. 
+The retention period is administered with the number of snapshots submitted as a parameter when you run the script. The length of time covered by the storage snapshots is a function of the period of execution and the number of snapshots submitted as a parameter when the script runs. 
 
-If the number of snapshots that are kept exceeds the number that are named as a parameter in the call of the script, the oldest storage snapshot of the same label is deleted before a new snapshot runs. The number you give as the last parameter of the call is the number you can use to control the number of snapshots that are kept. With this number, you also can control, indirectly, the disk space that's used for snapshots. 
+If the number of snapshots kept exceeds the number named as a parameter in the call of the script, the oldest storage snapshot of the same label is deleted before a new snapshot runs. The number you give as the last parameter of the call is the number you can use to control the number of snapshots kept. With this number, you also can control, indirectly, the disk space that's used for snapshots. 
 
 
 ## Snapshot strategies
 The frequency of snapshots for the different types depends on whether you use the HANA Large Instance disaster recovery functionality. This functionality relies on storage snapshots, which might require special recommendations for the frequency and execution periods of the storage snapshots. 
 
-In the considerations and recommendations that follow, the assumption is that you do *not* use the disaster recovery functionality that HANA Large Instances offers. Instead, you use the storage snapshots to have backups and be able to provide point-in-time recovery for the last 30 days. Given the limitations of the number of snapshots and space, consider the following requirements:
+In the considerations and recommendations that follow, the assumption is that you *don't* use the disaster recovery functionality that HANA Large Instances offers. Instead, you use the storage snapshots to have backups and can provide point-in-time recovery for the last 30 days. Given the limitations of the number of snapshots and space, consider the following requirements:
 
 - The recovery time for point-in-time recovery.
 - The space used.
 - The recovery point and recovery time objectives for potential recovery from a disaster.
-- The eventual execution of HANA full-database backups against disks. Whenever a full-database backup against disks or the **backint** interface is performed, the execution of the storage snapshots fails. If you plan to run full-database backups on top of storage snapshots, make sure that the execution of the storage snapshots is disabled during this time.
+- The eventual execution of HANA full-database backups against disks. Whenever a full-database backup against disks or the **backint** interface is done, the execution of the storage snapshots fails. If you plan to run full-database backups on top of storage snapshots, make sure the execution of the storage snapshots is disabled during this time.
 - The number of snapshots per volume, which is limited to 250.
 
 <!-- backint is term for a SAP HANA interface and not a spelling error not spelling errors -->
 
-If you don't use the disaster recovery functionality of HANA Large Instances, the snapshot period is less frequent. In such cases, perform the combined snapshots on /hana/data and /hana/shared, which includes /usr/sap, in 12-hour or 24-hour periods. Keep the snapshots for a month. The same is true for the snapshots of the log backup volume. The execution of SAP HANA transaction log backups against the log backup volume occurs in 5-minute to 15-minute periods.
+If you don't use the disaster recovery functionality of HANA Large Instances, the snapshot period is less frequent. In such cases, do the combined snapshots on /hana/data and /hana/shared, which includes /usr/sap, in 12-hour or 24-hour periods. Keep the snapshots for a month. The same is true for the snapshots of the log backup volume. The execution of SAP HANA transaction log backups against the log backup volume occurs in 5-minute to 15-minute periods.
 
-Scheduled storage snapshots are best performed by using cron. Use the same script for all backups and disaster recovery needs. Modify the script inputs to match the various requested backup times. These snapshots are all scheduled differently in cron depending on their execution time. It can be hourly, every 12 hours, daily, or weekly. 
+Scheduled storage snapshots are best done by using cron. Use the same script for all backups and disaster recovery needs. Modify the script inputs to match the various requested backup times. These snapshots are all scheduled differently in cron depending on their execution time. It can be hourly, every 12 hours, daily, or weekly. 
 
 The following example shows a cron schedule in /etc/crontab:
 ```
@@ -233,13 +232,13 @@ The following example shows a cron schedule in /etc/crontab:
 22 12 * * *  ./azure_hana_backup --type=logs --prefix=dailylogback --frequncy=3min --retention=28
 30 00 * * *  ./azure_hana_backup --type=boot --boottype=TypeI --prefix=dailyboot --frequncy=15min --retention=28
 ```
-In the previous example, an hourly combined snapshot covers the volumes that contain the /hana/data and /hana/shared/SID, which includes /usr/sap, locations. Use this type of snapshot for a faster point-in-time recovery within the past two days. There's also a daily snapshot on those volumes. So, you have two days of coverage by hourly snapshots plus four weeks of coverage by daily snapshots. The transaction log backup volume also is backed up daily. These backups are kept for four weeks. 
+In the previous example, an hourly combined snapshot covers the volumes that contain the /hana/data and /hana/shared/SID, which includes /usr/sap, locations. Use this type of snapshot for a faster point-in-time recovery within the past two days. There's also a daily snapshot on those volumes. So you have two days of coverage by hourly snapshots plus four weeks of coverage by daily snapshots. The transaction log backup volume also is backed up daily. These backups are kept for four weeks. 
 
-As you see in the third line of crontab, the backup of the HANA transaction log is scheduled to run every 5 minutes. The start times of the different cron jobs that run storage snapshots are staggered. In this way, the snapshots don't run all at once at a certain point in time. 
+As you see in the third line of crontab, the backup of the HANA transaction log is scheduled to run every 5 minutes. The start times of the different cron jobs that run storage snapshots are staggered. In this way, the snapshots don't run all at once. 
 
-In the following example, you perform a combined snapshot that covers the volumes that contain the /hana/data and /hana/shared/SID, which includes /usr/sap, locations on an hourly basis. You keep these snapshots for two days. The snapshots of the transaction log backup volumes run on a 5-minute basis and are kept for four hours. As before, the backup of the HANA transaction log file is scheduled to run every 5 minutes. 
+In the following example, you do a combined snapshot that covers the volumes that contain the /hana/data and /hana/shared/SID, which includes /usr/sap, locations on an hourly basis. You keep these snapshots for two days. The snapshots of the transaction log backup volumes run on a 5-minute basis and are kept for four hours. As before, the backup of the HANA transaction log file is scheduled to run every 5 minutes. 
 
-The snapshot of the transaction log backup volume is performed with a 2-minute delay after the transaction log backup has started. Under normal circumstances, the SAP HANA transaction log backup finishes within those 2 minutes. As before, the volume that contains the boot LUN is backed up once per day by a storage snapshot and is kept for four weeks.
+The snapshot of the transaction log backup volume is done with a 2-minute delay after the transaction log backup has started. Under normal circumstances, the SAP HANA transaction log backup finishes within those 2 minutes. As before, the volume that contains the boot LUN is backed up once per day by a storage snapshot and is kept for four weeks.
 
 ```
 10 0-23 * * * ./azure_hana_backup --type=hana ==prefix=hourlyhana --frequency=15min --retention=48
@@ -252,9 +251,9 @@ The following graphic illustrates the sequences of the previous example. The boo
 
 ![Relationship between backups and snapshots](./media/hana-overview-high-availability-disaster-recovery/backup_snapshot_updated0921.PNG)
 
-SAP HANA performs regular writes against the /hana/log volume to document the committed changes to the database. On a regular basis, SAP HANA writes a savepoint to the /hana/data volume. As specified in crontab, an SAP HANA transaction log backup runs every 5 minutes. 
+SAP HANA does regular writes against the /hana/log volume to document the committed changes to the database. On a regular basis, SAP HANA writes a savepoint to the /hana/data volume. As specified in crontab, an SAP HANA transaction log backup runs every 5 minutes. 
 
-You also see that an SAP HANA snapshot runs every hour as a result of triggering a combined storage snapshot over the /hana/data and /hana/shared/SID volumes. After the HANA snapshot succeeds, the combined storage snapshot runs. As instructed in crontab, the storage snapshot on the /hana/logbackup volume runs every 5 minutes, around 2 minutes after the HANA transaction log backup.
+An SAP HANA snapshot also runs every hour as a result of triggering a combined storage snapshot over the /hana/data and /hana/shared/SID volumes. After the HANA snapshot succeeds, the combined storage snapshot runs. As instructed in crontab, the storage snapshot on the /hana/logbackup volume runs every 5 minutes, around 2 minutes after the HANA transaction log backup.
 
 > 
 
@@ -264,17 +263,17 @@ You also see that an SAP HANA snapshot runs every hour as a result of triggering
 If you've set a commitment to users of a point-in-time recovery of 30 days, you need to:
 
 - Access a combined storage snapshot over /hana/data and /hana/shared/SID that's 30 days old, in extreme cases. 
-- Have contiguous transaction log backups that cover the time between any of the combined storage snapshots. So, the oldest snapshot of the transaction log backup volume needs to be 30 days old. This isn't the case if you copy the transaction log backups to another NFS share that's located on Azure Storage. In that case, you might pull old transaction log backups from that NFS share.
+- Have contiguous transaction log backups that cover the time between any of the combined storage snapshots. So the oldest snapshot of the transaction log backup volume needs to be 30 days old. This isn't the case if you copy the transaction log backups to another NFS share that's located on Azure Storage. Then you might pull old transaction log backups from that NFS share.
 
 To benefit from storage snapshots and the eventual storage replication of transaction log backups, change the location to which SAP HANA writes the transaction log backups. You can make this change in HANA Studio. 
 
-Although SAP HANA backs up full log segments automatically, specify a log backup interval to be deterministic. This is especially true when you use the disaster recovery option because you usually want to run log backups with a deterministic period. In the following case, 15 minutes is set as the log backup interval.
+Although SAP HANA backs up full log segments automatically, specify a log backup interval to be deterministic. This step is especially helpful when you use the disaster recovery option, because you usually want to run log backups with a deterministic period. In the following case, 15 minutes is set as the log backup interval.
 
 ![Schedule SAP HANA backup logs in SAP HANA Studio](./media/hana-overview-high-availability-disaster-recovery/image5-schedule-backup.png)
 
-You also can choose backups that are more frequent than every 15 minutes. A more frequent setting is often used in conjunction with disaster recovery functionality of HANA Large Instances. Some customers perform transaction log backups every 5 minutes.
+You can also choose backups that are more frequent than every 15 minutes. A more frequent setting is often used with the DR capability of HANA Large Instances. Some customers perform transaction log backups every 5 minutes.
 
-If the database has never been backed up, the final step is to perform a file-based database backup to create a single backup entry that must exist within the backup catalog. Otherwise, SAP HANA can't initiate your specified log backups.
+If the database has never been backed up, the final step is to do a file-based database backup to create a single backup entry that must exist within the backup catalog. Otherwise, SAP HANA can't start your specified log backups.
 
 ![Make a file-based backup to create a single backup entry](./media/hana-overview-high-availability-disaster-recovery/image6-make-backup.png)
 
@@ -311,7 +310,7 @@ For syntax of the command and outputs, see "List snapshots - azure_hana_snapshot
 
 ### Reduce the number of snapshots on a server
 
-As previously explained, you can reduce the number of certain labels of snapshots that you store. The last two parameters of the command to initiate a snapshot are the label and the number of snapshots you want to retain.
+As previously explained, you can reduce the number of certain labels of snapshots that you store. The last two parameters of the command to start a snapshot are the label and the number of snapshots you want to keep.
 
 ```
 ./azure_hana_backup --type=hana --prefix=dailyhana --frequency=15min --retention=28
@@ -330,7 +329,7 @@ If you run the script with this setting, the number of snapshots, which includes
 
 If you no longer want to maintain a set of snapshots with the backup prefix **dailyhana** in the syntax examples, run the script with **0** as the retention number. All snapshots that match that label are then removed. Removing all snapshots can affect the capabilities of HANA Large Instances disaster recovery functionality.
 
-A second option to delete specific snapshots is to use the script `azure_hana_snapshot_delete`. This script is designed to delete a snapshot or set of snapshots either by using the HANA backup ID as found in HANA Studio or through the snapshot name itself. Currently, the backup ID is only tied to the snapshots created for the **hana** snapshot type. Snapshot backups of the type **logs** and **boot** don't perform an SAP HANA snapshot, so there's no backup ID to be found for those snapshots. If the snapshot name is entered, it looks for all snapshots on the different volumes that match the entered snapshot name. 
+A second option to delete specific snapshots is to use the script `azure_hana_snapshot_delete`. This script is designed to delete a snapshot or set of snapshots either by using the HANA backup ID as found in HANA Studio or through the snapshot name itself. Currently, the backup ID is only tied to the snapshots created for the **hana** snapshot type. Snapshot backups of the type **logs** and **boot** don't do an SAP HANA snapshot, so there's no backup ID to be found for those snapshots. If the snapshot name is entered, it looks for all snapshots on the different volumes that match the entered snapshot name. 
 
 <!-- hana, logs and boot are no spelling errors as Acrolinx indicates, but terms of parameter values -->
 
@@ -347,7 +346,7 @@ Run the script as user **root**.
 <!-- hana, logs and boot are no spelling errors as Acrolinx indicates, but terms of parameter values -->
 For the snapshot types **hana** and **logs**, you can access the snapshots directly on the volumes in the **.snapshot** directory. There's a subdirectory for each of the snapshots. Copy each file in the state it was in at the point of the snapshot from that subdirectory into the actual directory structure. 
 
-In the current version of the script, there's *no* restore script provided for the snapshot restore as self-service. Snapshot restore can be performed as part of the self-service disaster recovery scripts at the disaster recovery site during failover. To restore a desired snapshot from the existing available snapshots, you must contact the Microsoft operations team by opening a service request.
+In the current version of the script, there's *no* restore script provided for the snapshot restore as self-service. Snapshot restore can be done as part of the self-service disaster recovery scripts at the DR site during failover. To restore a snapshot you want from the existing available snapshots, contact the Microsoft operations team by opening a service request.
 
 >[!NOTE]
 >Single file restore doesn't work for snapshots of the boot LUN independent of the type of the HANA Large Instance units. The **.snapshot** directory isn't exposed in the boot LUN. 
@@ -355,13 +354,13 @@ In the current version of the script, there's *no* restore script provided for t
 
 ## Recover to the most recent HANA snapshot
 
-In a production-down scenario, the process of recovering from a storage snapshot can be started as a customer incident with Microsoft Azure Support. It's a high-urgency matter if data was deleted in a production system and the only way to retrieve it is to restore the production database.
+In a production-down scenario, you can start recovering from a storage snapshot with Microsoft Azure Support. It's an urgent matter if data was deleted in a production system and the only way to retrieve it is to restore the production database.
 
-In a different situation, a point-in-time recovery might be low urgency and planned days in advance. You can plan this recovery with SAP HANA on Azure instead of raising a high-priority flag. For example, you might plan to upgrade the SAP software by applying a new enhancement package. You then need to revert to a snapshot that represents the state before the enhancement package upgrade.
+In a different situation, a point-in-time recovery might be low urgency and planned days in advance. You can plan this recovery with SAP HANA on Azure instead of raising a high-priority flag. You might, for instance, plan to upgrade the SAP software by applying a new enhancement package. Then you'll need to revert to a snapshot that represents the state before the enhancement package upgrade.
 
 Before you send the request, you need to prepare. The SAP HANA on Azure team can then handle the request and provide the restored volumes. Afterward, you restore the HANA database based on the snapshots.
 
-For the possibilities for getting a snapshot restored with the new tool set, see "How to restore a snapshot" in [Manual recovery guide for SAP HANA on Azure from a storage snapshot](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md).
+For information on restoring a snapshot with the new toolset, see "How to restore a snapshot" in [Manual recovery guide for SAP HANA on Azure from a storage snapshot](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md).
 
 To prepare for the request, follow these steps.
 
@@ -377,7 +376,7 @@ To prepare for the request, follow these steps.
 
 1. Open an Azure support request, and include instructions about the restoration of a specific snapshot:
 
-   - During the restoration: SAP HANA on Azure Service might ask you to attend a conference call to coordinate, verify, and confirm that the correct storage snapshot is restored. 
+   - During the restoration: SAP HANA on Azure Service might ask you to attend a conference call to coordinate and verify that the correct storage snapshot is restored. 
 
    - After the restoration: SAP HANA on Azure Service notifies you when the storage snapshot is restored.
 
@@ -387,7 +386,7 @@ To prepare for the request, follow these steps.
 
 
 
-Another possibility for getting, for example, SAP HANA data files recovered from a storage snapshot, is documented in step 7 in [Manual recovery guide for SAP HANA on Azure from a storage snapshot](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md).
+Another example of recovering SAP HANA data files from a storage snapshot is documented in step 7 in [Manual recovery guide for SAP HANA on Azure from a storage snapshot](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md).
 
 To restore from a snapshot backup, see [Manual recovery guide for SAP HANA on Azure from a storage snapshot](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md). 
 
@@ -396,19 +395,16 @@ To restore from a snapshot backup, see [Manual recovery guide for SAP HANA on Az
 
 
 ### Recover to another point in time
+
 To restore to a certain point in time, see "Recover the database to the following point in time" in [Manual recovery guide for SAP HANA on Azure from a storage snapshot](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md). 
-
-
-
-
 
 ## SnapCenter integration in SAP HANA large instances
 
-This section describes how customers can use NetApp SnapCenter software to take a snapshot, backup, and restore SAP HANA databases hosted on Microsoft Azure HANA Large Instances (HLI). 
+This section describes how you can use NetApp SnapCenter software to take a snapshot, backup, and restore SAP HANA databases hosted on Microsoft Azure HANA Large Instances (HLI). 
 
-SnapCenter offers solutions for scenarios including backup/recovery, disaster recovery (DR) with asynchronous storage replication, system replication, and system cloning. Integrated with SAP HANA Large Instances on Azure, customers can now use SnapCenter for backup and recovery operations.
+SnapCenter offers solutions for scenarios including backup/recovery, disaster recovery (DR) with asynchronous storage replication, system replication, and system cloning. SnapCenter is integrated with SAP HANA Large Instances on Azure, so you can use SnapCenter for backup and recovery operations.
 
-For additional references, see NetApp TR-4614 and TR-4646 on SnapCenter.
+For more references, see NetApp TR-4614 and TR-4646 on SnapCenter.
 
 - [SAP HANA Backup/Recovery with SnapCenter (TR-4614)](https://www.netapp.com/us/media/tr-4614.pdf)
 - [SAP HANA Disaster Recovery with Storage Replication (TR-4646)](https://www.netapp.com/us/media/tr-4646.pdf)
@@ -418,12 +414,12 @@ For additional references, see NetApp TR-4614 and TR-4646 on SnapCenter.
 ### System Requirements and Prerequisites
 
 To run SnapCenter on Azure HLI, system requirements include:
-* SnapCenter Server on Azure Windows 2016 or newer with 4-vCPU, 16-GB RAM and a minimum of 650 GB managed premium SSD storage.
-* SAP HANA Large Instances system with 1.5 TB – 24-TB RAM. It's recommended to use two SAP HANA Large Instance systems for cloning operations and tests.
+- SnapCenter Server on Azure Windows 2016 or newer with 4-vCPU, 16-GB RAM, and a minimum of 650 GB managed premium SSD storage.
+- SAP HANA Large Instances system with 1.5 TB – 24-TB RAM. We recommend using two SAP HANA Large Instance systems for cloning operations and tests.
 
 The steps to integrate SnapCenter in SAP HANA are: 
 
-1. Raise a support ticket request to communicate the user-generated public key to the Microsoft Ops team. This is required to set up the SnapCenter user to access the storage system.
+1. Raise a support ticket request to communicate the user-generated public key to the Microsoft Ops team. A support request is required to set up the SnapCenter user to access the storage system.
 1. Create a VM in your VNET that has access to HLI; this VM is used for SnapCenter. 
 1. Download and install SnapCenter. 
 1. Backup and recovery operations. 
@@ -452,19 +448,19 @@ The steps to integrate SnapCenter in SAP HANA are:
 
 1. On the **Basics** tab, provide the following information for the ticket:
 
-   * **Issue type:** Technical
-   * **Subscription:** Your subscription
-   * **Service:** SAP HANA Large Instance
-   * **Resource:** Your resource group
-   * **Summary:** Provide the user-generated public key
-   * **Problem type:** Configuration and Setup
-   * **Problem subtype:** Set up SnapCenter for HLI
+   - **Issue type:** Technical
+   - **Subscription:** Your subscription
+   - **Service:** SAP HANA Large Instance
+   - **Resource:** Your resource group
+   - **Summary:** Provide the user-generated public key
+   - **Problem type:** Configuration and Setup
+   - **Problem subtype:** Set up SnapCenter for HLI
 
 
 1. In the **Description** of the support ticket, on the **Details** tab, provide: 
    
-   * Set up SnapCenter for HLI
-   * Your public key for SnapCenter user (snapcenter.pem) - see the public key create example below
+   - Set up SnapCenter for HLI.
+   - Your public key for SnapCenter user (snapcenter.pem). See the public key create example below.
 
      :::image type="content" source="./media/snapcenter/new-support-request-details.png" alt-text="New support request - Details tab" lightbox="./media/snapcenter/new-support-request-details.png":::
 
@@ -488,19 +484,19 @@ The steps to integrate SnapCenter in SAP HANA are:
 
    ```
 
-1. Attach the snapcenter.pem file to the support ticket and then select **Create**
+1. Attach the snapcenter.pem file to the support ticket and then select **Create**.
 
-   Once the public key certificate is submitted, Microsoft sets up the SnapCenter username  for your tenant along with SVM IP address.   
+   Once the public key certificate is submitted, Microsoft sets up the SnapCenter username for your tenant along with SVM IP address.   
 
 1. After you receive the SVM IP, set a password to access SVM, which you control.
 
-   The following is an example of the REST CALL (documentation) from HANA Large Instance or VM in virtual network, which has access to HANA Large Instance environment and will be used to set the password.
+   Here is an example of the REST CALL (documentation) from a HANA Large Instance. The example also applies to a VM in a virtual network that has access to the HANA Large Instance environment and will be used to set the password.
 
    ```bash
    curl --cert snapcenter.pem --key snapcenter.key -X POST -k "https://10.0.40.11/api/security/authentication/password" -d '{"name":"snapcenter","password":"test1234"}'
    ```
 
-   Ensure that there is no proxy variable active on the HANA DB system.
+   Ensure there's no proxy variable active on the HANA DB system.
 
    ```bash
    sollabsjct31:/tmp # unset http_proxy
@@ -508,7 +504,7 @@ The steps to integrate SnapCenter in SAP HANA are:
    ```
 
 ### Download and install SnapCenter
-Now that the username is set up for SnapCenter access to the storage system, you'll use the SnapCenter username to configure the SnapCenter once it's installed. 
+Now that the username is set up for SnapCenter access to the storage system, you'll use the SnapCenter username to configure SnapCenter once it's installed. 
 
 Before installing SnapCenter, review [SAP HANA Backup/Recovery with SnapCenter](https://www.netapp.com/us/media/tr-4614.pdf) to define your backup strategy. 
 
@@ -521,11 +517,11 @@ Before installing SnapCenter, review [SAP HANA Backup/Recovery with SnapCenter](
    >[!IMPORTANT]
    >Pay attention to the size of the VM, especially in larger environments.
 
-1. Configure the user credentials for the SnapCenter. By default, it populates the Windows user credentials used for installing the application. 
+1. Configure the user credentials for SnapCenter. By default, it populates with the Windows user credentials used for installing the application. 
 
    :::image type="content" source="media/snapcenter/installation-user-inputs-dialog.png" alt-text="Installation user inputs dialog"::: 
 
-1. When you start the session, save the security exemption and the GUI starts up.
+1. When you start the session, save the security exemption, and the GUI starts up.
 
 1. Sign into SnapCenter on the VM (https://snapcenter-vm:8146) using the Windows credentials to configure the environment.
 
@@ -536,7 +532,7 @@ Before installing SnapCenter, review [SAP HANA Backup/Recovery with SnapCenter](
 
    :::image type="content" source="./media/snapcenter/snapcenter-storage-connections-window.png" alt-text="SnapCenter storage connections" lightbox="./media/snapcenter/snapcenter-storage-connections-window.png":::
 
-   The default is one SVM per tenant. If a customer has multiple tenants or HLIs in multiple regions, the recommendation is to configure all SVMs in SnapCenter
+   The default is one SVM per tenant. If you have multiple tenants or HLIs in multiple regions, we recommend configuring all SVMs in SnapCenter.
 
 1. In Add Storage System, provide the information for the Storage System that you want to add, the SnapCenter username and password, and then select **Submit**.
 
@@ -585,13 +581,13 @@ Before installing SnapCenter, review [SAP HANA Backup/Recovery with SnapCenter](
 
 
 ### Auto discovery
-SnapCenter 4.3 enables the auto discovery function by default.  Auto discovery is not supported for HANA instances with HANA System Replication (HSR) configured. You must manually add the instance to the SnapCenter server.
+SnapCenter 4.3 enables the auto discovery function by default.  Auto discovery isn't supported for HANA instances with HANA System Replication (HSR) configured. Manually add the instance to the SnapCenter server.
 
 
 ### HANA setup (Manual)
 If you configured HSR, you must configure the system manually.  
 
-1. In SnapCenter, select **Resources** and **SAN HANA** (at the top), and then select **+Add SAP HANA Database** (on the right).
+1. In SnapCenter, select **Resources** and **SAP HANA** (at the top), and then select **+Add SAP HANA Database** (on the right).
 
    :::image type="content" source="media/snapcenter/manual-hana-setup.png" alt-text="Manual HANA setup" lightbox="media/snapcenter/manual-hana-setup.png":::
 
@@ -599,13 +595,13 @@ If you configured HSR, you must configure the system manually.
 
    :::image type="content" source="media/snapcenter/provide-resource-details-sap-hana-database.png" alt-text="Specify the resource details of the HANA administrator user configured on the Linux host.":::
 
-1. Select the data volume for which you need to take snapshots, select **Save** and then select **Finish**.
+1. Select the data volume for which you need to take snapshots, select **Save**, and then select **Finish**.
 
-   :::image type="content" source="media/snapcenter/provide-storage-footprint.png" alt-text="Select the data volume for which you need to take snapshots, select Save and then select Finish.":::
+   :::image type="content" source="media/snapcenter/provide-storage-footprint.png" alt-text="Select the data volume for which you need to take snapshots, select Save, and select Finish.":::
 
 ### Create a snapshot policy
 
-Before you use SnapCenter to back up SAP HANA database resources, you must create a backup policy for the resource or resource group that you want to back up. During the process of creating a snapshot policy, you'll be given the option to configure pre/post commands and special SSL keys. For information on how to create a snapshot policy, see [Creating backup policies for SAP HANA databases](http://docs.netapp.com/ocsc-43/index.jsp?topic=%2Fcom.netapp.doc.ocsc-dpg-sap-hana%2FGUID-246C0810-4F0B-4BF7-9A35-B729AD69954A.html).
+Before you use SnapCenter to back up SAP HANA database resources, create a backup policy for the resource or resource group that you want to back up. While creating a snapshot policy, you'll be given the option to configure pre/post commands and special TLS/SSL keys. For information on how to create a snapshot policy, see [Creating backup policies for SAP HANA databases](http://docs.netapp.com/ocsc-43/index.jsp?topic=%2Fcom.netapp.doc.ocsc-dpg-sap-hana%2FGUID-246C0810-4F0B-4BF7-9A35-B729AD69954A.html).
 
 1. In SnapCenter, select **Resources** and then select a database.
 
@@ -615,9 +611,9 @@ Before you use SnapCenter to back up SAP HANA database resources, you must creat
 
    :::image type="content" source="media/snapcenter/follow-workflow-configuration-wizard.png" alt-text="Follow the workflow of the configuration wizard to configure the snapshot scheduler." lightbox="media/snapcenter/follow-workflow-configuration-wizard.png":::
 
-1. Provide the options for configuring pre/post commands and special SSL keys.  In this example, we're using no special settings.
+1. Provide the options for configuring pre/post commands and special TLS/SSL keys.  In this example, we're using no special settings.
 
-   :::image type="content" source="media/snapcenter/configuration-options-pre-post-commands.png" alt-text="Provide the options for configuring pre-post commands and special SSL keys." lightbox="media/snapcenter/configuration-options-pre-post-commands.png":::
+   :::image type="content" source="media/snapcenter/configuration-options-pre-post-commands.png" alt-text="Provide the options for configuring pre-post commands and special TLS/SSL keys." lightbox="media/snapcenter/configuration-options-pre-post-commands.png":::
 
 1. Select **Add** to create a snapshot policy, which can also be used for other HANA databases. 
 
@@ -632,9 +628,9 @@ Before you use SnapCenter to back up SAP HANA database resources, you must creat
 
    :::image type="content" source="media/snapcenter/new-sap-hana-backup-policy-settings.png" alt-text="Select the backup type and frequency.":::
 
-1. Configure the **On demand backup retention settings**.  In our example, we're setting the retention to three snapshot copies to keep.
+1. Configure the **On-demand backup retention settings**.  In our example, we're setting the retention to three snapshot copies to keep.
 
-   :::image type="content" source="media/snapcenter/new-sap-hana-backup-policy-retention-settings.png" alt-text="Configure the On demand backup retention settings.":::
+   :::image type="content" source="media/snapcenter/new-sap-hana-backup-policy-retention-settings.png" alt-text="Configure the On-demand backup retention settings.":::
 
 1. Configure the **Hourly retention settings**. 
 
@@ -704,7 +700,7 @@ You can use SnapCenter to restore the database.  In this section, we'll cover th
 
    :::image type="content" source="media/snapcenter/restore-database-via-snapcenter.png" alt-text="Select a database and select Restore." lightbox="media/snapcenter/restore-database-via-snapcenter.png":::
 
-1. Select the restore type.  In our example, we're restore the complete resource. 
+1. Select the restore type.  In our example, we're restoring the complete resource. 
 
    :::image type="content" source="media/snapcenter/restore-database-select-restore-type.png" alt-text="Select the restore type.":::
 
@@ -778,7 +774,7 @@ Before you can clone, you must have the same HANA version installed as the sourc
    1. Under **Plug-ins to install**, select the version, enter the install path, and select **SAP HANA**.
    1. Select **Validate** to run the pre-install checks.
 
-1. Stop HANA and unmount the old data volume.  You will mount the clone from SnapCenter.  
+1. Stop HANA and unmount the old data volume.  You'll mount the clone from SnapCenter.  
 
    ```bash
    sapcontrol -nr 40 -function StopSystem
@@ -841,11 +837,11 @@ Before you can clone, you must have the same HANA version installed as the sourc
 
 ### Delete a clone
 
-You can delete a clone if it is no longer necessary. For more information, see [Deleting clones](https://docs.netapp.com/ocsc-43/index.jsp?topic=%2Fcom.netapp.doc.ocsc-dpg-cpi%2FGUID-F6E7FF73-0183-4B9F-8156-8D7DA17A8555.html).
+You can delete a clone if it's no longer necessary. For more information, see [Deleting clones](https://docs.netapp.com/ocsc-43/index.jsp?topic=%2Fcom.netapp.doc.ocsc-dpg-cpi%2FGUID-F6E7FF73-0183-4B9F-8156-8D7DA17A8555.html).
 
 The commands used to execute before clone deletion, are:
-* **Pre clone delete:** /NetApp/sc-system-refresh.sh shut down H34
-* **Unmount:** /NetApp/sc-system-refresh.sh umount H34
+- **Pre clone delete:** /NetApp/sc-system-refresh.sh shut down H34
+- **Unmount:** /NetApp/sc-system-refresh.sh umount H34
 
 These commands allow SnapCenter to showdown the database, unmount the volume, and delete the fstab entry.  After that, the FlexClone is deleted. 
 
@@ -930,8 +926,9 @@ cd /opt/NetApp/snapcenter/spl/installation/plugins
 
 You can now install the latest HANA plug-in on the new node by selecting **SUBMIT** in SnapCenter. 
 
-
-
-
 ## Next steps
-- See [Disaster recovery principles and preparation](hana-concept-preparation.md).
+
+Learn more about disaster recovery principles and preparation.
+
+> [!div class="nextstepaction"]
+> [Disaster recovery principles](hana-concept-preparation.md)

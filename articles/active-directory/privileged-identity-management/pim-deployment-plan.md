@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 08/27/2020
+ms.date: 06/03/2021
 ms.author: curtand
 ms.custom: 
 ms.collection: M365-identity-device-management
@@ -106,7 +106,7 @@ For Azure AD roles, it's common for organizations to assign the Global Administr
 
 Follow these steps to implement the principle of least privilege for your Azure AD roles.
 
-1. Understand the granularity of the roles by reading and understanding the [available Azure AD administrator roles](../roles/permissions-reference.md#available-roles). You and your team should also reference [administrator roles by identity task in Azure AD](../roles/delegate-by-task.md), which explains the least privileged role for specific tasks.
+1. Understand the granularity of the roles by reading and understanding the available [Azure AD built-in roles](../roles/permissions-reference.md). You and your team should also reference [administrator roles by identity task in Azure AD](../roles/delegate-by-task.md), which explains the least privileged role for specific tasks.
 
 1. List who has privileged roles in your organization. You can use the Privileged Identity Management [Discovery and insights (preview)](pim-security-wizard.md) to get to reduce your exposure.
 
@@ -283,9 +283,9 @@ Now that you have identified the test users, use this step to configure Privileg
 
 1. Navigate to **Azure AD roles**, select **Roles**, and then select the role you configured.
 
-1. For the group of test users, if they are already a permanent administrator, you can make them eligible by searching for them and converting them from permanent to eligible by selecting the three dots on their row. If they don’t have the role assignments yet, you can [make a new eligible assignment](pim-how-to-add-role-to-user.md#make-a-user-eligible-for-a-role).
+1. For the group of test users, if they are already a permanent administrator, you can make them eligible by searching for them and converting them from permanent to eligible by selecting the three dots on their row. If they don’t have the role assignments yet, you can [make a new eligible assignment](pim-how-to-add-role-to-user.md).
 
-1. Repeat steps 1-3 for all the roles you want to test.
+1. Repeat steps 1-3 for each role that you want to test.
 
 1. Once you have set up the test users, you should send them the link for how to [activate their Azure AD role](pim-how-to-activate-role.md).
 

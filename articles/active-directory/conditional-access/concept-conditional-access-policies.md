@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 10/16/2020
+ms.date: 03/17/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -52,7 +52,7 @@ The assignments portion controls the who, what, and where of the Conditional Acc
 
 ### Cloud apps or actions
 
-[Cloud apps or actions](concept-conditional-access-cloud-apps.md) can include or exclude cloud applications or user actions that will be subject to the policy.
+[Cloud apps or actions](concept-conditional-access-cloud-apps.md) can include or exclude cloud applications, user actions, or authentication contexts that will be subjected to the policy.
 
 ### Conditions
 
@@ -82,6 +82,10 @@ This assignment condition allows Conditional Access policies to target specific 
 
 This control is used to exclude devices that are hybrid Azure AD joined, or marked a compliant in Intune. This exclusion can be done to block unmanaged devices. 
 
+#### Filters for devices (preview)
+
+This control allows targeting specific devices based on their attributes in a policy.
+
 ## Access controls
 
 The access controls portion of the Conditional Access policy controls how a policy is enforced.
@@ -98,11 +102,13 @@ Block access does just that, it will block access under the specified assignment
 
 The grant control can trigger enforcement of one or more controls. 
 
-- Require multi-factor authentication (Azure Multi-Factor Authentication)
+- Require multi-factor authentication (Azure AD Multi-Factor Authentication)
 - Require device to be marked as compliant (Intune)
 - Require Hybrid Azure AD joined device
 - Require approved client app
 - Require app protection policy
+- Require password change
+- Require terms of use
 
 Administrators can choose to require one of the previous controls or all selected controls using the following options. The default for multiple controls is to require all.
 
@@ -143,11 +149,11 @@ The article [Common Conditional Access policies](concept-conditional-access-poli
 
 ## Next steps
 
-[Create a Conditional Access policy](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-enable-azure-mfa?toc=/azure/active-directory/conditional-access/toc.json&bc=/azure/active-directory/conditional-access/breadcrumb/toc.json#create-a-conditional-access-policy)
+[Create a Conditional Access policy](../authentication/tutorial-enable-azure-mfa.md?bc=%2fazure%2factive-directory%2fconditional-access%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fconditional-access%2ftoc.json#create-a-conditional-access-policy)
 
 [Simulate sign in behavior using the Conditional Access What If tool](troubleshoot-conditional-access-what-if.md)
 
-[Planning a cloud-based Azure Multi-Factor Authentication deployment](../authentication/howto-mfa-getstarted.md)
+[Planning a cloud-based Azure AD Multi-Factor Authentication deployment](../authentication/howto-mfa-getstarted.md)
 
 [Managing device compliance with Intune](/intune/device-compliance-get-started)
 

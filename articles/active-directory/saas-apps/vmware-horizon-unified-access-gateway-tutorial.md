@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/02/2020
+ms.date: 02/04/2021
 ms.author: jeedes
 ---
 
@@ -34,7 +34,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * VMware Horizon - Unified Access Gateway supports **SP and IDP** initiated SSO
 
-## Adding VMware Horizon - Unified Access Gateway from the gallery
+## Add VMware Horizon - Unified Access Gateway from the gallery
 
 To configure the integration of VMware Horizon - Unified Access Gateway into Azure AD, you need to add VMware Horizon - Unified Access Gateway from the gallery to your list of managed SaaS apps.
 
@@ -65,7 +65,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In the Azure portal, on the **VMware Horizon - Unified Access Gateway** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 

@@ -3,13 +3,13 @@ title: Close a work or school account in an unmanaged Azure AD organization
 description: How to close your work or school account in an unmanaged Azure Active Directory.
 services: active-directory
 author: rolyon
-manager: mtillman
+manager: daveba
 
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
 ms.workload: identity
-ms.date: 05/20/2019
+ms.date: 05/04/2021
 ms.author: rolyon
 ms.reviewer: 
 ms.custom: it-pro
@@ -40,7 +40,7 @@ Before you can close your account, you should confirm the following items:
 
 To close an unmanaged work or school account, follow these steps:
 
-1. Sign in to [close your account](https://go.microsoft.com/fwlink/?linkid=873123), using the account that you want to close.
+1. Sign in to [close your account](https://portal.azure.com/#blade/Microsoft_AAD_IAM/PrivacyDataRequests), using the account that you want to close.
 
 1. On **My data requests**, select **Close account**.
 

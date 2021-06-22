@@ -217,4 +217,4 @@ Here are some things to keep in mind:
 * [Reliable Collections](service-fabric-work-with-reliable-collections.md)
 * [Reliable Services quick start](service-fabric-reliable-services-quick-start.md)
 * [Reliable Services backup and restore (disaster recovery)](service-fabric-reliable-services-backup-restore.md)
-* [Developer reference for Reliable Collections](/dotnet/api/microsoft.servicefabric.data.collections?view=azure-dotnet#microsoft_servicefabric_data_collections)
+* [Developer reference for Reliable Collections](/dotnet/api/microsoft.servicefabric.data.collections#microsoft_servicefabric_data_collections)

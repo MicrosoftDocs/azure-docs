@@ -10,7 +10,7 @@ ms.date: 06/27/2019
 
 This article shows you how to use the Azure portal to set up activity log alerts for service health notifications by using the Azure portal.  
 
-Service health notifications are stored in the [Azure activity log](../azure-monitor/platform/platform-logs-overview.md). Given the large volume of information stored in the activity log, there is a separate user interface to make it easier to view and set up alerts on service health notifications. 
+Service health notifications are stored in the [Azure activity log](../azure-monitor/essentials/platform-logs-overview.md). Given the large volume of information stored in the activity log, there is a separate user interface to make it easier to view and set up alerts on service health notifications. 
 
 You can receive an alert when Azure sends service health notifications to your Azure subscription. You can configure the alert based on:
 
@@ -27,9 +27,9 @@ You also can configure who the alert should be sent to:
 - Select an existing action group.
 - Create a new action group (that can be used for future alerts).
 
-To learn more about action groups, see [Create and manage action groups](../azure-monitor/platform/action-groups.md).
+To learn more about action groups, see [Create and manage action groups](../azure-monitor/alerts/action-groups.md).
 
-For information on how to configure service health notification alerts by using Azure Resource Manager templates, see [Resource Manager templates](../azure-monitor/platform/alerts-activity-log.md).
+For information on how to configure service health notification alerts by using Azure Resource Manager templates, see [Resource Manager templates](../azure-monitor/alerts/alerts-activity-log.md).
 
 ### Watch a video on setting up your first Azure Service Health alert
 
@@ -57,7 +57,7 @@ For information on how to configure service health notification alerts by using 
 
 5. Choose the **Event types** you want to be alerted for: *Service issue*, *Planned maintenance*, *Health advisories*, and *Security advisory*.
 
-6. Click **Select action group** to choose an existing action group or to create a new action group. For more information on action groups, see [Create and manage action groups in the Azure portal](../azure-monitor/platform/action-groups.md).
+6. Click **Select action group** to choose an existing action group or to create a new action group. For more information on action groups, see [Create and manage action groups in the Azure portal](../azure-monitor/alerts/action-groups.md).
 
 
 7. Define your alert details by entering an **Alert rule name** and **Description**.
@@ -68,7 +68,7 @@ For information on how to configure service health notification alerts by using 
 
 Within a few minutes, the alert is active and begins to trigger based on the conditions you specified during creation.
 
-Learn how to [Configure webhook notifications for existing problem management systems](service-health-alert-webhook-guide.md). For information on the webhook schema for activity log alerts, see [Webhooks for Azure activity log alerts](../azure-monitor/platform/activity-log-alerts-webhook.md).
+Learn how to [Configure webhook notifications for existing problem management systems](service-health-alert-webhook-guide.md). For information on the webhook schema for activity log alerts, see [Webhooks for Azure activity log alerts](../azure-monitor/alerts/activity-log-alerts-webhook.md).
 
 
 ## Next steps
@@ -76,7 +76,7 @@ Learn how to [Configure webhook notifications for existing problem management sy
 - Learn how to [setup mobile push notifications for Azure Service Health](https://www.microsoft.com/en-us/videoplayer/embed/RE2OtUw).
 - Learn how to [configure webhook notifications for existing problem management systems](service-health-alert-webhook-guide.md).
 - Learn about [service health notifications](service-notifications.md).
-- Learn about [notification rate limiting](../azure-monitor/platform/alerts-rate-limiting.md).
-- Review the [activity log alert webhook schema](../azure-monitor/platform/activity-log-alerts-webhook.md).
-- Get an [overview of activity log alerts](../azure-monitor/platform/alerts-overview.md), and learn how to receive alerts.
-- Learn more about [action groups](../azure-monitor/platform/action-groups.md).
+- Learn about [notification rate limiting](../azure-monitor/alerts/alerts-rate-limiting.md).
+- Review the [activity log alert webhook schema](../azure-monitor/alerts/activity-log-alerts-webhook.md).
+- Get an [overview of activity log alerts](../azure-monitor/alerts/alerts-overview.md), and learn how to receive alerts.
+- Learn more about [action groups](../azure-monitor/alerts/action-groups.md).

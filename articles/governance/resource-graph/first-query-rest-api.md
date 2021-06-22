@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Your first REST API query"
 description: In this quickstart, you follow the steps to call the Resource Graph endpoint for REST API and run your first query.
-ms.date: 10/14/2020
+ms.date: 05/01/2021
 ms.topic: quickstart
 ---
 # Quickstart: Run your first Resource Graph query using REST API
@@ -89,7 +89,6 @@ with your own value:
              "{subscriptionID}"
          ],
          "query": "Resources | project name, type | limit 5"
-         }
      }
      ```
 
@@ -114,7 +113,6 @@ with your own value:
              "{subscriptionID}"
          ],
          "query": "Resources | project name, type | limit 5 | order by name asc"
-         }
      }
      ```
 
@@ -141,7 +139,6 @@ with your own value:
              "{subscriptionID}"
          ],
          "query": "Resources | project name, type | order by name asc | limit 5"
-         }
      }
      ```
 
@@ -150,7 +147,7 @@ the results returned are consistent and ordered by the **Name** property, but st
 top five results.
 
 For more examples of REST API calls for Azure Resource Graph, see the
-[Azure Resource Graph REST Examples](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources#examples).
+[Azure Resource Graph REST Examples](/rest/api/azureresourcegraph/resourcegraph(2021-03-01)/resources/resources#examples).
 
 ## Clean up resources
 

@@ -1,7 +1,7 @@
 ---
-title: "Tutorial: Manage queries in Azure portal"
+title: "Tutorial: Manage queries in the Azure portal"
 description: In this tutorial, you create a Resource Graph Query and share the new query with others in the Azure portal.
-ms.date: 10/14/2020
+ms.date: 05/01/2021
 ms.topic: tutorial
 ---
 # Tutorial: Create and share an Azure Resource Graph query in the Azure portal
@@ -50,7 +50,7 @@ follow these steps:
    Select **Run query** to see the query results in the bottom pane.
 
    For more information about this query, see
-   [Samples – Count virtual machines by OS type](../samples/starter.md#count-os).
+   [Samples - Count virtual machines by OS type](../samples/starter.md#count-os).
 
 1. Select **Save** or **Save as**, enter **Count VMs by OS** as the name, leave the type as
    **Private query**, and then select **Save** at the bottom of the **Save query** pane. The tab
@@ -63,7 +63,7 @@ follow these steps:
    by OS** now appears in the **Query Name** list. When you select the title link of the saved
    query, it's loaded into a new tab with that query's name.
 
-   > [!NOTE] 
+   > [!NOTE]
    > When a saved query is open and the tab shows its name, selecting the **Save** button
    > updates it with any changes that have been made. To create a new saved query from this open
    > query, select **Save as** and proceed as if you were saving a brand new query.
@@ -90,11 +90,11 @@ use it. To create a new Shared query, follow these steps:
    | where type =~ 'Microsoft.Compute/virtualMachines'
    | summarize count() by tostring(properties.storageProfile.osDisk.osType)
    ```
-    
+
    Select **Run query** to see the query results in the bottom pane.
 
    For more information about this query, see
-   [Samples – Count virtual machines by OS type](../samples/starter.md#count-os).
+   [Samples - Count virtual machines by OS type](../samples/starter.md#count-os).
 
 1. Select **Save** or **Save as**.
 
@@ -111,10 +111,10 @@ use it. To create a new Shared query, follow these steps:
 1. Select **Save** at the bottom of the **Save query** pane. The tab title changes from **Query 1**
    to **Count VMs by OS**. The first time the **resource-graph-queries** resource group is used, the
    save takes longer than expected as the resource group gets created.
-   
+
    :::image type="content" source="../media/create-share-query/save-shared-query-window.png" alt-text="Save the new query as a Shared query" border="false":::
 
-   > [!NOTE] 
+   > [!NOTE]
    > You can clear the **Publish to resource-graph-queries resource group** check box if you
    > want to provide the name of an existing resource group to save the shared query into. Using the
    > default named resource group for queries makes Shared queries easier to discover. It also makes
@@ -132,7 +132,7 @@ use it. To create a new Shared query, follow these steps:
 
    :::image type="content" source="../media/create-share-query/show-saved-shared-query.png" alt-text="Show the Shared Query with icon" border="false":::
 
-   > [!NOTE] 
+   > [!NOTE]
    > When a saved query is open and the tab shows its name, the **Save** button updates it
    > with any changes that have been made. To create a new saved query, select **Save as** and
    > proceed as if you were saving a brand new query.
@@ -165,7 +165,8 @@ Explorer**.
 
 The Resource Graph query is listed alongside other resources that are part of a resource group.
 Selecting the Resource Graph query opens the page for that query. The ellipsis and shortcut menu
-options (triggered by right-clicking) work the same as on the Resource Graph query page.
+options, triggered by select and hold (or right-click), work the same as on the Resource Graph query
+page.
 
 ### Query Resource Graph
 
@@ -204,7 +205,7 @@ longer want them.
 
 ## Next steps
 
-In this tutorial, you've created Private and Shared queries. To learn more about the Resource graph
+In this tutorial, you've created Private and Shared queries. To learn more about the Resource Graph
 language, continue to the query language details page.
 
 > [!div class="nextstepaction"]

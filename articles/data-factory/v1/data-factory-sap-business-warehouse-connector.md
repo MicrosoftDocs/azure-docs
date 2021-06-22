@@ -1,20 +1,11 @@
 ---
 title: Move data from SAP Business Warehouse using Azure Data Factory 
 description: Learn about how to move data from SAP Business Warehouse using Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-editor: 
-
+ms.author: jingwang
 ms.service: data-factory
-ms.workload: data-services
-
-
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: jingwang
-
 robots: noindex
 ---
 # Move data From SAP Business Warehouse using Azure Data Factory
@@ -241,7 +232,7 @@ The pipeline contains a Copy Activity that is configured to use the input and ou
                 "typeProperties": {
                     "source": {
                         "type": "RelationalSource",
-        				"query": "<MDX query for SAP BW>"
+                        "query": "<MDX query for SAP BW>"
                     },
                     "sink": {
                         "type": "BlobSink",
@@ -276,8 +267,6 @@ The pipeline contains a Copy Activity that is configured to use the input and ou
 }
 ```
 
-
-
 ### Type mapping for SAP BW
 As mentioned in the [data movement activities](data-factory-data-movement-activities.md) article, Copy activity performs automatic type conversions from source types to sink types with the following two-step approach:
 
@@ -288,7 +277,7 @@ When moving data from SAP BW, the following mappings are used from SAP BW types 
 
 Data type in the ABAP Dictionary | .NET Data Type
 -------------------------------- | --------------
-ACCP |	Int
+ACCP |    Int
 CHAR | String
 CLNT | String
 CURR | Decimal

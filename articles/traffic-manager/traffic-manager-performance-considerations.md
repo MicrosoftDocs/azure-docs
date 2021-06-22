@@ -75,7 +75,6 @@ The tools on these sites measure DNS latencies and display the resolved IP addre
 
 [Test your Traffic Manager settings](traffic-manager-testing-settings.md)
 
-[Operations on Traffic Manager (REST API Reference)](https://go.microsoft.com/fwlink/?LinkId=313584)
+[Operations on Traffic Manager (REST API Reference)](/previous-versions/azure/reference/hh758255(v=azure.100))
 
-[Azure Traffic Manager Cmdlets](https://docs.microsoft.com/powershell/module/az.trafficmanager)
-
+[Azure Traffic Manager Cmdlets](/powershell/module/az.trafficmanager)

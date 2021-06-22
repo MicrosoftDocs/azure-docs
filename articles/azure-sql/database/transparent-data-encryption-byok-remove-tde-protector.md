@@ -1,15 +1,15 @@
 ---
 title: Remove TDE protector (PowerShell & the Azure CLI)
 titleSuffix: Azure SQL Database & Azure Synapse Analytics 
-description: "Learn how to respond to a potentially compromised TDE protector for Azure SQL Database or Azure Synapse Analytics using TDE with Bring YOur Own Key (BYOK) support."
+description: "Learn how to respond to a potentially compromised TDE protector for Azure SQL Database or Azure Synapse Analytics using TDE with Bring Your Own Key (BYOK) support."
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
 ms.custom: seo-lt-2019 sqldbrb=1, devx-track-azurecli
 ms.devlang:
 ms.topic: how-to
-author: jaszymas
-ms.author: jaszymas
+author: shohamMSFT
+ms.author: shohamd
 ms.reviewer: vanto
 ms.date: 02/24/2020
 ---
@@ -29,13 +29,13 @@ Keep in mind that once the TDE protector is deleted in Key Vault, in up to 10 mi
 This how-to guide goes over two approaches depending on the desired result after a compromised incident response:
 
 - To make the databases in Azure SQL Database / Azure Synapse Analytics **inaccessible**.
-- To make the databases in Azure SQL Database / Azure Azure Synapse Analytics (formerly SQL Data Warehouse) **inaccessible**.
+- To make the databases in Azure SQL Database / Azure Azure Synapse Analytics **inaccessible**.
 
 ## Prerequisites
 
 - You must have an Azure subscription and be an administrator on that subscription
 - You must have Azure PowerShell installed and running.
-- This how-to guide assumes that you are already using a key from Azure Key Vault as the TDE protector for an Azure SQL Database or Azure Synapse (formerly SQL Data Warehouse). See [Transparent Data Encryption with BYOK Support](transparent-data-encryption-byok-overview.md) to learn more.
+- This how-to guide assumes that you are already using a key from Azure Key Vault as the TDE protector for an Azure SQL Database or Azure Synapse. See [Transparent Data Encryption with BYOK Support](transparent-data-encryption-byok-overview.md) to learn more.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -130,7 +130,7 @@ The PowerShell command **az sql server key show** provides the thumbprint of t
 
 For command reference, see the [Azure CLI keyvault](/cli/azure/keyvault/key).
 
-1. Create a [new key in Key Vault](/cli/azure/keyvault/key#az-keyvault-key-create). Make sure this new key is created in a separate key vault from the potentially compromised TDE protector, since access control is provisioned on a vault level.
+1. Create a [new key in Key Vault](/cli/azure/keyvault/key#az_keyvault_key_create). Make sure this new key is created in a separate key vault from the potentially compromised TDE protector, since access control is provisioned on a vault level.
 
 2. Add the new key to the server and update it as the new TDE protector of the server.
 

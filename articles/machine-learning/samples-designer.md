@@ -1,7 +1,7 @@
 ---
 title: Example pipelines & datasets for the designer
 titleSuffix: Azure Machine Learning
-description: Use samples in Azure Machine Learning designer to jumps-start your machine learning pipelines.
+description: Learn how to use samples in Azure Machine Learning designer to jumps-start your machine learning pipelines.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -67,7 +67,7 @@ Explore these built-in regression samples.
 
 ## Classification
 
-Explore these built-in classification samples. You can learn more about the samples without documentation links by opening the samples and viewing the module comments instead.
+Explore these built-in classification samples. You can learn more about the samples by opening the samples and viewing the module comments in the designer.
 
 | Sample title | Description | 
 | --- | --- |
@@ -79,13 +79,15 @@ Explore these built-in classification samples. You can learn more about the samp
 
 ## Computer vision
 
-Explore these built-in computer vision samples. You can learn more about the samples without documentation links by opening the samples and viewing the module comments instead.
+Explore these built-in computer vision samples. You can learn more about the samples by opening the samples and viewing the module comments in the designer.
 
+| Sample title | Description | 
+| --- | --- |
 | Image Classification using DenseNet | Use computer vision modules to build image classification model based on PyTorch DenseNet.| 
 
 ## Recommender
 
-Explore these built-in recommender samples. You can learn more about the samples without documentation links by opening the samples and viewing the module comments instead.
+Explore these built-in recommender samples. You can learn more about the samples by opening the samples and viewing the module comments in the designer.
 
 | Sample title | Description | 
 | --- | --- |
@@ -94,7 +96,7 @@ Explore these built-in recommender samples. You can learn more about the samples
 
 ## Utility
 
-Learn more about the samples that demonstrate machine learning utilities and features. You can learn more about the samples without documentation links by opening the samples and viewing the module comments instead.
+Learn more about the samples that demonstrate machine learning utilities and features. You can learn more about the samples by opening the samples and viewing the module comments in the designer.
 
 | Sample title | Description | 
 | --- | --- |

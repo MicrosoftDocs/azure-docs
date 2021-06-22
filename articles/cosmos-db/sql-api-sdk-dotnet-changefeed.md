@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 08/12/2020
+ms.date: 04/06/2021
 ms.author: anfeldma
 ---
 
@@ -25,7 +25,8 @@ ms.author: anfeldma
 > * [Sync Java SDK v2](sql-api-sdk-java.md)
 > * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
 > * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
-> * [Spark Connector](sql-api-sdk-java-spark.md)
+> * [Spark 3 OLTP Connector](sql-api-sdk-java-spark-v3.md)
+> * [Spark 2 OLTP Connector](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api
 > * [REST Resource Provider](/rest/api
@@ -33,12 +34,12 @@ ms.author: anfeldma
 > * [Bulk executor - .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Bulk executor - Java](sql-api-sdk-bulk-executor-java.md)
 
-|   |   |
+|   | Links  |
 |---|---|
 |**SDK download**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)|
-|**API documentation**|[Change Feed Processor library API reference documentation](/dotnet/api/microsoft.azure.documents.changefeedprocessor?view=azure-dotnet&preserve-view=true)|
+|**API documentation**|[Change Feed Processor library API reference documentation](/dotnet/api/microsoft.azure.documents.changefeedprocessor)|
 |**Get started**|[Get started with the Change Feed Processor .NET SDK](change-feed.md)|
-|**Current supported framework**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
+|**Current supported framework**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Microsoft .NET Core](https://dotnet.microsoft.com/download) |
 
 > [!NOTE]
 > If you are using change feed processor, please see the latest version 3.x of the [.NET SDK](change-feed-processor.md), which has change feed built into the SDK. 
@@ -46,6 +47,10 @@ ms.author: anfeldma
 ## Release notes
 
 ### v2 builds
+
+### <a id="2.4.0"></a>2.4.0
+* Added support for lease collections that can be partitioned with partition key defined as /partitionKey. Prior to this change lease collection's partition key would have to be defined as /id.
+* This release allows using lease collections with Gremlin API, as Gremlin collections cannot have partition key defined as /id.
 
 ### <a id="2.3.2"></a>2.3.2
 * Added lease store compatibility with [V3 SDK that enables hot migration paths. An application can migrate to V3 SDK and migrate back to the Change Feed processor library without losing any state.
@@ -193,6 +198,7 @@ Microsoft will provide notification at least **12 months** in advance of retirin
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [2.4.0](#2.4.0) |May 6, 2021 |--- |
 | [2.3.2](#2.3.2) |August 11, 2020 |--- |
 | [2.3.1](#2.3.1) |July 30, 2020 |--- |
 | [2.3.0](#2.3.0) |April 2, 2020 |--- |
@@ -214,7 +220,7 @@ Microsoft will provide notification at least **12 months** in advance of retirin
 
 ## FAQ
 
-[!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
+[!INCLUDE [cosmos-db-sdk-faq](includes/cosmos-db-sdk-faq.md)]
 
 ## See also
 

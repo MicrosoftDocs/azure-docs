@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/24/2019
+ms.date: 06/17/2021
 ms.author: mimart
 ms.subservice: B2C
 
@@ -137,7 +137,7 @@ Applications that contain long-running processes or that operate without the pre
 
 Although the OAuth 2.0 client credentials grant flow is not currently directly supported by the Azure AD B2C authentication service, you can set up client credential flow using Azure AD and the Microsoft identity platform /token endpoint for an application in your Azure AD B2C tenant. An Azure AD B2C tenant shares some functionality with Azure AD enterprise tenants.
 
-To set up client credential flow, see [Azure Active Directory v2.0 and the OAuth 2.0 client credentials flow](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols-oauth-client-creds). A successful authentication results in the receipt of a token formatted so that it can be used by Azure AD as described in [Azure AD token reference](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
+To set up client credential flow, see [Azure Active Directory v2.0 and the OAuth 2.0 client credentials flow](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md). A successful authentication results in the receipt of a token formatted so that it can be used by Azure AD as described in [Azure AD token reference](../active-directory/develop/id-tokens.md).
 
 For instructions on registering a management application, see [Manage Azure AD B2C with Microsoft Graph](microsoft-graph-get-started.md).
 
@@ -146,17 +146,6 @@ For instructions on registering a management application, see [Manage Azure AD B
 Many architectures include a web API that needs to call another downstream web API, where both are secured by Azure AD B2C. This scenario is common in native clients that have a Web API back-end and calls a Microsoft online service such as the Microsoft Graph API.
 
 This chained web API scenario can be supported by using the OAuth 2.0 JWT bearer credential grant, also known as the on-behalf-of flow.  However, the on-behalf-of flow is not currently implemented in the Azure AD B2C.
-
-### Faulted apps
-
-Do not edit Azure AD B2C applications in these ways:
-
-- On other application management portals such as the [Application Registration Portal](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade).
-- Using Graph API or PowerShell.
-
-If you edit the Azure AD B2C application outside of the Azure portal, it becomes a faulted application and is no longer usable with Azure AD B2C. Delete the application and create it again.
-
-To delete the application, go to the [Application Registration Portal](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) and delete the application there. In order for the application to be visible, you need to be the owner of the application (and not just an admin of the tenant).
 
 ## Next steps
 

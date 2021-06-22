@@ -8,13 +8,13 @@ ms.author: radhsrin
 manager: diviso
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 01/19/2021
 ms.custom: dpalled
 ---
 
 # Model synchronization between Azure Digital Twins and Time Series Insights Gen2
 
-This article explains best practices and tools used to translate asset model in Azure Digital Twins (ADT) to asset model in Azure Time Series Insights (TSI).  This article is the second part of a two-part tutorial series explaining the integration of Azure Digital Twins with Azure Time Series Insights. Integration of Azure Digital Twins with Time Series Insights enables archival and tracking the history of telemetries and calculated properties of Digital Twins. This series of tutorials are aimed at developers working to integrate Time Series Insights with Azure Digital Twins. Part 1 explains  [Establishing data pipeline that brings in the actual time series data from Azure Digital Twins to Time Series Insights](https://docs.microsoft.com/azure/digital-twins/how-to-integrate-time-series-insights) and this, second part of the tutorial series explains Asset model synchronization between Azure Digital Twins and Time Series Insights. This tutorial explains the best practices in choosing  and establishing naming convention for Time Series ID (TS ID) and manually establishing hierarchies in Time Series Model (TSM).
+This article explains best practices and tools used to translate asset model in Azure Digital Twins (ADT) to asset model in Azure Time Series Insights (TSI).  This article is the second part of a two-part tutorial series explaining the integration of Azure Digital Twins with Azure Time Series Insights. Integration of Azure Digital Twins with Time Series Insights enables archival and tracking the history of telemetries and calculated properties of Digital Twins. This series of tutorials are aimed at developers working to integrate Time Series Insights with Azure Digital Twins. Part 1 explains  [Establishing data pipeline that brings in the actual time series data from Azure Digital Twins to Time Series Insights](../digital-twins/how-to-integrate-time-series-insights.md) and this, second part of the tutorial series explains Asset model synchronization between Azure Digital Twins and Time Series Insights. This tutorial explains the best practices in choosing  and establishing naming convention for Time Series ID (TS ID) and manually establishing hierarchies in Time Series Model (TSM).
 
 ## Choosing a Time Series ID
 
@@ -24,7 +24,7 @@ Time Series ID is a unique identifier used to identify assets in Time Series Ins
 
 ## Contextualizing Time Series
 
-Contextualization of data (mostly spatial in nature) in Time Series Insights is achieved through asset hierarchies and the same is used for easy navigation of data through a tree view in Time Series Insights explorer. Time series types, and hierarchies are defined using Time Series Model (TSM) in Time Series Insights. Types in TSM help to define variables, while hierarchy levels and instance field values are used to construct the tree view in the Time Series Insights explorer. For more information on TSM, refer to [online Time Series Insights documentation](https://docs.microsoft.com/azure/time-series-insights/concepts-model-overview).
+Contextualization of data (mostly spatial in nature) in Time Series Insights is achieved through asset hierarchies and the same is used for easy navigation of data through a tree view in Time Series Insights explorer. Time series types, and hierarchies are defined using Time Series Model (TSM) in Time Series Insights. Types in TSM help to define variables, while hierarchy levels and instance field values are used to construct the tree view in the Time Series Insights explorer. For more information on TSM, refer to [online Time Series Insights documentation](./concepts-model-overview.md).
 
 In Azure Digital Twins, connection among assets are expressed using twin relationships. Twin relationships are simply a graph of connected assets. However in Time Series Insight, relationships between assets are hierarchical in nature. That is, assets share a parent-child kind od relationship and is represented using a tree structure. To translate relationship information from Azure Digital Twins into Time Series Insights hierarchies, we need to choose relevant hierarchical relationships from Azure Digital Twins. Azure Digital Twins uses an open standard, modeling language called Digital Twin Definition Language (DTDL). In DTDL models are described using a variant of JSON called JSON-LD. Refer to [DTDL documentation](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) for full details on the specification.
 
@@ -77,7 +77,7 @@ Code snippet below shows how the client application was able to navigate the twi
 
 > [!Note]
 >
-> This code snippet example assumes readers are familiar with [Part 01](https://docs.microsoft.com/azure/digital-twins/tutorial-end-to-end#set-up-the-sample-function-app) of the tutorial and this code change was made inside the “ProcessHubToDTEvents” Function.
+> This code snippet example assumes readers are familiar with [Part 01](../digital-twins/tutorial-end-to-end.md#set-up-the-sample-function-app) of the tutorial and this code change was made inside the “ProcessHubToDTEvents” Function.
 
 ```csharp
 if (propertyPath.Equals("/Flow"))
@@ -109,7 +109,7 @@ relationship for " + twinId);
 
 ## Updating instance fields using APIs
 
-This section of the tutorial explains listening to model changes in Azure Digital Twins such as creation, deletion of twins or change in relationships between twins and updating instance fields and hierarchies programmatically using Time Series Insights model APIs. This method of updating Time Series Insights model is usually achieved via Azure functions. In Azure Digital Twins, event notifications such as twin addition or deletions can be routed downstream services such as Event Hubs that in turn can be fed to Azure functions. Further details about event routing and filtering are explained in [here](https://docs.microsoft.com/azure/digital-twins/how-to-manage-routes-portal).  Remaining of this section explains using Time Series Insights model APIs in Azure functions to update Time Series Insights model in response to twin addition (one type of model change) in Azure Digital Twins.
+This section of the tutorial explains listening to model changes in Azure Digital Twins such as creation, deletion of twins or change in relationships between twins and updating instance fields and hierarchies programmatically using Time Series Insights model APIs. This method of updating Time Series Insights model is usually achieved via Azure functions. In Azure Digital Twins, event notifications such as twin addition or deletions can be routed downstream services such as Event Hubs that in turn can be fed to Azure functions. Further details about event routing and filtering are explained in [here](../digital-twins/how-to-manage-routes-portal.md).  Remaining of this section explains using Time Series Insights model APIs in Azure functions to update Time Series Insights model in response to twin addition (one type of model change) in Azure Digital Twins.
 
 ### Receiving and identifying twin addition event notification
 
@@ -222,4 +222,4 @@ private async Task<TimeSeriesInstance> AddHierarchyToInstanceAsync(TimeSeriesIns
 
 ## Next steps
 
-Third in the series of tutorials is to show how to query historical data from Azure Digital Twins using Time Series Insights APIs. It is a work in progress and the section will be updated when ready. In the meantime, readers are encouraged to refer to [Time Series Insights data query API documentation](https://docs.microsoft.com/azure/time-series-insights/concepts-query-overview).
+Third in the series of tutorials is to show how to query historical data from Azure Digital Twins using Time Series Insights APIs. It is a work in progress and the section will be updated when ready. In the meantime, readers are encouraged to refer to [Time Series Insights data query API documentation](./concepts-query-overview.md).

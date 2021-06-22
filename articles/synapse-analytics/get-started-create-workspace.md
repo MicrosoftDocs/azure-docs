@@ -9,7 +9,7 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
-ms.date: 10/07/2020 
+ms.date: 03/17/2021 
 ---
 
 # Creating a Synapse workspace
@@ -22,62 +22,66 @@ To complete this tutorial's steps, you need to have access to a resource group f
 
 ## Create a Synapse workspace in the Azure portal
 
-1. Open the [Azure portal](https://portal.azure.com), and at the top search for **Synapse**.
-1. In the search results, under **Services**, select **Azure Synapse Analytics (workspaces preview)**.
+### Start the process
+1. Open the [Azure portal](https://portal.azure.com), in the search bar enter **Synapse** without hitting enter.
+1. In the search results, under **Services**, select **Azure Synapse Analytics**.
 1. Select **Add** to create a workspace.
-1. In **Basics**, enter your preferred **Subscription**, **Resource group**, **Region**, and then choose a workspace name. In this tutorial, we'll use **myworkspace**.
-1. You need an ADLSGEN2 account and a container in that account to create a workspace. The Synapse workspace will use this container as the default location to store Spark logs and data for Spark tables.
-    1. Navigate to **Select Data Lake Storage Gen 2**. 
-    1. Click **Create New** and name it **contosolake**.
-    1. Click **File System** and name it **users**. This will create a container called **users**
-1. Your Azure Synapse workspace will use this storage account as the "primary" storage account and the container to store workspace data. The workspace stores data in Apache Spark tables. It stores Spark application logs under a folder called **/synapse/workspacename**.
-1. Select **Review + create** > **Create**. Your workspace is ready in a few minutes.
+
+## Basics tab > Project Details
+Fill in the following fields:
+
+1. **Subscription** - Pick any subscription.
+1. **Resource group** - Use any resource group.
+1. **Managed Resource group** - Leave this blank.
+
+## Basics tab > Workspace details
+Fill in the following fields:
+
+1. **Workspace name** - Pick any globally unique name. In this tutorial, we'll use **myworkspace**.
+1. **Region** - Pick the region where you have placed your client applications/services (for example, Azure VM, Power BI, Azure Analysis Service) and storages that contain data (for example Azure Data Lake storage, Azure Cosmos DB analytical storage).
+
+> [!NOTE]
+> A workspace that is not colocated with the client applications or storage can be the root cause of many performance issues. If you data or the clients are placed in multiple regions, you can create separate workspaces in different regions colocated with your data and clients.
+
+Under **Select Data Lake Storage Gen 2**:
+
+1. By **Account name**, select **Create New** and name the new storage account **contosolake** or similar as the name must be unique.
+1. By **File system name**, select **Create New** and name it **users**. This will create a storage container called **users**. The workspace will use this storage account as the "primary" storage account to Spark tables and Spark application logs.
+1. Check the "Assign myself the Storage Blob Data Contributor role on the Data Lake Storage Gen2 account" box. 
+
+## Completing the process
+Select **Review + create** > **Create**. Your workspace is ready in a few minutes.
+
+> [!NOTE]
+> To enable workspace features from an existing dedicated SQL pool (formerly SQL DW) refer to [How to enable a workspace for your dedicated SQL pool (formerly SQL DW)](./sql-data-warehouse/workspace-connected-create.md).
+
 
 ## Open Synapse Studio
 
 After your Azure Synapse workspace is created, you have two ways to open Synapse Studio:
 
-* Open your Synapse workspace in the [Azure portal](https://portal.azure.com). On the top of the **Overview** section, select **Launch Synapse Studio**.
+* Open your Synapse workspace in the [Azure portal](https://portal.azure.com), in the **Overview** section of the Synapse workspace, select **Open** in the Open Synapse Studio box.
 * Go to the `https://web.azuresynapse.net` and sign in to your workspace.
 
-## Create a dedicated SQL pool
+## Place sample data into the primary storage account
+We are going to use a small 100K row sample dataset of NYX Taxi Cab data for many examples in this getting started guide. We begin by placing it in the primary storage account you created for the workspace.
 
-1. In Synapse Studio, on the left-side pane, select **Manage** > **SQL pools**.
-1. Select **New** and enter these settings:
+* Download this file to your computer: https://azuresynapsestorage.blob.core.windows.net/sampledata/NYCTaxiSmall/NYCTripSmall.parquet 
+* In Synapse Studio, navigate to the Data Hub. 
+* Select **Linked**.
+* Under the category **Azure Data Lake Storage Gen2** you'll see an item with a name like **myworkspace ( Primary - contosolake )**.
+* Select the container named **users (Primary)**.
+* Select **Upload** and select the `NYCTripSmall.parquet` file you downloaded.
 
-    |Setting | Suggested value | 
-    |---|---|---|
-    |**SQL pool name**| **SQLDB1**|
-    |**Performance level**|**DW100C**|
-    |||
+One the parquet file is uploaded it is available through two equivalent URIs:
+* `https://contosolake.dfs.core.windows.net/users/NYCTripSmall.parquet` 
+* `abfss://users@contosolake.dfs.core.windows.net/NYCTripSmall.parquet`
 
-1. Select **Review + create** > **Create**. Your dedicated SQL pool will be ready in a few minutes. Your dedicated SQL pool is associated with a dedicated SQL pool database that's also called **SQLDB1**.
+In the examples that follow in this tutorial, make sure to replace **contosolake** in the UI with the name of the primary storage account that you selected for your workspace.
 
-A dedicated SQL pool consumes billable resources as long as it's active. You can pause the pool later to reduce costs.
 
-## Create a serverless Apache Spark pool
-
-1. In Synapse Studio, on the left-side pane, select **Manage** > **Apache Spark pools**.
-1. Select **New** and enter these settings:
-
-    |Setting | Suggested value | 
-    |---|---|---|
-    |**Apache Spark pool name**|**Spark1**
-    |**Node size**| **Small**|
-    |**Number of nodes**| Set the minimum to 3 and the maximum to 3|
-
-1. Select **Review + create** > **Create**. Your Apache Spark pool will be ready in a few seconds.
-
-When you perform Spark activity in Azure Synapse, you specify a Spark pool to use. The pool tells Azure Synapse how many Spark resources to use. You only pay for the resources that you use. When you actively stop using the pool, the resources automatically time out and are recycled.
-
-> [!NOTE]
-> Spark databases are independently created from Spark pools. A workspace always has a Spark database called **default**. You can create additional Spark databases.
-
-## The serverless SQL pool
-
-Every workspace comes with a pre-built pool called **Built-in**. This pool can't be deleted. The serverless SQL pool allows you to work with SQL without having to create or think about managing a serverless SQL pool in Azure Synapse. Unlike the dedicated SQL pools, billing for a serverless SQL pool is based on the amount of data scanned to run the query, not the number of resources used to execute the query.
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Analyze using a dedicated SQL pool](get-started-analyze-sql-pool.md)
+> [Analyze using a serverless SQL pool](get-started-analyze-sql-on-demand.md)

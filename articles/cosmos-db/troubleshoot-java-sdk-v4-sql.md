@@ -34,6 +34,13 @@ Start with this list:
 * Review the [performance tips](performance-tips-java-sdk-v4-sql.md) for Azure Cosmos DB Java SDK v4, and follow the suggested practices.
 * Read the rest of this article, if you didn't find a solution. Then file a [GitHub issue](https://github.com/Azure/azure-sdk-for-java/issues). If there is an option to add tags to your GitHub issue, add a *cosmos:v4-item* tag.
 
+### Retry Logic <a id="retry-logics"></a>
+Cosmos DB SDK on any IO failure will attempt to retry the failed operation if retry in the SDK is feasible. Having a retry in place for any failure is a good practice but specifically handling/retrying write failures is a must. It's recommended to use the latest SDK as retry logic is continuously being improved.
+
+1. Read and query IO failures will get retried by the SDK without surfacing them to the end user.
+2. Writes (Create, Upsert, Replace, Delete) are "not" idempotent and hence SDK cannot always blindly retry the failed write operations. It is required that user's application logic to handle the failure and retry.
+3. [Trouble shooting sdk availability](troubleshoot-sdk-availability.md) explains retries for multi-region Cosmos DB accounts.
+
 ## <a name="common-issues-workarounds"></a>Common issues and workarounds
 
 ### Network issues, Netty read timeout failure, low throughput, high latency
@@ -42,7 +49,7 @@ Start with this list:
 For best performance:
 * Make sure the app is running on the same region as your Azure Cosmos DB account. 
 * Check the CPU usage on the host where the app is running. If CPU usage is 50 percent or more, run your app on a host with a higher configuration. Or you can distribute the load on more machines.
-    * If you are running your application on Azure Kubernetes Service, you can [use Azure Monitor to monitor CPU utilization](../azure-monitor/insights/container-insights-analyze.md).
+    * If you are running your application on Azure Kubernetes Service, you can [use Azure Monitor to monitor CPU utilization](../azure-monitor/containers/container-insights-analyze.md).
 
 #### Connection throttling
 Connection throttling can happen because of either a [connection limit on a host machine] or [Azure SNAT (PAT) port exhaustion].
@@ -115,9 +122,9 @@ This failure is a server-side failure. It indicates that you consumed your provi
 
     During performance testing, you should increase load until a small rate of requests get throttled. If throttled, the client application should backoff for the server-specified retry interval. Respecting the backoff ensures that you spend minimal amount of time waiting between retries.
 
-### Failure connecting to Azure Cosmos DB emulator
+### Failure connecting to Azure Cosmos DB Emulator
 
-The Azure Cosmos DB emulator HTTPS certificate is self-signed. For the SDK to work with the emulator, import the emulator certificate to a Java TrustStore. For more information, see [Export Azure Cosmos DB emulator certificates](local-emulator-export-ssl-certificates.md).
+The Azure Cosmos DB Emulator HTTPS certificate is self-signed. For the SDK to work with the emulator, import the emulator certificate to a Java TrustStore. For more information, see [Export Azure Cosmos DB Emulator certificates](local-emulator-export-ssl-certificates.md).
 
 ### Dependency Conflict Issues
 

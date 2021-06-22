@@ -1,13 +1,14 @@
 ---
 title: Use the Azure Storage Emulator for development and testing
 description: The Azure Storage Emulator provides a free local development environment for developing and testing your Azure Storage applications.
-author: mhopkins-msft
+author: twooley
 
-ms.author: mhopkins
+ms.author: twooley
 ms.date: 07/16/2020
 ms.service: storage
 ms.subservice: common
-ms.topic: how-to
+ms.topic: how-to 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Use the Azure Storage Emulator for development and testing
@@ -166,7 +167,7 @@ Beginning with version 3.1, the Storage Emulator supports read-access geo-redund
 Starting in version 3.0, a console window is displayed when you start the Storage Emulator. Use the command line in the console window to start and stop the emulator. You can also query for status and do other operations from the command line.
 
 > [!NOTE]
-> If you have the Microsoft Azure compute emulator installed, a system tray icon appears when you launch the Storage Emulator. Right-click on the icon to reveal a menu that provides a graphical way to start and stop the Storage Emulator.
+> If you have the Microsoft Azure Compute Emulator installed, a system tray icon appears when you launch the Storage Emulator. Right-click on the icon to reveal a menu that provides a graphical way to start and stop the Storage Emulator.
 >
 >
 

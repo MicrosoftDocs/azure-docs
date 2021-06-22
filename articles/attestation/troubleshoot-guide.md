@@ -6,7 +6,8 @@ author: msmbaldwin
 ms.service: attestation
 ms.topic: reference
 ms.date: 07/20/2020
-ms.author: mbaldwin
+ms.author: mbaldwin 
+ms.custom: devx-track-azurepowershell
 
 
 ---
@@ -28,7 +29,6 @@ Below are some examples of the errors returned by Azure Attestation:
 Unauthorized
 
 **Scenario examples**
-  - Attestation failure if the user is not assigned with Attestation Reader role
   - Unable to manage attestation policies as the user is not assigned with appropriate roles
   - Unable to manage attestation policy signers as the user is not assigned with appropriate roles
 
@@ -45,55 +45,25 @@ At line:1 char:1
 
 **Troubleshooting steps**
 
-In order to view attestation policies/policy signers, an Azure AD user requires the permission for "Actions":
+In order to manage policies, an Azure AD user requires the following permissions for "Actions":
 - Microsoft.Attestation/attestationProviders/attestation/read
-
-  This permission can be assigned to an AD user through a role such as "Owner" (wildcard permissions) or "Reader" (wildcard permissions) or "Attestation Reader" (specific         permissions for Azure Attestation only).
-
-In order to add/delete policy signers or to configure policies, an Azure AD user requires the following permissions for "Actions":
 - Microsoft.Attestation/attestationProviders/attestation/write
 - Microsoft.Attestation/attestationProviders/attestation/delete
 
-  These permissions can be assigned to an AD user through a role such as "Owner" (wildcard permissions), "Contributor" (wildcard permissions) or "Attestation Contributor"         (specific permissions for Azure Attestation only).
+  To perform these actions, an Azure AD user must have "Attestation Contributor" role on the attestation provider. These permissions can be also be inherited with roles such as "Owner" (wildcard permissions), "Contributor" (wildcard permissions) on  the subscription/ resource group.  
 
-Customers can choose to use the default provider for attestation, or create their own providers with custom policies. To send attestation requests to custom attestation providers, "Owner" (wildcard permissions) or "Reader" (wildcard permissions) or "Attestation Reader" role is required for the user. The default providers are accessible by any Azure AD user.
+In order to read policies, an Azure AD user requires the following permission for "Actions":
+- Microsoft.Attestation/attestationProviders/attestation/read
 
-To verify the roles in PowerShell, run below:
+  To perform this action, an Azure AD user must have "Attestation Reader" role on the attestation provider. The read permission can be also be inherited with roles such as "Reader" (wildcard permissions) on  the subscription/ resource group.  
+
+To verify the roles in PowerShell, run the below steps:
 
 a. Launch PowerShell and log into Azure via the "Connect-AzAccount" cmdlet
 
-b. Verify your RBAC role assignment settings
+b. Please refer the guidance [here](../role-based-access-control/role-assignments-list-powershell.md) to verify your Azure role assignment on the attestation provider
 
-
-  ```powershell
-  $c = Get-AzContext
-  Get-AzRoleAssignment -ResourceGroupName $attestationResourceGroup -ResourceName $attestationProvider -ResourceType Microsoft.Attestation/attestationProviders -SignInName $c.Account.Id
-  ```
-
-  You should see something like this:
-
-  ```
-  RoleAssignmentId   :/subscriptions/subscriptionId/providers/Microsoft.Authorization/roleAssignments/roleAssignmentId
-  
-  Scope              : /subscriptions/subscriptionId
-  
-  DisplayName        : displayName
-  
-  SignInName         : signInName
-  
-  RoleDefinitionName : Reader
-  
-  RoleDefinitionId   : roleDefinitionId
-  
-  ObjectId           : objectid
-  
-  ObjectType         : User
-  
-  CanDelegate        : False
- 
-  ```
-
-c. If you don't find an appropriate role assignment in the list, follow the instructions in [here](/azure/role-based-access-control/role-assignments-powershell)
+c. If you don't find an appropriate role assignment, follow the instructions in [here](../role-based-access-control/role-assignments-powershell.md)
 
 ## 2. HTTP – 400 errors
 
@@ -124,7 +94,7 @@ Users can evaluate enclave evidence against an SGX attestation policy before con
 
 Send a request to attest API by providing policy text in “draftPolicyForAttestation” parameter. The AttestSgxEnclave API will use this policy document during the attest call and this can be used to test attestation policies before they are consumed. The attestation token generated when this field is present will be unsecured.
 
-See [attestation policy examples](/azure/attestation/policy-examples)
+See [attestation policy examples](./policy-examples.md)
 
 ### 2.2. Attestation failure due to invalid input
 
@@ -169,7 +139,7 @@ Ensure that the Basic Constraints extension of the root certificate is set to in
 
 Else the certificate chain is considered to be invalid.
 
-See [policy signer](/azure/attestation/policy-signer-examples) and [policy](/azure/attestation/policy-examples) examples 
+See [policy signer](./policy-signer-examples.md) and [policy](./policy-examples.md) examples 
 
 ### 2.4. Add/Delete policy signer failure
 
@@ -217,7 +187,7 @@ At line:1 char:1
 ```
 
 **Troubleshooting steps**
-To add/delete a new policy signer certificate, use RFC7519 JSON Web Token (JWT) with a claim named "x-ms-policyCertificate". Value of the claim is an RFC7517 JSON Web Key, which contains the certificate to be added. JWT must be signed with private key of any of the valid policy signer certificates associated with the provider. See [policy signer examples](/azure/attestation/policy-signer-examples).
+To add/delete a new policy signer certificate, use RFC7519 JSON Web Token (JWT) with a claim named "x-ms-policyCertificate". Value of the claim is an RFC7517 JSON Web Key, which contains the certificate to be added. JWT must be signed with private key of any of the valid policy signer certificates associated with the provider. See [policy signer examples](./policy-signer-examples.md).
 
 ### 2.5. Attestation policy configuration failure
 
@@ -268,7 +238,7 @@ To configure a policy in text format, specify policy text directly.
 
 In PowerShell, specify PolicyFormat as JWT to configure policy in JWT format. Default policy format is Text.
 
-See attestation [policy examples](/azure/attestation/policy-examples) and [how to author an attestation policy](/azure/attestation/author-sign-policy) 
+See attestation [policy examples](./policy-examples.md) and [how to author an attestation policy](./author-sign-policy.md) 
 
 ## 3. Az.Attestation installation issues in PowerShell
 
@@ -294,7 +264,7 @@ To continue to interact with the PowerShell Gallery, run the following command b
 User assigned with appropriate roles. But facing authorization issues while managing attestation policies through PowerShell.
 
 ### Error
-The client with object id <object Id>  does not have authorization to perform action Microsoft.Authorization/roleassignments/write over scope ‘subcriptions/<subscriptionId>resourcegroups/secure_enclave_poc/providers/Microsoft.Authorization/roleassignments/<role assignmentId>’ or the scope is invalid. If access was recently granted, please refresh your credentials
+The client with object ID &lt;object Id&gt;  does not have authorization to perform action Microsoft.Authorization/roleassignments/write over scope ‘subcriptions/&lt;subscriptionId&gt;resourcegroups/secure_enclave_poc/providers/Microsoft.Authorization/roleassignments/&lt;role assignmentId&gt;’ or the scope is invalid. If access was recently granted, please refresh your credentials
 
 ### Troubleshooting steps
 
@@ -315,4 +285,3 @@ Get-InstalledModule
 If the versions are not matching with the minimum requirement, run Update-Module commands
 
 e.g. - Update-Module -Name Az.Attestation
-

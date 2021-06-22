@@ -94,4 +94,4 @@ Different services may use different root or intermediate CAs. Therefore all ent
 | DigiCert Basic RSA CN CA G2| 02f7e1f982bad 009aff47dc95741b2f6| March 4, 2020<br>March 4, 2030| 4d1fa5d1fb1ac3917c08e 43f65015e6aea571179| [AIA](http://cacerts.digicert.cn/DigiCertBasicRSACNCAG2.crt)<br>[CDP](http://crl.digicert.cn/DigiCertBasicRSACNCAG2.crl)<br>[OCSP](http://ocsp.digicert.cn/) |
 
 ## Next Steps
-[Learn about Microsoft 365 Encryption chains](https://docs.microsoft.com/microsoft-365/compliance/encryption-office-365-certificate-chains?view=o365-worldwide)
+[Learn about Microsoft 365 Encryption chains](/microsoft-365/compliance/encryption-office-365-certificate-chains)

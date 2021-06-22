@@ -1,6 +1,6 @@
 ---
 title: Microsoft identity platform accounts & tenant profiles on Android | Azure
-description: An overview of Microsoft identity platform accounts for Android
+description: An overview of the Microsoft identity platform accounts for Android
 services: active-directory
 author: shoatman
 manager: CelesteDG
@@ -113,7 +113,7 @@ String issuer = account.getClaims().get("iss"); // The tenant specific authority
 ```
 
 > [!TIP]
-> To see a list of claims available from the account object, refer to [claims in an id_token](./id-tokens.md#claims-in-an-id_token)
+> To see a list of claims available from the account object, refer to [claims in an id_token](./id-tokens.md#claims-in-an-id-token)
 
 > [!TIP]
 > To include additional claims in your id_token, refer to the optional claims documentation in [How to: Provide optional claims to your Azure AD app](./active-directory-optional-claims.md)

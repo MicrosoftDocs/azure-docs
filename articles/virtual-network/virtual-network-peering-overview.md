@@ -20,8 +20,8 @@ Virtual network peering enables you to seamlessly connect two or more [Virtual N
 
 Azure supports the following types of peering:
 
-* Virtual network peering: Connect virtual networks within the same Azure region.
-* Global virtual network peering: Connecting virtual networks across Azure regions.
+* **Virtual network peering**: Connect virtual networks within the same Azure region.
+* **Global virtual network peering**: Connecting virtual networks across Azure regions.
 
 The benefits of using virtual network peering, whether local or global, include:
 
@@ -43,7 +43,7 @@ The network latency between virtual machines in peered virtual networks in the s
 The traffic between virtual machines in peered virtual networks is routed directly through the Microsoft backbone infrastructure, not through a gateway or over the public Internet.
 
 You can apply network security groups in either virtual network to block access to other virtual networks or subnets.
-When configuring virtual network peering, either open or close the network security group rules between the virtual networks. If you open full connectivity between peered virtual networks, you can apply network security groups to block or deny specific access. Full connectivity is the default option. To learn more about network security groups, see [Security groups](security-overview.md).
+When configuring virtual network peering, either open or close the network security group rules between the virtual networks. If you open full connectivity between peered virtual networks, you can apply network security groups to block or deny specific access. Full connectivity is the default option. To learn more about network security groups, see [Security groups](./network-security-groups-overview.md).
 
 ## Service chaining
 

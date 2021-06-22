@@ -6,8 +6,8 @@ ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
-ms.topic: conceptual
-ms.date: 09/15/2020
+ms.topic: how-to
+ms.date: 11/20/2020
 ms.author: banders
 ---
 
@@ -15,7 +15,7 @@ ms.author: banders
 
 This document applies to customers who signed up for Azure online with a credit card.
 
-In the Azure portal, you can change your default payment method to a new credit card and update your credit card details. You must be an [Account Administrator](../understand/subscription-transfer.md#whoisaa) to make these changes.
+In the Azure portal, you can change your default payment method to a new credit card and update your credit card details. You must be an [Account Administrator](../understand/subscription-transfer.md#whoisaa) or you must have the correct [MCA permissions](understand-mca-roles.md) to make these changes.
 
 If you want to a delete credit card, see [Delete an Azure billing payment method](delete-azure-payment-method.md).
 
@@ -77,11 +77,11 @@ If your credit card gets renewed and the number stays the same, update the exist
 
 ## Manage credit cards for a Microsoft Customer Agreement
 
-The following sections apply to customers who have a Microsoft Customer Agreement and signed up for Azure online with a credit card. [Learn how to check if you have a Microsoft Customer Agreement](#check-the-type-of-your-account).
+The following sections apply to customers who have a Microsoft Customer Agreement and signed up for Azure online with a credit card and to those that have the correct [MCA permissions](understand-mca-roles.md). [Learn how to check if you have a Microsoft Customer Agreement](#check-the-type-of-your-account).
 
 ### Change default credit card
 
-If you have a Microsoft Customer Agreement, your credit card is associated with a billing profile. To change the payment method for a billing profile, you must be the person who signed up for Azure and created the billing account.
+If you have a Microsoft Customer Agreement, your credit card is associated with a billing profile. To change the payment method for a billing profile, you must be the person who signed up for Azure and created the billing account or you must have the correct [MCA permissions](understand-mca-roles.md).
 
 If you'd like to change your billing profile's default payment method to check/wire transfer, see [Pay for Azure subscriptions by invoice](pay-by-invoice.md).
 

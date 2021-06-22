@@ -8,7 +8,7 @@ ms.service: expressroute
 ms.topic: troubleshooting
 ms.date: 10/31/2019
 ms.author: duau
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurepowershell
 
 ---
 # Verifying ExpressRoute connectivity
@@ -84,7 +84,7 @@ In the ExpressRoute Essentials, *Circuit status* indicates the status of the cir
 For an ExpressRoute circuit to be operational, the *Circuit status* must be *Enabled* and the *Provider status* must be *Provisioned*.
 
 > [!NOTE]
-> After configuring an ExpressRoute circuit, if the *Circuit status* is struck in not enabled status, contact [Microsoft Support][Support]. On the other hand, if the *Provider status* is struck in not provisioned status, contact your service provider.
+> After configuring an ExpressRoute circuit, if the *Circuit status* is stuck in not enabled status, contact [Microsoft Support][Support]. On the other hand, if the *Provider status* is stuck in not provisioned status, contact your service provider.
 >
 >
 
@@ -141,7 +141,7 @@ ServiceProviderProvisioningState : Provisioned
 ```
 
 > [!NOTE]
-> After configuring an ExpressRoute circuit, if the *Circuit status* is struck in not enabled status, contact [Microsoft Support][Support]. On the other hand, if the *Provider status* is struck in not provisioned status, contact your service provider.
+> After configuring an ExpressRoute circuit, if the *Circuit status* is stuck in not enabled status, contact [Microsoft Support][Support]. On the other hand, if the *Provider status* is stuck in not provisioned status, contact your service provider.
 >
 >
 

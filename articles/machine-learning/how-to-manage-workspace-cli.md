@@ -7,9 +7,9 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: larryfr
 author: Blackmist
-ms.date: 09/30/2020
-ms.topic: conceptual
-ms.custom: how-to, devx-track-azurecli
+ms.date: 04/02/2021
+ms.topic: how-to
+ms.custom: devx-track-azurecli
 ---
 
 # Create a workspace for Azure Machine Learning with Azure CLI
@@ -21,9 +21,13 @@ In this article, you learn how to create an Azure Machine Learning workspace usi
 
 * An **Azure subscription**. If you do not have one, try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
 
-* To use the CLI commands in this document from your **local environment**, you need the [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
+* To use the CLI commands in this document from your **local environment**, you need the [Azure CLI](/cli/azure/install-azure-cli).
 
     If you use the [Azure Cloud Shell](https://azure.microsoft.com//features/cloud-shell/), the CLI is accessed through the browser and lives in the cloud.
+
+## Limitations
+
+[!INCLUDE [register-namespace](../../includes/machine-learning-register-namespace.md)]
 
 ## Connect the CLI to your Azure subscription
 
@@ -40,15 +44,7 @@ If the CLI can open your default browser, it will do so and load a sign-in page.
 
 [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)] 
 
-For other methods of authenticating, see [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli?preserve-view=true&view=azure-cli-latest).
-
-## Install the machine learning extension
-
-To install the machine learning extension, use the following command:
-
-```azurecli-interactive
-az extension add -n azure-cli-ml
-```
+For other methods of authenticating, see [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
 
 ## Create a workspace
 
@@ -70,6 +66,8 @@ The Azure Machine Learning workspace relies on the following Azure services or e
 | **Azure Application Insights** | `--application-insights <service-id>` |
 | **Azure Key Vault** | `--keyvault <service-id>` |
 | **Azure Container Registry** | `--container-registry <service-id>` |
+
+Azure Container Registry (ACR) doesn't currently support unicode characters in resource group names. To mitigate this issue, use a resource group that does not contain these characters.
 
 ### Create a resource group
 
@@ -98,7 +96,7 @@ The response from this command is similar to the following JSON:
 }
 ```
 
-For more information on working with resource groups, see [az group](//cli/azure/group?preserve-view=true&view=azure-cli-latest).
+For more information on working with resource groups, see [az group](/cli/azure/group).
 
 ### Automatically create required resources
 
@@ -137,7 +135,7 @@ The output of this command is similar to the following JSON:
 ### Virtual network and private endpoint
 
 > [!IMPORTANT]
-> Using an Azure Machine Learning workspace with private link is not available in the Azure Government regions or Azure China 21Vianet regions.
+> Using an Azure Machine Learning workspace with private link is not available in the Azure Government regions.
 
 If you want to restrict access to your workspace to a virtual network, you can use the following parameters:
 
@@ -151,9 +149,12 @@ For more information on using a private endpoint and virtual network with your w
 
 ### Customer-managed key and high business impact workspace
 
-By default, metrics and metadata for the workspace is stored in an Azure Cosmos DB instance that Microsoft maintains. This data is encrypted using Microsoft-managed keys. 
+By default, metadata for the workspace is stored in an Azure Cosmos DB instance that Microsoft maintains. This data is encrypted using Microsoft-managed keys.
 
-Instead of using the Microsoft-managed key, you can use the provide your own key. Doing so creates the Azure Cosmos DB instance that stores metrics and metadata in your Azure subscription. Use the `--cmk-keyvault` parameter to specify the Azure Key Vault that contains the key, and `--resource-cmk-uri` to specify the URL of the key within the vault.
+> [!NOTE]
+> Azure Cosmos DB is __not__ used to store information such as model performance, information logged by experiments, or information logged from your model deployments. For more information on monitoring these items, see the [Monitoring and logging](concept-azure-machine-learning-architecture.md) section of the architecture and concepts article.
+
+Instead of using the Microsoft-managed key, you can use the provide your own key. Doing so creates the Azure Cosmos DB instance that stores metadata in your Azure subscription. Use the `--cmk-keyvault` parameter to specify the Azure Key Vault that contains the key, and `--resource-cmk-uri` to specify the URL of the key within the vault.
 
 Before using the `--cmk-keyvault` and `--resource-cmk-uri` parameters, you must first perform the following actions:
 
@@ -172,7 +173,7 @@ To limit the data that Microsoft collects on your workspace, use the `--hbi-work
 > [!IMPORTANT]
 > Selecting high business impact can only be done when creating a workspace. You cannot change this setting after workspace creation.
 
-For more information on customer-managed keys and high business impact workspace, see [Enterprise security for Azure Machine Learning](concept-enterprise-security.md#encryption-at-rest).
+For more information on customer-managed keys and high business impact workspace, see [Enterprise security for Azure Machine Learning](concept-data-encryption.md#encryption-at-rest).
 
 ### Use existing resources
 
@@ -277,7 +278,7 @@ The output of this command is similar to the following JSON:
 ]
 ```
 
-For more information, see the [az ml workspace list](/cli/azure/ext/azure-cli-ml/ml/workspace?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-list) documentation.
+For more information, see the [az ml workspace list](/cli/azure/ml/workspace#az_ml_workspace_list) documentation.
 
 ## Get workspace information
 
@@ -310,7 +311,7 @@ The output of this command is similar to the following JSON:
 }
 ```
 
-For more information, see the [az ml workspace show](/cli/azure/ext/azure-cli-ml/ml/workspace?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-show) documentation.
+For more information, see the [az ml workspace show](/cli/azure/ml/workspace#az_ml_workspace_show) documentation.
 
 ## Update a workspace
 
@@ -343,7 +344,7 @@ The output of this command is similar to the following JSON:
 }
 ```
 
-For more information, see the [az ml workspace update](/cli/azure/ext/azure-cli-ml/ml/workspace?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-update) documentation.
+For more information, see the [az ml workspace update](/cli/azure/ml/workspace#az_ml_workspace_update) documentation.
 
 ## Share a workspace with another user
 
@@ -355,7 +356,7 @@ az ml workspace share -w <workspace-name> -g <resource-group-name> --user <user>
 
 For more information on Azure role-based access control (Azure RBAC) with Azure Machine Learning, see [Manage users and roles](how-to-assign-roles.md).
 
-For more information, see the [az ml workspace share](/cli/azure/ext/azure-cli-ml/ml/workspace?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-share) documentation.
+For more information, see the [az ml workspace share](/cli/azure/ml/workspace#az_ml_workspace_share) documentation.
 
 ## Sync keys for dependent resources
 
@@ -367,7 +368,7 @@ az ml workspace sync-keys -w <workspace-name> -g <resource-group-name>
 
 For more information on changing keys, see [Regenerate storage access keys](how-to-change-storage-access-key.md).
 
-For more information, see the [az ml workspace sync-keys](/cli/azure/ext/azure-cli-ml/ml/workspace?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-sync-keys) documentation.
+For more information, see the [az ml workspace sync-keys](/cli/azure/ml/workspace#az_ml_workspace_sync-keys) documentation.
 
 ## Delete a workspace
 
@@ -386,7 +387,7 @@ You can also delete the resource group, which deletes the workspace and all othe
 az group delete -g <resource-group-name>
 ```
 
-For more information, see the [az ml workspace delete](/cli/azure/ext/azure-cli-ml/ml/workspace?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-delete) documentation.
+For more information, see the [az ml workspace delete](/cli/azure/ml/workspace#az_ml_workspace_delete) documentation.
 
 ## Troubleshooting
 
@@ -407,4 +408,4 @@ The Azure Machine Learning workspace uses Azure Container Registry (ACR) for som
 
 ## Next steps
 
-For more information on the Azure CLI extension for machine learning, see the [az ml](/cli/azure/ext/azure-cli-ml/ml?preserve-view=true&view=azure-cli-latest) documentation.
+For more information on the Azure CLI extension for machine learning, see the [az ml](/cli/azure/ml) documentation.

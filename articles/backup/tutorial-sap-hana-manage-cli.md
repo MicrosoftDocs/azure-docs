@@ -34,7 +34,7 @@ Azure CLI makes it easy to manage an SAP HANA database running on an Azure VM th
 
 ## Monitor backup and restore jobs
 
-To monitor completed or currently running jobs (backup or restore), use the [az backup job list](/cli/azure/backup/job#az-backup-job-list) cmdlet. CLI also allows you to [suspend a currently running job](/cli/azure/backup/job#az-backup-job-stop) or [wait until a job completes](/cli/azure/backup/job#az-backup-job-wait).
+To monitor completed or currently running jobs (backup or restore), use the [az backup job list](/cli/azure/backup/job#az_backup_job_list) cmdlet. CLI also allows you to [suspend a currently running job](/cli/azure/backup/job#az_backup_job_stop) or [wait until a job completes](/cli/azure/backup/job#az_backup_job_wait).
 
 ```azurecli-interactive
 az backup job list --resource-group saphanaResourceGroup \
@@ -55,7 +55,7 @@ F7c68818-039f-4a0f-8d73-e0747e68a813  Restore (Log)          Completed   hxe [hx
 
 ## Change policy
 
-To change the policy underlying the SAP HANA backup configuration, use the [az backup policy set](/cli/azure/backup/policy#az-backup-policy-set) cmdlet. The name parameter in this cmdlet refers to the backup item whose policy we want to change. For this tutorial, we'll be replacing the policy of our SAP HANA database *saphanadatabase;hxe;hxe* with a new policy *newsaphanaPolicy*. New policies can be created using the [az backup policy create](/cli/azure/backup/policy#az-backup-policy-create) cmdlet.
+To change the policy underlying the SAP HANA backup configuration, use the [az backup policy set](/cli/azure/backup/policy#az_backup_policy_set) cmdlet. The name parameter in this cmdlet refers to the backup item whose policy we want to change. For this tutorial, we'll be replacing the policy of our SAP HANA database *saphanadatabase;hxe;hxe* with a new policy *newsaphanaPolicy*. New policies can be created using the [az backup policy create](/cli/azure/backup/policy#az_backup_policy_create) cmdlet.
 
 ```azurecli-interactive
 az backup item set policy --resource-group saphanaResourceGroup \
@@ -73,11 +73,231 @@ Name                                  Resource Group
 cb110094-9b15-4c55-ad45-6899200eb8dd  SAPHANA
 ```
 
+## Create incremental backup policy
+
+To create an incremental backup policy, execute the [az backup policy create](/cli/azure/backup/policy#az_backup_policy_create) command with the following parameters:
+
+* **--backup-management-type** – Azure Workload
+* **--workload-type** - SAPHana
+* **--name** – Name of the policy
+* **--policy** - JSON file with appropriate details for schedule and retention
+* **--resource-group** - Resource group of the vault
+* **--vault-name** – Name of the vault
+
+Example:
+
+```azurecli
+az backup policy create --resource-group saphanaResourceGroup --vault-name saphanaVault --name sappolicy --backup-management-type AzureWorkload --policy sappolicy.json --workload-type SAPHana
+```
+
+Sample JSON (sappolicy.json):
+
+```json
+  "eTag": null,
+  "id": "/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/saphanaResourceGroup/providers/Microsoft.RecoveryServices/vaults/saphanaVault/backupPolicies/sappolicy",
+  "location": null,
+  "name": "sappolicy",
+  "properties": {
+    "backupManagementType": "AzureWorkload",
+    "makePolicyConsistent": null,
+    "protectedItemsCount": 0,
+    "settings": {
+      "isCompression": false,
+      "issqlcompression": false,
+      "timeZone": "UTC"
+    },
+    "subProtectionPolicy": [
+      {
+        "policyType": "Full",
+        "retentionPolicy": {
+          "dailySchedule": null,
+          "monthlySchedule": {
+            "retentionDuration": {
+              "count": 60,
+              "durationType": "Months"
+            },
+            "retentionScheduleDaily": null,
+            "retentionScheduleFormatType": "Weekly",
+            "retentionScheduleWeekly": {
+              "daysOfTheWeek": [
+                "Sunday"
+              ],
+              "weeksOfTheMonth": [
+                "First"
+              ]
+            },
+            "retentionTimes": [
+              "2021-01-19T00:30:00+00:00"
+            ]
+          },
+          "retentionPolicyType": "LongTermRetentionPolicy",
+          "weeklySchedule": {
+            "daysOfTheWeek": [
+              "Sunday"
+            ],
+            "retentionDuration": {
+              "count": 104,
+              "durationType": "Weeks"
+            },
+            "retentionTimes": [
+              "2021-01-19T00:30:00+00:00"
+            ]
+          },
+          "yearlySchedule": {
+            "monthsOfYear": [
+              "January"
+            ],
+            "retentionDuration": {
+              "count": 10,
+              "durationType": "Years"
+            },
+            "retentionScheduleDaily": null,
+            "retentionScheduleFormatType": "Weekly",
+            "retentionScheduleWeekly": {
+              "daysOfTheWeek": [
+                "Sunday"
+              ],
+              "weeksOfTheMonth": [
+                "First"
+              ]
+            },
+            "retentionTimes": [
+              "2021-01-19T00:30:00+00:00"
+            ]
+          }
+        },
+        "schedulePolicy": {
+          "schedulePolicyType": "SimpleSchedulePolicy",
+          "scheduleRunDays": [
+            "Sunday"
+          ],
+          "scheduleRunFrequency": "Weekly",
+          "scheduleRunTimes": [
+            "2021-01-19T00:30:00+00:00"
+          ],
+          "scheduleWeeklyFrequency": 0
+        }
+      },
+      {
+        "policyType": "Incremental",
+        "retentionPolicy": {
+          "retentionDuration": {
+            "count": 30,
+            "durationType": "Days"
+          },
+          "retentionPolicyType": "SimpleRetentionPolicy"
+        },
+        "schedulePolicy": {
+          "schedulePolicyType": "SimpleSchedulePolicy",
+          "scheduleRunDays": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+          ],
+          "scheduleRunFrequency": "Weekly",
+          "scheduleRunTimes": [
+            "2017-03-07T02:00:00+00:00"
+          ],
+          "scheduleWeeklyFrequency": 0
+        }
+      },
+      {
+        "policyType": "Log",
+        "retentionPolicy": {
+          "retentionDuration": {
+            "count": 15,
+            "durationType": "Days"
+          },
+          "retentionPolicyType": "SimpleRetentionPolicy"
+        },
+        "schedulePolicy": {
+          "scheduleFrequencyInMins": 120,
+          "schedulePolicyType": "LogSchedulePolicy"
+        }
+      }
+    ],
+    "workLoadType": "SAPHanaDatabase"
+  },
+  "resourceGroup": "saphanaResourceGroup",
+  "tags": null,
+  "type": "Microsoft.RecoveryServices/vaults/backupPolicies"
+} 
+```
+
+Once the policy is created successfully, the output of the command will display the policy JSON that you passed as a parameter while executing the command.
+
+You can modify the following section of the policy to specify the desired backup frequency and retention for incremental backups.
+
+For example:
+
+```json
+{
+  "policyType": "Incremental",
+  "retentionPolicy": {
+    "retentionDuration": {
+      "count": 30,
+      "durationType": "Days"
+    },
+    "retentionPolicyType": "SimpleRetentionPolicy"
+  },
+  "schedulePolicy": {
+    "schedulePolicyType": "SimpleSchedulePolicy",
+    "scheduleRunDays": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+    ],
+    "scheduleRunFrequency": "Weekly",
+    "scheduleRunTimes": [
+      "2017-03-07T02:00:00+00:00"
+    ],
+    "scheduleWeeklyFrequency": 0
+  }
+}
+```
+
+Example:
+
+If you want to have incremental backups only on Saturday and retain them for 60 days, make the following changes in the policy:
+
+* Update **retentionDuration** count to 60 days
+* Specify only Saturday as **ScheduleRunDays**
+
+```json
+ {
+  "policyType": "Incremental",
+  "retentionPolicy": {
+    "retentionDuration": {
+      "count": 60,
+      "durationType": "Days"
+    },
+    "retentionPolicyType": "SimpleRetentionPolicy"
+  },
+  "schedulePolicy": {
+    "schedulePolicyType": "SimpleSchedulePolicy",
+    "scheduleRunDays": [
+      "Saturday"
+    ],
+    "scheduleRunFrequency": "Weekly",
+    "scheduleRunTimes": [
+      "2017-03-07T02:00:00+00:00"
+    ],
+    "scheduleWeeklyFrequency": 0
+  }
+}
+```
+
 ## Protect new databases added to an SAP HANA instance
 
 [Registering an SAP HANA instance with a Recovery Services vault](tutorial-sap-hana-backup-cli.md#register-and-protect-the-sap-hana-instance) automatically discovers all the databases on this instance.
 
-However, in cases when new databases are added to the SAP HANA instance later, use the [az backup protectable-item initialize](/cli/azure/backup/protectable-item#az-backup-protectable-item-initialize) cmdlet. This cmdlet discovers the new databases added.
+However, in cases when new databases are added to the SAP HANA instance later, use the [az backup protectable-item initialize](/cli/azure/backup/protectable-item#az_backup_protectable_item_initialize) cmdlet. This cmdlet discovers the new databases added.
 
 ```azurecli-interactive
 az backup protectable-item initialize --resource-group saphanaResourceGroup \
@@ -86,7 +306,7 @@ az backup protectable-item initialize --resource-group saphanaResourceGroup \
     --workload-type SAPHANA
 ```
 
-Then use the [az backup protectable-item list](/cli/azure/backup/protectable-item#az-backup-protectable-item-list) cmdlet to list all the databases that have been discovered on your SAP HANA instance. This list, however, excludes those databases on which backup has already been configured. Once the database to be backed-up is discovered, refer to  [Enable backup on SAP HANA database](tutorial-sap-hana-backup-cli.md#enable-backup-on-sap-hana-database).
+Then use the [az backup protectable-item list](/cli/azure/backup/protectable-item#az_backup_protectable_item_list) cmdlet to list all the databases that have been discovered on your SAP HANA instance. This list, however, excludes those databases on which backup has already been configured. Once the database to be backed-up is discovered, refer to  [Enable backup on SAP HANA database](tutorial-sap-hana-backup-cli.md#enable-backup-on-sap-hana-database).
 
 ```azurecli-interactive
 az backup protectable-item list --resource-group saphanaResourceGroup \
@@ -122,7 +342,7 @@ Let's look at each of the ways to stop protection in more detail.
 
 ### Stop protection with retain data
 
-To stop protection with retain data, use the [az backup protection disable](/cli/azure/backup/protection#az-backup-protection-disable) cmdlet.
+To stop protection with retain data, use the [az backup protection disable](/cli/azure/backup/protection#az_backup_protection_disable) cmdlet.
 
 ```azurecli-interactive
 az backup protection disable --resource-group saphanaResourceGroup \
@@ -141,11 +361,11 @@ Name                                  ResourceGroup
 g0f15dae-7cac-4475-d833-f52c50e5b6c3  saphanaResourceGroup
 ```
 
-To check the status of this operation, use the [az backup job show](/cli/azure/backup/job#az-backup-job-show) cmdlet.
+To check the status of this operation, use the [az backup job show](/cli/azure/backup/job#az_backup_job_show) cmdlet.
 
 ### Stop protection without retain data
 
-To stop protection without retain data, use the [az backup protection disable](/cli/azure/backup/protection#az-backup-protection-disable) cmdlet.
+To stop protection without retain data, use the [az backup protection disable](/cli/azure/backup/protection#az_backup_protection_disable) cmdlet.
 
 ```azurecli-interactive
 az backup protection disable --resource-group saphanaResourceGroup \
@@ -165,13 +385,13 @@ Name                                  ResourceGroup
 g0f15dae-7cac-4475-d833-f52c50e5b6c3  saphanaResourceGroup
 ```
 
-To check the status of this operation, use the [az backup job show](/cli/azure/backup/job#az-backup-job-show) cmdlet.
+To check the status of this operation, use the [az backup job show](/cli/azure/backup/job#az_backup_job_show) cmdlet.
 
 ## Resume protection
 
 When you stop protection for the SAP HANA database with retain data, you can later resume protection. If you don't retain the backed-up data, you won't be able to resume protection.
 
-To resume protection, use the [az backup protection resume](/cli/azure/backup/protection#az-backup-protection-resume) cmdlet.
+To resume protection, use the [az backup protection resume](/cli/azure/backup/protection#az_backup_protection_resume) cmdlet.
 
 ```azurecli-interactive
 az backup protection resume --resource-group saphanaResourceGroup \
@@ -189,7 +409,7 @@ Name                                  ResourceGroup
 b2a7f108-1020-4529-870f-6c4c43e2bb9e  saphanaResourceGroup
 ```
 
-To check the status of this operation, use the [az backup job show](/cli/azure/backup/job#az-backup-job-show) cmdlet.
+To check the status of this operation, use the [az backup job show](/cli/azure/backup/job#az_backup_job_show) cmdlet.
 
 ## Next steps
 

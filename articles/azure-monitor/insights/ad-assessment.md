@@ -1,7 +1,6 @@
 ---
 title: Optimize your Active Directory environment with Azure Monitor | Microsoft Docs
 description: You can use the Active Directory Health Check solution to assess the risk and health of your environments on a regular interval.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -42,9 +41,9 @@ After you've added the solution and a check is completed, summary information fo
 
 To perform the health check against your domain controllers that are members of the domain to be evaluated, each domain controller in that domain requires an agent and connectivity to Azure Monitor using one of the following supported methods:
 
-1. Install the [Log Analytics agent for Windows](../platform/agent-windows.md) if the domain controller is not already monitored by System Center 2016 - Operations Manager or Operations Manager 2012 R2.
+1. Install the [Log Analytics agent for Windows](../agents/agent-windows.md) if the domain controller is not already monitored by System Center 2016 - Operations Manager or Operations Manager 2012 R2.
 2. If it is monitored with System Center 2016 - Operations Manager or Operations Manager 2012 R2 and the management group is not integrated with Azure Monitor, the domain controller can be multi-homed with Azure Monitor to collect data and forward to the service and still be monitored by Operations Manager.  
-3. Otherwise, if your Operations Manager management group is integrated with the service, you need to add the domain controllers for data collection by the service following the steps under [add agent-managed computers](../platform/om-agents.md#connecting-operations-manager-to-azure-monitor) after you enable the solution in your workspace.  
+3. Otherwise, if your Operations Manager management group is integrated with the service, you need to add the domain controllers for data collection by the service following the steps under [add agent-managed computers](../agents/om-agents.md#connecting-operations-manager-to-azure-monitor) after you enable the solution in your workspace.  
 
 The agent on your domain controller which reports to an Operations Manager management group, collects data, forwards to its assigned management server, and then is sent directly from a management server to Azure Monitor.  The data is not written to the Operations Manager databases.  
 
@@ -211,5 +210,5 @@ The results can then be exported to Excel for further review.
 
 ## Next steps
 
-Use [Azure Monitor log queries](../log-query/log-query-overview.md) to learn how to analyze detailed AD Health Check data and recommendations.
+Use [Azure Monitor log queries](../logs/log-query-overview.md) to learn how to analyze detailed AD Health Check data and recommendations.
 

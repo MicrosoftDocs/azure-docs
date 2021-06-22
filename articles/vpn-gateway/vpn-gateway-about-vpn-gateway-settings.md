@@ -1,13 +1,14 @@
 ---
-title: 'Azure VPN Gateway: configuration settings'
-description: Learn about VPN Gateway resources and settings for a virtual network created in the Resource Manager deployment model.
+title: 'Azure VPN Gateway configuration settings'
+description: Learn about VPN Gateway resources and configuration settings.
 services: vpn-gateway
 author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 10/21/2020
-ms.author: cherylmc
+ms.date: 04/28/2021
+ms.author: cherylmc 
+ms.custom: devx-track-azurepowershell
 
 ---
 # About VPN Gateway configuration settings
@@ -173,7 +174,7 @@ For additional technical resources and specific syntax requirements when using R
 | **Classic** | **Resource Manager** |
 | --- | --- |
 | [PowerShell](/powershell/module/az.network/#networking) |[PowerShell](/powershell/module/az.network#vpn) |
-| [REST API](https://msdn.microsoft.com/library/jj154113) |[REST API](/rest/api/network/virtualnetworkgateways) |
+| [REST API](/previous-versions/azure/reference/jj154113(v=azure.100)) |[REST API](/rest/api/network/virtualnetworkgateways) |
 | Not supported | [Azure CLI](/cli/azure/network/vnet-gateway)|
 
 ## Next steps

@@ -1,21 +1,17 @@
 ---
 title: Copy data to and from Azure Databricks Delta Lake
 description: Learn how to copy data to and from Azure Databricks Delta Lake by using a copy activity in an Azure Data Factory pipeline.
-services: data-factory
-ms.author: jingwang
-author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/28/2020
+ms.date: 06/16/2021
 ---
 
 # Copy data to and from Azure Databricks Delta Lake by using Azure Data Factory
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the Copy activity in Azure Data Factory to copy data to and from Azure Databricks Delta Lake. It builds on the [Copy activity in Azure Data Factory](copy-activity-overview.md) article, which presents a general overview of copy activity.
 
@@ -26,7 +22,7 @@ This Azure Databricks Delta Lake connector is supported for the following activi
 - [Copy activity](copy-activity-overview.md) with a [supported source/sink matrix](copy-activity-overview.md) table
 - [Lookup activity](control-flow-lookup-activity.md)
 
-In general, Azure Data Factory supports Delta Lake with the following capabilities to meet your various need.
+In general, Azure Data Factory supports Delta Lake with the following capabilities to meet your various needs.
 
 - Copy activity supports Azure Databricks Delta Lake connector to copy data from any supported source data store to Azure Databricks delta lake table, and from delta lake table to any supported sink data store. It leverages your Databricks cluster to perform the data movement, see details in [Prerequisites section](#prerequisites).
 - [Mapping Data Flow](concepts-data-flow-overview.md) supports generic [Delta format](format-delta.md) on Azure Storage as source and sink to read and write Delta files for code-free ETL, and runs on managed Azure Integration Runtime.
@@ -36,12 +32,12 @@ In general, Azure Data Factory supports Delta Lake with the following capabiliti
 
 To use this Azure Databricks Delta Lake connector, you need to set up a cluster in Azure Databricks.
 
-- To copy data to delta lake, Copy activity invokes Azure Databricks cluster to read data from an Azure Storage, which is either your original source or a staging area to where Data Factory firstly writes the source data via built-in staged copy. Learn more from [Delta lake as the source](#delta-lake-as-source).
-- Similarly, to copy data from delta lake, Copy activity invokes Azure Databricks cluster to write data to an Azure Storage, which is either your original sink or a staging area from where Data Factory continues to write data to final sink via built-in staged copy. Learn more from [Delta lake as the sink](#delta-lake-as-sink).
+- To copy data to delta lake, Copy activity invokes Azure Databricks cluster to read data from an Azure Storage, which is either your original source or a staging area to where Data Factory firstly writes the source data via built-in staged copy. Learn more from [Delta lake as the sink](#delta-lake-as-sink).
+- Similarly, to copy data from delta lake, Copy activity invokes Azure Databricks cluster to write data to an Azure Storage, which is either your original sink or a staging area from where Data Factory continues to write data to final sink via built-in staged copy. Learn more from [Delta lake as the source](#delta-lake-as-source).
 
 The Databricks cluster needs to have access to Azure Blob or Azure Data Lake Storage Gen2 account, both the storage container/file system used for source/sink/staging and the container/file system where you want to write the Delta Lake tables.
 
-- To use **Azure Data Lake Storage Gen2**, you can configure a **service principal** or **storage account access key** on the Databricks cluster as part of the Apache Spark configuration. Follow the steps in [Access directly with service principal](/azure/databricks/data/data-sources/azure/azure-datalake-gen2#--access-directly-with-service-principal-and-oauth-20) or [Access directly using the storage account access key](/azure/databricks/data/data-sources/azure/azure-datalake-gen2#--access-directly-using-the-storage-account-access-key).
+- To use **Azure Data Lake Storage Gen2**, you can configure a **service principal** on the Databricks cluster as part of the Apache Spark configuration. Follow the steps in [Access directly with service principal](/azure/databricks/data/data-sources/azure/azure-datalake-gen2#--access-directly-with-service-principal-and-oauth-20).
 
 - To use **Azure Blob storage**, you can configure a **storage account access key** or **SAS token** on the Databricks cluster as part of the Apache Spark configuration. Follow the steps in [Access Azure Blob storage using the RDD API](/azure/databricks/data/data-sources/azure/azure-storage#access-azure-blob-storage-using-the-rdd-api).
 
@@ -66,13 +62,13 @@ For cluster configuration details, see [Configure clusters](/azure/databricks/cl
 
 ## Get started
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-The following sections provide details about properties that define Data Factory entities specific to a Azure Databricks Delta Lake connector.
+The following sections provide details about properties that define Data Factory entities specific to an Azure Databricks Delta Lake connector.
 
 ## Linked service properties
 
-The following properties are supported for a Azure Databricks Delta Lake linked service.
+The following properties are supported for an Azure Databricks Delta Lake linked service.
 
 | Property    | Description                                                  | Required |
 | :---------- | :----------------------------------------------------------- | :------- |
@@ -93,8 +89,8 @@ The following properties are supported for a Azure Databricks Delta Lake linked 
             "domain": "https://adb-xxxxxxxxx.xx.azuredatabricks.net",
             "clusterId": "<cluster id>",
             "accessToken": {
-            	"type": "SecureString", 
-            	"value": "<access token>"
+                "type": "SecureString", 
+                "value": "<access token>"
           	}
         }
     }
@@ -258,7 +254,7 @@ To copy data to Azure Databricks Delta Lake, the following properties are suppor
 | Property      | Description                                                  | Required |
 | :------------ | :----------------------------------------------------------- | :------- |
 | type          | The type property of the Copy activity sink, set to **AzureDatabricksDeltaLakeSink**. | Yes      |
-| preCopyScript | Specify a SQL query for the Copy activity to run before writing data into Databricks delta table in each run. You can use this property to clean up the preloaded data, or add a truncate table or Vacuum statement. | No       |
+| preCopyScript | Specify a SQL query for the Copy activity to run before writing data into Databricks delta table in each run. Example : `VACUUM eventsTable DRY RUN` You can use this property to clean up the preloaded data, or add a truncate table or Vacuum statement. | No       |
 | importSettings | Advanced settings used to write data into delta table. | No |
 | ***Under `importSettings`:*** |                                                              |  |
 | type | The type of import command, set to **AzureDatabricksDeltaLakeImportCommand**. | Yes |
@@ -312,7 +308,8 @@ If your source data store and format meet the criteria described in this section
                 "type": "<source type>"
             },
             "sink": {
-                "type": "AzureDatabricksDeltaLakeSink"
+                "type": "AzureDatabricksDeltaLakeSink",
+                "sqlReadrQuery": "VACUUM eventsTable DRY RUN"
             }
         }
     }

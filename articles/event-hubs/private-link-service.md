@@ -1,8 +1,9 @@
 ---
 title: Integrate Azure Event Hubs with Azure Private Link Service
 description: Learn how to integrate Azure Event Hubs with Azure Private Link Service
-ms.date: 08/22/2020
-ms.topic: article
+ms.date: 05/10/2021
+ms.topic: article 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Allow access to Azure Event Hubs namespaces via private endpoints 
@@ -12,19 +13,10 @@ A private endpoint is a network interface that connects you privately and secure
 
 For more information, see [What is Azure Private Link?](../private-link/private-link-overview.md)
 
-> [!IMPORTANT]
-> This feature is supported for both **standard** and **dedicated** tiers. It's not supported in the **basic** tier.
->
-> Enabling private endpoints can prevent other Azure services from interacting with Event Hubs.  Requests that are blocked include those from other Azure services, from the Azure portal, from logging and metrics services, and so on. 
-> 
-> Here are some of the services that can't access Event Hubs resources when private endpoints are enabled. Note that the list is **NOT** exhaustive.
->
-> - Azure IoT Hub Routes
-> - Azure IoT Device Explorer
-> - Azure Event Grid
-> - Azure Monitor (Diagnostic Settings)
->
-> As an exception, you can allow access to Event Hubs resources from certain trusted services even when private endpoints are enabled. For a list of trusted services, see [Trusted services](#trusted-microsoft-services).
+## Important points
+- This feature isn't supported in the **basic** tier.
+- Enabling private endpoints can prevent other Azure services from interacting with Event Hubs.  Requests that are blocked include those from other Azure services, from the Azure portal, from logging and metrics services, and so on. As an exception, you can allow access to Event Hubs resources from certain **trusted services** even when private endpoints are enabled. For a list of trusted services, see [Trusted services](#trusted-microsoft-services).
+- Specify **at least one IP rule or virtual network rule** for the namespace to allow traffic only from the specified IP addresses or subnet of a virtual network. If there are no IP and virtual network rules, the namespace can be accessed over the public internet (using the access key). 
 
 ## Add a private endpoint using Azure portal
 
@@ -49,13 +41,10 @@ If you already have an Event Hubs namespace, you can create a private link conne
 3. Select the **namespace** from the list to which you want to add a private endpoint.
 4. Select **Networking** under **Settings** on the left menu.
 
-    > [!NOTE]
-    > You see the **Networking** tab only for **standard** or **dedicated** namespaces. 
-
     :::image type="content" source="./media/private-link-service/selected-networks-page.png" alt-text="Networks tab - selected networks option" lightbox="./media/private-link-service/selected-networks-page.png":::    
 
-    > [!NOTE]
-    > By default, the **Selected networks** option is selected. If you don't specify an IP firewall rule or add a virtual network, the namespace can be accessed via public internet. 
+    > [!WARNING]
+    > By default, the **Selected networks** option is selected. If you don't specify an IP firewall rule or add a virtual network, the namespace can be accessed via public internet (using the access key). 
 1. Select the **Private endpoint connections** tab at the top of the page. 
 1. Select the **+ Private Endpoint** button at the top of the page.
 
@@ -106,8 +95,6 @@ To allow trusted services to access your namespace, switch to the **Firewalls an
 The following example shows how to use Azure PowerShell to create a private endpoint connection. It doesn't create a dedicated cluster for you. Follow steps in [this article](event-hubs-dedicated-cluster-create-portal.md) to create a dedicated Event Hubs cluster. 
 
 ```azurepowershell-interactive
-# create resource group
-
 $rgName = "<RESOURCE GROUP NAME>"
 $vnetlocation = "<VIRTUAL NETWORK LOCATION>"
 $vnetName = "<VIRTUAL NETWORK NAME>"
@@ -115,6 +102,9 @@ $subnetName = "<SUBNET NAME>"
 $namespaceLocation = "<NAMESPACE LOCATION>"
 $namespaceName = "<NAMESPACE NAME>"
 $peConnectionName = "<PRIVATE ENDPOINT CONNECTION NAME>"
+
+# create resource group
+New-AzResourceGroup -Name $rgName -Location $vnetLocation 
 
 # create virtual network
 $virtualNetwork = New-AzVirtualNetwork `

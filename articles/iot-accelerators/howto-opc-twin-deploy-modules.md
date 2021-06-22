@@ -6,7 +6,6 @@ ms.author: dobett
 ms.date: 11/26/2018
 ms.topic: conceptual
 ms.service: industrial-iot 
-ms.custom: devx-track-azurecli
 services: iot-industrialiot
 manager: philmea
 ---
@@ -112,7 +111,7 @@ The easiest way to deploy the modules to an Azure IoT Edge gateway device is thr
 
 1. Deploy the OPC Twin [dependencies](howto-opc-twin-deploy-dependencies.md) and obtained the resulting `.env` file. Note the deployed `hub name` of the `PCS_IOTHUBREACT_HUB_NAME` variable in the resulting `.env` file.
 
-2. Register and start a [Linux](../iot-edge/how-to-install-iot-edge-linux.md) or [Windows](../iot-edge/how-to-install-iot-edge-windows.md) IoT Edge gateway and note its `device id`.
+2. Register and start a [Linux](../iot-edge/how-to-install-iot-edge.md) or [Windows](../iot-edge/how-to-install-iot-edge.md) IoT Edge gateway and note its `device id`.
 
 ### Deploy to an edge device
 
@@ -177,7 +176,7 @@ The easiest way to deploy the modules to an Azure IoT Edge gateway device is thr
 
 ### Prerequisites
 
-1. Install the latest version of the [Azure command line interface (AZ)](/cli/azure/?view=azure-cli-latest) from [here](/cli/azure/install-azure-cli?view=azure-cli-latest).
+1. Install the latest version of the [Azure command line interface (AZ)](/cli/azure/) from [here](/cli/azure/install-azure-cli).
 
 ### Quickstart
 

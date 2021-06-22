@@ -58,7 +58,7 @@ For example, setting the value of minimum TLS setting version to TLS 1.0 means y
 >
 > Once you enforce a minimum TLS version, you cannot later disable minimum version enforcement.
 
-To learn how to set the TLS setting for your Azure Database for MySQL, refer to [How to configure TLS setting](howto-tls-configurations.md).
+The minimum TLS version setting doesnt require any restart of the server can be set while the server is online. To learn how to set the TLS setting for your Azure Database for MySQL, refer to [How to configure TLS setting](howto-tls-configurations.md).
 
 ## Cipher support by Azure Database for MySQL Single server
 

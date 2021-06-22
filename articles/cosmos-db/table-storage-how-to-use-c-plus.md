@@ -28,15 +28,15 @@ This guide shows you common scenarios by using the Azure Table storage service o
 
 ### Create an Azure service account
 
-[!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
+[!INCLUDE [cosmos-db-create-azure-service-account](includes/cosmos-db-create-azure-service-account.md)]
 
 ### Create an Azure storage account
 
-[!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
+[!INCLUDE [cosmos-db-create-storage-account](includes/cosmos-db-create-storage-account.md)]
 
 ### Create an Azure Cosmos DB Table API account
 
-[!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
+[!INCLUDE [cosmos-db-create-tableapi-account](includes/cosmos-db-create-tableapi-account.md)]
 
 ## Create a C++ application
 
@@ -89,7 +89,7 @@ Use the name of your Azure Cosmos DB account for `<your_cosmos_db_account>`. Ent
 To test your application in your local Windows-based computer, you can use the Azure Storage Emulator that is installed with the [Azure SDK](https://azure.microsoft.com/downloads/). The Storage Emulator is a utility that simulates the Azure Blob, Queue, and Table services available on your local development machine. The following example shows how to declare a static field to hold the connection string to your local storage emulator:  
 
 ```cpp
-// Define the connection string with Azure storage emulator.
+// Define the connection string with Azure Storage Emulator.
 const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;"));  
 ```
 

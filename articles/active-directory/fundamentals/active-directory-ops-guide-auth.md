@@ -90,7 +90,7 @@ Passwords by themselves aren't secure enough to prevent bad actors from gaining 
 
 ### On-premises outage authentication resiliency
 
-In addition to the benefits of simplicity and enabling leaked credential detection, Azure AD Password Hash Sync (PHS) and Azure MFA allow users to access SaaS applications and Microsoft 365 in spite of on-premises outages due to cyberattacks such as [NotPetya](https://www.microsoft.com/security/blog/2018/02/05/overview-of-petya-a-rapid-cyberattack/). It is also possible to enable PHS while in conjunction with federation. Enabling PHS allows a fallback of authentication when federation services aren't available.
+In addition to the benefits of simplicity and enabling leaked credential detection, Azure AD Password Hash Sync (PHS) and Azure AD MFA allow users to access SaaS applications and Microsoft 365 in spite of on-premises outages due to cyberattacks such as [NotPetya](https://www.microsoft.com/security/blog/2018/02/05/overview-of-petya-a-rapid-cyberattack/). It is also possible to enable PHS while in conjunction with federation. Enabling PHS allows a fallback of authentication when federation services aren't available.
 
 If your on-premises organization is lacking an outage resiliency strategy or has one that isn't integrated with Azure AD, you should deploy Azure AD PHS and define a disaster recovery plan that includes PHS. Enabling Azure AD PHS will allow users to authenticate against Azure AD should your on-premises Active Directory be unavailable.
 
@@ -148,14 +148,14 @@ If you would like to learn more about passwordless authentication, see [A world 
 
 ### Single sign-on for apps
 
-Providing a standardized single sign-on mechanism to the entire enterprise is crucial for best user experience, reduction of risk, ability to report, and governance. If you are using applications that support SSO with Azure AD but are currently configured to use local accounts, you should reconfigure those applications to use SSO with Azure AD. Likewise, if you are using any applications that support SSO with Azure AD but are using another Identity Provider, you should reconfigure those applications to use SSO with Azure AD as well. For applications that don't support federation protocols but do support forms-based authentication, we recommend you configure the application to use [password vaulting](../manage-apps/application-proxy-configure-single-sign-on-password-vaulting.md) with Azure AD Application Proxy.
+Providing a standardized single sign-on mechanism to the entire enterprise is crucial for best user experience, reduction of risk, ability to report, and governance. If you are using applications that support SSO with Azure AD but are currently configured to use local accounts, you should reconfigure those applications to use SSO with Azure AD. Likewise, if you are using any applications that support SSO with Azure AD but are using another Identity Provider, you should reconfigure those applications to use SSO with Azure AD as well. For applications that don't support federation protocols but do support forms-based authentication, we recommend you configure the application to use [password vaulting](../app-proxy/application-proxy-configure-single-sign-on-password-vaulting.md) with Azure AD Application Proxy.
 
 ![AppProxy Password-based Sign-on](./media/active-directory-ops-guide/active-directory-ops-img8.png)
 
 > [!NOTE]
 > If you don't have a mechanism to discover unmanaged applications in your organization, we recommend implementing a discovery process using a cloud access security broker solution (CASB) such as [Microsoft Cloud App Security](https://www.microsoft.com/enterprise-mobility-security/cloud-app-security).
 
-Finally, if you have an Azure AD app gallery and use applications that support SSO with Azure AD, we recommend [listing the application in the app gallery](../azuread-dev/howto-app-gallery-listing.md).
+Finally, if you have an Azure AD app gallery and use applications that support SSO with Azure AD, we recommend [listing the application in the app gallery](../develop/v2-howto-app-gallery-listing.md).
 
 #### Single sign-on recommended reading
 
@@ -191,10 +191,10 @@ On the other hand, if you find applications that have assignment to individual u
 
 ### Named locations
 
-With [named locations](../reports-monitoring/quickstart-configure-named-locations.md) in Azure AD, you can label trusted IP address ranges in your organization. Azure AD uses named locations to:
+With [named locations](../conditional-access/location-condition.md) in Azure AD, you can label trusted IP address ranges in your organization. Azure AD uses named locations to:
 
 - Prevent false positives in risk events. Signing in from a trusted network location lowers a user's sign-in risk.
-- Configure [location-based Conditional Access](../reports-monitoring/quickstart-configure-named-locations.md).
+- Configure [location-based Conditional Access](../conditional-access/location-condition.md).
 
 ![Named location](./media/active-directory-ops-guide/active-directory-ops-img10.png)
 
@@ -250,7 +250,7 @@ Conditional Access is an essential tool for improving the security posture of yo
 
 #### Conditional Access recommended reading
 
-- [Best practices for Conditional Access in Azure Active Directory](../conditional-access/best-practices.md)
+- [Best practices for Conditional Access in Azure Active Directory](../conditional-access/overview.md)
 - [Identity and device access configurations](/microsoft-365/enterprise/microsoft-365-policies-configurations)
 - [Azure Active Directory Conditional Access settings reference](../conditional-access/concept-conditional-access-conditions.md)
 - [Common Conditional Access policies](../conditional-access/concept-conditional-access-policy-common.md)
@@ -283,7 +283,7 @@ If legacy authentication is widely used in your environment, you should plan to 
 
 #### Legacy authentication recommended reading
 
-- [Enable or disable POP3 or IMAP4 access to mailboxes in Exchange Server](/exchange/clients/pop3-and-imap4/configure-mailbox-access?view=exchserver-2019)
+- [Enable or disable POP3 or IMAP4 access to mailboxes in Exchange Server](/exchange/clients/pop3-and-imap4/configure-mailbox-access)
 
 ### Consent grants
 
@@ -360,8 +360,8 @@ Having access to sign-in activity, audits and risk events for Azure AD is crucia
 
 #### Logs recommended reading
 
-- [Azure Active Directory audit API reference](/graph/api/resources/directoryaudit?view=graph-rest-beta%3fview%3dgraph-rest-beta)
-- [Azure Active Directory sign-in activity report API reference](/graph/api/resources/signin?view=graph-rest-beta%3fview%3dgraph-rest-beta)
+- [Azure Active Directory audit API reference](/graph/api/resources/directoryaudit)
+- [Azure Active Directory sign-in activity report API reference](/graph/api/resources/signin)
 - [Get data using the Azure AD Reporting API with certificates](../reports-monitoring/tutorial-access-api-with-certificates.md)
 - [Microsoft Graph for Azure Active Directory Identity Protection](../identity-protection/howto-identity-protection-graph-api.md)
 - [Office 365 Management Activity API reference](/office/office-365-management-api/office-365-management-activity-api-reference)

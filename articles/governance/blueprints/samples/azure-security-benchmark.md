@@ -1,14 +1,14 @@
 ---
 title: Azure Security Benchmark blueprint sample overview
 description: Overview of the Azure Security Benchmark blueprint sample. This blueprint sample helps customers assess specific controls.
-ms.date: 10/14/2020
+ms.date: 04/02/2021
 ms.topic: sample
 ---
 # Azure Security Benchmark blueprint sample
 
-The Azure Security Benchmark blueprint sample provides governance guard-rails using
+The Azure Security Benchmark blueprint sample provides governance guardrails using
 [Azure Policy](../../policy/overview.md) that help you assess specific
-[Azure Security Benchmark](../../../security/benchmarks/overview.md) controls. This blueprint
+[Azure Security Benchmark v1](../../../security/benchmarks/overview.md) controls. This blueprint
 helps customers deploy a core set of policies for any Azure-deployed architecture where they intend
 to implement Azure Security Benchmark controls.
 
@@ -43,8 +43,8 @@ sample as a starter.
 1. From the **Getting started** page on the left, select the **Create** button under _Create a
    blueprint_.
 
-1. Find the **Azure Security Benchmark** blueprint sample under _Other Samples_ and select the name
-   to select this sample.
+1. Find the **Azure Security Benchmark v1** blueprint sample under _Other Samples_ and select the
+   name to select this sample.
 
 1. Enter the _Basics_ of the blueprint sample:
 

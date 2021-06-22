@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/12/2017
+ms.date: 03/17/2021
 ms.author: alkohli
 
 ---
@@ -44,6 +44,8 @@ The following table shows a summary of all the common management tasks and compl
 
 For more information about each workflow, click the appropriate procedure in the table.
 
+[!INCLUDE [StorSimple software warning](../../includes/storsimple-update-software-warning.md)]
+
 #### StorSimple Device Manager workflows
 
 | If you want to do this ... | Use this procedure. |
@@ -61,7 +63,7 @@ For more information about each workflow, click the appropriate procedure in the
 | About access control records</br>Create an access control record</br>Edit an access control record</br>Delete an access control record |[Manage access control records](storsimple-8000-manage-acrs.md) |
 | View job details</br>Cancel a job |[Manage jobs](storsimple-8000-manage-jobs-u2.md) |
 | Receive alert notifications</br>Manage alerts</br>Review alerts |[View and manage StorSimple alerts](storsimple-8000-manage-alerts.md) |
-| Create monitoring charts |[Monitor your StorSimple device](storsimple-monitor-device.md) |
+| Create monitoring charts |[Monitor your StorSimple device](./storsimple-8000-monitor-device.md) |
 | Add a volume container</br>Modify a volume container</br>Delete a volume container |[Manage volume containers](storsimple-8000-manage-volume-containers.md) |
 | Add a volume</br>Modify a volume</br>Take a volume offline</br>Delete a volume</br>Monitor a volume |[Manage volumes](storsimple-8000-manage-volumes-u2.md) |
 | Modify device settings</br>Modify time settings</br>Modify DNS.md settings</br>Configure network interfaces |[Modify device configuration for your StorSimple device](storsimple-8000-modify-device-config.md) |
@@ -69,7 +71,7 @@ For more information about each workflow, click the appropriate procedure in the
 | Modify device administrator password</br>Modify StorSimple Snapshot Manager password |[Change StorSimple passwords](storsimple-8000-change-passwords.md) |
 | Configure remote management |[Connect remotely to your StorSimple device](storsimple-8000-remote-connect.md) |
 | Configure alert settings |[View and manage StorSimple alerts](storsimple-8000-manage-alerts.md) |
-| Configure CHAP for your StorSimple device |[Configure CHAP for your StorSimple device](storsimple-configure-chap.md) |
+| Configure CHAP for your StorSimple device |[Configure CHAP for your StorSimple device](./storsimple-8000-configure-chap.md) |
 | Add a backup policy</br>Add or modify a schedule</br>Delete a backup policy</br>Take a manual backup</br>Create a custom backup policy with multiple volumes and schedules |[Manage backup policies](storsimple-8000-manage-backup-policies-u2.md) |
 | Stop device controllers</br>Restart device controllers</br>Shut down device controllers</br>Reset your device to factory defaults</br>(Above are for on-premises device only) |[Manage StorSimple device controller](storsimple-8000-manage-device-controller.md) |
 | Learn about StorSimple hardware components</br>Monitor hardware status</br>(Above are for on-premises device only) |[Monitor hardware components](storsimple-8000-monitor-hardware-status.md) |
@@ -84,4 +86,3 @@ If you experience any issues with the day-to-day operation of your StorSimple de
 * [Use StorSimple monitoring indicator LEDs](storsimple-monitoring-indicators.md)
 
 If you cannot resolve the issues and you need to create a service request, refer to [Contact Microsoft Support](storsimple-8000-contact-microsoft-support.md).
-

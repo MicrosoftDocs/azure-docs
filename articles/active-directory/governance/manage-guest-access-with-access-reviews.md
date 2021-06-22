@@ -3,7 +3,7 @@ title: Manage guest access with access reviews - Azure AD
 description: Manage guest users as members of a group or assigned to an application with Azure Active Directory access reviews
 services: active-directory
 documentationcenter: ''
-author: barclayn
+author: ajburnle
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -12,8 +12,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 07/22/2020
-ms.author: barclayn
+ms.date: 4/16/2021
+ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ---
@@ -36,7 +36,12 @@ For more information, [License requirements](access-reviews-overview.md#license-
 
 ## Create and perform an access review for guests
 
-First, as a global administrator or user administrator, go to the [Identity Governance page](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) to ensure that access reviews is ready for your organization.
+First, you must be assigned one of the following roles:
+- global administrator
+- User administrator
+- (Preview) M365 or AAD Security Group owner of the group to be reviewed
+
+Then, go to the [Identity Governance page](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) to ensure that access reviews is ready for your organization.
 
 Azure AD enables several scenarios for reviewing guest users.
 
@@ -44,6 +49,10 @@ You can review either:
 
  - A group in Azure AD that has one or more guests as members.
  - An application connected to Azure AD that has one or more guest users assigned to it. 
+
+When reviewing guest user access to Microsoft 365 groups, you can either create a review for each group individually, or turn on automatic, recurring access reviews of guest users across all Microsoft 365 groups. The following video provides more information on recurring access reviews of guest users: 
+
+> [!VIDEO https://www.youtube.com/embed/3D2_YW2DwQ8]
 
 You can then decide whether to ask each guest to review their own access or to ask one or more users to review every guest's access.
 

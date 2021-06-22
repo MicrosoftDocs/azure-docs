@@ -35,14 +35,17 @@ The motivation behind backing up App Configuration stores is to use multiple con
 
 In this tutorial, you'll create a secondary store in the `centralus` region and all other resources in the `westus` region.
 
-## Prerequisites
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)].
 
-- Azure subscription. [Create one for free](https://azure.microsoft.com/free/). 
+## Prerequisites 
+
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs) with the Azure development workload.
-- [.NET Core SDK](https://dotnet.microsoft.com/download).
-- Latest version of the Azure CLI (2.3.1 or later). To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli). If you're using the Azure CLI, you must first sign in by using `az login`. You can optionally use Azure Cloud Shell.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+- [.NET Core SDK](https://dotnet.microsoft.com/download).
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+- This tutorial requires version 2.3.1 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Create a resource group
 
@@ -122,7 +125,7 @@ In this article, you'll work with C# functions that have the following propertie
 - Azure Functions runtime version 3.x
 - Function triggered by timer every 10 minutes
 
-To make it easier for you to start backing up your data, we've [tested and published a function](https://github.com/Azure/AppConfiguration/tree/master/examples/ConfigurationStoreBackup) that you can use without making any changes to the code. Download the project files and [publish them to your own Azure function app from Visual Studio](../azure-functions/functions-develop-vs.md#publish-to-azure).
+To make it easier for you to start backing up your data, we've [tested and published a function](https://github.com/Azure/AppConfiguration/tree/master/examples/ConfigurationStoreBackup) that you can use without making any changes to the code. Download the project files and [publish them to your own function app from Visual Studio](../azure-functions/functions-develop-vs.md#publish-to-azure).
 
 > [!IMPORTANT]
 > Don't make any changes to the environment variables in the code you've downloaded. You'll create the required app settings in the next section.
@@ -132,7 +135,7 @@ To make it easier for you to start backing up your data, we've [tested and publi
 
 If the sample code provided earlier doesn't meet your requirements, you can also create your own function. Your function must be able to perform the following tasks in order to complete the backup:
 - Periodically read contents of your queue to see if it contains any notifications from Event Grid. Refer to the [Storage Queue SDK](../storage/queues/storage-quickstart-queues-dotnet.md) for implementation details.
-- If your queue contains [event notifications from Event Grid](./concept-app-configuration-event.md?branch=pr-en-us-112982#event-schema), extract all the unique `<key, label>` information from event messages. The combination of key and label is the unique identifier for key-value changes in the primary store.
+- If your queue contains [event notifications from Event Grid](./concept-app-configuration-event.md#event-schema), extract all the unique `<key, label>` information from event messages. The combination of key and label is the unique identifier for key-value changes in the primary store.
 - Read all settings from the primary store. Update only those settings in the secondary store that have a corresponding event in the queue. Delete all settings from the secondary store that were present in the queue but not in the primary store. You can use the [App Configuration SDK](https://github.com/Azure/AppConfiguration#sdks) to access your configuration stores programmatically.
 - Delete messages from the queue if there were no exceptions during processing.
 - Implement error handling according to your needs. Refer to the preceding code sample to see some common exceptions that you might want to handle.
@@ -172,7 +175,7 @@ az functionapp identity assign --name $functionAppName --resource-group $resourc
 ```
 
 > [!NOTE]
-> To perform the required resource creation and role management, your account needs `Owner` permissions at the appropriate scope (your subscription or resource group). If you need assistance with role assignment, learn [how to add or remove Azure role assignments by using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+> To perform the required resource creation and role management, your account needs `Owner` permissions at the appropriate scope (your subscription or resource group). If you need assistance with role assignment, learn [how to assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
 Use the following commands or the [Azure portal](./howto-integrate-azure-managed-service-identity.md#grant-access-to-app-configuration) to grant the managed identity of your function app access to your App Configuration stores. Use these roles:
 - Assign the `App Configuration Data Reader` role in the primary App Configuration store.

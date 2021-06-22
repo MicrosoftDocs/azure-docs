@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 11/09/2020
+ms.date: 03/10/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -23,33 +23,44 @@ The **Localization** element enables you to support multiple locales or language
 
 The following IDs are used for a content definition with an ID of `api.signuporsignin`, and [self-asserted technical profile](self-asserted-technical-profile.md).
 
-| ID | Default value |
-| -- | ------------- |
-| **local_intro_email** | Sign in with your existing account |
-| **logonIdentifier_email** | Email Address |
-| **requiredField_email** | Please enter your email |
-| **invalid_email** | Please enter a valid email address |
-| **email_pattern** | ^[a-zA-Z0-9.!#$%&''*+/=?^_\`{\|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$ |
-| **local_intro_username** | Sign in with your user name |
-| **logonIdentifier_username** | Username |
-| **requiredField_username** | Please enter your user name |
-| **password** | Password |
-| **requiredField_password** | Please enter your password |
-| **invalid_password** | The password you entered is not in the expected format. |
-| **forgotpassword_link** | Forgot your password? |
-| **createaccount_intro** | Don't have an account? |
-| **createaccount_link** | Sign up now |
-| **divider_title** | OR |
-| **cancel_message** | The user has forgotten their password |
-| **button_signin** | Sign in |
-| **social_intro** | Sign in with your social account |
-  **remember_me** |Keep me signed in. |
-| **unknown_error** | We are having trouble signing you in. Please try again later. |
+| ID | Default value | Page Layout Version |
+| -- | ------------- | ------ |
+| **forgotpassword_link** | Forgot your password? | `All` |
+| **createaccount_intro** | Don't have an account? | `All` |
+| **button_signin** | Sign in | `All` |
+| **social_intro** | Sign in with your social account | `All` |
+| **remember_me** |Keep me signed in. | `All` |
+| **unknown_error** | We are having trouble signing you in. Please try again later. | `All` |
+| **divider_title** | OR | `All` |
+| **local_intro_email** | Sign in with your existing account | `< 2.0.0` |
+| **logonIdentifier_email** | Email Address | `< 2.0.0` |
+| **requiredField_email** | Please enter your email | `< 2.0.0` |
+| **invalid_email** | Please enter a valid email address | `< 2.0.0` |
+| **email_pattern** | ^[a-zA-Z0-9.!#$%&''\*+/=?^\_\`{\|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)\*$ | `< 2.0.0` |
+| **local_intro_username** | Sign in with your user name | `< 2.0.0` |
+| **logonIdentifier_username** | Username | `< 2.0.0` |
+| **requiredField_username** | Please enter your user name | `< 2.0.0` |
+| **password** | Password | `< 2.0.0` |
+| **requiredField_password** | Please enter your password | `< 2.0.0` |
+| **createaccount_link** | Sign up now | `< 2.0.0` |
+| **cancel_message** | The user has forgotten their password | `< 2.0.0` |
+| **invalid_password** | The password you entered is not in the expected format. | `< 2.0.0` |
+| **createaccount_one_link** | Sign up now | `>= 2.0.0` |
+| **createaccount_two_links** | Sign up with {0} or {1} | `>= 2.0.0` |
+| **createaccount_three_links** | Sign up with {0}, {1}, or {2} | `>= 2.0.0` |
+| **local_intro_generic** | Sign in with your {0} | `>= 2.1.0` |
+| **requiredField_generic** | Please enter your {0} | `>= 2.1.0` |
+| **invalid_generic** | Please enter a valid {0} | `>= 2.1.1` |
+| **heading** | Sign in | `>= 2.1.1` |
+
+
+> [!NOTE]
+> * Placeholders like {0} will be filled automatically with the `DisplayName` value of `ClaimType`. 
+> * To learn how to localize `ClaimType`, see [Sign-up or sign-in example](#signupsigninexample).
 
 The following example shows the use of some of the user interface elements in the sign-up or sign-in page:
 
-![Sign-up or sign-in page UX elements](./media/localization-string-ids/localization-susi.png)
-
+:::image type="content" source="./media/localization-string-ids/localization-susi-2.png" alt-text="Screenshot that shows sign-up or sign-in page U X elements.":::
 
 ### Sign-up or sign-in identity providers
 
@@ -91,32 +102,28 @@ The following example localizes the Facebook identity provider to Arabic:
 | **UserMessageIfUserAccountLocked** | Your account is temporarily locked to prevent unauthorized use. Try again later. |
 | **AADRequestsThrottled** | There are too many requests at this moment. Please wait for some time and try again. |
 
+<a name="signupsigninexample"></a>
 ### Sign-up or sign-in example
 
 ```xml
 <LocalizedResources Id="api.signuporsignin.en">
   <LocalizedStrings>
-    <LocalizedString ElementType="UxElement" StringId="logonIdentifier_email">Email Address</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="requiredField_email">Please enter your email</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="logonIdentifier_username">Username</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="password">Password</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="createaccount_link">Sign up now</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="requiredField_username">Please enter your user name</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="createaccount_intro">Don't have an account?</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="forgotpassword_link">Forgot your password?</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="divider_title">OR</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="cancel_message">The user has forgotten their password</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="button_signin">Sign in</LocalizedString>
+    <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Email Address</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="heading">Sign in</LocalizedString>
     <LocalizedString ElementType="UxElement" StringId="social_intro">Sign in with your social account</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="local_intro_generic">Sign in with your {0}</LocalizedString>
     <LocalizedString ElementType="UxElement" StringId="requiredField_password">Please enter your password</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="invalid_password">The password you entered is not in the expected format.</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="local_intro_username">Sign in with your user name</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="local_intro_email">Sign in with your existing account</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="invalid_email">Please enter a valid email address</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="requiredField_generic">Please enter your {0}</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="invalid_generic">Please enter a valid {0}</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="createaccount_one_link">Sign up now</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="createaccount_two_links">Sign up with {0} or {1}</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="createaccount_three_links">Sign up with {0}, {1}, or {2}</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="forgotpassword_link">Forgot your password?</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="button_signin">Sign in</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="divider_title">OR</LocalizedString>
     <LocalizedString ElementType="UxElement" StringId="unknown_error">We are having trouble signing you in. Please try again later.</LocalizedString>
     <!-- Uncomment the remember_me only if the keep me signed in is activated. 
     <LocalizedString ElementType="UxElement" StringId="remember_me">Keep me signed in</LocalizedString> -->
-    <LocalizedString ElementType="UxElement" StringId="email_pattern">^[a-zA-Z0-9.!#$%&amp;’'+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)$</LocalizedString>
     <LocalizedString ElementType="ClaimsProvider" StringId="FacebookExchange">Facebook</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidPassword">Your password is incorrect.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfPasswordExpired">Your password has expired.</LocalizedString>
@@ -247,43 +254,46 @@ The following example shows the use of some of the user interface elements in th
 
 The Following are the IDs for a content definition with an ID of `api.phonefactor`, and [phone factor technical profile](phone-factor-technical-profile.md).
 
-| ID | Default value |
-| -- | ------------- |
-| **button_verify** | Call Me |
-| **country_code_label** | Country Code |
-| **cancel_message** | The user has canceled multi-factor authentication |
-| **text_button_send_second_code** | send a new code |
-| **code_pattern** | \\d{6} |
-| **intro_mixed** | We have the following number on record for you. We can send a code via SMS or phone to authenticate you. |
-| **intro_mixed_p** | We have the following numbers on record for you. Choose a number that we can phone or send a code via SMS to authenticate you. |
-| **button_verify_code** | Verify Code |
-| **requiredField_code** | Please enter the verification code you received |
-| **invalid_code** | Please enter the 6-digit code you received |
-| **button_cancel** | Cancel |
-| **local_number_input_placeholder_text** | Phone number |
-| **button_retry** | Retry |
-| **alternative_text** | I don't have my phone |
-| **intro_phone_p** | We have the following numbers on record for you. Choose a number that we can phone to authenticate you. |
-| **intro_phone** | We have the following number on record for you. We will phone to authenticate you. |
-| **enter_code_text_intro** | Enter your verification code below, or  |
-| **intro_entry_phone** | Enter a number below that we can phone to authenticate you. |
-| **intro_entry_sms** | Enter a number below that we can send a code via SMS to authenticate you. |
-| **button_send_code** | Send Code |
-| **invalid_number** | Please enter a valid phone number |
-| **intro_sms** | We have the following number on record for you. We will send a code via SMS to authenticate you. |
-| **intro_entry_mixed** | Enter a number below that we can send a code via SMS or phone to authenticate you. |
-| **number_pattern** | ^\\+(?:[0-9][\\x20-]?){6,14}[0-9]$ |
-| **intro_sms_p** |We have the following numbers on record for you. Choose a number that we can send a code via SMS to authenticate you. |
-| **requiredField_countryCode** | Please select your country code |
-| **requiredField_number** | Please enter your phone number |
-| **country_code_input_placeholder_text** |Country or region |
-| **number_label** | Phone Number |
-| **error_tryagain** | The phone number you provided is busy or unavailable. Please check the number and try again. |
-| **error_incorrect_code** | The verification code you have entered does not match our records. Please try again, or request a new code. |
-| **countryList** | See [the countries list](#phone-factor-authentication-page-example). |
-| **error_448** | The phone number you provided is unreachable. |
-| **error_449** | User has exceeded the number of retry attempts. |
-| **verification_code_input_placeholder_text** | Verification code |
+| ID | Default value | Page Layout Version |
+| -- | ------------- | ------ |
+| **button_verify** | Call Me | `All` |
+| **country_code_label** | Country Code | `All` |
+| **cancel_message** | The user has canceled multi-factor authentication | `All` |
+| **text_button_send_second_code** | send a new code | `All` |
+| **code_pattern** | \\d{6} | `All` |
+| **intro_mixed** | We have the following number on record for you. We can send a code via SMS or phone to authenticate you. | `All` |
+| **intro_mixed_p** | We have the following numbers on record for you. Choose a number that we can phone or send a code via SMS to authenticate you. | `All` |
+| **button_verify_code** | Verify Code | `All` |
+| **requiredField_code** | Please enter the verification code you received | `All` |
+| **invalid_code** | Please enter the 6-digit code you received | `All` |
+| **button_cancel** | Cancel | `All` |
+| **local_number_input_placeholder_text** | Phone number | `All` |
+| **button_retry** | Retry | `All` |
+| **alternative_text** | I don't have my phone | `All` |
+| **intro_phone_p** | We have the following numbers on record for you. Choose a number that we can phone to authenticate you. | `All` |
+| **intro_phone** | We have the following number on record for you. We will phone to authenticate you. | `All` |
+| **enter_code_text_intro** | Enter your verification code below, or  | `All` |
+| **intro_entry_phone** | Enter a number below that we can phone to authenticate you. | `All` |
+| **intro_entry_sms** | Enter a number below that we can send a code via SMS to authenticate you. | `All` |
+| **button_send_code** | Send Code | `All` |
+| **invalid_number** | Please enter a valid phone number | `All` |
+| **intro_sms** | We have the following number on record for you. We will send a code via SMS to authenticate you. | `All` |
+| **intro_entry_mixed** | Enter a number below that we can send a code via SMS or phone to authenticate you. | `All` |
+| **number_pattern** | ^\\+(?:[0-9][\\x20-]?){6,14}[0-9]$ | `All` |
+| **intro_sms_p** |We have the following numbers on record for you. Choose a number that we can send a code via SMS to authenticate you. | `All` |
+| **requiredField_countryCode** | Please select your country code | `All` |
+| **requiredField_number** | Please enter your phone number | `All` |
+| **country_code_input_placeholder_text** |Country or region | `All` |
+| **number_label** | Phone Number | `All` |
+| **error_tryagain** | The phone number you provided is busy or unavailable. Please check the number and try again. | `All` |
+| **error_sms_throttled** | You hit the limit on the number of text messages. Try again shortly. | `>= 1.2.3` |
+| **error_phone_throttled** | You hit the limit on the number of call attempts. Try again shortly. | `>= 1.2.3` |
+| **error_throttled** | You hit the limit on the number of verification attempts. Try again shortly. | `>= 1.2.3` |
+| **error_incorrect_code** | The verification code you have entered does not match our records. Please try again, or request a new code. | `All` |
+| **countryList** | See [the countries list](#phone-factor-authentication-page-example). | `All` |
+| **error_448** | The phone number you provided is unreachable. | `All` |
+| **error_449** | User has exceeded the number of retry attempts. | `All` |
+| **verification_code_input_placeholder_text** | Verification code | `All` |
 
 The following example shows the use of some of the user interface elements in the MFA enrollment page:
 
@@ -328,6 +338,9 @@ The following example shows the use of some of the user interface elements in th
     <LocalizedString ElementType="UxElement" StringId="country_code_input_placeholder_text">Country or region</LocalizedString>
     <LocalizedString ElementType="UxElement" StringId="number_label">Phone Number</LocalizedString>
     <LocalizedString ElementType="UxElement" StringId="error_tryagain">The phone number you provided is busy or unavailable. Please check the number and try again.</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="error_sms_throttled">You hit the limit on the number of text messages. Try again shortly.</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="error_phone_throttled">You hit the limit on the number of call attempts. Try again shortly.</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="error_throttled">You hit the limit on the number of verification attempts. Try again shortly.</LocalizedString>
     <LocalizedString ElementType="UxElement" StringId="error_incorrect_code">The verification code you have entered does not match our records. Please try again, or request a new code.</LocalizedString>
     <LocalizedString ElementType="UxElement" StringId="countryList">{"DEFAULT":"Country/Region","AF":"Afghanistan","AX":"Åland Islands","AL":"Albania","DZ":"Algeria","AS":"American Samoa","AD":"Andorra","AO":"Angola","AI":"Anguilla","AQ":"Antarctica","AG":"Antigua and Barbuda","AR":"Argentina","AM":"Armenia","AW":"Aruba","AU":"Australia","AT":"Austria","AZ":"Azerbaijan","BS":"Bahamas","BH":"Bahrain","BD":"Bangladesh","BB":"Barbados","BY":"Belarus","BE":"Belgium","BZ":"Belize","BJ":"Benin","BM":"Bermuda","BT":"Bhutan","BO":"Bolivia","BQ":"Bonaire","BA":"Bosnia and Herzegovina","BW":"Botswana","BV":"Bouvet Island","BR":"Brazil","IO":"British Indian Ocean Territory","VG":"British Virgin Islands","BN":"Brunei","BG":"Bulgaria","BF":"Burkina Faso","BI":"Burundi","CV":"Cabo Verde","KH":"Cambodia","CM":"Cameroon","CA":"Canada","KY":"Cayman Islands","CF":"Central African Republic","TD":"Chad","CL":"Chile","CN":"China","CX":"Christmas Island","CC":"Cocos (Keeling) Islands","CO":"Colombia","KM":"Comoros","CG":"Congo","CD":"Congo (DRC)","CK":"Cook Islands","CR":"Costa Rica","CI":"Côte d'Ivoire","HR":"Croatia","CU":"Cuba","CW":"Curaçao","CY":"Cyprus","CZ":"Czech Republic","DK":"Denmark","DJ":"Djibouti","DM":"Dominica","DO":"Dominican Republic","EC":"Ecuador","EG":"Egypt","SV":"El Salvador","GQ":"Equatorial Guinea","ER":"Eritrea","EE":"Estonia","ET":"Ethiopia","FK":"Falkland Islands","FO":"Faroe Islands","FJ":"Fiji","FI":"Finland","FR":"France","GF":"French Guiana","PF":"French Polynesia","TF":"French Southern Territories","GA":"Gabon","GM":"Gambia","GE":"Georgia","DE":"Germany","GH":"Ghana","GI":"Gibraltar","GR":"Greece","GL":"Greenland","GD":"Grenada","GP":"Guadeloupe","GU":"Guam","GT":"Guatemala","GG":"Guernsey","GN":"Guinea","GW":"Guinea-Bissau","GY":"Guyana","HT":"Haiti","HM":"Heard Island and McDonald Islands","HN":"Honduras","HK":"Hong Kong SAR","HU":"Hungary","IS":"Iceland","IN":"India","ID":"Indonesia","IR":"Iran","IQ":"Iraq","IE":"Ireland","IM":"Isle of Man","IL":"Israel","IT":"Italy","JM":"Jamaica","JP":"Japan","JE":"Jersey","JO":"Jordan","KZ":"Kazakhstan","KE":"Kenya","KI":"Kiribati","KR":"Korea","KW":"Kuwait","KG":"Kyrgyzstan","LA":"Laos","LV":"Latvia","LB":"Lebanon","LS":"Lesotho","LR":"Liberia","LY":"Libya","LI":"Liechtenstein","LT":"Lithuania","LU":"Luxembourg","MO":"Macao SAR","MK":"North Macedonia","MG":"Madagascar","MW":"Malawi","MY":"Malaysia","MV":"Maldives","ML":"Mali","MT":"Malta","MH":"Marshall Islands","MQ":"Martinique","MR":"Mauritania","MU":"Mauritius","YT":"Mayotte","MX":"Mexico","FM":"Micronesia","MD":"Moldova","MC":"Monaco","MN":"Mongolia","ME":"Montenegro","MS":"Montserrat","MA":"Morocco","MZ":"Mozambique","MM":"Myanmar","NA":"Namibia","NR":"Nauru","NP":"Nepal","NL":"Netherlands","NC":"New Caledonia","NZ":"New Zealand","NI":"Nicaragua","NE":"Niger","NG":"Nigeria","NU":"Niue","NF":"Norfolk Island","KP":"North Korea","MP":"Northern Mariana Islands","NO":"Norway","OM":"Oman","PK":"Pakistan","PW":"Palau","PS":"Palestinian Authority","PA":"Panama","PG":"Papua New Guinea","PY":"Paraguay","PE":"Peru","PH":"Philippines","PN":"Pitcairn Islands","PL":"Poland","PT":"Portugal","PR":"Puerto Rico","QA":"Qatar","RE":"Réunion","RO":"Romania","RU":"Russia","RW":"Rwanda","BL":"Saint Barthélemy","KN":"Saint Kitts and Nevis","LC":"Saint Lucia","MF":"Saint Martin","PM":"Saint Pierre and Miquelon","VC":"Saint Vincent and the Grenadines","WS":"Samoa","SM":"San Marino","ST":"São Tomé and Príncipe","SA":"Saudi Arabia","SN":"Senegal","RS":"Serbia","SC":"Seychelles","SL":"Sierra Leone","SG":"Singapore","SX":"Sint Maarten","SK":"Slovakia","SI":"Slovenia","SB":"Solomon Islands","SO":"Somalia","ZA":"South Africa","GS":"South Georgia and South Sandwich Islands","SS":"South Sudan","ES":"Spain","LK":"Sri Lanka","SH":"St Helena, Ascension, Tristan da Cunha","SD":"Sudan","SR":"Suriname","SJ":"Svalbard","SZ":"Swaziland","SE":"Sweden","CH":"Switzerland","SY":"Syria","TW":"Taiwan","TJ":"Tajikistan","TZ":"Tanzania","TH":"Thailand","TL":"Timor-Leste","TG":"Togo","TK":"Tokelau","TO":"Tonga","TT":"Trinidad and Tobago","TN":"Tunisia","TR":"Turkey","TM":"Turkmenistan","TC":"Turks and Caicos Islands","TV":"Tuvalu","UM":"U.S. Outlying Islands","VI":"U.S. Virgin Islands","UG":"Uganda","UA":"Ukraine","AE":"United Arab Emirates","GB":"United Kingdom","US":"United States","UY":"Uruguay","UZ":"Uzbekistan","VU":"Vanuatu","VA":"Vatican City","VE":"Venezuela","VN":"Vietnam","WF":"Wallis and Futuna","YE":"Yemen","ZM":"Zambia","ZW":"Zimbabwe"}</LocalizedString>
     <LocalizedString ElementType="UxElement" StringId="error_448">The phone number you provided is unreachable.</LocalizedString>
@@ -345,8 +358,8 @@ The following are the IDs for a [Verification display control](display-control-v
 
 | ID | Default value |
 | -- | ------------- |
-|intro_msg| Verification is necessary. Please click Send button.|
-|success_send_code_msg | Verification code has been sent to your inbox. Please copy it to the input box below.|
+|intro_msg <sup>*</sup>| Verification is necessary. Please click Send button.|
+|success_send_code_msg | Verification code has been sent. Please copy it to the input box below.|
 |failure_send_code_msg | We are having trouble verifying your email address. Please enter a valid email address and try again.|
 |success_verify_code_msg | E-mail address verified. You can now continue.|
 |failure_verify_code_msg | We are having trouble verifying your email address. Please try again.|
@@ -354,6 +367,12 @@ The following are the IDs for a [Verification display control](display-control-v
 |but_verify_code | Verify code|
 |but_send_new_code | Send new code|
 |but_change_claims | Change e-mail|
+
+Note: The `intro_msg` element is hidden, and not shown on the self-asserted page. To make it visible, use the [HTML customiztion](customize-ui-with-html.md) with Cascading Style Sheets. For example:
+    
+```css
+.verificationInfoText div{display: block!important}
+```
 
 ### Verification display control example
 
@@ -429,9 +448,9 @@ The following are the IDs for [Restful service technical profile](restful-techni
 </LocalizedResources>
 ```
 
-## Azure MFA error messages
+## Azure AD MFA error messages
 
-The following are the IDs for an [Azure MFA technical profile](multi-factor-auth-technical-profile.md) error messages:
+The following are the IDs for an [Azure AD MFA technical profile](multi-factor-auth-technical-profile.md) error message:
 
 | ID | Default value |
 | -- | ------------- |
@@ -442,7 +461,7 @@ The following are the IDs for an [Azure MFA technical profile](multi-factor-auth
 |UserMessageIfThrottled | Your request has been throttled, please try again later.|
 |UserMessageIfWrongCodeEntered|Wrong code entered, please try again.|
 
-### Azure MFA example
+### Azure AD MFA example
 
 ```xml
 <LocalizedResources Id="api.localaccountsignup.en">
@@ -536,5 +555,5 @@ The following are the IDs for claims transformations error messages:
 
 See the following articles for localization examples:
 
-- [Language customization with custom policy in Azure Active Directory B2C](custom-policy-localization.md)
-- [Language customization with user flows in Azure Active Directory B2C](user-flow-language-customization.md)
+- [Language customization with custom policy in Azure Active Directory B2C](language-customization.md)
+- [Language customization with user flows in Azure Active Directory B2C](language-customization.md)

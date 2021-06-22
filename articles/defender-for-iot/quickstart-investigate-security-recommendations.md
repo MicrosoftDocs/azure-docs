@@ -1,20 +1,8 @@
 ---
-title: "Quickstart: Investigate security recommendations"
+title: Investigate security recommendations"
 description: Investigate security recommendations with the Defender for IoT security service.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: mlottner
-manager: rkarlin
-editor: ''
-
-
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 09/09/2020
-ms.author: mlottner
 ---
 
 # Quickstart: Investigate security recommendations
@@ -30,11 +18,11 @@ Let's get started.
 
 The IoT Hub recommendations list displays all of the aggregated security recommendations for your IoT Hub.
 
-1.  In the Azure portal, open the **IoT Hub** you want to investigate for new recommendations.
+1.  In the Azure portal, open the **IoT Hub** you want to investigate for new recommendations.
 
-1.  From the **Security** menu, select **Recommendations**. All of the security recommendations for the IoT Hub will display, and the recommendations with a **New** flag, mark your recommendations from the past 24 hours. 
+1.  From the **Security** menu, select **Recommendations**. All of the security recommendations for the IoT Hub will display, and the recommendations with a **New** flag, mark your recommendations from the past 24 hours. 
 
-    [ ![Investigate security recommendations with ASC for IoT](media/quickstart/investigate-security-recommendations-inline.png)](media/quickstart/investigate-security-recommendations-expanded.png#lightbox)
+    :::image type="content" source="media/quickstart/investigate-security-recommendations-expanded.png#lightbox" alt-text="Investigate security recommendations with ASC for IoT](media/quickstart/investigate-security-recommendations-inline.png)":::
 
 
 1.  Select and open any recommendation from the list to open the recommendation details and drill down to the specifics.
@@ -43,22 +31,19 @@ The IoT Hub recommendations list displays all of the aggregated security recomme
 
 Open each aggregated recommendation to display the detailed recommendation description, remediation steps, device ID for each device that triggered a recommendation. It also displays recommendation severity and direct-investigation access using Log Analytics.
 
-1.  Select and open any security recommendation from the **IoT Hub** \> **Security** \> **Recommendations** list.
+1.  Select and open any security recommendation from the **IoT Hub** > **Security** > **Recommendations** list.
 
-1.  Review the recommendation **description**, **severity**, **device details** of all devices that issued this recommendation in the aggregation period. 
+1.  Review the recommendation **description**, **severity**, **device details** of all devices that issued this recommendation in the aggregation period. 
 
-1.  After reviewing recommendation specifics, use the **manual remediation step** instructions to help remediate and resolve the issue that caused the recommendation. 
+1.  After reviewing recommendation specifics, use the **manual remediation step** instructions to help remediate and resolve the issue that caused the recommendation. 
 
-    [ ![Remediate security recommendations with ASC for IoT](media/quickstart/remediate-security-recommendations-inline.png)](media/quickstart/remediate-security-recommendations-expanded.png#lightbox)
-
+    :::image type="content" source="media/quickstart/remediate-security-recommendations-inline.png" alt-text="Remediate security recommendations with ASC for IoT" lightbox="media/quickstart/remediate-security-recommendations-expanded.png":::
 
 1.  Explore the recommendation details for a specific device by selecting the desired device in the drill-down page.
 
-    [ ![Investigate specific security recommendations for a device with ASC for IoT](media/quickstart/explore-security-recommendation-detail-inline.png)](media/quickstart/explore-security-recommendation-detail-expanded.png#lightbox)
+    :::image type="content" source="media/quickstart/explore-security-recommendation-detail-inline.png" alt-text="Investigate specific security recommendations for a device with ASC for IoT" lightbox="media/quickstart/explore-security-recommendation-detail-expanded.png":::
 
-
-1.  If further investigation is required, **Investigate the recommendation in Log Analytics** using the link. 
-
+1.  If further investigation is required, **Investigate the recommendation in Log Analytics** using the link. 
 
 ## Next steps
 

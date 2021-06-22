@@ -4,7 +4,7 @@ description: This article describes best practices for long running operations.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 04/27/2021
 ms.author: owend
 
 ---

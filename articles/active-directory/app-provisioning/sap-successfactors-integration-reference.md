@@ -1,15 +1,16 @@
 ---
 title: Azure Active Directory and SAP SuccessFactors integration reference
-description: Technical deep dive into SAP SuccessFactors-HR driven provisioning 
+description: Technical deep dive into SAP SuccessFactors-HR driven provisioning for Azure Active Directory.
 services: active-directory
-author: cmmdesai
-manager: celestedg
+author: kenwith
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
 ms.workload: identity
-ms.date: 07/20/2020
-ms.author: chmutali
+ms.date: 05/11/2021
+ms.author: kenwith
+ms.reviewer: chmutali
 ---
 
 # How Azure Active Directory provisioning integrates with SAP SuccessFactors 
@@ -50,21 +51,22 @@ For every user in SuccessFactors, Azure AD provisioning service retrieves the fo
 | 6  | User                                   | employmentNav/userNav        | Always           |
 | 7  | EmpJob                                 | employmentNav/jobInfoNav     | Always           |
 | 8  | EmpEmploymentTermination               | activeEmploymentsCount       | Always           |
-| 9  | FOCompany                              | employmentNav/jobInfoNav/companyNav | Only if `company` or `companyId` attribute is mapped |
-| 10 | FODepartment                           | employmentNav/jobInfoNav/departmentNav | Only if `department` or `departmentId` attribute is mapped |
-| 11 | FOBusinessUnit                         | employmentNav/jobInfoNav/businessUnitNav | Only if `businessUnit` or `businessUnitId` attribute is mapped |
-| 12 | FOCostCenter                           | employmentNav/jobInfoNav/costCenterNav | Only if `costCenter` or `costCenterId` attribute is mapped |
-| 13 | FODivision                             | employmentNav/jobInfoNav/divisionNav  | Only if `division` or `divisionId` attribute is mapped |
-| 14 | FOJobCode                              | employmentNav/jobInfoNav/jobCodeNav  | Only if `jobCode` or `jobCodeId` attribute is mapped |
-| 15 | FOPayGrade                             | employmentNav/jobInfoNav/payGradeNav  | Only if `payGrade` attribute is mapped |
-| 16 | FOLocation                             | employmentNav/jobInfoNav/locationNav  | Only if `location` attribute is mapped |
-| 17 | FOCorporateAddressDEFLT                | employmentNav/jobInfoNav/addressNavDEFLT  | If mapping contains one of the following attributes: `officeLocationAddress,  officeLocationCity, officeLocationZipCode` |
-| 18 | FOEventReason                          | employmentNav/jobInfoNav/eventReasonNav  | Only if `eventReason` attribute is mapped |
-| 19 | EmpGlobalAssignment                    | employmentNav/empGlobalAssignmentNav | Only if `assignmentType` is mapped |
-| 20 | EmploymentType Picklist                | employmentNav/jobInfoNav/employmentTypeNav | Only if `employmentType` is mapped |
-| 21 | EmployeeClass Picklist                 | employmentNav/jobInfoNav/employeeClassNav | Only if `employeeClass` is mapped |
-| 22 | EmplStatus Picklist                    | employmentNav/jobInfoNav/emplStatusNav | Only if `emplStatus` is mapped |
-| 23 | AssignmentType Picklist                | employmentNav/empGlobalAssignmentNav/assignmentTypeNav | Only if `assignmentType` is mapped |
+| 9  | User's manager                         | employmentNav/userNav/manager/empInfo | Always  |
+| 10 | FOCompany                              | employmentNav/jobInfoNav/companyNav | Only if `company` or `companyId` attribute is mapped |
+| 11 | FODepartment                           | employmentNav/jobInfoNav/departmentNav | Only if `department` or `departmentId` attribute is mapped |
+| 12 | FOBusinessUnit                         | employmentNav/jobInfoNav/businessUnitNav | Only if `businessUnit` or `businessUnitId` attribute is mapped |
+| 13 | FOCostCenter                           | employmentNav/jobInfoNav/costCenterNav | Only if `costCenter` or `costCenterId` attribute is mapped |
+| 14 | FODivision                             | employmentNav/jobInfoNav/divisionNav  | Only if `division` or `divisionId` attribute is mapped |
+| 15 | FOJobCode                              | employmentNav/jobInfoNav/jobCodeNav  | Only if `jobCode` or `jobCodeId` attribute is mapped |
+| 16 | FOPayGrade                             | employmentNav/jobInfoNav/payGradeNav  | Only if `payGrade` attribute is mapped |
+| 17 | FOLocation                             | employmentNav/jobInfoNav/locationNav  | Only if `location` attribute is mapped |
+| 18 | FOCorporateAddressDEFLT                | employmentNav/jobInfoNav/addressNavDEFLT  | If mapping contains one of the following attributes: `officeLocationAddress,  officeLocationCity, officeLocationZipCode` |
+| 19 | FOEventReason                          | employmentNav/jobInfoNav/eventReasonNav  | Only if `eventReason` attribute is mapped |
+| 20 | EmpGlobalAssignment                    | employmentNav/empGlobalAssignmentNav | Only if `assignmentType` is mapped |
+| 21 | EmploymentType Picklist                | employmentNav/jobInfoNav/employmentTypeNav | Only if `employmentType` is mapped |
+| 22 | EmployeeClass Picklist                 | employmentNav/jobInfoNav/employeeClassNav | Only if `employeeClass` is mapped |
+| 23 | EmplStatus Picklist                    | employmentNav/jobInfoNav/emplStatusNav | Only if `emplStatus` is mapped |
+| 24 | AssignmentType Picklist                | employmentNav/empGlobalAssignmentNav/assignmentTypeNav | Only if `assignmentType` is mapped |
 
 ## How full sync works
 Based on the attribute-mapping, during full sync Azure AD provisioning service sends the following "GET" OData API query to fetch effective data of all active users. 

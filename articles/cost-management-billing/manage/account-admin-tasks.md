@@ -9,7 +9,7 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 10/26/2020
 ms.author: banders
-ms.custom: contentperfq2
+ms.custom: contperf-fy21q2
 ---
 
 # Account Administrator tasks in the Azure portal

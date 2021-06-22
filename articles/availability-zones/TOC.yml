@@ -12,7 +12,7 @@
     href: az-overview.md
   - name: Availability Zones Documentation
     items:
-    - name: Regions that support Availability Zones
+    - name: Azure Services that support Availability Zones
       href: az-region.md
     - name: Virtual machines
       items:
@@ -93,10 +93,6 @@
       items:
       - name: Create an Azure Active Directory Domain Services instance
         href: ../active-directory-domain-services/tutorial-create-instance.md
-  - name: Edge Zones Documentation
-    items:
-    - name: What are Edge Zones?
-      href: ../networking/edge-zones-overview.md
   - name: Azure Orbital Documentation
     items:
     - name: What is Azure Orbital?

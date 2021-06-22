@@ -1,9 +1,11 @@
 ---
 title: Receive activity log alerts on Azure service notifications using Resource Manager template
 description: Get notified via SMS, email, or webhook when Azure service occurs.
-ms.topic: quickstart
-ms.custom: subject-armqs
 ms.date: 06/29/2020
+ms.topic: quickstart
+ms.custom: devx-track-azurepowershell
+  - subject-armqs
+  - mode-arm
 ---
 
 # Quickstart: Create activity log alerts on service notifications using an ARM template
@@ -12,7 +14,7 @@ This article shows you how to set up activity log alerts for service health noti
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Service health notifications are stored in the [Azure activity log](../azure-monitor/platform/platform-logs-overview.md). Given the possibly large volume of information stored in the activity log, there is a separate user interface to make it easier to view and set up alerts on service health notifications.
+Service health notifications are stored in the [Azure activity log](../azure-monitor/essentials/platform-logs-overview.md). Given the possibly large volume of information stored in the activity log, there is a separate user interface to make it easier to view and set up alerts on service health notifications.
 
 You can receive an alert when Azure sends service health notifications to your Azure subscription. You can configure the alert based on:
 
@@ -29,7 +31,7 @@ You also can configure who the alert should be sent to:
 - Select an existing action group.
 - Create a new action group (that can be used for future alerts).
 
-To learn more about action groups, see [Create and manage action groups](../azure-monitor/platform/action-groups.md).
+To learn more about action groups, see [Create and manage action groups](../azure-monitor/alerts/action-groups.md).
 
 ## Prerequisites
 
@@ -194,7 +196,7 @@ Remove-AzResourceGroup -Name my-resource-group
 - Learn how to [setup mobile push notifications for Azure Service Health](https://www.microsoft.com/en-us/videoplayer/embed/RE2OtUw).
 - Learn how to [configure webhook notifications for existing problem management systems](service-health-alert-webhook-guide.md).
 - Learn about [service health notifications](service-notifications.md).
-- Learn about [notification rate limiting](../azure-monitor/platform/alerts-rate-limiting.md).
-- Review the [activity log alert webhook schema](../azure-monitor/platform/activity-log-alerts-webhook.md).
-- Get an [overview of activity log alerts](../azure-monitor/platform/alerts-overview.md), and learn how to receive alerts.
-- Learn more about [action groups](../azure-monitor/platform/action-groups.md).
+- Learn about [notification rate limiting](../azure-monitor/alerts/alerts-rate-limiting.md).
+- Review the [activity log alert webhook schema](../azure-monitor/alerts/activity-log-alerts-webhook.md).
+- Get an [overview of activity log alerts](../azure-monitor/alerts/alerts-overview.md), and learn how to receive alerts.
+- Learn more about [action groups](../azure-monitor/alerts/action-groups.md).

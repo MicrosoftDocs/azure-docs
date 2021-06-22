@@ -3,11 +3,10 @@ title: Monitoring mapping data flows
 description: How to visually monitor mapping data flows in Azure Data Factory
 author: kromerm
 ms.author: makromer
-ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/19/2020
+ms.date: 06/11/2021
 ---
 
 # Monitor Data Flows
@@ -18,7 +17,7 @@ After you have completed building and debugging your data flow, you want to sche
 
 When you execute your pipeline, you can monitor the pipeline and all of the activities contained in the pipeline including the Data Flow activity. Click on the monitor icon in the left-hand Azure Data Factory UI panel. You can see a screen similar to the one below. The highlighted icons allow you to drill into the activities in the pipeline, including the Data Flow activity.
 
-![Screenshot shows icons to select for pipelines for more information.](media/data-flow/mon001.png "Data Flow Monitoring")
+![Screenshot shows icons to select for pipelines for more information.](media/data-flow/monitor-new-001.png "Data Flow Monitoring")
 
 You see statistics at this level as well including the run times and status. The Run ID at the activity level is different than the Run ID at the pipeline level. The Run ID at the previous level is for the pipeline. Selecting the eyeglasses gives you deep details on your data flow execution.
 
@@ -28,15 +27,11 @@ When you're in the graphical node monitoring view, you can see a simplified view
 
 ![Screenshot shows the view-only version of the graph.](media/data-flow/mon003.png "Data Flow Monitoring")
 
-Here is a video overview of monitoring performance of your data flows from the ADF monitoring screen:
-
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4u4mH]
-
 ## View Data Flow Execution Plans
 
-When your Data Flow is executed in Spark, Azure Data Factory determines optimal code paths based on the entirety of your data flow. Additionally, the execution paths may occur on different scale-out nodes and data partitions. Therefore, the monitoring graph represents the design of your flow, taking into account the execution path of your transformations. When you select individual nodes, you can see "groupings" that represent code that was executed together on the cluster. The timings and counts that you see represent those groups as opposed to the individual steps in your design.
+When your Data Flow is executed in Spark, Azure Data Factory determines optimal code paths based on the entirety of your data flow. Additionally, the execution paths may occur on different scale-out nodes and data partitions. Therefore, the monitoring graph represents the design of your flow, taking into account the execution path of your transformations. When you select individual nodes, you can see "stages" that represent code that was executed together on the cluster. The timings and counts that you see represent those groups or stages as opposed to the individual steps in your design.
 
-![Screenshot shows the page for a data flow.](media/data-flow/mon004.png "Data Flow Monitoring")
+![Screenshot shows the page for a data flow.](media/data-flow/monitor-new-005.png "Data Flow Monitoring")
 
 * When you select the open space in the monitoring window, the stats in the bottom pane display timing and row counts for each Sink and the transformations that led to the sink data for transformation lineage.
 
@@ -72,10 +67,28 @@ You can also see detailed timing for each partition transformation step if you o
 }
 ```
 
-### Post processing time
+### Sink processing time
 
 When you select a sink transformation icon in your map, the slide-in panel on the right will show an additional data point called "post processing time" at the bottom. This is the amount time spent executing your job on the Spark cluster *after* your data has been loaded, transformed, and written. This time can include closing connection pools, driver shutdown, deleting files, coalescing files, etc. When you perform actions in your flow like "move files" and "output to single file", you will likely see an increase in the post processing time value.
+
+* Write stage duration: The time to write the data to a staging location for Synapse SQL
+* Table operation SQL duration: The time spent moving data from temp tables to target table
+* Pre SQL duration & Post SQL duration: The time spent running pre/post SQL commands
+* Pre commands duration & post commands duration: The time spent running any pre/post operations for file based source/sinks. For example move or delete files after processing.
+* Merge duration: The time spent merging the file, merge files are used for file based sinks when writing to single file or when "File name as column data" is used. If significant time is spent in this metric, you should avoid using these options.
+* Stage time: Total amount of time spent inside of Spark to complete the operation as a stage.
+* Temporary staging stable: Name of the temporary table used by data flows to stage data in the database.
   
+## Error rows
+
+Enabling error row handling in your data flow sink will be reflected in the monitoring output. When you set the sink to "report success on error", the monitoring output will show the number of success and failed rows when you click on the sink monitoring node.
+
+![Screenshot shows error rows.](media/data-flow/error-row-2.png "Error Row Monitoring Success")
+
+When you select "report failure on error", the same output will be shown only in the activity monitoring output text. This is because the data flow activity will return failure for execution and the detailed monitoring view will be unavailable.
+
+![Screenshot shows error rows in activity.](media/data-flow/error-rows-4.png "Error Row Monitoring Failure")
+
 ## Monitor Icons
 
 This icon means that the transformation data was already cached on the cluster, so the timings and execution path have taken that into account:

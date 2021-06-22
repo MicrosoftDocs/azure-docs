@@ -33,7 +33,7 @@ To complete this tutorial, you must have an active Azure account. If you don't h
 You also need the following items:
 
 - The latest version of [Android Studio](https://go.microsoft.com/fwlink/?LinkId=389797) is recommended.
-- Minimum support is API level 16.
+- Minimum support is API level 19.
 
 ## Create an Android Studio project
 
@@ -160,12 +160,8 @@ also have the connection strings that are necessary to send notifications to a d
 1. In the **build.gradle** file for the app, add the following lines in the dependencies section:
 
    ```gradle
-   implementation 'com.microsoft.azure:notification-hubs-android-sdk:1.0.0-preview1@aar'
+   implementation 'com.microsoft.azure:notification-hubs-android-sdk-fcm:1.1.4'
    implementation 'androidx.appcompat:appcompat:1.0.0'
-
-   implementation 'com.google.firebase:firebase-messaging:20.1.5'
-
-   implementation 'com.android.volley:volley:1.1.1'
    ```
 
 2. Add the following repository after the dependencies section:
@@ -192,22 +188,27 @@ also have the connection strings that are necessary to send notifications to a d
 
 1. Create a **NotificationHubListener** object, which handles intercepting the messages from Azure Notification Hubs.
 
-   ```csharp
-   public class CustomNotificationListener implements NotificationHubListener {
+   ```java
+   public class CustomNotificationListener implements NotificationListener {
 
       @override
+      public void onNotificationReceived(Context context, RemoteMessage message) {
+    
+         /* The following notification properties are available. */
+         Notification notification = message.getNotification();
+         String title = notification.getTitle();
+         String body = notification.getBody();
+         Map<String, String> data = message.getData();
+    
+         if (message != null) {
+            Log.d(TAG, "Message Notification Title: " + title);
+            Log.d(TAG, "Message Notification Body: " + message);
+         }
 
-      public void onNotificationReceived(Context context, NotificationMessage message) {
-
-      /* The following notification properties are available. */
-
-      String title = message.getTitle();
-      String message = message.getMessage();
-      Map<String, String> data = message.getData();
-
-      if (message != null) {
-         Log.d(TAG, "Message Notification Title: " + title);
-         Log.d(TAG, "Message Notification Body: " + message);
+         if (data != null) {
+             for (Map.Entry<String, String> entry : data.entrySet()) {
+                 Log.d(TAG, "key, " + entry.getKey() + " value " + entry.getValue());
+             }
          }
       }
    }
@@ -222,7 +223,7 @@ also have the connection strings that are necessary to send notifications to a d
       super.onCreate(savedInstanceState);
       setContentView(R.layout.activity\_main);
       NotificationHub.setListener(new CustomNotificationListener());
-      NotificationHub.initialize(this.getApplication(), “Connection-String”, "Hub Name");
+      NotificationHub.start(this.getApplication(), “Connection-String”, "Hub Name");
 
    }
    ```

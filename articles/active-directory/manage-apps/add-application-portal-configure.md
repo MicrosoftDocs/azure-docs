@@ -2,14 +2,14 @@
 title: 'Quickstart: Configure properties for an application in your Azure Active Directory (Azure AD) tenant'
 description: This quickstart uses the Azure portal to configure an application that has been registered with your Azure Active Directory (Azure AD) tenant.
 services: active-directory
-author: kenwith
-manager: celestedg
+author: mtillman
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/29/2019
-ms.author: kenwith
+ms.author: mtillman
 ---
 
 # Quickstart: Configure properties for an application in your Azure Active Directory (Azure AD) tenant
@@ -76,7 +76,7 @@ To use a custom logo:
 
 
 > [!TIP]
-> You can automate app management using the Graph API, see [Automate app management with Microsoft Graph API](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
+> You can automate app management using the Graph API, see [Automate app management with Microsoft Graph API](/graph/application-saml-sso-configure-api).
 
 ## Add notes
 

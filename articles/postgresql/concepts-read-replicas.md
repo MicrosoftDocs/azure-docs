@@ -5,7 +5,7 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 11/05/2020
+ms.date: 05/29/2021
 ---
 
 # Read replicas in Azure Database for PostgreSQL - Single Server
@@ -29,7 +29,10 @@ The feature is meant for scenarios where the lag is acceptable and meant for off
 > [!NOTE]
 > For most workloads read replicas offer near-real-time updates from the primary. However, with persistent heavy write-intensive primary workloads, the replication lag could continue to grow and may never be able to catch-up with the primary. This may also increase storage usage at the primary as the WAL files are not deleted until they are received at the replica. If this situation persists, deleting and recreating the read replica after the write-intensive workloads completes is the option to bring the replica back to a good state with respect to lag.
 > Asynchronous read replicas are not suitable for such heavy write workloads. When evaluating read replicas for your application, monitor the lag on the replica for a full app work load cycle thru its peak and non-peak times to access the possible lag and the expected RTO/RPO at various points of the workload cycle.
-> 
+
+> [!NOTE]
+> Automatic backups are performed for replica servers that are configured with up to 4TB storage configuration.
+
 ## Cross-region replication
 You can create a read replica in a different region from your primary server. Cross-region replication can be helpful for scenarios like disaster recovery planning or bringing data closer to your users.
 
@@ -51,8 +54,6 @@ In addition to the universal replica regions, you can create a read replica in t
 If you are using cross-region replicas for disaster recovery planning, we recommend you create the replica in the paired region instead of one of the other regions. Paired regions avoid simultaneous updates and prioritize physical isolation and data residency.  
 
 There are limitations to consider: 
-
-* Regional availability: Azure Database for PostgreSQL is available in France Central, UAE North, and Germany Central. However, their paired regions are not available.
 	
 * Uni-directional pairs: Some Azure regions are paired in one direction only. These regions include West India, Brazil South. 
    This means that a primary server in West India can create a replica in South India. However, a primary server in South India cannot create a replica in West India. This is because West India's secondary region is South India, but South India's secondary region is not West India.
@@ -66,6 +67,8 @@ Every replica is enabled for storage [auto-grow](concepts-pricing-tiers.md#stora
 The read replica feature uses PostgreSQL physical replication, not logical replication. Streaming replication by using replication slots is the default operation mode. When necessary, log shipping is used to catch up.
 
 Learn how to [create a read replica in the Azure portal](howto-read-replicas-portal.md).
+
+If your source PostgreSQL server is encrypted with customer-managed keys, please see the [documentation](concepts-data-encryption-postgresql.md) for additional considerations.
 
 ## Connect to a replica
 When you create a replica, it doesn't inherit the firewall rules or VNet service endpoint of the primary server. These rules must be set up independently for the replica.

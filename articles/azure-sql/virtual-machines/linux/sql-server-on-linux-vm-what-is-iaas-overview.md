@@ -1,7 +1,7 @@
 ---
 title: Overview of SQL Server on Azure Virtual Machines for Linux| Microsoft Docs
 description: Learn about how to run full SQL Server editions on Azure Virtual Machines for Linux. Get direct links to all Linux SQL Server VM images and related content.
-services: virtual-machines-linux
+services: virtual-machines-sql
 documentationcenter: ''
 author: MashaMSFT
 tags: azure-service-management
@@ -70,7 +70,7 @@ When you configure SQL Server on Linux, you install the Database Engine package 
 
 * [Virtual Network overview](../../../virtual-network/virtual-networks-overview.md)
 * [IP addresses in Azure](../../../virtual-network/public-ip-addresses.md)
-* [Create a Fully Qualified Domain Name in the Azure portal](../../../virtual-machines/windows/portal-create-fqdn.md)
+* [Create a Fully Qualified Domain Name in the Azure portal](../../../virtual-machines/create-fqdn.md)
 
 ### SQL
 
@@ -85,4 +85,4 @@ Get started with SQL Server on Linux virtual machines:
 
 Get answers to commonly asked questions about SQL Server VMs on Linux:
 
-* [SQL Server on Azure Virtual Machines FAQ](frequently-asked-questions-faq.md)
+* [SQL Server on Azure Virtual Machines FAQ](frequently-asked-questions-faq.yml)

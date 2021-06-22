@@ -1,30 +1,36 @@
 ---
 title: 'Tutorial: REST and AI over Azure blobs'
 titleSuffix: Azure Cognitive Search
-description: Step through an example of text extraction and natural language processing over content in Blob storage using Postman and the Azure Cognitive Search REST APIs. 
+description: Step through an example of text extraction and natural language processing over content in Blob Storage using Postman and the Azure Cognitive Search REST APIs. 
 
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 07/15/2020
+ms.date: 11/17/2020
 ---
 
 # Tutorial: Use REST and AI to generate searchable content from Azure blobs
 
-If you have unstructured text or images in Azure Blob storage, an [AI enrichment pipeline](cognitive-search-concept-intro.md) can extract information and create new content that is useful for full-text search or knowledge mining scenarios. Although a pipeline can process images, this REST tutorial focuses on text, applying language detection and natural language processing to create new fields that you can leverage in queries, facets, and filters.
+If you have unstructured text or images in Azure Blob Storage, an [AI enrichment pipeline](cognitive-search-concept-intro.md) can extract information and create new content from blobs that are useful for full-text search or knowledge mining scenarios. Although a pipeline can process images, this REST tutorial focuses on text, applying language detection and natural language processing to create new fields that you can leverage in queries, facets, and filters.
 
 This tutorial uses Postman and the [Search REST APIs](/rest/api/searchservice/) to perform the following tasks:
 
 > [!div class="checklist"]
-> * Start with whole documents (unstructured text) such as PDF, HTML, DOCX, and PPTX in Azure Blob storage.
-> * Define a pipeline that extracts text, detects language, recognizes entities, and detects key phrases.
-> * Define an index to store the output (raw content, plus pipeline-generated name-value pairs).
-> * Execute the pipeline to start transformations and analysis, and to create and load the index.
+> * Set up services and a Postman collection.
+> * Create an enrichment pipeline that extracts text, detects language, recognizes entities, and detects key phrases.
+> * Create an index to store the output (raw content, plus pipeline-generated name-value pairs).
+> * Execute the pipeline to perform transformations and analysis, and to load the index.
 > * Explore results using full text search and a rich query syntax.
 
 If you don't have an Azure subscription, open a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+## Overview
+
+This tutorial uses C# and the Azure Cognitive Search REST APIs to create a data source, index, indexer, and skillset. You'll start with whole documents (unstructured text) such as PDF, HTML, DOCX, and PPTX in Azure Blob Storage, and then run them through a skillset to extract entities, key phrases, and other text in the content files.
+
+This skillset uses built-in skills based on Cognitive Services APIs. Steps in the pipeline include language detection on text, key phrase extraction, and entity recognition (organizations). New information is stored in new fields that you can leverage in queries, facets, and filters.
 
 ## Prerequisites
 
@@ -41,9 +47,11 @@ If you don't have an Azure subscription, open a [free account](https://azure.mic
 
 1. Right-click the zip file and select **Extract All**. There are 14 files of various types. You'll use 7 for this exercise.
 
+Optionally, you can also download the source code, a Postman collection file, for this tutorial. Source code can be found at [https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Tutorial](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Tutorial).
+
 ## 1 - Create services
 
-This tutorial uses Azure Cognitive Search for indexing and queries, Cognitive Services on the backend for AI enrichment, and Azure Blob storage to provide the data. This tutorial stays under the free allocation of 20 transactions per indexer per day on Cognitive Services, so the only services you need to create are search and storage.
+This tutorial uses Azure Cognitive Search for indexing and queries, Cognitive Services on the backend for AI enrichment, and Azure Blob Storage to provide the data. This tutorial stays under the free allocation of 20 transactions per indexer per day on Cognitive Services, so the only services you need to create are search and storage.
 
 If possible, create both in the same region and resource group for proximity and manageability. In practice, your Azure Storage account can be in any region.
 
@@ -101,9 +109,9 @@ For this exercise, however, you can skip resource provisioning because Azure Cog
 
 The third component is Azure Cognitive Search, which you can [create in the portal](search-create-service-portal.md). You can use the Free tier to complete this walkthrough. 
 
-As with Azure Blob storage, take a moment to collect the access key. Further on, when you begin structuring requests, you will need to provide the endpoint and admin api-key used to authenticate each request.
+As with Azure Blob Storage, take a moment to collect the access key. Further on, when you begin structuring requests, you will need to provide the endpoint and admin api-key used to authenticate each request.
 
-### Get an admin api-key and URL for Azure Cognitive Search
+### Copy an admin api-key and URL for Azure Cognitive Search
 
 1. [Sign in to the Azure portal](https://portal.azure.com/), and in your search service **Overview** page, get the name of your search service. You can confirm your service name by reviewing the endpoint URL. If your endpoint URL were `https://mydemo.search.windows.net`, your service name would be `mydemo`.
 
@@ -117,17 +125,17 @@ All requests require an api-key in the header of every request sent to your serv
 
 ## 2 - Set up Postman
 
-Start Postman and set up an HTTP request. If you are unfamiliar with this tool, see [Explore Azure Cognitive Search REST APIs using Postman](search-get-started-postman.md).
+Start Postman and set up an HTTP request. If you are unfamiliar with this tool, see [Explore Azure Cognitive Search REST APIs](search-get-started-rest.md).
 
 The request methods used in this tutorial are **POST**, **PUT**, and **GET**. You'll use the methods to make four API calls to your search service: create a data source, a skillset, an index, and an indexer.
 
 In Headers, set "Content-type" to `application/json` and set `api-key` to the admin api-key of your Azure Cognitive Search service. Once you set the headers, you can use them for every request in this exercise.
 
-  ![Postman request URL and header](media/search-get-started-postman/postman-url.png "Postman request URL and header")
+  ![Postman request URL and header](media/search-get-started-rest/postman-url.png "Postman request URL and header")
 
 ## 3 - Create the pipeline
 
-In Azure Cognitive Search, AI processing occurs during indexing (or data ingestion). This part of the walkthrough creates four objects: data source, index definition, skillset, indexer. 
+In Azure Cognitive Search, enrichment occurs during indexing (or data ingestion). This part of the walkthrough creates four objects: data source, index definition, skillset, indexer. 
 
 ### Step 1: Create a data source
 
@@ -173,7 +181,7 @@ A [skillset object](/rest/api/searchservice/create-skillset) is a set of enrichm
 
    | Skill                 | Description    |
    |-----------------------|----------------|
-   | [Entity Recognition](cognitive-search-skill-entity-recognition.md) | Extracts the names of people, organizations, and locations from content in the blob container. |
+   | [Entity Recognition](cognitive-search-skill-entity-recognition-v3.md) | Extracts the names of people, organizations, and locations from content in the blob container. |
    | [Language Detection](cognitive-search-skill-language-detection.md) | Detects the content's language. |
    | [Text Split](cognitive-search-skill-textsplit.md)  | Breaks large content into smaller chunks before calling the key phrase extraction skill. Key phrase extraction accepts inputs of 50,000 characters or less. A few of the sample files need splitting up to fit within this limit. |
    | [Key Phrase Extraction](cognitive-search-skill-keyphrases.md) | Pulls out the top key phrases. |
@@ -346,7 +354,7 @@ An [Indexer](/rest/api/searchservice/create-indexer) drives the pipeline. The th
 
     ```json
     {
-      "name":"cog-search-demo-idxr",	
+      "name":"cog-search-demo-idxr",
       "dataSourceName" : "cog-search-demo-ds",
       "targetIndexName" : "cog-search-demo-idx",
       "skillsetName" : "cog-search-demo-ss",

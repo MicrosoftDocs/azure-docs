@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/06/2018
+ms.date: 12/14/2020
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: "it-pro, seodec18"
@@ -45,11 +45,16 @@ You can view your available service plans, including the individual licenses, ch
 
 1. Select **Azure Active Directory**, and then select **Licenses**.
 
-    ![Licenses page, with number of purchased services and assigned licenses](media/license-users-groups/license-details-blade.png)
+1. Select **All products** to view the All Products page and to see the **Total**, **Assigned**, **Available**, and **Expiring soon** numbers for your license plans.
 
-1. Select the **Purchased** link to view the **Products** page and to see the **Assigned**, **Available**, and **Expiring soon** numbers for your license plans.
+    :::image type="content" source="media/license-users-groups/license-products-blade-with-products.png" alt-text="services page - with service license plans - associated license info":::
 
-    ![services page, with service license plans and associated license info](media/license-users-groups/license-products-blade-with-products.png)
+    > [!NOTE]
+    > The numbers are defined as: 
+    > - Total: Total number of licenses purchased
+    > - Assigned: Number of licenses assigned to users
+    > - Available: Number of licenses available for assignment including expiring soon
+    > - Expiring soon: Number of licenses expiring soon
 
 1. Select a plan name to see its licensed users and groups.
 
@@ -61,11 +66,9 @@ Make sure that anyone needing to use a licensed Azure AD service has the appropr
 
 1. On the **Products** page, select the name of the license plan you want to assign to the user.
 
-    ![services page, with highlighted service license plan](media/license-users-groups/license-products-blade-with-product-highlight.png)
+1. After you select the license plan, select **Assign**.
 
-1. On the license plan overview page, select **Assign**.
-
-    ![services page, with highlighted Assign option](media/license-users-groups/license-products-blade-with-assign-option-highlight.png)
+    ![services page, with highlighted license plan selection and Assign options](media/license-users-groups/license-products-blade-with-assign-option-highlight.png)
 
 1. On the **Assign** page, select **Users and groups**, and then search for and select the user you're assigning the license.
 

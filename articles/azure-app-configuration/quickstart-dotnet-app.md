@@ -3,13 +3,13 @@ title: Quickstart for Azure App Configuration with .NET Framework | Microsoft Do
 description: In this article, create a .NET Framework app with Azure App Configuration to centralize storage and management of application settings separate from your code.
 services: azure-app-configuration
 documentationcenter: ''
-author: lisaguthrie
+author: AlexandraKemperMS
 
 ms.service: azure-app-configuration
 ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 09/28/2020
-ms.author: lcozzens
+ms.author: alkemper
 
 #Customer intent: As a .NET Framework developer, I want to manage all my app settings in one place.
 ---

@@ -4,7 +4,7 @@ description: Learn how you can use attestation to verify that your confidential 
 services: virtual-machines
 author: JBCook
 ms.service: virtual-machines
-ms.subservice: workloads
+ms.subservice: confidential-computing
 ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 9/22/2020
@@ -25,7 +25,7 @@ Attestation allows a relying party to have increased confidence that their softw
 
 Attestation must be implemented using a secure attestation service that is compatible with the system software and silicon. Some examples of services you can use are
 
-- [Microsoft Azure Attestation (preview)](https://docs.microsoft.com/azure/attestation/overview) 
+- [Microsoft Azure Attestation (preview)](../attestation/overview.md) 
 or
 - [Intel's attestation and provisioning services](https://software.intel.com/sgx/attestation-services)
 
@@ -33,4 +33,4 @@ or
 which are both compatible with Azure confidential computing Intel SGX infrastructure. 
 
 ## Next steps
-Try the [Microsoft Azure Attestation samples for enclave aware apps](https://docs.microsoft.com/samples/azure-samples/microsoft-azure-attestation/sample-code-for-intel-sgx-attestation-using-microsoft-azure-attestation/).
+Try the [Microsoft Azure Attestation samples for enclave aware apps](/samples/azure-samples/microsoft-azure-attestation/sample-code-for-intel-sgx-attestation-using-microsoft-azure-attestation/).

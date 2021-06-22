@@ -1,13 +1,10 @@
 ---
 title: Support for VMware/physical disaster recovery to a secondary site with Azure Site Recovery 
 description: Summarizes the support for disaster recovery of VMware VMs and physical servers to a secondary site with Azure Site Recovery.
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
 services: site-recovery
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/14/2019
-ms.author: raynew
 ---
 
 # Support matrix for disaster recovery of VMware VMs and physical servers to a secondary site

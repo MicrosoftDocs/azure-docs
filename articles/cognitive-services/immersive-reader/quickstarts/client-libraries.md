@@ -1,15 +1,15 @@
 ---
 title: "Quickstart: Immersive Reader client library"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: "The Immersive Reader client library makes it easy to integrate the Immersive Reader service into your web applications to improve reading comprehension. In this quickstart, you'll learn how to use Immersive Reader for text selection, recognizing parts of speech, reading selected text out loud, translation, and more."
 services: cognitive-services
 author: nitinme
 manager: nitinme
 zone_pivot_groups: programming-languages-set-twenty
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: immersive-reader
 ms.topic: quickstart
-ms.date: 09/14/2020
+ms.date: 03/08/2021
 ms.author: nitinme
 ms.custom: cog-serv-seo-aug-2020
 keywords: display pictures, parts of speech, read selected text, translate words, reading comprehension

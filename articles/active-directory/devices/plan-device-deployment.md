@@ -43,7 +43,7 @@ The key benefits of giving your devices an Azure AD identity:
 
 * Increase productivity – With Azure AD, your users can do [seamless sign-on (SSO)](./azuread-join-sso.md) to your on-premises and cloud resources, which enables them to be productive wherever they are.
 
-* Increase security – Azure AD devices enable you to apply [Conditional Access (CA) policies](../conditional-access/require-managed-devices.md) to resources based on the identity of the device or user. CA policies can offer extra protection using [Azure AD Identity Protection](../identity-protection/overview-identity-protection.md). Joining a device to Azure AD is a prerequisite for increasing your security with a [Passwordless Authentication](../authentication/concept-authentication-passwordless.md) strategy.
+* Increase security – Azure AD devices enable you to apply [Conditional Access policies](../conditional-access/require-managed-devices.md) to resources based on the identity of the device or user. Conditional Access policies can offer extra protection using [Azure AD Identity Protection](../identity-protection/overview-identity-protection.md). Joining a device to Azure AD is a prerequisite for increasing your security with a [Passwordless Authentication](../authentication/concept-authentication-passwordless.md) strategy.
 
 * Improve user experience – With device identities in Azure AD, you can provide your users with easy access to your organization’s cloud-based resources from both personal and corporate devices. Administrators can enable [Enterprise State Roaming](enterprise-state-roaming-overview.md) for a unified experience across all Windows devices.
 
@@ -53,7 +53,7 @@ The key benefits of giving your devices an Azure AD identity:
 
 Video:  [Conditional access with device controls](https://youtu.be/NcONUf-jeS4)
 
-FAQs: [Azure AD device management FAQ](faq.md)  and [Settings and data roaming FAQ](enterprise-state-roaming-faqs.md) 
+FAQs: [Azure AD device management FAQ](faq.yml)  and [Settings and data roaming FAQ](enterprise-state-roaming-faqs.yml) 
 
 ## Plan the deployment project
 
@@ -128,7 +128,7 @@ Conditional Access <br>(Require hybrid Azure AD joined devices)| | | ![Checkmark
 
 Registered devices are often managed with [Microsoft Intune](/mem/intune/enrollment/device-enrollment). Devices are enrolled in Intune in a number of ways, depending on the operating system. 
 
-Azure AD registered devices provide support for Bring Your Own Devices (BYOD) and corporate owned devices to SSO to cloud resources. Access to resources is based on the Azure AD [CA policies](../conditional-access/require-managed-devices.md) applied to the device and the user.
+Azure AD registered devices provide support for Bring Your Own Devices (BYOD) and corporate owned devices to SSO to cloud resources. Access to resources is based on the Azure AD [Conditional Access policies](../conditional-access/require-managed-devices.md) applied to the device and the user.
 
 ### Registering devices
 
@@ -238,9 +238,9 @@ Review supported and unsupported platforms for integrated devices:
 
 | Device management tools| Azure AD registered| Azure AD join| Hybrid Azure AD join|
 | - | - | - | - |
-| [Mobile Device Management (MDM) ](/windows/client-management/mdm/azure-active-directory-integration-with-mdm) <br>Example: Microsoft Intune| ![Checkmark for these values.](./media/plan-device-deployment/check.png)| ![Checkmark for these values.](./media/plan-device-deployment/check.png)| ![Checkmark for these values.](./media/plan-device-deployment/check.png)|  |
-| [Co management with Microsoft Intune and Microsoft Endpoint Configuration Manager](/mem/configmgr/comanage/overview) <br>(Windows 10 and later)| | ![Checkmark for these values.](./media/plan-device-deployment/check.png)| ![Checkmark for these values.](./media/plan-device-deployment/check.png)|  |
-| [Group policy](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831791(v=ws.11))<br>(Windows only)| | | ![Checkmark for these values.](./media/plan-device-deployment/check.png)|  |
+| [Mobile Device Management (MDM) ](/windows/client-management/mdm/azure-active-directory-integration-with-mdm) <br>Example: Microsoft Intune| ![Checkmark for these values.](./media/plan-device-deployment/check.png)| ![Checkmark for these values.](./media/plan-device-deployment/check.png)| ![Checkmark for these values.](./media/plan-device-deployment/check.png)| 
+| [Co management with Microsoft Intune and Microsoft Endpoint Configuration Manager](/mem/configmgr/comanage/overview) <br>(Windows 10 and later)| | ![Checkmark for these values.](./media/plan-device-deployment/check.png)| ![Checkmark for these values.](./media/plan-device-deployment/check.png)| 
+| [Group policy](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831791(v=ws.11))<br>(Windows only)| | | ![Checkmark for these values.](./media/plan-device-deployment/check.png)| 
 
 
 

@@ -1,10 +1,10 @@
 ---
-author: PatrickFarley
-ms.service: cognitive-services
+author: laujan
+ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 06/27/2019
-ms.author: pafarley
+ms.author: lajanuar
 ---
 
 Form Recognizer works on input documents that meet these requirements:
@@ -17,11 +17,5 @@ Form Recognizer works on input documents that meet these requirements:
 * The total size of the training data set must be 500 pages or less.
 * If your PDFs are password-locked, you must remove the lock before submitting them.
 * If scanned from paper documents, forms should be high-quality scans.
-* Text must use the Latin alphabet (English characters).
 * For unsupervised learning (without labeled data), data must contain keys and values.
 * For unsupervised learning (without labeled data), keys must appear above or to the left of the values; they can't appear below or to the right.
-
-Form Recognizer doesn't currently support these types of input data:
-
-* Complex tables (nested tables, merged headers or cells, and so on).
-* Checkboxes or radio buttons.

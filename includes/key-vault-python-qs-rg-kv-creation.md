@@ -27,16 +27,6 @@ ms.author: msmbaldwin
 
 1. Create an environment variable that supplies the name of the Key Vault to the code:
 
-    # [cmd](#tab/cmd)
-
-    ```cmd
-    set KEY_VAULT_NAME=<your-unique-keyvault-name>
-    ```
-
-    # [bash](#tab/bash)
-
     ```bash
     export KEY_VAULT_NAME=<your-unique-keyvault-name>
     ```
-
-    ---

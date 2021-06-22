@@ -5,12 +5,13 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 10/06/2020
-ms.author: mjbrown
+ms.date: 05/13/2021
+ms.author: mjbrown 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Prevent Azure Cosmos DB resources from being deleted or changed
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 As an administrator, you may need to lock an Azure Cosmos account, database or container to prevent other users in your organization from accidentally deleting or modifying critical resources. You can set the lock level to CanNotDelete or ReadOnly.
 
@@ -21,7 +22,7 @@ As an administrator, you may need to lock an Azure Cosmos account, database or c
 
 When you apply a lock at a parent scope, all resources within that scope inherit the same lock. Even resources you add later inherit the lock from the parent. The most restrictive lock in the inheritance takes precedence.
 
-Unlike role-based access control, you use management locks to apply a restriction across all users and roles. To learn about RBAC for Azure Cosmos DB see, [Role-based access control in Azure Cosmos DB](role-based-access-control.md).
+Unlike Azure role-based access control, you use management locks to apply a restriction across all users and roles. To learn about Azure RBAC for Azure Cosmos DB see, [Azure role-based access control in Azure Cosmos DB](role-based-access-control.md).
 
 Resource Manager locks apply only to operations that happen in the management plane, which consists of operations sent to https://management.azure.com. The locks don't restrict how resources perform their own functions. Resource changes are restricted, but resource operations aren't restricted. For example, a ReadOnly lock on an Azure Cosmos container prevents you from deleting or modifying the container. It doesn't prevent you from creating, updating, or deleting data in the container. Data transactions are permitted because those operations aren't sent to https://management.azure.com.
 
@@ -32,7 +33,7 @@ Resource Manager locks apply only to operations that happen in the management pl
 
 ### PowerShell
 
-```powershell
+```powershell-interactive
 $resourceGroupName = "myResourceGroup"
 $accountName = "my-cosmos-account"
 $lockName = "$accountName-Lock"
@@ -52,7 +53,7 @@ New-AzResourceLock `
 
 ### Azure CLI
 
-```bash
+```azurecli-interactive
 resourceGroupName='myResourceGroup'
 accountName='my-cosmos-account'
 $lockName="$accountName-Lock"

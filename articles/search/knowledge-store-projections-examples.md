@@ -29,7 +29,7 @@ There are three types of [projections](knowledge-store-projection-overview.md):
 + Objects
 + Files
 
-Table projections are stored in Azure Table storage. Object and file projections are written to blob storage, where object projections are saved as JSON files, and can contain content from the source document as well as any skill outputs or enrichments. The enrichment pipeline can also extract binaries like images, these binaries are projected as file projections. When a binary object is projected as an object projection, only the metadata associated with it is saved as a JSON blob. 
+Table projections are stored in Azure Table Storage. Object and file projections are written to blob storage, where object projections are saved as JSON files, and can contain content from the source document as well as any skill outputs or enrichments. The enrichment pipeline can also extract binaries like images, these binaries are projected as file projections. When a binary object is projected as an object projection, only the metadata associated with it is saved as a JSON blob. 
 
 To understand the intersection between data shaping and projections, we'll use the following skillset as the basis for exploring various configurations. This skillset processes raw image and text content. Projections will be defined from the contents of the document and the outputs of the skills, for the desired scenarios.
 
@@ -534,7 +534,7 @@ From the consolidated crossProjection object, slice the object into multiple tab
         "storageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<Acct Name>;AccountKey=<Acct Key>;",
         "projections": [
              {
-        		"tables": [
+                "tables": [
                     {
                         "tableName": "crossDocument",
                         "generatedKeyName": "Id",
@@ -558,7 +558,7 @@ From the consolidated crossProjection object, slice the object into multiple tab
                      
                 ],
                 "objects": [
-                	{
+                    {
                         "storageContainer": "crossobject",
                         "generatedKeyName": "crosslayout",
                         "source": null,
@@ -572,14 +572,13 @@ From the consolidated crossProjection object, slice the object into multiple tab
                     }
                 ],
                 "files": [
-                	 {
+                    {
                         "storageContainer": "crossimages",
                         "generatedKeyName": "crossimages",
                         "source": "/document/crossProjection/images/*/image"
                     }
-                	]
-                
-        	}
+                ]
+            }
         ]
     }
 ```
@@ -626,10 +625,10 @@ When building projections of different types, file and object projections are ge
                         "source": null,
                         "sourceContext": "/document/normalized_images/*/text",
                         "inputs": [
-                        	{
-                        		"name": "ocrText",
-                        		"source": "/document/normalized_images/*/text"
-                        	}
+                            {
+                                "name": "ocrText",
+                                "source": "/document/normalized_images/*/text"
+                            }
                         ]
                     },
                     {
@@ -637,10 +636,10 @@ When building projections of different types, file and object projections are ge
                         "source": null,
                         "sourceContext": "/document/normalized_images/*/layoutText",
                         "inputs": [
-                        	{
-                        		"name": "ocrLayoutText",
-                        		"source": "/document/normalized_images/*/layoutText"
-                        	}
+                            {
+                                "name": "ocrLayoutText",
+                                "source": "/document/normalized_images/*/layoutText"
+                            }
                         ]
                     }
                 ],

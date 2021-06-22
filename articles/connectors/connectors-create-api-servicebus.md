@@ -3,9 +3,9 @@ title: Exchange messages with Azure Service Bus
 description: Create automated tasks and workflows that send and receive messages by using Azure Service Bus in Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: logicappspm
+ms.reviewer: logicappspm, azla
 ms.topic: conceptual
-ms.date: 10/22/2020
+ms.date: 02/10/2021
 tags: connectors
 ---
 
@@ -28,11 +28,11 @@ You can use triggers that get responses from Service Bus and make the output ava
 
 * An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
 
-* A Service Bus namespace and messaging entity, such as a queue. These items and your logic app need to use the same Azure subscription. If you don't have these items, learn how to [create your Service Bus namespace and a queue](../service-bus-messaging/service-bus-create-namespace-portal.md).
+* A Service Bus namespace and messaging entity, such as a queue. If you don't have these items, learn how to [create your Service Bus namespace and a queue](../service-bus-messaging/service-bus-create-namespace-portal.md).
 
 * Basic knowledge about [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* The logic app where you use the Service Bus namespace and messaging entity. Your logic app and the service bus need to use the same Azure subscription. To start your workflow with a Service Bus trigger, [create a blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). To use a Service Bus action in your workflow, start your logic app with another trigger, for example, the [Recurrence trigger](../connectors/connectors-native-recurrence.md).
+* The logic app where you use the Service Bus namespace and messaging entity. To start your workflow with a Service Bus trigger, [create a blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). To use a Service Bus action in your workflow, start your logic app with another trigger, for example, the [Recurrence trigger](../connectors/connectors-native-recurrence.md).
 
 <a name="permissions-connection-string"></a>
 
@@ -174,7 +174,7 @@ When you create a logic app, you can select the **Correlated in-order delivery u
 
 ## Delays in updates to your logic app taking effect
 
-If a Service Bus trigger's polling interval is small, such as 10 seconds, updates to your logic app might not take effect for up to 10 minutes. To work around this problem, you can temporarily increase the polling interval to a larger value, such as 30 seconds or 1 minute, before you update your logic app. After you make the update, you can reset the polling interval to the original value. 
+If a Service Bus trigger's polling interval is small, such as 10 seconds, updates to your logic app might not take effect for up to 10 minutes. To work around this problem, you can disable the logic app, make the changes, and then enable the logic app again.
 
 <a name="connector-reference"></a>
 

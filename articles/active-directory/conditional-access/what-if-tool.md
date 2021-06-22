@@ -22,6 +22,8 @@ ms.collection: M365-identity-device-management
 
 This article explains how you can use this tool to test your Conditional Access policies.
 
+> [!VIDEO https://www.youtube.com/embed/M_iQVM-3C3E]
+
 ## What it is
 
 The **Conditional Access What If policy tool** allows you to understand the impact of your Conditional Access policies on your environment. Instead of test driving your policies by performing multiple sign-ins manually, this tool enables you to evaluate a simulated sign-in of a user. The simulation estimates the impact this sign-in has on your policies and generates a simulation report. The report does not only list the applied Conditional Access policies but also [classic policies](policy-migration.md#classic-policies) if they exist.    
