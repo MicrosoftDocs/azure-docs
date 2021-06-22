@@ -75,5 +75,6 @@ The apps in your ASE will use the DNS that your VNet is configured with. If you 
 
 While the ASE does deploy into a customer VNet, there are a few networking features that aren't available with ASE. 
 
-• SMTP
-• Use of Network Watcher or NSG Flow on outbound traffic
+* send SMTP traffic. You can still have email triggered alerts but your app can't send outbound traffic on port 25
+* Use of Network Watcher or NSG Flow to monitor outbound traffic
+
