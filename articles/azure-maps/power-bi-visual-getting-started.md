@@ -140,6 +140,7 @@ At this time, Azure Maps is currently available in all countries and regions exc
 
 - China
 - South Korea
+- Azure Government (GCC + GCC High)
 
 For coverage details for the different Azure Maps services that power this visual, see the [Geographic coverage information](geographic-coverage.md) document.
 

@@ -5,7 +5,7 @@
       "redirect_url": "/previous-versions/azure/virtual-machines/linux/freebsd-pf-nat",
       "redirect_document_id": false
     },
-    {  
+    {
       "source_path": "articles/dev-spaces/index.yml",
       "redirect_url": "/previous-versions/azure/dev-spaces/index",
       "redirect_document_id": false
@@ -2224,10 +2224,10 @@
       "redirect_document_id": false
     },
     {
-        "source_path": "articles/machine-learning/how-to-deploy-custom-docker-image.md",
-        "redirect_url": "/azure/machine-learning/how-to-deploy-custom-container",
-        "redirect_document_id": false
-      },
+      "source_path": "articles/machine-learning/how-to-deploy-custom-docker-image.md",
+      "redirect_url": "/azure/machine-learning/how-to-deploy-custom-container",
+      "redirect_document_id": false
+    },
     {
       "source_path_from_root": "/articles/machine-learning/how-to-auto-train-remote.md",
       "redirect_url": "/azure/machine-learning/concept-automated-ml#local-remote",
@@ -14063,7 +14063,7 @@
       "redirect_url": "/azure/backup/security-baseline",
       "redirect_document_id": false
     },
-	 {
+    {
       "source_path_from_root": "/articles/networking/edge-zones-overview.md",
       "redirect_url": "/azure/private-multi-access-edge-compute-mec/overview",
       "redirect_document_id": false
@@ -15803,7 +15803,6 @@
       "redirect_url": "/azure/cost-management-billing/costs/ingest-azure-usage-at-scale",
       "redirect_document_id": true
     },
-
     {
       "source_path_from_root": "/articles/databox-family/index.md",
       "redirect_url": "/azure/databox/index",
@@ -26314,7 +26313,6 @@
       "redirect_url": "/azure/marketplace/azure-ad-saas",
       "redirect_document_id": true
     },
-
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive.md",
       "redirect_url": "/azure/marketplace/azure-resource-manager-test-drive",
@@ -64082,6 +64080,21 @@
     {
       "source_path_from_root": "/articles/cognitive-services/metrics-advisor/how-tos/diagnose-incident.md",
       "redirect_url": "/azure/cognitive-services/metrics-advisor/how-tos/diagnose-an-incident",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/dms/known-issues-azure-mysql-online.md",
+      "redirect_url": "/azure/dms/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/dms/tutorial-mysql-azure-mysql-online.md",
+      "redirect_url": "/azure/dms/tutorial-mysql-azure-mysql-offline-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/dms/tutorial-rds-mysql-server-azure-db-for-mysql-online.md",
+      "redirect_url": "/azure/dms/tutorial-mysql-azure-mysql-offline-portal",
       "redirect_document_id": false
     }
   ]

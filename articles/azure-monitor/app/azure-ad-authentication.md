@@ -381,7 +381,7 @@ appInsights.setup("InstrumentationKey=00000000-0000-0000-0000-000000000000;Inges
 
 ### [Java](#tab/java)
 
-#### HTTP Traffic
+#### HTTP traffic
 
 You can inspect network traffic using a tool like Fiddler. To enable the traffic to tunnel through fiddler either add the following proxy settings in configuration file:
 
@@ -454,6 +454,6 @@ You're probably missing a credential or your credential is set to `None`, but yo
 Usually occurs when the provided credentials don't grant access to ingest telemetry for the Application Insights resource. Make sure your AI resource has the correct role assignments.
 
 ---
-## Next Steps
+## Next steps
 * [Monitor your telemetry in the portal](overview-dashboard.md).
 * [Diagnose with Live Metrics Stream](live-stream.md).

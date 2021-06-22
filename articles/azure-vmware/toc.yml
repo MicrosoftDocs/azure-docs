@@ -160,6 +160,8 @@
       href: /azure/azure-vmware/faq#hosts,-clusters,-and-private-clouds
     - name: Identity management
       href: /azure/azure-vmware/faq#identity-management
+    - name: CSP and multi-tenancy
+      href: /azure/azure-vmware/faq#csp-and-multi-tenancy
     - name: Billing and support
       href: /azure/azure-vmware/faq#billing-and-support
   - name: Videos 
