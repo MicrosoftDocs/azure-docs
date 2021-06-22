@@ -2339,6 +2339,8 @@
         href: github-enterprise-managed-user-provisioning-tutorial.md
       - name: GoToMeeting
         href: citrixgotomeeting-provisioning-tutorial.md
+      - name: GoLinks
+        href: golinks-provisioning-tutorial.md
       - name: Grammarly
         href: grammarly-provisioning-tutorial.md        
       - name: GroupTalk
@@ -2393,6 +2395,8 @@
         href: logicgate-provisioning-tutorial.md
       - name: Looop
         href: looop-provisioning-tutorial.md
+      - name: LogMeIn
+        href: logmein-provisioning-tutorial.md
       - name: MediusFlow
         href: mediusflow-provisioning-tutorial.md
       - name: Merchlogix
@@ -2493,6 +2497,8 @@
         href: snowflake-provisioning-tutorial.md
       - name: Smartsheet
         href: smartsheet-provisioning-tutorial.md
+      - name: Smallstep SSH
+        href: smallstep-ssh-provisioning-tutorial.md
       - name: Soloinsight-CloudGate SSO
         href: soloinsight-cloudgate-sso-provisioning-tutorial.md
       - name: Symantec Web Security Service (WSS)
