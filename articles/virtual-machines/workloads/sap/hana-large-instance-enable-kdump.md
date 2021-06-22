@@ -62,7 +62,7 @@ Configuring and enabling kdump is needed to troubleshoot system crashes that don
 ## Setup details
 
 - The script to enable kdump can be found in the [Azure sap-hana-tools on GitHub](https://github.com/Azure/sap-hana-tools/blob/master/tools/enable-kdump.sh)
-- 
+
 > [!NOTE]
 > This script is made based on our lab setup. You will need to contact your OS vendor for any further tuning.
 > A separate logical unit number (LUN) will be provisioned for new and existing servers for saving the dumps. A script will take care of configuring the file system out of the LUN.
