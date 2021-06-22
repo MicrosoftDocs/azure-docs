@@ -62,14 +62,13 @@ The Azure Resource Explorer is now opened with your web app selected in the reso
 
 In the left browser, drill down to **config** > **authsettingsV2**.
 
-In the **authsettingsV2** view, select **Edit**. Find the **login** section of **identityProviders** -> **azureActiveDirectory** and add the following **loginParameters**: `"loginParameters":[ "response_type=code id_token","resource=00000003-0000-0000-c000-000000000000" ]` .
+In the **authsettingsV2** view, select **Edit**. Find the **login** section of **identityProviders** -> **azureActiveDirectory** and add the following **loginParameters** settings: `"loginParameters":[ "response_type=code id_token","resource=00000003-0000-0000-c000-000000000000" ]` .
 
 ```json
 "identityProviders": {
     "azureActiveDirectory": {
       "enabled": true,
       "login": {
-        "disableWWWAuthenticate": false,
         "loginParameters":[
           "response_type=code id_token",
           "resource=00000003-0000-0000-c000-000000000000"
@@ -84,7 +83,7 @@ Save your settings by selecting **PUT**. This setting can take several minutes t
 
 # [Azure CLI](#tab/azure-cli)
 
-Use the Azure CLI to call the App Service Web App REST APIs to [get](/rest/api/appservice/web-apps/get-auth-settings) and [update](https://docs.microsoft.com/en-us/rest/api/appservice/web-apps/update-auth-settings) the auth configuration settings so your web app can call Microsoft Graph. Open a command window and login to Azure CLI:
+Use the Azure CLI to call the App Service Web App REST APIs to [get](/rest/api/appservice/web-apps/get-auth-settings) and [update](/rest/api/appservice/web-apps/update-auth-settings) the auth configuration settings so your web app can call Microsoft Graph. Open a command window and login to Azure CLI:
 
 ```azurecli
 az login
@@ -96,14 +95,13 @@ Get your existing 'config/authsettingsv2’ settings and save to a local *authse
 az rest --method GET --url '/subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP}/providers/Microsoft.Web/sites/{WEBAPP_NAME}/config/authsettingsv2/list?api-version=2020-06-01' > authsettings.json
 ```
 
-Open the authsettings.json file using your preferred text editor. Find the **login** section of **identityProviders** -> **azureActiveDirectory** and add the following **loginParameters**: `"loginParameters":[ "response_type=code id_token","resource=00000003-0000-0000-c000-000000000000" ]` .
+Open the authsettings.json file using your preferred text editor. Find the **login** section of **identityProviders** -> **azureActiveDirectory** and add the following **loginParameters** settings: `"loginParameters":[ "response_type=code id_token","resource=00000003-0000-0000-c000-000000000000" ]` .
 
 ```json
 "identityProviders": {
     "azureActiveDirectory": {
       "enabled": true,
       "login": {
-        "disableWWWAuthenticate": false,
         "loginParameters":[
           "response_type=code id_token",
           "resource=00000003-0000-0000-c000-000000000000"
@@ -124,9 +122,9 @@ az rest --method PUT --url '/subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RES
 ## Update the issuer URL
 In the [Azure Portal](https://portal.azure.com), navigate to your App Service and then the **Authentication** blade.
 
-Click the **Edit* link next to the Microsoft identity provider.
+Click the **Edit** link next to the Microsoft identity provider.
 
-Check the the **Issuer URL** in the **Basics** tab. If the **Issuer URL** contains "/v2.0" at the end of it, remove it and click **Save**. If you don’t remove “/v2.0”, you get an *AADSTS901002: The 'resource' request parameter is not supported** when you sign in to the web app.
+Check the the **Issuer URL** in the **Basics** tab. If the **Issuer URL** contains "/v2.0" at the end of it, remove it and click **Save**. If you don’t remove “/v2.0”, you get an *AADSTS901002: The 'resource' request parameter is not supported* when you sign in to the web app.
 
 ## Call Microsoft Graph (.NET)
 
