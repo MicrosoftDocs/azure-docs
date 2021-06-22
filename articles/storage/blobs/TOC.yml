@@ -274,6 +274,8 @@
         href: network-file-system-protocol-support.md
       - name: Performance considerations
         href: network-file-system-protocol-support-performance.md
+      - name: Known issues
+        href: network-file-system-protocol-known-issues.md
     - name: Event handling
       href: storage-blob-event-overview.md
     - name: Page blob features
@@ -621,6 +623,8 @@
       href: https://azure.microsoft.com/pricing/calculator/
     - name: Videos
       href: https://azure.microsoft.com/documentation/videos/index/?services=storage
+    - name: Compare access with NFS to Azure Blob Storage, Azure Files, and Azure NetApp Files
+      href: ../common/nfs-comparison.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: NuGet packages (.NET)
       items:
       - name: Microsoft.Azure.Storage.Common (version 11.x)
