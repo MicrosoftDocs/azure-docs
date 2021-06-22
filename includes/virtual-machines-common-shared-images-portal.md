@@ -61,31 +61,14 @@ The steps for creating an image version are slightly different, depending on whe
 1. In the page for your image definition, select **Add version** from the top of the page.
 1. In **Region**, select the region where you want the image created.
 1. For **Version number**, type a number like *1.0.0*. The image version name should follow *major*.*minor*.*patch* format using integers. 
-1. In **Source image**, select your source managed image from the drop-down. See the tabs below for specific details for each source type.
+1. In **Source image**, select your source managed image from the drop-down. See the table below for specific details for each source type.
 
-### [Disks or snapshots](#tab/disk)
-
-1. For **OS disk** select the disk or snapshot from the drop-down.
-1. To add a data disk, type the LUN number and then select the data disk from the drop-down. 
-
-
-### [Image version](#tab/version)
-
-1. Select the **Source gallery** from the drop-down.
-1. Select the correct image definition from the drop-down.
-1. Select the existing image version that you want to use from the drop-down.
-
-
-
-### [managed image](#tab/managed)
-
-Select the **Source image** from the drop-down. The managed image must be in the same region that you chose in **Instance details**.
-
-### [VHD](#tab/vhd)
-
-Select **Browse** to choose the storage account for the VHD.
-
----
+    | Source | Other fields |
+    |---|---|
+    | Disks or snapshots | - For **OS disk** select the disk or snapshot from the drop-down. <br> - To add a data disk, type the LUN number and then select the data disk from the drop-down. |
+    | Image version | - Select the **Source gallery** from the drop-down. <br> - Select the correct image definition from the drop-down. <br>- Select the existing image version that you want to use from the drop-down. |
+    | Managed image | Select the **Source image** from the drop-down. <br>The managed image must be in the same region that you chose in **Instance details**.
+    | VHD in a storage account | Select **Browse** to choose the storage account for the VHD. |
 
 1. In **Exclude from latest**, leave the default value of *No*.
 1. For **End of life date**, select a date from the calendar that is a couple of months in the future.
