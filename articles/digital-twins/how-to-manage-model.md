@@ -140,11 +140,13 @@ Next, update the **twins and relationships** in your instance to use the new mod
 
 You may also need to update **relationships** and other **models** in your instance that reference this model, to make them refer to the new model version. This will be another model update operation, so return to the beginning of this section and repeat the process for any additional models that need updating.
 
-#### 3. (Optional) Decomission or delete old model version
+#### 3. (Optional) Decommission or delete old model version
 
-If you won't be using the old model version anymore, you can [decomission](#decommissioning) the older model. This will allow it to keep existing in the instance, but it can't be used to create new digital twins.
+If you won't be using the old model version anymore, you can [decommission](#decommissioning) the older model. This will allow it to keep existing in the instance, but it can't be used to create new digital twins.
 
 You can also [delete](#deletion) the old model completely if you don't want it in the instance anymore at all.
+
+The sections linked here contain example code and considerations for decommissioning and deleting models.
 
 ### Option 2: Delete old model and re-upload
 
@@ -194,9 +196,13 @@ These are separate features and they do not impact each other, although they may
 
 ### Decommissioning
 
-Here is the code to decommission a model:
+To decommission a model, you can use the [DecommissionModel](/dotnet/api/azure.digitaltwins.core.digitaltwinsclient.decommissionmodel?view=azure-dotnet&preserve-view=true) method from the SDK:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/model_operations.cs" id="DecommissionModel":::
+
+You can also decommission a model using the REST API call [DigitalTwinModels Update](/rest/api/digital-twins/dataplane/models/digitaltwinmodels_update). The `decommissioned` property is the only property that can be replaced with this API call. The JSON Patch document will look something like this:
+
+:::code language="json" source="~/digital-twins-docs-samples/models/patch-decommission-model.json":::
 
 A model's decommissioning status is included in the `ModelData` records returned by the model retrieval APIs.
 
@@ -204,9 +210,9 @@ A model's decommissioning status is included in the `ModelData` records returned
 
 You can delete all models in your instance at once, or you can do it on an individual basis.
 
-For an example of how to delete all models, download the sample app used in the [Tutorial: Explore the basics with a sample client app](tutorial-command-line-app.md). The *CommandLoop.cs* file does this in a `CommandDeleteAllModels` function.
+For an example of how to delete all models at the same time, see the [End-to-end samples for Azure Digital Twins](https://github.com/Azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/CommandLoop.cs) repository in GitHub. The *CommandLoop.cs* file contains a `CommandDeleteAllModels` function with code to delete all of the models in the instance.
 
-The rest of this section breaks down model deletion into closer detail, and shows how to do it for an individual model.
+To delete an individual model, follow the instructions and considerations from the rest of this section.
 
 #### Before deletion: Deletion requirements
 
@@ -226,9 +232,11 @@ Even if a model meets the requirements to delete it immediately, you may want to
 5. Wait for another few minutes to make sure the changes have percolated through
 6. Delete the model 
 
-To delete a model, use this call:
+To delete a model, you can use the [DeleteModel]/dotnet/api/azure.digitaltwins.core.digitaltwinsclient.deletemodel?view=azure-dotnet&preserve-view=true) SDK call:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/model_operations.cs" id="DeleteModel":::
+
+You can also delete a model with the [DigitalTwinModels Delete](/rest/api/digital-twins/dataplane/models/digitaltwinmodels_delete) REST API call.
 
 #### After deletion: Twins without models
 
