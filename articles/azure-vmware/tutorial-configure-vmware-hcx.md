@@ -32,6 +32,7 @@ After you complete the steps in this tutorial, you'll have a production-ready en
 
 - [Define VMware HCX network segments](tutorial-plan-private-cloud-deployment.md#define-vmware-hcx-network-segments).  The primary use cases for VMware HCX are workload migrations and disaster recovery.
 
+- Review the [VMware HCX Documentation](https://docs.vmware.com/en/VMware-HCX/index.html) for information on using HCX.
 
 ## Add a site pairing
 
@@ -223,7 +224,8 @@ For an end-to-end overview of this procedure, view the [Azure VMware Solution: N
 
 ## Next steps
 
-If the HCX interconnect tunnel status is **UP** and green, you can start to migrate and protect Azure VMware Solution VMs using VMware HCX. Azure VMware Solution supports workload migrations (with or without a network extension). You can still migrate workloads in your vSphere environment, along with on-premises creation of networks and deployment of VMs onto those networks.
+If the HCX interconnect tunnel status is **UP** and green, you're ready to migrate and protect Azure VMware Solution VMs using VMware HCX. Azure VMware Solution supports workload migrations (with or without a network extension). You can still migrate workloads in your vSphere environment, along with on-premises creation of networks and deployment of VMs onto those networks. For more information, see the [VMware HCX Documentation](https://docs.vmware.com/en/VMware-HCX/index.html).
 
-For more information on using HCX, go to the [VMware HCX Documentation](https://docs.vmware.com/en/VMware-HCX/index.html).
 
+
+[give them the options of what they can do next, like configure DHCP, extend L2 network, attach Azure native services, set up optional features, migrate workloads,]

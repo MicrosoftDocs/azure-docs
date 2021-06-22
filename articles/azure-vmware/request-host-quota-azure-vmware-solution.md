@@ -4,11 +4,16 @@ description: Learn how to request host quota/capacity for Azure VMware Solution.
 ms.topic: how-to
 ms.custom: contperf-fy21q3
 ms.date: 05/13/2021
+
+#Customer intent: As an Azure service admin, I want to request hosts for either a new private cloud deployment or I want to have more hosts allocated in an existing private cloud.
+
 ---
 
 # Request host quota for Azure VMware Solution
 
-In this how-to, you'll request host quota/capacity for [Azure VMware Solution](introduction.md). You'll submit a support ticket to have your hosts allocated. If you have an existing Azure VMware Solution private cloud and want more hosts allocated, you'll follow the same process.
+In this how-to, you'll request host quota/capacity for [Azure VMware Solution](introduction.md). You'll submit a support ticket to have your hosts allocated whether it's for a new deployment or an existing private cloud. 
+
+If you have an existing Azure VMware Solution private cloud and want more hosts allocated, you'll follow the same process.
 
 >[!IMPORTANT]
 >It can take up to five business days to allocate the hosts, depending on the number requested.  So request what is needed for provisioning, so you don't need to request a quota increase as often.
