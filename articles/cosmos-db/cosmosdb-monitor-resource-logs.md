@@ -27,12 +27,12 @@ Platform metrics and the Activity logs are collected automatically, whereas you 
 
 1. Sign into the [Azure portal](https://portal.azure.com).
 
-1. Navigate to your Azure Cosmos account. Open the **Diagnostic settings** pane under the **Monitoring section**, and then select **Add diagnostic setting** option.
+2. Navigate to your Azure Cosmos account. Open the **Diagnostic settings** pane under the **Monitoring section**, and then select **Add diagnostic setting** option.
 
-:::image type="content" source="./media/monitor-cosmos-db/diagnostics-settings-selection.png" alt-text="Select enable":::
+:::image type="content" source="./media/monitor-cosmos-db/diagnostics-settings-selection.png" alt-text="Select diagnostics":::
 
 
-1. In the **Diagnostic settings** pane, fill the form with your preferred categories.
+3. In the **Diagnostic settings** pane, fill the form with your preferred categories.
 
 ### Choosing Log Categories
 
@@ -48,9 +48,9 @@ Platform metrics and the Activity logs are collected automatically, whereas you 
 |ControlPlaneRequests     |   All APIs       |    Logs details on control plane operations i.e. creating an account, adding or removing a region, updating account replication settings etc.     |    `operationName`, `httpstatusCode`, `httpMethod`, `region`       |
 |TableApiRequests     |   Table API    |     Logs user-initiated requests from the front end to serve requests to Azure Cosmos DB's API for Table. When you enable this category, make sure to disable DataPlaneRequests.       |    `operationName`, `requestCharge`, `piiCommandText`     |
 
-3. Once you select your **Categories details**, then send your Logs to your prefeered destination. If you're sending Logs to a **Log Analytics Workspace**, make sure to select **Resource specific** as the Destination table.
+4. Once you select your **Categories details**, then send your Logs to your prefeered destination. If you're sending Logs to a **Log Analytics Workspace**, make sure to select **Resource specific** as the Destination table.
 
-:::image type="content" source="./media/monitor-cosmos-db/diagnostics-resource-specific.png" alt-text="Select enable":::
+:::image type="content" source="./media/monitor-cosmos-db/diagnostics-resource-specific.png" alt-text="Select enable resource-specific":::
 
 
 ## <a id="create-diagnostic-setting"></a> Create diagnostic setting via REST API
@@ -165,7 +165,7 @@ Azure Cosmos DB provides advanced logging for detailed troubleshooting. By enabl
 
 2. Select `Enable`, this setting will then be applied in the within the next few minutes. All newly ingested logs will have the full-text or PIICommand text for each request.
    
-    :::image type="content" source="./media/monitor-cosmos-db/select-enable-full-text.png" alt-text="Select enable":::
+    :::image type="content" source="./media/monitor-cosmos-db/select-enable-full-text.png" alt-text="Select enable full-text":::
 
 To learn how to query using this newly enabled feature visit [advanced queries](cosmos-db-advanced-queries.md).
 
