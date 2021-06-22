@@ -172,7 +172,7 @@ The process event schema references the following entities, which are central to
 | **ActingProcessIntegrityLevel**    | Optional     | String     |       The integrity level of the acting process. Windows assigns integrity levels to processes based on certain characteristics, such as if they were launched from an internet download. <br><br>Assigned integrity levels influence permissions to access resources. |
 | **ActingProcessMD5**               | Optional     | String     |The MD5 hash of the acting process image file.  <br><br>Example:  `75a599802f1fa166cdadb360960b1dd0`|
 | **ActingProcessSHA1**              | Optional     | SHA1       | The SHA-1 hash of the acting process image file.             <br><br>  Example: `d55c5a4df19b46db8c54c801c4665d3338acdab0`  |
-| **ActingProcessSHA256**            | Optional     | SHA256     | The SHA-256 hash of the acting process image file.    <br><br> Example:  `e81bb824c4a09a811af17deae22f22dd2e1ec8cbb00b22629d2899f7c68da274`   |
+| **ActingProcessSHA256**            | Optional     | SHA256     | The SHA-256 hash of the acting process image file.    <br><br> Example: <br> `e81bb824c4a09a811af17deae22f22dd`<br>`2e1ec8cbb00b22629d2899f7c68da274`   |
 | **ActingProcessSHA512**            | Optional     | SHA521     |       The SHA-512 hash of the acting process image file.       |
 | **ActingProcessIMPHASH**           | Optional     | String     |       The Import Hash of all the library DLLs that are used by the acting process.    |
 | **ActingProcessCreationTime**      | Optional     | DateTime   |       The date and time when the acting process was started. |
@@ -190,7 +190,7 @@ The process event schema references the following entities, which are central to
 | **ParentProcessIntegrityLevel**    | Optional     | String     |   The integrity level of the parent process. Windows assigns integrity levels to processes based on certain characteristics, such as if they were launched from an internet download. <br><br>Assigned integrity levels influence permissions to access resources. |
 | **ParentProcessMD5**               | Optional     | MD5        | The MD5 hash of the parent process image file.  <br><br>Example: `75a599802f1fa166cdadb360960b1dd0`|
 | **ParentProcessSHA1**              | Optional     | SHA1       | The SHA-1 hash of the parent process image file.       <br><br> Example:  `d55c5a4df19b46db8c54c801c4665d3338acdab0`   |
-| **ParentProcessSHA256**            | Optional     | SHA256     |The SHA-256 hash of the parent process image file.      <br><br>  Example:  `e81bb824c4a09a811af17deae22f22dd2e1ec8cbb00b22629d2899f7c68da274` |
+| **ParentProcessSHA256**            | Optional     | SHA256     |The SHA-256 hash of the parent process image file.      <br><br>  Example: <br> `e81bb824c4a09a811af17deae22f22dd`<br>`2e1ec8cbb00b22629d2899f7c68da274` |
 | **ParentProcessSHA512**            | Optional     | SHA512     |    The SHA-512 hash of the parent process image file.       |
 | **ParentProcessIMPHASH**           | Optional     | String     |    The Import Hash of all the library DLLs that are used by the parent process.    |
 | **ParentProcessTokenElevation**    | Optional     | String     |A token indicating the presence or absence of User Access Control (UAC) privilege elevation applied to the parent process.     <br><br>  Example: `None` |
@@ -212,7 +212,7 @@ The process event schema references the following entities, which are central to
 | **TargetProcessInjectedAddress**   | Optional     | String     |    The memory address in which the responsible target process is stored.           |
 | **TargetProcessMD5**               | Optional     | MD5        | The MD5 hash of the target process image file.   <br><br> Example:  `75a599802f1fa166cdadb360960b1dd0`|
 | **TargetProcessSHA1**              | Optional     | SHA1       | The SHA-1 hash of the target process image file.       <br><br>  Example:  `d55c5a4df19b46db8c54c801c4665d3338acdab0`   |
-| **TargetProcessSHA256**            | Optional     | SHA256     | The SHA-256 hash of the target process image file.      <br><br>  Example:  `e81bb824c4a09a811af17deae22f22dd2e1ec8cbb00b22629d2899f7c68da274` |
+| **TargetProcessSHA256**            | Optional     | SHA256     | The SHA-256 hash of the target process image file.      <br><br>  Example: <br> `e81bb824c4a09a811af17deae22f22dd`<br>`2e1ec8cbb00b22629d2899f7c68da274` |
 | **TargetProcessSHA512**            | Optional     | SHA512     |   The SHA-512 hash of the target process image file.       |
 | **TargetProcessIMPHASH**           | Optional     | String     |    The Import Hash of all the library DLLs that are used by the target process.    |
 | <a name="targetprocesscommandline"></a> **TargetProcessCommandLine**       | Mandatory    | String     | The command line used to run the target process.   <br><br> Example:  `"choco.exe" -v`  |
