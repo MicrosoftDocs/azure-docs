@@ -47,7 +47,7 @@ The following classes handle some of the major features of the Azure Communicati
 
 | Name                                  | Description                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
-| CallingServerClient | This class is needed for the calling functionality. You create an instance of CallingServerClient using ACS resource connection string and use it to start/hangup a call, play/cancel audio and add/remove participants |
+| CallingServerClient | This class is needed for calling functionality. You create an instance of CallingServerClient using your Communication Services resource connection string and use it to start/end a call, play/cancel audio and add/remove participants |
 | CommunicationIdentityClient | This class is needed to create or delete a communication user identity. |
 
 ## Create a call client
