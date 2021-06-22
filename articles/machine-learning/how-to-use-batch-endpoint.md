@@ -34,7 +34,7 @@ In this article, you learn to do the following tasks:
 ## Prerequisites
 
 * An Azure subscription
-If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
+If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 
 * The Azure Command Line Interface (CLI) and ML extension.
 
