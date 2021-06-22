@@ -74,12 +74,11 @@ First, let's set up the data flow environment for each of the mechanisms describ
 1. Add a 2nd source, which we will use to source the configuration JSON file to lookup field mappings.
 1. Call this as ```columnmappings```.
 1. For the dataset, point to a new JSON file that will store a configuration for column mapping. You can paste the into the JSON file for this tutorial example:
-    ```
-    [
+    ```[
     {"prevcolumn":"title","newcolumn":"movietitle"},
     {"prevcolumn":"year","newcolumn":"releaseyear"}
-    ]
-```
+    ]```
+
 1. Set this source settings to ```array of documents```.
 1. Add a 3rd source and call it ```movies2```. Configure this exactly the same as ```movies1```.
    
