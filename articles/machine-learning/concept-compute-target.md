@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 09/29/2020
+ms.date: 06/18/2021
 #Customer intent: As a data scientist, I want to understand what a compute target is and why I need it.
 ---
 
@@ -48,7 +48,7 @@ A managed compute resource is created and managed by Azure Machine Learning. Thi
 You can create Azure Machine Learning compute instances or compute clusters from:
 
 * [Azure Machine Learning studio](how-to-create-attach-compute-studio.md).
-* The Python SDK and CLI:
+* The Python SDK and the Azure CLI:
     * [Compute instance](how-to-create-manage-compute-instance.md).
     * [Compute cluster](how-to-create-attach-compute-cluster.md).
 * The [R SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-compute-targets) (preview).
@@ -148,7 +148,20 @@ To learn more about isolation, see [Isolation in the Azure public cloud](../secu
 
 ## Unmanaged compute
 
-An unmanaged compute target is *not* managed by Azure Machine Learning. You create this type of compute target outside Azure Machine Learning and then attach it to your workspace. Unmanaged compute resources can require additional steps for you to maintain or to improve performance for machine learning workloads.
+An unmanaged compute target is *not* managed by Azure Machine Learning. You create this type of compute target outside Azure Machine Learning and then attach it to your workspace. Unmanaged compute resources can require additional steps for you to maintain or to improve performance for machine learning workloads. 
+
+Azure Machine Learning supports the following unmanaged compute types:
+
+* Your local computer
+* Remote virtual machines
+* Azure HDInsight
+* Azure Batch
+* Azure Databricks
+* Azure Data Lake Analytics
+* Azure Container Instance
+* Azure Kubernetes Service & Azure Arc enabled Kubernetes (preview)
+
+For more information, see [set up compute targets for model training and deployment](how-to-attach-compute-targets.md)
 
 ## Next steps
 
