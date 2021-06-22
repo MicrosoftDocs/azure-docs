@@ -4,7 +4,7 @@ description: Start here to learn how to monitor App Service
 author: msangapu-msft
 ms.author: msangapu
 ms.topic: article
-ms.service: AppService
+ms.service: app-service
 ms.custom: subject-monitoring
 ms.date: 04/16/2021
 ---

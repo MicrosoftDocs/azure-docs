@@ -4,7 +4,7 @@ description: Important reference material needed when you monitor App Service
 author: msangapu-msft
 ms.topic: reference
 ms.author: msangapu
-ms.service: AppService
+ms.service: app-service
 ms.custom: subject-monitoring
 ms.date: 04/16/2021
 ---
@@ -92,7 +92,7 @@ App Service Environment : [Microsoft.Web/hostingEnvironments](/azure/azure-monit
 
 ## Azure Monitor Logs tables
 
-Azure App Service uses Kusto tables from Azure Monitor Logs. You can query these tables with Log analytics. For a list of App Service tables used by Kusto, see the [Azure Monitor Logs table reference - App Service tables](../azure-monitor/reference/tables/tables-resourcetype.md#app-services). 
+Azure App Service uses Kusto tables from Azure Monitor Logs. You can query these tables with Log analytics. For a list of App Service tables used by Kusto, see the [Azure Monitor Logs table reference - App Service tables](/azure/azure-monitor/reference/tables/tables-resourcetype#app-services). 
 
 This section refers to all of the Azure Monitor Logs Kusto tables relevant to App Service and available for query by Log Analytics. 
 
