@@ -54,7 +54,7 @@ This section lists the device join state parameters. The table below lists the c
 
 ## Device details
 
-Displayed only when the device is Azure AD joined or hybrid Azure AD joined (not Azure AD registered). This section lists device identifying details stored in the cloud.
+Displayed only when the device is Azure AD joined or hybrid Azure AD joined (not Azure AD registered). This section lists device identifying details stored in Azure AD.
 
 - **DeviceId:** Unique ID of the device in the Azure AD tenant
 - **Thumbprint:** Thumbprint of the device certificate
@@ -66,10 +66,10 @@ Displayed only when the device is Azure AD joined or hybrid Azure AD joined (not
 > [!NOTE]
 > **DeviceAuthStatus** field was added in **Windows 10 May 2021 Update (version 21H1)**.
 
-- **DeviceAuthStatus:** Perfoms a check to determine device's health in the cloud.  
-"SUCCESS" if the device is in a valid state in the cloud.  
-"FAILED. Device is either disabled or deleted" if the deice is either disabled or deleted, [More Info](https://docs.microsoft.com/azure/active-directory/devices/faq#why-do-my-users-see-an-error-message-saying--your-organization-has-deleted-the-device--or--your-organization-has-disabled-the-device--on-their-windows-10-devices).  
-"FAILED. ERROR" if the test was unable to run successfully.  
+- **DeviceAuthStatus:** Perfoms a check to determine device's health in Azure AD.  
+"SUCCESS" if the device is present and Enabled in Azure AD.  
+"FAILED. Device is either disabled or deleted" if the device is either disabled or deleted, [More Info](faq.md#why-do-my-users-see-an-error-message-saying--your-organization-has-deleted-the-device--or--your-organization-has-disabled-the-device--on-their-windows-10-devices).  
+"FAILED. ERROR" if the test was unable to run. This test requires network connectivity to Azure AD.  
 
 ### Sample device details output
 
@@ -199,7 +199,7 @@ This field is skipped if no diagnostics info is available.
 - **Correlation ID:** Correlation ID sent by the server for the failed PRT attempt.
 - **Endpoint URI:** Last endpoint accessed before the failure.
 - **HTTP Method:** HTTP method used to access the endpoint.
-- **HTTP Error:** WinHttp transport error code. WinHttp errors can be found [here](https://docs.microsoft.com/windows/win32/winhttp/error-messages).
+- **HTTP Error:** WinHttp transport error code. WinHttp errors can be found [here](/windows/win32/winhttp/error-messages).
 - **HTTP Status:** HTTP status returned by the endpoint.
 - **Server Error Code:** Error code from server.  
 - **Server Errror Description:** Error message from server.

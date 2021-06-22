@@ -534,7 +534,7 @@ Reason(s):
 
 Resolution:
 -  The domain of the user’s UPN must be added as a custom domain in AAD. Event 1144 (AAD analytic logs) will contain the UPN provided.
--  If the on-premises domain name is non-routable (jdoe@contoso.local)  configure Alternate Login ID (AltID). References: [prerequisites](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan) [configuring-alternate-login-id](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) 
+-  If the on-premises domain name is non-routable (jdoe@contoso.local)  configure Alternate Login ID (AltID). References: [prerequisites](hybrid-azuread-join-plan.md) [configuring-alternate-login-id](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) 
 
 ---
 
@@ -549,7 +549,7 @@ Reason(s):
 Resolution:
 -  User’s UPN should be in the Internet-style login name, based on the Internet standard [RFC 822](https://www.ietf.org/rfc/rfc0822.txt). Event 1144 (AAD analytic logs) will contain the UPN provided.
 -  For Hybrid joined devices, ensure the domain controller is configured to return the UPN in the correct format. whoami /upn should display the configured UPN in the domain controller.
--  If the on-premises domain name is non-routable (jdoe@contoso.local)  configure Alternate Login ID (AltID). References: [prerequisites](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan) [configuring-alternate-login-id](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) 
+-  If the on-premises domain name is non-routable (jdoe@contoso.local)  configure Alternate Login ID (AltID). References: [prerequisites](hybrid-azuread-join-plan.md) [configuring-alternate-login-id](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) 
 
 ---
 
@@ -606,10 +606,10 @@ Resolution:
 
 Reason: 
 -  AAD is unable to authenticate the device to issue a PRT
--  Confirm the device has not been deleted or disabled  in the Azure portal. [More Info](https://docs.microsoft.com/azure/active-directory/devices/faq#q-why-do-my-users-see-an-error-message-saying-your-organization-has-deleted-the-device-or-your-organization-has-disabled-the-device-on-their-windows-10-devices)
+-  Confirm the device has not been deleted or disabled  in the Azure portal. [More Info](faq.md#q-why-do-my-users-see-an-error-message-saying-your-organization-has-deleted-the-device-or-your-organization-has-disabled-the-device-on-their-windows-10-devices)
 
 Resolution :
--  Follow steps listed [here](https://docs.microsoft.com/azure/active-directory/devices/faq#q-i-disabled-or-deleted-my-device-in-the-azure-portal-or-by-using-windows-powershell-but-the-local-state-on-the-device-says-its-still-registered-what-should-i-do) to re-register the device based on the device join type.
+-  Follow steps listed [here](faq.md#q-i-disabled-or-deleted-my-device-in-the-azure-portal-or-by-using-windows-powershell-but-the-local-state-on-the-device-says-its-still-registered-what-should-i-do) to re-register the device based on the device join type.
 
 ---
 
@@ -654,7 +654,7 @@ Resolution:
 -  If the on-premises environment requires an outbound proxy, the IT admin must ensure that the computer account of the device is able to discover and silently authenticate to the outbound proxy
 
 > [!NOTE]
-> Other network error codes located [here](https://docs.microsoft.com/windows/win32/winhttp/error-messages).
+> Other network error codes located [here](/windows/win32/winhttp/error-messages).
 
 ---
 
@@ -662,14 +662,13 @@ Resolution:
 
 **Regular logs**
 
-Download the file Auth.zip from https://github.com/CSS-Identity/DRS/tree/main/Auth
-1.	Unzip the files and rename the included files start-auth.txt and stop-auth.txt to start-auth.cmd and stop-auth.cmd.
-2.	From an elevated command prompt, run start-auth.cmd.
-3.	Use Switch Account to toggle to another session with the problem user.
-4.	Lock and Unlock the device. For Hybrid joined devices wait a minute to allow PRT acquisition task to complete.
-5.	Use Switch Account to toggle back to the admin session running the tracing.
-6.	From an elevated command prompt, run stop-auth.cmd.
-7. Contact support with contents of the **Authlogs** folder. The Authlogs folder will be created in the directory where the scripts were executed from.
+1. Go to http://aka.ms/icesdptool, which will automatically download a .cab file containing the Diagnostic tool.
+2. Run the tool and repro your scenario, once the repro is complete. Finish the process.
+3. For Fiddler traces accept the certificate requests that will pop up.
+4. The wizard will prompt you for a password to safeguard your trace files. Provide a password.
+5. Finally, open the folder where all the logs collected are stored. It is typically in a folder like
+                %LOCALAPPDATA%\ElevatedDiagnostics\<numbers>
+7. Contact support with contents of latest.cab, which contains all the collected logs.
 
 **Network traces**
 
