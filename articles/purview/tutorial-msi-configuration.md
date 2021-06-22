@@ -210,34 +210,37 @@ This script can help you to automatically perform the following tasks:
 #### Azure SQL Managed Instance (AzureSQLMI)
 
 - SQL Managed Instance servers:
-  - Network. Verify that public endpoint or private endpoint is enabled. Report if public endpoint is off.
-  - ProxyOverride. Verify if Azure SQL Managed Instance is configured as Proxy or Redirect.
-  - Networking. Verify and update NSG rules to allow AzureCloud with inbound access to SQL Server over required ports; Redirect: 1433 and 11000-11999 or Proxy: 3342.
-  - Azure AD Admin. Enable Azure AD Authentication for Azure SQL Managed Instance.
+  - Network. Verify that public endpoint or private endpoint is on. Report if public endpoint is off.
+  - ProxyOverride. Verify that Azure SQL Managed Instance is configured as Proxy or Redirect.
+  - Networking. Update NSG rules to allow AzureCloud inbound access to SQL Server instances over required ports:  
+    - Redirect: 1433 and 11000-11999
+    
+    or 
+    - Proxy: 3342
+    
+    Verify this access. 
+  - Azure AD administration. Enable Azure AD authentication for Azure SQL Managed Instance.
   
-- SQL Databases:
-  - SQL Role. Assign Azure Purview MSI with db_datareader role.
+- SQL databases:
+  - SQL role. Assign the **db_datareader** role to Azure Purview MSI.
 
-#### Azure Synapse (Synapse) dedicated pools:
+#### Azure Synapse (Synapse) dedicated pool
 
-- RBAC. Verify and assign Azure RBAC 'Reader' role to Azure Purview MSI on selected scope.
-- RBAC. Verify and assign Azure RBAC 'Storage Blob Data Reader role' to Azure Purview MSI in each of the subscriptions below selected scope.
-- SQL Servers (Dedicated Pools):
-  - Network. Verify and report if Public or Private Endpoint is enabled.
-  - Firewall. If Private Endpoint is off, verify firewall rules and enable 'Allow Azure services and resources to access this server'.
-  - Azure AD Admin. Enable Azure AD Authentication for Azure SQL Server.
+- RBAC. Assign the Azure RBAC **Reader** role to Azure Purview MSI on the selected scope. Verify the assignment. 
+- RBAC. Assign the Azure RBAC **Storage Blob Data Reader** role to Azure Purview MSI in each of the subscriptions below the selected scope. Verify the assignment.
+- SQL Server instances (dedicated pools):
+  - Network. Report whether public endpoint or private endpoint is on.
+  - Firewall. If private endpoint is off, verify firewall rules and enable **Allow Azure services and resources to access this server**.
+  - Azure AD administration. Enable Azure AD authentication for Azure SQL Database.
 
-- SQL Databases:
-  - SQL Role. Assign Azure Purview MSI with db_datareader role.
+- SQL databases:
+  - SQL role. Assign the **db_datareader** role to Azure Purview MSI.
 
 ## Next steps
 
 In this tutorial, you learned how to:
 > [!div class="checklist"]
 >
-> * Register and scan Azure data sources in Azure Purview .
+> * Identify required access and set up required authentication and network rules for Azure Purview across Azure data sources.
 
-Advance to the next tutorial to learn how to navigate the home page and search for an asset.
-
-> [!div class="nextstepaction"]
-> [Register and scan multiple sources in Azure Purview](register-scan-azure-multiple-sources.md)
+Go to the next tutorial to learn how to [Register and scan multiple sources in Azure Purview](register-scan-azure-multiple-sources.md).

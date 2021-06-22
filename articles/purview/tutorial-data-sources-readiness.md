@@ -211,8 +211,9 @@ You can choose all or any of these data sources as the input parameter when you 
 - SQL Managed Instance servers:
   - Network. Check whether public endpoint or private endpoint is enabled.
   - ProxyOverride. Check whether Azure SQL Managed Instance is configured as Proxy or Redirect.
-  - Networking. Check whether NSG has one of these inbound rules to allow AzureCloud over required ports:  
+  - Networking. Check whether NSG has an inbound rules to allow AzureCloud over required ports:  
     - Redirect: 1433 and 11000-11999  
+    or
     - Proxy: 3342
   - Azure AD administration. Check whether Azure SQL Server has Azure AD authentication.
   - Azure AD administration. Populate the Azure SQL Server Azure AD admin user or group.
