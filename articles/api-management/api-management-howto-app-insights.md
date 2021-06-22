@@ -8,7 +8,7 @@ author: mikebudzynski
 ms.service: api-management
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 02/25/2021
+ms.date: 06/22/2021
 ms.author: apimpm
 
 ---
@@ -84,13 +84,18 @@ Before you can use Application Insights, you first need to create an instance of
 
 Application Insights receives:
 
-+ *Request* telemetry item, for every incoming request (*frontend request*, *frontend response*),
-+ *Dependency* telemetry item, for every request forwarded to a backend service (*backend request*, *backend response*),
++ *Request* telemetry item, for every incoming request:
+    + *frontend request*, *frontend response*
++ *Dependency* telemetry item, for every request forwarded to a backend service:
+    + *backend request*, *backend response*
 + *Exception* telemetry item, for every failed request:
     + failed because of a closed client connection
     + triggered an *on-error* section of the API policies
-    + has a response HTTP status code matching 4xx or 5xx.
-+ *Trace* telemetry item, if you configure a [trace](api-management-advanced-policies.md#Trace) policy. The `severity` setting in the `trace` policy must be equal to or greater than the `verbosity` setting in the Application Insights logging.
+    + has a response HTTP status code matching 4xx or 5xx
++ *Trace* telemetry item, if you configure a [trace](api-management-advanced-policies.md#Trace) policy. 
+    + The `severity` setting in the `trace` policy must be equal to or greater than the `verbosity` setting in the Application Insights logging.
+
+You can also emit custom metrics by configuring the [`emit-metrics`](api-management-advanced-policies.md#emit-metrics) policy.
 
 > [!NOTE]
 > See [Application Insights limits](../azure-monitor/service-limits.md#application-insights) for information about the maximum size and number of metrics and events per Application Insights instance.
