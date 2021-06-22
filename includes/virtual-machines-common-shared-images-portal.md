@@ -31,13 +31,15 @@ The following example creates a gallery named *myGallery* in the *myGalleryRG* r
 
 ## Create an image definition 
 
-Image definitions create a logical grouping for images. They are used to manage information about the image versions that are created within them. Image definition names can be made up of uppercase or lowercase letters, digits, dots, dashes and periods. For more information about the values you can specify for an image definition, see [Image definitions](../articles/virtual-machines/shared-image-galleries.md#image-definitions).
+Image definitions create a logical grouping for images. They are used to manage information about the image versions that are created within them. 
 
-Create the gallery image definition inside of your gallery. In this example, the gallery image is named *myImageDefinition*.
+Image definition names can be made up of uppercase or lowercase letters, digits, dots, dashes and periods. For more information about the values you can specify for an image definition, see [Image definitions](../articles/virtual-machines/shared-image-galleries.md#image-definitions).
+
+Create the gallery image definition inside of your gallery. 
 
 1. On the page for your new image gallery, select **Add a new image definition** from the top of the page. 
 1. In the **Add new image definition to shared image gallery**, for **Region**, select *East US*.
-1. For **Image definition name**, type *myImageDefinition*.
+1. For **Image definition name**, type a name like *myImageDefinition*.
 1. For **Operating system**, select the correct option based on your source VM.  
 1. For **VM generation**, select the option based on your source VM. In most cases, this will be *Gen 1*. For more information, see [Support for generation 2 VMs](../articles/virtual-machines/generation-2.md).
 1. For **Operating system state**, select the option based on your source VM. For more information, see [Generalized and specialized](../articles/virtual-machines/shared-image-galleries.md#generalized-and-specialized-images).
@@ -52,8 +54,6 @@ Create the gallery image definition inside of your gallery. In this example, the
 ## Create an image version
 
  When choosing target regions for replication, remember that you also have to include the *source* region as a target for replication.
-
-Allowed characters for image version are numbers and periods. Numbers must be within the range of a 32-bit integer. Format: *MajorVersion*.*MinorVersion*.*Patch*.
 
 The steps for creating an image version are slightly different, depending on whether the source is a generalized image or a snapshot of a specialized VM. 
 
@@ -72,7 +72,9 @@ The steps for creating an image version are slightly different, depending on whe
 
 1. In **Exclude from latest**, leave the default value of *No*.
 1. For **End of life date**, select a date from the calendar that is a couple of months in the future.
-1. In **Replication**, leave the **Default replica count** as 1. You need to replicate to the source region, so leave the first replica as the default and then pick a second replica region to be *East US*.
+1. In the **Replication** tab, select the storage type from the drop-down.
+1. Set the **Default replica count**, you can override this for each region you add. 
+1. You need to replicate to the source region, so the first replica in the list will be in the region where you created the image. You can add more replicas by select the region from the drop-down and adjusting the replica count as necessary.
 1. When you are done, select **Review + create**. Azure will validate the configuration.
 1. When image version passes validation, select **Create**.
 1. When the deployment is finished, select **Go to resource**.
