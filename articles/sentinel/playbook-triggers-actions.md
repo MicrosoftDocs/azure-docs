@@ -153,7 +153,7 @@ Since this field in the alert is customizable, its schema depends on the type of
 
 See the following example:
 
-![Custom details defined in analytics rule.](./media/playbook-triggers-actions/customDetailsValues.png)
+![Custom details defined in analytics rule.](./media/playbook-triggers-actions/custom-details-values.png)
 
 In these key-value pairs, the key (the left-hand column) represents the custom fields you create, and the value (the right-hand column) represents the fields from the event data that populate the custom fields.
 
@@ -167,7 +167,7 @@ You can supply the following JSON code to generate the schema. The code shows th
 
 1. Find and select **Alert Custom Details** in the **Dynamic content** list, under the incident trigger.
 
-    ![Select "Alert custom details" from "Dynamic content."](./media/playbook-triggers-actions/customDetailsDynamicField.png)
+    ![Select "Alert custom details" from "Dynamic content."](./media/playbook-triggers-actions/custom-details-dynamic-field.png)
 
     Note: this will create a **For each** loop, since an incident contains an array of alerts.
 
@@ -177,11 +177,11 @@ You can supply the following JSON code to generate the schema. The code shows th
 
 1. Supply a sample payload. You can find a sample payload by looking in Log Analytics (the **Logs** blade) for another instance of this alert, and copying the custom details object (under **Extended Properties**). In the screenshot below, we used the JSON code shown above.
 
-    ![Enter sample JSON payload.](./media/playbook-triggers-actions/samplePayload.png)
+    ![Enter sample JSON payload.](./media/playbook-triggers-actions/sample-payload.png)
 
 1. The custom fields are ready to be used dynamic fields of type **Array**. You can see here the array and its items, both in the schema and in the list that appears under **Dynamic content**, that we described above.
 
-    ![Fields from schema ready to use.](./media/playbook-triggers-actions/fieldsReadyToUse.png)
+    ![Fields from schema ready to use.](./media/playbook-triggers-actions/fields-ready-to-use.png)
     
 ## Next steps
 
