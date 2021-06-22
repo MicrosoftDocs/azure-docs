@@ -12,7 +12,7 @@ ms.subservice: data-lake-storage-gen2
 
 # Migrate Azure Data Lake Storage from Gen1 to Gen2 by using the Azure portal (preview)
 
-You can reduce the number of steps required to complete a migration by using the Azure portal. Data and metadata (such as timestamps and ACLs) automatically move to your Gen2-enabled account. You won't have to configure a separate tool to do this for you. If you perform a complete migration, you won't have to point your workloads to Gen2 because requests are redirected automatically. 
+You can reduce the number of steps required to complete a migration by using the Azure portal. Data and metadata (such as timestamps and ACLs) automatically move to your Gen2-enabled account. If you perform a complete migration, you won't have to point your workloads to Gen2 because requests are redirected automatically. 
 
 > [!IMPORTANT]
 > Migrating from Gen1 to Gen2 by using the Azure portal is currently in PREVIEW.
@@ -39,9 +39,9 @@ Be sure to read the general guidance about how to migrate from Gen1 to Gen2. See
 
 ## Enroll in the preview
 
-To enroll in the preview, see [this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4SeyCfCfrtBlHWFupvoz_BUMEFNQzBSQTE0OU1aM0hXMDlBNEwzVTYyRy4u&wdLOR=cBC075B83-9324-4399-B94E-05A919D007C9).  
+To enroll in the preview, see [this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4SeyCfCfrtBlHWFupvoz_BUMEFNQzBSQTE0OU1aM0hXMDlBNEwzVTYyRy4u&wdLOR=cBC075B83-9324-4399-B94E-05A919D007C9). After you've enrolled, create a storage account with Gen2 capabilities (see next section). 
 
-After you've enrolled, create a storage account with Gen2 capabilities. Microsoft will contact you in approximately seven days to ensure that your new account is enabled for migration.
+Microsoft will contact you in approximately seven days to ensure that your new account is enabled for migration.
 
 ## Create a storage account with Gen2 capabilities
 
@@ -59,9 +59,7 @@ To create an account that has Gen2 capabilities, see [Create a storage account t
 | **Hierarchical namespace** | Enabled |
 
 > [!NOTE]
-> The managed migration tool doesn't move account settings. Therefore, after you've created the account, you'll have to manually configure settings such as encryption, network firewalls, data protection. 
-
-Something here about setting proper permissions on storage account (RBAC)
+> The migration tool in the Azure portal doesn't move account settings. Therefore, after you've created the account, you'll have to manually configure settings such as encryption, network firewalls, data protection. 
 
 ## Verify RBAC role assignments
 
@@ -69,37 +67,16 @@ Something here about ensuring the proper permissions on Gen1 and Gen2.
 
 ## Perform the migration
 
-Before you begin, decide if you want to perform a complete migration or if you'd rather copy only the data for now and then complete the migration later.
+Before you begin, decide whether you want to copy only data between accounts or perform a complete migration. 
 
-If you perform a complete migration, data is copied from Gen1 to Gen2. Then, your Gen1 URI is redirected to your Gen2 URI. After the migration completes you won't have access to your Gen1 account and all Gen1 requests will be redirected to your Gen2 enabled account. This is the most convenient option. This option might make sense if there aren't any critical production workloads or applications that depend on your Gen1 account.
+If you copy only the data, both accounts remain active. You can modify applications and workloads to use your new Gen2-enabled account without interrupting production availability. Once you've verified that they work as expected, you can work our team to redirect your Gen1 URI to your Gen2 URI and then retire the Gen1 account. Microsoft recommends this option.
+
+If you perform a complete migration, data is copied from Gen1 to Gen2. Then, your Gen1 URI is redirected to your Gen2 URI. After the migration completes you won't have access to your Gen1 account and all Gen1 requests will be redirected to your Gen2 enabled account. This option might make sense if there aren't any critical production workloads or applications that depend on your Gen1 account.
 
 > [!NOTE]
 > Gen2 doesn't support Azure Data Lake Analytics applications. If you have any, make sure to move them to Azure Synapse Analytics or another supported workload before you migrate from Gen1 to Gen2.
 
-If you copy only the data, both accounts remain active. You can modify applications and workloads to use your new Gen2-enabled account without interrupting production availability. Once you've verified that they work as expected, you can work our team to redirect your Gen1 URI to your Gen2 URI and then retire the Gen1 account. Microsoft recommends this option.
-
-### Option 1: Perform a complete migration
-
-1. Sign in to the [Azure portal](https://portal.azure.com/) to get started.
-
-2. Locate your Data Lake Storage Gen1 account and display the account overview.
-
-3. Select the **Migrate data** button.  
-
-   > [!div class="mx-imgBorder"]
-   > ![Image Hint2](./media/data-lake-storage-migrate-gen1-to-gen2-azure-portal/migration-tool.png)
-
-4. Select **Complete migration to a new ADLS gen 2 account**.
-
-5. Select the checkbox that provides Microsoft with your consent to perform the data migration, and then click the **Apply** button.
-
-   - While your data is being migrated, your Gen1 account becomes read-only, and the Gen2-enabled account is disabled. 
-   - After data is migrated, and while the Gen1 URI is being redirected, both accounts are disabled. 
-   - After the migration completes, your Gen1 account is disabled, and you can read and write to your Gen2-enabled account.
-
-   You can stop the migration at any time before the URI is redirected by selecting the **Stop migration** button.
-
-### Option 2: Copy data from Gen1 to Gen2
+### Option 1: Copy data from Gen1 to Gen2
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) to get started.
 
@@ -112,11 +89,32 @@ If you copy only the data, both accounts remain active. You can modify applicati
 
 4. Select **Copy data to a new ADLS Gen2 account**.
 
-5. Select the checkbox that provides Microsoft with your consent to perform the data migration, and then click the **Apply** button.
+5. Give Microsoft consent to perform the data migration by selecting the checkbox. Then, click the **Apply** button.
 
    While your data is being migrated, your Gen1 account becomes read-only, and your Gen2-enabled account is disabled. After the migration completes, You can read and write to both accounts.
 
    You can stop the migration at any time by selecting the **Stop migration** button.
+
+### Option 2: Perform a complete migration
+
+1. Sign in to the [Azure portal](https://portal.azure.com/) to get started.
+
+2. Locate your Data Lake Storage Gen1 account and display the account overview.
+
+3. Select the **Migrate data** button.  
+
+   > [!div class="mx-imgBorder"]
+   > ![Image Hint2](./media/data-lake-storage-migrate-gen1-to-gen2-azure-portal/migration-tool.png)
+
+4. Select **Complete migration to a new ADLS gen 2 account**.
+
+5. Give Microsoft consent to perform the data migration by selecting the checkbox. Then, click the **Apply** button.
+
+   - While your data is being migrated, your Gen1 account becomes read-only, and the Gen2-enabled account is disabled. 
+   - While the Gen1 URI is being redirected, both accounts are disabled. 
+   - After the migration completes, your Gen1 account is disabled, and you can read and write to your Gen2-enabled account.
+
+   You can stop the migration at any time before the URI is redirected by selecting the **Stop migration** button.
 
 ## Migrate workloads and applications
 
@@ -154,11 +152,11 @@ To encounter the least number of issues with the compatibility layer, make sure 
 
 The following functionality isn't supported in Gen2, and therefore the compatibility layer.
 
-- ListStatus API option to ListBefore an entry
+- ListStatus API option to ListBefore an entry.
 
-- ListStatus API with over 4000 files without a continuation token 
+- ListStatus API with over 4000 files without a continuation token.
 
-- Chunk-encoding for append operations
+- Chunk-encoding for append operations.
 
 - Any API calls that use https://management.azure.com/  as the Azure Active Directory (Azure AD) token audience.
 
