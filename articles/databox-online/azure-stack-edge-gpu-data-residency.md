@@ -1,17 +1,17 @@
 ---
 title: Data residency behavior of Azure Stack Edge Pro GPU/Pro R/Mini R devices
-description: Describes data residency posture of your Azure Stack Edge devices.
+description: Describes data residency posture for Azure Stack Edge.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 06/21/2021
+ms.date: 06/22/2021
 ms.author: alkohli
 ---
 
-# Enabling Data residency for your Azure Stack Edge devices
+# Data residency and resiliency for Azure Stack Edge (Preview)
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
@@ -19,72 +19,50 @@ This article describes the information that you need to help understand the data
 
 ## About data residency for Azure Stack Edge 
 
-Currently the Southeast Asia (Singapore) region is paired with Hong Kong. The Azure region pairing implies that any data stored in Singapore is replicated in the corresponding paired regions which is Hong Kong. Singapore has laws in place that require that the customer data cannot leave the country boundaries. 
+For Azure Stack Edge service, currently the Southeast Asia (Singapore) region is paired with Hong Kong. The Azure region pairing implies that any data stored in Singapore is replicated in Hong Kong which is the corresponding paired region. Singapore has laws in place that require that the customer data cannot leave the country boundaries. 
 
-Microsoft has made changes to the Azure Stack Edge service so that the service-specific data is stored within a single region only and the service can also be deployed in a single region. This article covers all the changes made to the way the service-specific data is stored and the actions required by the customers to meet the data residency requirements. 
+A new option is enabled in the Azure Stack Edge service that lets the service store and process the customer data only in Singapore region. The customer data is not replicated to Hong Kong. When this option is enabled, the service is resilient to zone-wide outages, but not to region-wide outages. There is service-specific metadata (which is not sensitive data) that will still be replicated.  
 
-For more information, see [Single data residency for Azure services]().
+The single region data residency option is available only for Southeast Asia (Singapore). For all other regions, Azure Stack Edge stores and processes customer data in the customer-specified geo.
 
-## Summary of data residency behavior
+The data residency posture of the Azure Stack Edge services can be summarized for the following aspects of the service:
 
-The data residency posture of the Azure Stack Edge services can be categorized as follows:
-
-- Existing Azure Stack Edge ordering and management.
-- New Azure Edge Hardware Center that will be used for new orders going forward.
+- Existing Azure Stack Edge ordering and management service.
+- New Azure Edge Hardware Center (Preview) that will be used for new orders going forward.
 - Telemetry for the device and the service.
-<!--- Proactive Support log collection where any logs that the service generates are stored in a single region and are not replicated to the paired region.-->
+- Proactive Support log collection where any logs that the service generates are stored in a single region and are not replicated to the paired region.
 
-Azure Stack Edge also integrates with other services and behavior of the following dependent services is summarized:
+Azure Stack Edge service also integrates with the following dependent services and their behavior is also summarized: 
 
+- Azure Arc enabled Kubernetes
 - Azure IoT Hub and Azure IoT Edge
 - Azure Key Vault 
 - Azure Monitor 
 - Azure Storage accounts
 
+
 There are also services that are excluded from these data requirements, and these are briefly discussed later in this article.
 
-## Azure Stack Edge ordering and management resource 
+## Azure Stack Edge classic ordering and management resource 
 
-Azure Stack Edge service currently uses Azure Regional Pair to implement data resiliency against region-wide outages. For existing Azure Stack Edge resources in Singapore, the data is replicated to Hong Kong.
+If you are using the classic experience to place an order for Azure Stack Edge, the service currently uses Azure Regional Pair to implement data resiliency against region-wide outages. For existing Azure Stack Edge resources in Singapore, the data is replicated to Hong Kong.
 
-If you are creating a new Azure Stack Edge resource, you will have the option to select that data residency only in Singapore. If this option is selected, data will not be replicated to Hong Kong. If there is a region-wide service outage, you have two options:
+If you are creating a new Azure Stack Edge resource, you have the option to enable data residency only in Singapore. When this option is selected, data is not replicated to Hong Kong. If there is a region-wide service outage, you have two options:
 
 - Wait for the Singapore region to be restored.
 
 - Create a resource in another region, reset the device, and manage your device via the new resource. For detailed instructions, see [Reset and reactivate your Azure Stack Edge device](azure-stack-edge-reset-reactivate-device).
 
-<!--The following table summarizes the data residency and outage behaviors for Azure Stack Edge v1 resource scenarios.
- 
-| If you... | You’ll observe this behavior...|...and this happens if there is an outage!                    |
-|-----------------------|----------------------------------------------|-------------------------------------------------------------|
-| Have an existing Azure Stack Edge resource                                                                                           | For existing resource, Azure Regional Pairs are used. This means that in Singapore, data will be replicated to Hong Kong. <br> Azure Stack Edge does not support migrating existing resources from Azure Regional Pair replication to Single Region Data Residency. | No changes, same as today. |
-| Are creating a new Azure Stack Edge resource | See the screenshots below for the new behavior.| If the outage is zone-wide, Azure Stack Edge is resilient. <br><br>If the outage is region-wide and you have chosen Southeast Asia during resource creation/order placement: <ul><li> If you chose to replicate data across Azure regional pair (Hong Kong), current Business Continuity and Disaster Recovery (BCDR) flows will handle the service requests. Your resource will be resilient to the outage.</li><li> If you chose national boundary data residency, your data wouldn’t have replicated. You can either wait for the Singapore region to be restored or create a resource in another region, reset the device, and manage your device via the new resource.</ul> |
+## Azure Edge Hardware Center ordering and management resource 
 
-For more information, see storage provisioning options for applications in [Kubernetes storage for your Azure Stack Edge Pro device](azure-stack-edge-gpu-kubernetes-storage.md).-->
-
-## Azure Edge Hardware Center Service (Preview)
-
-For the upcoming Azure Edge Hardware Center service that allows you to create and manage Azure Stack Edge resources, when the orders are created in Southeast Asia region, you have the option to choose that the data resides only within Singapore and is not replicated. 
-
-<!--- When you create an order resource in Southeast Asia region, the following informational message is displayed: 
-    *Data related to your order will not be replicated outside Singapore (Southeast Asia Region) and hence will not be resilient to region-wide outages. Learn more.*-->
+The new Azure Edge Hardware Center service (Preview) is now available and allows you to create and manage Azure Stack Edge resources. When placing an order in Southeast Asia region, you can select the option to have your data resides only within Singapore and not be replicated. 
 
 In the event of region-wide outages, you won’t be able to access the order resources. You will not be able to return, cancel, or delete the resources. If you request for updates on your order status or need to initiate a device return urgently during the service outage, Microsoft Support will handle those requests.
 
 For detailed instructions, see [Create an order via the Azure Edge Hardware Center](azure-stack-edge-placeholder.md).
 
-<!--## Proactive support log collection
 
-There are two ways that allow the service to collect logs:
-- Azure Stack Diagnostics and Analytics   This is an opt-in service via the Azure Stack Edge portal.
-- Support package logs are categorized as logs and logs don’t come EUII classification.
-Logs are considered as Support/Diagnostics data is also stored in Central (West US);
-
-However Logs with Dumps potentially containing EUII stay in the region.
-<!-- should not be in public facing doc However, there is a part of the Proactive log collection which is being done based on Device Alerts, and while the storage of these logs is in the region, the analysis is done at a central Kusto cluster. The team is looking to move the same to region storage by early [Ni]-->
-
-
-## Azure Stack Edge telemetry
+<!--## Azure Stack Edge telemetry
 
 As Azure Stack Edge is a first-party Microsoft device, the telemetry from the device is automatically collected (without the user consent) and sent to Microsoft. This telemetry is stored in a common central location. This gathered telemetry provides valuable insights into enterprise deployments of Azure Stack Edge. This telemetry is also used for security, health, quality, and performance analysis.
 
@@ -93,36 +71,31 @@ As Azure Stack Edge is a first-party Microsoft device, the telemetry from the de
 - Raw telemetry data sent to Microsoft is retained for 90 days. Aggregated data is retained for longer.
 - For all the containerized workloads (deployed via IoT Edge and Kubernetes) and VM workloads, the application data is considered as the customer data. This data can only be accessed by the customer unless it pertains to the underlying infrastructure. 
 
-For more information, see [Use the Kubernetes dashboard to monitor the Kubernetes cluster health on your Azure Stack Edge Pro device](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md).
+For more information, see [Use the Kubernetes dashboard to monitor the Kubernetes cluster health on your Azure Stack Edge Pro device](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md).-->
 
 ## Azure Stack Edge dependent services
 
+Azure Arc enabled Kubernetes, Azure IoT Hub and Azure IoT Edge, and Azure Key Vault are services that integrate with Azure Stack Edge.
+
 ### Azure Arc enabled Kubernetes clusters
 
-For Singapore (Southeast Asia), Azure Arc data resides only within Singapore and is not replicated in Hong Kong. If there is a region-wide outage, the service is not resilient.
+Azure Arc enabled Kubernetes clusters is available as an add-on for Azure Stack Edge. For Singapore (Southeast Asia), Azure Arc data resides only within Singapore and is not replicated in Hong Kong. If there is a region-wide outage, the service is not resilient.
 
-For all other regions, Azure Arc supports Azure Regional Pair and is resilient to any region-wide outages.
+For all other regions, Azure Arc supports Azure Regional Pair and is resilient to any region-wide outages. For more information, see [Data residency and resiliency for Azure Arc enabled Kubernetes clusters]().
 
-<!--
-| If you...  | You’ll observe this behavior...|...and this happens if there is an outage! |
-|----------------|--------------------------------|----------|
-| Have an existing Azure Arc resource  | For Azure Arc - Config and Connect changes are deployed in Singapore. ZRS storage and in-region CosmosDB is used as part of this change. <br><br> In Singapore, Azure Arc only supports national data residency. This means customers will have to follow manual steps when Singapore region is down. | Manual BCDR steps, if any: To be checked with Arc PM.                                                                                     |-->
 
 ### Azure IoT
 
-Azure IoT currently uses Azure Regional Pair for region outage resiliency. This means that for Singapore (Southeast Asia), the data is replicated to Hong Kong. 
+Azure IoT is available as an add-on for Azure Stack Edge. For Singapore (Southeast Asia), Azure IoT uses paired region and replicates data to Hong Kong. This means that Azure IoT is resilient to region-wide outages. 
 
-<!--| If you...                           | You’ll observe this behavior….                                                                         | …and this happens if there is an outage! |
-|-------------------------------------|--------------------------------------------------------------------------------------------------------|------------------------------------------|
-| Have an existing Azure IoT resource. | Azure Regional Pairs are used. In Singapore, the data will be replicated to Hong Kong.                 | No change, same as today.                |
-| Are creating an Azure IoT resource. | Currently there is no support for national data residency. This is likely to come in a future release. | Not applicable as of today.              |-->
+For more information, see [Data residency and resiliency for Azure IoT]().
 
 
 ### Azure Key Vault
 
-Azure Key Vault currently uses Azure Regional Pair for region outage resiliency. For new Azure Key Vault resources, an option is now available that can be enabled at subscription level. When enabled, if your service is deployed in Singapore (Southeast Asia), you can control the data replication to Hong Kong. 
+Azure Key Vault currently uses Azure Regional Pair for region outage resiliency. For new Azure Key Vault resources, an option is now available that can be enabled at the subscription level. When enabled, if your service is deployed in Singapore (Southeast Asia), you can control the data replication to Hong Kong. 
 
-If you choose Singapore data residency, then service will not be resilient to region outages.
+If you choose to store and process the data only in Singapore region, then the service will not be resilient to region-wide outages. For more information, see [Data residency and resiliency for Azure Key Vault]().
 
 ## Next steps
 
