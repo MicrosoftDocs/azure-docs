@@ -43,7 +43,7 @@ A dynamic group for non-Azure machines uses saved searches, also called computer
 ![Screenshot shows the Select groups page for Non-Azure (Preview) and the Preview pane on the right side.](./media/configure-groups/select-groups-2.png)
 
 > [!NOTE]
-> A saved search that queries data stored across multiple Log Analytics workspaces is not supported.
+> A saved search that [queries data stored across multiple Log Analytics workspaces](../../azure-monitor/logs/cross-workspace-query.md) is not supported.
 
 ## Next steps
 
