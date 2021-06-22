@@ -12,7 +12,7 @@ Once you've [planned your deployment](tutorial-plan-private-cloud-deployment.md)
 
 The diagram shows the deployment workflow of Azure VMware Solution. 
 
-:::image type="content" source="media/deploy-azure-vmware-solution-workflow.png" alt-text="Diagram of the Azure VMware Solution deployment workflow." lightbox="media/deploy-azure-vmware-solution-workflow.png" border="false":::
+:::image type="content" source="media/deploy-azure-vmware-solution-workflow.png" alt-text="Diagram showing the Azure VMware Solution deployment workflow." lightbox="media/deploy-azure-vmware-solution-workflow.png" border="false":::
 
 In this tutorial, you learn how to:
 
