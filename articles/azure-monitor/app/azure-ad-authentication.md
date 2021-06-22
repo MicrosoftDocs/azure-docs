@@ -167,6 +167,7 @@ Below is an example on how to configure Java agent to use user-assigned managed 
   }	 
 } 
 ```
+:::image type="content" source="media/azure-ad-authentication/user-assigned-managed-identity.png" alt-text="Screenshot of User-assigned managed identity." lightbox="media/azure-ad-authentication/user-assigned-managed-identity.png":::
 
 #### Client secret
 
@@ -186,6 +187,9 @@ Below is an example on how to configure Java agent to use service principal for 
   } 
 } 
 ```
+:::image type="content" source="media/azure-ad-authentication/client-secret-tenant-id.png" alt-text="Screenshot of Client secret with tenantID and ClientID." lightbox="media/java-ipa/authentication/client-secret-tenant-id.png":::
+
+:::image type="content" source="media/azure-ad-authentication/client-secret-cs.png" alt-text="Screenshot of Client secret with client secret." lightbox="media/azure-ad-authentication/client-secret-cs.png":::
 
 ### [Python](#tab/python)
 
@@ -361,6 +365,8 @@ This indicates that the SDK has been configured with credentials that haven't be
 
 Next steps should be to review the Application Insights resource's access control. The SDK must be configured with a credential that has been granted the "Monitoring Metrics Publisher" role.
 
+### Language specific troubleshooting
+
 ### [ASP.NET and .NET](#tab/net)
 
 #### Event Source
@@ -407,7 +413,7 @@ If using fiddler, you might see the following response header: `HTTP/1.1 401 Una
 
 #### CredentialUnavailableException
 
-If the following exception is seen in the log file  `com.azure.identity.CredentialUnavailableException: ManagedIdentityCredential authentication unavailable. Connection to IMDS endpoint cannot be established`, it indicates the agent wasn't successful in acquiring the access token and the probable reason might be you've provided invalid/wrong “clientId” in your User Assigned Managed Identity configuration
+If the following exception is seen in the log file  `com.azure.identity.CredentialUnavailableException: ManagedIdentityCredential authentication unavailable. Connection to IMDS endpoint cannot be established`, it indicates the agent wasn't successful in acquiring the access token and the probable reason might be you've provided invalid `clientId` in your User Assigned Managed Identity configuration
 
 
 #### Failed to send telemetry
@@ -417,21 +423,21 @@ If the following WARN message is seen in the log file, `WARN c.m.a.TelemetryChan
 If using fiddler, you might see the following response header: `HTTP/1.1 403 Forbidden - provided credentials do not grant the access to ingest the telemetry into the component`.
 
 Root cause might be one of the following reasons:
-- You've created the resource with “system-assigned managed identity” enabled or you might have associated the “user-assigned identity” with the resource but forgot to add the “Monitoring Metrics Publisher” role to the resource (if using SAMI) or “user-assigned identity” (if using UAMI).
-- You've provided the right credentials to get the access tokens, but the credentials don't belong to the right Application Insights resource. Make sure you see your resource (vm, app service etc.) or user-assigned identity with “Monitoring Metrics Publisher” roles in your Application Insights resource.
+- You've created the resource with System-assigned managed identity enabled or you might have associated the User-assigned identity with the resource but forgot to add the `Monitoring Metrics Publisher` role to the resource (if using SAMI) or User-assigned identity (if using UAMI).
+- You've provided the right credentials to get the access tokens, but the credentials don't belong to the right Application Insights resource. Make sure you see your resource (vm, app service etc.) or user-assigned identity with `Monitoring Metrics Publisher` roles in your Application Insights resource.
 
 #### Invalid TenantId
 
-If the following exception is seen in the log file `com.microsoft.aad.msal4j.MsalServiceException: Specified tenant identifier ‘' is neither a valid DNS name, nor a valid external domain.`, it indicates the agent wasn't successful in acquiring the access token and the probable reason might be you've provided invalid/wrong “tenantId” in your client secret configuration.
+If the following exception is seen in the log file `com.microsoft.aad.msal4j.MsalServiceException: Specified tenant identifier <TENANT-ID> is neither a valid DNS name, nor a valid external domain.`, it indicates the agent wasn't successful in acquiring the access token and the probable reason might be you've provided invalid/wrong `tenantId` in your client secret configuration.
 
 #### Invalid client secret
 
-If the following exception is seen in the log file `com.microsoft.aad.msal4j.MsalServiceException: Invalid client secret is provided`, it indicates the agent wasn't successful in acquiring the access token and the probable reason might be you've provided invalid/wrong “clientSecret” in your client secret configuration.
+If the following exception is seen in the log file `com.microsoft.aad.msal4j.MsalServiceException: Invalid client secret is provided`, it indicates the agent wasn't successful in acquiring the access token and the probable reason might be you've provided invalid `clientSecret` in your client secret configuration.
 
 
 #### Invalid ClientId
 
-If the following exception is seen in the log file `com.microsoft.aad.msal4j.MsalServiceException: Application with identifier '’ was not found in the directory '’`, it indicates the agent wasn't successful in acquiring the access token and the probable reason might be you've provided invalid/wrong “clientId” in your client secret configuration
+If the following exception is seen in the log file `com.microsoft.aad.msal4j.MsalServiceException: Application with identifier <CLIENT_ID> was not found in the directory`, it indicates the agent wasn't successful in acquiring the access token and the probable reason might be you've provided invalid/wrong “clientId” in your client secret configuration
 
  This can happen if the application has not been installed by the administrator of the tenant or consented to by any user in the tenant. You may have sent your authentication request to the wrong tenant.
 
