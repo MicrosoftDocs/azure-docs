@@ -17,9 +17,9 @@ This article describes how to use the [static image service](/rest/api/maps/rend
 
 The following are examples of custom data:
 
-- custom pushpins
-- labels
-- geometry overlays
+- Custom pushpins
+- Labels
+- Geometry overlays
 
 > [!Tip]
 > To show a simple map on a web page,  it's often more cost effective to use the Azure Maps Web SDK, rather than to use the static image service. The web SDK uses map tiles; and unless the user pans and zooms the map, they will often generate only a fraction of a transaction per map load. The Azure Maps web SDK has options for disabling panning and zooming. Also, the Azure Maps web SDK provides a richer set of data visualization options than a static map web service does.  
