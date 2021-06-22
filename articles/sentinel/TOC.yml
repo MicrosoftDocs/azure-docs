@@ -387,6 +387,8 @@
         href: normalization-schema.md
       - name: DNS normalization schema
         href: dns-normalization-schema.md
+      - name: Process event normalization schema
+        href: process-events-normalization-schema.md
   - name: Detection and analysis references
     items:
     - name: Top Azure Sentinel workbooks
