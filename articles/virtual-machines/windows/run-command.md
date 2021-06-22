@@ -1,20 +1,18 @@
 ---
 title: Run PowerShell scripts in a Windows VM in Azure
 description: This topic describes how to run PowerShell scripts within an Azure Windows virtual machine by using the Run Command feature
-services: automation
 ms.service: virtual-machines
 ms.collection: windows
 author: bobbytreed
 ms.author: robreed
-ms.date: 04/26/2019
+ms.date: 06/22/2021
 ms.topic: how-to  
 ms.custom: devx-track-azurepowershell
-manager: carmonm
+
 ---
 # Run PowerShell scripts in your Windows VM by using Run Command
 
 The Run Command feature uses the virtual machine (VM) agent to run PowerShell scripts within an Azure Windows VM. You can use these scripts for general machine or application management. They can help you to quickly diagnose and remediate VM access and network issues and get the VM back to a good state.
-
 
 
 ## Benefits
@@ -47,16 +45,20 @@ This table shows the list of commands available for Windows VMs. You can use the
 ```error
 The entity was not found in this Azure location
 ```
-
-|**Name**|**Description**|
+<br>
+| **Name** | **Description** |
 |---|---|
-|**RunPowerShellScript**|Runs a PowerShell script.|
-|**EnableRemotePS**|Configures the machine to enable remote PowerShell.|
-|**EnableAdminAccount**|Checks if the local administrator account is disabled, and if so enables it.|
-|**IPConfig**| Shows detailed information for the IP address, subnet mask, and default gateway for each adapter bound to TCP/IP.|
-|**RDPSettings**|Checks registry settings and domain policy settings. Suggests policy actions if the machine is part of a domain or modifies the settings to default values.|
-|**ResetRDPCert**|Removes the TLS/SSL certificate tied to the RDP listener and restores the RDP listener security to default. Use this script if you see any issues with the certificate.|
-|**SetRDPPort**|Sets the default or user-specified port number for Remote Desktop connections. Enables firewall rules for inbound access to the port.|
+| **RunPowerShellScript** | Runs a PowerShell script |
+| **DisableNLA** | Disable Network Level Authentication |
+| **DisableWindowsUpdate** | Disable Windows Update Automatic Updates |
+| **EnableAdminAccount** | Checks if the local administrator account is disabled, and if so enables it. |
+| **EnableEMS** | EnableS EMS |
+| **EnableRemotePS** | Configures the machine to enable remote PowerShell. |
+| **EnableWindowsUpdate** | Enable Windows Update Automatic Updates |
+| **IPConfig** | Shows detailed information for the IP address, subnet mask, and default gateway for each adapter bound to TCP/IP. |
+| **RDPSetting** | Checks registry settings and domain policy settings. Suggests policy actions if the machine is part of a domain or modifies the settings to default values. |
+| **ResetRDPCert** | Removes the TLS/SSL certificate tied to the RDP listener and restores the RDP listener security to default. Use this script if you see any issues with the certificate. |
+| **SetRDPPort** | Sets the default or user-specified port number for Remote Desktop connections. Enables firewall rules for inbound access to the port. |
 
 ## Azure CLI
 
@@ -76,7 +78,7 @@ az vm run-command invoke  --command-id RunPowerShellScript --name win-vm -g my-r
 
 ## Azure portal
 
-Go to a VM in the [Azure portal](https://portal.azure.com) and select **Run command** under **OPERATIONS**. You see a list of the available commands to run on the VM.
+Go to a VM in the [Azure portal](https://portal.azure.com) and select **Run command** from the left menu, under **Operations**. You see a list of the available commands to run on the VM.
 
 ![List of commands](./media/run-command/run-command-list.png)
 
