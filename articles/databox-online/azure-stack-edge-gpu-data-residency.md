@@ -37,8 +37,6 @@ Azure Stack Edge service also integrates with the following dependent services a
 - Azure Arc enabled Kubernetes
 - Azure IoT Hub and Azure IoT Edge
 - Azure Key Vault 
-- Azure Monitor 
-- Azure Storage accounts
 
 
 There are also services that are excluded from these data requirements, and these are briefly discussed later in this article.
@@ -51,7 +49,7 @@ If you are creating a new Azure Stack Edge resource, you have the option to enab
 
 - Wait for the Singapore region to be restored.
 
-- Create a resource in another region, reset the device, and manage your device via the new resource. For detailed instructions, see [Reset and reactivate your Azure Stack Edge device](azure-stack-edge-reset-reactivate-device).
+- Create a resource in another region, reset the device, and manage your device via the new resource. For detailed instructions, see [Reset and reactivate your Azure Stack Edge device](azure-stack-edge-reset-reactivate-device.md).
 
 ## Azure Edge Hardware Center ordering and management resource 
 
