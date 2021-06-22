@@ -220,6 +220,6 @@ After the installation completes, you will test the validation.
 
 You can use the following command to Remove the sensor.
 
-    ```bash
-    sudo apt purge -y adiot-sensor
-    ```
+```bash
+sudo apt purge -y adiot-sensor
+```
