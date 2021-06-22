@@ -10,7 +10,9 @@ ms.date: 09/21/2020
 
 # Supported versions for Azure Database for MySQL - Flexible Server
 
-[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
+[]
+
+
 
 
 > [!IMPORTANT]

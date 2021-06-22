@@ -12,7 +12,9 @@ ms.date: 9/21/2020
 
 # Quickstart: Use Python to connect and query data in Azure Database for MySQL - Flexible Server
 
-[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
+[]
+
+
 
 > [!IMPORTANT] 
 > Azure Database for MySQL - Flexible Server is currently in public preview.
@@ -92,7 +94,9 @@ from mysql.connector import errorcode
 
 # Obtain connection string information from the portal
 
-[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
+[]
+
+
 config = {
   'host':'<mydemoserver>.mysql.database.azure.com',
   'user':'<myadmin>',
@@ -102,7 +106,9 @@ config = {
 
 # Construct connection string
 
-[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
+[]
+
+
 try:
    conn = mysql.connector.connect(**config)
    print("Connection established")
@@ -153,7 +159,9 @@ from mysql.connector import errorcode
 
 # Obtain connection string information from the portal
 
-[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
+[]
+
+
 config = {
   'host':'<mydemoserver>.mysql.database.azure.com',
   'user':'<myadmin>',
@@ -163,7 +171,9 @@ config = {
 
 # Construct connection string
 
-[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
+[]
+
+
 try:
    conn = mysql.connector.connect(**config)
    print("Connection established")
@@ -205,7 +215,9 @@ from mysql.connector import errorcode
 
 # Obtain connection string information from the portal
 
-[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
+[]
+
+
 config = {
   'host':'<mydemoserver>.mysql.database.azure.com',
   'user':'<myadmin>',
@@ -215,7 +227,9 @@ config = {
 
 # Construct connection string
 
-[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
+[]
+
+
 try:
    conn = mysql.connector.connect(**config)
    print("Connection established")
@@ -252,7 +266,9 @@ from mysql.connector import errorcode
 
 # Obtain connection string information from the portal
 
-[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
+[]
+
+
 config = {
   'host':'<mydemoserver>.mysql.database.azure.com',
   'user':'<myadmin>',
@@ -262,7 +278,9 @@ config = {
 
 # Construct connection string
 
-[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
+[]
+
+
 try:
    conn = mysql.connector.connect(**config)
    print("Connection established.")
