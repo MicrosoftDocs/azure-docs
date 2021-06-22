@@ -21,19 +21,19 @@ To deploy the DICOM Services, you must have a workspace created in the Azure por
 
 1. On the **Resource group** page of the Azure portal, select the name of your **Healthcare APIs Workspace**.
 
-   :::image type="content" source="media/select_workspace_resource_group.png" alt-text="Select workspace resource group":::
+   :::image type="content" source="dicom/media/select-workspace-resource-group.png" alt-text="Select workspace resource group":::
 
 2. Select **Deploy DICOM Services**.
 
-    :::image type="content" source="media/workspace-deploy-dicom-services.png" alt-text="Deploy DICOM Services":::
+    :::image type="content" source="dicom/media/workspace-deploy-dicom-services.png" alt-text="Deploy DICOM Services":::
 
 3. Select **Add DICOM Service**.
 
-   :::image type="content" source="media/add_dicom_service.png" alt-text="Add DICOM Service":::
+   :::image type="content" source="dicom/media/add-dicom-service.png" alt-text="Add DICOM Service":::
 
 4. Enter a name for the DICOM Service, and then select **Review + create**. 
 
-   :::image type="content" source="media/enter_dicom_service_name.png" alt-text="Enter DICOM service name":::
+   :::image type="content" source="dicom/media/enter-dicom-service-name.png" alt-text="Enter DICOM service name":::
 
    (**Optional**) Select **Next: Tags >**. 
     
@@ -44,11 +44,11 @@ To deploy the DICOM Services, you must have a workspace created in the Azure por
 
 6. When the deployment process completes, click **Go to resource**.  
 
-   :::image type="content" source="media/go-to-resource.png" alt-text="Go to service":::
+   :::image type="content" source="dicom/media/go-to-resource.png" alt-text="Go to resource":::
 
    The result of the newly deployed DICOM Service is shown below.
 
-   :::image type="content" source="media/results-deployed-dicom-service.png" alt-text="Result of newly deployed DICOM service":::
+   :::image type="content" source="dicom/media/results-deployed-dicom-service.png" alt-text="Result of newly deployed DICOM service":::
 
 ## Next steps
 
