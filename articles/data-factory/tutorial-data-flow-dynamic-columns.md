@@ -30,8 +30,8 @@ In this step, you create a data factory and open the Data Factory UX to create a
 1. On the **New data factory** page, under **Name**, enter **ADFTutorialDataFactory**
 1. Select the Azure **subscription** in which you want to create the data factory.
 1. For **Resource Group**, take one of the following steps:
-* Select **Use existing**, and select an existing resource group from the drop-down list.
-* Select **Create new**, and enter the name of a resource group.To learn about resource groups, see [Use resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md).    
+    * Select **Use existing**, and select an existing resource group from the drop-down list.
+    * Select **Create new**, and enter the name of a resource group.To learn about resource groups, see [Use resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md).    
 1. Under **Version**, select **V2**.
 1. Under **Location**, select a location for the data factory. Only locations that are supported are displayed in the drop-down list. Data stores (for example, Azure Storage and SQL Database) and computes (for example, Azure HDInsight) used by the data factory can be in other regions.
 1. Select **Create**.
@@ -60,6 +60,8 @@ For this tutorial, we're going to use a sample movies rating file and renaming a
 
 ### Tutorial objectives
 
+You'll learn how to dynamically set column names using a data flow
+
 1. Create a source dataset for the movies CSV file
 1. Create a lookup dataset for a field mapping JSON configuration file
 1. Convert the columns from the source to your target column names
@@ -74,10 +76,12 @@ First, let's set up the data flow environment for each of the mechanisms describ
 1. Add a 2nd source, which we will use to source the configuration JSON file to lookup field mappings.
 1. Call this as ```columnmappings```.
 1. For the dataset, point to a new JSON file that will store a configuration for column mapping. You can paste the into the JSON file for this tutorial example:
-    ```[
+    ```
+    [
     {"prevcolumn":"title","newcolumn":"movietitle"},
     {"prevcolumn":"year","newcolumn":"releaseyear"}
-    ]```
+    ]
+    ```
 
 1. Set this source settings to ```array of documents```.
 1. Add a 3rd source and call it ```movies2```. Configure this exactly the same as ```movies1```.
@@ -99,7 +103,7 @@ In this first scenario, you will set output column names in you data flow by set
 1. For the first column, the matching rule will be ```position==1``` and the name will be ```$parameter1[1]```
 1. Follow the same pattern for column 2 and 3
  
-![Select transformation](media/data-flow/dynacols-4.png "Select transformation")
+    ![Select transformation](media/data-flow/dynacols-4.png "Select transformation")
 
 1. Click on the Inspect and Data Preview tabs of the Select transformation to view the new column name values ```(a,b,c)``` replace the original movie, title, genres column names
    
