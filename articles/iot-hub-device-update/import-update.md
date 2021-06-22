@@ -117,7 +117,7 @@ Example:
 ## Import an update
 
 > [!NOTE]
-> The instructions below show how to import an update via the Azure portal UI. You can also use the [Device Update for IoT Hub APIs](/rest/api/deviceupdate/updates) to import an update. 
+> The instructions below show how to import an update via the Azure portal UI. If you prefer to use the [Device Update for IoT Hub APIs](/rest/api/deviceupdate/updates) to import an update, you can reference this [sample API call](/import-schema#example-import-request-body) which uses the import manifest you created above. 
 
 1. Log in to the [Azure portal](https://portal.azure.com) and navigate to your IoT Hub with Device Update.
 
