@@ -16,7 +16,7 @@ ms.custom: devx-track-dotnet
 
 Cosmos DB slow requests can happen for multiple reasons. This guide is to help root cause the different issues.
 
-## Request rate to large causing 429 (Throttles)
+## Request rate too large (429 throttles)
 
 Throttled requests are the most common reason for slow requests. Cosmos DB will throttle requests if it exceeds the allocated RUs for the database or container. The SDK has built in logic to retry on these requests. The [request rate too large](troubleshoot-request-rate-too-large.md#how-to-investigate) troubleshooting explains how to check if the requests are being throttled and how to scale the Cosmos DB service to avoid the issue in the future.
 
