@@ -58,15 +58,15 @@ Extensions:  {
 The VM Agent is required to manage, install and execute extensions. If the VM Agent is not running or is failing to report a Ready status to the Azure platform, then the extensions will not work correctly.
 
 Please refer to the following pages to troubleshoot the VM Agent:
-[Troubleshooting Windows Azure Guest Agent](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/windows-azure-guest-agent)
-[Troubleshoot the Azure Linux Agent](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/linux-azure-guest-agent)
+- [Troubleshooting Windows Azure Guest Agent](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/windows-azure-guest-agent) for a Windows VM
+- [Troubleshoot the Azure Linux Agent](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/linux-azure-guest-agent) for a Linux VM
 
 ### Check for your specific extension troubleshooting guide
 Some extensions have a specific page describing how to troubleshoot them. You can find the list of these extensions and pages on [Troubleshoot extensions
 ](https://docs.microsoft.com/azure/virtual-machines/extensions/overview#troubleshoot-extensions).
 
 ### View the extension's status
-As explained above, the extension's status can be found by running the Powershell cmdlet:
+As explained above, the extension's status can be found by running the PowerShell cmdlet:
 ```azurepowershell
 Get-AzVM -ResourceGroupName $RGName -Name $vmName -Status
 ```
@@ -76,7 +76,7 @@ or the CLI command:
 az vm extension show -g <RG Name> --vm-name <VM Name>  --name <Extension Name>
 ```
 
-or in the Azure Portal, by browsing to the VM Blade / Settings / Extensions. You can then click on the extension and check its status and message.
+or in the Azure portal, by browsing to the VM Blade / Settings / Extensions. You can then click on the extension and check its status and message.
 
 
 ### Rerun the extension on the VM
@@ -151,7 +151,7 @@ Extension packages and binaries are downloaded on the VM (eg. _"/var/lib/waagent
 
 Their configuration and settings are passed from Azure Platform to the extension handler through the VM Agent (eg. _"/var/lib/waagent/Microsoft.Azure.Extensions.CustomScript-2.1.3/config"_ for Linux or  _"C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.10.12\RuntimeSettings"_ for Windows)
 
-Extension handlers inside the VM are writing to a status file (eg. _"/var/lib/waagent/Microsoft.Azure.Extensions.CustomScript-2.1.3/status/1.status"_ for Linux or _"C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.10.12\Status"_ for Windows) which will then be reported to the Azure Platform. That status is the one reported through Powershell, CLI or in the VM's extension blade in the Azure Portal.
+Extension handlers inside the VM are writing to a status file (eg. _"/var/lib/waagent/Microsoft.Azure.Extensions.CustomScript-2.1.3/status/1.status"_ for Linux or _"C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.10.12\Status"_ for Windows) which will then be reported to the Azure Platform. That status is the one reported through PowerShell, CLI or in the VM's extension blade in the Azure portal.
 
 They also write detailed logs of their execution (eg. _"/var/log/azure/custom-script/handler.log"_ for Linux or _"C:\WindowsAzure\Logs\Plugins\Microsoft.Compute.CustomScriptExtension\1.10.12\CustomScriptHandler.log"_ for Windows).
 
