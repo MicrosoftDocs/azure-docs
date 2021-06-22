@@ -10,8 +10,6 @@ ms.date: 9/21/2020
 
 # Create and manage virtual networks for Azure Database for MySQL - Flexible Server using the Azure portal
 
-[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
-
 > [!IMPORTANT]
 > Azure Database for MySQL - Flexible Server is currently in public preview.
 
