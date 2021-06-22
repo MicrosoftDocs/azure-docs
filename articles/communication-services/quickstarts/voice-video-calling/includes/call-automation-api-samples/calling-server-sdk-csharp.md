@@ -139,7 +139,7 @@ Logger.LogMessage(Logger.MessageType.INFORMATION, $"Play Audio state: {response.
 
 ## Add a participant to the call
 
-Use `AddParticipantAsync` method of `CallConnection` object to add a participant to the call. The following are the supported parameters for `AddParticipantAsync` method:
+Use the `AddParticipantAsync` method of the `CallConnection` object to add a participant to the call. The following parameters are supported by the `AddParticipantAsync` method:
 
 - `participant`, is the participant identifier of either type `CommunicationUserIdentifier` or `PhoneNumberIdentifier`.
 - `alternateCallerId`, is the source caller id.
