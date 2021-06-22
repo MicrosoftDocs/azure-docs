@@ -110,17 +110,17 @@ The command returns your current additional authentication rules for your relyin
 
 ```
 
-c:[Type == "[http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid](http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid)", Value == 
+c:[Type == "[https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid](https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid)", Value == 
 
-“YourGroupSID"] => issue(Type = "[http://schemas.microsoft.com/claims/authnmethodsproviders](http://schemas.microsoft.com/claims/authnmethodsproviders)", 
+“YourGroupSID"] => issue(Type = "[https://schemas.microsoft.com/claims/authnmethodsproviders](https://schemas.microsoft.com/claims/authnmethodsproviders)", 
 
 Value = "AzureMfaAuthentication");
 
-not exists([Type == "[http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid](http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid)", 
+not exists([Type == "[https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid](https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid)", 
 
 Value==“YourGroupSid"]) => issue(Type = 
 
-"[http://schemas.microsoft.com/claims/authnmethodsproviders](http://schemas.microsoft.com/claims/authnmethodsproviders)", Value = 
+"[https://schemas.microsoft.com/claims/authnmethodsproviders](https://schemas.microsoft.com/claims/authnmethodsproviders)", Value = 
 
 "AzureMfaServerAuthentication");’
 
@@ -132,23 +132,23 @@ The following example assumes your current claim rules are configured to prompt 
 
 Set-AdfsAdditionalAuthenticationRule -AdditionalAuthenticationRules 'c:[type == 
 
-"[http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork](http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork)", value == "false"] => issue(type = 
+"[https://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork](https://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork)", value == "false"] => issue(type = 
 
-"[http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod](http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod)", value = 
+"[https://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod](https://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod)", value = 
 
-"[http://schemas.microsoft.com/claims/multipleauthn](http://schemas.microsoft.com/claims/multipleauthn)" );
+"[https://schemas.microsoft.com/claims/multipleauthn](https://schemas.microsoft.com/claims/multipleauthn)" );
 
- c:[Type == "[http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid](http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid)", Value == 
+ c:[Type == "[https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid](https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid)", Value == 
 
-“YourGroupSID"] => issue(Type = "[http://schemas.microsoft.com/claims/authnmethodsproviders](http://schemas.microsoft.com/claims/authnmethodsproviders)", 
+“YourGroupSID"] => issue(Type = "[https://schemas.microsoft.com/claims/authnmethodsproviders](https://schemas.microsoft.com/claims/authnmethodsproviders)", 
 
 Value = "AzureMfaAuthentication");
 
-not exists([Type == "[http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid](http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid)", 
+not exists([Type == "[https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid](https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid)", 
 
 Value==“YourGroupSid"]) => issue(Type = 
 
-"[http://schemas.microsoft.com/claims/authnmethodsproviders](http://schemas.microsoft.com/claims/authnmethodsproviders)", Value = 
+"[https://schemas.microsoft.com/claims/authnmethodsproviders](https://schemas.microsoft.com/claims/authnmethodsproviders)", Value = 
 
 "AzureMfaServerAuthentication");’
 
@@ -164,23 +164,23 @@ This example modifies claim rules on a specific relying party trust (application
 
 Set-AdfsRelyingPartyTrust -TargetName AppA -AdditionalAuthenticationRules 'c:[type == 
 
-"[http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork](http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork)", value == "false"] => issue(type = 
+"[https://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork](https://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork)", value == "false"] => issue(type = 
 
-"[http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod](http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod)", value = 
+"[https://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod](https://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod)", value = 
 
-"[http://schemas.microsoft.com/claims/multipleauthn](http://schemas.microsoft.com/claims/multipleauthn)" );
+"[https://schemas.microsoft.com/claims/multipleauthn](https://schemas.microsoft.com/claims/multipleauthn)" );
 
-c:[Type == "[http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid](http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid)", Value == 
+c:[Type == "[https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid](https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid)", Value == 
 
-“YourGroupSID"] => issue(Type = "[http://schemas.microsoft.com/claims/authnmethodsproviders](http://schemas.microsoft.com/claims/authnmethodsproviders)", 
+“YourGroupSID"] => issue(Type = "[https://schemas.microsoft.com/claims/authnmethodsproviders](https://schemas.microsoft.com/claims/authnmethodsproviders)", 
 
 Value = "AzureMfaAuthentication");
 
-not exists([Type == "[http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid](http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid)", 
+not exists([Type == "[https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid](https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid)", 
 
 Value==“YourGroupSid"]) => issue(Type = 
 
-"[http://schemas.microsoft.com/claims/authnmethodsproviders](http://schemas.microsoft.com/claims/authnmethodsproviders)", Value = 
+"[https://schemas.microsoft.com/claims/authnmethodsproviders](https://schemas.microsoft.com/claims/authnmethodsproviders)", Value = 
 
 "AzureMfaServerAuthentication");’
 
@@ -344,17 +344,17 @@ For example, remove the following from the rule(s):
 
  
 
-c:[Type == "[http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid"](http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid"), Value ==
+c:[Type == "[https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid"](https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid"), Value ==
 
-“YourGroupSID"] => issue(Type = "[http://schemas.microsoft.com/claims/authnmethodsproviders"](http://schemas.microsoft.com/claims/authnmethodsproviders"),
+“YourGroupSID"] => issue(Type = "[https://schemas.microsoft.com/claims/authnmethodsproviders"](https://schemas.microsoft.com/claims/authnmethodsproviders"),
 
 Value = "AzureMfaAuthentication");
 
-not exists([Type == "[http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid"](http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid"),
+not exists([Type == "[https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid"](https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid"),
 
 Value==“YourGroupSid"]) => issue(Type =
 
-"[http://schemas.microsoft.com/claims/authnmethodsproviders"](http://schemas.microsoft.com/claims/authnmethodsproviders"), Value =
+"[https://schemas.microsoft.com/claims/authnmethodsproviders"](https://schemas.microsoft.com/claims/authnmethodsproviders"), Value =
 
 "AzureMfaServerAuthentication");’
 
