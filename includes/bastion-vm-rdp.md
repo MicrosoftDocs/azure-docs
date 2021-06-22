@@ -22,6 +22,6 @@
 
    :::image type="content" source="./media/bastion-vm-rdp/connect-vm-host.png" alt-text="Connect":::
 
-1. The RDP connection to this virtual machine via Bastion will open directly in the Azure portal (over HTML5) using port 443 and the Bastion service. Note that when connecting, the desktop of the VM may look different than the example screenshot.
+1. The RDP connection to this virtual machine via Bastion will open directly in the Azure portal (over HTML5) using port 443 and the Bastion service. When you connect, the desktop of the VM may look different than the example screenshot. Note that when using keyboard shortcut keys while connected to a VM, they may not result in the same behavior as shortcut keys on a local computer. For example, when connected to the VM, Ctrl+Alt+End is the keyboard shortcut for Ctrl+Alt+Del on a local computer.
 
    :::image type="content" source="./media/bastion-vm-rdp/connection.png" alt-text="Connect using port 443":::
