@@ -52,7 +52,7 @@ The following classes handle some of the major features of the Azure Communicati
 
 ## Create a call client
 
-To create a call client, you'll use your Communication Services connection string and pass to call client object.
+To create a call client, you'll use your Communication Services connection string and pass it to your call client object.
 
 ```csharp
 this.CallClient = new CallingServerClient("<Connection_String>");
