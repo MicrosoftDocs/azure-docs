@@ -34,7 +34,7 @@ As updates are constantly made to the product, some features have added or diffe
 
 [Debugging workflows for data flows](https://youtu.be/y3suL7UsWVw)
 
-[Update monitoring view](https://www.youtube.com/watch?v=FWCBslsk6KE)
+[Updated monitoring view](https://www.youtube.com/watch?v=FWCBslsk6KE)
 
 ## Transformation overviews
 
