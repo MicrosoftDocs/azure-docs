@@ -12,11 +12,9 @@ ms.date: 06/14/2021
 ms.author: lajanuar
 ---
 
-# Document Translation client libraries and SDKs (prerelease)
+# Document Translation client libraries and SDKs
 <!-- markdownlint-disable MD024 -->
-> [!IMPORTANT]
-> Prerelease versions are still in development and are subject to change—do not use them in production applications. They're made available on an introductory basis so customers can get early access and provide feedback. Certain features may not be supported or might have constrained capabilities. 
-
+<!-- markdownlint-disable MD001 -->
 [Document Translation](overview.md) is a cloud-based feature of the [Azure Translator](../translator-info-overview.md) service. You can translate entire documents or process batch document translations in various file formats while preserving original document structure and format. In this article, you'll learn how to use the Document Translation service C#/.NET and Python client libraries. For the REST API, see our [Quickstart](get-started-with-document-translation.md) guide.
 
 ## Prerequisites
@@ -42,6 +40,9 @@ For more information, *see* [Create SAS tokens](create-sas-tokens.md).
 ### [C#/.NET](#tab/csharp)
 
 | [Package (NuGet)][documenttranslation_nuget_package] | [Client library][documenttranslation_client_library_docs] |  [REST API][documenttranslation_rest_api] | [Product documentation][documenttranslation_docs] | [Samples][documenttranslation_samples] |
+
+> [!IMPORTANT]
+> This is a prerelease version of the Document Translation SDK. They're made available on an introductory basis so customers can get early access and provide feedback. Prerelease versions are still in development, are subject to change, and certain features may not be supported or might have constrained capabilities—do not use them in production applications.
 
 ## Set up your project
 
@@ -71,16 +72,20 @@ Build succeeded.
 
 Within the application directory, install the Document Translation client library for .NET using one of the following methods:
 
-**.NET CLI**
+#### **.NET CLI**
+
 ```console
 dotnet add package Azure.AI.Translation.Document --version 1.0.0-beta.2
 ```
-**NuGet Package Manager**
+
+#### **NuGet Package Manager**
+
 ```console
 Install-Package Azure.AI.Translation.Document -Version 1.0.0-beta.2
 ```
 
-**NuGet PackageReference**
+#### **NuGet PackageReference**
+
 ```xml
 <ItemGroup>
     <!-- ... -->
@@ -99,7 +104,7 @@ using System;
 using System.Threading;
 ```
 
-In the application's **Program** class, create variable for your subscription key and custom endpoint. For details, *see* [Get your custom domain name and subscription key(get-started-with-document-translation.md)
+In the application's **Program** class, create variable for your subscription key and custom endpoint. For details, *see* [Get your custom domain name and subscription key](get-started-with-document-translation.md#get-your-custom-domain-name-and-subscription-key)
 
 ```csharp
 private static readonly string endpoint = "<your custom endpoint>";
@@ -122,7 +127,7 @@ public void StartTranslation() {
   Uri sourceUri = new Uri("<sourceUrl>");
   Uri targetUri = new Uri("<targetUrl>");
 
-  DocumentTranslationClient client = new DocumentTranslationClient(new Uri(endpoint), new AzureKeyCredential)subscriptionKey);
+  DocumentTranslationClient client = new DocumentTranslationClient(new Uri(endpoint), new AzureKeyCredential(subscriptionKey));
 
   DocumentTranslationInput input = new DocumentTranslationInput(sourceUri, targetUri, "es")
 
@@ -165,7 +170,7 @@ That's it! You've created a program to translate documents in a blob container u
 <!-- LINKS -->
 
 [documenttranslation_nuget_package]: https://www.nuget.org/packages/Azure.AI.Translation.Document/1.0.0-beta.2
-[documenttranslation_client_library_docs]: /dotnet/api/overview/azure/ai.translation.document-readme-pre?view=azure-dotnet-preview&preserve-view=true
+[documenttranslation_client_library_docs]: https://aka.ms/azsdk/net/documenttranslation/docs
 [documenttranslation_docs]: overview.md
 [documenttranslation_rest_api]: reference/rest-api-guide.md
 [documenttranslation_samples]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Translation.Document_1.0.0-beta.1/sdk/translation/Azure.AI.Translation.Document/samples/README.md
@@ -173,6 +178,9 @@ That's it! You've created a program to translate documents in a blob container u
 ### [Python](#tab/python)
 
 | [Package (PyPI)][python-dt-pypi] |  [Client library][python-dt-client-library] |  [REST API][python-rest-api] | [Product documentation][python-dt-product-docs] | [Samples][python-dt-samples] |
+
+> [!IMPORTANT]
+> This is a prerelease version of the Document Translation SDK. They're made available on an introductory basis so customers can get early access and provide feedback. Prerelease versions are still in development, are subject to change, and certain features may not be supported or might have constrained capabilities—do not use them in production applications.
 
 ## Set up your project
 
@@ -195,13 +203,13 @@ Create a new Python application in your preferred editor or IDE. Then import the
 ```
 
 Create variables for your resource subscription key, custom endpoint, sourceUrl, and targetUrl. For
-more information, *see* [Get your custom domain name and subscription key(get-started-with-documenttranslation.md)
+more information, *see*  [Get your custom domain name and subscription key](get-started-with-document-translation.md#get-your-custom-domain-name-and-subscription-key)
 
 ```python
- subscriptionKey = os.environ["<your-subscription-key>"]
- endpoint = os.environ[ "<your-custom-endpoint>"]
- sourceUrl = os.environ["your-container-sourceUri"]
- targetUrl = os.environ["<your-container-sourceUri"]
+ subscriptionKey = "<your-subscription-key>"
+ endpoint = "<your-custom-endpoint>"
+ sourceUrl = "<your-container-sourceUrl>"
+ targetUrl = "<your-container-targetUrl>"
 ```
 
 ## Translate a document or batch files
