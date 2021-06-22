@@ -8,7 +8,7 @@ services: iot-hub
 ms.topic: tutorial
 ms.date: 02/26/2021
 ms.author: robinsh
-ms.custom: [mvc, 'Role: Cloud Development', 'Role: Data Analytics', devx-track-azurecli]
+ms.custom: [mvc, 'Role: Cloud Development', 'Role: Data Analytics']
 #Customer intent: As a developer, I want to be able to use X.509 certificates to authenticate devices to an IoT hub. This step of the tutorial needs to show me how to prove that I own the certificate I uploaded to IoT Hub
 ---
 
@@ -38,9 +38,11 @@ After you upload your root certification authority (CA) certificate or subordina
 
     * If you are using the Bash script supplied by Microsoft, run `./certGen.sh create_verification_certificate "75B86466DA34D2B04C0C4C9557A119687ADAE7D4732BDDB3"` to create a certificate named `verification-code.cert.pem`. For more information, see [Using Microsoft-supplied Scripts](tutorial-x509-scripts.md).
 
-    * If you are using OpenSSL to generate your certificates, you must first generate a private key and a certificate signing request (CSR):
+    * If you are using OpenSSL to generate your certificates, you must first generate a private key and then a certificate signing request (CSR):
 
       ```bash
+      $ openssl genpkey -out pop.key -algorithm RSA -pkeyopt rsa_keygen_bits:2048
+
       $ openssl req -new -key pop.key -out pop.csr
 
       -----

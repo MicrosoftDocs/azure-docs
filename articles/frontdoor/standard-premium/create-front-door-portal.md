@@ -4,13 +4,13 @@ description: This quickstart shows how to use Azure Front Door Standard/Premium 
 services: frontdoor
 author: duongau
 manager: KumudD
-Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
+# Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/18/2021
+ms.date: 04/16/2021
 ms.author: duau
 ---
 
@@ -143,7 +143,7 @@ Configure Azure Front Door Standard/Premium (Preview) to direct user traffic bas
     
     :::image type="content" source="../media/create-front-door-portal/front-door-custom-create-add-endpoint.png" alt-text="Screenshot of add an endpoint.":::
 
-1. Next, add an Origin Group that contains your two web apps. Select **+ Add** to open **Add an origin group** page. For Name, enter *myOrignGroup*, then select **+ Add an origin**.
+1. Next, add an Origin Group that contains your two web apps. Select **+ Add** to open **Add an origin group** page. For Name, enter *myOriginGroup*, then select **+ Add an origin**.
  
      :::image type="content" source="../media/create-front-door-portal/front-door-custom-create-add-origin-group.png" alt-text="Screenshot of add an origin group.":::
 

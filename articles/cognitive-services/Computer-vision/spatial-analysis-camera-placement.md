@@ -3,26 +3,26 @@ title: Spatial Analysis camera placement
 titleSuffix: Azure Cognitive Services
 description: Learn how to set up a camera for use with Spatial Analysis
 services: cognitive-services
-author: aahill
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 01/12/2021
-ms.author: aahi
+ms.date: 06/08/2021
+ms.author: pafarley
 ---
 
 
 # Camera placement guide
 
-This article provides camera placement recommendations for spatial analysis (public preview). It includes general guidelines as well as specific recommendations for height, angle, and camera-to-focal-point-distance for all the included operations. 
+This article provides camera placement recommendations for Spatial Analysis (public preview). It includes general guidelines as well as specific recommendations for height, angle, and camera-to-focal-point-distance for all the included operations. 
 
 > [!NOTE]
 > This guide is designed for the Axis M3045-V camera. This camera will use resolution 1920x1080, 106 degree horizontal field of view, 59 degree vertical field of view and a fixed 2.8mm focal length. The principles below will apply to all cameras, but specific guidelines around camera height and camera-to-focal-point distance will need to be adjusted for use with other cameras. 
 
 ## General guidelines
 
-Consider the following general guidelines when positioning cameras for spatial analysis:
+Consider the following general guidelines when positioning cameras for Spatial Analysis:
 
 * **Lighting height.** Place cameras below lighting fixtures so the fixtures don't block the cameras.
 * **Obstructions.** To avoid obstructing camera views, take note of obstructions such as poles, signage, shelving, walls, and existing LP cameras.
@@ -33,7 +33,7 @@ Consider the following general guidelines when positioning cameras for spatial a
 
 ## Height, focal-point distance, and angle
 
-You need to consider three things when deciding how to install a camera for spatial analysis:
+You need to consider three things when deciding how to install a camera for Spatial Analysis:
 - Camera height
 - Camera-to-focal-point distance
 - The angle of the camera relative to the floor plane
@@ -154,6 +154,6 @@ Organic queue lines form organically. This style of queue is acceptable if queue
 ## Next steps
 
 * [Deploy a People Counting web application](spatial-analysis-web-app.md)
-* [Configure spatial analysis operations](./spatial-analysis-operations.md)
+* [Configure Spatial Analysis operations](./spatial-analysis-operations.md)
 * [Logging and troubleshooting](spatial-analysis-logging.md)
 * [Zone and line placement guide](spatial-analysis-zone-line-placement.md)

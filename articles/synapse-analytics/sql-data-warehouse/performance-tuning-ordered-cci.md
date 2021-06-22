@@ -7,7 +7,7 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
-ms.date: 09/05/2019
+ms.date: 04/13/2021
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
 ms.custom: seo-lt-2019, azure-synapse
@@ -39,7 +39,7 @@ FROM sys.pdw_nodes_partitions AS pnp
    JOIN sys.pdw_nodes_column_store_segments AS cls ON pnp.partition_id = cls.partition_id AND pnp.distribution_id  = cls.distribution_id
 JOIN sys.columns as cols ON o.object_id = cols.object_id AND cls.column_id = cols.column_id
 WHERE o.name = '<Table Name>' and cols.name = '<Column Name>'  and TMap.physical_name  not like '%HdTable%'
-ORDER BY o.name, pnp.distribution_id, cls.min_data_id 
+ORDER BY o.name, pnp.distribution_id, cls.min_data_id;
 
 
 ```
@@ -61,7 +61,7 @@ In this example, table T1 has a clustered columnstore index ordered in the seque
 ```sql
 
 CREATE CLUSTERED COLUMNSTORE INDEX MyOrderedCCI ON  T1
-ORDER (Col_C, Col_B, Col_A)
+ORDER (Col_C, Col_B, Col_A);
 
 ```
 
@@ -129,6 +129,13 @@ Creating an ordered CCI is an offline operation.  For tables with no partitions,
 5.    Repeat step 3 and 4 for each partition in Table_A.
 6.    Once all partitions are switched from Table_A to Table_B and have been rebuilt, drop Table_A, and rename Table_B to Table_A. 
 
+>[!TIP]
+> For a dedicated SQL pool table with an ordered CCI, ALTER INDEX REBUILD will re-sort the data using tempdb. Monitor tempdb during rebuild operations. If you need more tempdb space, scale up the pool. Scale back down once the index rebuild is complete.
+>
+> For a dedicated SQL pool table with an ordered CCI, ALTER INDEX REORGANIZE does not re-sort the data. To resort data, use ALTER INDEX REBUILD.
+>
+> For more information on ordered CCI maintenance, see [Optimizing clustered columnstore indexes](sql-data-warehouse-tables-index.md#optimizing-clustered-columnstore-indexes).
+
 ## Examples
 
 **A. To check for ordered columns and order ordinal:**
@@ -137,15 +144,15 @@ Creating an ordered CCI is an offline operation.  For tables with no partitions,
 SELECT object_name(c.object_id) table_name, c.name column_name, i.column_store_order_ordinal 
 FROM sys.index_columns i 
 JOIN sys.columns c ON i.object_id = c.object_id AND c.column_id = i.column_id
-WHERE column_store_order_ordinal <>0
+WHERE column_store_order_ordinal <>0;
 ```
 
 **B. To change column ordinal, add or remove columns from the order list, or to change from CCI to ordered CCI:**
 
 ```sql
-CREATE CLUSTERED COLUMNSTORE INDEX InternetSales ON  InternetSales
+CREATE CLUSTERED COLUMNSTORE INDEX InternetSales ON dbo.InternetSales
 ORDER (ProductKey, SalesAmount)
-WITH (DROP_EXISTING = ON)
+WITH (DROP_EXISTING = ON);
 ```
 
 ## Next steps

@@ -2,7 +2,7 @@
 title: Supported content formats
 description: Learn about content formats supported by Azure Container Registry, including Docker-compatible container images, Helm charts, OCI images, and OCI artifacts.
 ms.topic: article
-ms.date: 08/30/2019
+ms.date: 03/02/2021
 ---
 
 # Content formats supported in Azure Container Registry
@@ -29,7 +29,7 @@ To learn more about OCI artifacts, see the [OCI Registry as Storage (ORAS)](http
 
 ## Helm charts
 
-Azure Container Registry can host repositories for [Helm charts](https://helm.sh/), a packaging format used to quickly manage and deploy applications for Kubernetes. [Helm client](https://docs.helm.sh/using_helm/#installing-helm) version 2 (2.11.0 or later) is supported.
+Azure Container Registry can host repositories for [Helm charts](https://helm.sh/), a packaging format used to quickly manage and deploy applications for Kubernetes. [Helm client](https://docs.helm.sh/using_helm/#installing-helm) version 3 is recommended. See [Push and pull Helm charts to an Azure container registry](container-registry-helm-repos.md).
 
 ## Next steps
 

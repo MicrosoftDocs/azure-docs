@@ -5,7 +5,7 @@ services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: conceptual
-ms.date: 03/24/2021
+ms.date: 03/31/2021
 ms.author: yuajia
 ---
 
@@ -680,7 +680,7 @@ In this example, we match all requests where the request uses the `HTTP` protoco
 
 ## <a name="RequestUrl"></a> Request URL
 
-Identifies requests that match the specified URL. The entire URL is evaluated. You can specify multiple values to match, which will be combined using OR logic.
+Identifies requests that match the specified URL. The entire URL is evaluated, including the protocol and query string, but not the fragment. You can specify multiple values to match, which will be combined using OR logic.
 
 > [!TIP]
 > When you use this rule condition, be sure to include the protocol. For example, use `https://www.contoso.com` instead of just `www.contoso.com`.
@@ -785,10 +785,6 @@ Regular expressions don't support the following operations:
 * The `\K` start of match reset directive.
 * Callouts and embedded code.
 * Atomic grouping and possessive quantifiers.
-
-## ARM template support
-
-Rule sets can be configured using Azure Resource Manager templates. [See an example template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-rule-set). You can add match conditions by using the JSON or Bicep snippets included in the examples above.
 
 ## Next steps
 

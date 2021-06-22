@@ -2,7 +2,7 @@
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 03/27/2021
+ms.date: 04/01/2021
 ms.author: tamram
 ---
 
@@ -28,6 +28,6 @@ The following table describes the maximum block and blob sizes permitted by serv
 
 | Service version | Maximum block size (via Put Block) | Maximum blob size (via Put Block List) | Maximum blob size via single write operation (via Put Blob) |
 |-|-|-|-|
-| Version 2019-12-12 and later | 4000 MiB | Approximately 190.7 TiB (4000 MiB X 50,000 blocks) | 5000 MiB |
+| Version 2019-12-12 and later | 4000 MiB | Approximately 190.7 TiB (4000 MiB X 50,000 blocks) | 5000 MiB (preview) |
 | Version 2016-05-31 through version 2019-07-07 | 100 MiB | Approximately 4.75 TiB (100 MiB X 50,000 blocks) | 256 MiB |
 | Versions prior to 2016-05-31 | 4 MiB | Approximately 195 GiB (4 MiB X 50,000 blocks) | 64 MiB |

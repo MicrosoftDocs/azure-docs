@@ -117,7 +117,7 @@ The response body contains the status of the operation:
 
 ### Deploy resources (201 with Azure-AsyncOperation)
 
-This example shows how to determine the status of [deployments operation for deploying resources](/rest/api/resources/resources/deployments/createorupdate) to Azure. The initial request is in the following format:
+This example shows how to determine the status of [deployments operation for deploying resources](/rest/api/resources/deployments/createorupdate) to Azure. The initial request is in the following format:
 
 ```HTTP
 PUT

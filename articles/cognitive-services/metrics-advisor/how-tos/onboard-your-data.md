@@ -5,7 +5,7 @@ description: How to get started with onboarding your data feeds to Metrics Advis
 services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 04/20/2021
@@ -25,7 +25,7 @@ If you are not sure about some of the terms, refer to [Glossary](../glossary.md)
 
 Partial data is caused by inconsistencies between the data stored in Metrics Advisor and the data source. This can happen when the data source is updated after Metrics Advisor has finished pulling data. Metrics Advisor only pulls data from a given data source once.
 
-For example, if a metric has been onboarded to Metrics Advisor for monitoring. Metrics Advisor successfully grabs metric data at timestamp A and performs anomaly detection on it. However, if the metric data of that particular timestamp A has been refreshed after the data been ingested, new data value won't be retrieved.
+For example, if a metric has been onboarded to Metrics Advisor for monitoring. Metrics Advisor successfully grabs metric data at timestamp A and performs anomaly detection on it. However, if the metric data of that particular timestamp A has been refreshed after the data has been ingested. New data value won't be retrieved.
 
 You can try to [backfill](manage-data-feeds.md#backfill-your-data-feed) historical data (described later) to mitigate inconsistencies but this won't trigger new anomaly alerts, if alerts for those time points have already been triggered. This process may add additional workload to the system, and is not automatic.
 
@@ -50,13 +50,13 @@ Next you'll input a set of parameters to connect your time-series data source.
 * **Source Type**: The type of data source where your time series data is stored.
 * **Granularity**: The interval between consecutive data points in your time series data. Currently Metrics Advisor supports: Yearly, Monthly, Weekly, Daily, Hourly, and Custom. The lowest interval the customization option supports is 300 seconds.
   * **Seconds**: The number of seconds when *granularityName* is set to *Customize*.
-* **Ingest data since (UTC)**: The baseline start time for data ingestion. *startOffsetInSeconds* is often used to add an offset to help with data consistency.
+* **Ingest data since (UTC)**: The baseline start time for data ingestion. `startOffsetInSeconds` is often used to add an offset to help with data consistency.
 
 #### 2. Specify connection string
 Next, you'll need to specify the connection information for the data source. For details on the other fields and connecting different types of data sources, see [How-to: Connect different data sources](../data-feeds-from-different-sources.md).
 
 #### 3. Specify query for a single timestamp
-<!-- Next, you'll need to specify a query to convert the data into the required schema, see [how to write a valid query](../tutorial/write-a-valid-query.md) for more information.  -->
+<!-- Next, you'll need to specify a query to convert the data into the required schema, see [how to write a valid query](../tutorials/write-a-valid-query.md) for more information.  -->
 
 For details of different types of data sources, see [How-to: Connect different data sources](../data-feeds-from-different-sources.md).
 
@@ -64,17 +64,17 @@ For details of different types of data sources, see [How-to: Connect different d
 
 After the connection string and query string are inputted, select **Load data**. Within this operation, Metrics Advisor will check connection and permission to load data, check necessary parameters (@IntervalStart and @IntervalEnd) which need to be used in query, and check the column name from data source. 
 
-If there's an error at this step, check:
-1. Whether connection string is valid. 
-2. Whether there's sufficient permission and ingestion worker IP address is granted access.
-3. Whether required parameters (@IntervalStart and @IntervalEnd) are used in your query. 
+If there's an error at this step:
+1. First check if the connection string is valid. 
+2. Then check if there's sufficient permissions and that the ingestion worker IP address is granted access.
+3. Then check if required parameters (@IntervalStart and @IntervalEnd) are used in your query. 
 
 
 ### Schema configuration
 
 Once the data schema is loaded, select the appropriate fields.
 
-If the timestamp of a data point is omitted, Metrics Advisor will use the timestamp when the data point is ingested instead. For each data feed, you can specify at most one column as a timestamp. If you get a message that a column cannot be specified as a timestamp, check your query or data source, and whether there are multiple timestamps in the query result - not only in the preview data. When performing data ingestion, Metrics Advisor can only consume only one chunk (for example one day, one hour - according to the granularity) of time-series data from the given source each time.
+If the timestamp of a data point is omitted, Metrics Advisor will use the timestamp when the data point is ingested instead. For each data feed, you can specify at most one column as a timestamp. If you get a message that a column cannot be specified as a timestamp, check your query or data source, and whether there are multiple timestamps in the query result - not only in the preview data. When performing data ingestion, Metrics Advisor can only consume one chunk (for example one day, one hour - according to the granularity) of time-series data from the given source each time.
 
 |Selection  |Description  |Notes  |
 |---------|---------|---------|
@@ -84,7 +84,7 @@ If the timestamp of a data point is omitted, Metrics Advisor will use the timest
 |**Dimension**     | Categorical values. A combination of different values identifies a particular single-dimension time series, for example: country, language, tenant. You can select zero or more columns as dimensions. Note: be cautious when selecting a non-string column as a dimension. | Optional.        |
 |**Ignore**     | Ignore the selected column.        | Optional. For data sources support using a query to get data, there is no 'Ignore' option.       |
 
-You can ignore columns using **Ignore columns** and then **Ignore** on the specific columns. If a column should be a dimension and is mistakenly set as *Ignored*, Metrics Advisor may end up ingesting partial data. For example, assume the data from your query is as below:
+If you want to ignore columns, we recommend updating your query or data source to exclude those columns. You can also ignore columns using **Ignore columns** and then **Ignore** on the specific columns. If a column should be a dimension and is mistakenly set as *Ignored*, Metrics Advisor may end up ingesting partial data. For example, assume the data from your query is as below:
 
 | Row ID | Timestamp | Country | Language | Income |
 | --- | --- | --- | --- | --- |
@@ -97,8 +97,8 @@ You can ignore columns using **Ignore columns** and then **Ignore** on the speci
 If *Country* is a dimension and *Language* is set as *Ignored*, then the first and second rows will have the same dimensions for a timestamp. Metrics Advisor will arbitrarily use one value from the two rows. Metrics Advisor will not aggregate the rows in this case.
 
 After configuring the schema, select **Verify schema**. Within this operation, Metrics Advisor will perform following checks:
-1. Whether timestamp of queried data falls into one single interval. 
-2. Whether there's duplicate values returned for the same dimension combination within one metric interval.  
+- Whether timestamp of queried data falls into one single interval. 
+- Whether there's duplicate values returned for the same dimension combination within one metric interval.  
 
 ### Automatic roll up settings
 
@@ -176,8 +176,8 @@ Consider the following scenarios:
     Consider the following before using the Auto roll up feature:
 
     * If you want to use *SUM* to aggregate your data, make sure your metrics are additive in each dimension. Here are some examples of *non-additive* metrics:
-      1. Fraction-based metrics. This includes ratio, percentage, etc. For example, you should not add the unemployment rate of each state to calculate the unemployment rate of the entire country.
-      2. Overlap in dimension. For example, you should not add the number of people in to each sport to calculate the number of people who like sports, because there is an overlap between them, one person can like multiple sports.
+      - Fraction-based metrics. This includes ratio, percentage, etc. For example, you should not add the unemployment rate of each state to calculate the unemployment rate of the entire country.
+      - Overlap in dimension. For example, you should not add the number of people in to each sport to calculate the number of people who like sports, because there is an overlap between them, one person can like multiple sports.
     * To ensure the health of the whole system, the size of cube is limited. Currently, the limit is 1,000,000. If your data exceeds that limit, ingestion will fail for that timestamp.
 
 ## Advanced settings
@@ -206,5 +206,5 @@ You can also reload the progress of an ingestion by clicking **Refresh Progress*
 
 ## Next steps
 - [Manage your data feeds](manage-data-feeds.md)
-- [Connect different data sources](../data-feeds-from-different-sources.md)
-- [Configure metrics and fine tune detecting configuration](configure-metrics.md)
+- [Configurations for different data sources](../data-feeds-from-different-sources.md)
+- [Configure metrics and fine tune detection configuration](configure-metrics.md)

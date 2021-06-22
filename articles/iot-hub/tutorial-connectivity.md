@@ -10,7 +10,7 @@ ms.date: 02/22/2019
 ms.topic: tutorial
 ms.service: iot-hub
 
-# As a developer, I want to know what tools I can use to verify connectivity between my IoT devices and my IoT hub.
+#Customer intent: As a developer, I want to know what tools I can use to verify connectivity between my IoT devices and my IoT hub.
 ---
 
 # Tutorial: Use a simulated device to test connectivity with your IoT hub

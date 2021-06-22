@@ -57,7 +57,7 @@ Click the image to view it full size.
 
 [![Diagram showing some of the most commonly used objects in the Azure Media Services object data model for developing Video on Demand applications.](./media/media-services-dotnet-get-started/media-services-overview-object-model-small.png)](./media/media-services-dotnet-get-started/media-services-overview-object-model.png#lightbox)
 
-You can view the whole model [here](https://media.windows.net/API/$metadata?api-version=2.15).  
+You can view the whole model [here](https://m.eet.com/media/1170326/ms-part1.pdf).  
 
 ## Start streaming endpoints using the Azure portal
 

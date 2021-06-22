@@ -44,6 +44,10 @@
 
 - name: Concepts
   items:
+    - name: Azure Percept DK
+      items:
+        - name: Connect Over Cellular
+          href: connect-over-cellular.md
     - name: Azure Percept Audio
       items:
         - name: LED and button behavior
@@ -67,27 +71,31 @@
           href: how-to-view-telemetry.md
     - name: Speech solution development with Azure Percept DK
       items:
-        - name: Configure your voice assistant in Azure Percept Studio
-          href: how-to-configure-voice-assistant.md
         - name: Configure your voice assistant in IoT Hub
+          href: how-to-configure-voice-assistant.md
+        - name: Configure your voice assistant in Azure Percept Studio
           href: how-to-manage-voice-assistant.md
     - name: Update your Azure Percept devices
       items:
         - name: Set up over-the-air updates
           href: how-to-set-up-over-the-air-updates.md
+        - name: Identify your update package
+          href: how-to-select-update-package.md
         - name: Update your Azure Percept DK over-the-air
           href: how-to-update-over-the-air.md
         - name: Update your Azure Percept DK via USB
           href: how-to-update-via-usb.md
     - name: Connect to your Azure Percept DK
       items:
+        - name: Connect over Ethernet
+          href: how-to-connect-over-ethernet.md
         - name: Connect over SSH
           href: how-to-ssh-into-percept-dk.md
         - name: Connect over serial
           href: how-to-connect-to-percept-dk-over-serial.md     
     - name: Tools
       items:
-        - name: Devtools pack installer
+        - name: Dev Tools Pack Installer
           href: dev-tools-installer.md
     - name: Troubleshooting
       items:

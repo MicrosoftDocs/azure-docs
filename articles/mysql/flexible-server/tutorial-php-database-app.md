@@ -134,7 +134,7 @@ Navigate to `http://localhost:8000` in a browser. Add a few tasks in the page.
 To stop PHP, type `Ctrl + C` in the terminal.
 
 ## Create a MySQL Flexible Server (Preview)
-In this step, you create a MySQL database in [Azure Database for MySQL Flexible Server](../index.yml) which is in public preview. Later, you configure the PHP application to connect to this database. In the [Azure Cloud Shell](../../cloud-shell/overview.md), create a server in with the [`az flexible-server create`](/cli/azure/mysql/server#az-mysql-flexible-server-create) command.
+In this step, you create a MySQL database in [Azure Database for MySQL Flexible Server](../index.yml) which is in public preview. Later, you configure the PHP application to connect to this database. In the [Azure Cloud Shell](../../cloud-shell/overview.md), create a server in with the [`az flexible-server create`](/cli/azure/mysql/server#az_mysql_flexible_server_create) command.
 
 ```azurecli-interactive
 az mysql flexible-server create  --resource-group myResourceGroup --public-access <IP-Address>
@@ -275,7 +275,7 @@ In this step, you deploy the MySQL-connected PHP application to Azure App Servic
 
 FTP and local Git can deploy to an Azure web app by using a deployment user. Once you configure your deployment user, you can use it for all your Azure deployments. Your account-level deployment username and password are different from your Azure subscription credentials.
 
-To configure the deployment user, run the [az webapp deployment user set](/cli/azure/webapp/deployment/user#az-webapp-deployment-user-set) command in Azure Cloud Shell. Replace _&lt;username>_ and _&lt;password>_ with your deployment user username and password.
+To configure the deployment user, run the [az webapp deployment user set](/cli/azure/webapp/deployment/user#az_webapp_deployment_user_set) command in Azure Cloud Shell. Replace _&lt;username>_ and _&lt;password>_ with your deployment user username and password.
 
 The username must be unique within Azure, and for local Git pushes, must not contain the ‘@’ symbol.
 The password must be at least eight characters long, with two of the following three elements: letters, numbers, and symbols.
@@ -288,7 +288,7 @@ The JSON output shows the password as null. If you get a 'Conflict'. Details: 40
 
 ### Create an App Service plan
 
-In the Cloud Shell, create an App Service plan in the resource group with the [az appservice plan create](/cli/azure/appservice/plan#az-appservice-plan-create) command. The following example creates an App Service plan named myAppServicePlan in the Free pricing tier (--sku F1) and in a Linux container (--is-linux).
+In the Cloud Shell, create an App Service plan in the resource group with the [az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create) command. The following example creates an App Service plan named myAppServicePlan in the Free pricing tier (--sku F1) and in a Linux container (--is-linux).
 
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku F1 --is-linux
 
@@ -298,7 +298,7 @@ az appservice plan create --name myAppServicePlan --resource-group myResourceGro
 
 Create a [web app](../../app-service/overview.md#app-service-on-linux) in the myAppServicePlan App Service plan.
 
-In the Cloud Shell, you can use the [az webapp create](/cli/azure/webapp#az-webapp-create) command. In the following example, replace _&lt;app-name>_ with a globally unique app name (valid characters are `a-z`, `0-9`, and `-`). The runtime is set to `PHP|7.0`. To see all supported runtimes, run [az webapp list-runtimes --linux](/cli/azure/webapp#az-webapp-list-runtimes).
+In the Cloud Shell, you can use the [az webapp create](/cli/azure/webapp#az_webapp_create) command. In the following example, replace _&lt;app-name>_ with a globally unique app name (valid characters are `a-z`, `0-9`, and `-`). The runtime is set to `PHP|7.0`. To see all supported runtimes, run [az webapp list-runtimes --linux](/cli/azure/webapp#az_webapp_list_runtimes).
 
 ```bash
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --runtime "PHP|7.3" --deployment-local-git
@@ -329,7 +329,7 @@ You’ve created an empty new web app, with git deployment enabled.
 
 ### Configure database settings
 
-In App Service, you set environment variables as _app settings_ by using the [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) command.
+In App Service, you set environment variables as _app settings_ by using the [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) command.
 
 The following command configures the app settings `DB_HOST`, `DB_DATABASE`, `DB_USERNAME`, and `DB_PASSWORD`. Replace the placeholders _&lt;app-name>_ and _&lt;mysql-server-name>_.
 
@@ -360,7 +360,7 @@ In the local terminal window, use `php artisan` to generate a new application ke
 php artisan key:generate --show
 ```
 
-In the Cloud Shell, set the application key in the App Service app by using the [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) command. Replace the placeholders _&lt;app-name>_ and _&lt;outputofphpartisankey:generate>_.
+In the Cloud Shell, set the application key in the App Service app by using the [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) command. Replace the placeholders _&lt;app-name>_ and _&lt;outputofphpartisankey:generate>_.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings APP_KEY="<output_of_php_artisan_key:generate>" APP_DEBUG="true"

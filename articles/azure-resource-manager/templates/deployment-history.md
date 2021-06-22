@@ -3,7 +3,8 @@ title: Deployment history
 description: Describes how to view Azure Resource Manager deployment operations with the portal, PowerShell, Azure CLI, and REST API.
 tags: top-support-issue
 ms.topic: conceptual
-ms.date: 09/23/2020
+ms.date: 09/23/2020 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 # View deployment history with Azure Resource Manager
 
@@ -55,13 +56,13 @@ To get the correlation ID, use:
 
 # [Azure CLI](#tab/azure-cli)
 
-To list the deployment for a resource group, use [az deployment group list](/cli/azure/group/deployment#az-deployment-group-list).
+To list the deployment for a resource group, use [az deployment group list](/cli/azure/group/deployment#az_deployment_group_list).
 
 ```azurecli-interactive
 az deployment group list --resource-group ExampleGroup
 ```
 
-To get a specific deployment, use the [az deployment group show](/cli/azure/group/deployment#az-deployment-group-show).
+To get a specific deployment, use the [az deployment group show](/cli/azure/group/deployment#az_deployment_group_show).
 
 ```azurecli-interactive
 az deployment group show --resource-group ExampleGroup --name ExampleDeployment
@@ -75,13 +76,13 @@ az deployment group show --resource-group ExampleGroup --name ExampleDeployment 
 
 # [HTTP](#tab/http)
 
-To list the deployments for a resource group, use the following operation. For the latest API version number to use in the request, see  [Deployments - List By Resource Group](/rest/api/resources/resources/deployments/listbyresourcegroup).
+To list the deployments for a resource group, use the following operation. For the latest API version number to use in the request, see  [Deployments - List By Resource Group](/rest/api/resources/deployments/listbyresourcegroup).
 
 ```
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deployments/?api-version={api-version}
 ```
 
-To get a specific deployment. use the following operation. For the latest API version number to use in the request, see [Deployments - Get](/rest/api/resources/resources/deployments/get).
+To get a specific deployment. use the following operation. For the latest API version number to use in the request, see [Deployments - Get](/rest/api/resources/deployments/get).
 
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}?api-version={api-version}
@@ -141,7 +142,7 @@ To get the status message of failed operations, use the following command:
 
 # [Azure CLI](#tab/azure-cli)
 
-To view the deployment operations for deployment to a resource group, use the [az deployment operation group list](/cli/azure/deployment/operation/group#az-deployment-operation-group-list) command. You must have Azure CLI 2.6.0 or later.
+To view the deployment operations for deployment to a resource group, use the [az deployment operation group list](/cli/azure/deployment/operation/group#az_deployment-operation-group-list) command. You must have Azure CLI 2.6.0 or later.
 
 ```azurecli-interactive
 az deployment operation group list --resource-group ExampleGroup --name ExampleDeployment
@@ -161,7 +162,7 @@ az deployment operation group list --resource-group ExampleGroup --name ExampleD
 
 # [HTTP](#tab/http)
 
-To get deployment operations, use the following operation. For the latest API version number to use in the request, see [Deployment Operations - List](/rest/api/resources/resources/deploymentoperations/list).
+To get deployment operations, use the following operation. For the latest API version number to use in the request, see [Deployment Operations - List](/rest/api/resources/deploymentoperations/list).
 
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}/operations?$skiptoken={skiptoken}&api-version={api-version}
@@ -208,4 +209,3 @@ The response includes an error message.
 * For help with resolving particular deployment errors, see [Resolve common errors when deploying resources to Azure with Azure Resource Manager](common-deployment-errors.md).
 * To learn about how deployments are managed in the history, see [Automatic deletions from deployment history](deployment-history-deletions.md).
 * To validate your deployment before executing it, see [Deploy a resource group with Azure Resource Manager template](deploy-powershell.md).
-

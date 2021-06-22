@@ -15,6 +15,10 @@
   items:
   - name: Resource Manager templates
     href: resource-manager-template-samples.md
+- name: Tutorials
+  items: 
+  - name: Configure WAF policy
+    href: ../../web-application-firewall/afds/waf-front-door-create-portal.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
 - name: Concepts
   items:
   - name: Front Door FAQ
@@ -26,13 +30,15 @@
   - name: Route
     href: concept-route.md
   - name: Rule Set
-    href: concept-rule-set.md
-  - name: Rule Set Match Conditions
-    href: concept-rule-set-match-conditions.md
-  - name: Rule Set Actions
-    href: concept-rule-set-actions.md
-  - name: URL redirect and URL rewrite
-    href: concept-rule-set-url-redirect-and-rewrite.md
+    items:
+    - name: Rule Set
+      href: concept-rule-set.md
+    - name: Match conditions
+      href: concept-rule-set-match-conditions.md
+    - name: Actions
+      href: concept-rule-set-actions.md
+    - name: URL redirect and URL rewrite
+      href: concept-rule-set-url-redirect-and-rewrite.md
   - name: Health probes
     href: concept-health-probes.md
   - name: Private Link
@@ -79,14 +85,20 @@
     items:
     - name: Routing issues
       href: troubleshoot-route-issues.md
-    - name: Allowed certificate authorities
-      href: troubleshoot-allowed-certificate-authority.md
     - name: Compression
       href: troubleshoot-compression.md
     - name: Cross origin resource sharing
       href: troubleshoot-cross-origin-resources.md
+    - name: Allowed certificate authorities
+      href: https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT
 - name: Reference
   items:
+  - name: Azure Front Door edge locations
+    items:
+    - name: Edge locations by region
+      href: edge-locations.md
+    - name: Edge locations by abbreviation
+      href: edge-locations-by-abbreviation.md
   - name: .NET
     href: /dotnet/api/microsoft.azure.management.cdn
   - name: REST API

@@ -1,3 +1,6 @@
+> [!NOTE]
+> Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/PhoneNumbers)
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -30,16 +33,16 @@ dotnet build
 While still in the application directory, install the Azure Communication PhoneNumbers client library for .NET package by using the `dotnet add package` command.
 
 ```console
-dotnet add package Azure.Communication.PhoneNumbers --version 1.0.0-beta.5
+dotnet add package Azure.Communication.PhoneNumbers --version 1.0.0
 ```
 
 Add a `using` directive to the top of **Program.cs** to include the namespaces.
 
 ```csharp
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 using Azure.Communication.PhoneNumbers;
-using Azure.Communication.PhoneNumbers.Models;
 ```
 
 Update `Main` function signature to be async.
@@ -53,7 +56,7 @@ static async Task Main(string[] args)
 
 ## Authenticate the client
 
-Phone Number clients can be authenticated using connection string acquired from an Azure Communication Resources in the [Azure Portal][azure_portal].
+Phone Number clients can be authenticated using connection string acquired from an Azure Communication Resources in the [Azure portal][azure_portal].
 
 ```csharp
 // Get a connection string to our Azure Communication resource.
@@ -91,20 +94,20 @@ The result of searching for phone numbers is a `PhoneNumberSearchResult`. This c
 
 ```csharp
 var purchaseOperation = await client.StartPurchasePhoneNumbersAsync(searchOperation.Value.SearchId);
-await purchaseOperation.WaitForCompletionAsync();
+await purchaseOperation.WaitForCompletionResponseAsync();
 ```
 
 ### Get phone number(s)
 
 After a purchasing number, you can retrieve it from the client.
 ```csharp
-var getPhoneNumberResponse = await client.GetPhoneNumberAsync("+14255550123");
+var getPhoneNumberResponse = await client.GetPurchasedPhoneNumberAsync("+14255550123");
 Console.WriteLine($"Phone number: {getPhoneNumberResponse.Value.PhoneNumber}, country code: {getPhoneNumberResponse.Value.CountryCode}");
 ```
 
 You can also retrieve all the purchased phone numbers.
 ``` csharp
-var purchasedPhoneNumbers = client.GetPhoneNumbersAsync();
+var purchasedPhoneNumbers = client.GetPurchasedPhoneNumbersAsync();
 await foreach (var purchasedPhoneNumber in purchasedPhoneNumbers)
 {
     Console.WriteLine($"Phone number: {purchasedPhoneNumber.PhoneNumber}, country code: {purchasedPhoneNumber.CountryCode}");
@@ -127,7 +130,7 @@ You can release a purchased phone number.
 
 ````csharp
 var releaseOperation = await client.StartReleasePhoneNumberAsync("+14255550123");
-await releaseOperation.WaitForCompletionAsync();
+await releaseOperation.WaitForCompletionResponseAsync();
 ````
 
 ## Run the code

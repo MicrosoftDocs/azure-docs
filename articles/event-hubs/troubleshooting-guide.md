@@ -21,7 +21,7 @@ Verify that the connection string you are using is correct. See [Get connection 
 
 For Kafka clients, verify that producer.config or consumer.config files are configured properly. For more information, see [Send and receive messages with Kafka in Event Hubs](event-hubs-quickstart-kafka-enabled-event-hubs.md#send-and-receive-messages-with-kafka-in-event-hubs).
 
-[!INCLUDE [event-hubs-connectivity](../../includes/event-hubs-connectivity.md)]
+[!INCLUDE [event-hubs-connectivity](./includes/event-hubs-connectivity.md)]
 
 ### Verify that AzureEventGrid service tag is allowed in your network security groups
 If your application is running inside a subnet and there is an associated network security group, confirm whether the internet outbound is allowed or AzureEventGrid service tag is allowed. See [Virtual network service tags](../virtual-network/service-tags-overview.md) and search for `EventHub`.

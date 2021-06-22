@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Tutorial - Azure ExpressRoute: Add a gateway to a VNet - Azure PowerShell'
 description: This tutorial helps you add VNet gateway to an already created Resource Manager VNet for ExpressRoute using Azure PowerShell.
 services: expressroute
@@ -8,7 +8,7 @@ ms.service: expressroute
 ms.topic: tutorial
 ms.date: 10/05/2020
 ms.author: duau
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurepowershell
 
 ---
 # Tutorial: Configure a virtual network gateway for ExpressRoute using PowerShell
@@ -73,7 +73,7 @@ The steps for this task use a VNet based on the values in the following configur
    ```azurepowershell-interactive
    $vnet = Get-AzVirtualNetwork -Name $VNetName -ResourceGroupName $RG
    ```
-1. Add a gateway subnet to your Virtual Network. The gateway subnet must be named "GatewaySubnet". The gateway subnet has to be /27 or larger (/26, /25, and so on).
+1. Add a gateway subnet to your Virtual Network. The gateway subnet must be named "GatewaySubnet". The gateway subnet has to be /27 or larger (/26, /25, and so on). If you plan on connecting 16 ExpressRoute circuits to your gateway, you **must** create a gateway subnet of /26 or larger.
 
    ```azurepowershell-interactive
    Add-AzVirtualNetworkSubnetConfig -Name GatewaySubnet -VirtualNetwork $vnet -AddressPrefix 192.168.200.0/26

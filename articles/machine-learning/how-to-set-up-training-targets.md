@@ -8,9 +8,9 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 09/28/2020
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python, contperf-fy21q1
+ms.date: 06/18/2021
+ms.topic: how-to
+ms.custom: devx-track-python, contperf-fy21q1
 ---
 
 # Configure and submit training runs
@@ -72,7 +72,9 @@ Select the compute target where your training script will run on. If no compute 
 The example code in this article assumes that you have already created a compute target `my_compute_target` from the "Prerequisites" section.
 
 >[!Note]
->Azure Databricks is not supported as a compute target for model training. You can use Azure Databricks for data preparation and deployment tasks. 
+>Azure Databricks is not supported as a compute target for model training. You can use Azure Databricks for data preparation and deployment tasks.
+
+[!INCLUDE [arc-enabled-kubernetes](../../includes/machine-learning-create-arc-enabled-training-computer-target.md)]
 
 ## Create an environment
 Azure Machine Learning [environments](concept-environments.md) are an encapsulation of the environment where your machine learning training happens. They specify the Python packages, Docker image, environment variables, and software settings around your training and scoring scripts. They also specify runtimes (Python, Spark, or Docker).
@@ -174,6 +176,9 @@ See these notebooks for examples of configuring runs for various training scenar
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
 
 ## Troubleshooting
+
+* **AttributeError: 'RoundTripLoader' object has no attribute 'comment_handling'**: This error comes from the new version (v0.17.5) of `ruamel-yaml`, an `azureml-core` dependency, that introduces a breaking change to `azureml-core`. In order to fix this error, please uninstall `ruamel-yaml` by running `pip uninstall ruamel-yaml` and installing a different version of `ruamel-yaml`; the supported versions are v0.15.35 to v0.17.4 (inclusive). You can do this by running `pip install "ruamel-yaml>=0.15.35,<0.17.5"`.
+
 
 * **Run fails with `jwt.exceptions.DecodeError`**: Exact error message: `jwt.exceptions.DecodeError: It is required that you pass in a value for the "algorithms" argument when calling decode()`. 
     

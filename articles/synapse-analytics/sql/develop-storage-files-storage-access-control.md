@@ -8,7 +8,8 @@ ms.topic: overview
 ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
-ms.reviewer: jrasnick 
+ms.reviewer: jrasnick  
+ms.custom: devx-track-azurepowershell
 ---
 
 # Control storage account access for serverless SQL pool in Azure Synapse Analytics
@@ -18,6 +19,15 @@ A serverless SQL pool query reads files directly from Azure Storage. Permissions
 - **SQL service level** - User should have granted permission to read data using [external table](develop-tables-external-tables.md) or to execute the `OPENROWSET` function. Read more about [the required permissions in this section](develop-storage-files-overview.md#permissions).
 
 This article describes the types of credentials you can use and how credential lookup is enacted for SQL and Azure AD users.
+
+## Storage permissions
+
+A serverless SQL pool in Synapse Analytics workspace can read the content of files stored in Azure Data Lake storage. You need to configure permissions on storage to enable a user who executes a SQL query to read the files. There are three methods for enabling the access to the files:
+- **[Role based access control (RBAC)](../../role-based-access-control/overview.md)** enables you to assign a role to some Azure AD user in the tenant where your storage is placed. A reader must have `Storage Blob Data Reader`, `Storage Blob Data Contributor`, or `Storage Blob Data Owner` RBAC role on storage account. A user who writes data in the Azure storage must have `Storage Blob Data Writer` or `Storage Blob Data Owner` role. Note that `Storage Owner` role does not imply that a user is also `Storage Data Owner`.
+- **Access Control Lists (ACL)** enable you to define a fine grained [Read(R), Write(W), and Execute(X) permissions](../../storage/blobs/data-lake-storage-access-control.md#levels-of-permission) on the files and directories in Azure storage. ACL can be assigned to Azure AD users. If readers want to read a file on a path in Azure Storage, they must have Execute(X) ACL on every folder in the file path, and Read(R) ACL on the file. [Learn more how to set ACL permissions in storage layer](../../storage/blobs/data-lake-storage-access-control.md#how-to-set-acls).
+- **Shared access signature (SAS)** enables a reader to access the files on the Azure Data Lake storage using the time-limited token. The reader doesn’t even need to be authenticated as Azure AD user. SAS token contains the permissions granted to the reader as well as the period when the token is valid. SAS token is good choice for time-constrained access to any user that doesn't even need to be in the same Azure AD tenant. SAS token can be defined on the storage account or on specific directories. Learn more about [granting limited access to Azure Storage resources using shared access signatures](../../storage/common/storage-sas-overview.md).
+
+As an alternative, you can make your files publicly available by allowing anonymous access. This approach should NOT be used if you have non-public data. 
 
 ## Supported storage authorization types
 
@@ -32,11 +42,11 @@ A user that has logged into a serverless SQL pool must be authorized to access a
 serverless SQL pool is used to authorize data access. Before accessing the data, the Azure Storage administrator must grant permissions to the Azure AD user. As indicated in the table below, it's not supported for the SQL user type.
 
 > [!IMPORTANT]
-> You need to have a Storage Blob Data Owner/Contributor/Reader role to use your identity to access the data.
-> Even if you are an Owner of a Storage Account, you still need to add yourself into one of the Storage Blob Data roles.
->
-> To learn more about access control in Azure Data Lake Store Gen2, review the [Access control in Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-access-control.md) article.
->
+> AAD authentication token might be cached by the client applications. For example PowerBI caches AAD token and reuses the same token for an hour. The long runing queries might fail if the token expires in the middle of the query execution. If you are experiencing query failures caused by the AAD access token that expires in the middle of the query, consider switching to [Managed identity](develop-storage-files-storage-access-control.md?tabs=managed-identity#supported-storage-authorization-types) or [Shared access signature](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#supported-storage-authorization-types).
+
+You need to have a Storage Blob Data Owner/Contributor/Reader role to use your identity to access the data. As an alternative, you can specify fine-grained ACL rules to access files and folders. Even if you are an Owner of a Storage Account, you still need to add yourself into one of the Storage Blob Data roles.
+To learn more about access control in Azure Data Lake Store Gen2, review the [Access control in Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-access-control.md) article.
+
 
 ### [Shared access signature](#tab/shared-access-signature)
 
@@ -51,6 +61,10 @@ You can get an SAS token by navigating to the **Azure portal -> Storage Account 
 > SAS token: ?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-04-18T20:42:12Z&st=2019-04-18T12:42:12Z&spr=https&sig=lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78%3D
 
 To enable access using an SAS token, you need to create a database-scoped or server-scoped credential 
+
+
+> [!IMPORTANT]
+> You cannnot access private storage accounts with the SAS token. Consider switching to [Managed identity](develop-storage-files-storage-access-control.md?tabs=managed-identity#supported-storage-authorization-types) or [Azure AD pass-through](develop-storage-files-storage-access-control.md?tabs=user-identity#supported-storage-authorization-types) authentication to access protected storage.
 
 ### [Managed Identity](#tab/managed-identity)
 
@@ -72,7 +86,7 @@ In the table below you can find the available authorization types:
 | ------------------------------------- | ------------- | -----------    |
 | [User Identity](?tabs=user-identity#supported-storage-authorization-types)       | Not supported | Supported      |
 | [SAS](?tabs=shared-access-signature#supported-storage-authorization-types)       | Supported     | Supported      |
-| [Managed Identity](?tabs=managed-identity#supported-storage-authorization-types) | Not supported | Supported      |
+| [Managed Identity](?tabs=managed-identity#supported-storage-authorization-types) | Supported | Supported      |
 
 ### Supported storages and authorization types
 
@@ -80,24 +94,32 @@ You can use the following combinations of authorization and Azure Storage types:
 
 | Authorization type  | Blob Storage   | ADLS Gen1        | ADLS Gen2     |
 | ------------------- | ------------   | --------------   | -----------   |
-| [SAS](?tabs=shared-access-signature#supported-storage-authorization-types)    | Supported\*      | Not  supported   | Supported\*     |
+| [SAS](?tabs=shared-access-signature#supported-storage-authorization-types)    | Supported      | Not  supported   | Supported     |
 | [Managed Identity](?tabs=managed-identity#supported-storage-authorization-types) | Supported      | Supported        | Supported     |
-| [User Identity](?tabs=user-identity#supported-storage-authorization-types)    | Supported\*      | Supported\*        | Supported\*     |
+| [User Identity](?tabs=user-identity#supported-storage-authorization-types)    | Supported      | Supported        | Supported     |
 
-\* SAS token and Azure AD Identity can be used to access storage that is not protected with firewall.
+## Firewall protected storage
 
-
-### Querying firewall protected storage
-
+You can configure storage accounts to allow access to specific serverless SQL pool by creating a [resource instance rule](../../storage/common/storage-network-security.md?tabs=azure-portal#grant-access-from-azure-resource-instances-preview).
 When accessing storage that is protected with the firewall, you can use **User Identity** or **Managed Identity**.
 
 > [!NOTE]
 > The firewall feature on Storage is in public preview and is available in all public cloud regions. 
 
-#### User Identity
 
-To access storage that is protected with the firewall via User Identity, you can use PowerShell module Az.Storage.
-#### Configuration via PowerShell
+### [User Identity](#tab/user-identity)
+
+To access storage that is protected with the firewall via User Identity, you can use Azure portal UI or PowerShell module Az.Storage.
+### Configuration via Azure portal
+
+1. Search for your Storage Account in Azure portal.
+1. Go to Networking under section Settings.
+1. In Section "Resource instances" add an exception for your Synapse workspace.
+1. Select Microsoft.Synapse/workspaces as a Resource type.
+1. Select name of your workspace as an Instance name.
+1. Click Save.
+
+### Configuration via PowerShell
 
 Follow these steps to configure your storage account firewall and add an exception for Synapse workspace.
 
@@ -164,9 +186,20 @@ Follow these steps to configure your storage account firewall and add an excepti
         }
     ```
 
-#### Managed Identity
+### [Shared access signature](#tab/shared-access-signature)
+
+Shared access signatures cannot be used to access firewall-protected storage.
+
+### [Managed Identity](#tab/managed-identity)
+
 You need to [Allow trusted Microsoft services... setting](../../storage/common/storage-network-security.md#trusted-microsoft-services) and explicitly [assign an Azure role](../../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights) to the [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) for that resource instance. 
 In this case, the scope of access for the instance corresponds to the Azure role assigned to the managed identity.
+
+### [Anonymous access](#tab/public-access)
+
+You cannot access firewall-protected storage using anonymous access.
+
+---
 
 ## Credentials
 

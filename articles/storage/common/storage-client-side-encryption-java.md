@@ -150,11 +150,11 @@ For example, use **CloudBlobClient.getDefaultRequestOptions().setRequireEncrypti
 ### Blob service encryption
 Create a **BlobEncryptionPolicy** object and set it in the request options (per API or at a client level by using **DefaultRequestOptions**). Everything else will be handled by the client library internally.
 
-# [Java v12](#tab/java)
+# [Java v12 SDK](#tab/java)
 
 We are currently working to create code snippets reflecting version 12.x of the Azure Storage client libraries. For more information, see [Announcing the Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
 
-# [Java v8](#tab/java8)
+# [Java v8 SDK](#tab/java8)
 
 ```java
 // Create the IKey used for encryption.
@@ -179,11 +179,11 @@ blob.download(outputStream, null, options, null);
 ### Queue service encryption
 Create a **QueueEncryptionPolicy** object and set it in the request options (per API or at a client level by using **DefaultRequestOptions**). Everything else will be handled by the client library internally.
 
-# [Java v12](#tab/java)
+# [Java v12 SDK](#tab/java)
 
 We are currently working to create code snippets reflecting version 12.x of the Azure Storage client libraries. For more information, see [Announcing the Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
 
-# [Java v8](#tab/java8)
+# [Java v8 SDK](#tab/java8)
 
 ```java
 // Create the IKey used for encryption.
@@ -208,11 +208,11 @@ In addition to creating an encryption policy and setting it on request options, 
 
 ### Using the resolver
 
-# [Java v12](#tab/java)
+# [Java v12 SDK](#tab/java)
 
 We are currently working to create code snippets reflecting version 12.x of the Azure Storage client libraries. For more information, see [Announcing the Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
 
-# [Java v8](#tab/java8)
+# [Java v8 SDK](#tab/java8)
 
 ```java
 // Create the IKey used for encryption.
@@ -249,11 +249,11 @@ TableResult result = currentTable.execute(operation, retrieveOptions, null);
 ### Using attributes
 As mentioned above, if the entity implements TableEntity, then the properties getter and setter can be decorated with the [Encrypt] attribute instead of specifying the **EncryptionResolver**.
 
-# [Java v12](#tab/java)
+# [Java v12 SDK](#tab/java)
 
 We are currently working to create code snippets reflecting version 12.x of the Azure Storage client libraries. For more information, see [Announcing the Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
 
-# [Java v8](#tab/java8)
+# [Java v8 SDK](#tab/java8)
 
 ```java
 private string encryptedProperty1;

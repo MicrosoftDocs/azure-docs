@@ -2,11 +2,12 @@
 title: Troubleshoot LocationNotFoundForRoleSize when deploying a Cloud service (classic) to Azure | Microsoft Docs
 description: This article shows how to resolve a LocationNotFoundForRoleSize exception when deploying a Cloud service (classic) to Azure.
 services: cloud-services
-author: mibufo
-ms.author: v-mibufo
+author: mamccrea
+ms.author: mamccrea
 ms.service: cloud-services
 ms.topic: troubleshooting
-ms.date: 02/22/2021
+ms.date: 02/22/2021 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Troubleshoot LocationNotFoundForRoleSize when deploying a Cloud service (classic) to Azure
@@ -42,7 +43,8 @@ In this scenario, you should select a different region or SKU to deploy your Clo
 
 ### List SKUs in region using Azure CLI
 
-You can use the [az vm list-skus](/cli/azure/vm.html#az_vm_list_skus) command.
+You can use the [az vm list-skus](/cli/azure/vm?view=azure-cli-latest
+#az_vm_list_skus) command.
 
 - Use the `--location` parameter to filter output to location you're using.
 - Use the `--size` parameter to search by a partial size name.

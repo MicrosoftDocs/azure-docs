@@ -411,7 +411,7 @@ To make the IoT Edge module configuration files accessible in the host file syst
 {
     "Hostname": "publisher",
     "Cmd": [
-        "--pf=./pn.json",
+        "--pf=/appdata/pn.json",
         "--aa"
     ],
     "HostConfig": {

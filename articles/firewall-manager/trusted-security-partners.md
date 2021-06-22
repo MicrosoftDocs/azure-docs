@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: conceptual
-ms.date: 03/29/2021
+ms.date: 03/30/2021
 ms.author: victorh
 ---
 
@@ -39,7 +39,8 @@ The following scenarios are supported:
    VNet/Branch-to-Internet via a security partner provider and the other traffic (spoke-to-spoke, spoke-to-branch, branch-to-spoke) via Azure Firewall.
 - Single provider in the hub
 
-   - All traffic (spoke-to-spoke, spoke-to-branch, branch-to-spoke, VNet/Branch-to-Internet) secured by Azure Firewall
+   - All traffic (spoke-to-spoke, spoke-to-branch, branch-to-spoke, VNet/Branch-to-Internet) secured by Azure Firewall<br>
+      or
    - VNet/Branch-to-Internet via security partner provider
 
 ## Best practices for Internet traffic filtering in secured virtual hubs

@@ -127,13 +127,11 @@ To ensure that iOS devices are only able to sign in through Workday managed by m
 
 | Scenario | Key value pairs |
 |----------------------------------------------------------------------------------------	|-----------|
-| Automatically populate the Tenant and Web Address fields for:<br>● Workday on Android when you enable Android for work profiles.<br>●	Workday on iPad and iPhone.  	| Use these values to configure your Tenant: <br>● Configuration Key = `UserGroupCode`<br>●	Value Type = String <br>●	Configuration Value = Your tenant name. Example: `gms`<br>Use these values to configure your Web Address:<br>●	Configuration Key = `AppServiceHost`<br>●	Value Type = String<br>●	Configuration Value = The base URL for your tenant. Example: `https://www.myworkday.com`                            	|  	|
+| Automatically populate the Tenant and Web Address fields for:<br>● Workday on Android when you enable Android for work profiles.<br>●	Workday on iPad and iPhone.  	| Use these values to configure your Tenant: <br>● Configuration Key = `UserGroupCode`<br>●	Value Type = String <br>●	Configuration Value = Your tenant name. Example: `gms`<br>Use these values to configure your Web Address:<br>●	Configuration Key = `AppServiceHost`<br>●	Value Type = String<br>●	Configuration Value = The base URL for your tenant. Example: `https://www.myworkday.com`                            	| 
 | Disable these actions for Workday on iPad and iPhone:<br>●	Cut, Copy, and Paste<br>●	Print                     	| Set the value (Boolean) to `False` on these keys to disable the functionality:<br>●	`AllowCutCopyPaste`<br>●	`AllowPrint` 	|
 | Disable screenshots for Workday on Android. |Set the value (Boolean) to `False` on the `AllowScreenshots` key to disable functionality.|
 | Disable suggested updates for your users.|Set the value (Boolean) to `False` on the `AllowSuggestedUpdates` key to disable functionality.|
 |Customize the app store URL to direct mobile users to the app store of your choice.|Use these values to change the app store URL:<br>●	Configuration Key = `AppUpdateURL`<br>●	Value Type = String<br> ●	Configuration Value = App store URL|
-|   	|
-
 
 ## iOS configuration policies
 

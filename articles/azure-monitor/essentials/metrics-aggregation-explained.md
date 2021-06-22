@@ -6,7 +6,6 @@ ms.author: robb
 services: azure-monitor
 ms.topic: conceptual
 ms.date: 03/10/2021
-ms.subservice: metrics
 ---
 
 # Azure Monitor Metrics metrics aggregation and display explained

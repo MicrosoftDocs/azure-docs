@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 03/25/2021
+ms.date: 05/25/2021
 ms.author: inhenkel
 ---
 <!-- NOTE this file is temporary and a placeholder until the FAQ file update is completed. -->
@@ -40,15 +40,15 @@ If your video was previously uploaded into the Media Services account using Medi
 
 ### What Azure roles can perform actions on Azure Media Services resources? 
 
-See [Azure role-based access control (Azure RBAC) for Media Services accounts](rbac-overview.md).
+See [Azure role-based access control (Azure RBAC) for Media Services accounts](security-rbac-concept.md).
 
 ### How do I stream to Apple iOS devices?
 
-Make sure you have **(format=m3u8-aapl)** at the end of your path (after the **/manifest** portion of the URL) to tell the streaming origin server to return HTTP Live Streaming (HLS) content for consumption on Apple iOS native devices. For details, see [Delivering content](dynamic-packaging-overview.md).
+Make sure you have **(format=m3u8-aapl)** at the end of your path (after the **/manifest** portion of the URL) to tell the streaming origin server to return HTTP Live Streaming (HLS) content for consumption on Apple iOS native devices. For details, see [Delivering content](encode-dynamic-packaging-concept.md).
 
 ### What is the recommended method to process videos?
 
-Use [Transforms](/rest/api/media/transforms) to configure common tasks for encoding or analyzing videos. Each Transform describes a recipe, or a workflow of tasks for processing your video or audio files. A [Job](/rest/api/media/jobs) is the actual request to Media Services to apply the Transform to an input video or audio content. After the Transform has been created, you can submit Jobs by using Media Services APIs or any of the published SDKs. For more information, see [Transforms and Jobs](transforms-jobs-concept.md).
+Use [Transforms](/rest/api/media/transforms) to configure common tasks for encoding or analyzing videos. Each Transform describes a recipe, or a workflow of tasks for processing your video or audio files. A [Job](/rest/api/media/jobs) is the actual request to Media Services to apply the Transform to an input video or audio content. After the Transform has been created, you can submit Jobs by using Media Services APIs or any of the published SDKs. For more information, see [Transforms and Jobs](transform-jobs-concept.md).
 
 ### I uploaded, encoded, and published a video. Why won't the video play when I try to stream it?
 
@@ -56,7 +56,7 @@ One of the most common reasons is that you don't have the streaming endpoint fro
 
 ### How does pagination work?
 
-When you're using pagination, you should always use the next link to enumerate the collection and not depend on a particular page size. For details and examples, see [Filtering, ordering, paging](entities-overview.md).
+When you're using pagination, you should always use the next link to enumerate the collection and not depend on a particular page size. For details and examples, see [Filtering, ordering, paging](filter-order-page-entitites-how-to.md).
 
 ### What features are not yet available in Azure Media Services v3?
 
@@ -89,7 +89,7 @@ You can either:
 
 Media Services v3 live encoding does not yet support inserting video or image slates during live stream. 
 
-You can use a [live on-premises encoder](recommended-on-premises-live-encoders.md) to switch the source video. Many apps provide to ability to switch sources, including Telestream Wirecast, Switcher Studio (on iOS), and OBS Studio (free app).
+You can use a [live on-premises encoder](encode-recommended-on-premises-live-encoders.md) to switch the source video. Many apps provide to ability to switch sources, including Telestream Wirecast, Switcher Studio (on iOS), and OBS Studio (free app).
 
 ## Content protection
 
@@ -105,11 +105,11 @@ You don't have to use any specific token provider such as Azure Active Directory
 
 Make sure that the issuer, audience, and claims all match up exactly between what's in JWT and the `ContentKeyPolicyRestriction` value used in `ContentKeyPolicy`.
 
-For more information, see [Protect your content by using Media Services dynamic encryption](content-protection-overview.md).
+For more information, see [Protect your content by using Media Services dynamic encryption](drm-content-protection-concept.md).
 
 ### How and where did I get a JWT token before using it to request a license or key?
 
-For production, you need to have Secure Token Service (that is, a web service), which issues a JWT token upon an HTTPS request. For test, you can use the code shown in the `GetTokenAsync` method defined in [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs).
+For production, you need to have Secure Token Service (that is, a web service), which issues a JWT token upon an HTTPS request. For test, you can use the code shown in the `GetTokenAsync` method defined in [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/main/AMSV3Tutorials/EncryptWithDRM/Program.cs).
 
 The player makes a request, after a user is authenticated, to STS for such a token and assigns it as the value of the token. You can use the [Azure Media Player API](https://amp.azure.net/libs/amp/latest/docs/).
 
@@ -119,11 +119,11 @@ For an example of running STS with either a symmetric key or an asymmetric key, 
 
 The correct approach is to use Secure Token Service. In STS, depending on the user profile, add different claims (such as "Premium User," "Basic User," "Free Trial User"). With different claims in a JWT, the user can see different contents. For different contents or assets, `ContentKeyPolicyRestriction` will have the corresponding `RequiredClaims` value.
 
-Use Azure Media Services APIs for configuring license/key delivery and encrypting your assets (as shown in [this sample](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs)).
+Use Azure Media Services APIs for configuring license/key delivery and encrypting your assets (as shown in [this sample](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/main/AMSV3Tutorials/EncryptWithAES/Program.cs)).
 
 For more information, see:
 
-- [Content protection overview](content-protection-overview.md)
+- [Content protection overview](drm-content-protection-concept.md)
 - [Design of a multi-DRM content protection system with access control](architecture-design-multi-drm-system.md)
 
 ### Should I use HTTP or HTTPS?
@@ -159,11 +159,11 @@ Often, customers have invested in a license server farm either in their own data
 
 Currently, you can use the [Azure portal](https://portal.azure.com/) to:
 
-* Manage [Live Events](live-events-outputs-concept.md) in Media Services v3. 
+* Manage [Live Events](live-event-outputs-concept.md) in Media Services v3. 
 * View (not manage) v3 [assets](assets-concept.md). 
 * [Get info about accessing APIs](./access-api-howto.md). 
 
-For all other management tasks (for example, [Transforms and Jobs](transforms-jobs-concept.md) and [content protection](content-protection-overview.md)), use the [REST API](/rest/api/media/), the [Azure CLI](/cli/azure/ams), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
+For all other management tasks (for example, [Transforms and Jobs](transform-jobs-concept.md) and [content protection](drm-content-protection-concept.md)), use the [REST API](/rest/api/media/), the [Azure CLI](/cli/azure/ams), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
 
 ### Is there an AssetFile concept in v3?
 
@@ -203,7 +203,7 @@ The downloaded file structure on an iOS device looks like the following screensh
 
 The first folder with a name that ends with a dash followed by a number contains video content. The numeric value is the peak bandwidth of the video renditions. The second folder with a name that ends with a dash followed by 0 contains audio content. The third folder named `Data` contains the master playlist of the FPS content. Finally, boot.xml provides a complete description of the `.movpkg` folder content. 
 
-![Offline file structure for the FairPlay iOS sample app](media/offline-fairplay-for-ios/offline-fairplay-file-structure.png)
+![Offline file structure for the FairPlay iOS sample app](media/drm-offline-fairplay-for-ios-concept/offline-fairplay-file-structure.png)
 
 Here's a sample boot.xml file:
 
@@ -249,7 +249,7 @@ Depending on business logic of custom STS, different claims are issued in the JW
 
 #### What is the mapping between the Widevine and Media Services DRM security levels?
 
-Google's "Widevine DRM Architecture Overview" defines three security levels. However, the [Azure Media Services documentation on the Widevine license template](widevine-license-template-overview.md) outlines
+Google's "Widevine DRM Architecture Overview" defines three security levels. However, the [Azure Media Services documentation on the Widevine license template](drm-widevine-license-template-concept.md) outlines
 five security levels (client robustness requirements for playback). This section explains how the security levels map.
 
 Both sets of security levels are defined by Google Widevine. The difference is in usage level: architecture or API. The five security levels are used in the Widevine API. The `content_key_specs` object, which

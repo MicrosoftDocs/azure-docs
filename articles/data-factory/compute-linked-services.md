@@ -5,7 +5,8 @@ ms.service: data-factory
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
-ms.date: 05/08/2019
+ms.date: 05/08/2019 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Compute environments supported by Azure Data Factory
@@ -439,8 +440,8 @@ You create an Azure Machine Learning linked service to connect an Azure Machine 
 | subscriptionId         | Azure subscription ID              | Yes                                      |
 | resourceGroupName      | name | Yes                                      |
 | mlWorkspaceName        | Azure Machine Learning workspace name | Yes  |
-| servicePrincipalId     | Specify the application's client ID.     | No |
-| servicePrincipalKey    | Specify the application's key.           | No |
+| servicePrincipalId     | Specify the application's client ID.     | Yes |
+| servicePrincipalKey    | Specify the application's key.           | Yes |
 | tenant                 | Specify the tenant information (domain name or tenant ID) under which your application resides. You can retrieve it by hovering the mouse in the upper-right corner of the Azure portal. | Required if updateResourceEndpoint is specified |
 | connectVia             | The Integration Runtime to be used to dispatch the activities to this linked service. You can use Azure Integration Runtime or Self-hosted Integration Runtime. If not specified, it uses the default Azure Integration Runtime. | No |
 

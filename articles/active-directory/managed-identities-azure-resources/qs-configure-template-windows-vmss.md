@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/15/2020
+ms.date: 04/12/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ---
@@ -25,6 +25,7 @@ ms.collection: M365-identity-device-management
 Managed identities for Azure resources provide Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code.
 
 In this article, you learn how to perform the following managed identities for Azure resources operations on an Azure virtual machine scale set, using Azure Resource Manager deployment template:
+
 - Enable and disable the system-assigned managed identity on an Azure virtual machine scale set
 - Add and remove a user-assigned managed identity on an Azure virtual machine scale set
 
@@ -45,7 +46,7 @@ In this article, you learn how to perform the following managed identities for A
 
 As with the Azure portal and scripting, [Azure Resource Manager](../../azure-resource-manager/management/overview.md) templates provide the ability to deploy new or modified resources defined by an Azure resource group. Several options are available for template editing and deployment, both local and portal-based, including:
 
-   - Using a [custom template from the Azure Marketplace](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template), which allows you to create a template from scratch, or base it on an existing common or [quickstart template](https://azure.microsoft.com/documentation/templates/).
+   - Using a [custom template from the Azure Marketplace](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template), which allows you to create a template from scratch, or base it on an existing common or [quickstart template](https://azure.microsoft.com/resources/templates/).
    - Deriving from an existing resource group, by exporting a template from either [the original deployment](../../azure-resource-manager/templates/export-template-portal.md), or from the [current state of the deployment](../../azure-resource-manager/templates/export-template-portal.md).
    - Using a local [JSON editor (such as VS Code)](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md), and then uploading and deploying by using PowerShell or CLI.
    - Using the Visual Studio [Azure Resource Group project](../../azure-resource-manager/templates/create-visual-studio-deployment-project.md) to both create and deploy a template.  
@@ -56,7 +57,7 @@ Regardless of the option you choose, template syntax is the same during initial 
 
 In this section, you will enable and disable the system-assigned managed identity using an Azure Resource Manager template.
 
-### Enable system-assigned managed identity during creation the creation of a virtual machines scale set or an existing virtual machine scale set
+### Enable system-assigned managed identity during the creation of a virtual machines scale set or an existing virtual machine scale set
 
 1. Whether you sign in to Azure locally or via the Azure portal, use an account that is associated with the Azure subscription that contains the virtual machine scale set.
 2. To enable the system-assigned managed identity, load the template into an editor, locate the `Microsoft.Compute/virtualMachinesScaleSets` resource of interest within the resources section and add the `identity` property at the same level as the `"type": "Microsoft.Compute/virtualMachinesScaleSets"` property. Use the following syntax:
@@ -66,10 +67,6 @@ In this section, you will enable and disable the system-assigned managed identit
        "type": "SystemAssigned"
    }
    ```
-
-> [!NOTE]
-> You may optionally provision the managed identities for Azure resources virtual machine scale set extension by specifying it in the `extensionProfile` element of the template. This step is optional as you can use the Azure Instance Metadata Service (IMDS) identity endpoint, to retrieve tokens as well.  For more information, see [Migrate from VM extension to Azure IMDS for authentication](howto-migrate-vm-extension.md).
-
 
 4. When you're done, the following sections should added to the resource section of your template  and should resemble the following:
 
@@ -88,23 +85,7 @@ In this section, you will enable and disable the system-assigned managed identit
                 //other resource provider properties...
                 "virtualMachineProfile": {
                     //other virtual machine profile properties...
-                    //The following appears only if you provisioned the optional virtual machine scale set extension (to be deprecated)
-                    "extensionProfile": {
-                        "extensions": [
-                            {
-                                "name": "ManagedIdentityWindowsExtension",
-                                "properties": {
-                                  "publisher": "Microsoft.ManagedIdentity",
-                                  "type": "ManagedIdentityExtensionForWindows",
-                                  "typeHandlerVersion": "1.0",
-                                  "autoUpgradeMinorVersion": true,
-                                  "settings": {
-                                      "port": 50342
-                                  }
-                                }
-                            }
-                        ]
-                    }
+        
                 }
             }
         }
@@ -190,9 +171,6 @@ In this section, you assign a user-assigned managed identity to a virtual machin
        }
 
    }
-   ```
-> [!NOTE]
-> You may optionally provision the managed identities for Azure resources virtual machine scale set extension by specifying it in the `extensionProfile` element of the template. This step is optional as you can use the Azure Instance Metadata Service (IMDS) identity endpoint, to retrieve tokens as well.  For more information, see [Migrate from VM extension to Azure IMDS for authentication](howto-migrate-vm-extension.md).
 
 3. When you are done, your template should look similar to the following:
 
@@ -216,23 +194,6 @@ In this section, you assign a user-assigned managed identity to a virtual machin
                 //other virtual machine properties...
                 "virtualMachineProfile": {
                     //other virtual machine profile properties...
-                    //The following appears only if you provisioned the optional virtual machine scale set extension (to be deprecated)
-                    "extensionProfile": {
-                        "extensions": [
-                            {
-                                "name": "ManagedIdentityWindowsExtension",
-                                "properties": {
-                                  "publisher": "Microsoft.ManagedIdentity",
-                                  "type": "ManagedIdentityExtensionForWindows",
-                                  "typeHandlerVersion": "1.0",
-                                  "autoUpgradeMinorVersion": true,
-                                  "settings": {
-                                      "port": 50342
-                                  }
-                                }
-                            }
-                        ]
-                    }
                 }
             }
         }
@@ -259,29 +220,12 @@ In this section, you assign a user-assigned managed identity to a virtual machin
                 //other virtual machine properties...
                 "virtualMachineProfile": {
                     //other virtual machine profile properties...
-                    //The following appears only if you provisioned the optional virtual machine scale set extension (to be deprecated)    
-                    "extensionProfile": {
-                        "extensions": [
-                            {
-                                "name": "ManagedIdentityWindowsExtension",
-                                "properties": {
-                                  "publisher": "Microsoft.ManagedIdentity",
-                                  "type": "ManagedIdentityExtensionForWindows",
-                                  "typeHandlerVersion": "1.0",
-                                  "autoUpgradeMinorVersion": true,
-                                  "settings": {
-                                      "port": 50342
-                                  }
-                                }
-                            }
-                        ]
-                    }
                 }
             }
         }
     ]
    ```
-   ### Remove user-assigned managed identity from an Azure virtual machine scale set
+### Remove user-assigned managed identity from an Azure virtual machine scale set
 
 If you have a virtual machine scale set that no longer needs a user-assigned managed identity:
 

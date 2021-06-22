@@ -15,8 +15,10 @@ ms.service: azure-communication-services
 
 # Get started with the group chat hero sample
 
+[!INCLUDE [Public Preview Notice](../includes/public-preview-include-chat.md)]
+
 > [!IMPORTANT]
-> [This sample is available on GitHub.](https://github.com/Azure-Samples/communication-services-web-chat-hero)
+> [This sample is available **on GitHub**.](https://github.com/Azure-Samples/communication-services-web-chat-hero)
 
 
 The Azure Communication Services **Group Chat Hero Sample** demonstrates how the Communication Services Chat Web SDK can be used to build a group calling experience.

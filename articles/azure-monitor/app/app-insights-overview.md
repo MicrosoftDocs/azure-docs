@@ -43,7 +43,7 @@ Application Insights is aimed at the development team, to help you understand ho
 
 There are plenty of ways to explore your data. Check out these articles:
 
-|  |  |
+| Article description   | Image |
 | --- | --- |
 | [**Smart detection and manual alerts**](./proactive-diagnostics.md)<br/>Set up automatic alerts that adapt to your app's normal patterns of telemetry and trigger when there's something outside the usual pattern. You can also [set alerts](../alerts/alerts-log.md) on particular levels of custom or standard metrics. |![Alert sample](./media/app-insights-overview/alerts-tn.png) |
 | [**Application map**](./app-map.md)<br/>Explore the components of your app, with key metrics and alerts. |![Application map](./media/app-insights-overview/appmap-tn.png)  |
@@ -96,7 +96,7 @@ There are several ways to get started. Begin with whichever works best for you. 
   * [ASP.NET Applications](./asp-net.md)
   * [ASP.NET Core Applications](./asp-net-core.md)
   * [.NET Console Applications](./console.md)
-  * [Java](./java-get-started.md)
+  * [Java](./java-in-process-agent.md)
   * [Node.js](./nodejs.md)
   * [Python](./opencensus-python.md)
   * [Other platforms](./platforms.md)
@@ -115,7 +115,7 @@ Get started at development time with:
 
 * [ASP.NET](./asp-net.md)
 * [ASP.NET Core](./asp-net-core.md)
-* [Java](./java-get-started.md)
+* [Java](./java-in-process-agent.md)
 * [Node.js](./nodejs.md)
 * [Python](./opencensus-python.md)
 * [JavaScript](./javascript.md)
@@ -139,10 +139,10 @@ Get started at development time with:
 [desktop]: ./windows-desktop.md
 [greenbrown]: ./asp-net.md
 [ios]: ../app/mobile-center-quickstart.md
-[java]: ./java-get-started.md
+[java]: ./java-in-process-agent.md
 [knowUsers]: app-insights-web-track-usage.md
 [platforms]: ./platforms.md
 [portal]: https://portal.azure.com/
-[qna]: ../faq.md
+[qna]: ../faq.yml
 [redfield]: ./monitor-performance-live-website-now.md
 

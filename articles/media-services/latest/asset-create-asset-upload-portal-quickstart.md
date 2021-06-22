@@ -25,21 +25,21 @@ This quickstart shows you how to use the Azure portal to upload, encode, and str
   * [Cloud upload and storage](storage-account-concept.md)
   * [Assets concept](assets-concept.md)
 * Once you upload your high-quality digital media file into an asset (an input asset), you can process it (encode or analyze). The processed content goes into another asset (output asset). 
-    * [Encode](encoding-concept.md) your uploaded file into formats that can be played on a wide variety of browsers and devices.
+    * [Encode](encode-concept.md) your uploaded file into formats that can be played on a wide variety of browsers and devices.
     * [Analyze](analyze-video-audio-files-concept.md) your uploaded file. 
 
         Currently, when using the Azure portal, you can do the following: generate a TTML and WebVTT closed caption files. Files in these formats can be used to make audio and video files accessible to people with hearing disability. You can also extract keywords from your content.
 
-        For a rich experience that enables you to extract insights from your video and audio files, use Media Services v3 presets (as described in [Tutorial: Analyze videos with Media Services v3](analyze-videos-tutorial.md)). <br/>If you want more detailed insights, use [Video Indexer](../video-indexer/index.yml) directly.    
+        For a rich experience that enables you to extract insights from your video and audio files, use Media Services v3 presets (as described in [Tutorial: Analyze videos with Media Services v3](analyze-videos-tutorial.md)). <br/>If you want more detailed insights, use [Video Analyzer for Media](../../azure-video-analyzer/video-analyzer-for-media-docs/index.yml) directly.    
 * Once your content is processed, you can deliver media content to client players. To make videos in the output asset available to clients for playback, you have to create a **streaming locator**. When creating the **streaming locator**, you need to specify a **streaming policy**. **Streaming policies** enable you to define streaming protocols and encryption options (if any) for your **streaming locators**.
     
     Review:
 
-    * [Streaming locators](streaming-locators-concept.md)
-    * [Streaming policies](streaming-policy-concept.md)
-    * [Packaging and delivery](dynamic-packaging-overview.md)
+    * [Streaming locators](stream-streaming-locators-concept.md)
+    * [Streaming policies](stream-streaming-policy-concept.md)
+    * [Packaging and delivery](encode-dynamic-packaging-concept.md)
     * [Filters](filters-concept.md)
-* You can protect your content by encrypting it with Advanced Encryption Standard (AES-128) or/and any of the three major DRM systems: Microsoft PlayReady, Google Widevine, and Apple FairPlay. The [Encrypt content with the Azure portal](encrypt-content-quickstart.md) quickstart shows how to configure content protection.
+* You can protect your content by encrypting it with Advanced Encryption Standard (AES-128) or/and any of the three major DRM systems: Microsoft PlayReady, Google Widevine, and Apple FairPlay. The [Encrypt content with the Azure portal](drm-encrypt-content-how-to.md) quickstart shows how to configure content protection.
         
 ## Prerequisites
 
@@ -87,8 +87,8 @@ To publish an asset, you now need to add a streaming locator to your asset.
     This publishes the asset and generates the streaming URLs.
 
     > [!NOTE]
-    > If you want for your stream to be encrypted, you need to create a content key policy and set it on the streaming locator. For details, see [Encrypt content with the Azure portal](encrypt-content-quickstart.md).
-1. In the **Add streaming locator** window, you choose one of the predefined streaming policies. For detailed information, see [streaming policies](streaming-policy-concept.md)
+    > If you want for your stream to be encrypted, you need to create a content key policy and set it on the streaming locator. For details, see [Encrypt content with the Azure portal](drm-encrypt-content-how-to.md).
+1. In the **Add streaming locator** window, you choose one of the predefined streaming policies. For detailed information, see [streaming policies](stream-streaming-policy-concept.md)
 
     ![Streaming locator](./media/asset-create-asset-upload-portal-quickstart/streaming-locator.png)
 
@@ -99,7 +99,7 @@ Once the asset has been published, you can stream it right in the portal.
 Or, copy the streaming URL and use it in your client player.
 
 > [!NOTE]
-> Make sure the [streaming endpoint](streaming-endpoint-concept.md) is running. When you first create a Media Service account, the default streaming endpoint is created and it is in a stopped state, so you need to start it before you can stream your content.<br/>You're only billed when your streaming endpoint is in the running state.
+> Make sure the [streaming endpoint](stream-streaming-endpoint-concept.md) is running. When you first create a Media Service account, the default streaming endpoint is created and it is in a stopped state, so you need to start it before you can stream your content.<br/>You're only billed when your streaming endpoint is in the running state.
 
 ## Cleanup resources
 
@@ -107,4 +107,4 @@ If you intend to try the other quickstarts, you should hold on to the resources 
 
 ## Next steps
 
-[Use portal to encrypt content](encrypt-content-quickstart.md)
+[Use portal to encrypt content](drm-encrypt-content-how-to.md)

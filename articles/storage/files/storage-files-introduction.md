@@ -12,11 +12,6 @@ ms.subservice: files
 # What is Azure Files?
 Azure Files offers fully managed file shares in the cloud that are accessible via the industry standard [Server Message Block (SMB) protocol](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) or [Network File System (NFS) protocol](https://en.wikipedia.org/wiki/Network_File_System). Azure file shares can be mounted concurrently by cloud or on-premises deployments. Azure Files SMB file shares are accessible from Windows, Linux, and macOS clients. Azure Files NFS file shares are accessible from Linux or macOS clients. Additionally, Azure Files SMB file shares can be cached on Windows Servers with Azure File Sync for fast access near where the data is being used.
 
-## Videos
-| Introducing Azure File Sync | Azure Files with Sync (Ignite 2019)  |
-|-|-|
-| [![Screencast of the Introducing Azure File Sync video - click to play!](./media/storage-files-introduction/azure-file-sync-video-snapshot.png)](https://www.youtube.com/watch?v=Zm2w8-TRn-o) | [![Screencast of the Azure Files with Sync presentation - click to play!](./media/storage-files-introduction/ignite-2018-video.png)](https://www.youtube.com/embed/6E2p28XwovU) |
-
 Here are some videos on the common use cases of Azure Files:
 * [Replace your file server with a serverless Azure File Share](https://sec.ch9.ms/ch9/3358/0addac01-3606-4e30-ad7b-f195f3ab3358/ITOpsTalkAzureFiles_high.mp4)
 * [Getting started with FSLogix profile containers on Azure Files in Windows Virtual Desktop leveraging AD authentication](https://www.youtube.com/embed/9S5A1IJqfOQ)
@@ -51,9 +46,9 @@ Azure file shares can be used to:
 * **Familiar programmability**. Applications running in Azure can access data in the share via file [system I/O APIs](/dotnet/api/system.io.file). Developers can therefore leverage their existing code and skills to migrate existing applications. In addition to System IO APIs, you can use [Azure Storage Client Libraries](/previous-versions/azure/dn261237(v=azure.100)) or the [Azure Storage REST API](/rest/api/storageservices/file-service-rest-api).
 
 ## Next Steps
-* [Learn about the available file share protocols](storage-files-compare-protocols.md)
+* [Plan for an Azure Files deployment](storage-files-planning.md)
 * [Create Azure file Share](storage-how-to-create-file-share.md)
 * [Connect and mount an SMB share on Windows](storage-how-to-use-files-windows.md)
 * [Connect and mount an SMB share on Linux](storage-how-to-use-files-linux.md)
 * [Connect and mount an SMB share on macOS](storage-how-to-use-files-mac.md)
-* [How to create an NFS share](storage-files-how-to-create-nfs-shares.md)
+* [Connect and mount an NFS share on Linux](storage-files-how-to-mount-nfs-shares.md)

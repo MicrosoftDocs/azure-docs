@@ -1,8 +1,8 @@
 ---
 title: Rank transformation in mapping data flow 
 description: How to use Azure Data Factory's mapping data flow rank transformation generate a ranking column
-author: dcstwh
-ms.author: weetok
+author: kromerm
+ms.author: makromer
 ms.reviewer: makromer
 ms.service: data-factory
 ms.topic: conceptual

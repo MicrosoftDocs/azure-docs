@@ -3,11 +3,13 @@ title: Enable host-based encryption on Azure Kubernetes Service (AKS)
 description: Learn how to configure a host-based encryption in an Azure Kubernetes Service (AKS) cluster
 services: container-service
 ms.topic: article
-ms.date: 03/03/2021
+ms.date: 04/26/2021 
+ms.custom: devx-track-azurepowershell
+
 
 ---
 
-# Host-based encryption on Azure Kubernetes Service (AKS) (preview)
+# Host-based encryption on Azure Kubernetes Service (AKS)
 
 With host-based encryption, the data stored on the VM host of your AKS agent nodes' VMs is encrypted at rest and flows encrypted to the Storage service. This means the temp disks are encrypted at rest with platform-managed keys. The cache of OS and data disks is encrypted at rest with either platform-managed keys or customer-managed keys depending on the encryption type set on those disks. By default, when using AKS, OS and data disks are encrypted at rest with platform-managed keys, meaning that the caches for these disks are also by default encrypted at rest with platform-managed keys.  You can specify your own managed keys following [Bring your own keys (BYOK) with Azure disks in Azure Kubernetes Service](azure-disk-customer-managed-keys.md). The cache for these disks will then also be encrypted using the key that you specify in this step.
 
@@ -21,26 +23,9 @@ This feature can only be set at cluster creation or node pool creation time.
 
 ### Prerequisites
 
-- Ensure you have the `aks-preview` CLI extension v0.4.73 or higher version installed.
-- Ensure you have the `EnableEncryptionAtHostPreview` feature flag under `Microsoft.ContainerService` enabled.
 
-In order to be able to use encryption at host for your VMs or virtual machine scale sets, you must get the feature enabled on your subscription. Email **encryptionAtHost@microsoft.com** with your subscription IDs to get the feature enabled for your subscriptions. 
+- Ensure you have the CLI extension v2.23 or higher version installed.
 
-> [!IMPORTANT]
-> You must email **encryptionAtHost@microsoft.com** with your subscription IDs to get the feature enabled for compute resources. You cannot enable it yourself for compute resources.
-
-
-### Install aks-preview CLI extension
-
-To create an AKS cluster that host-based encryption, you need the latest *aks-preview* CLI extension. Install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, or check for any available updates using the [az extension update][az-extension-update] command:
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
 
 ### Limitations
 
@@ -48,7 +33,7 @@ az extension update --name aks-preview
 - Can only be enabled in [Azure regions][supported-regions] that support server-side encryption of Azure managed disks and only with specific [supported VM sizes][supported-sizes].
 - Requires an AKS cluster and node pool based on Virtual Machine Scale Sets(VMSS) as *VM set type*.
 
-## Use host-based encryption on new clusters (preview)
+## Use host-based encryption on new clusters
 
 Configure the cluster agent nodes to use host-based encryption when the cluster is created. 
 
@@ -58,7 +43,7 @@ az aks create --name myAKSCluster --resource-group myResourceGroup -s Standard_D
 
 If you want to create clusters without host-based encryption, you can do so by omitting the `--enable-encryption-at-host` parameter.
 
-## Use host-based encryption on existing clusters (preview)
+## Use host-based encryption on existing clusters
 
 You can enable host-based encryption on existing clusters by adding a new node pool to your cluster. Configure a new node pool to use host-based encryption by using the `--enable-encryption-at-host` parameter.
 
@@ -77,12 +62,12 @@ Read more about [host-based encryption](../virtual-machines/disk-encryption.md#e
 <!-- LINKS - external -->
 
 <!-- LINKS - internal -->
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-extension-update]: /cli/azure/extension#az-extension-update
+[az-extension-add]: /cli/azure/extension#az_extension_add
+[az-extension-update]: /cli/azure/extension#az_extension_update
 [best-practices-security]: ./operator-best-practices-cluster-security.md
 [supported-regions]: ../virtual-machines/disk-encryption.md#supported-regions
 [supported-sizes]: ../virtual-machines/disk-encryption.md#supported-vm-sizes
 [azure-cli-install]: /cli/azure/install-azure-cli
-[az-feature-register]: /cli/azure/feature#az-feature-register
-[az-feature-list]: /cli/azure/feature#az-feature-list
-[az-provider-register]: /cli/azure/provider#az-provider-register
+[az-feature-register]: /cli/azure/feature#az_feature_register
+[az-feature-list]: /cli/azure/feature#az_feature_list
+[az-provider-register]: /cli/azure/provider#az_provider_register

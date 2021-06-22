@@ -80,7 +80,7 @@ The tutorials show scenario-based procedures for some of the top Media Services 
 * [Encode uploaded file and stream video - .NET](stream-files-tutorial-with-api.md)
 * [Stream live - .NET](stream-live-tutorial-with-api.md)
 * [Analyze your video - .NET](analyze-videos-tutorial.md)
-* [AES-128 dynamic encryption - .NET](protect-with-aes128.md)
+* [AES-128 dynamic encryption - .NET](drm-playready-license-template-concept.md)
 
 ### Samples
 
@@ -94,8 +94,8 @@ How-to guides contain code samples that demonstrate how to complete a task. In t
 * [Access APIs - CLI](./access-api-howto.md)
 * [Encode with HTTPS as job input - .NET](job-input-from-http-how-to.md)  
 * [Monitor events - Portal](monitoring/monitor-events-portal-how-to.md)
-* [Encrypt dynamically with multi-DRM - .NET](protect-with-drm.md) 
-* [How to encode with a custom transform - CLI](custom-preset-cli-howto.md)
+* [Encrypt dynamically with multi-DRM - .NET](drm-protect-with-drm-tutorial.md) 
+* [How to encode with a custom transform - CLI](transform-custom-preset-cli-how-to.md)
 
 ## Ask questions, give feedback, get updates
 

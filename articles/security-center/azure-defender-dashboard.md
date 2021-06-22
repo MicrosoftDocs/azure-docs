@@ -23,7 +23,7 @@ To access the Azure Defender dashboard, select **Azure Defender** from the Cloud
 
 ## What's shown on the dashboard?
 
-:::image type="content" source="./media/azure-defender-dashboard/sample-defender-dashboard-numbered.png" alt-text="An example of the Azure Defender dashboard" lightbox="./media/azure-defender-dashboard/sample-defender-dashboard-numbered.png":::
+:::image type="content" source="./media/azure-defender-dashboard/sample-defender-dashboard-numbered.png" alt-text="An example of the Azure Defender dashboard." lightbox="./media/azure-defender-dashboard/sample-defender-dashboard-numbered.png":::
 
 The dashboard includes the following sections:
 

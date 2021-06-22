@@ -273,7 +273,7 @@ Create the backend address pool **myPublicBackendPool**:
     | Frontend IP address | Select **LoadBalancerFrontEnd**.|
     | Idle timeout (minutes) | Move slider to **15 minutes**.|
     | TCP Reset | Select **Enabled**.|
-    | Backend pool | Select **myPublicBackendPool**.| |
+    | Backend pool | Select **myPublicBackendPool**.|
     | Port allocation -> Port allocation | Select **Use the default number of outbound ports** |
 
 4. Select **Add**.

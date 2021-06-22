@@ -12,28 +12,7 @@ ms.custom:
 
 # Prerequisites for deploying Azure Cloud Services (extended support)
 
-> [!IMPORTANT]
-> Cloud Services (extended support) is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 To ensure a successful Cloud Services (extended support) deployment review the below steps and complete each item prior to attempting any deployments. 
-
-## Register the CloudServices feature
-Register the feature for your subscription. The registration may take several minutes to complete. 
-
-```powershell
-Register-AzProviderFeature -FeatureName CloudServices -ProviderNamespace Microsoft.Compute
-```
-
-Check the status of registration using the following:  
-```powershell
-Get-AzProviderFeature 
-
-#Sample output
-FeatureName               ProviderName      RegistrationState
-CloudServices           Microsoft.Compute    Registered
-```
 
 ## Required Service Configuration (.cscfg) file updates
 
@@ -126,6 +105,9 @@ Deployments that utilized the old diagnostics plugins need the settings removed 
 ```xml
 <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" />
 ```
+## Subscription Access Level
+
+The subsciption containing networking resources needs to have [network contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#network-contributor) access or above for Cloud Services (extended support). For more details on please refer to [RBAC built in roles](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)
 
 ## Key Vault creation 
 

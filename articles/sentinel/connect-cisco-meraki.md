@@ -21,6 +21,8 @@ ms.author: yelevin
 > [!IMPORTANT]
 > The Cisco Meraki connector is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
 This article explains how to connect your Cisco Meraki (MX/MS/MR) appliance(s) to Azure Sentinel. The Cisco Meraki data connector allows you to easily connect your Cisco Meraki logs with Azure Sentinel, to view dashboards, create custom alerts, and improve investigation. Integration between Cisco Meraki and Azure Sentinel makes use of a Syslog server with the Log Analytics agent installed. It also uses a custom-built log parser based on a Kusto function.
 
 > [!NOTE]

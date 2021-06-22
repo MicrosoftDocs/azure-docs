@@ -296,6 +296,8 @@ groups:
     title: C#
   - id: programming-language-cpp
     title: C++
+  - id: programming-language-go
+    title: Go
   - id: programming-language-java
     title: Java
   - id: programming-language-javascript
@@ -323,6 +325,23 @@ groups:
     title: JavaScript
   - id: programming-language-python
     title: Python
+- id: programming-languages-set-twenty-seven
+# Owner: dobett
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-ansi-c
+    title: C
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-embedded-c
+    title: Embedded C
 # Service-specific groups
 - id: cogsvcs-text-analytics-features
   title: Text Analytics features
@@ -396,10 +415,19 @@ groups:
   pivots:
   - id: development-environment-vscode
     title: Visual Studio Code
-  - id: development-environment-cli
-    title: Command line
   - id: development-environment-vs
     title: Visual Studio
+  - id: development-environment-cli
+    title: Command line
+#Owner: shinardi
+- id: bring-third-party-dependency-programming-functions
+  title: Programming Languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-java
+    title: Java
 - id: programming-languages-metrics-monitor
   title: Programming languages
   prompt: Choose a programming language.
@@ -477,7 +505,7 @@ groups:
   - id: programming-language-csharp
     title: C#
   - id: programming-language-cpp
-    title: C+
+    title: C++
   - id: programming-language-java
     title: Java
   - id: programming-language-objectivec
@@ -489,7 +517,7 @@ groups:
   - id: programming-language-csharp
     title: C#
   - id: programming-language-cpp
-    title: C+
+    title: C++
   - id: programming-language-java
     title: Java
 - id: code-editors-set-one
@@ -783,6 +811,14 @@ groups:
     title: Java
   - id: programming-language-more
     title: More languages...
+- id: video-analyzer-programming-languages
+  title: Azure video analyzer programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-python
+    title: Python    
 - id: ams-lva-edge-programming-languages
   title: Live Video Analytics on IoT Edge programming languages
   prompt: Choose a programming language
@@ -792,6 +828,16 @@ groups:
   - id: programming-language-python
     title: Python
 # Owner: msangapu
+- id: app-service-ide
+  title: Development environment
+  prompt: Choose a development environment
+  pivots:
+  - id: development-environment-vs
+    title: Visual Studio
+  - id: development-environment-vscode
+    title: Visual Studio Code
+  - id: development-environment-cli
+    title: Command line interface
 - id: app-service-platform-windows-linux
   title: App Service platform
   prompt: Choose a hosting platform
@@ -987,6 +1033,18 @@ groups:
     title: Android
   - id: platform-ios
     title: iOS
+- id: acs-plat-web-ios-android-windows
+  title: Platform
+  prompt: Choose a platform
+  pivots:
+  - id: platform-web
+    title: Web
+  - id: platform-android
+    title: Android
+  - id: platform-ios
+    title: iOS
+  - id: platform-windows
+    title: Windows
 - id: acs-plat-ios-android
   title: Platform
   prompt: Choose a platform
@@ -994,7 +1052,7 @@ groups:
   - id: platform-android
     title: Android
   - id: platform-ios
-    title: iOS    
+    title: iOS
 - id: acs-plat-azp-js
   title: Platform
   prompt: Choose a platform
@@ -1100,7 +1158,7 @@ groups:
   - id: b2c-user-flow
     title: User flow
   - id: b2c-custom-policy
-    title: Custom policy    
+    title: Custom policy
 # Owner: mbullwin
 - id: anomaly-detector-quickstart
   title: Programming languages
@@ -1159,10 +1217,85 @@ groups:
   prompt: Choose a programming language
   pivots:
   - id: programming-language-javascript
-    title: Node.js 
+    title: Node.js
   - id: programming-language-python
-    title: Python 
+    title: Python
   - id: programming-language-android
-    title: Android 
-  - id: programming-language-ios 
+    title: Android
+  - id: programming-language-ios
     title: iOS
+# Owner: mbullwin
+- id: anomaly-detector-quickstart-multivariate
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-java
+    title: Java
+- id: iot-develop-set1
+# Owner: timlt
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-ansi-c
+    title: C
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-nodejs
+    title: Node.js
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-java
+    title: Java
+# Owner: philmea
+- id: facility-ontology-schema
+  title: Creator Facility Ontology
+  prompt: Choose a Facility Ontology Version
+  pivots:
+  - id: facility-ontology-v1
+    title: Facility Ontology 1.0 
+  - id: facility-ontology-v2
+    title: Facility Ontology 2.0 
+# Owner: veyalla
+- id: how-to-troubleshoot-monitoring-and-faq-zpg
+  title: Azure Monitor for IoT Edge FAQ
+  prompt: Choose a topic
+  pivots:
+  - id: metrics-collection
+    title: Metrics collection
+  - id: custom-metrics
+    title: Custom metrics
+  - id: alerts
+    title: Alerts
+  - id: workbooks
+    title: Workbooks
+# Owner: barclayn
+- id: identity-mi-methods
+  title: Managed identities methods
+  prompt: Choose an option
+  pivots:
+  - id: identity-mi-methods-azp
+    title: Azure portal
+  - id: identity-mi-methods-azcli
+    title: Azure CLI
+  - id: identity-mi-methods-powershell
+    title: PowerShell
+  - id: identity-mi-methods-arm
+    title: Resource Manager
+  - id: identity-mi-methods-rest
+    title: REST
+- id: identity-mi-method-sub
+  title: Managed identities method subset
+  prompt: Choose an option
+  pivots:
+  - id: identity-mi-methods-sub-azp
+    title: Azure portal
+  - id: identity-mi-methods-sub-azcli
+    title: Azure CLI
+  - id: identity-mi-methods-sub-powershell
+    title: PowerShell

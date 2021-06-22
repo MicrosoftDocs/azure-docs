@@ -72,17 +72,17 @@ A basic manifest for a Linux `hello-world` image looks similar to the following:
     "schemaVersion": 2,
     "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
     "config": {
-        "mediaType": "application/vnd.docker.container.image.v1+json",
-        "size": 1510,
-        "digest": "sha256:fbf289e99eb9bca977dae136fbe2a82b6b7d4c372474c9235adc1741675f587e"
-      },
+      "mediaType": "application/vnd.docker.container.image.v1+json",
+      "size": 1510,
+      "digest": "sha256:fbf289e99eb9bca977dae136fbe2a82b6b7d4c372474c9235adc1741675f587e"
+    },
     "layers": [
-        {
-          "mediaType": "application/vnd.docker.image.rootfs.diff.tar.gzip",
-          "size": 977,
-          "digest": "sha256:2c930d010525941c1d56ec53b97bd057a67ae1865eebf042686d2a2d18271ced"
-        }
-      ]
+      {
+        "mediaType": "application/vnd.docker.image.rootfs.diff.tar.gzip",
+        "size": 977,
+        "digest": "sha256:2c930d010525941c1d56ec53b97bd057a67ae1865eebf042686d2a2d18271ced"
+      }
+    ]
   }
   ```
 
@@ -179,6 +179,4 @@ Learn more about [registry storage](container-registry-storage.md) and [supporte
 Learn how to [push and pull images](container-registry-get-started-docker-cli.md) from Azure Container Registry.
 
 <!-- LINKS - Internal -->
-[az-acr-repository-show-manifests]: /cli/azure/acr/repository#az-acr-repository-show-manifests
-
-
+[az-acr-repository-show-manifests]: /cli/azure/acr/repository#az_acr_repository_show_manifests

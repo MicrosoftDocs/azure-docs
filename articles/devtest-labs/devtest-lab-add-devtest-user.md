@@ -2,7 +2,8 @@
 title: Add owners and users in Azure DevTest Labs| Microsoft Docs
 description: Add owners and users in Azure DevTest Labs using either the Azure portal or PowerShell
 ms.topic: article
-ms.date: 06/26/2020
+ms.date: 06/26/2020 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Add owners and users in Azure DevTest Labs
@@ -46,7 +47,7 @@ The following table illustrates the actions that can be performed by users in ea
 
 ## Add an owner or user at the lab level
 Owners and users can be added at the lab level via the Azure portal. 
-A user can be an external user with a valid [Microsoft account (MSA)](devtest-lab-faq.md#what-is-a-microsoft-account).
+A user can be an external user with a valid [Microsoft account (MSA)](/azure/devtest-labs/devtest-lab-faq#what-is-a-microsoft-account).
 The following steps guide you through the process of adding an owner or user to a lab in Azure DevTest Labs:
 
 1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).

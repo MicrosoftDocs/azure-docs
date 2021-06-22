@@ -47,7 +47,7 @@ It is optional but recommended that you are familiar with the following concepts
 
 * Digital Rights Management (DRM)
 * [Azure Media Services (AMS) v3](./media-services-overview.md)
-* AMS [content key policies](content-key-policy-concept.md) using the AMS API v3, Azure portal, or the [Azure Media Services Explorer (AMSE) tool](https://github.com/Azure/Azure-Media-Services-Explorer)
+* AMS [content key policies](drm-content-key-policy-concept.md) using the AMS API v3, Azure portal, or the [Azure Media Services Explorer (AMSE) tool](https://github.com/Azure/Azure-Media-Services-Explorer)
 * Azure AD v2 endpoints on the [Microsoft Identity Platform](../../active-directory/develop/index.yml)
 * Modern cloud authentication such as [OAuth 2.0 and OpenID Connect](../../active-directory/develop/active-directory-v2-protocols.md)
   * [Authorization code flow in OAuth 2.0](../../active-directory/develop/v2-oauth2-auth-code-flow.md) and why PKCE is needed
@@ -129,7 +129,6 @@ The screen for parsing JWT tokens (access_token or id_token):
 The screen for testing protected content with different combinations of DRM/AES vs Streaming Protocols vs Container Format:
 
 ![Screenshot that shows testing protected content with different combinations of D R M or A E S versus Streaming Protocols versus Container Format](media/aad-ams-content-protection/testing-protected-content.png)
--->
 
 <!-- You can see a hosted version of the sample at [https://aka.ms/ott](https://aka.ms/ott)-->
 
@@ -214,7 +213,7 @@ Choose an Azure AD tenant to use for our end-to-end sample. You have two options
 > [!NOTE]
 > As of this writing, you can't use the Azure portal for the media services account key policy setup because it doesn't support using an asymmetric token signing key with OpenID-Config.  The setup must support Azure AD key rollover because the Azure AD issued token is signed by an asymmetric key and the key rolls over every six weeks. Therefore, this tutorial uses .NET and the AMS v3 API.
 
-Configuration of the [content key policy](content-key-policy-concept.md) and [streaming policies](streaming-policy-concept.md) for DRM and AES-128 apply.  Change the `ContentKeyPolicyRestriction` in the content key policy.
+Configuration of the [content key policy](drm-content-key-policy-concept.md) and [streaming policies](stream-streaming-policy-concept.md) for DRM and AES-128 apply.  Change the `ContentKeyPolicyRestriction` in the content key policy.
 
 Below is the .NET code for creating the content key policy restriction.
 
@@ -337,7 +336,7 @@ if (tokenClaims != null && tokenClaims.Length > 0)
 }
 ```
 
-The *groups* claim is a member of a [Restricted Claim Set](../../active-directory/develop/active-directory-claims-mapping.md#claim-sets) in Azure AD.
+The *groups* claim is a member of a [Restricted Claim Set](../../active-directory/develop/reference-claims-mapping-policy-type.md#claim-sets) in Azure AD.
 
 #### Test
 
@@ -377,4 +376,4 @@ Your sample solution may be set up in a Microsoft tenant with Microsoft subscrip
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Quickstart: Encrypt content](encrypt-content-quickstart.md)
+> [Quickstart: Encrypt content](drm-encrypt-content-how-to.md)

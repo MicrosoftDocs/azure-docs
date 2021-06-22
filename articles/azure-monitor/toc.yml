@@ -5,7 +5,7 @@
   - name: What is Azure Monitor?
     href: overview.md
   - name: FAQ
-    href: faq.md
+    href: faq.yml
   - name: What's new?
     href: whats-new.md
   - name: Migrate from Operations Manager
@@ -31,6 +31,8 @@
       href: vm/quick-collect-windows-computer.md
   - name: Monitor applications
     items:
+    - name: ASP.NET Core application
+      href: app/dotnet-quickstart.md
     - name: Node.js application
       href: app/nodejs-quick-start.md
     - name: Mobile application
@@ -47,8 +49,6 @@
     href: logs/get-started-queries.md
   - name: Create a dashboard from log query
     href: visualize/tutorial-logs-dashboards.md
-  - name: Create alert from log query
-    href: alerts/tutorial-response.md
   - name: Autoscale on performance and schedule
     href: autoscale/tutorial-autoscale-performance-schedule.md
   - name: Application Insights
@@ -87,6 +87,8 @@
           href: app/resource-manager-web-app.md
         - name: Azure Functions
           href: app/resource-manager-function-app.md
+    - name: Container insights
+      href: containers/resource-manager-container-insights.md
     - name: Data collection rules
       href: agents/resource-manager-data-collection-rules.md
     - name: Diagnostic settings
@@ -95,10 +97,10 @@
       href: logs/resource-manager-workspace.md
     - name: Log queries
       href: logs/resource-manager-log-queries.md
+    - name: SQL insights
+      href: insights/resource-manager-sql-insights.md
     - name: Workbooks
       href: visualize/resource-manager-workbooks.md
-    - name: Container insights
-      href: containers/resource-manager-container-insights.md
     - name: VM insights
       href: vm/resource-manager-vminsights.md
   - name: Azure CLI
@@ -146,7 +148,7 @@
   - name: Security
     items:
     - name: Security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/monitor-security-baseline?toc=/azure/azure-monitor/toc.json
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
       href: .//security-controls-policy.md
@@ -240,8 +242,12 @@
         href: logs/log-analytics-tutorial.md
       - name: Query scope
         href: logs/scope.md
-      - name: Example queries
-        href: logs/example-queries.md
+      - name: Saving queries
+        href: logs/save-query.md
+      - name: Using queries
+        href: logs/queries.md
+      - name: Query packs
+        href: logs/query-packs.md
     - name: Log queries
       items:
       - name: Overview
@@ -358,7 +364,7 @@
     - name: Overview
       href: agents/agents-overview.md
     - name: FAQ
-      href: faq.md#agents
+      href: /azure/azure-monitor/faq#agents
     - name: Azure Monitor Agent
       items:
       - name: Overview
@@ -370,6 +376,12 @@
       - name: Data collection
         displayname: data collection rule,Azure Monitor agent
         href: agents/data-collection-rule-azure-monitor-agent.md
+      - name: Deploy at scale
+        displayname: Deploy Azure Monitor agent at scale
+        href: deploy-scale.md#azure-monitor-agent  
+      - name: FAQ
+        displayname: Azure Monitor agent FAQ
+        href: /azure/azure-monitor/faq.yml#azure-monitor-agent
     - name: Log Analytics agent
       items:
       - name: Overview
@@ -619,43 +631,45 @@
     - name: Application Insights overview
       href: app/app-insights-overview.md
     - name: FAQ
-      href: ./faq.md
+      href: /azure/azure-monitor/faq#application-insights
     - name: Code-based monitoring
       items:
-      - name: ASP.NET Core 
+      - name: .NET
         items:
-        - name: ASP.NET Core App Monitoring
-          displayname: Core, .NET Core, services.add, dotnetcore, c#, csharp
-          href: app/asp-net-core.md
-        - name: ILogger
-          displayname: ilogger, logging, log 
-          href: app/ilogger.md
-      - name: ASP.NET
-        items: 
-        - name: ASP.NET App Monitoring
-          displayname: ASP.NET, c#, csharp, .NET, NET, dotnet 
-          href: app/asp-net.md
-        - name: Troubleshoot ASP.NET
-          href: app/asp-net-troubleshoot-no-data.md
-      - name: Non-HTTP/Background apps
-        displayname: console, .NET, .NET Core, dotnet console, dotnet, c#, csharp, NET, worker, background, generic host
-        href: app/worker-service.md  
-      - name: .NET Console
-        displayname: console, .NET, dotnet console, dotnet, c#, csharp, NET
-        href: app/console.md
+          - name: ASP.NET Core 
+            items:
+            - name: ASP.NET Core App Monitoring
+              displayname: Core, .NET Core, services.add, dotnetcore, c#, csharp
+              href: app/asp-net-core.md
+            - name: ILogger
+              displayname: ilogger, logging, log 
+              href: app/ilogger.md
+          - name: ASP.NET
+            items: 
+            - name: ASP.NET App Monitoring
+              displayname: ASP.NET, c#, csharp, .NET, NET, dotnet 
+              href: app/asp-net.md
+            - name: Troubleshoot ASP.NET
+              href: app/asp-net-troubleshoot-no-data.md
+          - name: Non-HTTP/Background apps
+            displayname: console, .NET, .NET Core, dotnet console, dotnet, c#, csharp, NET, worker, background, generic host
+            href: app/worker-service.md  
+          - name: .NET Console
+            displayname: console, .NET, dotnet console, dotnet, c#, csharp, NET
+            href: app/console.md
       - name: Java
         items:
           - name: Web apps
             displayname: java
-            href: app/java-get-started.md
+            href: app/java-2x-get-started.md
           - name: Log traces
-            href: app/java-trace-logs.md
+            href: app/java-2x-trace-logs.md
           - name: Dependencies
-            href: app/java-agent.md
+            href: app/java-2x-agent.md
           - name: Filter telemetry
-            href: app/java-filter-telemetry.md
+            href: app/java-2x-filter-telemetry.md
           - name: Troubleshoot
-            href: app/java-troubleshoot.md
+            href: app/java-2x-troubleshoot.md
       - name: Node.js 
         href: app/nodejs.md
       - name: Python
@@ -759,7 +773,7 @@
     - name: OpenTelemetry
       items: 
       - name: FAQ
-        href: faq.md#opentelemetry
+        href: /azure/azure-monitor/faq#opentelemetry
     - name: Create a resource (classic)
       href: app/create-new-resource.md
     - name: Create a resource (workspace-based)
@@ -777,12 +791,16 @@
       displayname: e2e, end-to-end, component, dependency, cross-component transaction, operation ID, dependencies
     - name: Availability
       items:
+      - name: Overview
+        href: app/availability-overview.md
       - name: URL tests
         displayname: ping, ping tests, availability, GSM, up/down
         href: app/monitor-web-app-availability.md
       - name: Multi-step tests
         displayname: availability, GSM, visual studio web test, web test
         href: app/availability-multistep.md
+      - name: Private testing
+        href: app/availability-private-test.md
       - name: Availability + Azure Functions
         href: app/availability-azure-functions.md
         displayname: availability,azure functions,TrackAvailability(), timer function, azure gov, azure china, custom test, customized tests, contentmatch
@@ -860,6 +878,8 @@
     - name: Smart Detection
       href: app/proactive-diagnostics.md
       items:
+      - name: Upgrade to alerts
+        href: alerts/alerts-smart-detections-migration.md
       - name: Failure anomalies
         href: app/proactive-failure-diagnostics.md
       - name: Performance anomalies
@@ -907,6 +927,8 @@
       items:
       - name: Access control
         href: app/resources-roles-access-control.md
+      - name: Azure AD authentication 
+        href: app/azure-ad-authentication.md
       - name: IP address collection
         href: app/ip-collection.md
         displayname: geolocation, IP collection, IP tracking, IP storage
@@ -993,9 +1015,9 @@
     - name: Overview
       href: vm/vminsights-overview.md
     - name: General Availability FAQ
-      href: vm/vminsights-ga-release-faq.md  
+      href: vm/vminsights-ga-release-faq.yml  
     - name: FAQ
-      href: faq.md#vm-insights
+      href: /azure/azure-monitor/faq#vm-insights
     - name: Configure workspace
       href: vm/vminsights-configure-workspace.md
     - name: Install agents
@@ -1049,7 +1071,7 @@
     - name: Overview
       href: containers/container-insights-overview.md
     - name: FAQ
-      href: faq.md#container-insights
+      href: /azure/azure-monitor/faq#container-insights
     - name: Enable monitoring
       items:
       - name: Enable monitoring overview 
@@ -1066,6 +1088,8 @@
         href: containers/container-insights-azure-redhat-setup.md
       - name: Enable for Azure Red Hat OpenShift v4
         href: containers/container-insights-azure-redhat4-setup.md
+      - name: Enable with Azure Policy
+        href: containers/container-insights-enable-aks-policy.md
       - name: Region mappings
         href: containers/container-insights-region-mapping.md
     - name: Monitor performance
@@ -1128,6 +1152,8 @@
       href: insights/cosmosdb-insights-overview.md
     - name: Azure Data Explorer (preview)
       href: insights/data-explorer.md
+    - name: Log Analytics workspace
+      href: logs/log-analytics-workspace-insights-overview.md
     - name: Networks
       href: insights/network-insights-overview.md
     - name: Key Vault
@@ -1137,7 +1163,7 @@
       - name: Overview
         href: insights/sql-insights-overview.md
       - name: FAQ
-        href: faq.md#sql-insights-preview
+        href: /azure/azure-monitor/faq#sql-insights-preview
       - name: Enable
         href: insights/sql-insights-enable.md
       - name: Alerts
@@ -1187,7 +1213,7 @@
             - name: Pricing
               href: insights/network-performance-monitor-pricing-faq.md
             - name: FAQ
-              href: insights/network-performance-monitor-faq.md
+              href: insights/network-performance-monitor-faq.yml
         - name: Office 365
           href: insights/solution-office-365.md
         - name: Service Map solution
@@ -1391,7 +1417,7 @@
       href: /cli/azure/azure-cli-reference-for-monitor
       displayName: Action Groups, Autoscale, Diagnostic Settings, Metrics, Private Link Scope
     - name: Application Insights
-      href: /cli/azure/ext/application-insights/monitor/app-insights
+      href: /cli/azure/monitor/app-insights
     - name: Activity Logs
       href: /cli/azure/monitor/activity-log
     - name: Log Analytics
@@ -1438,10 +1464,10 @@
     - name: Key Vault Analytics (deprecated)
       href: insights/azure-key-vault-deprecated.md
     - name: Unix metrics
-      href: app/java-collectd.md
+      href: app/java-2x-collectd.md
     - name: Micrometer Metrics
       displayname: java
-      href: app/micrometer-java.md
+      href: app/java-2x-micrometer.md
     - name: Views
       items:
       - name: View Designer

@@ -27,7 +27,9 @@ landingContent:
       links:
           - text: Create a device update account
             url: create-device-update-account.md
-          - text: Import an update
+          - text: Provisioning Device Update Agent
+            url: device-update-agent-provisioning.md
+          - text: Add an update
             url: import-update.md
           - text: Create an update group
             url: create-update-group.md
@@ -49,8 +51,8 @@ landingContent:
     linkLists:
     - linkListType: how-to-guide
       links:
-        - text: Build, run and modify device update agent
-          url: device-update-agent-provisioning.md
+        - text: How to build and run Device Update Agent
+          url: device-update-agent-provisioning.md#how-to-build-and-run-device-update-agent
   - title: Get started
     linkLists:
     - linkListType: tutorial
@@ -61,3 +63,26 @@ landingContent:
             url: device-update-raspberry-pi.md
           - text: Device update on Ubuntu Server 18.04 x64 Package agent
             url: device-update-ubuntu-agent.md
+
+  - title: API and SDK reference
+    linkLists:
+    - linkListType: reference
+      links:
+      - text: REST API
+        url: /rest/api/deviceupdate/
+    - linkListType: reference
+      links:
+      - text: Control Plane - .NET
+        url:  /dotnet/api/overview/azure/iot/management
+      - text: Control Plane - Python
+        url:  /python/api/azure-mgmt-deviceupdate/
+    - linkListType: reference
+      links:
+      - text: Data Plane - .NET
+        url: /dotnet/api/azure.iot.deviceupdate?view=azure-dotnet-preview&preserve-view=true
+      - text: Data Plane - JavaScript
+        url: /javascript/api/@azure/iot-device-update/?view=azure-node-preview&preserve-view=true
+      - text: Data Plane - Java
+        url: /java/api/com.azure.iot.deviceupdate?view=azure-java-preview&preserve-view=true
+      - text: Data Plane - Python
+        url: /python/api/azure-mgmt-deviceupdate/azure.mgmt.deviceupdate?view=azure-python-preview&preserve-view=true

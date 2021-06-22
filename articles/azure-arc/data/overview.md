@@ -1,13 +1,14 @@
 ---
 title: What are Azure Arc enabled data services
-description: Introduces Azure Arc enabled data services 
+description: Introduces Azure Arc enabled data services
+ms.custom: references_regions
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 09/22/2020
+ms.date: 03/31/2021
 ms.topic: overview
 # Customer intent: As a data professional, I want to understand why my solutions would benefit from running with Azure Arc enabled data services so that I can leverage the capability of the feature.
 ---
@@ -42,6 +43,27 @@ Using familiar tools such as the Azure portal, Azure Data Studio, and the [!INCL
 ## Disconnected scenario support
 
 Many of the services such as self-service provisioning, automated backups/restore, and monitoring can run locally in your infrastructure with or without a direct connection to Azure. Connecting directly to Azure opens up additional options for integration with other Azure services such as Azure Monitor and the ability to use the Azure portal and Azure Resource Manager APIs from anywhere in the world to manage your Azure Arc enabled data services.
+
+## Supported regions
+
+The following table describes the scenarios that are currently supported for Arc enabled data services.
+
+|Azure Regions  |Direct connected mode  |Indirect connected mode  |
+|---------|---------|---------|
+|East US|Available|Available
+|East US 2|Available|Available
+|West US|Available|Available
+|Central US|Not available|Available
+|South Central US|Available|Available
+|UK South|Available|Available
+|France Central|Available|Available
+|West Europe |Available |Available
+|North Europe|Available|Available
+|Japan East|Not available|Available
+|Korea Central|Not available|Available
+|East Asia|Not available|Available
+|Southeast Asia|Available|Available
+|Australia East|Available|Available
 
 ## Next steps
 

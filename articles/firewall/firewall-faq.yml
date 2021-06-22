@@ -6,7 +6,7 @@ metadata:
   author: vhorne
   ms.service: firewall
   ms.topic: conceptual
-  ms.date: 03/26/2021
+  ms.date: 06/16/2021
   ms.author: victorh
     
 title: Azure Firewall FAQ
@@ -95,6 +95,7 @@ sections:
           
           Set-AzFirewall -AzureFirewall $azfw
           ```
+          When you allocate and deallocate, [firewall billing](https://azure.microsoft.com/pricing/details/azure-firewall) stops and starts accordingly.
           
           > [!NOTE]
           > You must reallocate a firewall and public IP to the original resource group and subscription.
@@ -183,7 +184,15 @@ sections:
           Azure Firewall gradually scales when average throughput or CPU consumption is at 60%. A default deployment maximum throughput is approximately 2.5 - 3 Gbps and starts to scale out when it reaches 60% of that number. Scale out takes five to seven minutes. 
           
           When performance testing, make sure you test for at least 10 to 15 minutes, and start new connections to take advantage of newly created Firewall nodes.
-          
+
+      - question: How does Azure Firewall handle idle timeouts?
+        answer: |
+         When a connection has an idle timeout (four minutes of no activity), Azure Firewall gracefully terminates the connection by sending a TCP RST packet.
+
+      - question: How does Azure Firewall handle VM instance shutdowns during VMSS scale in (scale down) or fleet software upgrades?
+        answer: | 
+         An Azure Firewall VM instance shutdown may occur during VMSS scale in (scale down) or during fleet software upgrade. In these cases, new incoming connections are load balanced to the remaining firewall instances and are not forwarded to the down firewall instance. After 45 seconds the firewall starts rejecting existing connections by sending TCP RST packets. After an additional 45 seconds the firewall VM shuts down. For more information, see [Load Balancer TCP Reset and Idle Timeout](../load-balancer/load-balancer-tcp-reset.md). 
+                
       - question: Does Azure Firewall allow access to Active Directory by default?
         answer: |
           No. Azure Firewall blocks Active Directory access by default. To allow access, configure the AzureActiveDirectory service tag. For more information, see [Azure Firewall service tags](service-tags.md).
@@ -210,7 +219,10 @@ sections:
           ```
           
       - question: Why can a TCP ping and similar tools successfully connect to a target FQDN even when no rule on Azure Firewall allows that traffic?
-        answer: A TCP ping isn't actually connecting  to the target FQDN. This happens because Azure Firewall's transparent proxy listens on port 80/443 for outbound traffic. The TCP ping establishes a connection with the firewall, which then drops the packet. This behavior doesn't have any security impact. However, to avoid confusion we're investigating potential changes to this behavior.
+        answer: |
+          A TCP ping isn't actually connecting  to the target FQDN. This happens because Azure Firewall's transparent proxy listens on port 80/443 for outbound traffic. The TCP ping establishes a connection with the firewall, which then drops the packet. This behavior doesn't have any security impact. However, to avoid confusion we're investigating potential changes to this behavior.
+
+          Similarly for inbound DNAT traffic, Azure Firewall’s listener on port 80/443 allows TCP connections to be established. However, the firewall then drops and denies the packet by design, unless explicitly allowed in rules. 
 
       - question: Are there limits for the number of IP addresses supported by IP Groups?
         answer: |
@@ -221,7 +233,9 @@ sections:
 
       - question: What is the TCP Idle Timeout for Azure Firewall?
         answer: |
-          A standard behavior of a network firewall is to ensure TCP connections are kept alive and to promptly close them if there's no activity. Azure Firewall TCP Idle Timeout is four minutes. This setting isn't configurable. If a period of inactivity is longer than the timeout value, there's no guarantee that the TCP or HTTP session is maintained. A common practice is to use a TCP keep-alive. This practice keeps the connection active for a longer period. For more information, see the [.NET examples](/dotnet/api/system.net.servicepoint.settcpkeepalive#System_Net_ServicePoint_SetTcpKeepAlive_System_Boolean_System_Int32_System_Int32_).
+          A standard behavior of a network firewall is to ensure TCP connections are kept alive and to promptly close them if there's no activity. Azure Firewall TCP Idle Timeout is four minutes. This setting isn't user configurable, but you can contact Azure Support to increase the idle timeout up to 30 minutes.
+          
+          If a period of inactivity is longer than the timeout value, there's no guarantee that the TCP or HTTP session is maintained. A common practice is to use a TCP keep-alive. This practice keeps the connection active for a longer period. For more information, see the [.NET examples](/dotnet/api/system.net.servicepoint.settcpkeepalive#System_Net_ServicePoint_SetTcpKeepAlive_System_Boolean_System_Int32_System_Int32_).
           
       - question: Can I deploy Azure Firewall without a public IP address?
         answer: No, currently you must deploy Azure Firewall with a public IP address.

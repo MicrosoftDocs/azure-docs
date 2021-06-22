@@ -44,6 +44,6 @@ Access workbooks in Azure Sentinel under **Threat Management** > **Workbooks** o
 |**Security Alerts**     |  Provides a Security Alerts dashboard for alerts in your Azure Sentinel environment. <br><br>For more information, see [Automatically create incidents from Microsoft security alerts](create-incidents-from-alerts.md).      |
 |**Security Operations Efficiency**     |  Intended for security operations center (SOC) managers to view overall efficiency metrics and measures regarding the performance of their team. <br><br>For more information, see [Manage your SOC better with incident metrics](manage-soc-with-incident-metrics.md).  |
 |**Threat Intelligence**     | Provides insights into threat indicators, including type and severity of threats, threat activity over time, and correlation with other data sources, including Office 365 and firewalls.  <br><br>For more information, see [Import threat intelligence into Azure Sentinel](import-threat-intelligence.md).      |
-|**Workspace Audit**     |  Provides a workspace auditing report that enables you to understand query runs across your workspace.   <br><br>For more information, see [Audit Azure Sentinel queries and activities](audit-sentinel-data.md).  |
-|     |         |
+|**Zero Trust (TIC3.0)**     |  Provides an automated visualization of Zero Trust principles, cross-walked to the [Trusted Internet Connections framework](https://www.cisa.gov/trusted-internet-connections).   <br><br>For more information, see the [Zero Trust (TIC 3.0) workbook announcement blog](https://techcommunity.microsoft.com/t5/public-sector-blog/announcing-the-azure-sentinel-zero-trust-tic3-0-workbook/ba-p/2313761).  |
+
 

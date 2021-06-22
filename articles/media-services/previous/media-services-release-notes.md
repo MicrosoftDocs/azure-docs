@@ -55,7 +55,7 @@ Version 3 provides:
  
 - 24x7 live event support
 - ARM REST APIs, client SDKs for .NET core, Node.js, Python, Java, Go and Ruby.
-- Customer managed keys, trusted storage integration, private link support, and [more](https://review.docs.microsoft.com/en-us/azure/media-services/latest/migrate-v-2-v-3-migration-benefits)
+- Customer managed keys, trusted storage integration, private link support, and [more](../latest/migrate-v-2-v-3-migration-benefits.md)
 
 #### Action Required:
 
@@ -84,7 +84,7 @@ Some analytics media processors will be retired. For the retirement dates, see t
 
 ### Deprecation of media processors
 
-We are announcing deprecation of *Azure Media Indexer* and *Azure Media Indexer 2 Preview*. [Azure Media Services Video Indexer](../video-indexer/index.yml) replaces these legacy media processors.
+We are announcing deprecation of *Azure Media Indexer* and *Azure Media Indexer 2 Preview*. Azure Media Services Video Indexer replaces these legacy media processors.
 
 For the retirement dates, see this [legacy components](legacy-components.md) topic.
 
@@ -247,7 +247,7 @@ The Azure SDK team published a new release of the [Azure SDK for PHP](https://gi
 For more information, see:
 
 * The following [code samples](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices) help you to get started quickly:
-  * **vodworkflow_aes.php**: This PHP file shows how to use AES-128 dynamic encryption and the key delivery service. It's based on the .NET sample explained in [Use AES-128 dynamic encryption and the key delivery service](media-services-protect-with-aes128.md).
+  * **vodworkflow_aes.php**: This PHP file shows how to use AES-128 dynamic encryption and the key delivery service. It's based on the .NET sample explained in [Use AES-128 dynamic encryption and the key delivery service](media-services-playready-license-template-overview.md).
   * **vodworkflow_aes.php**: This PHP file shows how to use PlayReady dynamic encryption and the license delivery service. It's based on the .NET sample explained in [Use PlayReady and/or Widevine dynamic common encryption](media-services-protect-with-playready-widevine.md).
   * **scale_encoding_units.php**: This PHP file shows how to scale encoding reserved units.
 
@@ -439,7 +439,7 @@ The following bug fixes were made for the Azure Media Services Packager and Encr
 
 ## <a id="may_changes_14"></a>May 2014 release
 ### <a id="may_14_changes"></a>General Media Services updates
-You can now use [dynamic packaging] to stream HLS version 3. To stream HLS version 3, add the following format to the origin locator path: * .ism/manifest(format=m3u8-aapl-v3). For more information, see [this forum](https://social.msdn.microsoft.com/Forums/en-US/13b8a776-9519-4145-b9ed-d2b632861fde/dynamic-packaging-to-hls-v3).
+You can now use [dynamic packaging] to stream HLS version 3. To stream HLS version 3, add the following format to the origin locator path: * .ism/manifest(format=m3u8-aapl-v3). For more information, see [this forum](https://social.msdn.microsoft.com/Forums/13b8a776-9519-4145-b9ed-d2b632861fde/dynamic-packaging-to-hls-v3).
 
 Dynamic packaging now also supports delivering HLS (version 3 and version 4) encrypted with PlayReady based on Smooth Streaming statically encrypted with PlayReady. For information on how to encrypt Smooth Streaming with PlayReady, see [Protect Smooth Streaming with PlayReady](/previous-versions/azure/dn189154(v=azure.100)).
 

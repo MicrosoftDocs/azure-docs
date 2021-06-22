@@ -6,7 +6,7 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.date: 03/23/2021
+ms.date: 06/01/2021
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
@@ -17,9 +17,12 @@ ms.subservice: common
 
 You can use your own encryption key to protect the data in your storage account. When you specify a customer-managed key, that key is used to protect and control access to the key that encrypts your data. Customer-managed keys offer greater flexibility to manage access controls.
 
-You must use either Azure Key Vault or Azure Key Vault Managed Hardware Security Module (HSM) (preview) to store your customer-managed keys. You can either create your own keys and store them in the key vault or managed HSM, or you can use the Azure Key Vault APIs to generate keys. The storage account and the key vault or managed HSM must be in the same region and in the same Azure Active Directory (Azure AD) tenant, but they can be in different subscriptions.
+You must use one of the following Azure key stores to store your customer-managed keys:
 
-For more information about Azure Key Vault, see [What is Azure Key Vault?](../../key-vault/general/overview.md).
+- [Azure Key Vault](../../key-vault/general/overview.md)
+- [Azure Key Vault Managed Hardware Security Module (HSM) (preview)](../../key-vault/managed-hsm/overview.md)
+
+You can either create your own keys and store them in the key vault or managed HSM, or you can use the Azure Key Vault APIs to generate keys. The storage account and the key vault or managed HSM must be in the same region and in the same Azure Active Directory (Azure AD) tenant, but they can be in different subscriptions.
 
 > [!IMPORTANT]
 >
@@ -38,8 +41,18 @@ The following list explains the numbered steps in the diagram:
 1. An Azure Key Vault admin grants permissions to encryption keys to the managed identity that's associated with the storage account.
 2. An Azure Storage admin configures encryption with a customer-managed key for the storage account.
 3. Azure Storage uses the managed identity that's associated with the storage account to authenticate access to Azure Key Vault via Azure Active Directory.
-4. Azure Storage wraps the account encryption key with the customer key in Azure Key Vault.
+4. Azure Storage wraps the account encryption key with the customer-managed key in Azure Key Vault.
 5. For read/write operations, Azure Storage sends requests to Azure Key Vault to unwrap the account encryption key to perform encryption and decryption operations.
+
+The managed identity that's associated with the storage account must have these permissions at a minimum to access a  customer-managed key in Azure Key Vault:
+
+- *wrapkey*
+- *unwrapkey*
+- *get*  
+
+For more information about key permissions, see [Key types, algorithms, and operations](../../key-vault/keys/about-keys-details.md#key-access-control).
+
+Azure Policy provides a built-in policy to require that storage accounts use customer-managed keys for Blob Storage and Azure Files workloads. For more information, see the **Storage** section in [Azure Policy built-in policy definitions](../../governance/policy/samples/built-in-policies.md#storage).
 
 ## Customer-managed keys for queues and tables
 

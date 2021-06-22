@@ -5,17 +5,18 @@ ms.service: sql-database
 ms.subservice: migration-guide
 ms.custom: 
 ms.devlang: 
-ms.topic: conceptual
-author: MashaMSFT
-ms.author: mathoma
+ms.topic: how-to
+author: mokabiru
+ms.author: mokabiru
+ms.reviewer: cawrites
 ms.date: 03/19/2021
 ---
 
 # Migration guide: Access to Azure SQL Database
 
-In this guide, you learn how to migrate your Microsoft Access database to an Azure SQL database by using SQL Server Migration Assistant for Access (SSMA for Access).
+In this guide, you learn [how to migrate](https://azure.microsoft.com/migration/migration-journey) your Microsoft Access database to an Azure SQL database by using [SQL Server Migration](https://azure.microsoft.com/en-us/migration/sql-server/) Assistant for Access (SSMA for Access).
 
-For other migration guides, see [Azure Database Migration Guide](https://docs.microsoft.com/data-migration). 
+For other migration guides, see [Azure Database Migration Guide](/data-migration). 
 
 ## Prerequisites
 
@@ -27,7 +28,7 @@ Before you begin migrating your Access database to a SQL database, do the follow
 
 ## Pre-migration
 
-After you've met the prerequisites, you're ready to discover the topology of your environment and assess the feasibility of your migration.
+After you've met the prerequisites, you're ready to discover the topology of your environment and assess the feasibility of your [Azure cloud migration](https://azure.microsoft.com/migration).
 
 
 ### Assess 
@@ -180,6 +181,8 @@ The Data SQL Engineering team developed these resources. This team's core charte
 - To learn more about the framework and adoption cycle for cloud migrations, see:
    -  [Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)
    -  [Best practices for costing and sizing workloads for migration to Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs) 
+   -  [Cloud Migration Resources](https://azure.microsoft.com/migration/resources)
+
 
 - To assess the application access layer, see [Data Access Migration Toolkit (preview)](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit).
 - For information about how to perform Data Access Layer A/B testing, see [Overview of Database Experimentation Assistant](/sql/dea/database-experimentation-assistant-overview).

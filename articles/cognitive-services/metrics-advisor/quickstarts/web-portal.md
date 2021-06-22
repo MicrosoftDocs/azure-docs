@@ -1,15 +1,17 @@
 ---
-title: "Quickstart: Metrics Advisor web portal" 
+title: 'Quickstart: Metrics Advisor web portal'
 titleSuffix: Azure Cognitive Services
 description: Learn how to start using the Metrics Advisor web portal.
 services: cognitive-services
 author: mrbullwinkle
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: metrics-advisor
-ms.topic: quickstart
-ms.date: 09/30/2020
 ms.author: mbullwin
+manager: nitinme
+ms.date: 09/30/2020
+ms.topic: quickstart
+ms.service: applied-ai-services
+ms.subservice: metrics-advisor
+ms.custom:
+  - mode-portal
 ---
 
 # Quickstart: Monitor your first metric using the web portal
@@ -63,7 +65,7 @@ This quickstart uses a SQL Database as an example. You can also ingest your own 
 * **Ingest data since (UTC)**: The start time for the first timestamp to be ingested. 
 
 
-<!-- Next, specify the **Connection string** with the credentials for your data source, and a custom **Query**, see [how to write a valid query](../tutorial/write-a-valid-query.md) for more information. -->
+<!-- Next, specify the **Connection string** with the credentials for your data source, and a custom **Query**, see [how to write a valid query](../tutorials/write-a-valid-query.md) for more information. -->
 
 :::image type="content" source="../media/connection-settings.png" alt-text="Connection settings" lightbox="../media/connection-settings.png":::
 
@@ -72,10 +74,10 @@ This quickstart uses a SQL Database as an example. You can also ingest your own 
 
 After the connection string and query string are inputted, select **Load data**. Within this operation, Metrics Advisor will check connection and permission to load data, check necessary parameters (@IntervalStart and @IntervalEnd) which need to be used in query, and check the column name from data source. 
 
-If there's an error at this step, check:
-1. Whether connection string is valid. 
-2. Whether there's sufficient permission and ingestion worker IP address is granted access.
-3. Whether required parameters (@IntervalStart and @IntervalEnd) are used in your query. 
+If there's an error at this step:
+1. First check if the connection string is valid. 
+2. Then confirm that there's sufficient permissions and that the ingestion worker IP address is granted access.
+3. Next check if the required parameters (@IntervalStart and @IntervalEnd) are used in your query. 
 
 ### Schema configuration
 
@@ -93,8 +95,8 @@ Once the data is loaded by running the query and shown like below, select the ap
 :::image type="content" source="../media/schema-configuration.png" alt-text="Schema configuration" lightbox="../media/schema-configuration.png":::
 
 After configuring the schema, select **Verify schema**. Within this operation, Metrics Advisor will perform following checks:
-1. Whether timestamp of queried data falls into one single interval. 
-2. Whether there's duplicate values returned for the same dimention combination within one metric interval.  
+- Whether timestamp of queried data falls into one single interval. 
+- Whether there's duplicate values returned for the same dimension combination within one metric interval.  
 
 ### Automatic roll up settings
 
@@ -111,8 +113,8 @@ Give a custom name for the data feed, which will be displayed in your workspace.
 After the data feed is added, Metrics Advisor will attempt to ingest metric data from the specified start date. It will take some time for data to be fully ingested, and you can view the ingestion status by selecting **Ingestion progress** at the top of the data feed page. If data is ingested, Metrics Advisor will apply detection, and continue to monitor the source for new data.
 
 When detection is applied, select one of the metrics listed in data feed to find the **Metric detail page** to: 
-- View visualizations of all time series slices under this metric
-- Update detecting configuration to meet expected results
+- View visualizations of all time series' slices under this metric
+- Update detection configuration to meet expected results
 - Set up notification for detected anomalies
 
 :::image type="content" source="../media/metric-details.png" alt-text="Metric details" lightbox="../media/metric-details.png":::
@@ -129,11 +131,11 @@ After selecting the link, you will be pivoted to the incident analysis page, whi
 
 ### Check summary of current incident
 
-At the top, there will be a summary including basic information, actions & tracings and a analyzed root cause. Basic information includes the "top impacted series" with a diagram, "impact start & end time", "incident severity" and "total anomalies included".
+At the top, there will be a summary including basic information, actions & tracings and an analyzed root cause. Basic information includes the "top impacted series" with a diagram, "impact start & end time", "incident severity" and "total anomalies included".
 
 Analyzed root cause is an automatic analyzed result. Metrics Advisor analyzes on all anomalies that captured on time series within one metric with different dimension values at the same timestamp. Then performs correlation, clustering to group related anomalies together and generates a root cause advice.
 
-:::image type="content" source="../media/diagnostics/incident-summary.png" alt-text="Incident diagnostics" lightbox="../media/diagnostics/incident-summary.png":::
+:::image type="content" source="../media/diagnostics/incident-summary.png" alt-text="Incident diagnostic summary" lightbox="../media/diagnostics/incident-summary.png":::
 
 Based on these, you can already get a straightforward view of current abnormal status and the impact of the incident and the most potential root cause. So that immediate action could be taken to resolve incident as soon as possible. 
 
@@ -143,16 +145,17 @@ After getting basic info and automatic analysis insight, you can get more detail
 
 For metrics with multiple dimensions, Metrics Advisor categorizes the time series into a hierarchy, which is named as "Diagnostic tree". For example, a "revenue" metric is monitored by two dimensions: "region" and "category". Despite concrete dimension values, there needs to have an **aggregated** dimension value, like **"SUM"**. Then time series of "region" = **"SUM"** and "category" = **"SUM"** will be categorized as the root node within the tree. Whenever there's an anomaly captured at **"SUM"** dimension, then it could be drilled down and analyzed to locate which specific dimension value has contributed the most to the parent node anomaly. Click on each node to expand detailed information.
 
-:::image type="content" source="../media/diagnostics/cross-dimension-diagnostic.png" alt-text="Incident diagnostics" lightbox="../media/diagnostics/cross-dimension-diagnostic.png":::
+:::image type="content" source="../media/diagnostics/cross-dimension-diagnostic.png" alt-text="Incident diagnostics cross dimension view" lightbox="../media/diagnostics/cross-dimension-diagnostic.png":::
 
 ### View cross-metrics diagnostic insights using "Metrics graph"
 
-Sometimes, it's hard to analyze an issue by checking abnormal status of one single metrics, but need to correlate multiple metrics together. Customers are able to configure a "Metrics graph" which indicates the relations between metrics. 
+Sometimes, it's hard to analyze an issue by checking the abnormal status of a single metric, and you need to correlate multiple metrics together. Customers are able to configure a "Metrics graph" which indicates the relations between metrics. 
 By leveraging above cross-dimension diagnostic result, the root cause is limited into specific dimension value. Then use "Metrics graph" and filter by the analyzed root cause dimension to check anomaly status on other metrics.
+After clicking the link, you will be pivoted to the incident analysis page which analyzes on corresponding anomaly, with a bunch of diagnostics insights. There are three sections in the incident detail page which correspond to three major steps to diagnosing an incident. 
 
-:::image type="content" source="../media/diagnostics/cross-metrics-analysis.png" alt-text="Incident diagnostics" lightbox="../media/diagnostics/cross-metrics-analysis.png":::
+:::image type="content" source="../media/diagnostics/cross-metrics-analysis.png" alt-text="Incident diagnostics cross metric analysis" lightbox="../media/diagnostics/cross-metrics-analysis.png":::
 
-There're more features to drill down anomalies by dimension, view similar anomalies and do comparison across metrics. Find more at [How to: diagnose an incident](../how-tos/diagnose-an-incident.md). 
+But you can also pivot across more diagnostics insights leveraging additional features to drill down anomalies by dimension, view similar anomalies and do comparison across metrics. Please find more at [How to: diagnose an incident](../how-tos/diagnose-an-incident.md). 
 
 ## Get notified when new anomalies are found
 
@@ -173,4 +176,4 @@ After creating a hook, an alert setting determines how and which alert notificat
     - [Manage data feeds](../how-tos/manage-data-feeds.md)
     - [Configurations for different data sources](../data-feeds-from-different-sources.md)
 - [Use the REST API or Client libraries](./rest-api-and-client-library.md)
-- [Configure metrics and fine tune detecting configuration](../how-tos/configure-metrics.md)
+- [Configure metrics and fine tune detection configuration](../how-tos/configure-metrics.md)

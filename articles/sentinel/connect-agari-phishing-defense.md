@@ -21,6 +21,8 @@ ms.author: yelevin
 > [!IMPORTANT]
 > The Agari Phishing Defense and Brand Protection connector is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
 The Agari Phishing Defense and Brand Protection connector allows you to easily connect your Brand Protection and Phishing Defense solutions' logs to Azure Sentinel, so that you can view the data in workbooks, query it to create custom alerts, and incorporate it to improve investigation. Agari's solutions integrate with Azure Sentinel using Azure Functions and REST API.
 
 In addition, Brand Protection and Phishing Response customers can take advantage of Threat Intelligence sharing via the Security Graph API.

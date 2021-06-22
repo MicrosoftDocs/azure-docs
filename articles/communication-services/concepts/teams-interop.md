@@ -19,6 +19,12 @@ ms.service: azure-communication-services
 > [!IMPORTANT]
 > To enable/disable [Teams tenant interoperability](../concepts/teams-interop.md), complete [this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR21ouQM6BHtHiripswZoZsdURDQ5SUNQTElKR0VZU0VUU1hMOTBBMVhESS4u).
 
+> [!NOTE]
+> Interoperability between Azure Communication Services and Microsoft Teams enables your applications and users to participate in Teams calls, meetings, and chat. It is your responsibility to ensure that the users of your application are notified when recording or transcription are enabled in a Teams call or meeting. Microsoft will indicate to you via the Azure Communication Services API that recording or transcription has commenced and you must communicate this fact, in real time, to your users within your application’s user interface. You agree to indemnify Microsoft for all costs and damages incurred as a result of your failure to comply with this obligation.
+
+> [!NOTE]
+> VoIP and Chat usage is only billed to your Azure resource when using Azure APIs and SDKs. Teams clients interacting with Azure Communication Services applications are free.
+
 Azure Communication Services can be used to build custom meeting experiences that interact with Microsoft Teams. Users of your Communication Services solution(s) can interact with Teams participants over voice, video, chat, and screen sharing.
 
 Teams interoperability allows you to create custom applications that connect users to Teams meetings. Users of your custom applications don't need to have Azure Active Directory identities or Teams licenses to experience this capability. This is ideal for bringing employees (who may be familiar with Teams) and external users (using a custom application experience) together into a seamless meeting experience. For example:
@@ -39,7 +45,7 @@ When a Communication Services user joins the Teams meeting, the display name pro
 
 Communication Services Teams Interop is currently in private preview. When generally available, Communication Services users will be treated like "External access users". Learn more about external access in [Call, chat, and collaborate with people outside your organization in Microsoft Teams](/microsoftteams/communicate-with-users-from-other-organizations).
 
-Communication Services users can join scheduled Teams meetings as long as anonymous joins are enabled in the [meeting settings](/microsoftteams/meeting-settings-in-teams).
+Communication Services users can join scheduled Teams meetings as long as anonymous joins are enabled in the [meeting settings](/microsoftteams/meeting-settings-in-teams). If the meeting is scheduled for a channel, Communication Services users will not be able to join the chat or send and receive messages.
 
 ## Teams in Government Clouds (GCC)
 Azure Communication Services interoperability isn't compatible with Teams deployments using [Microsoft 365 government clouds (GCC)](/MicrosoftTeams/plan-for-government-gcc) at this time. 
@@ -48,3 +54,8 @@ Azure Communication Services interoperability isn't compatible with Teams deploy
 
 > [!div class="nextstepaction"]
 > [Join your calling app to a Teams meeting](../quickstarts/voice-video-calling/get-started-teams-interop.md)
+
+For more information, see the following articles:
+
+- Learn about [UI Library](./ui-library/ui-library-overview.md)
+- Learn about [UI Library capabilities](./ui-library/ui-library-use-cases.md)

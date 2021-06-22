@@ -30,6 +30,10 @@ landingContent:
         links:
           - text: FAQ
             url: expressroute-faqs.md
+      - linkListType: learn
+        links:
+          - text: Connect your on-premises network to the Microsoft global network using ExpressRoute
+            url: /learn/modules/connect-on-premises-network-with-expressroute/   
   # Card
   - title: Get started
     linkLists:
