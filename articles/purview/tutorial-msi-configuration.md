@@ -115,7 +115,7 @@ Before you run the PowerShell script to verify the readiness of data source subs
 
 Make sure your user has the following roles and permissions:
 
-At a minimum, the you need the following permissions to run the script in your Azure environment:
+At a minimum, you need the following permissions to run the script in your Azure environment:
 
 Role | Scope | Why is it needed? |
 |-------|--------|--------|
