@@ -64079,12 +64079,12 @@
     },
     {
       "source_path_from_root": "/articles/dms/tutorial-mysql-azure-mysql-online.md",
-      "redirect_url": "/azure/dms/tutorial-mysql-azure-mysql-offline-portal.md",
+      "redirect_url": "/azure/dms/tutorial-mysql-azure-mysql-offline-portal",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/dms/tutorial-rds-mysql-server-azure-db-for-mysql-online.md",
-      "redirect_url": "/azure/dms/tutorial-mysql-azure-mysql-offline-portal.md",
+      "redirect_url": "/azure/dms/tutorial-mysql-azure-mysql-offline-portal",
       "redirect_document_id": false
     }
   ]
