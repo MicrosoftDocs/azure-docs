@@ -229,7 +229,7 @@ In addition to creating datastores with the Python SDK and the studio, you can a
 <a name="arm"></a>
 ### Azure Resource Manager
 
-There are a number of templates at [https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-datastore-create-*](https://github.com/Azure/azure-quickstart-templates/tree/master/) that can be used to create datastores.
+There are a number of templates at [https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices) that can be used to create datastores.
 
 For information on using these templates, see [Use an Azure Resource Manager template to create a workspace for Azure Machine Learning](how-to-create-workspace-template.md).
 

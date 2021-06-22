@@ -358,7 +358,7 @@ exp = Experiment(name="myexp", workspace = ws)
 myenv = Environment(name="myenv")
 
 # Configure the ScriptRunConfig and specify the environment
-src = ScriptRunConfig(source_directory=".", script="train.py", target="local", environment=myenv)
+src = ScriptRunConfig(source_directory=".", script="train.py", compute_target="local", environment=myenv)
 
 # Submit run 
 run = exp.submit(src)
@@ -404,7 +404,7 @@ service = Model.deploy(
 
 ## Notebooks
 
-Code examples in this article are also included in the [using envronments notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/using-environments/using-environments.ipynb).
+Code examples in this article are also included in the [using environments notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/using-environments/using-environments.ipynb).
 
  To install a Conda environment as a kernel in a notebook, see [add a new Jupyter kernel](./how-to-access-terminal.md#add-new-kernels).
 
@@ -412,7 +412,7 @@ Code examples in this article are also included in the [using envronments notebo
 
 This [example notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/spark) demonstrates how to deploy a Spark model as a web service.
 
-## Create and manage environments with the CLI
+## Create and manage environments with the Azure CLI
 
 The [Azure Machine Learning CLI](reference-azure-machine-learning-cli.md) mirrors most of the functionality of the Python SDK. You can use it to create and manage environments. The commands that we discuss in this section demonstrate fundamental functionality.
 

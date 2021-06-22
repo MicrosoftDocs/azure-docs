@@ -21,14 +21,6 @@ You must setup permissions and privileges prior to building an image. The follow
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-## Register the features
-
-First, you must register for the Azure Image Builder Service. Registration grants the service permission to create, manage, and delete a staging resource group. The service also has rights to add resources the group that are required for the image build.
-
-```azurecli-interactive
-az feature register --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview
-```
-
 ## Create an Azure user-assigned managed identity
 
 Azure Image Builder requires you to create an [Azure user-assigned managed identity](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md). The Azure Image Builder uses the user-assigned managed identity to read images, write images, and access Azure storage accounts. You grant the identity permission to do specific actions in your subscription.

@@ -1,6 +1,6 @@
 ---
 title: Overview of GPU VMs on your Azure Stack Edge Pro GPU device
-description: Describes OSs, GPU drivers, Kubernetes use for GPU VMs on Azure Stack Edge Pro GPU.
+description: Describes GPU virtual machines on Azure Stack Edge Pro GPU.
 services: databox
 author: alkohli
 
@@ -9,14 +9,14 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 06/21/2021
 ms.author: alkohli
-#Customer intent: As an IT admin, I need to be understand how to deploy and manage GPU-accelerated VM workloads on my Azure Stack Edge Pro GPU devices with or without Kubernetes clusters.
+#Customer intent: As an IT admin, I need to understand how to deploy and manage GPU-accelerated VM workloads on my Azure Stack Edge Pro GPU devices.
 ---
 
-# Overview of GPU VMs on an Azure Stack Edge Pro GPU device
+# Overview of GPU VMs on your Azure Stack Edge Pro GPU device
 
 [!INCLUDE [applies-to-GPU-and-pro-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-sku.md)]
 
-This article provides an overview of GPU virtual machines (VMs) on your Azure Stack Edge Pro GPU device. The article also describes how to create a GPU VM by using the Azure Resource Manager templates. 
+This article provides an overview of GPU virtual machines (VMs) on your Azure Stack Edge Pro GPU device. Supported OS and GPU drivers, deployment of GPU VMs with Kubernetes clusters. 
 
 
 ## About GPU VMs
@@ -69,6 +69,17 @@ Before you deploy GPU VMs on your device, review the following considerations if
 - **Configure Kubernetes on your device followed by creation of a GPU VM**: In this scenario, the Kubernetes will claim both the GPUs on your device and the VM creation will fail as no GPU resources are available.
 
 <!--Li indicated that this is fixed. If you have GPU VMs running on your device and Kubernetes is also configured, then anytime the VM is deallocated (when you stop or remove a VM using Stop-AzureRmVM or Remove-AzureRmVM), there is a risk that the Kubernetes cluster will claim all the GPUs available on the device. In such an instance, you will not be able to restart the GPU VMs deployed on your device or create GPU VMs. -->
+
+
+## GPU VM deployment
+
+You can deploy a GPU VM using Azure Resource Manager templates or via the Azure portal:
+
+- When you deploy GPU VMs via the Azure portal, you can install the GPU extension during VM creation or afterward.
+
+- To deploy GPU VMs using Azure Resource Manager templates, you'll create a VM and install the GPU extension afterward.
+
+For procedures, see [Create GPU VMs](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md).<!--After tabs are set up for portal and template deployments, work direct links to the two processes into the bullets. Then this will go away.-->
 
 ## Next steps
 - Learn how to [Deploy GPU VMs](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md).
