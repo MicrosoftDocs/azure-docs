@@ -62,7 +62,7 @@ if (response.Diagnostics.GetClientElapsedTime() > ConfigurableSlowRequestTimeSpa
 ```
 
 
-## Understanding the diagnostics in 3.19 and greater
+## Diagnostics in version 3.19 and higher
 The JSON structure has breaking changes with each version of the SDK. This makes it unsafe to be parsed. The JSON represents a tree structure of the request going through the SDK. This covers a few key things to look at:
 
 ### CPU history
