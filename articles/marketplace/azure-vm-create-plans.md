@@ -144,7 +144,7 @@ If your virtual machine is meant to be used only indirectly when it's referenced
 
 Any Azure customer can deploy the offer using either PowerShell or CLI.  If you wish to make this offer available to a limited set of customers, then set the plan to **Private**. 
 
-Hidden plans do not generate preview links. However, you can test you them by [following these steps](azure-vm-create-faq.yml#how-do-i-test-a-hidden-preview-image). 
+Hidden plans do not generate preview links. However, you can test you them by [following these steps](azure-vm-create-faq.yml#how-do-i-test-a-hidden-preview-image-). 
 
 Select **Save draft** before continuing to the next tab in the left-nav Plan menu, **Technical configuration**.
 
