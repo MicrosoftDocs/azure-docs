@@ -133,7 +133,7 @@ Example:
 
    :::image type="content" source="media/import-update/import-new-update-2.png" alt-text="Import New Update" lightbox="media/import-update/import-new-update-2.png":::
 
-5. Select the folder icon or text box under "Select an Import Manifest File". You will see a file picker dialog. Select the Import Manifest you created previously using the PowerShell cmdlet. Next, select the folder icon or text box under "Select one or more update files". You will see a file picker dialog. Select your update file(s).
+5. Select the folder icon or text box under "Select an Import Manifest File". You will see a file picker dialog. Select the Import Manifest you created previously using the PowerShell cmdlet. Next, select the folder icon or text box under "Select one or more update files". You will see a file picker dialog. Select the same update file(s) that you included when you created your import manifest.
 
    :::image type="content" source="media/import-update/select-update-files.png" alt-text="Select Update Files" lightbox="media/import-update/select-update-files.png":::
 
