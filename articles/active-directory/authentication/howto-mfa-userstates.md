@@ -24,7 +24,7 @@ For Azure AD free tenants without Conditional Access, you can [use security defa
 
 If needed, you can instead enable each account for per-user Azure AD Multi-Factor Authentication. When users are enabled individually, they perform multi-factor authentication each time they sign in (with some exceptions, such as when they sign in from trusted IP addresses or when the _remember MFA on trusted devices_ feature is turned on).
 
-Changing user states isn't recommended unless your Azure AD licenses don't include Conditional Access and you don't want to use security defaults. For more information on the different ways to enable MFA, see [Features and licenses for Azure AD Multi-Factor Authentication](concept-mfa-licensing.md).
+Changing [user states](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-userstates#azure-ad-multi-factor-authentication-user-states) isn't recommended unless your Azure AD licenses don't include Conditional Access and you don't want to use security defaults. For more information on the different ways to enable MFA, see [Features and licenses for Azure AD Multi-Factor Authentication](concept-mfa-licensing.md).
 
 > [!IMPORTANT]
 >
