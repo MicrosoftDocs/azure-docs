@@ -196,10 +196,6 @@ Once you've configured the servers, you can add Azure AD MFA as an additional au
 
 ![Screen shot showing the Edit authentication methods screen with Azure MFA and Azure Mutli-factor authentication Server selected](./media/how-to-migrate-mfa-server-to-azure-mfa-user-authentication/edit-authentication-methods.png)
 
- 
-
- 
-
 ## Prepare Azure AD and implement
 
 ### Ensure SupportsMFA is set to True
