@@ -843,7 +843,7 @@ The following limitations apply to tags:
    > [!NOTE]
    > * Azure DNS zones and Traffic Manager doesn't support the use of spaces in the tag or a tag that starts with a number.
    >
-   > * Azure Front Door doesn't support the use of `#` or ':' in the tag name.
+   > * Azure Front Door doesn't support the use of `#` or `:` in the tag name.
    >
    > * The following Azure resources only support 15 tags:
    >     * Azure Automation 
