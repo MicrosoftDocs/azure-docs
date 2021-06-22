@@ -11,7 +11,7 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/13/2020
+ms.date: 06/22/2021
 ms.author: apimpm
 ---
 
@@ -357,6 +357,83 @@ Any string can be used as the value to be logged in Event Hubs. In this example 
 | logger-id     | The ID of the Logger registered with your API Management service.         | Yes                                                                  |
 | partition-id  | Specifies the index of the partition where messages are sent.             | Optional. This attribute may not be used if `partition-key` is used. |
 | partition-key | Specifies the value used for partition assignment when messages are sent. | Optional. This attribute may not be used if `partition-id` is used.  |
+
+### Usage
+
+This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
+
+-   **Policy sections:** inbound, outbound, backend, on-error
+
+-   **Policy scopes:** all scopes
+
+## <a name="emit-metric"></a> Emit Metric
+
+The `emit-metric` policy sends custom metrics in the specified format to Application Insights.
+
+> [!NOTE]
+> For more information about the data added to Application Insights, see [How to integrate Azure API Management with Azure Application Insights](./api-management-howto-app-insights.md#what-data-is-added-to-application-insights).
+
+### Policy statement
+
+```xml
+<emit-metric name="name of custom metric" value="1" namespace="api-management"> 
+    <dimension name="User" value="@(context.Request.Headers.GetValueOrDefault("User-Id"))" /> 
+    <dimension name="Client IP" value="@(context.Request.ClientIp)" /> 
+    <dimension name="API" /> 
+</emit-metric> 
+```
+
+### Example
+
+Need intro to example. 
+
+```xml
+<policies>
+  <inbound>
+    <emit-metric name="Request" value="1" namespace="my-metrics"> 
+        <dimension name="User" value="@(context.Request.Headers.GetValueOrDefault("User-Id"))" /> 
+        <dimension name="Client IP" value="@(context.Request.ClientIp)" /> 
+        <dimension name="API" /> 
+    </emit-metric> 
+  </inbound>
+  <outbound>
+  </outbound>
+</policies>
+```
+
+### Elements
+
+| Element     | Description                                                                       | Required |
+| ----------- | --------------------------------------------------------------------------------- | -------- |
+| emit-metric | Root element. The value of this element is the string to emit your custom metric. | Yes      |
+| dimension   | Sub element. Need more description?  | Yes      |
+
+### Attributes
+
+#### emit-metric
+| Attribute | Description                | Required | Type               | Default value  |
+| --------- | -------------------------- | -------- | ------------------ | -------------- |
+| name      | Name of custom metric      | Yes      | string, expression | N/A            |
+| namespace | Namespace of custom metric | No       | string, expression | API Management |
+| value     | Value of custom metric.    | No       | int, expression    | 1              |
+
+#### dimension
+| Attribute | Description                | Required | Type               | Default value  |
+| --------- | -------------------------- | -------- | ------------------ | -------------- |
+| name      | Name of custom metric      | Yes      | string, expression | N/A            |
+| value     | Value of custom metric. Can only be omitted if `name` matches one of default dimensions. If so, value is provided as per dimension name | No       | string, expression | N/A |
+
+**Default dimension names that may be used without value:**
+| Name         | Value           |
+| ------------ | --------------- |
+| API          | API ID          |
+| Operation    | Operation ID    |
+| Product      | Product ID      |
+| User         | User ID         |
+| Subscription | Subscription ID |
+| Location     | Location ID     |
+| Gateway      | Gateway ID      |
+| Backend      | Backend ID      |
 
 ### Usage
 
