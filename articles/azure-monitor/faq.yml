@@ -823,7 +823,7 @@ sections:
   - name: Container insights
     questions:
       - question: |
-          What does 'Other Processe' represent under the Node view?
+          What does 'Other Processes' represent under the Node view?
         answer: |
           **Other processes** are intended to help you clearly understand the root cause of the high resource usage on your node. This enables you to distinguish usage between containerized processes vs non-containerized processes.
           
