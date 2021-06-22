@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: overview
-ms.date: 05/18/2021
+ms.date: 06/22/2021
 ms.author: lajanuar
 
 ---
@@ -16,6 +16,10 @@ ms.author: lajanuar
 # What's new in Translator
 
 Review the latest updates to the text Translator service. Bookmark this page to stay up to date with release notes, feature enhancements, and documentation updates.
+
+## June 2021
+
+### [Document Translation client libraries for C#/.NET and Python](document-translation/client-sdks.md)—now available in prerelease.
 
 ## May 2021
 

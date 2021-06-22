@@ -22,7 +22,7 @@ This documentation contains the following article types:
 | Feature | Description |
 | ---------| -------------|
 | **Translate large files**| Translate whole documents asynchronously.|
-|**Translate numerous files**|Translate multiple files to and from 90 languages and dialects.|
+|**Translate numerous files**|Translate multiple files across all supported languages and dialects while preserving document structure and data format.|
 |**Preserve source file presentation**| Translate files while preserving the original layout and format.|
 |**Apply custom translation**| Translate documents using general and [custom translation](../customization.md#custom-translator) models.|
 |**Apply custom glossaries**|Translate documents using custom glossaries.|
