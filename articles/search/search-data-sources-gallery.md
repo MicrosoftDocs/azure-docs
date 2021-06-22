@@ -409,7 +409,7 @@ by [BA Insights](https://www.bainsight.com/connectors/)
 
 The Adobe Experience Manager connector enables indexing of content managed by the Adobe Experience Manager (AEM) platform and supports both Full and Incremental crawling to ensure index freshness.
 
-[More details](adobe-em-connector-for-sharepoint-azure-elasticsearch/ )
+[More details](https://www.bainsight.com/connectors/adobe-em-connector-for-sharepoint-azure-elasticsearch/)
 
 :::column-end:::
 :::row-end:::
@@ -1874,7 +1874,6 @@ Secure enterprise search connector for reliably indexing content from OpenText C
 
 :::row:::
 :::column span="":::
-
 
 ---
 
