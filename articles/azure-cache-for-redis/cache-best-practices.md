@@ -41,6 +41,8 @@ By following these best practices, you can help maximize the performance and cos
 
 * **Idle Timeout** - Azure Cache for Redis currently has 10-minute idle timeout for connections, so your setting should be to less than 10 minutes. Most common client libraries have keep-alive configuration that pings Azure Redis automatically. However, in clients that don't have a keep-alive setting, customer applications are responsible for keeping the connection alive.
 
+<!-- Most common client libraries have keep-alive configuration that pings Azure Redis automatically. However, in clients that don't have a keep-alive setting, customer applications are responsible for keeping the connection alive.
+ -->
 ## Memory management
 
 There are several things related to memory usage within your Redis server instance that you may want to consider.  Here are a few:
