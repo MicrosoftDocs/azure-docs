@@ -1,5 +1,5 @@
 ---
-author: liydu
+author: JimacoMS4
 ms.service: iot-hub
 ms.topic: include
 ms.date: 06/09/2018
