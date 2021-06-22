@@ -92,7 +92,7 @@ Follow these steps to run the script from your Windows computer:
 It might take up to a minute for PowerShell to install the required modules.
 
 
-## Collect additional data needed to run the script
+## Collect other data needed to run the script
 
 Before you run the PowerShell script to verify the readiness of data source subscriptions, obtain the values of the following arguments to use in the scripts:
 
@@ -123,7 +123,7 @@ Make sure your user has the following roles and permissions:
 Role or permission | Scope |
 |-------|--------|
 | **Global Reader** | Azure AD tenant |
-| **Reader** | Azure subscriptions where your Azure data sources reside |
+| **Reader** | Azure subscriptions where your Azure data sources are located |
 | **Reader** | Subscription where your Azure Purview account is created |
 | **SQL Admin** (Azure AD Authentication) | Azure Synapse dedicated pools, Azure SQL Database instances, Azure SQL managed instances |
 | Access to your Azure key vault | Access to get/list key vault's secret or Azure Key Vault secret user |  
@@ -211,7 +211,7 @@ You can choose all or any of these data sources as the input parameter when you 
 - SQL Managed Instance servers:
   - Network. Check whether public endpoint or private endpoint is enabled.
   - ProxyOverride. Check whether Azure SQL Managed Instance is configured as Proxy or Redirect.
-  - Networking. Check whether NSG has an inbound rules to allow AzureCloud over required ports:  
+  - Networking. Check whether NSG has an inbound rule to allow AzureCloud over required ports:  
     - Redirect: 1433 and 11000-11999  
     or
     - Proxy: 3342

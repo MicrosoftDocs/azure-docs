@@ -87,7 +87,7 @@ Follow these steps to run the script from your Windows computer:
 It might take up to a minute for PowerShell to install the required modules.
 
 
-## Collect additional data needed to run the script
+## Collect other data needed to run the script
 
 Before you run the PowerShell script to verify the readiness of data source subscriptions, obtain the values of the following arguments to use in the scripts:
 
@@ -122,8 +122,8 @@ Role | Scope | Why is it needed? |
 | **Global Reader** | Azure AD tenant | To read Azure SQL Admin user group membership and Azure Purview MSI |
 | **Global Administrator** | Azure AD tenant | To assign **Directory Reader** role to Azure SQL managed instances |
 | **Contributor** | Subscription or resource group where your Azure Purview account is created | To read the Azure Purview account resource and create a Key Vault resource and secret. |
-| **Owner or User Access Administrator** | Management group or subscription where your Azure data sources reside | To assign RBAC |
-| **Contributor** | Management group or subscription where your Azure data sources reside | To set up network configuration |
+| **Owner or User Access Administrator** | Management group or subscription where your Azure data sources are located | To assign RBAC |
+| **Contributor** | Management group or subscription where your Azure data sources are located | To set up network configuration |
 | **SQL Admin** (Azure AD Authentication) | Azure SQL Server instances or Azure SQL managed instances | To assign the **db_datareader** role to Azure Purview |
 | Access to your Azure key vault | Access to get/list Key Vault secret for Azure SQL Database, Azure SQL Managed Instance, or Azure Synapse authentication |  
 
@@ -176,7 +176,7 @@ You can choose all or any of these data sources as input parameter when you run 
 
 ### What configurations are included in the script?
 
-This script can help you to automatically perform the following tasks:
+This script can help you automatically complete the following tasks:
 
 #### Azure Blob Storage (BlobStorage)
 
