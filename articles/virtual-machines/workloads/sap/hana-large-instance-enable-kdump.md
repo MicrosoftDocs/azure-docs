@@ -79,7 +79,7 @@ Configuring and enabling kdump is needed to troubleshoot system crashes that don
 
 - If the command's output shows kdump is successfully enabled, reboot the system to apply the changes.
 
-- If the command's output shows an operation failed, then the kdump service isn't enabled. Refer to section [Support issue](#support-issue).
+- If the command's output shows an operation failed, then the kdump service isn't enabled. Refer to a following section, [Support issues](#support-issues).
 
 ## Test kdump
 
