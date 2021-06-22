@@ -97,7 +97,7 @@ In this quickstart, you download and run a code sample that demonstrates how an 
 >
 >
 
- :::code language="json" source="~/sample-active-directory-aspnetcore-webapp-openidconnect-v2/appsettings.json" range="4,6,5":::
+ :::code language="json" source="~/sample-active-directory-aspnetcore-webapp-openidconnect-v2/appsettings.json" range="4,5,6":::
 
 >    - Replace `Enter_the_Application_Id_here` with the application (client) ID of the application that you registered in the Azure portal. You can find the **Application (client) ID** value on the app's **Overview** page.
 >    - Replace `common` with one of the following:
