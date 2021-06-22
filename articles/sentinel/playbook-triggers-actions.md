@@ -169,7 +169,7 @@ You can supply the following JSON code to generate the schema. The code shows th
 
     ![Select "Alert custom details" from "Dynamic content."](./media/playbook-triggers-actions/custom-details-dynamic-field.png)
 
-    Note: this will create a **For each** loop, since an incident contains an array of alerts.
+    This will create a **For each** loop, since an incident contains an array of alerts.
 
 1. Click on the **Use sample payload to generate schema** link.
 
