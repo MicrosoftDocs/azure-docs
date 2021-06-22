@@ -51,7 +51,7 @@ Create the gallery image definition inside of your gallery. In this example, the
 
 ## Create an image version
 
-n this example, the image version is *1.0.0* and it's replicated to both *West Central US* and *South Central US* datacenters. When choosing target regions for replication, remember that you also have to include the *source* region as a target for replication.
+ When choosing target regions for replication, remember that you also have to include the *source* region as a target for replication.
 
 Allowed characters for image version are numbers and periods. Numbers must be within the range of a 32-bit integer. Format: *MajorVersion*.*MinorVersion*.*Patch*.
 
