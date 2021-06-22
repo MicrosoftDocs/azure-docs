@@ -381,7 +381,7 @@
         href: deploy-scale.md#azure-monitor-agent  
       - name: FAQ
         displayname: Azure Monitor agent FAQ
-        href: /azure/azure-monitor/faq.yml#azure-monitor-agent
+        href: /azure/azure-monitor/faq#azure-monitor-agent
     - name: Log Analytics agent
       items:
       - name: Overview
