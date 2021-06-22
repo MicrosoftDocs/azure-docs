@@ -60,6 +60,8 @@ This article lists the steps to set up IoT Edge on a Windows device. These steps
 
    1. After the installation completes, you should see Azure IoT Edge in the list of installed extensions on the **Installed extensions** tab.
 
+* If you want to use **GPU-accelerated Linux modules** in your Azure IoT Edge for Linux on Windows deployment, there are several configuration options to consider. You will need to install the correct drivers depending on your GPU architecture, and you may need access to a Windows Insider Program build. To determine your configuration needs and satisfy these prerequisites, see [GPU acceleration for Azure IoT Edge for Linux on Windows](gpu-acceleration.md).
+
 ## Choose your provisioning method
 
 Azure IoT Edge for Linux on Windows supports the following provisioning methods:
@@ -121,7 +123,16 @@ Install IoT Edge for Linux on Windows onto your target device if you have not al
    Deploy-Eflow
    ```
 
-   The `Deploy-Eflow` command takes optional parameters that help you customize your deployment. For more information, see [PowerShell functions for IoT Edge for Linux on Windows](reference-iot-edge-for-linux-on-windows-functions.md#deploy-eflow).
+   The `Deploy-Eflow` command takes optional parameters that help you customize your deployment.
+
+   You can assign a GPU to your deployment to enable GPU-accelerated Linux modules. To gain access to these features, you will need to install the prerequisites detailed in [GPU acceleration for Azure IoT Edge for Linux on Windows](gpu-acceleration.md). If you are only installing these prerequisites at this point in the deployment process, you will need to start again from the beginning.
+
+   To use a GPU passthrough, you will need add the **gpuName**, **gpuPassthroughType**, and **gpuCount** parameters to your `Deploy-Eflow` command. **gpuName** refers to the name of GPU device used for passthrough. **gpuPassthroughType** can be set to `DirectDeviceAssignment` (for T4 GPUs), `ParaVirtualization` (for GeForce/Quadro GPUs), for `""` (for CPU only). **gpuCount** delegates the number of GPU devices for the virtual machine and should be an integer between 1 and the number of the device's GPU cores. For **paravirtualization**, make sure to set `gpuCount` to 1.
+
+   >[!WARNING]
+   >Enabling hardware device passthrough may increase security risks. Microsoft recommends a device mitigation driver from your GPU's vendor, when applicable. For more information, see [Deploy graphics devices using discrete device assignment](/windows-server/virtualization/hyper-v/deploy/deploying-graphics-devices-using-dda).
+
+   For information about all the optional parameters available, see [PowerShell functions for IoT Edge for Linux on Windows](reference-iot-edge-for-linux-on-windows-functions.md#deploy-eflow).
 
 1. Enter 'Y' to accept the license terms.
 
@@ -175,7 +186,9 @@ If you want to deploy to a remote target device instead of your local device and
    >
    >If you are using Windows Server, set up a default switch before deploying IoT Edge for Linux on Windows.
 
-   You can assign a GPU to your deployment. There are two options available: direct device assignment (DDA) and paravirtualization, depending on the GPU adaptor you assign to your deployment. Examples of each method are shown below.
+   You can assign a GPU to your deployment to enable GPU-accelerated Linux modules. To gain access to these features, you will need to install the prerequisites detailed in [GPU acceleration for Azure IoT Edge for Linux on Windows](gpu-acceleration.md). If you are only installing these prerequisites at this point in the deployment process, you will need to start again from the beginning.
+
+   There are two options for GPU passthrough available: **Direct Device Assignment (DDA)** and **GPU Paravirtualization (GPU-PV)**, depending on the GPU adaptor you assign to your deployment. Examples of each method are shown below.
 
    For the direct device assignment method, select the number of GPU processors to allocate to your Linux virtual machine.
 
