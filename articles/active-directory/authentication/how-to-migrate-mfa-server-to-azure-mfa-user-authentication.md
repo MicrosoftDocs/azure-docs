@@ -378,10 +378,10 @@ Possible considerations when decommissions the MFA Server include:
 
 ## Move application authentication to Azure Active Directory
 
-If you migrate all your application authentication along with your MFA and user authentication, you will be able to deprecate significant portions of your on-premises infrastructure, reducing costs and risks. 
-If you move all application authentication, you can skip the [Prepare AD FS](#prepare-ad-fs) stage, simplifying your MFA migration.
+If you migrate all your application authentication along with your MFA and user authentication, you will be able to remove significant portions of your on-premises infrastructure, reducing costs and risks. 
+If you move all application authentication, you can skip the [Prepare AD FS](#prepare-ad-fs) stage and simplify your MFA migration.
 
-The process for moving all application authentication is illustrated in the following diagram.
+The process for moving all application authentication is shown in the following diagram.
 
 ![Process to migrate applications to to Azure AD MFA.](media/how-to-migrate-mfa-server-to-azure-mfa-user-authentication/mfa-app-migration-flow.png)
 
@@ -390,6 +390,6 @@ For more information on migrating applications to Azure, see [Resources for migr
 
 ## Next steps
 
-[Migrate from Microsoft MFA Server to Azure multi-factor authentication (Overview)](how-to-migrate-mfa-server-to-azure-mfa.md)
-[Migrate applications from Windows Active Directory to Azure Active Directory](../manage-apps/migrate-application-authentication-to-azure-active-directory.md)
-[Plan your cloud authentication strategy](../fundamentals/active-directory-deployment-plans.md)
+- [Migrate from Microsoft MFA Server to Azure multi-factor authentication (Overview)](how-to-migrate-mfa-server-to-azure-mfa.md)
+- [Migrate applications from Windows Active Directory to Azure Active Directory](../manage-apps/migrate-application-authentication-to-azure-active-directory.md)
+- [Plan your cloud authentication strategy](../fundamentals/active-directory-deployment-plans.md)
