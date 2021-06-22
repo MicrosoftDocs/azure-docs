@@ -60,7 +60,7 @@ this.CallClient = new CallingServerClient("<Connection_String>");
 
 ## Create user identity
 
-Use the ACS resource connection string to create a `CommunicationIdentityClient` object and then use `CreateUserAsync` method to create a source user identity.
+Use the Communication Services resource connection string to create a `CommunicationIdentityClient` object and then use the `CreateUserAsync` method to create a source user identity.
 
 ```csharp
 var client = new CommunicationIdentityClient("<Connection_String>");
