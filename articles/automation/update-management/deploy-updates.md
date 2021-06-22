@@ -75,7 +75,9 @@ To schedule a new update deployment, perform the following steps. Depending on t
    > Deploying updates by update classification doesn't work on RTM versions of CentOS. To properly deploy updates for CentOS, select all classifications to make sure updates are applied. There's currently no supported method to enable native classification-data availability on CentOS. See the following for more information about [Update classifications](overview.md#update-classifications).
 
    >[!NOTE]
-   > Deploying updates by update classification does not work correctly on RedHat, Ubuntu, SUSE, and other distros supported by Update Management. This is a result of an issue identified with the naming schema of the OVAL file and this prevents Update Management from properly matching classifications based on filtering rules. Because of the different logic used in security update assessment, results may differ from the security updates applied during deployment.
+   > Deploying updates by update classification does may not work correctly for Linux distros supported by Update Management. This is a result of an issue identified with the naming schema of the OVAL file and this prevents Update Management from properly matching classifications based on filtering rules. Because of the different logic used in security update assessments, results may differ from the security updates applied during deployment if your update schedules for Linux has the classification set as **Critical and security updates**. 
+   >
+   > Update Management for Windows Server machines is unaffected; update classification and deployments are unchanged.
 
 8. Use the **Include/exclude updates** region to add or exclude selected updates from the deployment. On the **Include/Exclude** page, you enter KB article ID numbers to include or exclude for Windows updates. For supported Linux distros, you specify the package name.
 

@@ -146,7 +146,9 @@ When you schedule an update to run on a Linux machine, that for example is confi
 Categorization is done for Linux updates as **Security** or **Others** based on the OVAL files, which includes updates addressing security issues or vulnerabilities. But when the update schedule is run, it executes on the Linux machine using the appropriate package manager like YUM, APT, or ZYPPER to install them. The package manager for the Linux distro may have a different mechanism to classify updates, where the results may differ from the ones obtained from OVAL files by Update Management. To manually check the machine and understand which updates are security relevant by your package manager, see [Troubleshoot Linux update deployment](../troubleshoot/update-management.md#updates-linux-installed-different).
 
 >[!NOTE]
-> Deploying updates by update classification does not work correctly on RedHat, Ubuntu, SUSE, and other distros supported by Update Management. This is a result of an issue identified with the naming schema of the OVAL file and this prevents Update Management from properly matching classifications based on filtering rules. Because of the different logic used in security update assessment, results may differ from the security updates applied during deployment.
+> Deploying updates by update classification does may not work correctly for Linux distros supported by Update Management. This is a result of an issue identified with the naming schema of the OVAL file and this prevents Update Management from properly matching classifications based on filtering rules. Because of the different logic used in security update assessments, results may differ from the security updates applied during deployment if your update schedules for Linux has the classification set as **Critical and security updates**. 
+>
+> Update Management for Windows Server machines is unaffected; update classification and deployments are unchanged.
 
 ## Integrate Update Management with Configuration Manager
 
