@@ -16,7 +16,7 @@ author: msmbaldwin
 ---
 # What is Azure Key Vault Managed HSM?
 
-Azure Key Vault Managed HSM is a fully managed, highly available, single-tenant, standards-compliant cloud service that enables you to safeguard cryptographic keys for your cloud applications, using **FIPS  140-2 Level 3** validated HSMs. For pricing information please see Managed HSM Pools section on [Azure Key Vault pricing page](https://azure.microsoft.com/pricing/details/key-vault/). 
+Azure Key Vault Managed HSM is a fully managed, highly available, single-tenant, standards-compliant cloud service that enables you to safeguard cryptographic keys for your cloud applications, using **FIPS 140-2 Level 3** validated HSMs. For pricing information please see Managed HSM Pools section on [Azure Key Vault pricing page](https://azure.microsoft.com/pricing/details/key-vault/). 
 
 ## Why use Managed HSM?
 
@@ -32,7 +32,7 @@ Azure Key Vault Managed HSM is a fully managed, highly available, single-tenant,
 - **Centralized key management**: Manage critical, high-value keys across your organization in one place. With granular per key permissions, control access to each key on the 'least privileged access' principle.
 - **Isolated access control**: Managed HSM "local RBAC" access control model allows designated HSM cluster administrators to have complete control over the HSMs that even management group, subscription, or resource group administrators cannot override.
 - **Private endpoints**: Use private endpoints to securely and privately connect to Managed HSM from your application running in a virtual network.
-- **FIPS 140-2 Level 3 validated HSMs**: Protect your data and meet compliance requirements with FIPS ((Federal Information Protection Standard)) 140-2 Level 3 validated HSMs. Managed HSMs use Marvell LiquidSecurity HSM adapters.
+- **FIPS 140-2 Level 3 validated HSMs**: Protect your data and meet compliance requirements with FIPS (Federal Information Protection Standard) 140-2 Level 3 validated HSMs. Managed HSMs use Marvell LiquidSecurity HSM adapters.
 - **Monitor and audit**: fully integrated with Azure monitor. Get complete logs of all activity via Azure Monitor. Use Azure Log Analytics for analytics and alerts.
 - **Data residency**: Managed HSM doesn't store/process customer data outside the region the customer deploys the HSM instance in.
 
