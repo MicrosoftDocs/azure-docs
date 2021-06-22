@@ -21,7 +21,7 @@ Platform metrics and the Activity logs are collected automatically, whereas you 
 - Storage Account
   
 > [!NOTE]
-> For SQL API accounts, we recommend creating the diagnostic setting in resource specific mode [following our instructions for creating diagnostics setting via REST API](cosmosdb-monitor-resource-logs.md#create-diagnostic-setting). This option provides additional cost-optimizations with an improved view for handling data.
+> For SQL API accounts, we recommend creating the diagnostic setting in resource-specific mode [following our instructions for creating diagnostics setting via REST API](cosmosdb-monitor-resource-logs.md#create-diagnostic-setting). This option provides additional cost-optimizations with an improved view for handling data.
 
 ## Create using the Azure portal
 
@@ -50,7 +50,7 @@ Platform metrics and the Activity logs are collected automatically, whereas you 
 Use the [Azure Monitor REST API](/rest/api/monitor/diagnosticsettings/createorupdate)
  for creating a diagnostic setting via the interactive console.
 > [!Note]
-> If you are using SQL API, we recommend setting the **logAnalyticsDestinationType** property to **Dedicated** for enabling resource specific tables.
+> We recommend setting the **logAnalyticsDestinationType** property to **Dedicated** for enabling resource specific tables.
 
 ### Request
 
@@ -146,9 +146,25 @@ Use the [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-se
 ```azurecli-interactive
 az monitor diagnostic-settings create --resource /subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP}/providers/Microsoft.DocumentDb/databaseAccounts/ --name {DIAGNOSTIC_SETTING_NAME} --export-to-resource-specific true --logs '[{"category": "QueryRuntimeStatistics","categoryGroup": null,"enabled": true,"retentionPolicy": {"enabled": false,"days": 0}}]' --workspace /subscriptions/{SUBSCRIPTION_ID}/resourcegroups/{RESOURCE_GROUP}/providers/microsoft.operationalinsights/workspaces/{WORKSPACE_NAME}"
 ```
+## <a id="full-text-query"></a> Enable full-text query for logging query text
+
+> [!Note]
+> Enabling this feature may result in additional logging costs, for pricing details visit [Azure Monitor pricing] (https://azure.microsoft.com/pricing/details/monitor/). It is recommended to disable this feature after troubleshooting.
+
+Azure Cosmos DB provides advanced logging for detailed troubleshooting. By enabling full-text query, you’ll be able to view the deobfuscated query for all requests within your Azure Cosmos DB account.  You’ll also give permission for Azure Cosmos DB to access and surface this data in your logs. 
+
+1. To enable this feature, navigate to the `Features` blade in your Cosmos DB account.
+   
+   :::image type="content" source="./media/monitor-cosmos-db/full-text-query-features.png" alt-text="Navigate to Features blade":::
+
+2. Select `Enable`, this setting will then be applied in the within the next few minutes. All newly ingested logs will have the full-text or PIICommand text for each request.
+   
+    :::image type="content" source="./media/monitor-cosmos-db/select-enable-full-text.png" alt-text="Select enable":::
+
+To learn how to query using this newly enabled feature visit [advanced queries](cosmos-db-advanced-queries.md).
 
 ## Next steps
-* For more information on how to query resource-specific tables see [troubleshooting using resource specific tables](cosmosdb-monitor-logs-basic-queries.md#resource-specific-queries).
+* For more information on how to query resource-specific tables see [troubleshooting using resource-specific tables](cosmosdb-monitor-logs-basic-queries.md#resource-specific-queries).
 
 * For more information on how to query AzureDiagnostics tables see [troubleshooting using AzureDiagnostics tables](cosmosdb-monitor-logs-basic-queries.md#azure-diagnostics-queries).
 
