@@ -64,7 +64,7 @@ To migrate to Gen2, we recommend the following approach.
 
 Migrate data, workloads, and applications by using the pattern that you prefer. We recommend that you validate scenarios incrementally.
 
-1. [Create a storage account](../common/create-data-lake-storage-account.md) and enable the hierarchical namespace feature. 
+1. [Create a storage account](create-data-lake-storage-account.md) and enable the hierarchical namespace feature. 
 
 2. Migrate your data. 
 
@@ -130,7 +130,7 @@ This is the simplest pattern.
 
 1. Stop all writes to Gen1.
 
-2. Move data from Gen1 to Gen2. We recommend [Azure Data Factory](../../data-factory/connector-azure-data-lake-storage.md) or the [Microsoft managed migration tool (preview)](managed-migration-tool.md). ACLs copy with the data.
+2. Move data from Gen1 to Gen2. We recommend [Azure Data Factory](../../data-factory/connector-azure-data-lake-storage.md) or by using the [Azure portal](data-lake-storage-migrate-gen1-to-gen2-azure-portal.md). ACLs copy with the data.
 
 3. Point ingest operations and workloads to Gen2.
 
@@ -150,7 +150,7 @@ Check out our sample code for the lift and shift pattern in our [Lift and Shift 
 :heavy_check_mark: Ideal for pipelines that can afford downtime and all apps can be upgraded at one time.
 
 > [!TIP]
-> Consider using [Microsoft managed migration (preview)](managed-migration-tool.md) to shorten downtime and reduce the number of steps required by you to complete the migration.
+> Consider using the [Azure portal](data-lake-storage-migrate-gen1-to-gen2-azure-portal.md) to shorten downtime and reduce the number of steps required by you to complete the migration.
 
 ### Incremental copy pattern
 

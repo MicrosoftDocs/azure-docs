@@ -1,10 +1,10 @@
 ---
 title: Migrate using Azure portal (Data Lake Storage Gen1 to Gen2)
-description: Microsoft managed migration eases your migration from Azure Data Lake Storage Gen1 to Azure Data Lake Storage Gen2. 
+description: You can simplify the task of migrating between Azure Data Lake Storage Gen1 and Azure Data Lake Storage Gen2 by using the Azure portal.  
 author: normesta
 ms.topic: how-to
 ms.author: normesta
-ms.date: 10/16/2020
+ms.date: 06/22/2021
 ms.service: storage
 ms.reviewer: rukmani-msft
 ms.subservice: data-lake-storage-gen2
@@ -12,11 +12,7 @@ ms.subservice: data-lake-storage-gen2
 
 # Migrate Azure Data Lake Storage from Gen1 to Gen2 by using the Azure portal (preview)
 
-You can migrate to Gen2 more easily by using *Microsoft managed migration*; a data migration tool and API compatibility layer. 
-
-Managed migration reduces the number of steps required to complete a migration. You won't have to configure a separate tool to move your data. Also, your workloads and applications can continue working with minimal modifications. For one, you won't have to point your workloads to Gen2 because requests are redirected automatically. Also, your applications can continue using Gen1 APIs because they are compatible with Gen2. 
-
-The managed migration tool moves data and metadata (such as timestamps and ACLs)
+You can reduce the number of steps required to complete a migration by using the Azure portal. Data and metadata (such as timestamps and ACLs) automatically move to your Gen2-enabled account. You won't have to configure a separate tool to do this for you. If you perform a complete migration, you won't have to point your workloads to Gen2 because requests are redirected automatically. 
 
 > [!IMPORTANT]
 > Migrating from Gen1 to Gen2 by using the Azure portal is currently in PREVIEW.
@@ -73,15 +69,17 @@ Something here about ensuring the proper permissions on Gen1 and Gen2.
 
 ## Perform the migration
 
-Decide whether you're ready to migrate your account or if you'd rather just copy the data for now, and then disable your Gen1 account later after you've verified that all of your applications and workloads work with your Gen2 account. 
+Before you begin, decide if you want to perform a complete migration or if you'd rather copy only the data for now and then complete the migration later.
 
-### Option 1: Migrate from Gen1 to Gen2
-
-When you perform a complete migration, data is copied from Gen1 to Gen2. Then, your Gen1 URI is redirected to your Gen2 URI. After the migration completes you won't have access to your Gen1 account and all Gen1 requests will be redirected to your Gen2 enabled account. This is the most convenient option. This option might make sense if there aren't any critical production workloads or applications that depend on your Gen1 account. 
+If you perform a complete migration, data is copied from Gen1 to Gen2. Then, your Gen1 URI is redirected to your Gen2 URI. After the migration completes you won't have access to your Gen1 account and all Gen1 requests will be redirected to your Gen2 enabled account. This is the most convenient option. This option might make sense if there aren't any critical production workloads or applications that depend on your Gen1 account.
 
 > [!NOTE]
 > Gen2 doesn't support Azure Data Lake Analytics applications. If you have any, make sure to move them to Azure Synapse Analytics or another supported workload before you migrate from Gen1 to Gen2.
- 
+
+If you copy only the data, both accounts remain active. You can modify applications and workloads to use your new Gen2-enabled account without interrupting production availability. Once you've verified that they work as expected, you can work our team to redirect your Gen1 URI to your Gen2 URI and then retire the Gen1 account. Microsoft recommends this option.
+
+### Option 1: Perform a complete migration
+
 1. Sign in to the [Azure portal](https://portal.azure.com/) to get started.
 
 2. Locate your Data Lake Storage Gen1 account and display the account overview.
@@ -101,9 +99,7 @@ When you perform a complete migration, data is copied from Gen1 to Gen2. Then, y
 
    You can stop the migration at any time before the URI is redirected by selecting the **Stop migration** button.
 
-### Option 2: Copy only data and retire Gen1 account later
-
-With this option, a snapshot of your data is copied from Gen1 to Gen2. After the data is copied, both accounts remain active. Then, you modify applications and workloads to use your new Gen2-enabled account without interrupting production availability. Once you've verified that they work as expected, you can work our team to redirect your Gen1 URI to your Gen2 URI and then retire the Gen1 account.
+### Option 2: Copy data from Gen1 to Gen2
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) to get started.
 
@@ -124,28 +120,29 @@ With this option, a snapshot of your data is copied from Gen1 to Gen2. After the
 
 ## Migrate workloads and applications
 
-After you migrate, modify workloads, and applications to use your Gen2-enabled account. We recommend that you validate scenarios incrementally.
-
 1. Configure [services in your workloads](./data-lake-storage-supported-azure-services.md) to point to your Gen2 endpoint. 
    
 2. Update applications to use Gen2 APIs. See these guides:
 
-| Environment | Article |
-|--------|-----------|
-|Azure Storage Explorer |[Use Azure Storage Explorer to manage directories and files in Azure Data Lake Storage Gen2](data-lake-storage-explorer.md)|
-|.NET |[Use .NET to manage directories and files in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-dotnet.md)|
-|Java|[Use Java to manage directories and files in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-java.md)|
-|Python|[Use Python to manage directories and files in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-python.md)|
-|JavaScript (Node.js)|[Use JavaScript SDK in Node.js to manage directories and files in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-javascript.md)|
-|REST API |[Azure Data Lake Store REST API](/rest/api/storageservices/data-lake-storage-gen2)|
+   | Environment | Article |
+   |--------|-----------|
+   |Azure Storage Explorer |[Use Azure Storage Explorer to manage directories and files in Azure Data Lake Storage Gen2](data-lake-storage-explorer.md)|
+   |.NET |[Use .NET to manage directories and files in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-dotnet.md)|
+   |Java|[Use Java to manage directories and files in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-java.md)|
+   |Python|[Use Python to manage directories and files in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-python.md)|
+   |JavaScript (Node.js)|[Use JavaScript SDK in Node.js to manage directories and files in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-javascript.md)|
+   |REST API |[Azure Data Lake Store REST API](/rest/api/storageservices/data-lake-storage-gen2)|
  
 3. Update scripts to use Data Lake Storage Gen2 [PowerShell cmdlets](data-lake-storage-directory-file-acl-powershell.md), and [Azure CLI commands](data-lake-storage-directory-file-acl-cli.md).
    
 4. Search for URI references that contain the string `adl://` in code files, or in Databricks notebooks, Apache Hive HQL files or any other file used as part of your workloads. Replace these references with the [Gen2 formatted URI](data-lake-storage-introduction-abfs-uri.md) of your new storage account. For example: the Gen1 URI: `adl://mydatalakestore.azuredatalakestore.net/mydirectory/myfile` might become `abfss://myfilesystem@mydatalakestore.dfs.core.windows.net/mydirectory/myfile`. 
 
-## Enable Gen1 compatibility layer (optional)
+## Leverage the Gen1 compatibility layer (optional)
 
-Microsoft provides application compatibility with limited functionality so that your applications can continue using Gen1 APIs to interact with data in your Gen2-enabled account. The compatibility layer runs on the server so there's nothing to install. Microsoft does not recommend that you rely on this capability as a replacement for migrating your workloads and applications.  
+Microsoft provides application compatibility with limited functionality so that your applications can continue using Gen1 APIs to interact with data in your Gen2-enabled account. The compatibility layer runs on the server so there's nothing to install. 
+
+> [!IMPORTANT]
+> Microsoft does not recommend this capability as a replacement for migrating your workloads and applications.
 
 To encounter the least number of issues with the compatibility layer, make sure that your Gen1 SDKs use the following versions (or higher).
 
