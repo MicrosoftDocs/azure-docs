@@ -98,7 +98,7 @@ CommunicationUserIdentifier user = client.createUser();
 
 ## Delete user identity
 
-Use `deleteUser` function of `CommunicationIdentityClient` object to delete a user identity
+Use the `deleteUser` function of the `CommunicationIdentityClient` object to delete a user identity:
 
 ```java
 CommunicationIdentityClient client = new CommunicationIdentityClientBuilder()
