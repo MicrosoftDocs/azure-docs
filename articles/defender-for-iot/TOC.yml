@@ -115,19 +115,11 @@
           href: how-to-identify-required-appliances.md
           displayName: virtual, Dell, HPE, SMB, certified, hardware, deployment, DL20, EL300, R340, enterprise, SMB, corporate
         - name: Set up your network
-          displayName: passive, browsers, setup, deployment, network access, TAP, switch, mirroring, firewall, SPAN, monitoring, tuning
+          displayName: passive, browsers, setup, deployment, network access, TAP, switch, mirroring, firewall, SPAN, monitoring, tuning, QOS, QoS, Quality of Service
           href: how-to-set-up-your-network.md
         - name: Install software
-          displayName: setup, deployment, virtual, Dell, HPE, SMB, certified, hardware, port mirroring, ESXi, DL20, EL300, R340,enterprise, SMB, corporate
+          displayName: setup, deployment, virtual, Dell, HPE, SMB, certified, hardware, port mirroring, ESXi, DL20, EL300, R340,enterprise, SMB, corporate, NIC, second, secondary, network, interface, network interface, appliance, Nuvo 5006LP, Fitlet2, BIOS, sanity, mirroring, port, ports
           href: how-to-install-software.md
-    - name: Prepare your sensors
-      items:
-      - name: Onboard sensors
-        displayName: onboard, cloud, register, version, activate, offboard, subscription, threat intelligence, packages, connected
-        href: how-to-manage-sensors-on-the-cloud.md
-      - name: Activate and set up your sensor
-        displayName: deployment, onboard, register, activation, SSL, TLS, certificate, cloud connected, sign in, login, setup, learning mode, initial
-        href: how-to-activate-and-set-up-your-sensor.md
     - name: Prepare your on-premises management console
       items:
       - name: Manage subscriptions
@@ -142,7 +134,7 @@
     - name: Prepare your sensors
       items:
       - name: Onboard sensors
-        displayName: onboard, cloud, register, activate, offboard, subscription, subscriptions
+        displayName: onboard, cloud, register, version, activate, offboard, subscription, threat intelligence, packages, connected
         href: how-to-manage-sensors-on-the-cloud.md
       - name: Activate and set up your sensor
         displayName: deployment, onboard, register, activation, SSL, TLS, certificate, cloud connected, sign in, login, setup, learning mode, initial
@@ -150,13 +142,13 @@
     - name: Manage users and user access
       items:
       - name: Create and manage users
-        displayName: Active Directory, roles, permissions
+        displayName: Active Directory, roles, permissions, password, passwords, change, reset
         href: how-to-create-and-manage-users.md
       - name: Define global user access control
         href: how-to-define-global-user-access-control.md
         displayName: business unit, site, region, user
     - name: Control what traffic is monitored
-      displayName: Windows, Learning, Smart IT Learning, DNS, DHCP, engines, subnets,  WMI, active, probing, scanning, switch
+      displayName: Windows, Learning, Smart IT Learning, DNS, DHCP, engines, subnets, active, probing, scanning, switch
       href: how-to-control-what-traffic-is-monitored.md
     - name: Manage sensors from the on-premises management console
       displayName: disconnect, connect, activation file, sensor backup
@@ -182,16 +174,17 @@
         displayName: classification, Windows registry, device, firmware, import
     - name: Work with the sensor device map
       href: how-to-work-with-the-sensor-device-map.md
-      displayName: connections, Purdue, zoom, delete device 
+      displayName: connections, Purdue, zoom, delete device, authorized, unauthorized, programming, filter, groups, custom, zoom, connection, important device, IT network
     - name: Work with alerts detected by a sensor
       items:
       - name: Understand sensor alerts
         href: how-to-work-with-alerts-on-your-sensor.md
-      - name: Filter and manage alerts from the Alerts page 
+      - name: Filter and manage alerts from the Alerts page
+        displayName: alert, alerts, Important, pinned, recent, acknowledge, archive, archived, search, text,  
         href: how-to-view-alerts.md
       - name: About alert messages
         href: how-to-view-information-provided-in-alerts.md
-        displayName: PCAP, metadata, alerts, link, device map, 
+        displayName: PCAP, metadata, alerts, link, device map,  
       - name: Alert types and descriptions
         href: alert-engine-messages.md
         displayName: alert, alerts, description, engine, anomaly, protocol, policy, malware, violation, operational, severity, minor, major, critical, warning, alerts list, security alerts, 
@@ -237,10 +230,14 @@
       - name: Import device information
         displayName: import, enrich
         href: how-to-import-device-information.md
+      - name: Define Windows endpoint monitoring (WMI)
+        displayName: scan, probe, active
+        href:  how-to-configure-windows-endpoint-monitoring.md
     - name: Track sensor activity
       displayName: timeline, time line, time-line, event
       href: how-to-track-sensor-activity.md
     - name: Troubleshoot the sensor and on-premises management console
+      displayName: widget, password, traffic, broadcast, unicast, NTP, quality of service
       href: how-to-troubleshoot-the-sensor-and-on-premises-management-console.md
     - name: Set up SNMP MIB monitoring
       href: how-to-set-up-snmp-mib-monitoring.md
@@ -342,7 +339,7 @@
       displayNAme: prototype, disable
       href: azure-rtos-security-module-api.md
     - name: Frequently asked questions- agent
-      displayName: FAQ, embedded, dependencies, data, quota, internet, 
+      displayName: FAQ, embedded, dependencies, data, quota, internet, password, change 
       href: resources-agent-frequently-asked-questions.md
     - name: Azure Roadmap
       href: https://azure.microsoft.com/roadmap/?category=security-identity

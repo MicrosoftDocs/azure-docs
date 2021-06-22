@@ -35,7 +35,8 @@ An AKS cluster is deployed into a single region. To protect your system from reg
     * AKS continually expands into new regions.
 * [**Azure paired regions**](../best-practices-availability-paired-regions.md)
     * For your geographic area, choose two regions paired together.
-    * Paired regions coordinate platform updates and prioritize recovery efforts where needed.
+    * AKS platform updates (planned maintenance) are serialized with a delay of at least 24 hours between paired regions. 
+    * Recovery efforts for paired regions are prioritized where needed. 
 * **Service availability**
     * Decide whether your paired regions should be hot/hot, hot/warm, or hot/cold.
     * Do you want to run both regions at the same time, with one region *ready* to start serving traffic? Or,

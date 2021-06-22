@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: tutorial
-ms.date: 02/09/2021
+ms.date: 05/19/2021
 ms.author: aahi
 ---
 
@@ -41,7 +41,7 @@ In this tutorial, you'll learn how to:
 To get started, open Power BI Desktop and load the comma-separated value (CSV) file `FabrikamComments.csv` that you downloaded in [Prerequisites](#Prerequisites). This file represents a day's worth of hypothetical activity in a fictional small company's support forum.
 
 > [!NOTE]
-> Power BI can use data from a wide variety of sources, such as Facebook or a SQL database. Learn more at [Facebook integration with Power BI](https://powerbi.microsoft.com/integrations/facebook/) and [SQL Server integration with Power BI](https://powerbi.microsoft.com/integrations/sql-server/).
+> Power BI can use data from a wide variety of web-based sources, such as SQL databases. See the [Power Query documentation](/power-query/connectors/) for more information.
 
 In the main Power BI Desktop window, select the **Home** ribbon. In the **External data** group of the ribbon, open the **Get Data** drop-down menu and select **Text/CSV**.
 
@@ -215,20 +215,21 @@ The Text Analytics service, one of the Cognitive Services offered by Microsoft A
 
 Both of these other APIs are similar to the Key Phrases API. That means you can integrate them with Power BI Desktop using custom functions that are nearly identical to the one you created in this tutorial. Just create a blank query and paste the appropriate code below into the Advanced Editor, as you did earlier. (Don't forget your access key!) Then, as before, use the function to add a new column to the table.
 
-The Sentiment Analysis function below returns a score indicating how positive the sentiment expressed in the text is.
+The Sentiment Analysis function below returns a label indicating how positive the sentiment expressed in the text is.
 
 ```fsharp
-// Returns the sentiment score of the text, from 0.0 (least favorable) to 1.0 (most favorable)
+// Returns the sentiment label of the text, for example, positive, negative or mixed.
 (text) => let
-    apikey      = "YOUR_API_KEY_HERE",
-    endpoint    = "https://<your-custom-subdomain>.cognitiveservices.azure.com" & "/text/analytics/v3.0/sentiment",
-    jsontext    = Text.FromBinary(Json.FromValue(Text.Start(Text.Trim(text), 5000))),
-    jsonbody    = "{ documents: [ { language: ""en"", id: ""0"", text: " & jsontext & " } ] }",
-    bytesbody   = Text.ToBinary(jsonbody),
-    headers     = [#"Ocp-Apim-Subscription-Key" = apikey],
-    bytesresp   = Web.Contents(endpoint, [Headers=headers, Content=bytesbody]),
-    jsonresp    = Json.Document(bytesresp),
-    sentiment   = jsonresp[documents]{0}[detectedLanguage][confidenceScore] in  sentiment
+    apikey = "YOUR_API_KEY_HERE",
+    endpoint = "<your-custom-subdomain>.cognitiveservices.azure.com" & "/text/analytics/v3.1-preview.5/sentiment",
+    jsontext = Text.FromBinary(Json.FromValue(Text.Start(Text.Trim(text), 5000))),
+    jsonbody = "{ documents: [ { language: ""en"", id: ""0"", text: " & jsontext & " } ] }",
+    bytesbody = Text.ToBinary(jsonbody),
+    headers = [#"Ocp-Apim-Subscription-Key" = apikey],
+    bytesresp = Web.Contents(endpoint, [Headers=headers, Content=bytesbody]),
+    jsonresp = Json.Document(bytesresp),
+    sentiment   = jsonresp[documents]{0}[sentiment] 
+    in sentiment
 ```
 
 Here are two versions of a Language Detection function. The first returns the ISO language code (for example, `en` for English), while the second returns the "friendly" name (for example, `English`). You may notice that only the last line of the body differs between the two versions.

@@ -30,7 +30,7 @@ First, we'll create a webhook. Your Communication Services resource will use Eve
 
 You can write your own custom webhook to receive these event notifications. It's important for this webhook to respond to inbound messages with the validation code to successfully subscribe the webhook to the event service.
 
-```
+```csharp
 [HttpPost]
 public async Task<ActionResult> PostAsync([FromBody] object request)
   {
@@ -59,8 +59,7 @@ public async Task<ActionResult> PostAsync([FromBody] object request)
   }
 ```
 
-
-The above code depends on the `Microsoft.Azure.EventGrid` NuGet package. To learn more about Event Grid endpoint validation, visit the [endpoint validation documentation](https://docs.microsoft.com/azure/event-grid/receive-events#endpoint-validation)
+The above code depends on the `Microsoft.Azure.EventGrid` NuGet package. To learn more about Event Grid endpoint validation, visit the [endpoint validation documentation](../../../event-grid/receive-events.md#endpoint-validation)
 
 We'll then subscribe this webhook to the `recording` event:
 
@@ -77,7 +76,7 @@ Your webhook will now be notified whenever your Communication Services resource 
 ## Notification schema
 When the recording is available to download, your Communication Services resource will emit a notification with the following event schema. The document IDs for the recording can be fetched from the `documentId` fields of each `recordingChunk`.
 
-```
+```json
 {
     "id": string, // Unique guid for event
     "topic": string, // Azure Communication Services resource id
@@ -126,7 +125,7 @@ To download recorded media and metadata, use HMAC authentication to authenticate
 
 Create an `HttpClient` and add the necessary headers using the `HmacAuthenticationUtils` provided below:
 
-```
+```csharp
   var client = new HttpClient();
 
   // Set Http Method
@@ -152,7 +151,7 @@ Create an `HttpClient` and add the necessary headers using the `HmacAuthenticati
   // Hash the content of the request.
   var contentHashed = HmacAuthenticationUtils.CreateContentHash(serializedPayload);
 
-  // Add HAMC headers.
+  // Add HMAC headers.
   HmacAuthenticationUtils.AddHmacHeaders(request, contentHashed, accessKey, method);
 
   // Make a request to the Azure Communication Services APIs mentioned above
@@ -164,7 +163,7 @@ The below utilities can be used to manage your HMAC workflow.
 
 **Create content hash**
 
-```
+```csharp
 public static string CreateContentHash(string content)
 {
     var alg = SHA256.Create();
@@ -187,7 +186,7 @@ public static string CreateContentHash(string content)
 
 **Add HMAC headers**
 
-```
+```csharp
 public static void AddHmacHeaders(HttpRequestMessage requestMessage, string contentHash, string accessKey)
 {
     var utcNowString = DateTimeOffset.UtcNow.ToString("r", CultureInfo.InvariantCulture);
@@ -214,6 +213,6 @@ If you want to clean up and remove a Communication Services subscription, you ca
 ## Next steps
 For more information, see the following articles:
 
-- Check out our [web calling sample](https://docs.microsoft.com/azure/communication-services/samples/web-calling-sample)
-- Learn about [Calling SDK capabilities](https://docs.microsoft.com/azure/communication-services/quickstarts/voice-video-calling/calling-client-samples?pivots=platform-web)
-- Learn more about [how calling works](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/about-call-types)
+- Check out our [web calling sample](../../samples/web-calling-sample.md)
+- Learn about [Calling SDK capabilities](./calling-client-samples.md?pivots=platform-web)
+- Learn more about [how calling works](../../concepts/voice-video-calling/about-call-types.md)

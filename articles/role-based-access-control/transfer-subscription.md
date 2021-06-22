@@ -77,7 +77,7 @@ Several Azure resources have a dependency on a subscription or a directory. Depe
 | Azure Managed Disks | Yes | Yes |  |  If you are using Disk Encryption Sets to encrypt Managed Disks with customer-managed keys, you must disable and re-enable the system-assigned identities associated with Disk Encryption Sets. And you must re-create the role assignments i.e. again grant required permissions to Disk Encryption Sets in the Key Vaults. |
 | Azure Kubernetes Service | Yes | No |  | You cannot transfer your AKS cluster and its associated resources to a different directory. For more information, see [Frequently asked questions about Azure Kubernetes Service (AKS)](../aks/faq.md) |
 | Azure Policy | Yes | No | All Azure Policy objects, including custom definitions, assignments, exemptions, and compliance data. | You must [export](../governance/policy/how-to/export-resources.md), import, and re-assign definitions. Then, create new policy assignments and any needed [policy exemptions](../governance/policy/concepts/exemption-structure.md). |
-| Azure Active Directory Domain Services | Yes | No |  | You cannot transfer an Azure AD Domain Services managed domain to a different directory. For more information, see [Frequently asked questions (FAQs) about Azure Active Directory (AD) Domain Services](../active-directory-domain-services/faqs.md) |
+| Azure Active Directory Domain Services | Yes | No |  | You cannot transfer an Azure AD Domain Services managed domain to a different directory. For more information, see [Frequently asked questions (FAQs) about Azure Active Directory (AD) Domain Services](../active-directory-domain-services/faqs.yml) |
 | App registrations | Yes | Yes |  |  |
 
 > [!WARNING]
@@ -89,7 +89,7 @@ To complete these steps, you will need:
 
 - [Bash in Azure Cloud Shell](../cloud-shell/overview.md) or [Azure CLI](/cli/azure)
 - Account Administrator of the subscription you want to transfer in the source directory
-- [Owner](built-in-roles.md#owner) role in the target directory
+- A user account in both the source and target directory for the user making the directory change
 
 ## Step 1: Prepare for the transfer
 
@@ -247,7 +247,7 @@ When you create a key vault, it is automatically tied to the default Azure Activ
 1. Use [az account show](/cli/azure/account#az_account_show) to get your subscription ID.
 
     ```azurecli
-    subscriptionId=$(az account show --query id | sed -e 's/^"//' -e 's/"$//')
+    subscriptionId=$(az account show --query id | sed -e 's/^"//' -e 's/"//')
     ```
 
 1. Use the [az graph](/cli/azure/graph) extension to list other Azure resources with known Azure AD directory dependencies.

@@ -72,7 +72,7 @@ Machine learning tasks read and/or write artifacts to your workspace.
 
 You can also perform the following workspace management tasks:
 
-| Workspace management task   | Portal              | Studio | Python SDK / R SDK       | CLI        | VS Code
+| Workspace management task   | Portal              | Studio | Python SDK / R SDK       | Azure CLI        | VS Code
 |---------------------------|---------|---------|------------|------------|------------|
 | Create a workspace        | **&check;**     | | **&check;** | **&check;** | **&check;** |
 | Manage workspace access    | **&check;**   || |  **&check;**    ||
@@ -132,7 +132,6 @@ To get started with Azure Machine Learning, see:
 
 + [Azure Machine Learning overview](overview-what-is-azure-ml.md)
 + [Create and manage a workspace](how-to-manage-workspace.md)
-+ [Tutorial: Get started with Azure Machine Learning in your development environment](tutorial-1st-experiment-sdk-setup-local.md)
-+ [Tutorial: Get started creating your first ML experiment on a compute instance](tutorial-1st-experiment-sdk-setup.md)
++ [Tutorial: Get started with Azure Machine Learning](quickstart-create-resources.md)
 + [Tutorial: Create your first classification model with automated machine learning](tutorial-first-experiment-automated-ml.md) 
 + [Tutorial: Predict automobile price with the designer](tutorial-designer-automobile-price-train-score.md)

@@ -73,14 +73,16 @@ landingContent:
     - linkListType: reference
       links:
       - text: Control Plane - .NET
-        url:  /dotnet/api/overview/azure/iot/management?view=azure-dotnet
+        url:  /dotnet/api/overview/azure/iot/management
       - text: Control Plane - Python
-        url:  /python/api/azure-mgmt-deviceupdate/?view=azure-python
+        url:  /python/api/azure-mgmt-deviceupdate/
     - linkListType: reference
       links:
+      - text: Data Plane - .NET
+        url: /dotnet/api/azure.iot.deviceupdate?view=azure-dotnet-preview&preserve-view=true
       - text: Data Plane - JavaScript
-        url: /javascript/api/@azure/iot-device-update/?view=azure-node-preview
+        url: /javascript/api/@azure/iot-device-update/?view=azure-node-preview&preserve-view=true
       - text: Data Plane - Java
-        url: /java/api/com.azure.iot.deviceupdate?view=azure-java-preview
+        url: /java/api/com.azure.iot.deviceupdate?view=azure-java-preview&preserve-view=true
       - text: Data Plane - Python
-        url: /python/api/azure-mgmt-deviceupdate/azure.mgmt.deviceupdate?view=azure-python-preview
+        url: /python/api/azure-mgmt-deviceupdate/azure.mgmt.deviceupdate?view=azure-python-preview&preserve-view=true

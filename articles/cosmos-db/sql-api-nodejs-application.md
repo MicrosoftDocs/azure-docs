@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 11/05/2019
+ms.date: 05/19/2021
 ms.author: sngun
 ms.custom: devx-track-js
 #Customer intent: As a developer, I want to build a Node.js web application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
@@ -35,27 +35,27 @@ This tutorial covers the following tasks:
 > * Connect the application to Azure Cosmos DB
 > * Run and deploy the application to Azure
 
-## <a name="_Toc395783176"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisites
 
 Before following the instructions in this article, ensure
 that you have the following resources:
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
 
-  [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
+  [!INCLUDE [cosmos-db-emulator-docdb-api](includes/cosmos-db-emulator-docdb-api.md)]
 
 * [Node.js][Node.js] version 6.10 or higher.
 * [Express generator](https://www.expressjs.com/starter/generator.html) (you can install Express via `npm install express-generator -g`)
 * Install [Git][Git] on your local workstation.
 
-## <a name="_Toc395637761"></a>Create an Azure Cosmos DB account
-Let's start by creating an Azure Cosmos DB account. If you already have an account or if you are using the Azure Cosmos DB Emulator for this tutorial, you can skip to [Step 2: Create a new Node.js application](#_Toc395783178).
+## <a name="create-account"></a>Create an Azure Cosmos DB account
+Let's start by creating an Azure Cosmos DB account. If you already have an account or if you are using the Azure Cosmos DB Emulator for this tutorial, you can skip to [Step 2: Create a new Node.js application](#create-new-app).
 
-[!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
+[!INCLUDE [cosmos-db-create-dbaccount](includes/cosmos-db-create-dbaccount.md)]
 
-[!INCLUDE [cosmos-db-keys](../../includes/cosmos-db-keys.md)]
+[!INCLUDE [cosmos-db-keys](includes/cosmos-db-keys.md)]
 
-## <a name="_Toc395783178"></a>Create a new Node.js application
+## <a name="create-new-app"></a>Create a new Node.js application
 Now let's learn to create a basic Hello World Node.js project using the Express framework.
 
 1. Open your favorite terminal, such as the Node.js command prompt.
@@ -87,7 +87,7 @@ Now let's learn to create a basic Hello World Node.js project using the Express 
 
    Stop the application by using CTRL+C in the terminal window, and select **y** to terminate the batch job.
 
-## <a name="_Toc395783179"></a>Install the required modules
+## <a name="install-modules"></a>Install the required modules
 
 The **package.json** file is one of the files created in the root of the project. This file contains a list of additional modules that are required for your Node.js application. When you deploy this application to Azure, this file is used to determine which modules should be installed on Azure to support your application. Install two more packages for this tutorial.
 
@@ -97,7 +97,7 @@ The **package.json** file is one of the files created in the root of the project
    npm install @azure/cosmos
    ```
 
-## <a name="_Toc395783180"></a>Connect the Node.js application to Azure Cosmos DB
+## <a name="connect-to-database"></a>Connect the Node.js application to Azure Cosmos DB
 Now that you have completed the initial setup and configuration, next you will write code that is required by the todo application to communicate with Azure Cosmos DB.
 
 ### Create the model
@@ -355,7 +355,7 @@ Now that you have completed the initial setup and configuration, next you will w
 
 3. Finally, save and close the **app.js** file.
 
-## <a name="_Toc395783181"></a>Build a user interface
+## <a name="build-ui"></a>Build a user interface
 
 Now let's build the user interface so that a user can interact with the application. The Express application we created in the previous sections uses **Jade** as the view engine.
 
@@ -431,7 +431,7 @@ The first form contains a table for your data and a button that allows you to up
     
 The second form contains two input fields and a button that allows you to create a new item by posting to **/addtask** method of the controller. That's all we need for the application to work.
 
-## <a name="_Toc395783181"></a>Run your application locally
+## <a name="run-app-locally"></a>Run your application locally
 
 Now that you have built the application, you can run it locally by using the following steps:  
 
@@ -454,7 +454,7 @@ Now that you have built the application, you can run it locally by using the fol
 
 5. To stop the application, press CTRL+C in the terminal window and then select **Y** to terminate the batch job.
 
-## <a name="_Toc395783182"></a>Deploy your application to Web Apps
+## <a name="deploy-app"></a>Deploy your application to Web Apps
 
 After your application succeeds locally, you can deploy it to Azure by using the following steps:
 
@@ -478,7 +478,7 @@ After your application succeeds locally, you can deploy it to Azure by using the
 
 When these resources are no longer needed, you can delete the resource group, Azure Cosmos DB account, and all the related resources. To do so, select the resource group that you used for the Azure Cosmos DB account, select **Delete**, and then confirm the name of the resource group to delete.
 
-## <a name="_Toc395637775"></a>Next steps
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Build mobile applications with Xamarin and Azure Cosmos DB](mobile-apps-with-xamarin.md)

@@ -215,6 +215,8 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 
 `Response Code: 204` means the simulated eviction was successful. 
 
+For more information, see [Testing a simulated eviction notification](../virtual-machines/windows/spot-powershell.md#simulate-an-eviction).
+
 ## FAQ
 
 **Q:** Once created, is an Azure Spot Virtual Machine instance the same as standard instance?

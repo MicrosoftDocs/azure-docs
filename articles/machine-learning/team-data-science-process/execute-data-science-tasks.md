@@ -19,7 +19,7 @@ Typical data science tasks include data exploration, modeling, and deployment. T
 
 - [Azure Machine Learning](../index.yml)
 - [SQL-Server with ML services](/sql/advanced-analytics/r/r-services)
-- [Microsoft Machine Learning Server](/machine-learning-server/what-is-machine-learning-server)
+- [Azure Synapse Analytics](/azure/synapse-analytics/spark/apache-spark-machine-learning-mllib-notebook)
 
 
 ## 1. <a name='DataQualityReportUtility-1'></a> Exploration 
@@ -40,7 +40,6 @@ After multiple models have been built, you usually need to have a system for reg
 1. [Azure Machine Learning - model management service](../index.yml)
 2. [ModelDB from MIT](https://people.csail.mit.edu/mvartak/papers/modeldb-hilda.pdf) 
 3. [SQL-server as a model management system](https://blogs.technet.microsoft.com/dataplatforminsider/2016/10/17/sql-server-as-a-machine-learning-model-management-system/)
-4. [Microsoft Machine Learning Server](/sql/advanced-analytics/r/r-server-standalone)
 
 ## 3. <a name='Deployment-3'></a> Deployment
 
@@ -52,7 +51,6 @@ There are various approaches and platforms to put models into production. Here a
 
 - [Model deployment in Azure Machine Learning](../how-to-deploy-and-where.md)
 - [Deployment of a model in SQL-server](/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
-- [Microsoft Machine Learning Server](/sql/advanced-analytics/r/r-server-standalone)
 
 > [!NOTE]
 > Prior to deployment, one has to insure the latency of model scoring is low enough to use in production.

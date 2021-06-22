@@ -5,12 +5,12 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 01/06/2021
+ms.date: 05/13/2021
 ms.author: mjbrown
 ---
 
 # Manage an Azure Cosmos account
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 This article describes how to manage various tasks on an Azure Cosmos account using the Azure portal, Azure PowerShell, Azure CLI, and Azure Resource Manager templates.
 
@@ -18,7 +18,7 @@ This article describes how to manage various tasks on an Azure Cosmos account us
 
 ### <a id="create-database-account-via-portal"></a>Azure portal
 
-[!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
+[!INCLUDE [cosmos-db-create-dbaccount](includes/cosmos-db-create-dbaccount.md)]
 
 ### <a id="create-database-account-via-cli"></a>Azure CLI
 
@@ -33,6 +33,9 @@ Please see [Create an Azure Cosmos DB account with PowerShell](manage-with-power
 Please see [Create Azure Cosmos DB account with Azure Resource Manager templates](./manage-with-templates.md)
 
 ## Add/remove regions from your database account
+
+> [!TIP]
+> When a new region is added, all data must be fully replicated and committed into the new region before the region is marked as available. The amount of time this operation takes will depend upon how much data is stored within the account.
 
 ### <a id="add-remove-regions-via-portal"></a>Azure portal
 
@@ -110,7 +113,7 @@ An account can be migrated from single write region to multiple write regions by
             "type": "Microsoft.DocumentDb/databaseAccounts",
             "kind": "GlobalDocumentDB",
             "name": "[parameters('name')]",
-            "apiVersion": "2019-08-01",
+            "apiVersion": "2021-03-15",
             "location": "[parameters('location')]",
             "tags": {},
             "properties": {

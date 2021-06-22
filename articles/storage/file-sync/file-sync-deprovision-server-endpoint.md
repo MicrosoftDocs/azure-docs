@@ -6,7 +6,8 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 4/23/2021
 ms.author: rogarana
-ms.subservice: files
+ms.subservice: files 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Deprovision your Azure File Sync server endpoint

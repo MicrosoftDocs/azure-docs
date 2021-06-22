@@ -39,6 +39,7 @@ After creating a Communication Services resource you can start building client s
 |---                                    |---                                   |
 |**[Create your first user access token](./quickstarts/access-tokens.md)**|User access tokens are used to authenticate clients against your Azure Communication Services resource. These tokens are provisioned and reissued using the Communication Services SDK.|
 |**[Get started with voice and video calling](./quickstarts/voice-video-calling/getting-started-with-calling.md)**| Azure Communication Services allows you to add voice and video calling to your browser or native apps using the Calling SDK. |
+|**[Add telephony calling to your app](./quickstarts/voice-video-calling/pstn-call.md)**|With Azure Communication Services you can add telephony calling capabilities to your application.|
 |**[Join your calling app to a Teams meeting](./quickstarts/voice-video-calling/get-started-teams-interop.md)**|Azure Communication Services can be used to build custom meeting experiences that interact with Microsoft Teams. Users of your Communication Services solution(s) can interact with Teams participants over voice, video, chat, and screen sharing.|
 |**[Get started with chat](./quickstarts/chat/get-started.md)**|The Azure Communication Services Chat SDK is used to add rich real-time text chat into your applications.|
 
@@ -51,6 +52,7 @@ The following samples demonstrate end-to-end usage of the Azure Communication Se
 |---                                    |---                                   |
 |**[The Group Calling Hero Sample](./samples/calling-hero-sample.md)**| Download a designed application sample for group calling for browsers, iOS, and Android devices. |
 |**[The Group Chat Hero Sample](./samples/chat-hero-sample.md)**| Download a designed application sample for group text chat for browsers. |
+|**[The Web Calling Sample](./samples/web-calling-sample.md)**| Download a designed web application sample for audio, video, and PSTN calling. |
 
 
 ## Platforms and SDK libraries

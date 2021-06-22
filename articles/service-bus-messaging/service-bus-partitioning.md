@@ -74,7 +74,7 @@ committableTransaction.Commit();
 
 If any of the properties that serve as a partition key are set, Service Bus pins the message to a specific partition. This behavior occurs whether or not a transaction is used. It is recommended that you don't specify a partition key if it isn't necessary.
 
-### Use sessions with partitioned entities
+### Use transactions in sessions with partitioned entities
 
 To send a transactional message to a session-aware topic or queue, the message must have the session ID property set. If the partition key property is specified as well, it must be identical to the session ID property. If they differ, Service Bus returns an invalid operation exception.
 
@@ -108,12 +108,6 @@ Currently Service Bus imposes the following limitations on partitioned queues an
 * Partitioned queues and topics aren't supported in the Premium messaging tier. Sessions are supported in the premier tier by using SessionId. 
 * Partitioned queues and topics don't support sending messages that belong to different sessions in a single transaction.
 * Service Bus currently allows up to 100 partitioned queues or topics per namespace. Each partitioned queue or topic counts towards the quota of 10,000 entities per namespace (doesn't apply to Premium tier).
-
-## Other features
-- Add or remove rule is supported with partitioned entities, but not under transactions. 
-- AMQP is supported for sending and receiving messages to and from a partitioned entity.
-- AMQP is supported for the following operations: Batch Send, Batch Receive, Receive by Sequence Number, Peek, Renew Lock, Schedule Message, Cancel Scheduled Message, Add Rule, Remove Rule, Session Renew Lock, Set Session State, Get Session State, and Enumerate Sessions.
-
 
 
 ## Next steps

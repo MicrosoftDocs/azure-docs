@@ -2,7 +2,7 @@
 title: Delete a Microsoft Azure Recovery Services vault 
 description: In this article, learn how to remove dependencies and then delete an Azure Backup Recovery Services vault.
 ms.topic: conceptual
-ms.date: 04/26/2021
+ms.date: 06/07/2021
 ---
 # Delete an Azure Backup Recovery Services vault
 
@@ -172,7 +172,7 @@ To stop protection and delete backup data, do the following steps:
        >[!NOTE]
        >The PIN is valid for only five minutes.
     1. In the management console, paste the PIN, and then select **Submit**.
-       ![Enter Security PIN](./media/backup-azure-delete-vault/enter-security-pin.png)
+       ![Enter security PIN to delete backup items from the MABS and DPM management console](./media/backup-azure-delete-vault/enter-security-pin.png)
 
 4. If you had selected **Delete storage online** in the **Stop Protection** dialog box earlier, ignore this step. Right-click the inactive protection group and select **Remove inactive protection**.
 
@@ -198,7 +198,7 @@ To stop protection and delete backup data, do the following steps:
        >[!NOTE]
        >The PIN is valid for only five minutes.
     1. In the management console, paste the PIN, and then select **Submit**.
-       ![Enter Security PIN](./media/backup-azure-delete-vault/enter-security-pin.png)
+       ![Enter security PIN to delete backup items from the MABS and DPM management console](./media/backup-azure-delete-vault/enter-security-pin.png)
  
      The protected member status changes to *Inactive replica available*.
 

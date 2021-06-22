@@ -5,7 +5,7 @@ services: active-directory-b2c
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: how-to
-ms.date: 04/28/2021
+ms.date: 05/03/2021
 
 ms.author: mimart
 author: msmimart
@@ -20,7 +20,7 @@ As a developer or IT administrator, you can use API connectors to integrate your
 
 ::: zone pivot="b2c-user-flow"
 
-In this scenario, the REST API validates whether email address' domain is fabrikam.com, or fabricam.com. The user-provided job title is greater than five characters. 
+In this scenario, the REST API validates whether email address' domain is fabrikam.com, or fabricam.com. The user-provided display name is greater than five characters. Then returns the job title with a static value. 
 
 > [!IMPORTANT]
 > API connectors for sign-up is a public preview feature of Azure AD B2C. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).

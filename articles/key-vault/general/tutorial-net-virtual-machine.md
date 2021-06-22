@@ -9,7 +9,7 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 03/17/2021
 ms.author: mbaldwin
-ms.custom: "mvc, devx-track-csharp, devx-track-azurepowershell"
+ms.custom: "mvc, devx-track-csharp, devx-track-azurepowershell, devx-track-azurecli"
 
 #Customer intent: As a developer I want to use Azure Key Vault to store secrets for my app, so that they are kept secure.
 ---

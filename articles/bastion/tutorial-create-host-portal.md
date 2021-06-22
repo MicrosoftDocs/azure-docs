@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Create an Azure Bastion host: Windows VM: portal'
-description: In this article, you learn how to create an Azure Bastion host and connect to a Windows VM.
+description: Learn how to create an Azure Bastion host and connect to a Windows VM.
 services: bastion
 author: cherylmc
 
@@ -84,6 +84,7 @@ This section helps you create the bastion object in your VNet. This is required 
 ## Connect to a VM
 
 [!INCLUDE [Connect to a Windows VM](../../includes/bastion-vm-rdp.md)]
+
 
 ## Clean up resources
 

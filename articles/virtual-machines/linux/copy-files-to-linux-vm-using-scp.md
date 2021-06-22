@@ -8,7 +8,6 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 04/20/2021
 ms.author: cynthn
-ms.subservice: 
 ---
 
 # Use SCP to move files to and from a Linux VM 

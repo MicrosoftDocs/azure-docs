@@ -14,6 +14,9 @@ ms.author: mikben
 
 [!INCLUDE [Public Preview Notice](../../../includes/public-preview-include-chat.md)]
 
+## Sample Code
+Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/add-chat).
+
 ## Prerequisites
 Before you get started, make sure to:
 
@@ -130,8 +133,8 @@ The following classes and interfaces handle some of the major features of the Az
 
 | Name                                   | Description                                                                                                                                                                           |
 | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `ChatClient` | This class is needed for the chat functionality. You instantiate it with your subscription information, and use it to create, get, and delete threads. |
-| `ChatThreadClient` | This class is needed for the chat thread functionality. You obtain an instance via `ChatClient`, and use it to send, receive, update, and delete messages. You can also use it to add, remove, and get users, send typing notifications and read receipts, and subscribe to chat events. |
+| `ChatClient` | This class is needed for the chat functionality. You instantiate it with your subscription information, and use it to create, get, delete threads, and subscribe to chat events. |
+| `ChatThreadClient` | This class is needed for the chat thread functionality. You obtain an instance via `ChatClient`, and use it to send, receive, update, and delete messages. You can also use it to add, remove, and get users, send typing notifications and read receipts. |
 
 ## Start a chat thread
 
@@ -249,7 +252,7 @@ if let id = messageId {
 
 ## Receive chat messages from a chat thread
 
-You can receive messages from a chat thread by calling the `listMessages()` method from `ChatThreadClient`. List messages includes system messages as well as user sent messages. For more information on the types of messages you can receive see [Message Types](https://docs.microsoft.com/azure/communication-services/concepts/chat/concepts#message-types)
+You can receive messages from a chat thread by calling the `listMessages()` method from `ChatThreadClient`. List messages includes system messages as well as user sent messages. For more information on the types of messages you can receive see [Message Types](../../../concepts/chat/concepts.md#message-types)
 
 Replace the comment `<RECEIVE MESSAGES>` with the following code:
 
@@ -320,4 +323,3 @@ semaphore.wait()
 ## Run the code
 
 In Xcode hit the Run button to build and run the project. In the console you can view the output from the code and the logger output from the ChatClient.
-

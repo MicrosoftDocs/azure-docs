@@ -49,7 +49,7 @@ Some Logic Apps Standard connectors support [on-premises systems](#on-premises-c
         [![Azure Blog Storage managed connector icon in Logic Apps][azure-blob-storage-icon]][azure-blob-storage-doc]
         \
         \
-        [**Azure Blog Storage**][azure-blob-storage-doc]
+        [**Azure Blob Storage**][azure-blob-storage-doc]
         \
         \
         Connect to your Azure Storage account so that you can create and manage blob content.
@@ -509,7 +509,7 @@ For more information, see these topics:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create custom APIs you can call from Logic Apps](/logic-apps/logic-apps-create-api-app)
+> [Create custom APIs you can call from Logic Apps](../logic-apps/logic-apps-create-api-app.md)
 
 <!--Managed connector icons-->
 [appfigures-icon]: ./media/apis-list/appfigures.png
