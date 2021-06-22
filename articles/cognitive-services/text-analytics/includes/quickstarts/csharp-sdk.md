@@ -717,68 +717,97 @@ You can use the Analyze operation to perform asynchronous batch requests for: NE
 
 [!INCLUDE [Analyze operation pricing](../analyze-operation-pricing-caution.md)]
 
-Create a new function called `AnalyzeOperationExample()` that takes the client that you created earlier, and call its `StartAnalyzeBatchActionsAsync()` function. The returned `AnalyzeBatchActionsOperation` object will contain the `Operation` interface object. As it is a Long Running Operation, `await` on the `operation.WaitForCompletionAsync()` for the value to be updated. Once the `WaitForCompletionAsync()` is finishes, the collection should be updated in the `operation.Value`. If there was an error, it will throw a `RequestFailedException`.
+Add the following using statements to your C# file.
+
+```csharp
+using System.Threading.Tasks;
+using System.Collections.Generic;
+using System.Linq;
+```
+
+Create a new function called `AnalyzeOperationExample()` that takes the client that you created earlier, and call its `StartAnalyzeBatchActionsAsync()` function. The returned operation will contain an `AnalyzeBatchActionsResult` object. As it is a Long Running Operation, `await` on the `operation.WaitForCompletionAsync()` for the value to be updated. Once the `WaitForCompletionAsync()` finishes, the collection should be updated in the `operation.Value`. If there was an error, it will throw a `RequestFailedException`.
 
 
 ```csharp
 static async Task AnalyzeOperationExample(TextAnalyticsClient client)
-{
-    string inputText = "Microsoft was founded by Bill Gates and Paul Allen.";
-
-    var batchDocuments = new List<string> { inputText };
-
-
-    TextAnalyticsActions actions = new TextAnalyticsActions()
-    {
-        RecognizeEntitiesOptions = new List<RecognizeEntitiesOptions>() { new RecognizeEntitiesOptions() },
-        DisplayName = "Analyze Operation Quick Start Example"
-    };
-
-    AnalyzeBatchActionsOperation operation = await client.StartAnalyzeBatchActionsAsync(batchDocuments, actions);
-
-    await operation.WaitForCompletionAsync();
-
-    Console.WriteLine($"Status: {operation.Status}");
-    Console.WriteLine($"Created On: {operation.CreatedOn}");
-    Console.WriteLine($"Expires On: {operation.ExpiresOn}");
-    Console.WriteLine($"Last modified: {operation.LastModified}");
-    if (!string.IsNullOrEmpty(operation.DisplayName))
-        Console.WriteLine($"Display name: {operation.DisplayName}");
-    Console.WriteLine($"Total actions: {operation.TotalActions}");
-    Console.WriteLine($"  Succeeded actions: {operation.ActionsSucceeded}");
-    Console.WriteLine($"  Failed actions: {operation.ActionsFailed}");
-    Console.WriteLine($"  In progress actions: {operation.ActionsInProgress}");
-
-    await foreach (AnalyzeBatchActionsResult documentsInPage in operation.Value)
-    {
-        RecognizeEntitiesResultCollection entitiesResult = documentsInPage.RecognizeEntitiesActionsResults.FirstOrDefault().Result;
-
-        Console.WriteLine("Recognized Entities");
-
-        foreach (RecognizeEntitiesResult result in entitiesResult)
         {
-            Console.WriteLine($"  Recognized the following {result.Entities.Count} entities:");
+            string inputText = "Microsoft was founded by Bill Gates and Paul Allen.";
 
-            foreach (CategorizedEntity entity in result.Entities)
+            var batchDocuments = new List<string> { inputText };
+
+
+            TextAnalyticsActions actions = new TextAnalyticsActions()
             {
-                Console.WriteLine($"  Entity: {entity.Text}");
-                Console.WriteLine($"  Category: {entity.Category}");
-                Console.WriteLine($"  Offset: {entity.Offset}");
-                Console.WriteLine($"  Length: {entity.Length}");
-                Console.WriteLine($"  ConfidenceScore: {entity.ConfidenceScore}");
-                Console.WriteLine($"  SubCategory: {entity.SubCategory}");
+                RecognizeEntitiesOptions = new List<RecognizeEntitiesOptions>() { new RecognizeEntitiesOptions() },
+                ExtractKeyPhrasesOptions = new List<ExtractKeyPhrasesOptions>() { new ExtractKeyPhrasesOptions() },
+                DisplayName = "Analyze Operation Quick Start Example"
+            };
+
+            AnalyzeBatchActionsOperation operation = await client.StartAnalyzeBatchActionsAsync(batchDocuments, actions);
+
+            await operation.WaitForCompletionAsync();
+
+            Console.WriteLine($"Status: {operation.Status}");
+            Console.WriteLine($"Created On: {operation.CreatedOn}");
+            Console.WriteLine($"Expires On: {operation.ExpiresOn}");
+            Console.WriteLine($"Last modified: {operation.LastModified}");
+            if (!string.IsNullOrEmpty(operation.DisplayName))
+                Console.WriteLine($"Display name: {operation.DisplayName}");
+            //Console.WriteLine($"Total actions: {operation.TotalActions}");
+            Console.WriteLine($"  Succeeded actions: {operation.ActionsSucceeded}");
+            Console.WriteLine($"  Failed actions: {operation.ActionsFailed}");
+            Console.WriteLine($"  In progress actions: {operation.ActionsInProgress}");
+
+            await foreach (AnalyzeBatchActionsResult documentsInPage in operation.Value)
+            {
+                RecognizeEntitiesResultCollection entitiesResult = documentsInPage.RecognizeEntitiesActionsResults.FirstOrDefault().Result;
+                ExtractKeyPhrasesResultCollection keyPhrasesResults = documentsInPage.ExtractKeyPhrasesActionsResults.FirstOrDefault().Result;
+
+                Console.WriteLine("Recognized Entities");
+
+                foreach (RecognizeEntitiesResult result in entitiesResult)
+                {
+                    Console.WriteLine($"  Recognized the following {result.Entities.Count} entities:");
+
+                    foreach (CategorizedEntity entity in result.Entities)
+                    {
+                        Console.WriteLine($"  Entity: {entity.Text}");
+                        Console.WriteLine($"  Category: {entity.Category}");
+                        Console.WriteLine($"  Offset: {entity.Offset}");
+                        Console.WriteLine($"  Length: {entity.Length}");
+                        Console.WriteLine($"  ConfidenceScore: {entity.ConfidenceScore}");
+                        Console.WriteLine($"  SubCategory: {entity.SubCategory}");
+                    }
+                    Console.WriteLine("");
+                }
+
+                Console.WriteLine("Key Phrases");
+                
+                foreach (ExtractKeyPhrasesResult documentResults in keyPhrasesResults)
+                {
+                    Console.WriteLine($"  Recognized the following {documentResults.KeyPhrases.Count} Keyphrases:");
+
+                    foreach (string keyphrase in documentResults.KeyPhrases)
+                    {
+                        Console.WriteLine($"  {keyphrase}");
+                    }
+                    Console.WriteLine("");
+                }
+                
             }
-            Console.WriteLine("");
         }
-    }
+```
+
+After you add this example to your application, call in your `main()` method using `await`. Because the Analyze operation is asynchronous, you will need to update your `Main()` method to the `async Task` type.
+
+```csharp
+static async Task Main(string[] args)
+{
+    var client = new TextAnalyticsClient(endpoint, credentials);
+    await AnalyzeOperationExample(client).ConfigureAwait(false);
 }
 ```
 
-After you add this example to your application, call in your `main()` method using `await`.
-
-```csharp
-await AnalyzeOperationExample(client).ConfigureAwait(false);
-```
 ### Output
 
 ```console
