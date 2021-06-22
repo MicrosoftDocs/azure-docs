@@ -27,8 +27,9 @@ After you're finished, follow the recommended next steps at the end to continue 
 
 ## Prerequisites
 
-* [Prepare for HCX installations](https://docs.vmware.com/en/VMware-HCX/4.1/hcx-user-guide/GUID-A631101E-8564-4173-8442-1D294B731CEB.html)
-* [VMware blog series - cloud migration](https://blogs.vmware.com/vsphere/2019/10/cloud-migration-series-part-2.html)
+- [Prepare for HCX installations](https://docs.vmware.com/en/VMware-HCX/4.1/hcx-user-guide/GUID-A631101E-8564-4173-8442-1D294B731CEB.html)
+
+- [VMware blog series - cloud migration](https://blogs.vmware.com/vsphere/2019/10/cloud-migration-series-part-2.html)
 
 
 ## Install VMware HCX 
@@ -77,15 +78,13 @@ In this step, you'll download the VMware HCX Connector OVA file and then you'll 
    > [!IMPORTANT]
    > You will need to turn on the virtual appliance manually.  After powering on, wait 10-15 minutes before proceeding to the next step.
 
-<!--video is now out of date  
-For an end-to-end overview of this procedure, view the [Azure VMware Solution: HCX Appliance Deployment](https://www.youtube.com/embed/UKmSTYrL6AY) video.
--->
+
 
 ## Activate VMware HCX
 
-After you deploy the VMware HCX Connector OVA on-premises and start the appliance, you're ready to activate. First, you need to get a license key from the Azure VMware Solution portal.
+After you deploy the VMware HCX Connector OVA on-premises and start the appliance, you're ready to activate it. First, you'll need to get a license key from the Azure VMware Solution portal and then you'll activate it in VMware HCX Manager.
 
-1. In the Azure VMware Solution portal, go to **Manage** > **Connectivity**, select the **HCX** tab, and then select **Add**.
+1. [this doesn't make any sense with the new workflow] In the Azure VMware Solution portal, go to **Manage** > **Connectivity**, select the **HCX** tab, and then select **Add**.
 
 1. Use the **admin** credentials to sign in to the on-premises VMware HCX Manager at `https://HCXManagerIP:9443`.  Make sure to include the `9443` port number with the VMware HCX Manager IP address.
 
