@@ -95,4 +95,4 @@ See the [Azure Blob Storage pricing](/pricing/details/storage/blobs/) page for d
 
 - [Mount Blob storage by using the Network File System (NFS) 3.0 protocol](network-file-system-protocol-support-how-to.md)
 - [Network File System (NFS) 3.0 performance considerations in Azure Blob Storage](network-file-system-protocol-support-performance.md)
-- [Compare access to Azure Files, Blob Storage, and Azure NetApp Files with NFS](/common/nfs-comparison.md)
+- [Compare access to Azure Files, Blob Storage, and Azure NetApp Files with NFS](../common/nfs-comparison.md)
