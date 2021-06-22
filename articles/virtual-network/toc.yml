@@ -449,10 +449,14 @@
       href: what-is-ip-address-168-63-129-16.md
     - name: Troubleshoot Azure VM connectivity problems
       href: troubleshoot-vm-connectivity.md
+  - name: Monitor virtual network
+    href: monitor-virtual-network.md
   - name: Classic deployment
     href: /previous-versions/azure/virtual-network/create-virtual-network-classic
 - name: Reference
   items:
+  - name: Monitor data reference
+    href: monitor-virtual-network-reference.md
   - name: Azure CLI
     href: /cli/azure/azure-cli-reference-for-network
   - name: Azure PowerShell
