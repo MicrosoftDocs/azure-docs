@@ -3,7 +3,7 @@ metadata:
   title: FAQ - Back up SAP HANA databases on Azure VMs
   description: In this article, discover answers to common questions about backing up SAP HANA databases using the Azure Backup service.
   ms.topic: conceptual
-  ms.date: 06/22/2021
+  ms.date: 06/23/2021
     
 title: Frequently asked questions – Back up SAP HANA databases on Azure VMs
 summary: This article answers common questions about backing up SAP HANA databases using the Azure Backup service.
@@ -56,7 +56,7 @@ sections:
       - question: |
           Are there any prerequisites for backing up SAP HANA databases using Azure Backup?
         answer: |
-          Refer to the [prerequisites](./tutorial-backup-sap-hana-db#prerequisites.md) for using Azure Backup with SAP HANA.
+          Refer to the [prerequisites](./tutorial-backup-sap-hana-db.md#prerequisites) for using Azure Backup with SAP HANA.
           
       - question: |
           Will backups work after migrating SAP HANA from SDC to MDC?
