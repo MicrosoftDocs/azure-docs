@@ -85,7 +85,7 @@ Follow these steps to run the script from your Windows computer:
    ```
 6. If you see the prompt *NuGet provider is required to continue*, enter **Y**, and then select **Enter**.
 
-7. If you see the prompt, *Untrusted repository*, enter **A**, and then select **Enter**.
+7. If you see the prompt *Untrusted repository*, enter **A**, and then select **Enter**.
 
 5. Repeat the previous steps to install the `Az.Synapse` and `AzureAD` modules.
 
@@ -124,7 +124,7 @@ Role or permission | Scope |
 |-------|--------|
 | **Global Reader** | Azure AD tenant |
 | **Reader** | Azure subscriptions where your Azure data sources are located |
-| **Reader** | Subscription where your Azure Purview account is created |
+| **Reader** | Subscription where your Azure Purview account was created |
 | **SQL Admin** (Azure AD Authentication) | Azure Synapse dedicated pools, Azure SQL Database instances, Azure SQL managed instances |
 | Access to your Azure key vault | Access to get/list key vault's secret or Azure Key Vault secret user |  
 

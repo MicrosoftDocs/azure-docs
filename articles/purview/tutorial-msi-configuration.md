@@ -33,7 +33,7 @@ In part 2 of this tutorial series, you'll:
 
 > [!NOTE]
 > The Azure Purview MSI Configuration script is available only for Windows.
-> This script currently is supported for Azure Purview Managed Identity (MSI).
+> This script is currently supported for Azure Purview Managed Identity (MSI).
 
 > [!IMPORTANT]
 > We strongly recommend that you test and verify all the changes the script performs in your Azure environment before you deploy it into your production environment.
@@ -115,13 +115,13 @@ Before you run the PowerShell script to verify the readiness of data source subs
 
 Make sure your user has the following roles and permissions:
 
-At a minimum, the following permissions are needed run the script in your Azure environment:
+At a minimum, the you need the following permissions to run the script in your Azure environment:
 
 Role | Scope | Why is it needed? |
 |-------|--------|--------|
 | **Global Reader** | Azure AD tenant | To read Azure SQL Admin user group membership and Azure Purview MSI |
-| **Global Administrator** | Azure AD tenant | To assign **Directory Reader** role to Azure SQL managed instances |
-| **Contributor** | Subscription or resource group where your Azure Purview account is created | To read the Azure Purview account resource and create a Key Vault resource and secret. |
+| **Global Administrator** | Azure AD tenant | To assign the **Directory Reader** role to Azure SQL managed instances |
+| **Contributor** | Subscription or resource group where your Azure Purview account is created | To read the Azure Purview account resource and create a Key Vault resource and secret |
 | **Owner or User Access Administrator** | Management group or subscription where your Azure data sources are located | To assign RBAC |
 | **Contributor** | Management group or subscription where your Azure data sources are located | To set up network configuration |
 | **SQL Admin** (Azure AD Authentication) | Azure SQL Server instances or Azure SQL managed instances | To assign the **db_datareader** role to Azure Purview |
@@ -181,14 +181,14 @@ This script can help you automatically complete the following tasks:
 #### Azure Blob Storage (BlobStorage)
 
 - RBAC. Assign the Azure RBAC **Reader** role to Azure Purview MSI on the selected scope. Verify the assignment. 
-- RBAC. Assign the Azure RBAC **Storage Blob Data Reader** role to Azure Purview MSI in each of the subscriptions below the selected scope. Verify the assignment.
+- RBAC. Assign the Azure RBAC **Storage Blob Data Reader** role to Azure Purview MSI in each of the subscriptions below the selected scope. Verify the assignments.
 - Networking. Report whether private endpoint is created for storage and enabled for Blob Storage.
 - Service endpoint. If private endpoint is off, check whether service endpoint is on, and enable **Allow trusted Microsoft services to access this storage account**.
 
 #### Azure Data Lake Storage Gen2 (ADLSGen2)
 
 - RBAC. Assign the Azure RBAC **Reader** role to Azure Purview MSI on the selected scope. Verify the assignment. 
-- RBAC. Assign the Azure RBAC **Storage Blob Data Reader** role to Azure Purview MSI in each of the subscriptions below the selected scope. Verify the assignment.
+- RBAC. Assign the Azure RBAC **Storage Blob Data Reader** role to Azure Purview MSI in each of the subscriptions below the selected scope. Verify the assignments.
 - Networking. Report whether private endpoint is created for storage and enabled for Blob Storage.
 - Service endpoint. If private endpoint is off, check whether service endpoint is on, and enable **Allow trusted Microsoft services to access this storage account**.
 
@@ -227,7 +227,7 @@ This script can help you automatically complete the following tasks:
 #### Azure Synapse (Synapse) dedicated pool
 
 - RBAC. Assign the Azure RBAC **Reader** role to Azure Purview MSI on the selected scope. Verify the assignment. 
-- RBAC. Assign the Azure RBAC **Storage Blob Data Reader** role to Azure Purview MSI in each of the subscriptions below the selected scope. Verify the assignment.
+- RBAC. Assign the Azure RBAC **Storage Blob Data Reader** role to Azure Purview MSI in each of the subscriptions below the selected scope. Verify the assignments.
 - SQL Server instances (dedicated pools):
   - Network. Report whether public endpoint or private endpoint is on.
   - Firewall. If private endpoint is off, verify firewall rules and enable **Allow Azure services and resources to access this server**.
