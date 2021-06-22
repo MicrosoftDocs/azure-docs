@@ -69,7 +69,7 @@ var user = await client.CreateUserAsync().ConfigureAwait(false);
 
 ## Delete user identity
 
-Use `DeleteUserAsync` method of `CommunicationIdentityClient` object to delete a user identity
+Use `DeleteUserAsync` method of `CommunicationIdentityClient` object to delete a user identity:
 
 ```csharp
 var client = new CommunicationIdentityClient("<Connection_String>");
