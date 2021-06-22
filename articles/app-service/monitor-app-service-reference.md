@@ -135,5 +135,5 @@ The following schemas are in use by App Service
 
 ## See Also
 
-- See [Monitoring Azure App Service](monitor-app-service-name.md) for a description of monitoring Azure App Service.
+- See [Monitoring Azure App Service](monitor-app-service.md) for a description of monitoring Azure App Service.
 - See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resources) for details on monitoring Azure resources.
