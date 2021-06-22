@@ -148,7 +148,7 @@ The line that contains `.AddMicrosoftIdentityWebApp` adds Microsoft identity pla
 
 The `Configure()` method contains two important methods, `app.UseAuthentication()` and `app.UseAuthorization()`, that enable their named functionality. Also in the `Configure()` method, you must register Microsoft Identity Web routes with at least one call to `endpoints.MapControllerRoute()` or a call to `endpoints.MapControllers()`:
 
- :::code language="csharp" source="~/active-directory-aspnetcore-webapp-openidconnect-v2/3-WebApp-multi-APIs/Startup.cs" range="80-89" :::
+ :::code language="csharp" source="~/sample-active-directory-aspnetcore-webapp-openidconnect-v2/Startup.cs" range="64-73" :::
 
 
 ### Attribute for protecting a controller or methods
