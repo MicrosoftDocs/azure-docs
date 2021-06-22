@@ -20,7 +20,7 @@ To enable the feature, you need the following items:
 
 ![19][]
 
-[!INCLUDE [event-grid-service-bus.md](../../includes/event-grid-service-bus.md)]
+[!INCLUDE [event-grid-service-bus.md](./includes/event-grid-service-bus.md)]
 
 ## Event Grid subscriptions for Service Bus namespaces
 You can create Event Grid subscriptions for Service Bus namespaces in three different ways:

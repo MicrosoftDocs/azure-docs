@@ -47,7 +47,7 @@ Python packages can be installed from repositories like PyPI and Conda-Forge by 
 ##### PIP requirements.txt
 A *requirements.txt* file (output from the `pip freeze` command) can be used to upgrade the environment. When a pool is updated, the packages listed in this file are downloaded from PyPI. The full dependencies are then cached and saved for later reuse of the pool. 
 
-The following snippet shows the format for the requirements file. The PyPI package name is listed along with an exact version. This file follows the format described in the [pip freeze](https://pip.pypa.io/en/stable/reference/pip_freeze/) reference documentation. 
+The following snippet shows the format for the requirements file. The PyPI package name is listed along with an exact version. This file follows the format described in the [pip freeze](https://pip.pypa.io/en/stable/cli/pip_freeze/) reference documentation. 
 
 This example pins a specific version. 
 ```

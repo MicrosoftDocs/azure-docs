@@ -718,55 +718,74 @@ Create a new function called `analyze_example()`, which calls the `beginAnalyze(
 
 ```javascript
 async function analyze_example(client) {
-  const documents = [
-    "Microsoft was founded by Bill Gates and Paul Allen.",
-  ];
+    const documents = [
+        "Microsoft was founded by Bill Gates and Paul Allen.",
+    ];
 
-  const actions = {
-    recognizeEntitiesActions: [{ modelVersion: "latest" }],
-  };
-  const poller = await client.beginAnalyzeActions(documents, actions, "en");
+    const actions = {
+        recognizeEntitiesActions: [{ modelVersion: "latest" }],
+        extractKeyPhrasesActions: [{ modelVersion: "latest" }]
+    };
+    const poller = await client.beginAnalyzeActions(documents, actions, "en");
 
-  console.log(
-    `The analyze batch actions operation was created on ${poller.getOperationState().createdOn}`
-  );
-  console.log(
-    `The analyze batch actions operation results will expire on ${
-      poller.getOperationState().expiresOn
-    }`
-  );
-  const resultPages = await poller.pollUntilDone();
-  for await (const page of resultPages) {
-    const entitiesAction = page.recognizeEntitiesResults[0];
-    if (!entitiesAction.error) {
-      for (const doc of entitiesAction.results) {
-        console.log(`- Document ${doc.id}`);
-        if (!doc.error) {
-          console.log("\tEntities:");
-          for (const entity of doc.entities) {
-            console.log(`\t- Entity ${entity.text} of type ${entity.category}`);
-          }
-        } else {
-          console.error("\tError:", doc.error);
+    console.log(
+        `The analyze batch actions operation was created on ${poller.getOperationState().createdOn}`
+    );
+    console.log(
+        `The analyze batch actions operation results will expire on ${poller.getOperationState().expiresOn
+        }`
+    );
+    const resultPages = await poller.pollUntilDone();
+    for await (const page of resultPages) {
+        const entitiesAction = page.recognizeEntitiesResults[0];
+        if (!entitiesAction.error) {
+            for (const doc of entitiesAction.results) {
+                console.log(`- Document ${doc.id}`);
+                if (!doc.error) {
+                    console.log("\tEntities:");
+                    for (const entity of doc.entities) {
+                        console.log(`\t- Entity ${entity.text} of type ${entity.category}`);
+                    }
+                } else {
+                    console.error("\tError:", doc.error);
+                }
+            }
         }
-      }
     }
-  }
+    for await (const page of resultPages) {
+        const keyPhrasesAction = page.extractKeyPhrasesResults[0];
+        if (!keyPhrasesAction.error) {
+            for (const doc of keyPhrasesAction.results) {
+                console.log(`- Document ${doc.id}`);
+                if (!doc.error) {
+                    console.log("\tKey phrases:");
+                    for (const phrase of doc.keyPhrases) {
+                        console.log(`\t- ${phrase}`);
+                    }
+                } else {
+                    console.error("\tError:", doc.error);
+                }
+            }
+        }
+    }
 }
-
-analyze_example(textAnalyticsClient);
 ```
 
 ### Output
 
 ```console
-The analyze batch actions operation was created on Fri Mar 12 2021 09:53:49 GMT-0800 (Pacific Standard Time)
-The analyze batch actions operation results will expire on Sat Mar 13 2021 09:53:49 GMT-0800 (Pacific Standard Time)
+The analyze batch actions operation was created on Fri Jun 18 2021 12:34:52 GMT-0700 (Pacific Daylight Time)
+The analyze batch actions operation results will expire on Sat Jun 19 2021 12:34:52 GMT-0700 (Pacific Daylight Time)
 - Document 0
         Entities:
         - Entity Microsoft of type Organization
         - Entity Bill Gates of type Person
         - Entity Paul Allen of type Person
+- Document 0
+        Key phrases:
+        - Bill Gates
+        - Paul Allen
+        - Microsoft
 ```
 
 You can also use the Analyze operation to perform NER, key phrase extraction, sentiment analysis and detect PII. See the Analyze samples for [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/textanalytics/ai-text-analytics/samples/v5/javascript/beginAnalyzeActions.js) and [TypeScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples/v5/typescript/src) on GitHub.
