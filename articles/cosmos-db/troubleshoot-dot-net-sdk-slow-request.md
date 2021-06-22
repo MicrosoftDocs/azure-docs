@@ -28,7 +28,7 @@ Consider the following when developing your application:
 1. Application should be in the same region as your Azure Cosmos DB account.
 2. Singleton instance of the SDK instance. The SDK has several caches that have to be initialized which may slow down the first few requests. 
 3. Use Direct + TCP connectivity mode
-4. Avoid High CPU. Make sure to look at Max CPU and not average, which is the default for most logging systems. Anything above roughly 40% can cause the latency to start to increase.
+4. Avoid High CPU. Make sure to look at Max CPU and not average, which is the default for most logging systems. Anything above roughly 40% can increase the latency.
 
 
 ## Capture the diagnostics
