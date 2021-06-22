@@ -1,5 +1,5 @@
 ---
-title:  Encryption-at-rest using customer-managed keys
+title:  Encrypt data using customer-managed keys
 titleSuffix: Azure Cognitive Search
 description: Supplement server-side encryption over indexes and synonym maps in Azure Cognitive Search using keys that you create and manage in Azure Key Vault.
 
@@ -8,24 +8,21 @@ author: NatiNimni
 ms.author: natinimn
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/18/2021
+ms.date: 06/21/2021
 ms.custom: references_regions, devx-track-azurepowershell 
 ---
 
 # Configure customer-managed keys for data encryption in Azure Cognitive Search
 
-Azure Cognitive Search automatically encrypts indexed content at rest with [service-managed keys](../security/fundamentals/encryption-atrest.md#azure-encryption-at-rest-components). If more protection is needed, you can supplement default encryption with an additional encryption layer using keys that you create and manage in Azure Key Vault. 
+Azure Cognitive Search automatically encrypts content with [service-managed keys](../security/fundamentals/encryption-atrest.md#azure-encryption-at-rest-components). If more protection is needed, you can supplement default encryption with an additional encryption layer using keys that you create and manage in Azure Key Vault. 
 
 This article walks you through the steps of setting up customer-managed key encryption. Here are some points to keep in mind:
 
-+ Customer-managed key encryption depends on [Azure Key Vault](../key-vault/general/overview.md). You can create your own encryption keys and store them in a key vault, or you can use Azure Key Vault's APIs to generate encryption keys. With Azure Key Vault, you can also audit key usage if you [enable logging](../key-vault/general/logging.md).  
++ Customer-managed key encryption depends on [Azure Key Vault](../key-vault/general/overview.md). You can create your own encryption keys and store them in a key vault, or you can use Azure Key Vault's APIs to generate encryption keys. With Azure Key Vault, you can audit key usage if you [enable logging](../key-vault/general/logging.md).  
 
-+ Encryption with customer-managed keys is applied when objects are created, and is not specified on the search service level itself. Only new objects can be encrypted. You cannot encrypt content that already exists.
++ Encryption with customer-managed keys is enabled when objects are created, on a per object basis. You cannot encrypt content that already exists.
 
-+ Keys can be in different key vaults. A single search service can host multiple encrypted indexes and other objects, each encrypted with their own customer-managed encryption keys, stored in different key vaults.
-
->[!Important]
-> If you implement customer-managed keys, be sure to follow strict procedures during routine rotation of key vault keys and Active Directory application secrets and registration. Always update all encrypted content to use new secrets and keys before deleting the old ones. If you miss this step, your content cannot be decrypted.
++ The surface area for content encryption extends to indexes and synonym lists (fully encrypted) and individual fields that store connection strings and descriptions. Skillsets have Cognitive Services keys, and some skills accept user inputs, such as custom entities. Keys and user inputs are encrypted.
 
 ## Double encryption
 
@@ -53,7 +50,17 @@ The following tools and services are used in this scenario.
 You should have a search application that can create the encrypted object. Into this code, you'll reference a key vault key and Active Directory registration information. This code could be a working app, or prototype code such as the [C# code sample DotNetHowToEncryptionUsingCMK](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToEncryptionUsingCMK).
 
 > [!TIP]
-> You can use [Postman](search-get-started-rest.md), [Visual Studio Code](search-get-started-vs-code.md), or [Azure PowerShell](./search-get-started-powershell.md), to call REST APIs that create indexes and synonym maps that include an encryption key parameter. There is no portal support for adding a key to indexes or synonym maps at this time.
+> You can use [Postman](search-get-started-rest.md), [Visual Studio Code](search-get-started-vs-code.md), or [Azure PowerShell](search-get-started-powershell.md), to call REST APIs that create indexes and synonym maps that include an encryption key parameter. You can also use Azure SDKs. Portal support for adding a key to indexes or synonym maps is not supported.
+
+## Using Key Vault
+
+If you are new to Azure Key Vault, review this quickstart to learn about basic tasks: [Set and retrieve a secret from Azure Key Vault using PowerShell](../key-vault/secrets/quick-create-powershell.md). Here are some tips for using Key Vault:
+
++ Managed keys can be in different key vaults. A single search service can host multiple encrypted indexes and other objects, each encrypted with their own customer-managed encryption keys, stored in different key vaults.
+
++ [Enable logging](../key-vault/general/logging.md) on Key Vault so that you can monitor key usage.
+
++ To avoid lock out, follow strict procedures during routine rotation of key vault keys and Active Directory application secrets and registration. Always update all encrypted content to use new secrets and keys before deleting the old ones. If you miss this step, your content cannot be decrypted.
 
 ## 1 - Enable key recovery
 
@@ -175,7 +182,9 @@ Access permissions could be revoked at any given time. Once revoked, any search 
 
 ## 5 - Encrypt content
 
-To add a customer-managed key on an index, data source, skillset, indexer, or synonym map, you must use the [Search REST API](/rest/api/searchservice/) or an SDK. The portal does not expose synonym maps or encryption properties. When you use a valid API indexes, data sources, skillsets, indexers, and synonym maps support a top-level **encryptionKey** property.
+To add a customer-managed key on an index, data source, skillset, indexer, or synonym map, use the [Search REST API](/rest/api/searchservice/) or an Azure SDK to create an object that has encryption enabled. The portal does not expose synonym maps or encryption properties. 
+
+Call the Create APIs to specify the **encryptionKey** property on [indexes](/rest/api/searchservice/create-index), [synonym maps](/rest/api/searchservice/create-synonym-map), [indexers](/rest/api/searchservice/create-indexer), [data sources](/rest/api/searchservice/create-data-source), and [skillsets](/rest/api/searchservice/create-skillset).
 
 This example uses the REST API, with values for Azure Key Vault and Azure Active Directory:
 
@@ -368,7 +377,7 @@ Conditions that will prevent you from adopting this simplified approach include:
 
 + You cannot directly grant your search service access permissions to the Key vault (for example, if the search service is in a different Active Directory tenant than the Azure Key Vault).
 
-+ A single search service is required to host multiple encrypted indexes\synonym maps, each using a different key from a different Key vault, where each key vault must use **a different identity** for authentication. Because a search service can only have one managed identity, a requirements for multiple identities disqualifies the simplified approach for your scenario.  
++ A single search service is required to host multiple encrypted indexes\synonym maps, each using a different key from a different Key vault, where each key vault must use **a different identity** for authentication. Because a search service can only have one managed identity, a requirement for multiple identities will disqualify the simplified approach for your scenario.  
 
 ## Work with encrypted content
 
