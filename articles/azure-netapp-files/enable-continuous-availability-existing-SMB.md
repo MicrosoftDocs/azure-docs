@@ -30,7 +30,7 @@ You can enable the SMB Continuous Availability (CA) feature when you [create a n
 4. Restart the application on the host mounting the SMB share.   
 
     > [!NOTE]
-    > Selecting the **Enable Continuous Availability** option alone does not automatically make the existing SMB sessions continuously available. After selecting the option, be sure to restart of the application for the option to take effect.    
+    > Selecting the **Enable Continuous Availability** option alone does not automatically make the existing SMB sessions continuously available. After selecting the option, be sure to reboot the server for the change to take effect.  
 
 ## Next steps  
 
