@@ -43,7 +43,7 @@ Before you get started, make sure to:
 
 ## Add the package references for the calling server SDK
 
-In your POM file, reference the azure-communication-callingserver package with the Calling APIs:
+In your POM file, reference the `azure-communication-callingserver` package with the Calling APIs:
 
 ```java
 <dependency>
