@@ -119,7 +119,7 @@ Single store result for a single request
 ```
 
 ### StoreResult
-StoreResult represents a single request to Cosmos DB using Direct + TCP.
+StoreResult represents a single request to Azure Cosmos DB using Direct mode with TCP protocol.
 
 If it is still slow different patterns point to different issues:
 
