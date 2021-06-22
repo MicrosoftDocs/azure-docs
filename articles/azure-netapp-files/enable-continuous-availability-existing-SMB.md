@@ -27,7 +27,7 @@ You can enable the SMB Continuous Availability (CA) feature when you [create a n
 3. On the Edit window that appears, select the **Enable Continuous Availability** checkbox.   
     ![Snapshot that shows the Enable Continuous Availability option.](../media/azure-netapp-files/enable-continuous-availability.png)
 
-4. Restart the application on the host mounting the SMB share.   
+4. Reboot the server.   
 
     > [!NOTE]
     > Selecting the **Enable Continuous Availability** option alone does not automatically make the existing SMB sessions continuously available. After selecting the option, be sure to reboot the server for the change to take effect.  
