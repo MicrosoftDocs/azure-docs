@@ -61,12 +61,9 @@ The first Azure VMware Solution deployment you do consists of a private cloud co
 
 ## Request a host quota 
 
-It's important to request a host quota early, so when the planning process is finished, you're ready to deploy your Azure VMware Solution private cloud. 
+It's important to [request a host quota](request-host-quota-azure-vmware-solution.md) early, so after you've finished the planning process, you're ready to deploy your Azure VMware Solution private cloud. 
 
-- [EA customers](request-host-quota-azure-vmware-solution.md#request-host-quota-for-ea-customers)
-- [CSP customers](request-host-quota-azure-vmware-solution.md#request-host-quota-for-csp-customers)
-
-After the support team receives your request for a host quota, it takes up to five business days to confirm your request and allocate your hosts. 
+Before you request a host quota, make sure you've identified the Azure subscription, resource group, and region.  Also make sure you've identified the size hosts and determine the number of clusters and hosts you need.  After the support team receives your request for a host quota, it takes up to five business days to confirm your request and allocate your hosts.
 
 
 ## Define the IP address segment for private cloud management
