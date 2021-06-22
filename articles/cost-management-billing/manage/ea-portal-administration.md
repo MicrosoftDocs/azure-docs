@@ -138,9 +138,9 @@ To confirm account ownership:
 
 ## Change Azure subscription or account ownership
 
-This section only applies when a subscription owner is being changed. Changing a subscription ownership does not require an Azure support ticket.
+This section only applies when a subscription owner is being changed. Changing a subscription ownership does not require an Azure support ticket. Enterprise administrators can use the Azure Enterprise portal to transfer account ownership of selected or all subscriptions in an enrollment. They also have the option to change the subscription directory (tenant). 
 
-Enterprise administrators can use the Azure Enterprise portal to transfer account ownership of selected or all subscriptions in an enrollment. They also have the option to change the subscription directory (tenant).
+However, an EA admin can't transfer an account from one enrollment to another enrollment. To transfer an account from one enrollment to another, a support request is required. For information about transferring an account from one enrollment to another enrollment, see [Transfer an enterprise account to a new enrollment](ea-transfers.md#transfer-an-enterprise-account-to-a-new-enrollment).
 
 When you complete a subscription or account ownership transfer, Microsoft updates the account owner.
 
