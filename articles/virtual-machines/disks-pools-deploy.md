@@ -4,7 +4,7 @@ description: Learn how to deploy an Azure disk pool.
 author: roygara
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.date: 06/16/2021
+ms.date: 06/22/2021
 ms.author: rogarana
 ms.subservice: disks
 ---
@@ -24,7 +24,7 @@ This article covers how to configure and deploy a disk pool. In order for a disk
 
 In order to successfully deploy a disk pool, you must have:
 
-- A set of managed disks you want to add to a disk pool.
+- A set of managed disks (at least two) you want to add to a disk pool.
 - A virtual network with a subnet for your disk pool, deployed.
 
 ## Register your subscription for the preview
@@ -43,7 +43,7 @@ Once your subscription has been registered, you can deploy a disk pool.
 
 ### One: Delegate subnet permission
 
-In order for your disk pool to correctly function with your client machines, you must delegate a subnet to your Azure disk pool. When creating a disk pool, you specify a virtual network and the delegated subnet. You may either create a new subnet or use an existing one and delegate to the **Microsoft.StoragePool** resource provider.
+In order for your disk pool to work with your client machines, you must delegate a subnet to your Azure disk pool. When creating a disk pool, you specify a virtual network and the delegated subnet. You may either create a new subnet or use an existing one and delegate to the **Microsoft.StoragePool** resource provider.
 
 1. Go to the virtual networks blade in the Azure portal and select the virtual network to use for the disk pool.
 1. From here, you can either:
@@ -71,14 +71,14 @@ For a disk to be able to use a disk pool, it must meet the following requirement
 1. Sign in to the Azure portal.
 1. Search for and select either the resource group that contains the disks or each disk themselves.
 1. Select Access control (IAM).
-1. Select Add > Add role assignment, and select **Azure Disk Contributor** in the Role list.
+1. Select **Add role assignment (Preview)**, and select **Azure Disk Contributor** in the Role list.
 1. Select User, group, or service principal in the Assign access to list.
 1. In the Select section, search for **StoragePool Resource Provider**, select it, and save.
 
-## Create a disk pool
+## Three: Create a disk pool
 
 > [!IMPORTANT]
-> If you want to use ultra disks in your disk pool, fill out this form.
+> To use ultra disks instead of premium SSDs in your disk pool, fill out this form.
 
 # [Portal](#tab/azure-portal)
 
@@ -104,8 +104,8 @@ If your disk meets these requirements, you can add it to a disk pool by selectin
 
 ### Enable iSCSI
 
-1. Select the iSCSI tab
-1. Select **Enable iSCSI**
+1. Select the **iSCSI** blade.
+1. Select **Enable iSCSI**.
 1. Enter the name of the iSCSI target, the iSCSI target IQN will generate based on this name.
 
 #### Enable iSCSI targets for disks
