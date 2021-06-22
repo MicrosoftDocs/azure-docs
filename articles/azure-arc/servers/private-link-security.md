@@ -2,7 +2,7 @@
 title: Use Azure Private Link to securely connect networks to Azure Arc
 description: Learn how to use Azure Private Link to securely connect networks to Azure Arc.
 ms.topic: conceptual
-ms.date: 06/21/2021
+ms.date: 06/22/2021
 ---
 
 # Use Azure Private Link to securely connect networks to Azure Arc
@@ -37,7 +37,7 @@ Azure Arc Private Link Scope (preview) connects private endpoints (and the virtu
 - Azure Key Vault
 - Azure Blob storage, required for Custom Script Extension.
 
-:::image type="content" source="./media/private-link-security/private-link-basic-topology.png" alt-text="Diagram of basic resource topology" border="true":::
+:::image type="content" source="./media/private-link-security/private-link-topology.png" alt-text="Diagram of basic resource topology" border="true":::
 
 Connectivity to the other Azure resources from an Arc enabled server listed earlier require configuring Private Link for each service. For more information, see the following to configure Private Link for [Azure Automation](../../automation/how-to/private-link-security.md), [Azure Monitor](../../azure-monitor/logs/private-link-security.md), [Azure Key Vault](../../key-vault/general/private-link-service.md), or [Azure Blob storage](../../private-link/tutorial-private-endpoint-storage-portal.md).
 
@@ -72,7 +72,7 @@ The Arc enabled servers Private Link Scope object has a number of limits you sho
 
 To connect your server to Azure Arc over a private link, you need to configure your network to accomplish the following:
 
-1. Establish a connection between your on-premises network and an Azure virtual network using a [site-to-site VPN](../../vpn-gateway/tutorial-site-to-site-portal.md) or [Express Route circuit](../../expressroute/expressroute-howto-linkvnet-arm.md).
+1. Establish a connection between your on-premises network and an Azure virtual network using a [site-to-site VPN](../../vpn-gateway/tutorial-site-to-site-portal.md) or [ExpressRoute circuit](../../expressroute/expressroute-howto-linkvnet-arm.md).
 
 1. Deploy an Azure Arc Private Link Scope (preview), which controls which machines or servers can communicate with Azure Arc over private endpoints and associate it with your Azure virtual network using a private endpoint.
 
@@ -89,9 +89,7 @@ To connect your server to Azure Arc over a private link, you need to configure y
     - Azure Blob storage
     - Azure Key Vault
 
-This article assumes you have already set up your Express Route circuit or site-to-site VPN connection.
-
-:::image type="content" source="./media/private-link-security/private-link-basic-topology.png" alt-text="Diagram of basic resource topology" border="true":::
+This article assumes you have already set up your ExpressRoute circuit or site-to-site VPN connection.
 
 ## Network configuration
 
@@ -99,7 +97,7 @@ Azure Arc enabled servers integrates with several Azure services to bring cloud 
 
 There are two ways you can achieve this:
 
-- If your network is configured to route all Internet-bound traffic through the Azure VPN or Express Route circuit, you can configure the network security group (NSG) associated with your subnet in Azure to allow outbound TCP 443 (HTTPS) access to Azure AD and Azure using [service tags](../../virtual-network/service-tags-overview.md). The NSG rules should look like the following:
+- If your network is configured to route all Internet-bound traffic through the Azure VPN or ExpressRoute circuit, you can configure the network security group (NSG) associated with your subnet in Azure to allow outbound TCP 443 (HTTPS) access to Azure AD and Azure using [service tags](../../virtual-network/service-tags-overview.md). The NSG rules should look like the following:
 
     |Setting |Azure AD rule | Azure rule |
     |--------|--------------|-----------------------------|
