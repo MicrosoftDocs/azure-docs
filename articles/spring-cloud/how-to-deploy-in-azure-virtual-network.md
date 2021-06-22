@@ -17,8 +17,8 @@ This tutorial explains how to deploy an Azure Spring Cloud instance in your virt
 
 The deployment enables:
 
-* Isolation of Azure Spring Cloud apps and service runtime from the internetâ€‹ on your corporate networkâ€‹.
-* Azure Spring Cloud interaction with systems in â€‹on-premises data centers â€‹or Azure services in other virtual networks.
+* Isolation of Azure Spring Cloud apps and service runtime from the internet on your corporate network.
+* Azure Spring Cloud interaction with systems in on-premises data centers or Azure services in other virtual networks.
 * Empowerment of customers to control inbound and outbound network communications for Azure Spring Cloud.
 
 > [!Note]
