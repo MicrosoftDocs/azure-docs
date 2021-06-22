@@ -321,7 +321,7 @@ op monitor interval=3600
 > [!TIP]
 > This section is only applicable, if it is desired to configure special fencing device `fence_kdump`.  
 
-If there is a need to collect diagnostic information within the VM , it may be useful to configure additional STONITH device, based on fencing agent `fence_kdump`. The `fence_kdump` fence agent can detect that a node entered kdump crash recovery and can allow the crash recovery service to complete, before other fencing methods are invoked. Note that `fence_kdump` is not a replacement for traditional fence mechanisms, like Azure Fence Agent for Azure VMs.   
+If there is a need to collect diagnostic information within the VM , it may be useful to configure additional STONITH device, based on fence agent `fence_kdump`. The `fence_kdump` agent can detect that a node entered kdump crash recovery and can allow the crash recovery service to complete, before other fencing methods are invoked. Note that `fence_kdump` is not a replacement for traditional fence mechanisms, like Azure Fence Agent for Azure VMs.   
 
 > [!IMPORTANT]
 > Be aware that if `fence_kdump` is configured as first level stonith, it will introduce delays in the fencing operations and respectively delays in the application resources failover.  
@@ -336,7 +336,7 @@ The following Red Hat KBs contain important information about configuring `fence
 * [fence_kdump fails with "timeout after X seconds" in a RHEL 6 0r 7 HA cluster with kexec-tools older than 2.0.14](https://access.redhat.com/solutions/2388711)
 * For information how to change change the default timeout see [How do I configure kdump for use with the RHEL 6,7,8 HA Add-On](https://access.redhat.com/articles/67570)
    
-Execute the following optional steps to add `fence_kdump` as a first level STONITH configuration, in addition to the Azure Fence Agent stonith configuration. 
+Execute the following optional steps to add `fence_kdump` as a first level STONITH configuration, in addition to the Azure Fence Agent configuration. 
 
 
 1. **[A]** Verify that kdump is active and configured.  
@@ -389,8 +389,9 @@ lsinitrd /boot/initramfs-$(uname -r)kdump.img | egrep "fence|hosts"
 # -rwxr-xr-x   1 root     root        15560 Jun 17 14:59 usr/libexec/fence_kdump_send
 ```
 
-7. **[A]** Perform the `fence_kdump_nodes` configuration in `/etc/kdump.conf` to avoid  `fence_kdump` failing with a timeout for some `kexec-tools` versions. For details see [fence_kdump times out when fence_kdump_nodes is not specified with kexec-tools version 2.0.15 or later](https://access.redhat.com/solutions/4498151) and [fence_kdump fails with "timeout after X seconds" in a RHEL 6 or 7 High Availability cluster with kexec-tools versions older than 2.0.14](https://access.redhat.com/solutions/2388711). The example configuration for a two node cluster is presented below. After making a change in `/etc/kdump.conf`, the kdump image must be regenerated. That can be achoeved by restarting the `kdump` service.  
+7. **[A]** Perform the `fence_kdump_nodes` configuration in `/etc/kdump.conf` to avoid  `fence_kdump` failing with a timeout for some `kexec-tools` versions. For details see [fence_kdump times out when fence_kdump_nodes is not specified with kexec-tools version 2.0.15 or later](https://access.redhat.com/solutions/4498151) and [fence_kdump fails with "timeout after X seconds" in a RHEL 6 or 7 High Availability cluster with kexec-tools versions older than 2.0.14](https://access.redhat.com/solutions/2388711). The example configuration for a two node cluster is presented below. After making a change in `/etc/kdump.conf`, the kdump image must be regenerated. That can be achieved by restarting the `kdump` service.  
 
+<pre><code>
 # Check the stonith level configuration 
 vi /etc/kdump.conf
 # On node <b>prod-cl1-0</b> make sure the following line is added
@@ -410,10 +411,6 @@ systemctl restart kdump
 ```
 echo c > /proc/sysrq-trigger
 ```
-
-
-9.    
-
 
 
 ## Next steps
