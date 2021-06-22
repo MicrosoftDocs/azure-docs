@@ -37,7 +37,7 @@ Don’t reuse groups that are used for security. If you are using a security gro
 
 ### Upgrade AD FS server farm to 2019, FBL 4
 
-In AD FS 2019, you can specify additional authentication methods for a relying party, such as an application. You use group membership to determine authentication provider. By specifying an additional authentication method, you can transition to Azure AD MFA while keeping other authentication intact during the transition. For more information, see [Upgrading to AD FS in Windows Server 2016 using a WID database](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/upgrading-to-ad-fs-in-windows-server). The article covers both upgrading your farm to AD FS 2019 and upgrading your FBL to 4.
+In AD FS 2019, you can specify additional authentication methods for a relying party, such as an application. You use group membership to determine authentication provider. By specifying an additional authentication method, you can transition to Azure AD MFA while keeping other authentication intact during the transition. For more information, see [Upgrading to AD FS in Windows Server 2016 using a WID database](/windows-server/identity/ad-fs/deployment/upgrading-to-ad-fs-in-windows-server.md). The article covers both upgrading your farm to AD FS 2019 and upgrading your FBL to 4.
 
 ### Configure claims rules to invoke Azure AD MFA
 
@@ -91,7 +91,7 @@ To find the group SID, use the following command, with your group name
 
 The following PowerShell cmdlets invoke Azure AD MFA for users in the group when not on the corporate network. Replace "YourGroupSid” with the SID found by running the above cmdlet.
 
-ake sure you review the [How to Choose Additional Auth Providers in 2019](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/whats-new-active-directory-federation-services-windows-server). 
+ake sure you review the [How to Choose Additional Auth Providers in 2019](/windows-server/identity/ad-fs/overview/whats-new-active-directory-federation-services-windows-server.md). 
 
  > [!IMPORTANT]
 > Backup your existing claims rules
