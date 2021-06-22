@@ -37,6 +37,8 @@ To get started, you'll need:
 
 For more information, *see* [Create SAS tokens](create-sas-tokens.md).
 
+## Client libraries
+
 ### [C#/.NET](#tab/csharp)
 
 | [Package (NuGet)][documenttranslation_nuget_package] | [Client library][documenttranslation_client_library_docs] |  [REST API][documenttranslation_rest_api] | [Product documentation][documenttranslation_docs] | [Samples][documenttranslation_samples] |
@@ -44,7 +46,7 @@ For more information, *see* [Create SAS tokens](create-sas-tokens.md).
 > [!IMPORTANT]
 > This is a prerelease version of the Document Translation SDK. They're made available on an introductory basis so customers can get early access and provide feedback. Prerelease versions are still in development, are subject to change, and certain features may not be supported or might have constrained capabilities—do not use them in production applications.
 
-## Set up your project
+### Set up your project
 
 In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `batch-document-translation`. This command creates a simple "Hello World" C# project with a single source file: *program.cs*.
 
@@ -68,7 +70,7 @@ Build succeeded.
 ...
 ```
 
-## Install the client library
+### Install the client library
 
 Within the application directory, install the Document Translation client library for .NET using one of the following methods:
 
@@ -111,7 +113,7 @@ private static readonly string endpoint = "<your custom endpoint>";
 private static readonly string subscriptionKey = "<your subscription key>";
 ```
 
-## Translate a document or batch files
+### Translate a document or batch files
 
 * To Start a translation operation for one or more documents in a single blob container, you will call the `StartTranslationAsync` method.
 
@@ -162,7 +164,7 @@ public void StartTranslation() {
 
 That's it! You've created a program to translate documents in a blob container using the .NET client library.
 
-## Next steps
+### Next steps
 
 > [!div class="nextstepaction"]
  > [**Explore more C# code samples**](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Translation.Document_1.0.0-beta.2/sdk/translation/Azure.AI.Translation.Document/samples)
@@ -182,7 +184,7 @@ That's it! You've created a program to translate documents in a blob container u
 > [!IMPORTANT]
 > This is a prerelease version of the Document Translation SDK. They're made available on an introductory basis so customers can get early access and provide feedback. Prerelease versions are still in development, are subject to change, and certain features may not be supported or might have constrained capabilities—do not use them in production applications.
 
-## Set up your project
+### Set up your project
 
 ### Install the client library
 
@@ -212,7 +214,7 @@ more information, *see*  [Get your custom domain name and subscription key](get-
  targetUrl = "<your-container-targetUrl>"
 ```
 
-## Translate a document or batch files
+### Translate a document or batch files
 
 ```python
 client = DocumentTranslationClient(endpoint, AzureKeyCredential(subscriptionKey))
@@ -242,6 +244,8 @@ client = DocumentTranslationClient(endpoint, AzureKeyCredential(subscriptionKey)
 
 That's it! You've created a program to translate documents in a blob container using the Python client library.
 
+## Next steps
+
 > [!div class="nextstepaction"]
 > [Explore more Python code samples](https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-translation-document_1.0.0b1/sdk/translation/azure-ai-translation-document/samples)
 
@@ -253,3 +257,4 @@ That's it! You've created a program to translate documents in a blob container u
 [python-dt-samples]: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-translation-document_1.0.0b1/sdk/translation/azure-ai-translation-document/samples
 
 ---
+ 
