@@ -64,7 +64,7 @@ In addition to **Security settings**, Microsoft Azure Policy has a **Compliance*
 
 ## Assess impact of disabling NTLM password sync
 
-Disabling NTLM password sync will impact operations that fall back to using NTLM. The most common example is being unable to use Remote Desktop (RDP) to VMs joined to Azure AD DS, including the admin VM. The connection fails because the RDP client is not joined to Azure AD DS and the RDP connection is using Network Level Authentication (NLA). Because the RDP client can't request a Kerberos ticket for the Azure AD DS joined VM, NLA reverts to NTLM. If NTLM password sync is disabled, authentication fails. As a workaround, you can use a local account to RDP to the Azure AD DS VM or disable NLA.
+If you disable NTLM password synchonization, prepare for apps and operations that will fail if they fall back to using NTLM. For example, using Remote Desktop (RDP) to VMs joined to Azure AD DS, including the admin VM, will revert to NTLM if the RDP connection is using Network Level Authentication (NLA). The connection fails because the RDP client is not joined to Azure AD DS and the RDP client can't request a Kerberos ticket for the VM joined to Azure AD DS.
 
 Another example is that connections to DNS server using IP address or domain name will fail with Access Denied.
 
