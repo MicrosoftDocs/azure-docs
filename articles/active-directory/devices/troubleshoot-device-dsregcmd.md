@@ -68,7 +68,7 @@ Displayed only when the device is Azure AD joined or hybrid Azure AD joined (not
 
 - **DeviceAuthStatus:** Perfoms a check to determine device's health in Azure AD.  
 "SUCCESS" if the device is present and Enabled in Azure AD.  
-"FAILED. Device is either disabled or deleted" if the device is either disabled or deleted, [More Info](faq.md#why-do-my-users-see-an-error-message-saying--your-organization-has-deleted-the-device--or--your-organization-has-disabled-the-device--on-their-windows-10-devices).  
+"FAILED. Device is either disabled or deleted" if the device is either disabled or deleted, [More Info](faq.yml#why-do-my-users-see-an-error-message-saying--your-organization-has-deleted-the-device--or--your-organization-has-disabled-the-device--on-their-windows-10-devices).  
 "FAILED. ERROR" if the test was unable to run. This test requires network connectivity to Azure AD.  
 
 ### Sample device details output

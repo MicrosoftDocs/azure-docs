@@ -606,10 +606,10 @@ Resolution:
 
 Reason: 
 -  AAD is unable to authenticate the device to issue a PRT
--  Confirm the device has not been deleted or disabled  in the Azure portal. [More Info](faq.md#q-why-do-my-users-see-an-error-message-saying-your-organization-has-deleted-the-device-or-your-organization-has-disabled-the-device-on-their-windows-10-devices)
+-  Confirm the device has not been deleted or disabled  in the Azure portal. [More Info](faq.yml#q-why-do-my-users-see-an-error-message-saying-your-organization-has-deleted-the-device-or-your-organization-has-disabled-the-device-on-their-windows-10-devices)
 
 Resolution :
--  Follow steps listed [here](faq.md#q-i-disabled-or-deleted-my-device-in-the-azure-portal-or-by-using-windows-powershell-but-the-local-state-on-the-device-says-its-still-registered-what-should-i-do) to re-register the device based on the device join type.
+-  Follow steps listed [here](faq.yml#q-i-disabled-or-deleted-my-device-in-the-azure-portal-or-by-using-windows-powershell-but-the-local-state-on-the-device-says-its-still-registered-what-should-i-do) to re-register the device based on the device join type.
 
 ---
 
