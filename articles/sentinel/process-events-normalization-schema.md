@@ -206,7 +206,7 @@ The process event schema references the following entities, which are central to
 | **TargetProcessFileProduct**       | Optional     | String     |Example: `Notepad++`  <br><br>The product name from the version information in target process image file.     |
 | **TargetProcessFileSize**          | Optional     | String     |    Size of the file that ran the process responsible for the event. |
 | **TargetProcessFileVersion**       | Optional     | String     | Example: `7.9.5.0`   <br><br>The product version from the version information in the target process image file.  |
-| **TargetProcessFileInternalName**  |    Optional          |            The product internal file name from the version information of the image file of the target process. |
+| **TargetProcessFileInternalName**  |    Optional          |         |   The product internal file name from the version information of the image file of the target process. |
 | **TargetProcessFileOriginallName** |       Optional       |            |   The product original file name from the version information of the image file of the target process. |
 | **TargetProcessIsHidden**          | Optional     | Boolean    |   An indication of whether the target process is in hidden mode.  |
 | **TargetProcessInjectedAddress**   | Optional     | String     |    The memory address in which the responsible target process is stored.           |
@@ -215,13 +215,13 @@ The process event schema references the following entities, which are central to
 | **TargetProcessSHA256**            | Optional     | SHA256     |Example:  `e81bb824c4a09a811af17deae22f22dd2e1ec8cbb00b22629d2899f7c68da274`  <br><br> The SHA-256 hash of the target process image file.       |
 | **TargetProcessSHA512**            | Optional     | SHA512     |   The SHA-512 hash of the target process image file.       |
 | **TargetProcessIMPHASH**           | Optional     | String     |    The Import Hash of all the library DLLs that are used by the target process.    |
-| <a name="targetprocesscommandline"><a/> **TargetProcessCommandLine**       | Mandatory    | String     |Example:  `"choco.exe" -v` <br><br> The command line used to run the target process.     |
-| **TargetProcessCreationTime**      | Mandatory    | DateTime   |    | The product version from the version information of the target process image file.   |
+| <a name="targetprocesscommandline"></a> **TargetProcessCommandLine**       | Mandatory    | String     |Example:  `"choco.exe" -v` <br><br> The command line used to run the target process.     |
+| **TargetProcessCreationTime**      | Mandatory    | DateTime   |    The product version from the version information of the target process image file.   |
 | **TargetProcessId**| Mandatory    | String     | Example: `48610176`   <br><br> The process ID (PID) of the target process.  **Note**: The type is defined as `string` to support varying systems, but on Windows and Linux this value must be numeric. If you are using a Windows or Linux machine and used a different type, make sure to convert the values. For example, if you used a hexadecimal value, convert it to a decimal value.         |
 | **TargetProcessGuid**              | Optional    | String     |Example:  `EF3BD0BD-2B74-60C5-AF5C-010000001E00`  <br><br>A generated unique identifier (GUID) of the target process.     |
 | **TargetProcessIntegrityLevel**    | Optional    | String     |    The integrity level of the target process. Windows assigns integrity levels to processes based on certain characteristics, such as if they were launched from an internet download. <br><br>Assigned integrity levels influence permissions to access resources. |
-| **TargetProcessTokenElevation**    | Optional    | String     |Example:  `None`  Token type indicating the presence or absence of User Access Control (UAC) privilege elevation applied to the process that was created or terminated.          |
-| | | |
+| **TargetProcessTokenElevation**    | Optional    | String     |Example:  `None`  <br><br>Token type indicating the presence or absence of User Access Control (UAC) privilege elevation applied to the process that was created or terminated.          |
+| | | | |
 
 
 
