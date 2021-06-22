@@ -19,9 +19,7 @@ ms.custom: "devx-track-csharp, aaddev"
 
 # How to migrate confidential client applications from ADAL.NET to MSAL.NET
 
-Confidential client applications are web apps, web APIs, and daemon applications (calling another service on their own behalf). For details see [Authentication flows and application scenarios](authentication-flows-app-scenarios.md)
-
-If your app is based on ASP.NET Core, use [Microsoft.Identity.Web](microsoft-identity-web.md)
+Confidential client applications are web apps, web APIs, and daemon applications (calling another service on their own behalf). For details see [Authentication flows and application scenarios](authentication-flows-app-scenarios.md). If your app is based on ASP.NET Core, use [Microsoft.Identity.Web](microsoft-identity-web.md)
 
 The migration process consists of three steps:
 
@@ -70,7 +68,6 @@ The ADAL code for your app uses daemon scenarios if it contains a call to `Authe
 
 - A resource (App ID URI) as a first parameter.
 - A `IClientAssertionCertificate` or `ClientAssertion` as the second parameter.
-- Optionally sets `sendX5c` to help certificate rotation
 
 It doesn't have a parameter of type `UserAssertion`. If it does, then your app is a web API, and it's using [on behalf of flow](/active-directory/develop/msal-net-migration-confidential-client?#migrate-on-behalf-of-calls-obo-in-web-apis) scenario.
 
@@ -123,7 +120,7 @@ public partial class AuthWrapper
   var authResult = await authContext.AcquireTokenAsync(
                                       resourceId,
                                       clientAssertionCert,
-                                      sendX5c: true);
+                                );
 
 
   return authResult;
@@ -157,13 +154,11 @@ public partial class AuthWrapper
    app = ConfidentialClientApplicationBuilder.Create(ClientId)
            .WithCertificate(certificate)
            .WithAuthority(authority)
-           .WithAzureRegion()
            .Build();
   }
 
   var authResult = await app.AcquireTokenForClient(
               new [] { $"{resourceId}/.default" })
-              .WithSendX5C(true)
               .ExecuteAsync()
               .ConfigureAwait(false);
 
@@ -197,7 +192,6 @@ The ADAL code for your app uses OBO if it contains a call to `AuthenticationCont
 - A resource (App ID URI) as a first parameter
 - A `IClientAssertionCertificate` or `ClientAssertion` as the second parameter.
 - A parameter of type `UserAssertion`.
-- Optionally sets `sendX5c` to enable certificate rotation.
 
 #### Update the code using OBO
 
@@ -250,7 +244,7 @@ public partial class AuthWrapper
                                       resourceId,
                                       clientAssertionCert,
                                       userAssertion,
-                                      sendX5c: true);
+                                );
 
   return authResult;
  }
@@ -283,7 +277,6 @@ public partial class AuthWrapper
    app = ConfidentialClientApplicationBuilder.Create(ClientId)
            .WithCertificate(certificate)
            .WithAuthority(authority)
-           .WithAzureRegion()
            .Build();
   }
 
@@ -292,7 +285,6 @@ public partial class AuthWrapper
   var authResult = await app.AcquireTokenOnBehalfOf(
               new string[] { $"{resourceId}/.default" },
               userAssertion)
-              .WithSendX5C(true)
               .ExecuteAsync()
               .ConfigureAwait(false);
   return authResult;
@@ -378,7 +370,7 @@ public partial class AuthWrapper
                                       redirectUri,
                                       clientAssertionCert,
                                       resourceId,
-                                      sendX5c: true);
+                                );
   return authResult;
  }
 }
@@ -408,14 +400,12 @@ public partial class AuthWrapper
            .WithCertificate(certificate)
            .WithAuthority(authority)
            .WithRedirectUri(redirectUri.ToString())
-           .WithAzureRegion()
            .Build();
   }
 
   var authResult = await app.AcquireTokenByAuthorizationCode(
               new [] { $"{resourceId}/.default" },
               authorizationCode)
-              .WithSendX5C(true)
               .ExecuteAsync()
               .ConfigureAwait(false);
   return authResult;
@@ -453,15 +443,10 @@ Some of the key features that come with MSAL.NET are resilience, security, perfo
 
 Using MSAL.NET ensures your app is resilient. This is achieved through the following:
 
-<!-- 1P
-- [Automatic region detection](msal-net-regional-adoption.md) enabled by `.WithAzureRegion()`. The regional ESTS endpoint is only used for `AcquireTokenForClient` and is not yet supported in sovereign clouds (ETA FY22Q1).
--->
 - AAD Cached Credential Service(CCS) benefits. CCS operates as an AAD backup.
 - Proactive renewal of tokens if you enable long lived tokens.
 
 ### Security
-
-`.WithSendX5C` helps you rotate the certificate credentials by using [Subject Name and Issuer Authentication](https://aka.ms/msal-net-sni).
 
 You can also acquire Proof of Possession (PoP) tokens if the web API that you want to call requires it. For details see [Proof Of Possession (PoP) tokens in MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Proof-Of-Possession-(PoP)-tokens)
 
@@ -473,7 +458,6 @@ If you don't need to share your cache with ADAL.NET, disable the legacy cache co
 app = ConfidentialClientApplicationBuilder.Create(ClientId)
         .WithCertificate(certificate)
         .WithAuthority(authority)
-        .WithAzureRegion()
         .WithLegacyCacheCompatibility(false)
         .Build();
 ```
@@ -491,20 +475,13 @@ If you get an exception with the following message: `AADSTS700027: Client assert
 
 - Confirm that you're using the latest version of MSAL.NET,
 - Confirm that the authority host set when building the confidential client application and the authority host you used with ADAL are similar. In particular, is it the same cloud? (PPE, PROD, GGC, DE, Gallatin, and so on ...)
-- Confirm that, if you are sending x5c to help the certificate rotation in ADAL (`sendX5c:true`), now use `.WithSendX5C(true)` on the AcquireTokenXXX() method with MSAL.
 
 ### AADSTS700030 exception
 
-if you get an exception with the following message: `AADSTS90002: Tenant 'cf61953b-e41a-46b3-b500-663d279ea744' not found. This may happen if there are no active subscriptions for the tenant. Check to make sure you have the correct tenant ID. Check with your subscription administrator.`:
+If you get an exception with the following message: `AADSTS90002: Tenant 'cf61953b-e41a-46b3-b500-663d279ea744' not found. This may happen if there are no active subscriptions for the tenant. Check to make sure you have the correct tenant ID. Check with your subscription administrator.`:
 
 - Confirm that you're using the latest version of MSAL.NET,
 - Confirm that the authority host set when building the confidential client application and the authority host you used with ADAL are similar. In particular, is it the same cloud? (PPE, PROD, GGC, DE, Gallatin, and so on ...)
-
-<!--
-### AADSTS100007 exception
-
-if you get an exception with the following message: `AADSTS100007: Regional Cache Auth Service token requests for audience App that is not MSI are forbidden.`
--->
 
 ## Next steps
 
