@@ -14,7 +14,7 @@ title: Frequently asked questions about the Azure API for FHIR
 summary: |
 
 sections:
-  - name: Azure API for FHIR: The Basics
+  - name: "Azure API for FHIR: The Basics"
     questions:
       - question: |
           What is FHIR?
@@ -159,7 +159,7 @@ sections:
         answer: |
           Yes, Azure API for FHIR allows configuring customer-managed keys, leveraging support from Cosmos DB. For more information about encrypting your data with a personal key, check out [this section](customer-managed-key.md).
           
-  - name: Azure API for FHIR: Preview Features
+  - name: "Azure API for FHIR: Preview Features"
     questions:
       - question: |
           Can I configure scaling capacity for Azure IoT Connector for FHIR (preview)?
