@@ -160,7 +160,7 @@ The process event schema references the following entities, which are central to
 | **ActingProcessCommandLine**       | Optional     | String     | Example: `"choco.exe" -v`      <br><br> The command line used to run the acting process.     |
 | **ActingProcessName**              | Optional     | string     | Example: `C:\Windows\explorer.exe`    <br><br> The file name of the acting process image file. This is usually considered the process name.    |
 | **ActingProcessCompany**       | Optional     | String     | Example: `Microsoft`            <br><br> The company that created the acting process image file.      |
-| **ActingProcessFileDescription**   | Optional     | String     |Example:  `Notepad++ : a free (GPL) source code editor`   | The description embedded in the version information of the acting process image file. |
+| **ActingProcessFileDescription**   | Optional     | String     |Example:  `Notepad++ : a free (GPL) source code editor`  <br><br> The description embedded in the version information of the acting process image file. |
 | **ActingProcessFileProduct**       | Optional     | String     | Example: `Notepad++`          <br><br> The product name from the version information in the acting process image file. |
 | **ActingProcessFileVersion**       | Optional     | String     | Example: `7.9.5.0`             <br><br> The product version from the version information of the acting process image file.   |
 | **ActingProcessFileInternalName**  | Optional     | String     |      The product internal file name from the version information of the acting process image file. |
@@ -190,7 +190,7 @@ The process event schema references the following entities, which are central to
 | **ParentProcessIntegrityLevel**    | Optional     | String     |   The integrity level of the parent process. Windows assigns integrity levels to processes based on certain characteristics, such as if they were launched from an internet download. <br><br>Assigned integrity levels influence permissions to access resources. |
 | **ParentProcessMD5**               | Optional     | MD5        |Example: `75a599802f1fa166cdadb360960b1dd0`  <br><br> The MD5 hash of the parent process image file.|
 | **ParentProcessSHA1**              | Optional     | SHA1       |Example:  `d55c5a4df19b46db8c54c801c4665d3338acdab0`  <br><br> The SHA-1 hash of the parent process image file.         |
-| **ParentProcessSHA256**            | Optional     | SHA256     |Example:  `e81bb824c4a09a811af17deae22f22dd2e1ec8cbb00b22629d2899f7c68da274`   | The SHA-256 hash of the parent process image file.       |
+| **ParentProcessSHA256**            | Optional     | SHA256     |Example:  `e81bb824c4a09a811af17deae22f22dd2e1ec8cbb00b22629d2899f7c68da274`  <br><br>The SHA-256 hash of the parent process image file.       |
 | **ParentProcessSHA512**            | Optional     | SHA512     |    The SHA-512 hash of the parent process image file.       |
 | **ParentProcessIMPHASH**           | Optional     | String     |    The Import Hash of all the library DLLs that are used by the parent process.    |
 | **ParentProcessTokenElevation**    | Optional     | String     | Example: `None`    <br><br> A token indicating the presence or absence of User Access Control (UAC) privilege elevation applied to the parent process.  |
