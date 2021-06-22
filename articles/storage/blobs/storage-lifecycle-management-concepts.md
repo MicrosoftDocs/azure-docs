@@ -577,7 +577,7 @@ The platform runs the lifecycle policy once a day. Once you configure a policy, 
 
 **If I update an existing policy, how long does it take for the actions to run?**
 
-The updated policy takes up to 24 hours to go into effect. Once the policy is in effect, it could take up to 24 hours for the actions to run. Therefore, the policy actions may take up to 48 hours to complete.
+The updated policy takes up to 24 hours to go into effect. Once the policy is in effect, it could take up to 24 hours for the actions to run. Therefore, the policy actions may take up to 48 hours to complete. If the update is to disable or delete a rule, and enableAutoTierToHotFromCool was used, auto-tiering to Hot tier will still happen. For example, set a rule including enableAutoTierToHotFromCool based on last access. If the rule is disabled/deleted, and a blob is currently in cool and then accessed, it will move back to Hot as that is applied on access outside of lifecycle management. The blob will not then move from Hot to Cool given the lifecycle management rule is disabled/deleted.  The only way to prevent autoTierToHotFromCool is to turn off last access time tracking. 
 
 **I manually rehydrated an archived blob, how do I prevent it from being moved back to the Archive tier temporarily?**
 

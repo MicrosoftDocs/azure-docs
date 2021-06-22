@@ -2,7 +2,7 @@
 title: Azure Communication Services as an Event Grid source
 description: This article describes how to use Azure Communication Services as an Event Grid event source.
 ms.topic: conceptual
-ms.date: 02/11/2021
+ms.date: 06/11/2021
 ms.author: mikben
 ---
 
@@ -12,7 +12,7 @@ Azure Communication Services integrates with [Azure Event Grid](https://azure.mi
 
 Azure Event Grid is a fully managed event routing service, which uses a publish-subscribe model. Event Grid has built-in support for Azure services like [Azure Functions](../azure-functions/functions-overview.md) and [Azure Logic Apps](../azure-functions/functions-overview.md). It can deliver event alerts to non-Azure services using webhooks. For a complete list of the event handlers that Event Grid supports, see [An introduction to Azure Event Grid](overview.md).
 
-:::image type="content" source="https://docs.microsoft.com/azure/event-grid/media/overview/functional-model.png" alt-text="Diagram showing Azure Event Grid's event model.":::
+:::image type="content" source="./media/overview/functional-model.png" alt-text="Diagram showing Azure Event Grid's event model.":::
 
 > [!NOTE]
 > To learn more about how data residency relates to event handling, visit the [Data Residency conceptual documentation](../communication-services/concepts/privacy.md)
