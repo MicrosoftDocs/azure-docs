@@ -87,7 +87,7 @@ this.callingServerClient = callClientBuilder.buildClient();
 
 ## Create user identity
 
-Use `CommunicationIdentityClientBuilder` object and set the ACS resource connection string via connectionString() function to create a `CommunicationIdentityClient` object and then use `createUser` function to create a source user identity.
+Use the `CommunicationIdentityClientBuilder` object and set the Communication Services resource connection string via the `connectionString()` function to create a `CommunicationIdentityClient` object and then use the `createUser` function to create a source user identity.
 
 ```java
 CommunicationIdentityClient client = new CommunicationIdentityClientBuilder()
