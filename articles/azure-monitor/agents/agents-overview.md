@@ -48,7 +48,7 @@ The [Azure Monitor agent](azure-monitor-agent-overview.md) is meant to replace t
 Use the Azure Monitor agent if you need to:
 
 - Collect guest logs and metrics from any machine in Azure, in other clouds, or on-premises. ([Azure Arc enabled servers](../../azure-arc/servers/overview.md) required for machines outside of Azure.) 
-- Manage data collection configuration centrally, using [data collection rules](./data-collection-rule-overview.md) and use ARM templates or policies for management overall
+- Manage data collection configuration centrally, using [data collection rules](./data-collection-rule-overview.md) and use Azure Resource Manager (ARM) templates or policies for management overall
 - Send data to Azure Monitor Logs and Azure Monitor Metrics for analysis with Azure Monitor. 
 - Leverage Windows event filtering or multi-homing for logs on Windows and Linux
 <!--- Send data to Azure Storage for archiving.
