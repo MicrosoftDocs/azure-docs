@@ -3,7 +3,7 @@ title: Azure EA portal administration
 description: This article explains the common tasks that an administrator accomplishes in the Azure EA portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/19/2021
+ms.date: 06/22/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
@@ -138,7 +138,9 @@ To confirm account ownership:
 
 ## Change Azure subscription or account ownership
 
-Enterprise administrators can use the Azure Enterprise portal to transfer account ownership of selected or all subscriptions in an enrollment.
+This section only applies when a subscription owner is being changed. Changing a subscription ownership does not require an Azure support ticket.
+
+Enterprise administrators can use the Azure Enterprise portal to transfer account ownership of selected or all subscriptions in an enrollment. They also have the option to change the subscription directory (tenant).
 
 When you complete a subscription or account ownership transfer, Microsoft updates the account owner.
 
