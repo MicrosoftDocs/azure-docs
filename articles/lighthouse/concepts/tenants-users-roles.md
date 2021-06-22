@@ -43,9 +43,9 @@ All [built-in roles](../../role-based-access-control/built-in-roles.md) are curr
 > [!NOTE]
 > Once a new applicable built-in role is added to Azure, it can be assigned when [onboarding a customer using Azure Resource Manager templates](../how-to/onboard-customer.md). There may be a delay before the newly-added role becomes available in Partner Center when [publishing a managed service offer](../how-to/publish-managed-services-offers.md).
 
-## Access to delegated resources transferred to a different Azure AD tenant
+## Transferring delegated resources between Azure AD tenants
 
-If a subscription is [transferred to another Azure AD tenant account](../../cost-management-billing/manage/billing-subscription-transfer.md#transfer-a-subscription-to-another-azure-ad-tenant-account), the [registration definition and registration assignment resources](architecture.md#delegation-resources-created-in-the-customer-tenant) created through the [Azure Lighthouse onboarding process](onboard-customer.md) will be preserved. This means that access granted through Azure Lighthouse to managing tenants will remain in effect for that subscription (or for delegated resource groups within that subscription).
+If a subscription is [transferred to another Azure AD tenant account](../../cost-management-billing/manage/billing-subscription-transfer.md#transfer-a-subscription-to-another-azure-ad-tenant-account), the [registration definition and registration assignment resources](architecture.md#delegation-resources-created-in-the-customer-tenant) created through the [Azure Lighthouse onboarding process](../how-to/onboard-customer.md) will be preserved. This means that access granted through Azure Lighthouse to managing tenants will remain in effect for that subscription (or for delegated resource groups within that subscription).
 
 The only exception is if the subscription is transferred to an Azure AD tenant to which it had been previously delegated. In this case, the delegation resources for that tenant are removed and the access granted through Azure Lighthouse will no longer apply, since the subscription now belongs directly to that tenant (rather than being delegated to it through Azure Lighthouse). However, if that subscription had also been delegated to other managing tenants, those other managing tenants will retain the same access to the subscription.
 
