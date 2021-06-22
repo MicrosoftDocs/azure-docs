@@ -79,8 +79,8 @@ The **Deploy-Eflow** command is the main deployment method. The deployment comma
 | memoryInMB | Integer value between 1024 and the maximum amount of free memory of the device |Memory allocated for the VM.<br><br>**Default value**: 1024 MB. |
 | vmDiskSize | Between 8 GB and 256 GB | Maximum disk size of the dynamically expanding virtual hard disk.<br><br>**Default value**: 16 GB. |
 | gpuName | GPU Device name |  Name of GPU device to be used for passthrough. |
-| gpuPassthroughType | **DirectDeviceAssignment**, **ParaVirtualization**, or none (no passthrough) |  GPU Passthrough type |
-| gpuCount | Integer value between 1 and the device's GPU cores | Number of GPU devices for the VM.<br><br>**Note**: Only valid when using DirectDeviceAssignment passthrough type. |
+| gpuPassthroughType | **DirectDeviceAssignment**, **ParaVirtualization**, or none (CPU only) |  GPU Passthrough type |
+| gpuCount | Integer value between 1 and the number of the device's GPU cores | Number of GPU devices for the VM. <br><br>**Note**: If using ParaVirtualization, make sure to set gpuCount = 1 |
 
 For more information, use the command `Get-Help Deploy-Eflow -full`.  
 

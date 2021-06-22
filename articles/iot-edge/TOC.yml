@@ -131,6 +131,8 @@
       href: how-to-manage-device-certificates.md
     - name: Configure nested virtualization for Windows VMs
       href: nested-virtualization.md
+    - name: Configure GPU acceleration for Linux on Windows
+      href: gpu-acceleration.md
   - name: Alternative device scenarios
     items:
     - name: Run IoT Edge with Windows containers
