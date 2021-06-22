@@ -148,7 +148,7 @@ This facility is partially available in the following regions:
 - North Europe
 - West Europe
 
-The frequency or retention period of the backups taken by this facility can't be altered. If a different OS backup strategy is needed for your HLI resources, you may opt out of this facility by raising a support ticket with Microsoft operations. Then configure Microsoft Snapshot Tools for SAP HANA to take OS backups by using the instructions provided earlier in the section, [How to take a manual backup](#how-to-take-a-manual-backup).
+The frequency or retention period of the backups taken by this facility can't be altered. If a different OS backup strategy is needed for your HLI resources, you may opt out of this facility by raising a support ticket with Microsoft operations. Then configure Microsoft Snapshot Tools for SAP HANA to take OS backups by using the instructions provided earlier in the section, [Take a manual backup](#take-a-manual-backup).
 
 ## Next steps
 
