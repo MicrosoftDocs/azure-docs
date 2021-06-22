@@ -33,7 +33,7 @@ You can take the following action items to improve your score:
 Featured Apps promotions operate separately from the search algorithm.
 
 >[!Note]
->If your solution is not appearing correctly in search results, file a support ticket through the Help menu in [Partner Center](https://partner.microsoft.com/).
+>If your solution is not appearing correctly in search results, file a **[support ticket](https://go.microsoft.com/fwlink/?linkid=2165533)** in Partner Center.
 
 Your GTM support also includes a full library of self-help templates, web content, training, and tools to help you further promote your listings and your business.
 
