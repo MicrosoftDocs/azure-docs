@@ -167,7 +167,7 @@ The following image shows a sample flow of exported data into an Azure Storage, 
 
 **To export data into Azure Data Explorer via an Azure Storage and Azure Data Factory**:
 
-1. **Configure the Log Analytics data export to an Event Hub**. For more information, see [Log Analytics workspace data export in Azure Monitor](../azure-monitor/logs/logs-data-export.md?tabs=portal#enable-data-export).
+1. **Configure the Log Analytics data export to a Storage Account**. For more information, see [Log Analytics workspace data export in Azure Monitor](../azure-monitor/logs/logs-data-export.md?tabs=portal#enable-data-export).
 
 1. **Create an Azure Data Explorer cluster and database**. For more information, see:
 
