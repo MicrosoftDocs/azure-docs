@@ -39,7 +39,9 @@ By following these best practices, you can help maximize the performance and cos
 
 * **Use TLS encryption** - Azure Cache for Redis requires TLS encrypted communications by default.  TLS versions 1.0, 1.1 and 1.2 are currently supported.  However, TLS 1.0 and 1.1 are on a path to deprecation industry-wide, so use TLS 1.2 if at all possible.  If your client library or tool doesn't support TLS, then enabling unencrypted connections can be done [through the Azure portal](cache-configure.md#access-ports) or [management APIs](/rest/api/redis/redis/update).  In such cases where encrypted connections aren't possible, placing your cache and client application into a virtual network would be recommended.  For more information about which ports are used in the virtual network cache scenario, see this [table](cache-how-to-premium-vnet.md#outbound-port-requirements).
 
-* **Idle Timeout** - Azure Cache for Redis currently has 10-minute idle timeout for connections, so your setting should be to less than 10 minutes. Most common client libraries have keep-alive configuration that pings Azure Redis automatically. However, in clients that don't have a keep-alive setting, customer applications are responsible for keeping the connection alive.
+* **Idle Timeout** - Azure Cache for Redis currently has 10-minute idle timeout for connections, so your setting should be to less than 10 minutes. Most common client libraries have a configuration setting that allows client libraries to send Redis PING commands to a Redis server automatically and periodically. However, when using client libraries without this type of setting, customer applications themselves are responsible for keeping the connection alive.
+
+<!-- Most common client libraries have keep-alive configuration that pings Azure Redis automatically. However, in clients that don't have a keep-alive setting, customer applications are responsible for keeping the connection alive. -->
 
 ## Memory management
 
