@@ -17,18 +17,17 @@ The Dv4 and Dsv4-series runs on the Intel&reg; Xeon&reg; Platinum 8272CL (Cascad
 
 > [!NOTE]
 > For frequently asked questions, refer to  [Azure VM sizes with no local temp disk](azure-vms-no-temp-disk.md).
+
 ## Dv4-series
 
 Dv4-series sizes run on the Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake). The Dv4-series sizes offer a combination of vCPU, memory and remote storage options for most production workloads. Dv4-series VMs feature [Intel&reg; Hyper-Threading Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html).
 
 Remote Data disk storage is billed separately from virtual machines. To use premium storage disks, use the Dsv4 sizes. The pricing and billing meters for Dsv4 sizes are the same as Dv4-series.
-+
-Note :  Sometimes, You will see a Data_loss_warning text file on the immediate next drive to the C drive (the first data disk attached from the Azure portal) after every reboot.
-However, there will be no data loss on the disk, though you see “Data_loss_warning” file on it.
-In general, Data_loss_waring file is usually copied on the temporary drive. But when customer is using a VM that doesn't have any temp drive, the WindowsAzureGuestAgent incorrectly takes the 1st drive letter and copy the file on it, in V4 VM’s, it's a data disk.
 
-**The fix has been done on the VM agent on the latest version(2.7.41491.999) throughout**.
-+
+> [!NOTE]
+> After a restart, a file named *Data_loss_warning.txt* might be appear beside drive C (the first data disk attached from the Azure portal). In this scenario, despite the file name, no data loss has occurred on the disk. In general, the *Data_loss_warning.txt* file usually is copied on the temporary drive. If you're using a VM that doesn't have a temp drive, WindowsAzureGuestAgent incorrectly copies the file to the first drive letter. In v4 VMs, the first drive letter is a data disk.
+>
+> A resolution for this issue was applied in the latest version (version 2.7.41491.999) of the VM agent.
 
 [ACU](acu.md): 195-210<br>
 [Premium Storage](premium-storage-performance.md): Not Supported<br>
