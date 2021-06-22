@@ -46,6 +46,7 @@ This table shows the list of commands available for Windows VMs. You can use the
 The entity was not found in this Azure location
 ```
 <br>
+
 | **Name** | **Description** |
 |---|---|
 | **RunPowerShellScript** | Runs a PowerShell script |
