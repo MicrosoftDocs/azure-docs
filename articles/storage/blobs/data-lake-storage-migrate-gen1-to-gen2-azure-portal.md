@@ -16,6 +16,8 @@ You can migrate to Gen2 more easily by using *Microsoft managed migration*; a da
 
 Managed migration reduces the number of steps required to complete a migration. You won't have to configure a separate tool to move your data. Also, your workloads and applications can continue working with minimal modifications. For one, you won't have to point your workloads to Gen2 because requests are redirected automatically. Also, your applications can continue using Gen1 APIs because they are compatible with Gen2. 
 
+The managed migration tool moves data and metadata (such as timestamps and ACLs)
+
 > [!IMPORTANT]
 > Migrating from Gen1 to Gen2 by using the Azure portal is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability. 
@@ -67,9 +69,32 @@ To create an account that has Gen2 capabilities, see [Create a storage account t
 
 Something here about setting up Gen1 and Gen2 accounts with the appropriate security access.
 
-## Run the managed migration tool
+## Perform the migration
 
-The managed migration tool moves data and metadata (such as timestamps and ACLs) from your Gen1 account to your Gen2-enabled account. 
+Decide whether you're ready to migrate your account or if you'd rather just copy the data for now, and then disable your Gen1 account later after you've verified that all of your applications and workloads work with your Gen2 account. 
+
+### Option 1: Migrate from Gen1 to Gen2
+
+When you perform a complete migration, data is copied from Gen1 to Gen2. Then, your Gen1 URI is redirected to your Gen2 URI. After the migration completes you won't have access to your Gen1 account. This is the most convenient option, and can make sense if there aren't any critical production workloads or applications that depend on your Gen1 account. 
+ 
+1. Sign in to the [Azure portal](https://portal.azure.com/) to get started.
+
+2. Locate your Data Lake Storage Gen1 account and display the account overview.
+
+3. Select the **Migrate data** button.  
+
+   > [!div class="mx-imgBorder"]
+   > ![Image Hint2](./media/data-lake-storage-migrate-gen1-to-gen2-azure-portal/migration-tool.png)
+
+4. Select **Complete migration to a new ADLS gen 2 account**.
+
+5. Select the checkbox that provides Microsoft with your consent to perform the data migration, and then click the **Apply** button.
+
+Put table of process here.
+
+### Option 2: Copy only data and retire Gen1 account later
+
+With this option, a snapshot of your data is copied from Gen1 to Gen2. After the data is copied, both accounts remain active. Then, you modify applications and workloads to use your Gen2 account without interrupting production availability. Once you've verified that they work as expected, you can work our team to redirect your Gen1 URI to your Gen2 URI and then retire the Gen1 account.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) to get started.
 
@@ -80,18 +105,11 @@ The managed migration tool moves data and metadata (such as timestamps and ACLs)
    > [!div class="mx-imgBorder"]
    > ![Image Hint2](./media/data-lake-storage-migrate-gen1-to-gen2-azure-portal/migration-tool.png)
 
-4. If you want to copy only data, select **Copy data to a new ADLS Gen2 account**.
-
-   A snapshot of your data is copied from Gen1 to Gen2 and post the data migration, both Gen1 and Gen2 accounts will be active. 
-
-   If you want to perform a complete migration, select **Complete migration to a new ADLS gen 2 account**.
-   
-   Data will be copied from Gen1 to Gen2, and post the data copy, your Gen1 account URI will point to Gen2, you will not be able to access your Gen1 account post the migration. 
+4. Select **Copy data to a new ADLS Gen2 account**.
 
 5. Select the checkbox that provides Microsoft with your consent to perform the data migration, and then click the **Apply** button.
 
-
-
+Put table of process here.
 
 ## Test your applications
  
@@ -108,7 +126,6 @@ After the data migration is complete, you can test your applications against you
    While these versions aren't technically required, they ensure that you will encounter the least number of issues with the *compatibility layer*. The compatibility layer is what enables your application to continue using Gen1 APIs. 
 
 3. In your application code and related configuration files, find and replace Gen1 URLs with Gen2 URLs.
-
    For example, if your Gen1 account is named `mygen1account` and your Gen2 account is named `mygen2account`, you would replace any instances of the string `mygen1account.azuredatalakestore.net` with `mygen2account.dfs.core.windows.net`.
 
 4. Review the list of known issues with the compatibility layer. see the [Known issues with the Gen1 compatibility layer](#known-issues) section of this article.
