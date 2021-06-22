@@ -203,7 +203,7 @@ Response<AddParticipantResult> response = callConnection.addParticipantWithRespo
 
 ## Cancel media processing
 
-Use `cancelAllMediaOperationsWithResponse` method of `CallConnection` object to cancel the play audio operation. The following are the supported parameters for `cancelAllMediaOperationsWithResponse` method:
+Use the `cancelAllMediaOperationsWithResponse` method of the `CallConnection` object to cancel the play audio operation. The following parameters are supported by the `cancelAllMediaOperationsWithResponse` method:
 
 - `operationContext`, is the unique ID for request context.
 
