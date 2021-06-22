@@ -54,7 +54,7 @@ To solve this issue, refer to the following recommendations:
 
     :::image type="content" source="./media/data-flow-troubleshoot-connector-format/upgrade-storage-account.png" alt-text="Screenshot that shows how to upgrade the storage account to general purpose v2." lightbox="./media/data-flow-troubleshoot-connector-format/upgrade-storage-account.png"::: 
 
-## Azure Cosmos DB & JSON format
+## Azure Cosmos DB and JSON format
 
 ### Support customized schemas in the source
 
