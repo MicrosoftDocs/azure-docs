@@ -1,7 +1,7 @@
 ---
-title: Troubleshoot issues with advanced diagnostics queries
+title: Troubleshoot issues with advanced diagnostics queries for Cassandra API
 titleSuffix: Azure Cosmos DB
-description: Learn how to query diagnostics logs for troubleshooting data stored in Azure Cosmos DB
+description: Learn how to query diagnostics logs for troubleshooting data stored in Azure Cosmos DB for Cassandra API
 author: StefArroyo
 services: cosmos-db
 ms.service: cosmos-db
@@ -10,7 +10,7 @@ ms.date: 06/12/2021
 ms.author: esarroyo 
 ---
 
-# Troubleshoot issues with advanced diagnostics queries
+# Troubleshoot issues with advanced diagnostics queries for Cassandra API
 
 [!INCLUDE[appliesto-all-apis-except-table](includes/appliesto-all-apis-except-table.md)]
 
@@ -59,7 +59,7 @@ AzureDiagnostics
 ```    
 ---
 
-1. Requests throttled (statusCode = 429) in a given time window 
+2. Requests throttled (statusCode = 429) in a given time window 
 
 # [Resource-specific](#tab/resource-specific)
 
@@ -78,7 +78,7 @@ CDBCassandraRequests
 ```Kusto
 let throttledRequests = AzureDiagnostics
 | where Category == "DataPlaneRequests"
-| where statusCode_s == "200" or statusCode_s == "16500" 
+| where statusCode_s == "429"
 | project  OperationName , TimeGenerated, activityId_g;
 AzureDiagnostics
 | where Category == "CassandraRequests"
@@ -88,7 +88,7 @@ AzureDiagnostics
 ```    
 ---
 
-1. Queries with large response lengths (payload size of the server response)
+3. Queries with large response lengths (payload size of the server response)
 
 # [Resource-specific](#tab/resource-specific)
 
@@ -96,6 +96,8 @@ AzureDiagnostics
 let operationsbyUserAgent = CDBDataPlaneRequests
 | project OperationName, DurationMs, RequestCharge, ResponseLength, ActivityId;
 CDBCassandraRequests
+//specify collection and database
+| where DatabaseName == "Demo" and CollectionName == "Benchmark"
 | join kind=inner operationsbyUserAgent on ActivityId
 | summarize max(ResponseLength) by PIICommandText
 | order by max_ResponseLength desc
@@ -109,22 +111,26 @@ let operationsbyUserAgent = AzureDiagnostics
 | project OperationName, duration_s, requestCharge_s, responseLength_s, activityId_g;
 AzureDiagnostics
 | where Category == "CassandraRequests"
+//specify collection and database
+//| where databasename_s == "DBNAME" and collectioname_s == "COLLECTIONNAME"
 | join kind=inner operationsbyUserAgent on activityId_g
 | summarize max(responseLength_s1) by piiCommandText_s
 | order by max_responseLength_s1 desc
 ```    
 ---
 
-1. RU Consumption by physical partition (across all replicas in the replica set)
+4. RU Consumption by physical partition (across all replicas in the replica set)
 
 # [Resource-specific](#tab/resource-specific)
-    
+
 ```Kusto
 CDBPartitionKeyRUConsumption
 | where TimeGenerated >= now(-1d)
+//specify collection and database
+| where DatabaseName == "Demo" and CollectionName == "Benchmark"
 // filter by operation type
 //| where operationType_s == 'Create'
- | summarize sum(todouble(RequestCharge)) by toint(PartitionKeyRangeId)
+| summarize sum(todouble(RequestCharge)) by toint(PartitionKeyRangeId)
 | render columnchart
 ```
 
@@ -134,6 +140,8 @@ CDBPartitionKeyRUConsumption
 AzureDiagnostics
 | where TimeGenerated >= now(-1d)
 | where Category == 'PartitionKeyRUConsumption'
+//specify collection and database
+//| where databasename_s == "DBNAME" and collectioname_s == "COLLECTIONNAME"
 // filter by operation type
 //| where operationType_s == 'Create'
 | summarize sum(todouble(requestCharge_s)) by toint(partitionKeyRangeId_s)
@@ -141,12 +149,14 @@ AzureDiagnostics
 ```    
 ---
 
-1. RU Consumption by logical partition (across all replicas in the replica set)
+5. RU Consumption by logical partition (across all replicas in the replica set)
 
 # [Resource-specific](#tab/resource-specific)
 ```Kusto
 CDBPartitionKeyRUConsumption
 | where TimeGenerated >= now(-1d)
+//specify collection and database
+| where DatabaseName == "Demo" and CollectionName == "Benchmark"
 // filter by operation type
 //| where operationType_s == 'Create'
 | summarize sum(todouble(RequestCharge)) by PartitionKey, PartitionKeyRangeId
@@ -154,11 +164,13 @@ CDBPartitionKeyRUConsumption
 ```
 
 # [Azure Diagnostics](#tab/azure-diagnostics)
-    
+
 ```Kusto
 AzureDiagnostics
 | where TimeGenerated >= now(-1d)
 | where Category == 'PartitionKeyRUConsumption'
+//specify collection and database
+//| where databasename_s == "DBNAME" and collectioname_s == "COLLECTIONNAME"
 // filter by operation type
 //| where operationType_s == 'Create'
 | summarize sum(todouble(requestCharge_s)) by partitionKey_s, partitionKeyRangeId_s
