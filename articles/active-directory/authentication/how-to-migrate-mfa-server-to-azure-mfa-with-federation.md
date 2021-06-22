@@ -55,13 +55,17 @@ Depending on your configuration, you may also need to copy the existing rule and
 
 To view existing global rules, run:  
 
-`Get-AdfsAdditionalAuthenticationRule` 
+```powershell
+Get-AdfsAdditionalAuthenticationRule
+```
 
 To view existing relying party trusts, run the following command and replace RPTrustName with the name of the relying party trust claims rule: 
 
-`(Get-AdfsRelyingPartyTrust -Name “RPTrustName”).AdditionalAuthenticationRules `
+```powershell
+(Get-AdfsRelyingPartyTrust -Name “RPTrustName”).AdditionalAuthenticationRules 
+```
 
-Access Control Policies
+#### Access control policies
 
 > [!NOTE]
 > Access control policies can’t be configured so that a specific authentication provider is invoked based on group membership. 
@@ -70,7 +74,9 @@ Access Control Policies
 To transition from access control policies to additional authentication rules, run the following command for each of your Relying Party Trusts using the MFA Server authentication provider:
 
 
-`Set-AdfsRelyingPartyTrust -**TargetName AppA -AccessControlPolicyName $Null**`
+```powershell
+Set-AdfsRelyingPartyTrust -TargetName AppA -AccessControlPolicyName $Null
+```
 
  
 
