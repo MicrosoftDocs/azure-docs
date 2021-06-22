@@ -18,9 +18,9 @@ ms.author: yelevin
 ---
 # Authenticate playbooks to Azure Sentinel
 
-One thing to always keep in mind when working with playbooks, but that may be a source of confusion, is that playbooks are resources provided by the Azure Logic Apps service. As such, they are not natively part of the core Azure Sentinel service (which is why their use is billed separately). The way Logic Apps works, it has to connect separately and authenticate independently to every resource of every type that it interacts with, including to Azure Sentinel itself. Logic Apps uses [specialized connectors](/connectors/connector-reference/) for this purpose, with each resource type having its own connector. This document explains the types of connection and authentication in the [Logic Apps Azure Sentinel connector](/connectors/azuresentinel/), that playbooks can use to interact with Azure Sentinel in order to have access to the information in your workspace's tables.
+The way Logic Apps works, it has to connect separately and authenticate independently to every resource of every type that it interacts with, including to Azure Sentinel itself. Logic Apps uses [specialized connectors](/connectors/connector-reference/) for this purpose, with each resource type having its own connector. This document explains the types of connection and authentication in the [Logic Apps Azure Sentinel connector](/connectors/azuresentinel/), that playbooks can use to interact with Azure Sentinel in order to have access to the information in your workspace's tables.
 
-This document, along with our [playbook reference guide](playbook-reference.md), is a companion to our other playbook documentation - [Tutorial: Use playbooks with automation rules in Azure Sentinel](tutorial-respond-threats-playbook.md).
+This document, along with our guide to [using triggers and actions in playbooks](playbook-triggers-actions.md), is a companion to our other playbook documentation - [Tutorial: Use playbooks with automation rules in Azure Sentinel](tutorial-respond-threats-playbook.md).
 
 For an introduction to playbooks, see [Automate threat response with playbooks in Azure Sentinel](automate-responses-with-playbooks.md).
 
@@ -137,4 +137,4 @@ In order to change the authorization of an existing connection, enter the connec
 ## Next steps
 
 In this article, you learned about the different methods of authenticating a Logic Apps-based playbook to Azure Sentinel.
-- See additional helpful information on playbooks in our [playbook reference guide](playbook-reference.md).
+- Learn more about how to [use triggers and actions in playbooks](playbook-triggers-actions.md).

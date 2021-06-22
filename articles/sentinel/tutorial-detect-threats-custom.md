@@ -212,6 +212,7 @@ In the **Alert grouping** section, if you want a single incident to be generated
     - For alert-based automation, select from the drop-down list under **Alert automation** any playbooks you want to run automatically when an alert is generated.
     - For incident-based automation, select or create an automation rule under **Incident automation (preview)**. You can call playbooks (those based on the **incident trigger**) from these automation rules, as well as automate triage, assignment, and closing.
     - For more information and instructions on creating playbooks and automation rules, see [Automate threat responses](tutorial-respond-threats-playbook.md#automate-threat-responses).
+    - For more information about when to use the **alert trigger** or the **incident trigger**, see [Use triggers and actions in Azure Sentinel playbooks](playbook-triggers-actions.md#azure-sentinel-triggers-summary).
 
     :::image type="content" source="media/tutorial-detect-threats-custom/automated-response-tab.png" alt-text="Define the automated response settings":::
 

@@ -328,7 +328,7 @@
     - name: Authenticate playbooks to Azure Sentinel
       href: authenticate-playbooks-to-sentinel.md
     - name: Use triggers and actions in playbooks
-      href: playbook-reference.md
+      href: playbook-triggers-actions.md
   - name: Manage Azure Sentinel
     items:
     - name: Manage workspace access

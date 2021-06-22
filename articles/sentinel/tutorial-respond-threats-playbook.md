@@ -121,6 +121,8 @@ Every playbook must start with a trigger. The trigger defines the action that wi
 
     > [!NOTE]
     > Remember that only playbooks based on the **incident trigger** can be called by automation rules. Playbooks based on the **alert trigger** must be defined to run directly in [analytics rules](tutorial-detect-threats-custom.md#set-automated-responses-and-create-the-rule) and can also be run manually.
+    > 
+    > For more about which trigger to use, see [**Use triggers and actions in Azure Sentinel playbooks**](playbook-triggers-actions.md)
 
     :::image type="content" source="./media/tutorial-respond-threats-playbook/choose-trigger.png" alt-text="Choose a trigger for your playbook":::
 
