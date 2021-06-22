@@ -22,7 +22,7 @@ Request throttling is the most common reason for slow requests. Azure Cosmos DB 
 
 ## Application design
 
-Not following the SDK practices will result in different issues that will cause slow or failed requests. Follow the [performance guide](performance-tips-dotnet-sdk-v3-sql.md). 
+If your application doesn't follow the SDK best practices, it can result in different issues that will cause slow or failed requests. Follow the [.NET SDK best practices](performance-tips-dotnet-sdk-v3-sql.md) for the best performance.
 
 Key points:
 1. Application in same region as Cosmos DB service
