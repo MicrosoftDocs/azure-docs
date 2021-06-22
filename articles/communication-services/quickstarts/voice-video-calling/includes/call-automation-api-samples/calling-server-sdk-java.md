@@ -214,7 +214,7 @@ Response<CancelAllMediaOperationsResult> cancelmediaresponse = this.callConnecti
 
 ## Hang up the call
 
-Use `hangupWithResponse` method of `CallConnection` object to hang up the call.
+Use the `hangupWithResponse` method of `CallConnection` object to hang up the call.
 
 ```java
 Response<Void> response = this.callConnection.hangupWithResponse(null);
