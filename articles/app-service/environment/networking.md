@@ -27,14 +27,14 @@ The ASE has the following network information at creation:
 | ASE subnet | The subnet that the ASE is deployed into |
 | Domain suffix | The domain suffix that is used by the apps made in this ASE |
 | Virtual IP | This is the VIP type used by the ASE. The two possible values are internal and external |
-| Inbound address | The inbound address is address your apps on this ASE are reached at. If you have an internal VIP it is an address in your ASE subnet. If the address is external it will be a public facing address |
+| Inbound address | The inbound address is the address your apps on this ASE are reached at. If you have an internal VIP, it is an address in your ASE subnet. If the address is external, it will be a public facing address |
 | Default outbound addresses | The apps in this ASE will use this address, by default, when making outbound calls to the internet. |
 
 The ASEv3 has details on the addresses used by the ASE in the **IP Addresses** portion of the ASE portal.
 
 ![ASE addresses UI](./media/networking/networking-ip-addresses.png)
 
-As you scale your App Service plans in your ASE, you'll use more addresses out of your ASE subnet. The number of addresses used will vary based on the number of App Service plan instances you have as well as how much traffic your ASE is receiving. Apps in the ASE don't have dedicated addresses in the ASE subnet. The specific addresses used by an app in the ASE subnet by an app will change over time.
+As you scale your App Service plans in your ASE, you'll use more addresses out of your ASE subnet. The number of addresses used will vary based on the number of App Service plan instances you have, and how much traffic your ASE is receiving. Apps in the ASE don't have dedicated addresses in the ASE subnet. The specific addresses used by an app in the ASE subnet by an app will change over time.
 
 ## Ports
 
@@ -42,13 +42,13 @@ The ASE receives application traffic on ports 80 and 443.  There is also a keep 
 
 ## Extra configurations
 
-You can set Network Security Groups (NSGs) and Route Tables (UDRs) without restriction. You can force tunnel all of the outbound traffic from your ASE to an egress firewall device, such as the Azure Firewall, and not have to worry about anything other than your application dependencies. You can put WAF devices, such as the Application Gateway, in front of inbound traffic to your ASE to expose specific apps on that ASE. For a different dedicated outbound address to the internet, you can use a NAT Gateway with your ASE. To use a NAT Gateway with your ASE, simply configure the NAT Gateway against the ASE subnet. 
+You can set Network Security Groups (NSGs) and Route Tables (UDRs) without restriction. You can force tunnel all of the outbound traffic from your ASE to an egress firewall device, such as the Azure Firewall, and not have to worry about anything other than your application dependencies. You can put WAF devices, such as the Application Gateway, in front of inbound traffic to your ASE to expose specific apps on that ASE. For a different dedicated outbound address to the internet, you can use a NAT Gateway with your ASE. To use a NAT Gateway with your ASE, configure the NAT Gateway against the ASE subnet. 
 
 ## DNS
 
 ### DNS configuration to your ASE
 
-If your ASE is made with an external VIP, your apps are automatically put into public DNS. If your ASE is made with an internal VIP, you may need to configure DNS for it. If you selected having Azure DNS private zones configured automatically during ASE creation then DNS is configured in your ASE VNet. If you selected Manually configuring DNS, you need to either use your own DNS server or configure Azure DNS private zones. To find the inbound address of your ASE, go to the **ASE portal > IP Addresses** UI. 
+If your ASE is made with an external VIP, your apps are automatically put into public DNS. If your ASE is made with an internal VIP, you may need to configure DNS for it. If you selected having Azure DNS private zones configured automatically during ASE creation, then DNS is configured in your ASE VNet. If you selected Manually configuring DNS, you need to either use your own DNS server or configure Azure DNS private zones. To find the inbound address of your ASE, go to the **ASE portal > IP Addresses** UI. 
 
 If you want to use your own DNS server, you need to add the following records:
 
