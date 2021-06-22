@@ -66,7 +66,7 @@ For this tutorial, we're going to use a sample movies rating file and renaming a
 ### Tutorial objectives
 
 1. Create a source dataset for the movies CSV file
-1. Create a lookup dataset for a field mapping JSON configuraiton file
+1. Create a lookup dataset for a field mapping JSON configuration file
 1. Convert the columns from the source to your target column names
 
 ### Start from a blank data flow canvas
