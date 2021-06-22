@@ -37,7 +37,7 @@ Don’t reuse groups that are used for security. If you are using a security gro
 
 ### Upgrade AD FS server farm to 2019, FBL 4
 
-In AD FS 2019, you can specify additional authentication methods for a relying party, such as an application. You use group membership to determine authentication provider. By specifying an additional authentication method, you can transition to Azure AD MFA while keeping other authentication intact during the transition. For more information, see [Upgrading to AD FS in Windows Server 2016 using a WID database](/windows-server/identity/ad-fs/deployment/upgrading-to-ad-fs-in-windows-server.md). The article covers both upgrading your farm to AD FS 2019 and upgrading your FBL to 4.
+In AD FS 2019, you can specify additional authentication methods for a relying party, such as an application. You use group membership to determine authentication provider. By specifying an additional authentication method, you can transition to Azure AD MFA while keeping other authentication intact during the transition. For more information, see [Upgrading to AD FS in Windows Server 2016 using a WID database](/windows-server/identity/ad-fs/deployment/upgrading-to-ad-fs-in-windows-server). The article covers both upgrading your farm to AD FS 2019 and upgrading your FBL to 4.
 
 ### Configure claims rules to invoke Azure AD MFA
 
@@ -91,7 +91,7 @@ To find the group SID, use the following command, with your group name
 
 The following PowerShell cmdlets invoke Azure AD MFA for users in the group when not on the corporate network. Replace "YourGroupSid” with the SID found by running the above cmdlet.
 
-ake sure you review the [How to Choose Additional Auth Providers in 2019](/windows-server/identity/ad-fs/overview/whats-new-active-directory-federation-services-windows-server.md). 
+ake sure you review the [How to Choose Additional Auth Providers in 2019](/windows-server/identity/ad-fs/overview/whats-new-active-directory-federation-services-windows-server). 
 
  > [!IMPORTANT]
 > Backup your existing claims rules
@@ -190,7 +190,7 @@ Value==“YourGroupSid"]) => issue(Type =
 
 To configure Azure AD MFA for AD FS, you must configure each AD FS server. If you have multiple AD FS servers in your farm, you can configure them remotely using Azure AD PowerShell.
 
-For step-by-step directions on this process, see [Configure the AD FS servers](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-and-azure-mfa) in the article [Configure Azure AD MFA as authentication provider with AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-and-azure-mfa).
+For step-by-step directions on this process, see [Configure the AD FS servers](/windows-server/identity/ad-fs/operations/configure-ad-fs-and-azure-mfa) in the article [Configure Azure AD MFA as authentication provider with AD FS](/windows-server/identity/ad-fs/operations/configure-ad-fs-and-azure-mfa).
 
 Once you've configured the servers, you can add Azure AD MFA as an additional authentication method. 
 
@@ -208,7 +208,7 @@ For federated domains, MFA may be enforced by Azure AD Conditional Access or by 
 
 If the SupportsMFA flag is set to False, you're likely not using Azure MFA; you're probably using claims rules on AD FS relying parties to invoke MFA.
 
-You can check the status of your SupportsMFA flag with the following [Windows PowerShell cmdlet](https://docs.microsoft.com/powershell/module/msonline/get-msoldomainfederationsettings?view=azureadps-1.0):
+You can check the status of your SupportsMFA flag with the following [Windows PowerShell cmdlet](/powershell/module/msonline/get-msoldomainfederationsettings?view=azureadps-1.0):
 
 ` Get-MsolDomainFederationSettings –DomainName yourdomain.com`
 
@@ -228,11 +228,10 @@ After creating conditional access policies to enforce the same controls as AD FS
 
 For more information, see the following resources:
 
-* [Plan a Conditional Access deployment](https://docs.microsoft.com/azure/active-directory/conditional-access/plan-conditional-access)
+* [Plan a Conditional Access deployment](../conditional-access/plan-conditional-access.md)
 
-* [Common Conditional Access policies](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-policy-common)
+* [Common Conditional Access policies](../conditional-access/concept-conditional-access-policy-common.md)
 
- 
 
 ## Register users for Azure MFA
 
@@ -256,14 +255,14 @@ Have users register for combined security information, which is a single place t
 
 Microsoft provides communication templates that you can provide to your users to guide them through the combined registration process. These include templates for email, posters, table tents, and other assets. Users register their information at [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo), which takes them to the combined security registration screen. 
 
-We recommend that you [secure the security registration process with Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-policy-registration) that requires the registration to occur from a trusted device or location.
+We recommend that you [secure the security registration process with Conditional Access](../conditional-access/howto-conditional-access-policy-registration) that requires the registration to occur from a trusted device or location.
 
 > [!NOTE]
 > Users who MUST register their combined security information from a non-trusted location or device, the user can be issued a Temporary Access Pass or temporarily excluded from the policy.
 
 ### Migrate phone numbers from MFA Server
 
-Migrating phone numbers can lead to stale numbers being migrated, and make users more likely to stay on phone-based MFA instead of setting up more secure methods like [passwordless sign-in with the Microsoft Authenticator](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-phone) app. You can't migrate device registrations such as their Microsoft Authenticator app settings. We recommend that you have all users register for [combined security information](https://docs.microsoft.com/azure/active-directory/authentication/howto-registration-mfa-sspr-combined). Combined security information also registers users for self-service password reset.
+Migrating phone numbers can lead to stale numbers being migrated, and make users more likely to stay on phone-based MFA instead of setting up more secure methods like [passwordless sign-in with the Microsoft Authenticator](../authentication/howto-authentication-passwordless-phone.md) app. You can't migrate device registrations such as their Microsoft Authenticator app settings. We recommend that you have all users register for [combined security information](../authentication/howto-registration-mfa-sspr-combined.md). Combined security information also registers users for self-service password reset.
 
 If having users register their combined security information is absolutely not an option, it's possible to export the users and their phone numbers from MFA Server and import the phone numbers into Azure AD.
  

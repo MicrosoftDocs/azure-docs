@@ -145,7 +145,7 @@ Others might include:
 - Citrix Gateway
   - [Citrix Gateway](https://docs.citrix.com/advanced-concepts/implementation-guides/citrix-gateway-microsoft-azure.html#microsoft-azure-mfa-deployment-methods) supports both RADIUS and NPS extension integration, and a SAML integration.
 - Cisco VPN
-  - The Cisco VPN supports both RADIUS and [SAML authentication for SSO](https://docs.microsoft.com/azure/active-directory/saas-apps/cisco-anyconnect).
+  - The Cisco VPN supports both RADIUS and [SAML authentication for SSO](../saas-apps/cisco-anyconnect.md).
   - By moving from RADIUS authentication to SAML, you can integrate the Cisco VPN without deploying the NPS extension.
 - All VPNs
   - We recommend federating your VPN as a SAML app if possible. This will allow you to use Conditional Access. For more information, see a [list of VPN vendors that are integrated into the Azure AD](../manage-apps/secure-hybrid-access#sha-through-vpn-and-sdp-applications.md) App gallery.
@@ -153,10 +153,10 @@ Others might include:
 
 ### Resources for deploying NPS
 
-- [Adding new NPS infrastructure](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top)
+- [Adding new NPS infrastructure](/windows-server/networking/technologies/nps/nps-top)
 - [NPS deployment best practices](https://www.youtube.com/watch?v=qV9wddunpCY)
-- [Azure MFA NPS extension health check script](https://docs.microsoft.com/samples/azure-samples/azure-mfa-nps-extension-health-check/azure-mfa-nps-extension-health-check/)
-- [Integrating existing NPS infrastructure with Azure AD MFA](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-nps-extension-vpn)
+- [Azure MFA NPS extension health check script](/samples/azure-samples/azure-mfa-nps-extension-health-check/azure-mfa-nps-extension-health-check/)
+- [Integrating existing NPS infrastructure with Azure AD MFA](howto-mfa-nps-extension-vpn.md)
 
 ## Next steps
 
