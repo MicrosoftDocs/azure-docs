@@ -138,7 +138,7 @@ Single store result for a single request
 
 RntbdRequestStats show the time for the different stages of sending and receiving a request.
 
-* ChannelAcquisitionStarted: The time to get or create a new connection. New connections can be created for numerous different regions. For example a connection was unexpectedly closed or to many requests where getting sent through the existing connections so a new connection is being created. 
+* ChannelAcquisitionStarted: The time to get or create a new connection. New connections can be created for numerous different regions. For example, a connection was unexpectedly closed or too many requests were getting sent through the existing connections so a new connection is being created. 
 * Pipelined time is large points to possibly a large request.
 * Transit time is large, which leads to a networking issue. Compare this number to the `BELatencyInMs`. If the BELatencyInMs is small, then the time was spent on the network and not on the Azure Cosmos DB service.
 
