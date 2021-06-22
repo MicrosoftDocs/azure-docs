@@ -28,13 +28,13 @@ This article guides through the following tasks:
 
 - Step 2: Create a storage account that has Gen2 capabilities
 
-- Step 3: Configure security for both Gen1 and Gen2 accounts
+- Step 3: Verify RBAC role assignments
 
-- Step 3: Run the managed migration tool
+- Step 4: Perform the migration
 
-- Step 4. Test your applications
+- Step 5. Test your applications
 
-- Step 5: Complete the migration
+- Step 6: Complete the migration
 
 Be sure to read the general guidance about how to migrate from Gen1 to Gen2. See [Migrate Azure Data Lake Storage from Gen1 to Gen2](data-lake-storage-migrate-gen1-to-gen2.md).
 
@@ -57,7 +57,7 @@ To create an account that has Gen2 capabilities, see [Create a storage account t
 |--|--|
 | **Storage account name** | Any name that you want. This name doesn't have to match the name of your Gen1 account |
 | **Location** | The same region used by the Data Lake Storage Gen1 account. |
-| **Replication** | LRS |
+| **Replication** | LRS or ZRS |
 | **Minimum TLS version** | 1.0 |
 | **NFS v3** | Disabled |
 | **Hierarchical namespace** | Enabled |
@@ -65,9 +65,11 @@ To create an account that has Gen2 capabilities, see [Create a storage account t
 > [!NOTE]
 > The managed migration tool doesn't move account settings. Therefore, after you've created the account, you'll have to manually configure settings such as encryption, network firewalls, data protection. 
 
-## Configure security for both Gen1 and Gen2 accounts
+Something here about setting proper permissions on storage account (RBAC)
 
-Something here about setting up Gen1 and Gen2 accounts with the appropriate security access.
+## Verify RBAC role assignments
+
+Something here about ensuring the proper permissions on Gen1 and Gen2.
 
 ## Perform the migration
 
@@ -75,7 +77,10 @@ Decide whether you're ready to migrate your account or if you'd rather just copy
 
 ### Option 1: Migrate from Gen1 to Gen2
 
-When you perform a complete migration, data is copied from Gen1 to Gen2. Then, your Gen1 URI is redirected to your Gen2 URI. After the migration completes you won't have access to your Gen1 account. This is the most convenient option, and can make sense if there aren't any critical production workloads or applications that depend on your Gen1 account. 
+When you perform a complete migration, data is copied from Gen1 to Gen2. Then, your Gen1 URI is redirected to your Gen2 URI. After the migration completes you won't have access to your Gen1 account and all Gen1 requests will be redirected to your Gen2 enabled account. This is the most convenient option. This option might make sense if there aren't any critical production workloads or applications that depend on your Gen1 account. 
+
+> [!NOTE]
+> Gen2 doesn't support Azure Data Lake Analytics applications. If you have any, make sure to move them to Azure Synapse Analytics or another supported workload before you migrate from Gen1 to Gen2.
  
 1. Sign in to the [Azure portal](https://portal.azure.com/) to get started.
 
@@ -90,11 +95,15 @@ When you perform a complete migration, data is copied from Gen1 to Gen2. Then, y
 
 5. Select the checkbox that provides Microsoft with your consent to perform the data migration, and then click the **Apply** button.
 
-Put table of process here.
+   - While your data is being migrated, your Gen1 account becomes read-only, and the Gen2-enabled account is disabled. 
+   - After data is migrated, and while the Gen1 URI is being redirected, both accounts are disabled. 
+   - After the migration completes, your Gen1 account is disabled, and you can read and write to your Gen2-enabled account.
+
+   You can stop the migration at any time before the URI is redirected by selecting the **Stop migration** button.
 
 ### Option 2: Copy only data and retire Gen1 account later
 
-With this option, a snapshot of your data is copied from Gen1 to Gen2. After the data is copied, both accounts remain active. Then, you modify applications and workloads to use your Gen2 account without interrupting production availability. Once you've verified that they work as expected, you can work our team to redirect your Gen1 URI to your Gen2 URI and then retire the Gen1 account.
+With this option, a snapshot of your data is copied from Gen1 to Gen2. After the data is copied, both accounts remain active. Then, you modify applications and workloads to use your new Gen2-enabled account without interrupting production availability. Once you've verified that they work as expected, you can work our team to redirect your Gen1 URI to your Gen2 URI and then retire the Gen1 account.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) to get started.
 
@@ -109,13 +118,36 @@ With this option, a snapshot of your data is copied from Gen1 to Gen2. After the
 
 5. Select the checkbox that provides Microsoft with your consent to perform the data migration, and then click the **Apply** button.
 
-Put table of process here.
+   While your data is being migrated, your Gen1 account becomes read-only, and your Gen2-enabled account is disabled. After the migration completes, You can read and write to both accounts.
 
-## Test your applications
+   You can stop the migration at any time by selecting the **Stop migration** button.
+
+## Migrate workloads and applications
+
+After you migrate, modify workloads, and applications to use your Gen2-enabled account. We recommend that you validate scenarios incrementally.
+
+1. Configure [services in your workloads](./data-lake-storage-supported-azure-services.md) to point to your Gen2 endpoint. 
+   
+2. Update applications to use Gen2 APIs. See these guides:
+
+| Environment | Article |
+|--------|-----------|
+|Azure Storage Explorer |[Use Azure Storage Explorer to manage directories and files in Azure Data Lake Storage Gen2](data-lake-storage-explorer.md)|
+|.NET |[Use .NET to manage directories and files in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-dotnet.md)|
+|Java|[Use Java to manage directories and files in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-java.md)|
+|Python|[Use Python to manage directories and files in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-python.md)|
+|JavaScript (Node.js)|[Use JavaScript SDK in Node.js to manage directories and files in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-javascript.md)|
+|REST API |[Azure Data Lake Store REST API](/rest/api/storageservices/data-lake-storage-gen2)|
  
-After the data migration is complete, you can test your applications against your new account to ensure that they work as expected.
+3. Update scripts to use Data Lake Storage Gen2 [PowerShell cmdlets](data-lake-storage-directory-file-acl-powershell.md), and [Azure CLI commands](data-lake-storage-directory-file-acl-cli.md).
+   
+4. Search for URI references that contain the string `adl://` in code files, or in Databricks notebooks, Apache Hive HQL files or any other file used as part of your workloads. Replace these references with the [Gen2 formatted URI](data-lake-storage-introduction-abfs-uri.md) of your new storage account. For example: the Gen1 URI: `adl://mydatalakestore.azuredatalakestore.net/mydirectory/myfile` might become `abfss://myfilesystem@mydatalakestore.dfs.core.windows.net/mydirectory/myfile`. 
 
-1. Update your Gen1 SDKs to the following versions.
+## Enable Gen1 compatibility layer (optional)
+
+Microsoft provides application compatibility with limited functionality so that your applications can continue using Gen1 APIs to interact with data in your Gen2-enabled account. The compatibility layer runs on the server so there's nothing to install. Microsoft does not recommend that you rely on this capability as a replacement for migrating your workloads and applications.  
+
+To encounter the least number of issues with the compatibility layer, make sure that your Gen1 SDKs use the following versions (or higher).
 
    | Language | SDK version |
    |--|--|
@@ -123,81 +155,17 @@ After the data migration is complete, you can test your applications against you
    | **Java** | [1.1.21](https://github.com/Azure/azure-data-lake-store-java/blob/master/CHANGES.md) |
    | **Python** | [0.0 51](https://github.com/Azure/azure-data-lake-store-python/blob/master/HISTORY.rst) |
 
-   While these versions aren't technically required, they ensure that you will encounter the least number of issues with the *compatibility layer*. The compatibility layer is what enables your application to continue using Gen1 APIs. 
+The following functionality isn't supported in Gen2, and therefore the compatibility layer.
 
-3. In your application code and related configuration files, find and replace Gen1 URLs with Gen2 URLs.
-   For example, if your Gen1 account is named `mygen1account` and your Gen2 account is named `mygen2account`, you would replace any instances of the string `mygen1account.azuredatalakestore.net` with `mygen2account.dfs.core.windows.net`.
+- ListStatus API option to ListBefore an entry
 
-4. Review the list of known issues with the compatibility layer. see the [Known issues with the Gen1 compatibility layer](#known-issues) section of this article.
+- ListStatus API with over 4000 files without a continuation token 
 
-5. Test your applications. When you've completed your testing, you can complete the migration.
+- Chunk-encoding for append operations
 
-## Complete the migration
+- Any API calls that use https://management.azure.com/  as the Azure Active Directory (Azure AD) token audience.
 
-To complete the migration, run the managed migration tool again. Make sure to select the **Complete migration** option this time. When the migration is complete all Gen1 requests will be redirected to your Gen2 enabled account. As time permits, you can move applications and workloads over to Gen2. For guidance, see [Migrate data, workloads, and applications](data-lake-storage-migrate-gen1-to-gen2.md#step-3-migrate-data-workloads-and-applications).
-
-<a id="known-issues"></a>
-
-### Known issues with the Gen1 compatibility layer
-
-The compatibility layer runs on the server so there's nothing to install. However, there are some issues that are worth reviewing before you begin testing your applications. This section describes those issues.
-
-##### ListStatus API option to ListBefore an entry
-
-With Gen1, you could use the query parameter `ListBefore` to reverse list entries starting from a specific entry.  The compatibility layer doesn't support this functionality because it isn't supported by Gen2. 
-
-##### ListStatus API to be used with continuation token 
-
-The `ListStatus` API returns a continuation token if there are more records. Clients need to use a continuation token for next page of a list result. `ListStatus` takes a `listSize` query parameter as a page size, which is set to 4K by default. But in Gen2, there's no guarantee that all all records requested by the client will be returned. Therefore, the client has to rely on the existence of the continuation token in the  response to figure out if there are more records. Some older versions of the Gen1 SDKs had a hard dependency on the number of records returned in place of continuation token. This is a breaking experience in the compatibility layer. Any client that has similar logic needs to be fixed to avoid getting incomplete results. 
-
-##### Unsupported characters in file and directory names
-
-The compatibility layer doesn't support the following file and directory names:  
-
-- Names with only spaces or tabs
-
-- Names ending with a `.`   
-
-- Names containing a `:`  
-
-##### Requests paths with multiple forward slashes
-
-The compatibility layer doesn't support request paths that have multiple consecutive forward slashes. In Gen1, Internet Information Services (IIS) used to convert these slashes into a single slash. 
-
-##### Container name restrictions
-
-Containers didn't exist in Gen1. However in Gen2, all files must be placed into a container. To use the compatibility layer, you must create a container named `gen1` in your Gen2 account. 
-
-##### Maximum file size
-
-The maximum file size of any file that you create by using the compatibility layer is 5 TiB.   
-
-##### Discontinue chunk-encoding support
-
-Gen1 supports chunk-encoding for append operations, but the compatibility layer does not. Clients that send chunk-encoding requests will receive a `BadRequest` error.  
-
-##### GetContentSummary server API is not supported  
-
-In Gen1, the server-side implementation of `GetContentSummary` had performance issues with large directories due to timeouts. To solve that, a client-side implementation of the API was introduced that uses `ListStatus`. All of the latest SDK versions implement that new version on the client-side.
-
-##### Token audience for authentication  
-
-Gen1 clients send the following two types of token audiences.  
-
-- https://datalake.azure.net  
-- https://management.azure.com/  
-
-When using the compatibility layer, we recommend that clients use only the `https://datalake.azure.net` token audience. The `https://management.azure.com/` audience has security implications. Though based on priority, it's possible to allow the `https://management.azure.com/` audience  through DC settings of a stamp, but it's not recommended.  
-
-##### User identification as SuperUser  
-
-Users can be tagged as superusers based upon their Azure role, a SAS token, or account key. 
-
-##### Ownership info displayed as $superuser  
-
-The root directory "/" is created when a Data Lake Storage Gen2 container is created. If the container was created by a user that is authorized with Azure Active Directory (Azure AD), the owning group is set to the user who created the container. If the container is created by using Shared Key, an Account SAS, or a Service SAS, then the owner and owning group are set to $superuser.
-
-For more information, see [Assigning the owning group for a new file or directory](data-lake-storage-access-control.md#assigning-the-owning-group-for-a-new-file-or-directory)  .
+- File or directory names with only spaces or tabs, ending with a `.`, containing a `:`, or with multiple consecutive forward slashes (`//`).
 
 ## Next steps
 
