@@ -47,12 +47,10 @@
   items:
     - name: 1. Create a new application
       href: core/quick-deploy-iot-central.md
-    - name: 2. Add a simulated device
-      href: core/quick-create-simulated-device.md
-    - name: 3. Configure rules and actions
+    - name: 2. Configure rules and actions
       href: core/quick-configure-rules.md
-    - name: 4. Monitor your devices
-      href: core/quick-monitor-devices.md
+    - name: 3. Export data
+      href: core/quick-export-data.md
 - name: Tutorials
   items:
     - name: Develop and connect devices
@@ -264,6 +262,8 @@
           href: core/howto-manage-users-roles-with-rest-api.md
         - name: Control devices
           href: core/howto-control-devices-with-rest-api.md
+        - name: Manage jobs
+          href: core/howto-manage-jobs-with-rest-api.md
     - name: Manage your devices
       items:
         - name: Add and remove devices

@@ -30,8 +30,6 @@ landingContent:
         links:
           - text: What's new? 
             url: database/doc-changes-updates-release-notes.md?tabs=single-database
-          - text: Feedback? Take the survey! 
-            url: https://microsoft.qualtrics.com/jfe/form/SV_ePOznHhP4gDKfGu?channel=456 
       - linkListType: overview
         links:
           - text: What is SQL Database?

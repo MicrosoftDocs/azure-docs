@@ -916,6 +916,8 @@
         href: idid-manager-tutorial.md
       - name: IDrive
         href: idrive-tutorial.md
+      - name: IDrive360
+        href: idrive360-tutorial.md  
       - name: Igloo Software
         href: igloo-software-tutorial.md
       - name: iHASCO Training
@@ -1170,6 +1172,8 @@
         href: logmein-tutorial.md
       - name: Logz.io - Azure AD Integration
         href: logzio-cloud-observability-for-engineers-tutorial.md
+      - name: Loop Flow CRM
+        href: loop-flow-crm-tutorial.md  
       - name: Lucidchart
         href: lucidchart-tutorial.md
       - name: Luum
@@ -1520,6 +1524,8 @@
         href: pronovos-ops-manager-tutorial.md
       - name: Proofpoint on Demand
         href: proofpoint-ondemand-tutorial.md
+      - name: ProProfs Classroom
+        href: proprofs-classroom-tutorial.md  
       - name: ProProfs Knowledge Base
         href: proprofs-knowledge-base-tutorial.md
       - name: Proto.io
@@ -1956,7 +1962,7 @@
         href: tickitlms-learn-tutorial.md
       - name: Tidemark
         href: tidemark-tutorial.md
-      - name: TigerText Secure Messenger
+      - name: TigerConnect Secure Messenger
         href: tigertext-tutorial.md
       - name: Timeclock 365 SAML
         href: timeclock-365-saml-tutorial.md
@@ -2050,6 +2056,8 @@
         href: viareports-inativ-portal-europe-tutorial.md
       - name: Vibe HCM
         href: vibehcm-tutorial.md
+      - name: VIDA
+        href: vida-tutorial.md
       - name: Vidyard
         href: vidyard-tutorial.md
       - name: Virtual Risk Manager
@@ -2485,6 +2493,8 @@
         href: snowflake-provisioning-tutorial.md
       - name: Smartsheet
         href: smartsheet-provisioning-tutorial.md
+      - name: Smallstep SSH
+        href: smallstep-ssh-provisioning-tutorial.md
       - name: Soloinsight-CloudGate SSO
         href: soloinsight-cloudgate-sso-provisioning-tutorial.md
       - name: Symantec Web Security Service (WSS)
@@ -2519,6 +2529,8 @@
         href: theorgwiki-provisioning-tutorial.md
       - name: TravelPerk
         href: travelperk-provisioning-tutorial.md
+      - name: Tribeloo
+        href: tribeloo-provisioning-tutorial.md
       - name: Twingate
         href: twingate-provisioning-tutorial.md
       - name: UNIFI
