@@ -181,7 +181,7 @@ To delete an ASE:
 [4]: ./media/using/using-logsetup.png
 [4]: ./media/using/using-logs.png
 [5]: ./media/using/using-configuration.png
-[6]: ./media/using/using-ipaddresses.png
+[6]: ./media/using/using-ip-addresses.png
 
 <!--Links-->
 
