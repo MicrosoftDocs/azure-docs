@@ -81,7 +81,7 @@ CPU history:
 CPU count: 8)
 ```
 
-* If the CPU measurements are over 70%, the timeout is likely to be caused by CPU exhaustion. In this case, the solution is to investigate the source of the high CPU utilization and reduce it, or scale the machine to a larger resource size.
+* If the CPU utilization is over 70%, the timeout is likely to be caused by CPU exhaustion. In this case, the solution is to investigate the source of the high CPU utilization and reduce it or scale the machine to a larger resource size.
 * If the CPU measurements are not happening every 10 seconds (e.g., gaps or measurement times indicate larger times in between measurements), the cause is thread starvation. In this case the solution is to investigate the source/s of the thread starvation (potentially locked threads), or scale the machine/s to a larger resource size.
 
 #### Solution:
