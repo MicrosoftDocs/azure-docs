@@ -137,7 +137,7 @@ To change the DWUs, use the [Set-AzSqlDatabase](/powershell/module/az.sql/set-az
 Set-AzSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -RequestedServiceObjectiveName "DW1000c"
 ```
 
-For more information, see [PowerShell cmdlets for Azure Synapse Analytics](../sql-data-warehouse/sql-data-warehouse-reference-powershell-cmdlets.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+For more information, see [PowerShell cmdlets for Azure Synapse Analytics](/powershell/module/az.synapse)
 
 #### T-SQL
 
@@ -169,7 +169,7 @@ Content-Type: application/json; charset=UTF-8
 }
 ```
 
-For more REST API examples, see [REST APIs for Azure Synapse Analytics](../sql-data-warehouse/sql-data-warehouse-manage-compute-rest-api.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+For more REST API examples, see [REST APIs for Azure Synapse Analytics](/rest/api/synapse/?view=azps-6.1.0&preserve-view=true).
 
 ### Check status of DWU changes
 
