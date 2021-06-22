@@ -27,7 +27,7 @@ Learn about important updates in Microsoft's commercial marketplace program. Thi
 | ------------ | ------------- | ------------- |
 | Taxation | For end-customer taxation, Australia is Microsoft-managed, except for purchases made through an enterprise agreement customer purchase scenario, which are publisher-managed. | 2021-07-01 |
 | Taxation | Added a number of missing countries to the [tax details page](/partner-center/tax-details-marketplace): <ul><li>Argentina</li><li>Bulgaria</li><li>Hong Kong SAR</li><li>Korea (South)</li><li>Pakistan</li><li>Palestinian Authority</li><li>Panama</li><li>Paraguay</li><li>Peru</li><li>Philippines</li><li>Saint Kitts and Nevis</li><li>Senegal</li><li>Sri Lanka</li><li>Tajikistan</li><li>Tanzania</li><li>Thailand</li><li>Trinidad and Tobago</li><li>Tunisia</li><li>Turkmenistan</li><li>Uganda</li><li>Uzbekistan</li><li>Zimbabwe</li></ul> | 2021-07-01 |
-| Taxation | Nigeria is now end-customer taxation, with differences in marketplaces. | 2021-07-01 |
+| Taxation | Nigeria moved from the "shared publisher/developer-managed countries" list to the “end-customer taxation with differences in Marketplaces". | 2021-07-01 |
 | Payouts | Added commercial marketplace payout scenarios to the [tax details page](/partner-center/tax-details-marketplace). | 2021-04-26 |
 |
 
