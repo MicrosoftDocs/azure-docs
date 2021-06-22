@@ -185,7 +185,6 @@ These policies continue to apply on your backup data after the move operation so
 To avoid sudden clean-up of several recovery points (that may have expired during the move process or may expire immediately after the move process), the clean-up of older recovery points (RPs) are paused for a period of 10 days after the move. During this period, you are not billed for the additional data incurred by the old RPs.
 
 >[!Important]
-
 >If you need to recover from these older RPs, recover them immediately the backup data move within this 10-day period. Once this safety period is complete, the policies applied on each of the backup items would take effect and will enforce clean-up of the old RPs.
 
 #### Restore operations
@@ -307,7 +306,7 @@ For Original-Location Recovery (OLR):
 
 **Scenario:** Private end points are enabled in the target vault. 
 
-**Recommended action: Delete the private endpoints and retry the move operation. [Learn more](#azure-backup) about the supported operations.
+**Recommended action:** Delete the private endpoints and retry the move operation. [Learn more](#azure-backup) about the supported operations.
 
 ### UserErrorDataMoveSourceVaultWithPrivate EndpointNotSupported 
 
