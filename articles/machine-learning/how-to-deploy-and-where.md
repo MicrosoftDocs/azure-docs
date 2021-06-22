@@ -83,7 +83,7 @@ For more information on using the SDK to connect to a workspace, see the [Azure 
 A typical situation for a deployed machine learning service is that you need the following components:
 	
  + resources representing the specific model that you want deployed (for example: a pytorch model file)
- + code that you will be running in th service, that executes the model on a given input
+ + code that you will be running in the service, that executes the model on a given input
 
 Azure Machine Learnings allows you to separate the deployment into two separate components, so that you can keep the same code, but merely update the model. We define the mechanism by which you upload a model _separately_ from your code as "registering the model".
 
