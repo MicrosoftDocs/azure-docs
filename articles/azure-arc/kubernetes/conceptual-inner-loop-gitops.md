@@ -34,7 +34,7 @@ Luckily, there are many frameworks out there that support the listed capabilitie
 > Note: Don’t confuse the market offering DevSpace with Microsoft’s previously named DevSpace, which is now called Bridge to Kubernetes. 
 
 
-## Inner Loop to Outer Loop Transition 
+## Inner loop to outer loop transition 
 
 Once the team evaluates and chooses an inner loop dev framework the next step is to build a seamless transition from inner loop to outer loop. 
 
