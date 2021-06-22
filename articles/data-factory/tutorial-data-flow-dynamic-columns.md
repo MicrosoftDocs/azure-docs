@@ -13,7 +13,7 @@ ms.date: 06/17/2021
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Many times, when processing data for ETL jobs, you will need to change the column names before writing the results. Sometimes this is needed to align column names to a well-known target schema. Other times, you may need to set column names at runtime based on evolving schemas. In this tutorial, you'll learn how to use data flows to set column names for your destination files and database tables dynamically using configuration files and parameters.
+Many times, when processing data for ETL jobs, you will need to change the column names before writing the results. Sometimes this is needed to align column names to a well-known target schema. Other times, you may need to set column names at runtime based on evolving schemas. In this tutorial, you'll learn how to use data flows to set column names for your destination files and database tables dynamically using external configuration files and parameters.
 
 If you're new to Azure Data Factory, see [Introduction to Azure Data Factory](introduction.md).
 
@@ -101,7 +101,7 @@ In this first scenario, you will set output column names in you data flow by set
 1. Create a new parameter and choose string array data type
 1. For the default value, enter ```['a','b','c']```
 1. Use the top ```movies1``` source to modify the column names to map to these array values
-1. Add a Select transformation
+1. Add a Select transformation. The Select transformation will be used to map incoming columns to new column names for output.
 1. We're going to change the first 3 column names to the new names defined in the parameter
 1. To do this, add 3 rule-based mapping entries in the bottom pane
 1. For the first column, the matching rule will be ```position==1``` and the name will be ```$parameter1[1]```
@@ -109,7 +109,7 @@ In this first scenario, you will set output column names in you data flow by set
  
 ![Select transformation](media/data-flow/dynacols4.png "Select transformation")
 
-1. Click on the Inspect and Data Flow tabs of the Select transformation to view the new column name values ```(a,b,c)``` replace the original movie, title, genres column names
+1. Click on the Inspect and Data Preview tabs of the Select transformation to view the new column name values ```(a,b,c)``` replace the original movie, title, genres column names
    
 ### Create a cached lookup of external column mappings
 
@@ -121,13 +121,16 @@ Next, we'll create a cached sink for a later lookup. The cache will read an exte
 
 ### Lookup columns names from cached sink
 
-The techniques listed in the above tutorials are good use cases for creating folder categories in your data lake. The default file naming scheme being employed by those techniques is to use the Spark executor job ID. Sometimes you may wish to set the name of the output file in a data flow text sink. This technique is only suggested for use with small files. The process of merging partition files into a single output file is a long-running process.
+Now that you've stored the configuration file contents in memory, you can dynamically map incoming column names to new outgoing column names.
 
-1. Go back to the data flow designer and edit the data flow create above. Click on the sink transformation.
-1. Click Optimize > Set partitioning > Single partition. It is this single partition requirement that creates a bottleneck in the execution process as files are merged. This option is only recommended for small files.
-1. Click Settings > Name file as column data.
-1. Pick the column that you wish to use for generating file names.
-1. To manipulate the data values, or even if need to generate synthetic values for file names, use the Derived Column transformation to create the values you wish to use in your file names.
+1. Go back to the data flow designer and edit the data flow create above. Click on the ```movies2``` source transformation.
+1. Add a Select transformation. This time, we'll use the Select transformation to rename column names based on the target name in the JSON configuration file that is being stored in the cached sink.
+1. Add a rule-based mapping. For the Matching Condition, use this formula: ```!isNull(cachedSink#lookup(name).prevcolumn)```.
+1. For the output column name, use this formula: ```cachedSink#lookup($$).newcolumn```.
+1. What we've done is to find all column names that match the ```prevcolumn``` property from the external JSON configuration file and renamed each match to the new ```newcolumn``` name.
+1. Click on the Data Preview and Inspect tabs in the Select transformation and you should now see the new column names from the external mapping file.
+
+![Source 2](media/data-flow/dynacols2.png "Source 2")
 
 ## Next steps
 
