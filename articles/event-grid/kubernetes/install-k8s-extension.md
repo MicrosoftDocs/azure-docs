@@ -112,7 +112,7 @@ To establish a secure HTTPS communication with the Event Grid broker and Event G
         :::image type="content" source="./media/install-k8s-extension/monitoring-page.png" alt-text="Install Event Grid extension - Monitoring page":::    
     1. Select **Next: Tags** to navigate to the **Tags** page. 
 1. On the **Tags** page, do the following steps:
-    1. Define [tags](/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging), if necessary.
+    1. Define [tags](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging), if necessary.
 
         :::image type="content" source="./media/install-k8s-extension/tags-page.png" alt-text="Install Event Grid extension - Tags page":::
     1. Select **Review + create** at the bottom of the page.

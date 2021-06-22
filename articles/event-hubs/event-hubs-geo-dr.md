@@ -45,12 +45,11 @@ The following terms are used in this article:
 ## Supported namespace pairs
 The following combinations of primary and secondary namespaces are supported:  
 
-| Primary namespace | Secondary namespace | Supported | 
-| ----------------- | -------------------- | ---------- |
-| Standard | Standard | Yes | 
-| Standard | Dedicated | Yes | 
-| Dedicated | Dedicated | Yes | 
-| Dedicated | Standard | No | 
+| Primary namespace tier | Allowed secondary namespace tier |
+| ----------------- | -------------------- |
+| Standard | Standard, Dedicated | 
+| Premium | Premium | 
+| Dedicated | Dedicated | 
 
 > [!NOTE]
 > You can't pair namespaces that are in the same dedicated cluster. You can pair namespaces that are in separate clusters. 
