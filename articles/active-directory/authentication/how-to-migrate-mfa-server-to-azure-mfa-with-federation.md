@@ -87,7 +87,7 @@ To find the group SID, use the following command, with your group name
 
 ![Image of screen shot showing the results of the Get-ADGroup script.](./media/how-to-migrate-mfa-server-to-azure-mfa-user-authentication/find-the-sid.png)
 
-#### Setting the Claims Rules to Call Azure MFA
+#### Setting the claims rules to call Azure MFA
 
 The following PowerShell cmdlets invoke Azure AD MFA for users in the group when not on the corporate network. Replace "YourGroupSid” with the SID found by running the above cmdlet.
 
@@ -110,8 +110,7 @@ Run the following PowerShell cmdlet:
 
 The command returns your current additional authentication rules for your relying party trust. Append the following rules to your current claim rules:
 
-```
-
+```console
 c:[Type == "[https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid](https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid)", Value == 
 
 "YourGroupSID"] => issue(Type = "[https://schemas.microsoft.com/claims/authnmethodsproviders](https://schemas.microsoft.com/claims/authnmethodsproviders)", 
@@ -125,7 +124,6 @@ Value=="YourGroupSid"]) => issue(Type =
 "[https://schemas.microsoft.com/claims/authnmethodsproviders](https://schemas.microsoft.com/claims/authnmethodsproviders)", Value = 
 
 "AzureMfaServerAuthentication");’
-
 ```
 
 The following example assumes your current claim rules are configured to prompt for MFA when users connect from outside your network. This example includes the additional rules that you need to append.
@@ -157,8 +155,6 @@ Value=="YourGroupSid"]) => issue(Type =
 ```
 
 #### Set per-application claims rule
-
- 
 
 This example modifies claim rules on a specific relying party trust (application), and includes the information you must append.
 
@@ -269,7 +265,7 @@ Migrating phone numbers can lead to stale numbers being migrated, and make users
 If having users register their combined security information is absolutely not an option, it's possible to export the users and their phone numbers from MFA Server and import the phone numbers into Azure AD.
  
 
-#### Export User Phone Numbers from MFA Server 
+#### Export user phone numbers from MFA Server 
 
 1. Open the Multi-Factor Authentication Server admin console on the MFA Server. 
 
@@ -292,7 +288,7 @@ When opening the .csv file, columns of interest include:
 
 You'll need to interpret, clean, and format the data.
 
-#### Tips to Avoid Errors During Import
+#### Tips to avoid errors during import
 
 * Modify the CSV file before using the Authentication Methods API to import the phone numbers into Azure AD. 
 
@@ -342,7 +338,7 @@ Once you have completed migration to Azure MFA and are ready to decommission the
 
 1. Decommission the MFA Server.
 
-### Revert Claims Rules on AD FS and Remove MFA Server Authentication Provider
+### Revert claims rules on AD FS and remove MFA Server authentication provider
 
 Follow the steps under Configure claims rules to invoke Azure AD MFA to revert back to the backed up claims rules and remove any AzureMFAServerAuthentication claims rules. 
 

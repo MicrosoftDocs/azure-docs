@@ -110,7 +110,7 @@ To view existing relying party trusts, run the following command and replace RPT
 (Get-AdfsRelyingPartyTrust -Name “RPTrustName”).AdditionalAuthenticationRules
 ```
 
-#### Access Control Policies
+#### Access control policies
 
 >[!NOTE]
 >Access control policies can’t be configured so that a specific authentication provider is invoked based on group membership. 
@@ -131,7 +131,7 @@ To find the group SID use the following command, with your group name
 
 ![PowerShell command to get the group SID.](media/how-to-migrate-mfa-server-to-azure-mfa-user-authentication/find-the-sid.png)
 
-#### Setting the Claims Rules to Call Azure MFA
+#### Setting the claims rules to call Azure MFA
 
 The following PowerShell cmdlets invoke Azure AD MFA for those in the group when they aren’t on the corporate network. 
 You must replace "YourGroupSid" with the SID found by running the preceding cmdlet.
@@ -253,7 +253,7 @@ Combined security information enables users to also register for self-service pa
 
 If having users register their combined security information is not an option, it is possible to export the users along with their phone numbers from MFA Server and import the phone numbers into Azure AD. 
 
-#### Export User Phone Numbers from MFA Server 
+#### Export user phone numbers from MFA Server 
 
 1. Open the Multi-Factor Authentication Server admin console on the MFA Server. 
 1. Select **File** > **Export Users**.
@@ -265,7 +265,7 @@ The .csv file contains a number of fields not necessary for migration and will n
 
 When opening the .csv file, columns of interest include Username, Primary Phone, Primary Country Code, Backup Country Code, Backup Phone, Backup Extension. You must interpret this data and format it, as necessary.
 
-#### Tips to Avoid Errors During Import
+#### Tips to avoid errors during import
 
 * The CSV file will need to be modified prior to using the Authentication Methods API to import the phone numbers into Azure AD. 
 * We recommend simplifying the .csv to three columns: UPN, PhoneType, and PhoneNumber. 
@@ -303,7 +303,7 @@ We do not recommend that you reuse groups that are used for security. Therefore,
 A number of [Azure Monitor workbooks](../reports-monitoring/howto-use-azure-monitor-workbooks.md) and usage & insights reports are available to monitor your deployment. 
 These can be found in Azure AD in the navigation pane under **Monitoring**. 
 
-### Monitoring Staged Rollout
+### Monitoring staged rollout
 
 In the [workbooks](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Workbooks) section, select **Public Templates**. Under **Hybrid Auth** section select the **Groups, Users and Sign-ins in Staged Rollout** workbook.
 
@@ -312,7 +312,7 @@ This workbook can be used to monitor the following:
 * Users and groups removed from Staged Rollout.
 * Sign-in failures for users in staged rollout, and the reasons for failures.
 
-### Monitoring Azure MFA Registration
+### Monitoring Azure MFA registration
 Azure MFA registration can be monitored using the [Authentication methods usage & insights report](https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthenticationMethodsMenuBlade/AuthMethodsActivity/menuId/AuthMethodsActivity). This report can be found in Azure AD. Select **Monitoring**, then select **Usage & insights**. 
 
 ![Screenshot of how to find the Usage and Insights report.](media/how-to-migrate-mfa-server-to-azure-mfa-user-authentication/usage-report.png)
@@ -323,7 +323,7 @@ Detailed Azure MFA registration information can be found on the Registration tab
 
 ![Screenshot of the Registration tab.](media/how-to-migrate-mfa-server-to-azure-mfa-user-authentication/registration-tab.png)
 
-### Monitoring App Sign-in Health
+### Monitoring app sign-in health
 
 Monitor applications you have moved to Azure AD with the App sign-in health workbook or the application activity usage report.
 
@@ -340,7 +340,7 @@ We recommend reviewing MFA Server logs to ensure no users or applications are us
 You should now [convert your federated domains in Azure AD to managed](../hybrid/plan-migrate-adfs-password-hash-sync.md#convert-domains-from-federated-to-managed) and remove the staged rollout configuration. 
 This ensures new users use cloud authentication without being added to the migration groups.
 
-### Revert Claims Rules on AD FS and Remove MFA Server Authentication Provider
+### Revert claims rules on AD FS and remove MFA Server authentication provider
 
 Follow the steps under [Configure claims rules to invoke Azure AD MFA](#configure-claims-rules-to-invoke-azure-ad-mfa) to revert back to the backed up claims rules and remove any AzureMFAServerAuthentication claims rules. 
 

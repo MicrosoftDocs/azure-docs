@@ -100,11 +100,11 @@ Our recommendations:
 To select the user authentication method best for your organization, see [Choose the right authentication method for your Azure AD hybrid identity solution](../hybrid/choose-ad-authn.md). 
 We recommend that you use Password Hash Synchronization (PHS).
 
-### Passwordless Authentication
+### Passwordless authentication
 
 As part of enrolling users to use Microsoft Authenticator as a second factor, we recommend you enable passwordless phone sign-in as part of their registration. For more information, including other passwordless methods such as FIDO and Windows Hello for Business, visit [Plan a passwordless authentication deployment with Azure AD](howto-authentication-passwordless-deployment.md#plan-for-and-deploy-the-microsoft-authenticator-app).
 
-### Microsoft Identity Manager Self-service Password Reset 
+### Microsoft Identity Manager self-service password reset 
 
 Microsoft Identity Manager (MIM) SSPR can use MFA Server to invoke SMS one-time passcodes as part of the password reset flow. 
 MIM cannot be configured to use Azure MFA. 
