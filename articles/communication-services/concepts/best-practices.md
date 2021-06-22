@@ -1,13 +1,13 @@
 ---
 title: Azure Communication Services - best practices
-description: Learn more about Azure Communication Services
+description: Learn more about Azure Communication Service Best Practices
 author: srahaman
 manager: akania
 services: azure-communication-services
 
 ms.author: srahaman
 ms.date: 06/18/2021
-ms.topic: bestpractices
+ms.topic: troubleshooting
 ms.service: azure-communication-services
 ---
 
