@@ -29,7 +29,7 @@ Check `Microphone` to access the audio feed of the microphone.
 Check `WebCam` to access the camera of the device. 
 
 Add the following code to your `Package.appxmanifest`. 
-```
+```XML
 <Extensions>
 <Extension Category="windows.activatableClass.inProcessServer">
 <InProcessServer>
@@ -133,7 +133,9 @@ The following classes and interfaces handle some of the major features of the Az
 
 ## Authenticate the client
 
-Initialize a `CallAgent` instance with a User Access Token which will enable us to make and receive calls. In order to access the cameras on the device we also need to get Device Manager instance. 
+To initialize a `CallAgent` you will need a User Access Token. Generally this token will be generated from a service with authentication specific to the application. For more information on user access tokens check the [User Access Tokens](../../../access-tokens.md) guide. 
+
+Once you have a token initialize a `CallAgent` instance with it which will enable us to make and receive calls. In order to access the cameras on the device we also need to get Device Manager instance. 
 
 ```C#
 private async void InitCallAgentAndDeviceManager()
