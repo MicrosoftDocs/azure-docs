@@ -390,6 +390,6 @@ For more information on migrating applications to Azure, see [Resources for migr
 
 ## Next steps
 
-Migrate from Microsoft MFA Server to Azure multi-factor authentication (Overview)
-Migrate applications from Windows Active Directory to Azure Active Directory
-Plan your cloud authentication strategy
+[Migrate from Microsoft MFA Server to Azure multi-factor authentication (Overview)](how-to-migrate-mfa-server-to-azure-mfa.md)
+[Migrate applications from Windows Active Directory to Azure Active Directory](../manage-apps/migrate-application-authentication-to-azure-active-directory.md)
+[Plan your cloud authentication strategy](../fundamentals/active-directory-deployment-plans.md)
