@@ -80,6 +80,14 @@ First, let's set up the data flow environment for each of the mechanisms describ
 1. Choose either Blob or ADLS Gen2 depending on where you stored the moviesDB.csv file from above.
 1. Add a 2nd source, which we will use to source the configuration JSON file to lookup field mappings.
 1. Call this as ```columnmappings```.
+1. For the dataset, point to a new JSON file that will store a configuration for column mapping. You can paste the into the JSON file for this tutorial example:
+```
+[
+{"prevcolumn":"title","newcolumn":"movietitle"},
+{"prevcolumn":"year","newcolumn":"releaseyear"}
+]
+```
+1. Set this source settings to ```array of documents```.
 1. Add a 3rd source and call it ```movies2```. Configure this exactly the same as ```movies1```.
    
 ### Parameterized column mapping
@@ -107,15 +115,11 @@ In this first scenario, you will set output column names in you data flow by set
 
 Next, we'll create a cached sink for a later lookup. The cache will read an external JSON configuration file that can be used to rename columns dynamically on each pipeline execution of your data flow.
 
-1. Go back to the data flow designer and edit the data flow create above. Click on the sink transformation.
-1. Click Optimize > Set partitioning > Use current partitioning.
-1. Click Settings > Name folder as column data.
-1. Pick the column that you wish to use for generating folder names.
-1. To manipulate the data values, or even if need to generate synthetic values for folder names, use the Derived Column transformation to create the values you wish to use in your folder names.
+1. Go back to the data flow designer and edit the data flow created above. Add a Sink transformation to the ```columnmappings``` source.
+1. Set sink type to ```Cache```.
+1. Under Settings, choose ```prevcolumn``` as the key column.
 
-![Folder option](media/data-flow/folders.png "Folders")
-
-### Name file as data values
+### Lookup columns names from cached sink
 
 The techniques listed in the above tutorials are good use cases for creating folder categories in your data lake. The default file naming scheme being employed by those techniques is to use the Spark executor job ID. Sometimes you may wish to set the name of the output file in a data flow text sink. This technique is only suggested for use with small files. The process of merging partition files into a single output file is a long-running process.
 
