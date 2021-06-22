@@ -98,32 +98,24 @@ The following table lists the operations related to App Service that may be crea
 
 | Operation | Description |
 |:---|:---|
-|'Create or Update Web App'| App was created or updated|
-|'Delete Web App'| App was deleted |
-|'Create Web App Backup'| Backup of app|
-|'Get Web App Publishing Profile'| Download of publishing profile |
-|'Publish Web App'| |
-|'Restart Web App'| |
-|'Start Web App'| |
-|'Stop Web App'| |
-|'Swap Web App Slots'| |
-|'Get Web App Slots Differences'| |
-|'Apply Web App Configuration'| |
-|'Reset Web App Configuration'| |
-|'Approve Private Endpoint Connections '| |
-|'Functions Web Apps '| |
-|'List Web Apps Sync Function Trigger Status'| |
-|'Network Trace Web Apps'| |
-|'Newpassword Web Apps'| |
-|'Sync Web Apps'| |
-|'Migrate MySql Web Apps'| |
-|'Recover Web Apps'| |
-|'Restore Web Apps Snapshots'| |
-|'Restore Web Apps From Deleted App'| |
-|'Sync Web Apps Function Triggers'| |
-|'Discovers an existing app backup'| |
-|'Get Zipped Container Logs for Web App'| |
-|'Restore Web App From Backup Blob'| |
+|Create or Update Web App| App was created or updated|
+|Delete Web App| App was deleted |
+|Create Web App Backup| Backup of app|
+|Get Web App Publishing Profile| Download of publishing profile |
+|Publish Web App| App deployed |
+|Restart Web App| App restarted|
+|Start Web App| App started |
+|Stop Web App| App stopped|
+|Swap Web App Slots| Slots were swapped|
+|Get Web App Slots Differences| Slot differences|
+|Apply Web App Configuration| Applied configuration changes|
+|Reset Web App Configuration| Configuration changes reset|
+|Approve Private Endpoint Connections| Approved private endpoint connections|
+|List Web Apps Sync Function Trigger Status| |
+|Network Trace Web Apps| Initiated network trace|
+|Newpassword Web Apps| New password created |
+|Get Zipped Container Logs for Web App| Get container logs |
+|Restore Web App From Backup Blob| App restored from backup|
 
 <!-- NOTE: This information may be hard to find or not listed anywhere.  Please ask your PM for at least an incomplete list of what type of messages could be written here. If you can't locate this, contact azmondocs@microsoft.com for help -->
 
