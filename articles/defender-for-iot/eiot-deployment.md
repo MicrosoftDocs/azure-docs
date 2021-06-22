@@ -80,6 +80,18 @@ Purchase, and set up an Azure IoTHub. The minimum size needed is the smallest hu
 
 Onboard a new subscription, and provide the subscription ID to your ADIoT contact to ensure you will not be billed.
 
+**Prepare the environment**:
+
+Open the following ports in your firewall:
+
+- 443
+
+- 53
+
+- 5671
+
+- 5672
+
 ## Onboard a new subscription
 
 Create, and onboard a new subscription, even if you already have a current subscription with Azure Defender for IoT.
