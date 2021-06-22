@@ -10,6 +10,8 @@ ms.date: 9/21/2020
 
 # Track database activity with Audit Logs in Azure Database for MySQL Flexible Server
 
+[[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-flexible-server.md)]]
+
 []
 
 

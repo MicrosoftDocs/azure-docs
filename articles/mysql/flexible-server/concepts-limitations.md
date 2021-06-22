@@ -10,6 +10,8 @@ ms.date: 10/1/2020
 
 # Limitations in Azure Database for MySQL - Flexible Server (Preview)
 
+[[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-flexible-server.md)]]
+
 []
 
 

@@ -10,6 +10,8 @@ ms.date: 09/21/2020
 
 # Scheduled maintenance in Azure Database for MySQL – Flexible server
 
+[[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-flexible-server.md)]]
+
 []
 
 

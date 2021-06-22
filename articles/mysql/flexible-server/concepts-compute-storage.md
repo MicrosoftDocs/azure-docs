@@ -10,6 +10,8 @@ ms.date: 1/28/2021
 
 # Compute and storage options in Azure Database for MySQL - Flexible Server (Preview)
 
+[[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-flexible-server.md)]]
+
 []
 
 
