@@ -216,6 +216,10 @@
       href: deploy-container-networking.md
   - name: IP services
     items:
+    - name: Resource congfiguration
+      items:
+      - name: Load balancer
+        href: configure-public-ip-load-balancer.md
     - name: Create public IP address
       items:
       - name: Create public IP addresses - Portal
