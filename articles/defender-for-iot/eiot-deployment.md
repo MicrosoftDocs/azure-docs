@@ -143,8 +143,6 @@ Onboard a new sensor for this scenario.
 
 1. Select **Finish**.
 
-1. (Optional) If you have a firewall enabled, you must open up port 443 to allow the service to operate.
-
 1. (Optional) If you are using a proxy environment, enter your credentials, and set the proxy to allow a connection to Azure. **Proxies without passwords are not supported**.
 
 ## Install the sensor
