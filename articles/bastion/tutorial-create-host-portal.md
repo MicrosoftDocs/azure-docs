@@ -85,6 +85,7 @@ This section helps you create the bastion object in your VNet. This is required 
 
 [!INCLUDE [Connect to a Windows VM](../../includes/bastion-vm-rdp.md)]
 
+
 ## Clean up resources
 
 If you're not going to continue to use this application, delete
