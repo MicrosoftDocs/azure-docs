@@ -3,17 +3,17 @@ title: Manage Python 3 packages in Azure Automation
 description: This article tells how to manage Python 3 packages (preview) in Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/21/2021
+ms.date: 06/22/2021
 ms.topic: conceptual
 ---
 
 # Manage Python 3 packages (preview) in Azure Automation
 
-Azure Automation allows you to run Python 3 runbooks (preview) on Azure and on Linux Hybrid Runbook Workers. To help in simplification of runbooks, you can use Python packages to import the modules that you need. To import a single package, see [Import a package](#import-a-package). To import a package with multiple packages, see [Import a package with dependencies](#import-a-package-with-dependencies). This article describes how to manage and use Python 3 packages (preview) in Azure Automation.
+Azure Automation allows you to run Python 3 runbooks (preview) on Azure Sandbox environment and on Linux Hybrid Runbook Workers. To help in simplification of runbooks, you can use Python packages to import the modules that you need. To import a single package, see [Import a package](#import-a-package). To import a package with multiple packages, see [Import a package with dependencies](#import-a-package-with-dependencies). This article describes how to manage and use Python 3 packages (preview) in Azure Automation.
 
 ## Packages as source files
 
-Automation supports only pure Python packages when they're imported as source tar files. However, Azure Sandbox might not have the required compilers for C/C++ binaries, so it's recommended to use wheel files instead. The [Python Package Index](https://pypi.org/) (PyPI) is a repository of software for the Python programming language. When selecting Python 3 package to import into Automation from PYPI, note the following filename parts:
+Azure Automation supports only a Python package that only contains Python code and doesn't include other language extensions or code in other languages. However, the Azure Sandbox environment might not have the required compilers for C/C++ binaries, so it's recommended to use [wheel files](https://pythonwheels.com/) instead. The [Python Package Index](https://pypi.org/) (PyPI) is a repository of software for the Python programming language. When selecting a Python 3 package to import into your Automation account from PyPI, note the following filename parts:
 
 | Filename part | Description |
 |---|---|
@@ -22,14 +22,14 @@ Automation supports only pure Python packages when they're imported as source ta
 
 For example, if you wanted to import pandas, you could select a wheel file with a name similar as `pandas-1.2.3-cp38-win_amd64.whl`.
 
-Some Python packages available on PyPI don't provide a wheel file. In these cases, download the source (zip or tar file) and generate the wheel file using pip. As an example, follow these steps using a 64-bit machine with Python 3.8.x and wheel package installed.
+Some Python packages available on PyPI don't provide a wheel file. In this case, download the source (.zip or .tar.gz file) and generate the wheel file using `pip`. For example, perform the following steps using a 64-bit machine with Python 3.8.x and wheel package installed:
 
 1. Download the source file `pandas-1.2.4.tar.gz`.
 1. Run pip to get the wheel file with the following command: `pip wheel --no-deps pandas-1.2.4.tar.gz`.
 
 ## Import a package
 
-In your Automation account, select **Python packages** under **Shared Resources**. select **+ Add a Python package**.
+In your Automation account, select **Python packages** under **Shared Resources**. Then select **+ Add a Python package**.
 
 :::image type="content" source="media/python-3-packages/add-python-3-package.png" alt-text="Screenshot of the Python 3 packages page shows Python 3 packages in the left menu and Add a Python 2 package highlighted.":::
 
