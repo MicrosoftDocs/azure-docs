@@ -93,11 +93,11 @@ This article assumes you have already set up your ExpressRoute circuit or site-t
 
 ## Network configuration
 
-Azure Arc enabled servers integrates with several Azure services to bring cloud management and governance to your hybrid machines or servers. Most of these services already offer private endpoints, but you need to configure your firewall and routing rules to allow access to Azure Active Directory and Azure Resource Manager over the Internet until these services offer private endpoints.
+Azure Arc enabled servers integrates with several Azure services to bring cloud management and governance to your hybrid machines or servers. Most of these services already offer private endpoints, but you need to configure your firewall and routing rules to allow access to Azure Active Directory and Azure Resource Manager over the internet until these services offer private endpoints.
 
 There are two ways you can achieve this:
 
-- If your network is configured to route all Internet-bound traffic through the Azure VPN or ExpressRoute circuit, you can configure the network security group (NSG) associated with your subnet in Azure to allow outbound TCP 443 (HTTPS) access to Azure AD and Azure using [service tags](../../virtual-network/service-tags-overview.md). The NSG rules should look like the following:
+- If your network is configured to route all internet-bound traffic through the Azure VPN or ExpressRoute circuit, you can configure the network security group (NSG) associated with your subnet in Azure to allow outbound TCP 443 (HTTPS) access to Azure AD and Azure using [service tags](../../virtual-network/service-tags-overview.md). The NSG rules should look like the following:
 
     |Setting |Azure AD rule | Azure rule |
     |--------|--------------|-----------------------------|
@@ -108,7 +108,7 @@ There are two ways you can achieve this:
     |Destination port ranges |443 |443 |
     |Protocol |Tcp |Tcp |
     |Action |Allow |Allow |
-    |Priority |150 (must be lower than any rules that block Internet access) |151 (must be lower than any rules that block Internet access) |
+    |Priority |150 (must be lower than any rules that block internet access) |151 (must be lower than any rules that block internet access) |
     |Name |AllowAADOutboundAccess |AllowAzOutboundAccess |
 
 - Configure the firewall on your local network to allow outbound TCP 443 (HTTPS) access to Azure AD and Azure using the downloadable service tag files. The JSON file contains all the public IP address ranges used by Azure AD and Azure and is updated monthly to reflect any changes. Azure ADs service tag is `AzureActiveDirectory` and Azure's service tag is `AzureResourceManager`. Consult with your network administrator and network firewall vendor to learn how to configure your firewall rules.
@@ -339,7 +339,7 @@ It may take up to 15 minutes for the Private Link Scope to accept connections fr
     nslookup gbl.his.arc.azure.com
     nslookup agentserviceapi.guestconfiguration.azure.com
 
-1. If you are having trouble onboarding a machine or server, confirm that you’ve added the Azure Active Directory and Azure Resource Manager service tags to your local network firewall. The agent needs to communicate with these services over the Internet until private endpoints are available for these services.
+1. If you are having trouble onboarding a machine or server, confirm that you’ve added the Azure Active Directory and Azure Resource Manager service tags to your local network firewall. The agent needs to communicate with these services over the internet until private endpoints are available for these services.
 
 ## Next steps
 
