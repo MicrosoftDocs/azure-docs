@@ -1481,14 +1481,15 @@
             - name: Troubleshoot issues using basic queries
               href: cosmosdb-monitor-logs-basic-queries.md
             - name: Troubleshoot issues using advanced queries
-            - name: SQL (Core) API
-              href: cosmos-db-advanced-queries.md
-            - name: Mongo API
-              href: queries-mongo.md
-            - name: Cassandra API
-              href: queries-cassandra.md  
-            - name: Gremlin API
-              href: queries-gremlin.md                        
+              items:
+              - name: SQL (Core) API
+                href: cosmos-db-advanced-queries.md
+              - name: Mongo API
+                href: queries-mongo.md
+              - name: Cassandra API
+                href: queries-cassandra.md  
+              - name: Gremlin API
+                href: queries-gremlin.md                        
             - name: Audit control plane logs
               href: audit-control-plane-logs.md
         - name: Configure alerts

@@ -58,7 +58,7 @@ AzureDiagnostics
 ```    
 ---
 
-1. Requests throttled (statusCode = 429) in a given time window 
+2. Requests throttled (statusCode = 429) in a given time window 
 
 # [Resource-specific](#tab/resource-specific)
 
@@ -85,7 +85,7 @@ AzureDiagnostics
 ```    
 ---
 
-1. Queries with the largest response lengths (payload size of the server response)
+3. Queries with the largest response lengths (payload size of the server response)
 
 # [Resource-specific](#tab/resource-specific)
 
@@ -93,6 +93,8 @@ AzureDiagnostics
 let operationsbyUserAgent = CDBDataPlaneRequests
 | project OperationName, DurationMs, RequestCharge, ResponseLength, ActivityId;
 CDBQueryRuntimeStatistics
+//specify collection and database
+/| where DatabaseName == "DBNAME" and CollectionName == "COLLECTIONNAME"
 | join kind=inner operationsbyUserAgent on ActivityId
 | summarize max(ResponseLength) by QueryText
 | order by max_ResponseLength desc
@@ -105,19 +107,23 @@ let operationsbyUserAgent = AzureDiagnostics
 | project OperationName, duration_s, requestCharge_s, responseLength_s, activityId_g;
 AzureDiagnostics
 | where Category == "QueryRuntimeStatistics"
+//specify collection and database
+//| where databasename_s == "DBNAME" and collectioname_s == "COLLECTIONNAME"
 | join kind=inner operationsbyUserAgent on activityId_g
 | summarize max(responseLength_s1) by querytext_s
 | order by max_responseLength_s1 desc
 ```    
 ---
 
-1. RU Consumption by physical partition (across all replicas in the replica set)
+4. RU Consumption by physical partition (across all replicas in the replica set)
 
 # [Resource-specific](#tab/resource-specific)
 
 ```Kusto
 CDBPartitionKeyRUConsumption
 | where TimeGenerated >= now(-1d)
+//specify collection and database
+//| where DatabaseName == "DBNAME" and CollectionName == "COLLECTIONNAME"
 // filter by operation type
 //| where operationType_s == 'Create'
 | summarize sum(todouble(RequestCharge)) by toint(PartitionKeyRangeId)
@@ -129,6 +135,8 @@ CDBPartitionKeyRUConsumption
 AzureDiagnostics
 | where TimeGenerated >= now(-1d)
 | where Category == 'PartitionKeyRUConsumption'
+//specify collection and database
+//| where databasename_s == "DBNAME" and collectioname_s == "COLLECTIONNAME"
 // filter by operation type
 //| where operationType_s == 'Create'
 | summarize sum(todouble(requestCharge_s)) by toint(partitionKeyRangeId_s)
@@ -136,13 +144,15 @@ AzureDiagnostics
 ```    
 ---
 
-1. RU Consumption by logical partition (across all replicas in the replica set)
+5. RU Consumption by logical partition (across all replicas in the replica set)
 
 # [Resource-specific](#tab/resource-specific)
 
 ```Kusto
 CDBPartitionKeyRUConsumption
 | where TimeGenerated >= now(-1d)
+//specify collection and database
+//| where DatabaseName == "DBNAME" and CollectionName == "COLLECTIONNAME"
 // filter by operation type
 //| where operationType_s == 'Create'
 | summarize sum(todouble(RequestCharge)) by PartitionKey, PartitionKeyRangeId
@@ -154,6 +164,8 @@ CDBPartitionKeyRUConsumption
 AzureDiagnostics
 | where TimeGenerated >= now(-1d)
 | where Category == 'PartitionKeyRUConsumption'
+//specify collection and database
+//| where databasename_s == "DBNAME" and collectioname_s == "COLLECTIONNAME"
 // filter by operation type
 //| where operationType_s == 'Create'
 | summarize sum(todouble(requestCharge_s)) by partitionKey_s, partitionKeyRangeId_s

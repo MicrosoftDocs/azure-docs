@@ -92,7 +92,7 @@ let operationsbyUserAgent = CDBDataPlaneRequests
 | project OperationName, DurationMs, RequestCharge, ResponseLength, ActivityId;
 CDBGremlinRequests
 //specify collection and database
-| where DatabaseName == "Demo" and CollectionName == "Benchmark"
+//| where DatabaseName == "DBNAME" and CollectionName == "COLLECTIONNAME"
 | join kind=inner operationsbyUserAgent on ActivityId
 | summarize max(ResponseLength) by PIICommandText
 | order by max_ResponseLength desc
@@ -119,7 +119,7 @@ AzureDiagnostics
 CDBPartitionKeyRUConsumption
 | where TimeGenerated >= now(-1d)
 //specify collection and database
-| where DatabaseName == "Demo" and CollectionName == "Benchmark"
+//| where DatabaseName == "DBNAME" and CollectionName == "COLLECTIONNAME"
 // filter by operation type
 //| where operationType_s == 'Create'
 | summarize sum(todouble(RequestCharge)) by toint(PartitionKeyRangeId)
@@ -146,7 +146,7 @@ AzureDiagnostics
 CDBPartitionKeyRUConsumption
 | where TimeGenerated >= now(-1d)
 //specify collection and database
-| where DatabaseName == "Demo" and CollectionName == "Benchmark"
+//| where DatabaseName == "DBNAME" and CollectionName == "COLLECTIONNAME"
 // filter by operation type
 //| where operationType_s == 'Create'
 | summarize sum(todouble(RequestCharge)) by PartitionKey, PartitionKeyRangeId
