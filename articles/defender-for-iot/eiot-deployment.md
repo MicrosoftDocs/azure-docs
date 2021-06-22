@@ -145,7 +145,7 @@ You will need to download a package, and move it, and your activation file to th
 
 1. Locate the package and rename it to `eiot.deb`.
 
-1. Place the activation file you downloaded in the previous steps in the home directory.
+1. Place the activation file you downloaded in the previous steps, and the package in the home directory.
 
 1. Update APT using the following command:
 
