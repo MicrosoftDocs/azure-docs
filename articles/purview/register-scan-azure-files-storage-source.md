@@ -51,7 +51,37 @@ To set up authentication for Azure Files Storage using an account key, do the fo
 4. Pick your storage account name from the list.
 5. Click **Finish**.
 
-[!INCLUDE [create and manage scans](includes/manage-scans.md)]
+
+## Creating and running a scan
+
+To create and run a new scan, do the following:
+
+1. Select the **Data Map** tab on the left pane in the Purview Studio.
+
+1. Select the Azure Files source that you registered.
+
+1. Select **New scan**
+
+1. Select the credential to connect to your data source. 
+
+   :::image type="content" source="media/register-scan-azure-files/set-up-scan-azure-file.png" alt-text="Set up scan":::
+
+1. You can scope your scan to specific databases by choosing the appropriate items in the list.
+
+   :::image type="content" source="media/register-scan-azure-files/azure-file-scope-your-scan.png" alt-text="Scope your scan":::
+
+1. Then select a scan rule set. You can choose between the system default, existing custom rule sets, or create a new rule set inline.
+
+   :::image type="content" source="media/register-scan-azure-files/azure-file-scan-rule-set.png" alt-text="Scan rule set":::
+
+1. Choose your scan trigger. You can set up a schedule or run the scan once.
+
+   :::image type="content" source="media/register-scan-azure-files/trigger-scan.png" alt-text="trigger":::
+
+1. Review your scan and select **Save and run**.
+
+
+[!INCLUDE [create and manage scans](includes/view-and-manage-scans.md)]
 
 ## Next steps
 

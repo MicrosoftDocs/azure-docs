@@ -229,14 +229,14 @@
           href: ../common/scalability-targets-resource-provider.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Find, search, and understand blob data
       items:
-      - name: Use blob index tags to manage and find blob data
-        href: storage-manage-find-blobs.md
-      - name: Use AI to understand blob data
-        href: ../../search/search-blob-ai-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Full text search for blob data
-        href: ../../search/search-blob-storage-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Use blob inventory to manage blob data
+      - name: Blob inventory
         href: blob-inventory.md
+      - name: Blob index tags
+        href: storage-manage-find-blobs.md
+      - name: Full text search
+        href: ../../search/search-blob-storage-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Azure Cognitive Search
+        href: ../../search/search-blob-ai-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Data migration
       items:
       - name: Storage migration overview
@@ -274,6 +274,8 @@
         href: network-file-system-protocol-support.md
       - name: Performance considerations
         href: network-file-system-protocol-support-performance.md
+      - name: Known issues
+        href: network-file-system-protocol-known-issues.md
     - name: Event handling
       href: storage-blob-event-overview.md
     - name: Page blob features
@@ -291,7 +293,7 @@
         href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Recover a deleted storage account
         href: ../common/storage-account-recover.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Get account type and SKU name (.NET)
+      - name: Get account configuration properties
         href: ../common/storage-account-get-info.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Manage the default access tier of a storage account
         href: ../common/manage-account-default-access-tier.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -315,6 +317,8 @@
         href: storage-blob-copy.md
       - name: Use blob index tags
         href: storage-blob-index-how-to.md
+      - name: Enable blob inventory reports 
+        href: blob-inventory-how-to.md
       - name: Calculate blobs count and total size
         href: calculate-blob-count-size.md
     - name: Authorize access to blob data
@@ -328,13 +332,7 @@
         - name: Azure CLI
           href: authorize-data-operations-cli.md
       - name: Manage access rights with Azure RBAC
-        items:
-        - name: Portal
-          href: ../common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: PowerShell
-          href: ../common/storage-auth-aad-rbac-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Azure CLI
-          href: ../common/storage-auth-aad-rbac-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        href: assign-azure-role-data-access.md
       - name: Authenticate and authorize with Azure AD
         items:
         - name: Authorize with a managed identity
@@ -625,6 +623,8 @@
       href: https://azure.microsoft.com/pricing/calculator/
     - name: Videos
       href: https://azure.microsoft.com/documentation/videos/index/?services=storage
+    - name: Compare access with NFS to Azure Blob Storage, Azure Files, and Azure NetApp Files
+      href: ../common/nfs-comparison.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: NuGet packages (.NET)
       items:
       - name: Microsoft.Azure.Storage.Common (version 11.x)

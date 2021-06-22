@@ -34,4 +34,4 @@ This is caused by a lack of sufficient permissions on the storage container bein
 
 ## Next steps
 
-[!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]
+[!INCLUDE [troubleshooting next steps](../includes/hdinsight-troubleshooting-next-steps.md)]

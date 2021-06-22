@@ -1,6 +1,6 @@
 ---
-title: Create workflows in single-tenant Azure Logic Apps using the Azure portal
-description: Create automated workflows that integrate apps, data, services, and systems using single-tenant Azure Logic Apps and the Azure portal.
+title: Create workflows with single-tenant Azure Logic Apps (Standard) in the Azure portal
+description: Create automated workflows to integrate apps, data, services, and systems with single-tenant Azure Logic Apps (Standard) in the Azure portal.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
@@ -8,18 +8,18 @@ ms.topic: how-to
 ms.date: 05/25/2021
 ---
 
-# Create an integration workflow using single-tenant Azure Logic Apps and the Azure portal
+# Create an integration workflow with single-tenant Azure Logic Apps (Standard) in the Azure portal
 
-This article shows how to create an example automated integration workflow that runs in the *single-tenant Azure Logic Apps environment* by using the **Logic App (Standard)** resource type. If you're new to the new single-tenant model and logic app resource type, review [Single-tenant versus multi-tenant and integration service environment](single-tenant-overview-compare.md).
+This article shows how to create an example automated integration workflow that runs in the *single-tenant* Azure Logic Apps environment by using the **Logic App (Standard)** resource type and the Azure portal. This resource type can host multiple [stateful and stateless workflows](single-tenant-overview-compare.md#stateful-stateless). Also, workflows in the same logic app and tenant run in the same process as the redesigned Azure Logic Apps runtime, so they share the same resources and provide better performance. For more information about the single-tenant Azure Logic Apps offering, review [Single-tenant versus multi-tenant and integration service environment](single-tenant-overview-compare.md).
 
 While this example workflow is cloud-based and has only two steps, you can create workflows from hundreds of operations that can connect a wide range of apps, data, services, and systems across cloud, on premises, and hybrid environments. The example workflow starts with the built-in Request trigger and follows with an Office 365 Outlook action. The trigger creates a callable endpoint for the workflow and waits for an inbound HTTPS request from any caller. When the trigger receives a request and fires, the next action runs by sending email to the specified email address along with selected outputs from the trigger.
 
 > [!TIP]
-> If you don't have an Office 365 account, you can use any other available action that can send 
-> messages from your email account, for example, Outlook.com.
-> 
-> To create this example workflow using Visual Studio Code instead, follow the steps in 
-> [Create integration workflows using single tenant Azure Logic Apps and Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md). 
+> If you don't have an Office 365 account, you can use any other available action 
+> that can send messages from your email account, for example, Outlook.com.
+>
+> To create this example workflow in Visual Studio Code instead, follow the steps in 
+> [Create integration workflows using single-tenant Azure Logic Apps and Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md). 
 > Both options provide the capability to develop, run, and deploy logic app workflows in the same kinds of environments. 
 > However, with Visual Studio Code, you can *locally* develop, test, and run workflows in your development environment.
 
@@ -192,7 +192,7 @@ Before you can add a trigger to a blank workflow, make sure that the workflow de
    > If the **Add an action** pane shows the error message, `The access token expiry UTC time '{token-expiration-date-time}' is earlier than current UTC time '{current-date-time}'`, 
    > save your workflow, reload the page, reopen your workflow, and try adding the action again.
 
-   This example uses the Office 365 Outlook action named **Send an email (V2)**.
+   This example uses the Office 365 Outlook action that's named **Send an email (V2)**.
 
    ![Screenshot that shows the designer and the **Add an action** pane with the Office 365 Outlook "Send an email" action selected.](./media/create-single-tenant-workflows-azure-portal/find-send-email-action.png)
 
@@ -256,7 +256,7 @@ To find the fully qualified domain names (FQDNs) for connections, follow these s
 
    ![Screenshot that shows the Azure portal and API Connection pane with "JSON View" selected.](./media/create-single-tenant-workflows-azure-portal/logic-app-connection-view-json.png)
 
-1. Find, copy, and save the `connectionRuntimeUrl` property value somewhere safe so that you can set up your firewall with this information.
+1. Copy and save the `connectionRuntimeUrl` property value somewhere safe so that you can set up your firewall with this information.
 
    ![Screenshot that shows the "connectionRuntimeUrl" property value selected.](./media/create-single-tenant-workflows-azure-portal/logic-app-connection-runtime-url.png)
 
@@ -304,7 +304,7 @@ In this example, the workflow runs when the Request trigger receives an inbound 
 
    1. Under **All Collections**, provide a name for the collection to create for organizing your requests, press Enter, and select **Save to <*collection-name*>**. This example uses `Logic Apps requests` as the collection name.
 
-      Postman's request pane opens so that you can send a request to the endpoint URL for the Request trigger.
+      In the Postman app, the request pane opens so that you can send a request to the endpoint URL for the Request trigger.
 
       ![Screenshot that shows Postman with the opened request pane](./media/create-single-tenant-workflows-azure-portal/postman-request-pane.png)
 
@@ -423,7 +423,7 @@ After Application Insights opens, you can review various metrics for your logic 
 
 To debug a stateless workflow more easily, you can enable the run history for that workflow, and then disable the run history when you're done. Follow these steps for the Azure portal, or if you're working in Visual Studio Code, see [Create stateful and stateless workflows in Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#enable-run-history-stateless).
 
-1. In the [Azure portal](https://portal.azure.com), find and open your **Logic App (Standard)** resource.
+1. In the [Azure portal](https://portal.azure.com), open your **Logic App (Standard)** resource.
 
 1. On the logic app's menu, under **Settings**, select **Configuration**.
 
@@ -485,7 +485,7 @@ Stopping a logic app affects workflow instances in the following ways:
 
   To stop each workflow from triggering on unprocessed items since the last run, clear the trigger state before you restart the logic app by following these steps:
 
-  1. In the Azure portal, find and open your logic app.
+  1. In the Azure portal, open your logic app.
   1. On the logic app menu, under **Workflows**, select **Workflows**.
   1. Open a workflow, and edit any part of that workflow's trigger.
   1. Save your changes. This step resets the trigger's current state.
@@ -496,7 +496,7 @@ Stopping a logic app affects workflow instances in the following ways:
 
 ### Restart, stop, or start a single logic app
 
-1. In the Azure portal, find and open your logic app.
+1. In the Azure portal, open your logic app.
 
 1. On the logic app menu, select **Overview**.
 
@@ -600,9 +600,9 @@ Deleting a workflow affects workflow instances in the following ways:
 
 * Azure Logic Apps doesn't create or run new workflow instances.
 
-* If you delete a workflow and then recreate the same workflow, the recreated workflow won't have the same metadata as the deleted workflow. You have to resave any workflow that called the deleted workflow. That way, the caller gets the correct information for the recreated workflow. Otherwise, calls to the recreated workflow fail with an `Unauthorized` error. This behavior also applies to workflows that use artifacts in integration accounts and workflows that call Azure functions.
+* If you delete a workflow and then recreate the same workflow, the recreated workflow won't have the same metadata as the deleted workflow. To refresh the metadata, you have to resave any workflow that called the deleted workflow. That way, the caller gets the correct information for the recreated workflow. Otherwise, calls to the recreated workflow fail with an `Unauthorized` error. This behavior also applies to workflows that use artifacts in integration accounts and workflows that call Azure functions.
 
-1. In the Azure portal, find and open your logic app.
+1. In the Azure portal, open your logic app.
 
 1. On the logic app menu, under **Workflows**, select **Workflows**. In the checkbox column, select a single or multiple workflows to delete.
 

@@ -9,7 +9,7 @@ ms.author: gopalv
 author: gvashishtha
 ms.reviewer: larryfr
 ms.date: 04/21/2021
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: devx-track-python, deploy, devx-track-azurecli, contperf-fy21q2, contperf-fy21q4
 adobe-target: true
 ---
@@ -409,7 +409,7 @@ To delete a deployed webservice, use `az ml service delete <name of webservice>`
 
 To delete a registered model from your workspace, use `az ml model delete <model id>`
 
-Read more about [deleting a webservice](/cli/azure/ml/service#az_ml_service_delete) and [deleting a model](/cli/azure/ml/model#az_ml_model_delete).
+Read more about [deleting a webservice](/cli/azure/ml(v1)/computetarget/create#az_ml_service_delete) and [deleting a model](/cli/azure/ml/model#az_ml_model_delete).
 
 # [Python](#tab/python)
 

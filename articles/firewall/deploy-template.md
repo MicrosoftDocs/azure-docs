@@ -36,7 +36,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 This template creates an Azure Firewall with Availability Zones, along with the necessary resources to support the Azure Firewall.
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-azurefirewall-with-zones-sandbox).
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/azurefirewall-with-zones-sandbox).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/azurefirewall-with-zones-sandbox/azuredeploy.json":::
 

@@ -89,15 +89,15 @@ items:
       items:
       - name: Manage data sources
         href: manage-data-sources.md
-      - name: Purview connectors overview
+      - name: Azure Purview Connectors
         href: purview-connector-overview.md
       - name: Azure Multiple Source
         href: register-scan-azure-multiple-sources.md
-      - name: Azure Synapse Analytics (Workspace)
+      - name: Azure Synapse Analytics workspaces
         href: register-scan-synapse-workspace.md
       - name: Azure Blob Storage
         href: register-scan-azure-blob-storage-source.md
-        displayName: Register and scan azure blob storage
+        displayName: Register and scan Azure Blob Storage
       - name: Azure Cosmos DB
         href: register-scan-azure-cosmos-database.md
         displayName: Register and scan Azure Cosmos DB

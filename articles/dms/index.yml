@@ -64,8 +64,6 @@ landingContent:
             url: tutorial-sql-server-to-managed-instance.md
       - linkListType: reference
         links:
-          - text: Known issues - Online migration to SQL Database
-            url: known-issues-azure-sql-online.md
           - text: Known issues - Online migration to SQL Managed Instance
             url: known-issues-azure-sql-db-managed-instance-online.md
           - text: Network topologies for SQL Managed Instance migrations

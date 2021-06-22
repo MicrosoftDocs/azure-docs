@@ -28,7 +28,7 @@ In this tutorial, you learn the following tasks:
 
 ## Prerequisites
 
-- Azure subscription. If you don't have one, sign up to try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
+- Azure subscription. If you don't have one, sign up to try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/t.com/free/).
 - Install [Visual Studio Code](https://code.visualstudio.com/docs/setup/setup-overview), a lightweight, cross-platform code editor.
 - Azure Machine Learning Studio Visual Studio Code extension. For install instructions see the [Setup Azure Machine Learning Visual Studio Code extension guide](./how-to-setup-vs-code.md)
 - 2.0 CLI (preview). For installation instructions, see [Install, set up, and use the 2.0 CLI (preview)](how-to-configure-cli.md)

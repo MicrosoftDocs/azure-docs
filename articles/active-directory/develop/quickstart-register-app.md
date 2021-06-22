@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 05/30/2021
+ms.date: 06/14/2021
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, contperf-fy21q1, contperf-fy21q2
 # Customer intent: As developer, I want to know how to register my application with the Microsoft identity platform so that the security token service can issue ID and/or access tokens to client applications that request them.
@@ -27,6 +27,10 @@ The Microsoft identity platform performs identity and access management (IAM) on
 ## Prerequisites
 
 - An Azure account that has an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- The Azure account must have permission to manage applications in Azure Active Directory (Azure AD). Any of the following Azure AD roles include the required permissions:
+  - [Application administrator](../roles/permissions-reference.md#application-administrator)
+  - [Application developer](../roles/permissions-reference.md#application-developer)
+  - [Cloud application administrator](../roles/permissions-reference.md#cloud-application-administrator)
 - Completion of the [Set up a tenant](quickstart-create-new-tenant.md) quickstart.
 
 ## Register an application

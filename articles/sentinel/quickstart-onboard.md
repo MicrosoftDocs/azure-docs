@@ -53,6 +53,9 @@ After you connect your data sources, choose from a gallery of expertly created w
     
     \* There is no paired region for Southeast Asia.
 
+    > [!IMPORTANT]
+    > - By enabling certain rules that make use of the machine learning (ML) engine, **you give Microsoft permission to copy relevant ingested data outside of your Azure Sentinel workspace's geography** as may be required by the machine learning engine to process these rules.
+
 ## Enable Azure Sentinel <a name="enable"></a>
 
 1. Sign in to the Azure portal. Make sure that the subscription in which Azure Sentinel is created is selected.

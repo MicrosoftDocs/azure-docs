@@ -238,6 +238,17 @@ If you have **Include in ARM template** selected for deploying global parameters
 
 #### Resolution
 Unselect **Include in ARM template** and deploy global parameters with PowerShell as described in Global parameters in CI/CD. 
+ 
+### Extra  left "[" displayed in published JSON file
+
+#### Issue
+When publishing ADF with DevOps, there is one more left "[" displayed. ADF adds one more left "[" in ARMTemplate in DevOps automatically. 
+
+#### Cause
+Because [ is a reserved character for ARM, an extra [ is added automatically to escape "[".
+
+#### Resolution
+This is normal behavior during ADF publishing process for CI/CD.
 
 ## Next steps
 

@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 05/20/2021
+ms.date: 06/11/2021
 ms.author: aahi
 ms.reviewer: assafi
 ---
@@ -209,7 +209,7 @@ Document sentiment: Positive
         Neutral score: 0.77
 ```
 
-### Opinion mining
+## Opinion mining
 
 Create a new function called `SentimentAnalysisWithOpinionMiningExample()` that takes the client that you created earlier, and call its `AnalyzeSentimentBatch()` function with `IncludeOpinionMining` option in the `AnalyzeSentimentOptions` bag. The returned `AnalyzeSentimentResultCollection` object will contain the collection of `AnalyzeSentimentResult` in which represents `Response<DocumentSentiment>`. The difference between `SentimentAnalysis()` and `SentimentAnalysisWithOpinionMiningExample()` is that the latter will contain `SentenceOpinion` in each sentence, which shows an analyzed target and the related assessment(s). If there was an error, it will throw a `RequestFailedException`.
 
@@ -424,7 +424,78 @@ Named Entities:
                 Score: 0.80,    Length: 9,      Offset: 34
 ```
 
-### Entity linking
+### Personally Identifiable Information recognition
+
+Create a new function called `RecognizePIIExample()` that takes the client that you created earlier, call its `RecognizePiiEntities()` function and iterate through the results. The returned `PiiEntityCollection` represents the list of detected PII entities. If there was an error, it will throw a `RequestFailedException`.
+
+```csharp
+static void RecognizePIIExample(TextAnalyticsClient client)
+{
+    string document = "A developer with SSN 859-98-0987 whose phone number is 800-102-1100 is building tools with our APIs.";
+
+    PiiEntityCollection entities = client.RecognizePiiEntities(document).Value;
+
+    Console.WriteLine($"Redacted Text: {entities.RedactedText}");
+    if (entities.Count > 0)
+    {
+        Console.WriteLine($"Recognized {entities.Count} PII entit{(entities.Count > 1 ? "ies" : "y")}:");
+        foreach (PiiEntity entity in entities)
+        {
+            Console.WriteLine($"Text: {entity.Text}, Category: {entity.Category}, SubCategory: {entity.SubCategory}, Confidence score: {entity.ConfidenceScore}");
+        }
+    }
+    else
+    {
+        Console.WriteLine("No entities were found.");
+    }
+}
+```
+
+### Output
+
+```console
+Redacted Text: A developer with SSN *********** whose phone number is ************ is building tools with our APIs.
+Recognized 2 PII entities:
+Text: 859-98-0987, Category: U.S. Social Security Number (SSN), SubCategory: , Confidence score: 0.65
+Text: 800-102-1100, Category: Phone Number, SubCategory: , Confidence score: 0.8
+```
+
+# [Version 3.0](#tab/version-3)
+
+Create a new function called `EntityRecognitionExample()` that takes the client that you created earlier, call its `RecognizeEntities()` function and iterate through the results. The returned `Response<IReadOnlyCollection<CategorizedEntity>>` object will contain the list of detected entities. If there was an error, it will throw a `RequestFailedException`.
+
+```csharp
+static void EntityRecognitionExample(TextAnalyticsClient client)
+{
+    var response = client.RecognizeEntities("I had a wonderful trip to Seattle last week.");
+    Console.WriteLine("Named Entities:");
+    foreach (var entity in response.Value)
+    {
+        Console.WriteLine($"\tText: {entity.Text},\tCategory: {entity.Category},\tSub-Category: {entity.SubCategory}");
+        Console.WriteLine($"\t\tScore: {entity.ConfidenceScore:F2}\n");
+    }
+}
+```
+
+### Output
+
+```console
+Named Entities:
+        Text: trip,     Category: Event,        Sub-Category:
+                Score: 0.61
+
+        Text: Seattle,  Category: Location,     Sub-Category: GPE
+                Score: 0.82
+
+        Text: last week,        Category: DateTime,     Sub-Category: DateRange
+                Score: 0.80
+```
+
+--- 
+
+## Entity linking
+
+# [Version 3.1 preview](#tab/version-3-1)
 
 Create a new function called `EntityLinkingExample()` that takes the client that you created earlier, call its `RecognizeLinkedEntities()` function and iterate through the results. The returned `Response<LinkedEntityCollection>` object will contain the collection of detected entities `LinkedEntity`. If there was an error, it will throw a `RequestFailedException`. Since linked entities are uniquely identified, occurrences of the same entity are grouped under a `LinkedEntity` object as a list of `LinkedEntityMatch` objects.
 
@@ -510,80 +581,7 @@ Linked Entities:
                 Offset: 116
 ```
 
-### Personally Identifiable Information recognition
-
-Create a new function called `RecognizePIIExample()` that takes the client that you created earlier, call its `RecognizePiiEntities()` function and iterate through the results. The returned `PiiEntityCollection` represents the list of detected PII entities. If there was an error, it will throw a `RequestFailedException`.
-
-```csharp
-static void RecognizePIIExample(TextAnalyticsClient client)
-{
-    string document = "A developer with SSN 859-98-0987 whose phone number is 800-102-1100 is building tools with our APIs.";
-
-    PiiEntityCollection entities = client.RecognizePiiEntities(document).Value;
-
-    Console.WriteLine($"Redacted Text: {entities.RedactedText}");
-    if (entities.Count > 0)
-    {
-        Console.WriteLine($"Recognized {entities.Count} PII entit{(entities.Count > 1 ? "ies" : "y")}:");
-        foreach (PiiEntity entity in entities)
-        {
-            Console.WriteLine($"Text: {entity.Text}, Category: {entity.Category}, SubCategory: {entity.SubCategory}, Confidence score: {entity.ConfidenceScore}");
-        }
-    }
-    else
-    {
-        Console.WriteLine("No entities were found.");
-    }
-}
-```
-
-### Output
-
-```console
-Redacted Text: A developer with SSN *********** whose phone number is ************ is building tools with our APIs.
-Recognized 2 PII entities:
-Text: 859-98-0987, Category: U.S. Social Security Number (SSN), SubCategory: , Confidence score: 0.65
-Text: 800-102-1100, Category: Phone Number, SubCategory: , Confidence score: 0.8
-```
-
 # [Version 3.0](#tab/version-3)
-
-
-> [!NOTE]
-> New in version `3.0`:
-> * Entity linking is now a separated from entity recognition.
-
-
-Create a new function called `EntityRecognitionExample()` that takes the client that you created earlier, call its `RecognizeEntities()` function and iterate through the results. The returned `Response<IReadOnlyCollection<CategorizedEntity>>` object will contain the list of detected entities. If there was an error, it will throw a `RequestFailedException`.
-
-```csharp
-static void EntityRecognitionExample(TextAnalyticsClient client)
-{
-    var response = client.RecognizeEntities("I had a wonderful trip to Seattle last week.");
-    Console.WriteLine("Named Entities:");
-    foreach (var entity in response.Value)
-    {
-        Console.WriteLine($"\tText: {entity.Text},\tCategory: {entity.Category},\tSub-Category: {entity.SubCategory}");
-        Console.WriteLine($"\t\tScore: {entity.ConfidenceScore:F2}\n");
-    }
-}
-```
-
-### Output
-
-```console
-Named Entities:
-        Text: trip,     Category: Event,        Sub-Category:
-                Score: 0.61
-
-        Text: Seattle,  Category: Location,     Sub-Category: GPE
-                Score: 0.82
-
-        Text: last week,        Category: DateTime,     Sub-Category: DateRange
-                Score: 0.80
-```
-
-### Entity linking
 
 Create a new function called `EntityLinkingExample()` that takes the client that you created earlier, call its `RecognizeLinkedEntities()` function and iterate through the results. The returned `Response<IReadOnlyCollection<LinkedEntity>>` represents the list of detected entities. If there was an error, it will throw a `RequestFailedException`. Since linked entities are uniquely identified, occurrences of the same entity are grouped under a `LinkedEntity` object as a list of `LinkedEntityMatch` objects.
 
@@ -651,10 +649,9 @@ Linked Entities:
                 Score: 0.33
 ```
 
---- 
+---
 
-
-### Key phrase extraction
+## Key phrase extraction
 
 # [Version 3.1 preview](#tab/version-3-1)
 
@@ -712,9 +709,11 @@ Key phrases:
 
 ---
 
-## Use the API asynchronously with the analyze operation
+## Use the API asynchronously with the Analyze operation
 
 # [Version 3.1 preview](#tab/version-3-1)
+
+You can use the Analyze operation to perform asynchronous batch requests for: NER, key phrase extraction, sentiment analysis, and PII detection. The below sample shows a basic example on one operation. You can find a more advanced sample [on GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples/Sample_AnalyzeActions.md).
 
 [!INCLUDE [Analyze operation pricing](../analyze-operation-pricing-caution.md)]
 
@@ -810,8 +809,6 @@ Recognized Entities
     ConfidenceScore: 0.9
     SubCategory: 
 ```
-
-You can also use the Analyze operation to perform NER, key phrase extraction, sentiment analysis, and detect PII. See the [Analyze sample](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples) on GitHub.
 
 # [Version 3.0](#tab/version-3)
 

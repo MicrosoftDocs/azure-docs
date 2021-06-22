@@ -162,4 +162,8 @@ In this article, you learned how to use Azure Machine Learning managed online en
 
 - [What are endpoints?](concept-endpoints.md)
 - [How to deploy managed online endpoints with the Azure CLI](how-to-deploy-managed-online-endpoints.md)
-- [How to monitor managed online endpoints](how-to-monitor-online-endpoints.md).
+- [Deploy models with REST (preview)](how-to-deploy-with-rest.md)
+- [How to monitor managed online endpoints](how-to-monitor-online-endpoints.md)
+- [Troubleshooting managed online endpoints deployment and scoring (preview)](how-to-troubleshoot-managed-online-endpoints.md)
+- [View costs for an Azure Machine Learning managed online endpoint (preview)](how-to-view-online-endpoints-costs.md)
+- [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints-preview)

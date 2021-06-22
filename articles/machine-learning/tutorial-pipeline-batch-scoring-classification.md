@@ -31,7 +31,7 @@ In this tutorial, you complete the following tasks:
 > * Build, run, and publish a pipeline
 > * Enable a REST endpoint for the pipeline
 
-If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
+If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 
 ## Prerequisites
 
