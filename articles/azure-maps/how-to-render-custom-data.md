@@ -39,7 +39,7 @@ To render pushpins with labels and a custom image, complete these steps:
 1. Create a collection in which to store the requests. In the Postman app, select **New**. In the **Create New** window, select **Collection**. Name the collection and select the **Create** button. 
 
 2. To create the request, select **New** again. In the **Create New** window, select **Request**. Enter a **Request name** for the pushpins. Select the collection you created in the previous step, as the location to save the request. Then, select **Save**.
-    
+  
     ![Create a request in Postman](./media/how-to-render-custom-data/postman-new.png)
 
 3. Select the GET HTTP method on the builder tab and enter the following URL to create a GET request.
