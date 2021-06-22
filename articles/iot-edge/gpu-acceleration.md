@@ -54,7 +54,7 @@ Once you register, follow the instructions on the **2. Flight** tab to get acces
 
 ### T4 GPUs
 
-For **T4 GPUs**, Microsoft recommends a device mitigation driver from your GPU's vendor. For more information, see [Deploy graphics devices using direct device assignement](/windows-server/virtualization/hyper-v/deploy/deploying-graphics-devices-using-dda#optional---install-the-partitioning-driver).
+For **T4 GPUs**, Microsoft recommends a device mitigation driver from your GPU's vendor. For more information, see [Deploy graphics devices using direct device assignment](/windows-server/virtualization/hyper-v/deploy/deploying-graphics-devices-using-dda#optional---install-the-partitioning-driver).
 
 > [!WARNING]
 > Enabling hardware device passthrough may increase security risks.
