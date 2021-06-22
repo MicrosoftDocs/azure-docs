@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Migrate from Azure MFA Server to Azure multi-factor authentication
 
-Multi-factor authentication (MFA) is important to securing your infrastructure and assets from bad actors. Azure Multi-Factor Authentication Server (MFA Server) isn’t available for new deployments and will be deprecated. Customers who are using MFA Server should move to using cloud-based Azure Active Directory (Azure AD) multi-factor authentication. 
+Multi-factor authentication (MFA) is important to securing your infrastructure and assets from bad actors. Azure MFA Server isn’t available for new deployments and will be deprecated. Customers who are using MFA Server should move to using cloud-based Azure Active Directory (Azure AD) multi-factor authentication. 
 In this documentation, we assume that you have a hybrid environment where:
 
 - You are using MFA Server for MFA.

@@ -154,10 +154,10 @@ You need to append the following rules to your current claim rules:
 
 ```console
 c:[Type == "https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", Value == 
-“YourGroupSID"] => issue(Type = "https://schemas.microsoft.com/claims/authnmethodsproviders", 
+"YourGroupSID"] => issue(Type = "https://schemas.microsoft.com/claims/authnmethodsproviders", 
 Value = "AzureMfaAuthentication");
 not exists([Type == "https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", 
-Value==“YourGroupSid"]) => issue(Type = 
+Value=="YourGroupSid"]) => issue(Type = 
 "https://schemas.microsoft.com/claims/authnmethodsproviders", Value = 
 "AzureMfaServerAuthentication");’
 ```
@@ -351,10 +351,11 @@ c:[Type == "https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", 
 “**YourGroupSID**"] => issue(Type = "https://schemas.microsoft.com/claims/authnmethodsproviders",
 Value = "AzureMfaAuthentication");
 not exists([Type == "https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid",
-Value==“**YourGroupSid**"]) => issue(Type =
+Value=="YourGroupSid"]) => issue(Type =
 "https://schemas.microsoft.com/claims/authnmethodsproviders", Value =
 "AzureMfaServerAuthentication");’
 ```
+
 
 ### Disable MFA Server as an authentication provider in AD FS
 

@@ -91,7 +91,7 @@ To find the group SID, use the following command, with your group name
 
 The following PowerShell cmdlets invoke Azure AD MFA for users in the group when not on the corporate network. Replace "YourGroupSid” with the SID found by running the above cmdlet.
 
-ake sure you review the [How to Choose Additional Auth Providers in 2019](/windows-server/identity/ad-fs/overview/whats-new-active-directory-federation-services-windows-server). 
+Make sure you review the [How to Choose Additional Auth Providers in 2019](/windows-server/identity/ad-fs/overview/whats-new-active-directory-federation-services-windows-server). 
 
  > [!IMPORTANT]
 > Backup your existing claims rules
@@ -102,7 +102,9 @@ ake sure you review the [How to Choose Additional Auth Providers in 2019](/windo
 
 Run the following PowerShell cmdlet: 
 
-`(Get-AdfsRelyingPartyTrust -Name “RPTrustName”).AdditionalAuthenticationRules` 
+```powershell
+(Get-AdfsRelyingPartyTrust -Name “RPTrustName”).AdditionalAuthenticationRules
+```
 
  
 
@@ -112,13 +114,13 @@ The command returns your current additional authentication rules for your relyin
 
 c:[Type == "[https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid](https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid)", Value == 
 
-“YourGroupSID"] => issue(Type = "[https://schemas.microsoft.com/claims/authnmethodsproviders](https://schemas.microsoft.com/claims/authnmethodsproviders)", 
+"YourGroupSID"] => issue(Type = "[https://schemas.microsoft.com/claims/authnmethodsproviders](https://schemas.microsoft.com/claims/authnmethodsproviders)", 
 
 Value = "AzureMfaAuthentication");
 
 not exists([Type == "[https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid](https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid)", 
 
-Value==“YourGroupSid"]) => issue(Type = 
+Value=="YourGroupSid"]) => issue(Type = 
 
 "[https://schemas.microsoft.com/claims/authnmethodsproviders](https://schemas.microsoft.com/claims/authnmethodsproviders)", Value = 
 
@@ -140,13 +142,13 @@ Set-AdfsAdditionalAuthenticationRule -AdditionalAuthenticationRules 'c:[type ==
 
  c:[Type == "[https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid](https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid)", Value == 
 
-“YourGroupSID"] => issue(Type = "[https://schemas.microsoft.com/claims/authnmethodsproviders](https://schemas.microsoft.com/claims/authnmethodsproviders)", 
+"YourGroupSID"] => issue(Type = "[https://schemas.microsoft.com/claims/authnmethodsproviders](https://schemas.microsoft.com/claims/authnmethodsproviders)", 
 
 Value = "AzureMfaAuthentication");
 
 not exists([Type == "[https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid](https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid)", 
 
-Value==“YourGroupSid"]) => issue(Type = 
+Value=="YourGroupSid"]) => issue(Type = 
 
 "[https://schemas.microsoft.com/claims/authnmethodsproviders](https://schemas.microsoft.com/claims/authnmethodsproviders)", Value = 
 
@@ -172,13 +174,13 @@ Set-AdfsRelyingPartyTrust -TargetName AppA -AdditionalAuthenticationRules 'c:[ty
 
 c:[Type == "[https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid](https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid)", Value == 
 
-“YourGroupSID"] => issue(Type = "[https://schemas.microsoft.com/claims/authnmethodsproviders](https://schemas.microsoft.com/claims/authnmethodsproviders)", 
+"YourGroupSID"] => issue(Type = "[https://schemas.microsoft.com/claims/authnmethodsproviders](https://schemas.microsoft.com/claims/authnmethodsproviders)", 
 
 Value = "AzureMfaAuthentication");
 
 not exists([Type == "[https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid](https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid)", 
 
-Value==“YourGroupSid"]) => issue(Type = 
+Value=="YourGroupSid"]) => issue(Type = 
 
 "[https://schemas.microsoft.com/claims/authnmethodsproviders](https://schemas.microsoft.com/claims/authnmethodsproviders)", Value = 
 
@@ -206,11 +208,15 @@ If the SupportsMFA flag is set to False, you're likely not using Azure MFA; you'
 
 You can check the status of your SupportsMFA flag with the following [Windows PowerShell cmdlet](/powershell/module/msonline/get-msoldomainfederationsettings?view=azureadps-1.0):
 
-` Get-MsolDomainFederationSettings –DomainName yourdomain.com`
+```powershell
+Get-MsolDomainFederationSettings –DomainName yourdomain.com
+```
 
 If the SupportsMFA flag is set to false or is blank for your federated domain, set it to true using the following Windows PowerShell cmdlet:
 
-` Set-MsolDomainFederationSettings -DomainName contoso.com -SupportsMFA $true`
+```powershell
+Set-MsolDomainFederationSettings -DomainName contoso.com -SupportsMFA $true
+```
 
 This configuration allows the decision to use MFA Server or Azure MFA to be made on AD FS.
 
@@ -233,9 +239,9 @@ For more information, see the following resources:
 
 There are two ways to register users for Azure MFA: 
 
-* registering for combined security (MFA and self-service-password reset) 
+* Register for combined security (MFA and self-service-password reset) 
 
-* migrating phone numbers from MFA Server
+* Migrate phone numbers from MFA Server
 
 The Microsoft Authenticator app can be used as in passwordless mode. It can also be used as a second factor for MFA with either registration method.
 
@@ -277,12 +283,12 @@ The .csv file contains many fields not necessary for migration. Edit and format 
 
 When opening the .csv file, columns of interest include:
 
-*  Username
+* Username
 * Primary Phone
 * Primary Country Code
 * Backup Country Code
 * Backup Phone
-* Backup Extension. 
+* Backup Extension
 
 You'll need to interpret, clean, and format the data.
 
@@ -343,22 +349,21 @@ Follow the steps under Configure claims rules to invoke Azure AD MFA to revert b
 For example, remove the following from the rule(s): 
 
  
-
+```console
 c:[Type == "[https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid"](https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid"), Value ==
 
-“YourGroupSID"] => issue(Type = "[https://schemas.microsoft.com/claims/authnmethodsproviders"](https://schemas.microsoft.com/claims/authnmethodsproviders"),
+"YourGroupSID"] => issue(Type = "[https://schemas.microsoft.com/claims/authnmethodsproviders"](https://schemas.microsoft.com/claims/authnmethodsproviders"),
 
 Value = "AzureMfaAuthentication");
 
 not exists([Type == "[https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid"](https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid"),
 
-Value==“YourGroupSid"]) => issue(Type =
+Value=="YourGroupSid"]) => issue(Type =
 
 "[https://schemas.microsoft.com/claims/authnmethodsproviders"](https://schemas.microsoft.com/claims/authnmethodsproviders"), Value =
 
 "AzureMfaServerAuthentication");’
-
- 
+```
 
 ### Disable MFA Server as an authentication provider in AD FS
 
