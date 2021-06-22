@@ -599,7 +599,7 @@
       href: migration-classic-resource-manager-community-tools.md
     - name: FAQ
       displayName: classic, migration, classic to ARM, CSES, Cloud Services
-      href: migration-classic-resource-manager-faq.md
+      href: migration-classic-resource-manager-faq.yml
 - name: Images
   items:
   - name: Find Azure Marketplace images

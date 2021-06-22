@@ -161,7 +161,7 @@ There are several ways to validate that the container is running:
 
 #### English &leftrightarrow; German
 
-Navigate to the swagger page: <http://localhost:5000/swagger/index.html>
+Navigate to the swagger page: `<http://localhost:5000/swagger/index.html>`
 
 1. Select **POST /translate**
 1. Select **Try it out**

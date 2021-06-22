@@ -3,7 +3,7 @@ title: Tutorial - Create and manage Azure budgets
 description: This tutorial helps you plan and account for the costs of Azure services that you consume.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2021
+ms.date: 06/17/2021
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -160,7 +160,12 @@ Budget integration with action groups only works for action groups that have the
 
 ## Create and edit budgets with PowerShell
 
-If you're an EA customer, you can create and edit budgets programmatically using the Azure PowerShell module. To download the latest version of Azure PowerShell, run the following command:
+If you're an EA customer, you can create and edit budgets programmatically using the Azure PowerShell module. 
+
+>[!Note]
+>Customers with a Microsoft Customer Agreement should use the [Budgets REST API](/rest/api/consumption/budgets/create-or-update) to create budgets programmatically because PowerShell and CLI aren't yet supported.
+
+To download the latest version of Azure PowerShell, run the following command:
 
 ```azurepowershell-interactive
 install-module -name Az
@@ -184,6 +189,7 @@ $ActionGroupId = (Set-AzActionGroup -ResourceGroupName YourResourceGroup -Name T
 
 #Create a monthly budget that sends an email and triggers an Action Group to send a second email. Make sure the StartDate for your monthly budget is set to the first day of the current month. Note that Action Groups can also be used to trigger automation such as Azure Functions or Webhooks.
 
+Get-AzContext
 New-AzConsumptionBudget -Amount 100 -Name TestPSBudget -Category Cost -StartDate 2020-02-01 -TimeGrain Monthly -EndDate 2022-12-31 -ContactEmail test@test.com -NotificationKey Key1 -NotificationThreshold 0.8 -NotificationEnabled -ContactGroup $ActionGroupId
 ```
 

@@ -7,7 +7,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 06/11/2021
+ms.date: 06/17/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -113,20 +113,17 @@ This sample demonstrates how a single-page application can use Azure AD B2C for 
 
 ### 3.1 Update the SPA sample
 
-Now that you've obtained the sample, update the code with your Azure AD B2C tenant name and the application ID of *myApp* you recorded in step 2.3.
+Now that you've obtained the SPA app sample, update the code with your Azure AD B2C and web API values. In the sample folder, under the `App` folder, open the following JavaScript files, and update with the corresponding value:  
 
-Open the *authConfig.js* file inside the *App* folder.
-1. In the `msalConfig` object, find the assignment for `clientId` and replace it with the **Application (client) ID** you recorded in step 2.3.
 
-Open the `policies.js` file.
-1. Find the entries under `names` and replace their assignment with the name of the user-flows you created in an earlier step, for example `b2c_1_susi`.
-1. Find the entries under `authorities` and replace them as appropriate with the names of the user-flows you created in an earlier step, for example `https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<your-sign-in-sign-up-policy>`.
-1. Find the assignment for `authorityDomain` and replace it with `<your-tenant-name>.b2clogin.com`.
-
-Open the `apiConfig.js` file.
-1. Find the assignment for `b2cScopes` and replace the URL with the scope URL you created for the Web API, for example `b2cScopes: ["https://<your-tenant-name>.onmicrosoft.com/tasks-api/tasks.read"]`.
-1. Find the assignment for `webApi` and replace the current URL with `http://localhost:5000/tasks`.
-
+|File  |Key  |Value  |
+|---------|---------|---------|
+|authConfig.js|clientId| The SPA application ID from [step 2.1](#21-register-the-web-api-application).|
+|policies.js| names| The user flows, or custom policy you created in [step 1](#step-1-configure-your-user-flow).|
+|policies.js|authorities|Your Azure AD B2C [tenant name](tenant-management.md#get-your-tenant-name). For example, `contoso.onmicrosoft.com`. Then, replace with the user flows, or custom policy you created in [step 1](#step-1-configure-your-user-flow). For example `https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<your-sign-in-sign-up-policy>`|
+|policies.js|authorityDomain|Your Azure AD B2C [tenant name](tenant-management.md#get-your-tenant-name). For example, `contoso.onmicrosoft.com`.|
+|apiConfig.js|b2cScopes|The scopes you [created for the web API](#22-configure-scopes). For example, `b2cScopes: ["https://<your-tenant-name>.onmicrosoft.com/tasks-api/tasks.read"]`.|
+|apiConfig.js|webApi|The URL of the web API, `http://localhost:5000/tasks`.|
 
 Your resulting code should look similar to following sample:
 

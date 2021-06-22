@@ -881,13 +881,15 @@
       href: ssis-integration-runtime-management-troubleshoot.md
       displayName: timeout
     - name: Package Execution in Azure-SSIS IR
-      href: ssis-integration-runtime-ssis-activity-faq.md
+      href: ssis-integration-runtime-ssis-activity-faq.yml
       displayName: retry, timeout
     - name: Diagnose connectivity in Azure-SSIS IR
       href: ssis-integration-runtime-diagnose-connectivity-faq.md
       displayName: timeout
 - name: Reference
   items:
+  - name: Data flow compute optimized retirement
+    href: compute-optimized-retire.md
   - name: Data flow script
     href: data-flow-script.md
   - name: .NET
@@ -927,3 +929,5 @@
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Support options
     href: https://azure.microsoft.com/support/options/
+  - name: Limits
+    href: https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#data-factory-limits

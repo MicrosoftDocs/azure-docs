@@ -504,31 +504,31 @@
     {
       "path_to_root": "azure-sdk-for-java-event-hubs",
       "url": "https://github.com/Azure/azure-sdk-for-java/",
-      "branch": "master",
+      "branch": "main",
       "branch_mapping": {}
     },
     {
       "path_to_root": "azure-sdk-for-java-cosmos-db",
       "url": "https://github.com/Azure/azure-sdk-for-java/",
-      "branch": "master",
+      "branch": "main",
       "branch_mapping": {}
     },
     {
       "path_to_root": "azure-sdk-for-java-script-event-hubs",
       "url": "https://github.com/Azure/azure-sdk-for-js/",
-      "branch": "master",
+      "branch": "main",
       "branch_mapping": {}
     },
     {
       "path_to_root": "azure-sdk-for-net-event-hubs",
       "url": "https://github.com/Azure/azure-sdk-for-net/",
-      "branch": "master",
+      "branch": "main",
       "branch_mapping": {}
     },
     {
       "path_to_root": "azure-sdk-for-python-event-hubs",
       "url": "https://github.com/Azure/azure-sdk-for-python/",
-      "branch": "master",
+      "branch": "main",
       "branch_mapping": {}
     },
     {
@@ -606,7 +606,7 @@
     {
       "path_to_root": "cosmosdb-python-sdk",
       "url": "https://github.com/Azure/azure-sdk-for-python/",
-      "branch": "master",
+      "branch": "main",
       "branch_mapping": {}
     },
     {
@@ -625,6 +625,12 @@
       "path_to_root": "azure-cosmos-db-python-getting-started",
       "url": "https://github.com/Azure-Samples/azure-cosmos-db-python-getting-started",
       "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "active-directory-aspnetcore-webapp-openidconnect-v2",
+      "url": "https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2",
+      "branch": "master",
       "branch_mapping": {}
     },
     {
@@ -732,7 +738,7 @@
     {
       "path_to_root": "azure-sdk-for-net",
       "url": "https://github.com/Azure/azure-sdk-for-net/",
-      "branch": "master",
+      "branch": "main",
       "branch_mapping": {}
     },
     {
@@ -790,6 +796,11 @@
     ".openpublishing.redirection.healthcare-apis.json",
     ".openpublishing.redirection.security-benchmark.json",
     ".openpublishing.redirection.media-services.json",
-    "articles/cosmos-db/.openpublishing.redirection.cosmos-db.json"
+    "articles/azure-relay/.openpublishing.redirection.relay.json",    
+    "articles/cosmos-db/.openpublishing.redirection.cosmos-db.json",
+    "articles/event-hubs/.openpublishing.redirection.event-hubs.json",
+    "articles/event-grid/.openpublishing.redirection.event-grid.json",    
+    "articles/hdinsight/.openpublishing.redirection.hdinsight.json",
+    "articles/service-bus-messaging/.openpublishing.redirection.service-bus-messaging.json"    
   ]
 }

@@ -208,10 +208,10 @@ Learn about the specific definitions of these metrics in [Understand automated m
 
 |Classification | Regression | Time Series Forecasting
 |--|--|--
-|`accuracy`| `spearman_correlation` | `spearman_correlation`
-|`AUC_weighted` | `normalized_root_mean_squared_error` | `normalized_root_mean_squared_error`
-|`average_precision_score_weighted` | `r2_score` | `r2_score`
-|`norm_macro_recall` | `normalized_mean_absolute_error` | `normalized_mean_absolute_error`
+|`accuracy`| `spearman_correlation` | `normalized_root_mean_squared_error`
+|`AUC_weighted` | `normalized_root_mean_squared_error` | `r2_score`
+|`average_precision_score_weighted` | `r2_score` | `normalized_mean_absolute_error`
+|`norm_macro_recall` | `normalized_mean_absolute_error` | 
 |`precision_score_weighted` |
 
 ### Primary metrics for classification scenarios 
@@ -245,8 +245,7 @@ See regression notes, above.
 
 | Metric | Example use case(s) |
 | ------ | ------- |
-| `spearman_correlation` | |
-| `normalized_root_mean_squared_error` | Price prediction (forecasting), Inventory optimization, Demand forecasting |
+| `normalized_root_mean_squared_error` | Price prediction (forecasting), Inventory optimization, Demand forecasting | |
 | `r2_score` | Price prediction (forecasting), Inventory optimization, Demand forecasting |
 | `normalized_mean_absolute_error` | |
 

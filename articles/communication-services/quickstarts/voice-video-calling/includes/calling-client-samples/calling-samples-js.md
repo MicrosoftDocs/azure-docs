@@ -55,10 +55,15 @@ The `createCallAgent` method uses `CommunicationTokenCredential` as an argument.
 You can use the `getDeviceManager` method on the `CallClient` instance to access `deviceManager`.
 
 ```js
+const { CallClient } = require('@azure/communication-calling');
+const { AzureCommunicationTokenCredential} = require('@azure/communication-common');
+const { AzureLogger, setLogLevel } = require("@azure/logger");
 // Set the logger's log level
 setLogLevel('verbose');
-// Redirect logger output to wherever desired. By default it logs to console
-AzureLogger.log = (...args) => { console.log(...args) };
+// Redirect log output to wherever desired. To console, file, buffer, REST API, etc...
+AzureLogger.log = (...args) => {
+  console.log(...args); // Redirect log output to console
+};
 const userToken = '<user token>';
 callClient = new CallClient(options);
 const tokenCredential = new AzureCommunicationTokenCredential(userToken);
@@ -598,6 +603,12 @@ This resolves with an object that indicates whether `audio` and `video` permissi
 console.log(result.audio);
 console.log(result.video);
 ```
+
+#### Notes
+- The 'videoDevicesUpdated' event fires when video devices are plugging-in/unplugged.
+- The 'audioDevicesUpdated' event fires when audio devices are plugged
+- When the DeviceManager is created, at first it does not know about any devices if permissions have not been granted yet and so initially it's device lists are empty. If we then call the DeviceManager.askPermission() API, the user is prompted for device access and if the user clicks on 'allow' to grant the access, then the device manager will learn about the devices on the system, update it's device lists and emit the 'audioDevicesUpdated' and 'videoDevicesUpdated' events. Lets say we then refresh the page and create device manager, the device manager will be able to learn about devices because user has already previously granted access, and so it will initially it will have it's device lists filled and it will not emit 'audioDevicesUpdated' nor 'videoDevicesUpdated' events.
+- Speaker enumeration/selection is not suppported on Android nor iOS. This is already in 'known issues' documentation.
 
 ## Record calls
 > [!NOTE]

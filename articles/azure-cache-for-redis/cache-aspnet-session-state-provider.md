@@ -73,7 +73,7 @@ The NuGet package downloads and adds the required assembly references and adds t
 
 The commented section provides an example of the attributes and sample settings for each attribute.
 
-Configure the attributes with the values from your cache in the Microsoft Azure portal, and configure the other values as desired. For instructions on accessing your cache properties, see [Configure Azure Cache for Redis settings](cache-configure.md#configure-azure-cache-for-redis-settings).
+Configure the attributes with the values on the left from your cache in the Microsoft Azure portal, and configure the other values as desired. For instructions on accessing your cache properties, see [Configure Azure Cache for Redis settings](cache-configure.md#configure-azure-cache-for-redis-settings).
 
 * **host** – specify your cache endpoint.
 * **port** – use either your non-TLS/SSL port or your TLS/SSL port, depending on the TLS settings.
@@ -128,3 +128,4 @@ For more information about session state and other best practices, see [Web Deve
 ## Next steps
 
 Check out the [ASP.NET Output Cache Provider for Azure Cache for Redis](cache-aspnet-output-cache-provider.md).
+

@@ -44,7 +44,7 @@ The following example creates a Node.js app. Replace `<app-name>` with a name th
 
 ```azurecli-interactive
  az webapp create \
-    --plan myPlan
+    --plan myPlan \
     --resource-group myResourceGroup \
     --name <app-name> \
     --custom-location $customLocationId \
@@ -70,7 +70,7 @@ az webapp deployment source config-zip --resource-group myResourceGroup --name <
 > [!NOTE]
 > To use Log Analytics, you should've previously enabled it when [installing the App Service extension](manage-create-arc-environment.md#install-the-app-service-extension). If you installed the extension without Log Analytics, skip this step.
 
-Navigate to the [Log Analytics workspace that's configured with your App Service extension](manage-create-arc-environment.md#install-the-app-service-extension), then click Logs in the left navigation. Run the following sample query to show logs over the past 72 hours. Replace `<app-name>` with your web app name. 
+Navigate to the [Log Analytics workspace that's configured with your App Service extension](manage-create-arc-environment.md#install-the-app-service-extension), then click Logs in the left navigation. Run the following sample query to show logs over the past 72 hours. Replace `<app-name>` with your web app name. If there's an error when running a query, try again in 10-15 minutes (there may be a delay for Log Analytics to start receiving logs from your application). 
 
 ```kusto
 let StartTime = ago(72h);
@@ -93,7 +93,8 @@ To create a custom container app, run [az webapp create](/cli/azure/webapp#az_we
 For example, try:
 
 ```azurecli-interactive
-az webapp create 
+az webapp create \
+    --plan myPlan \
     --resource-group myResourceGroup \
     --name <app-name> \
     --custom-location $customLocationId \

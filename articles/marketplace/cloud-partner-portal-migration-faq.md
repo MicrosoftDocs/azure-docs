@@ -112,7 +112,7 @@ If you are part of multiple accounts, in Partner center you will see an account 
 
 ## How do I create new offers?
 
-Access the Commercial marketplace program in [Partner Center](https://go.microsoft.com/fwlink/?linkid=2166002) to create new offers. On the Overview page, select **+ New offer**.
+Access the Commercial marketplace program in [Partner Center](https://go.microsoft.com/fwlink/?linkid=2165935) to create new offers.
 
 [![Screenshot shows the Partner Center Overview menu.](media/cpp-pc-faq/new-offer.png "Shows the Partner Center Overview menu")](media/cpp-pc-faq/new-offer.png#lightbox)
 

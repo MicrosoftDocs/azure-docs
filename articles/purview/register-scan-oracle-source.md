@@ -65,6 +65,7 @@ The user should have permission to create a session as well as role SELECT\_CATA
         grant select on dba\_arguments to \[user\];\
         grant select on dba\_sequences to \[user\];\
         grant select on dba\_dependencies to \[user\];\
+        grant select on dba\_type\_attrs to \[user\];\
         grant select on V\_\$INSTANCE to \[user\];\
         grant select on v\_\$database to \[user\];
     
