@@ -15,7 +15,6 @@ After deploying your Azure VMware Solution private cloud, you'll connect it to y
 >[!NOTE]
 >You can connect through VPN, but that's out of scope for this quick start guide.
 
-
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
@@ -23,10 +22,14 @@ In this tutorial, you learn how to:
 > * Peer the private cloud with your on-premises ExpressRoute circuit
 > * Verify on-premises network connectivity
 
+After you're finished, follow the recommended next steps at the end to continue with the steps of this getting started guide.
+
 ## Prerequisites
 
 - Review the documentation on how to [enable connectivity in different Azure subscriptions](../expressroute/expressroute-howto-set-global-reach-cli.md#enable-connectivity-between-expressroute-circuits-in-different-azure-subscriptions).  
+
 - A separate, functioning ExpressRoute circuit used to connect on-premises environments to Azure, which is _circuit 1_ for peering.
+
 - Ensure that all gateways, including the ExpressRoute provider's service, supports 4-byte Autonomous System Number (ASN). Azure VMware Solution uses 4-byte public ASNs for advertising routes.
 
 >[!NOTE]

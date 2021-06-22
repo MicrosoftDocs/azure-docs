@@ -23,6 +23,7 @@ In this tutorial, you learn how to:
 > * Download and deploy the VMware HCX Connector OVA
 > * Activate VMware HCX with a license key
 
+After you're finished, follow the recommended next steps at the end to continue with the steps of this getting started guide.
 
 ## Prerequisites
 

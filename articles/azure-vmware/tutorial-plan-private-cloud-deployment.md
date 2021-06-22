@@ -1,6 +1,6 @@
 ---
 title: Plan the Azure VMware Solution deployment
-description: Learn learn how to plan your Azure VMware Solution deployment.  
+description: Learn how to plan your Azure VMware Solution deployment.  
 ms.topic: tutorial
 ms.custom: contperf-fy21q4
 ms.date: 06/28/2021
@@ -10,35 +10,26 @@ ms.date: 06/28/2021
 
 Planning your Azure VMware Solution deployment is critical to ensure that you're successful.  During the planning process, you'll identify and gather what's needed for your deployment. As you plan, make sure to document the information you gather for easy reference during the deployment. A successful deployment results in a production-ready environment for creating virtual machines (VMs) and migration. 
 
-
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Request a host quota for eligible Azure plan
 > * Identify the Azure subscription, resource group, and region
 > * Identify the size hosts and determin the number of clusters and hosts
+> * Request a host quota for eligible Azure plan
 > * Identify the /22 CIDR IP segment for private cloud management
-> * Identify a single network segment used primarily for testing purposes
+> * Identify a single network segment
 > * Define the virtual network gateway
 > * Define VMware HCX network segments
 
-
-## Request a host quota 
-
-It's important to request a host quota early, so when the planning process is finished, you're ready to deploy your Azure VMware Solution private cloud. 
-
-- [EA customers](request-host-quota-azure-vmware-solution.md#request-host-quota-for-ea-customers)
-- [CSP customers](request-host-quota-azure-vmware-solution.md#request-host-quota-for-csp-customers)
-
-After the support team receives your request for a host quota, it takes up to five business days to confirm your request and allocate your hosts. 
+After you're finished, follow the recommended next steps at the end to continue with the steps of this getting started guide.
 
 
 ## Identify the subscription
 
-Identify the subscription you plan to use to deploy Azure VMware Solution.  You can either create a new subscription or use an existing one.
+Identify the subscription you plan to use to deploy Azure VMware Solution.  You can create a new subscription or use an existing one.
 
 >[!NOTE]
->The subscription must be associated with a Microsoft Enterprise Agreement or a Cloud Solution Provider Azure plan. For more information, see [Eligibility criteria](request-host-quota-azure-vmware-solution.md#eligibility-criteria).
+>The subscription must be associated with a Microsoft Enterprise Agreement (EA) or a Cloud Solution Provider (CSP) Azure plan. For more information, see [Eligibility criteria](request-host-quota-azure-vmware-solution.md#eligibility-criteria).
 
 ## Identify the resource group
 
@@ -46,7 +37,7 @@ Identify the resource group you want to use for your Azure VMware Solution.  Gen
 
 ## Identify the region or location
 
-Identify the region you want Azure VMware Solution deployed.  For more information, see the [Azure Products Available By Region Guide](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=azure-vmware).
+Identify the [region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-vmware) you want Azure VMware Solution deployed. 
 
 ## Define the resource name
 
@@ -66,6 +57,17 @@ Identify the size hosts that you want to use when deploying Azure VMware Solutio
 The first Azure VMware Solution deployment you do consists of a private cloud containing a single cluster. You'll need to define the number of hosts you want to deploy to the first cluster for your deployment.
 
 [!INCLUDE [hosts-minimum-initial-deployment-statement](includes/hosts-minimum-initial-deployment-statement.md)]
+
+
+## Request a host quota 
+
+It's important to request a host quota early, so when the planning process is finished, you're ready to deploy your Azure VMware Solution private cloud. 
+
+- [EA customers](request-host-quota-azure-vmware-solution.md#request-host-quota-for-ea-customers)
+- [CSP customers](request-host-quota-azure-vmware-solution.md#request-host-quota-for-csp-customers)
+
+After the support team receives your request for a host quota, it takes up to five business days to confirm your request and allocate your hosts. 
+
 
 ## Define the IP address segment for private cloud management
 

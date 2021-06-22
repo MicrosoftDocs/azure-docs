@@ -20,19 +20,19 @@
       href: tutorial-configure-vmware-hcx.md
 - name: Tutorials
   items:
-  - name: 1 - Network planning checklist
+  - name: Network planning checklist
     href: tutorial-network-checklist.md
-  - name: 2 - Create a private cloud
+  - name: Create a private cloud
     href: tutorial-create-private-cloud.md
-  - name: 3 - Access a private cloud
+  - name: Access a private cloud
     href: tutorial-access-private-cloud.md
-  - name: 4 - Configure networking
+  - name: Configure networking
     href: tutorial-configure-networking.md
-  - name: 5 - Create an NSX-T network segment
+  - name: Create an NSX-T network segment
     href: tutorial-nsx-t-network-segment.md
-  - name: 6 - Expand or shrink clusters in a private cloud
+  - name: Expand or shrink clusters in a private cloud
     href: tutorial-scale-private-cloud.md
-  - name: 7 - Delete a private cloud
+  - name: Delete a private cloud
     href: tutorial-delete-private-cloud.md
 - name: Concepts
   items:

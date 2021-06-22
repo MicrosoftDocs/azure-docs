@@ -21,6 +21,8 @@ In this tutorial, you learn how to:
 > * Connect to a new or existing ExpressRoute virtual network gateway
 > * Validate the network connect
 
+After you're finished, follow the recommended next steps at the end to continue with the steps of this getting started guide.
+
 ## Register the **Microsoft.AVS** resource provider
 
 [!INCLUDE [register-resource-provider-steps](includes/register-resource-provider-steps.md)]
