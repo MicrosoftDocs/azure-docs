@@ -131,7 +131,7 @@ Logger.LogMessage(Logger.MessageType.INFORMATION, "Performing PlayAudio operatio
 var response = await callConnection.PlayAudioAsync(playAudioRequest, reportCancellationToken).ConfigureAwait(false);
 ```
 
-The `PlayAudioAsync` method return `PlayAudioResponse`, which can be used to get the `OperationStatus`. The `OperationStatus` could have the following values - NotStarted, Running, Completed, or Failed.
+The `PlayAudioAsync` method returns a `PlayAudioResponse`, which can be used to get the `OperationStatus`. The `OperationStatus` could have the following values: `NotStarted`, `Running`, `Completed`, or `Failed`.
 
 ```csharp
 Logger.LogMessage(Logger.MessageType.INFORMATION, $"Play Audio state: {response.Value.Status}");
