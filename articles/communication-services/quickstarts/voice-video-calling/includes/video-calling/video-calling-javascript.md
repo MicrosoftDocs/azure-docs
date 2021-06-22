@@ -8,10 +8,9 @@ ms.author: mikben
 
 Get started with Azure Communication Services by using the Communication Services calling SDK to add 1 on 1 video calling to your app. You'll learn how to start and answer a video call using the Azure Communication Services Calling SDK for JavaScript.
 
+## Sample Code
 
-> [!NOTE]
-> Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-video-calling)
-
+If you'd like to skip ahead to the end, you can download this quickstart as a sample on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-video-calling).
 
 ## Prerequisites
 - Obtain an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -293,7 +292,7 @@ hangUpButton.addEventListener("click", async () => {
 
 ## Start and end video during the call
 You can stop the video during the current call by adding an event listener to the Stop Video button to dispose of the renderer of `localVideoStream`. 
- ```JavaScript       
+ ```JavaScript
 stopVideoButton.addEventListener("click", async () => {
     await call.stopVideo(localVideoStream);
     rendererLocal.dispose();
@@ -320,7 +319,4 @@ Open your browser and navigate to http://localhost:8080/. You should see the fol
 
 :::image type="content" source="../../media/javascript/1-on-1-video-calling.png" alt-text="1 on 1 video calling page":::
 
-You can make an 1:1 outgoing video call by providing a user ID in the text field and clicking the Start Call button. 
-
-## Sample code
-You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-video-calling).
+You can make an 1:1 outgoing video call by providing a user ID in the text field and clicking the Start Call button.

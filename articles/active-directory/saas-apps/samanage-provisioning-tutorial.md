@@ -151,7 +151,7 @@ If you select the **Sync all users and groups** option and configure a value for
 
 ## Change log
 
-* 09/14/2020 - Changed the company name in two SaaS tutorials from Samanage to SolarWinds Service Desk (previously Samanage) per https://github.com/ravitmorales.
+* 09/14/2020 - Changed the company name in two SaaS tutorials from Samanage to SolarWinds Service Desk (previously Samanage) per `https://github.com/ravitmorales`.
 * 04/22/2020 - Updated authorization method from basic auth to long lived secret token.
 
 ## Additional resources
