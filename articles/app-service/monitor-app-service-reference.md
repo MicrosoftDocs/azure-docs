@@ -59,27 +59,36 @@ For reference, see a list of [all resource logs category types supported in Azur
 
 Resource Provider and Type: [Microsoft.web/sites](/azure/azure-monitor/platform/resource-logs-categories#microsoftwebsites)
 
-| Category | Display Name | *TODO replace this label with other information*  |
-|:---------|:-------------|------------------|
-| AppServiceAppLogs   | App Service Application Logs | *TODO other important information about this type* |
-| AppServiceAuditLogs | Access Audit Logs            | *TODO other important information about this type* |
-|  etc.               |                              |                                                   |  
+| Category | Display Name |
+|:---------|:-------------|
+|AppServiceAntivirusScanAuditLogs|	Report Antivirus Audit Logs|
+|AppServiceAppLogs|	App Service Application Logs|
+|AppServiceAuditLogs|	Access Audit Logs|
+|AppServiceConsoleLogs|	App Service Console Logs|
+|AppServiceFileAuditLogs|	Site Content Change Audit Logs|
+|AppServiceHTTPLogs|	HTTP logs|
+|AppServiceIPSecAuditLogs|	IPSecurity Audit Logs|
+|AppServicePlatformLogs|	App Service Platform logs|
+
 
 ### Web Site Slots
 
 Resource Provider and Type: [Microsoft.web/sites/slots](/azure/azure-monitor/platform/resource-logs-categories#microsoftwebsitesslots)
 
-| Category | Display Name | *TODO replace this label with other information*  |
-|:---------|:-------------|------------------|
-| AppServiceAppLogs   | App Service Application Logs | *TODO other important information about this type* |
-| AppServiceAuditLogs | Access Audit Logs            | *TODO other important information about this type* |
-|  etc.               |                              |                                                   |  
+| Category | Display Name |
+|:---------|:-------------|
+|AppServiceAntivirusScanAuditLogs|	Report Antivirus Audit Logs|
+|AppServiceAppLogs|	App Service Application Logs|
+|AppServiceAuditLogs|	Access Audit Logs|
+|AppServiceConsoleLogs|	App Service Console Logs|
+|AppServiceFileAuditLogs|	Site Content Change Audit Logs|
+|AppServiceHTTPLogs|	HTTP logs|
+|AppServiceIPSecAuditLogs|	IPSecurity Audit Logs|
+|AppServicePlatformLogs|	App Service Platform logs|
 
+### App Service Environment
 
-| App Service Environment | [Microsoft.Web/hostingEnvironments](/azure/azure-monitor/essentials/metrics-supported#microsoftwebhostingenvironments)
-
-
---------------**END Examples** -------------
+App Service Environment : [Microsoft.Web/hostingEnvironments](/azure/azure-monitor/essentials/metrics-supported#microsoftwebhostingenvironments)
 
 ## Azure Monitor Logs tables
 
@@ -92,7 +101,6 @@ This section refers to all of the Azure Monitor Logs Kusto tables relevant to Ap
 | [App services](/azure/azure-monitor/reference/tables/tables-resourcetype#app-services) | |
 
 ## Activity log
-<!-- REQUIRED. Please keep heading in this order -->
 
 The following table lists the operations related to App Service that may be created in the Activity log.
 
@@ -116,8 +124,6 @@ The following table lists the operations related to App Service that may be crea
 |Get Zipped Container Logs for Web App| Get container logs |
 |Restore Web App From Backup Blob| App restored from backup|
 
-<!-- NOTE: This information may be hard to find or not listed anywhere.  Please ask your PM for at least an incomplete list of what type of messages could be written here. If you can't locate this, contact azmondocs@microsoft.com for help -->
-
 For more information on the schema of Activity Log entries, see [Activity  Log schema](/azure/azure-monitor/essentials/activity-log-schema). 
 
 ## Schemas
@@ -129,6 +135,5 @@ The following schemas are in use by App Service
 
 ## See Also
 
-<!-- replace below with the proper link to your main monitoring service article -->
 - See [Monitoring Azure App Service](monitor-app-service-name.md) for a description of monitoring Azure App Service.
 - See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resources) for details on monitoring Azure resources.
