@@ -28,9 +28,7 @@ In this article, learn how to configure Azure Firewall to control access to your
 > 
 > For information on service instance firewall settings, see [Use studio in a virtual network](how-to-enable-studio-virtual-network.md#firewall-settings).
 
-* For __inbound__ traffic, there are two options you might use:
-    * [Destination network address translation (DNAT)](../firewall/tutorial-firewall-dnat.md) to create NAT rules that filter inbound traffic.
-    * [User-defined routes (UDRs)](../virtual-network/virtual-networks-udr-overview.md), to skip the firewall.
+* For __inbound__ traffic to Azure Machine Learning compute cluster and compute instance, use [user-defined routes (UDRs)](../virtual-network/virtual-networks-udr-overview.md) to skip the firewall.
 
 * For __outbound__ traffic, create __network__ and/or __application__ rules. 
 
@@ -39,9 +37,6 @@ These rule collections are described in more detail in [What are some Azure Fire
 ### Inbound configuration
 
 When using Azure Machine Learning __compute instance__ or __compute cluster__, allow inbound traffic from the IP addresses for Azure Batch management and Azure Machine Learning services.
-
-> [!TIP]
-> You must use an IP address with both DNAT and UDR. The following information applies to both.
 
 For the Azure Machine Learning service, you must add the IP address of both the __primary__ and __secondary__ regions. To find the secondary region, see the [Ensure business continuity & disaster recovery using Azure Paired Regions](../best-practices-availability-paired-regions.md#azure-regional-pairs). For example, if your Azure Machine Learning service is in East US 2, the secondary region is Central US. 
 
@@ -69,25 +64,7 @@ To get a list of IP addresses of the Batch service and Azure Machine Learning se
 > [!IMPORTANT]
 > The IP addresses may change over time.
 
-**DNAT config**
-
-When creating NAT rules for compute instance or compute cluster, use the following settings:
-
-* Inbound from Batch node management IP addresses:
-
-    | Field | Value |
-    | ----- | ----- |
-    | Protocol | TCP |
-    | Source type | IP address |
-    | Source | The list of IP addresses returned for the `BatchNodeManagement.<region>` entry for your region |
-    | Destination Addresses | The firewall's public IP address
-
-For information on configuring DNAT, see [Filter inbound internet traffic with DNAT](../firewall/tutorial-firewall-dnat.md).
-
 For information on configuring UDR, see [Route network traffic with a routing table](../virtual-network/tutorial-create-route-table-portal.md).
-
-> [!IMPORTANT]
-> When using UDR, define the route for each IP address prefix and set __Next hop type__ to __Internet__.
 
 ### Outbound configuration
 
