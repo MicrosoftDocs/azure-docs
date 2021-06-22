@@ -102,7 +102,7 @@ Single store result for a single request
 | Single to all | Request Timeout or HttpRequestExceptions | Points to [SNAT Port exhaustion](troubleshoot-dot-net-sdk.md#snat) or lack of resources on the machine to process request in time. |
 | Single or small percentage (SLA is not violated) | All | A single or small percentage of slow requests can be caused by several different transient issues and should be expected. | 
 | All | All | Points to an issue with the infrastructure or networking. |
-| SLA Violated | No changes to application and SLA dropped | Points to an issue with Cosmos DB service |
+| SLA Violated | No changes to application and SLA dropped | Points to an issue with the Azure Cosmos DB service. |
 
 ```json
 "HttpResponseStats": [
