@@ -67,13 +67,7 @@ For reference, see a list of [all resource logs category types supported in Azur
 
 ## Azure Monitor Logs tables
 
-This section refers to all of the Azure Monitor Logs Kusto tables relevant to ExpressRoute and available for query by Log Analytics. 
-
-|Resource Type | Notes |
-|-------|-----|
-| [ExpressRoute Circuits](/azure/azure-monitor/reference/tables/tables-resourcetype#expressroute-circuits) |  |
-
-Azure ExpressRoute uses Kusto tables from Azure Monitor Logs. You can query these tables with Log analytics. For a reference of all Azure Monitor Logs / Log Analytics tables, see the [Azure Monitor Log Table Reference](/azure/azure-monitor/reference/tables/tables-resourcetype)).
+Azure ExpressRoute uses Kusto tables from Azure Monitor Logs. You can query these tables with Log analytics. For a reference of all Azure Monitor Logs / Log Analytics tables, see the [Azure Monitor Log Table Reference](/azure/azure-monitor/reference/tables/tables-resourcetype).
 
 ## Activity log
 
