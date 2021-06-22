@@ -1,9 +1,10 @@
 ---
 title: What's new in Azure Automation
 description: Significant updates to Azure Automation updated each month.
+services: automation
 ms.subservice: 
 ms.topic: overview
-ms.date: 05/19/2021
+ms.date: 06/09/2021
 ms.custom: references_regions
 ---
 
@@ -17,13 +18,43 @@ Azure Automation receives improvements on an ongoing basis. To stay up to date w
 
 This page is updated monthly, so revisit it regularly.
 
+## June 2021
+
+### Security update for Log Analytics Contributor role
+
+**Type:** Plan for change
+
+Microsoft intends to remove the Automation account rights from the Log Analytics Contributor role. Currently, the built-in [Log Analytics Contributor](./automation-role-based-access-control.md#log-analytics-contributor) role can escalate privileges to the subscription [Contributor](./../role-based-access-control/built-in-roles.md#contributor) role. Since Automation account Run As accounts are initially configured with Contributor rights on the subscription, it can be used by an attacker to create new runbooks and execute code as a Contributor on the subscription.
+
+As a result of this security risk, we recommend you don't use the Log Analytics Contributor role to execute Automation jobs. Instead, create the Azure Automation Contributor custom role and use it for actions related to the Automation account. For implementation steps, see [Custom Azure Automation Contributor role](./automation-role-based-access-control.md#custom-azure-automation-contributor-role).
+
+### Support for Automation and State Configuration available in West US 3
+
+**Type:** New feature
+
+For more information, see [Data residency in Azure](https://azure.microsoft.com/global-infrastructure/data-residency/) and select your geography from the drop-down list.
+
 ## May 2021
 
 ### Start/Stop VMs during off-hours (v1)
 
 **Type:** Plan for change
 
-Start/Stop VMs during off-hours (v1) will deprecate on 5/21/2022. Customers should evaluate and plan for migration to the Start/Stop VMs v2 (preview), and for further guidance please refer to [Start/Stop v2 overview](../azure-functions/start-stop-vms/overview.md) (preview).
+Start/Stop VMs during off-hours (v1) will deprecate on May 21, 2022. Customers should evaluate and plan for migration to the Start/Stop VMs v2 (preview). For more information, see [Start/Stop v2 overview](../azure-functions/start-stop-vms/overview.md) (preview).
+
+## April 2021
+
+### Support for Update Management and Change Tracking
+
+**Type:** New feature
+
+Region mapping have been updated to support Update Management & Change Tracking in Norway East, UAE North, North Central US, Brazil South, and Korea Central. For more information, see [Supported mappings](./how-to/region-mappings.md#supported-mappings).
+
+### Support for System Assigned Managed Identities
+
+**Type:** New feature
+
+Azure Automation now supports [System Assigned Managed Identities](./automation-security-overview.md#managed-identities-preview) for cloud and Hybrid jobs in Azure public and Gov regions. Read the [announcement](https://azure.microsoft.com/updates/azure-automation-system-assigned-managed-identities/) for more information.
 
 ## March 2021
 
@@ -31,7 +62,7 @@ Start/Stop VMs during off-hours (v1) will deprecate on 5/21/2022. Customers shou
 
 **Type:** New feature
 
-Azure Automation has added 5 new built-in policies:
+Azure Automation has added five new built-in policies:
 
 - Automation accounts should disable public network access,
 - Azure Automation accounts should use customer-managed keys to encrypt data at rest
@@ -39,7 +70,7 @@ Azure Automation has added 5 new built-in policies:
 - Configure private endpoint connections on Azure Automation accounts
 - Private endpoint connections on Automation Accounts should be enabled.
 
-See the [policy reference](./policy-reference.md) article for more details.
+For more information, see [policy reference](./policy-reference.md).
 
 ### Support for Automation and State Configuration declared GA in South India
 
@@ -59,7 +90,7 @@ Use Process Automation and State configuration capabilities in UK West. For more
 
 Use Process Automation and State configuration capabilities in UAE Central. Read the [announcement](https://azure.microsoft.com/updates/azure-automation-in-uae-central-region/) for more information.
 
-### Support for Automation and State Configuration available in Australia Central 2 , Norway West and France South
+### Support for Automation and State Configuration available in Australia Central 2, Norway West, and France South
 
 **Type:** New feature
 
@@ -75,7 +106,7 @@ Two new scripts have been added to the Azure Automation [GitHub repository](http
 
 **Type:** New feature
 
-See [Use a webhook from an ARM template](./automation-webhooks.md#use-a-webhook-from-an-arm-template) for more details.
+For more information, see [Use a webhook from an ARM template](./automation-webhooks.md#use-a-webhook-from-an-arm-template).
 
 ### Azure Update Management now supports Centos 8.x, Red Hat Enterprise Linux Server 8.x, and SUSE Linux Enterprise Server 15
 
@@ -87,7 +118,7 @@ See the [full list](./update-management/operating-system-requirements.md) of sup
 
 **Type:** New feature
 
-In all regions except Brazil South and Southeast Asia, Azure Automation data is stored in a different region (Azure paired region) for providing Business Continuity and Disaster Recovery (BCDR). For the Brazil and Southeast Asia regions only, we now store Azure Automation data in the same region to accommodate data-residency requirements for these regions. See [Geo-replication in Azure Automation](./automation-managing-data.md#geo-replication-in-azure-automation) for more details.
+In all regions except Brazil South and Southeast Asia, Azure Automation data is stored in a different region (Azure paired region) for providing Business Continuity and Disaster Recovery (BCDR). For the Brazil and Southeast Asia regions only, we now store Azure Automation data in the same region to accommodate data-residency requirements for these regions. For more information, see [Geo-replication in Azure Automation](./automation-managing-data.md#geo-replication-in-azure-automation).
 
 ## February 2021
 
@@ -101,7 +132,7 @@ Automation account and State Configuration availability in Japan West region. Fo
 
 **Type :** New feature
 
-You can use the new Azure Policy compliance rule to allow creation of jobs, webhooks and job schedules to run only on Hybrid Worker groups.
+You can use the new Azure Policy compliance rule to allow creation of jobs, webhooks, and job schedules to run only on Hybrid Worker groups.
 
 ### Update Management availability in East US, France Central, and North Europe regions
 
@@ -129,11 +160,11 @@ The script is available for download from our [GitHub repository](https://github
 
 The Hybrid Runbook Worker feature supports CentOS 8.x, REHL 8.x, and SLES 15 distributions for only process automation on Hybrid Runbook Workers. See [Supported operating systems](automation-linux-hrw-install.md#supported-linux-operating-systems) for updates to the documentation to reflect these changes.
 
-### Update Management and Change Tracking availability in Australia East, East Asia, West US and Central US regions
+### Update Management and Change Tracking availability in Australia East, East Asia, West US, and Central US regions
 
 **Type:** New feature
 
-Automation account, Change Tracking and Inventory, and Update Management are available in Australia East, East Asia, West US and Central US regions. 
+Automation account, Change Tracking and Inventory, and Update Management are available in Australia East, East Asia, West US, and Central US regions. 
 
 ### Introduced public preview of Python 3 runbooks in US Government cloud
 
@@ -182,7 +213,7 @@ Manage Oracle Linux 6 and 7 machines with Automation State Configuration. See [S
 
 **Type:** New feature
 
-Azure Automation now supports Python 3 cloud and hybrid runbook execution in public preview in all regions in Azure global cloud. See the [announcement]((https://azure.microsoft.com/updates/azure-automation-python-3-public-preview/) for more details.
+Azure Automation now supports Python 3 cloud and hybrid runbook execution in public preview in all regions in Azure global cloud. For more information, see the [announcement]((https://azure.microsoft.com/updates/azure-automation-python-3-public-preview/).
 
 ## November 2020
 
@@ -292,7 +323,7 @@ Azure Automation DNS records have been updated to support Private Links. For mor
 
 **Type:** New feature
 
-In addition to improve security of assets, runbooks and DSC scripts are also encrypted to enhance Azure Automation security.
+In addition to improve security of assets, runbooks, and DSC scripts are also encrypted to enhance Azure Automation security.
 
 ## April 2020
 
@@ -336,7 +367,7 @@ Customers can manage and secure encryption of Azure Automation assets using thei
 
 **Type:** Retire
 
-Azure Service Management (ASM) REST APIs for Azure Automation will be retired and no longer supported after 30th January 2020. To learn more, see the [announcement](https://azure.microsoft.com/updates/azure-automation-service-management-rest-apis-are-being-retired-april-30-2019/).
+Azure Service Management (ASM) REST APIs for Azure Automation will be retired and no longer supported after January 30, 2020. To learn more, see the [announcement](https://azure.microsoft.com/updates/azure-automation-service-management-rest-apis-are-being-retired-april-30-2019/).
 
 ## Next steps
 

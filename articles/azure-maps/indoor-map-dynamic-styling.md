@@ -12,7 +12,7 @@ manager: philmea
 
 # Implement dynamic styling for Creator indoor maps
 
-You can use Azure Maps Creator [Feature State service](/rest/api/maps/v2/featurestate) to apply styles that are based on the dynamic properties of indoor map data features.  For example, you can render facility meeting rooms with a specific color to reflect occupancy status. This article describes how to dynamically render indoor map features with the [Feature State service](/rest/api/maps/v2/featurestate) and the [Indoor Web module](how-to-use-indoor-module.md).
+You can use Azure Maps Creator [Feature State service](/rest/api/maps/v2/feature-state) to apply styles that are based on the dynamic properties of indoor map data features.  For example, you can render facility meeting rooms with a specific color to reflect occupancy status. This article describes how to dynamically render indoor map features with the [Feature State service](/rest/api/maps/v2/feature-state) and the [Indoor Web module](how-to-use-indoor-module.md).
 
 ## Prerequisites
 
@@ -73,7 +73,7 @@ In the next section, we'll set the occupancy *state* of office `UNIT26` to `true
 
 6. Select the collection you previously created, and then select **Save**.
 
-7. Enter the following URL to the [Feature Update States API](/rest/api/maps/v2/featurestate/updatestatespreview) (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key and `statesetId` with the `statesetId`):
+7. Enter the following URL to the [Feature Update States API](/rest/api/maps/v2/feature-state/update-states) (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key and `statesetId` with the `statesetId`):
 
     ```http
     https://us.atlas.microsoft.com/featurestatesets/{statesetId}/featureStates/UNIT26?api-version=2.0&subscription-key={Azure-Maps-Primary-Subscription-key}

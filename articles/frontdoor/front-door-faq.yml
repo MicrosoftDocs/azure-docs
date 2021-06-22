@@ -10,7 +10,7 @@ metadata:
   ms.topic: article
   ms.tgt_pltfrm: na
   ms.workload: infrastructure-services
-  ms.date: 05/18/2021
+  ms.date: 06/10/2021
   ms.author: duau
     
 title: Frequently asked questions for Azure Front Door
@@ -284,12 +284,19 @@ sections:
           
           - **Certificate subject name mismatch**: For HTTPS connections, Front Door expects that your backend presents certificate from a valid CA with subject name(s) matching the backend hostname. As an example, if your backend hostname is set to `myapp-centralus.contosonews.net` and the certificate that your backend presents during the TLS handshake neither has `myapp-centralus.contosonews.net` nor `*myapp-centralus*.contosonews.net` in the subject name, the Front Door will refuse the connection and result in an error. 
               - **Solution**: While it is not recommended from a compliance standpoint, you can workaround this error by disabling certificate subject name check for your Front Door. This is present under Settings in Azure portal and under BackendPoolsSettings in the API.
-          - **Backend hosting certificate from invalid CA**: Only certificates from [valid CAs](./front-door-troubleshoot-allowed-ca.md) can be used at the backend with Front Door. Certificates from internal CAs or self-signed certificates are not allowed.
+          - **Backend hosting certificate from invalid CA**: Only certificates from [valid Certificate Authorities](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT) can be used at the backend with Front Door. Certificates from internal CAs or self-signed certificates aren't allowed. The certificate must have a complete certificate chain with leaf and intermediate certificates, and root CA must be part of the [Microsoft Trusted CA List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT). 
           
       - question: |
           Can I use client/mutual authentication with Azure Front Door?
         answer: |
           No. Although Azure Front Door supports TLS 1.2, which introduced client/mutual authentication in [RFC 5246](https://tools.ietf.org/html/rfc5246), currently, Azure Front Door doesn't support client/mutual authentication.
+ 
+  - name: Billing
+    questions:
+      - question: |
+          Will I be billed for the Azure Front Door resources that are disabled?
+        answer: |
+          Azure Front Door resources, like Front Door profiles, routing rules are not billed in disabled. WAF policies and rules are billed even if disabled.
           
   - name: Diagnostics and logging
     questions:
@@ -312,7 +319,7 @@ sections:
           Can I set alerts with Azure Front Door?
         answer:  |
           Yes, Azure Front Door does support alerts. Alerts are configured on metrics. 
-
+      
 additionalContent: |
 
   ## Next steps

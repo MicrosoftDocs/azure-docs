@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 05/26/2021
+ms.date: 06/10/2021
 ms.author: memildin
 ---
 
@@ -30,7 +30,7 @@ Microsoft Defender for Endpoint is a holistic, cloud delivered endpoint security
 
 | Aspect                          | Details                                                                                                                                                                                                                                                                                                       |
 |---------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Release state:                  | Generally available (GA)                                                                                                                                                                                                                                                                                      |
+| Release state:                  | General Availability (GA)                                                                                                                                                                                                                                                                                      |
 | Pricing:                        | Requires [Azure Defender for servers](defender-for-servers-introduction.md)                                                                                                                                                                                                                                             |
 | Supported platforms:            |  • Azure machines running Windows<br> • Azure Arc machines running Windows|
 | Supported versions of Windows for detection:  |  • Windows Server 2019, 2016, 2012 R2, and 2008 R2 SP1<br> • [Windows Virtual Desktop (WVD)](../virtual-desktop/overview.md)<br> • [Windows 10 Enterprise multi-session](../virtual-desktop/windows-10-multisession-faq.yml) (formerly Enterprise for Virtual Desktops (EVD)|
@@ -147,7 +147,9 @@ Defender for Endpoint is included at no additional cost with **Azure Defender fo
 ### If I already have a license for Microsoft Defender for Endpoint can I get a discount for Azure Defender?
 If you've already got a license for Microsoft Defender for Endpoint, you won't have to pay for that part of your Azure Defender license.
 
-To confirm your discount, contact Security Center's support team and provide the relevant workspace ID, region, and license information for each relevant license.
+To request your discount, contact Security Center's support team and provide the relevant workspace ID, region, and number of Microsoft Defender for Endpoint licenses applied for machines in the given workspace.
+
+The discount will be effective starting from the approval date, and will not take place retroactively.
 
 ### How do I switch from a third-party EDR tool?
 Full instructions for switching from a non-Microsoft endpoint solution are available in the Microsoft Defender for Endpoint documentation: [Migration overview](/windows/security/threat-protection/microsoft-defender-atp/switch-to-microsoft-defender-migration).

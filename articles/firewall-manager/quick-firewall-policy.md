@@ -28,7 +28,7 @@ For information about IP Groups, see [IP Groups in Azure Firewall](../firewall/i
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurefirewall-create-with-firewallpolicy-apprule-netrule-ipgroups%2Fazuredeploy.json)
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fazurefirewall-create-with-firewallpolicy-apprule-netrule-ipgroups%2Fazuredeploy.json)
 
 ## Prerequisites
 
@@ -38,7 +38,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 This template creates a hub virtual network, along with the necessary resources to support the scenario.
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-azurefirewall-create-with-firewallpolicy-apprule-netrule-ipgroups/).
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/azurefirewall-create-with-firewallpolicy-apprule-netrule-ipgroups/).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/azurefirewall-create-with-firewallpolicy-apprule-netrule-ipgroups/azuredeploy.json":::
 
@@ -57,7 +57,7 @@ Deploy the ARM template to Azure:
 
 1. Select **Deploy to Azure** to sign in to Azure and open the template. The template creates an Azure Firewall, a virtual WAN and virtual hub, the network infrastructure, and two virtual machines.
 
-   [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurefirewall-create-with-firewallpolicy-apprule-netrule-ipgroups%2Fazuredeploy.json)
+   [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fazurefirewall-create-with-firewallpolicy-apprule-netrule-ipgroups%2Fazuredeploy.json)
 
 2. In the portal, on the **Create a Firewall and FirewallPolicy with Rules and Ipgroups** page, type or select the following values:
    - Subscription: Select from existing subscriptions.

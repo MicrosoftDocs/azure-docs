@@ -271,7 +271,7 @@ The result, which would grant access to read all device identities, would be:
 
 ### Supported X.509 certificates
 
-You can use any X.509 certificate to authenticate a device with IoT Hub by uploading either a certificate thumbprint or a certificate authority (CA) to Azure IoT Hub. To learn more, see [Device Authentication using X.509 CA Certificates](iot-hub-x509ca-overview.md). For information about how to upload and verify a certificate authority with your IoT hub, see [Set up X.509 security in your Azure IoT hub](iot-hub-security-x509-get-started.md).
+You can use any X.509 certificate to authenticate a device with IoT Hub by uploading either a certificate thumbprint or a certificate authority (CA) to Azure IoT Hub. To learn more, see [Device Authentication using X.509 CA Certificates](iot-hub-x509ca-overview.md). For information about how to upload and verify a certificate authority with your IoT hub, see [Set up X.509 security in your Azure IoT hub](./tutorial-x509-scripts.md).
 
 ### Use SAS tokens as a device
 

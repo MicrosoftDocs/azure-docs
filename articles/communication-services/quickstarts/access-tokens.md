@@ -59,7 +59,6 @@ Deleted the identity with ID: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_0000000
 
 If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. Learn more about [cleaning up resources](./create-communication-resource.md#clean-up-resources).
 
-
 ## Next Steps
 
 In this quickstart, you learned how to:

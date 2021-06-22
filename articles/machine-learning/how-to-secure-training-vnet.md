@@ -40,7 +40,7 @@ In this article you learn how to secure the following training compute resources
 
 + To deploy resources into a virtual network or subnet, your user account must have permissions to the following actions in Azure role-based access control (Azure RBAC):
 
-    - "Microsoft.Network/virtualNetworks/*/read" on the virtual network resource.
+    - "Microsoft.Network/virtualNetworks/*/read" on the virtual network resource. This is not needed for ARM template deployments
     - "Microsoft.Network/virtualNetworks/subnet/join/action" on the subnet resource.
 
     For more information on Azure RBAC with networking, see the [Networking built-in roles](../role-based-access-control/built-in-roles.md#networking)

@@ -74,8 +74,25 @@
   items:
   - name: Set up data science environments
     href: environment-setup.md
-  - name: Platforms and tools
-    href: platforms-and-tools.md
+    items:
+    - name: Azure storage accounts
+      href: ../../storage/common/storage-account-create.md?context=%2fazure%2fmachine-learning%2fteam-data-science-process%2fcontext%2fml-context
+    - name: Platforms and tools
+      href: platforms-and-tools.md
+    - name: R and Python on HDInsight clusters
+      items:
+      - name: Introduction to Spark on HDInsight
+        href: ../../hdinsight/spark/apache-spark-overview.md?context=%2fazure%2fmachine-learning%2fteam-data-science-process%2fcontext%2fml-context
+      - name: Create an Apache Spark cluster in Azure HDInsight
+        href: ../../hdinsight/spark/apache-spark-jupyter-spark-sql.md?context=%2fazure%2fmachine-learning%2fteam-data-science-process%2fcontext%2fml-context
+      - name: PySpark kernels for Jupyter Notebook
+        href: ../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md?context=%2fazure%2fmachine-learning%2fteam-data-science-process%2fcontext%2fml-context
+      - name: R Server on HDInsight
+        href: ../../hdinsight/r-server/r-server-overview.md?context=%2fazure%2fmachine-learning%2fteam-data-science-process%2fcontext%2fml-context
+      - name: Get started using R Server on HDInsight
+        href: ../../hdinsight/r-server/r-server-overview.md?context=%2fazure%2fmachine-learning%2fteam-data-science-process%2fcontext%2fml-context
+    - name: Machine Learning Studio (classic) workspace
+      href: ../classic/create-workspace.md?context=%2fazure%2fmachine-learning%2fteam-data-science-process%2fcontext%2fml-context
   - name: Analyze business needs
     items:
     - name: Identify your scenario
