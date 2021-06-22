@@ -10,6 +10,8 @@ ms.date: 9/21/2020
 
 # Manage an Azure Database for MySQL - Flexible Server (Preview) using the Azure CLI
 
+[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
+
 > [!IMPORTANT]
 > Azure Database for MySQL - Flexible Server is currently in public preview.
 

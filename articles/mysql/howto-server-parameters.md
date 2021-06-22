@@ -10,6 +10,8 @@ ms.date: 10/1/2020
 
 # Configure server parameters in Azure Database for MySQL using the Azure portal
 
+[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
+
 Azure Database for MySQL supports configuration of some server parameters. This article describes how to configure these parameters by using the Azure portal. Not all server parameters can be adjusted.
 
 >[!Note]

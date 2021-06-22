@@ -9,6 +9,9 @@ ms.date: 8/3/2020
 ---
 
 # Connection libraries for Azure Database for MySQL
+
+[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
+
 This article lists each library or driver that client programs can use when connecting to Azure Database for MySQL.
 
 ## Client interfaces

@@ -9,6 +9,8 @@ ms.custom: references_regions
 ms.date: 10/21/2020
 ---
 # Monitoring in Azure Database for MySQL
+
+[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
 Monitoring data about your servers helps you troubleshoot and optimize for your workload. Azure Database for MySQL provides various metrics that give insight into the behavior of your server.
 
 ## Metrics

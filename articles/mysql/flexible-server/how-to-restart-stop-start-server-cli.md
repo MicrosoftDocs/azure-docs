@@ -10,6 +10,8 @@ ms.date: 03/30/2021
 
 # Restart/Stop/Start an Azure Database for MySQL - Flexible Server (Preview)
 
+[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
+
 > [!IMPORTANT]
 > Azure Database for MySQL - Flexible Server is currently in public preview.
 

@@ -9,6 +9,8 @@ ms.date: 02/28/2018
 ---
 # Azure Database for MySQL videos
 
+[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
+
 This page provides video content for learning about Azure Database for MySQL.
 
 ## Overview: Azure Database for PostgreSQL and MySQL

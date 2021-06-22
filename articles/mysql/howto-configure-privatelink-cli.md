@@ -11,6 +11,8 @@ ms.custom: devx-track-azurecli
 
 # Create and manage Private Link for Azure Database for MySQL using CLI
 
+[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
+
 A Private Endpoint is the fundamental building block for private link in Azure. It enables Azure resources, like Virtual Machines (VMs), to communicate privately with private link resources. In this article, you will learn how to use the Azure CLI to create a VM in an Azure Virtual Network and an Azure Database for MySQL server with an Azure private endpoint.
 
 > [!NOTE]
@@ -63,6 +65,8 @@ Create a Azure Database for MySQL with the az mysql server create command. R
 
 ```azurecli-interactive
 # Create a server in the resource group 
+
+[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
 az mysql server create \
 --name mydemoserver \
 --resource-group myResourcegroup \
@@ -107,6 +111,8 @@ networkInterfaceId=$(az network private-endpoint show --name myPrivateEndpoint -
  
 az resource show --ids $networkInterfaceId --api-version 2019-04-01 -o json 
 # Copy the content for privateIPAddress and FQDN matching the Azure database for MySQL name 
+
+[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
  
  
 #Create DNS records 

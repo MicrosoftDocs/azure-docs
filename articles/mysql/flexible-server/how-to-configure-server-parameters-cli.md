@@ -11,6 +11,8 @@ ms.custom: devx-track-azurecli
 ---
 # Configure server parameters in Azure Database for MySQL Flexible Server using the Azure CLI
 
+[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
+
 > [!IMPORTANT] 
 > Azure Database for MySQL - Flexible Server is currently in public preview.
 

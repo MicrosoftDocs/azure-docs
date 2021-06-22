@@ -10,6 +10,8 @@ ms.date: 04/01/2021
 
 # Point-in-time restore of a Azure Database for MySQL - Flexible Server with Azure CLI
 
+[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
+
 
 > [!IMPORTANT]
 > Azure Database for MySQL - Flexible Server is currently in public preview.

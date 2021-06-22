@@ -10,6 +10,8 @@ ms.custom: fasttrack-edit
 ---
 # Azure Database for MySQL version support policy
 
+[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
+
 This page describes the Azure Database for MySQL versioning policy, and is applicable to Azure Database for MySQL - Single Server and Azure Database for MySQL - Flexible Server (Preview) deployment modes.
 
 ## Supported  MySQL versions

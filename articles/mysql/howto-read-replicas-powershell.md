@@ -11,6 +11,8 @@ ms.custom: devx-track-azurepowershell
 
 # How to create and manage read replicas in Azure Database for MySQL using PowerShell
 
+[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
+
 In this article, you learn how to create and manage read replicas in the Azure Database for MySQL
 service using PowerShell. To learn more about read replicas, see the
 [overview](concepts-read-replicas.md).

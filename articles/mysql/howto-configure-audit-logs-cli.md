@@ -11,6 +11,8 @@ ms.custom: devx-track-azurecli
 
 # Configure and access audit logs in the Azure CLI
 
+[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
+
 You can configure the [Azure Database for MySQL audit logs](concepts-audit-logs.md) from the Azure CLI.
 
 ## Prerequisites

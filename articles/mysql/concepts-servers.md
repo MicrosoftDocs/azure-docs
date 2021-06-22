@@ -9,6 +9,8 @@ ms.date: 3/18/2020
 ---
 # Server concepts in Azure Database for MySQL
 
+[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
+
 This article provides considerations and guidelines for working with Azure Database for MySQL servers.
 
 ## What is an Azure Database for MySQL server?

@@ -11,6 +11,8 @@ ms.date: 3/18/2020
 
 # Handle transient errors and connect efficiently to Azure Database for MySQL
 
+[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
+
 This article describes how to handle transient errors and connect efficiently to  Azure Database for MySQL.
 
 ## Transient errors
