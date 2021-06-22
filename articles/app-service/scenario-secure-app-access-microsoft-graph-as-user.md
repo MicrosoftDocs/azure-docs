@@ -120,7 +120,7 @@ az rest --method PUT --url '/subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RES
 ---
 
 ## Update the issuer URL
-In the [Azure Portal](https://portal.azure.com), navigate to your App Service and then the **Authentication** blade.
+In the [Azure portal](https://portal.azure.com), navigate to your App Service and then the **Authentication** blade.
 
 Click the **Edit** link next to the Microsoft identity provider.
 
