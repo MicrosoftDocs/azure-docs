@@ -45,9 +45,9 @@ Microsoft will contact you in approximately seven days to ensure that your new a
 
 ## Create a storage account with Gen2 capabilities
 
-Azure Data Lake Storage Gen2 is not a dedicated storage account or service type. It's a set of capabilities that you can obtain by enabling the the **Hierarchical namespace** feature of an Azure storage account. 
+Azure Data Lake Storage Gen2 is not a dedicated storage account or service type. It's a set of capabilities that you can obtain by enabling the the **Hierarchical namespace** feature of an Azure storage account. To create an account that has Gen2 capabilities, see [Create a storage account to use with Azure Data Lake Storage Gen2](create-data-lake-storage-account.md). 
 
-To create an account that has Gen2 capabilities, see [Create a storage account to use with Azure Data Lake Storage Gen2](create-data-lake-storage-account.md). As you create the account, make sure to configure settings with the following values.
+As you create the account, make sure to configure settings with the following values.
 
 | Setting | Value |
 |--|--|
@@ -67,9 +67,9 @@ Something here about ensuring the proper permissions on Gen1 and Gen2.
 
 ## Perform the migration
 
-Before you begin, decide whether you want to copy only data between accounts or perform a complete migration. 
+Before you begin, decide whether to copy only data or perform a complete migration. 
 
-If you copy only the data, both accounts remain active. You can modify applications and workloads to use your new Gen2-enabled account without interrupting production availability. Once you've verified that they work as expected, you can work our team to redirect your Gen1 URI to your Gen2 URI and then retire the Gen1 account. Microsoft recommends this option.
+If you copy only the data, both accounts remain active. You can modify applications and workloads to use your new Gen2-enabled account without interrupting production availability. Once you've verified that your applications and workloads work as expected, you can work our team to redirect your Gen1 URI to your Gen2 URI and then retire the Gen1 account. Microsoft recommends this option.
 
 If you perform a complete migration, data is copied from Gen1 to Gen2. Then, your Gen1 URI is redirected to your Gen2 URI. After the migration completes you won't have access to your Gen1 account and all Gen1 requests will be redirected to your Gen2 enabled account. This option might make sense if there aren't any critical production workloads or applications that depend on your Gen1 account.
 
@@ -161,6 +161,24 @@ The following functionality isn't supported in Gen2, and therefore the compatibi
 - Any API calls that use https://management.azure.com/  as the Azure Active Directory (Azure AD) token audience.
 
 - File or directory names with only spaces or tabs, ending with a `.`, containing a `:`, or with multiple consecutive forward slashes (`//`).
+
+## Frequently asked questions
+
+#### How much does the data migration cost?
+
+Need to clarify this one.
+
+#### After the migration completes, can I choose to go back to using the Gen2 account?
+
+This is not supported, after the migration completes, the data in your Gen1 account will not be accessible. You can continue to view the Gen1 account in the Azure portal, and when you are ready, you can delete the account. 
+
+#### I would like to enable Geo-redundant storage (GRS) on the Gen2 account, how do I do that?
+
+Once the migration is complete, both in "Copy data" and "Complete migration" options, you can go ahead and change the redundancy option to GRS as long as you don't plan to use the application compatibility layer. The application compatibility will not work on accounts that use GRS redundancy.  
+
+#### Gen1 doesn't have containers and Gen2 has them – what should I expect?
+
+When we copy the data over to your Gen2-enabled account, we automatically create a container named `Gen1`. If you choose to copy only data, then you can rename that container after the data copy is complete. If you perform a complete migration, and you plan to use the application compatibility layer, then you should avoid changing the container name. When you no longer want to use the compatibility layer, you can change the name of the container. 
 
 ## Next steps
 
