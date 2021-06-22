@@ -10,7 +10,7 @@ ms.author: vramasubbu
 ms.date: 06/15/2021
 ---
 
-# Quickstart: Provision Azure Spring Cloud using Azure CLI into an existing Virtual Network
+# Quickstart: Provision Azure Spring Cloud using Azure CLI
 
 This quickstart describes how to use Azure CLI to deploy an Azure Spring Cloud cluster into an existing virtual network.
 
@@ -28,9 +28,95 @@ Azure Spring Cloud makes it easy to deploy Spring Boot microservice applications
    * A unique User Defined Route (UDR) applied to each of the service runtime and Spring Boot micro-service application subnets. For more information about UDRs, see [Virtual network traffic routing](../virtual-network/virtual-networks-udr-overview.md). The UDR should be configured with a route for *0.0.0.0/0* with a destination of your NVA before deploying the Spring Cloud cluster. For more information, see the [Bring your own route table](how-to-deploy-in-azure-virtual-network.md#bring-your-own-route-table) section of [Deploy Azure Spring Cloud in a virtual network](how-to-deploy-in-azure-virtual-network.md).
 * [Azure CLI](/cli/azure/install-azure-cli)
 
-## Deployment
+## Review the Azure CLI deployment script
 
-To deploy the cluster, follow these steps:
+The deployment script used in this quickstart is from the [Azure Spring Cloud reference architecture](reference-architecture.md).
+
+```azurecli
+#!/bin/bash
+
+echo "Enter Azure Subscription ID: "
+read subscription
+subscription=$subscription
+
+echo "Enter Azure region for resource deployment: "
+read region
+location=$region
+
+echo "Enter Azure Spring cloud Resource Group Name: "
+read azurespringcloudrg
+azurespringcloud_resource_group_name=$azurespringcloudrg
+
+echo "Enter Azure Spring cloud VNet Resource Group Name: "
+read azurespringcloudvnetrg
+azurespringcloud_vnet_resource_group_name=$azurespringcloudvnetrg
+
+echo "Enter Azure Spring cloud Spoke VNet : "
+read azurespringcloudappspokevnet
+azurespringcloudappspokevnet=$azurespringcloudappspokevnet
+
+echo "Enter Azure Spring cloud App SubNet : "
+read azurespringcloudappsubnet
+azurespringcloud_app_subnet_name='/subscriptions/'$subscription'/resourcegroups/'$azurespringcloud_vnet_resource_group_name'/providers/Microsoft.Network/virtualNetworks/'$azurespringcloudappspokevnet'/subnets/'$azurespringcloudappsubnet
+
+echo "Enter Azure Spring cloud Service SubNet : "
+read azurespringcloudservicesubnet
+azurespringcloud_service_subnet_name='/subscriptions/'$subscription'/resourcegroups/'$azurespringcloud_vnet_resource_group_name'/providers/Microsoft.Network/virtualNetworks/'$azurespringcloudappspokevnet'/subnets/'$azurespringcloudservicesubnet
+
+echo "Enter Azure Log Analytics Workspace Resource Group Name: "
+read loganalyticsrg
+loganalyticsrg=$loganalyticsrg
+
+echo "Enter Log Analytics Workspace Resource ID: "
+read workspace
+workspaceID='/subscriptions/'$subscription'/resourcegroups/'$loganalyticsrg'/providers/microsoft.operationalinsights/workspaces/'$workspace
+
+echo "Enter Reserved CIDR Ranges for Azure Spring Cloud: "
+read reservedcidrrange
+reservedcidrrange=$reservedcidrrange
+
+echo "Enter key=value pair used for tagging Azure Resources (space separated for multiple tags): "
+read tag
+tags=$tag
+
+randomstring=$(LC_ALL=C tr -dc 'a-z0-9' < /dev/urandom | fold -w 13 | head -n 1)
+azurespringcloud_service='spring-'$randomstring #Name of unique Spring Cloud resource
+azurespringcloud_appinsights=$azurespringcloud_service
+azurespringcloud_resourceid='/subscriptions/'$subscription'/resourceGroups/'$azurespringcloud_resource_group_name'/providers/Microsoft.AppPlatform/Spring/'$azurespringcloud_service
+
+# Create Application Insights
+az monitor app-insights component create \
+    --app ${azurespringcloud_service} \
+    --location ${location} \
+    --kind web \
+    -g ${azurespringcloudrg} \
+    --application-type web \
+    --workspace ${workspaceID}
+
+# Create Azure Spring Cloud Instance
+az spring-cloud create \
+   -n ${azurespringcloud_service} \
+   -g ${azurespringcloudrg} \
+   -l ${location} \
+   --enable-java-agent true \
+   --app-insights ${azurespringcloud_service} \
+   --sku Standard \
+   --app-subnet ${azurespringcloud_app_subnet_name} \
+   --service-runtime-subnet ${azurespringcloud_service_subnet_name} \
+   --reserved-cidr-range ${reservedcidrrange} \
+   --tags ${tags}
+
+# Update diagnostic setting for Azure Spring Cloud instance
+az monitor diagnostic-settings create  \
+   --name monitoring \
+   --resource ${azurespringcloud_resourceid} \
+   --logs    '[{"category": "ApplicationConsole","enabled": true}]' \
+   --workspace  ${workspaceID}
+```
+
+## Deploy the cluster
+
+To deploy the Azure Spring Cloud cluster using the Azure CLI script, follow these steps:
 
 1. Sign in to Azure by using the following command:
 
