@@ -33,7 +33,7 @@ The information in this article comes from Microsoft customer migrations and Mic
 
 Azure Sentinel provides intelligent security analytics across entire organizations, powered by AI and enhanced with automation.
 
-![](media/image4.png)
+![Diagram showing Azure Sentinel features and capabilities.](media/migration/azure-sentinel-features.png)
 
 ### Flexibility and cost savings
 
@@ -187,7 +187,7 @@ The following side-by-side approaches aren't recommended:
 
 The following diagram shows full integration of all SIEM, SOAR, and case management processes in a side-by-side deployment.
 
-![Diagram showing full integration of all SIEM, SOAR, and case management processes in a side-by-side deployment.](media/side-by-side.png)
+![Diagram showing full integration of all SIEM, SOAR, and case management processes in a side-by-side deployment.](media/migration/side-by-side.png)
 
 ## Migration processes
 
@@ -244,7 +244,7 @@ Azure Sentinel has four built-in rule types:
 
 Rule migration across SIEMs requires a clear strategy and a detailed implementation plan to achieve business goals while reducing security risks. The following rule-migration process flow diagram shows an overview of key elements, decision points, and interrelationships among the steps.
 
-![Diagram showing the detection rule migration process flow.](media/rule-migration.png)
+![Diagram showing the detection rule migration process flow.](media/migration/rule-migration.png)
 
 Because Azure Sentinel uses ML analytics to produce high-fidelity and actionable incidents, some of your existing detections might not be required anymore.
 
