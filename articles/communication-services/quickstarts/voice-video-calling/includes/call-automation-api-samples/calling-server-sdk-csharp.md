@@ -112,7 +112,7 @@ The `CreateCallConnectionAsync` method returns a `CallConnection` object, which 
 
 Once a call connection is created, you can use the `PlayAudioAsync` method of the `CallConnection` object to play an audio message for the callee. The following parameters are supported by the `PlayAudioAsync` method:
 
-- `options`, required, is the play audio options. The type is `PlayAudioOptions`. The following are the supported parameters for `PlayAudioOptions` object:
+- `options`, required, is the play audio options. The type is `PlayAudioOptions`. The following parameters are supported by the `PlayAudioOptions` object:
 	- `AudioFileUri`, required, is the URI for the audio file having the message to be played.
 	- `OperationContext`, required, is the unique ID for request context.
 	- `Loop`, optional, set as true to repeat the audio message.
