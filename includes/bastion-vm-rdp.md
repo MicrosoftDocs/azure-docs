@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: bastion
  ms.topic: include
- ms.date: 10/21/2020
+ ms.date: 06/21/2021
  ms.author: cherylmc
  ms.custom: include file
 ---
@@ -22,6 +22,6 @@
 
    :::image type="content" source="./media/bastion-vm-rdp/connect-vm-host.png" alt-text="Connect":::
 
-1. The RDP connection to this virtual machine via Bastion will open directly in the Azure portal (over HTML5) using port 443 and the Bastion service.
+1. The RDP connection to this virtual machine via Bastion will open directly in the Azure portal (over HTML5) using port 443 and the Bastion service. Note that when connecting, the desktop of the VM may look different than the example screenshot.
 
    :::image type="content" source="./media/bastion-vm-rdp/connection.png" alt-text="Connect using port 443":::
