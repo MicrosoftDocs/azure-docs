@@ -54,7 +54,7 @@ Once you register, follow the instructions on the **2. Flight** tab to get acces
 
 ### T4 GPUs
 
-For **T4 GPUs**, Microsoft recommends a device mitigation driver from your GPU's vendor. For more information, see [Deploy graphics devices using direct device assignement](https://docs.microsoft.com/windows-server/virtualization/hyper-v/deploy/deploying-graphics-devices-using-dda#optional---install-the-partitioning-driver).
+For **T4 GPUs**, Microsoft recommends a device mitigation driver from your GPU's vendor. For more information, see [Deploy graphics devices using direct device assignement](/windows-server/virtualization/hyper-v/deploy/deploying-graphics-devices-using-dda#optional---install-the-partitioning-driver).
 
 > [!WARNING]
 > Enabling hardware device passthrough may increase security risks.
@@ -71,4 +71,4 @@ Now you are ready to deploy and run GPU-accelerated Linux modules in your Window
 
 * [Create your deployment of Azure IoT Edge for Linux on Windows](how-to-install-iot-edge-on-windows.md)
 
-* Learn more about GPU passthrough technologies by visiting the [DDA documentation](https://docs.microsoft.com/en-us/windows-server/virtualization/hyper-v/plan/plan-for-gpu-acceleration-in-windows-server#discrete-device-assignment-dda).
+* Learn more about GPU passthrough technologies by visiting the [DDA documentation](/windows-server/virtualization/hyper-v/plan/plan-for-gpu-acceleration-in-windows-server#discrete-device-assignment-dda).
