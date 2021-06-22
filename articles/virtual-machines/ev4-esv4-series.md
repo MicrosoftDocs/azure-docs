@@ -64,16 +64,16 @@ Esv4-series sizes run on the Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake)
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max uncached disk throughput: IOPS/MBps | Max NICs|Expected Network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|
 | Standard_E2s_v4  | 2 | 16  | Remote Storage Only | 4 | 3200/48 | 2|1000  |
-| Standard_E4s_v4  | 4 | 32  | Remote Storage Only | 8 | 6400/96 | 2|2000  |
-| Standard_E8s_v4  | 8 | 64  | Remote Storage Only | 16 | 12800/192 | 4|4000 |
-| Standard_E16s_v4 | 16 | 128 | Remote Storage Only | 32 | 25600/384 | 8|8000 |
+| Standard_E4s_v4  <sup>1</sup> | 4 | 32  | Remote Storage Only | 8 | 6400/96 | 2|2000  |
+| Standard_E8s_v4  <sup>1</sup> | 8 | 64  | Remote Storage Only | 16 | 12800/192 | 4|4000 |
+| Standard_E16s_v4 <sup>1</sup> | 16 | 128 | Remote Storage Only | 32 | 25600/384 | 8|8000 |
 | Standard_E20s_v4 | 20 | 160 | Remote Storage Only | 32 | 32000/480  | 8|10000 |
-| Standard_E32s_v4 | 32 | 256 | Remote Storage Only | 32 | 51200/768  | 8|16000 |
+| Standard_E32s_v4 <sup>1</sup> | 32 | 256 | Remote Storage Only | 32 | 51200/768  | 8|16000 |
 | Standard_E48s_v4 | 48 | 384 | Remote Storage Only | 32 | 76800/1152 | 8|24000 |
 | Standard_E64s_v4 <sup>1</sup> | 64 | 504| Remote Storage Only | 32 | 80000/1200 | 8|30000 |
 | Standard_E80is_v4 <sup>2</sup> | 80 | 504 | Remote Storage Only | 32 | 80000/1500 | 8|30000 |
 
-<sup>1</sup> [Constrained core sizes available)](./constrained-vcpu.md).
+<sup>1</sup> [Constrained core sizes available](./constrained-vcpu.md).
 
 <sup>2</sup> Instance is isolated to hardware dedicated to a single customer.
 

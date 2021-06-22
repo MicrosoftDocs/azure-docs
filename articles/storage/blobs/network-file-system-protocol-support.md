@@ -91,8 +91,8 @@ See the [Known issues](network-file-system-protocol-known-issues.md) article for
 
 See the [Azure Blob Storage pricing](/pricing/details/storage/blobs/) page for data storage and transaction costs. 
 
-## Next steps
+## See also
 
-- To get started, see [Mount Blob storage by using the Network File System (NFS) 3.0 protocol](network-file-system-protocol-support-how-to.md).
-
-- To optimize performance, see [Network File System (NFS) 3.0 performance considerations in Azure Blob Storage](network-file-system-protocol-support-performance.md).
+- [Mount Blob storage by using the Network File System (NFS) 3.0 protocol](network-file-system-protocol-support-how-to.md)
+- [Network File System (NFS) 3.0 performance considerations in Azure Blob Storage](network-file-system-protocol-support-performance.md)
+- [Compare access to Azure Files, Blob Storage, and Azure NetApp Files with NFS](../common/nfs-comparison.md)
