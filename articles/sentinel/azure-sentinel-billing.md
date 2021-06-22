@@ -69,6 +69,7 @@ The following table lists the free data sources you can enable in Azure Sentinel
 | Azure Sentinel Data Connector   | Data type | Free or paid |
 |-------------------------------------|--------------------------------|------------------|
 | **Azure Activity Logs**         | AzureActivity                  | Free             |
+| **Azure AD Identity Protection**         | SecurityAlert (IPC)                  | Free             |
 | **Office 365**                     | OfficeActivity (SharePoint)    | Free|
 || OfficeActivity (Exchange)|Free|
 || OfficeActivity (Teams)          | Free|
