@@ -48,12 +48,12 @@ The following table shows Azure Database Migration Service support for offline m
 | **Azure SQL VM** | SQL Server | ✔ | GA |
 |   | Oracle | X |   |
 | **Azure Cosmos DB** | MongoDB | ✔ | GA |
-| **Azure DB for MySQL - Single Server** | MySQL | ✔ | Public Preview  |
-|   | RDS MySQL | ✔ | Public Preview  |
-|   | Azure DB for MySQL* | ✔ | Public Preview  |
-| **Azure DB for MySQL - Flexible Server** | MySQL | ✔ | Public Preview  |
-|   | RDS MySQL | ✔ | Public Preview  |
-|   | Azure DB for MySQL* | ✔ | Public Preview  |
+| **Azure DB for MySQL - Single Server** | MySQL | ✔ | GA  |
+|   | RDS MySQL | ✔ | GA  |
+|   | Azure DB for MySQL* | ✔ | GA  |
+| **Azure DB for MySQL - Flexible Server** | MySQL | ✔ | GA  |
+|   | RDS MySQL | ✔ | GA  |
+|   | Azure DB for MySQL* | ✔ | GA  |
 | **Azure DB for PostgreSQL - Single server** | PostgreSQL | X |
 |  | RDS PostgreSQL | X |   |
 | **Azure DB for PostgreSQL - Flexible server** | PostgreSQL | X |

@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: bastion
  ms.topic: include
- ms.date: 02/05/2021
+ ms.date: 06/22/2021
  ms.author: cherylmc
  ms.custom: include file
 ---
@@ -56,9 +56,10 @@ Azure Bastion doesn't move or store customer data out of the region it is deploy
 
 In order to make a connection, the following roles are required:
 
-* Reader role on the virtual machine
-* Reader role on the NIC with private IP of the virtual machine
-* Reader role on the Azure Bastion resource
+* Reader role on the virtual machine.
+* Reader role on the NIC with private IP of the virtual machine.
+* Reader role on the Azure Bastion resource.
+* Reader Role on the Virtual Network (Not needed if there is no peered virtual network).
 
 ### <a name="pricingpage"></a>What is the pricing?
 
