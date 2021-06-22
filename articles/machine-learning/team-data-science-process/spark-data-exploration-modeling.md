@@ -29,7 +29,7 @@ Setup steps and code are provided in this walkthrough for using an HDInsight Spa
 - [Spark 1.6 notebooks](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark1.6/): Provide information on how to perform data exploration, modeling, and scoring with several different algorithms.
 - [Spark 2.0 notebooks](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/): Provide information on how to perform regression and classification tasks. Datasets may vary, but the steps and concepts are applicable to various datasets.
 
-[!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
+[!INCLUDE [delete-cluster-warning](../../hdinsight/includes/hdinsight-delete-cluster-warning.md)]
 
 > [!NOTE]
 > The descriptions below are related to using Spark 1.6. For Spark 2.0 versions, please use the notebooks described and linked above. 

@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 04/29/2021
+ms.date: 06/21/2021
 ms.author: victorh
 ---
 
@@ -77,7 +77,6 @@ Azure Firewall Manager has the following known issues:
 |One secured virtual hub per region|You can't have more than one secured virtual hub per region.|Create multiple virtual WANs in a region.|
 |Base policies must be in same region as local policy|Create all your local policies in the same region as the base policy. You can still apply a policy that was created in one region on a secured hub from another region.|Investigating|
 |Filtering inter-hub traffic in secure virtual hub deployments|Secured Virtual Hub to Secured Virtual Hub communication filtering isn't yet supported. However, hub to hub communication still works if private traffic filtering via Azure Firewall isn't enabled.|Investigating|
-|Spokes in different region than the virtual hub|Spokes in different region than the virtual hub aren't supported.|Investigating<br><br>Create a hub per region and peer VNets in the same region as the hub.|
 |Branch to branch traffic with private traffic filtering enabled|Branch to branch traffic isn't supported when private traffic filtering is enabled. |Investigating.<br><br>Don't secure private traffic if branch to branch connectivity is critical.|
 |All Secured Virtual Hubs sharing the same virtual WAN must be in the same resource group.|This behavior is aligned with Virtual WAN Hubs today.|Create multiple Virtual WANs to allow Secured Virtual Hubs to be created in different resource groups.|
 |Bulk IP address addition fails|The secure hub firewall goes into a failed state if you add multiple public IP addresses.|Add smaller public IP address increments. For example, add 10 at a time.|
