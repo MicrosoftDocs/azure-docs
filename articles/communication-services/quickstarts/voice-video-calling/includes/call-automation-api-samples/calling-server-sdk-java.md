@@ -168,7 +168,7 @@ Response<PlayAudioResult> playAudioResponse = this.callConnection.playAudioWithR
 PlayAudioResult response = playAudioResponse.getValue();
 ```
 
-The `playAudio` method return `Response<PlayAudioResult>`, which can be used to get the `OperationStatus` using `getStatus()` method. The `OperationStatus` could have the following values - NotStarted, Running, Completed, or Failed.
+The `playAudio` method returns `Response<PlayAudioResult>`, which can be used to get the `OperationStatus` using the `getStatus()` method. The `OperationStatus` could have the following values: `NotStarted`, `Running`, `Completed`, or `Failed`.
 
 ```java
 Logger.LogMessage(Logger.MessageType.INFORMATION, "playAudioWithResponse -- > " + GetResponse(playAudioResponse) + 
