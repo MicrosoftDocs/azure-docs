@@ -606,6 +606,9 @@ Create a new function called `analyzeBatchActionsExample()`, which calls the `be
 ```java
 static void analyzeBatchActionsExample(TextAnalyticsClient client)
 {
+        List<TextDocumentInput> documents = new ArrayList<>();
+        documents.add(new TextDocumentInput("1","Microsoft was founded by Bill Gates and Paul Allen."));
+
         client.beginAnalyzeActions(documents,
                 new TextAnalyticsActions().setDisplayName("text analytics sample")
                         .setRecognizeEntitiesOptions(new RecognizeEntitiesOptions())
