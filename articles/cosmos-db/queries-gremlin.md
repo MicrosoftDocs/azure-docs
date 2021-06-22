@@ -25,7 +25,7 @@ In this article, we'll cover how to write more advanced queries to help troubles
 
 For Azure Diagnostics tables, all data is written into one single table and users will need to specify which category they'd like to query. If you'd like to view the full-text query of your request, [follow this article](cosmosdb-monitor-resource-logs.md#full-text-query) to learn how to enable this feature.
 
-For resource-specific tables, data is written into individual tables for each category of the resource. We recommend this mode since it makes it much easier to work with the data, provides better discoverability of the schemas, and improves performance across both ingestion latency and query times.
+For [resource-specific tables](cosmosdb-monitor-resource-logs.md#create-setting-portal), data is written into individual tables for each category of the resource. We recommend this mode since it makes it much easier to work with the data, provides better discoverability of the schemas, and improves performance across both ingestion latency and query times.
 
 1. Top N(10) RU consuming requests/queries in a given time frame
 
