@@ -132,7 +132,7 @@ Follow these steps to create a VM after you've created a VM image.<!--Use this p
     |Username     | Use the default username **azureuser** for the admin to sign in to the VM.        |
     |Authentication type    | Choose from an SSH public key or a user-defined password.       |
     |SSH public key | Displayed when you select the **SSH public key** authentication type. Paste in the SSH public key. |
-    |Password     | Displayed when you select the **Password** authentication type. Enter a password to sign in to the VM. The password must be at least 12 characters long and meet the defined [complexity requirements](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).        |
+    |Password     | Displayed when you select the **Password** authentication type. Enter a password to sign in to the VM. The password must be at least 12 characters long and meet the defined [complexity requirements](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm-).        |
     |Confirm password    | Enter the password again.        |
 
 
