@@ -41,7 +41,7 @@ The subnet needs to be large enough to hold the maximum size that you'll scale y
 ![App Service Environment networking selections](./media/creation/creation-networking.png)
 5. Review and Create: Check that your configuration is correct and select create. Your ASE can take up to nearly two hours to create. 
 
-  ![App Service Environment review and create](./media/creation/creation-review.png)
+   ![App Service Environment review and create](./media/creation/creation-review.png)
 
 After your ASE creation completes, you can select it as a location when creating your apps. To learn more about creating apps in your new ASE or managing your ASE, read [Using an App Service Environment][UsingASE]
 
