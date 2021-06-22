@@ -108,19 +108,23 @@ An ASE has 1 TB of storage for all the apps in the ASE. An App Service plan in t
 
 You can integrate your ASE with Azure Monitor to send logs about the ASE to Azure Storage, Azure Event Hubs, or Log Analytics. These items are logged today:
 
-| Situation | Message |
-|---------|----------|
-| ASE is unhealthy | The specified ASE is unhealthy due to an invalid virtual network configuration. The ASE will be suspended if the unhealthy state continues. Ensure the guidelines defined here are followed: https://docs.microsoft.com/azure/app-service/environment/network-info. |
-| ASE subnet is almost out of space | The specified ASE is in a subnet that is almost out of space. There are {0} remaining addresses. Once these addresses are exhausted, the ASE will not be able to scale.  |
-| ASE is approaching total instance limit | The specified ASE is approaching the total instance limit of the ASE. It currently contains {0} App Service Plan instances of a maximum 201 instances. |
-| ASE is unable to reach a dependency | The specified ASE is not able to reach {0}.  Ensure the guidelines defined here are followed: https://docs.microsoft.com/azure/app-service/environment/network-info. |
-| ASE is suspended | The specified ASE is suspended. The ASE suspension may be due to an account shortfall or an invalid virtual network configuration. Resolve the root cause and resume the ASE to continue serving traffic. |
-| ASE upgrade has started | A platform upgrade to the specified ASE has begun. Expect delays in scaling operations. |
-| ASE upgrade has completed | A platform upgrade to the specified ASE has finished. |
-| Scale operations have started | An App Service plan ({0}) has begun scaling. Desired state: {1} I{2} workers.
-| Scale operations have completed | An App Service plan ({0}) has finished scaling. Current state: {1} I{2} workers. |
-| Scale operations have failed | An App Service plan ({0}) has failed to scale. Current state: {1} I{2} workers. |
+|Situation |Message |
+|----------|--------|
+|ASE subnet is almost out of space | The specified ASE is in a subnet that is almost out of space. There are {0} remaining addresses. Once these addresses are exhausted, the ASE will not be able to scale.  |
+|ASE is approaching total instance limit | The specified ASE is approaching the total instance limit of the ASE. It currently contains {0} App Service Plan instances of a maximum 200 instances. |
+|ASE is suspended | The specified ASE is suspended. The ASE suspension may be due to an account shortfall or an invalid virtual network configuration. Resolve the root cause and resume the ASE to continue serving traffic. |
+|ASE upgrade has started | A platform upgrade to the specified ASE has begun. Expect delays in scaling operations. |
+|ASE upgrade has completed | A platform upgrade to the specified ASE has finished. |
+|App Service plan creation has started | An App Service plan ({0}) creation has started. Desired state: {1} I{2}v2 workers.
+|Scale operations have completed | An App Service plan ({0}) creation has finished. Current state: {1} I{2}v2 workers. |
+|Scale operations have failed | An App Service plan ({0}) creation has failed. This may be due to the ASE operating at peack number of instances, or run out of subnet addresses. |
+|Scale operations have started | An App Service plan ({0}) has begun scaling. Current state: {1} I(2)v2. Desired state: {3} I{4}v2 workers.|
+|Scale operations have completed | An App Service plan ({0}) has finished scaling. Current state: {1} I{2}v2 workers. |
+|Scale operations was interrupted | An App Service plan ({0}) has was interrupted while scaling. Previous desired state: {1} I{2}v2 workers. New desired state: {3} I{4}v2 workers. |
+|Scale operations have failed | An App Service plan ({0}) has failed to scale. Current state: {1} I{2}v2 workers. |
+
 To enable logging on your ASE:
+
 1. In the portal, go to **Diagnostics settings**.
 1. Select **Add diagnostic setting**.
 1. Provide a name for the log integration.
