@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/17/2021
+ms.date: 06/18/2021
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
@@ -263,7 +263,7 @@ Yes. When a time-based retention policy is first created, it is in an *unlocked*
 
 **Can I use soft delete alongside immutable blob policies?**
 
-Yes, if your compliance requirements allow for soft delete to be enabled. [Soft delete for Azure Blob storage](./soft-delete-blob-overview.md) applies for all containers within a storage account regardless of a legal hold or time-based retention policy. We recommend enabling soft delete for additional protection before any immutable WORM policies are applied and confirmed.
+Yes, if your compliance requirements allow for soft delete to be enabled. [Soft delete for Azure Blob storage](./soft-delete-blob-overview.md) applies to all containers within a storage account regardless of whether a legal hold or time-based retention policy is in effect. Microsoft recommends enabling soft delete for additional protection before any immutability policies are applied. If soft delete is enabled on a container and then an immutability policy is added to the container, any blobs that have already been soft deleted will be permanently deleted once the soft delete retention policy has expired. Soft-deleted blobs can be restored during the soft delete retention period. Any blobs that have not yet been soft deleted are protected by the immutability policy and cannot be soft deleted until after the immutable policy has expired (for time-based retention) or removed (for legal holds).
 
 **For an HNS-enabled account, can I rename or move a blob when the blob is in the immutable state?**
 No, both the name and the directory structure are considered important container-level data that cannot be modified once the immutable policy is in place. Rename and move are only available for HNS-enabled accounts in general.
