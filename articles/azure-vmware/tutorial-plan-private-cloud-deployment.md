@@ -133,7 +133,7 @@ Optionally, you can extend network segments from on-premises to Azure VMware Sol
 
 
 ## Next steps
-Now that you've gathered and documented the information needed, continue to the next section to create your Azure VMware Solution private cloud.
+Now that you've gathered and documented the information needed, continue to the next tutorial to create your Azure VMware Solution private cloud.
 
 > [!div class="nextstepaction"]
 > [Deploy Azure VMware Solution](tutorial-deploy-azure-vmware-solution.md)

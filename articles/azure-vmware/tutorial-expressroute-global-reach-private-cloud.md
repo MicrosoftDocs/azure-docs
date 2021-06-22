@@ -74,7 +74,7 @@ You should now see in your **on-premises edge router** where the ExpressRoute co
 >Everyone has a different environment, and some will need to allow these routes to propagate back into the on-premises network.  
 
 ## Next steps
-Continue to the next tutorial to install VMware HCX solution for your Azure VMware Solution private cloud.
+Continue to the next tutorial to install VMware HCX add-on in your Azure VMware Solution private cloud.
 
 > [!div class="nextstepaction"]
 > [Install VMware HCX](tutorial-install-vmware-hcx.md)

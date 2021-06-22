@@ -76,7 +76,7 @@ You should have connectivity between the Azure Virtual Network where the Express
 
 ## Next steps
 
-In the next section, you'll connect Azure VMware Solution to your on-premises network through ExpressRoute.
+In the next tutorial, you'll connect Azure VMware Solution to your on-premises network through ExpressRoute.
 
 > [!div class="nextstepaction"]
 > [Connect to your on-premises environment](tutorial-expressroute-global-reach-private-cloud.md)

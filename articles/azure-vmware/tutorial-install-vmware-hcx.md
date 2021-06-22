@@ -127,7 +127,7 @@ After the services restart, you'll see vCenter showing as green on the screen th
 
 ## Next steps
 
-Continue to the next tutorial to configure the VMware HCX Connector.
+Continue to the next tutorial to configure the VMware HCX Connector.  After you've configured the VMware HCX Connector, you'll have a production-ready environment for creating virtual machines (VMs) and migration. 
 
 
 >[!div class="nextstepaction"]
