@@ -63985,13 +63985,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/virtual-network/ipv6-public-ip-address-prefix.md",
-      "redirect_url": "/azure/virtual-network/public-ip-address-prefix",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/virtual-network/virtual-network-public-ip-address-upgrade.md",
-      "redirect_url": "/azure/virtual-network/public-ip-upgrade-portal",
+      "source_path_from_root": "/articles/iot-develop/quickstart-send-telemetry-cli-node.md",
+      "redirect_url": "/azure/iot-develop/quickstart-send-telemetry-iot-hub",
       "redirect_document_id": false
     },
     {

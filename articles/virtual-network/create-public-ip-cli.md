@@ -1,26 +1,25 @@
 ---
 title: Create a public IP - Azure CLI
-titleSuffix: Azure Virtual Network
 description: Learn how to create a public IP using Azure CLI
 services: virtual-network
-author: asudbring
+documentationcenter: na
+author: blehr
 ms.service: virtual-network
+ms.devlang: na
 ms.topic: how-to
-ms.date: 05/05/2021
-ms.author: allensu
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 08/28/2020
+ms.author: blehr
 
 ---
-# Create a public IP address using Azure CLI
+# Quickstart: Create a public IP address using Azure CLI
 
-This article shows you how to create a public IP address resource using Azure CLI. 
-
-For more information on resources that support public IPs, see [Public IP addresses](./public-ip-addresses.md).
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+This article shows you how to create a public IP address resource using Azure CLI. For more information on which resources this can be associated to, the difference between Basic and Standard SKU, and other related information, please see [Public IP addresses](./public-ip-addresses.md).  For this example, we will focus on IPv4 addresses only; for more information on IPv6 addresses, see [IPv6 for Azure VNet](./ipv6-overview.md).
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-- This tutorial requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+- This article requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Create a resource group
 
@@ -34,139 +33,72 @@ Create a resource group with [az group create](/cli/azure/group#az_group_create)
     --location eastus2
 ```
 
-## Create standard SKU public IP with zones
+## Create public IP
 
-In this section, you'll create a public IP with zones. Public IP addresses can be zone-redundant or zonal.
-
-### Zone redundant
+---
+# [**Standard SKU - Using zones**](#tab/option-create-public-ip-standard-zones)
 
 >[!NOTE]
 >The following command works for API version 2020-08-01 or later.  For more information about the API version currently being used, please refer to [Resource Providers and Types](../azure-resource-manager/management/resource-providers-and-types.md).
 
-Use [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) to create a standard zone-redundant public IPv4 address named **myStandardZRPublicIP** in **myResourceGroup**.  
-
-To create an IPv6 address, modify the **version** parameter to **IPv6**.
+Use [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) to create a standard zone-redundant public IP address named **myStandardZRPublicIP** in **myResourceGroup**.
 
 ```azurecli-interactive
   az network public-ip create \
     --resource-group myResourceGroup \
     --name myStandardZRPublicIP \
-    --version IPv4 \
-    --sku Standard \
+    --sku Standard
     --zone 1 2 3
 ```
 > [!IMPORTANT]
-> For versions of the API older than 2020-08-01, execute the command without specifying a zone parameter to create a zone-redundant IP address. 
+> For versions of the API older than 2020-08-01, run the command above without specifying a zone parameter to create a zone-redundant IP address. 
 >
 
-### Zonal
-
-To create a standard zonal public IPv4 address in Zone 2 named **myStandardZonalPublicIP** in **myResourceGroup**, use the following command.
-
-To create an IPv6 address, modify the **version** parameter to **IPv6**.
+In order to create a standard zonal public IP address in Zone 2 named **myStandardZonalPublicIP** in **myResourceGroup**, use the following command:
 
 ```azurecli-interactive
   az network public-ip create \
     --resource-group myResourceGroupLB \
     --name myStandardZonalPublicIP \
-    --version IPv4 \
     --sku Standard \
     --zone 2
 ```
 
->[!NOTE]
->The above options for zones are only valid selections in regions with [Availability Zones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
+Note that the above options for zones are only valid selections in regions with [Availability Zones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
 
-
-## Create standard public IP without zones
-
-In this section, you'll create a non-zonal IP address.  
+# [**Standard SKU - No zones**](#tab/option-create-public-ip-standard)
 
 >[!NOTE]
 >The following command works for API version 2020-08-01 or later.  For more information about the API version currently being used, please refer to [Resource Providers and Types](../azure-resource-manager/management/resource-providers-and-types.md).
 
-Use [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) to create a standard public IPv4 address as a non-zonal resource named **myStandardPublicIP** in **myResourceGroup**. 
-
-To create an IPv6 address, modify the **version** parameter to **IPv6**.
+Use [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) to create a standard public IP address as a non-zonal resource named **myStandardPublicIP** in **myResourceGroup**.
 
 ```azurecli-interactive
   az network public-ip create \
     --resource-group myResourceGroup \
     --name myStandardPublicIP \
-    --version IPv4 \
     --sku Standard
 ```
-The removal of the **zone** parameter in the command is valid in all regions.  
+This selection is valid in all regions and is the default selection for Standard Public IP addresses in regions without [Availability Zones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
 
-The removal of the **zone** parameter is the default selection for standard public IP addresses in regions without [Availability Zones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
+# [**Basic SKU**](#tab/option-create-public-ip-basic)
 
-## Create a basic public IP
-
-In this section, you'll create a basic IP. Basic public IPs don't support availability zones.
-
-Use [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) to create a basic static public IPv4 address named **myBasicPublicIP** in **myResourceGroup**.
-
-To create an IPv6 address, modify the **version** parameter to **IPv6**. 
+Use [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) to create a basic static public IP address named **myBasicPublicIP** in **myResourceGroup**.  Basic Public IPs do not have the concept of availability zones.
 
 ```azurecli-interactive
   az network public-ip create \
     --resource-group myResourceGroup \
     --name myBasicPublicIP \
-    --version IPv4 \
     --sku Basic \
     --allocation-method Static
 ```
-If it's acceptable for the IP address to change over time, **Dynamic** IP assignment can be selected by changing the AllocationMethod to **Dynamic**. 
+If it is acceptable for the IP address to change over time, **Dynamic** IP assignment can be selected by changing the allocation-method to 'Dynamic'.
 
->[!NOTE]
-> A basic IPv6 address must always be 'Dynamic'.
-
-## Routing Preference and Tier
-
-Standard SKU static public IPv4 addresses support Routing Preference or the Global Tier feature.
-
-### Routing Preference
-
-By default, the routing preference for public IP addresses is set to "Microsoft network", which delivers traffic over Microsoft's global wide area network to the user.  
-
-The selection of **Internet** minimizes travel on Microsoft's network, instead using the transit ISP network to deliver traffic at a cost-optimized rate.  
-
-For more information on routing preference, see [What is routing preference (preview)?](./routing-preference-overview.md).
-
-The command creates a new standard zone-redundant public IPv4 address with a routing preference of type **Internet**:
-
-```azurecli-interactive
-  az network public-ip create \
-    --resource-group myResourceGroup \
-    --name myStandardZRPublicIP-RP \
-    --version IPv4 \
-    --ip-tags 'RoutingPreference=Internet' \
-    --sku Standard \
-    --zone 1 2 3
-```
-
-### Tier
-
-Public IP addresses are associated with a single region. The **Global** tier spans an IP address across multiple regions. **Global** tier is required for the frontends of cross-region load balancers.  
-
-For more information, see [Cross-region load balancer](../load-balancer/cross-region-overview.md).
-
-The following command creates a global IPv4 address. This address can be associated with the frontend of a cross-region load balancer.
-
-```azurecli-interactive
-  az network public-ip create \
-    --resource-group myResourceGroup \
-    --name myStandardPublicIP-Global \
-    --version IPv4 \
-    --tier global \
-    --sku Standard \
-```
->[!NOTE]
->Global tier addresses don't support Availability Zones.
+---
 
 ## Additional information 
 
-For more information on the individual parameters listed in this how-to, see [Manage public IP addresses](./virtual-network-public-ip-address.md#create-a-public-ip-address).
+For more details on the individual variables listed above, please see [Manage public IP addresses](./virtual-network-public-ip-address.md#create-a-public-ip-address).
 
 ## Next steps
 - Associate a [public IP address to a Virtual Machine](./associate-public-ip-address-vm.md#azure-portal).
