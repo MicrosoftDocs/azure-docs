@@ -11,7 +11,7 @@ services: iot-edge
 monikerRange: "=iotedge-2018-06"
 ---
 
-# Nested virtualization for Azure IoT Edge for Linux on Windows
+# GPU acceleration for Azure IoT Edge for Linux on Windows (Preview)
 
 GPUs are a popular choice for artificial intelligence computations, because they offer parallel processing capabilities and can often execute vision-based inferencing faster than CPUs. To better support artificial intelligence and machine learning applications, Azure IoT Edge for Linux on Windows can expose a GPU to the virtual machine's Linux module.
 
@@ -40,17 +40,17 @@ The supported GPUs and required Windows versions are listed below:
 * NVIDIA T4 (supports DDA)
 
   * Windows Server, build 17763 or higher
-  * Windows Enterprise or Professional, build 21318 or higher
+  * Windows Enterprise or Professional, build 21318 or higher (Windows Insider build)
 
 * NVIDIA GeForce/Quadro (supports GPU-PV)
 
-  * Windows Enterprise or Professional, build 20145 or higher
+  * Windows Enterprise or Professional, build 20145 or higher (Windows Insider build)
 
 ### Windows Insider builds
 
 For Windows Enterprise or Professional users, you will need to [register for the Windows Insider Program](https://insider.windows.com/getting-started#register).
 
-Once you register, follow the instructions on the **2. Flight** tab to get access to the appropriate Windows Insider build. When selecting the channel you wish to use, select the [dev channel](https://docs.microsoft.com/windows-insider/flight-hub/#active-development-builds-of-windows-10). After installation, you can verify your build version number by running `winver` via command prompt.
+Once you register, follow the instructions on the **2. Flight** tab to get access to the appropriate Windows Insider build. When selecting the channel you wish to use, select the [dev channel](/windows-insider/flight-hub/#active-development-builds-of-windows-10). After installation, you can verify your build version number by running `winver` via command prompt.
 
 ### T4 GPUs
 

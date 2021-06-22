@@ -125,14 +125,14 @@ Install IoT Edge for Linux on Windows onto your target device if you have not al
 
    The `Deploy-Eflow` command takes optional parameters that help you customize your deployment.
 
-   You can assign a GPU to your deployment to enable GPU-accelerated Linux modules. To gain access to these features, you will need to install the prerequisites detailed in [GPU acceleration for Azure IoT Edge for Linux on Windows](gpu-acceleration.md). If you are only installing these prerequisites at this point in the deployment process, you will need to start again from the beginning.
+   You can assign a GPU to your deployment to enable GPU-accelerated Linux modules. To gain access to these features, you will need to install the prerequisites detailed in [GPU acceleration for Azure IoT Edge for Linux on Windows](gpu-acceleration.md).
 
-   To use a GPU passthrough, you will need add the **gpuName**, **gpuPassthroughType**, and **gpuCount** parameters to your `Deploy-Eflow` command. **gpuName** refers to the name of GPU device used for passthrough. **gpuPassthroughType** can be set to `DirectDeviceAssignment` (for T4 GPUs), `ParaVirtualization` (for GeForce/Quadro GPUs), for `""` (for CPU only). **gpuCount** delegates the number of GPU devices for the virtual machine and should be an integer between 1 and the number of the device's GPU cores. For **paravirtualization**, make sure to set `gpuCount` to 1.
+   To use a GPU passthrough, you will need add the **gpuName**, **gpuPassthroughType**, and **gpuCount** parameters to your `Deploy-Eflow` command. For information about all the optional parameters available, see [PowerShell functions for IoT Edge for Linux on Windows](reference-iot-edge-for-linux-on-windows-functions.md#deploy-eflow).
 
    >[!WARNING]
    >Enabling hardware device passthrough may increase security risks. Microsoft recommends a device mitigation driver from your GPU's vendor, when applicable. For more information, see [Deploy graphics devices using discrete device assignment](/windows-server/virtualization/hyper-v/deploy/deploying-graphics-devices-using-dda).
 
-   For information about all the optional parameters available, see [PowerShell functions for IoT Edge for Linux on Windows](reference-iot-edge-for-linux-on-windows-functions.md#deploy-eflow).
+
 
 1. Enter 'Y' to accept the license terms.
 
