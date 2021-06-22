@@ -24,7 +24,6 @@ In the tutorial, we'll use these [sample DICOM files](https://github.com/microso
 > [!NOTE]
 > Each of these files represent a single instance and are part of the same study. Also green-square and red-triangle are part of the same series, while blue-circle is in a separate series.
 
-
 ## Prerequisites
 
 To use the DICOMWeb&trade; Standard APIs, you must have an instance of the DICOM Service deployed. If you haven't already deployed the DICOM Service, see [Deploy DICOM Services using the Azure portal](deploy-dicom-services-in-azure.md).
@@ -35,8 +34,7 @@ Once you've deployed an instance of the DICOM Service, retrieve the URL for your
 1. Search **Recent resources** and select your DICOM Service instance.
 1. Copy the **Service URL** of your DICOM Service.
 
-For this code, we'll be accessing an unsecured dev/test service. Please don't upload any private health information (PHI).
-
+For this code, we'll be accessing an unsecured dev/test service. It is important that you don't upload any private health information (PHI).
 
 ## Working with the DICOM Service
 
@@ -44,7 +42,7 @@ The DICOMweb&trade; Standard makes heavy use of `multipart/related` HTTP request
 
 ### Import the appropriate Python libraries
 
-First, import the necessary Python libraries. 
+First, import the necessary Python libraries.
 
 We've chosen to implement this example using the synchronous `requests` library. For asynchronous support, consider using `httpx` or another async library. Additionally, we're importing two supporting functions from `urllib3` to support working with `multipart/related` requests.
 
@@ -59,7 +57,6 @@ from urllib3.filepost import encode_multipart_formdata, choose_boundary
 ### Configure user-defined variables to be used throughout
 
 Replace all variable values wrapped in { } with your own values. Additionally, validate that any constructed variables are correct.  For instance, `base_url` is constructed using the default URL for Azure App Service. If you're using a custom URL, you'll need to override that value with your own.
-
 
 ```python
 dicom_server_name = "{server-name}"
@@ -77,7 +74,6 @@ instance_uid = "1.2.826.0.1.3680043.8.498.47359123102728459884412887463296905395
 The `Requests` libraries (and most Python libraries) do not work with `multipart\related` in a way that supports DICOMweb&trade;. Because of these libraries, we must add a few methods to support working with DICOM files.
 
 `encode_multipart_related` takes a set of fields (in the DICOM case, these libraries are generally Part 10 dam files) and an optional user-defined boundary. It returns both the full body, along with the content_type, which it can be used.
-
 
 ```python
 def encode_multipart_related(fields, boundary=None):
@@ -253,7 +249,6 @@ for part in mpd.parts:
     print(dcm.SOPInstanceUID)
 ```
 
-
 ### Retrieve metadata of all instances in study
 
 This request retrieves the metadata for all instances within a single study.
@@ -292,7 +287,6 @@ headers = {'Accept':'multipart/related; type="application/dicom"; transfer-synta
 response = client.get(url, headers=headers) #, verify=False)
 ```
 
-
 ### Retrieve metadata of all instances in series
 
 This request retrieves the metadata for all instances within a single series.
@@ -324,14 +318,12 @@ _Details:_
 
 This code example should only return the instance red-triangle. Validate that the response has a status code of OK and that the instance is returned.
 
-
 ```python
 url = f'{base_url}/studies/{study_uid}/series/{series_uid}/instances/{instance_uid}'
 headers = {'Accept':'application/dicom; transfer-syntax=*'}
 
 response = client.get(url, headers=headers) #, verify=False)
 ```
-
 
 ### Retrieve metadata of a single instance within a series of a study
 
@@ -392,7 +384,6 @@ _Details:_
 
 Validate that the response includes one study and that the response code is OK.
 
-
 ```python
 url = f'{base_url}/studies'
 headers = {'Accept':'application/dicom+json'}
@@ -440,7 +431,6 @@ params = {'SeriesInstanceUID':series_uid}
 
 response = client.get(url, headers=headers, params=params) #, verify=False)
 ```
-
 
 ### Search for instances
 
@@ -502,13 +492,12 @@ params = {'SOPInstanceUID':instance_uid}
 response = client.get(url, headers=headers, params=params) #, verify=False)
 ```
 
------------------
 ## Delete DICOM
 
 > [!NOTE]
 > Delete is not part of the DICOM standard, but it has been added for convenience.
 
-A 204 response code is returned when the deletion is successful. A 404 response code is returned if the item(s) have never existed or have already been deleted. 
+A 204 response code is returned when the deletion is successful. A 404 response code is returned if the item(s) have never existed or have already been deleted.
 
 ### Delete a specific instance within a study and series
 

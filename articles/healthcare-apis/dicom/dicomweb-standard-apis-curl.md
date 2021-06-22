@@ -41,11 +41,11 @@ For this code, we'll be accessing an unsecured dev/test service. As a safe guard
  
 The DICOMweb&trade; Standard makes heavy use of `multipart/related` HTTP requests combined with DICOM specific accept headers. Developers familiar with other REST-based APIs often find working with the DICOMweb&trade; Standard awkward. However, once you have it up and running, it's easy to use. It just takes a little familiarity to get started.
 
-The cURL commands each contain at least one, and sometimes two, variables that much be replaced. To simplify running the commands, search and replace the following variables by replacing them with your specific values:
+The cURL commands each contain at least one, and sometimes two, variables that must be replaced. To simplify running the commands, search and replace the following variables by replacing them with your specific values:
 
 * {service-name} - The name of your App Service (without the `.azurewebsites.net`), such as `mydicomserver`
 * {path-to-dicoms} - The path to the directory that contains the red-triangle.dcm file, such as `C:/dicom-server/docs/dcms`
-    * Ensure to use forward slashes as separators and end the directory _without_ a trailing forward slash.     
+    * Ensure to use forward slashes as separators and end the directory _without_ a trailing forward slash.
 
 ---
 ## Uploading DICOM Instances (STOW)
@@ -78,7 +78,7 @@ _Details:_
 
 ### Store-instances-for-a-specific-study
 
-This request demonstrates how to upload DICOM files using multipart/related to a designated study. 
+This request demonstrates how to upload DICOM files using multipart/related to a designated study.
 
 _Details:_
 * Path: ../studies/{study}
@@ -103,7 +103,7 @@ _Details:_
 > [!NOTE]
 > This is a non-standard API that allows the upload of a single DICOM file without the need to configure the POST for multipart/related. Although cURL handles multipart/related well, this API allows tools like Postman to upload files to the DICOM Service.
 
-The following is required to upload a single DICOM file.
+The following method is required to upload a single DICOM file.
 
 _Details:_
 * Path: ../studies
@@ -302,7 +302,7 @@ _Details:_
 
 This request enables searches for one or more instances within a single study and single series by DICOM attributes.
 
-> Please see the [Conformance.md](../docs/resources/conformance-statement.md) file for supported DICOM attributes.
+For information about the supported DICOM attributes, see the [DICOM Conformance Statement](dicom-service-conformance-statement.md).
 
 _Details:_
 * Path: ../studies/{study}/series/{series}/instances?SOPInstanceUID={instance}
@@ -358,7 +358,7 @@ _Details:_
 
 ### Next Steps
 
-For more information about DICOM Services, see 
+For more information about DICOM Services, see
 
 >[!div class="nextstepaction"]
->[Overview of DICOM Services](concepts_dicom_overview.md)
+>[Overview of DICOM Services](dicom-services-overview.md)

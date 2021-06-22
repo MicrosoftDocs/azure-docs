@@ -15,7 +15,7 @@ In this quickstart, you'll learn how to deploy the DICOM Services using the Azur
 
 ## Prerequisite
 
-To deploy the DICOM Services, you must have a workspace created in the Azure portal. For more information about creating a workspace, see [Deploy Workspace in the Azure portal](deploy-workspace-in-portal.md).
+To deploy the DICOM Services, you must have a workspace created in the Azure portal. For more information about creating a workspace, see **Deploy Workspace in the Azure portal**.
 
 ## Deploying DICOM Services
 
@@ -35,11 +35,10 @@ To deploy the DICOM Services, you must have a workspace created in the Azure por
 
    :::image type="content" source="media/enter-dicom-service-name.png" alt-text="Enter DICOM service name":::
 
-   (**Optional**) Select **Next: Tags >**. 
-    
+   (**Optional**) Select **Next: Tags >**.
+
     Tags are name/value pairs used for categorizing resources. For more information about tags, see [Use tags to organize your Azure resources and management hierarchy](https://docs.microsoft.com/azure/azure-resource-manager/management/tag-resources).
 
- 
 5. When you notice the green validation checkmark, select **Create** to deploy the DICOM service.
 
 6. When the deployment process completes, click **Go to resource**.  

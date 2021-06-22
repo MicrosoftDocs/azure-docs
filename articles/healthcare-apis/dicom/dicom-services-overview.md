@@ -59,4 +59,4 @@ To get started using the DICOM service, see:
 >[Deploy DICOM Services to Azure](deploy-dicom-services-in-azure.md)
 
 >[!div class="nextstepaction"]
->[Using DICOMweb&trade;Standard APIs with DICOM Services](dicom-standard-apis-with-dicom-services.md)
+>[Using DICOMweb&trade;Standard APIs with DICOM Services](dicomweb-standard-apis-with-dicom-services.md)

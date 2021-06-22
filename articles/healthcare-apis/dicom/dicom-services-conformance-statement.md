@@ -259,7 +259,7 @@ Cache validation is supported using the `ETag` mechanism. In the response of a m
 | Code                         | Description |
 | :--------------------------- | :---------- |
 | 200 (OK)                     | All requested data has been retrieved. |
-| 304 (Not Modified)           | The requested data has not modified since the last request. Content is not added to the response body in such case. For more information, refer to the above section **Retrieve Metadata Cache Validation (for Study, Series, or Instance)**. |
+| 304 (Not Modified)           | The requested data has not modified since the last request. Content is not added to the response body in such case. For more information, see the above section **Retrieve Metadata Cache Validation (for Study, Series, or Instance)**. |
 | 400 (Bad Request)            | The request was badly formatted. For example, the provided study instance identifier did not conform the expected UID format or the requested transfer-syntax encoding is not supported. |
 | 401 (Unauthorized)           | The client is not authenticated. |
 | 404 (Not Found)              | The specified DICOM resource could not be found. |
@@ -293,7 +293,7 @@ The following parameters for each query are supported:
 | Key              | Support Value(s)              | Allowed Count | Description |
 | :--------------- | :---------------------------- | :------------ | :---------- |
 | `{attributeID}=` | {value}                       | 0...N         | Search for attribute/ value matching in query. |
-| `includefield=`  | `{attributeID}`<br/>`all`   | 0...N         | The additional attributes to return in the response. Both, public and private tags are supported.<br/>When `all` is provided. Refer to [Search Response](###search-response) for more information about which attributes will be returned for each query type.<br/>If a mixture of {attributeID} and 'all' is provided, the server will default to using 'all'. |
+| `includefield=`  | `{attributeID}`<br/>`all`   | 0...N         | The additional attributes to return in the response. Both, public and private tags are supported.<br/>When `all` is provided. Refer to [Search Response](#search-response) for more information about which attributes will be returned for each query type.<br/>If a mixture of {attributeID} and 'all' is provided, the server will default to using 'all'. |
 | `limit=`         | {value}                       | 0..1          | Integer value to limit the number of values returned in the response.<br/>Value can be between the range 1 >= x <= 200. Defaulted to 100. |
 | `offset=`        | {value}                       | 0..1          | Skip {value} results.<br/>If an offset is provided larger than the number of search query results, a 204 (no content) response will be returned. |
 | `fuzzymatching=` | `true` \| `false`             | 0..1          | If true fuzzy matching is applied to PatientName attribute. It will do a prefix word match of any name part inside PatientName value. For example, if PatientName is "John^Doe", then "joh", "do", "jo do", "Doe" and "John Doe" will all match. However "ohn" will not match. |
@@ -405,7 +405,7 @@ If includefield=all, the below attributes are included along with default attrib
 | (0010, 2180) | Occupation |
 | (0010, 21B0) | AdditionalPatientHistory |
 
-#### Additional series tags
+#### Other series tags
 
 | Tag          | Attribute Name |
 | :----------- | :------------- |
@@ -414,7 +414,7 @@ If includefield=all, the below attributes are included along with default attrib
 | (0008, 0021) | SeriesDate |
 | (0008, 0031) | SeriesTime |
 
-Along with those below attributes are returned:
+The below attributes are returned:
 
 * All the match query parameters and UIDs in the resource url.
 * IncludeField attributes supported at that resource level. 
@@ -424,7 +424,7 @@ Along with those below attributes are returned:
 
 ### Search response codes
 
-The query API will return one of the following status codes in the response:
+The query API returns one of the following status codes in the response:
 
 | Code                      | Description |
 | :------------------------ | :---------- |

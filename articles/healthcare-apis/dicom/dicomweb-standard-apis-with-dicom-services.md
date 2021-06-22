@@ -42,7 +42,7 @@ The C# examples use the library included in this repo to simplify access to the 
 
 ### cURL
 
-cURL is a common command-line tool for calling web endpoints that is available for nearly any operating system. [Download cURL](https://curl.haxx.se/download.html) to get started. To use the examples, you'll need to replace the server name with your instance name, and then you must download the [sample DICOM files](https://github.com/microsoft/dicom-server/tree/main/docs/dcms) in this repo to a known location on your local file system. Refer to the [cURL examples](../tutorials/use-dicom-web-standard-apis-with-curl.md) to learn how to use cURL with the DICOM Service.
+cURL is a common command-line tool for calling web endpoints that is available for nearly any operating system. [Download cURL](https://curl.haxx.se/download.html) to get started. To use the examples, you'll need to replace the server name with your instance name, and then you must download the [sample DICOM files](https://github.com/microsoft/dicom-server/tree/main/docs/dcms) in this repo to a known location on your local file system. To learn how to use cURL with the DICOM Service, see [cURL examples](dicomweb-standard-apis-curl.md).
 
 ### Postman
 

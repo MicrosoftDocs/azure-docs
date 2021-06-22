@@ -26,7 +26,7 @@ items:
     - name: Using DICOMweb Standard APIs with DICOM Services
       href: dicomweb-standard-apis-with-dicom-services.md
     - name: Change Feed Overview
-      href: overview-dicom-change-feed.md
+      href: dicom-change-feed-overview.md
 - name: How-to guides
   expanded: true
   items:
