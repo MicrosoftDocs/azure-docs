@@ -71,7 +71,6 @@ Create a Target Vault (Vault 2) in GWC. To learn how to create a vault, see [Cre
 >[!Note]
 >- Ensure that the vault has no protected items.
 >- Ensure that the target vault has necessary redundancy - locally redundant sorage (LRS) or geo-redundant storage (GRS).
->- The target vault needs to be in the same subscription as the source vault for a successful move.
 
 ### Step 3: - Use PowerShell to trigger Backup data move
 
