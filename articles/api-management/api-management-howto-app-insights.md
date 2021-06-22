@@ -95,7 +95,7 @@ Application Insights receives:
 + *Trace* telemetry item, if you configure a [trace](api-management-advanced-policies.md#Trace) policy. 
     + The `severity` setting in the `trace` policy must be equal to or greater than the `verbosity` setting in the Application Insights logging.
 
-You can also emit custom metrics by configuring the [`emit-metrics`](api-management-advanced-policies.md#emit-metrics) policy.
+You can also emit custom metrics by configuring the [`emit-metric`](api-management-advanced-policies.md#emit-metric) policy.
 
 > [!NOTE]
 > See [Application Insights limits](../azure-monitor/service-limits.md#application-insights) for information about the maximum size and number of metrics and events per Application Insights instance.
