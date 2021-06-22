@@ -10,7 +10,7 @@ ms.date: 06/02/2020
 
 # Configuring TLS settings in Azure Database for MySQL using Azure portal
 
-[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
+[!INCLUDE[applies-to-single-server](includes/applies-to-single-server.md)]
 
 This article describes how you can configure an Azure Database for MySQL server to enforce minimum TLS version allowed for connections to go through and deny all connections with lower TLS version than configured minimum TLS version thereby enhancing the network security.
 

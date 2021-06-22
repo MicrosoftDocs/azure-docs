@@ -12,7 +12,7 @@ ms.custom: devx-track-azurecli
 
 # Create and manage Azure Database for MySQL - Flexible Server firewall rules using the Azure CLI
 
-[[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-flexible-server.md)]]
+[[!INCLUDE[applies-to-flexible-server](../includes/applies-to-flexible-server.md)]]
 
 > [!IMPORTANT]
 > Azure Database for MySQL Flexible Server is currently in public preview

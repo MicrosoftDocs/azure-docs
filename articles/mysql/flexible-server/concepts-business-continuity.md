@@ -10,6 +10,9 @@ ms.date: 09/21/2020
 
 # Overview of business continuity with Azure Database for MySQL - Flexible Server (Preview)
 
+[[!INCLUDE[applies-to-flexible-server](../includes/applies-to-flexible-server.md)]]
+[[!INCLUDE[applies-to-flexible-server](includes/applies-to-flexible-server.md)]]
+
 [[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-flexible-server.md)]]
 
 []

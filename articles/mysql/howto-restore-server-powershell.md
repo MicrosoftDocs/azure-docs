@@ -11,7 +11,7 @@ ms.custom: devx-track-azurepowershell
 ---
 # How to back up and restore an Azure Database for MySQL server using PowerShell
 
-[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
+[!INCLUDE[applies-to-single-server](includes/applies-to-single-server.md)]
 
 Azure Database for MySQL servers is backed up periodically to enable restore features. Using this
 feature you may restore the server and all its databases to an earlier point-in-time, on a new

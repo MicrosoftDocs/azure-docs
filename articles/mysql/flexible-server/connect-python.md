@@ -12,6 +12,9 @@ ms.date: 9/21/2020
 
 # Quickstart: Use Python to connect and query data in Azure Database for MySQL - Flexible Server
 
+[[!INCLUDE[applies-to-flexible-server](../includes/applies-to-flexible-server.md)]]
+[[!INCLUDE[applies-to-flexible-server](includes/applies-to-flexible-server.md)]]
+
 [[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-flexible-server.md)]]
 
 []
@@ -96,6 +99,9 @@ from mysql.connector import errorcode
 
 # Obtain connection string information from the portal
 
+[[!INCLUDE[applies-to-flexible-server](../includes/applies-to-flexible-server.md)]]
+[[!INCLUDE[applies-to-flexible-server](includes/applies-to-flexible-server.md)]]
+
 [[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-flexible-server.md)]]
 
 []
@@ -109,6 +115,9 @@ config = {
 }
 
 # Construct connection string
+
+[[!INCLUDE[applies-to-flexible-server](../includes/applies-to-flexible-server.md)]]
+[[!INCLUDE[applies-to-flexible-server](includes/applies-to-flexible-server.md)]]
 
 [[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-flexible-server.md)]]
 
@@ -165,6 +174,9 @@ from mysql.connector import errorcode
 
 # Obtain connection string information from the portal
 
+[[!INCLUDE[applies-to-flexible-server](../includes/applies-to-flexible-server.md)]]
+[[!INCLUDE[applies-to-flexible-server](includes/applies-to-flexible-server.md)]]
+
 [[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-flexible-server.md)]]
 
 []
@@ -178,6 +190,9 @@ config = {
 }
 
 # Construct connection string
+
+[[!INCLUDE[applies-to-flexible-server](../includes/applies-to-flexible-server.md)]]
+[[!INCLUDE[applies-to-flexible-server](includes/applies-to-flexible-server.md)]]
 
 [[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-flexible-server.md)]]
 
@@ -225,6 +240,9 @@ from mysql.connector import errorcode
 
 # Obtain connection string information from the portal
 
+[[!INCLUDE[applies-to-flexible-server](../includes/applies-to-flexible-server.md)]]
+[[!INCLUDE[applies-to-flexible-server](includes/applies-to-flexible-server.md)]]
+
 [[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-flexible-server.md)]]
 
 []
@@ -238,6 +256,9 @@ config = {
 }
 
 # Construct connection string
+
+[[!INCLUDE[applies-to-flexible-server](../includes/applies-to-flexible-server.md)]]
+[[!INCLUDE[applies-to-flexible-server](includes/applies-to-flexible-server.md)]]
 
 [[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-flexible-server.md)]]
 
@@ -280,6 +301,9 @@ from mysql.connector import errorcode
 
 # Obtain connection string information from the portal
 
+[[!INCLUDE[applies-to-flexible-server](../includes/applies-to-flexible-server.md)]]
+[[!INCLUDE[applies-to-flexible-server](includes/applies-to-flexible-server.md)]]
+
 [[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-flexible-server.md)]]
 
 []
@@ -293,6 +317,9 @@ config = {
 }
 
 # Construct connection string
+
+[[!INCLUDE[applies-to-flexible-server](../includes/applies-to-flexible-server.md)]]
+[[!INCLUDE[applies-to-flexible-server](includes/applies-to-flexible-server.md)]]
 
 [[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-flexible-server.md)]]
 

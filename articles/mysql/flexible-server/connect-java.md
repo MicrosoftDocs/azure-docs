@@ -12,6 +12,9 @@ ms.date: 01/16/2021
 
 # Quickstart: Use Java and JDBC with Azure Database for MySQL Flexible Server
 
+[[!INCLUDE[applies-to-flexible-server](../includes/applies-to-flexible-server.md)]]
+[[!INCLUDE[applies-to-flexible-server](includes/applies-to-flexible-server.md)]]
+
 [[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-flexible-server.md)]]
 
 []

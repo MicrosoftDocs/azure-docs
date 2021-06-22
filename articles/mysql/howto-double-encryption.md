@@ -10,7 +10,7 @@ ms.date: 06/30/2020
 
 # Infrastructure double encryption for Azure Database for MySQL
 
-[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
+[!INCLUDE[applies-to-single-server](includes/applies-to-single-server.md)]
 
 Learn how to use the how set up and manage Infrastructure double encryption for your Azure Database for MySQL.
 

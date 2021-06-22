@@ -10,6 +10,9 @@ ms.date: 01/29/2021
 
 # High availability concepts in Azure Database for MySQL Flexible Server (Preview)
 
+[[!INCLUDE[applies-to-flexible-server](../includes/applies-to-flexible-server.md)]]
+[[!INCLUDE[applies-to-flexible-server](includes/applies-to-flexible-server.md)]]
+
 [[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-flexible-server.md)]]
 
 []

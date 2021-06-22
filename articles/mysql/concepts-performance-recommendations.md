@@ -9,7 +9,7 @@ ms.date: 6/3/2020
 ---
 # Performance Recommendations in Azure Database for MySQL
 
-[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
+[!INCLUDE[applies-to-single-server](includes/applies-to-single-server.md)]
 
 **Applies to:** Azure Database for MySQL 5.7, 8.0
 
