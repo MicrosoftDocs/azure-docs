@@ -5,7 +5,7 @@ ms.topic: tutorial
 ms.date: 06/28/2021
 ---
 
-# Install VMware HCX in Azure VMware Solution
+# Install and activate VMware HCX in Azure VMware Solution
 
 VMware HCX Advanced Connector is no longer pre-deployed in Azure VMware Solution. You'll install it through the Azure portal as an add-on. You'll still download the VMware HCX Connector OVA and deploy the virtual appliance to your on-premises vCenter. 
 
