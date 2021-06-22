@@ -35,5 +35,9 @@ document.addEventListener("visibilitychange", function() {
 ### Dispose Video Stream Renderer View
 Application should dispose VideoStreamRendererView, or it's parent VideoStreamRenderer instance, if it doesn't need it anymore to render video and it decides to detach if from the DOM
 
-### Hangup Call on onbeforeunload Event
+### Hangup the Call on onbeforeunload Event
 App should invoke call.hangup on onbeforeunload event
+
+### Hangup the Call on microphoneMuteUnexpectedly User Facing Diagnostic (UFD)
+Whey user is on ACS call from iOS Safari, receves the PSTN call and hangup then ACS lost the microphone access. To avoid this situation it's recommended to hangup the call when microphoneMuteUnexpectedly UFD raised.
+
