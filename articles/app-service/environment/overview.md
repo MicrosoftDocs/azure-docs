@@ -53,7 +53,7 @@ The ASE feature is a deployment of the Azure App Service into a single subnet in
 
 The number of addresses used by an ASEv3 in its subnet will vary based on how many instances you have along with how much traffic. There are infrastructure roles that are automatically scaled depending on the number of App Service plans and the load. The recommended size for your ASEv3 subnet is a /24 CIDR block with 256 addresses in it as that can host an ASEv3 scaled out to its limit.
 
-The apps in an ASE do not need any features enabled to access resources in the same VNet that the ASE is in. If the ASE VNet is connected to another network, then the apps in the ASE can access resources in those extended networks. Traffic can be blocked of course by user configuration on the network. 
+The apps in an ASE do not need any features enabled to access resources in the same VNet that the ASE is in. If the ASE VNet is connected to another network, then the apps in the ASE can access resources in those extended networks. Traffic can be blocked by user configuration on the network. 
 
 The multi-tenant version of Azure App Service contains numerous features to enable your apps to connect to your various networks. Those networking features enable your apps to act as if they were deployed in a VNet. The apps in an ASEv3 do not need any configuration to be in the VNet. A benefit of using an ASE over the multi-tenant service is that any network access controls to the ASE hosted apps is completely external to the application configuration. With the apps in the multi-tenant service, you must enable the features on an app by app basis and use RBAC or policy to prevent any configuration changes. 
 
@@ -69,7 +69,7 @@ Compared to earlier versions of the ASE, there are some differences with ASEv3. 
 - Scaling no longer blocks other scale operations within the ASEv3 instance. Only one scale operation can be in effect for a combination of OS and size. For example, while your Windows small App Service plan was scaling, you could kick off a scale operation to run at the same time on a Windows medium or anything else other than Windows small. 
 - Apps in an internal VIP ASEv3 can be reached across global peering. Access across global peering was not possible with ASEv2. 
 
-There are a few features that are not available in ASEv3 that were available in earlier versions of the ASE. In ASEv3 you can't:
+There are a few features that are not available in ASEv3 that were available in earlier versions of the ASE. In ASEv3, you can't:
 
 - send SMTP traffic. You can still have email triggered alerts but your app can't send outbound traffic on port 25
 - deploy your apps with FTP
@@ -80,9 +80,9 @@ There are a few features that are not available in ASEv3 that were available in 
 
 ## Pricing 
 
-With ASEv3 there is a different pricing model depending on the type of ASE deployment you have. The three pricing models are: 
+With ASEv3, there is a different pricing model depending on the type of ASE deployment you have. The three pricing models are: 
 
-- ASEv3: If ASE is empty there is a charge as if you had one ASP with one instance of Windows I1v2. The one instance charge is not an additive charge but is only applied if the ASE is totally empty.
+- ASEv3: If ASE is empty, there is a charge as if you had one ASP with one instance of Windows I1v2. The one instance charge is not an additive charge but is only applied if the ASE is totally empty.
 - Availability Zone ASEv3: There is a minimum 9 Windows I1v2 instance charge. There is no added charge for availability zone support if you have 9 or more App Service plan instances. 
 - Dedicated host ASEv3: With a dedicated host deployment, you are charged for two dedicated hosts per our pricing at ASEv3 creation then a small percentage of the Isolated V2 rate per core charge as you scale.
 
