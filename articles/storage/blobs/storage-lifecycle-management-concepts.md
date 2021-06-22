@@ -379,11 +379,7 @@ This example shows how to transition block blobs prefixed with `container1/foo` 
 
 You can enable last access time tracking to keep a record of when your blob is last read or written. You can use last access time as a filter to manage tiering and retention of your blob data.
 
-The **Last accessed** option is available in preview in the following regions:
-
- - France Central
- - Canada East
- - Canada Central
+The **Last accessed** option is available in preview in all public regions.
 
 > [!IMPORTANT]
 > The last access time tracking preview is for non-production use only. Production service-level agreements (SLAs) are not currently available.
