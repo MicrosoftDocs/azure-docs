@@ -41,7 +41,7 @@ To create a twin, you use the `CreateOrReplaceDigitalTwinAsync()` method on the 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="CreateTwinCall":::
 
 To create a digital twin, you need to provide:
-* The desired ID for the digital twin
+* The desired ID for the digital twin, which you are defining at this stage
 * The [model](concepts-models.md) you want to use
 
 Optionally, you can provide initial values for all properties of the digital twin. Properties are treated as optional and can be set later, but **they won't show up as part of a twin until they've been set.**
@@ -185,15 +185,7 @@ When a twin is created using this model, it's not necessary to instantiate the `
 
 This can be done with a JSON Patch `add` operation, like this:
 
-```json
-[
-  {
-    "op": "add", 
-    "path": "/ObjectProperty", 
-    "value": {"StringSubProperty":"<string-value>"}
-  }
-]
-```
+:::code language="json" source="~/digital-twins-docs-samples/models/patch-object-sub-property-1.json":::
 
 >[!NOTE]
 > If `ObjectProperty` has more than one property, you should include all of them in the `value` field of this operation, even if you're only updating one:
@@ -204,15 +196,7 @@ This can be done with a JSON Patch `add` operation, like this:
 
 After this has been done once, a path to `StringSubProperty` exists, and it can be updated directly from now on with a typical `replace` operation:
 
-```json
-[
-  {
-    "op": "replace",
-    "path": "/ObjectProperty/StringSubProperty",
-    "value": "<string-value>"
-  }
-]
-```
+:::code language="json" source="~/digital-twins-docs-samples/models/patch-object-sub-property-2.json":::
 
 Although the first step isn't necessary in cases where `ObjectProperty` was instantiated when the twin was created, it's recommended to use it every time you update a sub-property for the first time, since you may not always know for sure whether the object property was initially instantiated or not.
 

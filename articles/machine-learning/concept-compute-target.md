@@ -48,7 +48,7 @@ A managed compute resource is created and managed by Azure Machine Learning. Thi
 You can create Azure Machine Learning compute instances or compute clusters from:
 
 * [Azure Machine Learning studio](how-to-create-attach-compute-studio.md).
-* The Python SDK and CLI:
+* The Python SDK and the Azure CLI:
     * [Compute instance](how-to-create-manage-compute-instance.md).
     * [Compute cluster](how-to-create-attach-compute-cluster.md).
 * The [R SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-compute-targets) (preview).
