@@ -4,7 +4,7 @@ description: Learn how to set up Azure Private Link to access an Azure Cosmos ac
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 06/01/2021
+ms.date: 06/08/2021
 ms.author: thweiss 
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
@@ -646,7 +646,7 @@ The following situations and outcomes are possible when you use Private Link in 
 
 As described in the previous section, and unless specific firewall rules have been set, adding a private endpoint makes your Azure Cosmos account accessible through private endpoints only. This means that the Azure Cosmos account could be reached from public traffic after it is created and before a private endpoint gets added. To make sure that public network access is disabled even before the creation of private endpoints, you can set the `publicNetworkAccess` flag to `Disabled` during account creation. Note that this flag takes precedence over any IP or virtual network rule; all public and virtual network traffic is blocked when the flag is set to `Disabled`, even if the source IP or virtual network is allowed in the firewall configuration.
 
-See [this Azure Resource Manager template](https://azure.microsoft.com/resources/templates/101-cosmosdb-private-endpoint/) for an example showing how to use this flag.
+See [this Azure Resource Manager template](https://azure.microsoft.com/resources/templates/cosmosdb-private-endpoint/) for an example showing how to use this flag.
 
 ## Adding private endpoints to an existing Cosmos account with no downtime
 

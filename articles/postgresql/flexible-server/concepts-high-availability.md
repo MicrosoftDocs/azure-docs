@@ -5,7 +5,7 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 06/07/2021
 ---
 
 # High availability concepts in Azure Database for PostgreSQL - Flexible Server
@@ -60,15 +60,18 @@ For other user initiated operations such as scale-compute or scale-storage, the 
 
 ### Reducing planned downtime with managed maintenance window
 
- With flexible server, you can optionally schedule Azure initiated maintenance activities by choosing a 30-minute window in a day of your preference where the activities on the databases are expected to be low. Azure maintenance tasks such as patching or minor version upgrades would happen during that maintenance window. If you do not choose a custom window, a system allocated 1-hr window between 11pm-7am local time is chosen for your server. 
+With flexible server, you can optionally schedule Azure initiated maintenance activities by choosing a 30-minute window in a day of your preference where the activities on the databases are expected to be low. Azure maintenance tasks such as patching or minor version upgrades would happen during that maintenance window. If you do not choose a custom window, a system allocated 1-hr window between 11pm-7am local time is chosen for your server. 
  
- For flexible servers configured with high availability, these maintenance activities are performed on the standby replica first and the service is failed over to the standby to which applications can reconnect.
+For flexible servers configured with high availability, these maintenance activities are performed on the standby replica first and the service is failed over to the standby to which applications can reconnect.
 
 ## Failover process - unplanned downtimes
 
 Unplanned outages include software bugs or infrastructure component failures that impact the availability of the database. In the event of the primary server becomes unavailable, it is detected by the monitoring system and initiates a failover process.  The process includes a few seconds of wait time to make sure it is not a false positive. The replication to the standby replica is severed and the standby replica is activated to be the primary database server. That includes the standby to recovery any residual WAL files. Once it is fully recovered, DNS for the same end point is updated with the standby server's IP address. Clients can then retry connecting to the database server using the same connection string and resume their operations. 
 
-The failover time is expected to take 60-120s in typical cases. However, depending on the activity in the primary database server at the time of the failover such as large transactions and recovery time, the failover may take longer. Application can still connect to the primary server and proceed with their read/write operations while the standby server is being provisioned. Once the standby server is established, it will start recovering the logs that were generated after the failover. 
+>[!NOTE]
+> Flexible servers configured with zone-redundant high availability provide a recovery point objective (RPO) of **Zero** (no data loss.The recovery tome objective (RTO) is expected to be **less than 120s** in typical cases. However, depending on the activity in the primary database server at the time of the failover, the failover may take longer. 
+
+After the failover, while a new standby server is being provisioned, applications can still connect to the primary server and proceed with their read/write operations. Once the standby server is established, it will start recovering the logs that were generated after the failover. 
 
 :::image type="content" source="./media/business-continuity/concepts-high-availability-failover-state.png" alt-text="zone redundant high availability - failover"::: 
 
@@ -76,6 +79,26 @@ The failover time is expected to take 60-120s in typical cases. However, dependi
 2. Standby server is activated to become the new primary server. The client connects to the new primary server using the same connection string. Having the client application in the same zone as the primary database server reduces latency and improves performance.
 3. Standby server is established in the same zone as the old primary server and the streaming replication is initiated. 
 4. Once the steady-state replication is established, the client application commits and writes are acknowledged after the data is persisted on both the sites.
+
+## On-demand failover
+
+Flexible server provides two methods for you to perform on-demand failover to the standby server. These are useful if you want to test the failover time and downtime impact for your applications and if you want to failover to the preferred availability zone. 
+
+* **Forced failover**: You can use this option to simulate an unplanned outage scenario. This triggers a fault in the primary server and brings the primary server down. Applications loses connectivity to the server. The failover workflow is triggered which initiates the standby promote operation. Once the standby is all caught up with all transactions, it is promoted to be the primary server. DNS records are updated and your application can connect to the promoted primary server. Your application can continue to write to the primary while a new standby server is established in the background.
+
+* **Planned failover**: This option is for failing over to the standby server with reduced downtime. The standby server is first prepared to make sure it is caught up with recent transactions. The standby is then promoted and the connections to the primary is severed. DNS record is updated and the applications can connect to the  newly promoted server.  Your application can continue to write to the primary while a new standby server is established in the background. As the application continues to write to the primary server while the standby is being prepared, this method of failover provides reduced downtime experience. 
+
+>[!NOTE]
+> It is recommended to perform planned failover during low activity period.
+
+>[!IMPORTANT] 
+> * Please do not perform immediate, back-to-back failovers. Wait for at least 15-20 minutes between failovers, which will also allow the new standby server to be fully established.
+> 
+> * The overall end-to-end operation time may be longer than the actual downtime experienced by the application. Please measure the downtime from the application perspective.
+
+See [this guide](how-to-manage-high-availability-portal.md) for step-by-step instructions.
+
+
 
 ## Point-in-time restore 
 

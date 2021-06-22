@@ -8,7 +8,7 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
-ms.date: 03/17/2021
+ms.date: 06/10/2021
 ms.topic: how-to
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1
 
@@ -52,8 +52,8 @@ Azure Private Link lets you connect to your workspace using a private endpoint. 
 
 For more information on setting up a Private Link workspace, see [How to configure Private Link](how-to-configure-private-link.md).
 
-> [!Warning]
-> Securing a workspace with private endpoints does not ensure end-to-end security by itself. You must follow the steps in the rest of this article, and the VNet series, to secure individual components of your solution.
+> [!WARNING]
+> Securing a workspace with private endpoints does not ensure end-to-end security by itself. You must follow the steps in the rest of this article, and the VNet series, to secure individual components of your solution. For example, if you use a private endpoint for the workspace, but your Azure Storage Account is not behind the VNet, traffic between the workspace and storage does not use the VNet for security.
 
 ## Secure Azure storage accounts with service endpoints
 
@@ -98,6 +98,9 @@ To use an Azure storage account for the workspace in a virtual network, use the 
 Azure Machine Learning supports storage accounts configured to use either service endpoints or private endpoints. If the storage account uses private endpoints, you must configure two private endpoints for your default storage account:
 1. A private endpoint with a **blob** target subresource.
 1. A private endpoint with a **file** target subresource (fileshare).
+
+> [!TIP]
+> If you plan to use [ParallelRunStep](./tutorial-pipeline-batch-scoring-classification.md) in your pipeline, it is also required to configure private endpoints with a **queue** and a **table** target subresources. ParallelRunStep uses queue and table under the hood for task scheduling and dispatching.
 
 ![Screenshot showing private endpoint configuration page with blob and file options](./media/how-to-enable-studio-virtual-network/configure-storage-private-endpoint.png)
 

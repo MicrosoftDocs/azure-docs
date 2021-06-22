@@ -16,7 +16,7 @@ ms.reviewer: japere
 
 # Troubleshoot Application Proxy problems and error messages
 
-When troubleshooting Application Proxy issues, we recommend you start with reviewing the troubleshooting flow, [Debug Application Proxy Connector issues](../manage-apps/application-proxy-debug-connectors.md), to determine if Application Proxy connectors are configured correctly. If you're still having trouble connecting to the application, follow the troubleshooting flow in [Debug Application Proxy application issues](../manage-apps/application-proxy-debug-apps.md).
+When troubleshooting Application Proxy issues, we recommend you start with reviewing the troubleshooting flow, [Debug Application Proxy Connector issues](./application-proxy-debug-connectors.md), to determine if Application Proxy connectors are configured correctly. If you're still having trouble connecting to the application, follow the troubleshooting flow in [Debug Application Proxy application issues](./application-proxy-debug-apps.md).
 
 If errors occur in accessing a published application or in publishing applications, check the following options to see if Microsoft Azure AD Application Proxy is working correctly:
 
@@ -74,7 +74,7 @@ This list covers errors that your end users might encounter when they try to acc
 | This corporate app can’t be accessed. You are not authorized to access this application. Authorization failed. Make sure to assign the user with access to this application. | Your user may get this error when trying to access the app you published if they use Microsoft accounts instead of their corporate account to sign in. Guest users may also get this error. Microsoft Account users and guests cannot access IWA applications. Make sure the user signs in using their corporate account that matches the domain of the published application.<br><br>You may not have assigned the user for this application. Go to the **Application** tab, and under **Users and Groups**, assign this user or user group to this application. |
 | This corporate app can’t be accessed right now. Please try again later…The connector timed out. | Your user may get this error when trying to access the app you published if they are not properly defined for this application on the on-premises side. Make sure that your users have the proper permissions as defined for this backend application on the on premises machine. |
 | This corporate app can’t be accessed. You are not authorized to access this application. Authorization failed. Make sure that the user has a license for Azure Active Directory Premium. | Your user may get this error when trying to access the app you published if they weren't explicitly assigned with a Premium license by the subscriber’s administrator. Go to the subscriber’s Active Directory **Licenses** tab and make sure that this user or user group is assigned a Premium license. |
-| A server with the specified host name could not be found. | Your user may get this error when trying to access the app you published if the application's custom domain is not configured correctly. Make sure you've uploaded a certificate for the domain and configured the DNS record correctly by following the steps in [Working with custom domains in Azure AD Application Proxy](../manage-apps/application-proxy-configure-custom-domain.md) |
+| A server with the specified host name could not be found. | Your user may get this error when trying to access the app you published if the application's custom domain is not configured correctly. Make sure you've uploaded a certificate for the domain and configured the DNS record correctly by following the steps in [Working with custom domains in Azure AD Application Proxy](./application-proxy-configure-custom-domain.md) |
 |Forbidden: This corporate app can't be accessed OR The user could not be authorized. Make sure the user is defined in your on-premises AD and that the user has access to the app in your on-premises AD. | This could be a problem with access to authorization information, see [Some applications and APIs require access to authorization information on account objects]( https://support.microsoft.com/help/331951/some-applications-and-apis-require-access-to-authorization-information). In a nutshell, add the app proxy connector machine account to the "Windows Authorization Access Group" builtin domain group to resolve. |
 
 ## My error wasn't listed here
@@ -85,7 +85,7 @@ If you encounter an error or problem with Azure AD Application Proxy that isn't 
 * [Enable Application Proxy for Azure Active Directory](application-proxy-add-on-premises-application.md)
 * [Publish applications with Application Proxy](application-proxy-add-on-premises-application.md)
 * [Enable single sign-on](application-proxy-configure-single-sign-on-with-kcd.md)
-* [Enable Conditional Access](../manage-apps/application-proxy-integrate-with-sharepoint-server.md)
+* [Enable Conditional Access](./application-proxy-integrate-with-sharepoint-server.md)
 
 
 <!--Image references-->

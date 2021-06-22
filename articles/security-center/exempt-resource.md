@@ -73,7 +73,7 @@ To create an exemption rule:
     1. Optionally, enter a description.
     1. Select **Create**.
 
-    :::image type="content" source="media/exempt-resource/defining-recommendation-exemption.png" alt-text="Steps to create an exemption rule to exempt a recommendation from your subscription or management group":::
+    :::image type="content" source="media/exempt-resource/defining-recommendation-exemption.png" alt-text="Steps to create an exemption rule to exempt a recommendation from your subscription or management group.":::
 
     When the exemption takes effect (it might take up to 30 minutes):
     - The recommendation or resources won't impact your secure score.
@@ -84,11 +84,11 @@ To create an exemption rule:
 
     - The information strip at the top of the recommendation details page updates the number of exempted resources:
         
-        :::image type="content" source="./media/exempt-resource/info-banner.png" alt-text="Number of exempted resources":::
+        :::image type="content" source="./media/exempt-resource/info-banner.png" alt-text="Number of exempted resources.":::
 
 1. To review your exempted resources, open the **Not applicable** tab:
 
-    :::image type="content" source="./media/exempt-resource/modifying-exemption.png" alt-text="Modifying an exemption":::
+    :::image type="content" source="./media/exempt-resource/modifying-exemption.png" alt-text="Modifying an exemption.":::
 
     The reason for each exemption is included in the table (1).
 

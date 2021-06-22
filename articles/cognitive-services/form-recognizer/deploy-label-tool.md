@@ -4,7 +4,7 @@ titleSuffix: Azure Applied AI Services
 description: Learn the different ways you can deploy the Form Recognizer sample labeling tool to help with supervised learning.
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 02/11/2021
@@ -72,7 +72,7 @@ Follow these steps to create a new resource using the Azure portal:
 * Server URL - Set this to `https://mcr.microsoft.com`
 * Username (Optional) - Create a username. 
 * Password (Optional) - Create a secure password that you'll remember.
-* Image and tag - Set this to `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest`
+* Image and tag - Set this to `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-2.1`
 * Continuous Deployment - Set this to **On** if you want to receive automatic updates when the development team makes changes to the sample labeling tool.
 * Startup command - Set this to `./run.sh eula=accept`
 
@@ -122,7 +122,7 @@ DNS_NAME_LABEL=aci-demo-$RANDOM
 az container create \
   --resource-group <resource_group_name> \
   --name <name> \
-  --image mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest \
+  --image mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-2.1 \
   --ports 3000 \
   --dns-name-label $DNS_NAME_LABEL \
   --location <region name> \
@@ -141,7 +141,7 @@ DNS_NAME_LABEL=aci-demo-$RANDOM
 az container create \
   --resource-group <resource_group_name> \
   --name <name> \
-  --image mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool \
+  --image mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest \
   --ports 3000 \
   --dns-name-label $DNS_NAME_LABEL \
   --location <region name> \

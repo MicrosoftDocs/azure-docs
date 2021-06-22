@@ -10,7 +10,7 @@
     href: overview.md
   - name: Compare messaging services
     href: compare-messaging-services.md
-  - name: Release notes
+  - name: What's new 
     href: whats-new.md
 - name: Quickstarts
   expanded: true
@@ -128,6 +128,8 @@
         href: event-schema-container-registry.md
       - name: Azure Event Hubs
         href: event-schema-event-hubs.md
+      - name: Azure FarmBeats
+        href: event-schema-farmbeats.md
       - name: Azure IoT Hub
         href: event-schema-iot-hub.md
       - name: Azure Key Vault

@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/24/2019
+ms.date: 06/17/2021
 ms.author: mimart
 ms.subservice: B2C
 
@@ -146,17 +146,6 @@ For instructions on registering a management application, see [Manage Azure AD B
 Many architectures include a web API that needs to call another downstream web API, where both are secured by Azure AD B2C. This scenario is common in native clients that have a Web API back-end and calls a Microsoft online service such as the Microsoft Graph API.
 
 This chained web API scenario can be supported by using the OAuth 2.0 JWT bearer credential grant, also known as the on-behalf-of flow.  However, the on-behalf-of flow is not currently implemented in the Azure AD B2C.
-
-### Faulted apps
-
-Do not edit Azure AD B2C applications in these ways:
-
-- On other application management portals such as the [Application Registration Portal](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade).
-- Using Graph API or PowerShell.
-
-If you edit the Azure AD B2C application outside of the Azure portal, it becomes a faulted application and is no longer usable with Azure AD B2C. Delete the application and create it again.
-
-To delete the application, go to the [Application Registration Portal](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) and delete the application there. In order for the application to be visible, you need to be the owner of the application (and not just an admin of the tenant).
 
 ## Next steps
 

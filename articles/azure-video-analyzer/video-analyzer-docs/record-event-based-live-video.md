@@ -350,17 +350,15 @@ When you deactivate the live pipeline, the video sink node stops recording media
 
 This event indicates that recording has stopped. The subject section in applicationProperties references the video sink node in the live pipeline, which generated this message. The body section contains information about the output location. In this case, it's the name of the Video Analyzer resource into which video is recorded.
 
-## Video Analyzer video resource
+## Playing back the recording
 
 You can examine the Video Analyzer video resource that was created by the live pipeline by logging in to the Azure portal and viewing the video.
 1. Open your web browser, and go to the [Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
 1. Locate your Video Analyzer account among the resources you have in your subscription, and open the account pane.
 1. Select **Videos** in the **Video Analyzers** list.
-
-    <!--TODO: add image -- ![Video Analyzers videos]() ./media/event-based-video-recording-tutorial/videos.png -->
 1. You'll find a video listed with the name `sample-evr-video`. This is the name chosen in your pipeline topology file.
 1. Select the video.
-1. On the video details page, select playback option <!-- TODO: fix this-->
+1. The video details page will open and the playback should start automatically.
 
     <!--TODO: add image -- ![Video playback]() TODO: new screenshot is needed here -->
 

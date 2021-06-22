@@ -17,9 +17,15 @@ ms.collection: M365-identity-device-management
 ---
 # Azure AD Password Protection agent version history
 
+## 1.2.176.0
+
+Release date: June 4, 2021
+
+* Minor bugfixes to issues which prevented the proxy and DC agents from running successfully in certain environments.
+
 ## 1.2.172.0
 
-Release date: February 22nd 2021
+Release date: February 22, 2021
 
 It has been almost two years since the GA versions of the on-premises Azure AD Password Protection agents were released. A new update is now available - see change descriptions below. Thank you to everyone who has given us feedback on the product. 
 
@@ -38,7 +44,7 @@ It is supported to run older and newer versions of the DC agent and proxy softwa
 
 ## 1.2.125.0
 
-Release date: March 22nd 2019
+Release date: March 2, 2019
 
 * Fix minor typo errors in event log messages
 * Update EULA agreement to final General Availability version
@@ -48,7 +54,7 @@ Release date: March 22nd 2019
 
 ## 1.2.116.0
 
-Release date: 3/13/2019
+Release date: March 3, 2019
 
 * The Get-AzureADPasswordProtectionProxy and Get-AzureADPasswordProtectionDCAgent cmdlets now report software version and the current Azure tenant with the following limitations:
   * Software version and Azure tenant data are only available for DC agents and proxies running version 1.2.116.0 or later.
@@ -66,7 +72,7 @@ Release date: 3/13/2019
 
 ## 1.2.65.0
 
-Release date: February 1st 2019
+Release date: February 1, 2019
 
 Changes:
 
@@ -104,7 +110,7 @@ Changes:
 
 ## 1.2.25.0
 
-Release date: November 1st 2018
+Release date: November 1, 2018
 
 Fixes:
 
@@ -122,7 +128,7 @@ Changes:
 
 ## 1.2.10.0
 
-Release date: August 17th 2018
+Release date: August 17, 2018
 
 Fixes:
 
@@ -146,7 +152,7 @@ Fixes:
 
 ## 1.1.10.3
 
-Release date:June 15th 2018
+Release date: June 15, 2018
 
 Initial public preview release
 

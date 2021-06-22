@@ -19,7 +19,7 @@ sections:
       - question: |
           When do I create a new namespace vs. use an existing namespace?
         answer: |
-          Capacity allocations ([throughput units (TUs)](/azure/event-hubs/event-hubs-faq#throughput-units) or [processing units (PUs)](/azure/event-hubs/event-hubs-scalability#processing-units)) are billed at the namespace level. A namespace is also associated with a region.
+          Capacity allocations ([throughput units (TUs)](/azure/event-hubs/event-hubs-faq#throughput-units) or [processing units (PUs)](./event-hubs-scalability.md#processing-units)) are billed at the namespace level. A namespace is also associated with a region.
           
           You may want to create a new namespace instead of using an existing one in one of the following scenarios: 
           
@@ -60,14 +60,14 @@ sections:
       - question: |
           How do I monitor my Event Hubs?
         answer: |
-          Event Hubs emits exhaustive metrics that provide the state of your resources to [Azure Monitor](../azure-monitor/overview.md). They also let you assess the overall health of the Event Hubs service not only at the namespace level but also at the entity level. Learn about what monitoring is offered for [Azure Event Hubs](event-hubs-metrics-azure-monitor.md).
+          Event Hubs emits exhaustive metrics that provide the state of your resources to [Azure Monitor](../azure-monitor/overview.md). They also let you assess the overall health of the Event Hubs service not only at the namespace level but also at the entity level. Learn about what monitoring is offered for [Azure Event Hubs](monitor-event-hubs.md).
           
       - question: |
           Where does Azure Event Hubs store data?
         answer: |
           Azure Event Hubs standard and dedicated tiers store metadata and data in regions that you select. When geo-disaster recovery is set up for an Azure Event Hubs namespace, metadata is copied over to the secondary region that you select. Therefore, this service automatically satisfies the region data residency requirements including the ones specified in the [Trust Center](https://azuredatacentermap.azurewebsites.net/).
           
-          [!INCLUDE [event-hubs-connectivity](../../includes/event-hubs-connectivity.md)]
+          [!INCLUDE [event-hubs-connectivity](./includes/event-hubs-connectivity.md)]
           
   - name: Apache Kafka integration
     questions:
@@ -183,7 +183,7 @@ sections:
           For step-by-step instructions and more information on setting up an Event Hubs dedicated cluster, see the [Quickstart: Create a dedicated Event Hubs cluster using Azure portal](event-hubs-dedicated-cluster-create-portal.md). 
           
           
-          [!INCLUDE [event-hubs-dedicated-clusters-faq](../../includes/event-hubs-dedicated-clusters-faq.md)]
+          [!INCLUDE [event-hubs-dedicated-clusters-faq](./includes/event-hubs-dedicated-clusters-faq.md)]
           
           
   - name: Partitions

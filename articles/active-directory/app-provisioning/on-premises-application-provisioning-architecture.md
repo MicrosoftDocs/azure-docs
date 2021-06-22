@@ -3,7 +3,7 @@ title: 'Azure AD on-premises application provisioning architecture | Microsoft D
 description: Describes overview of on-premises application provisioning architecture.
 services: active-directory
 author: billmath
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview

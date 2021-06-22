@@ -13,7 +13,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 # Programmatically create Azure subscriptions for a Microsoft Customer Agreement with the latest APIs
 
-This article helps you programmatically create Azure subscriptions for a Microsoft Customer Agreement using the most recent API versions. If you are still using the older preview version, see [Programmatically create Azure subscriptions with preview APIs](programmatically-create-subscription-preview.md). 
+This article helps you programmatically create Azure subscriptions for a Microsoft Customer Agreement using the most recent API versions. If you are still using the older preview version, see [Programmatically create Azure subscriptions with legacy APIs](programmatically-create-subscription-preview.md). 
 
 In this article, you learn how to create subscriptions programmatically using Azure Resource Manager.
 
