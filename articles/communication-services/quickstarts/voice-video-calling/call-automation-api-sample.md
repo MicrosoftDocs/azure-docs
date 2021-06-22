@@ -12,7 +12,7 @@ ms.topic: overview
 ms.service: azure-communication-services
 ---
 # Call Automation API Quickstart
-Get started with Azure Communication Services by using the Communication Services Calling server SDKs to build an automated call routing solutions.
+Get started with Azure Communication Services by using the Communication Services Calling server SDKs to build an automated call routing solution.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Build IVR solution with C#](./includes/call-automation-api-samples/calling-server-sdk-csharp.md)]
