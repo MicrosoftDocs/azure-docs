@@ -33,7 +33,7 @@ Consider the following when developing your application:
 
 ## Capture the diagnostics
 
-All responses in the SDK including CosmosException have a Diagnostics property. The diagnostics records all the information related to the single request including if there was retries or any transient failures. CosmosDiagnostics is needed for the Cosmos DB team to be able to root cause any latency issues.
+All the responses in the SDK including `CosmosException` have a Diagnostics property. This property records all the information related to the single request including if there were retries or any transient failures. 
 
 The Diagnostics are returned as a string. The string changes with each version as it is improved to better troubleshooting different scenarios. With each version of the SDK, the string will have breaking changes to the formatting. Do not parse the string to avoid breaking changes. The following code sample shows how to read diagnostic logs using the .NET SDK:
 
