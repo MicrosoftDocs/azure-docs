@@ -143,7 +143,7 @@ The `createCallConnectionWithResponse` method return object of `Response<CallCon
 
 ## Play audio
 
-Once a call is created, you can use `playAudioWithResponse` method of `CallConnection` object to play an audio message for the callee. The following are the supported parameters for `playAudioWithResponse` method:
+Once a call is created, you can use the `playAudioWithResponse` method of the `CallConnection` object to play an audio message for the callee. The following parameters are supported by the `playAudioWithResponse` method:
 
 - `audioFileUri`, is the URI for the audio file having the message to be played.
 - `playAudioOptions`, is the play audio options. The type is `PlayAudioOptions`. The following are the supported parameters for `PlayAudioOptions` object:
