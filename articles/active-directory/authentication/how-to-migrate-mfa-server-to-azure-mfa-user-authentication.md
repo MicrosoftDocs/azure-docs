@@ -1,12 +1,12 @@
 ---
-title: Moving to Azure AD MFA and Azure AD user authentication - Azure Active Directory
+title: Migrate to Azure AD MFA and Azure AD user authentication - Azure Active Directory
 description: Step-by-step guidance to move from Azure MFA Server on-premises to Azure AD MFA and Azure AD user authentication
 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 06/21/2021
+ms.date: 06/22/2021
 
 ms.author: BaSelden
 author: BarbaraSelden
@@ -15,7 +15,7 @@ ms.reviewer: michmcla
 
 ms.collection: M365-identity-device-management
 ---
-# Moving to Azure AD MFA and Azure AD user authentication
+# Migrate to Azure AD MFA and Azure AD user authentication
 
 Multi-factor authentication (MFA) helps secure your infrastructure and assets from bad actors. 
 Microsoft’s Multi-Factor Authentication Server (MFA Server) is no longer offered for new deployments. 
