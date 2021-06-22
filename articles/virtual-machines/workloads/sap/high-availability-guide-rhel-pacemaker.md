@@ -347,17 +347,14 @@ Execute the following optional steps to add `fence_kdump` as a first level STONI
     # Expected result
     # active
     ```
-
 2. **[A]** Install the `fence_kdump` fence agent.  
     ```
     yum install fence-agents-kdump
     ```
-  
 3. **[1]** Create `fence_kdump` stonith device in the cluster.   
     <pre><code>
     pcs stonith create rsc_st_kdump fence_kdump pcmk_reboot_action="off" <b>pcmk_host_list="prod-cl1-0 prod-cl1-1</b>" timeout=30
     </code></pre>
-
 
 4. **[1]** Configure stonith levels, so that `fence_kdump` fencing mechanism is engaged first.  
     <pre><code>
@@ -394,7 +391,6 @@ Execute the following optional steps to add `fence_kdump` as a first level STONI
 7. **[A]** Perform the `fence_kdump_nodes` configuration in `/etc/kdump.conf` to avoid  `fence_kdump` failing with a timeout for some `kexec-tools` versions. For details see [fence_kdump times out when fence_kdump_nodes is not specified with kexec-tools version 2.0.15 or later](https://access.redhat.com/solutions/4498151) and [fence_kdump fails with "timeout after X seconds" in a RHEL 6 or 7 High Availability cluster with kexec-tools versions older than 2.0.14](https://access.redhat.com/solutions/2388711). The example configuration for a two node cluster is presented below. After making a change in `/etc/kdump.conf`, the kdump image must be regenerated. That can be achieved by restarting the `kdump` service.  
 
     <pre><code>
-    # Check the stonith level configuration 
     vi /etc/kdump.conf
     # On node <b>prod-cl1-0</b> make sure the following line is added
     fence_kdump_nodes  <b>prod-cl1-1</b>
@@ -407,8 +403,8 @@ Execute the following optional steps to add `fence_kdump` as a first level STONI
 
 8. Test the configuration by crashing a node. For details see [How do I configure fence_kdump in a Red Hat Pacemaker cluster](https://access.redhat.com/solutions/2876971).  
 
-> [!IMPORTANT]
-> If the cluster is already in productive use, plan the test accordingly as crashing a node will have an impact on the application.   
+    > [!IMPORTANT]
+    > If the cluster is already in productive use, plan the test accordingly as crashing a node will have an impact on the application.   
 
     ```
     echo c > /proc/sysrq-trigger
