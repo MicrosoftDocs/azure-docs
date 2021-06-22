@@ -68,7 +68,7 @@ To get a static image with custom pins and labels:
 > [!Note]
 > The procedure in this section requires an Azure Maps account Gen 1 (S1) or Gen 2 pricing tier.
 
-In this section we'll upload path and pin data to Azure Map data storage.
+In this section, we'll upload path and pin data to Azure Map data storage.
 
 To upload pins and path data:
 
