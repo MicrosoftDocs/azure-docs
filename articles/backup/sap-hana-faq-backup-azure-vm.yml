@@ -54,9 +54,9 @@ sections:
           Refer to the [tutorial](./tutorial-backup-sap-hana-db.md) for a step-by-step guide to get started with Azure Backup for SAP HANA databases. You can also use [CLI](./tutorial-sap-hana-backup-cli.md) to configure and manage backups.
           
       - question: |
-          What permissions should be set so Azure can back up SAP HANA databases?
+          Are there any prerequisites for backing up SAP HANA databases using Azure Backup?
         answer: |
-          Running the pre-registration script sets the required permissions to allow Azure to back up SAP HANA databases. You can find more about what the pre-registration script does [here](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does).
+          Refer to the [prerequisites](./tutorial-backup-sap-hana-db#prerequisites.md) for using Azure Backup with SAP HANA.
           
       - question: |
           Will backups work after migrating SAP HANA from SDC to MDC?
@@ -64,14 +64,14 @@ sections:
           Refer to [this section](./backup-azure-sap-hana-database-troubleshoot.md#sdc-to-mdc-upgrade-with-a-change-in-sid) of the troubleshooting guide.
           
       - question: |
-          What should be done while upgrading within the same version?
+          How do I ensure that Backups continue after upgrading my HANA instance within the same HANA version?
         answer: |
           Refer to [this section](backup-azure-sap-hana-database-troubleshoot.md#sdc-version-upgrade-or-mdc-version-upgrade-on-the-same-vm) in the troubleshooting guide.
           
       - question: |
           Can Azure HANA Backup be set up against a virtual IP (load balancer) and not a virtual machine?
         answer: |
-          Currently we don't have the capability to set up the solution against a virtual IP alone. We need a virtual machine to execute the solution.
+          Currently we don't have the capability to set up the solution against a virtual IP or Proxy. We need a virtual machine to execute the solution.
 
       - question: |
           How can I move an on-demand backup to the local file system instead of the Azure vault?
