@@ -17,7 +17,12 @@ sections:
 
       - question: Where is Azure VMware Solution available today?
         answer: The service is continuously being added to new regions. For details, see the [latest service availability information](https://azure.microsoft.com/global-infrastructure/services/?products=azure-vmware). 
+
+      - question: Who supports Azure VMware Solution?
+        answer: Microsoft delivers support for Azure VMware Solution. You can submit a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). 
           
+          For Cloud Solution Provider (CSP) managed subscriptions, the first level of support provides the Solution Provider in the same fashion as CSP does for other Azure services.
+
       - question: Can workloads running in an Azure VMware Solution instance integrate with Azure services?
         answer: All Azure services will be available to Azure VMware Solution customers. Performance and availability limitations for specific services will need to be addressed on a case-by-case basis.
 
@@ -276,11 +281,11 @@ sections:
   - name: CSP and multi-tenancy
     questions:
 
-      - question: Does Azure VMware Solution offer multi-tenancy for hosting CSP partners?
-        answer: No. Currently, Azure VMware Solution doesn't offer multi-tenancy.
-
       - question: Does Azure VMware Solution provide an option for hoster partners to resell the service?
         answer: Yes. For more details, see [Request host quota for Azure VMware Solution](request-host-quota-azure-vmware-solution.md).
+
+      - question: Does Azure VMware Solution offer multi-tenancy for hosting CSP partners?
+        answer: No. Currently, Azure VMware Solution doesn't offer multi-tenancy.
 
       - question: Does Azure VMware Solution enable a hoster partner to partition resources within the private cloud (SDDC) to manage for customers in a multi-tenanted way?
         answer: No, an Azure VMware Solution private cloud cannot be shared between end customers. 
@@ -296,11 +301,6 @@ sections:
 
       - question: Can Azure VMware Solution be purchased through a Microsoft CSP?
         answer: Yes, customers can deploy Azure VMware Solution within an Azure subscription managed by a CSP.
-
-      - question: Who supports Azure VMware Solution?
-        answer: Microsoft delivers support for Azure VMware Solution. You can submit a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). 
-          
-          For Cloud Solution Provider (CSP) managed subscriptions, the first level of support provides the Solution Provider in the same fashion as CSP does for other Azure services.
 
       - question: Are Reserved Instances available for purchasing through the CSP program?
         answer: Yes. CSPs can purchase reserved instances for their customers. For more information, see [Save costs with a reserved instance](reserved-instance.md). 
