@@ -60,23 +60,23 @@ The host is a x64-based computer that runs the Docker container. It can be a com
 
 #### Required containers
 
-The following table lists the required containers for each Form Recognizer feature:
+The following table lists the additional supporting container(s) for each Form Recognizer container you download. Please refer to the [Billing](#billing) section for more information.
 
-| Feature| Required Containers|
+| Feature container | Supporting container(s) |
 |---------|-----------|
-|Layout 2.1-preview | **Layout** container |
-| Business Card 2.1-preview | **Business Card** and **Read** containers |
-| ID Document 2.1-preview  | **ID Document** and **Read** containers |
-| Invoice 2.1-preview  | **Invoice** and **Layout** containers |
-| Receipt 2.1-preview  | **Receipt** and **Read** containers |
-| Custom | **Custom FE**, **Custom BE**, **Label Tool**, and **Layout** containers |
+| **Layout** | None |
+| **Business Card** | **Computer Vision Read**|
+| **ID Document** | **Computer Vision Read** |
+| **Invoice**   | **Layout** |
+| **Receipt** |**Computer Vision Read** |
+| Custom | **Custom API**, **Custom Supervised**, **Layout**|
 
 #### Recommended CPU cores and memory
 
 > [!Note]
 > The minimum and recommended values are based on Docker limits and *not* the host machine resources.
 
-The minimum and recommended CPU cores and memory to allocate for each Form Recognizer container are outlined in the following table:
+##### Read, Layout, and Prebuilt containers
 
 | Container | Minimum | Recommended |
 |-----------|---------|-------------|
@@ -86,9 +86,21 @@ The minimum and recommended CPU cores and memory to allocate for each Form Recog
 | ID Document 2.1-preview | 1 core, 2-GB memory |2 cores, 2-GB memory |
 | Invoice 2.1-preview | 4 cores, 8-GB memory | 8 cores, 8-GB memory |
 | Receipt 2.1-preview |  4 cores, 8-GB memory | 8 cores, 8-GB memory  |
-| Label Tool 2.1 | 2 core, 4-GB memory | 4 core, 8-GB memory |
-| Custom Frontend| TODO|
-|Custom Backend | TODO |
+
+##### Custom containers
+
+The following host machine requirements are applicable to **train and analyze** requests:
+
+| Container | Minimum | Recommended |
+|-----------|---------|-------------|
+| Custom API| 0.3 cores, 0.5-GB memory| 0.6 cores, 1-GB memory |
+|Custom Supervised | 4 cores, 2-GB memory | 8 cores, 4-GB memory|
+
+If you only making analyze calls, the host machine requirements are as follows:
+
+| Container | Minimum | Recommended |
+|-----------|---------|-------------|
+|Custom Supervised (Analyze) | 1 core, 0.5-GB | 2 cores, 1-GB memory |
 
 * Each core must be at least 2.6 gigahertz (GHz) or faster.
 * Core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker compose` or `docker run`  command.
@@ -311,14 +323,27 @@ In addition to the [prerequisites](#prerequisites) mentioned above, you will nee
 
 * Create a **shared folder** ({SHARED_MOUNT_PATH}) to store your input data and an **output folder**  ({OUTPUT_MOUNT_PATH}) to store the logs  written by the Form Recognizer service on your local machine.
 
-* Gather a set of at least six forms of the same type. You'll use this data to train the model and test a form. You can use a [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) (download and extract *sample_data.zip*) for this quickstart. Download the training files to shared folder you created in the above step
+* Gather a set of at least six forms of the same type. You'll use this data to train the model and test a form. You can use a [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) (download and extract *sample_data.zip*) for this quickstart. Download the training files to shared folder you created in the above step.
+
+* If you want to label your data, download the [Form OCR Test Tool (FOTT) for Windows](https://github.com/microsoft/OCR-Form-Tools/releases/tag/v2.1-ga). The download will import the labeling tool .exe file that you'll use to label the data present on your local file system. You can ignore any warnings that occur during the download process.
+
+#### Create a new FOTT project
+
+* Open the labeling tool but double-clicking on the FOTT .exe file.
+* On the left pane of the tool, select the connections tab.
+* Select to create a new project and give it a name and description.
+* For the provider, choose the local file system option. For the local folder, make sure you enter the path to the folder where you stored the sample data files.
+* Navigate back to the home tab and select the “Use custom to train a model with labels and key value pairs option”.
+* Select the train button on the left pane to train the labeled model.
+* Save this connection and use it to label your requests.
+* You can choose to analyze the file of your choice against the trained model.
 
 #### Create your **docker compose** file
 
 Below is a self-contained `docker compose` example to run Form Recognizer Layout, Label Tool, Custom Backend, and Custom Frontend containers together. With `docker compose`, you use a YAML file to configure your application’s services. Then, with `docker-compose up` command, you create and start all the services from your configuration. Fill in {ENDPOINT_URI} and {API_KEY} with values for your Form Recognizer instance. The API_Key must be the same for all containers.
 
 ```yml
-version: '3'
+version: '3.9'
 services:
  azure-cognitive-service-layout:
     container_name: azure-cognitive-service-layout
@@ -338,49 +363,60 @@ services:
          - "7000:5000"
 networks:
       - ocrvnet
- azure-cognitive-service-frontend:
+ azure-cognitive-service-custom-api:
   image: TODO
+  restart: always
   environment:
       - EULA=accept
       - billing={ENDPOINT_URI}
       - apikey={API_KEY}
+    volumes:
+    - type=bind
+      source={SHARED_MOUNT_PATH}
+      target=/share
+    - type=bind
+      source={OUTPUT_MOUNT_PATH}
+      target=/logs
+   ports:
+         - "5000:5000"
     networks:
       - ocrvnet
 
- azure-cognitive-service-backendphase1:
+ azure-cognitive-service-supervised-phase1:
     image: TODO
+    restart: always
     environment:
       - EULA=accept
       - billing={ENDPOINT_URI}
       - apikey={API_KEY}
+     volumes:
+    - type: bind
+      source: ${SHARED_MOUNT_PATH}
+      target: /share
+    - type: bind
+      source: ${OUTPUT_MOUNT_PATH}
+      target: /output
     networks:
         - ocrvnet
- azure-cognitive-service-backendphase2:
+ azure-cognitive-service-supervised-phase2:
    image: TODO
    environment:
         - EULA=accept
        - billing={ENDPOINT_URI}
        - apikey={API_KEY}
+    volumes:
+    - type: bind
+      source: ${SHARED_MOUNT_PATH}
+      target: /share
+    - type: bind
+      source: ${OUTPUT_MOUNT_PATH}
+      target: /output
    networks:
         - ocrvnet
 networks:
   ocrvnet:
     driver: bridge
 ```
-
-### Start the Form Labeling tool with Docker
-
-Once the Layout and Custom containers are set up, you can begin training using the OCR Form Labeling tool.
-
-* Start the  Form Labeling Tool container with the [**docker run**](https://docs.docker.com/engine/reference/commandline/run/) command:
-
-    ```console
-    docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool eula=accept
-    ```
-
-* The Form Labeling Tool will be available to you through a web browser by navigating to **http://<span></span>localhost:3000**.
-
-* For the Form Recognizer service URI use **http://<span></span>localhost:5000**
 
 ### Create a new connection
 
