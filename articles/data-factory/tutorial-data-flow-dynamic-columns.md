@@ -100,11 +100,13 @@ In this first scenario, you will set output column names in you data flow by set
 1. We're going to change the first 3 column names to the new names defined in the parameter
 1. To do this, add 3 rule-based mapping entries in the bottom pane
 1. For the first column, the matching rule will be ```position==1``` and the name will be ```$parameter1[1]```
-1. Follow the same pattern for column 2 and 3:
-
+1. Follow the same pattern for column 2 and 3
+ 
 ![Select transformation](media/data-flow/dynacols4.png "Select transformation")
+
+1. Click on the Inspect and Data Flow tabs of the Select transformation to view the new column name values ```(a,b,c)``` replace the original movie, title, genres column names
    
-### Name folder as data values
+### Create a cached lookup of external column mappings
 
 A slightly better performing sink technique for lake data using ADLS Gen2 that does not offer the same benefit as key/value partitioning, is ```Name folder as column data```. Whereas the key partitioning style of hierarchical structure will allow you to process data slices easier, this technique is a flattened folder structure that can write data quicker.
 
