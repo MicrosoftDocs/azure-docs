@@ -19,5 +19,5 @@ The following table links to PowerShell script samples that use Azure Backup to 
 | [Register MARS agent](./scripts/register-marsagent.md) | Register your on-premises Windows server or client machine with a Recovery Services vault. |
 | [Set file and folder backup policy for on-premises Windows server.](./scripts/set-filefolderbackuppolicy.md) | Create a new policy or modify the current file and folder backup policy. |
 | [Set system state backup policy for on-premises Windows server.](./scripts/set-systemstatebackuppolicy.md) | Create a new backup policy or modify the current system state backup policy. | 
-| [Configure backup for on-premises Windows server](./scripts/mars-powershell-doc-all.md)  | Configure backup for your on-premises Windows server. |
+| [Configure backup for on-premises Windows server.](./scripts/mars-powershell-doc-all.md)  | Configure backup for your on-premises Windows server. |
 
