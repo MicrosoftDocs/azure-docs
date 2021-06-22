@@ -46,7 +46,7 @@ In this article, you learn how to use the new REST APIs to:
 ## Azure Machine Learning managed online endpoints
 Managed online endpoints (preview) allow you to deploy your model without having to create and manage the underlying infrastructure. In this article, you'll create an online endpoint and deployment, and validate it by invoking it. But first you'll have to register the assets needed for deployment, including model, code, and environment.
 
-There are many ways to create an Azure Machine Learning online endpoints [including the CLI](how-to-deploy-managed-online-endpoints.md), and visually with [the studio](how-to-use-managed-online-endpoint-studio.md). The following example a managed online endpoint with the REST API.
+There are many ways to create an Azure Machine Learning online endpoints [including the Azure CLI](how-to-deploy-managed-online-endpoints.md), and visually with [the studio](how-to-use-managed-online-endpoint-studio.md). The following example a managed online endpoint with the REST API.
 
 ## Create machine learning assets
 
@@ -150,7 +150,7 @@ If you aren't going use the deployment, you should delete it with the below comm
 
 ## Next steps
 
-* Learn how to deploy your model [using CLI](how-to-deploy-managed-online-endpoints.md).
+* Learn how to deploy your model [using the Azure CLI](how-to-deploy-managed-online-endpoints.md).
 * Learn how to deploy your model [using studio](how-to-use-managed-online-endpoint-studio.md).
 * Learn to [Troubleshoot managed online endpoints deployment and scoring (preview)](how-to-troubleshoot-managed-online-endpoints.md)
 * Learn how to [Access Azure resources with a managed online endpoint and system-managed identity (preview)](tutorial-deploy-managed-endpoints-using-system-managed-identity.md)

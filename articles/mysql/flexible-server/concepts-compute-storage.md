@@ -20,7 +20,7 @@ You can create an Azure Database for MySQL Flexible Server in one of three diffe
 | VM series| B-series | Ddsv4-series | Edsv4-series|
 | vCores | 1, 2 | 2, 4, 8, 16, 32, 48, 64 | 2, 4, 8, 16, 32, 48, 64 |
 | Memory per vCore | Variable | 4 GiB | 8 GiB * |
-| Storage size | 5 GiB to 16 TiB | 5 GiB to 16 TiB | 5 GiB to 16 TiB |
+| Storage size | 20 GiB to 16 TiB | 20 GiB to 16 TiB | 20 GiB to 16 TiB |
 | Database backup retention period | 1 to 35 days | 1 to 35 days | 1 to 35 days |
 
 \* With the exception of E64ds_v4 (Memory Optimized) SKU, which has 504 GB of memory
@@ -71,7 +71,7 @@ To get more details about the compute series available, refer to Azure VM docume
 
 ## Storage
 
-The storage you provision is the amount of storage capacity available to your flexible server. Storage is used for the database files, temporary files, transaction logs, and the MySQL server logs. In all compute tiers, the minimum storage supported is 5 GiB and maximum is 16 TiB. Storage is scaled in 1 GiB increments and can be scaled up after the server is created.
+The storage you provision is the amount of storage capacity available to your flexible server. Storage is used for the database files, temporary files, transaction logs, and the MySQL server logs. In all compute tiers, the minimum storage supported is 20 GiB and maximum is 16 TiB. Storage is scaled in 1 GiB increments and can be scaled up after the server is created.
 
 >[!NOTE]
 > Storage can only be scaled up, not down.
@@ -94,13 +94,17 @@ We recommend that you <!--turn on storage auto-grow or to--> set up an alert to 
 
 ### Storage auto-grow
 
-Storage auto-grow is not yet available for Azure Database for MySQL Flexible Server.
+Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto-grow is enabled, the storage automatically grows without impacting the workload. Storage auto-grow is enabled by default for all new server creates. For servers with less than equal to 100 GB provisioned storage, the provisioned storage size is increased by 5 GB when the free storage is below 10% of the provisioned storage. For servers with more than 100 GB of provisioned storage, the provisioned storage size is increased by 5% when the free storage space is below 10 GB of the provisioned storage size. Maximum storage limits as specified above apply.
+
+For example, if you have provisioned 1000 GB of storage, and the actual utilization goes over 990 GB, the server storage size is increased to 1050 GB. Alternatively, if you have provisioned 10 GB of storage, the storage size is increase to 15 GB when less than 1 GB of storage is free.
+
+Remember that storage can only be scaled up, not down
 
 ## IOPS
 
 Azure Database for MySQL – Flexible Server supports the provisioning of additional IOPS. This feature enables you to provision additional IOPS above the complimentary IOPS limit. Using this feature, you can increase or decrease the number of IOPS provisioned based on your workload requirements at any time. 
 
-The minimum IOPS is 100 across all compute sizes and the maximum IOPS is determined by the selected compute size. In preview, the maximum IOPS supported is 20,000 IOPS.
+The minimum IOPS is 360 across all compute sizes and the maximum IOPS is determined by the selected compute size. In preview, the maximum IOPS supported is 20,000 IOPS.
 
 To learn more about the maximum IOPS per compute size is shown below: 
 
@@ -130,8 +134,8 @@ To learn more about the maximum IOPS per compute size is shown below:
 The maximum IOPS is dependent on the maximum available IOPS per compute size. Refer to the column *Max uncached disk throughput: IOPS/MBps* in the [B-series](../../virtual-machines/sizes-b-series-burstable.md), [Ddsv4-series](../../virtual-machines/ddv4-ddsv4-series.md), and [Edsv4-series](../../virtual-machines/edv4-edsv4-series.md) documentation.
 
 > [!Important]
-> **Complimentary IOPS** are equal to MINIMUM("Max uncached disk throughput: IOPS/MBps" of compute size, storage provisioned in GiB * 3)<br>
-> **Minimum IOPS** is 100 across all compute sizes<br>
+> **Complimentary IOPS** are equal to MINIMUM("Max uncached disk throughput: IOPS/MBps" of compute size, 300 + storage provisioned in GiB * 3)<br>
+> **Minimum IOPS** is 360 across all compute sizes<br>
 > **Maximum IOPS** is determined by the selected compute size. In preview, the maximum IOPS supported is 20,000 IOPS.
 
 You can monitor your I/O consumption in the Azure portal (with Azure Monitor) using [IO percent](./concepts-monitoring.md) metric. If you need more IOPS then the max IOPS based on compute then you need to scale your server's compute.

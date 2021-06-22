@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
-ms.date: 05/14/2021
+ms.date: 06/14/2021
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, devx-track-azurecli
 
 ---
@@ -159,9 +159,6 @@ There are two approaches to isolate traffic to and from the AKS cluster to the v
 By default, AKS clusters have a control plane, or API server, with public IP addresses. You can configure AKS to use a private control plane by creating a private AKS cluster. For more information, see [Create a private Azure Kubernetes Service cluster](../aks/private-clusters.md).
 
 After you create the private AKS cluster, [attach the cluster to the virtual network](how-to-create-attach-kubernetes.md) to use with Azure Machine Learning.
-
-> [!IMPORTANT]
-> Before using a private link enabled AKS cluster with Azure Machine Learning, you must open a support incident to enable this functionality. For more information, see [Manage and increase quotas](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
 
 ### Internal AKS load balancer
 

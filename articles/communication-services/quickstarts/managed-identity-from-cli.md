@@ -76,7 +76,6 @@ The Azure Identity SDK reads values from three environment variables at runtime 
 
 Once these variables have been set, you should be able to use the DefaultAzureCredential object in your code to authenticate to the service client of your choice.
 
-
 ## Next steps
 
 > [!div class="nextstepaction"]
