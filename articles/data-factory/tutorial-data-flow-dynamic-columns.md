@@ -47,10 +47,7 @@ In this step, you create a data factory and open the Data Factory UX to create a
 
 In this step, you'll create a pipeline that contains a data flow activity.
 
-1. On the **Let's get started** page, select **Create pipeline**.
-
-   ![Create pipeline](./media/doc-common-process/get-started-page.png)
-
+1. From the ADF home page, select **Create pipeline**.
 1. In the **General** tab for the pipeline, enter **DeltaLake** for **Name** of the pipeline.
 1. In the factory top bar, slide the **Data Flow debug** slider on. Debug mode allows for interactive testing of transformation logic against a live Spark cluster. Data Flow clusters take 5-7 minutes to warm up and users are recommended to turn on debug first if they plan to do Data Flow development. For more information, see [Debug Mode](concepts-data-flow-debug-mode.md).
 
@@ -108,7 +105,7 @@ In this first scenario, you will set output column names in you data flow by set
    
 ### Create a cached lookup of external column mappings
 
-A slightly better performing sink technique for lake data using ADLS Gen2 that does not offer the same benefit as key/value partitioning, is ```Name folder as column data```. Whereas the key partitioning style of hierarchical structure will allow you to process data slices easier, this technique is a flattened folder structure that can write data quicker.
+Next, we'll create a cached sink for a later lookup. The cache will read an external JSON configuration file that can be used to rename columns dynamically on each pipeline execution of your data flow.
 
 1. Go back to the data flow designer and edit the data flow create above. Click on the sink transformation.
 1. Click Optimize > Set partitioning > Use current partitioning.
