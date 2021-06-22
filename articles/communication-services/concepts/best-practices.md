@@ -17,7 +17,7 @@ This article provides information about best practices related to the Azure Comm
 ## JavaScript SDK
 This section provides information about best practices associated with the Azure Communication Services JavaScript voice and video calling SDKs.
 
-### Plug-in Microphone or Enable Microphone From Device Manager When ACS Call in Progress
+### Plug-in Microphone or Enable Microphone from Device Manager When ACS Call in Progress
 When there is no Microphone available and later plug-in Microphone or enable Microphone from device manager, then User Facing Diagnostic (UFD) noMicrophoneDevicesEnumerated will be raise. on noMicrophoneDevicesEnumerated event ask for device permission.
 
 ### Stop Video on Page Hide
@@ -35,8 +35,8 @@ document.addEventListener("visibilitychange", function() {
 ### Dispose Video Stream Renderer View
 Application should dispose VideoStreamRendererView, or it's parent VideoStreamRenderer instance, if it doesn't need it anymore to render video and it decides to detach if from the DOM
 
-### Hangup the Call on onbeforeunload Event
+### Hang up the Call on onbeforeunload Event
 App should invoke call.hangup on onbeforeunload event
 
-### Hangup the Call on microphoneMuteUnexpectedly UFD
-Whey user is on ACS call from iOS Safari and receives the PSTN call then ACS lost the microphone access. To avoid this issue, it's recommended to hangup the call when microphoneMuteUnexpectedly UFD raised.
+### Hang up the Call on microphoneMuteUnexpectedly UFD
+Whey user is on ACS call from iOS Safari and receives the PSTN call then ACS lost the microphone access. To avoid this issue, it's recommended to hang up the call when microphoneMuteUnexpectedly UFD raised.
