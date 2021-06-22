@@ -6,11 +6,11 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-
 author: lostmygithubaccount
 ms.author: copeters
 ms.date: 06/18/2021
 ms.reviewer: laobri
+ms.custom: devx-track-azurecli
 ---
 
 # Train models (create jobs) with the 2.0 CLI (preview)
@@ -26,7 +26,7 @@ Training a machine learning model is typically an iterative process. Modern tool
 
 ## Prerequisites
 
-- To use the CLI, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
+- To use the CLI, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 - [Install and set up the Azure CLI extension for Machine Learning](how-to-configure-cli.md)
 - Clone the examples repository:
 
