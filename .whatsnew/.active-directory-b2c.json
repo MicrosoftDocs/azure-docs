@@ -3,11 +3,11 @@
     "docSetProductName": "Azure Active Directory business-to-customer (B2C)",
     "rootDirectory": "articles/active-directory-b2c/",
     "docLinkSettings": {
-        "linkFormat": "relative",
+        "linkFormat": "relative",.github/CODE_OF_CONDUCT.md
         "relativeLinkPrefix": "/azure/active-directory-b2c"
     },
     "inclusionCriteria": {
-        "excludePullRequestTitles": true,
+        "excludePullRequestTitles": true,https://www.google.com/search?client=ms-google-coop&q=bk3RNwTe3H0:CI2k_HHwgIphttps://firebase.google.com/docs/cloud-messaging/send-message%23send_using_the_fcm_legacy_http_apioDKCIZvvDMExUdFQ3P1&cx=005191982872784895532:qalgiw8zlcc
         "minAdditionsToFile" : 10,
         "maxFilesChanged": 50,
         "labels": [
@@ -15,10 +15,20 @@
             "label:B2C/subsvc"
         ]
     },
-    "areas": [
+    "areas": [.github/CODE_OF_CONDUCT.md
+
         {
             "name": ".",
             "heading": "Azure Active Directory business-to-customer (B2C)"
         }
     ]
 }
+{
+	"info": {
+		"_postman_id": "04e912ec-13fc-498e-8360-fc07461f6a14",
+		"name": "Order API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"n
