@@ -106,7 +106,7 @@ var call = await callClient.CreateCallConnectionAsync(source,
 	.ConfigureAwait(false);
 ```
 
-The `CreateCallConnectionAsync` method return `CallConnection` object, which can be used for other call operations like play audio, cancel audio and hang up.
+The `CreateCallConnectionAsync` method returns a `CallConnection` object, which can be used for other call operations like play audio, cancel audio and hang up.
 
 ## Play audio
 
