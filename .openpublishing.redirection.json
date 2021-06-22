@@ -39108,6 +39108,11 @@
       "redirect_url": "/azure/virtual-wan/scenario-route-between-vnets-firewall",
       "redirect_document_id": false
     },
+	 {
+      "source_path_from_root": "/articles/virtual-wan/logs-metrics.md",
+      "redirect_url": "/azure/virtual-wan/monitor-virtual-wan",
+      "redirect_document_id": false
+    },
     {
       "source_path_from_root": "/articles/virtual-wan/virtual-wan-route-table.md",
       "redirect_url": "/azure/virtual-wan/scenario-route-through-nva",
