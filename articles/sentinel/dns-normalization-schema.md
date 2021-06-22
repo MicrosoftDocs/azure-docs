@@ -25,6 +25,11 @@ The DNS information model is used to describe events reported by a DNS server or
 
 For more information, see [Normalization and the Azure Sentinel Information Model (ASIM)](normalization.md).
 
+> [!IMPORTANT]
+> The DNS normalization schema is currently in public preview.
+> This feature is provided without a service level agreement, and it's not recommended for production workloads.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 ## Guidelines for collecting DNS events
 
 DNS is a unique protocol in that it may cross a large number of computers. Also, since DNS uses UDP, requests and responses are de-coupled and are not directly related to each other.
@@ -222,3 +227,4 @@ For more information, see:
 
 - [Normalization in Azure Sentinel](normalization.md)
 - [Azure Sentinel data normalization schema reference](normalization-schema.md)
+- [Azure Sentinel Process Event normalization schema reference](process-events-normalization-schema.md)

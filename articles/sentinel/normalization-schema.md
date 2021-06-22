@@ -184,3 +184,11 @@ Below is the schema of the network sessions table, versioned 1.0.0
 | **ThreatName** | String | EICAR Test File | The name of the threat or malware identified | Threat |
 | **AdditionalFields** | Dynamic (JSON bag) | {<br>Property1: “val1”,<br>Property2: “val2”<br>} | When no respective column in the schema matches, additional fields can be stored in a JSON bag.<br>For query-time parsing it’s recommended to not use this method as packing data into a JSON will degrade query performance. Instead, it is recommended to promote additional columns.<br>For future ingestion-time parsing scenarios, additional data will of course be collected into this JSON bag column. | Custom field |
 | 
+
+## Next steps
+
+For more information, see:
+
+- [Normalization in Azure Sentinel](normalization.md)
+- [Azure Sentinel DNS normalization schema reference](dns-normalization-schema.md)
+- [Azure Sentinel Process Event normalization schema reference](process-events-normalization-schema.md)
