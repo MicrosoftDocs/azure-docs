@@ -9,7 +9,7 @@ ms.author: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 03/29/2021
+ms.date: 06/21/2021
 ---
 
 # What is Spatial Analysis?
@@ -37,8 +37,6 @@ The core operations of Spatial Analysis are all built on a pipeline that ingests
 | **Event** | An event is the primary output of Spatial Analysis. Each operation emits a specific event either periodically (like once per minute) or whenever a specific trigger occurs. The event includes information about what occurred in the input video but does not include any images or video. For example, the PeopleCount operation can emit an event containing the updated count every time the count of people changes (trigger) or once every minute (periodically). |
 
 ## Get started
-
-### Follow a quickstart
 
 Follow the [quickstart](spatial-analysis-container.md) to set up the container and begin analyzing video.
 
