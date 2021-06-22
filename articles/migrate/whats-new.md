@@ -15,6 +15,7 @@ ms.custom: mvc
 
 ## Update (June 2021)
 - Azure Migrate allows you to register servers running SQL server with SQL VM RP during replication to automatically install SQL IaaS Agent Extension. This feature is available for agentless VMware, agentless Hyper-V, and agent-based migrations.
+- Import CSV file for assessment now supports up to 20 disks. Earlier it was limited to eight disks per server.
 
 ## Update (May 2021)
 - Migration of VMs and physical servers with OS disks up to 4 TB is now supported using the agent-based migration method.
@@ -67,7 +68,7 @@ Azure Migrate supports deployments in Azure Government.
 - For VMware migration, you can use agentless or agent-based migration. [Learn more](server-migrate-overview.md).
 - [Review](migrate-support-matrix.md#supported-geographies-azure-government) supported geographies and regions for Azure Government.
 - [Agent-based dependency analysis](concepts-dependency-visualization.md#agent-based-analysis) isn't supported in Azure Government.
-- Features in preview are supported in Azure Government, specifically [agentless dependency analysis](concepts-dependency-visualization.md#agentless-analysis), and [application discovery](how-to-discover-applications.md).
+- Features in preview are supported in Azure Government, [agentless dependency analysis](concepts-dependency-visualization.md#agentless-analysis), and [application discovery](how-to-discover-applications.md).
 
 
 ## Update (March 2020)
@@ -79,7 +80,7 @@ A script-based installation is now available to set up the [Azure Migrate applia
 
 ## Update (November 2019)
 
-A number of new features were added to Azure Migrate:
+Many new features were added to Azure Migrate:
 
 - **Physical server assessment**. Assessment of on-premises physical servers is now supported, in addition to physical server migration that is already supported.
 - **Import-based assessment**. Assessment of machines using metadata and performance data provided in a CSV file is now supported.
@@ -97,10 +98,10 @@ New assessment and migration tools were added to Azure Migrate:
 
 ## Azure Migrate current version
 
-The current version of Azure Migrate (released in July 2019) provides a number of new features:
+The current version of Azure Migrate (released in July 2019) provides many new features:
 
 - **Unified migration platform**: Azure Migrate now provides a single portal to centralize, manage, and track your migration journey to Azure, with an improved deployment flow and portal experience.
-- **Assessment and migration tools**: Azure Migrate provides native tools, and integrates with other Azure services, as well as with independent software vendor (ISV) tools. [Learn more](migrate-services-overview.md#isv-integration) about ISV integration.
+- **Assessment and migration tools**: Azure Migrate provides native tools, and integrates with other Azure services, and with independent software vendor (ISV) tools. [Learn more](migrate-services-overview.md#isv-integration) about ISV integration.
 - **Azure Migrate assessment**: Using the Azure Migrate Server Assessment tool, you can assess VMware VMs and Hyper-V VMs for migration to Azure. You can also assess for migration using other Azure services, and ISV tools.
 - **Azure Migrate migration**: Using the Azure Migrate Server Migration tool, you can migrate on-premises VMware VMs and Hyper-V VMs to Azure, as well as physical servers, other virtualized servers, and private/public cloud VMs. In addition, you can migrate to Azure using ISV tools.
 - **Azure Migrate appliance**: Azure Migrate deploys a lightweight appliance for discovery and assessment of on-premises VMware VMs and Hyper-V VMs.

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/14/2020
+ms.date: 06/21/2021
 ms.author: jeedes
 
 ---
@@ -29,11 +29,14 @@ To get started, you need:
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * A Splan Visitor single sign-on (SSO) enabled subscription.
 
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
+
 ## Scenario description
 
 In this tutorial, you'll configure and test Azure AD SSO in a test environment.
 
-Splan Visitor supports IdP-initiated SSO.
+* Splan Visitor supports IdP-initiated SSO.
 
 ## Add Splan Visitor from the gallery
 
@@ -65,7 +68,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal:
 
 1. In the Azure portal, on the **Splan Visitor** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up Single Sign-On with SAML** page, select the **edit/pen** icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up Single Sign-On with SAML** page, select the **pencil** icon for **Basic SAML Configuration** to edit the settings.
 
    ![Screenshot highlighting the edit/pen icon for Basic SAML Configuration.](common/edit-urls.png)
 

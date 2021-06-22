@@ -14,8 +14,8 @@ ms.author: mikben
 
 [!INCLUDE [Public Preview Notice](../../../includes/public-preview-include-chat.md)]
 
-> [!NOTE]
-> Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/add-chat)
+## Sample Code
+Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/add-chat).
 
 ## Prerequisites
 Before you get started, make sure to:

@@ -576,6 +576,19 @@ If you think there is something is missing, you can open a GitHub comment at the
 |AuditEvent|Audit Logs|No|
 
 
+## Microsoft.Kusto/Clusters
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|Command|Command|No|
+|FailedIngestion|Failed ingest operations|No|
+|IngestionBatching|Ingestion batching|No|
+|Query|Query|No|
+|SucceededIngestion|Successful ingest operations|No|
+|TableDetails|Table details|No|
+|TableUsageStatistics|Table usage statistics|No|
+
+
 ## Microsoft.Logic/integrationAccounts
 
 |Category|Category Display Name|Costs To Export|
@@ -919,19 +932,6 @@ If you think there is something is missing, you can open a GitHub comment at the
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |BigDataPoolAppsEnded|Big Data Pool Applications Ended|No|
-
-
-## Microsoft.Synapse/workspaces/kustoPools
-
-|Category|Category Display Name|Costs To Export|
-|---|---|---|
-|Command|Command|Yes|
-|FailedIngestion|Failed ingest operations|Yes|
-|IngestionBatching|Ingestion batching|Yes|
-|Query|Query|Yes|
-|SucceededIngestion|Successful ingest operations|Yes|
-|TableDetails|Table details|Yes|
-|TableUsageStatistics|Table usage statistics|Yes|
 
 
 ## Microsoft.Synapse/workspaces/sqlPools

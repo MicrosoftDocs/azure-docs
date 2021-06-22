@@ -102,7 +102,7 @@ You can upload the contents of a directory without copying the containing direct
 
 **Syntax**
 
-`azcopy copy '<local-directory-path>/*' 'https://<storage-account-name>.file.core.windows.net/<file-share-name>/<directory-path><SAS-token>`
+`azcopy copy '<local-directory-path>/*' 'https://<storage-account-name>.file.core.windows.net/<file-share-name>/<directory-path><SAS-token>'`
 
 **Example**
 

@@ -336,7 +336,7 @@ This feature is currently available only for new accounts.
 
 ### Is it possible to use customer-managed keys in conjunction with the Azure Cosmos DB [analytical store](analytical-store-introduction.md)?
 
-Yes, Azure Synapse Link only supports configuring customr-managed keys usings your Azure Cosmos DB account's managed identity. You must [use your Azure Cosmos DB account's managed identity](#using-managed-identity) in your Azure Key Vault access policy before [enabling Azure Synapse Link](configure-synapse-link.md#enable-synapse-link) on your account.
+Yes, Azure Synapse Link only supports configuring customer-managed keys using your Azure Cosmos DB account's managed identity. You must [use your Azure Cosmos DB account's managed identity](#using-managed-identity) in your Azure Key Vault access policy before [enabling Azure Synapse Link](configure-synapse-link.md#enable-synapse-link) on your account.
 
 ### Is there a plan to support finer granularity than account-level keys?
 
