@@ -178,7 +178,7 @@ response.getStatus().toString());
 
 ## Add a participant to the call
 
-Use `addParticipantWithResponse` method of `CallConnection` object to add a participant to the call. The following are the supported parameters for `addParticipantWithResponse` method:
+Use the `addParticipantWithResponse` method of the `CallConnection` object to add a participant to the call. The following parameters are supported by the `addParticipantWithResponse` method:
 
 - `participant`, is the participant identifier of type `CommunicationUserIdentifier` or `PhoneNumberIdentifier`.
 - `alternateCallerId`, is the source caller id.
