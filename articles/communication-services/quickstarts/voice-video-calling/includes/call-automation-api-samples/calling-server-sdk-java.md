@@ -109,7 +109,7 @@ client.deleteUser(new CommunicationUserIdentifier(source));
 
 ## Create a call
 
-Use `createCallConnectionWithResponse` method of `CallingServerClient` object to start a call. The following are the parameters for `createCallConnectionWithResponse` method:
+Use the `createCallConnectionWithResponse` method of the `CallingServerClient` object to start a call. The following parameters are supported by the `createCallConnectionWithResponse` method:
 - `source`, is the source user identity of the caller of type `CommunicationUserIdentifier`.
 - `targets`, is list of target identities of type `Iterable<CommunicationIdentifier>`.
 - `options`, is the options for the call of type `CreateCallOptions`. The following are the parameters for `CreateCallOptions` method:
