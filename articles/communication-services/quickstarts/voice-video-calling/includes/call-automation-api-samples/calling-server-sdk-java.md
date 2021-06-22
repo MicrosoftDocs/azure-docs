@@ -29,7 +29,7 @@ Before you get started, make sure to:
 
 ## Configuring application
 
-- Open the config.properities file to configure the following settings
+- Open the `config.properities` file to configure the following settings
 
 	- Connection String: Azure Communication Service resource's connection string.
 	- Source Phone: Phone number associated with the resource.
