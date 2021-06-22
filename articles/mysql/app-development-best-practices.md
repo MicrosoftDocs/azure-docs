@@ -17,9 +17,6 @@ Here are some best practices to help you build a cloud-ready application by usin
 ### Keep the application and database in the same region
 Make sure all your dependencies are in the same region when deploying your application in Azure. Spreading instances across regions or availability zones creates network latency, which might affect the overall performance of your application.
 
-### Always create the database server before AKS or App Services resource 
-Single Server supports  Single availability zone. AKS on the other hand also supports enabling either single or multiple availability zones. Creating the database first, can help you identify which availability zone the server is in and then create the AKS clusters in the same availability zone. This can improve performance for the application by reducing networking latency.
-
 ### Keep your MySQL server secure
 Configure your MySQL server to be [secure](./concepts-security.md) and not accessible publicly. Use one of these options to secure your server:
 - [Firewall rules](./concepts-firewall-rules.md)
