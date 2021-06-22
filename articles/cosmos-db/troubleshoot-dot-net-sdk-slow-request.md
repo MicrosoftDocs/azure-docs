@@ -8,7 +8,6 @@ ms.date: 06/15/2021
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.custom: devx-track-dotnet
 ---
 
 # Diagnose and troubleshoot Azure Cosmos DB .NET SDK slow requests
