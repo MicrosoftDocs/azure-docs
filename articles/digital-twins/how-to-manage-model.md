@@ -136,7 +136,7 @@ Next, update the **twins and relationships** in your instance to use the new mod
 :::code language="json" source="~/digital-twins-docs-samples/models/patch-model-1.json":::
 
 >[!IMPORTANT]
->When updating twins, you must use the **same patch** to update both the model ID (to the new model version) and any fields that must be altered on the twin to make it conform to the new model.
+>When updating twins, use the **same patch** to update both the model ID (to the new model version) and any fields that must be altered on the twin to make it conform to the new model.
 
 You may also need to update **relationships** and other **models** in your instance that reference this model, to make them refer to the new model version. This will be another model update operation, so return to the beginning of this section and repeat the process for any additional models that need updating.
 
@@ -146,7 +146,7 @@ If you won't be using the old model version anymore, you can [decommission](#dec
 
 You can also [delete](#deletion) the old model completely if you don't want it in the instance anymore at all.
 
-The sections linked here contain example code and considerations for decommissioning and deleting models.
+The sections linked above contain example code and considerations for decommissioning and deleting models.
 
 ### Option 2: Delete old model and re-upload
 
