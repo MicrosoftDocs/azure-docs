@@ -76,7 +76,7 @@
     - name: Co-sell requirements
       href: co-sell-requirements.md
     - name: Verify co-sell status
-      href: co-sell-status.md  
+      href: co-sell-status.md
     - name: Migrate co-sell solutions from OCP GTM
       href: co-sell-solution-migration.md 
     - name: Resell through CSP Partners
@@ -413,6 +413,8 @@
     href: customer-dashboard.md
   - name: Marketplace Insights dashboard
     href: insights-dashboard.md
+  - name: License dashboard
+    href: license-dashboard.md
   - name: Downloads dashboard
     href: downloads-dashboard.md
   - name: Ratings and reviews dashboard
