@@ -2,7 +2,7 @@
 title: PowerShell Samples
 description: This article provides links to PowerShell script samples that use Azure Backup to back up and restore data.
 ms.topic: sample
-ms.date: 06/15/2021
+ms.date: 06/22/2021
 ms.custom: mvc
 ---
 # Azure Backup PowerShell samples
@@ -17,7 +17,7 @@ The following table links to PowerShell script samples that use Azure Backup to 
 | [Undelete accidentally deleted File share](./scripts/backup-powershell-script-undelete-file-share.md) | Undelete accidentally deleted File share |
 | [Install the latest MARS agent](./scripts/install-latestmarsagent.md) | Install the latest MARS agent on your on-premises Windows server. |
 | [Register MARS agent](./scripts/register-marsagent.md) | Register your on-premises Windows server or client machine with a Recovery Services vault. |
-| [Set file and folder backup policy](./scripts/set-filefolderbackuppolicy.md) | Create a new policy or modify the current file and folder backup policy. |
-| [Set system state backup policy](./scripts/set-systemstatebackuppolicy.md) | Create a new backup policy or modify the current system state backup policy. | 
+| [Set file and folder backup policy for on-premises Windows server.](./scripts/set-filefolderbackuppolicy.md) | Create a new policy or modify the current file and folder backup policy. |
+| [Set system state backup policy for on-premises Windows server.](./scripts/set-systemstatebackuppolicy.md) | Create a new backup policy or modify the current system state backup policy. | 
 | [Configure backup for on-premises Windows server](./scripts/mars-powershell-doc-all.md)  | Configure backup for your on-premises Windows server. |
 
