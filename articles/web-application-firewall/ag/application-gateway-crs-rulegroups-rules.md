@@ -47,7 +47,6 @@ CRS 3.2 includes 15 rule groups, as shown in the following table. Each group con
 |---|---|
 |**[General](#general-32)**|General group|
 |**[REQUEST-911-METHOD-ENFORCEMENT](#crs911-32)**|Lock-down methods (PUT, PATCH)|
-|**[REQUEST-912-DOS-PROTECTION](#crs912-32)**|DOS protection|
 |**[REQUEST-913-SCANNER-DETECTION](#crs913-32)**|Protect against port and environment scanners|
 |**[REQUEST-920-PROTOCOL-ENFORCEMENT](#crs920-32)**|Protect against protocol and encoding issues|
 |**[REQUEST-921-PROTOCOL-ATTACK](#crs921-32)**|Protect against header injection, request smuggling, and response splitting|
