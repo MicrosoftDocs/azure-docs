@@ -4,7 +4,7 @@ description: Important reference material needed when you monitor App Service
 author: msangapu-msft
 ms.topic: reference
 ms.author: msangapu
-ms.service: App-Service
+ms.service: AppService
 ms.custom: subject-monitoring
 ms.date: 04/16/2021
 ---
@@ -26,7 +26,7 @@ This section lists all the automatically collected platform metrics collected fo
 | App Service Environment Front-end | [Microsoft.Web/hostingEnvironments/multiRolePools](/azure/azure-monitor/essentials/metrics-supported#microsoftwebhostingenvironmentsmultirolepools)
 
 
-For more information, see a list of [all platform metrics supported in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported).
+For more information, see a list of [all platform metrics supported in Azure Monitor](../azure-monitor/platform/metrics-supported.md).
 
 
 ## Metric Dimensions
@@ -83,7 +83,7 @@ Resource Provider and Type: [Microsoft.web/sites/slots](/azure/azure-monitor/pla
 
 ## Azure Monitor Logs tables
 
-Azure App Service uses Kusto tables from Azure Monitor Logs. You can query these tables with Log analytics. For a list of App Service tables used by Kusto, see the [Azure Monitor Logs table reference - App Service tables](https://docs.microsoft.com/azure/azure-monitor/reference/tables/tables-resourcetype#app-services). 
+Azure App Service uses Kusto tables from Azure Monitor Logs. You can query these tables with Log analytics. For a list of App Service tables used by Kusto, see the [Azure Monitor Logs table reference - App Service tables](../azure-monitor/reference/tables/tables-resourcetype.md#app-services). 
 
 This section refers to all of the Azure Monitor Logs Kusto tables relevant to App Service and available for query by Log Analytics. 
 
@@ -131,5 +131,5 @@ The following schemas are in use by App Service
 ## See Also
 
 <!-- replace below with the proper link to your main monitoring service article -->
-- See [Monitoring Azure App Service](monitor-service-name.md) for a description of monitoring Azure App Service.
+- See [Monitoring Azure App Service](monitor-app-service-name.md) for a description of monitoring Azure App Service.
 - See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resources) for details on monitoring Azure resources.
