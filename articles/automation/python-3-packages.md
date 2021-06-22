@@ -33,7 +33,7 @@ In your Automation account, select **Python packages** under **Shared Resources*
 
 :::image type="content" source="media/python-3-packages/add-python-3-package.png" alt-text="Screenshot of the Python 3 packages page shows Python 3 packages in the left menu and Add a Python 2 package highlighted.":::
 
-On the **Add Python Package** page, select **Python 3** for the **Version**, and select a local package to upload. The package can be a **.why** or **.tar.gz** file. When the package is selected, select **OK** to upload it.
+On the **Add Python Package** page, select **Python 3** for the **Version**, and select a local package to upload. The package can be a **.whl** or **.tar.gz** file. When the package is selected, select **OK** to upload it.
 
 :::image type="content" source="media/python-3-packages/upload-package.png" alt-text="Screenshot shows the Add Python 3 Package page with an uploaded tar.gz file selected.":::
 
