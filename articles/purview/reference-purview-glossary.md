@@ -5,7 +5,7 @@ author: djpmsft
 ms.author: daperlov
 ms.service: purview
 ms.topic: conceptual
-ms.date: 06/08/2021
+ms.date: 06/21/2021
 ---
 # Azure Purview product glossary
 
@@ -47,6 +47,8 @@ A path that defines the location of an asset within its data source.  
 An entry in the Business glossary that defines a concept specific to an organization. Glossary terms can contain information on synonyms, acronyms, and related terms. 
 ## Insights
 An area within Azure Purview where you can view reports that summarize information about your data.
+## Integration runtime
+The compute infrastructure used to scan in a data source.
 ## Lineage
 How data transforms and flows as it moves from its origin to its destination. Understanding this flow across the data estate helps organizations see the history of their data, and aid in troubleshooting or impact analysis. 
 ## Management Center
@@ -54,7 +56,9 @@ An area within Azure Purview where you can manage connections, users, roles, and
 ## On-premises data
 Data that is in a data center controlled by a customer, for example, not in the cloud or as a software as a service (SaaS). 
 ## Owner
-An individual or group in charge of managing a data asset.  
+An individual or group in charge of managing a data asset.
+## Pattern rule
+A configuration that overrides how Azure Purview groups assets as resource sets and displays them within the catalog.
 ## Purview instance
 A single Azure Purview resource. 
 ## Registered source
@@ -64,13 +68,17 @@ Glossary terms that are linked to other terms within the organization.  
 ## Resource set
 A single asset that represents many partitioned files or objects in storage. For example, Azure Purview stores partitioned Apache Spark output as a single resource set instead of unique assets for each individual file. 
 ## Role
-Permissions assigned to a user within an Azure Purview instance. Roles, such as Purview Data Curator or Purview Data Reader, determine what can be done within the product. 
+Permissions assigned to a user within an Azure Purview instance. Roles, such as Purview Data Curator or Purview Data Reader, determine what can be done within the product.
 ## Scan
 An Azure Purview process that examines a source or set of sources and ingests its metadata into the data catalog. Scans can be run manually or on a schedule using a scan trigger. 
 ## Scan ruleset
 A set of rules that define which data types and classifications a scan ingests into a catalog. 
 ## Scan trigger
-A schedule that determines the recurrence of when a scan runs. 
+A schedule that determines the recurrence of when a scan runs.
+## Search relevance
+The scoring of data assets that determines the order search results are returned. Multiple factors determine an asset's relevance score.
+## Self-hosted integration runtime
+An integration runtime installed on an on-premises machine or virtual machine inside a private network that is used to connect to data on-premises or in a private network.
 ## Sensitivity label
 Annotations that classify and protect an organization’s data. Azure Purview integrates with Microsoft Information Protection for creation of sensitivity labels. 
 ## Sensitivity label report
@@ -83,7 +91,8 @@ A system where data is stored. Sources can be hosted in various places such 
 A categorization of the registered sources used in an Azure Purview instance, for example, Azure SQL Database, Azure Blob Storage, Amazon S3, or SAP ECC. 
 ## Steward
 An individual who defines the standards for a glossary term. They are responsible for maintaining quality standards, nomenclature, and rules for the assigned entity. 
-
+## Term template
+A definition of attributes included in a glossary term. Users can either use the system-defined term template or create their own to include custom attributes.
 ## Next steps
 
 To get started with Azure Purview, see [Quickstart: Create an Azure Purview account](create-catalog-portal.md).
