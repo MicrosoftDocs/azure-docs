@@ -262,7 +262,7 @@ We recommend that you [secure the security registration process with Conditional
 
 ### Migrate phone numbers from MFA Server
 
-Migrating phone numbers can lead to stale numbers being migrated, and make users more likely to stay on phone-based MFA instead of setting up more secure methods like [passwordless sign-in with the Microsoft Authenticator](../authentication/howto-authentication-passwordless-phone.md) app. You can't migrate device registrations such as their Microsoft Authenticator app settings. We recommend that you have all users register for [combined security information](../authentication/howto-registration-mfa-sspr-combined.md). Combined security information also registers users for self-service password reset.
+Migrating phone numbers can lead to stale numbers being migrated, and make users more likely to stay on phone-based MFA instead of setting up more secure methods like [passwordless sign-in with the Microsoft Authenticator](howto-authentication-passwordless-phone.md) app. You can't migrate device registrations such as their Microsoft Authenticator app settings. We recommend that you have all users register for [combined security information](howto-registration-mfa-sspr-combined.md). Combined security information also registers users for self-service password reset.
 
 If having users register their combined security information is absolutely not an option, it's possible to export the users and their phone numbers from MFA Server and import the phone numbers into Azure AD.
  

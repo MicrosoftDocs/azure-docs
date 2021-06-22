@@ -82,7 +82,7 @@ In AD FS 2019, Microsoft released new functionality that provides the ability to
 This is done by using group membership to determine the authentication provider. 
 By specifying an additional authentication method, you can transition to Azure AD MFA while keeping other authentication intact during the transition. 
 
-For more information, see [Upgrading to AD FS in Windows Server 2016 using a WID database](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/upgrading-to-ad-fs-in-windows-server). 
+For more information, see [Upgrading to AD FS in Windows Server 2016 using a WID database](/windows-server/identity/ad-fs/deployment/upgrading-to-ad-fs-in-windows-server). 
 The article covers both upgrading your farm to AD FS 2019 and upgrading your FBL to 4.
 
 ### Configure claims rules to invoke Azure AD MFA
@@ -136,7 +136,7 @@ To find the group SID use the following command, with your group name
 The following PowerShell cmdlets invoke Azure AD MFA for those in the group when they aren’t on the corporate network. 
 You must replace "YourGroupSid" with the SID found by running the preceding cmdlet.
 
-Make sure you review the [How to Choose Additional Auth Providers in 2019](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/whats-new-active-directory-federation-services-windows-server#how-to-choose-additional-auth-providers-in-2019). 
+Make sure you review the [How to Choose Additional Auth Providers in 2019](/windows-server/identity/ad-fs/overview/whats-new-active-directory-federation-services-windows-server#how-to-choose-additional-auth-providers-in-2019). 
 
 >[!IMPORTANT] 
 >Backup your existing claims rules before proceeding.
@@ -202,7 +202,7 @@ Value==“YourGroupSid"]) => issue(Type =
 In order to configure Azure AD MFA for AD FS, you must configure each AD FS server. 
 If you have multiple AD FS servers in your farm, you can configure them remotely using Azure AD PowerShell.
 
-For step-by-step directions on this process, see [Configure the AD FS servers](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-and-azure-mfa#configure-the-ad-fs-servers).
+For step-by-step directions on this process, see [Configure the AD FS servers](/windows-server/identity/ad-fs/operations/configure-ad-fs-and-azure-mfa#configure-the-ad-fs-servers).
 
 Once you have configured the servers, you can add Azure AD MFA as an additional authentication method. 
 
