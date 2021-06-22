@@ -5,7 +5,7 @@ author: cherylmc
 
 ms.service: vnf-manager
 ms.topic: article
-ms.date: 06/16/2021
+ms.date: 06/22/2021
 ms.author: cherylmc
 
 ---
@@ -20,12 +20,12 @@ For Preview, the following SKUs are currently available.
 |Function |Category|Link|
 | ---  | --- | --- |
 | Affirmed Private Network Service  | Mobile packet core |[Configuration guide](https://go.microsoft.com/fwlink/?linkid=2165526)|
-| Celona Edge |Mobile packet core |[Azure Marketplace](https://ms.portal.azure.com/)|
+| Celona Edge |Mobile packet core |[Azure Marketplace](https://portal.azure.com/#create/celonainc1597686731561.celona-edgecelona-platform)|
 | Metaswitch Fusion Core | Mobile packet core | [Configuration guide](https://go.microsoft.com/fwlink/?linkid=2165525)|
-| NetFoundry ZTNA | Other| [Azure Marketplace](https://ms.portal.azure.com/)|
-| Nuage Networks SD-WAN From Nokia | SD-WAN| [Azure Marketplace](https://ms.portal.azure.com/)|
-| Versa SD-WAN| SD-WAN |[Azure Marketplace](https://ms.portal.azure.com/)|
-| VMware SD-WAN by Velocloud | SD-WAN | [Azure Marketplace](https://ms.portal.azure.com/)|
+| NetFoundry ZTNA | Other| [Azure Marketplace](https://ms.portal.azure.com/#create/netfoundryinc.application-ziti-private-edgeapp-edge-router)|
+| Nuage Networks SD-WAN From Nokia | SD-WAN| [Azure Marketplace](https://ms.portal.azure.com/#create/netfoundryinc.application-ziti-private-edgeapp-edge-router)|
+| Versa SD-WAN| SD-WAN |[Azure Marketplace](https://ms.portal.azure.com/#create/netfoundryinc.application-ziti-private-edgeapp-edge-router)|
+| VMware SD-WAN by Velocloud | SD-WAN | [Azure Marketplace](https://ms.portal.azure.com/#create/vmware-inc.vmware_sdwan_edge_zonesvelo_ase)|
 
 ## Next steps
 
