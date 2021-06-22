@@ -93,7 +93,7 @@ Fortunately, MSAL.NET has an API that allows you to migrate your previous refres
 IByRefreshToken.AcquireTokenByRefreshToken(IEnumerable<string> scopes, string refreshToken);
 ```
 
-With this method, you can provide the previously used refresh token along with any scopes (resources) you desire. The refresh token will be exchanged for a new one and cached into your application.
+With this method, you can provide the previously used refresh token along with any scopes (resources) you want. The refresh token will be exchanged for a new one and cached into your application.
 
 As this method is intended for scenarios that aren't typical, it isn't readily accessible with the `IConfidentialClientApplication` without first casting it to `IByRefreshToken`.
 

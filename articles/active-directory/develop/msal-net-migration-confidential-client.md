@@ -29,7 +29,7 @@ The migration process consists of three steps:
 2. Install the MSAL.NET NuGet package.
 3. Update the code depending on your scenario.
 
-From the point of view of the app registration, if your application isn't dual stacked (AAD and MSA being two apps), things should be relatively simple:
+For app registrations, if your application isn't dual stacked (AAD and MSA being two apps):
 
 - You don't need to create a new app registration (you keep the same ClientID)
 - You don't need to change the pre-authorizations.
@@ -48,25 +48,25 @@ For more information on how to install a NuGet package, see [install a NuGet pac
 
 ## Step 3 - Update the code
 
-Updating code depends on the confidential client scenario. There are common steps in updating the code that is shared across all the confidential client scenarios. There are also steps that are unique to each scenario. 
+Updating code depends on the confidential client scenario. Some steps are common and apply across all the confidential client scenarios. There are also steps that are unique to each scenario. 
 
-The confidential client scenarios include the following:
+The confidential client scenarios are as listed below:
 
-- [Daemon scenarios](/active-directory/develop/msal-net-migration-confidential-client?tabs=daemon#migrate-daemon-scenarios) supported by web apps, web APIs and daemon console applications.
+- [Daemon scenarios](/active-directory/develop/msal-net-migration-confidential-client?tabs=daemon#migrate-daemon-scenarios) supported by web apps, web APIs, and daemon console applications.
 - [On behalf of](/active-directory/develop/msal-net-migration-confidential-client?tabs=obo#migrate-on-behalf-of-calls-obo-in-web-apis) supported by web APIs calling downstream web APIs on behalf of the user.
 - [Authorization code flow](/active-directory/develop/msal-net-migration-confidential-client?tabs=authcode#migrate-acquiretokenbyauthorizationcodeasync-in-web-apps) supported by Web apps that sign in users and call a downstream web API.
 
-You may have provided a wrapper around ADAL.NET in order to handle certificates and caching. This article uses the same approach to illustrate the migration from ADAL.NET to MSAL.NET process. However, this code is only for demonstration purposes. Don't copy/paste these wrappers or integrate them in your code as they are.
+You may have provided a wrapper around ADAL.NET to handle certificates and caching. This article uses the same approach to illustrate the migration from ADAL.NET to MSAL.NET process. However, this code is only for demonstration purposes. Don't copy/paste these wrappers or integrate them in your code as they are.
 
 ## [Daemon](#tab/daemon)
 
 ### Migrate daemon apps
 
-Daemon scenarios use the OAuth2.0 [client credential flow](v2-oauth2-client-creds-grant-flow.md). They are also called service to service calls. Your app acquires a token on its own behalf, not on behalf of a user.
+Daemon scenarios use the OAuth2.0 [client credential flow](v2-oauth2-client-creds-grant-flow.md). They're also called service to service calls. Your app acquires a token on its own behalf, not on behalf of a user.
 
 #### Find if your code uses daemon scenarios
 
-The ADAL code for your app uses daemon scenarios if it contains a call to `AuthenticationContext.AcquireTokenAsync` with the following:
+The ADAL code for your app uses daemon scenarios if it contains a call to `AuthenticationContext.AcquireTokenAsync` with the following parameters:
 
 - A resource (App ID URI) as a first parameter.
 - A `IClientAssertionCertificate` or `ClientAssertion` as the second parameter.
@@ -180,19 +180,19 @@ public partial class AuthWrapper
 
 To benefit from the in-memory cache, the instance of `IConfidentialClientApplication` needs to be kept in a member variable. If you re-create the confidential client application each time you request a token, you won't benefit from the token cache.
 
-If you don't want to use the default in-memory app token cache, or want to implement a distributed token cache, you'll need to serialize the AppTokenCache. For details see [token cache for a web app or web API (confidential client application)](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/token-cache-serialization#token-cache-for-a-web-app-or-web-api-confidential-client-application) and this sample [active-directory-dotnet-v1-to-v2/ConfidentialClientTokenCache](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2/tree/master/ConfidentialClientTokenCache).
+You'll need to serialize the AppTokenCache if you choose not to use the default in-memory app token cache. Similarly, If you want to implement a distributed token cache, you'll need to serialize the AppTokenCache. For details see [token cache for a web app or web API (confidential client application)](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/token-cache-serialization#token-cache-for-a-web-app-or-web-api-confidential-client-application) and this sample [active-directory-dotnet-v1-to-v2/ConfidentialClientTokenCache](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2/tree/master/ConfidentialClientTokenCache).
 
-Learn more about demon scenario and how it's implemented with MSAL.NET or Microsoft.Identity.Web in new applications [by reading through this overview](scenario-daemon-overview.md).
+[Learn more about demon scenario](scenario-daemon-overview.md) and how it's implemented with MSAL.NET or Microsoft.Identity.Web in new applications.
 
 ## [On Behalf of](#tab/obo)
 
-### Migrate on behalf of calls (OBO) in web APIs
+### Migrate on behalf of (OBO) calls in web APIs
 
 On Behalf Of(OBOs) are Web APIs that call downstream web APIs on behalf of the user. They use the OAuth2.0 [On-Behalf-Of flow](v2-oauth2-on-behalf-of-flow.md). The code of the web API will use the token retrieved from the HTTP authorized header and validate it. This token will be exchanged against a token to call the downstream web API. This token is used as a `UserAssertion` in both ADAL.NET and MSAL.NET.
 
 #### Find if your code uses OBO
 
-The ADAL code for your app uses OBO if it contains a call to `AuthenticationContext.AcquireTokenAsync` with the following:
+The ADAL code for your app uses OBO if it contains a call to `AuthenticationContext.AcquireTokenAsync` with the following parameters:
 
 - A resource (App ID URI) as a first parameter
 - A `IClientAssertionCertificate` or `ClientAssertion` as the second parameter.
@@ -315,19 +315,19 @@ msalTokenCacheProvider.Initialize(app.UserTokenCache);
 
 Refer to [code samples](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2/blob/master/ConfidentialClientTokenCache/Program.cs) for an example of implementation of `CreateTokenCache`.
 
-Learn more about web APIs calling downstream web API and how they're implemented with MSAL.NET or Microsoft.Identity.Web in new applications [by reading through OBO scenario overview](scenario-web-api-call-api-overview.md)
+[Learn more about web APIs calling downstream web API](scenario-web-api-call-api-overview.md) and how they're implemented with MSAL.NET or Microsoft.Identity.Web in new applications.
 
 ## [Auth code flow](#tab/authcode)
 
 ### Migrate web apps using auth code flow
 
-If your app uses ASP.NET Core, Microsoft strongly recommends that you update to Microsoft.Identity.Web which processes everything for you. See [Microsoft identity web GA](https://github.com/AzureAD/microsoft-identity-web/wiki/1.0.0) for a quick presentation, and [https://aka.ms/ms-id-web/webapp](https://aka.ms/ms-id-web/webapp) for details about how to use it in a web app.
+If your app uses ASP.NET Core, Microsoft strongly recommends you update to Microsoft.Identity.Web which processes everything for you. See [Microsoft identity web GA](https://github.com/AzureAD/microsoft-identity-web/wiki/1.0.0) for a quick presentation, and [https://aka.ms/ms-id-web/webapp](https://aka.ms/ms-id-web/webapp) for details about how to use it in a web app.
 
-Web apps that call sign in users and call web APIs on behalf of the user use the OAuth2.0 [authorization code flow](v2-oauth2-auth-code-flow.md). Typically:
+Web apps that sign in users and call web APIs on behalf of the user use the OAuth2.0 [authorization code flow](v2-oauth2-auth-code-flow.md). Typically:
 
-1. The web app signs-in a user by executing a first leg of the auth code flow (by going to Azure AD's authorize endpoint). The users signs-in, and performs multiple factor authentications if needed. As an outcome of this operation, the app receives the **authorization code**. So far ADAL/MSAL aren't involved.
-2. The app will, then, execute the second leg of the authorization code flow, to redeem the authorization code to get an access token (and an ID Token, and refresh token). Your application needs to provide the redirectUri, which is the URI at which Azure AD will provide the security tokens. Once received, the web app will typically call ADAL/MSAL `AcquireTokenByAuthorizationCode` to redeem the code, and get a token that will be stored in the token cache.
-3. Then, from the web app controllers, the app will use ADAL/MSAL to call AcquireTokenSilent in order to acquire tokens to call the web APIs it needs to call.
+1. The web app signs-in a user by executing a first leg of the auth code flow. It does this by going to Azure AD's authorize endpoint. The users signs-in, and performs multiple factor authentications if needed. As an outcome of this operation, the app receives the **authorization code**. So far ADAL/MSAL aren't involved.
+2. The app will, then, execute the second leg of the authorization code flow. It uses the authorization code to get an access token, an ID Token, and a refresh token. Your application needs to provide the redirectUri, which is the URI at which Azure AD will provide the security tokens. Once received, the web app will typically call ADAL/MSAL `AcquireTokenByAuthorizationCode` to redeem the code, and get a token that will be stored in the token cache.
+3. The app will then use ADAL or MSAL to call `AcquireTokenSilent` to acquire tokens used to call the web APIs it needs to call. This is done from the web app controllers.
 
 #### Find if your code uses the auth code flow
 
@@ -441,13 +441,14 @@ msalTokenCacheProvider.Initialize(app.UserTokenCache);
 
 Refer to [code samples](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2/blob/master/ConfidentialClientTokenCache/Program.cs) for an example of implementation of `CreateTokenCache`.
 
-Learn more about web apps calling web APIs and how they're implemented with MSAL.NET or Microsoft.Identity.Web in new applications [by reading through web apps that calls web APIs scenario](scenario-web-app-call-api-overview.md)
+[Learn more about web apps calling web APIs](scenario-web-app-call-api-overview.md) and how they're implemented with MSAL.NET or Microsoft.Identity.Web in new applications.
 
 ---
 
 ## MSAL benefits
 
 Some of the key features that come with MSAL.NET are resilience, security, performance, and scalability. These are described below.
+
 ### Resilience
 
 Using MSAL.NET ensures your app is resilient. This is achieved through the following:
@@ -479,22 +480,25 @@ app = ConfidentialClientApplicationBuilder.Create(ClientId)
 
 ## Troubleshooting
 
-This section of the article assumes that your ADAL.NET code was working, and that when you upgraded your app to MSAL.NET, keeping the same ClientID, you see errors.
+This troubleshooting guide makes two assumptions: 
+
+1. It assumes that your ADAL.NET code was working.
+2. It assumes that you migrated to MSAL keeping the same ClientID.
 
 ### AADSTS700027 exception
 
-if you get an exception with the following message: `AADSTS700027: Client assertion contains an invalid signature. [Reason - The key was not found.]`:
+If you get an exception with the following message: `AADSTS700027: Client assertion contains an invalid signature. [Reason - The key was not found.]`:
 
-- Check that you're using the latest version of MSAL.NET,
-- Check that the authority host set when building the confidential client application is the same as the authority host you used with ADAL. In particular, is it the same cloud? (PPE, PROD, GGC, DE, Gallatin, etc. ...)
-- Check that, if you were sending x5c to help the certificate rotation in ADAL (`sendX5c:true`), now use `.WithSendX5C(true)` on the AcquireTokenXXX() method with MSAL.
+- Confirm that you're using the latest version of MSAL.NET,
+- Confirm that the authority host set when building the confidential client application and the authority host you used with ADAL are similar. In particular, is it the same cloud? (PPE, PROD, GGC, DE, Gallatin, and so on ...)
+- Confirm that, if you are sending x5c to help the certificate rotation in ADAL (`sendX5c:true`), now use `.WithSendX5C(true)` on the AcquireTokenXXX() method with MSAL.
 
 ### AADSTS700030 exception
 
 if you get an exception with the following message: `AADSTS90002: Tenant 'cf61953b-e41a-46b3-b500-663d279ea744' not found. This may happen if there are no active subscriptions for the tenant. Check to make sure you have the correct tenant ID. Check with your subscription administrator.`:
 
-- Check that you're using the latest version of MSAL.NET,
-- Check that the authority host set when building the confidential client application is the same as the authority host you used with ADAL. In particular, is it the same cloud? (PPE, PROD, GGC, DE, Gallatin, etc. ...)
+- Confirm that you're using the latest version of MSAL.NET,
+- Confirm that the authority host set when building the confidential client application and the authority host you used with ADAL are similar. In particular, is it the same cloud? (PPE, PROD, GGC, DE, Gallatin, and so on ...)
 
 <!--
 ### AADSTS100007 exception
