@@ -111,7 +111,6 @@ The following table lists the operations related to App Service that may be crea
 |Apply Web App Configuration| Applied configuration changes|
 |Reset Web App Configuration| Configuration changes reset|
 |Approve Private Endpoint Connections| Approved private endpoint connections|
-|List Web Apps Sync Function Trigger Status| |
 |Network Trace Web Apps| Initiated network trace|
 |Newpassword Web Apps| New password created |
 |Get Zipped Container Logs for Web App| Get container logs |
