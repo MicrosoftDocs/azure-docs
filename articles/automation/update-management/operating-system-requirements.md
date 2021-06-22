@@ -3,7 +3,7 @@ title: Azure Automation Update Management Supported Clients
 description: This article describes the supported Windows and Linux operating systems with Azure Automation Update Management.
 services: automation
 ms.subservice: update-management
-ms.date: 06/07/2021
+ms.date: 06/22/2021
 ms.topic: conceptual
 ---
 
@@ -25,7 +25,7 @@ The following table lists the supported operating systems for update assessments
 |CentOS 6, 7, and 8 (x64)      | Linux agents require access to an update repository. Classification-based patching requires `yum` to return security data that CentOS doesn't have in its RTM releases. For more information on classification-based patching on CentOS, see [Update classifications on Linux](view-update-assessments.md#linux).          |
 |Red Hat Enterprise 6, 7, and 8 (x64)     | Linux agents require access to an update repository.        |
 |SUSE Linux Enterprise Server 12, 15, and 15.1 (x64)     | Linux agents require access to an update repository.     |
-|Ubuntu 14.04 LTS, 16.04 LTS, and 18.04 LTS (x64)      |Linux agents require access to an update repository.         |
+|Ubuntu 14.04 LTS, 16.04 LTS, 18.04 LTS, and 20.04 LTS (x64)      |Linux agents require access to an update repository.         |
 
 > [!NOTE]
 > Update Management does not support safely automating update management across all instances in an Azure virtual machine scale set. [Automatic OS image upgrades](../../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) is the recommended method for managing OS image upgrades on your scale set.
