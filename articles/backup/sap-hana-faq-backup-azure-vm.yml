@@ -3,7 +3,7 @@ metadata:
   title: FAQ - Back up SAP HANA databases on Azure VMs
   description: In this article, discover answers to common questions about backing up SAP HANA databases using the Azure Backup service.
   ms.topic: conceptual
-  ms.date: 11/7/2019
+  ms.date: 06/22/2021
     
 title: Frequently asked questions – Back up SAP HANA databases on Azure VMs
 summary: This article answers common questions about backing up SAP HANA databases using the Azure Backup service.
@@ -15,7 +15,12 @@ sections:
       - question: |
           How many full backups are supported per day?
         answer: |
-          We support only one full backup per day. You can't have differential backup and full backup triggered on the same day.
+          You can have one schedule backup and multiple on-demand backups in a day.
+
+          | Backup types | Scheduled backup | On-demand backups |
+          | --- | --- | --- |
+          | Full | Only one supported in a day. | Multiple times in a day supported. |
+          | Delta (differential/incremental) | Only one supported in a day. <br> **Note** <br> Delta backups can be scheduled only when no full backup is scheduled for the particular day. | Multiple times in a day supported. |
 
       - question: |
           Do successful backup jobs create alerts?
