@@ -21,15 +21,18 @@ Platform metrics and the Activity logs are collected automatically, whereas you 
 - Storage Account
   
 > [!NOTE]
-> For SQL API accounts, we recommend creating the diagnostic setting in resource-specific mode [following our instructions for creating diagnostics setting via REST API](cosmosdb-monitor-resource-logs.md#create-diagnostic-setting). This option provides additional cost-optimizations with an improved view for handling data.
+> We recommend creating the diagnostic setting in resource-specific mode (for all APIs except Table API) [following our instructions for creating diagnostics setting via REST API](cosmosdb-monitor-resource-logs.md#create-diagnostic-setting). This option provides additional cost-optimizations with an improved view for handling data.
 
-## Create using the Azure portal
+## <a id="create-setting-portal"></a> Create diagnostics settings via the Azure portal
 
 1. Sign into the [Azure portal](https://portal.azure.com).
 
-1. Navigate to your Azure Cosmos account. Open the **Diagnostic settings** pane, and then select **Add diagnostic setting** option.
+1. Navigate to your Azure Cosmos account. Open the **Diagnostic settings** pane under the **Monitoring section**, and then select **Add diagnostic setting** option.
 
-2. In the **Diagnostic settings** pane, fill the form with your preferred categories.
+:::image type="content" source="./media/monitor-cosmos-db/diagnostics-settings-selection.png" alt-text="Select enable":::
+
+
+1. In the **Diagnostic settings** pane, fill the form with your preferred categories.
 
 ### Choosing Log Categories
 
@@ -45,10 +48,13 @@ Platform metrics and the Activity logs are collected automatically, whereas you 
 |ControlPlaneRequests     |   All APIs       |    Logs details on control plane operations i.e. creating an account, adding or removing a region, updating account replication settings etc.     |    `operationName`, `httpstatusCode`, `httpMethod`, `region`       |
 |TableApiRequests     |   Table API    |     Logs user-initiated requests from the front end to serve requests to Azure Cosmos DB's API for Table. When you enable this category, make sure to disable DataPlaneRequests.       |    `operationName`, `requestCharge`, `piiCommandText`     |
 
+3. Once you select your **Categories details**, then send your Logs to your prefeered destination. If you're sending Logs to a **Log Analytics Workspace**, make sure to select **Resource specific** as the Destination table.
+
+:::image type="content" source="./media/monitor-cosmos-db/diagnostics-resource-specific.png" alt-text="Select enable":::
+
 
 ## <a id="create-diagnostic-setting"></a> Create diagnostic setting via REST API
-Use the [Azure Monitor REST API](/rest/api/monitor/diagnosticsettings/createorupdate)
- for creating a diagnostic setting via the interactive console.
+Use the [Azure Monitor REST API](/rest/api/monitor/diagnosticsettings/createorupdate) for creating a diagnostic setting via the interactive console.
 > [!Note]
 > We recommend setting the **logAnalyticsDestinationType** property to **Dedicated** for enabling resource specific tables.
 
