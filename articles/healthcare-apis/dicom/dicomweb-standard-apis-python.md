@@ -1,6 +1,6 @@
 ---
 title:  Using DICOMweb&trade;Standard APIs with Python - Azure Healthcare APIs 
-description: In this tutorial, you'll learn how to use DICOMweb&trade;Standard APIs with cURL. 
+description: This tutorial describes how to use DICOMweb Standard APIs with cURL. 
 author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
@@ -13,7 +13,7 @@ ms.author: aersoy
 
 This tutorial uses Python to demonstrate working with the DICOM Service.
 
-In the tutorial, we'll use these [sample DICOM files](../dcms). The file name, studyUID, seriesUID, and instanceUID of the sample DICOM files is as follows:
+In the tutorial, we'll use these [sample DICOM files](https://github.com/microsoft/dicom-server/tree/main/docs/dcms). The file name, studyUID, seriesUID, and instanceUID of the sample DICOM files is as follows:
 
 | File | StudyUID | SeriesUID | InstanceUID |
 | --- | --- | --- | ---|
@@ -377,7 +377,7 @@ response = client.get(url, headers=headers) #, verify=False)
 
 In the following examples, we search for items using their unique identifiers. You can also search for other attributes, such as PatientName.
 
-Refer to the [DICOM Conformance Statement](dicom-conformance-statement.md#supported-search-parameters) document for supported DICOM attributes.
+Refer to the [DICOM Conformance Statement](dicom-services-conformance-statement.md#supported-search-parameters) document for supported DICOM attributes.
 
 ---
 ### Search for studies
@@ -564,4 +564,4 @@ response = client.delete(url)
 For more information about DICOM Services, see 
 
 >[!div class="nextstepaction"]
->[Overview of DICOM Services](concepts_dicom_overview.md)
+>[Overview of DICOM Services](dicom-services-overview.md)

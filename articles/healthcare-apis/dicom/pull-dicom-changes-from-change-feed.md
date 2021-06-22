@@ -13,7 +13,7 @@ ms.author: aersoy
 
 The DICOM Change Feed offers customers the ability to go through the history of the DICOM Service and act on the create and delete events in the service. This how-to guide describes how to consume Change Feed.
 
-The Change Feed is accessed using REST APIs. These APIs along with sample usage of Change Feed are documented in the [Overview of DICOM Change Feed](overview_DICOM_change_feed.md).
+The Change Feed is accessed using REST APIs. These APIs along with sample usage of Change Feed are documented in the [Overview of DICOM Change Feed](dicom-change-feed-overview.md).
 
 ## Consume Change Feed
 
@@ -38,7 +38,7 @@ public async Task<IReadOnlyList<ChangeFeedEntry>> RetrieveChangeFeedAsync(long o
     return Array.Empty<ChangeFeedEntry>();
 }
 ```
-To view and access the **ChangeFeedRetrieveService.cs** code example, see [Consume Change Feed](../../converter/dicom-cast/src/Microsoft.Health.DicomCast.Core/Features/DicomWeb/Service/ChangeFeedRetrieveService.cs).
+To view and access the **ChangeFeedRetrieveService.cs** code example, see [Consume Change Feed](https://github.com/microsoft/dicom-server/blob/main/converter/dicom-cast/src/Microsoft.Health.DicomCast.Core/Features/DicomWeb/Service/ChangeFeedRetrieveService.cs).
 
  
 
@@ -47,4 +47,4 @@ To view and access the **ChangeFeedRetrieveService.cs** code example, see [Consu
 This how-to guide describes how to consume Change Feed. Change Feed allows you to monitor the history of the  DICOM Service. For more information about DICOM Services, see 
 
 >[!div class="nextstepaction"]
->[Overview of DICOM Services](concepts_dicom_overview.md)
+>[Overview of DICOM Services](dicom-services-overview.md)

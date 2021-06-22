@@ -4,7 +4,7 @@ description: In this article, you'll learn concepts of DICOM, Medical Imaging, a
 author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
-ms.topic: Conceptual
+ms.topic: conceptual
 ms.date: 06/21/2021
 ms.author: aersoy
 ---
@@ -56,7 +56,7 @@ This conceptual article provided you with an overview of DICOM, Medical Imaging,
 To get started using the DICOM service, see:
 
 >[!div class="nextstepaction"]
->[Deploy DICOM Services to Azure](../quickstarts/deploy-via-azure.md)
+>[Deploy DICOM Services to Azure](deploy-dicom-services-in-azure.md)
 
 >[!div class="nextstepaction"]
->[Use the DICOM Services for DICOM APIs](../tutorials/use-the-medical-imaging-server-apis.md)
+>[Using DICOMweb&trade;Standard APIs with DICOM Services](dicom-standard-apis-with-dicom-services.md)

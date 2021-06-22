@@ -13,7 +13,7 @@ ms.author: aersoy
 
 This tutorial uses C# to demonstrate working with the DICOM Services.
 
-In this tutorial, we'll use these [sample DICOM files](../dcms). The file name, studyUID, seriesUID, and instanceUID of the sample DICOM files is as follows:
+In this tutorial, we'll use these [sample DICOM files](https://github.com/microsoft/dicom-server/tree/main/docs/dcms). The file name, studyUID, seriesUID, and instanceUID of the sample DICOM files is as follows:
 
 | File | StudyUID | SeriesUID | InstanceUID |
 | --- | --- | --- | ---|
@@ -217,7 +217,7 @@ This response should return the only frame from the red-triangle. Validate that 
 ## Query DICOM (QIDO)
 
 > [!NOTE]
-> Refer to the [DICOM Conformance Statement](../resources/dicom-conformance-statement.md#supported-search-parameters) file for supported DICOM attributes.
+> Refer to the [DICOM Conformance Statement](dicom-services-conformance-statement.md#supported-search-parameters) for supported DICOM attributes.
 
 ### Search for studies
 
@@ -359,7 +359,7 @@ This response deletes the blue-circle instance (it is the only element left in t
 
 ### Next Steps
 
-For more information about DICOM Services, see 
+For more information about DICOM Services, see
 
 >[!div class="nextstepaction"]
->[Overview of DICOM Services](concepts_dicom_overview.md)
+>[Overview of DICOM Services](dicom-services-overview.md)

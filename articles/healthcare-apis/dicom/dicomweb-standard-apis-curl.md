@@ -1,6 +1,6 @@
 ---
 title:  Using DICOMweb&trade;Standard APIs with cURL - Azure Healthcare APIs 
-description: In this tutorial, you'll learn how to use DICOMweb&trade;Standard APIs with cURL. 
+description: In this tutorial, you'll learn how to use DICOMweb Standard APIs with cURL. 
 author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
@@ -13,7 +13,7 @@ ms.author: aersoy
 
 This tutorial uses cURL to demonstrate working with the DICOM Service.
 
-In this tutorial, we'll use these [sample DICOM files](../dcms). The file name, studyUID, seriesUID, and instanceUID of the sample DICOM files is as follows:
+In this tutorial, we'll use these [sample DICOM files](https://github.com/microsoft/dicom-server/tree/main/docs/dcms). The file name, studyUID, seriesUID, and instanceUID of the sample DICOM files is as follows:
 
 | File | StudyUID | SeriesUID | InstanceUID |
 | --- | --- | --- | ---|
@@ -227,7 +227,7 @@ In the following examples, we'll search for items using their unique identifiers
 
 This request enables searches for one or more studies by DICOM attributes.
 
-> Refer to the [DICOM Conformance Statement](dicom-conformance-statement.md) file for supported DICOM attributes.
+For more information about the supported DICOM attributes, see the [DICOM Conformance Statement](dicom-services-conformance-statement.md).
 
 _Details:_
 * Path: ../studies?StudyInstanceUID={study}
@@ -242,7 +242,7 @@ _Details:_
 
 This request enables searches for one or more series by DICOM attributes.
 
-> Refer to the [DICOM Conformance Statement](dicom-conformance-statement.md) file for supported DICOM attributes.
+For more information about the supported DICOM attributes, see the [DICOM Conformance Statement](dicom-services-conformance-statement.md).
 
 _Details:_
 * Path: ../series?SeriesInstanceUID={series}
@@ -257,7 +257,7 @@ _Details:_
 
 This request enables searches for one or more series within a single study by DICOM attributes.
 
-> Refer to the [DICOM Conformance Statement](dicom-conformance-statement.md) file for supported DICOM attributes.
+For more information about the supported DICOM attributes, see the [DICOM Conformance Statement](dicom-services-conformance-statement.md).
 
 _Details:_
 * Path: ../studies/{study}/series?SeriesInstanceUID={series}
@@ -272,7 +272,7 @@ _Details:_
 
 This request enables searches for one or more instances by DICOM attributes.
 
-> Refer to the [DICOM Conformance Statement](dicom-conformance-statement.md) file for supported DICOM attributes.
+For more information about the supported DICOM attributes, see the [DICOM Conformance Statement](dicom-services-conformance-statement.md).
 
 _Details:_
 * Path: ../instances?SOPInstanceUID={instance}
@@ -287,7 +287,7 @@ _Details:_
 
 This request enables searches for one or more instances within a single study by DICOM attributes.
 
-> Refer to the [DICOM Conformance Statement](dicom-conformance-statement.md) file for supported DICOM attributes.
+For more information about the supported DICOM attributes, see the [DICOM Conformance Statement](dicom-services-conformance-statement.md).
 
 _Details:_
 * Path: ../studies/{study}/instances?SOPInstanceUID={instance}

@@ -41,7 +41,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Overview of DICOM
-            url: ./dicom/dicom-overview.md
+            url: ./dicom/dicom-services-overview.md
 
   - title: Data Transformation
     linkLists:

@@ -4,7 +4,7 @@ description: In this article, you'll learn the concepts of DICOM Change Feed.
 author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
-ms.topic: Conceptual
+ms.topic: conceptual
 ms.date: 06/21/2021
 ms.author: aersoy
 ---
@@ -141,7 +141,7 @@ Change Feed support is well suited for scenarios that process data based on obje
 
 ## Summary
 
-In this article, we reviewed the REST API design of Change Feed and potential usage scenarios. For a how-to guide on Change Feed, see [Pull changes from Change Feed](../how-to-guides/pull-changes-from-change-feed.md).
+In this article, we reviewed the REST API design of Change Feed and potential usage scenarios. For a how-to guide on Change Feed, see [Pull changes from Change Feed](pull-dicom-changes-from-change-feed.md).
 
 ## Next steps
 

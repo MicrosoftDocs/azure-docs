@@ -40,7 +40,7 @@ sections:
         answer: |
           The DICOM standards has been fixed at version 3.0 since 1993. However, the standard continues to add both breaking and non-breaking changes through various workgroups.
           
-          No single product, including the DICOM Services, fully supports the DICOM standard. Instead, each product includes a DICOM Conformance document that specifies exactly what is supported. (Unsupported features are traditionally not called out explicitly.) For more information, see [DICOM Conformance Statement](dicom-conformance-statement.md)..
+          No single product, including the DICOM Services, fully supports the DICOM standard. Instead, each product includes a DICOM Conformance document that specifies exactly what is supported. (Unsupported features are traditionally not called out explicitly.) For more information, see [DICOM Conformance Statement](dicom-services-conformance-statement.md).
           
       - question: Does the DICOM Services store any PHI?
         answer: Absolutely. One of the core objectives for the DICOM Services is to support standard and innovating radiologist workflows. These workflows demand the use of PHI data.
