@@ -8,7 +8,7 @@ author: asudbring
 ms.service: virtual-network
 ms.subservice: nat
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 06/22/2021
 ms.author: allensu
 # Customer intent: As an IT administrator, I want to learn more about Virtual Network NAT, its NAT gateway resources, and what I can use them for. 
 ---
