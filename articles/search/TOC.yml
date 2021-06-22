@@ -190,7 +190,7 @@
       items:
       - name: Customer-managed keys
         href: search-security-manage-encryption-keys.md
-      - name: Retrieve keys
+      - name: Encryption information
         href: search-security-get-encryption-keys.md
     - name: Inbound security
       items:

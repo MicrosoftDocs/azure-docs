@@ -11,6 +11,7 @@ author: lostmygithubaccount
 ms.author: copeters
 ms.date: 05/25/2021
 ms.reviewer: laobri
+ms.custom: devx-track-azurecli
 ---
 
 # Install, set up, and use the 2.0 CLI (preview)

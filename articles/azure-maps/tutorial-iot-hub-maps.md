@@ -3,7 +3,7 @@ title: 'Tutorial: Implement IoT spatial analytics | Microsoft Azure Maps'
 description: Tutorial on how to Integrate IoT Hub with Microsoft Azure Maps service APIs
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 09/01/2020
+ms.date: 06/21/2021
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
@@ -171,7 +171,7 @@ Now, set up your Azure function.
 
 1. In the Azure portal dashboard, select **Create a resource**. Type **Function App** in the search text box. Select **Function App** > **Create**.
 
-1. On the **Function App** creation page, name your function app. Under **Resource Group**, select **ContosoRental** from the drop-down list. Select **.NET Core** as the **Runtime Stack**. At the bottom of the page, select **Next: Hosting >**.
+1. On the **Function App** creation page, name your function app. Under **Resource Group**, select **ContosoRental** from the drop-down list. Select **.NET** as the **Runtime Stack**. Select **3.1** as the **Version**.  At the bottom of the page, select **Next: Hosting >**.
 
     :::image type="content" source="./media/tutorial-iot-hub-maps/rental-app.png" alt-text="Screenshot of create a function app.":::
 
