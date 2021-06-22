@@ -65,7 +65,7 @@ if (response.Diagnostics.GetClientElapsedTime() > ConfigurableSlowRequestTimeSpa
 ## Understanding the diagnostics in 3.19 and greater
 The JSON structure has breaking changes with each version of the SDK. This makes it unsafe to be parsed. The JSON represents a tree structure of the request going through the SDK. This covers a few key things to look at:
 
-### CPU History
+### CPU history
 High CPU utilization is the most common cause for slow requests. For optimal latency, CPU usage should be roughly 40 percent. Use 10 seconds as the interval to monitor maximum (not average) CPU utilization. CPU spikes are more common with cross-partition queries where the requests might do multiple connections for a single query.
 
 If the error contains `TransportException` information, it might contain also `CPU History`:
