@@ -20,7 +20,7 @@ At this time, IPv6 is not supported. Azure Bastion supports IPv4 only.
 
 ### Can I use Azure Bastion with Azure Private DNS Zones?
 
-The use of Azure Bastion with Azure Private DNS Zones is not supported at this time. Before you deploy your Azure Bastion resource, please make sure that the host virtual network is not linked to a private DNS zone.
+The use of Azure Bastion with Private endpoint integrated Azure Private DNS Zones is not supported at this time. Before you deploy your Azure Bastion resource, please make sure that the host virtual network is not linked to a Private endpoint integrated private DNS zone.
 
 ### <a name="rdpssh"></a>Do I need an RDP or SSH client?
 

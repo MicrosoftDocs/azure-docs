@@ -262,6 +262,8 @@
           href: core/howto-manage-users-roles-with-rest-api.md
         - name: Control devices
           href: core/howto-control-devices-with-rest-api.md
+        - name: Manage jobs
+          href: core/howto-manage-jobs-with-rest-api.md
     - name: Manage your devices
       items:
         - name: Add and remove devices
