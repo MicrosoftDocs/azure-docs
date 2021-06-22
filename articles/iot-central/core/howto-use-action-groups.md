@@ -8,11 +8,11 @@ ms.date: 12/06/2019
 ms.topic: how-to
 ms.service: iot-central
 manager: philmea
+
+# This article applies to builders and administrators.
 ---
 
 # Group multiple actions to run from one or more rules
-
-*This article applies to builders and administrators.*
 
 In Azure IoT Central, you create rules to run actions when a condition is met. Rules are based on device telemetry or events. For example, you can notify an operator when the temperature of a device exceeds a threshold. This article describes how to use [Azure Monitor](../../azure-monitor/overview.md) *action groups* to attach multiple actions to an IoT Central rule. You can attach an action group to multiple rules. An [action group](../../azure-monitor/alerts/action-groups.md) is a collection of notification preferences defined by the owner of an Azure subscription.
 

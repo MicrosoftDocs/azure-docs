@@ -7,11 +7,11 @@ ms.date: 05/12/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
+
+# This article applies to solution builders.
 ---
 
 # Use workflows to integrate your Azure IoT Central application with other cloud services
-
-*This article applies to solution builders.*
 
 You can create rules in IoT Central that trigger actions, such as sending an email, in response to telemetry-based conditions, such as device temperature exceeding a threshold.
 
@@ -22,9 +22,9 @@ The Azure IoT Central V3 connector for Power Automate and Azure Logic Apps lets 
 
 ## Prerequisites
 
-To complete the steps in this how-to guide, you need an active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+To complete the steps in this how-to guide, you need:
 
-Setting up the solution requires a version 3 IoT Central application. To learn how to check your application version, see [About your application](./howto-get-app-info.md). To learn how to create an IoT Central application, see [Create an Azure IoT Central application](./quick-deploy-iot-central.md).
+[!INCLUDE [iot-central-prerequisites-basic](../../../includes/iot-central-prerequisites-basic.md)]
 
 > [!NOTE]
 > If you're using a version 2 IoT Central application, see [Build workflows with the IoT Central connector in Azure Logic Apps](/previous-versions/azure/iot-central/core/howto-build-azure-logic-apps) on the previous versions documentation site and use the Azure IoT Central V2 connector
@@ -175,14 +175,14 @@ Use this action to update cloud property values for a specific device.
 
 ### Update device properties
 
-Use this action to update writeable property values for a specific device.
+Use this action to update writable property values for a specific device.
 
 | Field | Description |
 | ----- | ----------- |
 | Application | Choose from your list of IoT Central applications. |
 | Device | The unique ID of the device to delete. |
 | Device Template | Choose from the list of device templates in your IoT Central application. |
-| Writeable properties | After you choose a device template, a field is added for each writeable property defined in the template. |
+| Writable properties | After you choose a device template, a field is added for each writable property defined in the template. |
 
 ## Next steps
 

@@ -31,12 +31,14 @@ To set file and directory level permissions, see any of the following articles:
 
 | Environment | Article |
 |--------|-----------|
-|Azure Storage Explorer |[Use Azure Storage Explorer to set ACLs in Azure Data Lake Storage Gen2](data-lake-storage-explorer-acl.md)|
-|.NET |[Use .NET to set ACLs in Azure Data Lake Storage Gen2](data-lake-storage-acl-dotnet.md)|
-|Java|[Use Java to set ACLs in Azure Data Lake Storage Gen2](data-lake-storage-acl-java.md)|
-|Python|[Use Python to set ACLs in Azure Data Lake Storage Gen2](data-lake-storage-acl-python.md)|
-|PowerShell|[Use PowerShell to set ACLs in Azure Data Lake Storage Gen2](data-lake-storage-acl-powershell.md)|
-|Azure CLI|[Use Azure CLI to set ACLs in Azure Data Lake Storage Gen2](data-lake-storage-acl-cli.md)|
+|Azure Storage Explorer |[Use Azure Storage Explorer to manage ACLs in Azure Data Lake Storage Gen2](data-lake-storage-explorer-acl.md)|
+|Azure portal |[Use the Azure portal to manage ACLs in Azure Data Lake Storage Gen2](data-lake-storage-acl-azure-portal.md)|
+|.NET |[Use .NET to manage ACLs in Azure Data Lake Storage Gen2](data-lake-storage-acl-dotnet.md)|
+|Java|[Use Java to manage ACLs in Azure Data Lake Storage Gen2](data-lake-storage-acl-java.md)|
+|Python|[Use Python to manage ACLs in Azure Data Lake Storage Gen2](data-lake-storage-acl-python.md)|
+|JavaScript (Node.js)|[Use the JavaScript SDK in Node.js to manage ACLs in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-javascript.md)|
+|PowerShell|[Use PowerShell to manage ACLs in Azure Data Lake Storage Gen2](data-lake-storage-acl-powershell.md)|
+|Azure CLI|[Use Azure CLI to manage ACLs in Azure Data Lake Storage Gen2](data-lake-storage-acl-cli.md)|
 |REST API |[Path - Update](/rest/api/storageservices/datalakestoragegen2/path/update)|
 
 > [!IMPORTANT]

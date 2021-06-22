@@ -4,7 +4,7 @@ description: This article describes how you can query against resources from mul
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 09/22/2020
+ms.date: 04/11/2021
 
 ---
 
@@ -23,7 +23,7 @@ There are two methods to query data that is stored in multiple workspace and app
 ## Cross-resource query limits 
 
 * The number of Application Insights resources and Log Analytics workspaces that you can include in a single query is limited to 100.
-* Cross-resource query is not supported in View Designer. You can Author a query in Log Analytics and pin it to Azure dashboard to [visualize a log query](../visualize/tutorial-logs-dashboards.md). 
+* Cross-resource query is not supported in View Designer. You can Author a query in Log Analytics and pin it to Azure dashboard to [visualize a log query](../visualize/tutorial-logs-dashboards.md) or include in [Workbooks](../visualize/workbooks-overview.md).
 * Cross-resource queries in log alerts are only supported in the current [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrules). If you're using the legacy Log Analytics Alerts API, you'll need to [switch to the current API](../alerts/alerts-log-api-switch.md).
 
 
@@ -37,15 +37,17 @@ Identifying a workspace can be accomplished one of several ways:
 
 * Resource name - is a human-readable name of the workspace, sometimes referred to as *component name*. 
 
+    >[!IMPORTANT]
+    >Because app and workspace names are not unique, this identifier might be ambiguous. It's recommended that reference is by Qualified name, Workspace ID, or Azure Resource ID.
+
     `workspace("contosoretail-it").Update | count`
 
-* Qualified name - is the “full name” of the workspace, composed of the subscription name, resource group, and component name in this format: *subscriptionName/resourceGroup/componentName*. 
+* Qualified name - is the "full name" of the workspace, composed of the subscription name, resource group, and component name in this format: *subscriptionName/resourceGroup/componentName*. 
 
     `workspace('contoso/contosoretail/contosoretail-it').Update | count`
 
     >[!NOTE]
-    >Because Azure subscription names are not unique, this identifier might be ambiguous. 
-    >
+    >Because Azure subscription names are not unique, this identifier might be ambiguous.
 
 * Workspace ID - A workspace ID is the unique, immutable, identifier assigned to each workspace represented as a globally unique identifier (GUID).
 

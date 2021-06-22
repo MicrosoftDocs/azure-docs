@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/27/2021
+ms.date: 06/11/2021
 ---
 
 # JavaScript code samples for Azure Cognitive Search
@@ -35,7 +35,6 @@ Code samples from the Azure SDK development team demonstrate API usage. You can 
 | [indexers](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/javascript/src/indexers) |  Demonstrates how to create, update, get, list, reset, and delete [indexers](search-indexer-overview.md).|
 | [skillSet](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/javascript/src/skillSets) |   Demonstrates how to create, update, get, list, and delete [skillsets](cognitive-search-working-with-skillsets.md) that are attached indexers, and that perform AI-based enrichment during indexing. |
 | [synonymMaps](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/javascript/src/synonymMaps) | Demonstrates how to create, update, get, list, and delete [synonym maps](search-synonyms.md).  |
-| [Queries](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/search/search-documents/samples/javascript/src/readonlyQuery.js) | Demonstrates query execution against a read-only public index hosted by Microsoft.  |
 
 ### TypeScript samples
 
@@ -46,7 +45,6 @@ Code samples from the Azure SDK development team demonstrate API usage. You can 
 | [indexers](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/typescript/src/indexers) |  Demonstrates how to create, update, get, list, reset, and delete [indexers](search-indexer-overview.md).|
 | [skillSet](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/typescript/src/skillSets) |   Demonstrates how to create, update, get, list, and delete [skillsets](cognitive-search-working-with-skillsets.md) that are attached indexers, and that perform AI-based enrichment during indexing. |
 | [synonymMaps](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/typescript/src/synonymMaps) | Demonstrates how to create, update, get, list, and delete [synonym maps](search-synonyms.md).  |
-| [Queries](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/search/search-documents/samples/typescript/src/readonlyQuery.ts) | Demonstrates query execution against a read-only public index hosted by Microsoft.  |
 
 ## Doc samples
 
@@ -54,10 +52,11 @@ Code samples from the Cognitive Search team demonstrate features and workflows. 
 
 | Samples | Article |
 |---------|---------|
-| [quickstart](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/quickstart/v11) | Source code for [Quickstart: Create a search index in JavaScript](search-get-started-javascript.md). This article covers the basic workflow for creating, loading, and querying a search index using sample data. |
+| [quickstart](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/quickstart/v11) | Source code for [Quickstart: Create a search index in JavaScript](search-get-started-javascript.md). Covers the basic workflow for creating, loading, and querying a search index using sample data. |
+| [search-website](https://github.com/azure-samples/azure-search-javascript-samples/tree/master/search-website) | Source code for [Tutorial: Add search to web apps](tutorial-javascript-overview.md). Demonstrates an end-to-end search app that includes a rich client plus components for hosting the app and handling search requests.|
 
 > [!Tip]
-> Try the [Samples browser](/samples/browse/?languages=javascript&products=azure-cognitive-search) to search for Microsoft code samples in Github, filtered by product, service, and language.
+> Try the [Samples browser](/samples/browse/?languages=javascript&products=azure-cognitive-search) to search for Microsoft code samples in GitHub, filtered by product, service, and language.
 
 ## Other samples
 

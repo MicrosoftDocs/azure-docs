@@ -9,8 +9,8 @@ ms.reviewer: sgilley
 ms.author: nilsp
 author: NilsPohlmann
 ms.date: 03/02/2021
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python, contperf-fy21q1
+ms.topic: how-to
+ms.custom: devx-track-python,contperf-fy21q1
 
 ---
 
@@ -26,7 +26,7 @@ The ML pipelines you create are visible to the members of your Azure Machine Lea
 
 ML pipelines execute on compute targets (see [What are compute targets in Azure Machine Learning](./concept-compute-target.md)). Pipelines can read and write data to and from supported [Azure Storage](../storage/index.yml) locations.
 
-If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
+If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 
 ## Prerequisites
 
@@ -85,7 +85,7 @@ from azureml.core import Dataset
 my_dataset = Dataset.File.from_files([(def_blob_store, 'train-images/')])
 ```
 
-Intermediate data (or output of a step) is represented by an [OutputFileDatasetConfig](/python/api/azureml-pipeline-core/azureml.data.output_dataset_config.outputfiledatasetconfig) object. `output_data1` is produced as the output of a step. Optionally, this data can be registered as a dataset by calling `register_on_complete`. If you create an `OutputFileDatasetConfig` in one step and use it as an input to another step, that data dependency between steps creates an implicit execution order in the pipeline.
+Intermediate data (or output of a step) is represented by an [OutputFileDatasetConfig](/python/api/azureml-core/azureml.data.output_dataset_config.outputfiledatasetconfig) object. `output_data1` is produced as the output of a step. Optionally, this data can be registered as a dataset by calling `register_on_complete`. If you create an `OutputFileDatasetConfig` in one step and use it as an input to another step, that data dependency between steps creates an implicit execution order in the pipeline.
 
 `OutputFileDatasetConfig` objects return a directory, and by default writes output to the default datastore of the workspace.
 
@@ -245,7 +245,7 @@ pipeline1 = Pipeline(workspace=ws, steps=[compare_models])
 
 ### Use a dataset 
 
-Datasets created from Azure Blob storage, Azure Files, Azure Data Lake Storage Gen1,  Azure Data Lake Storage Gen2, Azure SQL Database, and Azure Database for PostgreSQL can be used as input to any pipeline step. You can write output to a [DataTransferStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep), [DatabricksStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep), or if you want to write data to a specific datastore use [OutputFileDatasetConfig](/python/api/azureml-pipeline-core/azureml.data.outputfiledatasetconfig). 
+Datasets created from Azure Blob storage, Azure Files, Azure Data Lake Storage Gen1,  Azure Data Lake Storage Gen2, Azure SQL Database, and Azure Database for PostgreSQL can be used as input to any pipeline step. You can write output to a [DataTransferStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep), [DatabricksStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep), or if you want to write data to a specific datastore use [OutputFileDatasetConfig](/python/api/azureml-core/azureml.data.outputfiledatasetconfig). 
 
 > [!IMPORTANT]
 > Writing output data back to a datastore using `OutputFileDatasetConfig` is only supported for Azure Blob, Azure File share, ADLS Gen 1 and Gen 2 datastores. 
@@ -284,7 +284,7 @@ For more detail, including alternate ways to pass and access data, see [Moving d
 
 In order to optimize and customize the behavior of your pipelines, you can do a few things around caching and reuse. For example, you can choose to:
 + **Turn off the default reuse of the step run output** by setting `allow_reuse=False` during [step definition](/python/api/azureml-pipeline-steps/). Reuse is key when using pipelines in a collaborative environment since eliminating unnecessary runs offers agility. However, you can opt out of reuse.
-+ **Force output regeneration for all steps in a run** with `pipeline_run = exp.submit(pipeline, regenerate_outputs=False)`
++ **Force output regeneration for all steps in a run** with `pipeline_run = exp.submit(pipeline, regenerate_outputs=True)`
 
 By default, `allow_reuse` for steps is enabled and the `source_directory` specified in the step definition is hashed. So, if the script for a given step remains the same (`script_name`, inputs, and the parameters), and nothing else in the` source_directory` has changed, the output of a previous step run is reused, the job is not submitted to the compute, and the results from the previous run are immediately available to the next step instead.
 

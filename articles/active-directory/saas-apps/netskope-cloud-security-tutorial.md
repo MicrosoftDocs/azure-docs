@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Netskope Administrator Console | Microsoft Docs'
+title: "Tutorial: Azure Active Directory single sign-on (SSO) integration with Netskope Administrator Console | Microsoft Docs"
 description: Learn how to configure single sign-on between Azure Active Directory and Netskope Administrator Console.
 services: active-directory
 author: jeevansd
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/17/2020
+ms.date: 04/02/2021
 ms.author: jeedes
 ---
 
@@ -17,28 +17,27 @@ ms.author: jeedes
 
 In this tutorial, you'll learn how to integrate Netskope Administrator Console with Azure Active Directory (Azure AD). When you integrate Netskope Administrator Console with Azure AD, you can:
 
-* Control in Azure AD who has access to Netskope Administrator Console.
-* Enable your users to be automatically signed-in to Netskope Administrator Console with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+- Control in Azure AD who has access to Netskope Administrator Console.
+- Enable your users to be automatically signed-in to Netskope Administrator Console with their Azure AD accounts.
+- Manage your accounts in one central location - the Azure portal.
 
 ## Prerequisites
 
 To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-* Netskope Administrator Console single sign-on (SSO) enabled subscription.
+- An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+- Netskope Administrator Console single sign-on (SSO) enabled subscription.
 
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* Netskope Administrator Console supports **SP and IDP** initiated SSO
+- Netskope Administrator Console supports **SP and IDP** initiated SSO.
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
 
-
-## Adding Netskope Administrator Console from the gallery
+## Add Netskope Administrator Console from the gallery
 
 To configure the integration of Netskope Administrator Console into Azure AD, you need to add Netskope Administrator Console from the gallery to your list of managed SaaS apps.
 
@@ -56,10 +55,10 @@ Configure and test Azure AD SSO with Netskope Administrator Console using a test
 To configure and test Azure AD SSO with Netskope Administrator Console, perform the following steps:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+   1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+   1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
 1. **[Configure Netskope Administrator Console SSO](#configure-netskope-administrator-console-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create Netskope Administrator Console test user](#create-netskope-administrator-console-test-user)** - to have a counterpart of B.Simon in Netskope Administrator Console that is linked to the Azure AD representation of user.
+   1. **[Create Netskope Administrator Console test user](#create-netskope-administrator-console-test-user)** - to have a counterpart of B.Simon in Netskope Administrator Console that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
@@ -74,40 +73,40 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
 
-    In the **Reply URL** text box, type a URL using the following pattern:
-    `https://<tenant_host_name>/saml/acs`
+   In the **Reply URL** text box, type a URL using the following pattern:
+   `https://<tenant_host_name>/saml/acs`
 
-    > [!NOTE]
-	> The value is not real. Update the value with the actual Reply URL. You will get the value explained later in the tutorial.
+   > [!NOTE]
+   > The value is not real. Update the value with the actual Reply URL. You will get the value explained later in the tutorial.
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://<tenantname>.goskope.com`
+   In the **Sign-on URL** text box, type a URL using the following pattern:
+   `https://<tenantname>.goskope.com`
 
-	> [!NOTE]
-	> The Sign-on URL values is not real. Update Sign-on URL value with the actual Sign-on URL. Contact [Netskope Administrator Console Client support team](mailto:support@netskope.com) to get Sign-on URL value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+   > [!NOTE]
+   > The Sign-on URL values is not real. Update Sign-on URL value with the actual Sign-on URL. Contact [Netskope Administrator Console Client support team](mailto:support@netskope.com) to get Sign-on URL value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. Netskope Administrator Console application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
-	![image](common/default-attributes.png)
+   ![image](common/default-attributes.png)
 
 1. In addition to above, Netskope Administrator Console application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
 
-	| Name |  Source Attribute|
-	| ---------| --------- |
-	| admin-role | user.assignedroles |
+   | Name       | Source Attribute   |
+   | ---------- | ------------------ |
+   | admin-role | user.assignedroles |
 
-	> [!NOTE]
-	> Click [here](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui--preview) to know how to create roles in Azure AD.
+   > [!NOTE]
+   > Click [here](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui) to know how to create roles in Azure AD.
 
-1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
-	![The Certificate download link](common/certificatebase64.png)
+   ![The Certificate download link](common/certificatebase64.png)
 
 1. On the **Set up Netskope Administrator Console** section, copy the appropriate URL(s) based on your requirement.
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+   ![Copy configuration URLs](common/copy-configuration-urls.png)
 
 ### Create an Azure AD test user
 
@@ -116,7 +115,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
 1. Select **New user** at the top of the screen.
 1. In the **User** properties, follow these steps:
-   1. In the **Name** field, enter `B.Simon`.  
+   1. In the **Name** field, enter `B.Simon`.
    1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
    1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
    1. Click **Create**.
@@ -139,45 +138,45 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on the **Settings** tab from the left navigation pane.
 
-    ![Screenshot shows Setting selected in the navigation pane.](./media/netskope-cloud-security-tutorial/config-settings.png)
+   ![Screenshot shows Setting selected in the navigation pane.](./media/netskope-cloud-security-tutorial/configure-settings.png)
 
 1. Click **Administration** tab.
 
-    ![Screenshot shows Administration selected from Settings.](./media/netskope-cloud-security-tutorial/config-administration.png)
+   ![Screenshot shows Administration selected from Settings.](./media/netskope-cloud-security-tutorial/administration.png)
 
 1. Click **SSO** tab.
 
-    ![Screenshot shows S S O selected in Administration.](./media/netskope-cloud-security-tutorial/config-sso.png)
+   ![Screenshot shows S S O selected in Administration.](./media/netskope-cloud-security-tutorial/tab.png)
 
 1. On the **Network Settings** section, perform the following steps:
-    
-    ![Screenshot shows Network Settings where you can enter the values described.](./media/netskope-cloud-security-tutorial/config-pasteurls.png)
 
-    a. Copy **Assertion Consumer Service URL** value and paste it into the **Reply URL** textbox in the **Basic SAML Configuration** section in the Azure portal.
+   ![Screenshot shows Network Settings where you can enter the values described.](./media/netskope-cloud-security-tutorial/network.png)
 
-    b. Copy **Service Provider Entity ID** value and paste it into the **Identifier** textbox in the **Basic SAML Configuration** section in the Azure portal.
+   a. Copy **Assertion Consumer Service URL** value and paste it into the **Reply URL** textbox in the **Basic SAML Configuration** section in the Azure portal.
+
+   b. Copy **Service Provider Entity ID** value and paste it into the **Identifier** textbox in the **Basic SAML Configuration** section in the Azure portal.
 
 1. Click on the **EDIT SETTINGS** under the **SSO/SLO Settings** section.
 
-    ![Screenshot shows S S O / S L O Settings where you can select EDIT SETTINGS.](./media/netskope-cloud-security-tutorial/config-editsettings.png)
+   ![Screenshot shows S S O / S L O Settings where you can select EDIT SETTINGS.](./media/netskope-cloud-security-tutorial/settings.png)
 
 1. On the **Settings** popup window, perform the following steps;
 
-    ![Screenshot shows the Settings dialog box where you can enter the values described.](./media/netskope-cloud-security-tutorial/configuration.png)
+   ![Screenshot shows the Settings dialog box where you can enter the values described.](./media/netskope-cloud-security-tutorial/configuration.png)
 
-    a. Select **Enable SSO**.
+   a. Select **Enable SSO**.
 
-    b. In the **IDP URL** textbox, paste the **Login URL** value, which you have copied from the Azure portal.
+   b. In the **IDP URL** textbox, paste the **Login URL** value, which you have copied from the Azure portal.
 
-    c. In the **IDP ENTITY ID** textbox, paste the **Azure AD Identifier** value, which you have copied from the Azure portal.
+   c. In the **IDP ENTITY ID** textbox, paste the **Azure AD Identifier** value, which you have copied from the Azure portal.
 
-    d. Open your downloaded Base64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **IDP CERTIFICATE** textbox.
+   d. Open your downloaded Base64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **IDP CERTIFICATE** textbox.
 
-    e. Select **Enable SSO**.
+   e. Select **Enable SSO**.
 
-    f. In the **IDP SLO URL** textbox, paste the **Logout URL** value, which you have copied from the Azure portal.
+   f. In the **IDP SLO URL** textbox, paste the **Logout URL** value, which you have copied from the Azure portal.
 
-    g. Click **SUBMIT**.
+   g. Click **SUBMIT**.
 
 ### Create Netskope Administrator Console test user
 
@@ -185,37 +184,37 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on the **Settings** tab from the left navigation pane.
 
-    ![Screenshot shows Settings selected.](./media/netskope-cloud-security-tutorial/config-settings.png)
+   ![Screenshot shows Settings selected.](./media/netskope-cloud-security-tutorial/configure-settings.png)
 
 1. Click **Active Platform** tab.
 
-    ![Screenshot shows Active Platform selected from Settings.](./media/netskope-cloud-security-tutorial/user1.png)
+   ![Screenshot shows Active Platform selected from Settings.](./media/netskope-cloud-security-tutorial/user-1.png)
 
 1. Click **Users** tab.
 
-    ![Screenshot shows Users selected from Active Platform.](./media/netskope-cloud-security-tutorial/add-user.png)
+   ![Screenshot shows Users selected from Active Platform.](./media/netskope-cloud-security-tutorial/add-user.png)
 
 1. Click **ADD USERS**.
 
-    ![Screenshot shows the Users dialog box where you can select ADD USERS.](./media/netskope-cloud-security-tutorial/user-add.png)
+   ![Screenshot shows the Users dialog box where you can select ADD USERS.](./media/netskope-cloud-security-tutorial/user-add.png)
 
 1. Enter the email address of the user you want to add and click **ADD**.
 
-    ![Screenshot shows Add Users where you can enter a list of users.](./media/netskope-cloud-security-tutorial/add-user-popup.png)
+   ![Screenshot shows Add Users where you can enter a list of users.](./media/netskope-cloud-security-tutorial/add-user-popup.png)
 
 ## Test SSO
 
-In this section, you test your Azure AD single sign-on configuration with following options. 
+In this section, you test your Azure AD single sign-on configuration with following options.
 
 #### SP initiated:
 
-* Click on **Test this application** in Azure portal. This will redirect to Netskope Administrator Console Sign on URL where you can initiate the login flow.  
+- Click on **Test this application** in Azure portal. This will redirect to Netskope Administrator Console Sign on URL where you can initiate the login flow.
 
-* Go to Netskope Administrator Console Sign-on URL directly and initiate the login flow from there.
+- Go to Netskope Administrator Console Sign-on URL directly and initiate the login flow from there.
 
 #### IDP initiated:
 
-* Click on **Test this application** in Azure portal and you should be automatically signed in to the Netskope Administrator Console for which you set up the SSO 
+- Click on **Test this application** in Azure portal and you should be automatically signed in to the Netskope Administrator Console for which you set up the SSO
 
 You can also use Microsoft My Apps to test the application in any mode. When you click the Netskope Administrator Console tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Netskope Administrator Console for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 

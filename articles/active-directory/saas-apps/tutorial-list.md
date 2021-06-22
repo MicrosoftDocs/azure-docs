@@ -58,6 +58,7 @@ To find more tutorials, use the table of contents on the left.
 | ![logo-ArcGIS Enterprise](./media/tutorial-list/active-directory-saas-arcgisenterprise-tutorial.png)| [ArcGIS Enterprise](arcgisenterprise-tutorial.md)|
 | ![logo-AskYourTeam](./media/tutorial-list/active-directory-saas-askyourteam-tutorial.png)| [AskYourTeam](askyourteam-tutorial.md)|
 | ![logo-Atlassian Cloud](./media/tutorial-list/active-directory-saas-atlassian-cloud-tutorial.png)| [Atlassian Cloud](atlassian-cloud-tutorial.md)|
+| ![logo-AWS Single Sign-On](./media/tutorial-list/active-directory-saas-aws-single-sign-on-tutorial.png)| [AWS Single Sign-On](aws-single-sign-on-tutorial.md)|
 | ![logo-Box](./media/tutorial-list/active-directory-saas-box-tutorial.png)| [Box](box-tutorial.md)|
 | ![logo-CakeHR](./media/tutorial-list/active-directory-saas-cakehr-tutorial.png)| [CakeHR](cakehr-tutorial.md)|
 | ![logo-Carbonite Endpoint Backup](./media/tutorial-list/active-directory-saas-carbonite-endpoint-backup-tutorial.png)| [Carbonite Endpoint Backup](carbonite-endpoint-backup-tutorial.md)|
@@ -80,6 +81,7 @@ To find more tutorials, use the table of contents on the left.
 | ![logo-Evernote](./media/tutorial-list/active-directory-saas-evernote-tutorial.png)| [Evernote](evernote-tutorial.md)|
 | ![logo-ExpenseIn](./media/tutorial-list/active-directory-saas-expensein-tutorial.png)| [ExpenseIn](expensein-tutorial.md)|
 | ![logo-EZOfficeInventory](./media/tutorial-list/active-directory-saas-ezofficeinventory-tutorial.png)| [EZOfficeInventory](ezofficeinventory-tutorial.md)|
+| ![logo-FAX.PLUS](./media/tutorial-list/active-directory-saas-fax-plus-tutorial.png)| [FAX.PLUS](fax-plus-tutorial.md)|
 | ![logo-Foodee](./media/tutorial-list/active-directory-saas-foodee-tutorial.png)| [Foodee](foodee-tutorial.md)|
 | ![logo-Freedcamp](./media/tutorial-list/active-directory-saas-freedcamp-tutorial.png)| [Freedcamp](freedcamp-tutorial.md)|
 | ![logo-Freshservice](./media/tutorial-list/active-directory-saas-freshservice-tutorial.png)| [Freshservice](freshservice-tutorial.md)|
@@ -126,6 +128,7 @@ To find more tutorials, use the table of contents on the left.
 | ![logo-Way We Do](./media/tutorial-list/active-directory-saas-waywedo-tutorial.png)| [Way We Do](waywedo-tutorial.md)|
 | ![logo-Whimsical](./media/tutorial-list/active-directory-saas-whimsical-tutorial.png)| [Whimsical](whimsical-tutorial.md)|
 | ![logo-WhosOffice](./media/tutorial-list/active-directory-saas-whosoffice-tutorial.png)| [WhosOffice](whosoffice-tutorial.md)|
+| ![logo-Wootric](./media/tutorial-list/active-directory-saas-wootric-tutorial.png)| [Wootric](wootric-tutorial.md)|
 | ![logo-Workplace by Facebook](./media/tutorial-list/active-directory-saas-workplacebyfacebook-tutorial.png)| [Workplace by Facebook](workplacebyfacebook-tutorial.md)|
 | ![logo-Workteam](./media/tutorial-list/active-directory-saas-workteam-tutorial.png)| [Workteam](workteam-tutorial.md)|
 | ![logo-XaitPorter](./media/tutorial-list/active-directory-saas-xaitporter-tutorial.png)| [XaitPorter](xaitporter-tutorial.md)|

@@ -7,7 +7,8 @@ ms.date: 06/15/2020
 ms.topic: how-to
 ms.service: virtual-machines
 ms.tgt_pltfrm: linux
-ms.subservice: disks
+ms.subservice: disks 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Upload a VHD to Azure or copy a managed disk to another region - Azure PowerShell
@@ -29,7 +30,7 @@ To upload your VHD to Azure, you'll need to create an empty managed disk that is
 
 This kind of managed disk has two unique states:
 
-- ReadToUpload, which means the disk is ready to receive an upload but, no [secure access signature](../../storage/common/storage-sas-overview.md) (SAS) has been generated.
+- ReadyToUpload, which means the disk is ready to receive an upload but, no [secure access signature](../../storage/common/storage-sas-overview.md) (SAS) has been generated.
 - ActiveUpload, which means that the disk is ready to receive an upload and the SAS has been generated.
 
 > [!NOTE]

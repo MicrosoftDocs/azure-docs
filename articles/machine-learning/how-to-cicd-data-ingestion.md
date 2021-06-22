@@ -5,8 +5,8 @@ description: Learn how to apply DevOps practices to build a data ingestion pipel
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python, data4ml
+ms.topic: how-to
+ms.custom: devx-track-python, data4ml
 ms.author: iefedore
 author: eedorenko
 manager: davete

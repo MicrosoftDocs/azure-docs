@@ -20,9 +20,9 @@ With Azure, there are many [support options and plans](https://azure.microsoft.c
 
 ## Post a question to Microsoft Q&A
 
-For quick and reliable answers to product or technical questions you might have about Azure Communication Services from Microsoft Engineers, Azure Most Valuable Professionals (MVPs), or our community, engage with us on [Microsoft Q&A](https://docs.microsoft.com/answers/products/azure). 
+For quick and reliable answers to product or technical questions you might have about Azure Communication Services from Microsoft Engineers, Azure Most Valuable Professionals (MVPs), or our community, engage with us on [Microsoft Q&A](/answers/products/azure). 
 
-If you can't find an answer to your problem by searching you can, submit a new question to Microsoft Q&A. When creating a question make sure to use the [Azure Communication Services Tag](https://docs.microsoft.com/answers/topics/azure-communication-services.html).
+If you can't find an answer to your problem by searching you can, submit a new question to Microsoft Q&A. When creating a question make sure to use the [Azure Communication Services Tag](/answers/topics/azure-communication-services.html).
 
 ## Post a question on Stack Overflow
 

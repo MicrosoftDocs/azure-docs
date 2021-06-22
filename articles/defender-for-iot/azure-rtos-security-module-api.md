@@ -1,18 +1,7 @@
 ---
 title: Defender-IoT-micro-agent for Azure RTOS API
 description: Reference API for the Defender-IoT-micro-agent for Azure RTOS.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: mlottner
-manager: rkarlin
-editor: ''
-
-
-ms.devlang: na
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 09/07/2020
 ms.author: mlottner
 ---

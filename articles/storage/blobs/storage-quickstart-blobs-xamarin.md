@@ -36,7 +36,7 @@ Reference links:
 
 * Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 * Azure storage account - [create a storage account](../common/storage-account-create.md)
-* Visual Studio with [Mobile Development for .NET workload](/xamarin/get-started/installation/?pivots=windows) installed or [Visual Studio for Mac](/visualstudio/mac/installation?view=vsmac-2019)
+* Visual Studio with [Mobile Development for .NET workload](/xamarin/get-started/installation/?pivots=windows) installed or [Visual Studio for Mac](/visualstudio/mac/installation?view=vsmac-2019&preserve-view=true)
 
 ## Setting up
     
@@ -192,7 +192,7 @@ async void List_Clicked(object sender, EventArgs e)
 
 ### Download blobs
 
-Download the previously created blob by calling the [​Download​Async](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.downloadasync) method. The example code copies the `Stream` representation of the blob first into a `MemoryStream` and then into a `StreamReader` so the text can be displayed.
+Download the previously created blob by calling the [​DownloadTo​Async](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.downloadtoasync) method. The example code copies the `Stream` representation of the blob first into a `MemoryStream` and then into a `StreamReader` so the text can be displayed.
 
 Add this code to the *MainPage.xaml.cs* file:
 

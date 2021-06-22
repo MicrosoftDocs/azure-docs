@@ -5,10 +5,10 @@ author: ju-shim
 ms.author: jushiman
 ms.topic: tutorial
 ms.service: virtual-machine-scale-sets
-ms.subservice: powershell
+ms.subservice: extensions
 ms.date: 11/08/2018
 ms.reviewer: mimckitt
-ms.custom: mimckitt
+ms.custom: mimckitt, devx-track-azurepowershell
 
 ---
 # Tutorial: Install applications in virtual machine scale sets with Azure PowerShell

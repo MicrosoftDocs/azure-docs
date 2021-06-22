@@ -7,21 +7,38 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 03/12/2021
+ms.date: 05/28/2021
 ms.custom: references_regions 
 ---
 # What's new in Azure Cognitive Search
 
 Learn what's new in the service. Bookmark this page to keep up to date with the service. Check out the [Preview feature list](search-api-preview.md) to view a comprehensive list of features that are not yet generally available.
 
+## May 2021
+
+|Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Description | Availability  |
+|------------------------------------|--------------|---------------|
+| [Power Query connector support (preview)](search-how-to-index-power-query-data-sources.md) | Indexers can now index from other cloud platforms. If you are using an indexer to crawl external data sources for indexing, you can now use Power Query connectors to connect to Amazon Redshift, Elasticsearch, PostgreSQL, Salesforce Objects, Salesforce Reports, Smartsheet, and Snowflake. </br></br>[Announcement (techcommunity blog)](https://techcommunity.microsoft.com/t5/azure-ai/azure-cognitive-search-indexers-allow-you-to-ingest-data-from/ba-p/2381988)  | Public preview ([by request](https://aka.ms/azure-cognitive-search/indexer-preview)), using REST api-version=2020-06-30-Preview and Azure portal. |
+|[Azure Data Lake Storage Gen2](search-howto-index-azure-data-lake-storage.md) | The ADLS Gen2 data source used by indexers is now generally available. | Generally available, using REST api-version=2020-06-30 and Azure portal. |
+|[MySQL support (preview)](search-howto-index-mysql.md) | For indexer-based indexing, announcing preview data source support for Azure MySQL. | Public preview, REST api-version=2020-06-30-Preview, [.NET SDK 11.2.1](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourcetype.mysql), and Azure portal. |
+| [More queryLanguages for spell check and semantic results](/rest/api/searchservice/preview-api/search-documents#queryLanguage) | For query requests that invoke spell check or queryType=semantic, you can now set the queryLanguage to a non-English language for [38 languages](/rest/api/searchservice/preview-api/search-documents#queryLanguage). </br></br>[Announcement (techcommunity blog)](https://techcommunity.microsoft.com/t5/azure-ai/introducing-multilingual-support-for-semantic-search-on-azure/ba-p/2385110) | Public preview ([by request](https://aka.ms/SemanticSearchPreviewSignup)). </br></br>Use [Search Documents (REST)](/rest/api/searchservice/preview-api/search-documents) api-version=2020-06-30-Preview, [Azure.Search.Documents 11.3.0-beta.2](https://www.nuget.org/packages/Azure.Search.Documents/11.3.0-beta.2), or [Search explorer](search-explorer.md) in Azure portal. </br></br>[Region and tier](semantic-search-overview.md#availability-and-pricing) restrictions apply. |
+| [Double encryption availability](search-security-manage-encryption-keys.md#double-encryption) | For search indexes and objects that are encrypted through customer-managed keys, double encryption (encryption of both static and temporary disks) is now implemented in all supported regions. | In all regions, subject to [service creation dates](search-security-manage-encryption-keys.md#double-encryption). |
+
+## April 2021
+
+|Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Description | Availability  |
+|------------------------------|---------------|---------------|
+| [Gremlin API support](search-howto-index-cosmosdb-gremlin.md) | For indexer-based indexing, you can now create a data source that retrieves content from Cosmos DB accessed through the Gremlin API. | Public preview ([by request](https://aka.ms/azure-cognitive-search/indexer-preview)), using api-version=2020-06-30-Preview. |
+
 ## March 2021
 
 |Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Description | Availability  |
 |------------------------------|---------------|---------------|
-| [Semantic search](semantic-search-overview.md) | A collection of query-related features that significantly improve the relevance of search results with very little effort. </br></br>[Semantic ranking](semantic-ranking.md) computes relevance scores using the semantic meaning behind words and content. </br></br>[Semantic captions](semantic-how-to-query-request.md) are relevant passages from the document that best summarize the document, with highlights over the most important terms or phrases. </br></br>[Semantic answers](semantic-answers.md) are key passages, extracted from a search document, that are formulated as a direct answer to a query that looks like a question. | Public preview ([by request](https://aka.ms/SemanticSearchPreviewSignup)). </br></br>Use [Search Documents (REST)](/rest/api/searchservice/preview-api/search-documents) api-version=2020-06-30-Preview and [Search explorer](search-explorer.md) in Azure portal. </br></br>Region and tier restrictions apply. |
+| [Semantic search](semantic-search-overview.md) | A collection of query-related features that significantly improve the relevance of search results through minimal adjustments to a query request. </br></br>[Semantic ranking](semantic-ranking.md) computes relevance scores using the semantic meaning behind words and content. </br></br>[Semantic captions](semantic-how-to-query-request.md) return relevant passages from the document that best summarize the document, with highlights over the most important terms or phrases. </br></br>[Semantic answers](semantic-answers.md) return key passages, extracted from a search document, that are formulated as a direct answer to a query that looks like a question. | Public preview ([by request](https://aka.ms/SemanticSearchPreviewSignup)). </br></br>Use [Search Documents (REST)](/rest/api/searchservice/preview-api/search-documents) api-version=2020-06-30-Preview or [Search explorer](search-explorer.md) in Azure portal. </br></br>Region and tier restrictions apply. |
 | [Spell check query terms](speller-how-to-add.md) | Before query terms reach the search engine, you can have them checked for spelling errors. The `speller` option works with any query type (simple, full, or semantic). |  Public preview, REST only, api-version=2020-06-30-Preview|
 | [SharePoint Online indexer](search-howto-index-sharepoint-online.md) | This indexer connects you to a SharePoint Online site so that you can index content from a document library. | Public preview, REST only, api-version=2020-06-30-Preview |
-| [Normalizers](search-normalizers.md) | Normalizers provide simple text pre-processing like casing, accent removal, asciifolding and so forth without undergoing through the entire analysis chain.| Public preview, REST only, api-version=2020-06-30-Preview |
+| [Normalizers](search-normalizers.md) | Normalizers provide simple text pre-processing: consistent casing, accent removal, and ASCII folding, without invoking the full text analysis chain.| Public preview, REST only, api-version=2020-06-30-Preview |
+| [Custom Entity Lookup skill](cognitive-search-skill-custom-entity-lookup.md ) |  A cognitive skill that looks for text from a custom, user-defined list of words and phrases. Using this list, it labels all documents with any matching entities. The skill also supports a degree of fuzzy matching that can be applied to find matches that are similar but not quite exact. | Generally available. |
 
 ## February 2021
 

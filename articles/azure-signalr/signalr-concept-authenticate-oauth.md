@@ -41,7 +41,7 @@ To complete this tutorial, you must have the following prerequisites:
 
 - An account created on [GitHub](https://github.com/)
 - [Git](https://git-scm.com/)
-- [.NET Core SDK](https://www.microsoft.com/net/download/windows)
+- [.NET Core SDK](https://dotnet.microsoft.com/download)
 - [Azure Cloud Shell](../cloud-shell/quickstart.md) configured for the bash environment.
 - Download or clone the [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples) GitHub repository.
 

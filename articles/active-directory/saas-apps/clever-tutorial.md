@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/17/2020
+ms.date: 06/17/2021
 ms.author: jeedes
 ---
 
@@ -32,12 +32,12 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* Clever supports **SP** initiated SSO
+* Clever supports **SP** initiated SSO.
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
 
-## Adding Clever from the gallery
+## Add Clever from the gallery
 
 To configure the integration of Clever into Azure AD, you need to add Clever from the gallery to your list of managed SaaS apps.
 
@@ -48,12 +48,11 @@ To configure the integration of Clever into Azure AD, you need to add Clever fro
 1. In the **Add from the gallery** section, type **Clever** in the search box.
 1. Select **Clever** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-
 ## Configure and test Azure AD SSO for Clever
 
 Configure and test Azure AD SSO with Clever using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Clever.
 
-To configure and test Azure AD SSO with Clever, complete the following building blocks:
+To configure and test Azure AD SSO with Clever, perform the following steps:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
     1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
@@ -68,23 +67,23 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In the Azure portal, on the **Clever** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, enter the values for the following fields:
+1. On the **Basic SAML Configuration** section, perform the following steps:
 
-	a. In the **Sign on URL** text box, type a URL using the following pattern:
-    `https://clever.com/in/<companyname>`
-
-    b. In the **Identifier (Entity ID)** text box, type the URL:
+    a. In the **Identifier (Entity ID)** text box, type the URL:
     `https://clever.com/oauth/saml/metadata.xml`
 
-    c. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://clever.com/<companyname>`
-	
+    b. In the **Reply URL** text box, type a URL using the following pattern:
+    `https://clever.com/<COMPANY_NAME>`
+
+	c. In the **Sign on URL** text box, type a URL using the following pattern:
+    `https://clever.com/in/<COMPANY_NAME>`
+
 	> [!NOTE]
-	>  These values are not real. Update these values with the actual Sign-on URL and Reply URL. Contact [Clever Client support team](https://clever.com/about/contact/) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	>  These values are not real. Update these values with the actual Reply URL and Sign on URL. Contact [Clever Client support team](https://clever.com/about/contact/) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
@@ -116,7 +115,23 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Clever SSO
 
-Follow the instructions given in the [link](https://support.clever.com/hc/articles/205889768-Single-Sign-On-SSO-Log-in-with-Office-365-Azure-) to configure single sign-on on Clever side.
+1. In a different web browser window, log in to your Clever district dashboard as an administrator.
+
+2. From the left navigation, click **Menu** > **Portal** > **SSO Settings**.
+
+3. On the **SSO Settings** page, perform the following steps:
+    
+    a. Select **Add Login Method**.
+
+    b. Select **Active Directory Authentication**. 
+
+    ![Settings](./media/clever-tutorial/account.png "Settings") 
+    
+    c. Open the downloaded **App Federation Metadata Url** from the Azure portal into Notepad and paste the content into the **Metadata URL** textbox.
+
+    ![Upload Certificate](./media/clever-tutorial/metadata.png "Upload Certificate") 
+
+    d.Click **Save**.
 
 ### Create Clever test user
 

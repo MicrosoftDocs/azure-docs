@@ -82,7 +82,7 @@ You can find more details about create options from [docker docs](https://docs.d
 
 ## Encrypted data in module storage
 
-When modules invoke the IoT Edge daemon's workload API to encrypt data, the encryption key is derived using the module ID and module's generation ID. A generation ID is used to protect secrets if a module is removed from the deployment and then another module with the same module ID is later deployed to the same device. You can view a module's generation id using the Azure CLI command [az iot hub module-identity show](/cli/azure/ext/azure-iot/iot/hub/module-identity).
+When modules invoke the IoT Edge daemon's workload API to encrypt data, the encryption key is derived using the module ID and module's generation ID. A generation ID is used to protect secrets if a module is removed from the deployment and then another module with the same module ID is later deployed to the same device. You can view a module's generation id using the Azure CLI command [az iot hub module-identity show](/cli/azure/iot/hub/module-identity).
 
 If you want to share files between modules across generations, they must not contain any secrets or they will fail to be decrypted.
 

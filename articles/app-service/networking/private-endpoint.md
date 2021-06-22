@@ -4,7 +4,7 @@ description: Connect privately to a Web App using Azure Private Endpoint
 author: ericgre
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 ms.topic: article
-ms.date: 03/16/2021
+ms.date: 06/15/2021
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
@@ -15,7 +15,7 @@ ms.custom: fasttrack-edit, references_regions
 # Using Private Endpoints for Azure Web App
 
 > [!IMPORTANT]
-> Private Endpoint is available for Windows and Linux Web App, containerized or not, hosted on these App Service Plans : **Isolated**, **PremiumV2**, **PremiumV3**, **Functions Premium** (sometimes referred to as the Elastic Premium plan). 
+> Private Endpoint is available for Windows and Linux Web App, containerized or not, hosted on these App Service Plans : **PremiumV2**, **PremiumV3**, **Functions Premium** (sometimes referred to as the Elastic Premium plan). 
 
 You can use Private Endpoint for your Azure Web App to allow clients located in your private network to securely access the app over Private Link. The Private Endpoint uses an IP address from your Azure VNet address space. Network traffic between a client on your private network and the Web App traverses over the VNet and a Private Link on the Microsoft backbone network, eliminating exposure from the public Internet.
 
@@ -147,5 +147,6 @@ We are improving Private Link feature and Private Endpoint regularly, check [thi
 [howtoguide2]: ../scripts/cli-deploy-privateendpoint.md
 [howtoguide3]: ../scripts/powershell-deploy-private-endpoint.md
 [howtoguide4]: ../scripts/template-deploy-private-endpoint.md
-[howtoguide5]: https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-privateendpoint-vnet-injection
+[howtoguide5]: https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/webapp-privateendpoint-vnet-injection
 [howtoguide6]: ../scripts/terraform-secure-backend-frontend.md
+[TiP]: ../deploy-staging-slots.md#route-traffic

@@ -84,6 +84,6 @@ Mentioned several times in this article is the **container group**. Every contai
 <!-- LINKS - External -->
 
 <!-- LINKS - Internal -->
-[az-container-create]: /cli/azure/container#az-container-create
+[az-container-create]: /cli/azure/container#az_container_create
 [azure-cli-install]: /cli/azure/install-azure-cli
-[az-container-export]: /cli/azure/container#az-container-export
+[az-container-export]: /cli/azure/container#az_container_export

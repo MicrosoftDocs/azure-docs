@@ -297,7 +297,7 @@ public static CreateMessageOptions Run(
 {
     ...
 }
- ```
+```
 
 For a complete example, see [C# example](#example).
 
@@ -332,7 +332,7 @@ The following table explains the binding configuration properties that you set i
 |**authToken**|**authTokenSetting**|**AuthTokenSetting**| This value must be set to the name of an app setting that holds your Twilio authentication token (`TwilioAccountAuthToken`). If not set, the default app setting name is "AzureWebJobsTwilioAuthToken". |
 |**to**| N/A - specify in code | **To**| This value is set to the phone number that the SMS text is sent to.|
 |**from**|**from** | **From**| This value is set to the phone number that the SMS text is sent from.|
-|**body**|**body** | **Body**| This value can be used to hard code the SMS text message if you don't need to set it dynamically in the code for your function. |  
+|**body**|**body** | **Body**| This value can be used to hard code the SMS text message if you don't need to set it dynamically in the code for your function. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

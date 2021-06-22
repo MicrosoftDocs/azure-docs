@@ -3,7 +3,6 @@ title: Tutorial - Updating certificate auto-rotation frequency in Key Vault | Mi
 description: Tutorial showing how to update a certificate's auto-rotation frequency in Azure Key Vault using the Azure portal
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 
 ms.service: key-vault
@@ -47,7 +46,7 @@ Create a certificate or import a certificate into the key vault (see [Steps to c
 
 ## Update certificate lifecycle attributes
 
-In Azure Key Vault, you can update a certificate's lifecycle attributes both before and after the time of certificate creation.
+In Azure Key Vault, you can update a certificate's lifecycle attributes both at the time of certificate creation or after.
 
 A certificate created in Key Vault can be:
 
@@ -76,9 +75,11 @@ Key Vault auto-rotates certificates through established partnerships with CAs. B
    - **Validity Period**: Enter the value (in  months). Creating short-lived certificates is a recommended security practice. By default, the validity value of a newly created certificate is 12 months.
    - **Lifetime Action Type**: Select the certificate's auto-renewal and alerting action and then update **percentage lifetime** or **Number of days before expiry**. By default, a certificate's auto-renewal is set at 80 percent of its lifetime. From the drop-down menu, select one of the following options.
 
-        |  Automatically renew at a given time| Email all contacts at a given time |
-        |-----------|------|
-        |Selecting this option will *turn on* autorotation. | Selecting this option will *not* auto-rotate but will only alert the contacts.|
+      |  Automatically renew at a given time| Email all contacts at a given time |
+      |-----------|------|
+      |Selecting this option will *turn on* autorotation. | Selecting this option will *not* auto-rotate but will only alert the contacts.|
+      
+      You can learn about [setting up Email contact here](./overview-renew-certificate.md#get-notified-about-certificate-expiration)
 
 1. Select **Create**.
 
@@ -131,7 +132,7 @@ Set-AzureKeyVaultCertificatePolicy -VaultName $vaultName
 > }
 >  ```
 > 
-To learn more about the parameters, see [az keyvault certificate](/cli/azure/keyvault/certificate#az-keyvault-certificate-set-attributes).
+To learn more about the parameters, see [az keyvault certificate](/cli/azure/keyvault/certificate#az_keyvault_certificate_set_attributes).
 
 ## Clean up resources
 

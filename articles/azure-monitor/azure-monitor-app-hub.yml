@@ -50,7 +50,7 @@ conceptualContent:
         - url: ./app/worker-service.md
           itemType: how-to-guide
           text: .NET Core Worker Service
-        - url: ./app/java-get-started.md
+        - url: ./app/java-2x-get-started.md
           itemType: how-to-guide
           text: Java
         - url: ./app/opencensus-python.md
@@ -104,7 +104,7 @@ conceptualContent:
         - url: ./app/tutorial-performance.md
           itemType: how-to-guide
           text: Find and diagnose performance issues
-        - url: /azure/azure-monitor/alerts/tutorial-alert
+        - url: ./app/tutorial-alert.md
           itemType: how-to-guide
           text: Monitor and alert on application health
         - url: ./app/tutorial-users.md
@@ -176,9 +176,6 @@ conceptualContent:
         - url: ./app/asp-net-trace-logs.md
           itemType: how-to-guide
           text:  System diagnostic trace logs
-        - url: ./app/micrometer-java.md
-          itemType: how-to-guide
-          text:  Micrometer metrics
         - url: ./app/diagnostic-search.md
           itemType: how-to-guide
           text:  Search
@@ -309,7 +306,7 @@ conceptualContent:
         - url: ./app/automate-custom-reports.md
           itemType: how-to-guide
           text: Custom e-mail reports
-        - url: ./app/usage-send-user-context.md
+        - url: ./app/usage-overview.md
           itemType: how-to-guide
           text: Send user context IDs
         - url: ./app/custom-endpoints.md
@@ -396,7 +393,7 @@ conceptualContent:
         - url: ./app/visual-studio.md
           itemType: how-to-guide
           text:  F5 insights
-        - url: ./app/visual-studio-trends.md
+        - url: ./app/visual-studio.md
           itemType: how-to-guide
           text:  Trends
         - url: ./app/visual-studio-codelens.md
@@ -420,7 +417,7 @@ conceptualContent:
         - url: ./app/asp-net-troubleshoot-no-data.md
           itemType: how-to-guide
           text:  Troubleshoot no data
-        - url: ./faq.md
+        - url: ./faq.yml
           itemType: how-to-guide
           text:  Troubleshooting FAQ
 
@@ -460,4 +457,4 @@ additionalContent:
         url: /powershell/module/az.applicationinsights/new-azapplicationinsights
       - title: Azure CLI commands for Application Insights
         summary: Application Insights CLI extension commands (az extension add -n application-insights).
-        url: /cli/azure/ext/application-insights/monitor/app-insights/component
+        url: /cli/azure/monitor/app-insights/component

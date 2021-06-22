@@ -1,15 +1,11 @@
 ---
-title: View alerts
+title: Filter and manage alerts from the Alerts page 
 description: View alerts according to various categories, and uses search features to help you find alerts of interest.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
-ms.date: 12/02/2020
+ms.date: 05/31/2021
 ms.topic: how-to
-ms.service: azure
 ---
 
-# View alerts
+# Filter and manage alerts from the Alerts page 
 
 This article describes how to view alerts triggered by your sensor and manage them with alert tools.
 
@@ -32,8 +28,8 @@ You can view alerts according to various categories from the **Alerts** main vie
 | **Important Alerts** | Alerts sorted by importance. |
 | **Pinned Alerts** | Alerts that the user pinned for further investigation. Pinned alerts are not archived and are stored for 14 days in the pinned folder. |
 | **Recent Alerts** | Alerts sorted by time. |
-| **Acknowledged Alerts** | Alerts that were acknowledged and unhandled, or that were muted and unmuted. |
-| **Archived Alerts** | Alerts that the system archived automatically. Only the administrator user can access them. |
+| **Acknowledged Alerts** | Alerts that were acknowledged and unhandled, or that were muted, and unmuted. |
+| **Archived Alerts** | Alerts that the system archived automatically. By default, alerts are archived 14 days after the alert was triggered. Only the administrator user can access them. |
 
 ## Search for alerts of interest
 

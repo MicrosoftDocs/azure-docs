@@ -4,7 +4,8 @@ description: This article helps you learn how Azure Automation protects your pri
 services: automation
 ms.subservice: shared-capabilities
 ms.date: 03/10/2021
-ms.topic: conceptual
+ms.topic: conceptual 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Management of Azure Automation data
@@ -51,7 +52,7 @@ The following table summarizes the retention policy for different resources.
 | Node Reports |A node report is permanently removed 90 days after a new report is generated for that node. |
 | Runbooks |A runbook is permanently removed 30 days after a user deletes the resource, or 30 days after a user deletes the account that holds the resource<sup>1</sup>. |
 
-<sup>1</sup>The runbook can be recovered within the 30-day window by filing an Azure support incident with Microsoft Azure Support. Go to the [Azure support site](/support/options) and select **Submit a support request**.
+<sup>1</sup>The runbook can be recovered within the 30-day window by filing an Azure support incident with Microsoft Azure Support. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select **Submit a support request**.
 
 ## Data backup
 

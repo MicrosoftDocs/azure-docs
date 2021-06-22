@@ -3,10 +3,11 @@ title: Build your first data factory (REST)
 description: In this tutorial, you create a sample Azure Data Factory pipeline using Data Factory REST API.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 11/01/2017
+ms.date: 11/01/2017 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Tutorial: Build your first Azure data factory using Data Factory REST API

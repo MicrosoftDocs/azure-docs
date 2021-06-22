@@ -64,8 +64,6 @@ landingContent:
             url: tutorial-sql-server-to-managed-instance.md
       - linkListType: reference
         links:
-          - text: Known issues - Online migration to SQL Database
-            url: known-issues-azure-sql-online.md
           - text: Known issues - Online migration to SQL Managed Instance
             url: known-issues-azure-sql-db-managed-instance-online.md
           - text: Network topologies for SQL Managed Instance migrations
@@ -121,25 +119,17 @@ landingContent:
           - text: Database Migration Guide
             url: https://datamigration.microsoft.com/
           - text: Data Migration Assistant
-            url: /sql/dma/dma-overview?view=sql-server-2017
+            url: /sql/dma/dma-overview
           - text: SQL Server Migration Assistant
-            url: /sql/ssma/sql-server-migration-assistant?view=sql-server-2017
+            url: /sql/ssma/sql-server-migration-assistant
           - text: Database Experimentation Assistant
-            url: /sql/dea/database-experimentation-assistant-overview?view=sql-server-2017
+            url: /sql/dea/database-experimentation-assistant-overview
           - text: Data Access Migration Toolkit
             url: https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit
 # Card 5
   - title: Migrate Oracle to Azure
     linkLists:
-      - linkListType: tutorial
-        links:
-          - text: Migrate to Azure Database for PostgreSQL - Single server - online
-            url: tutorial-oracle-azure-postgresql-online.md
-      - linkListType: reference
-        links:
-          - text: Known issues - Online migration to Azure Database for PostgreSQL - Single server
-            url: known-issues-oracle-azure-postgresql-online.md
       - linkListType: video
         links:
           - text: Migrate to SQL Database single database
-            url: https://azure.microsoft.com/resources/videos/how-to-migrate-oracle-to-sqldb-online/
+            url: /azure/postgresql/howto-migrate-from-oracle

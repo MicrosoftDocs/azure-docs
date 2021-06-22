@@ -1,12 +1,8 @@
 ---
 title: Defender for IoT glossary
 description: This glossary provides a brief description of important Defender for IoT platform terms and concepts.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/09/2020
 ms.topic: article
-ms.service: azure
 ---
 
 # Defender for IoT glossary
@@ -50,7 +46,6 @@ This glossary provides a brief description of important terms and concepts for t
 | Term | Description | Learn more |
 |--|--|--|
 | **Data mining** | Generate comprehensive and granular reports about your network devices:<br /><br />- **SOC incident response**: Reports in real time to help deal with immediate incident response. For example, a report can list devices that might need patching.<br /><br />- **Forensics**: Reports based on historical data for investigative reports.<br /><br />- **IT network integrity**: Reports that help improve overall network security. For example, a report can list devices with weak authentication credentials.<br /><br />- **visibility**: Reports that cover all query items to view all baseline parameters of your network.<br /><br />Save data-mining reports for read-only users to view. | **[Baseline](#b)<br /><br />[Reports](#r)** |
-| **Defender for IoT engines** | The self-learning analytics engines in Defender for IoT eliminate the need for updating signatures or defining rules. The engines use ICS-specific behavioral analytics and data science to continuously analyze OT network traffic for anomalies, malware, operational problems, protocol violations, and deviations from baseline network activity.<br /><br />When an engine detects a deviation, an alert is triggered. Alerts can be viewed and managed from the **Alerts** screen or from a SIEM. | **[Alert](#glossary-a)** |
 | **Defender for IoT platform** | The Defender for IoT solution installed on Defender for IoT sensors and the on-premises management console. | **[Sensor](#s)<br /><br />[On-premises management console](#o)** |
 | **Device map** | A graphical representation of network devices that Defender for IoT detects. It shows the connections between devices and information about each device. Use the map to:<br /><br />- Retrieve and control critical device information.<br /><br />- Analyze network slices.<br /><br />- Export device details and summaries. | **[Purdue layer group](#p)** |
 | **Device inventory - sensor** | The device inventory displays an extensive range of device attributes detected by Defender for IoT. Options are available to:<br /><br />- Filter displayed information.<br /><br />- Export this information to a CSV file.<br /><br />- Import Windows registry details. | **[Group](#g)** <br /><br />**[Device inventory- on-premises management console](#d)** |
@@ -62,6 +57,7 @@ This glossary provides a brief description of important terms and concepts for t
 
 | Term | Description | Learn more |
 |--|--|--|
+| **Engines** | The self-learning analytics engines in Defender for IoT eliminate the need for updating signatures or defining rules. The engines use ICS-specific behavioral analytics and data science to continuously analyze OT network traffic for anomalies, malware, operational problems, protocol violations, and deviations from baseline network activity.<br /><br />When an engine detects a deviation, an alert is triggered. Alerts can be viewed and managed from the **Alerts** screen or from a SIEM. | **[Alert](#glossary-a)** |
 | **Enterprise view** | A global map that presents business units, sites, and zones where Defenders for IoT sensors are installed. View geographical locations of malicious alerts, operational alerts, and more. | **[Business unit](#b)<br /><br />[Site](#s)<br /><br />[Zone](#z)** |
 | **Event timeline** | A timeline of activity detected on your network, including:<br /><br />- Alerts triggered.<br /><br />- Network events (informational).<br /><br />- User operations such as sign in, user deletion, and user creation, and alert management operations such as mute, learn, and acknowledge. Available in the sensor consoles. | - |
 | **Exclusion rule** | Instruct Defender for IoT to ignore alert triggers based on time period, device address, and alert name, or by a specific sensor.<br /><br />For example, if you know that all the OT devices monitored by a specific sensor will go through a maintenance procedure between 6:30 and 10:15 in the morning, you can set an exclusion rule that states that this sensor should send no alerts in the predefined period. | **[Alert](#glossary-a)<br /><br />[Mute alert event](#m)** |

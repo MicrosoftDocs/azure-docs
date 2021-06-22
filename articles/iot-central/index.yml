@@ -100,6 +100,10 @@ landingContent:
             url: core/howto-run-a-job.md
   - title: Administration
     linkLists:
+      - linkListType: overview
+        links:
+          - text: Overview for administrators
+            url: core/overview-iot-central-admin.md
       - linkListType: how-to-guide
         links:
           - text: Manage your application
@@ -131,6 +135,8 @@ landingContent:
             url: /learn/modules/manage-iot-central-apps-with-rest-api/
           - text: 'Learn module: Set up continuous data export from Azure IoT Central to a Power BI app'
             url: /learn/modules/continuously-export-data-from-iot-central-power-bi/
+          - text: 'Learn module: Connect an IoT Edge device to your IoT Central application'
+            url: /learn/modules/connect-iot-edge-device-to-iot-central/
 
 
 

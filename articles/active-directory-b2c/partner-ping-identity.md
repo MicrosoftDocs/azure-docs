@@ -155,7 +155,7 @@ Follow these steps to create a web session:
 
 7. In the **Client Secret** field, enter the **Key** you generated for the application in Azure AD.
 
-8. Optional - You can create and use custom claims with the Microsoft Graph API. If you choose to do so, select **Advanced** and deselect the **Request Profile** and **Refresh User Attributes** options. For more information on using custom claims, see [use a custom claim](../active-directory/manage-apps/application-proxy-configure-single-sign-on-with-headers.md).
+8. Optional - You can create and use custom claims with the Microsoft Graph API. If you choose to do so, select **Advanced** and deselect the **Request Profile** and **Refresh User Attributes** options. For more information on using custom claims, see [use a custom claim](../active-directory/app-proxy/application-proxy-configure-single-sign-on-with-headers.md).
 
 9. Select **Save**
 
@@ -262,4 +262,4 @@ For additional information, review the following articles
 
 - [Custom policies in Azure AD B2C](./custom-policy-overview.md)
 
-- [Get started with custom policies in Azure AD B2C](./custom-policy-get-started.md?tabs=applications)
+- [Get started with custom policies in Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy)

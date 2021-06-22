@@ -2,13 +2,15 @@
 title: 'Tutorial: Use R in a Spark compute context in Azure HDInsight'
 description: Tutorial - Get started with R and Spark on an Azure HDInsight Machine Learning services cluster.
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/21/2019
+ROBOTS: NOINDEX
 #Customer intent: As a developer, I need to understand the Spark compute context for Machine Learning services.
 ---
 
 # Tutorial: Use R in a Spark compute context in Azure HDInsight
+
+[!INCLUDE [retirement banner](../includes/ml-services-retirement.md)]
 
 This tutorial provides a step-by-step introduction to using the R functions in Apache Spark that run on an Azure HDInsight Machine Learning services cluster.
 
@@ -30,7 +32,7 @@ In this tutorial, you learn how to:
 
 ## Connect to RStudio Server
 
-RStudio Server runs on the cluster’s edge node. Go to the following site (where *CLUSTERNAME* in the URL is the name of the HDInsight Machine Learning services cluster you created):
+RStudio Server runs on the cluster's edge node. Go to the following site (where *CLUSTERNAME* in the URL is the name of the HDInsight Machine Learning services cluster you created):
 
 ```
 https://CLUSTERNAME.azurehdinsight.net/rstudio/
@@ -52,7 +54,7 @@ The *Airline 2012 On-Time Data Set* consists of 12 comma-separated files that co
 
 1. In the right pane, select the **Environment** tab. The variables are displayed under **Values**.
 
-    ![HDInsight R studio web console](./media/ml-services-tutorial-spark-compute/hdinsight-rstudio-image.png)
+    :::image type="content" source="./media/ml-services-tutorial-spark-compute/hdinsight-rstudio-image.png" alt-text="HDInsight R studio web console" border="true":::
 
 1. Create a local directory, and download the sample data. In RStudio, enter the following code:
 
@@ -225,7 +227,7 @@ rxSetComputeContext(mySparkCluster)
     DayOfWeek=Sat   0.91008    0.04144   21.96 2.22e-16 *** | 732944
     DayOfWeek=Sun   2.82780    0.03829   73.84 2.22e-16 *** | 858366
     ---
-    Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+    Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     
     Residual standard error: 35.48 on 6005374 degrees of freedom
     Multiple R-squared: 0.001827 (as if intercept included)

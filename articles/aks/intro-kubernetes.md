@@ -113,13 +113,9 @@ To get started with ingress traffic, see [HTTP application routing][aks-http-rou
 
 ## Development tooling integration
 
-Kubernetes has a rich ecosystem of development and management tools that work seamlessly with AKS. These tools include Helm and the Kubernetes extension for Visual Studio Code.   
+Kubernetes has a rich ecosystem of development and management tools that work seamlessly with AKS. These tools include Helm and the Kubernetes extension for Visual Studio Code. 
 
-Azure provides several tools that help streamline Kubernetes, such as Azure Dev Spaces and DevOps Starter.  
-
-### Azure Dev Spaces
-
-Azure Dev Spaces provides a rapid, iterative Kubernetes development experience for teams. With minimal configuration, you can run and debug containers directly in AKS. To get started, see [Azure Dev Spaces][azure-dev-spaces].
+Azure provides several tools that help streamline Kubernetes, such as DevOps Starter.  
 
 ### DevOps Starter
 
@@ -175,7 +171,7 @@ Learn more about deploying and managing AKS with the Azure CLI Quickstart.
 [aks-master-logs]: ./view-control-plane-logs.md
 [aks-supported versions]: supported-kubernetes-versions.md
 [concepts-clusters-workloads]: concepts-clusters-workloads.md
-[kubernetes-rbac]: concepts-identity.md#kubernetes-role-based-access-control-kubernetes-rbac
+[kubernetes-rbac]: concepts-identity.md#kubernetes-rbac
 [concepts-identity]: concepts-identity.md
 [concepts-storage]: concepts-storage.md
 [conf-com-node]: ../confidential-computing/confidential-nodes-aks-overview.md

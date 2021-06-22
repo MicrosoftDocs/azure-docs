@@ -23,12 +23,6 @@ Our ISV partner network extends our solution capabilities to help you build seam
 
 ## Identity verification and proofing
 
-With Azure AD B2C partners, customers can enable identity verification and proofing of their end users before allowing  account registration or access. Identity verification and proofing can check document, knowledge-based information and liveness.
-
-A high-level architecture diagram explains the flow.
-
-![Diagram shows the identity proofing flow](./media/partner-gallery/third-party-identity-proofing.png)
-
 Microsoft partners with the following ISVs for identity verification and proofing.
 
 | ISV partner | Description and integration walkthroughs |
@@ -63,23 +57,40 @@ Microsoft partners with the following ISVs for role-based access control.
 | ![Screenshot of a n8identity logo](./media/partner-gallery/n8identity-logo.png) | [N8Identity](./partner-n8identity.md) is an Identity-as-a-Service governance platform that provides solution to address customer accounts migration and Customer Service Requests (CSR) administration running on Microsoft Azure. |
 | ![Screenshot of a Saviynt logo](./media/partner-gallery/saviynt-logo.png) | [Saviynt](./partner-Saviynt.md) cloud-native platform promotes better security, compliance, and governance through intelligent analytics and cross application integration for streamlining IT modernization. |
 
-## Security
+## Secure hybrid access to on-premises application
 
-Microsoft partners with the following ISVs for security.
+Microsoft partners with the following ISVs to provide secure hybrid access to on-premises application. 
+
+| ISV partner | Description and integration walkthroughs |
+|:-------------------------|:--------------|
+| ![Screenshot of a Ping logo](./media/partner-gallery/ping-logo.png) | [Ping Identity](./partner-ping-identity.md) enables secure hybrid access to on-premises legacy applications across multiple clouds. |
+| ![Screenshot of a strata logo](./media/partner-gallery/strata-logo.png) | [Strata](./partner-strata.md) provides secure hybrid access to on-premises applications by enforcing consistent access policies, keeping identities in sync, and making it simple to transition applications from legacy identity systems to standards-based authentication and access control provided by Azure AD B2C. |
+| ![Screenshot of a zscaler logo](./media/partner-gallery/zscaler-logo.png) | [Zscaler](./partner-zscaler.md) delivers policy-based, secure access to private applications and assets without the cost, hassle, or security risks of a VPN. |
+
+## Fraud protection
+
+Microsoft partners with the following ISVs for fraud detection and prevention. 
 
 | ISV partner | Description and integration walkthroughs |
 |:-------------------------|:--------------|
 | ![Screenshot of a Arkose lab logo](./media/partner-gallery/arkose-logo.png) | [Arkose Labs](./partner-arkose-labs.md) is a fraud prevention solution provider that helps organizations protect against bot attacks, account takeover attacks, and fraudulent account openings. |
+| ![Screenshot of a BioCatch logo](./media/partner-gallery/biocatch-logo.png) | [BioCatch](./partner-biocatch.md) is a fraud prevention solution provider that analyzes a user's physical and cognitive digital behaviors to generate insights that distinguish between legitimate customers and cyber-criminals. |
 | ![Screenshot of a Microsoft Dynamics 365 logo](./media/partner-gallery/microsoft-dynamics365-logo.png) | [Microsoft Dynamics 365 Fraud Protection](./partner-dynamics-365-fraud-protection.md) is a solution that helps organizations protect against fraudulent account openings through device fingerprinting. |
-| ![Screenshot of a Ping logo](./media/partner-gallery/ping-logo.png) | [Ping Identity](./partner-ping-identity.md) enables secure hybrid access to on-premises legacy applications across multiple clouds. |
-| ![Screenshot of a strata logo](./media/partner-gallery/strata-logo.png) | [Strata](./partner-strata.md) provides secure hybrid access to on-premises applications by enforcing consistent access policies, keeping identities in sync, and making it simple to transition applications from legacy identity systems to standards-based authentication and access control provided by Azure AD B2C. |
-| ![Screenshot of a zscaler logo](./media/partner-gallery/zscaler-logo.png) | [Zscaler](./partner-zscaler.md) delivers policy-based, secure access to private applications and assets without the cost, hassle, or security risks of a VPN. |
+
+## Web Application Firewall 
+
+Microsoft partners with the following ISVs for Web Application Firewall (WAF). 
+
+| ISV partner | Description and integration walkthroughs |
+|:-------------------------|:--------------|
+| ![Screenshot of Cloudflare logo](./media/partner-gallery/cloudflare-logo.png) | [Cloudflare](./partner-cloudflare.md) is a WAF provider that helps organizations protect against malicious attacks that aim to exploit vulnerabilities such as SQLi, and XSS. |
+
 
 ## Additional information
 
 - [Custom policies in Azure AD B2C](./custom-policy-overview.md)
 
-- [Get started with custom policies in Azure AD B2C](./custom-policy-get-started.md?tabs=applications)
+- [Get started with custom policies in Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy)
 
 ## Next steps
 

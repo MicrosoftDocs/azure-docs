@@ -250,6 +250,7 @@ The order for division and subtraction are as follows:
 - Divide(Arg1_Arg2) =  Arg1 / Arg 2
 
 The following table shows some examples
+
 Operation|Num1|Num2|Result column|Result value|
 ----|----|----|----|----
 |Addition|1|5|Add(Num2_Num1)| 6|
@@ -339,7 +340,7 @@ This category includes specialized mathematical functions often used in data sci
 
 ### Beta
 
-Returns the value of Euler’s beta function.  
+Returns the value of Euler's beta function.  
 
 ### EllipticIntegralE
 Returns the value of the incomplete elliptic integral.  

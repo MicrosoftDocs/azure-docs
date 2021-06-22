@@ -3,6 +3,7 @@ title:  Deploy IBM DB2 pureScale on Azure
 description: Learn how to deploy an example architecture used recently to migrate an enterprise from its IBM DB2 environment running on z/OS to IBM DB2 pureScale on Azure.
 author: njray
 ms.service: virtual-machines
+ms.subservice: mainframe-rehosting
 ms.topic: how-to
 ms.date: 11/09/2018
 ms.author: edprice

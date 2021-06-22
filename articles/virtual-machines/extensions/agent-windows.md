@@ -7,7 +7,8 @@ ms.subservice: extensions
 ms.author: amjads
 author: amjads1
 ms.collection: windows
-ms.date: 07/20/2019
+ms.date: 07/20/2019 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Azure Virtual Machine Agent overview
@@ -119,7 +120,7 @@ To permanently remove a certificate, you will have to remove it from the `OSProf
 
 For a Virtual Machine, use the [Remove-AzVMSecret]() to remove certificates from the `OSProfile`.
 
-For more information on Virtual Machine Scale Set certificates, see [Virtual Machine Scale Sets - How do I remove deprecated certificates?](../../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.md#how-do-i-remove-deprecated-certificates)
+For more information on Virtual Machine Scale Set certificates, see [Virtual Machine Scale Sets - How do I remove deprecated certificates?](../../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.yml#how-do-i-remove-deprecated-certificates-)
 
 
 ## Next steps

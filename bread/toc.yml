@@ -54,6 +54,9 @@
       - name: Identity Governance
         tocHref: /azure/active-directory/governance/
         topicHref: /azure/active-directory/governance/
+      - name: Application proxy
+        tocHref: /azure/active-directory/app-proxy/
+        topicHref: /azure/active-directory/app-proxy/
       - name: Application provisioning
         tocHref: /azure/active-directory/app-provisioning/
         topicHref: /azure/active-directory/app-provisioning/
@@ -67,6 +70,9 @@
       - name: Reports and monitoring
         tocHref: /azure/active-directory/reports-monitoring/
         topicHref: /azure/active-directory/reports-monitoring/
+      - name: Verifiable credentials
+        tocHref: /azure/active-directory/verifiable-credentials/
+        topicHref: /azure/active-directory/verifiable-credentials/
   - name: Analysis Services
     tocHref: /azure/analysis-services/
     topicHref: /azure/analysis-services/
@@ -80,6 +86,19 @@
     - name: Azure PowerShell
       tocHref: /azure/api-management/scripts/
       topicHref: /azure/api-management/powershell-samples/
+  - name: Applied AI Services
+    tocHref: /azure/applied-ai-services/
+    topicHref: /azure/applied-ai-services/
+    items:
+    - name: Immersive Reader
+      tocHref: /azure/cognitive-services/immersive-reader/
+      topicHref: /azure/cognitive-services/immersive-reader/
+    - name: Metrics Advisor
+      tocHref: /azure/cognitive-services/metrics-advisor/
+      topicHref: /azure/cognitive-services/metrics-advisor/
+    - name: Form Recognizer
+      tocHref: /azure/cognitive-services/form-recognizer/
+      topicHref: /azure/cognitive-services/form-recognizer/
   - name: Avere vFXT for Azure
     tocHref: /azure/avere-vfxt/
     topicHref: /azure/avere-vfxt/
@@ -174,9 +193,6 @@
   - name: Azure Remote Rendering
     tocHref: /azure/remote-rendering/
     topicHref: /azure/remote-rendering/   
-  - name: Azure Object Understanding
-    tocHref: /azure/object-understanding/
-    topicHref: /azure/object-understanding/
   - name: Container Registry
     tocHref: /azure/container-registry/
     topicHref: /azure/container-registry/
@@ -207,7 +223,13 @@
     topicHref: /azure/vmware-cloudsimple/
   - name: Azure portal documentation
     tocHref: /azure/azure-portal/
-    topicHref: /azure/azure-portal/\
+    topicHref: /azure/azure-portal/
+  - name: Azure portal documentation
+    tocHref: /azure/virtual-machines/
+    topicHref: /azure/azure-portal/index
+  - name: Azure portal documentation
+    tocHref: /power-bi
+    topicHref: /azure/azure-portal/index
   - name: Internet of Things
     tocHref: /azure/iot-fundamentals/
     topicHref: /azure/iot-fundamentals/
@@ -245,6 +267,9 @@
       - name: Azure Maps
         tocHref: /azure/azure-maps/
         topicHref: /azure/azure-maps/
+      - name: Azure Certified Device
+        tocHref: /azure/certification/
+        topicHref: /azure/certification/
   - name: Resource Manager
     tocHref: /azure/azure-resource-manager/
     topicHref: /azure/azure-resource-manager/
@@ -252,6 +277,9 @@
       - name: Templates
         tocHref: /azure/azure-resource-manager/templates/
         topicHref: /azure/azure-resource-manager/templates/
+      - name: Bicep
+        tocHref: /azure/azure-resource-manager/bicep/
+        topicHref: /azure/azure-resource-manager/bicep/
       - name: Management
         tocHref: /azure/azure-resource-manager/management/
         topicHref: /azure/azure-resource-manager/management/
@@ -267,7 +295,13 @@
     items:
       - name: Apache Kafka for Confluent Cloud
         tocHref: /azure/partner-solutions/apache-kafka-confluent-cloud/
-        topicHref: /azure/partner-solutions/apache-kafka-confluent-cloud/
+        topicHref: /azure/partner-solutions/apache-kafka-confluent-cloud/overview
+      - name: Datadog
+        tocHref: /azure/partner-solutions/datadog/
+        topicHref: /azure/partner-solutions/datadog/overview
+      - name: Elastic
+        tocHref: /azure/partner-solutions/elastic/
+        topicHref: /azure/partner-solutions/elastic/overview
   - name: SignalR Service
     tocHref: /azure/azure-signalr/
     topicHref: /azure/azure-signalr/
@@ -424,18 +458,12 @@
     - name: Project Acoustics
       tocHref: /azure/cognitive-services/acoustics/
       topicHref: /azure/cognitive-services/acoustics/what-is-acoustics
-    - name: Form Recognizer
-      tocHref: /azure/cognitive-services/form-recognizer/
-      topicHref: /azure/cognitive-services/form-recognizer/
     - name: Ink Recognizer
       tocHref: /azure/cognitive-services/Ink-Recognizer/
       topicHref: /azure/cognitive-services/Ink-Recognizer/
     - name: Personalizer
       tocHref: /azure/cognitive-services/personalizer/
       topicHref: /azure/cognitive-services/personalizer/
-    - name: Immersive Reader
-      tocHref: /azure/cognitive-services/immersive-reader/
-      topicHref: /azure/cognitive-services/immersive-reader/
   - name: Communication Services
     tocHref: /azure/communication-services/
     topicHref: /azure/communication-services/
@@ -464,6 +492,10 @@
   - name: Cosmos DB
     tocHref: /azure/cosmos-db/
     topicHref: /azure/cosmos-db/
+    items:
+    - name: MongoDB API
+      tocHref: /azure/cosmos-db/mongodb-introduction
+      topicHref: /azure/cosmos-db/mongodb-introduction
   - name: Managed Instance for Apache Cassandra
     tocHref: /azure/managed-instance-apache-cassandra/
     topicHref: /azure/managed-instance-apache-cassandra/
@@ -628,8 +660,8 @@
         tocHref: /azure/media-services/previous/
         topicHref: /azure/media-services/previous/
       - name: Video Indexer
-        tocHref: /azure/media-services/video-indexer/
-        topicHref: /azure/media-services/video-indexer/
+        tocHref: /azure/azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-overview
+        topicHref: /azure/azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-overview
       - name: Azure Media Player
         tocHref: /azure/media-services/azure-media-player/
         topicHref: /azure/media-services/azure-media-player/
@@ -675,6 +707,8 @@
     tocHref: /azure/networking/
     topicHref: /azure/networking/
     items:
+      - name: Fundamentals
+        tocHref: /azure/networking/fundamentals
       - name: Application Gateway
         tocHref: /azure/application-gateway/
         topicHref: /azure/application-gateway/
@@ -741,6 +775,9 @@
       - name: Web Application Firewall
         tocHref: /azure/web-application-firewall/
         topicHref: /azure/web-application-firewall/
+  - name: Network Function Manager
+    tocHref: /azure/network-function-manager/
+    topicHref: /azure/network-function-manager/
   - name: Notebooks
     tocHref: /azure/notebooks/
     topicHref: /azure/notebooks/azure-notebooks-overview
@@ -762,6 +799,9 @@
   - name: Power BI Workspace Collections
     tocHref: /azure/power-bi-workspace-collections/
     topicHref: /azure/power-bi-workspace-collections/
+  - name: Private multi-access edge compute
+    tocHref: /azure/private-multi-access-edge-compute-mec/
+    topicHref: /azure/private-multi-access-edge-compute-mec/
   - name: Private Link
     tocHref: /azure/private-link/
     topicHref: /azure/private-link/
@@ -793,6 +833,9 @@
       - name: Develop
         tocHref: /azure/security/develop/
         topicHref: /azure/security/develop/
+      - name: Journey
+        tocHref: /azure/security/journey
+        topicHref: /azure/security/journey
       - name: Benchmarks
         tocHref: /azure/security/benchmarks/
         topicHref: /azure/security/benchmarks/
@@ -827,6 +870,9 @@
       - name: Attestation
         tocHref: /azure/attestation/
         topicHref: /azure/attestation/
+      - name: Confidential Ledger
+        tocHref: /azure/confidential-ledger/
+        topicHref: /azure/confidential-ledger/
   - name: Service Fabric
     tocHref: /azure/service-fabric/
     topicHref: /azure/service-fabric/
@@ -881,6 +927,9 @@
       - name: Files
         tocHref: /azure/storage/files/
         topicHref: /azure/storage/files/storage-files-introduction
+      - name: File Sync
+        tocHref: /azure/storage/file-sync/
+        topicHref: /azure/storage/file-sync/file-sync-introduction
       - name: Queues
         tocHref: /azure/storage/queues/
         topicHref: /azure/storage/queues/storage-queues-introduction
@@ -936,7 +985,7 @@
   - name: Confidential Computing
     tocHref: /azure/confidential-computing/
     topicHref: /azure/confidential-computing/overview
-  - name: Windows Virtual Desktop
+  - name: Virtual Desktop
     tocHref: /azure/virtual-desktop/
     topicHref: /azure/virtual-desktop/
   - name: Cost Management and Billing
@@ -961,3 +1010,13 @@
   - name: Purview
     tocHref: /azure/purview/
     topicHref: /azure/purview/
+  - name: Applied AI Services 
+    tocHref: /azure/applied-ai-services/
+    topicHref: /azure/applied-ai-services/
+    items:
+    - name: Video Analyzer
+      tocHref: /azure/azure-video-analyzer/video-analyzer-docs/
+      topicHref: /azure/azure-video-analyzer/video-analyzer-docs/    
+    - name: Video Analyzer for Media
+      tocHref: /azure/azure-video-analyzer/video-analyzer-for-media-docs/
+      topicHref: /azure/azure-video-analyzer/video-analyzer-for-media-docs/

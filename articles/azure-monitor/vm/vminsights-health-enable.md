@@ -4,8 +4,8 @@ description: Describes how to enable VM insights guest health in your subscripti
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/16/2020
-ms.custom: references_regions
+ms.date: 04/05/2021
+ms.custom: references_regions, devx-track-azurepowershell
 
 ---
 
@@ -16,11 +16,14 @@ VM insights guest health allows you to view the health of a virtual machine as d
 VM insights guest health has the following limitations in public preview:
 
 - Only Azure virtual machines are currently supported. Azure Arc for servers is not currently supported.
+- Network proxies aren't currently supported.
 
 
 ## Supported operating systems
 Virtual Machine must run one of the following operating systems: 
 
+  - CentOS 7.5, 7.6, 7.7, 7.8, 7.9
+  - RedHat 7.5, 7.6, 7.7, 7.8, 7.9
   - Ubuntu 16.04 LTS, Ubuntu 18.04 LTS
   - Windows Server 2012 or later
 

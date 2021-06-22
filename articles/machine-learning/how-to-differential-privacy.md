@@ -5,8 +5,8 @@ description: Learn how to apply differential privacy best practices to Azure Mac
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.custom: how-to, responsible-ml
+ms.topic: how-to
+ms.custom: responsible-ml
 ms.author: slbird
 author: slbird
 ms.reviewer: luquinta
@@ -23,7 +23,7 @@ Differential privacy is the gold-standard definition of privacy. Systems that ad
 
 ## Prerequisites
 
-- If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
+- If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 - [Python 3](https://www.python.org/downloads/)
 
 ## Install SmartNoise Python libraries

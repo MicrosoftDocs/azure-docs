@@ -9,8 +9,8 @@ ms.reviewer: larryfr
 ms.service: machine-learning
 ms.subservice: core
 ms.date: 03/03/2021
-ms.topic: conceptual
-ms.custom: how-to
+ms.topic: how-to
+
 
 ---
 
@@ -18,7 +18,7 @@ ms.custom: how-to
 
 Azure Machine Learning __compute cluster__ and __compute instance__ are managed compute infrastructure. As a managed service, Microsoft manages the host OS and the packages and software versions that are installed.
 
-The host OS for compute cluster and compute instance has been Ubuntu 16.04 LTS. On **April 30, 2021**, Ubuntu is ending support for 16.04. Starting on __March 15, 2021__, Microsoft will automatically update the host OS to Ubuntu 18.04 LTS. Updating to 18.04 will ensure continued security updates and support from the Ubuntu community. For more information on Ubuntu ending support for 16.04, see the [Ubuntu release blog](https://wiki.ubuntu.com/Releases).
+The host OS for compute cluster and compute instance has been Ubuntu 16.04 LTS. On **April 30, 2021**, Ubuntu is ending support for 16.04. Starting on __March 15, 2021__, Microsoft will automatically update the host OS to Ubuntu 18.04 LTS. Updating to 18.04 will ensure continued security updates and support from the Ubuntu community. This update will be rolled out across Azure regions and will be available in all regions by __April 09, 2021__. For more information on Ubuntu ending support for 16.04, see the [Ubuntu release blog](https://wiki.ubuntu.com/Releases).
 
 > [!TIP]
 > * The host OS is not the OS version you might specify for an [environment](how-to-use-environments.md) when training or deploying a model. Environments run inside Docker. Docker runs on the host OS.
@@ -26,18 +26,18 @@ The host OS for compute cluster and compute instance has been Ubuntu 16.04 LTS. 
 > * When using an Azure Machine Learning compute instance based on Ubuntu 18.04, the default Python version is _Python 3.8_.
 ## Creating new resources
 
-Compute cluster or compute instances created after __March 15, 2021__ use Ubuntu 18.04 LTS as the host OS by default. You cannot select a different host OS.
+Compute cluster or compute instances created after __April 09, 2021__ use Ubuntu 18.04 LTS as the host OS by default. You cannot select a different host OS.
 
 ## Upgrade existing resources
 
-If you have existing compute clusters or compute instances created before __March 15, 2021__, you need take action to upgrade the host OS to Ubuntu 18.04:
+If you have existing compute clusters or compute instances created before __March 15, 2021__, you need to take action to upgrade the host OS to Ubuntu 18.04. Depending on the region you access Azure Machine Learning from, we recommend you take these actions after __April 09, 2021__ to ensure our changes have rolled out to all regions:
 
 * __Azure Machine Learning compute cluster__:
 
     * If the cluster is configured with __min nodes = 0__, it will automatically be upgraded when all jobs are completed and it reduces to zero nodes.
     * If __min nodes > 0__, temporarily change the minimum nodes to zero and allow the cluster to reduce to zero nodes.
 
-    For more information on changing the minimum nodes, see the [az ml computetarget update amlcompute](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/update#ext_azure_cli_ml_az_ml_computetarget_update_amlcompute) Azure CLI command, or the [AmlCompute.update()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute#update-min-nodes-none--max-nodes-none--idle-seconds-before-scaledown-none-) SDK reference.
+    For more information on changing the minimum nodes, see the [az ml computetarget update amlcompute](/cli/azure/ml(v1)/computetarget/update#az_ml_computetarget_update_amlcompute) Azure CLI command, or the [AmlCompute.update()](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute#update-min-nodes-none--max-nodes-none--idle-seconds-before-scaledown-none-) SDK reference.
 
 * __Azure Machine Learning compute instance__: Create a new compute instance (which will use Ubuntu 18.04) and delete the old instance.
 

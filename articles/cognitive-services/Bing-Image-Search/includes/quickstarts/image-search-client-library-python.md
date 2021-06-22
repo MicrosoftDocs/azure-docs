@@ -16,7 +16,7 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
 
 ## Prerequisites
 
-* [Python 2.7 or 3.4](https://www.python.org/) and higher.
+* [Python 2.7 or 3.6+](https://www.python.org/).
 
 * The [Azure Image Search client library](https://pypi.org/project/azure-cognitiveservices-search-imagesearch/) for Python
     * Install using `pip install azure-cognitiveservices-search-imagesearch`

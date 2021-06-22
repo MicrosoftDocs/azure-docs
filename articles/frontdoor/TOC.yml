@@ -41,7 +41,7 @@
   - name: Security
     items: 
     - name: Security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/front-door-security-baseline?toc=/azure/frontdoor/TOC.json
   - name: Backends and backend pools
     href: front-door-backend-pool.md
   - name: Caching with Front Door
@@ -49,7 +49,7 @@
   - name: DDoS protection
     href: front-door-ddos.md
   - name: Front Door FAQ
-    href: front-door-faq.md
+    href: front-door-faq.yml
   - name: Geo-filtering
     href: front-door-geo-filtering.md
   - name: Health probes
@@ -95,11 +95,17 @@
     - name: Troubleshoot routing issues
       href: front-door-troubleshoot-routing.md
     - name: Allowed certificate authorities
-      href: front-door-troubleshoot-allowed-ca.md
+      href: https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT
 - name: Reference
   items:
+  - name: Azure Front Door edge locations
+    items:
+    - name: Edge locations by region
+      href: edge-locations-by-region.md
+    - name: Edge locations by abbreviation
+      href: edge-locations-abbreviation.md
   - name: Azure CLI
-    href: /cli/azure/ext/front-door/
+    href: /cli/azure/afd/
   - name: Azure PowerShell
     href: /powershell/module/az.frontdoor
   - name: REST API

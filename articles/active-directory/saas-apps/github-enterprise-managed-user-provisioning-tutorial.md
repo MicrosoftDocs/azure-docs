@@ -31,6 +31,10 @@ This tutorial describes the steps you need to perform in both GitHub Enterprise 
 > * Provision groups and group memberships in GitHub Enterprise Managed User
 > * Single sign-on to GitHub Enterprise Managed User (recommended)
 
+> [!NOTE]
+> This provisioning connector is enabled only for Enterprise Managed Users beta participants.
+
+
 ## Prerequisites
 
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:

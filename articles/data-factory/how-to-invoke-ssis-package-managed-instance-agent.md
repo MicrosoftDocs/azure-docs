@@ -4,7 +4,7 @@ description: Learn how to run SSIS packages by using Azure SQL Managed Instance 
 ms.service: data-factory
 ms.topic: conceptual
 ms.author: lle
-author: lle
+author: lrtoyou1223
 ms.date: 04/14/2020
 ---
 

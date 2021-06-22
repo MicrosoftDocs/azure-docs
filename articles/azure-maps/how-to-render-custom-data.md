@@ -3,7 +3,7 @@ title: Render custom data on a raster map | Microsoft Azure Maps
 description: Learn how to add pushpins, labels, and geometric shapes to a raster map. See how to use the static image service in Azure Maps for this purpose.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 12/07/2020
+ms.date: 05/26/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
@@ -18,21 +18,21 @@ This article explains how to use the [static image service](/rest/api/maps/rende
 To render custom pushpins, labels, and geometry overlays, you can use the Postman application. You can use Azure Maps [Data Service APIs](/rest/api/maps/data) to store and render overlays.
 
 > [!Tip]
-> It is often much more cost effective to use the Azure Maps Web SDK to show a simple map on a web page than to use the static image service. The web SDK uses map tiles and unless the user pans and zooms the map, they will often generate only a fraction of a transaction per map load. Note that the Azure Maps web SDK has options for disabling panning and zooming. Additionally, the Azure Maps web SDK provides a richer set of data visualization options than a static map web service does.  
+> To show a simple map on a web page,  it's often more cost effective to use the Azure Maps Web SDK, rather than to use the static image service. The web SDK uses map tiles; and unless the user pans and zooms the map, they will often generate only a fraction of a transaction per map load. The Azure Maps web SDK has options for disabling panning and zooming. Additionally, the Azure Maps web SDK provides a richer set of data visualization options than a static map web service does.  
 
 ## Prerequisites
 
-### Create an Azure Maps account
+1. [Make an Azure Maps account](quick-demo-map-app.md#create-an-azure-maps-account)
+2. [Obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key.
 
-To complete the procedures in this article, you first need to create an Azure Maps account and get your maps account key. Follow instructions in [Create an account](quick-demo-map-app.md#create-an-azure-maps-account) to create an Azure Maps account subscription and follow the steps in [get primary key](quick-demo-map-app.md#get-the-primary-key-for-your-account) to get the primary key for your account. For more information on authentication in Azure Maps, see [manage authentication in Azure Maps](./how-to-manage-authentication.md).
-
+This tutorial uses the [Postman](https://www.postman.com/) application, but you may use a different API development environment.
 
 ## Render pushpins with labels and a custom image
 
 > [!Note]
-> The procedure in this section requires an Azure Maps account in pricing tier S0 or S1.
+> The procedure in this section requires an Azure Maps account in Gen 1 or Gen 2 pricing tier.
 
-The Azure Maps account S0 tier supports only a single instance of the `pins` parameter. It allows you to render up to five pushpins, specified in the URL request, with a custom image.
+The Azure Maps account Gen 1 Standard S0 tier supports only a single instance of the `pins` parameter. It allows you to render up to five pushpins, specified in the URL request, with a custom image.
 
 To render pushpins with labels and a custom image, complete these steps:
 
@@ -47,6 +47,7 @@ To render pushpins with labels and a custom image, complete these steps:
     ```HTTP
     https://atlas.microsoft.com/map/static/png?subscription-key={subscription-key}&api-version=1.0&layer=basic&style=main&zoom=12&center=-73.98,%2040.77&pins=custom%7Cla15+50%7Cls12%7Clc003b61%7C%7C%27CentralPark%27-73.9657974+40.781971%7C%7Chttps%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2FAzureMapsCodeSamples%2Fmaster%2FAzureMapsCodeSamples%2FCommon%2Fimages%2Ficons%2Fylw-pushpin.png
     ```
+
     Here's the resulting image:
 
     ![A custom pushpin with a label](./media/how-to-render-custom-data/render-pins.png)
@@ -55,18 +56,18 @@ To render pushpins with labels and a custom image, complete these steps:
 ## Get data from Azure Maps data storage
 
 > [!Note]
-> The procedure in this section requires an Azure Maps account in pricing tier S1.
+> The procedure in this section requires an Azure Maps account Gen 1 (S1) or Gen 2 pricing tier.
 
-You can also obtain the path and pin location information by using the [Data Upload API](/rest/api/maps/data/uploadpreview). Follow the steps below to upload the path and pins data.
+You can also obtain the path and pin location information by using the [Data Upload API](/rest/api/maps/data-v2/upload-preview). Follow the steps below to upload the path and pins data.
 
 1. In the Postman app, open a new tab in the collection you created in the previous section. Select the POST HTTP method on the builder tab and enter the following URL to make a POST request:
 
     ```HTTP
-    https://atlas.microsoft.com/mapData/upload?subscription-key={subscription-key}&api-version=1.0&dataFormat=geojson
+    https://us.atlas.microsoft.com/mapData?subscription-key={subscription-key}&api-version=2.0&dataFormat=geojson
     ```
 
 2. On the **Params** tab, enter the following key/value pairs, which are used for the POST request URL. Replace the `subscription-key` value with your Azure Maps subscription key.
-    
+
     ![Key/value params in Postman](./media/how-to-render-custom-data/postman-key-vals.png)
 
 3. On the **Body** tab, select the raw input format and choose JSON as the input format from the dropdown list. Provide this JSON as data to be uploaded:
@@ -131,16 +132,16 @@ You can also obtain the path and pin location information by using the [Data Upl
     }
     ```
 
-4. Select **Send** and review the response header. Upon a successful request, the Location header will contain the status URI to check the current status of the upload request. The status URI would be of the following format.  
+4. Select **Send** and review the response header. Upon a successful request, the *Operation-Location* header will contain the `status URL` to check the current status of the upload request. The `status URL` has the following format:
 
    ```HTTP
-   https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0
+   https://us.atlas.microsoft.com/mapData/operations/{statusUrl}?api-version=2.0
    ```
 
 5. Copy your status URI and append the subscription-key parameter to it with the value of your Azure Maps account subscription key. Use the same account subscription key that you used to upload the data. The status URI format should look like the one below:
 
    ```HTTP
-   https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0&subscription-key={Subscription-key}
+     https://us.atlas.microsoft.com/mapData/operations/{statusUrl}?api-version=2.0&subscription-key={Subscription-key}
    ```
 
 6. Using Postman, make a GET request with the above URL. In the response header retrieve the operations metadata URL from the `Resource-Location` property. This URI will be of the following format.  
@@ -176,7 +177,7 @@ You can also obtain the path and pin location information by using the [Data Upl
 ## Render a polygon with color and opacity
 
 > [!Note]
-> The procedure in this section requires an Azure Maps account in pricing tier S1.
+> The procedure in this section requires an Azure Maps account Gen 1 (S1) or Gen 2 pricing tier.
 
 
 You can modify the appearance of a polygon by using style modifiers with the [path parameter](/rest/api/maps/render/getmapimage#uri-parameters).
@@ -196,7 +197,7 @@ You can modify the appearance of a polygon by using style modifiers with the [pa
 ## Render a circle and pushpins with custom labels
 
 > [!Note]
-> The procedure in this section requires an Azure Maps account in pricing tier S1.
+> The procedure in this section requires an Azure Maps account Gen 1 (S1) or Gen 2 pricing tier.
 
 
 You can modify the appearance of the pins by adding style modifiers. For example, to make pushpins and their labels larger or smaller, use the `sc` "scale style" modifier. This modifier takes a value that's greater than zero. A value of 1 is the standard scale. Values larger than 1 will make the pins larger, and values smaller than 1 will make them smaller. For more information about style modifiers, see [static image service path parameters](/rest/api/maps/render/getmapimage#uri-parameters).
@@ -228,6 +229,5 @@ Similarly, you can change, add, and remove other style modifiers.
 
 ## Next steps
 
-
 * Explore the [Azure Maps Get Map Image API](/rest/api/maps/render/getmapimage) documentation.
-* To learn more about Azure Maps Data service (Preview), see the [service documentation](/rest/api/maps/data).
+* To learn more about Azure Maps Data service, see the [service documentation](/rest/api/maps/data).

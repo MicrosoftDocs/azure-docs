@@ -24,6 +24,8 @@ ms.author: yelevin
 > This feature is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
 This article explains how to connect your [Symantec ProxySG](https://www.broadcom.com/products/cyber-security/network/gateway/proxy-sg-and-advanced-secure-gateway) appliance to Azure Sentinel. The Symantec ProxySG data connector allows you to easily connect your Symantec ProxySG logs with Azure Sentinel, to view dashboards, create custom alerts, and improve investigation. Integration between Symantec ProxySG and Azure Sentinel makes use of Syslog.
 
 > [!NOTE]

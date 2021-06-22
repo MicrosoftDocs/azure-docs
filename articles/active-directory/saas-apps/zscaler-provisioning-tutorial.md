@@ -72,6 +72,10 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in Zscaler based on user and/or group assignments in Azure AD.
 
+
+> [!NOTE]
+> Open a [support ticket](https://help.zscaler.com/) to create a domain on Zscaler.
+
 > [!TIP]
 > You may also choose to enable SAML-based single sign-on for Zscaler, following the instructions provided in the [Zscaler single sign-on tutorial](zscaler-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other.
 

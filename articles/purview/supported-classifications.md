@@ -1,12 +1,12 @@
 ---
 title: List of supported classifications
 description: This page lists the supported system classifications in Azure Purview.
-author: anmuk601
-ms.author: anmuk
+author: viseshag
+ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: reference
-ms.date: 02/05/2021
+ms.date: 4/1/2021
 ## Customer intent: As a data steward or catalog administrator, I need to understand what's supported under classifications.
 ---
 
@@ -15,7 +15,7 @@ ms.date: 02/05/2021
 This article lists the supported and defined system classifications in Azure Purview (Preview).
 
 
-- **Distinct match threshold**: The total number of distinct data values that need to be found in a column before the scanner runs the data pattern on it. Our system classification rules require there to be at least 8 distinct values in each column to subject them to classification. The system requires this value to make sure that the column contains enough data for the scanner to accurately classify it. For example, a column that contains multiple rows that all contain the value 1 won't be classified. Columns that contain one row with a value and the rest of the rows have null values also won't get classified. If you specify multiple patterns, this value applies to each of them.
+- **Distinct match threshold**: The total number of distinct data values that need to be found in a column before the scanner runs the data pattern on it. Distinct match threshold has nothing to do with pattern matching but it is a pre-requisite for pattern matching. Our system classification rules require there to be at least 8 distinct values in each column to subject them to classification. The system requires this value to make sure that the column contains enough data for the scanner to accurately classify it. For example, a column that contains multiple rows that all contain the value 1 won't be classified. Columns that contain one row with a value and the rest of the rows have null values also won't get classified. If you specify multiple patterns, this value applies to each of them.
 
 - **Minimum match threshold**: It is the minimum percentage of data value matches in a column that must be found by the scanner for the classification to be applied. The system classification value is set at 60%.
 

@@ -4,9 +4,9 @@ description: Learn how to use the Set Variable activity to set the value of an e
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 04/07/2020
-author: dcstwh
-ms.author: weetok
-ms.reviewer: maghan
+author: chez-charlie
+ms.author: chez
+ms.reviewer: jburchel
 ---
 # Set Variable Activity in Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -85,6 +85,7 @@ Below is an example of this pattern:
 }
 ```
 
+Variables are currently scoped at the pipeline level. This means that they are not thread safe and can cause unexpected and undesired behavior if they are accessed from within a parallel iteration activity such as a foreach loop, especially when the value is also being modified within that foreach activity.
 
 ## Next steps
 Learn about a related control flow activity supported by Data Factory: 

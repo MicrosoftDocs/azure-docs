@@ -6,7 +6,7 @@ ms.author: suvirdi
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 10/01/2020
+ms.date: 05/08/2021
 ---
 # Register and scan Azure Files
 
@@ -34,10 +34,10 @@ To register a new Azure Files account in your data catalog, do the following:
 On the **Register sources (Azure Files)** screen, do the following:
 
 1. Enter a **Name** that the data source will be listed with in the Catalog.
-1. Choose how you want to point to your desired storage account:
-   1. Select **From Azure subscription**, select the appropriate subscription from the **Azure subscription** drop down box and the appropriate storage account from the **Storage account name** drop down box.
-   1. Or, you can select **Enter manually** and enter a service endpoint (URL).
-1. **Finish** to register the data source.
+2. Choose your Azure subscription to filter down Azure Storage Accounts.
+3. Select an Azure Storage Account.
+4. Select a collection or create a new one (Optional).
+5. Select **Register** to register the data source.
 
 :::image type="content" source="media/register-scan-azure-files/register-sources.png" alt-text="register sources options" border="true":::
 
@@ -51,7 +51,37 @@ To set up authentication for Azure Files Storage using an account key, do the fo
 4. Pick your storage account name from the list.
 5. Click **Finish**.
 
-[!INCLUDE [create and manage scans](includes/manage-scans.md)]
+
+## Creating and running a scan
+
+To create and run a new scan, do the following:
+
+1. Select the **Data Map** tab on the left pane in the Purview Studio.
+
+1. Select the Azure Files source that you registered.
+
+1. Select **New scan**
+
+1. Select the credential to connect to your data source. 
+
+   :::image type="content" source="media/register-scan-azure-files/set-up-scan-azure-file.png" alt-text="Set up scan":::
+
+1. You can scope your scan to specific databases by choosing the appropriate items in the list.
+
+   :::image type="content" source="media/register-scan-azure-files/azure-file-scope-your-scan.png" alt-text="Scope your scan":::
+
+1. Then select a scan rule set. You can choose between the system default, existing custom rule sets, or create a new rule set inline.
+
+   :::image type="content" source="media/register-scan-azure-files/azure-file-scan-rule-set.png" alt-text="Scan rule set":::
+
+1. Choose your scan trigger. You can set up a schedule or run the scan once.
+
+   :::image type="content" source="media/register-scan-azure-files/trigger-scan.png" alt-text="trigger":::
+
+1. Review your scan and select **Save and run**.
+
+
+[!INCLUDE [create and manage scans](includes/view-and-manage-scans.md)]
 
 ## Next steps
 

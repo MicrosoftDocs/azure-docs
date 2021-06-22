@@ -11,7 +11,7 @@ ms.author: duau
 
 # About ExpressRoute Direct
 
-ExpressRoute Direct gives you the ability to connect directly into Microsoft’s global network at peering locations strategically distributed around the world. ExpressRoute Direct provides dual 100 Gbps or 10-Gbps connectivity, which supports Active/Active connectivity at scale.
+ExpressRoute Direct gives you the ability to connect directly into Microsoft’s global network at peering locations strategically distributed around the world. ExpressRoute Direct provides dual 100 Gbps or 10-Gbps connectivity, which supports Active/Active connectivity at scale. You can work with any service provider for ER Direct.
 
 Key features that ExpressRoute Direct provides include, but aren't limited to:
 
@@ -64,7 +64,7 @@ The functionality in most scenarios is equivalent to circuits that use an Expres
 
 ## Circuit SKUs
 
-ExpressRoute Direct supports massive data ingestion scenarios into Azure storage and other big data services. ExpressRoute circuits on 100-Gbps ExpressRoute Direct now also support **40 Gbps** and **100-Gbps circuit SKUs. The physical port pairs are **100 Gbps or 10 Gbps** only and can have multiple virtual circuits. Circuit sizes:
+ExpressRoute Direct supports massive data ingestion scenarios into Azure storage and other big data services. ExpressRoute circuits on 100-Gbps ExpressRoute Direct now also support **40 Gbps** and **100 Gbps** circuit SKUs. The physical port pairs are **100 Gbps or 10 Gbps** only and can have multiple virtual circuits. Circuit sizes:
 
 | **100-Gbps ExpressRoute Direct** | **10-Gbps ExpressRoute Direct** | 
 | --- | --- |

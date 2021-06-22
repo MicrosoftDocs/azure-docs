@@ -1,12 +1,8 @@
 ---
 title: Set up your network
 description: Learn about solution architecture, network preparation, prerequisites, and other information needed to ensure that you successfully set up your network to work with Azure Defender for IoT appliances.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 02/18/2021
 ms.topic: how-to
-ms.service: azure
 ---
 
 # About Azure Defender for IoT network setup
@@ -99,8 +95,8 @@ Verify that your organizational security policy allows access to the following:
 | SMTP | TCP | OUT | 25 | Email | The connection between CyberX platform and the Management platform and the mail server | Sensor and On-premises management console | Email server |
 | Syslog | UDP | OUT | 514 | LEEF | Logs that send from the on-premises management console to Syslog server | On-premises management console and Sensor | Syslog server |
 | DNS |  | IN/OUT | 53 | DNS | DNS Server Port | On-premises management console and Sensor | DNS server |
-| LDAP | TCP | IN/OUT | 389 | Active Directory | The connection between CyberX platform and the Management platform to the Active Directory | On-premises management console and Sensor | LDAP server |
-| LDAPS | TCP | IN/OUT | 636 | Active Directory | The connection between CyberX platform and the Management platform to the Active Directory | On-premises management console and Sensor | LDAPS server |
+| LDAP | TCP | IN/OUT | 389 | Active Directory | The connection of CyberX platform and the Management platform to the Active Directory | On-premises management console and Sensor | LDAP server |
+| LDAPS | TCP | IN/OUT | 636 | Active Directory | The connection of CyberX platform and the Management platform to the Active Directory | On-premises management console and Sensor | LDAPS server |
 | SNMP | UDP | OUT | 161 | Monitoring | Remote SNMP collectors. | On-premises management console and Sensor | SNMP server |
 | WMI | UDP | OUT | 135 | monitoring | Windows Endpoint Monitoring | Sensor | Relevant network element |
 | Tunneling | TCP | IN | 9000 <br /><br />- on top of port 443 <br /><br />From end user to the on-premises management console. <br /><br />- Port 22 from sensor to the on-premises management console  | monitoring | Tunneling | Sensor | On-premises management console |
@@ -616,7 +612,7 @@ An overview of the industrial network diagram will allow you to define the prope
  
     <Add your network diagram with marked serial connection> 
 
-7. For QoS, the default setting of the sensor is 1.5 Mbps. Specify if you want to change it: ________________ 
+7. For Quality of Service (QoS), the default setting of the sensor is 1.5 Mbps. Specify if you want to change it: ________________ 
 
    Business unit (BU): ________________ 
 

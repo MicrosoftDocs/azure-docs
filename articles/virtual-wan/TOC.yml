@@ -33,6 +33,8 @@
       href: ../networking/working-remotely-support.md?toc=%2fazure%2fvirtual-wan%2ftoc.json
     - name: Leverage Virtual WAN
       href: work-remotely-support.md
+  - name: Virtual WAN FAQ
+    href: virtual-wan-faq.md
   - name: Locations and partners
     items:
     - name: Hub locations and partners
@@ -71,6 +73,8 @@
       href: scenario-route-through-nvas-custom.md
     - name: Azure Firewall - custom
       href: scenario-route-between-vnets-firewall.md
+    - name: Application Gateway and backend pools
+      href: scenario-secured-hub-app-gateway.md
   - name: Monitoring
     items:
     - name: About Azure Monitor Insights for Virtual WAN
@@ -88,11 +92,13 @@
   - name: Security
     items:
     - name: Security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/virtual-wan-security-baseline?toc=/azure/virtual-wan/TOC.json
   - name: Pricing concepts
     href: pricing-concepts.md
   - name: About NVA in a virtual hub
     href: about-nva-hub.md
+  - name: About secured virtual hubs
+    href: ../firewall-manager/secured-virtual-hub.md?toc=%2fazure%2fvirtual-wan%2ftoc.json
 - name: How-to guides
   items:
   - name: Upgrade a virtual WAN SKU
@@ -113,6 +119,8 @@
       href: virtual-wan-site-to-site-portal.md
     - name: Connect virtual network gateway to Virtual WAN
       href: connect-virtual-network-gateway-vwan.md
+    - name: Perform a packet capture 
+      href: virtual-wan-site-to-site-packet-capture.md
     - name: Configure custom IPsec policy
       href: virtual-wan-custom-ipsec-portal.md
     - name: Configure NAT rules
@@ -135,10 +143,14 @@
         href: vpn-profile-intune.md
     - name: VPN clients
       items:
-      - name: Windows 10
-        href: openvpn-azure-ad-client.md
-      - name: OpenVPN
-        href: howto-openvpn-clients.md?
+        - name: OpenVPN
+          href: howto-openvpn-clients.md?
+        - name: Azure AD authentication
+          items:
+            - name: Windows 10
+              href: openvpn-azure-ad-client.md
+            - name: macOS - Preview
+              href: openvpn-azure-ad-client-mac.md
     - name: Configure Always-On tunnels
       items:
       - name: User tunnel
@@ -184,13 +196,11 @@
   - name: REST
     href: /rest/api/azure
   - name: Azure CLI
-    href: /cli/azure/ext/virtual-wan
+    href: ./index.yml
   - name: Python SDK
     href: https://azuresdkdocs.blob.core.windows.net/$web/python/azure-mgmt-network/10.0.0/azure.mgmt.network.v2019_02_01.operations.html#azure.mgmt.network.v2019_02_01.operations.VirtualWansOperations
 - name: Resources
   items:
-  - name: FAQ
-    href: virtual-wan-faq.md
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/virtual-wan
   - name: Subscription and service limits

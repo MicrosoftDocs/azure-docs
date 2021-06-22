@@ -6,7 +6,7 @@ author: ranvijaykumar
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 01/19/2021
+ms.date: 05/11/2021
 ms.author: ranku
 ---
 
@@ -14,8 +14,8 @@ ms.author: ranku
 # How to convert data to FHIR (Preview)
 
 > [!IMPORTANT]
-> This capability is in public preview, is provided without a service level agreement, 
-> and is not recommended for production workloads. Certain features might not be supported 
+> This capability is in public preview, and it's provided without a service level agreement. 
+> It's not recommended for production workloads. Certain features might not be supported 
 > or might have constrained capabilities. For more information, see 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -33,7 +33,7 @@ $convert-data takes a [Parameter](http://hl7.org/fhir/parameters.html) resource 
 | ----------- | ----------- | ----------- |
 | inputData      | Data to be converted. | A valid value of JSON String datatype|
 | inputDataType   | Data type of input. | ```HL7v2``` |
-| templateCollectionReference | Reference to a template collection. It can be a reference either to the **Default templates**, or a custom template image that is registered with Azure API for FHIR. See below to learn about customizing the templates, hosting those on ACR, and registering to the Azure API for FHIR.  | ```microsofthealth/fhirconverter:default```, \<RegistryServer\>/\<imageName\>@\<imageDigest\> |
+| templateCollectionReference | Reference to a template collection. It can be a reference either to the **Default templates**, or a custom template image that's registered with Azure API for FHIR. See below to learn about customizing the templates, hosting those on ACR, and registering to the Azure API for FHIR.  | ```microsofthealth/fhirconverter:default```, \<RegistryServer\>/\<imageName\>@\<imageDigest\> |
 | rootTemplate | The root template to use while transforming the data. | ```ADT_A01```, ```OML_O21```, ```ORU_R01```, ```VXU_V04``` |  
 
 > [!WARNING]
@@ -90,16 +90,17 @@ $convert-data takes a [Parameter](http://hl7.org/fhir/parameters.html) resource 
 
 ## Customize templates
 
-You can use the [FHIR Converter extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-health-fhir-converter) for Visual Studio Code to customize the templates as per your needs. The extension provides an interactive editing experience, and makes it easy to download Microsoft-published templates and sample data. See the documentation in the extension for details.
+You can use the [FHIR Converter extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-health-fhir-converter) for Visual Studio Code to customize the templates as per your needs. The extension provides an interactive editing experience, and makes it easy to download Microsoft-published templates and sample data. Refer to the documentation in the extension for more details.
 
 ## Host and use templates
 
-It is strongly recommended that you host your own copy of templates on ACR. There are four steps involved in hosting your own copy of templates and using those in the $convert-data operation:
+It's strongly recommended that you host your own copy of templates on ACR. There're four steps involved in hosting your own copy of templates and using those in the $convert-data operation:
 
 1. Push the templates to your Azure Container Registry.
 1. Enable Managed Identity on your Azure API for FHIR instance.
 1. Provide access of the ACR to the Azure API for FHIR Managed Identity.
 1. Register the ACR servers in the Azure API for FHIR.
+1. Optionally configure ACR firewall for secure access.
 
 ### Push templates to Azure Container Registry
 
@@ -107,32 +108,34 @@ After creating an ACR instance, you can use the _FHIR Converter: Push Templates_
 
 ### Enable Managed Identity on Azure API for FHIR
 
-Browse to your instance of Azure API for FHIR service in the Azure portal and select the **Identity** blade.
+Browse to your instance of Azure API for FHIR service in the Azure portal, and then select the **Identity** blade.
 Change the status to **On** to enable managed identity in Azure API for FHIR.
 
 ![Enable Managed Identity](media/convert-data/fhir-mi-enabled.png)
 
 ### Provide access of the ACR to Azure API for FHIR
 
-Navigate to Access Control (IAM) blade in your ACR instance and select _Add Role Assignments_.
+1. Browse to the **Access control (IAM)** blade.
 
-![ACR Role Assignment](media/convert-data/fhir-acr-role-assignment.png)
+1. Select **Add**, and then select **Add role assignment** to open the Add role assignment page.
 
-Grant AcrPull role to your Azure API for FHIR service instance.
+1. Assign the [AcrPull](../../role-based-access-control/built-in-roles.md#acrpull) role. 
 
-![Add Role](media/convert-data/fhir-acr-role-add.png)
+   ![Add role assignment page](../../../includes/role-based-access-control/media/add-role-assignment-page.png) 
+
+For more information about assigning roles in the Azure portal, see [Azure built-in roles](../../role-based-access-control/role-assignments-portal.md).
 
 ### Register the ACR servers in Azure API for FHIR
 
 You can register the ACR server using the Azure portal, or using CLI.
 
 #### Registering the ACR server using Azure portal
-Navigate to the _Artifacts_ blade under _Data transformation_ in your Azure API for FHIR instance. You will see the list of currently registered ACR servers. Click on _Add_ and select your registry server from the dropdown. You will need to click on _Save_ for the registration to take effect. It may take a few minutes to apply the change and restart your instance.
+Browse to the **Artifacts** blade under **Data transformation** in your Azure API for FHIR instance. You will see the list of currently registered ACR servers. Select **Add**, and then select your registry server from the drop-down menu. You'll need to select **Save** for the registration to take effect. It may take a few minutes to apply the change and restart your instance.
 
 #### Registering the ACR server using CLI
-You can register up to twenty ACR servers in the Azure API for FHIR.
+You can register up to 20 ACR servers in the Azure API for FHIR.
 
-Install the healthcareapis CLI from Azure PowerShell if needed:
+Install the Healthcare APIs CLI from Azure PowerShell if needed:
 
 ```powershell
 az extension add -n healthcareapis
@@ -151,6 +154,46 @@ az healthcareapis acr add --login-servers "fhiracr2021.azurecr.io" --resource-gr
 ```powershell
 az healthcareapis acr add --login-servers "fhiracr2021.azurecr.io fhiracr2020.azurecr.io" --resource-group fhir-test --resource-name fhirtest2021
 ```
+### Configure ACR firewall
+
+Select **Networking** of the Azure storage account from the portal.
+
+   :::image type="content" source="media/convert-data/networking-container-registry.png" alt-text="Container registry.":::
+
+
+Select **Selected networks**. 
+
+Under the **Firewall** section, specify the IP address in the **Address range** box. Add IP ranges to allow access from the internet or your on-premises networks. 
+
+In the table below, you'll find the IP address for the Azure region where the Azure API for FHIR service is provisioned.
+
+|**Azure Region**         |**Public IP Address** |
+|:----------------------|:-------------------|
+| Australia East       | 20.53.44.80       |
+| Canada Central       | 20.48.192.84      |
+| Central US           | 52.182.208.31     |
+| East US              | 20.62.128.148     |
+| East US 2            | 20.49.102.228     |
+| East US 2 EUAP       | 20.39.26.254      |
+| Germany North        | 51.116.51.33      |
+| Germany West Central | 51.116.146.216    |
+| Japan East           | 20.191.160.26     |
+| Korea Central        | 20.41.69.51       |
+| North Central US     | 20.49.114.188     |
+| North Europe         | 52.146.131.52     |
+| South Africa North   | 102.133.220.197   |
+| South Central US     | 13.73.254.220     |
+| Southeast Asia       | 23.98.108.42      |
+| Switzerland North    | 51.107.60.95      |
+| UK South             | 51.104.30.170     |
+| UK West              | 51.137.164.94     |
+| West Central US      | 52.150.156.44     |
+| West Europe          | 20.61.98.66       |
+| West US 2            | 40.64.135.77      |
+
+
+> [!NOTE]
+> The above steps are similar to the configuration steps described in the document How to export FHIR data. For more information, see [Secure Export to Azure Storage](./export-data.md#secure-export-to-azure-storage)
 
 ### Verify
 

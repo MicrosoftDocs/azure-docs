@@ -1,20 +1,8 @@
 ---
 title: Conceptual explanation of the basics of the Defender-IoT-micro-agent for Azure RTOS 
 description: Learn the basics about the Defender-IoT-micro-agent for Azure RTOS concepts and workflow.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: mlottner
-manager: rkarlin
-editor: ''
-
-
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 09/09/2020
-ms.author: mlottner
 ---
 
 # Defender-IoT-micro-agent for Azure RTOS (preview)
@@ -23,7 +11,7 @@ Use this article to get a better understanding of the Defender-IoT-micro-agent f
 
 ## Azure RTOS IoT Defender-IoT-micro-agent
 
-Defender-IoT-micro-agent for Azure RTOS provides a comprehensive security solution for Azure RTOS devices as part of the NetX Duo offering. Within the NetX Duo offering, Azure RTOS ships with the Azure IoT Defender-IoT-micro-agent built-in, and provides coverage for common threats on your real-time operating system devices once activated. 
+Defender-IoT-micro-agent for Azure RTOS provides a comprehensive security solution for Azure RTOS devices as part of the NetX Duo offering. Within the NetX Duo offering, Azure RTOS ships with the Azure IoT Defender-IoT-micro-agent built-in, and provides coverage for common threats on your real-time operating system devices once activated.
 
 The Defender-IoT-micro-agent for Azure RTOS runs in the background, and provides a seamless user experience, while sending security messages using each customer's unique connections to their IoT Hub. The Defender-IoT-micro-agent for Azure RTOS is enabled by default.  
 

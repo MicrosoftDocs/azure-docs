@@ -96,7 +96,7 @@ To configure Azure AD single sign-on with JobScore, perform the following steps:
     ![JobScore Domain and URLs single sign-on information](common/sp-signonurl.png)
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://hire.jobscore.com/auth/adfs/<company name>`
+    `https://hire.jobscore.com/auth/adfs/<company id>`
 
 	> [!NOTE]
 	> The value is not real. Update the value with the actual Sign-On URL. Contact [JobScore Client support team](mailto:support@jobscore.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.

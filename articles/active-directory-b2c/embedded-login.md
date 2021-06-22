@@ -9,13 +9,24 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/16/2021
+ms.date: 03/21/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
+zone_pivot_groups: b2c-policy-type
 ---
 
 # Embedded sign-in experience
+
+[!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
+
+::: zone pivot="b2c-user-flow"
+
+[!INCLUDE [active-directory-b2c-limited-to-custom-policy](../../includes/active-directory-b2c-limited-to-custom-policy.md)]
+
+::: zone-end
+
+::: zone pivot="b2c-custom-policy"
 
 For a simpler sign-in experience, you can avoid redirecting users to a separate sign-in page or generating a pop-up window. By using the inline frame element `<iframe>`, you can embed the Azure AD B2C sign-in user interface directly into your web application.
 
@@ -30,11 +41,11 @@ The inline frame element `<iframe>` is used to embed a document in an HTML5 web 
 When using iframe, consider the following:
 
 - Embedded sign-in supports local accounts only. Most social identity providers (for example, Google and Facebook) block their sign-in pages from being rendered in inline frames.
-- Because Azure AD B2C session cookies within an iframe are considered third-party cookies, certain browsers (for example Safari or Chrome in incognito mode) either block or clear these cookies, resulting in an undesirable user experience. To prevent this issue, make sure your application domain name and your Azure AD B2C domain have the *same origin*. To use the same origin, [enable custom domains](custom-domain.md) for Azure AD B2C tenant, then configure your web app with the same origin. For example, an application hosted on https://app.contoso.com has the same origin as Azure AD B2C running on https://login.contoso.com.
+- Because Azure AD B2C session cookies within an iframe are considered third-party cookies, certain browsers (for example Safari or Chrome in incognito mode) either block or clear these cookies, resulting in an undesirable user experience. To prevent this issue, make sure your application domain name and your Azure AD B2C domain have the *same origin*. To use the same origin, [enable custom domains](custom-domain.md) for Azure AD B2C tenant, then configure your web app with the same origin. For example, an application hosted on 'https://app.contoso.com' has the same origin as Azure AD B2C running on 'https://login.contoso.com'.
 
 ## Prerequisites
 
-* Complete the steps in the [Get started with custom policies in Active Directory B2C](custom-policy-get-started.md).
+* Complete the steps in the [Get started with custom policies in Active Directory B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy).
 * [Enable custom domains](custom-domain.md) for your policies.
 
 ## Configure your policy
@@ -154,3 +165,5 @@ See the following related articles:
 - [RelyingParty](relyingparty.md) element reference
 - [Enable your policy for JavaScript](./javascript-and-page-layout.md)
 - [Code samples](code-samples.md)
+
+::: zone-end

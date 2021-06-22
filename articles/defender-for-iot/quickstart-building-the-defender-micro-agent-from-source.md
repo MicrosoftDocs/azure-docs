@@ -1,16 +1,11 @@
 ---
-title: Build the Defender micro agent from source code (Preview)
-titleSuffix: Azure Defender for IoT
-description: Micro Agent includes an infrastructure, which can be used to customize your distribution.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
-ms.date: 1/18/2021
+title: 'Quickstart: Build the Defender micro agent from source code (Preview)'
+description: In this quickstart, learn about the Micro Agent which includes an infrastructure that can be used to customize your distribution.
+ms.date: 05/10/2021
 ms.topic: quickstart
-ms.service: azure
 ---
 
-# Build the Defender micro agent from source code (Preview)
+# Quickstart: Build the Defender micro agent from source code (Preview)
 
 The Micro Agent includes an infrastructure, which can be used to customize your distribution. To see a list of the available configuration parameters look at the `configs/LINUX_BASE.conf` file.
 
@@ -32,17 +27,7 @@ To override the values:
 
     `cmake -DCMAKE_BUILD_TYPE=Debug -Dlog_level=DEBUG -Dlog_level_cmdline:BOOL=ON -DIOT_SECURITY_MODULE_DIST_TARGET=UBUNTU1804 ..` 
 
-## Baseline Configuration signing 
-
-The agent verifies the authenticity of configuration files that are placed on the disk to mitigate tampering, by default.
-
-You can stop this process by defining the preprocessor flag `ASC_BASELINE_CONF_SIGN_CHECK_DISABLE`.
-
-We don't recommend turning off the signature check for production environments. 
-
-If you require a different configuration for production scenarios, contact the Defender for IoT team. 
-
-## Prerequisites 
+## Prerequisites
 
 1. Contact your account manager to ask for access to Defender for IoT source code.
  
@@ -77,7 +62,17 @@ If you require a different configuration for production scenarios, contact the D
 
 1. (Optional) Download and install [VSCode](https://code.visualstudio.com/download ) 
 
-1. (Optional) Install the [C/C++ extension](https://code.visualstudio.com/docs/languages/cpp ) for VSCode.
+1. (Optional) Install the [C/C++ extension](https://code.visualstudio.com/docs/languages/cpp ) for VSCode.- None
+
+## Baseline Configuration signing 
+
+The agent verifies the authenticity of configuration files that are placed on the disk to mitigate tampering, by default.
+
+You can stop this process by defining the preprocessor flag `ASC_BASELINE_CONF_SIGN_CHECK_DISABLE`.
+
+We don't recommend turning off the signature check for production environments. 
+
+If you require a different configuration for production scenarios, contact the Defender for IoT team. 
 
 ## Building the Defender IoT Micro Agent 
 
@@ -103,4 +98,5 @@ If you require a different configuration for production scenarios, contact the D
 
 ## Next steps
 
-[Configure your Azure Defender for IoT solution](quickstart-configure-your-solution.md).
+> [!div class="nextstepaction"]
+> [Configure your Azure Defender for IoT solution](quickstart-configure-your-solution.md).

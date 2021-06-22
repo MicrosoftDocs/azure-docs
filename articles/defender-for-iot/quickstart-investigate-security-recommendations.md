@@ -1,20 +1,8 @@
 ---
 title: Investigate security recommendations"
 description: Investigate security recommendations with the Defender for IoT security service.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: shhazam-ms
-manager: rkarlin
-editor: ''
-
-
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 09/09/2020
-ms.author: shhazam
 ---
 
 # Quickstart: Investigate security recommendations

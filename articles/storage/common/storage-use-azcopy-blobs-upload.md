@@ -4,13 +4,13 @@ description: This article contains a collection of AzCopy example commands that 
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/11/2020
+ms.date: 04/02/2021
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
 ---
 
-# Upload files to Azure Blob storage by using AzCopy v10
+# Upload files to Azure Blob storage by using AzCopy
 
 You can upload files and directories to Blob storage by using the AzCopy v10 command-line utility. 
 
@@ -32,11 +32,23 @@ You can use the [azcopy make](storage-ref-azcopy-make.md) command to create a co
 > [!TIP]
 > This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
 
-|    |     |
-|--------|-----------|
-| **Syntax** | `azcopy make 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>'` |
-| **Example** | `azcopy make 'https://mystorageaccount.blob.core.windows.net/mycontainer'` |
-| **Example** (hierarchical namespace) | `azcopy make 'https://mystorageaccount.dfs.core.windows.net/mycontainer'` |
+This is a table example:
+
+**Syntax**
+
+`azcopy make 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>'`
+
+**Example**
+
+```azcopy
+https://mystorageaccount.blob.core.windows.net/mycontainer
+```
+
+**Example (hierarchical namespace)**
+
+```azcopy
+https://mystorageaccount.dfs.core.windows.net/mycontainer
+```
 
 For detailed reference docs, see [azcopy make](storage-ref-azcopy-make.md).
 
@@ -47,11 +59,21 @@ Upload a file by using the [azcopy copy](storage-ref-azcopy-copy.md) command.
 > [!TIP]
 > This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
 
-|    |     |
-|--------|-----------|
-| **Syntax** | `azcopy copy '<local-file-path>' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<blob-name>'` |
-| **Example** | `azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt'` |
-| **Example** (hierarchical namespace) | `azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myTextFile.txt'` |
+**Syntax**
+
+`azcopy copy '<local-file-path>' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<blob-name>'`
+
+**Example**
+
+```azcopy
+azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt'
+```
+
+**Example (hierarchical namespace)**
+
+```azcopy
+azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myTextFile.txt'
+```
 
 You can also upload a file by using a wildcard symbol (*) anywhere in the file path or file name. For example: `'C:\myDirectory\*.txt'`, or `C:\my*\*.txt`.
 
@@ -64,18 +86,35 @@ This example copies a directory (and all of the files in that directory) to a bl
 > [!TIP]
 > This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
 
-|    |     |
-|--------|-----------|
-| **Syntax** | `azcopy copy '<local-directory-path>' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>' --recursive` |
-| **Example** | `azcopy copy 'C:\myDirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --recursive` |
-| **Example** (hierarchical namespace) | `azcopy copy 'C:\myDirectory' 'https://mystorageaccount.dfs.core.windows.net/mycontainer' --recursive` |
+**Syntax**
+
+`azcopy copy '<local-directory-path>' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>' --recursive`
+
+**Example**
+
+```azcopy
+azcopy copy 'C:\myDirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --recursive
+```
+
+**Example (hierarchical namespace)**
+
+```azcopy
+azcopy copy 'C:\myDirectory' 'https://mystorageaccount.dfs.core.windows.net/mycontainer' --recursive
+```
 
 To copy to a directory within the container, just specify the name of that directory in your command string.
 
-|    |     |
-|--------|-----------|
-| **Example** | `azcopy copy 'C:\myDirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory' --recursive` |
-| **Example** (hierarchical namespace) | `azcopy copy 'C:\myDirectory' 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myBlobDirectory' --recursive` |
+**Example**
+
+```azcopy
+azcopy copy 'C:\myDirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory' --recursive
+```
+
+**Example (hierarchical namespace)**
+
+```azcopy
+azcopy copy 'C:\myDirectory' 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myBlobDirectory' --recursive
+```
 
 If you specify the name of a directory that doesn't exist in the container, AzCopy creates a new directory by that name.
 
@@ -86,12 +125,21 @@ Upload the contents of a directory by using the [azcopy copy](storage-ref-azcopy
 > [!TIP]
 > This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
 
-|    |     |
-|--------|-----------|
-| **Syntax** | `azcopy copy '<local-directory-path>\*' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<directory-path>'` |
-| **Example** | `azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory'` |
-| **Example** (hierarchical namespace) | `azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myBlobDirectory'` |
+**Syntax**
 
+`azcopy copy '<local-directory-path>\*' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<directory-path>'` 
+
+**Example**
+
+```azcopy
+azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory'
+```
+
+**Example (hierarchical namespace)**
+
+```azcopy
+azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myBlobDirectory'
+```
 
 Append the `--recursive` flag to upload files in all subdirectories.
 
@@ -106,11 +154,21 @@ You can upload specific files by using complete file names, partial names with w
 
 Use the [azcopy copy](storage-ref-azcopy-copy.md) command with the `--include-path` option. Separate individual file names by using a semicolon (`;`).
 
-|    |     |
-|--------|-----------|
-| **Syntax** | `azcopy copy '<local-directory-path>' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>' --include-path <semicolon-separated-file-list>` |
-| **Example** | `azcopy copy 'C:\myDirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --include-path 'photos;documents\myFile.txt' --recursive` |
-| **Example** (hierarchical namespace) | `azcopy copy 'C:\myDirectory' 'https://mystorageaccount.dfs.core.windows.net/mycontainer' --include-path 'photos;documents\myFile.txt' --recursive` |
+**Syntax** 
+
+`azcopy copy '<local-directory-path>' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>' --include-path <semicolon-separated-file-list>` 
+
+**Example**
+
+```azcopy
+azcopy copy 'C:\myDirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --include-path 'photos;documents\myFile.txt' --recursive'
+```
+
+**Example (hierarchical namespace)**
+
+```azcopy
+azcopy copy 'C:\myDirectory' 'https://mystorageaccount.dfs.core.windows.net/mycontainer' --include-path 'photos;documents\myFile.txt' --recursive'
+```
 
 In this example, AzCopy transfers the `C:\myDirectory\photos` directory and the `C:\myDirectory\documents\myFile.txt` file. Include the `--recursive` option to transfer all files in the `C:\myDirectory\photos` directory.
 
@@ -120,11 +178,21 @@ You can also exclude files by using the `--exclude-path` option. To learn more, 
 
 Use the [azcopy copy](storage-ref-azcopy-copy.md) command with the `--include-pattern` option. Specify partial names that include the wildcard characters. Separate names by using a semicolin (`;`). 
 
-|    |     |
-|--------|-----------|
-| **Syntax** | `azcopy copy '<local-directory-path>' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>' --include-pattern <semicolon-separated-file-list-with-wildcard-characters>` |
-| **Example** | `azcopy copy 'C:\myDirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --include-pattern 'myFile*.txt;*.pdf*'` |
-| **Example** (hierarchical namespace) | `azcopy copy 'C:\myDirectory' 'https://mystorageaccount.dfs.core.windows.net/mycontainer' --include-pattern 'myFile*.txt;*.pdf*'` |
+**Syntax**
+
+`azcopy copy '<local-directory-path>' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>' --include-pattern <semicolon-separated-file-list-with-wildcard-characters>` 
+
+**Example**
+
+```azcopy
+azcopy copy 'C:\myDirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --include-pattern 'myFile*.txt;*.pdf*'
+```
+
+**Example (hierarchical namespace)**
+
+```azcopy
+azcopy copy 'C:\myDirectory' 'https://mystorageaccount.dfs.core.windows.net/mycontainer' --include-pattern 'myFile*.txt;*.pdf*'
+```
 
 You can also exclude files by using the `--exclude-pattern` option. To learn more, see [azcopy copy](storage-ref-azcopy-copy.md) reference docs.
 
@@ -136,11 +204,21 @@ Use the [azcopy copy](storage-ref-azcopy-copy.md) command with the `--include-be
 
 The following examples upload files that were modified on or after the specified date.
 
-|    |     |
-|--------|-----------|
-| **Syntax** | `azcopy copy '<local-directory-path>\*' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-or-directory-name>'  --include-after <Date-Time-in-ISO-8601-format>` |
-| **Example** | `azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory'  --include-after '2020-08-19T15:04:00Z'` |
-| **Example** (hierarchical namespace) | `azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.dfs.core.windows.net/mycontainer/FileDirectory'   --include-after '2020-08-19T15:04:00Z'` |
+**Syntax**
+
+`azcopy copy '<local-directory-path>\*' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-or-directory-name>'  --include-after <Date-Time-in-ISO-8601-format>` 
+
+**Example**
+
+```azcopy
+azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory'  --include-after '2020-08-19T15:04:00Z'
+```
+
+**Example (hierarchical namespace)**
+
+```azcopy
+azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.dfs.core.windows.net/mycontainer/FileDirectory'   --include-after '2020-08-19T15:04:00Z'
+```
 
 For detailed reference, see the [azcopy copy](storage-ref-azcopy-copy.md) reference docs.
 
@@ -160,11 +238,23 @@ The following examples show how to use the `--blob-tags` option.
 > [!TIP]
 > This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
 
-|    |     |
-|--------|-----------|
-| **Upload a file** | `azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt' --blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'` |
-| **Upload a directory** | `azcopy copy 'C:\myDirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --recursive --blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'`|
-| **Upload directory contents** | `azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory' --blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'` |
+**Upload a file**
+
+```azcopy
+azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt' --blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'
+```
+
+**Upload a directory**
+
+```azcopy
+azcopy copy 'C:\myDirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --recursive --blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'
+```
+
+**Upload directory contents**
+
+```azcopy
+azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory' --blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'
+```
 
 > [!NOTE]
 > If you specify a directory for the source, all the blobs that are copied to the destination will have the same tags that you specify in the command.
@@ -188,6 +278,12 @@ Find more examples in these articles:
 - [Examples: Copy between accounts](storage-use-azcopy-blobs-copy.md)
 - [Examples: Synchronize](storage-use-azcopy-blobs-synchronize.md)
 - [Examples: Amazon S3 buckets](storage-use-azcopy-s3.md)
+- [Examples: Google Cloud Storage](storage-use-azcopy-google-cloud.md)
 - [Examples: Azure Files](storage-use-azcopy-files.md)
 - [Tutorial: Migrate on-premises data to cloud storage by using AzCopy](storage-use-azcopy-migrate-on-premises-data.md)
-- [Configure, optimize, and troubleshoot AzCopy](storage-use-azcopy-configure.md)
+
+See these articles to configure settings, optimize performance, and troubleshoot issues:
+
+- [AzCopy configuration settings](storage-ref-azcopy-configuration-settings.md)
+- [Optimize the performance of AzCopy](storage-use-azcopy-optimize.md)
+- [Troubleshoot AzCopy V10 issues in Azure Storage by using log files](storage-use-azcopy-configure.md)

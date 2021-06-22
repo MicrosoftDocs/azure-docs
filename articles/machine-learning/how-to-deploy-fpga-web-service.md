@@ -9,8 +9,8 @@ ms.reviewer: larryfr
 ms.author: jordane
 author: jpe316
 ms.date: 09/24/2020
-ms.topic: conceptual
-ms.custom: how-to, contperf-fy21q2, devx-track-python, deploy
+ms.topic: how-to
+ms.custom: contperf-fy21q2, devx-track-python, deploy
 ---
 
 # Deploy ML models to field-programmable gate arrays (FPGAs) with Azure Machine Learning 

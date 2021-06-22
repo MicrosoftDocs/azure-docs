@@ -5,9 +5,9 @@ ms.topic: overview
 manager: nitinme
 ms.author: lajanuar
 author: laujan
-ms.date: 02/11/2021
+ms.date: 05/20/2021
 ---
-# What is Document Translation (Preview)?
+# What is Document Translation?
 
 Document Translation is a cloud-based feature of the [Azure Translator](../translator-info-overview.md) service and is part of the Azure Cognitive Service family of REST APIs. The Document Translation API translates documents to and from 90 languages and dialects while preserving document structure and data format.
 
@@ -25,7 +25,12 @@ This documentation contains the following article types:
 |**Preserve source file presentation**| Translate files while preserving the original layout and format.|
 |**Apply custom translation**| Translate documents using general and [custom translation](../customization.md#custom-translator) models.|
 |**Apply custom glossaries**|Translate documents using custom glossaries.|
+|**Automatically detect document language**|Let the Document Translation service determine the language of the document.|
+|**Translate documents with content in multiple languages**|Use the auto-detect feature to translate documents with content in multiple languages into your target language.|
 
+> [!NOTE]
+> When translating documents with content in multiple languages, the feature is intended for complete sentences in a single language. If sentences are composed of more than one language, the content may not all translate into the target language.
+> 
 ## How to get started?
 
 In our how-to guide, you'll learn how to quickly get started using Document Translator. To begin, you'll need an active [Azure account](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [create a free account](https://azure.microsoft.com/free).
@@ -40,15 +45,19 @@ The following document file types are supported by Document Translation:
 | File type| File extension|Description|
 |---|---|--|
 |Adobe PDF|.pdf|Adobe Acrobat portable document format|
-|HTML|.html|Hyper Text Markup Language.|
+|Comma Separated Values |.csv| A comma-delimited raw-data file used by spreadsheet programs.|
+|HTML|.html, .htm|Hyper Text Markup Language.|
 |Localization Interchange File Format|.xlf. , xliff| A parallel document format, export of Translation Memory systems. The languages used are defined inside the file.|
-|Microsoft Excel|.xlsx|A spreadsheet file for data analysis and documentation.|
+|Microsoft Excel|.xls, .xlsx|A spreadsheet file for data analysis and documentation.|
 |Microsoft Outlook|.msg|An email message created or saved within Microsoft Outlook.|
-|Microsoft PowerPoint|.pptx| A presentation file used to display content in a slideshow format.|
-|Microsoft Word|.docx| A text document file.|
-|Tab Separated Values/TAB|.tsv/.tab| a tab-delimited raw-data file used by spreadsheet programs.|
+|Microsoft PowerPoint|.ppt, .pptx| A presentation file used to display content in a slideshow format.|
+|Microsoft Word|.doc, .docx| A text document file.|
+|OpenDocument Text|.odt|An open source text document file.|
+|OpenDocument Presentation|.odp|An open source presentation file.|
+|OpenDocument Spreadsheet|.ods|An open source spreadsheet file.|
+|Rich Text Format|.rtf|A text document containing formatting.|
+|Tab Separated Values/TAB|.tsv/.tab| A tab-delimited raw-data file used by spreadsheet programs.|
 |Text|.txt| An unformatted text document.|
-|Translation Memory Exchange|.tmx|An open XML standard used for exchanging translation memory (TM) data created by Computer Aided Translation (CAT) and localization applications.|
 
 ## Supported glossary formats
 
@@ -57,7 +66,7 @@ The following glossary file types are supported by Document Translation:
 | File type| File extension|Description|
 |---|---|--|
 |Localization Interchange File Format|.xlf. , xliff| A parallel document format, export of Translation Memory systems. The languages used are defined inside the file.|
-|Tab Separated Values/TAB|.tsv/.tab| a tab-delimited raw-data file used by spreadsheet programs.|
+|Tab Separated Values/TAB|.tsv/.tab| A tab-delimited raw-data file used by spreadsheet programs.|
 
 ## Next steps
 

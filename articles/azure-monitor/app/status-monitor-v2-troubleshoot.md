@@ -150,8 +150,6 @@ Review the [API reference](status-monitor-v2-api-reference.md) for a detailed de
 4. Try to browse to your app.
 5. After your app is loaded, return to PerfView and select **Stop Collection**.
 
-
-
 ## Next steps
 
 - Review the [API reference](status-monitor-v2-overview.md#powershell-api-reference) to learn about parameters you might have missed.

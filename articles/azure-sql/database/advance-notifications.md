@@ -3,13 +3,13 @@ title: Advance notifications (Preview) for planned maintenance events
 description: Get notification before planned maintenance for Azure SQL Database.
 services: sql-database
 ms.service: sql-db-mi
-ms.subservice: service
+ms.subservice: service-overview
 ms.custom: 
 ms.devlang: 
 ms.topic: how-to
-author: stevestein
-ms.author: sstein
-ms.reviewer: 
+author: scott-kim-sql
+ms.author: scottkim
+ms.reviewer: mathoma
 ms.date: 03/02/2021
 ---
 # Advance notifications for planned maintenance events (Preview)
@@ -83,5 +83,5 @@ The following table shows additional notifications that may be sent while mainte
 
 - [Maintenance window](maintenance-window.md)
 - [Maintenance window FAQ](maintenance-window-faq.yml)
-- [Overview of alerts in Microsoft Azure](../../azure-monitor/platform/alerts-overview.md)
-- [Email Azure Resource Manager Role](../../azure-monitor/platform/action-groups.md#email-azure-resource-manager-role)
+- [Overview of alerts in Microsoft Azure](../../azure-monitor/alerts/alerts-overview.md)
+- [Email Azure Resource Manager Role](../../azure-monitor/alerts/action-groups.md#email-azure-resource-manager-role)

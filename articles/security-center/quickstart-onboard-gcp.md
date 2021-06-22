@@ -91,7 +91,7 @@ Learn more about the [Security Command Center API](https://cloud.google.com/secu
     1. Select **ADD**.
     1. In the **New members** field, paste the **Email value** you copied earlier.
     1. Specify the role as **Security Center Admin Viewer** and then select **Save**.
-        :::image type="content" source="./media/quickstart-onboard-gcp/iam-settings-gcp-permissions-admin-viewer.png" alt-text="Setting the relevant GCP permissions":::
+        :::image type="content" source="./media/quickstart-onboard-gcp/iam-settings-gcp-permissions-admin-viewer.png" alt-text="Setting the relevant GCP permissions.":::
 
 
 ### Step 4. Create a private key for the dedicated service account
@@ -131,7 +131,7 @@ To view all the active recommendations for your resources by resource type, use 
 :::image type="content" source="./media/quickstart-onboard-gcp/gcp-resource-types-in-inventory.png" alt-text="Asset inventory page's resource type filter showing the GCP options"::: 
 
 
-## FAQ for connecting GCP accounts to Azure Security Center
+## FAQ - Connecting GCP accounts to Azure Security Center
 
 ### Can I connect multiple GCP organizations to Security Center?
 Yes. Security Center's GCP connector connects your Google Cloud resources at the *organization* level. 

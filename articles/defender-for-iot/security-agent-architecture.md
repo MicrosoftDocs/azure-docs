@@ -1,20 +1,8 @@
 ---
-title: "Quickstart: Security agents overview"
-description: In this quickstart you will learn how to understand security agent architecture for the agents used in the Azure Defender for IoT service.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: shhazam-ms
-manager: rkarlin
-editor: ''
-
-
-ms.devlang: na
+title: 'Quickstart: Security agents overview'
+description: In this quickstart, learn how to understand security agent architecture for the agents used in the Azure Defender for IoT service.
 ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/24/2021
-ms.author: shhazam
+ms.date: 4/4/2021
 ---
 
 # Quickstart: Security agent reference architecture
@@ -40,7 +28,7 @@ Defender for IoT Security agents is developed as open-source projects, and are a
 
 ## Prerequisites
 
-None
+- None
 
 ## Agent supported platforms
 
@@ -55,8 +43,7 @@ Defender for IoT offers different installer agents for 32 bit and 64-bit Windows
 ## Next steps
 
 In this article, you got a high-level overview about Defender for IoT Defender-IoT-micro-agent architecture, and the available installers.
-
-To continue getting started with Defender for IoT deployment, use the following articles:
+To continue getting started with Defender for IoT deployment, 
 
 > [!div class="nextstepaction"]
 > [security agent authentication methods](concept-security-agent-authentication-methods.md)

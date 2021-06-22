@@ -1,5 +1,5 @@
 ---
-title: Register Oracle source and setup scans (preview) in Azure Purview
+title: Register Oracle source and setup scans in Azure Purview
 description: This article outlines how to register Oracle source in Azure Purview and set up a scan.
 author: chandrakavya
 ms.author: kchandra
@@ -8,7 +8,7 @@ ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 2/25/2021
 ---
-# Register and Scan Oracle source (preview)
+# Register and Scan Oracle source
 
 This article outlines how to register an Oracle data base in Purview and set up a scan.
 
@@ -22,7 +22,7 @@ The Oracle source supports **Full scan** to extract metadata from an Oracle data
     runtime](https://www.microsoft.com/download/details.aspx?id=39717).
     For more information, see [Create and configure a self-hosted
     integration
-    runtime](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime).
+    runtime](../data-factory/create-self-hosted-integration-runtime.md).
 
 2.  Make sure [JDK
     11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)
@@ -41,10 +41,8 @@ The Oracle source supports **Full scan** to extract metadata from an Oracle data
 
 5.  Supported Oracle database versions are 6i to 19c.
 
-6.  User permission: To ensure a successful scan for the first time, a
-    Full Sys Admin type permission is required.
-
-    For subsequent scans, a read-only access to system tables is required. The user should have permission to create a session as well as role SELECT\_CATALOG\_ROLE assigned. Alternatively, the user may have SELECT permission granted for every individual system table that this connector queries metadata from:
+6.  User permission: A read-only access to system tables is required. 
+The user should have permission to create a session as well as role SELECT\_CATALOG\_ROLE assigned. Alternatively, the user may have SELECT permission granted for every individual system table that this connector queries metadata from:
        > grant create session to \[user\];\
         grant select on all\_users to \[user\];\
         grant select on dba\_objects to \[user\];\
@@ -113,7 +111,7 @@ On the **Register sources (Oracle)** screen, do the following:
 
 To create and run a new scan, do the following:
 
-1.  In the Management Center, click on Integration runtimes. Make sure a self-hosted integration runtime is set up. If it is not set up, use the steps mentioned [here](https://docs.microsoft.com/azure/purview/manage-integration-runtimes) to create a self-hosted integration runtime.
+1.  In the Management Center, click on Integration runtimes. Make sure a self-hosted integration runtime is set up. If it is not set up, use the steps mentioned [here](./manage-integration-runtimes.md) to create a self-hosted integration runtime.
 
 2.  Navigate to **Sources**.
 
@@ -149,10 +147,15 @@ To create and run a new scan, do the following:
 6.  **Driver location**: Specify the path to the JDBC driver location in
     your VM where self-host integration runtime is running. This should
     be the path to valid JAR folder location.
+    > [!Note]
+    > The driver should be accessible to all accounts in the VM. Please do not install in a user account.
 
 7.  **Maximum memory available**: Maximum memory (in GB) available on
     customer's VM to be used by scanning processes. This is dependent on
     the size of SAP S/4HANA source to be scanned.
+
+    > [!Note] 
+    > As a thumb rule, please provide 1GB memory for every 1000 tables
 
     :::image type="content" source="media/register-scan-oracle-source/scan.png" alt-text="scan oracle" border="true":::
 

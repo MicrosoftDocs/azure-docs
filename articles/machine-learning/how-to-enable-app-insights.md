@@ -8,8 +8,8 @@ ms.subservice: core
 ms.author: larryfr
 author: blackmist
 ms.date: 09/15/2020
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python, data4ml
+ms.topic: how-to
+ms.custom: devx-track-python, data4ml
 ---
 
 # Monitor and collect data from ML web service endpoints
@@ -28,7 +28,7 @@ The [enable-app-insights-in-production-service.ipynb](https://github.com/Azure/M
  
 ## Prerequisites
 
-* An Azure subscription - try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
+* An Azure subscription - try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 
 * An Azure Machine Learning workspace, a local directory that contains your scripts, and the Azure Machine Learning SDK for Python installed. To learn more, see [How to configure a development environment](how-to-configure-environment.md).
 

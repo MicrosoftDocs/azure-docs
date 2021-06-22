@@ -80,5 +80,5 @@ See [Azure networking UDR overview](../virtual-network/virtual-networks-udr-over
 See [how to create, change, or delete a route table](../virtual-network/manage-route-table.md).
 
 <!-- LINKS - internal -->
-[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
+[az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
 [byo-route-table]: configure-kubenet.md#bring-your-own-subnet-and-route-table-with-kubenet

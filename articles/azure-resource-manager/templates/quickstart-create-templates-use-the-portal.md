@@ -2,9 +2,11 @@
 title: Deploy template - Azure portal
 description: Learn how to create your first Azure Resource Manager template (ARM template) using the Azure portal, and how to deploy it.
 author: mumian
-ms.date: 03/09/2021
+ms.date: 04/27/2021
 ms.topic: quickstart
 ms.author: jgao
+ms.custom: contperf-fy21q3
+
 #Customer intent: As a developer new to Azure deployment, I want to learn how to use the Azure portal to create and edit Resource Manager templates, so I can use the templates to deploy Azure resources.
 ---
 
@@ -12,9 +14,9 @@ ms.author: jgao
 
 Learn how to generate an Azure Resource Manager template (ARM template) using the Azure portal, and the process of editing and deploying the template from the portal. ARM templates are JSON files that define the resources you need to deploy for your solution. To understand the concepts associated with deploying and managing your Azure solutions, see [template deployment overview](overview.md).
 
-![Resource Manager template quickstart portal diagram](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-export-deploy-template-portal.png)
-
 After completing the tutorial, you deploy an Azure Storage account. The same process can be used to deploy other Azure resources.
+
+![Resource Manager template quickstart portal diagram](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-export-deploy-template-portal.png)
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -53,7 +55,7 @@ Many experienced template developers use this method to generate templates when 
 
     ![Generate a template from the portal](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-template.png)
 
-    The main pane shows the template. It is a JSON file with six top-level elements - `schema`, `contentVersion`, `parameters`, `variables`, `resources`, and `output`. For more information, see [Understand the structure and syntax of ARM templates](./template-syntax.md)
+    The main pane shows the template. It is a JSON file with six top-level elements - `schema`, `contentVersion`, `parameters`, `variables`, `resources`, and `output`. For more information, see [Understand the structure and syntax of ARM templates](./syntax.md)
 
     There are nine parameters defined. One of them is called **storageAccountName**. The second highlighted part on the previous screenshot shows how to reference this parameter in the template. In the next section, you edit the template to use a generated name for the storage account.
 

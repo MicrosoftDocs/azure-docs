@@ -1,12 +1,8 @@
 ---
 title: Work with Defender for IoT CLI commands
 description: This article describes Defender for IoT CLI commands for sensors and on-premises management consoles.  
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
-ms.date: 12/12/2020
+ms.date: 05/20/2021
 ms.topic: article
-ms.service: azure
 ---
 
 # Work with Defender for IoT CLI commands
@@ -112,7 +108,7 @@ The following table describes the commands available to configure your network o
 |Import a certificate |`certificate import FILE` |Imports the HTTPS certificate. You'll need to specify the full path, which leads to a \*.crt file. |
 |Show the date |`date` |Returns the current date on the host in GMT format. |
 
-## Filter network configurations
+## Network capture filter configuration
 
 The `network capture-filter` command allows administrators to eliminate network traffic that doesn't need to be analyzed. You can filter traffic by using an include list, or an exclude list.
 
@@ -282,7 +278,7 @@ The command supports the following input flags:
 | --key | The \*.key file. Key length should be a minimum of 2,048 bits. |
 | --chain | Path to the certificate chain file (optional). |
 | --pass | Passphrase used to encrypt the certificate (optional). |
-| --passphrase-set | The default is **False**, **unused**. <br />Set to **True** to use the previous passphrase supplied with the previous certificate (optional). |  |
+| --passphrase-set | The default is **False**, **unused**. <br />Set to **True** to use the previous passphrase supplied with the previous certificate (optional). | 
 
 When you're using the tool:
 

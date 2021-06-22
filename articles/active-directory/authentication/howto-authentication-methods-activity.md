@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 03/04/2021
+ms.date: 03/16/2021
 
 ms.author: justinha
 author: sopand
@@ -132,9 +132,10 @@ The registration details report shows the following information for each user:
 
 - The data in the report is not updated in real-time and may reflect a latency of up to a few hours.
 - Temporary Access Pass registrations are not reflected in the registration tab of the report because they are only valid for short period of time.
+- The **PhoneAppNotification** or **PhoneAppOTP** methods that a user might have configured are not displayed in the dashboard. 
 
 ## Next steps
 
-- [Working with the authentication methods usage report API](/graph/api/resources/authenticationmethods-usage-insights-overview?view=graph-rest-beta)
+- [Working with the authentication methods usage report API](/graph/api/resources/authenticationmethods-usage-insights-overview)
 - [Choosing authentication methods for your organization](concept-authentication-methods.md)
 - [Combined registration experience](concept-registration-mfa-sspr-combined.md)

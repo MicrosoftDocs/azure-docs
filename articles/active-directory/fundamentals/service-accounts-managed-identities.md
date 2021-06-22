@@ -33,7 +33,7 @@ Managed identities are best used for communications among services that support 
 
 A source system requests access to a target service. Any Azure resource can be a source system. For example, an Azure VM, Azure Function instance, and Azure App Services instances support managed identities.
 
-[!VIDEO https://www.youtube.com/embed/5lqayO_oeEo]
+   > [!VIDEO https://www.youtube.com/embed/5lqayO_oeEo]
 
 ### How authentication and authorization work
 
@@ -50,8 +50,6 @@ All of Azure’s control plane operations are managed by [Azure Resource Manager
 For more information about control and data planes, see [Control plane and data plane operations - Azure Resource Manager](../../azure-resource-manager/management/control-plane-and-data-plane.md).
 
 All Azure services will eventually support managed identities. For more information, see [Services that support managed identities for Azure resources](../managed-identities-azure-resources/services-support-managed-identities.md).
-
-##  
 
 ## Types of managed identities
 
@@ -81,7 +79,7 @@ There are several ways in which you can find managed identities:
 
 ### Using the Azure portal
 
-1. In Azure AD, select Enterprise application.
+1. In Azure Active Directory, select Enterprise applications.
 
 2. Select the filter for “Managed Identities” 
 
@@ -95,7 +93,7 @@ You can get a list of all managed identities in your tenant with the following G
 
 `https://graph.microsoft.com/v1.0/servicePrincipals?$filter=(servicePrincipalType eq 'ManagedIdentity') `
 
-You can filter these requests. For more information, see the Graph documentation for [GET servicePrincipal](/graph/api/serviceprincipal-get?view=).
+You can filter these requests. For more information, see the Graph documentation for [GET servicePrincipal](/graph/api/serviceprincipal-get).
 
 ## Assess the security of managed identities 
 
@@ -115,7 +113,7 @@ You can assess the security of managed identities in the following ways:
 
 ## Move to managed identities
 
-If you are using a  service principal or an Azure AD user account, evaluate if you can instead use a managed to eliminate the need to protect, rotate, and manage credentials. 
+If you are using a  service principal or an Azure AD user account, evaluate if you can instead use a managed identity to eliminate the need to protect, rotate, and manage credentials. 
 
 ## Next steps
 

@@ -22,8 +22,9 @@ Custom Vision Service allows classifiers to be exported to run offline. You can 
 Custom Vision Service supports the following exports:
 
 * __Tensorflow__ for __Android__.
+* **TensorflowJS** for JavaScript frameworks like React, Angular, and Vue. This will run on both **Android** and **iOS** devices.
 * __CoreML__ for __iOS11__.
-* __ONNX__ for __Windows ML__.
+* __ONNX__ for __Windows ML__, **Android**, and **iOS**.
 * __[Vision AI Developer Kit](https://azure.github.io/Vision-AI-DevKit-Pages/)__.
 * A __Docker container__ for Windows, Linux, or ARM architecture. The container includes a Tensorflow model and service code to use the Custom Vision API.
 

@@ -5,7 +5,7 @@ author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
-ms.date: 04/20/2020
+ms.date: 04/05/2021
 ms.custom: devx-track-js
 ---
 
@@ -16,7 +16,7 @@ Playback Technology refers to the specific browser or plugin technology used to 
 - **azureHtml5JS**: utilizes MSE and EME standards in conjunction with the video element for plugin-less based playback of DASH content with support for AES-128 bit envelope encrypted content or DRM common encrypted content (via PlayReady and Widevine when the browser supports it) from Azure Media Services
 - **flashSS**: utilizes flash player technology to play back Smooth content with support for AES-128 bit envelope decryption from Azure Media Services - requires Flash version of 11.4 or higher
 - **html5FairPlayHLS**: utilizes Safari specific in browser-based playback technology via HLS with the video element. This tech is requires to play back FairPlay protected content from Azure Media Services and was added to the techOrder as of 10/19/16
-- **silverlightSS**: utilizes silverlight technology to play back Smooth content with support for PlayReady protected content from Azure Media Services.
+- **SilverlightSS**: utilizes Silverlight technology to play back Smooth content with support for PlayReady protected content from Azure Media Services.
 - **html5**: utilizes in browser-based playback technology with the video element.  When on an Apple iOS or Android device, this tech allows playback of HLS streams with some basic support for AES-128 bit envelope encryption or DRM content (via FairPlay when the browser supports it).
 
 ## Tech Order ##
@@ -40,16 +40,16 @@ Given the recommended tech order with streaming content from Azure Media Service
 | Browser        | OS                                                       | Expected Tech (Clear)  | Expected Tech (AES)  | Expected Tech (DRM)          |
 |----------------|----------------------------------------------------------|------------------------|----------------------|------------------------------|
 | EdgeIE 11      | Windows 10, Windows 8.1, Windows Phone 10<sup>1</sup>               | azureHtml5JS           | azureHtml5JS         | azureHtml5JS (PlayReady)     |
-| IE 11          | Windows 7, Windows Vista<sup>1</sup>                     | flashSS                | flashSS              | silverlightSS (PlayReady)    |
+| IE 11          | Windows 7, Windows Vista<sup>1</sup>                     | flashSS                | flashSS              | SilverlightSS (PlayReady)    |
 | IE 11          | Windows Phone 8.1                                        | azureHtml5JS           | azureHtml5JS         | not supported                |
 | Edge           | Xbox One<sup>1</sup> (Nov 2015 update)                   | azureHtml5JS           | azureHtml5JS         | not supported                |
 | Chrome 37+     | Windows 10, Windows 8.1, macOS X Yosemite<sup>1</sup>   | azureHtml5JS           | azureHtml5JS         | azureHtml5JS (Widevine)      |
 | Firefox 47+    | Windows 10, Windows 8.1, macOS X Yosemite+<sup>1</sup>  | azureHtml5JS           | azureHtml5JS         | azureHtml5JS (Widevine)      |
-| Firefox 42-46  | Windows 10, Windows 8.1, macOS X Yosemite+<sup>1</sup>  | azureHtml5JS           | azureHtml5JS         | silverlightSS (PlayReady)    |
-| Firefox 35-41  | Windows 10, Windows 8.1                                  | flashSS                | flashSS              | silverlightSS (PlayReady)    |
+| Firefox 42-46  | Windows 10, Windows 8.1, macOS X Yosemite+<sup>1</sup>  | azureHtml5JS           | azureHtml5JS         | SilverlightSS (PlayReady)    |
+| Firefox 35-41  | Windows 10, Windows 8.1                                  | flashSS                | flashSS              | SilverlightSS (PlayReady)    |
 | Safari         | iOS 6+                                                   | html5                  | html5 (no token)3    | not supported                |
 | Safari 8+      | OS X Yosemite+                                           | azureHtml5JS           | azureHtml5JS         | html5FairPlayHLS (FairPlay)  |
-| Safari 6       | OS X Mountain Lion<sup>1</sup>                           | flashSS                | flashSS              | silverlightSS (PlayReady)    |
+| Safari 6       | OS X Mountain Lion<sup>1</sup>                           | flashSS                | flashSS              | SilverlightSS (PlayReady)    |
 | Chrome 37+     | Android 4.4.4+<sup>2</sup>                               | azureHtml5JS           | azureHtml5JS         | azureHtml5JS (Widevine)      |
 | Chrome 37+     | Android 4.02                                             | html5                  | html5 (no token)<sup>3</sup>    | not supported                |
 | Firefox 42+    | Android 5.0+<sup>2</sup>                                 | azureHtml5JS           | azureHtml5JS         | not supported                |

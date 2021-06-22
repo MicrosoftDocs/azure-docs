@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 03/09/2021
+ms.date: 04/14/2021
 ms.author: aahi
 keywords: text mining, sentiment analysis, text analytics
 ms.custom: cog-serv-seo-aug-2020
@@ -18,9 +18,15 @@ ms.custom: cog-serv-seo-aug-2020
 
 The Text Analytics API is a cloud-based service that provides Natural Language Processing (NLP) features for text mining and text analysis, including: sentiment analysis, opinion mining, key phrase extraction, language detection, and named entity recognition.
 
-The API is a part of [Azure Cognitive Services](../index.yml), a collection of machine learning and AI algorithms in the cloud for your development projects. You can use these features with the REST API [version 3.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V3-0/) or [version 3.1-preview](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/), or the [client library](quickstarts/client-libraries-rest-api.md).
+The API is a part of [Azure Cognitive Services](../index.yml), a collection of machine learning and AI algorithms in the cloud for your development projects. You can use these features with the REST API [version 3.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V3-0/) or [version 3.1-preview](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-5/), or the [client library](quickstarts/client-libraries-rest-api.md).
 
 > [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Whats-New-in-Text-Analytics-Opinion-Mining-and-Async-API/player]
+
+This documentation contains the following types of articles:
+* [Quickstarts](./quickstarts/client-libraries-rest-api.md) are step-by-step instructions that let you make calls to the service and get results in a short period of time. 
+* [How-to guides](./how-tos/text-analytics-how-to-call-api.md) contain instructions for using the service in more specific or customized ways.
+* [Concepts](text-analytics-user-scenarios.md) provide in-depth explanations of the service's functionality and features.
+* [Tutorials](./tutorials/tutorial-power-bi-key-phrases.md) are longer guides that show you how to use this service as a component in broader business solutions.
 
 ## Sentiment analysis
 
