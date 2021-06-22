@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/22/2021
+ms.date: 06/22/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -147,8 +147,9 @@ For more information about accessing Azure AD B2C audit logs, see [Accessing Azu
 - [Update a Conditional Access policy](/graph/api/conditionalaccesspolicy-update)
 - [Delete a Conditional Access policy](/graph/api/conditionalaccesspolicy-delete)
 
-## How to programatically manage Microsoft Graph
-When you want to manage Microsoft Graph, you can either do it as the application using the application permissions, or you can use delegated permissions. For Delegated permissions, either the user or an administrator consents to the permissions that the app requests. The app is delegated with the permission to act as a signed-in user when it makes calls to the target resource. Application permissions are used by apps that do not require a signed in user present and thus require application permissions. Because of this, only administrators can consent to application permissions.
+## How to programmatically manage Microsoft Graph
+
+When you want to manage Microsoft Graph, you can either do it as the application using the application permissions, or you can use delegated permissions. For delegated permissions, either the user or an administrator consents to the permissions that the app requests. The app is delegated with the permission to act as a signed-in user when it makes calls to the target resource. Application permissions are used by apps that do not require a signed in user present and thus require application permissions. Because of this, only administrators can consent to application permissions.
 
 > [!NOTE]
 > Delegated permissions for users signing in through user flows or custom policies cannot be used against delegated permissions for Microsoft Graph.
