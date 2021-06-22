@@ -79,9 +79,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	|------------|
 	| `https://<CustomerName>.us.ardoq.com/saml/v2` |
 	| `https://<CustomerName>.ardoq.com/saml/v2` |
-	|
-
-
+	
     b. In the **Reply URL** text box, type a URL using the following pattern:
     `https://<CustomerName>.ardoq.com/saml/v2`
 
@@ -93,7 +91,6 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	|-------------|
 	| `https://<CustomerName>.ardoq.com/saml/v2` |
 	| `https://<CustomerName>.us.ardoq.com/saml/v2` |
-	|
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Ardoq Client support team](mailto:support@ardoq.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
@@ -110,10 +107,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	| assignedRoles | user.assignedroles |
 	| mail | user.mail |
 
-	> [!NOTE]
-    > Ardoq expects roles for users assigned to the application. Please set up these roles in Azure AD so that users can be assigned the appropriate roles. To understand how to configure roles in Azure AD, see [here](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui).
-
-
+  > [!NOTE]
+  > Ardoq expects roles for users that are assigned to the application. Be sure to set up these roles in Azure AD, so users can be assigned the appropriate roles. Your roles should be set up with the values "admin", "writer", "reader", and/or "contributor".
+  >
+  > Learn how to [configure roles in Azure AD](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui).    
+ 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
 	![The Certificate download link](common/metadataxml.png)
