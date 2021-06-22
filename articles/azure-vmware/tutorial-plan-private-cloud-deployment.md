@@ -13,7 +13,7 @@ Planning your Azure VMware Solution deployment is critical to ensure that you're
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Identify the Azure subscription, resource group, and region
+> * Identify the Azure subscription, resource group, region, and resource name
 > * Identify the size hosts and determin the number of clusters and hosts
 > * Request a host quota for eligible Azure plan
 > * Identify the /22 CIDR IP segment for private cloud management
