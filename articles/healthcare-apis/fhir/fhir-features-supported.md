@@ -65,7 +65,7 @@ All the operations that are supported that extend the RESTful API.
 | $convert-data          | Yes       | Yes       | Yes       |         |
 | $validate              | Yes       | Yes       | Yes       |         |
 | $member-match          | Yes       | Yes       | Yes       |         |
-| $patient-everything    | No        | No        | Yes       |         |
+| $patient-everything    | Yes       | No        | Yes       |         |
 
 ## Persistence
 

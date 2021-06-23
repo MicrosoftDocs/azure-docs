@@ -129,6 +129,65 @@ Now, whenever you use the release template to deploy a new release, an annotatio
 
 Select any annotation marker to open details about the release, including requestor, source control branch, release pipeline, and environment.
 
+## Classic annotations
+
+Release annotations are a feature of the cloud-based Azure Pipelines service of Azure DevOps.
+
+### Install the Annotations extension (one time)
+
+To be able to create release annotations, you'll need to install one of the many Azure DevOps extensions available in the Visual Studio Marketplace.
+
+1. Sign in to your [Azure DevOps](https://azure.microsoft.com/services/devops/) project.
+   
+1. On the Visual Studio Marketplace [Release Annotations extension](https://marketplace.visualstudio.com/items/ms-appinsights.appinsightsreleaseannotations) page, select your Azure DevOps organization, and then select **Install** to add the extension to your Azure DevOps organization.
+   
+   ![Select an Azure DevOps organization and then select Install.](./media/annotations/1-install.png)
+   
+You only need to install the extension once for your Azure DevOps organization. You can now configure release annotations for any project in your organization.
+
+### Configure classic release annotations
+
+Create a separate API key for each of your Azure Pipelines release templates.
+
+1. Sign in to the [Azure portal](https://portal.azure.com) and open the Application Insights resource that monitors your application. Or if you don't have one, [create a new Application Insights resource](./app-insights-overview.md).
+   
+1. Open the **API Access** tab and copy the **Application Insights ID**.
+   
+   ![Under API Access, copy the Application ID.](./media/annotations/2-app-id.png)
+
+1. In a separate browser window, open or create the release template that manages your Azure Pipelines deployments.
+   
+1. Select **Add task**, and then select the **Application Insights Release Annotation** task from the menu.
+   
+   ![Select Add Task and select Application Insights Release Annotation.](./media/annotations/3-add-task.png)
+
+   > [!NOTE]
+   > The Release Annotation task currently supports only Windows-based agents; it won't run on Linux, macOS, or other types of agents.
+   
+1. Under **Application ID**, paste the Application Insights ID you copied from the **API Access** tab.
+   
+   ![Paste the Application Insights ID](./media/annotations/4-paste-app-id.png)
+   
+1. Back in the Application Insights **API Access** window, select **Create API Key**. 
+   
+   ![In the API Access tab, select Create API Key.](./media/annotations/5-create-api-key.png)
+   
+1. In the **Create API key** window, type a description, select **Write annotations**, and then select **Generate key**. Copy the new key.
+   
+   ![In the Create API key window, type a description, select Write annotations, and then select Generate key.](./media/annotations/6-create-api-key.png)
+   
+1. In the release template window, on the **Variables** tab, select **Add** to create a variable definition for the new API key.
+
+1. Under **Name**, enter `ApiKey`, and under **Value**, paste the API key you copied from the **API Access** tab.
+   
+   ![In the Azure DevOps Variables tab, select Add, name the variable ApiKey, and paste the API key under Value.](./media/annotations/7-paste-api-key.png)
+   
+1. Select **Save** in the main release template window to save the template.
+
+
+   > [!NOTE]
+   > Limits for API keys are described in the [REST API rate limits documentation](https://dev.applicationinsights.io/documentation/Authorization/Rate-limits).
+
 ## Next steps
 
 * [Create work items](./diagnostic-search.md#create-work-item)

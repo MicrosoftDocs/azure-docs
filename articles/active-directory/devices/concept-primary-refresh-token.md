@@ -55,7 +55,7 @@ The PRT is issued during user authentication on a Windows 10 device in two scena
 
 * **Azure AD joined** or **Hybrid Azure AD joined**: A PRT is issued during Windows logon when a user signs in with their organization credentials. A PRT is issued with all Windows 10 supported credentials, for example, password and Windows Hello for Business. In this scenario, Azure AD CloudAP plugin is the primary authority for the PRT.
 * **Azure AD registered device**: A PRT is issued when a user adds a secondary work account to their Windows 10 device. Users can add an account to Windows 10 in two different ways -  
-   * Adding an account via the **Use this account everywhere on this device** prompt after signing in to an app (for example, Outlook)
+   * Adding an account via the **Allow my organization to manage my device** prompt after signing in to an app (for example, Outlook)
    * Adding an account from **Settings** > **Accounts** > **Access Work or School** > **Connect**
 
 In Azure AD registered device scenarios, the Azure AD WAM plugin is the primary authority for the PRT since Windows logon is not happening with this  Azure AD account.
