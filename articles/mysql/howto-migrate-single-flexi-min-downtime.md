@@ -26,7 +26,7 @@ In this tutorial, you learn how to:
 * Configure Network Settings for Data-in replication for different scenarios.
 * Configure Data-in replication between the primary and replica.
 * Test the replication. 
-* Migration cutover.
+* Cutover to complete the migration.
 
 ## Prerequisites
 To complete this tutorial, you need:
@@ -34,6 +34,13 @@ To complete this tutorial, you need:
 >[!Note]
 > If you are running Azure Database for MySQL Single Server version 5.6, upgrade your instance to 5.7 and then configure data in replication. To learn more, see [Major version upgrade in Azure Database for MySQL - Single Server](how-to-major-version-upgrade.md).
 * An instance of Azure Database for MySQL Flexible Server. For more information, see the article [Create an instance in Azure Database for MySQL Flexible Server](./flexible-server/quickstart-create-server-portal.md).
+>[!Note]
+>Configuring Data-in replication for zone redundant high availability servers is not supported. If you would like to have zone redundant HA for your target server then perform these steps
+>    1. Create the server with Zone redundant HA enabled
+>    2. Disable HA 
+>    3. Follow the article to setup data-in replication 
+>    4. Post cutover remove the Data-in replication configuration
+>    5. Enable HA
 * To connect and create a database using MySQL Workbench. For more information, see the article [Use MySQL Workbench to connect and query data](./flexible-server/connect-workbench.md).
 * To ensure that you have an Azure VM running Linux in same region (or on the same VNet, in case of private access) that hosts your source and target databases.
 * To install mysql client or MySQL Workbench (the client tools) on your Azure VM. Ensure that you can connect to both the primary and replica server. For the purposes of this article, mysql client is installed.
@@ -70,14 +77,22 @@ To configure Data in replication, perform the following steps:
     GRANT REPLICATION SLAVE ON *.* TO ' syncuser'@'%';
      ```
     
-5.	To back up the database using mydumper, run the following command:
+5.	To back up the database using mydumper, run the following command on the Azure VM where we installed the mydumper\myloader:
     ```bash
     $ mydumper --host=<primary_server>.mysql.database.azure.com --user=<username>@<primary_server> --password=<Password> --outputdir=./backup --rows=100 -G -E -R -z --trx-consistency-only --compress --build-empty-files --threads=16 --compress-protocol --ssl  --regex '^(classicmodels\.)' -L mydumper-logs.txt
     ```
+>[!Tip]
+>The option **--trx-consistency-only** is a required for transactional consistency while we take backup 
+>* The mydumper equivalent of mysqldump’s --single-transaction. 
+>* Useful if all your tables are InnoDB. 
+>* The “main” thread only needs to hold the global lock until the “dump” threads can start a transaction.
+>* Offers the shortest duration of global locking
+
+The “main” thread only needs to hold the global lock until the “dump” threads can start a transaction.
 
 The variables in this command are explained below:
 * **--host:** Name of the primary server
-* **--user:** Name of a user (in the format username@servername since the primary server is running Azure Database for MySQL - Single Server)
+* **--user:** Name of a user (in the format username@servername since the primary server is running Azure Database for MySQL - Single Server).You can use server admin or a user having SELECT and RELOAD permissions.
 * **--Password:** Password of the user above
 For more details about using mydumper, see [mydumper/myloader](concepts-migrate-mydumper-myloader.md)
 6.	Read the metadata file to determine the binary log file name and offset by running the following command:
@@ -95,7 +110,7 @@ $ myloader --host=<servername>.mysql.database.azure.com --user=<username> --pass
 ```
 The variables in this command are explained below:
 * **--host:** Name of the replica server
-* **--user:** Name of a user with read\write permission to the database
+* **--user:** Name of a user. You can use server admin or a user with read\write permission capable of restoring the schemas and data to the database 
 * **--Password:** Password for the user above
 8.	Depending on the SSL enforcement on the primary server, connect to the replica server using the mysql client tool and perform the following the steps.
     * If SSL enforcement is enabled, then:

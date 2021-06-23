@@ -12,20 +12,21 @@ ms.date: 06/18/2021
 
 [!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
 
-Azure Database for MySQL is a managed service that you use to run, manage, and scale highly available MySQL databases in the cloud. To migrate MySQL databases larger than 1 TB to Azure Database for MySQL, consider using community tools such as mydumper/myloader, which provide the following benefits:
+Azure Database for MySQL is a managed service that you use to run, manage, and scale highly available MySQL databases in the cloud. To migrate MySQL databases larger than 1 TB to Azure Database for MySQL, consider using community tools such as [mydumper/myloader](https://centminmod.com/mydumper.html), which provide the following benefits:
 * Parallelism, to help reduce the migration time. 
 * Better performance, by avoiding expensive character set conversion routines.
 * An output format, with separate files for tables, metadata etc., that makes it easy to view/parse data. Consistency, by maintaining snapshot across all threads.
 * Accurate primary and replica log positions.
 * Easy management, as they support Perl Compatible Regular Expressions (PCRE) for specifying database and tables inclusions and exclusions.
+* Schema and data goes together. Don't need to handle it separately like other logical migration tools.
 
 This quickstart shows you how to install, back up, and restore a MySQL database by using mydumper/myloader.
 
 ## Prerequisites
 
 Before you begin migrating your MySQL database, you need to:
-1. Create an Azure Database for MySQL server by using the Azure portal.
-2. Create an Azure VM running Linux (preferably Ubuntu). 
+1. Create an Azure Database for MySQL server by using the [Azure portal](./flexible-server/quickstart-create-server-portal).
+2. Create an Azure VM running Linux by using the [Azure portal](../virtual-machines/linux/quick-create-portal) (preferably Ubuntu). 
 >[!Note]
 > Prior to installing the tools, consider the following points:
 > * If your source is on-premises and has a high bandwidth connection to Azure (using ExpressRoute), consider installing the tool on an Azure VM. 
@@ -56,7 +57,7 @@ To install mydumper/myloader, do the following steps.
     ```
 
 >[!Tip] 
->The command you use to install the package will differ based on the Linux distribution you have as the installers are different. For more information, see **[How to install mydumper](https://github.com/maxbube/mydumper#how-to-install-mydumpermyloader)**
+>The command you use to install the package will differ based on the Linux distribution you have as the installers are different. The mydumper/myloader is available for following distributions Fedora, RedHat , Ubuntu, Debian, CentOS , openSUSE and MacOSX. For more information, see **[How to install mydumper](https://github.com/maxbube/mydumper#how-to-install-mydumpermyloader)**
 
 
 
@@ -78,7 +79,7 @@ This command uses the following variables:
 
 >[!Note] 
 > * For more information on other options, you can use with mydumper, run the following command:
-**mydumper --help**
+**mydumper --help** . For more details see, [mydumper\myloader documentation](https://centminmod.com/mydumper.html)
 > * To dump multiple databases in parallel, you can modiffy regex variable as shown in the example:  **regex ’^(DbName1\.|DbName2\.)**
 
 ## Restore your database using myloader
@@ -104,5 +105,7 @@ After the database is restored, it’s always recommended to validate the data c
 
 
 ## Next steps
-•	Learn more about the [mydumper/myloader project in GitHub](https://github.com/maxbube/mydumper).
-•	Learn [How to migrate large MySQL databases](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/best-practices-for-migrating-large-databases-to-azure-database/ba-p/1362699).
+* Learn more about the [mydumper/myloader project in GitHub](https://github.com/maxbube/mydumper).
+* Learn [How to migrate large MySQL databases](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/best-practices-for-migrating-large-databases-to-azure-database/ba-p/1362699).
+* [Tutorial: Minimal Downtime Migration of Azure Database for MySQL – Single Server to Azure Database for MySQL – Flexible Server](howto-migrate-single-flexi-min-downtime.md)
+* Learn more about Data-in replication  [Replicate data into Azure Database for MySQL Flexible Server](flexible-server/concepts-data-in-replication.md) and [Configure Azure Database for MySQL Flexible Server Data-in replication](./flexible-server/how-to-data-in-replication.md)

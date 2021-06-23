@@ -49,7 +49,7 @@ To learn more about this parameter, review the [MySQL documentation](https://dev
 - If the source server has SSL enabled, ensure the SSL CA certificate provided for the domain has been included in the `mysql.az_replication_change_master` stored procedure. Refer to the following [examples](./how-to-data-in-replication.md#link-source-and-replica-servers-to-start-data-in-replication) and the `master_ssl_ca` parameter.
 - Ensure that the machine hosting the source server allows both inbound and outbound traffic on port 3306.
 - In case of public access, ensure that the source server has a public IP address, that DNS is publicly accessible, or that the source server has a fully qualified domain name (FQDN).
-- In case of private access ensure that the source server name can be resolved and is accessible from the VNet where the Azure Database for MySQL instance is running.
+- In case of private access ensure that the source server name can be resolved and is accessible from the VNet where the Azure Database for MySQL instance is running.For more details see , [Name resolution for resources in Azure virtual networks](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances)
 
 ## Next steps
 
