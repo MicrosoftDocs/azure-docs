@@ -13,19 +13,19 @@ ms.custom: template-how-to
 
 # Manage a public IP address with Azure Firewall
 
-Azure Firewall is a managed, cloud-based network security service that protects your Azure Virtual Network resources. Azure Firewall requires at least one public static IP address to be configured.  This IP or set of IPs are used as the external connection point to the Firewall.  Azure Firewall supports standard SKU public IP addresses. Basic SKU public IP address and public IP prefixes aren't supported. 
+Azure Firewall is a cloud-based network security service that protects your Azure Virtual Network resources. Azure Firewall requires at least one public static IP address to be configured. This IP or set of IPs are used as the external connection point to the firewall. Azure Firewall supports standard SKU public IP addresses. Basic SKU public IP address and public IP prefixes aren't supported. 
 
 In this article, you'll learn how to create an Azure Firewall using an existing public IP in your subscription. You'll change the IP configuration of the firewall. Finally, you'll add an IP configuration to the firewall.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- Three standard SKU public IP address in your subscription. The IP address can't be associated with any resources. For more information on creating a standard SKU public IP address, see [Create a public IP - Azure portal](create-public-ip-portal.md).
+- Three standard SKU public IP addresses in your subscription. The IP address can't be associated with any resources. For more information on creating a standard SKU public IP address, see [Create a public IP - Azure portal](create-public-ip-portal.md).
     - For the purposes of the examples in this article, name the new public IP addresses **myStandardPublicIP-1**, **myStandardPublicIP-2**, and **myStandardPublicIP-3**.
 
 ## Create Azure Firewall existing public IP
 
-In this section, you'll create a Azure Firewall. You'll select the IP address you created in the prerequisites as the public IP for the firewall.
+In this section, you'll create an Azure Firewall. You'll select the IP address you created in the prerequisites as the public IP for the firewall.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -67,7 +67,7 @@ In this section, you'll create a Azure Firewall. You'll select the IP address yo
 
 ## Change public IP address
 
-In this section, you'll change the public IP address associated with the default public IP configuration of the firewall. A firewall must have at least one public IP address associated with its configuration. 
+In this section, you'll change the public IP address associated with the firewall. A firewall must have at least one public IP address associated with its configuration. 
 
 1. In the search box at the top of the portal, enter **Firewall**.
 
@@ -85,7 +85,7 @@ In this section, you'll change the public IP address associated with the default
 
 ## Add public IP configuration
 
-In this section, you'll add a public IP configuration to the Azure Firewall. For more information on multiple public IP addresses for Azure Firewall, see [Create an Azure Firewall with multiple public IP addresses](../firewall/features.md#multiple-public-ip-addresses).  
+In this section, you'll add a public IP configuration to the Azure Firewall. For more information on multiple IPs, see [Multiple public IP addresses](../firewall/features.md#multiple-public-ip-addresses).  
 
 1. In the search box at the top of the portal, enter **Firewall**.
 
@@ -105,15 +105,15 @@ In this section, you'll add a public IP configuration to the Azure Firewall. For
 
 ## More information
 
-* An Azure Firewall can be integrated with a standard SKU load balancer as a method for protection of backend pool resources.  If you choose to associate it with a public load balancer, please note that you will want ingress traffic to be directed to the Firewall public IP address before being directed to the load balancer public IP address, and then egress via a user-defined route back to the Firewall public IP address.  For more information and setup instructions for this configuration, please see Integrate Azure Firewall with Azure Standard Load Balancer. 
+* An Azure Firewall can be integrated with a standard SKU load balancer to protect backend pool resources.  If you associate the firewall with a public load balancer, configure ingress traffic to be directed to the firewall public IP address. Configure egress via a user-defined route to the firewall public IP address.  For more information and setup instructions, see [Integrate Azure Firewall with Azure Standard Load Balancer](../firewall/integrate-lb.md). 
 
-* An Azure Firewall can also be associated with a NAT gateway to extend the scalability of Source Network Address Translation (SNAT) or to avoid other sources having to permit traffic from a large number of public IPs on an Azure Firewall.  Using this configuration, all inbound traffic will utilize the public IP address(es) of the NAT gateway and egress through the Azure Firewall public IP address(es).  For more information, see Scale SNAT ports with Azure NAT Gateway.
+* An Azure Firewall can also be associated with a NAT gateway to extend the extensibility of Source Network Address Translation (SNAT). A NAT gateway avoids configurations to permit traffic from a large number of public IPs associated with the firewall. With this configuration, all inbound traffic will use the public IP address or addresses of the NAT gateway. Traffic egresses through the Azure Firewall public IP address or addresses.  For more information, see [Scale SNAT ports with Azure NAT Gateway](../firewall/integrate-with-nat-gateway.md).
 
 ## Caveats
 
-* Because it uses the Standard load balancer platform, network filtering rules for protocols besides TCP and UDP don't work with SNAT to the public IP address associated with the Azure Firewall. 
+* Azure firewall uses the standard sku load balancer platform. Network filter rules for protocols other than TCP and UDP are unsupported for SNAT to the public IP address of the firewall. 
 ## Next steps
 
-In this article, you learned how to create a Azure Firewall and use an existing public IP. You changed the public IP of the default IP configuration. Finally, you added a public IP configuration to the firewall.
+In this article, you learned how to create an Azure Firewall and use an existing public IP. You changed the public IP of the default IP configuration. Finally, you added a public IP configuration to the firewall.
 
 - To learn more about public IP addresses in Azure, see [Public IP addresses](public-ip-addresses.md).
