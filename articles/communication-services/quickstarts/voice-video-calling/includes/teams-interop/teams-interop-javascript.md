@@ -10,14 +10,13 @@ ms.service: azure-communication-services
 
 In this quickstart, you'll learn how to join a Teams meeting using the Azure Communication Services Calling SDK for JavaScript.
 
-> [!NOTE]
-> Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/join-calling-to-teams-meeting)
+## Sample Code
+Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/join-calling-to-teams-meeting).
 
 ## Prerequisites
 
 - A working [Communication Services calling web app](../../getting-started-with-calling.md).
 - A [Teams deployment](/deployoffice/teams-install).
-
 
 ## Add the Teams UI controls
 

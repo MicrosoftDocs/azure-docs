@@ -42,7 +42,7 @@ Next, open Visual Studio Code and go to **File > Open Folder** to open the clone
 
     :::image type="content" source="media/getting-started/extension-create-button.png" alt-text="Application name":::
 
-1. The command palate opens at the top of the editor and prompts you to select a subscription name.
+1. The command palette opens at the top of the editor and prompts you to select a subscription name.
 
     Select your subscription and press <kbd>Enter</kbd>.
 
