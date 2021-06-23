@@ -18,7 +18,8 @@ This article provides information about best practices related to the Azure Comm
 This section provides information about best practices associated with the Azure Communication Services JavaScript voice and video calling SDKs.
 
 ### Plug-in Microphone or Enable Microphone from Device Manager When ACS Call in Progress
-When there is no Microphone available and later plug-in Microphone or enable Microphone from device manager, then User Facing Diagnostic (UFD) noMicrophoneDevicesEnumerated will be raise. on noMicrophoneDevicesEnumerated event ask for device permission.
+When there is no Microphone available, and later user will plug-in Microphone or enable Microphone in the OS, then Call Diagnostic "noMicrophoneDevicesEnumerated" will be raised.
+When this happens, application should invoke `askDevicePermission` to obtain user consent to enumerate devices.
 
 ### Stop Video on Page Hide
 When user move away from the browser tab, then stop the video given that the video was on.
