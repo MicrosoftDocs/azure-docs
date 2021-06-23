@@ -73,15 +73,15 @@ Because there isn't a 1-to-1 relationship between the order and a device, no dev
 
        ![Screen for selecting an existing address for an Azure Edge Hardware Center order](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-10-select-an-address.png)
 
-    The **Shipping + quantity** tab now has a separate item for each ship to address.
+    The **Shipping + quantity** tab now has a separate item for each ship to address.<!--Add a screen here?-->
 
-11. For each address, enter the **Quantity** of devices to ship on the **Shipping + quantity**  tab.
+11. For each address, enter the **Quantity** of devices to ship on the **Shipping + quantity** tab.
 
-     When you enter a quantity of more than one, a **+1 more** label is added to the end of the order item name. Select **+ 1 more** to view the individual order items for that address.
-
-     ![Screenshot showing the Shipping + quantity tab for an Azure Edge Hardware Center order with multiple devices shipping to two addresses](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-11-quantities-for-multiple-addresses.png)
+     When you enter a quantity of more than one, a **+1 more** label is added to the end of the order item name. <!--Select **+ 1 more** to view the individual order items for that address. - This can wait until the next step.-->
 
      Each order item name includes a name prefix (the order name followed by the address alias), with an item number for each device that is shipped to that address.
+
+     ![Screenshot showing the Shipping + quantity tab for an Azure Edge Hardware Center order with multiple devices shipping to two addresses](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-11-quantities-for-multiple-addresses.png)<!--Wrong screen.-->
 
 12. If you want to change the names of order items, select and click the order item name to open the **Rename order item** pane. If you're shipping more than one item to an address, select **+n more**.
 
