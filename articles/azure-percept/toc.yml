@@ -44,6 +44,10 @@
 
 - name: Concepts
   items:
+    - name: Azure Percept DK
+      items:
+        - name: Connect Over Cellular
+          href: connect-over-cellular.md
     - name: Azure Percept Audio
       items:
         - name: LED and button behavior
@@ -83,6 +87,8 @@
           href: how-to-update-via-usb.md
     - name: Connect to your Azure Percept DK
       items:
+        - name: Connect over Ethernet
+          href: how-to-connect-over-ethernet.md
         - name: Connect over SSH
           href: how-to-ssh-into-percept-dk.md
         - name: Connect over serial

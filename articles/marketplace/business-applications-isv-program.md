@@ -33,7 +33,7 @@ Participation in this program requires you to review and accept the [Business Ap
 > [!NOTE]
 > This step requires an *Owner* or *Manager* role in Partner Center for your account to sign legal agreements.
 
-1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard).
+1. Sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2165507).
 1. Select **Settings** (gear icon) > **Account Settings**.
 1. Select **Agreements**.
 1. Select the version link and view the agreement.
@@ -46,7 +46,7 @@ Set up billing information for the Business Applications ISV Connect Program.
 > [!NOTE]
 > This step requires an *Owner* or *Manager* role in Partner Center for your account to update billing information.
 
-1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard).
+1. Sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2165507).
 1. Select **Settings** (gear icon) > **Account Settings**.
 1. Under **Organization profile**, select **Billing profile** and then the **Developer** tab.
 1. Review the primary contact and billing information that is populated from your legal entity.

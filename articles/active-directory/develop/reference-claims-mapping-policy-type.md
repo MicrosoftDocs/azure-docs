@@ -10,7 +10,7 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/16/2021
+ms.date: 06/03/2021
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ---
@@ -28,7 +28,7 @@ There are certain sets of claims that define how and when they're used in tokens
 | Claim set | Description |
 |---|---|
 | Core claim set | Are present in every token regardless of the policy. These claims are also considered restricted, and can't be modified. |
-| Basic claim set | Includes the claims that are emitted by default for tokens (in addition to the core claim set). You can omit or modify basic claims by using the claims mapping policies. |
+| Basic claim set | Includes the claims that are emitted by default for tokens (in addition to the core claim set). You can [omit or modify basic claims](active-directory-claims-mapping.md#omit-the-basic-claims-from-tokens) by using the claims mapping policies. |
 | Restricted claim set | Can't be modified using policy. The data source cannot be changed, and no transformation is applied when generating these claims. |
 
 ### Table 1: JSON Web Token (JWT) restricted claim set
@@ -407,6 +407,6 @@ Claims mapping policies do not apply to guest users. If a guest user tries to ac
 
 ## Next steps
 
-- To learn how to customize the claims emitted in tokens for a specific application in their tenant using PowerShell, see [How to: Customize claims emitted in tokens for a specific app in a tenant (Preview)](active-directory-claims-mapping.md)
+- To learn how to customize the claims emitted in tokens for a specific application in their tenant using PowerShell, see [How to: Customize claims emitted in tokens for a specific app in a tenant](active-directory-claims-mapping.md)
 - To learn how to customize claims issued in the SAML token through the Azure portal, see [How to: Customize claims issued in the SAML token for enterprise applications](active-directory-saml-claims-customization.md)
 - To learn more about extension attributes, see [Using directory schema extension attributes in claims](active-directory-schema-extensions.md).

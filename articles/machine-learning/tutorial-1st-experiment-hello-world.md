@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: Run a "Hello world!" Python script'
+title: 'Tutorial: Get started with a Python script'
 titleSuffix: Azure Machine Learning
-description: Part 1 of the Azure Machine Learning get-started series shows how to submit a trivial "Hello world!" Python script to the cloud.
+description: Get started with your first Python script in Azure Machine Learning. This is part 1 of a three-part getting-started series.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,14 +10,14 @@ author: aminsaied
 ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 04/27/2021
-ms.custom: devx-track-python
+ms.custom: devx-track-python, FY21Q4-aml-seo-hack, contperf-fy21q4
 ---
 
-# Tutorial: Run a "Hello world!" Python script (part 1 of 3)
+# Tutorial: Get started with a Python script in Azure Machine Learning (part 1 of 3)
 
-In this tutorial, you learn how to use the Azure Machine Learning SDK for Python to submit and run a Python "Hello world!" script.
+In this tutorial, you run your first Python script in the cloud with Azure Machine Learning. This tutorial is *part 1 of a three-part tutorial series*.
 
-This tutorial is *part 1 of a three-part tutorial series* in which you learn the fundamentals of Azure Machine Learning and complete jobs-based machine learning tasks in Azure. 
+This tutorial avoids the complexity of training a machine learning model. You will run a "Hello World" Python script in the cloud. You will learn how a control script is used to configure and create a run in Azure Machine Learning.
 
 In this tutorial, you will:
 
@@ -124,7 +124,7 @@ Here's a description of how the control script works:
       `config = ScriptRunConfig( ... )` 
    :::column-end:::
    :::column span="2":::
-      [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig) wraps your `hello.py` code and passes it to your workspace. As the name suggests, you can use this class to _configure_ how you want your _script_ to _run_ in Azure Machine Learning. It also specifies what compute target the script will run on. In this code, the target is the compute cluster that you created in the [setup tutorial](tutorial-1st-experiment-sdk-setup-local.md).
+      [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig) wraps your `hello.py` code and passes it to your workspace. As the name suggests, you can use this class to _configure_ how you want your _script_ to _run_ in Azure Machine Learning. It also specifies what compute target the script will run on. In this code, the target is the compute cluster that you created in the [setup tutorial](./quickstart-create-resources.md).
    :::column-end:::
 :::row-end:::
 :::row:::

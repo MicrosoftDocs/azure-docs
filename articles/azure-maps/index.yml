@@ -87,13 +87,13 @@ landingContent:
       - linkListType: reference
         links:
           - text: Conversion service
-            url: /rest/api/maps/conversion
+            url: /rest/api/maps/v2/conversion
           - text: Dataset service
-            url: /rest/api/maps/dataset
+            url: /rest/api/maps/v2/dataset
           - text: Tileset service
-            url: /rest/api/maps/tileset
+            url: /rest/api/maps/v2/tileset
           - text: Feature stateset service
-            url: /rest/api/maps/featurestate
+            url: /rest/api/maps/v2/feature-state
                     
   # Card
   - title: Developing with Web SDK

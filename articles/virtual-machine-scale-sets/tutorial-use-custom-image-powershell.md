@@ -7,7 +7,8 @@ ms.subservice: shared-image-gallery
 ms.topic: tutorial
 ms.date: 05/04/2020
 ms.author: cynthn
-ms.reviewer: mimckitt
+ms.reviewer: mimckitt 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Tutorial: Create and use a custom image for virtual machine scale sets with Azure PowerShell

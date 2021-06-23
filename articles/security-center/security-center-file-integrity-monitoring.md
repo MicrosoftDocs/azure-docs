@@ -95,7 +95,7 @@ FIM is only available from Security Center's pages in the Azure portal. There is
 
 1. From **Azure Defender** dashboard's **Advanced protection** area, select **File integrity monitoring**.
 
-   :::image type="content" source="./media/security-center-file-integrity-monitoring/open-file-integrity-monitoring.png" alt-text="Launching FIM" lightbox="./media/security-center-file-integrity-monitoring/open-file-integrity-monitoring.png":::
+   :::image type="content" source="./media/security-center-file-integrity-monitoring/open-file-integrity-monitoring.png" alt-text="Launching FIM." lightbox="./media/security-center-file-integrity-monitoring/open-file-integrity-monitoring.png":::
 
     The **File integrity monitoring** configuration page opens.
 
@@ -110,11 +110,11 @@ FIM is only available from Security Center's pages in the Azure portal. There is
 
     - Access and view the status and settings of each workspace
 
-    - ![Upgrade plan icon][4] Upgrade the workspace to use Azure Defender. This icon Indicates that the workspace or subscription isn't protected by Azure Defender. To use the FIM features, your subscription must be protected by Azure Defender. For more information, see [Azure Security Center free vs Azure Defender enabled](security-center-pricing.md).
+    - ![Upgrade plan icon.][4] Upgrade the workspace to use Azure Defender. This icon Indicates that the workspace or subscription isn't protected by Azure Defender. To use the FIM features, your subscription must be protected by Azure Defender. For more information, see [Azure Security Center free vs Azure Defender enabled](security-center-pricing.md).
 
     - ![Enable icon][3] Enable FIM on all machines under the workspace and configure the FIM options. This icon indicates that FIM is not enabled for the workspace.
 
-        :::image type="content" source="./media/security-center-file-integrity-monitoring/workspace-list-fim.png" alt-text="Enabling FIM for a specific workspace":::
+        :::image type="content" source="./media/security-center-file-integrity-monitoring/workspace-list-fim.png" alt-text="Enabling FIM for a specific workspace.":::
 
 
     > [!TIP]
@@ -123,7 +123,7 @@ FIM is only available from Security Center's pages in the Azure portal. There is
 
 1. Select **ENABLE**. The details of the workspace including the number of Windows and Linux machines under the workspace is shown.
 
-    :::image type="content" source="./media/security-center-file-integrity-monitoring/workspace-fim-status.png" alt-text="FIM workspace details page":::
+    :::image type="content" source="./media/security-center-file-integrity-monitoring/workspace-fim-status.png" alt-text="FIM workspace details page.":::
 
    The recommended settings for Windows and Linux are also listed.  Expand **Windows files**, **Registry**, and **Linux files** to see the full list of recommended items.
 
@@ -140,7 +140,7 @@ FIM is only available from Security Center's pages in the Azure portal. There is
 
 The **File integrity monitoring** dashboard displays for workspaces where FIM is enabled. The FIM dashboard opens after you enable FIM on a workspace or when you select a workspace in the **file integrity monitoring** window that already has FIM enabled.
 
-:::image type="content" source="./media/security-center-file-integrity-monitoring/fim-dashboard.png" alt-text="The FIM dashboard and its various informational panels":::
+:::image type="content" source="./media/security-center-file-integrity-monitoring/fim-dashboard.png" alt-text="The FIM dashboard and its various informational panels.":::
 
 The FIM dashboard for a workspace displays the following details:
 
@@ -151,7 +151,7 @@ The FIM dashboard for a workspace displays the following details:
 
 Select **Filter** at the top of the dashboard to change the time period for which changes are shown.
 
-:::image type="content" source="./media/security-center-file-integrity-monitoring/dashboard-filter.png" alt-text="Time period filter for the FIM dashboard":::
+:::image type="content" source="./media/security-center-file-integrity-monitoring/dashboard-filter.png" alt-text="Time period filter for the FIM dashboard.":::
 
 The **Servers** tab lists the machines reporting to this workspace. For each machine, the dashboard lists:
 
@@ -179,7 +179,7 @@ The **Changes** tab (shown below) lists all changes for the workspace during the
 
 1. From the **File integrity monitoring dashboard** for a workspace, select **Settings** from the toolbar. 
 
-    :::image type="content" source="./media/security-center-file-integrity-monitoring/file-integrity-monitoring-dashboard-settings.png" alt-text="Accessing the file integrity monitoring settings for a workspace" lightbox="./media/security-center-file-integrity-monitoring/file-integrity-monitoring-dashboard-settings.png":::
+    :::image type="content" source="./media/security-center-file-integrity-monitoring/file-integrity-monitoring-dashboard-settings.png" alt-text="Accessing the file integrity monitoring settings for a workspace." lightbox="./media/security-center-file-integrity-monitoring/file-integrity-monitoring-dashboard-settings.png":::
 
    **Workspace Configuration** opens with tabs for each type of element that can be monitored:
 
@@ -191,7 +191,7 @@ The **Changes** tab (shown below) lists all changes for the workspace during the
 
       Each tab lists the entities that you can edit in that category. For each entity listed, Security Center identifies whether FIM is enabled (true) or not enabled (false).  Editing the entity lets you enable or disable FIM.
 
-    :::image type="content" source="./media/security-center-file-integrity-monitoring/file-integrity-monitoring-workspace-configuration.png" alt-text="Workspace configuration for file integrity monitoring in Azure Security Center":::
+    :::image type="content" source="./media/security-center-file-integrity-monitoring/file-integrity-monitoring-workspace-configuration.png" alt-text="Workspace configuration for file integrity monitoring in Azure Security Center.":::
 
 1. Select an entry from one of the tabs and edit any of the available fields in the **Edit for Change Tracking** pane. Options include:
 
@@ -237,7 +237,7 @@ To disable FIM:
 
 1. From the **File integrity monitoring dashboard** for a workspace, select **Disable**.
 
-    :::image type="content" source="./media/security-center-file-integrity-monitoring/disable-file-integrity-monitoring.png" alt-text="Disable file integrity monitoring from the settings page":::
+    :::image type="content" source="./media/security-center-file-integrity-monitoring/disable-file-integrity-monitoring.png" alt-text="Disable file integrity monitoring from the settings page.":::
 
 1. Select **Remove**.
 

@@ -2,14 +2,14 @@
 title: Manage user assignment for an app in Azure Active Directory
 description: Learn how to assign and unassign users, and groups, for an app using Azure Active Directory for identity management.
 services: active-directory
-author: iantheninja
+author: mtillman
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/21/2020
-ms.author: iangithinji
+ms.author: mtillman
 ms.reviewer: luleon
 ---
 
@@ -38,6 +38,9 @@ When user assignment is required, only those users you explicitly assign to the 
 When assignment is *not required*, either because you've set this option to **No** or because the application uses another SSO mode, any user will be able to access the application if they have a direct link to the application or the **User Access URL** in the application’s **Properties** page. 
 
 This setting doesn't affect whether or not an application appears on My Apps. Applications appear on users' My Apps access panels once you've assigned a user or group to the application. For background, see [Managing access to apps](what-is-access-management.md).
+
+> [!NOTE]
+> When an application requires assignment, user consent for that application is not allowed. This is true even if users consent for that app would have otherwise been allowed. Be sure to [grant tenant-wide admin consent](../manage-apps/grant-admin-consent.md) to apps that require assignment. 
 
 To require user assignment for an application:
 1. Sign in to the [Azure portal](https://portal.azure.com) with an administrator account or as an owner of the application.
