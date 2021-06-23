@@ -128,8 +128,8 @@
     items:
     - name: Classic
       href: vmware-azure-architecture.md
-    - name: Classic
-      href: vmware-azure-architecture-preview.md      
+    - name: Preview
+      href: vmware-azure-architecture-preview.md
   - name: About excluding disks from replication
     href: exclude-disks-replication.md
   - name: Failback location options from Azure to VMware
