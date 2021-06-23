@@ -148,6 +148,7 @@ Azure Firewall Premium is supported in the following regions:
 
 Azure Firewall Premium has the following known issues:
 
+
 |Issue  |Description  |Mitigation  |
 |---------|---------|---------|
 |ESNI support for FQDN resolution in HTTPS|Encrypted SNI isn't supported in HTTPS handshake.|Today only Firefox supports ESNI through custom configuration. Suggested workaround is to disable this feature.|
