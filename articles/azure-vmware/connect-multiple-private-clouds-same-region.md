@@ -8,7 +8,6 @@ ms.date: 06/28/2021
 
 ---
 
-
 # Create a network connection between multiple Azure VMware Solution private clouds
 
 The **AVS Interconnect** feature lets you create a network connection between two or more Azure VMware Solution private clouds located in the same region. It enables a routing link between the management and workload networks of the private clouds.  
