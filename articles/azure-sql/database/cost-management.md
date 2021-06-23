@@ -65,6 +65,31 @@ The following table shows the most common billing meters and their possible SKUs
 
 | Measurement| Possible SKU(s) | Description | 
 | :----|:----|:----|
+| Backup | GP / BC / HS | Measures the consumption of storage used by backups, billed by the amount of storage utilized.  | 
+| Backup (LTR) | GRS / LRS / ZRS / GF | Measures the consumption of storage used by long-term backups configured via long-term retention, billed by the amount of storage utilized. | 
+| Compute  | B / S / P / GP / B Critical | Measures the consumption of your compute resources per hour, such as vCores and memory or DTUs. | 
+| Compute (primary/ named replica) | HS | Measures the consumption of your compute resources per hour of your primary HS replica, such as vCores and memory. 
+| Compute (HA replica)             | HS | Measures the consumption of your compute resources per hour of your secondary HS replica, such as vCores and memory. | 
+| Compute (ZR add-on)              | GP | Measures the consumption of your compute resources per minute of your zone redundant added-on replica, such as vCores and memory or DTUs. | 
+| Compute (serverless)             | GP | Measures the consumption of your serverless compute resources per minute, such as vCores and memory.  | 
+| License | GP /  BC | The billing for your SQL Server license, per minute. | 
+| License | HS | The billing for your SQL Server license, per minute. | 
+| Storage | B / S / P / GP / HS | Billed both by the amount of data stored on the drive using storage space, and the throughput of megabytes per second (MBPS). |
+
+
+The following table shows the most common billing meters and their possible SKUs for elastic pools in Azure SQL Database: 
+
+
+| Measurement| Possible SKU(s) | Description | 
+|:----|:----|:----|
+| Backup | GP / BC  | Measures the consumption of storage used by backups, billed by the amount of storage utilized.  | 
+| Compute  | B / S / P / GP / BC | Measures the consumption of your compute resources per hour, such as vCores and memory or DTUs. | 
+| License | GP | The billing for your SQL Server license, per minute. | 
+| Storage | B / S / P / GP / HS | Billed both by the amount of data stored on the drive using storage space, and the throughput of megabytes per second (MBPS). |
+
+
+| Measurement| Possible SKU(s) | Description | 
+| :----|:----|:----|
 | Backup | General purpose / Business critical / Hyperscale | Measures the consumption of storage used by backups, billed by the amount of storage utilized.  | 
 | Backup (LTR) | Geo-redundant storage / Locally-redundant storage / Zone-redundant storage / Grandfathered | Measures the consumption of storage used by long-term backups configured via long-term retention, billed by the amount of storage utilized. | 
 | Compute  | Basic / Standard / Premium / General Purpose / Business Critical | Measures the consumption of your compute resources per hour, such as vCores and memory or DTUs. | 
@@ -86,6 +111,9 @@ The following table shows the most common billing meters and their possible SKUs
 | Compute  | Basic / Standard / Premium / General Purpose / Business Critical | Measures the consumption of your compute resources per hour, such as vCores and memory or DTUs. | 
 | License | General purpose | The billing for your SQL Server license, per minute. | 
 | Storage | Basic / Standard / Premium / General purpose / Hyperscale | Billed both by the amount of data stored on the drive using storage space, and the throughput of megabytes per second (MBPS). |
+
+
+
 
 
 
