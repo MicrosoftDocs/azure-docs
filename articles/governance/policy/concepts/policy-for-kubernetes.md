@@ -196,11 +196,10 @@ Lastly, verify that the latest add-on is installed by running this Azure CLI com
 similar to the following output:
 
 ```output
-"addonProfiles": {
-    "azurepolicy": {
+{
+        "config": null,
         "enabled": true,
         "identity": null
-    },
 }
 ```
 
@@ -250,8 +249,8 @@ cluster service principal.
 
    |Domain |Port |
    |---|---|
-   |`gov-prod-policy-data.trafficmanager.net` |`443` |
-   |`raw.githubusercontent.com` |`443` |
+   |`data.policy.core.windows.net` |`443` |
+   |`store.policy.core.windows.net` |`443` |
    |`login.windows.net` |`443` |
    |`dc.services.visualstudio.com` |`443` |
 

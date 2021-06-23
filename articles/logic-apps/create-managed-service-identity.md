@@ -5,7 +5,8 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: article
-ms.date: 03/30/2021
+ms.date: 03/30/2021 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Authenticate access to Azure resources by using managed identities in Azure Logic Apps
@@ -430,7 +431,7 @@ As a specific example, suppose that you want to run the [Snapshot Blob operation
 
 > [!IMPORTANT]
 > To access Azure storage accounts behind firewalls by using HTTP requests and managed identities, 
-> make sure that you also set up your storage account with the [exception that allows access by trusted Microsoft services](../connectors/connectors-create-api-azureblobstorage.md#access-trusted-service).
+> make sure that you also set up your storage account with the [exception that allows access by trusted Microsoft services](../connectors/connectors-create-api-azureblobstorage.md#access-blob-storage-with-managed-identities).
 
 To run the [Snapshot Blob operation](/rest/api/storageservices/snapshot-blob), the HTTP action specifies these properties:
 

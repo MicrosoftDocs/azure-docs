@@ -5,7 +5,7 @@ services: route-server
 author: duongau
 ms.service: route-server
 ms.topic: article
-ms.date: 04/22/2021
+ms.date: 06/07/2021
 ms.author: duau
 ---
 
@@ -66,6 +66,12 @@ The following ASNs are reserved by Azure or IANA:
 ### Can I use 32-bit (4 byte) ASNs?
 
 No, Azure Route Server supports only 16-bit (2 bytes) ASNs.
+
+### Can I peer two route servers in two peered virtual networks and enable the NVAs connected to the route servers to talk to each other? 
+
+***Topology: NVA1 -> RouteServer1 -> (via VNet Peering) -> RouteServer2 -> NVA2***
+
+No, Azure Route Server doesn't forward data traffic. To enable transit connectivity through the NVA, set up a direct connection (e.g., an IPsec tunnel) between the NVAs and leverage the route servers for dynamic route propagation. 
 
 ## <a name = "limitations"></a>Route Server Limits
 

@@ -4,10 +4,10 @@ description: Use the Form Recognizer Java client library to create a forms proce
 services: cognitive-services
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 05/12/2021
+ms.date: 05/25/2021
 ms.custom: devx-track-java
 ms.author: lajanuar
 ---
@@ -17,7 +17,10 @@ ms.author: lajanuar
 <!-- markdownlint-disable MD034 -->
 
 > [!IMPORTANT]
-> The code in this article uses synchronous methods and un-secured credentials storage for simplicity reasons.
+>
+> * This quickstart uses SDK version **3.1.0** and targets API version **2.1**.
+>
+> * The code in this article uses synchronous methods and un-secured credentials storage for simplicity reasons.
 
 [Reference documentation](/java/api/overview/azure/ai-formrecognizer-readme) | [Library source code](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src) | [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer) | [Samples](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md)
 
@@ -55,8 +58,6 @@ This quickstart uses the Gradle dependency manager. You can find the client libr
 
 In your project's *build.gradle.kts* file, include the client library as an `implementation` statement, along with the required plugins and settings.
 
-#### [v2.1](#tab/2-1)
-
 ```kotlin
 plugins {
     java
@@ -69,35 +70,9 @@ repositories {
     mavenCentral()
 }
 dependencies {
-    implementation(group = "com.azure", name = "azure-ai-formrecognizer", version = "3.1.0-beta.3")
+    implementation(group = "com.azure", name = "azure-ai-formrecognizer", version = "3.1.0")
 }
 ```
-
-> [!NOTE]
-> The Form Recognizer 3.1.0-beta.3 SDK reflects _API version 2.1-preview.3_.
-
-#### [v2.0](#tab/2-0)
-
-```kotlin
-plugins {
-    java
-    application
-}
-application {
-    mainClass.set("FormRecognizer")
-}
-repositories {
-    mavenCentral()
-}
-dependencies {
-    implementation(group = "com.azure", name = "azure-ai-formrecognizer", version = "3.1.0-beta.3")
-}
-```
-
-> [!NOTE]
-> The Form Recognizer 3.0.0 SDK reflects API v2.1-preview.3
-
----
 
 ### Create a Java file
 
@@ -112,7 +87,7 @@ Navigate to the new folder and create a file called *FormRecognizer.java*. Open 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_imports)]
 
 > [!TIP]
-> Want to view the whole quickstart code file at once? You can find it on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/FormRecognizer/FormRecognizer.java), which contains the code examples in this quickstart.
+> If you want to view the entire file with the code samples in this quickstart, you can find it on [**GitHub**](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/FormRecognizer/FormRecognizer.java).
 
 In the application's **FormRecognizer** class, create variables for your resource's key and endpoint.
 
@@ -121,7 +96,7 @@ In the application's **FormRecognizer** class, create variables for your resourc
 > [!IMPORTANT]
 > Go to the Azure portal. If the Form Recognizer resource you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your key and endpoint in the resource's **key and endpoint** page, under **resource management**.
 >
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. See the Cognitive Services [security](../../../cognitive-services-security.md) article for more information.
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. See the Cognitive Services [security](../../../cognitive-services-security.md) article for more information.
 
 In the application's **main** method, add calls for the methods used in this quickstart. You'll define these later. You'll also need to add references to the URLs for your training and testing data.
 
@@ -131,19 +106,10 @@ In the application's **main** method, add calls for the methods used in this qui
 * To get a URL of a form to test, you can use the above steps to get the SAS URL of an individual document in blob storage. Or, take the URL of a document located elsewhere.
 * Use the above method to get the URL of a receipt image as well.
 <!-- markdownlint-disable MD024 -->
-#### [v2.1](#tab/2-1)
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_mainvars)]
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_maincalls)]
-
-#### [v2.0](#tab/2-0)
-
-[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_mainvars)]
-
-[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_maincalls)]
-
----
 
 ## Object model
 
@@ -168,33 +134,6 @@ With Form Recognizer, you can create two different client types. The first, `For
 
 > [!NOTE]
 > Models can also be trained using a graphical user interface such as the [Form Recognizer Labeling Tool](../../label-tool.md).
-
-## Code examples
-
-These code snippets show you how to do the following tasks with the Form Recognizer client library for Java:
-<!-- markdownlint-disable MD001 -->
-#### [v2.1](#tab/2-1)
-
-* [Authenticate the client](#authenticate-the-client)
-* [Analyze layout](#analyze-layout)
-* [Analyze receipts](#analyze-receipts)
-* [Analyze business cards](#analyze-business-cards)
-* [Analyze invoices](#analyze-invoices)
-* [Analyze identity documents](#analyze-identity-documents)
-* [Train a custom model](#train-a-custom-model)
-* [Analyze forms with a custom model](#analyze-forms-with-a-custom-model)
-* [Manage custom models](#manage-custom-models)
-
-#### [v2.0](#tab/2-0)
-
-* [Authenticate the client](#authenticate-the-client)
-* [Analyze layout](#analyze-layout)
-* [Analyze receipts](#analyze-receipts)
-* [Train a custom model](#train-a-custom-model)
-* [Analyze forms with a custom model](#analyze-forms-with-a-custom-model)
-* [Manage custom models](#manage-custom-models)
-
----
 
 ## Authenticate the client
 
@@ -274,8 +213,6 @@ Total Price: null, confidence: 0.93
 
 ## Analyze business cards
 
-#### [v2.1](#tab/2-1)
-
 This section demonstrates how to analyze and extract common fields from English business cards, using a pre-trained model. For more information about business card analysis, see the [Business cards conceptual guide](../../concept-business-cards.md).
 
 To analyze business cards from a URL, use the `beginRecognizeBusinessCardsFromUrl` method.
@@ -289,16 +226,7 @@ The returned value is a collection of **RecognizedForm** objects: one for each c
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_bc_print)]
 
-#### [v2.0](#tab/2-0)
-
-> [!IMPORTANT]
-> This feature isn't available in the selected API version.
-
----
-
 ## Analyze invoices
-
-#### [v2.1](#tab/2-1)
 
 This section demonstrates how to analyze and extract common fields from sales invoices, using a pre-trained model. For more information about invoice analysis, see the [Invoice conceptual guide](../../concept-invoices.md).
 
@@ -313,36 +241,20 @@ The returned value is a collection of **RecognizedForm** objects: one for each i
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_invoice_print)]
 
-#### [v2.0](#tab/2-0)
-
-> [!IMPORTANT]
-> This feature isn't available in the selected API version.
-
----
-
 ## Analyze identity documents
-
-#### [v2.1](#tab/2-1)
 
 This section demonstrates how to analyze and extract key information from government-issued identification documents—worldwide passports and U.S. driver's licenses—using the Form Recognizer prebuilt ID model. For more information about identity document analysis, see our [prebuilt identification model conceptual guide](../../concept-identification-cards.md).
 
-To analyze identity documents from a URI use the `beginRecognizeIdDocumentsFromUrl` method.
+To analyze identity documents from a URI use the `beginRecognizeIdentityDocumentsFromUrl` method.
 
-:::code language="java" source="~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java" id="snippet_id_call":::
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_id_call)]
 
 > [!TIP]
-> You can also analyze local identity document images. See the [FormRecognizerClient](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient) methods, such as **beginRecognizeIdDocuments**. Also, see the sample code on [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md) for scenarios involving local images.
+> You can also analyze local identity document images. See the [FormRecognizerClient](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient) methods, such as **beginRecognizeIdentityDocuments**. Also, see the sample code on [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md) for scenarios involving local images.
 
 The following code processes the identity document at the given URI and prints the major fields and values to the console.
 
-:::code language="java" source="~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java" id="snippet_id_print":::
-
-#### [v2.0](#tab/2-0)
-
-> [!IMPORTANT]
-> This feature isn't available in the selected API version.
-
----
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_id_print)]
 
 ## Train a custom model
 

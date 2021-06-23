@@ -1,11 +1,12 @@
 ---
 title: Create a Azure Video Analyzer for Media (formerly Video Indexer) account connected to Azure
-titleSuffix: Azure Media Services
+titleSuffix: Azure Video Analyzer for Media
 description: Learn how to create a Azure Video Analyzer for Media (formerly Video Indexer) account connected to Azure.
-services: media-services
+services: azure-video-analyzer
 author: Juliako
 manager: femila
 ms.topic: article 
+ms.subservice: azure-video-analyzer-media
 ms.date: 01/14/2021
 ms.author: juliako
 ---
@@ -236,6 +237,10 @@ If you want to delete a Video Analyzer for Media account, you can delete the acc
 Select the account -> **Settings** -> **Delete this account**. 
 
 The account will be permanently deleted in 90 days.
+
+## Firewall
+
+See [Storage account that is behind a firewall](faq.md#can-a-storage-account-connected-to-the-media-services-account-be-behind-a-firewall).
 
 ## Next steps
 

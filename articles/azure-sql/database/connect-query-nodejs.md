@@ -4,12 +4,12 @@ description: How to use Node.js to create a program that connects to a database 
 titleSuffix: Azure SQL Database & SQL Managed Instance
 services: sql-database
 ms.service: sql-database
-ms.subservice: development
+ms.subservice: connect
 ms.devlang: nodejs
 ms.topic: quickstart
-author: stevestein
-ms.author: sstein
-ms.reviewer: v-masebo
+author: dzsquared
+ms.author: drskwier
+ms.reviewer: mathoma, v-masebo
 ms.date: 05/19/2021
 ms.custom: seo-javascript-september2019, seo-javascript-october2019, sqldbrb=2, devx-track-js
 ---
@@ -111,29 +111,30 @@ Open a command prompt and create a folder named *sqltest*. Open the folder you c
     
     /* 
         //Use Azure VM Managed Identity to connect to the SQL database
-        const connection = new Connection({
-        server: process.env["db_server"],
-        authentication: {
-            type: 'azure-active-directory-msi-vm',
-        },
-        options: {
-            database: process.env["db_database"],
-            encrypt: true,
-            port: 1433
-        }
-    });
+        const config = {
+            server: process.env["db_server"],
+            authentication: {
+                type: 'azure-active-directory-msi-vm',
+            },
+            options: {
+                database: process.env["db_database"],
+                encrypt: true,
+                port: 1433
+            }
+        };
+        
         //Use Azure App Service Managed Identity to connect to the SQL database
-        const connection = new Connection({
-        server: process.env["db_server"],
-        authentication: {
-            type: 'azure-active-directory-msi-app-service',
-        },
-        options: {
-            database: process.env["db_database"],
-            encrypt: true,
-            port: 1433
-        }
-    });
+        const config = {
+            server: process.env["db_server"],
+            authentication: {
+                type: 'azure-active-directory-msi-app-service',
+            },
+            options: {
+                database: process.env["db_database"],
+                encrypt: true,
+                port: 1433
+            }
+        });
 
     */
 

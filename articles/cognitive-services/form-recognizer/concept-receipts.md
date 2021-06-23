@@ -6,7 +6,7 @@ services: cognitive-services
 author: laujan
 manager: nitinme
 
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 04/30/2021
@@ -56,7 +56,7 @@ The prebuilt Receipt service extracts the contents of sales receipts&mdash;the t
 
 |Name| Type | Description | Text | Value (standardized output) |
 |:-----|:----|:----|:----| :----|
-| ReceiptType | string | Type of sales receipt | Itemized |  |
+| ReceiptType | string | Type of sales receipt |  | Itemized |
 | MerchantName | string | Name of the merchant issuing the receipt | Contoso |  |
 | MerchantPhoneNumber | phoneNumber | Listed phone number of merchant | 987-654-3210 | +19876543210 |
 | MerchantAddress | string | Listed address of merchant | 123 Main St Redmond WA 98052 |  |
@@ -68,7 +68,7 @@ The prebuilt Receipt service extracts the contents of sales receipts&mdash;the t
 | Tip | number | Tip included by buyer | $1.00 | 1.00 |
 | Items | array of objects | Extracted line items, with name, quantity, unit price, and total price extracted | |
 | Name | string | Item name | Surface Pro 6 | |
-| Quantity | number | Quantity of each item | 1 | |
+| Quantity | number | Quantity of each item | 1 | 1 |
 | Price | number | Individual price of each item unit | $999.00 | 999.00 |
 | Total Price | number | Total price of line item | $999.00 | 999.00 |
 
@@ -87,17 +87,12 @@ The Receipt API also returns the following information:
 ## Supported locales
 
 * **Pre-built receipt v2.0** supports sales receipts in the **en-us** locale
-* **Pre-built receipt v2.1** adds additional support for the following English receipt locales:
-
-* **en-au**
-* **en-ca**
-* **en-gb**
-* **en-in**
+* **Pre-built receipt v2.1** adds additional support for the following English receipt locales: **en-au**, **en-ca**, **en-gb**, **en-in**
 
   > [!NOTE]
   > Language input
   >
-  > Prebuilt Receipt v2.1 has an optional request parameter to specify a receipt locale from additional English markets. For sales receipts in English from Australia (en-au), Canada (en-ca), Great Britain (en-gb), and India (en-in), you can specify the locale to get improved results. If no locale is specified in v2.1, the model will default to the en-us model.
+  > Prebuilt Receipt v2.1 has an optional request parameter to specify a receipt locale from additional English markets. For sales receipts in English from Australia (en-au), Canada (en-ca), Great Britain (en-gb), and India (en-in), you can specify the locale to get improved results. If no locale is specified in v2.1, the model will automatically detect the locale.
 
 ## The Analyze Receipt operation
 
@@ -126,7 +121,7 @@ When the **status** field has the **succeeded** value, the JSON response will in
 
 The response to the Get Analyze Receipt Result operation will be the structured representation of the receipt with all the information extracted.  See here for a [sample receipt file](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/contoso-allinone.jpg) and its structured output [sample receipt output](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/receipt-result.json).
 
-See the following example of a successful JSON response:
+See the following example of a successful JSON response (the output has been shortened for simplicity):
 * The `"readResults"` node contains all of the recognized text. Text is organized by page, then by line, then by individual words.
 * The `"documentResults"` node contains the business-card-specific values that the model discovered. This is where you'll find useful key/value pairs like the first name, last name, company name and more.
 

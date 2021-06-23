@@ -176,7 +176,7 @@ IoT Central automatically associates a device with a device template when the de
 1. If the device template isn't already published in the IoT Central application, IoT Central looks for the device model in the [public model repository](https://github.com/Azure/iot-plugandplay-models). If IoT Central finds the model, it uses it to generate a basic device template.
 1. If IoT Central doesn't find the model in the public model repository, the device is marked as **Unassociated**. An operator can create a device template for the device and then migrate the unassociated device to the new device template.
 
-The following screenshot shows you how to view the model ID of a device template in IoT Central. In a device template, select a component, and then select **View identity**:
+The following screenshot shows you how to view the model ID of a device template in IoT Central. In a device template, select a component, and then select **Edit identity**:
 
 :::image type="content" source="media/concepts-get-connected/model-id.png" alt-text="Screenshot showing model ID in thermostat device template.":::
 
@@ -208,11 +208,15 @@ When a real device connects to your IoT Central application, its device status c
     An operator can associate a device to a device template from the **Devices** page using the **Migrate** button.
 
 ## Device connection status
-When a device or edge device connects using the MQTT protocol, _connected_ and _disconnected_ events are shown for the device. These events are not sent by the device sends, they are generated internally by IoT Central.
 
-The following diagram shows how, when a device connects, the connection is registered at the end of a time window. If multiple connection and disconnection events occur, IoT Central registers the one that's closest to the end of the time window. For example, if a device disconnects and reconnects within the time window, IoT Central registers the connection event. Currently, the time window is approximately one minute..
+When a device or edge device connects using the MQTT protocol, _connected_ and _disconnected_ events for the device are generated. These events are not sent by the device, they are generated internally by IoT Central.
+
+The following diagram shows how, when a device connects, the connection is registered at the end of a time window. If multiple connection and disconnection events occur, IoT Central registers the one that's closest to the end of the time window. For example, if a device disconnects and reconnects within the time window, IoT Central registers the connection event. Currently, the time window is approximately one minute.
 
 :::image type="content" source="media/concepts-get-connected/device-connectivity-diagram.png" alt-text="Diagram that shows event window for connected and disconnected events." border="false":::
+
+You can view the connected and disconnected events in the **Raw data** view for a device:
+:::image type="content" source="media/concepts-get-connected/device-connectivity-events.png" alt-text="Screenshot showing raw data view filtered to show device connected events.":::
 
 You can include connection and disconnection events in [exports from IoT Central](howto-export-data.md#set-up-data-export). To learn more, see [React to IoT Hub events > Limitations for device connected and device disconnected events](../../iot-hub/iot-hub-event-grid.md#limitations-for-device-connected-and-device-disconnected-events).
 

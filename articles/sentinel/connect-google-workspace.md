@@ -22,6 +22,8 @@ ms.author: yelevin
 > [!IMPORTANT]
 > The Google Workspace connector is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
 The [Google Workspace (formerly G Suite)](https://workspace.google.com/) data connector provides the capability to ingest Google Workspace Activity events into Azure Sentinel through the REST API. The connector gives these [events](https://developers.google.com/admin-sdk/reports/reference/rest/v1/activities) visibility in your SOC, which helps you examine potential security risks, analyze your team's use of collaboration, diagnose configuration problems, track who signs in and when, analyze administrator activity, understand how users create and share content, and review more events in your organization.
 
 > [!NOTE]

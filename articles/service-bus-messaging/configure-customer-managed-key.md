@@ -98,7 +98,7 @@ Here are more details:
 - Every 5 minutes, the Service Bus service polls all customer-managed keys listed in the namespace’s record:
     - If a key has been rotated, the record is updated with the new key.
     - If a key has been revoked, the key is removed from the record.
-    - If all keys have been revoked, the namespace’s encryption status is set to **Revoked**. The data can't be accessed from the Service Bus namespace.. 
+    - If all keys have been revoked, the namespace’s encryption status is set to **Revoked**. This status update will be propagated to the rest of the system over the next few minutes. After that, data can't be accessed from the Service Bus namespace.
     
 
 ## Use Resource Manager template to enable encryption

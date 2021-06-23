@@ -3,7 +3,7 @@ title: Azure Defender for SQL - the benefits and features
 description: Learn about the benefits and features of Azure Defender for SQL.
 author: memildin
 ms.author: memildin
-ms.date: 12/13/2020
+ms.date: 05/27/2021
 ms.topic: overview
 ms.service: security-center
 ms.custom: references_regions
@@ -13,9 +13,7 @@ manager: rkarlin
 
 # Introduction to Azure Defender for SQL
 
-Azure Defender for SQL includes two Azure Defender plans that extend Azure Security Center's [data security package](../azure-sql/database/azure-defender-for-sql.md) to secure your databases and their data wherever they're located. 
-
-> [!VIDEO https://www.youtube.com/embed/V7RdB6RSVpc]
+Azure Defender for SQL includes two Azure Defender plans that extend Azure Security Center's [data security package](../azure-sql/database/azure-defender-for-sql.md) to secure your databases and their data wherever they're located. Azure Defender for SQL includes functionalities for discovering and mitigating potential database vulnerabilities, and detecting anomalous activities that could indicate a threat to your databases.
 
 ## Availability
 
@@ -45,13 +43,31 @@ Azure Defender for SQL includes two Azure Defender plans that extend Azure Secur
 
 ## What are the benefits of Azure Defender for SQL?
 
-These two plans include functionality for identifying and mitigating potential database vulnerabilities and detecting anomalous activities that could indicate threats to your databases:
+These two plans include functionality for identifying and mitigating potential database vulnerabilities and detecting anomalous activities that could indicate threats to your databases.
 
-- [Vulnerability assessment](../azure-sql/database/sql-vulnerability-assessment.md) - The scanning service to discover, track, and help you remediate potential database vulnerabilities. Assessment scans provide an overview of your SQL machines' security state, and details of any security findings.
+A vulnerability assessment service discovers, tracks, and helps you remediate potential database vulnerabilities. Assessment scans provide an overview of your SQL machines' security state, and details of any security findings.
 
-- [Advanced threat protection](../azure-sql/database/threat-detection-overview.md) - The detection service that continuously monitors your SQL servers for threats such as SQL injection, brute-force attacks, and privilege abuse. This service provides action-oriented security alerts in Azure Security Center with details of the suspicious activity, guidance on how to mitigate to the threats, and options for continuing your investigations with Azure Sentinel. 
-    > [!TIP]
-    > View the list of security alerts for SQL servers [in the alerts reference page](alerts-reference.md#alerts-sql-db-and-warehouse).
+- Learn more about [vulnerability assessment for Azure SQL Database](../azure-sql/database/sql-vulnerability-assessment.md).
+- Learn more about [vulnerability assessment for Azure SQL servers on machines](defender-for-sql-on-machines-vulnerability-assessment.md).
+
+An advanced threat protection service continuously monitors your SQL servers for threats such as SQL injection, brute-force attacks, and privilege abuse. This service provides action-oriented security alerts in Azure Security Center with details of the suspicious activity, guidance on how to mitigate to the threats, and options for continuing your investigations with Azure Sentinel. Learn more about [advanced threat protection](../azure-sql/database/threat-detection-overview.md).
+
+ > [!TIP]
+ > View the list of security alerts for SQL servers [in the alerts reference page](alerts-reference.md#alerts-sql-db-and-warehouse).
+
+
+## Is there a performance impact from deploying Azure Defender for SQL on machines?
+
+The focus of **Azure Defender for SQL on machines** is obviously security. But we also care about your business and so we've prioritized performance to ensure the minimal impact on your SQL servers. 
+
+The service has a split architecture to balance data uploading and speed with performance: 
+
+- some of our detectors run on the machine for real-time speed advantages
+- others run in the cloud to spare the machine from heavy computational loads
+
+Lab tests of our solution, comparing it against benchmark loads, showed CPU usage averaging 3% for peak slices. An analysis of the telemetry for our current users shows a negligible impact on CPU and memory usage.
+
+Of course, performance always varies between environments, machines, and loads. The statements and numbers above are provided as a general guideline, not a guarantee for any individual deployment.
 
 
 ## What kind of alerts does Azure Defender for SQL provide?
@@ -71,3 +87,4 @@ Alerts include details of the incident that triggered them, as well as recommend
 In this article, you learned about Azure Defender for SQL. To use the services that have been described:
 
 - Use Azure Defender for SQL servers on machines to [scan your SQL servers for vulnerabilities](defender-for-sql-usage.md)
+- For a presentation of Azure Defender for SQL, see [how Azure Defender for SQL can protect SQL servers anywhere](https://www.youtube.com/watch?v=V7RdB6RSVpc)

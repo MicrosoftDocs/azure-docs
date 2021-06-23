@@ -133,5 +133,6 @@ spx help translate
 
 ## Next steps
 
+* [Install GStreamer to use Speech CLI with MP3 and other formats](./how-to-use-codec-compressed-audio-input-streams.md)
 * [Speech CLI configuration options](./spx-data-store-configuration.md)
 * [Batch operations with the Speech CLI](./spx-batch-operations.md)

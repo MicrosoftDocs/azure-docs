@@ -10,6 +10,9 @@ ms.date: 4/12/2021
 
 Within a pipeline, a [signal gate processor node](pipeline.md#signal-gate-processor) allows you to forward media from one node to another when the gate is triggered by an event. When it's triggered, the gate opens and lets media flow through for a specified duration. In the absence of events to trigger the gate, the gate closes, and media stops flowing. You can use the signal gate processor for event-based video recording.
 
+> [!NOTE]
+> A signal gate processor node must be immediately followed by a video sink or file sink.
+
 In this article, you'll learn how to configure a signal gate processor.
 
 ## Suggested prereading
@@ -67,8 +70,8 @@ Correlation IDs are set for every event. These IDs are set from the initial even
 
 * **activationEvaluationWindow**: 0 seconds to 10 seconds
 * **activationSignalOffset**: -1 minute to 1 minute
-* **minimumActivationTime**: 1 second to 1 hour
-* **maximumActivationTime**: 1 second to 1 hour
+* **minimumActivationTime**: 10 seconds to 1 hour
+* **maximumActivationTime**: 10 seconds to 1 hour
 
 In the use case, you would set the parameters as follows:
 

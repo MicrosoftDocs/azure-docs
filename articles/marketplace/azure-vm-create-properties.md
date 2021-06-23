@@ -1,6 +1,6 @@
 ---
 title: Configure virtual machine offer properties on Azure Marketplace
-description: Learn how to configure virtual machine offer properties on Azure Marketplace.
+description: Configure virtual machine offer properties on Azure Marketplace.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to

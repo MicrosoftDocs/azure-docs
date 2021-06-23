@@ -22,7 +22,7 @@ Azure Database for PostgreSQL supports a subset of key extensions as listed belo
 
 ## Postgres 13 extensions
 
-The following extensions are available in Azure Database for PostgreSQL - Flexible Servers which have Postgres version 12. 
+The following extensions are available in Azure Database for PostgreSQL - Flexible Servers which have Postgres version 13. 
 
 > [!div class="mx-tableFixed"]
 > | **Extension**| **Extension version** | **Description** |
@@ -55,8 +55,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[pg_trgm](https://www.postgresql.org/docs/13/pgtrgm.html)                      | 1.5             | text similarity measurement and index searching based on trigrams|
 > |[pg_visibility](https://www.postgresql.org/docs/13/pgvisibility.html)                      | 1.2             | examine the visibility map (VM) and page-level visibility info|
 > |[pgaudit](https://www.pgaudit.org/)                     | 1.5             | provides auditing functionality|
-> |[pgcrypto](https://www.postgresql.org/docs/13/pgcrypto.html)                     | 1.3             | cryptographic functions|
-> |[pglogical](https://github.com/2ndQuadrant/pglogical)                     | 2.3.3           | PostgreSQL logical replication|
+> |[pgcrypto](https://www.postgresql.org/docs/13/pgcrypto.html)                     | 1.3             | cryptographic functions| 
 > |[pgrowlocks](https://www.postgresql.org/docs/13/pgrowlocks.html)                   | 1.2             | show row-level locking information|
 > |[pgstattuple](https://www.postgresql.org/docs/13/pgstattuple.html)                  | 1.5             | show tuple-level statistics|
 > |[plpgsql](https://www.postgresql.org/docs/13/plpgsql.html)                      | 1.0             | PL/pgSQL procedural language|
@@ -108,7 +107,6 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[pg_visibility](https://www.postgresql.org/docs/12/pgvisibility.html)                      | 1.2             | examine the visibility map (VM) and page-level visibility info|
 > |[pgaudit](https://www.pgaudit.org/)                     | 1.4             | provides auditing functionality|
 > |[pgcrypto](https://www.postgresql.org/docs/12/pgcrypto.html)                     | 1.3             | cryptographic functions|
-> |[pglogical](https://github.com/2ndQuadrant/pglogical)                     | 2.3.2           | PostgreSQL logical replication|
 > |[pgrowlocks](https://www.postgresql.org/docs/12/pgrowlocks.html)                   | 1.2             | show row-level locking information|
 > |[pgstattuple](https://www.postgresql.org/docs/12/pgstattuple.html)                  | 1.5             | show tuple-level statistics|
 > |[plpgsql](https://www.postgresql.org/docs/12/plpgsql.html)                      | 1.0             | PL/pgSQL procedural language|
@@ -160,7 +158,6 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[pg_visibility](https://www.postgresql.org/docs/11/pgvisibility.html)                      | 1.2             | examine the visibility map (VM) and page-level visibility info|
 > |[pgaudit](https://www.pgaudit.org/)                     | 1.3.1             | provides auditing functionality|
 > |[pgcrypto](https://www.postgresql.org/docs/11/pgcrypto.html)                     | 1.3             | cryptographic functions|
-> |[pglogical](https://github.com/2ndQuadrant/pglogical)                     | 2.3.2           | PostgreSQL logical replication|
 > |[pgrowlocks](https://www.postgresql.org/docs/11/pgrowlocks.html)                   | 1.2             | show row-level locking information|
 > |[pgstattuple](https://www.postgresql.org/docs/11/pgstattuple.html)                  | 1.5             | show tuple-level statistics|
 > |[plpgsql](https://www.postgresql.org/docs/11/plpgsql.html)                      | 1.0             | PL/pgSQL procedural language|

@@ -41,7 +41,7 @@ az storage account update \
 
 ## Assign a role to the storage account for access to the managed HSM
 
-Next, assign the **Managed HSM Crypto Service Encryption** role to the storage account's managed identity so that the storage account has permissions to the managed HSM. Microsoft recommends that you scope the role assignment to the level of the individual key in order to grant the fewest possible privileges to the managed identity.
+Next, assign the **Managed HSM Crypto Service Encryption User** role to the storage account's managed identity so that the storage account has permissions to the managed HSM. Microsoft recommends that you scope the role assignment to the level of the individual key in order to grant the fewest possible privileges to the managed identity.
 
 To create the role assignment for storage account, call [az key vault role assignment create](/cli/azure/role/assignment#az_role_assignment_create). Remember to replace the placeholder values in brackets with your own values.
   
@@ -54,7 +54,7 @@ storage_account_principal = $(az storage account show \
 
 az keyvault role assignment create \
     --hsm-name <hsm-name> \
-    --role "Managed HSM Crypto Service Encryption" \
+    --role "Managed HSM Crypto Service Encryption User" \
     --assignee $storage_account_principal \
     --scope /keys/<key-name>
 ```

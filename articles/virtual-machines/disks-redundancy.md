@@ -3,11 +3,11 @@ title: Redundancy options for Azure managed disks
 description: Learn about zone-redundant storage and locally-redundant storage for Azure managed disks.
 author: roygara
 ms.author: rogarana
-ms.date: 03/02/2021
+ms.date: 05/26/2021
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurepowershell
 ---
 
 # Redundancy options for managed disks
@@ -45,27 +45,30 @@ During the preview, ZRS for managed disks has the following restrictions:
 
 - Only supported with premium solid-state drives (SSD) and standard SSDs.
 - Currently available only in the West US 2, West Europe, North Europe, and France Central regions.
-- ZRS disks can only be created with Azure Resource Manager templates using the `2020-12-01` API in the public preview. 
+- ZRS disks can only be created with one of the following methods:
+    -  Azure Resource Manager templates using the `2020-12-01` API in the public preview.
+    - The latest Azure CLI
 
-### Prerequisites
+
+### Create ZRS managed disks
+
+# [Azure CLI](#tab/azure-cli)
+
+#### Prerequisites
 
 You must enable the feature for your subscription. Use the following steps to enable the feature for your subscription:
 
 1.	Execute the following command to register the feature for your subscription
 
-    ```powershell
-     Register-AzProviderFeature -FeatureName "SsdZrsManagedDisks" -ProviderNamespace "Microsoft.Compute" 
+    ```azurecli
+    az feature register --namespace Microsoft.Compute --name SsdZrsManagedDisks
     ```
-
+ 
 2.	Confirm that the registration state is **Registered** (it may take a few minutes) using the following command before trying out the feature.
 
-    ```powershell
-     Get-AzProviderFeature -FeatureName "SsdZrsManagedDisks" -ProviderNamespace "Microsoft.Compute"  
+    ```azurecli
+    az feature show --namespace Microsoft.Compute --name SsdZrsManagedDisks
     ```
-    
-### Create ZRS managed disks
-
-# [Azure CLI](#tab/azure-cli)
 
 #### Create a VM with ZRS disks
 
@@ -155,11 +158,233 @@ az vmss create -g $rgName \
 --data-disk-sizes-gb 128 \
 --storage-sku os=$osDiskSku 0=$dataDiskSku
 ```
+# [Azure PowerShell](#tab/azure-powershell)
+
+
+#### Prerequisites
+
+You must enable the feature for your subscription. Use the following steps to enable the feature for your subscription:
+
+1.	Execute the following command to register the feature for your subscription
+
+    ```powershell
+     Register-AzProviderFeature -FeatureName "SsdZrsManagedDisks" -ProviderNamespace "Microsoft.Compute" 
+    ```
+
+2.	Confirm that the registration state is **Registered** (it may take a few minutes) using the following command before trying out the feature.
+
+    ```powershell
+     Get-AzProviderFeature -FeatureName "SsdZrsManagedDisks" -ProviderNamespace "Microsoft.Compute"  
+    ```
+    
+#### Create a VM with ZRS disks
+
+```powershell
+$subscriptionId="yourSubscriptionId"
+$vmLocalAdminUser = "yourAdminUserName"
+$vmLocalAdminSecurePassword = ConvertTo-SecureString "yourVMPassword" -AsPlainText -Force
+$location = "westus2"
+$rgName = "yourResourceGroupName"
+$vmName = "yourVMName"
+$vmSize = "Standard_DS2_v2"
+$osDiskSku = "StandardSSD_ZRS"
+$dataDiskSku = "Premium_ZRS"
+
+
+Connect-AzAccount
+
+Set-AzContext -Subscription $subscriptionId
+    
+$subnet = New-AzVirtualNetworkSubnetConfig -Name $($vmName+"_subnet") `
+                                           -AddressPrefix "10.0.0.0/24"
+
+$vnet = New-AzVirtualNetwork -Name $($vmName+"_vnet") `
+                             -ResourceGroupName $rgName `
+                             -Location $location `
+                             -AddressPrefix "10.0.0.0/16" `
+                             -Subnet $subnet
+
+$nic = New-AzNetworkInterface -Name $($vmName+"_nic") `
+                              -ResourceGroupName $rgName `
+                              -Location $location `
+                              -SubnetId $vnet.Subnets[0].Id
+    
+
+$vm = New-AzVMConfig -VMName $vmName `
+                     -VMSize $vmSize
+                     
+
+$credential = New-Object System.Management.Automation.PSCredential ($vmLocalAdminUser, $vmLocalAdminSecurePassword);
+
+$vm = Set-AzVMOperatingSystem -VM $vm `
+                              -ComputerName $vmName `
+                              -Windows `
+                              -Credential $credential
+
+$vm = Add-AzVMNetworkInterface -VM $vm -Id $NIC.Id
+
+$vm = Set-AzVMSourceImage -VM $vm `
+                          -PublisherName 'MicrosoftWindowsServer' `
+                          -Offer 'WindowsServer' `
+                          -Skus '2012-R2-Datacenter' `
+                          -Version latest
+
+
+$vm = Set-AzVMOSDisk -VM $vm `
+                     -Name $($vmName +"_OSDisk") `
+                     -CreateOption FromImage `
+                     -StorageAccountType $osDiskSku
+
+$vm = Add-AzVMDataDisk -VM $vm `
+                       -Name $($vmName +"_DataDisk1") `
+                       -DiskSizeInGB 128 `
+                       -StorageAccountType $dataDiskSku `
+                       -CreateOption Empty -Lun 0
+    
+New-AzVM -ResourceGroupName $rgName `
+         -Location $location `
+         -VM $vm -Verbose
+```
+
+#### Create VMs with a shared ZRS disk attached to the VMs in different zones
+
+```powershell
+$location = "westus2"
+$rgName = "yourResourceGroupName"
+$vmNamePrefix = "yourVMPrefix"
+$vmSize = "Standard_DS2_v2"
+$sharedDiskName = "yourSharedDiskName"
+$sharedDataDiskSku = "Premium_ZRS"
+$vmLocalAdminUser = "yourVMAdminUserName"
+$vmLocalAdminSecurePassword = ConvertTo-SecureString "yourPassword" -AsPlainText -Force  
+
+
+$datadiskconfig = New-AzDiskConfig -Location $location `
+                                   -DiskSizeGB 1024 `
+                                   -AccountType $sharedDataDiskSku `
+                                   -CreateOption Empty `
+                                   -MaxSharesCount 2 `
+
+$sharedDisk=New-AzDisk -ResourceGroupName $rgName `
+            -DiskName $sharedDiskName `
+            -Disk $datadiskconfig
+
+$credential = New-Object System.Management.Automation.PSCredential ($vmLocalAdminUser, $vmLocalAdminSecurePassword);
+    
+$vm1 = New-AzVm `
+        -ResourceGroupName $rgName `
+        -Name $($vmNamePrefix+"01") `
+        -Zone 1 `
+        -Location $location `
+        -Size $vmSize `
+        -VirtualNetworkName $($vmNamePrefix+"_vnet") `
+        -SubnetName $($vmNamePrefix+"_subnet") `
+        -SecurityGroupName $($vmNamePrefix+"01_sg") `
+        -PublicIpAddressName $($vmNamePrefix+"01_ip") `
+        -Credential $credential `
+        -OpenPorts 80,3389
+
+
+$vm1 = Add-AzVMDataDisk -VM $vm1 -Name $sharedDiskName -CreateOption Attach -ManagedDiskId $sharedDisk.Id -Lun 0
+
+update-AzVm -VM $vm1 -ResourceGroupName $rgName
+  
+$vm2 =  New-AzVm `
+        -ResourceGroupName $rgName `
+        -Name $($vmNamePrefix+"02") `
+        -Zone 2 `
+        -Location $location `
+        -Size $vmSize `
+        -VirtualNetworkName $($vmNamePrefix+"_vnet") `
+        -SubnetName ($vmNamePrefix+"_subnet") `
+        -SecurityGroupName $($vmNamePrefix+"02_sg") `
+        -PublicIpAddressName $($vmNamePrefix+"02_ip") `
+        -Credential $credential `
+        -OpenPorts 80,3389
+
+
+$vm2 = Add-AzVMDataDisk -VM $vm1 -Name $sharedDiskName -CreateOption Attach -ManagedDiskId $sharedDisk.Id -Lun 0
+
+update-AzVm -VM $vm1 -ResourceGroupName $rgName
+```
+
+#### Create a virtual machine scale set with ZRS Disks
+```powershell
+$vmLocalAdminUser = "yourLocalAdminUser"
+$vmLocalAdminSecurePassword = ConvertTo-SecureString "yourVMPassword" -AsPlainText -Force
+$location = "westus2"
+$rgName = "yourResourceGroupName"
+$vmScaleSetName = "yourScaleSetName"
+$vmSize = "Standard_DS3_v2"
+$osDiskSku = "StandardSSD_ZRS"
+$dataDiskSku = "Premium_ZRS"
+   
+    
+$subnet = New-AzVirtualNetworkSubnetConfig -Name $($vmScaleSetName+"_subnet") `
+                                                 -AddressPrefix "10.0.0.0/24"
+
+$vnet = New-AzVirtualNetwork -Name $($vmScaleSetName+"_vnet") `
+                             -ResourceGroupName $rgName `
+                             -Location $location `
+                             -AddressPrefix "10.0.0.0/16" `
+                             -Subnet $subnet
+
+$ipConfig = New-AzVmssIpConfig -Name "myIPConfig" `
+                               -SubnetId $vnet.Subnets[0].Id 
+
+
+$vmss = New-AzVmssConfig -Location $location `
+                         -SkuCapacity 2 `
+                         -SkuName $vmSize `
+                         -UpgradePolicyMode 'Automatic'
+
+$vmss = Add-AzVmssNetworkInterfaceConfiguration -Name "myVMSSNetworkConfig" `
+                                                -VirtualMachineScaleSet $vmss `
+                                                -Primary $true `
+                                                -IpConfiguration $ipConfig
+
+$vmss = Set-AzVmssStorageProfile $vmss -OsDiskCreateOption "FromImage" `
+                                       -ImageReferenceOffer 'WindowsServer' `
+                                       -ImageReferenceSku '2012-R2-Datacenter' `
+                                       -ImageReferenceVersion latest `
+                                       -ImageReferencePublisher 'MicrosoftWindowsServer' `
+                                       -ManagedDisk $osDiskSku
+
+$vmss = Set-AzVmssOsProfile $vmss -ComputerNamePrefix $vmScaleSetName `
+                                  -AdminUsername $vmLocalAdminUser `
+                                  -AdminPassword $vmLocalAdminSecurePassword 
+
+$vmss = Add-AzVmssDataDisk -VirtualMachineScaleSet $vmss `
+                           -CreateOption Empty `
+                           -Lun 1 `
+                           -DiskSizeGB 128 `
+                           -StorageAccountType $dataDiskSku
+
+New-AzVmss -VirtualMachineScaleSet $vmss `
+           -ResourceGroupName $rgName `
+           -VMScaleSetName $vmScaleSetName
+```
 
 # [Resource Manager Template](#tab/azure-resource-manager)
 
 Use the `2020-12-01` API with your Azure Resource Manager template to create a ZRS disk.
 
+#### Prerequisites
+
+You must enable the feature for your subscription. Use the following steps to enable the feature for your subscription:
+
+1.	Execute the following command to register the feature for your subscription
+
+    ```powershell
+     Register-AzProviderFeature -FeatureName "SsdZrsManagedDisks" -ProviderNamespace "Microsoft.Compute" 
+    ```
+
+2.	Confirm that the registration state is **Registered** (it may take a few minutes) using the following command before trying out the feature.
+
+    ```powershell
+     Get-AzProviderFeature -FeatureName "SsdZrsManagedDisks" -ProviderNamespace "Microsoft.Compute"  
+    ```
+    
 #### Create a VM with ZRS disks
 
 ```
@@ -222,6 +447,7 @@ New-AzResourceGroupDeployment -ResourceGroupName zrstesting `
 -osDiskType "StandardSSD_LRS" `
 -dataDiskType "Premium_ZRS" `
 ```
+---
 
 ## Next steps
 

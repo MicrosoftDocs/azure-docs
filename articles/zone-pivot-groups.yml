@@ -415,10 +415,10 @@ groups:
   pivots:
   - id: development-environment-vscode
     title: Visual Studio Code
-  - id: development-environment-cli
-    title: Command line
   - id: development-environment-vs
     title: Visual Studio
+  - id: development-environment-cli
+    title: Command line
 #Owner: shinardi
 - id: bring-third-party-dependency-programming-functions
   title: Programming Languages
@@ -829,8 +829,8 @@ groups:
     title: Python
 # Owner: msangapu
 - id: app-service-ide
-  title: Development experience
-  prompt: Choose a development experience
+  title: Development environment
+  prompt: Choose a development environment
   pivots:
   - id: development-environment-vs
     title: Visual Studio
@@ -1252,5 +1252,50 @@ groups:
     title: Python
   - id: programming-language-java
     title: Java
-
-    
+# Owner: philmea
+- id: facility-ontology-schema
+  title: Creator Facility Ontology
+  prompt: Choose a Facility Ontology Version
+  pivots:
+  - id: facility-ontology-v1
+    title: Facility Ontology 1.0 
+  - id: facility-ontology-v2
+    title: Facility Ontology 2.0 
+# Owner: veyalla
+- id: how-to-troubleshoot-monitoring-and-faq-zpg
+  title: Azure Monitor for IoT Edge FAQ
+  prompt: Choose a topic
+  pivots:
+  - id: metrics-collection
+    title: Metrics collection
+  - id: custom-metrics
+    title: Custom metrics
+  - id: alerts
+    title: Alerts
+  - id: workbooks
+    title: Workbooks
+# Owner: barclayn
+- id: identity-mi-methods
+  title: Managed identities methods
+  prompt: Choose an option
+  pivots:
+  - id: identity-mi-methods-azp
+    title: Azure portal
+  - id: identity-mi-methods-azcli
+    title: Azure CLI
+  - id: identity-mi-methods-powershell
+    title: PowerShell
+  - id: identity-mi-methods-arm
+    title: Resource Manager
+  - id: identity-mi-methods-rest
+    title: REST
+- id: identity-mi-method-sub
+  title: Managed identities method subset
+  prompt: Choose an option
+  pivots:
+  - id: identity-mi-methods-sub-azp
+    title: Azure portal
+  - id: identity-mi-methods-sub-azcli
+    title: Azure CLI
+  - id: identity-mi-methods-sub-powershell
+    title: PowerShell

@@ -15,7 +15,7 @@ The way to configure Event Grid to send events to a destination is through the c
 
 In general, Event Grid on Kubernetes can send events to any destination via **Webhooks**. Webhooks are HTTP(s) endpoints exposed by a service or workload to which Event Grid has access. The webhook can be a workload hosted in the same cluster, in the same network space, on the cloud, on-prem or anywhere that Event Grid can reach. 
 
-[!INCLUDE [event-grid-preview-feature-note.md](../../../includes/event-grid-preview-feature-note.md)]
+[!INCLUDE [event-grid-preview-feature-note.md](../includes/event-grid-preview-feature-note.md)]
 
 Through Webhooks, Event Grid supports the following destinations **hosted on a Kubernetes cluster**:
 
@@ -74,18 +74,18 @@ To publish to a WebHook endpoint, set the `endpointType` to `WebHook` and provid
 
 To publish to an Azure Event Grid cloud endpoint, set the `endpointType` to `WebHook` and provide:
 
-* **endpointUrl**: Azure event grid topic URL in the cloud
+* **endpointUrl**: Azure event grid topic URL in the cloud with the API version parameter set to **2018-01-01** and `aeg-sas-key` set to the URL encoded SAS key. 
 
    ```json
-        {
-          "properties": {
-            "destination": {
-              "endpointType": "WebHook",
-              "properties": {
-                 "endpointUrl": "<your-event-grid-cloud-topic-endpoint-url>?api-version=2018-01-01",
-              }
-            }
-          }
+    {
+    	"properties": {
+    		"destination": {
+    			"endpointType": "WebHook",
+    			"properties": {
+    				"endpointUrl": "<your-event-grid-cloud-topic-endpoint-url>?api-version=2018-01-01&aeg-sas-key=urlencoded(sas-key-value)"
+    			}
+    		}
+    	}
     }
    ```
 

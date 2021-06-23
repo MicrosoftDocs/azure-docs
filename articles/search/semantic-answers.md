@@ -8,13 +8,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/19/2021
+ms.date: 05/27/2021
 ---
 
 # Return a semantic answer in Azure Cognitive Search
 
 > [!IMPORTANT]
-> Semantic search is in public preview, available through the preview REST API only. Preview features are offered as-is, under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/), and are not guaranteed to have the same implementation at general availability. These features are billable. For more information, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
+> Semantic search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and beta SDKs. These features are billable. For more information about, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
 
 When invoking [semantic ranking and captions](semantic-how-to-query-request.md), you can optionally extract content from the top-matching documents that "answers" the query directly. One or more answers can be included in the response, which you can then render on a search page to improve the user experience of your app.
 
@@ -22,7 +22,7 @@ In this article, learn how to request a semantic answer, unpack the response, an
 
 ## Prerequisites
 
-All prerequisites that apply to [semantic queries](semantic-how-to-query-request.md) also apply to answers, including [service tier and region](semantic-search-overview.md#availability-and-pricing).
+All prerequisites that apply to [semantic queries](semantic-how-to-query-request.md#prerequisites) also apply to answers, including [service tier and region](semantic-search-overview.md#availability-and-pricing).
 
 + Query logic must include the semantic query parameters "queryType=semantic", plus the "answers" parameter. Required parameters are discussed in this article.
 
@@ -40,7 +40,7 @@ Answers are returned as an independent, top-level object in the query response p
 
 <a name="query-params"></a>
 
-## How to request semantic answers in a query
+## How to specify "answers" in a query request
 
 To return a semantic answer, the query must have the semantic "queryType", "queryLanguage", "searchFields", and the "answers" parameter. Specifying the "answers" parameter does not guarantee that you will get an answer, but the request must include this parameter if answer processing is to be invoked at all.
 
@@ -65,7 +65,7 @@ The "searchFields" parameter is crucial to returning a high quality answer, both
 
 + "searchFields" determines which string fields provide tokens to the extraction model. The same fields that produce captions also produce answers. For precise guidance on how to set this field so that it works for both captions and answers, see [Set searchFields](semantic-how-to-query-request.md#searchfields). 
 
-+ For "answers", parameter construction is `"answers": "extractive"`, where the default number of answers returned is one. You can increase the number of answers by adding a count as shown in the above example, up to a maximum of five.  Whether you need more than one answer depends on the user experience of your app, and how you want to render results.
++ For "answers", parameter construction is `"answers": "extractive"`, where the default number of answers returned is one. You can increase the number of answers by adding a `count` as shown in the above example, up to a maximum of five.  Whether you need more than one answer depends on the user experience of your app, and how you want to render results.
 
 ## Deconstruct an answer from the response
 
@@ -108,7 +108,10 @@ Given the query "how do clouds form", the following answer is returned in the re
                 "North America",
                 "Vancouver"
             ]
+    ]
         }
+}
+
 ```
 
 ## Tips for producing high-quality answers

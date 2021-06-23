@@ -1,7 +1,7 @@
 ---
 title: Defender for IoT installation
 description: Learn how to install a sensor and the on-premises management console for Azure Defender for IoT.
-ms.date: 05/20/2021
+ms.date: 06/21/2021
 ms.topic: how-to
 ---
 
@@ -33,12 +33,12 @@ The Defender for IoT appliance sensor connects to a SPAN port or network TAP and
 
 The following rack mount appliances are available:
 
-| **Deployment type** | **Corporate** | **Enterprise** | **SMB** | **Line** |
+| **Deployment type** | **Corporate** | **Enterprise** | **SMB** |**SMB Ruggedized** |
 |--|--|--|--|--|
-| **Model** | HPE ProLiant DL360 | Dell PowerEdge R340 XL | HPE ProLiant DL20 | HPE ProLiant DL20 |
-| **Monitoring ports** | up to 15 RJ45 or 8 OPT | up to 9 RJ45 or 6 OPT | up to 8 RJ45 or 6 OPT | 4 RJ45 |
-| **Max Bandwidth\*** | 3 Gb/Sec | 1 Gb/Sec | 1 Gb/Sec | 100 Mb/Sec |
-| **Max Protected Devices** | 30,000 | 10,000 | 15,000 | 1,000 |
+| **Model** | HPE ProLiant DL360 | HPE ProLiant DL20 | HPE ProLiant DL20 | HPE EL300 |
+| **Monitoring ports** | up to 15 RJ45 or 8 OPT | up to 8 RJ45 or 6 OPT | up to 4 RJ45 | Up to 5 RJ45 |
+| **Max Bandwidth\*** | 3 Gb/Sec | 1 Gb/Sec | 200 Mb/Sec | 100 Mb/Sec |
+| **Max Protected Devices** | 30,000 | 15,000 | 1,000 | 800 |
 
 *Maximum bandwidth capacity might vary depending on protocol distribution.
 
@@ -46,13 +46,12 @@ The following rack mount appliances are available:
 
 The following virtual appliances are available:
 
-| **Deployment type** | **Enterprise** | **SMB** | **Line** |
+| **Deployment type** | **Corporate** | **Enterprise** | **SMB** |
 |--|--|--|--|
-| **Description** | Virtual appliance for enterprise deployments | Virtual appliance for SMB deployments | Virtual appliance for line deployments |
-| **Max Bandwidth\*** | 150 Mb/sec | 15 Mb/sec | 3 Mb/sec |
-| **Max protected devices** | 3,000 | 300 | 100 |
-| **Deployment Type** | Enterprise | SMB | Line |
-| **Description** | Virtual appliance for enterprise deployments | Virtual appliance for SMB deployments | Virtual appliance for line deployments |
+| **Description** | Virtual appliance for corporate deployments | Virtual appliance for enterprise deployments | Virtual appliance for SMB deployments |
+| **Max Bandwidth\*** | 2.5 Gb/Sec | 800 Mb/sec | 160 Mb/sec |
+| **Max protected devices** | 30,000 | 10,000 | 800 |
+| **Deployment Type** | Corporate | Enterprise | SMB |
 
 *Maximum bandwidth capacity might vary depending on protocol distribution.
 
@@ -60,7 +59,7 @@ The following virtual appliances are available:
 
  | Item | Description |
  |----|--|
- **Description** | In a multitier architecture, the on-premises management console delivers visibility and control across geographically distributed sites. It integrates with SOC security stacks, including SIEMs, ticketing systems, next-generation firewalls, secure remote access platforms, and the Defender for IoT ICS malware sandbox. |
+ **Description** | In a multi-tier architecture, the on-premises management console delivers visibility and control across geographically distributed sites. It integrates with SOC security stacks, including SIEMs, ticketing systems, next-generation firewalls, secure remote access platforms, and the Defender for IoT ICS malware sandbox. |
  **Deployment type** | Enterprise |
  **Appliance type**  | Dell R340, VM |
  **Number of managed sensors** | Unlimited |
@@ -855,6 +854,8 @@ For information on how to find the physical port on your appliance, see [Find yo
 
 You can enhance security to your on-premises management console by adding a secondary NIC. This could be used for high availability. By adding a secondary NIC, you may also have one dedicated for your users while using the other to support the configuration of a gateway for routed networks. The second NIC is then dedicated to all attached sensors within an IP address range.
 
+:::image type="content" source="media/tutorial-install-components/secondary-nic.png" alt-text="The overall architecture of the secondary NIC.":::
+
 Both NICs will support the user interface (UI). 
 
 If you choose not to deploy a secondary NIC, all of the above features will be available through the primary NIC. 
@@ -1231,7 +1232,7 @@ Post-installation validation must include the following tests:
 
   - **ifconfig**: Verify that all the input interfaces configured during the installation process are running.
 
-### Checking system health by using the GUI
+### Check system health by using the GUI
 
 :::image type="content" source="media/tutorial-install-components/system-health-check-screen.png" alt-text="Screenshot that shows the system health check.":::
 
@@ -1283,7 +1284,7 @@ To access the tool:
 
     :::image type="icon" source="media/tutorial-install-components/system-statistics-icon.png" border="false":::
 
-### Checking system health by using the CLI
+### Check system health by using the CLI
 
 **Test 1: Sanity**
 
