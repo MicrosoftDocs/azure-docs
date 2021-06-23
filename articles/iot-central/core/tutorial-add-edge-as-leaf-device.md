@@ -1,8 +1,8 @@
 ---
 title: Tutorial - Add an Azure IoT Edge device to Azure IoT Central | Microsoft Docs
 description: Tutorial - Add an Azure IoT Edge device to your Azure IoT Central application
-author: rangv
-ms.author: rangv
+author: dominicbetts
+ms.author: dominicbetts
 ms.date: 05/29/2020
 ms.topic: tutorial
 ms.service: iot-central
