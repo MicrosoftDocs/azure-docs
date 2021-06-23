@@ -2,7 +2,7 @@
 title: Azure subscription limits and quotas
 description: Provides a list of common Azure subscription and service limits, quotas, and constraints. This article includes information on how to increase limits along with maximum values.
 ms.topic: conceptual
-ms.date: 04/07/2021
+ms.date: 06/09/2021
 ---
 
 # Azure subscription and service limits, quotas, and constraints
@@ -177,7 +177,9 @@ The latest values for Azure Machine Learning Compute quotas can be found in the 
 
 [!INCLUDE [quantum-limits](../../../includes/azure-quantum-limits.md)]
 
-## Azure role-based access control limits
+## Azure RBAC limits
+
+The following limits apply to [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md).
 
 [!INCLUDE [role-based-access-control-limits](../../../includes/role-based-access-control/limits.md)]
 
@@ -249,8 +251,7 @@ The following table details the features and limits of the Basic, Standard, and 
 [!INCLUDE [event-grid-limits](../../../includes/event-grid-limits.md)]
 
 ## Event Hubs limits
-
-[!INCLUDE [azure-servicebus-limits](../../../includes/event-hubs-limits.md)]
+[!INCLUDE [event-hubs-limits](../../../includes/event-hubs-limits.md)]
 
 ## IoT Central limits
 [!INCLUDE [iot-central-limits](../../../includes/iot-central-limits.md)]

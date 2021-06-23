@@ -1,7 +1,7 @@
 ---
 title: Manage alert events
 description: Manage alert events detected in your network. 
-ms.date: 12/07/2020
+ms.date: 05/26/2021
 ms.topic: how-to
 ---
 
@@ -32,15 +32,52 @@ Events that indicate deviations of the learned network might reflect valid netwo
 
 - New legitimate scanning is carried out and the device should be defined as a scanning device.
 
+**To learn an event**: 
 
-:::image type="content" source="media/how-to-work-with-alerts-sensor/detected.png" alt-text="The Address Detected Scan window.":::
+1. Navigate to the **Alerts** tab.
+
+    :::image type="content" source="media/how-to-work-with-alerts-sensor/alerts-tab.png" alt-text="Select the Alerts tab from the navigation bar on the left side of the screen.":::
+
+1. Select an alert from the list of alerts.
+
+1. Select **Learn**.
+
+    :::image type="content" source="media/how-to-work-with-alerts-sensor/learn.png" alt-text="The Address Detected Scan window.":::
 
 Activity reflected in alerts is calculated when you generate Data Mining, Risk Assessment, and Attack Vector reports. When you manage these events, the sensor updates the reports accordingly.
 
-When you select **Learn**, the sensor considers traffic, configurations, or activity valid. This means alerts will no longer be triggered for the event. It also means the event won't be calculated when the sensor generates risk assessment, attack vector, and other reports.
+When you select **Learn**, the sensor considers traffic, configurations, or activity valid. The alert will no longer be triggered for the event. It also means the event won't be calculated when the sensor generates risk assessment, attack vector, and other reports.
 
-Learned events can be unlearned. When the sensor unlearns events, it will re-trigger alerts related to this event.
+Learned events can be unlearned. When the sensor unlearns events, it will retrigger alerts related to this event.
 
+**To unlearn an event**
+
+1. Navigate to the **Alerts** tab.
+
+    :::image type="content" source="media/how-to-work-with-alerts-sensor/alerts-tab.png" alt-text="Select the Alerts tab from the navigation bar on the left side of the screen.":::
+
+1. From the view drop-down menu, select **Acknowledged**.
+
+    :::image type="content" source="media/how-to-work-with-alerts-sensor/view-acknowledged.png" alt-text="Select acknowledged from the view section drop-down menu." lightbox="media/how-to-work-with-alerts-sensor/view-acknowledged-expanded.png":::
+
+1. Select an alert from the list of alerts.
+
+1. Select **Unlearn**.
+
+    :::image type="content" source="media/how-to-work-with-alerts-sensor/unlearn.png" alt-text="Select Unlearn to unlearn an event.":::
+
+After an event is unlearned, it will move back to the Main View page.
+
+**To see if an alert was learned, or acknowledged**:
+
+1. Navigate to the Event Timeline tab :::image type="icon" source="media/how-to-work-with-alerts-sensor/event-timeline.png" border="false":::
+
+1. Locate the alert in the timeline.
+
+    :::image type="content" source="media/how-to-work-with-alerts-sensor/event-timeline-acknowledged.png" alt-text="You can locate the acknowledged events in the event timeline.":::
+
+    You will see in the alert's window, if the alert was learned, or acknowledged.
+ 
 ## About acknowledging and unacknowledging events
 
 In certain situations, you might not want a sensor to learn a detected event, or the option might not be available. Instead, the incident might require mitigation. For example:
@@ -81,13 +118,13 @@ The device or devices being muted will be displayed as an image in the alert. If
 
 **Example 1**
 
-When an event is muted, it's is ignored any time the primary (source) sends the secondary (destination) an illegal function code as defined by the vendor.
+When an event is muted, it's ignored anytime the primary (source) sends the secondary (destination) an illegal function code as defined by the vendor.
 
 :::image type="content" source="media/how-to-work-with-alerts-sensor/secondary-device-connected.png" alt-text="Secondary device received.":::
 
 **Example 2**
 
-When an event is muted, it's ignored any time the source sends an HTTP header with illegal content, regardless of the destination.
+When an event is muted, it's ignored anytime the source sends an HTTP header with illegal content, regardless of the destination.
 
 :::image type="content" source="media/how-to-work-with-alerts-sensor/illegal-http-header-content.png" alt-text="Screenshot of illegal HTTP header content.":::
 
@@ -113,7 +150,7 @@ When an event is muted, it's ignored any time the source sends an HTTP header wi
 
 ## Export alert information
 
-Export alert information to a .csv file. You can export information of all alerts detected or export information based on the filtered view.The following information is exported:
+Export alert information to a .csv file. You can export information of all alerts detected or export information based on the filtered view. The following information is exported:
 
 - Source address
 - Destination address
@@ -127,7 +164,9 @@ Export alert information to a .csv file. You can export information of all alert
 To export:
 
 1. Select Alerts from the side menu.
+
 1. Select Export.
+
 1. Select Export Extended Alerts to export alert information in separate rows for each alert that covers multiple devices. When Export Extended Alerts is selected, the .csv file will create a duplicate row of the alert event with the unique items in each row. Using this option makes it easier to investigate exported alert events.
 
 ## See also

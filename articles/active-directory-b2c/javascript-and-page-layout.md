@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/22/2021
+ms.date: 06/07/2021
 ms.custom: project-no-code, devx-track-js
 ms.author: mimart
 ms.subservice: B2C
@@ -59,7 +59,7 @@ To specify a page layout version for your user flow pages:
 
 1. In your Azure AD B2C tenant, select **User flows**.
 1. Select your policy (for example, "B2C_1_SignupSignin") to open it.
-1. Select **Page layouts**. Choose a **Layout name**, and then choose the **Page Layout Version (Preview)**.
+1. Select **Page layouts**. Choose a **Layout name**, and then choose the **Page Layout Version**.
 
 For information about the different page layout versions, see the [Page layout version change log](page-layout.md).
 

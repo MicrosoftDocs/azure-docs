@@ -1,21 +1,21 @@
 ---
-title: Troubleshoot Monitor Windows Virtual Desktop - Azure
-description: How to troubleshoot issues with Azure Monitor for Windows Virtual Desktop.
+title: Troubleshoot Monitor Azure Virtual Desktop - Azure
+description: How to troubleshoot issues with Azure Monitor for Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: troubleshooting
 ms.date: 03/29/2021
 ms.author: helohr
 manager: femila
 ---
-# Troubleshoot Azure Monitor for Windows Virtual Desktop
+# Troubleshoot Azure Monitor for Azure Virtual Desktop
 
-This article presents known issues and solutions for common problems in Azure Monitor for Windows Virtual Desktop.
+This article presents known issues and solutions for common problems in Azure Monitor for Azure Virtual Desktop.
 
 ## Issues with configuration and setup
 
 If the configuration workbook isn't working properly to automate setup, you can use these resources to set up your environment manually:
 
-- To manually enable diagnostics or access the Log Analytics workspace, see [Send Windows Virtual Desktop diagnostics to Log Analytics](diagnostics-log-analytics.md).
+- To manually enable diagnostics or access the Log Analytics workspace, see [Send Azure Virtual Desktop diagnostics to Log Analytics](diagnostics-log-analytics.md).
 - To install the Log Analytics extension on a session host manually, see [Log Analytics virtual machine extension for Windows](../virtual-machines/extensions/oms-windows.md).
 - To set up a new Log Analytics workspace, see [Create a Log Analytics workspace in the Azure portal](../azure-monitor/logs/quick-create-workspace.md).
 - To add, remove, or edit performance counters, see [Configuring performance counters](../azure-monitor/agents/data-sources-performance-counters.md).
@@ -25,10 +25,10 @@ If the configuration workbook isn't working properly to automate setup, you can 
 
 If your data isn't displaying properly, check the following common solutions:
 
-- First, make sure you've set up correctly with the configuration workbook as described in [Use Azure Monitor for Windows Virtual Desktop to monitor your deployment](azure-monitor.md). If you're missing any counters or events, the data associated with them won't appear in the Azure portal.
-- Check your access permissions & contact the resource owners to request missing permissions; anyone monitoring Windows Virtual Desktop requires the following permissions:
-    - Read-access to the Azure subscriptions that hold your Windows Virtual Desktop resources
-    - Read-access to the subscription's resource groups that hold your Windows Virtual Desktop session hosts 
+- First, make sure you've set up correctly with the configuration workbook as described in [Use Azure Monitor for Azure Virtual Desktop to monitor your deployment](azure-monitor.md). If you're missing any counters or events, the data associated with them won't appear in the Azure portal.
+- Check your access permissions & contact the resource owners to request missing permissions; anyone monitoring Azure Virtual Desktop requires the following permissions:
+    - Read-access to the Azure subscriptions that hold your Azure Virtual Desktop resources
+    - Read-access to the subscription's resource groups that hold your Azure Virtual Desktop session hosts 
     - Read-access to whichever Log Analytics workspaces you're using
 - You may need to open outgoing ports in your server's firewall to allow Azure Monitor and Log Analytics to send data to the portal. To learn how to do this, see the following articles:
       - [Azure Monitor Outgoing ports](../azure-monitor/app/ip-addresses.md)
@@ -37,9 +37,9 @@ If your data isn't displaying properly, check the following common solutions:
 
 If you're not missing any information but your data still isn't displaying properly, there may be an issue in the query or the data sources. Review [known issues and limitations](#known-issues-and-limitations). 
 
-## I want to customize Azure Monitor for Windows Virtual Desktop
+## I want to customize Azure Monitor for Azure Virtual Desktop
 
-Azure Monitor for Windows Virtual Desktop uses Azure Monitor Workbooks. Workbooks lets you save a copy of the Windows Virtual Desktop workbook template and make your own customizations.
+Azure Monitor for Azure Virtual Desktop uses Azure Monitor Workbooks. Workbooks lets you save a copy of the Azure Virtual Desktop workbook template and make your own customizations.
 
 By design, custom Workbook templates will not automatically adopt updates from the products group. For more information, see [Troubleshooting workbook-based insights](../azure-monitor/insights/troubleshoot-workbooks.md) and the [Workbooks overview](../azure-monitor/visualize/workbooks-overview.md).
 
@@ -56,8 +56,8 @@ If you want to monitor more Performance counters or Windows Event Logs, you can 
 
 Can't find a data point to help diagnose an issue? Send us feedback!
 
-- To learn how to leave feedback, see [Troubleshooting overview, feedback, and support for Windows Virtual Desktop](troubleshoot-set-up-overview.md).
-- You can also leave feedback for Windows Virtual Desktop at the [Windows Virtual Desktop feedback hub](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app).
+- To learn how to leave feedback, see [Troubleshooting overview, feedback, and support for Azure Virtual Desktop](troubleshoot-set-up-overview.md).
+- You can also leave feedback for Azure Virtual Desktop at the [Azure Virtual Desktop feedback hub](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app).
 
 ## Known issues and limitations
 
@@ -75,6 +75,6 @@ The following are issues and limitations we're aware of and working to fix:
 
 ## Next steps
 
-- To get started, see [Use Azure Monitor for Windows Virtual Desktop to monitor your deployment](azure-monitor.md).
+- To get started, see [Use Azure Monitor for Azure Virtual Desktop to monitor your deployment](azure-monitor.md).
 - To estimate, measure, and manage your data storage costs, see [Estimate Azure Monitor costs](azure-monitor-costs.md).
-- Check out our [glossary](azure-monitor-glossary.md) to learn more about terms and concepts related to Azure Monitor for Windows Virtual Desktop.
+- Check out our [glossary](azure-monitor-glossary.md) to learn more about terms and concepts related to Azure Monitor for Azure Virtual Desktop.

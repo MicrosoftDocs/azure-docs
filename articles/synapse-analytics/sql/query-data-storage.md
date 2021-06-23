@@ -28,6 +28,7 @@ To support a smooth experience for in place querying of data that's located in A
 - [Query multiple files or folders](#query-multiple-files-or-folders)
 - [PARQUET file format](#query-parquet-files)
 - [Query CSV and delimited text (field terminator, row terminator, escape char)](#query-csv-files)
+- [DELTA LAKE format](#query-delta-lake-format)
 - [Read a chosen subset of columns](#read-a-chosen-subset-of-columns)
 - [Schema inference](#schema-inference)
 - [filename function](#filename-function)
@@ -36,11 +37,11 @@ To support a smooth experience for in place querying of data that's located in A
 
 ## Query PARQUET files
 
-To query Parquet source data, use FORMAT = 'PARQUET'
+To query Parquet source data, use FORMAT = 'PARQUET':
 
 ```syntaxsql
 SELECT * FROM
-OPENROWSET( BULK N'https://myaccount.dfs.core.windows.net//mycontainer/mysubfolder/data.parquet', FORMAT = 'PARQUET') 
+OPENROWSET( BULK N'https://myaccount.dfs.core.windows.net/mycontainer/mysubfolder/data.parquet', FORMAT = 'PARQUET') 
 WITH (C1 int, C2 varchar(20), C3 varchar(max)) as rows
 ```
 
@@ -64,6 +65,20 @@ The ESCAPE_CHAR parameter will be applied whether the FIELDQUOTE is or isn't ena
 Specifies the field terminator to be used. The default field terminator is a comma ("**,**")
 - ROWTERMINATOR ='row_terminator'
 Specifies the row terminator to be used. The default row terminator is a newline character: **\r\n**.
+
+
+## Query DELTA LAKE format
+
+To query Delta Lake source data, use FORMAT = 'DELTA' and reference the root folder containing your Delta Lake files.
+
+```syntaxsql
+SELECT * FROM
+OPENROWSET( BULK N'https://myaccount.dfs.core.windows.net/mycontainer/mysubfolder', FORMAT = 'DELTA') 
+WITH (C1 int, C2 varchar(20), C3 varchar(max)) as rows
+```
+
+The root folder must contain a subfolder called `_delta_log`. 
+Review the [query Delta Lake format](query-delta-lake-format.md) article for usage examples.
 
 ## File schema
 
