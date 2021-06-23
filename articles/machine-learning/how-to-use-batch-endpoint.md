@@ -314,7 +314,7 @@ curl --location --request POST "$scoring_uri" --header "Authorization: Bearer $a
   }
 }'
 ```
-:::code language='bash' source="~/azureml-examples-main/cli/batch-score.sh" ID="get_token" :::
+:::code language="bash" source="~/azureml-examples-main/cli/batch-score.sh" ID="get_token" :::
 
 
 ## Clean up resources
