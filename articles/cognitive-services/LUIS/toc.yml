@@ -12,7 +12,7 @@
   - name: What's new
     href: whats-new.md
   - name: LUIS FAQ
-    href: troubleshooting.md
+    href: troubleshooting.yml
     displayName: Troubleshooting, import
 - name: LUIS quickstarts
   items:

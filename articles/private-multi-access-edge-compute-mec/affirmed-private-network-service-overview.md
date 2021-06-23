@@ -1,9 +1,9 @@
 ---
 title: 'What is Affirmed Private Network Service on Azure?'
 description: Learn about Affirmed Private Network Service solutions on Azure for private LTE/5G networks.
-services: vnf-manager
+
 author: KumudD
-ms.service: vnf-manager
+ms.service: private-multi-access-edge-compute-mec
 ms.topic: overview
 ms.date: 06/16/2021
 ms.author: hollycl
@@ -49,7 +49,7 @@ APNS provides the following key benefits to operators and their customers:
 
 - **Automation and Ease of Management** - The APNS solution can be completely managed remotely through Service Manager on the Azure cloud. Through the Service Manager, end-users have access to their personalized dashboard and can manage, view, and turn on/off devices on the private mobile network. Operators can monitor the status of the networks for network issues and key parameters to ensure optimal performance.
 
-    - Provides secure, reliable, high bandwidth, low latency private mobile networking service that runs on private edge zone.
+    - Provides secure, reliable, high bandwidth, low latency private mobile networking service that runs on Azure private multi-access edge compute.
 
     - Supports complete remote management, without needing truck rolls.
 
