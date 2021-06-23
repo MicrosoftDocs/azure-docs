@@ -17,10 +17,10 @@ ms.date: 03/01/2018
 
 Net# is a language developed by Microsoft that is used to define complex neural network architectures such as deep neural networks or convolutions of arbitrary dimensions. You can use complex structures to improve learning on data such as image, video, or audio.
 
-You can use a Net# architecture specification in these contexts:
-
-+ All neural network modules in Microsoft Azure Machine Learning Studio (classic): [Multiclass Neural Network](/azure/machine-learning/studio-module-reference/multiclass-neural-network), [Two-Class Neural Network](/azure/machine-learning/studio-module-reference/two-class-neural-network), and [Neural Network Regression](/azure/machine-learning/studio-module-reference/neural-network-regression)
-+ Neural network functions in Microsoft ML Server: [NeuralNet](/machine-learning-server/r-reference/microsoftml/neuralnet) and [rxNeuralNet](/machine-learning-server/r-reference/microsoftml/rxneuralnet)for the R language, and [rx_neural_network](/machine-learning-server/python-reference/microsoftml/rx-neural-network) for Python.
+You can use a Net# architecture specification in all neural network modules in Machine Learning Studio (classic): 
+* [Multiclass Neural Network](/azure/machine-learning/studio-module-reference/multiclass-neural-network)
+* [Two-Class Neural Network](/azure/machine-learning/studio-module-reference/two-class-neural-network)
+* [Neural Network Regression](/azure/machine-learning/studio-module-reference/neural-network-regression)
 
 
 This article describes the basic concepts and syntax needed to develop a custom neural network using Net#:
@@ -28,7 +28,6 @@ This article describes the basic concepts and syntax needed to develop a custom 
 + Neural network requirements and how to define the primary components
 + The syntax and keywords of the Net# specification language
 + Examples of custom neural networks created using Net#
-
 
 
 ## Neural network basics
@@ -52,7 +51,7 @@ Additionally, Net# supports the following four kinds of advanced connection bund
 
 ## Supported customizations
 
-The architecture of neural network models that you create in Azure Machine Learning Studio (classic) can be extensively customized by using Net#. You can:
+The architecture of neural network models that you create in Machine Learning Studio (classic) can be extensively customized by using Net#. You can:
 
 + Create hidden layers and control the number of nodes in each layer.
 + Specify how layers are to be connected to each other.
@@ -459,4 +458,4 @@ output Digit [10] from Hid3 all;
 
 ## Acknowledgements
 
-The Net# language for customizing the architecture of neural networks was developed at Microsoft by Shon Katzenberger (Architect, Machine Learning) and Alexey Kamenev (Software Engineer, Microsoft Research). It is used internally for machine learning projects and applications ranging from image detection to text analytics. For more information, see [Neural Nets in Azure Machine Learning studio - Introduction to Net#](/archive/blogs/machinelearning/neural-nets-in-azure-ml-introduction-to-net)
+The Net# language for customizing the architecture of neural networks was developed at Microsoft by Shon Katzenberger (Architect, Machine Learning) and Alexey Kamenev (Software Engineer, Microsoft Research). It is used internally for machine learning projects and applications ranging from image detection to text analytics. For more information, see [Neural Nets in Machine Learning studio - Introduction to Net#](/archive/blogs/machinelearning/neural-nets-in-azure-ml-introduction-to-net)
