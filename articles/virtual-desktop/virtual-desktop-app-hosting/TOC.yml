@@ -6,8 +6,6 @@
     href: ../overview.md?toc=/azure/virtual-desktop/virtual-desktop-app-hosting/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
 - name: How-to guides
   items:
-  - name: Architecture
-    href: 
   - name: Use MSIX app attach for apps
     href: 
   - name: Stream custom apps
@@ -22,3 +20,7 @@
     href: 
   - name: Estimate streaming costs 
     href: 
+- name: Reference
+  items:
+  - name: Architecture recommendations
+    href: architecture-recs.md
