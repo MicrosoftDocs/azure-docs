@@ -12,4 +12,39 @@ The person who will manage the physical device creates and maintains the managem
 
 To create a management resource for a device ordered through the Azure Edge Hardware Center, do these steps:
 
-1. Step 1 
+
+1. Use your Microsoft Azure credentials to sign in to the Azure portal at this URL: [https://portal.azure.com](https://portal.azure.com).
+
+1. Search for and select **Azure Stack Edge**.
+
+    ![Screenshot showing the initial display when the Azure Stack Edge preview portal is opened](media/azure-edge-hardware-center-create-management-resource/create-management-resource-01.png)
+
+1. In the Azure Stack Edge portal, select **+ Create**.
+
+    ![Screenshot showing how to select the + Create button on the Overview pane in Azure Stack Edge](media/azure-edge-hardware-center-create-management-resource/create-management-resource-02.png)
+
+1. Select **Create management resource**.
+
+    ![Screenshot showing the Create management resource option in Azure Stack Hub](media/azure-edge-hardware-center-create-management-resource/create-management-resource-03.png)
+
+    The **Create management resource** wizard opens.
+
+1. On the **Basics** tab, enter the following settings:<!--Check informational text for each field.-->
+
+    | Setting                      | Value                                                                                        |
+    |------------------------------|----------------------------------------------------------------------------------------------|
+    | **Select a subscription**    | Select the subscription that was used for the order in Azure Edge Hardware Center.           |
+    | **Resource group**           | Select the resource group that was used for the order.                                       |
+    | **Name**                     | Provide a name for the management resource.                                                  |
+    | **Deploy Azure resource in** | Select the country or region where the metadata for the management resource will be stored. You may want to store the metadata in a different country/region than the physical location of the device. |
+    | **Device type**              | Select the device type. This option corresponds to the configuration that was selected for the hardware product in the Azure Edge Hardware Center order.<br>For example, for an Azure Stack Edge Pro - GPU device, the device type is either **Azure Stack Edge Pro - 1 GPU** or **Azure Stack Edge Pro - 1 GPU**.|       
+
+    ![Screenshot the Basics tab of the Create management resource wizard, with example field entries](media/azure-edge-hardware-center-create-management-resource/create-management-resource-04.png)
+
+    Select **Review + create** to continue.
+
+5. On the **Review + create** tab, review basic settings for the management resource and the terms and conditions for use. Then select **Create**.
+
+    The **Create** button isn't available until all validation checks have passed. Validation checks search through the orders for the resource group, looking for an order item for the same device type that doesn't already have a management resource associated with it.
+
+    ![Screenshot showing the Review + create screen when creating a new management resource in Azure Stack Edge](media/azure-edge-hardware-center-create-management-resource/create-management-resource-05.png) 

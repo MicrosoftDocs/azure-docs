@@ -20,6 +20,7 @@ Because there isn't a 1-to-1 relationship between the order and a device, no dev
 
     ![Screenshot of the option to create a resource in the Azure Edge Hardware Center](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-02-service-first.png)
 
+    <!-- Alternate Steps 2-3 (to mirror Classic path): In **Azure Services**, select **+ Create a resource**. Search for "azure edge hardware center". Select **Azure Edge Hardware Center (preview)**. Select **Create**.-->
 
 4. Select a subscription, and then select **Next**.
 
