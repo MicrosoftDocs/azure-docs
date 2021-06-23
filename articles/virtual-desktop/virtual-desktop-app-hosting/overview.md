@@ -1,5 +1,11 @@
 ---
-title: "Azure Virtual Desktop Remote App Streaming "
+title: What is Azure Virtual Desktop Remote App Streaming? - Azure
+description: An overview of Azure Virtual Desktop Remote App Streaming.
+author: Heidilohr
+ms.topic: overview
+ms.date: 07/14/2021
+ms.author: helohr
+manager: femila
 ---
 
 # What is Azure Virtual Desktop Remote App Streaming?
@@ -22,64 +28,61 @@ In order to set up an Azure Virtual Desktop deployment for your custom apps that
 
 ## Get started
 
-Now that you're ready, let's take a look at the tutorials to set up your Azure Virtual Desktop deployment:
+Now that you're ready, let's take a look at how you can set up your Azure Virtual Desktop deployment.
 
-1. [Create a host pool with the Azure portal](https://docs.microsoft.com/en-us/azure/virtual-desktop/create-host-pools-azure-marketplace)
+You have two options to set yourself up for success. You can either set up your deployment manually or automatically. The next two sections will describe the differences between these two methods.
 
-2. [Manage app groups](https://docs.microsoft.com/en-us/azure/virtual-desktop/manage-app-groups)
+### Set up Azure Virtual Desktop manually
 
-3. [Create a host pool to validate service updates](https://docs.microsoft.com/en-us/azure/virtual-desktop/create-validation-host-pool)
+If you want to set up your deployment manually, which will give you more control over configuration, you can start by following these tutorials:
 
-4. [Set up service alerts](https://docs.microsoft.com/en-us/azure/virtual-desktop/set-up-service-alerts)
+1. [Create a host pool with the Azure portal](../create-host-pools-azure-marketplace.md)
 
-Alternatively, you can use the Getting Started wizard. This wizard will deploy Azure Virtual Desktop with customization specific for your scenarios. For more information, check out the resources below:
+2. [Manage app groups](../manage-app-groups.md)
 
-- Serve your app to external organizations with the Getting Started wizard
+3. [Create a host pool to validate service updates](../create-validation-host-pool.md)
 
-- Troubleshooting with the Getting Started wizard
+4. [Set up service alerts](../set-up-service-alerts.md)
 
-Keep going
-==========
+### Set up Azure Virtual Desktop automatically
 
-Customize and manage your existing deployment
----------------------------------------------
+If you'd rather not set things up manually, you can use our Getting Started tool to automatically set up your deployment for you. For more information, check out these articles:
 
-We think the following features will help you make the most of your deployments:
+- [Serve your app to external organizations with the Getting Started tool]()
+- [Troubleshooting the Getting Started tool]()
 
-- How to serve your custom app with Azure Virtual Desktop
+### Customize and manage Azure Virtual Desktop
 
-- Enroll in metered licensing
+Once you've set up Azure Virtual Desktop, you have lots of options to customize your deployment to meet your organization or customers' needs. These articles can help you get started:
 
-- How to use Azure AD only
-
-- [Using Windows 10 virtual machines with Intune](https://docs.microsoft.com/en-us/mem/intune/fundamentals/windows-10-virtual-machines)
-
-- How to deploy an app using MSIX app attach
-
-- [Use Azure Monitor for Azure Virtual Desktop to monitor your deployment](https://docs.microsoft.com/en-us/azure/virtual-desktop/azure-monitor)
-
-- [Set up a business continuity and disaster recovery plan](https://docs.microsoft.com/en-us/azure/virtual-desktop/disaster-recovery)
-
-- [Scale session hosts using Azure Automation](https://docs.microsoft.com/en-us/azure/virtual-desktop/set-up-scaling-script)
-
-- [Set up Universal Print](https://docs.microsoft.com/en-us/universal-print/fundamentals/universal-print-getting-started)
+- [How to serve your custom app with Azure Virtual Desktop]()
+<!---May need to remove this one because it's the one I'm starting over--->
+- [Enroll in metered licensing]()
+- [How to use Azure Active Directory]()
+- [Using Windows 10 virtual machines with Intune](/mem/intune/fundamentals/windows-10-virtual-machines)
+- [How to deploy an app using MSIX app attach]()
+- [Use Azure Monitor for Azure Virtual Desktop to monitor your deployment](../azure-monitor.md)
+- [Set up a business continuity and disaster recovery plan](../disaster-recovery.md)
+- [Scale session hosts using Azure Automation](../set-up-scaling-script.md)
+- [Set up Universal Print](/universal-print/fundamentals/universal-print-getting-started)
 
 - How to estimate IP meter costs
 
-## Get to know your deployment
+### Get to know your deployment
 
 Read the following articles to understand concepts essential to creating and managing deployments:
 
-- Understanding licensing for app hosting
-
-- [Windows Virtual Desktop security best practices - Azure \| Microsoft Docs](https://docs.microsoft.com/en-us/azure/virtual-desktop/security-guide)
-
-- [Azure Monitor for Azure Virtual Desktop glossary](https://docs.microsoft.com/en-us/azure/virtual-desktop/azure-monitor-glossary)
-
+- [Understanding licensing for app hosting]()
+- [Windows Virtual Desktop security best practices - Azure \| Microsoft Docs](../security-guide.md)
+- [Azure Monitor for Azure Virtual Desktop glossary](../azure-monitor-glossary.md)
 - [Windows Virtual Desktop for the enterprise - Azure Example Scenarios \| Microsoft Docs](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/wvd/windows-virtual-desktop)
+- [Understanding total Azure Virtual Desktop costs]()
+- [Architecture recommendations]()
+- [Security implications of multi-tenancy]()
 
-- Understanding total Azure Virtual Desktop costs
+## Next steps
 
-- Architecture recommendations
+If you're ready to start setting up your deployment manually, head to the following tutorial.
 
-- Security implications of multi-tenancy
+> [!div class="nextstepaction"]
+> [Create a host pool with the Azure portal](../create-host-pools-azure-marketplace.md)
