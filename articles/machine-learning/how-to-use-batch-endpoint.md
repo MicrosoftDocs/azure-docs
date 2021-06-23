@@ -187,7 +187,7 @@ Some settings can be overwritten when you start a batch scoring job to make best
 ```azurecli
 az ml endpoint invoke --name mybatchedp --type batch --input-path https://pipelinedata.blob.core.windows.net/sampledata/nytaxi/taxi-tip-data.csv --set retry_settings.max_retries=1
 ```
-:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID='start_batch_scoring_job_with_new_settings' :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="start_batch_scoring_job_with_new_settings" :::
 
 ## Check batch scoring job execution progress
 
@@ -206,14 +206,14 @@ Use `job show` to check details and status of a batch scoring job.
 ```azurecli
 az ml job show --name $job_name
 ```
-:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID='check_job_status' :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="check_job_status" :::
 
 Stream the job logs using `job stream`.
 
 ```azurecli
 az ml job stream --name $job_name
 ```
-:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID='stream_job_logs_to_console' :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="stream_job_logs_to_console" :::
 
 
 ## Check batch scoring results
@@ -242,7 +242,7 @@ Use the following command to add a new deployment to an existing batch endpoint.
 ```azurecli
 az ml endpoint update --name mybatchedp --type batch --deployment-file cli/endpoints/batch/add-deployment.yml
 ```
-:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID='add_deployment' :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="add_deployment" :::
 
 This sample uses a non-MLflow model. When using non-MLflow, you'll need to specify the environment and a scoring script in the YAML file:
 
@@ -261,7 +261,7 @@ To review the details of your deployment, run:
 ```azurecli
 az ml endpoint show --name mybatchedp --type batch
 ```
-:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID='check_batch_endpooint_detail' :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="check_batch_endpooint_detail" :::
 
 ### Activate the new deployment
 
@@ -270,14 +270,14 @@ For batch inference, you must send 100% of inquiries to the wanted deployment. T
 ```azurecli
 az ml endpoint update --name mybatchedp --type batch --traffic mnist-deployment:100
 ```
-:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID='switch_traffic' :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="switch_traffic" :::
 
 If you re-examine the details of your deployment, you will see your changes:
 
 ```azurecli
 az ml endpoint show --name mybatchedp --type batch
 ```
-:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID='check_batch_endpooint_detail' :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="check_batch_endpooint_detail" :::
 
 Now you can invoke a batch scoring job with this new deployment:
 
@@ -294,7 +294,7 @@ Batch endpoints have scoring URIs for REST access. REST lets you use any HTTP li
 ```azurecli
 scoring_uri=$(az ml endpoint show --name mybatchedp --type batch --query scoring_uri -o tsv)
 ```
-:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID='get_scoring_uri' :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="get_scoring_uri" :::
 
 2. Get the access token:
 
@@ -314,7 +314,7 @@ curl --location --request POST "$scoring_uri" --header "Authorization: Bearer $a
   }
 }'
 ```
-:::code language='bash' source="~/azureml-examples-main/cli/batch-score.sh" ID='get_token' :::
+:::code language='bash' source="~/azureml-examples-main/cli/batch-score.sh" ID="get_token" :::
 
 
 ## Clean up resources
