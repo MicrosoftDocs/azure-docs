@@ -18,7 +18,7 @@ Azure Machine Learning requires both inbound and outbound access to the public i
 | Inbound | 44224 | AzureMachineLearning | Azure Machine Learning compute instance. |
 | Outbound | * | AzureActiveDirectory | Azure Active Directory authentication. |
 | Outbound | * | AzureMachineLearning | Azure Machine Learning. |
-| Outbound | * | Azure Resource Manager | Azure Resource Manager. |
+| Outbound | * | AzureResourceManager | Azure Resource Manager. |
 | Outbound | * | Storage.region | Azure Storage Account. |
 | Outbound | * | KeyVault.region | Azure Key Vault. |
 | Outbound | * | ContainerRegistry.region | Azure Container Registry. |
