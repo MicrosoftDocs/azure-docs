@@ -27,6 +27,8 @@ For Azure Diagnostics tables, all data is written into one single table and user
 
 For [resource-specific tables](cosmosdb-monitor-resource-logs.md#create-setting-portal), data is written into individual tables for each category of the resource. We recommend this mode since it makes it much easier to work with the data, provides better discoverability of the schemas, and improves performance across both ingestion latency and query times.
 
+## Common Queries
+
 1. Top N(10) RU consuming requests/queries in a given time frame
 
 # [Resource-specific](#tab/resource-specific)
