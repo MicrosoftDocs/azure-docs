@@ -39108,6 +39108,11 @@
       "redirect_url": "/azure/virtual-wan/scenario-route-between-vnets-firewall",
       "redirect_document_id": false
     },
+	 {
+      "source_path_from_root": "/articles/virtual-wan/logs-metrics.md",
+      "redirect_url": "/azure/virtual-wan/monitor-virtual-wan",
+      "redirect_document_id": false
+    },
     {
       "source_path_from_root": "/articles/virtual-wan/virtual-wan-route-table.md",
       "redirect_url": "/azure/virtual-wan/scenario-route-through-nva",
@@ -45786,6 +45791,51 @@
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-windows-iot-edge-simulated-device.md",
       "redirect_url": "https://github.com/Azure/iot-edge/tree/master/v1/samples/simulated_device_cloud_upload/iot-hub-windows-iot-edge-simulated-device.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-dps/how-to-connect-mxchip-iot-devkit.md",
+      "redirect_url": "/azure/iot-develop/quickstart-devkit-mxchip-az3166",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-device-sdk-platform-support.md",
+      "redirect_url": "/azure/iot-develop/about-iot-sdks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started.md",
+      "redirect_url": "/azure/iot-develop/quickstart-devkit-mxchip-az3166-iot-hub",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-arduino-iot-devkit-az3166-door-monitor.md",
+      "redirect_url": "/azure/iot-develop/quickstart-devkit-mxchip-az3166-iot-hub",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-arduino-iot-devkit-az3166-translator.md",
+      "redirect_url": "/azure/iot-develop/quickstart-devkit-mxchip-az3166-iot-hub",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld.md",
+      "redirect_url": "/azure/iot-develop/quickstart-devkit-mxchip-az3166-iot-hub",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message.md",
+      "redirect_url": "/azure/iot-develop/quickstart-devkit-mxchip-az3166-iot-hub",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring.md",
+      "redirect_url": "/azure/iot-develop/quickstart-devkit-mxchip-az3166-iot-hub",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-arduino-iot-devkit-az3166-devkit-state.md",
+      "redirect_url": "/azure/iot-develop/quickstart-devkit-mxchip-az3166-iot-hub",
       "redirect_document_id": false
     },
     {
