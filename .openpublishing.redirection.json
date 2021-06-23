@@ -25824,332 +25824,332 @@
     },
     {
       "source_path_from_root": "/articles/machine-learning/team-data-science-process/project-execution.md",
-      "redirect_url": "/azure/machine-learning/team-data-science-process/agile-development",
+      "redirect_url": "/azure/architecture/data-science-process/agile-development",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/machine-learning-apps-anomaly-detection-api.md",
-      "redirect_url": "/azure/machine-learning/team-data-science-process/apps-anomaly-detection-api",
+      "redirect_url": "/azure/architecture/data-science-process/apps-anomaly-detection-api",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/machine-learning-automated-data-pipeline-cheat-sheet.md",
-      "redirect_url": "/azure/machine-learning/team-data-science-process/automated-data-pipeline-cheat-sheet",
+      "redirect_url": "/azure/architecture/data-science-process/automated-data-pipeline-cheat-sheet",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/cortana-analytics-architecture-predictive-maintenance.md",
-      "redirect_url": "/azure/machine-learning/team-data-science-process/cortana-analytics-architecture-predictive-maintenance",
+      "redirect_url": "/azure/architecture/data-science-process/cortana-analytics-architecture-predictive-maintenance",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/cortana-analytics-playbook-predictive-maintenance.md",
-      "redirect_url": "/azure/machine-learning/team-data-science-process/cortana-analytics-playbook-predictive-maintenance",
+      "redirect_url": "/azure/architecture/data-science-process/cortana-analytics-playbook-predictive-maintenance",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/cortana-analytics-playbook-vehicle-telemetry.md",
-      "redirect_url": "/azure/machine-learning/team-data-science-process/cortana-analytics-playbook-vehicle-telemetry",
+      "redirect_url": "/azure/architecture/data-science-process/cortana-analytics-playbook-vehicle-telemetry",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/cortana-analytics-playbook-vehicle-telemetry-deep-dive.md",
-      "redirect_url": "/azure/machine-learning/team-data-science-process/cortana-analytics-playbook-vehicle-telemetry-deep-dive",
+      "redirect_url": "/azure/architecture/data-science-process/cortana-analytics-playbook-vehicle-telemetry-deep-dive",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/cortana-analytics-playbook-vehicle-telemetry-powerbi.md",
-      "redirect_url": "/azure/machine-learning/team-data-science-process/cortana-analytics-playbook-vehicle-telemetry-powerbi",
+      "redirect_url": "/azure/architecture/data-science-process/cortana-analytics-playbook-vehicle-telemetry-powerbi",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/cortana-analytics-technical-guide-predictive-maintenance.md",
-      "redirect_url": "/azure/machine-learning/team-data-science-process/cortana-analytics-technical-guide-predictive-maintenance",
+      "redirect_url": "/azure/architecture/data-science-process/cortana-analytics-technical-guide-predictive-maintenance",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/machine-learning-data-science-create-features.md",
-      "redirect_url": "/azure/machine-learning/team-data-science-process/create-features",
+      "redirect_url": "/azure/architecture/data-science-process/create-features",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/machine-learning-data-science-create-features-hive.md",
-      "redirect_url": "/azure/machine-learning/team-data-science-process/create-features-hive",
+      "redirect_url": "/azure/architecture/data-science-process/create-features-hive",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/machine-learning-data-science-create-features-sql-server.md",
-      "redirect_url": "/azure/machine-learning/team-data-science-process/create-features-sql-server",
+      "redirect_url": "/azure/architecture/data-science-process/create-features-sql-server",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/machine-learning-data-science-process-data-blob.md",
-      "redirect_url": "/azure/machine-learning/team-data-science-process/data-blob",
+      "redirect_url": "/azure/architecture/data-science-process/data-blob",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/machine-learning-data-science-process-data-lake-walkthrough.md",
-      "redirect_url": "/azure/machine-learning/team-data-science-process/data-lake-walkthrough",
+      "redirect_url": "/azure/architecture/data-science-process/data-lake-walkthrough",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/machine-learning-data-science-environment-setup.md",
-      "redirect_url": "/azure/machine-learning/team-data-science-process/environment-setup",
+      "redirect_url": "/azure/architecture/data-science-process/environment-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/machine-learning-data-science-explore-data.md",
-      "redirect_url": "/azure/machine-learning/team-data-science-process/explore-data",
+      "redirect_url": "/azure/architecture/data-science-process/explore-data",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/machine-learning-data-science-create-features-blob.md",
-      "redirect_url": "/azure/machine-learning/team-data-science-process/explore-data-blob",
+      "redirect_url": "/azure/architecture/data-science-process/explore-data-blob",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/machine-learning-data-science-explore-data-blob.md",
-      "redirect_url": "/azure/machine-learning/team-data-science-process/explore-data-blob",
+      "redirect_url": "/azure/architecture/data-science-process/explore-data-blob",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/team-data-science-process/create-features-blob.md",
-      "redirect_url": "/azure/machine-learning/team-data-science-process/explore-data-blob",
+      "redirect_url": "/azure/architecture/data-science-process/explore-data-blob",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/machine-learning-data-science-explore-data-hive-tables.md",
-      "redirect_url": "/azure/machine-learning/team-data-science-process/explore-data-hive-tables",
+      "redirect_url": "/azure/architecture/data-science-process/explore-data-hive-tables",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/machine-learning-data-science-explore-data-sql-server.md",
-      "redirect_url": "/azure/machine-learning/team-data-science-process/explore-data-sql-server",
+      "redirect_url": "/azure/architecture/data-science-process/explore-data-sql-server",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/machine-learning-data-science-process-hive-criteo-walkthrough.md",
-      "redirect_url": "/azure/machine-learning/team-data-science-process/hive-criteo-walkthrough",
+      "redirect_url": "/azure/architecture/data-science-process/hive-criteo-walkthrough",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/machine-learning-data-science-process-hive-walkthrough.md",
-      "redirect_url": "/azure/machine-learning/team-data-science-process/hive-walkthrough",
+      "redirect_url": "/azure/architecture/data-science-process/hive-walkthrough",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/machine-learning-data-science-ingest-data.md",
-      "redirect_url": "/azure/machine-learning/team-data-science-process/ingest-data",
+      "redirect_url": "/azure/architecture/data-science-process/ingest-data",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/data-science-process-lifecycle.md",
-      "redirect_url": "/azure/machine-learning/team-data-science-process/lifecycle",
+      "redirect_url": "/azure/architecture/data-science-process/lifecycle",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/machine-learning-data-science-move-azure-blob.md",
-      "redirect_url": "/azure/machine-learning/team-data-science-process/move-azure-blob",
+      "redirect_url": "/azure/architecture/data-science-process/move-azure-blob",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/machine-learning-data-science-move-data-to-azure-blob-using-azcopy.md",
-      "redirect_url": "/azure/machine-learning/team-data-science-process/move-data-to-azure-blob-using-azcopy",
+      "redirect_url": "/azure/architecture/data-science-process/move-data-to-azure-blob-using-azcopy",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/machine-learning-data-science-move-data-to-azure-blob-using-azure-storage-explorer.md",
-      "redirect_url": "/azure/machine-learning/team-data-science-process/move-data-to-azure-blob-using-azure-storage-explorer",
+      "redirect_url": "/azure/architecture/data-science-process/move-data-to-azure-blob-using-azure-storage-explorer",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/machine-learning-data-science-move-data-to-azure-blob-using-python.md",
-      "redirect_url": "/azure/machine-learning/team-data-science-process/move-data-to-azure-blob-using-python",
+      "redirect_url": "/azure/architecture/data-science-process/move-data-to-azure-blob-using-python",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/machine-learning-data-science-move-data-to-azure-blob-using-ssis.md",
-      "redirect_url": "/azure/machine-learning/team-data-science-process/move-data-to-azure-blob-using-ssis",
+      "redirect_url": "/azure/architecture/data-science-process/move-data-to-azure-blob-using-ssis",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/machine-learning-data-science-move-hive-tables.md",
-      "redirect_url": "/azure/machine-learning/team-data-science-process/move-hive-tables",
+      "redirect_url": "/azure/architecture/data-science-process/move-hive-tables",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/machine-learning-data-science-move-sql-azure.md",
-      "redirect_url": "/azure/machine-learning/team-data-science-process/move-sql-azure",
+      "redirect_url": "/azure/architecture/data-science-process/move-sql-azure",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/machine-learning-data-science-move-sql-azure-adf.md",
-      "redirect_url": "/azure/machine-learning/team-data-science-process/move-sql-azure-adf",
+      "redirect_url": "/azure/architecture/data-science-process/move-sql-azure-adf",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/machine-learning-data-science-move-sql-server-virtual-machine.md",
-      "redirect_url": "/azure/machine-learning/team-data-science-process/move-sql-server-virtual-machine",
+      "redirect_url": "/azure/architecture/data-science-process/move-sql-server-virtual-machine",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/data-science-process-overview.md",
-      "redirect_url": "/azure/machine-learning/team-data-science-process/overview",
+      "redirect_url": "/azure/architecture/data-science-process/overview",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/machine-learning-data-science-parallel-load-sql-partitioned-tables.md",
-      "redirect_url": "/azure/machine-learning/team-data-science-process/parallel-load-sql-partitioned-tables",
+      "redirect_url": "/azure/architecture/data-science-process/parallel-load-sql-partitioned-tables",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/machine-learning-data-science-plan-sample-scenarios.md",
-      "redirect_url": "/azure/machine-learning/team-data-science-process/plan-sample-scenarios",
+      "redirect_url": "/azure/architecture/data-science-process/plan-sample-scenarios",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/machine-learning-data-science-plan-your-environment.md",
-      "redirect_url": "/azure/machine-learning/team-data-science-process/plan-your-environment",
+      "redirect_url": "/azure/architecture/data-science-process/plan-your-environment",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/team-data-science-process/cortana-analytics-architecture-predictive-maintenance.md",
-      "redirect_url": "/azure/machine-learning/team-data-science-process/predictive-maintenance-architecture",
-      "redirect_document_id": true
+      "redirect_url": "/azure/architecture/data-science-process/predictive-maintenance-architecture",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/team-data-science-process/cortana-analytics-playbook-predictive-maintenance.md",
-      "redirect_url": "/azure/machine-learning/team-data-science-process/predictive-maintenance-playbook",
-      "redirect_document_id": true
+      "redirect_url": "/azure/architecture/data-science-process/predictive-maintenance-playbook",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/team-data-science-process/cortana-analytics-technical-guide-predictive-maintenance.md",
-      "redirect_url": "/azure/machine-learning/team-data-science-process/predictive-maintenance-technical-guide",
-      "redirect_document_id": true
+      "redirect_url": "/azure/architecture/data-science-process/predictive-maintenance-technical-guide",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/machine-learning-data-science-prepare-data.md",
-      "redirect_url": "/azure/machine-learning/team-data-science-process/prepare-data",
+      "redirect_url": "/azure/architecture/data-science-process/prepare-data",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/machine-learning-python-data-access.md",
-      "redirect_url": "/azure/machine-learning/team-data-science-process/python-data-access",
+      "redirect_url": "/azure/architecture/data-science-process/python-data-access",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/machine-learning-data-science-sample-data.md",
-      "redirect_url": "/azure/machine-learning/team-data-science-process/sample-data",
+      "redirect_url": "/azure/architecture/data-science-process/sample-data",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/machine-learning-data-science-sample-data-blob.md",
-      "redirect_url": "/azure/machine-learning/team-data-science-process/sample-data-blob",
+      "redirect_url": "/azure/architecture/data-science-process/sample-data-blob",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/machine-learning-data-science-sample-data-hive.md",
-      "redirect_url": "/azure/machine-learning/team-data-science-process/sample-data-hive",
+      "redirect_url": "/azure/architecture/data-science-process/sample-data-hive",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/machine-learning-data-science-sample-data-sql-server.md",
-      "redirect_url": "/azure/machine-learning/team-data-science-process/sample-data-sql-server",
+      "redirect_url": "/azure/architecture/data-science-process/sample-data-sql-server",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/machine-learning-data-science-process-scala-walkthrough.md",
-      "redirect_url": "/azure/machine-learning/team-data-science-process/scala-walkthrough",
+      "redirect_url": "/azure/architecture/data-science-process/scala-walkthrough",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/machine-learning-data-science-select-features.md",
-      "redirect_url": "/azure/machine-learning/team-data-science-process/select-features",
+      "redirect_url": "/azure/architecture/data-science-process/select-features",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/machine-learning-data-science-spark-advanced-data-exploration-modeling.md",
-      "redirect_url": "/azure/machine-learning/team-data-science-process/spark-advanced-data-exploration-modeling",
+      "redirect_url": "/azure/architecture/data-science-process/spark-advanced-data-exploration-modeling",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/machine-learning-data-science-spark-data-exploration-modeling.md",
-      "redirect_url": "/azure/machine-learning/team-data-science-process/spark-data-exploration-modeling",
+      "redirect_url": "/azure/architecture/data-science-process/spark-data-exploration-modeling",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/machine-learning-data-science-spark-model-consumption.md",
-      "redirect_url": "/azure/machine-learning/team-data-science-process/spark-model-consumption",
+      "redirect_url": "/azure/architecture/data-science-process/spark-model-consumption",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/machine-learning-data-science-spark-overview.md",
-      "redirect_url": "/azure/machine-learning/team-data-science-process/spark-overview",
+      "redirect_url": "/azure/architecture/data-science-process/spark-overview",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/machine-learning-data-science-process-sqldw-walkthrough.md",
-      "redirect_url": "/azure/machine-learning/team-data-science-process/sqldw-walkthrough",
+      "redirect_url": "/azure/architecture/data-science-process/sqldw-walkthrough",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/machine-learning-data-science-process-sql-server-virtual-machine.md",
-      "redirect_url": "/azure/machine-learning/team-data-science-process/sql-server-virtual-machine",
+      "redirect_url": "/azure/architecture/data-science-process/sql-server-virtual-machine",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/machine-learning-data-science-process-sql-walkthrough.md",
-      "redirect_url": "/azure/machine-learning/team-data-science-process/sql-walkthrough",
+      "redirect_url": "/azure/architecture/data-science-process/sql-walkthrough",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/data-science-process-walkthroughs.md",
-      "redirect_url": "/azure/machine-learning/team-data-science-process/walkthroughs",
+      "redirect_url": "/azure/architecture/data-science-process/walkthroughs",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/team-data-science-process/isic-image-classification.md",
-      "redirect_url": "/azure/machine-learning/team-data-science-process/walkthroughs",
+      "redirect_url": "/azure/architecture/data-science-process/walkthroughs",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/team-data-science-process/predict-twitter-sentiment.md",
-      "redirect_url": "/azure/machine-learning/team-data-science-process/walkthroughs",
+      "redirect_url": "/azure/architecture/data-science-process/walkthroughs",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/team-data-science-process/predict-twitter-sentiment-amltextpackage.md",
-      "redirect_url": "/azure/machine-learning/team-data-science-process/walkthroughs",
+      "redirect_url": "/azure/architecture/data-science-process/walkthroughs",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/team-data-science-process/walkthroughs-aml-with-tdsp.md",
-      "redirect_url": "/azure/machine-learning/team-data-science-process/walkthroughs",
+      "redirect_url": "/azure/architecture/data-science-process/walkthroughs",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/data-science-process-walkthroughs-azure-data-lake.md",
-      "redirect_url": "/azure/machine-learning/team-data-science-process/walkthroughs-azure-data-lake",
+      "redirect_url": "/azure/architecture/data-science-process/walkthroughs-azure-data-lake",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/data-science-process-walkthroughs-hdinsight-hadoop.md",
-      "redirect_url": "/azure/machine-learning/team-data-science-process/walkthroughs-hdinsight-hadoop",
+      "redirect_url": "/azure/architecture/data-science-process/walkthroughs-hdinsight-hadoop",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/data-science-process-walkthroughs-spark.md",
-      "redirect_url": "/azure/machine-learning/team-data-science-process/walkthroughs-spark",
+      "redirect_url": "/azure/architecture/data-science-process/walkthroughs-spark",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/data-science-process-walkthroughs-sql-data-warehouse.md",
-      "redirect_url": "/azure/machine-learning/team-data-science-process/walkthroughs-sql-data-warehouse",
+      "redirect_url": "/azure/architecture/data-science-process/walkthroughs-sql-data-warehouse",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/data-science-process-walkthroughs-sql-server.md",
-      "redirect_url": "/azure/machine-learning/team-data-science-process/walkthroughs-sql-server",
+      "redirect_url": "/azure/architecture/data-science-process/walkthroughs-sql-server",
       "redirect_document_id": false
     },
     {
