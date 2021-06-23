@@ -338,7 +338,7 @@ You can perform the following actions:
 For each compute instance in your workspace that you created (or that was created for you), you can:
 
 * Access Jupyter, JupyterLab, RStudio on the compute instance
-* SSH into compute instance. SSH access is disabled by default but can be enabled at compute instance creation time. SSH access is through public/private key mechanism. The tab will give you details for SSH connection such as IP address, username, and port number.
+* SSH into compute instance. SSH access is disabled by default but can be enabled at compute instance creation time. SSH access is through public/private key mechanism. The tab will give you details for SSH connection such as IP address, username, and port number. In case of virtual network deployment, disabling SSH prevents SSH access from public internet, you can still SSH from within virtual network.
 * Get details about a specific compute instance such as IP address, and region.
 
 ---
