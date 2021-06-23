@@ -4,14 +4,14 @@ description: Learn how to create a network connection between two or more Azure 
 ms.topic: how-to 
 ms.date: 06/28/2021
 
-#Customer intent: As a < type of user >, I want < what? > so that < why? >.
+#Customer intent: As an Azure service administrator, I want create a network connection between two or more Azure VMware Solution private clouds located in the same region.  
 
 ---
 
 
 # Create a network connection between multiple Azure VMware Solution private clouds
 
-The **AVS Interconnect** feature lets you create a network connection between two or more Azure VMware Solution private clouds located in the same region. It enables a routing link between the management and workload networks of the two private clouds.  
+The **AVS Interconnect** feature lets you create a network connection between two or more Azure VMware Solution private clouds located in the same region. It enables a routing link between the management and workload networks of the private clouds.  
 
 You can connect a private cloud to multiple private clouds, and the connections are non-transitive. For example, if _private cloud 1_ is connected to _private cloud 2_, and _private cloud 2_ is connected to _private cloud 3_, private clouds 1 and 3 would not communicate until they were directly connected.
 
@@ -29,10 +29,7 @@ You can connect a private cloud to multiple private clouds, and the connections 
 
 ## Add connection between two private clouds
 
-
 1. In your Azure VMware Solution private cloud, under **Manage**, select **Connectivity**.
-
-   :::image type="content" source="media/public-ip-usage/avs-private-cloud-manage-menu.png" alt-text="Screenshot of the Connectivity section." border="true" lightbox="media/public-ip-usage/avs-private-cloud-manage-menu.png":::
 
 2. Select the **AVS Interconnect** tab and then **Add**.
 
