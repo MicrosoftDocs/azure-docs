@@ -50,7 +50,8 @@ This release of Azure Database for MySQL - Flexible Server includes the followin
 
 - **Known issue**
 
-  If a client application trying to connect to an instance of Flexible Server is in a peered virtual network (VNet), the application may not be able to connect using the Flexible Server *servername* because it cannot resolve the DNS name for the Flexible Server instance from a peered VNet. [Learn more](concepts-networking.md#connecting-from-peered-vnets-in-same-azure-region).
+  - If a client application trying to connect to an instance of Flexible Server is in a peered virtual network (VNet), the application may not be able to connect using the Flexible Server *servername* because it cannot resolve the DNS name for the Flexible Server instance from a peered VNet. [Learn more](concepts-networking.md#connecting-from-peered-vnets-in-same-azure-region).
+  - We have raised the minimum allowed provisioned storage in Azure database for MySQL Flexible server to 20GB in all compute tiers, this change will give our users access to more IOPs for improved performance for IO intensive workloads without additional costs, with this change if you have less than 20GB of storage you will not be able to change your server SKU, as a workaround you have to scale up the storage first to 20GB and then you can change the server SKU. [Learn more](https://docs.microsoft.com/en-us/azure/mysql/flexible-server/concepts-compute-storage).
 
 ## May 2021
 
