@@ -29,7 +29,7 @@ Keep in mind that once the TDE protector is deleted in Key Vault, in up to 10 mi
 This how-to guide goes over the approach to render databases **inaccessible** after a compromised incident response.
 
 > [!NOTE]
-> This article applies to Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse Analytics (dedicated SQL pools (formerly SQL DW)). For documentation on Transparent Data Encryption for dedicated SQL pools inside Synapse workspaces, see [Azure Synapse Analytics encryption](../security/workspaces-encryption.md).
+> This article applies to Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse Analytics (dedicated SQL pools (formerly SQL DW)). For documentation on Transparent Data Encryption for dedicated SQL pools inside Synapse workspaces, see [Azure Synapse Analytics encryption](../../synapse-analytics/security/workspaces-encryption.md).
 
 ## Prerequisites
 
