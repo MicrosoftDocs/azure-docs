@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 06/11/2021
+ms.date: 06/23/2021
 ms.author: markvi
 ms.reviewer: besiler
 
@@ -438,6 +438,7 @@ The following example scopes the query by the number records, by a specific time
 ```msgraph-interactive
 GET https://graph.microsoft.com/beta/auditLogs/signIns?$top=100&$filter=createdDateTime ge 2020-09-10T06:00:00Z and createdDateTime le 2020-09-17T06:00:00Z and signInEventTypes/any(t: t eq 'nonInteractiveUser')
 ```
+
 The query parameters in the example provide the following results:
 
 - The [$top](/graph/query-parameters#top-parameter) parameter returns the top 100 results.
