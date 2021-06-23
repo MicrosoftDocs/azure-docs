@@ -1,6 +1,6 @@
 ---
-title: Hotpatch for Windows Server Azure Edition (preview)
-description: Learn how Hotpatch for Windows Server Azure Edition works and how to enable it
+title: What's new in Automanage for Windows Server (preview)
+description: Learn about new Windows Server Azure Edition capabilities in Automanage for Windows Server
 author: nwashburn-ms
 ms.service: virtual-machines
 ms.subservice: automanage
