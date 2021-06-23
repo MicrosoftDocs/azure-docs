@@ -16,7 +16,7 @@ If you're unfamiliar with Azure Virtual Desktop (or are new to app virtualizatio
 
 ## Requirements
 
-Before you get started, we recommend you take a look through the [main Azure Virtual Desktop documentation](./virtual-desktop/overview.md) to understand how this product works. Once you understand the basics, you can use the Remote App Streaming documentation more effectively.
+Before you get started, we recommend you take a look at the [overview for Azure Virtual Desktop](./virtual-desktop/overview.md) for a more in-depth list of system requirements for running Azure Virtual Desktop. Once you understand the basics, you can use the Remote App Streaming documentation more effectively.
 
 In order to set up an Azure Virtual Desktop deployment for your custom apps that's available to customers outside your organization, you'll need the following things:
 
