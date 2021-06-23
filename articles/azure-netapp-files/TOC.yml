@@ -157,6 +157,12 @@
       href: backup-manage-policies.md 
     - name: Search backups
       href: backup-search.md 
+    - name: Restore a backup
+      href: backup-restore-new-volume.md 
+    - name: Disable a backup 
+      href: backup-disable.md
+    - name: Delete backups 
+      href: backup-delete.md 
   - name: Manage billing by using tags
     href: manage-billing-tags.md
   - name: Develop
