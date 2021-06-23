@@ -20,9 +20,9 @@ ms.reviewer: yuhko, saumadan, marsma
 
 # Enhance security with the principle of least privilege
 
-The information security principle of *least privilege* specifies that users and applications should be granted access to only the data and operations they need to perform their jobs. You can reduce the risk of unauthorized access and limit the impact of a security breach (the "blast radius") by following the guidance and using the Microsoft identity platform features described here.
+The information security principle of least privilege asserts that users and applications should be granted access only to the data and operations they require to perform their jobs.
 
-Consider applying these least privilege measures as part of your organization's proactive [Zero Trust security strategy](/security/zero-trust/).
+Follow this guidance to help reduce your application's attack surface and the impact of a security breach (the *blast radius*) should one occur in your Microsoft identity platform-integrated application.
 
 ## Recommendations at a glance
 
@@ -33,21 +33,36 @@ Consider applying these least privilege measures as part of your organization's 
 
 ## What's an *overprivileged* application?
 
-An application is considered overprivileged if it's been granted **unused** or **reducible** permissions that enable access to data or operations that aren't required for it to function as designed.
+Any application that's been granted an **unused** or **reducible** permission is considered "overprivileged." Unused and reducible permissions have the potential to provide unauthorized or unintended access to data or operations not required by the app or its users to perform their jobs.
 
-- **Unused permissions**: An unused permission is a permission granted to an application whose API exposing that permission is never called by the application.
-  - Example: An application displays a list of files stored in the signed-in user's OneDrive by calling the [Microsoft Graph API](/graph/overview) and leveraging the [Files.Read](/graph/permissions-reference) permission. However, the app has also been granted the [Calendars.Read](/graph/permissions-reference#calendars-permissions) permission, yet it provides no calendar features and doesn't call the Calendars API.
-  - Risk: Unused permissions can provide unintended access to API functionality that could be abused by a bad actor who's exploited a security vulnerability in your application.
-  - Action: Revoke all permissions not used by any of the API calls made by your application.
+:::row:::
+   :::column span="":::
+      ### Unused permissions
 
-- **Reducible permissions**: A reducible permission is a higher-privileged permission granted to an application when that permission has a lower-privileged alternative that would still allow the application feature to function as designed.
-  - Example: An application that display user profile ii calls the Microsoft Graph API to retrieve information from the signed-in user's profile but does not provide profile editing capability has been granted the [User.ReadWrite.All] permission. The *User.ReadWrite.All* permission is considered reducible in this case because *User.Read.All* is sufficient for retrieving the user's profile information from Microsoft Graph.
-  - Risk: Reducible permissions pose an escalation of privilege security risk. A bad actor that exploits a security vulnerability in your application could perform more powerful operations and access more data than their role normally allows.
-  - Action: Replace all reducible permissions with the lowest-privilege counterpart that's required for application functionality.
+        An unused permission is a permission that's been granted to an application but whose API or operation exposed by that permission isn't called by the app when used as intended.
 
-Avoid the security risks posed by unused and reducible permissions by granting **just enough permissions**: the minimum permissions required by an application or user to perform their required tasks.
+        - **Example**: An application displays a list of files stored in the signed-in user's OneDrive by calling the Microsoft Graph API and leveraging the [Files.Read](/graph/permissions-reference) permission. However, the app has also been granted the [Calendars.Read](/graph/permissions-reference#calendars-permissions) permission, yet it provides no calendar features and doesn't call the Calendars API.
 
-## Use consent to control access permissions to data
+        - **Security risk**: Unused permissions pose risk of *horizontal privilege escalation*. An entity that exploits a security vulnerability in your application could use an unused permission to gain access to an API or operation not normally supported or allowed by the application when it's used as intended.
+
+        - **Mitigation**: Revoke any permission not used by any API call your application makes.
+   :::column-end:::
+   :::column span="":::
+      ### Reducible permissions
+
+        A reducible permission is a permission that has a lower-privileged counterpart that would still provide the application and its users the access they need to perform their required tasks.
+
+        - **Example**: An application displays the signed-in user's profile information by calling the Microsoft Graph API, but doesn't support profile editing. However, the app has been granted the [User.ReadWrite.All](/graph/permissions-reference#user-permissions) permission. The *User.ReadWrite.All* permission is considered reducible here because the less permissive *User.Read.All* permission grants sufficient read-only access to user profile data.
+
+        - **Security risk**: Reducible permissions pose a *vertical privilege escalation* security risk. An entity that exploits a security vulnerability in your application could use the reducible permission for unauthorized access to data or to perform operations not normally allowed by that entity's role.
+
+        - **Mitigation**: Replace each reducible permission in your application with its least-permissive counterpart still enabling the application's intended functionality.
+   :::column-end:::
+:::row-end:::
+
+Avoid security risks posed by unused and reducible permissions by granting *just enough* permission: the permission with the least-permissive access required by an application or user to perform their required tasks.
+
+## Use consent to control access to data
 
 Access to protected data requires [consent](application-consent-experience.md#consent-and-permissions) from the end user. Whenever an application that runs in your user's device requests access to protected data, the app should ask for the user's consent before granting access to the protected data. The end user is required to grant (or deny) consent for the requested permission before the application can progress. As an application developer, it's best to request access permission with the least privilege.
 
@@ -84,4 +99,4 @@ For more information about configuring access to protected resources and the use
 
 **Zero Trust**
 
-Least privilege is one of the guiding principles of the Zero Trust security model.   [Zero Trust Resource Center](/security/zero-trust/).
+Consider employing the least-privilege measures described here as part of your organization's proactive [Zero Trust security strategy](/security/zero-trust/):
