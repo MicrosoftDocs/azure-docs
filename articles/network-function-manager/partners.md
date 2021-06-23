@@ -23,9 +23,9 @@ For Preview, the following SKUs are currently available.
 | Celona Edge |Mobile packet core |[Azure Marketplace](https://portal.azure.com/#create/celonainc1597686731561.celona-edgecelona-platform)|
 | Metaswitch Fusion Core | Mobile packet core | [Configuration guide](https://go.microsoft.com/fwlink/?linkid=2165525)|
 | NetFoundry ZTNA | Other| [Azure Marketplace](https://ms.portal.azure.com/#create/netfoundryinc.application-ziti-private-edgeapp-edge-router)|
-| Nuage Networks SD-WAN From Nokia | SD-WAN| [Azure Marketplace](https://ms.portal.azure.com/#create/nbconsult1588859334197.nbconsult-nokia-nuage)|
-| Versa SD-WAN| SD-WAN |[Azure Marketplace](https://ms.portal.azure.com)|
-| VMware SD-WAN by Velocloud | SD-WAN | [Azure Marketplace](https://ms.portal.azure.com/#create/velocloud.velocloud-virtual-edge-3x)|
+| Nuage Networks SD-WAN From Nokia | SD-WAN| [Azure Marketplace](https://aka.ms/NokiaNuage)|
+| Versa SD-WAN| SD-WAN |[Azure Marketplace](https://aka.ms/versa)|
+| VMware SD-WAN by Velocloud | SD-WAN | [Azure Marketplace](https://ms.portal.azure.com/#create/vmware-inc.vmware_sdwan_edge_zonesvelo_ase)|
 
 ## Next steps
 
