@@ -31,7 +31,7 @@ For a low code experience, see how to use the [Azure Machine Learning studio to 
 
 ## Prerequisites
 
-- An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
+- An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 
 - An Azure storage account with a [supported storage type](#matrix).
 
@@ -229,7 +229,7 @@ In addition to creating datastores with the Python SDK and the studio, you can a
 <a name="arm"></a>
 ### Azure Resource Manager
 
-There are a number of templates at [https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-datastore-create-*](https://github.com/Azure/azure-quickstart-templates/tree/master/) that can be used to create datastores.
+There are a number of templates at [https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices) that can be used to create datastores.
 
 For information on using these templates, see [Use an Azure Resource Manager template to create a workspace for Azure Machine Learning](how-to-create-workspace-template.md).
 

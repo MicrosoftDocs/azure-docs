@@ -8,7 +8,7 @@ ms.date: 06/23/2020
 ---
 
 # Quickstart: How to use Service Bus queues with PHP
-[!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
+[!INCLUDE [service-bus-selector-queues](./includes/service-bus-selector-queues.md)]
 
 In this tutorial, you learn how to create PHP applications to send messages to and receive messages from a Service Bus queue. 
 

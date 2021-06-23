@@ -30,6 +30,12 @@ In this quickstart, you learn a basic Azure IoT application development workflow
 
 :::zone-end
 
+:::zone pivot="programming-language-java"
+
+[!INCLUDE [iot-develop-send-telemetry-central-java](../../includes/iot-develop-send-telemetry-central-java.md)]
+
+:::zone-end
+
 :::zone pivot="programming-language-nodejs"
 
 [!INCLUDE [iot-develop-send-telemetry-central-nodejs](../../includes/iot-develop-send-telemetry-central-nodejs.md)]
@@ -69,6 +75,6 @@ In this quickstart, you learned a basic Azure IoT application workflow for secur
 As a next step, explore the following articles to learn more about building device solutions with Azure IoT. 
 
 > [!div class="nextstepaction"]
-> [Send telemetry to Azure IoT hub](quickstart-send-telemetry-cli-python.md)
+> [Send telemetry to Azure IoT hub](./quickstart-send-telemetry-iot-hub.md)
 > [!div class="nextstepaction"]
 > [Create an IoT Central application](../iot-central/core/quick-deploy-iot-central.md)

@@ -20,7 +20,7 @@ Azure Static Web Apps provides [managed authentication](authentication-authoriza
 - Specifically for Azure Active Directory (AAD) registrations, you have the option of providing a tenant, which allows you to bypass the [invitation flow](./authentication-authorization.md#role-management) for group management.
 
 > [!NOTE]
-> Custom authentication is only available in the Standard tier of Azure Static Web Apps.
+> Custom authentication is only available in the Azure Static Web Apps Standard plan.
 
 ## Override pre-configured provider
 
@@ -214,20 +214,20 @@ Once you have the registration credentials, use the following steps to create a 
    {
      "auth": {
        "identityProviders": {
-         "openIdConnectProviders": {
+         "customOpenIdConnectProviders": {
            "myProvider": {
              "registration": {
-               "clientIdSettingName": "<MY_PROVIDER_CLIENT_ID>",
+               "clientIdSettingName": "<MY_PROVIDER_CLIENT_ID_SETTING_NAME>",
                "clientCredential": {
-                 "secretSettingName": "<MY_PROVIDER_CLIENT_SECRET>"
+                 "clientSecretSettingName": "<MY_PROVIDER_CLIENT_SECRET_SETTING_NAME>"
                },
                "openIdConnectConfiguration": {
-                 "wellKnownOpenIdConfiguration": "https://<MY_ID_SERVER>/.well-known/openid-configuration"
+                 "wellKnownOpenIdConfiguration": "https://<PROVIDER_ISSUER_URL>/.well-known/openid-configuration"
                }
              },
              "login": {
                "nameClaimType": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name",
-               "scope": [],
+               "scopes": [],
                "loginParameterNames": []
              }
            }
@@ -237,9 +237,15 @@ Once you have the registration credentials, use the following steps to create a 
    }
    ```
 
+  Change the following replacement tokens in the code with your values.
+
+  | Replace this... | with... |
+  | --- | --- |
+  | `<MY_PROVIDER_CLIENT_ID_SETTING_NAME>` | The application setting name associated with the client ID generated from your custom registration. |
+  | `<MY_PROVIDER_CLIENT_SECRET_SETTING_NAME>` | The application setting name associated with the client secret generated from your custom registration. |
+  | `<PROVIDER_ISSUER_URL>` | The path to the _Issuer URL_ of the provider. |
+
 - The provider name, `myProvider` in this example, is the unique identifier used by Azure Static Web Apps.
-- The `registration` object that contains the client ID and client secret.
-- The `wellKnownOpenIdConfiguration` uses the path to the _Issuer URL_ of the provider.
 - The `login` object allows you to provide values for: custom scopes, login parameters, or custom claims.
 
 ### Login, logout, and purging user details

@@ -41,13 +41,14 @@ With outbound rules, you have full declarative control over outbound internet co
 
 For more information about outbound rules, see [Outbound rules](outbound-rules.md).
 
-
+>[!Important]
+> When a backend pool is configured by IP address, it will behave as a Basic Load Balancer with default outbound enabled. For secure by default configuration and applications with demanding outbound needs, configure the backend pool by NIC.
 
 ## Associating a VNet NAT to the subnet
 
 Virtual Network NAT  simplifies outbound-only Internet connectivity for virtual networks. When configured on a subnet, all outbound connectivity uses your specified static public IP addresses. Outbound connectivity is possible without load balancer or public IP addresses directly attached to virtual machines. NAT is fully managed and highly resilient.
 
-Using a VNet NAT is the best method for outbound connectivity as it is highly scalable, reliable and doesn't have the concerts with respect to SNAT port exhaustion.
+Using a VNet NAT is the best method for outbound connectivity as it is highly scalable, reliable and doesn't have the same concerns with respect to SNAT port exhaustion.
 
 For more information about Azure Virtual Network NAT, see [What is Azure Virtual Network NAT](../virtual-network/nat-overview.md).
 
@@ -159,6 +160,7 @@ The following <a name="snatporttable"></a>table shows the SNAT port preallocatio
   *	A UDP SNAT port is needed whether the destination port is unique or not. For every UDP connection to a destination IP, one UDP SNAT port is used.
   *	A TCP SNAT port can be used for multiple connections to the same destination IP provided the destination ports are different.
 *	SNAT exhaustion occurs when a backend instance runs out of given SNAT Ports. A load balancer can still have unused SNAT ports. If a backend instance’s used SNAT ports exceed its given SNAT ports, it will be unable to establish new outbound connections.
+*	Fragmented packets will be dropped unless outbound is through an instance level public IP on the VM's NIC.
 
 ## Next steps
 

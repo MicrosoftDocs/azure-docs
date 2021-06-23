@@ -152,7 +152,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     e. In the **SAML Certificate** textbox, open the downloaded **Certificate (Base64)** into Notepad, copy the content and paste it into SAML Certificate textbox.
 
-    f. In the **Name ID Format** textbox, use `Unspecified` for the **Name ID Format**.
+    f. In the **Name ID Format** textbox, use `urn:oasis:names:tc:SAML:1.1:nameid-format:Unspecified` for the **Name ID Format**.
 
     g. Select **SHA-256** from the dropdown for the **HASH Algorithm**.
 

@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 05/13/2021
+ms.date: 05/27/2021
 ms.author: alkohli
 ---
 
@@ -19,7 +19,7 @@ The following release notes identify the critical open issues and the resolved i
 
 The release notes are continuously updated, and as critical issues requiring a workaround are discovered, they are added. Before you deploy your device, carefully review the information contained in the release notes.
 
-This article applies to the **Azure Stack Edge 2105** release, which maps to software version number **2.2.1592.3244**. This software can be applied to your device if you are running at least Azure Stack Edge 2010 (2.1.1377.2170) software.
+This article applies to the **Azure Stack Edge 2105** release, which maps to software version number **2.2.1606.3320**. This software can be applied to your device if you are running at least Azure Stack Edge 2010 (2.1.1377.2170) software.
 
 ## What's new
 
@@ -31,6 +31,16 @@ The following new features are available in the Azure Stack Edge 2105 release.
     - IP forwarding also lets VMs send network traffic with a different source IP address than the one assigned to the IP configurations for the VM's network interface.
         
     For more information, see [Enable or disable IP forwarding](../virtual-network/virtual-network-network-interface.md#enable-or-disable-ip-forwarding). 
+- **Kubernetes improvements** - In this release, several enhancements related to Kubernetes have been made.
+    - The following Kubernetes version updates are available: 
+
+        - Kubernetes server version: v1.20.2
+        - IoT Edge version: 0.1.0-beta14
+        - Azure Arc enabled Kubernetes version: 1.1
+    - Azure Arc enabled Kubernetes now has support for various clouds, logging is improved and the cmdlet experience via the PowerShell interface has changed. 
+    - Diagnostics and telemetry fixes have been made.
+    - Proactive log collection is enhanced for compute logs. 
+
 - **Support for Az cmdlets** - Starting this release, the Az cmdlets are available (in preview) when connecting to the local Azure Resource Manager of the device or when deploying VM workloads. For more information, see [Az cmdlets](/powershell/azure/new-azureps-module-az?view=azps-5.9.0&preserve-view=true).
 - **Enable remote PowerShell session over HTTP** - Starting this release, you can enable a remote PowerShell session into a device over *http* via the local UI. For more information, see how to [Enable Remote PowerShell over http](azure-stack-edge-gpu-manage-access-power-connectivity-mode.md#enable-device-access-via-remote-powershell-over-http) for your device.
 

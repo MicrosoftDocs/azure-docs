@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 05/13/2021
+ms.date: 05/14/2021
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to configure compute on an Azure Stack Edge Pro GPU device so that I can use it to transform data before I send it to Azure.
 ---
@@ -130,7 +130,7 @@ Follow these steps to create a VM after you've created a VM image.
     |Size     | Choose from the [Supported VM sizes](azure-stack-edge-gpu-virtual-machine-sizes.md).        |
     |Username     | Use the default username **azureuser** for the admin to sign in to the VM.        |
     |Authentication type    | Choose from an SSH public key or a user-defined password.       |
-    |Password     | Enter a password to sign in to the VM. The password must be at least 12 characters long and meet the defined [complexity requirements](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).        |
+    |Password     | Enter a password to sign in to the VM. The password must be at least 12 characters long and meet the defined [complexity requirements](../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-).        |
     |Confirm password    | Enter the password again.        |
 
 

@@ -15,21 +15,27 @@ ms.custom: devx-track-azurepowershell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-In this topic, you will learn how to create an Azure Resource Manager template that deploys an Azure Web App with Azure Cache for Redis. You will learn how to define which resources are deployed and how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements.
+In this article, you learn how to create an Azure Resource Manager template that deploys an Azure Web App with Azure Cache for Redis. 
+You learn the following deployment details:
 
-For more information about creating templates, see [Authoring Azure Resource Manager Templates](../azure-resource-manager/templates/template-syntax.md). To learn about the JSON syntax and properties for cache resource types, see [Microsoft.Cache resource types](/azure/templates/microsoft.cache/allversions).
+- how to define which resources are deployed 
+- how to define parameters that are specified when the deployment is executed
 
-For the complete template, see [Web App with Azure Cache for Redis template](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-with-redis-cache/azuredeploy.json).
+You can use this template for your own deployments, or customize it to meet your requirements.
+
+For more information about creating templates, see [Authoring Azure Resource Manager Templates](../azure-resource-manager/templates/syntax.md). To learn about the JSON syntax and properties for cache resource types, see [Microsoft.Cache resource types](/azure/templates/microsoft.cache/allversions).
+
+For the complete template, see [Web App with Azure Cache for Redis template](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.web/web-app-with-redis-cache/azuredeploy.json).
 
 ## What you will deploy
-In this template, you will deploy:
+In this template, you deploy:
 
 * Azure Web App
 * Azure Cache for Redis
 
-To run the deployment automatically, click the following button:
+To run the deployment automatically, select the following button:
 
-[![Deploy to Azure](./media/cache-web-app-arm-with-redis-cache-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-with-redis-cache%2Fazuredeploy.json)
+[![Deploy to Azure](./media/cache-web-app-arm-with-redis-cache-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.web%2Fweb-app-with-redis-cache%2Fazuredeploy.json)
 
 ## Parameters to specify
 [!INCLUDE [app-service-web-deploy-web-parameters](../../includes/app-service-web-deploy-web-parameters.md)]
@@ -161,11 +167,11 @@ For RedisEnterprise, because the resource types are slightly different, the way 
 ### PowerShell
 
 ```azurepowershell
-New-AzResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-with-redis-cache/azuredeploy.json -ResourceGroupName ExampleDeployGroup
+New-AzResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.web/web-app-with-redis-cache/azuredeploy.json -ResourceGroupName ExampleDeployGroup
 ```
 
 ### Azure CLI
 
 ```azurecli
-azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-with-redis-cache/azuredeploy.json -g ExampleDeployGroup
+azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.web/web-app-with-redis-cache/azuredeploy.json -g ExampleDeployGroup
 ```

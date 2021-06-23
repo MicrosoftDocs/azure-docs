@@ -160,5 +160,5 @@ The IoT Hub Device Provisioning Service (DPS) is a helper service for IoT Hub th
 
 * [Quickstart: Send telemetry to IoT Central](quickstart-send-telemetry-central.md)
 * [Quickstart: Send telemetry to IoT Hub](quickstart-send-telemetry-iot-hub.md)
-* [Get started with embedded development](quickstart-device-development.md)
+* [Quickstart: Connect an MXCHIP AZ3166 devkit to IoT Central](quickstart-devkit-mxchip-az3166.md)
 * Learn more about the [benefits of developing using Azure IoT SDKs](https://azure.microsoft.com/blog/benefits-of-using-the-azure-iot-sdks-in-your-azure-iot-solution/)

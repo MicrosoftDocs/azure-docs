@@ -63,7 +63,7 @@ When you import and export the app, choose either `.json` or `.lu`.
 | element                  | Comment                              |
 |--------------------------|--------------------------------------|
 | "hierarchicals": [],     | Deprecated, use [machine-learning entities](luis-concept-entity-types.md).   |
-| "composites": [],        | Deprecated, use [machine-learning entities](luis-concept-entity-types.md). [Composite entity](reference-entity-composite.md) reference. |
+| "composites": [],        | Deprecated, use [machine-learning entities](luis-concept-entity-types.md). [Composite entity](./reference-entity-machine-learned-entity.md) reference. |
 | "closedLists": [],       | [List entities](reference-entity-list.md) reference, primarily used as features to entities.    |
 | "versionId": "0.1",      | Version of a LUIS app.|
 | "name": "example-app",   | Name of the LUIS app. |

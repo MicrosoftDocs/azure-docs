@@ -1,6 +1,6 @@
 ---
 title: Estimate storage costs for single-tenant Azure Logic Apps
-description: Estimate storage costs for your workflows using the Azure Logic Apps Storage Calculator and Cost Analysis API. 
+description: Estimate storage costs for your workflows using the Logic Apps Storage Calculator.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
@@ -10,43 +10,51 @@ ms.date: 05/13/2021
 
 # Estimate storage costs for workflows in single-tenant Azure Logic Apps
 
-Azure Logic Apps uses [Azure Storage](/azure/storage/) for any storage operations. In traditional *multi-tenant* Azure Logic Apps, any storage usage and costs are attached to the logic app. Now, in *single-tenant* Azure Logic Apps (preview), you can use your own storage account. These storage costs are listed separately in your Azure billing invoice. This capability gives you more flexibility and control over your logic app data.
+Azure Logic Apps uses [Azure Storage](../storage/index.yml) for any storage operations. In traditional *multi-tenant* Azure Logic Apps, any storage usage and costs are attached to the logic app. Now, in *single-tenant* Azure Logic Apps, you can use your own storage account. These storage costs are listed separately in your Azure billing invoice. This capability gives you more flexibility and control over your logic app data.
 
 > [!NOTE]
-> This article applies to workflows in the single-tenant Azure Logic Apps environment. These workflows exist in the same logic app and in a single tenant that share the same storage. For more information, see [Single-tenant (preview) versus multi-tenant and integration service environment](single-tenant-overview-compare.md).
+> This article applies to workflows in the single-tenant Azure Logic Apps environment. These workflows exist in the same logic app and in a single tenant that share the same storage. For more information, see [Single-tenant versus multi-tenant and integration service environment](single-tenant-overview-compare.md).
 
-Storage costs change based on your workflows' content. Different triggers, actions, and payloads result in different storage operations and needs. This article describes how to estimate your storage costs when you're using your own Azure Storage account with **single-tenant** logic apps. First, you can [estimate the number of storage operations you'll perform](#estimate-storage-needs) using the Logic Apps storage calculator. Then, you can [estimate your possible storage costs](#estimate-storage-costs) using these numbers in the Azure pricing calculator.
+Storage costs change based on your workflows' content. Different triggers, actions, and payloads result in different storage operations and needs. This article describes how to estimate your storage costs when you're using your own Azure Storage account with single-tenant based logic apps. First, you can [estimate the number of storage operations you'll perform](#estimate-storage-needs) using the Logic Apps storage calculator. Then, you can [estimate your possible storage costs](#estimate-storage-costs) using these numbers in the Azure pricing calculator.
 
 ## Prerequisites
 
 * An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
-* A single-tenant Logic Apps workflow. You can create a workflow [using the Azure portal](create-stateful-stateless-workflows-azure-portal.md) or [using Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md). If you don't have a workflow yet, you can use the sample small, medium, and large workflows in the storage calculator.
+
+* A single-tenant based logic Apps workflow. You can create a workflow [using the Azure portal](create-single-tenant-workflows-azure-portal.md) or [using Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md). If you don't have a workflow yet, you can use the sample small, medium, and large workflows in the storage calculator.
+
 * An Azure storage account that you want to use with your workflow. If you don't have a storage account, [create a storage account](../storage/common/storage-account-create.md)
 
-## Estimate storage needs
+## Get your workflow's JSON code
 
-Before you can estimate your storage needs, get your workflow's JSON code. 
+If you have a workflow to estimate, get the JSON code for your workflow:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Go to the **Logic apps** service, and select your workflow.
 1. In your logic app's menu, under **Development tools**, select **Logic app code view**.
 1. Copy the workflow's JSON code.
 
-Next, use the Logic Apps storage calculator:
+## Estimate storage needs
 
 1. Go to the [Logic Apps storage calculator](https://logicapps.azure.com/calculator).
-    :::image type="content" source="./media/estimate-storage-costs/storage-calculator.png" alt-text="Screenshot of Logic Apps storage calculator, showing input interface." lightbox="./media/estimate-storage-costs/storage-calculator.png":::
-1. Enter, upload, or select a single-tenant logic app workflow's JSON code.
-    * If you copied code in the previous section, paste it into the **Paste or upload workflow.json** box. 
-    * If you have your **workflow.json** file saved locally, choose **Browse Files** under **Select workflow**. Choose your file, then select **Open**.
-    * If you don't have a workflow yet, choose one of the sample workflows under **Select workflow**.
+
+   :::image type="content" source="./media/estimate-storage-costs/storage-calculator.png" alt-text="Screenshot of Logic Apps storage calculator, showing input interface." lightbox="./media/estimate-storage-costs/storage-calculator.png":::
+
+1. Enter, upload, or select the JSON code for a single-tenant based logic app workflow.
+
+   * If you copied code in the previous section, paste it into the **Paste or upload workflow.json** box. 
+   * If you have your **workflow.json** file saved locally, choose **Browse Files** under **Select workflow**. Choose your file, then select **Open**.
+   * If you don't have a workflow yet, choose one of the sample workflows under **Select workflow**.
+
 1. Review the options under **Advanced Options**. These settings depend on your workflow type and may include:
-    * An option to enter the number of times your loops run.
-    * An option to select all actions with payloads over 32 KB.
+
+   * An option to enter the number of times your loops run.
+   * An option to select all actions with payloads over 32 KB.
+
 1. For **Monthly runs**, enter the number of times that you run your workflow each month.
 1. Select **Calculate** and wait for the calculation to run.
 1. Under **Storage Operation Breakdown and Calculation Steps**, review the **Operation Counts** estimates.
-    
+
     You can see estimated operation counts by run and by month in the two tables. The following operations are shown:
 
     * **Blob (read)**, for Azure Blob Storage read operations.
@@ -54,13 +62,13 @@ Next, use the Logic Apps storage calculator:
     * **Queue**, for Azure Queues Queue Class 2 operations.
     * **Tables**, for Azure Table Storage operations.
 
-    Each operation has a minimum, maximum and "best guess" count number. Choose the most relevant number to use for [estimating your storage operation costs](#estimate-storage-costs) based on your individual scenario. Typically, it's recommended to use the "best guess" count for accuracy. However, you might also use the maximum count to make sure your cost estimate has a buffer. 
+    Each operation has a minimum, maximum and "best guess" count number. Choose the most relevant number to use for [estimating your storage operation costs](#estimate-storage-costs) based on your individual scenario. Typically, it's recommended to use the "best guess" count for accuracy. However, you might also use the maximum count to make sure your cost estimate has a buffer.
 
     :::image type="content" source="./media/estimate-storage-costs/storage-calculator-results.png" alt-text="Screenshot of Logic Apps storage calculator, showing output with estimated operations." lightbox="./media/estimate-storage-costs/storage-calculator-results.png":::
 
 ## Estimate storage costs
 
-After you've [calculated your Logic Apps storage needs](#estimate-storage-needs), you can estimate your possible monthly storage costs. You can estimate prices for the following storage operation types:
+After you've [calculated your logic app workflow's storage needs](#estimate-storage-needs), you can estimate your possible monthly storage costs. You can estimate prices for the following storage operation types:
 
 * [Blob storage read and write operations](#estimate-blob-storage-operations-costs)
 * [Queue storage operations](#estimate-queue-operations-costs)

@@ -45,7 +45,7 @@ The table shows the Azure Maps service APIs, which have a similar functionality 
 | Speed Limits            | See [Reverse geocode a coordinate](#reverse-geocode-a-coordinate) section.         |         
 | Static Map              | [Render](/rest/api/maps/render/getmapimage)                       |                         
 | Time Zone               | [Time Zone](/rest/api/maps/timezone)                              |                         
-| Elevation               | [Elevation (Preview)](/rest/api/maps/elevation)                   | 
+| Elevation               | [Elevation](/rest/api/maps/elevation)                   | 
 
 The following service APIs aren't currently available in Azure Maps:
 
@@ -198,7 +198,7 @@ The Azure Maps routing service provides the following APIs for calculating route
 
 - [**Calculate route**](/rest/api/maps/route/getroutedirections): Calculate a route and have the request processed immediately. This API supports both GET and POST requests. POST requests are recommended when specifying a large number of waypoints or when using lots of the route options to ensure that the URL request doesn't become too long and cause issues. The POST Route Direction in Azure Maps has an option can that take in thousands of [supporting points](/rest/api/maps/route/postroutedirections#supportingpoints) and will use them to recreate a logical route path between them (snap to road). 
 - [**Batch route**](/rest/api/maps/route/postroutedirectionsbatchpreview): Create a request containing up to 1,000 route request and have them processed over a period of time. All the data will be processed in parallel on the server and when completed the full result set can be downloaded.
-- [**Mobility services (Preview) **](/rest/api/maps/mobility): Calculate routes and directions using public transit.
+- [**Mobility services (Preview)**](/rest/api/maps/mobility): Calculate routes and directions using public transit.
 
 The table cross-references the Google Maps API parameters with the comparable API parameters in Azure Maps.
 
@@ -399,7 +399,7 @@ Add lines and polygons to a static map image by specifying the `path` parameter 
 &path=pathStyles||pathLocation1|pathLocation2|...
 ```
 
-When it comes to path locations, Azure Maps requires the coordinates to be in "longitude latitude" format. Google Maps uses "latitude,longitude" format. A space, not a comma, separates longitude and latitude in the Azure Maps format. Azure Maps doesn't support encoded paths or addresses for points. Upload larger data sets as a GeoJSON file into the Azure Maps Data Storage API as documented [here](how-to-render-custom-data.md#get-data-from-azure-maps-data-storage).
+When it comes to path locations, Azure Maps requires the coordinates to be in "longitude latitude" format. Google Maps uses "latitude,longitude" format. A space, not a comma, separates longitude and latitude in the Azure Maps format. Azure Maps doesn't support encoded paths or addresses for points. Upload larger data sets as a GeoJSON file into the Azure Maps Data Storage API as documented [here](how-to-render-custom-data.md#upload-pins-and-path-data).
 
 Add path styles with the `optionNameValue` format. Separate multiple styles by pipe (\|) characters, like this `optionName1Value1|optionName2Value2`. The option names and values aren't separated. Use the following style option names to style paths in Azure Maps:
 

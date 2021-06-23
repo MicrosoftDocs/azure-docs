@@ -1,17 +1,20 @@
 ---
 title:  Overview of the Connected Machine agent
 description: This article provides a detailed overview of the Azure Arc enabled servers agent available, which supports monitoring virtual machines hosted in hybrid environments.
-ms.date: 05/10/2021
+ms.date: 06/04/2021
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
 
 # Overview of Azure Arc enabled servers agent
 
-The Azure Arc enabled servers Connected Machine agent enables you to manage your Windows and Linux machines hosted outside of Azure on your corporate network or other cloud provider. This article provides a detailed overview of the agent, system and network requirements, and the different deployment methods.
+The Azure Arc enabled servers Connected Machine agent enables you to manage your Windows and Linux machines hosted outside of Azure on your corporate network or other cloud providers. This article provides a detailed overview of the agent, system and network requirements, and the different deployment methods.
 
 >[!NOTE]
 >Starting with the general release of Azure Arc enabled servers in September 2020, all pre-release versions of the Azure Connected Machine agent (agents with versions less than 1.0) are being **deprecated** by **February 2, 2021**.  This time frame allows you to upgrade to version 1.0 or higher before the pre-released agents are no longer able to communicate with the Azure Arc enabled servers service.
+
+>[!NOTE]
+> The [Azure Monitor agent](../../azure-monitor/agents/azure-monitor-agent-overview.md) (AMA), which is currently in preview, does not replace the Connected Machine agent. The Azure Monitor agent will replace the Log Analytics agent, Diagnostics extension, and Telegraf agent for both Windows and Linux machines. Review the Azure Monitor documentation about the new agent for more details.
 
 ## Agent component details
 
@@ -78,7 +81,7 @@ Arc enabled servers support the installation of the Connected Machine agent on a
 
 The following versions of the Windows and Linux operating system are officially supported for the Azure Connected Machine agent:
 
-- Windows Server 2008 R2, Windows Server 2012 R2 and higher (including Server Core)
+- Windows Server 2008 R2 SP1, Windows Server 2012 R2 and higher (including Server Core)
 - Ubuntu 16.04, 18.04, and 20.04 LTS (x64)
 - CentOS Linux 7 and 8  (x64)
 - SUSE Linux Enterprise Server (SLES) 12 and 15 (x64)
@@ -88,6 +91,17 @@ The following versions of the Windows and Linux operating system are officially 
 
 > [!WARNING]
 > The Linux hostname or Windows computer name cannot use one of the reserved words or trademarks in the name, otherwise attempting to register the connected machine with Azure will fail. See [Resolve reserved resource name errors](../../azure-resource-manager/templates/error-reserved-resource-name.md) for a list of the reserved words.
+
+> [!NOTE]
+> While Arc enabled servers supports Amazon Linux, the following do not support this distro:
+> * Agents used by Azure Monitor (that is, the Log Analytics and Dependency agent)
+> * Azure Automation Update Management
+> * VM insights
+
+### Software requirements
+
+* NET Framework 4.6 or later is required. [Download the .NET Framework](/dotnet/framework/install/guide-for-developers).
+* Windows PowerShell 5.1 is required. [Download Windows Management Framework 5.1.](https://www.microsoft.com/download/details.aspx?id=54616).
 
 ### Required permissions
 
@@ -128,6 +142,7 @@ Service Tags:
 * AzureTrafficManager
 * AzureResourceManager
 * AzureArcInfrastructure
+* Storage
 
 URLs:
 
@@ -139,7 +154,7 @@ URLs:
 |`dc.services.visualstudio.com`|Application Insights|
 |`*.guestconfiguration.azure.com` |Guest Configuration|
 |`*.his.arc.azure.com`|Hybrid Identity Service|
-|`www.office.com`|Office 365|
+|`*.blob.core.windows.net`|Download source for Arc enabled servers extensions|
 
 Preview agents (version 0.11 and lower) also require access to the following URLs:
 
@@ -274,7 +289,7 @@ After installing the Connected Machine agent for Linux, the following system-wid
     |Service name |Display name |Process name |Description |
     |-------------|-------------|-------------|------------|
     |himdsd.service |Azure Connected Machine Agent Service |himds |This service implements the Azure Instance Metadata service (IMDS) to manage the connection to Azure and the connected machine's Azure identity.|
-    |gcad.servce |GC Arc Service |gc_linux_service |Monitors the desired state configuration of the machine. |
+    |gcad.service |GC Arc Service |gc_linux_service |Monitors the desired state configuration of the machine. |
     |extd.service |Extension Service |gc_linux_service | Installs the required extensions targeting the machine.|
 
 * There are several log files available for troubleshooting. They are described in the following table.

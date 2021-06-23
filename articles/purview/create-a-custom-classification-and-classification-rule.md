@@ -1,8 +1,8 @@
 ---
 title: Create a custom classification and classification rule (preview)
 description: Learn how to create custom classifications to define data types in your data estate that are unique to your organization in Azure Purview.
-author: animukherjee
-ms.author: anmuk
+author: viseshag
+ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
@@ -44,8 +44,7 @@ the following logic:
 
 - All but the last two segments of the namespace are trimmed.
 
-- The casing is adjusted so that the first letter of each word is
-    capitalized. All other letters are converted to lowercase.
+- The casing is adjusted so that the first letter of each word is capitalized.
 
 - All underscores (\_) are replaced with spaces.
 

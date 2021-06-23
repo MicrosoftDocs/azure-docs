@@ -22,7 +22,7 @@ This article will talk through the image decision points and requirements, expla
 ## Difference between managed disks and images
 
 
-Azure allows you to bring a VHD to the platform, to use as a [Managed Disk](../faq-for-disks.md#managed-disks), or use as a source for an image. 
+Azure allows you to bring a VHD to the platform, to use as a [Managed Disk](/azure/virtual-machines/faq-for-disks#managed-disks), or use as a source for an image. 
 
 Azure managed disks are single VHDs. You can either take an existing VHD and create a managed disk from it, or create an empty managed disk from scratch. You can create VMs from managed disks by attaching the disk to the VM, but you can only use a VHD with one VM. You can't modify any OS properties, Azure will just try to turn on the VM and start up using that disk. 
 

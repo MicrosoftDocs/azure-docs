@@ -226,6 +226,6 @@ For more information, see [Configure ASP.NET Core to work with proxy servers and
 ::: zone pivot="platform-linux"
 
 > [!div class="nextstepaction"]
-> [App Service Linux FAQ](faq-app-service-linux.md)
+> [App Service Linux FAQ](faq-app-service-linux.yml)
 
 ::: zone-end

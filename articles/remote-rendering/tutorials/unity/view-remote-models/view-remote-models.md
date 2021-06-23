@@ -569,11 +569,21 @@ public async void InitializeSessionService()
     if (ARRCredentialGetter == null)
         ARRCredentialGetter = GetDevelopmentCredentials;
 
-    var accountInfo = await ARRCredentialGetter.Invoke();
+    var sessionConfiguration = await ARRCredentialGetter.Invoke();
 
     ARRSessionService.OnSessionStatusChanged += OnRemoteSessionStatusChanged;
 
-    ARRSessionService.Initialize(accountInfo);
+    try
+    {
+        ARRSessionService.Initialize(sessionConfiguration);
+    }
+    catch (ArgumentException argumentException)
+    {
+        NotificationBar.Message("InitializeSessionService failed: SessionConfiguration is invalid.");
+        Debug.LogError(argumentException.Message);
+        CurrentCoordinatorState = RemoteRenderingState.NotAuthorized;
+        return;
+    }
 
     CurrentCoordinatorState = RemoteRenderingState.NoSession;
 }
@@ -747,18 +757,6 @@ The **LoadModel** method is designed to accept a model path, progress handler, a
             modelGameObject.name = parent.name + "_Entity";
         }
 
-    #if UNITY_WSA
-        //Anchor the model in the world, prefer anchoring parent if there is one
-        if (parent != null)
-        {
-            parent.gameObject.AddComponent<WorldAnchor>();
-        }
-        else
-        {
-            modelGameObject.AddComponent<WorldAnchor>();
-        }
-    #endif
-
         //Load a model that will be parented to the entity
         var loadModelParams = new LoadModelFromSasOptions(modelPath, modelEntity);
         var loadModelAsync = ARRSessionService.CurrentActiveSession.Connection.LoadModelFromSasAsync(loadModelParams, progress);
@@ -772,7 +770,6 @@ The code above is performing the following steps:
 1. Create a [Remote Entity](../../../concepts/entities.md).
 1. Create a local GameObject to represent the remote entity.
 1. Configure the local GameObject to sync its state (i.e. Transform) to the remote entity every frame.
-1. Set a name and add a [**WorldAnchor**](https://docs.unity3d.com/550/Documentation/ScriptReference/VR.WSA.WorldAnchor.html) to assist stabilization.
 1. Load model data from Blob Storage into the remote entity.
 1. Return the parent Entity, for later reference.
 

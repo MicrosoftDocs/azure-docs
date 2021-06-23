@@ -111,11 +111,11 @@ spark.synapse.logAnalytics.keyVault.linkedServiceName <LINKED_SERVICE_NAME>
 | spark.synapse.logAnalytics.keyVault.name            | -                            | Azure Key vault name for the Azure Log Analytics ID and key                                                                                                                                                |
 | spark.synapse.logAnalytics.keyVault.key.workspaceId | SparkLogAnalyticsWorkspaceId | Azure Key vault secret name for the Azure Log Analytics workspace ID                                                                                                                                       |
 | spark.synapse.logAnalytics.keyVault.key.secret      | SparkLogAnalyticsSecret      | Azure Key vault secret name for the Azure Log Analytics workspace key                                                                                                                                      |
-| spark.synapse.logAnalytics.keyVault.uriSuffix       | ods.opinsights.azure.com     | The destination Azure Log Analytics workspace [URI suffix][uri_suffix]. If your Azure Log Analytics Workspace is not in Azure global, you need to update the URI suffix according to the respective cloud. |
+| spark.synapse.logAnalytics.uriSuffix       | ods.opinsights.azure.com     | The destination Azure Log Analytics workspace [URI suffix][uri_suffix]. If your Azure Log Analytics Workspace is not in Azure global, you need to update the URI suffix according to the respective cloud. |
 
 > [!NOTE]  
-> - For Azure China clouds, the "spark.synapse.logAnalytics.keyVault.uriSuffix" parameter should be "ods.opinsights.azure.cn". 
-> - For Azure Gov clouds, the "spark.synapse.logAnalytics.keyVault.uriSuffix" parameter should be "ods.opinsights.azure.us". 
+> - For Azure China clouds, the "spark.synapse.logAnalytics.uriSuffix" parameter should be "ods.opinsights.azure.cn". 
+> - For Azure Gov clouds, the "spark.synapse.logAnalytics.uriSuffix" parameter should be "ods.opinsights.azure.us". 
 
 [uri_suffix]: ../../azure-monitor/logs/data-collector-api.md#request-uri
 
@@ -208,7 +208,7 @@ For more information, see [Create, view, and manage log alerts using Azure Monit
 
 ## Limitation
 
-Azure Synapse Analytics workspace with [managed virtual network](/azure/synapse-analytics/security/synapse-workspace-managed-vnet) enabled is not supported.
+Azure Synapse Analytics workspace with [managed virtual network](../security/synapse-workspace-managed-vnet.md) enabled is not supported.
 
 ## Next steps
 
