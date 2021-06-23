@@ -285,7 +285,7 @@ One option for updating your web service is to retrain the model programmaticall
 
 * For details on how to get your model ready to deploy, see [How to prepare your model for deployment in Machine Learning Studio (classic)](deploy-a-machine-learning-web-service.md).
 
-* There are several ways to consume the REST API and access the web service. See [How to consume an Machine Learning Studio (classic) web service](consume-web-services.md).
+* There are several ways to consume the REST API and access the web service. See [How to consume a Machine Learning Studio (classic) web service](consume-web-services.md).
 
 <!-- internal links -->
 [Create a training experiment]: #create-a-training-experiment
