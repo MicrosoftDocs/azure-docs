@@ -1,9 +1,9 @@
-- name: Azure Virtual Desktop
+- name: Azure Virtual Desktop Remote App streaming
   href: index.yml
 - name: Overview
   items:
-  - name: What is Azure Virtual Desktop?
-    href: ../overview.md?toc=/azure/virtual-desktop/virtual-desktop-app-hosting/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+  - name: What is Azure Virtual Desktop Remote App Streaming?
+    href: overview.md
 - name: How-to guides
   items:
   - name: Architecture

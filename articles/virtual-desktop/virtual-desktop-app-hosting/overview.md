@@ -16,7 +16,7 @@ If you're unfamiliar with Azure Virtual Desktop (or are new to app virtualizatio
 
 ## Requirements
 
-Before you get started, we recommend you take a look at the [overview for Azure Virtual Desktop](./virtual-desktop/overview.md) for a more in-depth list of system requirements for running Azure Virtual Desktop. Once you understand the basics, you can use the Remote App Streaming documentation more effectively.
+Before you get started, we recommend you take a look at the [overview for Azure Virtual Desktop](../virtual-desktop/overview.md) for a more in-depth list of system requirements for running Azure Virtual Desktop. Once you understand the basics, you can use the Remote App Streaming documentation more effectively.
 
 In order to set up an Azure Virtual Desktop deployment for your custom apps that's available to customers outside your organization, you'll need the following things:
 
@@ -75,7 +75,7 @@ Read the following articles to understand concepts essential to creating and man
 - [Understanding licensing for app hosting]()
 - [Windows Virtual Desktop security best practices - Azure \| Microsoft Docs](../security-guide.md)
 - [Azure Monitor for Azure Virtual Desktop glossary](../azure-monitor-glossary.md)
-- [Windows Virtual Desktop for the enterprise - Azure Example Scenarios \| Microsoft Docs](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/wvd/windows-virtual-desktop)
+- [Windows Virtual Desktop for the enterprise - Azure Example Scenarios \| Microsoft Docs](../architecture/example-scenario/wvd/windows-virtual-desktop.md)
 - [Understanding total Azure Virtual Desktop costs]()
 - [Architecture recommendations]()
 - [Security implications of multi-tenancy]()
