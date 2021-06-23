@@ -223,7 +223,7 @@ az ml computetarget update aks \
                            -g myresourcegroup
 ```
 
-For more information, see the [az ml computetarget create aks](/cli/azure/ml/computetarget/create#az_ml_computetarget_create_aks) and [az ml computetarget update aks](/cli/azure/ml/computetarget/update#az_ml_computetarget_update_aks) reference.
+For more information, see the [az ml computetarget create aks](/cli/azure/ml(v1)/computetarget/create#az_ml_computetarget_create_aks) and [az ml computetarget update aks](/cli/azure/ml(v1)/computetarget/update#az_ml_computetarget_update_aks) reference.
 
 ---
 

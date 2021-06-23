@@ -45,19 +45,13 @@ To upload the Drawing package:
 
 1. In the Postman app, select **New**.
 
-2. In the **Create New** window, select **Collection**.
+2. In the **Create New** window, select **HTTP Request**.
 
-3. Select **New** again.
+3. Enter a **Request name** for the request, such as *POST Data Upload*.
 
-4. In the **Create New** window, select **Request**.
+4. Select the **POST** HTTP method.
 
-5. Enter a **Request name** for the request, such as *POST Data Upload*.
-
-6. Select the collection you previously created, and then select **Save**.
-
-7. Select the **POST** HTTP method.
-
-8. Enter the following URL to the [Data Upload API](/rest/api/maps/data-v2/upload-preview):
+5. Enter the following URL to the [Data Upload API](/rest/api/maps/data-v2/upload-preview):
 
     ```http
     https://us.atlas.microsoft.com/mapData?api-version=2.0&dataFormat=dwgzippackage&subscription-key={Azure-Maps-Primary-Subscription-key}
@@ -66,27 +60,27 @@ To upload the Drawing package:
     >[!Important]
     >For this request, and other requests mentioned in this article, replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key.
 
-9. Select the **Headers** tab.
+6. Select the **Headers** tab.
 
-10. In the **KEY** field, select `Content-Type`. 
+7. In the **KEY** field, select `Content-Type`. 
 
-11. In the **VALUE** field, select `application/octet-stream`.
+8. In the **VALUE** field, select `application/octet-stream`.
 
      :::image type="content" source="./media/tutorial-creator-indoor-maps/data-upload-header.png"alt-text="Header tab information for data upload.":::
 
-12. Select the **Body** tab.
+9. Select the **Body** tab.
 
-13. In the dropdown list, select **binary**.
+10. In the dropdown list, select **binary**.
 
-14. Select **Select File**, and then select a Drawing package.
+11. Select **Select File**, and then select a Drawing package.
 
     :::image type="content" source="./media/tutorial-creator-indoor-maps/data-upload-body.png" alt-text="Select a Drawing package.":::
 
-15. Select **Send**.
+12. Select **Send**.
 
-16. In the response window, select the **Headers** tab.
+13. In the response window, select the **Headers** tab.
 
-17. Copy the value of the **Operation-Location** key, which is the `status URL`. We'll use the `status URL` to check the status of the Drawing package upload.
+14. Copy the value of the **Operation-Location** key, which is the `status URL`. We'll use the `status URL` to check the status of the Drawing package upload.
 
      :::image type="content" source="./media/tutorial-creator-indoor-maps/data-upload-response-header.png" alt-text="Copy the status URL in the Location key.":::
 
@@ -96,7 +90,7 @@ To check the status of the drawing package and retrieve its unique ID (`udid`):
 
 1. Select **New**.
 
-2. In the **Create New** window, select **Request**.
+2. In the **Create New** window, select **HTTP Request**.
 
 3. Enter a **Request name** for the request, such as *GET Data Upload Status*.
 
@@ -126,7 +120,7 @@ To retrieve content metadata:
 
 1. Select **New**.
 
-2. In the **Create New** window, select **Request**.
+2. In the **Create New** window, select **HTTP Request**.
 
 3. Enter a **Request name** for the request, such as *GET Data Upload Status*.
 
@@ -163,7 +157,7 @@ To convert a Drawing package:
 
 1. Select **New**.
 
-2. In the **Create New** window, select **Request**.
+2. In the **Create New** window, select **HTTP Request**.
 
 3. Enter a **Request name** for the request, such as *POST Convert Drawing Package*.
 
@@ -193,7 +187,7 @@ To check the status of the conversion process and retrieve the `conversionId`:
 
 1. Select **New**.
 
-2. In the **Create New** window, select **Request**.
+2. In the **Create New** window, select **HTTP Request**.
 
 3. Enter a **Request name** for the request, such as *GET Conversion Status*.
 
@@ -252,7 +246,7 @@ To create a dataset:
 
 1. Select **New**.
 
-2. In the **Create New** window, select **Request**.
+2. In the **Create New** window, select **HTTP Request**.
 
 3. Enter a **Request name** for the request, such as *POST Dataset Create*.
 
@@ -280,7 +274,7 @@ To check the status of the dataset creation process and retrieve the `datasetId`
 
 1. Select **New**.
 
-2. In the **Create New** window, select **Request**.
+2. In the **Create New** window, select **HTTP Request**.
 
 3. Enter a **Request name** for the request, such as *GET Dataset Status*.
 
@@ -310,7 +304,7 @@ To create a tileset:
 
 1. Select **New**.
 
-2. In the **Create New** window, select **Request**.
+2. In the **Create New** window, select **HTTP Request**.
 
 3. Enter a **Request name** for the request, such as *POST Tileset Create*.
 
@@ -338,7 +332,7 @@ To check the status of the dataset creation process and retrieve the `tilesetId`
 
 1. Select **New**.
 
-2. In the **Create New** window, select **Request**.
+2. In the **Create New** window, select **HTTP Request**.
 
 3. Enter a **Request name** for the request, such as *GET Tileset Status*.
 
@@ -368,7 +362,7 @@ To query the all collections in your dataset:
 
 1. Select **New**.
 
-2. In the **Create New** window, select **Request**.
+2. In the **Create New** window, select **HTTP Request**.
 
 3. Enter a **Request name** for the request, such as *GET Dataset Collections*.
 
@@ -420,7 +414,7 @@ To query the unit collection in your dataset:
 
 1. Select **New**.
 
-2. In the **Create New** window, select **Request**.
+2. In the **Create New** window, select **HTTP Request**.
 
 3. Enter a **Request name** for the request, such as *GET Unit Collection*.
 
@@ -476,7 +470,7 @@ To create a stateset:
 
 1. Select **New**.
 
-2. In the **Create New** window, select **Request**.
+2. In the **Create New** window, select **HTTP Request**.
 
 3. Enter a **Request name** for the request, such as *POST Create Stateset*.
 
@@ -533,7 +527,7 @@ To update the `occupied` state of the unit with feature `id` "UNIT26":
 
 1. Select **New**.
 
-2. In the **Create New** window, select **Request**.
+2. In the **Create New** window, select **HTTP Request**.
 
 3. Enter a **Request name** for the request, such as *PUT Set Stateset*.
 
