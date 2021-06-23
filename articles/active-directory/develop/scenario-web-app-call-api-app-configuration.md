@@ -421,6 +421,16 @@ The token-cache implementation for web apps or web APIs is different from the im
 
 The web-app implementation can use the ASP.NET session or the server memory. For example, see how the cache implementation is hooked after the creation of the MSAL.NET application in [MsalAppBuilder.cs#L39-L51](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/79e3e1f084cd78f9170a8ca4077869f217735a1a/WebApp/Utils/MsalAppBuilder.cs#L57-L58):
 
+
+First, to use these implementations:
+- add the Microsoft.Identity.Web Nuget package. These token cache serializers are not brought in MSAL.NET directly to avoid unwanted dependencies. In addition to a higher level for ASP.NET Core, Microsoft.Identity.Web brings classes that are helpers for MSAL.NET, 
+- In your code, use the Microsoft.Identity.Web namespace:
+
+  ```csharp
+  #using Microsoft.Identity.Web
+  ```
+- Once you have built your confidential client application, add the token cache serialization of your choice.
+
 ```csharp
 public static class MsalAppBuilder
 {
