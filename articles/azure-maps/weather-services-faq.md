@@ -44,7 +44,7 @@ These datasets are reviewed in real time for accuracy for the Digital Forecast S
 
 **What models create weather forecast data?**
 
-Many weather forecast guidance systems are used to formulate global forecasts. Over 150 numerical forecast models are used each day, both external and internal datasets. These models include government models such as the European Centre ECMWF and the U.S. Global Forecast System (GFS). Also, AccuWeather incorporates proprietary high-resolution models that downscale forecasts to specific locations and strategic regional domains to predict weather with further accuracy. AccuWeather’s unique blending and weighting algorithms   have been developed over the last several decades. These algorithms optimally apply the numerous forecast inputs to provide highly accurate forecasts.
+Many weather forecast guidance systems are used to formulate global forecasts. Over 150 numerical forecast models are used each day, both external and internal datasets. These models include government models such as the European Centre ECMWF and the U.S. Global Forecast System (GFS). Also, AccuWeather incorporates proprietary high-resolution models that downscale forecasts to specific locations and strategic regional domains to predict weather with further accuracy. AccuWeather’s unique blending and weighting algorithms   have been developed over the last several decades. These algorithms optimally apply the many forecast inputs to provide highly accurate forecasts.
 
 ## Weather services coverage and availability
 
@@ -62,7 +62,7 @@ Azure Maps caches the Current Conditions data for up to 10 minutes to help captu
 
 **How often is Daily and Hourly Forecast data updated?**
 
-Daily and Hourly Forecast data is updated multiple times per day, as updated observations are received.  For example, if a forecasted high/low temperature is surpassed, our Forecast data will adjust at the next update cycle. Updates can happen at different intervals but typically happens within an hour. Many sudden weather conditions can cause a forecast data change. For example, on a hot summer afternoon, an isolated thunderstorm can suddenly emerge, bringing heavy cloud coverage and rain. The isolated storm can effectively drop temperature by as much as 10 degrees. This new temperature value will impact the Hourly and Daily Forecasts for the remainder of the day, and as such, will be updated in our datasets.
+Daily and Hourly Forecast data is updated multiple times per day, as updated observations are received.  For example, if a forecasted high/low temperature is surpassed, our Forecast data will adjust at the next update cycle. Updates happen at different intervals but typically happens within an hour. Many sudden weather conditions may cause a forecast data change. For example, on a hot summer afternoon, an isolated thunderstorm might suddenly emerge, bringing heavy cloud coverage and rain. The isolated storm could effectively drop temperature by as much as 10 degrees. This new temperature value will impact the Hourly and Daily Forecasts for the rest of the day, and as such, will be updated in our datasets.
 
 Azure Maps Forecast APIs are cached for up to 30 mins. To see when the cached response expires and avoid displaying outdated data, you can look at the Expires Header information in the HTTP header of the Azure Maps API response. We recommend updating as necessary based on a specific product use case and UI (user interface).
 
