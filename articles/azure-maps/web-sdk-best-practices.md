@@ -405,7 +405,7 @@ https://azure.com/support
 
 If related to the Azure Maps visual in Power BI: https://powerbi.microsoft.com/support/
 For all other Azure Maps services: https://azure.com/support
-or the developer forums: https://docs.microsoft.com/answers/topics/azure-maps.html
+or the developer forums: [https://docs.microsoft.com/answers/topics/azure-maps.html](/answers/topics/azure-maps.html).
 
 **How do I make a feature request?**
 

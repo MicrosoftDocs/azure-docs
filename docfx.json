@@ -884,6 +884,8 @@
         "articles/virtual-machine-scale-sets/**/*.yml": ["Azure","Virtual Machine Scale Sets"]
       },
       "titleSuffix": {
+        "articles/cognitive-services/LUIS/*.md": "Azure",
+        "articles/cognitive-services/LUIS/*.yml": "Azure",
         "articles/advisor/**/*.md": "Azure Advisor",
         "articles/advisor/*.yml": "Azure Advisor",
         "articles/aks/**/*.md": "Azure Kubernetes Service",

@@ -19,10 +19,9 @@ After completing the setup steps, you'll be able to run the simulated live video
 
 * An active Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/).  
 [!INCLUDE [the video analyzer account and storage account must be in the same subscription and region](./includes/note-account-storage-same-subscription.md)]
-* An x86-64 or an ARM64 device running one of the [supported Linux operating systems](../../iot-edge/support.md#operating-systems), on which you have an administrative privileges.
-* [Create and setup IoT Hub](../../iot-hub/iot-hub-create-through-portal.md)
-* [Register IoT Edge device](../../iot-edge/how-to-register-device.md)
-* [Install the Azure IoT Edge runtime on Debian-based Linux systems](../../iot-edge/how-to-install-iot-edge.md)
+* An IoT Edge device on which you have admin privileges
+   * [Deploy to an IoT Edge device](deploy-iot-edge-device.md)
+   * [Deploy to an IoT Edge for Linux on Windows](deploy-iot-edge-linux-on-windows.md)
 * [Visual Studio Code](https://code.visualstudio.com/), with the following extensions:
 
     * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)

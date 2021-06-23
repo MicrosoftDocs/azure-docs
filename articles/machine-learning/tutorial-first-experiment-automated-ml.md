@@ -10,7 +10,7 @@ author: cartacioS
 ms.author: sacartac
 ms.reviewer: nibaccam
 ms.date: 06/11/2021
-ms.custom: automl
+ms.custom: automl, FY21Q4-aml-seo-hack, contperf-fy21q4
 
 # Customer intent: As a non-coding data scientist, I want to use automated machine learning techniques so that I can build a classification model.
 ---
@@ -36,7 +36,7 @@ Also try automated machine learning for these other model types:
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, create a [free account](https://aka.ms/AMLFree).
+* An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
 
 * Download the [**bankmarketing_train.csv**](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv) data file. The **y** column indicates if a customer subscribed to a fixed term deposit, which is later identified as the target column for predictions in this tutorial. 
 

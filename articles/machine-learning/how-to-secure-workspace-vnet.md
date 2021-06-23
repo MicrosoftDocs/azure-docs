@@ -99,6 +99,9 @@ Azure Machine Learning supports storage accounts configured to use either servic
 1. A private endpoint with a **blob** target subresource.
 1. A private endpoint with a **file** target subresource (fileshare).
 
+> [!TIP]
+> If you plan to use [ParallelRunStep](./tutorial-pipeline-batch-scoring-classification.md) in your pipeline, it is also required to configure private endpoints with a **queue** and a **table** target subresources. ParallelRunStep uses queue and table under the hood for task scheduling and dispatching.
+
 ![Screenshot showing private endpoint configuration page with blob and file options](./media/how-to-enable-studio-virtual-network/configure-storage-private-endpoint.png)
 
 To configure a private endpoint for a storage account that is **not** the default storage, select the **Target subresource** type that corresponds to the storage account you want to add.
