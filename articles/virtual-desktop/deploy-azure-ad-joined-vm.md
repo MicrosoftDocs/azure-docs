@@ -17,71 +17,67 @@ ms.author: helohr
 > This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This article will walk you through the process of deploying and accessing Azure Active Directory joined (AADJ) virtual machines in Azure Virtual Desktop. This removes the need to have line-of-sight from the VM to an on-premise Active Directory Domain Controller (DC) or to deploy a DC or Azure AD Domain services (AAD DS) in Azure. In some cases, it can remove the need for a DC entirely, simplifying the deployment and management of the environment. These VMs can also be automatically enrolled in Intune for ease of management.
+This article will walk you through the process of deploying and accessing Azure Active Directory joined virtual machines in Azure Virtual Desktop. This removes the need to have line-of-sight from the VM to an on-premise or virtualized Active Directory Domain Controller (DC) or to deploy Azure AD Domain services (Azure AD DS). In some cases, it can remove the need for a DC entirely, simplifying the deployment and management of the environment. These VMs can also be automatically enrolled in Intune for ease of management.
 
 > [!NOTE]
 > Azure Virtual Desktop (Classic) doesn't support this feature.
 
 ## Supported configurations
 
-The following configurations are currently supported with Azure AD joined VMs:
+The following configurations are currently supported with Azure AD-joined VMs:
 
-* Personal Desktops with local profiles.
-* Pooled desktop or apps with local profiles, generally used as a jump box or for stateless applications.
+- Personal desktops with local user profiles.
+- Pooled desktops used as a jump box where users first access the Azure Virtual Desktop VM before connecting to a different PC on the network. Users should no save data on the VM.
+- Pooled desktops or apps where users don't need to save data on the VM. For example, for applications that save data online or connect to a remote database.
 
 User accounts can be cloud-only or hybrid users from the same Azure AD tenant. External users are not supported at this time.
 
-## Deploy Azure AD joined VMs
+## Deploy Azure AD-joined VMs
 
 > [!IMPORTANT]
 > During public preview, you must configure your host pool to be in the [validation environment](create-validation-host-pool.md).
 
-You can deploy Azure AD joined VMs directly from the Azure Portal when [creating a new host pool](create-host-pools-azure-marketplace.md) or [expanding an existing host pool](expand-existing-host-pool.md). On the Virtual Machines tab, the **Select which directory you would like to join** option allows you to select between Active Directory and Azure Active Directory. Selecting Azure Active Directory provides you with the option to **Enroll the VM with Intune** automatically so you can easily manage [Windows 10 ENT](/mem/intune/fundamentals/windows-virtual-desktop.md) and [Windows 10 ENT multi-session](/mem/intune/fundamentals/windows-virtual-desktop-multi-session.md) VMs. Note that the VMs will be joined to the same Azure AD tenant as the subscription.
+You can deploy Azure AD-joined VMs directly from the Azure Portal when [creating a new host pool](create-host-pools-azure-marketplace.md) or [expanding an existing host pool](expand-existing-host-pool.md). On the Virtual Machines tab, select whether to join the VM to Active Directory or Azure Active Directory. Selecting **Azure Active Directory** gives you the option to **Enroll the VM with Intune** automatically so you can easily manage [Windows 10 ENT](/mem/intune/fundamentals/windows-virtual-desktop) and [Windows 10 ENT multi-session](/mem/intune/fundamentals/windows-virtual-desktop-multi-session) VMs. Keep in mind that this option will join VMs to the same Azure AD tenant as the subscription you're in.
 
 > [!NOTE]
-> * Host pools should only contain VMs of the same domain join type, be that Active Directory or Azure Active Directory.
-> * The host pool VMs must be using Windows 10, version 2004 or above, single or multi-session.
+> - Host pools should only contain VMs of the same domain join type. For example, AD-joined VMs should only be with other AD VMs, and vice-versa.
+> - The host pool VMs must be Windows 10 single-session or multi-session, version 2004 or later.
 
-Once the host pool is created, you must assign user access. This is done in 2 parts for Azure AD joined VMs, giving users access to the App Group and providing users access to the VMs.
+After you've created the host pool, you must assign user access. For Azure AD-joined VMs, you'll need to do two things: give users access to both the App Group and VMs.
 
-You can follow the steps to [manage an app group](manage-app-groups.md) to assign user access to apps and desktops. Where possible it is recommended to use user groups instead of individual users.
+Follow the instructions in [Manage app groups](manage-app-groups.md) to assign user access to apps and desktops. We recommend that you use user groups instead of individual users wherever possible.
 
-To provide access to Azure AD joined VMs, users must be assigned the **Virtual Machine User Login** or **Virtual Machine Administrator Login** role on the VMs. This can also be done on the Resource Group or Subscription containing the VMs. The recommended configuration is to assign the Virtual Machine User Login role to the same user group used for the App Group at the Resource Group level, so it applies to all the VMs in the Host Pool.
+To grant your users access to Azure AD-joined VMs, you must [configure role assignments for the VM](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#configure-role-assignments-for-the-vm). You can assign the **Virtual Machine User Login** or **Virtual Machine Administrator Login** role either on the VMs, the resource group containing the VMs or the subscription. We recommend assigning the Virtual Machine User Login role to the same user group you used for the app group at the resource group level to make it apply to all the VMs in the host pool.
 
-## Access Azure AD joined VMs
+## Access Azure AD-joined VMs
 
-The default configuration supports connections from Windows 10 using the Windows Desktop client. Username/password, smart cards or Windows Hello for Business can be used to sign in to the session host. The local PC must meet one of the following conditions:
-
-* Azure AD joined to the same Azure AD tenant as the session host
-* Hybrid Azure AD joined to the same Azure AD tenant as the session host
-* Windows 10, version 2004 and above, Azure AD registered to the same Azure AD tenant as the session host
-
-To enable access from Windows devices not joined or registered to Azure AD and all the non-Windows clients, add **targetisaadjoined:i:1** as a [custom RDP property](customize-rdp-properties.md) on the host pool. These connections are restricted to username/password when signing in to the session host.
+This section explains how to access Azure AD-joined VMs from different Azure Virtual Desktop clients.
 
 > [!NOTE]
-> Single sign-on is not currently supported for Azure AD joined VMs.
+> Azure Virtual Desktop doesn't currently support single sign-on for Azure AD-joined VMs.
+
+### Connect using the Windows Desktop client
+
+The default configuration supports connections from Windows 10 using the Windows Desktop client. You can use your credentials, smart card, [Windows Hello for Business certificate trust](../../windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust) or [Windows Hello for Business key trust with certificates](../../windows/security/identity-protection/hello-for-business/hello-deployment-rdp-certs) to sign in to the session host. However, to access the session host, your local PC must meet one of the following conditions:
+
+- The local PC is Azure AD-joined to the same Azure AD tenant as the session host
+- The local PC is hybrid Azure AD-joined to the same Azure AD tenant as the session host
+- The local PC is running Windows 10, version 2004 and later, and is Azure AD registered to the same Azure AD tenant as the session host
+
+To enable access from Windows devices not joined to Azure AD, add **targetisaadjoined:i:1** as a [custom RDP property](customize-rdp-properties.md) to the host pool. These connections are restricted to entering user name and password credentials when signing in to the session host.
+
+### Connect using the other clients
+
+To access Azure AD-joined VMs using the web, Android, macOS, iOS and Microsoft Store clients, you must add **targetisaadjoined:i:1** as a [custom RDP property](customize-rdp-properties.md) to the host pool. These connections are restricted to entering user name and password credentials when signing in to the session host.
 
 ## User profiles
 
-Azure AD joined VMs currently only support local profiles. Support for FSLogix profiles will be available in a future update.
-
-## Troubleshooting
-
-This section contains a list of common errors and how to resolve them.
-
-If you encounter an error saying **The logon attempt failed** on the Windows Security credential prompt, verify the following:
-
-- You are on a device that is AADJ or HAADJ to the same Azure AD tenant as the Session Host OR
-- You are on a device running Windows 10 2004 or later and the user account is registered on the local system.
-- The [PKU2U protocol is enabled](/windows/security/threat-protection/security-policy-settings/network-security-allow-pku2u-authentication-requests-to-this-computer-to-use-online-identities) on both the local PC and the session host.
-
-If you encounter an error saying **Your account is configured to prevent you from using this device. For more information, contact your system administrator**, ensure the user account was given the [Virtual Machine User Login role](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md) on the VMs. 
-
-If you encounter an error saying **The sign-in method you're trying to use isn't allowed. Try a different sign-in method or contact your system administrator**, you have some Conditional Access policies restricting the type of credentials that be used to sign-in to the VMs. Ensure you use the right credential type when signing in.
+Azure Virtual Desktop currently only supports local profiles for Azure AD-joined VMs.
 
 ## Next steps
 
 Now that you've deployed some Azure AD joined VMs, you can sign in to a supported Azure Virtual Desktop client to test it as part of a user session. If you want to learn how to connect to a session, check out these articles:
 
-* [Connect with the Windows Desktop client](connect-windows-7-10.md)
-* [Connect with the web client](connect-web.md)
+- [Connect with the Windows Desktop client](connect-windows-7-10.md)
+- [Connect with the web client](connect-web.md)
+- [Troubleshoot connections to Azure AD-joined VMs](troubleshoot-azure-ad-connections.md)

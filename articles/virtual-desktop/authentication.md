@@ -23,7 +23,8 @@ These are the currently supported sign-in methods:
 - Windows Desktop client
     - Username and password
     - Smartcard
-    - Windows Hello for Business (Certificate trust only)
+    - [Windows Hello for Business certificate trust](../../windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust)
+    - [Windows Hello for Business key trust with certificates](../../windows/security/identity-protection/hello-for-business/hello-deployment-rdp-certs)
 - Windows Store client
     - Username and password
 - Web client
@@ -40,19 +41,19 @@ These are the currently supported sign-in methods:
 
 ## Hybrid identity
 
-Azure Virtual Desktop supports [hybrid identities](../active-directory/hybrid/whatis-hybrid-identity.md) through Azure Active Directory (AD), including those federated using Active Directory Federation Services (ADFS). Since users must be discoverable through Azure AD, Azure Virtual Desktop doesn't support standalone Active Directory deployments with ADFS.
+Azure Virtual Desktop supports [hybrid identities](../active-directory/hybrid/whatis-hybrid-identity.md) through Azure Active Directory (Azure AD), including those federated using Active Directory Federation Services (ADFS). Since users must be discoverable through Azure AD, Azure Virtual Desktop doesn't support standalone Active Directory deployments with ADFS.
 
 ### UPN mismatch
 
-When using hybrid identities, it is possible that the User Principal Name (UPN) doesn't match between Active Directory and Azure Active Directory. For example, the AD account user@contoso.local may correspond to user@contoso.com in Azure AD. This configuration is supported with Azure Virtual Desktop, however the Security Identifier (SID) must match between Active Directory and Azure Active Directory.
+When accessing Active Directory joined or Hybrid Azure Active Directory joined VMs using hybrid identities, sometimes the User Principal Name (UPN) for the Active Directory (AD) and Azure AD don't match. For example, the AD account user@contoso.local may correspond to user@contoso.com in Azure AD. Azure Virtual Desktop only supports this type of configuration if the Security Identifier (SID) for both your AD and Azure AD accounts match.
 
 ## Cloud-only identity
 
-Azure Virtual Desktop supports cloud-only identities when using [Azure AD joined VMs](deploy-azure-ad-joined-vm.md).
+Azure Virtual Desktop supports cloud-only identities when using [Azure AD-joined VMs](deploy-azure-ad-joined-vm.md).
 
 ## External identity
 
-Azure Virtual Desktop does not support [external identities](../active-directory/external-identities/index.yml).
+Azure Virtual Desktop currently doesn't support [external identities](../active-directory/external-identities/index.yml).
 
 ## Single sign-on (SSO)
 

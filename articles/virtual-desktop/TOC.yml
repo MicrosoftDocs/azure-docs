@@ -202,20 +202,22 @@
     href: troubleshoot-set-up-issues.md
   - name: Session host virtual machine configuration
     href: troubleshoot-vm-configuration.md
-  - name: Remote Desktop service connections
-    href: troubleshoot-service-connection.md
-  - name: Azure Virtual Desktop Agent
-    href: troubleshoot-agent.md
-  - name: Remote Desktop client issues
-    href: troubleshoot-client.md
-  - name: Azure Virtual Desktop PowerShell
-    href: troubleshoot-powershell.md
-  - name: Diagnosing graphics performance issues
-    href: remotefx-graphics-performance-counters.md
-  - name: Azure Monitor
-    href: troubleshoot-azure-monitor.md
   - name: Management issues
     href: troubleshoot-management-issues.md
+  - name: Azure Virtual Desktop PowerShell
+    href: troubleshoot-powershell.md
+  - name: Azure Virtual Desktop Agent
+    href: troubleshoot-agent.md
+  - name: Remote Desktop service connections
+    href: troubleshoot-service-connection.md
+  - name: Remote Desktop client issues
+    href: troubleshoot-client.md
+  - name: Diagnosing graphics performance issues
+    href: remotefx-graphics-performance-counters.md
+  - name: Connections to Azure AD-joined VMs
+    href: troubleshoot-azure-ad-connections.md
+  - name: Azure Monitor
+    href: troubleshoot-azure-monitor.md
 - name: Reference
   items:
   - name: Security best practices

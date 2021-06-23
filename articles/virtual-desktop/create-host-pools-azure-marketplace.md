@@ -15,7 +15,7 @@ manager: femila
 
 Host pools are a collection of one or more identical virtual machines (VMs) within Azure Virtual Desktop environments. Each host pool can contain an app group that users can interact with as they would on a physical desktop.
 
-This article will walk you through the setup process for creating a host pool for a Azure Virtual Desktop environment through the Azure portal. This method provides a browser-based user interface to create a host pool in Azure Virtual Desktop, create a resource group with VMs in an Azure subscription, join those VMs to either an Active Directory or Azure Active Directory domain, and register the VMs with Azure Virtual Desktop.
+This article will walk you through the setup process for creating a host pool for a Azure Virtual Desktop environment through the Azure portal. This method provides a browser-based user interface to create a host pool in Azure Virtual Desktop, create a resource group with VMs in an Azure subscription, join those VMs to either an Active Directory (AD) domain or Azure Active Directory (Azure AD) tenant, and register the VMs with Azure Virtual Desktop.
 
 ## Prerequisites
 
@@ -155,13 +155,13 @@ To set up your virtual machine within the host pool setup process:
 
     - For Active Directory, provide an account to join the domain and choose if you want to join a specific domain and organizational unit.
 
-      - For the AD domain join UPN, enter the credentials for the Active Directory Domain admin of the virtual network you selected. This account can't have multi-factored authentication (MFA) enabled. When joining to an Azure Active Directory Domain Services (Azure AD DS) domain, the account must be part of the Azure AD DC Administrators group and the account password must work in Azure AD DS.
+        - For the AD domain join UPN, enter the credentials for the Active Directory Domain admin of the virtual network you selected. The account you use can't have multi-factor authentication (MFA) enabled. When joining to an Azure Active Directory Domain Services (Azure AD DS) domain, the account you use must be part of the Azure AD DC Administrators group and the account password must work in Azure AD DS.
 
-      - To specify a domain, choose **Yes** and enter the domain to join. You can optionally add a specific organizational unit you want the virtual machines to be in, making sure you use the full path (Distinguished Name) and without quotation marks. If you choose **No**, the VMs will be joined to the domain matching the suffix of the **AD domain join UPN**.
+        - To specify a domain, select **Yes**, then enter the name of the domain you want to join. If you want, you can also add a specific organizational unit you want the virtual machines to be in by entering the full path (Distinguished Name) and without quotation marks. If you don't want to specify a domain, select **No**. The VMs will automatically join the domain that matches the suffix of the **AD domain join UPN**.
   
-    - For Azure Active Directory, you can choose to **Enroll the VM with Intune** so that the VM is available for management automatically after it is deployed.
+    - For Azure Active Directory, you can select **Enroll the VM with Intune** to automatically make the VM available for management after it's deployed.
 
-12. Under Virtual Machine Administrator account, enter the credentials for the local admin account that will be added during the VM creation. This account can be used for management purposes. The account is created for both Active Directory and Azure Active Directory joined VMs.
+12. Under **Virtual Machine Administrator account**, enter the credentials for the local admin account to be added while creating the VM. You can use this account for management purposes in both AD and Azure AD-joined VMs.
 
 13. Select **Next: Workspace >**.
 
