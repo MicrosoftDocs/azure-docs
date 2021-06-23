@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create and Connect to Azure Database for MySQL flexible server with private access in Azure Portal'
+title: 'Connect to Azure Database for MySQL flexible server with private access in Azure Portal'
 description: This article walks you through using the Azure portal to create and connect to an Azure Database for MySQL flexible server in private access.
 author: mksuni
 ms.author: sumuth
@@ -9,7 +9,7 @@ ms.topic: quickstart
 ms.date: 04/18/2021
 ---
 
-# Quickstart: Create and connect to Azure Database for MySQL flexible server in a virtual network
+# Connect to MySQL Server in Virtual network - Azure Database for MySQL Flexible Server
 
 Azure Database for MySQL Flexible Server is a managed service that you can use to run, manage, and scale highly available MySQL servers in the cloud. This quickstart shows you how to create a flexible server in a virtual network by using the Azure portal.
 
