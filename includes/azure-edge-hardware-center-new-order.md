@@ -120,7 +120,7 @@ Through the Azure Edge Hardware Center, you can place an order for multiple devi
 
 15. To review all of the orders in the resource group, click **Next step: View orders for the resource group.** *QUESTION: What do we expect customers to do from the resource group?*
 
-    ![Screenshot showing a summary of orders for the resource group in the Azure Edge Hardware Center](./media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-18.png)
+    ![Screenshot showing a summary of orders for the resource group in the Azure Edge Hardware Center](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-18.png)
 
 
 ### Create a management resource for each device
