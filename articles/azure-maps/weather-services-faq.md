@@ -24,7 +24,7 @@ This article answers to common questions about Azure Maps [Weather services](/re
 
 **How does Azure Maps source Weather data?**
 
-Azure Maps is built with the collaboration of world-class mobility and location technology partners, including AccuWeather, who provides the underlying weather data. To read the announcement of  Azure Maps’ collaboration with AccuWeather, see [Rain or shine: Azure Maps Weather Services will bring insights to your enterprise](https://azure.microsoft.com/blog/rain-or-shine-azure-maps-weather-services-will-bring-insights-to-your-enterprise/).
+Azure Maps is built with the collaboration of world-class mobility and location technology partners, including AccuWeather, who provides the underlying weather data. To read the announcement of Azure Map's collaboration with AccuWeather, see [Rain or shine: Azure Maps Weather Services will bring insights to your enterprise](https://azure.microsoft.com/blog/rain-or-shine-azure-maps-weather-services-will-bring-insights-to-your-enterprise/).
 
 AccuWeather has real-time weather and environmental information available anywhere in the world, largely due to their partnerships with numerous national governmental weather agencies and other proprietary arrangements. A list of this foundational information is provided below.
 
