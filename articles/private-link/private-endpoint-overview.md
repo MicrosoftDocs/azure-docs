@@ -92,7 +92,7 @@ You can completely lock down your workloads from accessing public endpoints to c
  
 ## Access to a private link resource using approval workflow 
 You can connect to a private link resource using the following connection approval methods:
-- **Automatically** approved when you own or have permission on the specific private link resource. The permission required is based on the private link resource type in the following format: Microsoft.\<Provider>/<resource_type>/privateEndpointConnectionApproval/action
+- **Automatically** approved when you own or have permission on the specific private link resource. The permission required is based on the private link resource type in the following format: Microsoft.\<Provider>/<resource_type>/privateEndpointConnectionsApproval/action
 - **Manual** request when you don't have the permission required and would like to request access. An approval workflow will be initiated. The private endpoint and subsequent private endpoint connection will be created in a "Pending" state. The private link resource owner is responsible to approve the connection. After it's approved, the private endpoint is enabled to send traffic normally, as shown in the following approval workflow diagram.  
 
 ![workflow approval](media/private-endpoint-overview/private-link-paas-workflow.png)
