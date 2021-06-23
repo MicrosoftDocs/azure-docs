@@ -287,7 +287,7 @@ from P1 response norm {
   }
 ```
 
-+ The source layer includes five maps, each with aof dimension of 12x12, totaling in 1440 nodes.
++ The source layer includes five maps, each with a dimension of 12x12, totaling in 1440 nodes.
 + The value of **KernelShape** indicates that this is a same map normalization layer, where the neighborhood is a 3x3 rectangle.
 + The default value of **Padding** is False, thus the destination layer has only 10 nodes in each dimension. To include one node in the destination layer that corresponds to every node in the source layer, add Padding = [true, true, true]; and change the size of RN1 to [5, 12, 12].
 
@@ -456,6 +456,6 @@ output Digit [10] from Hid3 all;
 + The total number of nodes can be calculated by using the declared dimensionality of the layer, [50, 5, 5], as follows: `MapCount * NodeCount\[0] * NodeCount\[1] * NodeCount\[2] = 10 * 5 * 5 * 5`
 + Because `Sharing[d]` is False only for `d == 0`, the number of kernels is `MapCount * NodeCount\[0] = 10 * 5 = 50`.
 
-## Acknowledgements
+## Acknowledgments
 
 The Net# language for customizing the architecture of neural networks was developed at Microsoft by Shon Katzenberger (Architect, Machine Learning) and Alexey Kamenev (Software Engineer, Microsoft Research). It is used internally for machine learning projects and applications ranging from image detection to text analytics. For more information, see [Neural Nets in Machine Learning studio - Introduction to Net#](/archive/blogs/machinelearning/neural-nets-in-azure-ml-introduction-to-net)
