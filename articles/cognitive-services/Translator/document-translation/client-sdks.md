@@ -44,7 +44,7 @@ For more information, *see* [Create SAS tokens](create-sas-tokens.md).
 | [Package (NuGet)][documenttranslation_nuget_package] | [Client library][documenttranslation_client_library_docs] |  [REST API][documenttranslation_rest_api] | [Product documentation][documenttranslation_docs] | [Samples][documenttranslation_samples] |
 
 > [!IMPORTANT]
-> This is a prerelease version of the Document Translation SDK. They're made available on an introductory basis so customers can get early access and provide feedback. Prerelease versions are still in development, are subject to change, and certain features may not be supported or might have constrained capabilities—do not use them in production applications.
+> This is a prerelease version of the Document Translation SDK. It's made available on an introductory basis so customers can get early access and provide feedback. Prerelease versions are still in development, are subject to change, and certain features may not be supported or might have constrained capabilities—do not use them in production applications.
 
 ### Set up your project
 
@@ -182,7 +182,7 @@ That's it! You've created a program to translate documents in a blob container u
 | [Package (PyPI)][python-dt-pypi] |  [Client library][python-dt-client-library] |  [REST API][python-rest-api] | [Product documentation][python-dt-product-docs] | [Samples][python-dt-samples] |
 
 > [!IMPORTANT]
-> This is a prerelease version of the Document Translation SDK. They're made available on an introductory basis so customers can get early access and provide feedback. Prerelease versions are still in development, are subject to change, and certain features may not be supported or might have constrained capabilities—do not use them in production applications.
+> This is a prerelease version of the Document Translation SDK. It's made available on an introductory basis so customers can get early access and provide feedback. Prerelease versions are still in development, are subject to change, and certain features may not be supported or might have constrained capabilities—do not use them in production applications.
 
 ### Set up your project
 
