@@ -33,7 +33,7 @@ For more information, see a list of [all platform metrics supported in Azure Mon
 
 For more information on what metric dimensions are, see [Multi-dimensional metrics](/azure/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics).
 
-App Service does not have any metrics that contain dimensions.
+App Service doesn't have any metrics that contain dimensions.
 
 ## Resource logs
 
@@ -46,7 +46,7 @@ This section lists the types of resource logs you can collect for App Service.
 | AppServiceEnvironmentPlatformLogs | Yes | N/A | Yes | Yes | App Service Environment: scaling, configuration changes, and status logs|
 | AppServiceAuditLogs | Yes | Yes | Yes | Yes | Login activity via FTP and Kudu |
 | AppServiceFileAuditLogs | Yes | Yes | TBA | TBA | File changes made to the site content; **only available for Premium tier and above** |
-| AppServiceAppLogs | ASP .NET | ASP .NET | Java SE & Tomcat Blessed Images <sup>1</sup> | Java SE & Tomcat Blessed Images <sup>1</sup> | Application logs |
+| AppServiceAppLogs | ASP.NET | ASP.NET | Java SE & Tomcat Blessed Images <sup>1</sup> | Java SE & Tomcat Blessed Images <sup>1</sup> | Application logs |
 | AppServiceIPSecAuditLogs  | Yes | Yes | Yes | Yes | Requests from IP Rules |
 | AppServicePlatformLogs  | TBA | Yes | Yes | Yes | Container operation logs |
 | AppServiceAntivirusScanAuditLogs | Yes | Yes | Yes | Yes | [Anti-virus scan logs](https://azure.github.io/AppService/2020/12/09/AzMon-AppServiceAntivirusScanAuditLogs.html) using Microsoft Defender; **only available for Premium tier** | 
@@ -94,7 +94,7 @@ App Service Environment : [Microsoft.Web/hostingEnvironments](/azure/azure-monit
 
 Azure App Service uses Kusto tables from Azure Monitor Logs. You can query these tables with Log analytics. For a list of App Service tables used by Kusto, see the [Azure Monitor Logs table reference - App Service tables](/azure/azure-monitor/reference/tables/tables-resourcetype#app-services). 
 
-This section refers to all of the Azure Monitor Logs Kusto tables relevant to App Service and available for query by Log Analytics. 
+This section refers to all Azure Monitor Logs Kusto tables relevant to App Service. These tables are available for query by Log Analytics. 
 
 |Resource Type | Notes |
 |-------|-----|
@@ -119,7 +119,7 @@ The following table lists the operations related to App Service that may be crea
 |Apply Web App Configuration| Applied configuration changes|
 |Reset Web App Configuration| Configuration changes reset|
 |Approve Private Endpoint Connections| Approved private endpoint connections|
-|Network Trace Web Apps| Initiated network trace|
+|Network Trace Web Apps| Started network trace|
 |Newpassword Web Apps| New password created |
 |Get Zipped Container Logs for Web App| Get container logs |
 |Restore Web App From Backup Blob| App restored from backup|
