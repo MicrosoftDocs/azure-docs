@@ -135,6 +135,8 @@ landingContent:
             url: /learn/modules/manage-iot-central-apps-with-rest-api/
           - text: 'Learn module: Set up continuous data export from Azure IoT Central to a Power BI app'
             url: /learn/modules/continuously-export-data-from-iot-central-power-bi/
+          - text: 'Learn module: Connect an IoT Edge device to your IoT Central application'
+            url: /learn/modules/connect-iot-edge-device-to-iot-central/
 
 
 

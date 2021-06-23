@@ -769,6 +769,8 @@
                   href: troubleshoot-dot-net-sdk-request-header-too-large.md
                 - name: Troubleshoot request timeout
                   href: troubleshoot-dot-net-sdk-request-timeout.md
+                - name: Troubleshoot slow requests
+                  href: troubleshoot-dot-net-sdk-slow-request.md
                 - name: Troubleshoot service unavailable
                   href: troubleshoot-service-unavailable.md
             - name: .Java
@@ -930,7 +932,7 @@
         - name: REST (Data plane)
           href: /rest/api/cosmos-db/
         - name: REST (Management plane)
-          href: /rest/api/cosmos-db-resource-provider/2021-04-15/sqlresources
+          href: /rest/api/cosmos-db-resource-provider/2021-04-15/sql-resources
         - name: PowerShell
           href: /powershell/module/az.cosmosdb/#cosmos-db&preserve-view=true
         - name: Resource Manager template
@@ -1014,6 +1016,8 @@
           href: /azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Troubleshoot common issues
           href: cassandra-troubleshoot.md
+        - name: Monitor using Diagnostics Logs
+          href: queries-cassandra.md
         - name: Cassandra and Spark
           items:
             - name: Introduction
@@ -1048,7 +1052,7 @@
     - name: Reference
       items:
         - name: REST resource provider
-          href: /rest/api/cosmos-db-resource-provider/2021-04-15/cassandraresources
+          href: /rest/api/cosmos-db-resource-provider/2021-04-15/cassandra-resources
         - name: PowerShell
           href: /powershell/module/az.cosmosdb/#cosmos-db&preserve-view=true
         - name: Resource Manager template
@@ -1161,6 +1165,8 @@
         - name: Find request unit charge
           displayName: request units, RUs, RU, charge, consumption
           href: find-request-unit-charge-mongodb.md
+        - name: Monitor using Diagnostics Logs
+          href: queries-mongo.md
         - name: Troubleshoot query performance
           href: mongodb-troubleshoot-query.md
         - name: Troubleshoot common issues
@@ -1182,7 +1188,7 @@
     - name: Reference
       items:
         - name: REST resource provider
-          href: /rest/api/cosmos-db-resource-provider/2021-04-15/mongodbresources
+          href: /rest/api/cosmos-db-resource-provider/2021-04-15/mongo-db-resources
         - name: PowerShell
           href: /powershell/module/az.cosmosdb/#cosmos-db&preserve-view=true
         - name: Resource Manager template
@@ -1250,6 +1256,8 @@
           href: how-to-access-system-properties-gremlin.md
         - name: Visualize graph data
           href: graph-visualization.md
+        - name: Monitor using Diagnostics Logs
+          href: queries-gremlin.md
         - name: Store and manage Spring Data
           href: /azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Manage using Resource Manager templates
@@ -1266,7 +1274,7 @@
         - name: PowerShell
           href: /powershell/module/az.cosmosdb/#cosmos-db&preserve-view=true
         - name: REST resource provider
-          href: /rest/api/cosmos-db-resource-provider/2021-04-15/gremlinresources
+          href: /rest/api/cosmos-db-resource-provider/2021-04-15/gremlin-resources
         - name: Resource Manager template
           href: /azure/templates/microsoft.documentdb/allversions
         - name: Azure CLI
@@ -1480,6 +1488,8 @@
               href: cosmosdb-monitor-resource-logs.md
             - name: Troubleshoot issues using basic queries
               href: cosmosdb-monitor-logs-basic-queries.md
+            - name: Troubleshoot issues using advanced queries
+              href: cosmos-db-advanced-queries.md                      
             - name: Audit control plane logs
               href: audit-control-plane-logs.md
         - name: Configure alerts

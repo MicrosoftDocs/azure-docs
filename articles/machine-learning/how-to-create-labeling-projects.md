@@ -39,7 +39,7 @@ Azure Machine Learning data labeling is a central place to create, manage, and m
 - The data that you want to label, either in local files or in Azure blob storage.
 - The set of labels that you want to apply.
 - The instructions for labeling.
-- An Azure subscription. If you don't have an Azure subscription, create a [free account](https://aka.ms/AMLFree) before you begin.
+- An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - A Machine Learning workspace. See [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
 
 ## Create a data labeling project
