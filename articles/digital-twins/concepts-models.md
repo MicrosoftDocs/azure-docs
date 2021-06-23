@@ -187,8 +187,8 @@ Here is a basic example of a component on a DTDL model. This example shows a Roo
 
 :::code language="json" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/IRoom.json" highlight="15-19, 28-41":::
 
-> [!NOTE]
-> Note that the component interface (thermostat component) is defined in the same array as the interface that uses it (Room). Components must be defined this way in API calls in order for the interface to be found.
+> [!IMPORTANT]
+> The component interface (thermostat component) is defined in the same array as the interface that uses it (Room). Components must be defined this way in API calls in order for the interface to be found.
 
 ## Model inheritance
 
