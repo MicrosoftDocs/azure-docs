@@ -13,11 +13,15 @@ ms.custom: template-how-to
 
 # Use a public IP address with a NAT gateway
 
-Azure NAT Gateway resources (part of Virtual Network NAT) are deployed to enable scalable outbound Internet connectivity from subnets within a virtual network.  Resources deployed in the NAT gateway virtual network subnet, such as load balancers, must be the standard SKU. Deployment of a NAT gateway to a virtual network subnet with basic SKU resources is unsupported. 
+Azure NAT Gateway resources enable outbound Internet connections from subnets in a virtual network. Resources deployed in the NAT gateway virtual network subnet must be the standard SKU. Deployment of a NAT gateway to a virtual network subnet with basic SKU resources is unsupported. 
 
-NAT Gateway supports standard SKU public IP addresses and public IP prefixes.   Any combination is fine, though note the number of IPs allocated can't exceed 16. The addition of IP addresses or an IP prefix scales the Source Network Address Translation (SNAT) connections from resources using the NAT gateway. 
+NAT gateway enables Source Network Address Translation (SNAT) connections from resources using the NAT gateway. NAT gateway supports standard SKU public IP addresses and public IP prefixes. Any combination is supported, though the number of IPs given can't exceed 16. Adding IP addresses or an IP prefix scales SNAT connections from resources using the NAT gateway. 
 
-In this article, you'll learn how to create a NAT gateway using an existing public IP in your subscription. You'll learn how to change the current public IP associated to a NAT gateway. Finally, you'll change the NAT gateway configuration from a single IP to an IP prefix. 
+In this article, you'll learn how to create a NAT gateway using an existing public IP in your subscription. 
+
+You'll learn how to change the current public IP associated to a NAT gateway. 
+
+Finally, you'll change the IP configuration from a public IP address to an IP prefix.
 
 ## Prerequisites
 
@@ -45,7 +49,7 @@ In this section, you'll create a NAT gateway resource. You'll select the IP addr
     | ------- | ----- |
     | **Project details** |   |
     | Subscription | Select your subscription. |
-    | Resource group | Select **Create new**. </br> Enter **myResourceGroupNAT**. </br> Select **OK**. </br> Alternatively, select your resource group. |
+    | Resource group | Select **Create new**. </br> Enter **myResourceGroupNAT**. </br> Select **OK**. |
     | **Instance details** |   |
     | Name | Enter **myNATgateway**. |
     | Region | Select **(US) West US 2**. |
@@ -93,7 +97,7 @@ To change the IP, you'll associate a new public IP address created previously wi
 
 ## Add public IP prefix
 
-Public IP prefixes extend the scalability of Source Network Address Translation (SNAT) by allowing multiple IP addresses for outbound flows from the NAT Gateway, which is useful to avoid SNAT port exhaustion, as each IP provides 64,000 ephemeral ports that can be used.
+Public IP prefixes extend the extensibility of SNAT for outbound connections from the NAT gateway. A public IP prefix avoids SNAT port exhaustion. Each IP provides 64,000 ephemeral ports that can be used.
 
 > [!NOTE] that when assigning a public IP prefix to a NAT gateway,the entire range will be used. 
 
@@ -124,13 +128,15 @@ In this section, you'll change the outbound IP configuration to use a public IP 
 
 ## More information
 
-* When utilizing NAT Gateway with virtual machines that have public IP addresses assigned, all ingress traffic addressed to the NAT Gateway public IP address(es) will also egress through the NAT Gateway.  Similarly, when utilizing a NAT Gateway with a Standard public load balancer, all ingress traffic addressed to the NAT Gateway public IP address(es) will also egress through the NAT Gateway.  Note that any outbound configuration from a load-balancing rule or outbound rules would be superseded by NAT gateway, and the members of the load balancer backend pool would also use the NAT Gateway for outbound.  Please see NAT Gateway Design Guidance for more information. 
+* When deploying virtual machines in a virtual network with a NAT gateway, all ingress traffic addressed to the NAT gateway egresses through the NAT gateway. When using a NAT Gateway with a standard public load balancer, all ingress traffic addressed to the NAT gateway public IP address or addresses will egress through the NAT Gateway. 
 
-* Both NAT Gateways and public IP addresses can have a TCP timeout value assigned for how long to keep a connection open before hearing keepalives.  If a public IP is assigned to a NAT Gateway, the timeout value on the IP takes precedence.  See NAT Gateway SNAT - Timers for more information. 
+    > [!NOTE] Any outbound configuration from a load-balancing rule or outbound rules is superseded by NAT gateway. Members of the load balancer backend pool would also use the NAT gateway for outbound connections. For more information, see [Designing virtual networks with NAT gateway resources](./nat-gateway-resource.md)
+
+* NAT gateways and public IP addresses can have a TCP timeout value assigned for how long to keep a connection open before hearing keepalives.  If a public IP is assigned to a NAT Gateway, the timeout value on the IP takes precedence.  For more information, see [Designing virtual networks with NAT gateway resources](./nat-gateway-resource.md#timers)
 
 ## Caveats
 
-* Public IPv6 address and Public IPv6 Prefixes are not supported on NAT Gateways at this time. NAT Gateways also cannot be deployed on a virtual network subnet with an IPv6 prefix. See Troubleshoot NAT Gateway for more information. 
+* Public IPv6 address and public IPv6 prefixes aren't supported on NAT gateways at this time. NAT gateways can't be deployed on a virtual network subnet with an IPv6 prefix. For more information, see [Troubleshoot Azure Virtual Network NAT connectivity](troubleshoot-nat.md)
 ## Next steps
 
 In this article, you learned how to create a load NAT gateway and use an existing public IP. You replaced the IP address in a NAT gateway outbound IP configuration. Finally, you changed an outbound IP configuration to use a public IP prefix.
