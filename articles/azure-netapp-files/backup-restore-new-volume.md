@@ -32,7 +32,7 @@ Restoring a backup creates a new volume with the same protocol type. This articl
 2. Navigate to **Backups**.
 3. From the backup list, select the backup to restore. Click the three dots (`…`) to the right of the backup, then click **Restore to new volume** from the Action menu.   
 
-    ![Screenshot that shows the Restore to New Volume option.](../media/azure-netapp-files/backup-restore-new-volume.png)
+    ![Screenshot that shows the option to restore backup to a new volume.](../media/azure-netapp-files/backup-restore-new-volume.png)
 
 4. In the Create a Volume page that appears, provide information for the fields in the page as applicable, and click **Review + Create** to begin restoring the backup to a new volume.   
 
@@ -44,7 +44,7 @@ Restoring a backup creates a new volume with the same protocol type. This articl
 
     * The **capacity pool** that the backup is restored into must have sufficient unused capacity to host the new restored volume. Otherwise, the restore operation will fail.   
 
-    ![Screenshot that shows the Restore to New Volume option.](../media/azure-netapp-files/backup-restore-create-volume.png)
+    ![Screenshot that shows the Create a Volume page.](../media/azure-netapp-files/backup-restore-create-volume.png)
 
 ## Next steps  
 

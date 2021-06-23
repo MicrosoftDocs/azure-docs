@@ -32,4 +32,14 @@ You cannot delete the latest backup.
 
 ## Next steps  
 
-* 
+* [Understand Azure NetApp Files backup](backup-introduction.md)
+* [Register Azure NetApp Files backup](backup-register.md)
+* [Configure policy-based backups](backup-configure-policy-based.md)
+* [Configure manual backups](backup-configure-manual.md)
+* [Manage backup policies](backup-manage-policies.md)
+* [Search backups](backup-search.md)
+* [Restore a backup](backup-restore-new-volume.md)
+* [Disable a backup](backup-disable.md)
+* [Delete backups](backup-delete.md)
+* [Volume backup metrics](azure-netapp-files-metrics.md#volume-backup-metrics)
+* [Azure NetApp Files backup FAQs](azure-netapp-files-faqs.md#azure-netapp-files-backup-faqs)
