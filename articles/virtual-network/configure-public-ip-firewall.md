@@ -61,9 +61,9 @@ In this section, you'll create an Azure Firewall. You'll select the IP address y
 7. Select **Create**.
 
 > [!NOTE]
-> This is a simple deployment of Azure Firewall. For advanced configuration and setup, see [Tutorial: Deploy and configure Azure Firewall and policy using the Azure portal](../firewall/tutorial-firewall-deploy-portal-policy.md)
+> This is a simple deployment of Azure Firewall. For advanced configuration and setup, see [Tutorial: Deploy and configure Azure Firewall and policy using the Azure portal](../firewall/tutorial-firewall-deploy-portal-policy.md).
 >
-> For more information on Azure Firewall, see [What is Azure Firewall?](../firewall/overview.md)
+> For more information on Azure Firewall, see [What is Azure Firewall?](../firewall/overview.md).
 
 ## Change public IP address
 
@@ -111,9 +111,10 @@ In this section, you'll add a public IP configuration to the Azure Firewall. For
 
 ## Caveats
 
-* Azure firewall uses the standard sku load balancer platform. Network filter rules for protocols other than TCP and UDP are unsupported for SNAT to the public IP address of the firewall. 
+* Azure firewall uses standard sku load balancer. Protocols other than TCP and UDP in network filter rules are unsupported for SNAT to the public IP of the firewall. 
 ## Next steps
 
 In this article, you learned how to create an Azure Firewall and use an existing public IP. You changed the public IP of the default IP configuration. Finally, you added a public IP configuration to the firewall.
 
 - To learn more about public IP addresses in Azure, see [Public IP addresses](public-ip-addresses.md).
+- To learn more about Azure Firewall, see [What is Azure Firewall?](../firewall/overview.md).
