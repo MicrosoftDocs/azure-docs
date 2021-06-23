@@ -1,7 +1,7 @@
 ---
 title: Use a public IP address with a VPN gateway
 titleSuffix: Azure Virtual Network
-description: Learn about the ways a public IP address is used with an VPN gateway and how to change the configuration.
+description: Learn about the ways a public IP address is used with a VPN gateway and how to change the configuration.
 author: asudbring
 ms.author: allensu
 ms.service: virtual-network
@@ -13,11 +13,11 @@ ms.custom: template-how-to
 
 # Use a public IP address with a VPN gateway
 
-A public IP address in Azure is available in standard and basic SKUs. The selection of SKU determines the features of the IP address. The SKU determines the resources that the IP address can be associated with. 
+Public IP addresses are available in two SKUs; standard, and basic. The selection of SKU determines the features of the IP address. The SKU determines the resources that the IP address can be associated with. 
 
-A VPN gateway is a specific type of virtual network gateway that is used to send encrypted traffic between an Azure virtual network and an on-premises location over the public Internet. You can also use a VPN gateway to send encrypted traffic between Azure virtual networks over the Microsoft network. Each virtual network can have only one VPN gateway. VPN gateway supports standard and basic SKU public IP addresses depending on the SKU of the VPN gateway. Public IP prefixes aren't supported.
+A VPN gateway is a virtual network gateway used to send encrypted traffic between an Azure virtual network and an on-premises location over the public Internet. You can also use a VPN gateway to send encrypted traffic between Azure virtual networks over the Microsoft network. Each virtual network can have only one VPN gateway. VPN gateway supports standard and basic SKU public IP addresses depending on the SKU of the VPN gateway. Public IP prefixes aren't supported.
 
-A VPN gateway requires a public IP address for it's configuration. A public IP address is used as the external connection point of the VPN. 
+A VPN gateway requires a public IP address for its configuration. A public IP address is used as the external connection point of the VPN. 
 
 In this article, you'll learn how to create a VPN gateway using an existing public IP in your subscription. 
 
@@ -92,7 +92,7 @@ In this section, you'll create a VPN gateway. You'll select the IP address you c
     | VPN type | Leave the default of **Route-based**. |
     | SKU | Select **VpnGw1AZ**. |
     | Virtual network | Select **myVNet**. |
-    | Subnet | Entry will auto-select **GatewaySubnet** you created earlier |
+    | Subnet | Entry will autoselect **GatewaySubnet** you created earlier |
     | **Public IP address** |   |
     | Public IP address | Select **Use existing**. |
     | Choose public IP address | Select **myStandardPublicIP** or your public IP address |
@@ -112,6 +112,9 @@ In this section, you'll create a VPN gateway. You'll select the IP address you c
 
 VPN gateway doesn't support changing the public IP address after creation.
 
+## Caveats
+
+* Public IPv6 addresses aren't supported for VPN Gateways at this time.  
 ## Next steps
 
 In this article, you learned how to create a VPN Gateway and use an existing public IP. 
