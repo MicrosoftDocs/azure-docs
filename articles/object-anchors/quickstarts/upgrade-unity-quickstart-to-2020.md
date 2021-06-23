@@ -85,7 +85,7 @@ Under the **Inspector** pane, select the **Camera** button, and change the profi
 
 :::image type="content" source="./media/update-camera-profile.png" alt-text="update camera profile":::
 
-Still under the **Inspector** pane, select the **Input** button, and expand the **Input Data Providers** dropdown. Then, follow the <a href="/windows/mixed-reality/mrtk-unity/configuration/getting-started-with-mrtk-and-xrsdk?view=mrtkunity-2021-05#configuring-mrtk-for-the-xr-sdk-pipeline" target="_blank">Configuring MRTK for the XR SDK pipeline</a> documentation to set up the proper input data providers (**OpenXRDeviceManager** and **WindowsMixedRealityDeviceManager**).
+Still under the **Inspector** pane, select the **Input** button, and expand the **Input Data Providers** dropdown. Then, follow the <a href="/windows/mixed-reality/mrtk-unity/configuration/getting-started-with-mrtk-and-xrsdk#configuring-mrtk-for-the-xr-sdk-pipeline" target="_blank">Configuring MRTK for the XR SDK pipeline</a> documentation to set up the proper input data providers (**OpenXRDeviceManager** and **WindowsMixedRealityDeviceManager**).
 
 :::image type="content" source="./media/update-input-profile.png" alt-text="update input profile":::
 
