@@ -339,6 +339,6 @@ sections:
 
       - question: How will I be charged for ExpressRoute?
         answer: |
-          The following items are charged as regular ExpressRoute pricing:
+          Any ExpressRoute Global Reach circuit where one end terminates on an Azure VMware Solution ExpressRoute circuit is suppressed. The following items are charged as regular ExpressRoute pricing:
           - **ExpressRoute circuit** and **Data Transfer pricing:**  only the on-premises to Azure ExpressRoute circuit (not the Azure VMware Solution ExpressRoute circuit)
           - **ExpressRoute Gateway:** Each virtual network that needs to attach to Azure VMware Solution needs a local or remote ExpressRoute Gateway
