@@ -16,7 +16,7 @@ ms.author: lajanuar
 > [!IMPORTANT]
 > Azure role-based access control (Azure RBAC) assignment is currently in preview and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. You will use Azure RBAC assignments to grant permissions for managed identities.
 
-If you have a private Azure storage account protected by a Virtual Network (VNet) or firewall or you have enabled a bring your own storage (BYOS) account Form Recognizer, cannot directly access your storage account data—access and authentication is supported by [Managed Identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview). Once managed identities is enabled, Form Recognizer service can access your storage account using an assigned managed identity credential.
+ If you have a private Azure storage account protected by a Virtual Network (VNet) or firewall or you have enabled a bring your own storage (BYOS) account, Form Recognizer, cannot directly access your storage account data.Private Azure storage account access and authentication is supported by [Managed Identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview). Once managed identities is enabled, Form Recognizer service can access your storage account using an assigned managed identity credential. In this article, you'll learn to enable a system-assigned managed identity and create a user-assigned managed identity for your Form Recognizer instance.
 
 > [!NOTE]
 >
@@ -44,9 +44,9 @@ To get started, you'll need:
 
 There are two types of managed identity assignments:
 
-* A [**System-assigned**](#enable-a-system-assigned-managed-identity-in-the-azure-portal) managed identity is **enabled** directly on a service instance. Here, you'll enable the identity for Form Recognizer. It is not enabled by default; you have to go to your resource and update the identity setting. The system-assigned managed identity is tied to your resource throughout its lifecycle. If you delete your resource, the managed identity will be deleted as well.
+* A [**System-assigned**](#enable-a-system-assigned-managed-identity) managed identity is **enabled** directly on a service instance. Here, you'll enable the identity for Form Recognizer. It is not enabled by default; you have to go to your resource and update the identity setting. The system-assigned managed identity is tied to your resource throughout its lifecycle. If you delete your resource, the managed identity will be deleted as well.
 
-* A [**User-assigned**](#create-a-user-assigned-managed-identity-in-the-azure-portal) managed identity is **created** as a standalone Azure resource and assigned to one or more Azure service instances. Here, you'll assign the identity to your storage account. A user-assigned identity is managed separately from the resources that use it and has an independent lifecycle.
+* A [**User-assigned**](#create-a-user-assigned-managed-identity) managed identity is **created** as a standalone Azure resource and assigned to one or more Azure service instances. Here, you'll assign the identity to your storage account. A user-assigned identity is managed separately from the resources that use it and has an independent lifecycle.
 
 ## Enable a system-assigned managed identity
 
@@ -89,12 +89,9 @@ There are two types of managed identity assignments:
 
 1. After you've received the Added Role assignment, confirmation pop-up message, refresh the page to see the added role assignment. If you don't see the change right away, wait and try refreshing the page once more. When you assign roles or remove role assignments, it can take up to 30 minutes for changes to take effect.
 
-
     :::image type="content" source="media/managed-identities/add-role-assignment-confirmation.png" alt-text="Screenshot: Added role assignment confirmation pop-up message.":::
 
-
     :::image type="content" source="media/managed-identities/assigned-roles-window.png" alt-text="Screenshot: Azure role assignments window.":::
-
 
 You have completed the steps to enable a service-assigned managed identity. With this identity credential, you can grant specific access rights to a single Azure service. If you need to assign a managed identity to  multiple Azure services, you'll need to create a user-assigned managed identity.
 
@@ -129,12 +126,11 @@ You have completed the steps to enable a service-assigned managed identity. With
 
     :::image type="content" source="media/managed-identities/create-user-managed-identity-in-portal.png" alt-text="Screenshot: create a user-assigned managed identity resource in the Azure portal":::
 
-#### Assign roles to your user-assigned managed identity 
+#### Assign roles to your user-assigned managed identity
 
 You are going to create two role assignments—**Reader** and **Storage Blob Data Reader**. You will need both **user-assigned** identities to use your custom domain. 
 
 Sign in to the [Azure portal](https://portal.azure.com) using an account associated with your Azure subscription. 
-
 
 1. Navigate to your storage account page.
 
@@ -185,7 +181,7 @@ Sign in to the [Azure portal](https://portal.azure.com) using an account associa
     | Field | Value |
     |------|--------|
     |**Subscription** | ***The subscription associated with your storage resource*** |
-    | **User assigned managed identities** | ***If you have created more than one user-assigned managed identity, select the same identity resource that was assigned the **Reader** and **Storage Blob Data Reader** roles in the [assign a role to your user-assigned managed identity](#assign-a-role-to-your-user-assigned-managed-identity).***
+    | **User assigned managed identities** | ***If you have created more than one user-assigned managed identity, select the same identity resource that was assigned the **Reader** and **Storage Blob Data Reader** roles in the [assign a role to your user-assigned managed identity](#assign-roles-to-your-user-assigned-managed-identity).***
 
  That's it! You've learned how to implement system-assigned and user-assigned managed identities for your Form Recognizer and Azure storage resources. Now, you can train a custom model or analyze documents using files stored in your BYOS account.
 
