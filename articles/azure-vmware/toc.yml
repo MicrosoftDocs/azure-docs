@@ -96,7 +96,7 @@
       href: deploy-traffic-manager-balance-workloads.md
     - name: Configure alerts and work with metrics 
       href: configure-alerts-for-azure-vmware-solution.md
-    - name: Back up and recovery with Azure Backup Server
+    - name: Back up and restore VMs with Azure Backup Server
       items: 
       - name: Back up VMware virtual machines 
         href: /azure/backup/backup-azure-backup-server-vmware?context=/azure/azure-vmware/context/context
