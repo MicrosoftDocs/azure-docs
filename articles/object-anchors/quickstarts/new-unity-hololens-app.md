@@ -92,7 +92,7 @@ First, let's set quality settings for our application.
 1. Select the **Background** field to open the color picker.
 1. Set **R, G, B, and A** to **0**.
 1. Change the **Clipping Planes Near** property to 0.85.
-1. Select **Add Component** and search for and add the **Tracked Posed Driver**.
+1. Select **Add Component** and search for and add the **Tracked Pose Driver**.
 1. Select  **File** > **Save**.
 
 ## Trying it out
