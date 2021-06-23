@@ -802,6 +802,8 @@
     "articles/event-hubs/.openpublishing.redirection.event-hubs.json",
     "articles/event-grid/.openpublishing.redirection.event-grid.json",    
     "articles/hdinsight/.openpublishing.redirection.hdinsight.json",
-    "articles/service-bus-messaging/.openpublishing.redirection.service-bus-messaging.json"    
+    "articles/service-bus-messaging/.openpublishing.redirection.service-bus-messaging.json",
+    "articles/iot-central/.openpublishing.redirection.iot-central.json",
+    "articles/iot-pnp/.openpublishing.redirection.iot-pnp.json"
   ]
 }
