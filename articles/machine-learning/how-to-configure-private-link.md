@@ -179,7 +179,7 @@ For information on Azure Virtual Machines, see the [Virtual Machines documentati
 In some situations, you may want to allow someone to connect to your secured workspace over a public endpoint, instead of through the VNet. After configuring a workspace with a private endpoint, you can optionally enable public access to the workspace. Doing so does not remove the private endpoint. All communications between components behind the VNet is still secured. It enables public access only to the workspace, in addition to the private access through the VNet.
 
 > [!WARNING]
-> When connecting over the public endpoint, some features of studio will fail to access your data. This problem happens when the data is stored on a service that is secured behind the VNet. For example, an Azure Storage Account. Also please note compute instance Jupyter/JupyterLab/RStudio functionality and running notebooks will not work.
+> When connecting over the public endpoint, some features of studio will fail to access your data. This problem happens when the data is stored on a service that is secured behind the VNet. For example, an Azure Storage Account. Also please note compute instance Jupyter/JupyterLab/RStudio functionality and running notebooks is not supported.
 
 To enable public access to a private endpoint-enabled workspace, use the following steps:
 
