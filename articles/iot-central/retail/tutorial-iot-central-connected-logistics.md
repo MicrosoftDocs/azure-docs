@@ -37,7 +37,7 @@ Create the application using following steps:
 
     :::image type="content" source="media/tutorial-iot-central-connected-logistics/iotc-retail-homepage.png" alt-text="Connected logistics template":::
 
-1. Select **Create app** under **Connected Logistics Application**.
+1. Select **Create app** under **Connected Logistics**.
 
 1. **Create app** opens the **New application** form. Enter the following details:
 
@@ -52,11 +52,6 @@ Create the application using following steps:
     :::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-app-create-billinginfo.png" alt-text="Connected logistics billing info":::
 
 ## Walk through the application
-
-Below is the screenshot showing how to select the connected logistics application template.
-
-> [!div class="mx-imgBorder"]
-> ![Screenshot showing how to select the connected logistics application template](./media/tutorial-iot-central-connected-logistics/iotc-retail-homepage.png)
 
 The following sections walk you through the key features of the application.
 
@@ -97,7 +92,7 @@ Select the **Rules** tab to the rules in this application template. These rules 
 
 **Gateway theft alert**: This rule triggers when there's unexpected light detection by the sensors during the journey. Operators must be notified immediately to investigate potential theft.
 
-**Unresponsive Gateway**: This rule triggers if the gateway doesn't report to the cloud for a prolonged period. The gateway could be unresponsive because of low battery, loss of connectivity, or device damage.
+**Lost gateway alert**: This rule triggers if the gateway doesn't report to the cloud for a prolonged period. The gateway could be unresponsive because of low battery, loss of connectivity, or device damage.
 
 :::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-rules.png" alt-text="Rule definitions":::
 
