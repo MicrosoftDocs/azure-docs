@@ -48,7 +48,7 @@ This section shows you how to use the Azure portal to create IP firewall rules f
     > [!NOTE]
     > To restrict access to specific virtual networks, see [Allow access from specific networks](event-hubs-service-endpoints.md).
 
-[!INCLUDE [event-hubs-trusted-services](../../includes/event-hubs-trusted-services.md)]
+[!INCLUDE [event-hubs-trusted-services](./includes/event-hubs-trusted-services.md)]
 
 
 ## Use Resource Manager template

@@ -599,7 +599,7 @@
       href: migration-classic-resource-manager-community-tools.md
     - name: FAQ
       displayName: classic, migration, classic to ARM, CSES, Cloud Services
-      href: migration-classic-resource-manager-faq.md
+      href: migration-classic-resource-manager-faq.yml
 - name: Images
   items:
   - name: Find Azure Marketplace images
@@ -640,9 +640,6 @@
       - name: FreeBSD
         displayName: Linux distribution specific requirements, FreeBSD
         href: ./linux/freebsd-intro-on-azure.md
-      - name: FreeBSD Packet Filter
-        displayName: Linux distribution specific requirements, FreeBSD
-        href: ./linux/freebsd-pf-nat.md
       - name: Oracle Linux
         displayName: Linux distribution specific requirements, Oracle
         href: ./linux/oracle-create-upload-vhd.md
@@ -1547,16 +1544,25 @@
     href: ../azure-monitor/vm/monitor-vm-azure.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
   - name: Monitoring VMs
     items:
-    - name: Windows
-      displayName: Monitoring VMs
-      href: ./windows/tutorial-monitor.md
+    - name: Overview
+      href: ../azure-monitor/vm/monitor-virtual-machine.md?context=/azure/virtual-machines/context/context
+    - name: Configure monitoring
+      href: ../azure-monitor/vm/monitor-virtual-machine-configure.md?context=/azure/virtual-machines/context/context
+    - name: Analyze data
+      href: ../azure-monitor/vm/monitor-virtual-machine-analyze.md?context=/azure/virtual-machines/context/context
+    - name: Monitor security
+      href: ../azure-monitor/vm/monitor-virtual-machine-security.md?context=/azure/virtual-machines/context/context
+    - name: Create alerts
+      href: ../azure-monitor/vm/monitor-virtual-machine-alerts.md?context=/azure/virtual-machines/context/context
+    - name: Monitor workloads
+      href: ../azure-monitor/vm/monitor-virtual-machine-workloads.md?context=/azure/virtual-machines/context/context
   - name: Agents
     items:
     - name: Agents overview
       href: ../azure-monitor/agents/agents-overview.md?context=/azure/virtual-machines/context/context
     - name: FAQ
       displayName: Agents
-      href: ../azure-monitor/faq.md?context=/azure/virtual-machines/context/context#agents
+      href: /azure-monitor/faq.yml#agents
     - name: Azure Diagnostics extension
       items:
       - name: Overview
@@ -1626,10 +1632,10 @@
         href: ../azure-monitor/vm/vminsights-overview.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
       - name: General Availability FAQ
         displayName: Azure monitor for VMs
-        href: ../azure-monitor/vm/vminsights-ga-release-faq.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
+        href: ../azure-monitor/vm/vminsights-ga-release-faq.yml?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
       - name: FAQ
         displayName: Azure monitor for VMs
-        href: ../azure-monitor/faq.md?context=/azure/virtual-machines/context/context
+        href: ../azure-monitor/faq.yml?context=/azure/virtual-machines/context/context
       - name: Enable monitoring
         items:
         - name: Enable monitoring overview
@@ -1850,3 +1856,4 @@
       href: ./linux/faq.yml
     - name: Windows
       href: ./windows/faq.yml
+

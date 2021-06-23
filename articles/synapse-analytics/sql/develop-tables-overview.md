@@ -195,7 +195,7 @@ Statistical updating doesn't happen automatically. Update statistics after a sig
 
 ## Primary key and unique key
 
-For dedicated SQL pool, PRIMARY KEY is only supported when NONCLUSTERED and NOT ENFORCED are both used.  UNIQUE constraint is only supported when NOT ENFORCED is used.  For more information, see the [SQL pool Table Constraints](../sql-data-warehouse/sql-data-warehouse-table-constraints.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) article.
+For dedicated SQL pool, PRIMARY KEY is only supported when NONCLUSTERED and NOT ENFORCED are both used.  UNIQUE constraint is only supported when NOT ENFORCED is used.  For more information, see the [dedicated SQL pool table constraints](../sql-data-warehouse/sql-data-warehouse-table-constraints.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) article.
 
 ## Commands for creating tables
 
