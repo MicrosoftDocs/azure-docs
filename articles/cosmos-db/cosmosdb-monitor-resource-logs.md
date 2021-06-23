@@ -155,7 +155,7 @@ Use the [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-se
 ## <a id="full-text-query"></a> Enable full-text query for logging query text
 
 > [!Note]
-> Enabling this feature may result in additional logging costs, for pricing details visit [Azure Monitor pricing] (https://azure.microsoft.com/pricing/details/monitor/). It is recommended to disable this feature after troubleshooting.
+> Enabling this feature may result in additional logging costs, for pricing details visit [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/). It is recommended to disable this feature after troubleshooting.
 
 Azure Cosmos DB provides advanced logging for detailed troubleshooting. By enabling full-text query, you’ll be able to view the deobfuscated query for all requests within your Azure Cosmos DB account.  You’ll also give permission for Azure Cosmos DB to access and surface this data in your logs. 
 
