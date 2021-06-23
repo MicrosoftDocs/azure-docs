@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot issues with advanced diagnostics queries (SQL API)
 titleSuffix: Azure Cosmos DB
-description: Learn how to query diagnostics logs for troubleshooting data stored in Azure Cosmos DB - SQL API
+description: Learn how to query diagnostics logs to troubleshoot data stored in Azure Cosmos DB - SQL API
 author: StefArroyo
 services: cosmos-db
 ms.service: cosmos-db
@@ -27,7 +27,7 @@ For Azure Diagnostics tables, all data is written into one single table and user
 
 For [resource-specific tables](cosmosdb-monitor-resource-logs.md#create-setting-portal), data is written into individual tables for each category of the resource. We recommend this mode since it makes it much easier to work with the data, provides better discoverability of the schemas, and improves performance across both ingestion latency and query times.
 
-1. Top N(10) RU consuming requests/queries in a given time frame
+1. Top N(10) queries ordered by request units consumption in a given time frame
 
 # [Resource-specific](#tab/resource-specific)
 
