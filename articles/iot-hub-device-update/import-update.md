@@ -57,7 +57,7 @@ If you haven't already done so, be sure to familiarize yourself with the basic [
     $importManifest | Out-File '.\importManifest.json' -Encoding UTF8
     ```
 
-    For quick reference, here are some example values for the above parameters. You can also view the complete [import manifest schema](import-schema.md) for more details.
+    The following table is a quick reference for how to populate the above parameters. If you need more information, you can also view the complete [import manifest schema](import-schema.md).
 
     | Parameter | Description |
     | --------- | ----------- |
@@ -67,8 +67,8 @@ If you haven't already done so, be sure to familiarize yourself with the basic [
     | updateName | Identifier for a class of updates. The class can be anything you choose. It will often be a device or model name.
     | updateVersion | Version number distinguishing this update from others that have the same Provider and Name. Does not have match a version of an individual software component on the device (but can if you choose).
     | updateType | <ul><li>Specify `microsoft/swupdate:1` for image update</li><li>Specify `microsoft/apt:1` for package update</li></ul>
-    | installedCriteria | Used during deployment to compare the version already on the device with the version of the update. installedCriteria must match the version that is on the device, or deploying the update to the device will show as “failed”.<ul><li>For `microsoft/swupdate:1` update type, specify value of SWVersion </li><li>For `microsoft/apt:1` update type, specify **name-version**, where _name_ is the name of the APT Manifest and _version_ is the version of the APT Manifest. For example, contoso-iot-edge-1.0.0.0.
-    | updateFilePath(s) | Path to the update file(s) on your computer
+    | installedCriteria | Used during deployment to compare the version already on the device with the version of the update. Deploying the update to the device will return a “failed” result if the installedCriteria value doesn't match the version that is on the device.<ul><li>For `microsoft/swupdate:1` update type, specify value of SWVersion </li><li>For `microsoft/apt:1` update type, specify **name-version**, where _name_ is the name of the APT Manifest and _version_ is the version of the APT Manifest. For example, contoso-iot-edge-1.0.0.0.
+    | updateFilePath(s) | Path to the update file(s) on your computer.
 
 
 ## Review the generated import manifest
