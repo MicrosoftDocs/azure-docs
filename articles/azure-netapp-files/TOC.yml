@@ -59,6 +59,8 @@
       href: cross-region-replication-introduction.md
     - name: Requirements and considerations for cross-region replication
       href: cross-region-replication-requirements-considerations.md
+  - name: Understand Azure NetApp Files backup
+    href: backup-introduction.md  
   - name: Solutions
     items:
     - name: Solution architectures using Azure NetApp Files
@@ -143,6 +145,18 @@
       href: cross-region-replication-delete.md
   - name: Manage billing by using tags
     href: manage-billing-tags.md
+  - name: Manage Azure NetApp Files backup 
+    items:
+    - name: Register Azure NetApp Files backup 
+      href: backup-register.md    
+    - name: Configure backups
+      items:
+      - name: Configure policy-based backups 
+        href: backup-configure-policy-based.md
+      - name: Configure manual backups 
+        href: backup-configure-manual.md
+    - name: Manage backup policies
+      href: backup-manage-policies.md 
   - name: Develop
     items:
     - name: REST API
