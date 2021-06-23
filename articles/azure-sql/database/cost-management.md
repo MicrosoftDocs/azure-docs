@@ -60,6 +60,18 @@ Azure SQL Database runs on Azure infrastructure that accrues costs along with Az
 
 Azure SQL Database (with the exception of serverless) is billed on a predictable, hourly rate. If the SQL database is active for less than one hour, you are billed for each hour the database exists using the highest service tier selected, provisioned storage and IO that applied during that hour, regardless of usage or whether the database was active for less than an hour.
 
+Billing depends on the SKU of your product, the generation hardware of your SKU, and the meter category. SQL Database has the following possible SKUs:
+
+- Basic (B)
+- Standard (S)
+- Premium (P)
+- General purpose (GP)
+- Business critical (BC)
+- And for storage: Geo-redundant storage (GRS), Locally-redundant storage (LRS), and Zone-redundant storage (ZRS)
+- It's also possible to have a grandfathered (GF) SKU from deprecated resource offerings. 
+
+To learn more, see [service tiers](service-tiers-general-purpose-business-critical.md). 
+
 The following table shows the most common billing meters and their possible SKUs for single databases in Azure SQL Database: 
 
 
@@ -86,36 +98,6 @@ The following table shows the most common billing meters and their possible SKUs
 | Compute  | B/S/P/GP/BC | Measures the consumption of your compute resources per hour, such as vCores and memory or DTUs. | 
 | License | GP | The billing for your SQL Server license, per minute. | 
 | Storage | B/S/P/GP/HS | Billed both by the amount of data stored on the drive using storage space, and the throughput of megabytes per second (MBPS). |
-
-
-| Measurement| Possible SKU(s) | Description | 
-| :----|:----|:----|
-| Backup | General purpose / Business critical / Hyperscale | Measures the consumption of storage used by backups, billed by the amount of storage utilized.  | 
-| Backup (LTR) | Geo-redundant storage / Locally-redundant storage / Zone-redundant storage / Grandfathered | Measures the consumption of storage used by long-term backups configured via long-term retention, billed by the amount of storage utilized. | 
-| Compute  | Basic / Standard / Premium / General Purpose / Business Critical | Measures the consumption of your compute resources per hour, such as vCores and memory or DTUs. | 
-| Compute (primary/ named replica) | Hyperscale | Measures the consumption of your compute resources per hour of your primary Hyperscale replica, such as vCores and memory. 
-| Compute (HA replica)             | Hyperscale | Measures the consumption of your compute resources per hour of your secondary Hyperscale replica, such as vCores and memory. | 
-| Compute (ZR add-on)              | General purpose | Measures the consumption of your compute resources per minute of your zone redundant added-on replica, such as vCores and memory or DTUs. | 
-| Compute (serverless)             | General purpose | Measures the consumption of your serverless compute resources per minute, such as vCores and memory.  | 
-| License | General purpose /  Business critical | The billing for your SQL Server license, per minute. | 
-| License | Hyperscale | The billing for your SQL Server license, per minute. | 
-| Storage | Basic / Standard / Premium / General purpose / Hyperscale | Billed both by the amount of data stored on the drive using storage space, and the throughput of megabytes per second (MBPS). |
-
-
-The following table shows the most common billing meters and their possible SKUs for elastic pools in Azure SQL Database: 
-
-
-| Measurement| Possible SKU(s) | Description | 
-|:----|:----|:----|
-| Backup | General purpose / Business critical  | Measures the consumption of storage used by backups, billed by the amount of storage utilized.  | 
-| Compute  | Basic / Standard / Premium / General Purpose / Business Critical | Measures the consumption of your compute resources per hour, such as vCores and memory or DTUs. | 
-| License | General purpose | The billing for your SQL Server license, per minute. | 
-| Storage | Basic / Standard / Premium / General purpose / Hyperscale | Billed both by the amount of data stored on the drive using storage space, and the throughput of megabytes per second (MBPS). |
-
-
-
-
-
 
 
 ### Using Monetary Credit with Azure SQL Database
