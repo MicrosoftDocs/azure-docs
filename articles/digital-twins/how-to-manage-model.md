@@ -93,11 +93,25 @@ Once a model is uploaded to your Azure Digital Twins instance, the model interfa
 
 Instead, if you want to make changes to a model—such as updating `displayName` or `description`, or adding and removing properties—you'll need to replace the original model. 
 
-There are two strategies to choose from when replacing a model:
-* [Option 1: Upload new model version](#option-1-upload-new-model-version): Upload the model, with a new version number, and update your twins to use that new model. Both the new and old versions of the model will exist in your instance until you delete one.
-    - **Use this strategy when** you want to make sure twins stay valid at all times through the model transition, or you want to keep a record of what versions a model has gone through. This is also a good choice if you have many models that depend on the model you want to update.
-* [Option 2: Delete old model and re-upload](#option-2-delete-old-model-and-re-upload): Delete the original model and upload the new model with the same name and ID (DTMI value) in its place. Completely replaces the old model with the new one. 
-    - **Use this strategy when** you want to remove all record of the older model. Twins will be invalid for a short time while you're transitioning them from the old model to the new one.
+There are two strategies to choose from when replacing a model. 
+* [Option 1. Upload new model version](#option-1-upload-new-model-version): Upload the model, with a new version number, and update your twins to use that new model. Both the new and old versions of the model will exist in your instance until you delete one.
+* [Option 2. Delete old model and re-upload](#option-2-delete-old-model-and-re-upload): Delete the original model and upload the new model with the same name and ID (DTMI value) in its place. Completely replaces the old model with the new one.
+
+### Compare strategy options
+
+The chart below contains details to help you compare and decide which strategy is right for you.
+
+|  | Option 1. Upload new model version | Option 2. Delete old model and re-upload |
+| --- | --- | --- |
+| A good choice when... | You want to keep a record of what versions a model has gone through<br><br> You want to make sure twins stay valid at all times through the model transition<br><br>You have many models that depend on the model you want to update | You want to remove all record of the older model<br><br>It's ok for your twins to be invalid for a short time while you're transitioning them from the old model to the new one<br><br>You are only making additive changes to your models |
+| Rollback process | Manually change all twins back to the previous model (can be slow). Patch twins as needed. | Delete the new model and upload the old one again. Twins will automatically move back over to the new model. Patch twins as needed. |
+| Behavior with additive changes only | Twins have to be updated manually. | Twins will automatically switch over to the new model definition. |
+| Behavior with breaking changes | Twins can be read. Before writing, twins must be patched to adapt incompatible properties (beyond just patching the model version). | Twins can be read. Before writing, twins must be patched to adapt incompatible properties. |
+| Supports partial updates? | Yes, customers can update twins selectively as desired. | No, changes to the models are global. |
+| DTMI behavior | Twins have a different DTMI ID (version #). Code and queries need to adapt to the new DTMI as desired. | Twins retain the same DTMI ID. That can have good and bad consequences: Code and queries that look for a DTMI still find the same twins, but need to be written robustly to account for changes. |
+| Known issues and other considerations | No convenient rollback<br><br>Slow updates, since every twin that uses the model must be visited and updated | Replacement is not atomic, and therefore rollback isn't either<br><br>Currently only leaf models can be directly replaced. Workaround for this is cumbersome<br><br>Latency when updating |
+
+The rest of this section describes the steps to implement both strategy options.
 
 ### Option 1: Upload new model version
 
@@ -165,7 +179,7 @@ Since Azure Digital Twins does not allow two models with the same ID, start by d
 
 Use the following instructions to [delete your original model](#deletion). This will leave your twins that were using that model temporarily "orphaned," as they're now using a model that no longer exists. This state will be repaired in the next step when you reupload the updated model.
 
-### 2. Create and upload new model
+### 2. Create and upload new model with same ID
 
 Start with the DTDL of the original model. Update, add, or remove the fields you want to change.
 
