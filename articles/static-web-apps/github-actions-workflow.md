@@ -52,13 +52,11 @@ In this example, a workflow begins when a pull request on the *main* branch is:
 - reopened
 - closed
 
-You can customize this part of the workflow to target different branches, or different events.
+You can customize this part of the workflow to target different branches or different events.
 
 ## Jobs
 
 Each trigger defines a series of [jobs](https://help.github.com/actions/reference/workflow-syntax-for-github-actions#jobs) to run in response to the event.
-
-There are two available jobs.
 
 | Name | Description |
 | --- | --- |
@@ -69,8 +67,6 @@ There are two available jobs.
 
 Steps are sequential tasks for a job. A step carries out actions like installing dependencies, running tests, and deploying your application to production.
 
-A workflow file defines the following steps.
-
 | Job | Steps |
 | --- | --- |
 | `build_and_deploy_job` | <li>Checks out the repository in the GitHub Action's environment.<li>Builds and deploys the repository to Azure Static Web Apps. |
@@ -80,11 +76,10 @@ A workflow file defines the following steps.
 
 The step named `build_and_deploy_job` builds and deploys to your site to Azure Static Web Apps. Under the `with` section, you can customize the following values for your deployment.
 
-[!INCLUDE [static-web-apps-folder-structure](../../includes/static-web-apps-folder-structure.md)]
-
 The following example shows how these values appear in a workflow file.
 
 ```yml
+...
 with:
   azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_MANGO_RIVER_0AFDB141E }}
   repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for GitHub integrations (i.e. PR comments)
@@ -96,23 +91,25 @@ with:
   ###### End of Repository/Build Configurations ######
 ```
 
+[!INCLUDE [static-web-apps-folder-structure](../../includes/static-web-apps-folder-structure.md)]
+
 Don't change the values for `repo_token`, `action`, and `azure_static_web_apps_api_token` as they are set for you by Azure Static Web Apps.
 
 ## Custom build commands
 
 You can take fine-grained control over what commands run during the app or API build process. The following commands appear under a job's `with` section.
 
-> [!NOTE]
-> Currently, you can only define custom build commands for Node.js builds. The build process always calls `npm install` before any custom command.
-
 | Command | Description |
 | --- |--- |
 | `app_build_command` | Defines a custom command to build the static content application.<br><br>For example, to configure a production build for an Angular application create an npm script named `build-prod` to run `ng build --prod` and enter `npm run build-prod` as the custom command. If left blank, the workflow tries to run the `npm run build` or `npm run build:azure` commands. |
 | `api_build_command` | Defines a custom command to build the Azure Functions API application. |
 
+> [!NOTE]
+> Currently, you can only define custom build commands for Node.js builds. The build process always calls `npm install` before any custom command.
+
 ## Skip building front-end app
 
-If you need full control the build for your front-end app, you can add custom steps to the workflow. You may choose to bypass the automatic build and deploy the app built in a previous step.
+If you need full control of the build for your front-end app, you can add custom steps to the workflow. For instance, you may choose to bypass the automatic build and deploy the app built in a previous step.
 
 To skip building the front-end app, set `skip_app_build` to `true` and `app_location` to the location of the folder to deploy.
 
