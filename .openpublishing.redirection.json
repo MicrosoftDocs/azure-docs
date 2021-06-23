@@ -31074,6 +31074,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/storage/blobs/storage-blob-immutable-storage.md",
+      "redirect_url": "/azure/storage/blobs/immutable-storage-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/visual-studio/vs-storage-webjobs-getting-started-blobs.md",
       "redirect_url": "/azure/storage/blobs/",
       "redirect_document_id": false

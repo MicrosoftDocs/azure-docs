@@ -185,8 +185,14 @@
         href: snapshots-overview.md
       - name: Change feed
         href: storage-blob-change-feed.md        
-      - name: Immutable blobs
-        href: storage-blob-immutable-storage.md
+      - name: Immutable storage for blobs
+        items:
+        - name: Overview 
+          href: immutable-storage-overview.md
+        - name: Time-based retention policies
+          href: immutable-time-based-retention-policy-overview.md
+        - name: Legal hold policies
+          href: immutable-legal-hold-overview.md  
     - name: Redundancy and disaster recovery
       items:    
       - name: Data redundancy

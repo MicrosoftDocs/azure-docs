@@ -1,5 +1,6 @@
 ---
-title: Immutable blob storage - Azure Storage
+title: Overview of immutability storage for Blob Storage
+titleSuffix: Azure Storage
 description: Azure Storage offers WORM (Write Once, Read Many) support for Blob (object) storage that enables users to store data in a non-erasable, non-modifiable state for a specified interval.
 services: storage
 author: tamram
@@ -18,9 +19,9 @@ Immutable storage for Azure Blob Storage enables users to store business-critica
 
 Immutable storage for Azure Blob storage supports two types of immutability policies:
 
-- **[Time-based retention policies](#time-based-retention-policies)**: With a time-based retention policy, users can set policies to store data for a specified interval. When a time-based retention policy is set, objects can be created and read, but not modified or deleted. After the retention period has expired, objects can be deleted but not overwritten.
+- **Time-based retention policies**: With a time-based retention policy, users can set policies to store data for a specified interval. When a time-based retention policy is set, objects can be created and read, but not modified or deleted. After the retention period has expired, objects can be deleted but not overwritten. For more information about time-based retention policies, see [Time-based retention policies for immutable blob data](immutable-time-based-retention-policy-overview.md).
 
-- **[Legal hold policies](#legal-holds)**: A legal hold stores immutable data until the legal hold is explicitly cleared. Use a legal hold when the period of time that the data must be kept in a WORM state is unknown. When a legal hold policy is set, objects can be created and read, but not modified or deleted. Each legal hold is associated with a user-defined alphanumeric tag that serves as an identifier, such as a case ID or event name.
+- **Legal hold policies**: A legal hold stores immutable data until the legal hold is explicitly cleared. Use a legal hold when the period of time that the data must be kept in a WORM state is unknown. When a legal hold policy is set, objects can be created and read, but not modified or deleted. Each legal hold is associated with a user-defined alphanumeric tag that serves as an identifier, such as a case ID or event name. For more information about legal hold policies, see [Legal holds for immutable blob data](immutable-legal-hold-overview.md).
 
 For information about how to configure immutability policies using the Azure portal, PowerShell, or Azure CLI, see [Set and manage immutability policies for Blob storage](storage-blob-immutability-policies-manage.md).
 
@@ -39,6 +40,10 @@ Typical applications include:
 - **Secure document retention**: Immutable storage for blobs ensures that data can't be modified or deleted by any user, not even by users with account administrative privileges.
 
 - **Legal hold**: Immutable storage for blobs enables users to store sensitive information that is critical to litigation or business use in a tamper-proof state for the desired duration until the hold is removed. This feature is not limited only to legal use cases but can also be thought of as an event-based hold or an enterprise lock, where the need to protect data based on event triggers or corporate policy is required.
+
+The following diagram shows how time-based retention policies and legal holds prevent write and delete operations while they are in effect.
+
+:::image type="content" source="media/immutable-storage-overview/worm-diagram.png" alt-text="Diagram showing how retention policies and legal holds prevent write and delete operations":::
 
 ## Immutability scenarios
 

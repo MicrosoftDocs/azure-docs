@@ -60,6 +60,7 @@ The following limits apply to legal holds:
 - The minimum length of a legal hold tag is three alphanumeric characters. The maximum length is 23 alphanumeric characters.
 - For a container, a maximum of 10 legal hold policy audit logs are retained for the duration of the policy.
 
+
 ## Pricing
 
 There is no additional charge for using this feature. Immutable data is priced in the same way as mutable data. For pricing details on Azure Blob storage, see the [Azure Storage pricing page](https://azure.microsoft.com/pricing/details/storage/blobs/).
