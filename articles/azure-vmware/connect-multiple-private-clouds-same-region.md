@@ -54,7 +54,7 @@ You can only connect to private clouds in the same region. If you want to connec
 
    :::image type="content" source="media/networking/add-connection-to-other-private-cloud-notification.png" alt-text="Screenshot showing the Notification information for connection in progress and an existing connection." border="true":::
 
-   You can see all the connections you've established under **AVS Private Cloud**.
+   You'll' see all of your connections under **AVS Private Cloud**.
    
    :::image type="content" source="media/networking/private-cloud-to-private-cloud-two-connections.png" alt-text="Screenshot showing the AVS Interconnect tab under Connectivity and two established private cloud connections." border="true" lightbox="media/networking/private-cloud-to-private-cloud-two-connections.png":::
 
