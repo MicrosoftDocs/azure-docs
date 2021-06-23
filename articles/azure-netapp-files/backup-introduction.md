@@ -55,7 +55,7 @@ Azure NetApp Files backup in a region can only protect an Azure NetApp Files vol
     * West US
 LRS can recover from server-rack and drive failures. However, if a disaster such as a fire or flooding occurs within the data center, all replicas of a storage account using LRS might be lost or unrecoverable. 
 
-* Using policy-based (scheduled) Azure NetApp Files backup requires snapshot policy configuration and enabled. Using the snapshot policy feature requires whitelisting.  See [Manage snapshots by using Azure NetApp Files](azure-netapp-files-manage-snapshots.md).   
+* Using policy-based (scheduled) Azure NetApp Files backup requires snapshot policy configuration and enabled. See [Manage snapshots by using Azure NetApp Files](azure-netapp-files-manage-snapshots.md).   
     The volume that needs to be backed up requires a configured snapshot policy for creating snapshots. The configured number of backups are stored in the Azure Blob storage. 
 
 * If an issue occurs (for example, no sufficient space left on the volume) and causes the snapshot policy to stop creating new snapshots, the backup feature will not have any new snapshots to back up. 

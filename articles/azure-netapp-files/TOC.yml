@@ -143,8 +143,6 @@
       href: cross-region-replication-manage-disaster-recovery.md
     - name: Delete volume replications or volumes
       href: cross-region-replication-delete.md
-  - name: Manage billing by using tags
-    href: manage-billing-tags.md
   - name: Manage Azure NetApp Files backup 
     items:
     - name: Register Azure NetApp Files backup 
@@ -157,6 +155,10 @@
         href: backup-configure-manual.md
     - name: Manage backup policies
       href: backup-manage-policies.md 
+    - name: Search backups
+      href: backup-search.md 
+  - name: Manage billing by using tags
+    href: manage-billing-tags.md
   - name: Develop
     items:
     - name: REST API
