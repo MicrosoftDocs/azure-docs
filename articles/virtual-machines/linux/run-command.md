@@ -63,7 +63,7 @@ az vm run-command invoke -g myResourceGroup -n myVm --command-id RunShellScript 
 
 ## Azure portal
 
-Go to a VM in the [Azure portal](https://portal.azure.com) and select **Run command** under **OPERATIONS**. You see a list of the available commands to run on the VM.
+Go to a VM in the [Azure portal](https://portal.azure.com) and select **Run command** in the left menu, under **Operations**. You see a list of the available commands to run on the VM.
 
 ![List of commands](./media/run-command/run-command-list.png)
 
