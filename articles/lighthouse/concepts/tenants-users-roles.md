@@ -1,7 +1,7 @@
 ---
 title: Tenants, users, and roles in Azure Lighthouse scenarios
 description: Understand how Azure Active Directory tenants, users, and roles can be used in Azure Lighthouse scenarios.
-ms.date: 06/22/2021
+ms.date: 06/23/2021
 ms.topic: conceptual
 ---
 
@@ -43,7 +43,7 @@ All [built-in roles](../../role-based-access-control/built-in-roles.md) are curr
 > [!NOTE]
 > Once a new applicable built-in role is added to Azure, it can be assigned when [onboarding a customer using Azure Resource Manager templates](../how-to/onboard-customer.md). There may be a delay before the newly-added role becomes available in Partner Center when [publishing a managed service offer](../how-to/publish-managed-services-offers.md).
 
-## Transferring delegated resources between Azure AD tenants
+## Transferring delegated subscriptions between Azure AD tenants
 
 If a subscription is [transferred to another Azure AD tenant account](../../cost-management-billing/manage/billing-subscription-transfer.md#transfer-a-subscription-to-another-azure-ad-tenant-account), the [registration definition and registration assignment resources](architecture.md#delegation-resources-created-in-the-customer-tenant) created through the [Azure Lighthouse onboarding process](../how-to/onboard-customer.md) will be preserved. This means that access granted through Azure Lighthouse to managing tenants will remain in effect for that subscription (or for delegated resource groups within that subscription).
 
