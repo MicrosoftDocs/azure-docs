@@ -38,7 +38,7 @@ For images stored in a Shared Image Gallery, you can use VMs that already have a
 
 1. For **Gallery details**, select the gallery or create a new gallery by selecting **Create new**.
 
-1. In **Operating system state** select [generalized or specialized]. For more information, see ([Generalized and specialized images](shared-image-galleries.md#generalized-and-specialized-images)).
+1. In **Operating system state** select generalized or specialized. For more information, see [Generalized and specialized images](shared-image-galleries.md#generalized-and-specialized-images).
  
 1. Select an image definition or select **create new** and provide a name and information for a new [Image definition](shared-image-galleries.md#image-definitions).
 
