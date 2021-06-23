@@ -220,7 +220,7 @@ sections:
           
           1. Disable automatic execution using the following command:
              
-			 sudo `usr/local/bin/azsecd config -s clamav -d Disabled`
+             sudo `usr/local/bin/azsecd config -s clamav -d Disabled`
              sudo service azsecd restart 
              
           1. Add a Cron job that runs the following command as root:
