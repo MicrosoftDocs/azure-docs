@@ -99,7 +99,8 @@ To change the IP, you'll associate a new public IP address created previously wi
 
 Public IP prefixes extend the extensibility of SNAT for outbound connections from the NAT gateway. A public IP prefix avoids SNAT port exhaustion. Each IP provides 64,000 ephemeral ports that can be used.
 
-> [!NOTE] that when assigning a public IP prefix to a NAT gateway,the entire range will be used. 
+> [!NOTE] 
+> When assigning a public IP prefix to a NAT gateway, the entire range will be used. 
 
 In this section, you'll change the outbound IP configuration to use a public IP prefix you created previously.
 
@@ -130,7 +131,8 @@ In this section, you'll change the outbound IP configuration to use a public IP 
 
 * When deploying virtual machines in a virtual network with a NAT gateway, all ingress traffic addressed to the NAT gateway egresses through the NAT gateway. When using a NAT Gateway with a standard public load balancer, all ingress traffic addressed to the NAT gateway public IP address or addresses will egress through the NAT Gateway. 
 
-    > [!NOTE] Any outbound configuration from a load-balancing rule or outbound rules is superseded by NAT gateway. Members of the load balancer backend pool would also use the NAT gateway for outbound connections. For more information, see [Designing virtual networks with NAT gateway resources](./nat-gateway-resource.md)
+    > [!NOTE] 
+    > Any outbound configuration from a load-balancing rule or outbound rules is superseded by NAT gateway. Members of the load balancer backend pool would also use the NAT gateway for outbound connections. For more information, see [Designing virtual networks with NAT gateway resources](./nat-gateway-resource.md)
 
 * NAT gateways and public IP addresses can have a TCP timeout value assigned for how long to keep a connection open before hearing keepalives.  If a public IP is assigned to a NAT Gateway, the timeout value on the IP takes precedence.  For more information, see [Designing virtual networks with NAT gateway resources](./nat-gateway-resource.md#timers)
 
