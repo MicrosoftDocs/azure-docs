@@ -16,7 +16,6 @@ For Video Analyzer, we will deploy via IoT Hub, but the Azure Stack Edge resourc
 
 ## Prerequisites
 
-* Azure subscription to which you have [owner privileges](../../role-based-access-control/built-in-roles.md#owner).
 * Video Analyzer account
 
     This [cloud service](https://docs.microsoft.com/azure/azure-video-analyzer/video-analyzer-docs/overview) is used to register the Video Analyzer edge module, and for playing back recorded video and video analytics
@@ -26,9 +25,6 @@ For Video Analyzer, we will deploy via IoT Hub, but the Azure Stack Edge resourc
 * An [Azure Stack Edge](../../databox-online/azure-stack-edge-gpu-deploy-prep.md) resource
    
 * [An IoT Hub](../../iot-hub/iot-hub-create-through-portal.md)
-* A [service principal](./create-custom-azure-resource-manager-role-how-to.md#create-service-principal) for the Video Analyzer module.
-
-   Use one of these regions where IoT Hub is available: East US 2, Central US, North Central US, Japan East, West US 2, West Central US, Canada East, UK South, France Central, France South, Switzerland North, Switzerland West, and Japan West.
 * Storage account
 
     It is recommended that you use General-purpose v2 (GPv2) Storage accounts.  
@@ -165,7 +161,7 @@ A deployment manifest is a JSON document that describes which modules to deploy,
         "ProvisioningToken": "{provisioning-token}",
     }
     ```
-    Below are some additional **recommended** properties that can be added to the JSON and will help in monitoring the module. For more information, see [monitoring and logging](monitoring-logging.md):
+    Below are some additional **recommended** properties that can be added to the JSON and will help in monitoring the module. For more information, see [monitoring and logging](monitor-log-edge.md):
     
     ```
     "diagnosticsEventsOutputName": "diagnostics",
@@ -428,4 +424,5 @@ The container will read videos from exactly one folder within the container. If 
 
 ## Next steps
 
-You can use the module to analyze live video streams by invoking direct methods. [Invoke the direct methods](get-started-detect-motion-emit-events-quickstart.md#use-direct-method-calls) on the module.
+[Detect motion and emit events](detect-motion-emit-events-quickstart.md)
+
