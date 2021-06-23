@@ -70,7 +70,7 @@ For a disk to be able to use a disk pool, it must meet the following requirement
 
 1. Sign in to the Azure portal.
 1. Search for and select either the resource group that contains the disks or each disk themselves.
-1. Select Access control (IAM).
+1. Select **Access control (IAM)**.
 1. Select **Add role assignment (Preview)**, and select **Azure Disk Contributor** in the Role list.
 1. Select User, group, or service principal in the Assign access to list.
 1. In the Select section, search for **StoragePool Resource Provider**, select it, and save.
@@ -84,12 +84,11 @@ For a disk to be able to use a disk pool, it must meet the following requirement
 
 1. Search for and select **Disk pool**.
 1. Select **+Add** to create a new disk pool.
-1. Fill in the details requested, make sure to select the same region and availability zone as the clients that will use the disk pool.
+1. Fill in the details requested, select the same region and availability zone as the clients that will use the disk pool.
 1. Select the subnet that has been delegated to the StoragePool resource provider, and its associated virtual network.
+1. Select **Next** to add disks to your disk pool.
 
-At this point, you have successfully deployed a disk pool. Now, you must add disks to the pool.
-
-### Add a disk
+### Add disks
 
 #### Prerequisites
 
@@ -119,7 +118,7 @@ Select Review + create.
 
 # [PowerShell](#tab/azure-powershell)
 
-The following script
+The following script will
 
 
 ```azurepowershell
@@ -127,18 +126,18 @@ The following script
 Install-Module -Name Az.DiskPool -RequiredVersion 0.1.1 -Repository PSGallery
 
 # Sign in to the Azure account and setup the variables
-$subscriptionID = "eff9fadd-6918-4253-b667-c39271e7435c"
+$subscriptionID = "<yourSubID>"
 Set-AzContext -Subscription $subscriptionID
-$resourceGroupName= "yuemlu-avs-rg"
-$location = "CanadaCentral"
-$diskName = "yuemlu_AVS_disk3"
-$availabilityZone = "2"
+$resourceGroupName= "<yourResourceGroupName>"
+$location = "<desiredRegion>"
+$diskName = "<desiredDiskName>"
+$availabilityZone = "<desiredAvailabilityZone>"
 
-$subnetId='/subscriptions/eff9fadd-6918-4253-b667-c39271e7435c/resourceGroups/yuemlu-avs-rg/providers/Microsoft.Network/virtualNetworks/yuemlu-canadacentral/subnets/diskpool_subnet'
+$subnetId='<yourSubnetID>'
 
-$diskPoolName = "yuemlu-diskpool-1"
-$iscsiTargetName = "yuemlu-iscsi-target"# this will be used to generate the iSCSI target IQN name, Constraint?
-$lunName = "yuemlu_AVS_disk1"
+$diskPoolName = "<desiredDiskPoolName>"
+$iscsiTargetName = "<desirediSCSITargetName>"# this will be used to generate the iSCSI target IQN name, Constraint?
+$lunName = "<desiredLunName>"
 
 # You can skip this step if you have already created the disk and assigned proper RBAC permission to the resource group the disk is deployed to
 $diskconfig = New-AzDiskConfig -Location $location -DiskSizeGB 1024 -AccountType Premium_LRS -CreateOption Empty -zone $availabilityZone -MaxSharesCount 2
@@ -190,16 +189,17 @@ az extension add -n diskpool
 #az extension add -s https://zuhdefault.blob.core.windows.net/cliext/diskpool-0.1.1-py3-none-any.whl
 
 ##Initialize input parameters
-resourceGroupName='yuemlu-avs-rg'
-location='EastUS'
-zone=1
-subnetId='/subscriptions/eff9fadd-6918-4253-b667-c39271e7435c/resourceGroups/yuemlu-avs-rg/providers/Microsoft.Network/virtualNetworks/avs-vnet/subnets/DiskPool_Subnet'
-diskName='disk-1tb-1'
-diskPoolName='yuemlu-eastus-diskpool'
-targetName='target1'
-lunName='lun-0'
+resourceGroupName='<yourRGName>'
+location='<desiredRegion>'
+zone=<desiredZone>
+subnetId='<yourSubnetID>'
+diskName='<desiredDiskName>'
+diskPoolName='<desiredDiskPoolName>'
+targetName='<desirediSCSITargetName>'
+lunName='<desiredLunName>'
 
 #You can skip this step if you have already created the disk and assigned permission in the prerequisite step. Below is an example for Premium Disks.
+az disk create --name $diskName --resource-group $resourceGroupName --zone $zone --location $location --sku Premium_LRS --max-shares 2 --size-gb 1024
 az disk create --name $diskName --resource-group $resourceGroupName --zone $zone --location $location --sku Premium_LRS --max-shares 2 --size-gb 1024
 
 #You can deploy all your disks into one resource group and assign StoragePool Resource Provider permission to the group
