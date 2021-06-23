@@ -438,31 +438,31 @@ public static class MsalAppBuilder
 
   public static IConfidentialClientApplication BuildConfidentialClientApplication()
   {
-      if (clientapp == null)
-      {
-          clientapp = ConfidentialClientApplicationBuilder.Create(AuthenticationConfig.ClientId)
-                .WithClientSecret(AuthenticationConfig.ClientSecret)
-                .WithRedirectUri(AuthenticationConfig.RedirectUri)
-                .WithAuthority(new Uri(AuthenticationConfig.Authority))
-                .Build();
+    if (clientapp == null)
+    {
+      clientapp = ConfidentialClientApplicationBuilder.Create(AuthenticationConfig.ClientId)
+            .WithClientSecret(AuthenticationConfig.ClientSecret)
+            .WithRedirectUri(AuthenticationConfig.RedirectUri)
+            .WithAuthority(new Uri(AuthenticationConfig.Authority))
+            .Build();
 
-          // After the ConfidentialClientApplication is created, we overwrite its default UserTokenCache serialization with our implementation
-          clientapp.AddInMemoryTokenCache();
-      }
-      return clientapp;
+      // After the ConfidentialClientApplication is created, we overwrite its default UserTokenCache serialization with our implementation
+      clientapp.AddInMemoryTokenCache();
+    }
+    return clientapp;
   }
 ```
 
-Instead of `clientapp.AddInMemoryTokenCache()`, you can also use more advanced cache serialization implementation like Redis, SQL, CosmosDB, or distributed memory. Here's an example for REDIS:
+Instead of `clientapp.AddInMemoryTokenCache()`, you can also use more advanced cache serialization implementations like Redis, SQL, CosmosDB, or distributed memory. Here's an example for Redis:
 
 ```csharp
   clientapp.AddDistributedTokenCache(services =>
   {
-      services.AddStackExchangeRedisCache(options =>
-      {
-          options.Configuration = "localhost";
-          options.InstanceName = "SampleInstance";
-      });
+    services.AddStackExchangeRedisCache(options =>
+    {
+        options.Configuration = "localhost";
+        options.InstanceName = "SampleInstance";
+    });
   });
 ```
 
