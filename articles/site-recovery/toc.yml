@@ -122,6 +122,8 @@
       href: vmware-physical-azure-config-process-server-overview.md
     - name: Support requirements for configuration and process servers
       href: vmware-azure-configuration-server-requirements.md
+    - name: Support requirements for replication appliance (preview)
+      href: vmware-azure-replication-appliance-requirements-preview.md
     - name: VMware to Azure architecture
       href: vmware-azure-architecture.md
     - name: About excluding disks from replication
