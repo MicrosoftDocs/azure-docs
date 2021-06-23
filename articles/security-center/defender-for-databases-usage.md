@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
 ---
-# Respond to alerts from Azure Defender for open-source relational databases
+# Enable Azure Defender for open-source relational databases and respond to alerts
 
 Azure Defender detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases for the following services:
 

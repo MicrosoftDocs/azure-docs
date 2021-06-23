@@ -64,6 +64,8 @@
       href: custom-locations.md
     - name: Deploy IoT workloads
       href: deploy-azure-iot-edge-workloads.md
+    - name: Arc enabled Machine Learning
+      href: ../../machine-learning/how-to-attach-arc-kubernetes.md?toc=/azure/azure-arc/kubernetes/toc.json
   - name: Troubleshooting
     href: Troubleshooting.md
 - name: Reference

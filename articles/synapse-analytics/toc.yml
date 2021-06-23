@@ -11,7 +11,7 @@ items:
   - name: Terminology 
     href: overview-terminology.md
   - name: FAQ 
-    href: overview-faq.md
+    href: overview-faq.yml
 - name: Quickstarts
   expanded: true
   items:
