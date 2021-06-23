@@ -11,7 +11,7 @@ ms.service: azure-object-anchors
 ---
 # Quickstart: Step-by-step instructions to create a new HoloLens Unity app using Azure Object Anchors
 
-This tutorial will show you how to create a new HoloLens Unity app with [Azure Object Anchors](../overview.md). Azure
+This quickstart will show you how to create a new HoloLens Unity app with [Azure Object Anchors](../overview.md). Azure
 Object Anchors is a managed cloud service that converts 3D assets into AI models that enable object-aware mixed
 reality experiences for the HoloLens. When you're finished, you'll have a HoloLens app built with Unity that can detect
 objects in the physical world.
@@ -97,7 +97,7 @@ First, let's set quality settings for our application.
 
 ## Trying it out
 
-To test out that everything is working, build your app in **Unity** and deploy it from **Visual Studio**. Follow Chapter 6 from the [**MR Basics 100: Getting started with Unity** course](/windows/mixed-reality/holograms-100#chapter-6---build-and-deploy-to-device-from-visual-studio) to do so. You should see the Unity start screen, and then a clear display.
+To test out that everything is working, build your app in **Unity** and deploy it from **Visual Studio**. Follow Chapter 6 from the <a href="/windows/mixed-reality/holograms-100#chapter-6---build-and-deploy-to-device-from-visual-studio" target="_blank">**MR Basics 100: Getting started with Unity** course</a> to do so. You should see the Unity start screen, and then a clear display.
 
 ## Create your script
 
