@@ -64,7 +64,9 @@ To configure Data in replication, perform the following steps:
 > With Azure Database for MySQL Single Server with the large storage, which supports up to 16TB, this enabled by default.
 
 >[!Tip] 
->With Azure Database for MySQL Single Server, which supports up to 4TB, this is not enabled by default. However, if you promote a [read replica](howto-read-replicas-portal.md) for the source server and then delete read replica, the parameter will be set to ON.
+> With Azure Database for MySQL Single Server, which supports up to 4TB, this is not enabled by default. However, if you promote a [read replica](howto-read-replicas-portal.md) for the source server and then delete read replica, the parameter will be set to ON.
+>
+
 4.	Based on the SSL enforcement for the source server, create a user in the source server with the replication permission by running the appropriate command.
     If you’re using SSL, run the following command:
     ```sql
