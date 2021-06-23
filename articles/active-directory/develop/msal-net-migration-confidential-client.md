@@ -444,7 +444,7 @@ Some of the key features that come with MSAL.NET are resilience, security, perfo
 Using MSAL.NET ensures your app is resilient. This is achieved through the following:
 
 - AAD Cached Credential Service(CCS) benefits. CCS operates as an AAD backup.
-- Proactive renewal of tokens if you enable long lived tokens.
+- Proactive renewal of tokens if the API you call enables long lived tokens through [continuous access evaluation](app-resilience-continuous-access-evaluation.md).
 
 ### Security
 
@@ -474,14 +474,14 @@ This troubleshooting guide makes two assumptions:
 If you get an exception with the following message: `AADSTS700027: Client assertion contains an invalid signature. [Reason - The key was not found.]`:
 
 - Confirm that you're using the latest version of MSAL.NET,
-- Confirm that the authority host set when building the confidential client application and the authority host you used with ADAL are similar. In particular, is it the same cloud? (PPE, PROD, GGC, DE, Gallatin, and so on ...)
+- Confirm that the authority host set when building the confidential client application and the authority host you used with ADAL are similar. In particular, is it the same [cloud](msal-national-cloud.md)? (Azure Government, Azure China 21Vianet, Azure Germany).
 
 ### AADSTS700030 exception
 
 If you get an exception with the following message: `AADSTS90002: Tenant 'cf61953b-e41a-46b3-b500-663d279ea744' not found. This may happen if there are no active subscriptions for the tenant. Check to make sure you have the correct tenant ID. Check with your subscription administrator.`:
 
 - Confirm that you're using the latest version of MSAL.NET,
-- Confirm that the authority host set when building the confidential client application and the authority host you used with ADAL are similar. In particular, is it the same cloud? (PPE, PROD, GGC, DE, Gallatin, and so on ...)
+- Confirm that the authority host set when building the confidential client application and the authority host you used with ADAL are similar. In particular, is it the same [cloud](msal-national-cloud.md)? (Azure Government, Azure China 21Vianet, Azure Germany).
 
 ## Next steps
 
