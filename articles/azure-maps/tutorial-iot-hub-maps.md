@@ -15,7 +15,7 @@ ms.custom: mvc
 
 # Tutorial: Implement IoT spatial analytics by using Azure Maps
 
-In an IoT scenario, it's common to capture and track relevant events that occur in space and time. Examples include fleet management, asset tracking, and smart city applications. This tutorial guides you through a solution that tracks used car rental movement by using the Azure Maps APIs.
+In an IoT scenario, it's common to capture and track relevant events that occur in space and time. Examples include fleet management, asset tracking, mobility, and smart city applications. This tutorial guides you through a solution that tracks used car rental movement by using the Azure Maps APIs.
 
 In this tutorial you will:
 
