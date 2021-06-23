@@ -22,7 +22,7 @@ When there is no microphone available at the beginning of a call, and then a mic
 When this happens, your application should invoke `askDevicePermission` to obtain user consent to enumerate devices. Then user will then be able to mute/unmute the microphone.
 
 ### Stop Video on Page Hide
-If app using ACS has an active call with the video, when user switches browser tab, or a user or different process or app puts browser in the background, then application must stop the video by calling `call.stopVideo` API.
+Developers are encouraged to stop video streaming when users navigate away from an active video-enabled call. Video can be stopped by calling the `call.stopVideo` API.
 ```JavaScript
 document.addEventListener("visibilitychange", function() {
 	if (document.visibilityState === 'visible') {
