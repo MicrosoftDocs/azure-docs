@@ -14,7 +14,7 @@ This article is intended to provide resolutions for common problems that can occ
 
 ## Avoid SNAT
 
-The best way to avoid SNAT port exhaustion is to eliminate the need for SNAT in the first place, if possible. In some cases this might not be possible. For example, when connecting to public endpoints. However, in some cases this is possible and can be achieved by connecting privately to resources. If connecting to Azure services like Storage, SQL, Cosmos DB, or any other of the [Azure services listed here](../azure/private-link/availability.md), leveraging Azure Private Link eliminates the need for SNAT. As a result, you will not risk a potential connectivity issue due to SNAT port exhaustion.
+The best way to avoid SNAT port exhaustion is to eliminate the need for SNAT in the first place, if possible. In some cases this might not be possible. For example, when connecting to public endpoints. However, in some cases this is possible and can be achieved by connecting privately to resources. If connecting to Azure services like Storage, SQL, Cosmos DB, or any other of the [Azure services listed here](../articles/private-link/availability.md), leveraging Azure Private Link eliminates the need for SNAT. As a result, you will not risk a potential connectivity issue due to SNAT port exhaustion.
 
 Private Link Service is also supported by Snowflake, MongoDB, Confluent, Elastic and other such services.
 
