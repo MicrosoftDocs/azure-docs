@@ -2357,6 +2357,8 @@
         href: hootsuite-provisioning-tutorial.md
       - name: Hoxhunt
         href: hoxhunt-provisioning-tutorial.md
+      - name: H5mag
+        href: h5mag-provisioning-tutorial.md
       - name: Ideo
         href: ideo-provisioning-tutorial.md        
       - name: Infor CloudSuite
