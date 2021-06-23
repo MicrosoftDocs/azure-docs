@@ -105,7 +105,7 @@ You will need permission to create an Azure VM in your school's Azure subscripti
     
 1. Install software and make any necessary configuration changes to the Azure VM's image.
 
-1. Run [SysPrep](../virtual-machines/windows/capture-image-resource.md#generalize-the-windows-vm-using-sysprep) if you need to create a generalized image.  For more information, see [Generalized and specialized images](../virtual-machines/shared-image-galleries.md#generalized-and-specialized-images).
+1. Run [SysPrep](../virtual-machines/generalize.md#windows) if you need to create a generalized image.  For more information, see [Generalized and specialized images](../virtual-machines/shared-image-galleries.md#generalized-and-specialized-images).
 
 1. In shared image gallery, [create an image definition](../virtual-machines/windows/shared-images-portal.md#create-an-image-definition) or choose an existing image definition.
      - Choose **Gen 1** for the **VM generation**.
