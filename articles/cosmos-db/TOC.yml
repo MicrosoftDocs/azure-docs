@@ -769,6 +769,8 @@
                   href: troubleshoot-dot-net-sdk-request-header-too-large.md
                 - name: Troubleshoot request timeout
                   href: troubleshoot-dot-net-sdk-request-timeout.md
+                - name: Troubleshoot slow requests
+                  href: troubleshoot-dot-net-sdk-slow-request.md
                 - name: Troubleshoot service unavailable
                   href: troubleshoot-service-unavailable.md
             - name: .Java
