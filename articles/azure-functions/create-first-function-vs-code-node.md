@@ -103,8 +103,6 @@ In this section, you create a function app and related resources in your Azure s
 
 [!INCLUDE [functions-vs-code-run-remote](../../includes/functions-vs-code-run-remote.md)]
 
-[!INCLUDE [functions-cleanup-resources-vs-code.md](../../includes/functions-cleanup-resources-vs-code.md)]
-
 ## Change the code and redeploy to Azure
 
 1. In the VSCode Explorer view, select the `./HttpExample/index.js` file. 
@@ -180,6 +178,7 @@ Use the table below to resolve the most common issues encountered when using thi
 |Can't deploy function to Azure?|Review the Output for error information. The bell icon in the lower right corner is another way to view the output. Did you publish to an existing function app? That action overwrites the content of that app in Azure.|
 |Couldn't run the cloud-based Function app?|Remember to use the query string to send in parameters.|
 
+[!INCLUDE [functions-cleanup-resources-vs-code.md](../../includes/functions-cleanup-resources-vs-code.md)]
 
 ## Next steps
 
