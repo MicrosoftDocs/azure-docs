@@ -1,7 +1,6 @@
 ---
 title: 'Quickstart: Upgrade Quickstart app to Unity 2020'
-description: In this quickstart, you learn how to upgrade Quickstart app to Unity 2020
-build a HoloLens Unity app using Object Anchors.
+description: In this quickstart, you learn how to upgrade Quickstart app to Unity 2020 build a HoloLens Unity app using Object Anchors.
 author: rgarcia
 manager: virivera
 
