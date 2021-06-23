@@ -25,8 +25,8 @@ This quickstart shows you how to install, back up, and restore a MySQL database 
 ## Prerequisites
 
 Before you begin migrating your MySQL database, you need to:
-1. Create an Azure Database for MySQL server by using the [Azure portal](./flexible-server/quickstart-create-server-portal).
-2. Create an Azure VM running Linux by using the [Azure portal](../virtual-machines/linux/quick-create-portal) (preferably Ubuntu). 
+1. Create an Azure Database for MySQL server by using the [Azure portal](./flexible-server/quickstart-create-server-portal.md).
+2. Create an Azure VM running Linux by using the [Azure portal](../virtual-machines/linux/quick-create-portal.md) (preferably Ubuntu). 
 >[!Note]
 > Prior to installing the tools, consider the following points:
 > * If your source is on-premises and has a high bandwidth connection to Azure (using ExpressRoute), consider installing the tool on an Azure VM. 
