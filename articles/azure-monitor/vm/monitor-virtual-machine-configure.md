@@ -10,13 +10,12 @@ ms.date: 06/21/2021
 ---
 
 # Monitor virtual machines with Azure Monitor - Configure monitoring
+This article is part of the [Monitoring virtual machines and their workloads in Azure Monitor scenario](monitor-virtual-machine.md). It describes how to configure monitoring of your Azure and hybrid virtual machines in Azure Monitor. 
 
-This article describes how to configure monitoring of your Azure and hybrid virtual machines in Azure Monitor. These are the most common Azure Monitor features to monitor the virtual machine host and its guest operating system. Depending on your particular environment and business requirements, you may not want to implement all features enabled by this configuration. Each section will describe what features are enabled by that configuration and whether it will potentially result in additional cost. This will help you to assess whether to perform each step of the configuration. See [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/) for detailed pricing information.
+These are the most common Azure Monitor features to monitor the virtual machine host and its guest operating system. Depending on your particular environment and business requirements, you may not want to implement all features enabled by this configuration. Each section will describe what features are enabled by that configuration and whether it will potentially result in additional cost. This will help you to assess whether to perform each step of the configuration. See [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/) for detailed pricing information.
 
 A general description of each feature enabled by this configuration is provided in the [overview for scenario](monitor-virtual-machine.md). That article also includes links to content providing a detailed description of each feature to further help you assess your requirements.
 
-> [!NOTE]
-> This article is part of the [Monitoring virtual machines and their workloads in Azure Monitor scenario](monitor-virtual-machine.md).
 
 > [!NOTE]
 > The features enabled by the configuration support monitoring workloads running on your virtual machine, but you'll typically require additional configuration depending your particular workloads. See [Workload monitoring](monitor-virtual-machine-workloads.md) for details on this additional configuration.
@@ -112,7 +111,7 @@ Destination: Azure Monitor Metrics
 
 You can install Azure Monitor agent on individual machines using the same methods for Azure virtual machines and Azure Arc-enabled servers. This includes onboarding individual machines with the Azure portal or Resource Manager templates, or enabling machines at scale using Azure Policy. For hybrid machines that can't use Arc-enabled servers, you will need to install the agent manually.
 
-See [Create rule and association in Azure portal](/agents/data-collection-rule-azure-monitor-agent.md) to create a DCR and deploy the Azure Monitor agent to one or more agents using the Azure portal. Other installation methods are described at [Install the Azure Monitor agent](../agents/azure-monitor-agent-install.md). See [Deploy Azure Monitor at scale using Azure Policy](../deploy-scale.md#azure-monitor-agent) to create a policy that will automatically deploy the agent and DCR to any new machines as they're created.
+See [Create rule and association in Azure portal](../agents/data-collection-rule-azure-monitor-agent.md) to create a DCR and deploy the Azure Monitor agent to one or more agents using the Azure portal. Other installation methods are described at [Install the Azure Monitor agent](../agents/azure-monitor-agent-install.md). See [Deploy Azure Monitor at scale using Azure Policy](../deploy-scale.md#azure-monitor-agent) to create a policy that will automatically deploy the agent and DCR to any new machines as they're created.
 
 
 ## Next steps

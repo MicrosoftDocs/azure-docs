@@ -10,11 +10,9 @@ ms.date: 06/21/2021
 ---
 
 # Monitoring virtual machines with Azure Monitor - Analyze monitoring data
+This article is part of the [Monitoring virtual machines and their workloads in Azure Monitor scenario](monitor-virtual-machine.md). It describes how to analyze monitoring data for your virtual machines after you've completed their configuration. 
+
 Once you’ve enabled VM insights on your virtual machines, data will be available for analysis. This article describes the different features of Azure Monitor that allow you to analyze the health and performance of your virtual machines. Several of these features provide a different experience depending on whether you're analyzing a single machine or multiple. Each experience is described here with any unique behavior of each feature depending on which experience is being used.
-
-> [!NOTE]
-> This article is part of the [Monitoring virtual machines and their workloads in Azure Monitor scenario](monitor-virtual-machine.md). It describes how to analyze monitoring data for your virtual machines after you've completed their configuration.
-
 
 > [!NOTE]
 > This article includes guidance on analyzing data that's collected by Azure Monitor and VM insights. For data that you configure to monitor workloads running on virtual machines, see [Monitor workloads](monitor-virtual-machine-workloads.md).
@@ -75,7 +73,7 @@ Access the multiple machine analysis experience from the **Monitor** menu in the
 
     Click on the **Performance** tab to compare trends of critical performance counters for multiple machines over different periods of time. Select all machines in a subscription or resource group to include in the view. See [How to chart performance with VM insights](vminsights-performance.md#view-performance-directly-from-an-azure-vm) for details on using the map view for a single machine.
 
-    Click on the Map tab to view running processes on machines, dependencies between machines and external processes. Select all machines in a subscription or resource group, or inspect the data for a single machine. See [Use the Map feature of VM insights to understand application components](vminsights-maps.md#view-a-map-from-azure-monitor) for details on using the map view for multiple machines.  |
+    Click on the Map tab to view running processes on machines, dependencies between machines and external processes. Select all machines in a subscription or resource group, or inspect the data for a single machine. See [Use the Map feature of VM insights to understand application components](vminsights-maps.md#view-a-map-from-azure-monitor) for details on using the map view for multiple machines. 
  
 ## Compare Metrics and Logs
 For many features of Azure Monitor, you don't need to understand the different types of data it uses and where it's stored. You can use VM insights, for example, without any understanding of what data is being used to populate the Performance view, Map view, and workbooks. You just focus on the logic that you're analyzing. As you dig deeper though, there are cases where you will need to understand the difference between [Metrics](../essentials/data-platform-metrics.md) and [Logs](../logs/data-platform-logs.md)  since different features of Azure Monitor use different kinds of data, and the type of alerting that you use for a particular scenario will depend on having that data available in a particular location.
@@ -96,7 +94,7 @@ VM insights includes multiple performance charts that help you quickly get a sta
 
 The **Get Started** tab displays all machines in your Azure subscription,identifying which are being monitored. Use this view to quickly identify which machines aren't being monitored and to onboard individual machines that aren't already being monitored.
 
-:::image type="content" source="media/monitor-virtual-machines/vminsights-getstarted.png" alt-text="VM insights get started" lightbox="media/monitor-virtual-machines/vminsights-getstarted.png":::
+:::image type="content" source="media/monitor-virtual-machines/vminsights-get-started.png" alt-text="VM insights get started" lightbox="media/monitor-virtual-machines/vminsights-get-started.png":::
 
 The **Performance** view includes multiple charts with several key performance indicators (KPIs) to help you determine how well machines are performing. The charts show resource utilization over a period of time so you can identify bottlenecks, anomalies, or switch to a perspective listing each machine to view resource utilization based on the metric selected. See [How to chart performance with VM insights](vminsights-performance.md) for details on using the performance view.
 

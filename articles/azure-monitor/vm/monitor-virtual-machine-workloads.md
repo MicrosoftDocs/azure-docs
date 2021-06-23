@@ -10,10 +10,7 @@ ms.date: 06/21/2021
 ---
 
 # Monitoring virtual machines with Azure Monitor - Workloads
-This article describes how to monitor workloads that are running on the guest operating systems of your virtual machines. This includes details on analyzing and alerting on different sources of data on your virtual machines.
-
-> [!NOTE]
-> This article is part of the [Monitoring virtual machines and their workloads in Azure Monitor scenario](monitor-virtual-machine.md).
+This article is part of the [Monitoring virtual machines and their workloads in Azure Monitor scenario](monitor-virtual-machine.md). It describes how to monitor workloads that are running on the guest operating systems of your virtual machines. This includes details on analyzing and alerting on different sources of data on your virtual machines.
 
 
 

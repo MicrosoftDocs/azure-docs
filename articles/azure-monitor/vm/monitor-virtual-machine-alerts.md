@@ -10,13 +10,7 @@ ms.date: 06/21/2021
 ---
 
 # Monitoring virtual machines with Azure Monitor - Alerts
-[Alerts in Azure Monitor](../alerts/alerts-overview.md) proactively notify you of interesting data and patterns in your monitoring data. There are no preconfigured alert rules for virtual machines, but you can create your own based on data collected by VM insights. This article provides guidance on creating alert rules for your virtual machines and their guest operating systems.
-
-> [!NOTE]
-> This article is part of the [Monitoring virtual machines and their workloads in Azure Monitor scenario](monitor-virtual-machine.md).
-
-> [!NOTE]
-> This article doesn't describe how to alert on workloads running in the guest operating system of your virtual machine. The same types of alert rules are used to alert on workloads. See [Monitoring virtual machines with Azure Monitor - Workloads](monitor-virtual-machine-workloads.md) for details on the different kinds of data that can be collected and sample alert rules for each.
+This article is part of the [Monitoring virtual machines and their workloads in Azure Monitor scenario](monitor-virtual-machine.md). It provides guidance on creating alert rules for your virtual machines and their guest operating systems. [Alerts in Azure Monitor](../alerts/alerts-overview.md) proactively notify you of interesting data and patterns in your monitoring data. There are no preconfigured alert rules for virtual machines, but you can create your own based on data collected by VM insights. 
 
 > [!NOTE]
 > The alerts described in this article do not include alerts created by [Azure Monitor for VM guest health](vminsights-health-overview.md) which is a feature currently in public preview. As this feature nears general availability, guidance for alerting will be consolidated.
@@ -60,7 +54,7 @@ Each alert in Azure Monitor has an **Affected resource** property which is defin
 
 The computer name is stored in the **Impacted resource** property which you can view in the details of the alert. It's also displayed as a dimension in emails that are sent from the alert.
 
-:::image type="content" source="media/monitor-virtual-machines/alert-metric-measurement.png" alt-text="Alrt with impacted resource" lightbox="media/monitor-virtual-machines/alert-metric-measurement.png":::
+:::image type="content" source="media/monitor-virtual-machines/alert-metric-measurement.png" alt-text="Alert with impacted resource" lightbox="media/monitor-virtual-machines/alert-metric-measurement.png":::
 
 
 You may want to have a view that lists the alerts with the affected computer. You can do this with a custom workbook that uses a custom [Resource Graph](../../governance/resource-graph/overview.md) to provide this view. Following is a query that can be used to display alerts. Use the data source  **Azure Resource Graph** in the workbook.
@@ -315,7 +309,7 @@ InsightsMetrics
 #### Alert rule
 Select **Logs** from the Azure Monitor menu to Open Log Analytics. Make sure that the correct workspace is selected for your scope. If not, click **Select scope** in the top left and select the correct workspace. Paste in the query that has the logic you want and click **Run** to verify that it returns the correct results.
 
-:::image type="content" source="media/monitor-virtual-machines/log-alert-metric-queryresults.png" alt-text="Metric measurement alert query results" lightbox="media/monitor-virtual-machines/log-alert-metric-queryresults.png":::
+:::image type="content" source="media/monitor-virtual-machines/log-alert-metric-query-results.png" alt-text="Metric measurement alert query results" lightbox="media/monitor-virtual-machines/log-alert-metric-query-results.png":::
 
 Click **New alert rule** to create a rule with the current query. The rule will use your workspace for the **Resource**.
 
@@ -349,7 +343,7 @@ InsightsMetrics
 Select **Logs** from the Azure Monitor menu to Open Log Analytics. Make sure that the correct workspace is selected for your scope. If not, click **Select scope** in the top left and select the correct workspace. Paste in the query that has the logic you want and click **Run** to verify that it returns the correct results. You probably don't have a machine currently over threshold, so change to a lower threshold temporarily to verify results and then set the appropriate threshold before creating the alert rule.
 
 
-:::image type="content" source="media/monitor-virtual-machines/log-alert-number-queryresults.png" alt-text="Number of results alert query results" lightbox="media/monitor-virtual-machines/log-alert-number-queryresults.png":::
+:::image type="content" source="media/monitor-virtual-machines/log-alert-number-query-results.png" alt-text="Number of results alert query results" lightbox="media/monitor-virtual-machines/log-alert-number-query-results.png":::
 
 Click **New alert rule** to create a rule with the current query. The rule will use your workspace for the **Resource**.
 
