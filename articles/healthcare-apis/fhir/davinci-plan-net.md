@@ -53,13 +53,13 @@ Outside of defining search parameters, you need to load the [required profiles a
 
 To assist with creation of these search parameters and profiles, we have a sample http file on the open-source site that includes all the steps outlined above in a single file. Once you've uploaded all the necessary profiles and search parameters, you can run the capability statement test in Touchstone.
 
-:::image type="content" source="media/davinci-plan-net/davinci-plan-net-test-script-execution-passed.png" alt-text="Da Vinci plan net test execution script passed":::
+:::image type="content" source="media/davinci-plan-net/davinci-plan-net-test-script-execution-passed.png" alt-text="Da Vinci plan net sample rest test execution script passed":::
 
 ## Touchstone error handling test
 
 The second test we'll walk through is testing [error handling](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/DaVinci/FHIR4-0-1-Test/PDEX/PlanNet/01-Error-Codes&activeOnly=false&contentEntry=TEST_SCRIPTS). The only step you need must do is delete a HealthcareService resource from your database and use the ID of the deleted HealthcareService resource in the test. The **sample resource http file** on the open-source site provides an example HealthcareService to post and delete for this step.
 
-:::image type="content" source="media/davinci-plan-net/davinci-test-script-execution-passed.png" alt-text="Da Vinci plan net test execution script passed":::
+:::image type="content" source="media/davinci-plan-net/davinci-test-script-execution-passed.png" alt-text="Da Vinci plan net touchstone error test execution script passed":::
 
 ## Touchstone Query test
 
@@ -68,13 +68,13 @@ The next test we will walk through is the [query capabilities test](https://touc
 :::image type="content" source="media/davinci-plan-net/touchstone-query-test-exec-failed.png" alt-text="Da Vinci plan net query test failed":::
 
 > [!NOTE]
-> With the sample resources provided, you should expect a 95% success rate of the query tests:
-> * Two of the tests are failing due to “Bundle.null” errors. There is a validator update set for the Touchstone 5.4.0 release in early June that will eliminate these two errors.
-> * There is an open GithubGitHub Issue against the FHIR Server that is causing 3 of these tests to fail: [Resource returned multiple times if it meets both base criteria and _include criteria · Issue #2037 · microsoft/fhir-server (github.com)](https://github.com/microsoft/fhir-server/issues/2037)
+> With the sample resources provided, you should expect a 98% success rate of the query tests:
+
+> * There is an open GitHub issue against the FHIR Server that is causing one of these tests to fail: [Resource returned multiple times if it meets both base criteria and _include criteria · Issue #2037 · microsoft/fhir-server (github.com)](https://github.com/microsoft/fhir-server/issues/2037)
 
 ## Next steps
 
-In this tutorial, we walked through  setting up the Azure API for FHIR to pass the Touchstone tests for the Da Vinci PDEX Payer Network (Plan-Net) Implementation Guide. Next, you can learn about all the Azure API for FHIR features.
+In this tutorial, we walked through setting up the Azure API for FHIR to pass the Touchstone tests for the Da Vinci PDEX Payer Network (Plan-Net) Implementation Guide. Next, you can learn about all the Azure API for FHIR features.
 
 >[!div class="nextstepaction"]
 >[Supported features](fhir-features-supported.md)
