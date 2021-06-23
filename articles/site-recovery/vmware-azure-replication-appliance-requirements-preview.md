@@ -36,8 +36,8 @@ The system restarts and you can login with the administrator user account.
 ### Set up appliance on a virtual machine or physical server through PowerShell
  In case of any organizational restrictions, you can manually set up the ASR replication appliance through PowerShell.  
 
-1. Ensure a machine with the required [hardware[](#hardware-requirements) and [software](#software-requirements) configuration is created.
-2. 	[Download](https://aka.ms/V2ARcmApplianceCreationPowershellZip) the zip that contains the required installers and place this folder on the ASR replication appliance.
+1. Ensure a machine with the required [hardware](#hardware-requirements) and [software](#software-requirements) configuration is created.
+2. [Download](https://aka.ms/V2ARcmApplianceCreationPowershellZip) the zip that contains the required installers and place this folder on the ASR replication appliance.
 3.	After successfully copying the zip folder, unzip and extract the components of the folder.
 4. Go to the path where the folder is extracted to and execute the following PowerShell script as an administrator:
 ```powershell
@@ -88,7 +88,7 @@ https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.
 |
 
 > [!NOTE]
-> If you have [private links connectivity](../articles/site-recovery/hybrid-how-to-enable-replication-private-endpoints.md) to Site Recovery vault, you do not need any additional internet access for the Configuration Server. An exception to this is while setting up the CS machine using OVA template, you will need access to following URLs over and above private link access - https://management.azure.com, https://www.live.com and https://www.microsoft.com. If you do not wish to allow access to these URLs, please set up the CS using Unified Installer.
+> If you have [private links connectivity](hybrid-how-to-enable-replication-private-endpoints.md) to Site Recovery vault, you do not need any additional internet access for the Configuration Server. An exception to this is while setting up the CS machine using OVA template, you will need access to following URLs over and above private link access - https://management.azure.com, https://www.live.com and https://www.microsoft.com. If you do not wish to allow access to these URLs, please set up the CS using Unified Installer.
 
 ## Required software
 <needs detailed review>
@@ -96,7 +96,7 @@ https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.
 **Component** | **Requirement**
 --- | ---
 VMware vSphere PowerCLI | Not required for versions 9.14 and higher
-MYSQL | MySQL should be installed. You can install manually, or Site Recovery can install it. (Refer to [configure settings](../articles/site-recovery/vmware-azure-deploy-configuration-server.md#configure-settings) for more information)
+MYSQL | MySQL should be installed. You can install manually, or Site Recovery can install it. (Refer to [configure settings](vmware-azure-deploy-configuration-server.md#configure-settings) for more information)
 |
 
 ## Sizing and capacity
