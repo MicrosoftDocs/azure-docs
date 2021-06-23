@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: conceptual
-ms.date: 06/17/2021
+ms.date: 06/23/2021
 tags: connectors
 ---
 
@@ -243,9 +243,9 @@ Next, [enable managed identity support](../logic-apps/create-managed-service-ide
 1. In the navigation menu, under **Settings**, select **Identity.**
 1. Under **System assigned**, set **Status** to **On**. This setting might already be enabled.
 1. Under **Permissions**, select **Azure role assignments**.
-    :::image type="content" source="./media/connectors-create-api-azureblobstorage/role-assignment-add1.png" alt-text="Screenshot of logic app menu in Azure portal, showing identity settings pane with button to add Azure role assignment permissions.":::
+    :::image type="content" source="./media/connectors-create-api-azureblobstorage/role-assignment-add-1.png" alt-text="Screenshot of logic app menu in Azure portal, showing identity settings pane with button to add Azure role assignment permissions.":::
 1. On the **Azure role assignments** pane, select **Add role assignment**.
-    :::image type="content" source="./media/connectors-create-api-azureblobstorage/role-assignment-add2.png" alt-text="Screenshot of logic app role assignments pane, showing selected subscription and button to add a new role assignment.":::
+    :::image type="content" source="./media/connectors-create-api-azureblobstorage/role-assignment-add-2.png" alt-text="Screenshot of logic app role assignments pane, showing selected subscription and button to add a new role assignment.":::
 1. Configure the new role assignment as follows.
     1. For **Scope**, select **Storage**.
     1. For **Subscription**, choose the subscription that your storage account is in.
