@@ -100,25 +100,37 @@ The first is for `Service Principal Client Id`, the other is for `Service Princi
 
 Until now, the *client id* and *client secret* of service principal are finally stored in Key Vault. Next, you need to create another service principal to store the key vault. Therefore, you should **create two service principals**, one to save client id and client secret, which will be stored in a key vault, the other is to store the key vault.
 
+**Step 5. Create a service principal to store the key vault.** 
 
-**Step 5. Grant another service principal access to Key Vault.** 
-In this step, you should first create another service principal, and grant it access to key vault.
+1. Go to [Azure Portal AAD (Azure Active Directory)](https://portal.azure.com/?trace=diagnostics&feature.customportal=false#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) and create a new registration.
+
+    ![create a new registration](../media/credential-entity/create-registration.png)
+
+    After creating the service principal, the **Application (client) ID** in Overview will be the `Key Vault Client ID` in credential entity configuration.
+
+2. In **Manage->Certificates & Secrets**, create a client secret by selecting 'New client secret'. Then you should **copy down the value**, because it appears only once. The value is `Key Vault Client Secret` in credential entity configuration.
+
+    ![add client secret](../media/credential-entity/add-client-secret.png)
+
+**Step 6. Grant Service Principal access to Key Vault.**  Go to the key vault resource you created, in **Settings->Access polices**, by selecting 'Add Access Policy' to make connection between key vault and the second service principal in **Step 5**, and 'Save'.
+
+![add client secret](../media/credential-entity/grant-sp-to-kv.png)
 
 
-The credential entity configurations in Metrics Advisor for *Service Principal from Key Vault* and the way to get them are shown in table below:
+## Configurations Conclusion
+To conclude, the credential entity configurations in Metrics Advisor for *Service Principal from Key Vault* and the way to get them are shown in table below:
 
 | Configuration | How to get |
 |-------------| ---------------------|
 | Key Vault Endpoint | **Step 3:** Vault URI of key vault. |
-| Tenant ID | **Step 1:** Directory (tenant) ID of service principal. |
-| Key Vault Client ID | Basic |
-| Key Vault Client Secret | Basic |
+| Tenant ID | **Step 1:** Directory (tenant) ID of your first service principal. |
+| Key Vault Client ID | **Step 5:** The Application (client) ID of your second service principal. |
+| Key Vault Client Secret | **Step 5:** The client secret value of your second service principal. |
 | Service Principal Client ID Name | **Step 4:** The secret name you set for Client ID. |
 | Service Principal Client Secret Name | **Step 4:** The secret name you set for Client Secret Value. |
 
 
 ## Next steps
 
-- [Adjust anomaly detection using feedback](anomaly-feedback.md)
-- [Diagnose an incident](diagnose-an-incident.md).
-- [Configure metrics and fine tune detection configuration](configure-metrics.md)
+- [Onboard your data](onboard-your-data.md)
+- [Connect different data sources](../data-feeds-from-different-sources.md)
