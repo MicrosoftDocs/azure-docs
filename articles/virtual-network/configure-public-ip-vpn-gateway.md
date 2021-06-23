@@ -7,7 +7,7 @@ ms.author: allensu
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to 
-ms.date: 05/13/2021
+ms.date: 06/23/2021
 ms.custom: template-how-to 
 ---
 
@@ -114,7 +114,8 @@ VPN gateway doesn't support changing the public IP address after creation.
 
 ## Caveats
 
-* Public IPv6 addresses aren't supported for VPN Gateways at this time.  
+* Public IPv6 addresses aren't supported for VPN Gateways at this time.
+ 
 ## Next steps
 
 In this article, you learned how to create a VPN Gateway and use an existing public IP. 
