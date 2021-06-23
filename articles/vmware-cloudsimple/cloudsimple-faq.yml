@@ -8,7 +8,8 @@ metadata:
   ms.topic: article 
   ms.service: azure-vmware-cloudsimple 
   ms.reviewer: cynthn 
-  manager: dikamath 
+  manager: dikamath
+  ms.custom: references_regions
     
 title: Frequently asked questions about VMware Solution by CloudSimple
 summary: |
