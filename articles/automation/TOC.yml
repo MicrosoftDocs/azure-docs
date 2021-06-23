@@ -214,8 +214,6 @@
                   href: automation-dsc-config-from-server.md
                 - name: Convert configurations to composite resources
                   href: automation-dsc-create-composite.md
-                - name: Remediate non-compliant servers
-                  href: automation-dsc-remediate.md 
         - name: Change tracking and inventory
           items:
             - name: Overview
