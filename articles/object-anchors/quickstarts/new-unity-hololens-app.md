@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Create a new HoloLens Unity app'
 description: In this quickstart, you learn how to create a new HoloLens Unity app using Object Anchors.
-author: rgarcia
+author: RamonArguelles
 manager: virivera
 
 ms.author: rgarcia
