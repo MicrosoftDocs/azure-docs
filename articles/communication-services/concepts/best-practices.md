@@ -40,4 +40,6 @@ Application should dispose VideoStreamRendererView, or it's parent VideoStreamRe
 App should invoke call.hangup on onbeforeunload event
 
 ### Hang up the Call on microphoneMuteUnexpectedly UFD
-Whey user is on ACS call from iOS Safari and receives the PSTN call then ACS lost the microphone access. To avoid this issue, it's recommended to hang up the call when microphoneMuteUnexpectedly UFD raised.
+Whey user is on call on iOS/Safari and receives the PSTN call then ACS looses microphone access. 
+ACS will raise Call Diagnostic event with `microphoneMuteUnexpectedly` type, at this point ACS will not be able to regain access to microphone.
+It's recommended to hang up the call ( `call.hangUp` ) when such situation occurs.
