@@ -26,7 +26,7 @@ This article answers to common questions about Azure Maps [Weather services](/re
 
 Azure Maps is built with the collaboration of world-class mobility and location technology partners, including AccuWeather, who provides the underlying weather data. To read the announcement of Azure Map's collaboration with AccuWeather, see [Rain or shine: Azure Maps Weather Services will bring insights to your enterprise](https://azure.microsoft.com/blog/rain-or-shine-azure-maps-weather-services-will-bring-insights-to-your-enterprise/).
 
-AccuWeather has real-time weather and environmental information available anywhere in the world, largely due to their partnerships with numerous national governmental weather agencies and other proprietary arrangements. A list of this foundational information is provided below.
+AccuWeather has real-time weather and environmental information available anywhere in the world, largely because of their partnerships with many national governmental weather agencies and other proprietary arrangements. A list of this foundational information is provided below.
 
 * Publicly available global surface observations from government agencies
 * Proprietary surface observation datasets from governments and private companies
@@ -40,17 +40,17 @@ AccuWeather has real-time weather and environmental information available anywhe
 
 Tens of thousands of surface observations, along with other data, are incorporated to create and influence the current conditions made available to users. These surface observations include not only freely available standard datasets, but also unique observations obtained from national meteorological services in many countries/regions, such as India, Brazil, Canada, and other proprietary inputs. These unique datasets increase the spatial and temporal resolution of current condition data for our users.
 
-These datasets are reviewed in real time for accuracy for the Digital Forecast System, which utilizes AccuWeather’s proprietary artificial intelligence algorithms to continuously modify the forecasts, ensuring they always incorporate the latest data and thereby maximizing their continual accuracy.
+These datasets are reviewed in real time for accuracy for the Digital Forecast System, which uses AccuWeather’s proprietary artificial intelligence algorithms to continuously modify the forecasts, ensuring they always incorporate the latest data and, in that way, maximize their continual accuracy.
 
 **What models create weather forecast data?**
 
-Numerous weather forecast guidance systems are utilized to formulate global forecasts. Over 150 numerical forecast models are used each day, both external and internal datasets. These models include government models such as the European Centre ECMWF and the U.S. Global Forecast System (GFS). Additionally, AccuWeather incorporates proprietary high-resolution models that downscale forecasts to specific locations and strategic regional domains to predict weather with further accuracy. AccuWeather’s unique blending and weighting algorithms   have been developed over the last several decades. These algorithms optimally apply the numerous forecast inputs to provide highly accurate forecasts.
+Many weather forecast guidance systems are used to formulate global forecasts. Over 150 numerical forecast models are used each day, both external and internal datasets. These models include government models such as the European Centre ECMWF and the U.S. Global Forecast System (GFS). Additionally, AccuWeather incorporates proprietary high-resolution models that downscale forecasts to specific locations and strategic regional domains to predict weather with further accuracy. AccuWeather’s unique blending and weighting algorithms   have been developed over the last several decades. These algorithms optimally apply the numerous forecast inputs to provide highly accurate forecasts.
 
 ## Weather services coverage and availability
 
 **What kind of coverage can I expect for different countries/regions?**
 
-Weather service coverage varies by country/region. All features are not available in every country/region. For more information, see [coverage documentation](./weather-coverage.md).
+Weather service coverage varies by country/region. All features aren't available in every country/region. For more information, see [coverage documentation](./weather-coverage.md).
 
 ## Data update frequency
 
