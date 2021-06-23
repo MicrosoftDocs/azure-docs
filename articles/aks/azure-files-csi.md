@@ -188,69 +188,69 @@ Filesystem                                                                      
 //f149b5a219bd34caeb07de9.file.core.windows.net/pvc-5e5d9980-da38-492b-8581-17e3cad01770  200G  128K  200G   1% /mnt/azurefile
 ```
 
-## Use a persistent volume with private Azure Files (Private Endpoint)
+## Use a persistent volume with private Azure Files storage (private endpoint)
 
-For the case in which your Azure Files are protected with a private enpoint, you must create your own storage class customized with the following parameters:
+If your Azure Files resources are protected with a private endpoint, you must create your own storage class that's customized with the following parameters:
 
-* `resourceGroup`: the resource group name where the storage account is deployed.
-* `storageAccount`: the storage account name.
-* `server` the FQDN of the storage account's files private endpoint (i.e. <storage account name>.privatelink.file.core.windows.net)
+* `resourceGroup`: The resource group where the storage account is deployed.
+* `storageAccount`: The storage account name.
+* `server`: The FQDN of the storage account's private endpoint (for example, `<storage account name>.privatelink.file.core.windows.net`).
 
-Create a file named `private-azure-file-sc.yaml`, and paste the following example manifest replacing the valules for `<resourceGroup>` and `<storageAccountName>`:
+1. Create a file named *private-azure-file-sc.yaml*, and then paste the following example manifest in the file. Replace the valules for `<resourceGroup>` and `<storageAccountName>`.
 
-```yaml
-apiVersion: storage.k8s.io/v1
-kind: StorageClass
-metadata:
-  name: private-azurefile-csi
-provisioner: file.csi.azure.com
-allowVolumeExpansion: true
-parameters:
-  resourceGroup: <resourceGroup>
-  storageAccount: <storageAccountName>
-  server: <storageAccountName>.privatelink.file.core.windows.net 
-reclaimPolicy: Delete
-volumeBindingMode: Immediate
-mountOptions:
-  - dir_mode=0777
-  - file_mode=0777
-  - uid=0
-  - gid=0
-  - mfsymlinks
-  - cache=strict  # https://linux.die.net/man/8/mount.cifs
-  - nosharesock  # reduce probability of reconnect race
-  - actimeo=30  # reduce latency for metadata-heavy workload
-```
+  ```yaml
+  apiVersion: storage.k8s.io/v1
+  kind: StorageClass
+  metadata:
+    name: private-azurefile-csi
+  provisioner: file.csi.azure.com
+  allowVolumeExpansion: true
+  parameters:
+    resourceGroup: <resourceGroup>
+    storageAccount: <storageAccountName>
+    server: <storageAccountName>.privatelink.file.core.windows.net 
+  reclaimPolicy: Delete
+  volumeBindingMode: Immediate
+  mountOptions:
+    - dir_mode=0777
+    - file_mode=0777
+    - uid=0
+    - gid=0
+    - mfsymlinks
+    - cache=strict  # https://linux.die.net/man/8/mount.cifs
+    - nosharesock  # reduce probability of reconnect race
+    - actimeo=30  # reduce latency for metadata-heavy workload
+  ```
 
-Create the storage class with the [kubectl apply][kubectl-apply] command:
+1. Create the storage class by using the [kubectl apply][kubectl-apply] command:
 
-```console
-kubectl apply -f private-azure-file-sc.yaml
+  ```console
+  kubectl apply -f private-azure-file-sc.yaml
 
-storageclass.storage.k8s.io/private-azurefile-csi created
-```
+  storageclass.storage.k8s.io/private-azurefile-csi created
+  ```
   
-Create a file named `private-pvc.yaml`, and paste the following example manifest:
+1. Create a file named *private-pvc.yaml*, and then paste the following example manifest in the file:
   
-```yaml
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: private-azurefile-pvc
-spec:
-  accessModes:
-    - ReadWriteMany
-  storageClassName: private-azurefile-csi
-  resources:
-    requests:
-      storage: 100Gi
-```
+  ```yaml
+  apiVersion: v1
+  kind: PersistentVolumeClaim
+  metadata:
+    name: private-azurefile-pvc
+  spec:
+    accessModes:
+      - ReadWriteMany
+    storageClassName: private-azurefile-csi
+    resources:
+      requests:
+        storage: 100Gi
+  ```
   
-Create the PVC with the [kubectl apply][kubectl-apply] command:
+1. Create the PVC by using the [kubectl apply][kubectl-apply] command:
   
-```console
-kubectl apply -f private-pvc.yaml
-```
+  ```console
+  kubectl apply -f private-pvc.yaml
+  ```
 
 ## NFS file shares
 
