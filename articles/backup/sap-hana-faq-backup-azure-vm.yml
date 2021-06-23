@@ -20,7 +20,7 @@ sections:
           | Backup types | Scheduled backup | On-demand backups |
           | --- | --- | --- |
           | Full | Only one supported in a day. | Multiple times in a day supported. |
-          | Delta (differential/incremental) | Only one supported in a day. <br><br> **Note** <br> Delta backups can be scheduled only when no full backup is scheduled for the particular day. Also, only one delta backup type (Differential/ Incremental) can be scheduled in a backup policy. | Multiple times in a day supported. |
+          | Delta (differential/incremental) | Only one supported in a day. <br><br> **Note** <br> Delta backups can be scheduled only when no full backup is scheduled for the particular day. Also, only one delta backup type (differential/ incremental) can be scheduled in a backup policy. | Multiple times in a day supported. |
 
       - question: |
           Where can I find backup related alerts?
