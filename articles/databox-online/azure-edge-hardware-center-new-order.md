@@ -1,45 +1,12 @@
 ---
-title: Order Azure Edge devices from Azure Edge Hardware Center| Microsoft Docs
-description: Learn how to order multiple Azure Stack Edge devices in the Azure Edge Hardware Center.
-services: databox
 author: v-dalc
-
-ms.service: databox
-ms.subservice: edge
-ms.topic: how-to
+ms.service: databox  
+ms.topic: include
 ms.date: 06/22/2021
 ms.author: alkohli
-Customer intent: As an IT admin, I want to be able to place a single order for as many Azure Stack Edge devices as my company needs, and ship the devices to different locations. And I want to be able to reuse shipping addresses from my previous orders.
 ---
 
-# Order Azure Stack Edge devices from Azure Edge Hardware Center
-
-This article describes how to order Azure Stack Edge, Azure Stack Hub, or Azure Stack Edge Zone Enterprise devices centrally, from the Azure Edge Hardware Center. You can order multiple devices in one order, ship them to multiple addresses, and reuse addresses.
-
-Each order can include multiple devices from a single hardware group and configuration. You can ship the devices to different locations within the same country/region. For more information about the Azure Stack Edge Hardware Center, see Azure Stack Edge Hardware Center overview *(link to come)*.
-
-*I will add an "About" section if we need to provide any more detail about the new service. `Alpa` will write an "Overview" article.*
-
-### Prerequisites
-
-Before you begin, make sure that:<!--Anam to provide updated Prerequisites in Support doc by 06/21.-->
-
-- Your Microsoft Azure subscription is enabled for an Azure Stack Edge resource. Make sure that you used a supported subscription such as [Microsoft Enterprise Agreement (EA)](https://azure.microsoft.com/overview/sales-number/), [Cloud Solution Provider (CSP)](/partner-center/azure-plan-lp), or [Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/). Pay-as-you-go subscriptions aren't supported. To identify the type of Azure subscription you have, see [What is an Azure offer?](../cost-management-billing/manage/switch-azure-offer.md#what-is-an-azure-offer).
-- You have owner or contributor access at resource group level for the Azure Stack Edge Pro/Data Box Gateway, IoT Hub, and Azure Storage resources.
-
-    - To create any Azure Stack Edge / Data Box Gateway resource, you should have permissions as a contributor (or higher) scoped at resource group level. 
-    - You also need to make sure that the `Microsoft.EdgeOrder` provider is registered. *QUESTION: Azure Stack Edge also requires the `Microsoft.DataBoxEdge` and `Microsoft.KeyVault` resource providers. For IoT Hub resources, the `Microsoft.Devices` provider also is required. Should these providers be included?*<!--STILL REQUIRED? You also need to make sure that the Microsoft.DataBoxEdge and MicrosoftKeyVault resource providers are registered. To create any IoT Hub resource, Microsoft.Devices`provider should be registered.-->
-        - To register a resource provider, in the Azure portal, go to **Home > Subscriptions > Your-subscription > Resource providers**.
-        - Search for the specific resource provider, for example, Microsoft.DataBoxEdge, and register the resource provider.
-    - To create a Storage account resource, again you need contributor or higher access scoped at the resource group level. Azure Storage is by default a registered resource provider. *QUESTION: Requirements from Azure Stack Edge. Still applicable?*
-- You have admin or user access to Azure Active Directory Graph API for generating activation key or credential operations such as share creation that uses a storage account. For more information, see [Azure Active Directory Graph API](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-). *QUESTION: Is this bullet the solution to the requirement to "Make sure no policies are preventing access during ordering?*
-
-
-## Create new order in Azure Hardware Center
-
-You can create orders for Azure Stack Edge, Azure Stack Hub, and Azure Modular Datacenter through the Azure Edge Hardware Center. In the Hardware Center, you can place an order for multiple devices shipped to multiple addresses and can reuse ship to addresses that you have used in a previous order.
-
-After the order is complete, you'll need to create a *management resource* for each order item following the process that you use to [reset or reactivate a device](azure-stack-edge-reset-reactivate-device.md).
+Through the Azure Edge Hardware Center, you can place an order for multiple devices shipped to multiple addresses, and you can reuse ship to addresses from other orders.
 
 1. Use your Microsoft Azure credentials to sign in to the Azure portal at this URL: [https://portal.azure.com](https://portal.azure.com).
 
@@ -158,12 +125,8 @@ After the order is complete, you'll need to create a *management resource* for e
     ![Screenshot showing a summary of orders for the resource group in the Azure Edge Hardware Center](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-18.png)
 
 
-## Create management resource for each device
+### Create a management resource for each device
 
-After your order is complete, create a management resource for each device by following the same process that you use to [reset or reactivate a device](azure-stack-edge-reset-reactivate-device.md). 
+After your order is complete, you'll need to create a management resource for each device by following the same process that you use to [reset or reactivate a device](azure-stack-edge-reset-reactivate-device.md). 
 
 Activating the device will associate each management resource with the order.
-
-## Next steps
-
-- To learn how to deploy virtual machines on your Azure Stack Edge Pro device, see [Deploy virtual machines via the Azure portal](azure-stack-edge-gpu-deploy-virtual-machine-portal.md).
