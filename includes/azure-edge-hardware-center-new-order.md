@@ -86,10 +86,10 @@ Through the Azure Edge Hardware Center, you can place an order for multiple devi
 12. If you want to change the names of order items, select and click the order item name to open the **Rename order item** pane. If you're shipping more than one item to an address, select **+n more**.
 
     You can make two types of name change:
+ 
+    * Use a different name prefix for all of the order items, edit the **Name prefix** and then select **Apply**.
 
-    - Use a different name prefix for all of the order items, edit the **Name prefix** and then select **Apply**.
-
-    - Edit each order item name individually. 
+    * Edit each order item name individually. 
 
     When you finish updating order item names, select **Done**.
 
@@ -103,12 +103,13 @@ Through the Azure Edge Hardware Center, you can place an order for multiple devi
 
     When you finish, select **Review + create** to continue.
 
-14. Review your order:
+14. On the **Review + create** tab:
 
-    - The order is automatically validated when you open this screen. If you see a **Validation failed** banner, you'll have to fix the issues before you create the order.
-    - Review the **Privacy terms**, and select the check box to agree to them.
+    1. Review your order. The order is automatically validated when you open this screen. If you see a **Validation failed** banner, you'll have to fix the issues before you create the order.
+    
+    1. Review the **Privacy terms**, and select the check box to agree to them.
  
-    Then select **Create**.
+    1. Select **Create**.
 
     ![Screenshot of the Review + create tab for an Azure Edge Hardware Center order](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-15.png)
 
@@ -116,13 +117,10 @@ Through the Azure Edge Hardware Center, you can place an order for multiple devi
 
     ![Screenshot showing the status of successfully completed order in the Azure Edge Hardware Center](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-16.png)
 
-    <!--Click the Down arrow to display **Deployment details**.
 
-    ![Screenshot showing deployment details for a successfully completed order in the Azure Edge Hardware Center](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-17.png)-->
+15. To review all of the orders in the resource group, click **Next step: View orders for the resource group.** *QUESTION: What do we expect customers to do from the resource group?*
 
-15.  To review all of the orders in the resource group, click **Next step: View orders for the resource group.** *QUESTION: What do we expect customers to do from the resource group?*
-
-    ![Screenshot showing a summary of orders for the resource group in the Azure Edge Hardware Center](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-18.png)
+    ![Screenshot showing a summary of orders for the resource group in the Azure Edge Hardware Center](./media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-18.png)
 
 
 ### Create a management resource for each device
