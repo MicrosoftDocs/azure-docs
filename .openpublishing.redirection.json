@@ -8574,7 +8574,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/azure/marketplace/purchase-software-on-appsource.md",
+      "source_path": "articles/marketplace/purchase-software-on-appsource.md",
       "redirect_url": "/azure/marketplace/purchase-software-appsource",
       "redirect_document_id": false
     },
