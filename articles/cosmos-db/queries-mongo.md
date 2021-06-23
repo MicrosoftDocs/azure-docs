@@ -29,170 +29,170 @@ For [resource-specific tables](cosmosdb-monitor-resource-logs.md#create-setting-
 
 ## Common queries
 
-1. Top N(10) RU consuming requests/queries in a given time frame
+- Top N(10) RU consuming requests/queries in a given time frame
 
 # [Resource-specific](#tab/resource-specific)
-```Kusto
-let topRequestsByRUcharge = CDBDataPlaneRequests 
-| where TimeGenerated > ago(24h)
-| project  RequestCharge , TimeGenerated, ActivityId;
-CDBMongoRequests
-| project PIICommandText, ActivityId, DatabaseName , CollectionName
-| join kind=inner topRequestsByRUcharge on ActivityId
-| project DatabaseName , CollectionName , PIICommandText , RequestCharge, TimeGenerated
-| order by RequestCharge desc
-| take 10
-```
+   ```Kusto
+   let topRequestsByRUcharge = CDBDataPlaneRequests 
+   | where TimeGenerated > ago(24h)
+   | project  RequestCharge , TimeGenerated, ActivityId;
+   CDBMongoRequests
+   | project PIICommandText, ActivityId, DatabaseName , CollectionName
+   | join kind=inner topRequestsByRUcharge on ActivityId
+   | project DatabaseName , CollectionName , PIICommandText , RequestCharge, TimeGenerated
+   | order by RequestCharge desc
+   | take 10
+   ```
 
 # [Azure Diagnostics](#tab/azure-diagnostics)
-```Kusto
-let topRequestsByRUcharge = AzureDiagnostics
-| where Category == "DataPlaneRequests" and TimeGenerated > ago(1h)
-| project  requestCharge_s , TimeGenerated, activityId_g;
-AzureDiagnostics
-| where Category == "MongoRequests"
-| project piiCommandText_s, activityId_g, databasename_s , collectionname_s
-| join kind=inner topRequestsByRUcharge on activityId_g
-| project databasename_s , collectionname_s , piiCommandText_s , requestCharge_s, TimeGenerated
-| order by requestCharge_s desc
-| take 10
-```    
+   ```Kusto
+   let topRequestsByRUcharge = AzureDiagnostics
+   | where Category == "DataPlaneRequests" and TimeGenerated > ago(1h)
+   | project  requestCharge_s , TimeGenerated, activityId_g;
+   AzureDiagnostics
+   | where Category == "MongoRequests"
+   | project piiCommandText_s, activityId_g, databasename_s , collectionname_s
+   | join kind=inner topRequestsByRUcharge on activityId_g
+   | project databasename_s , collectionname_s , piiCommandText_s , requestCharge_s, TimeGenerated
+   | order by requestCharge_s desc
+   | take 10
+   ```    
 ---
 
-2. Requests throttled (statusCode = 429 or 16500) in a given time window 
+- Requests throttled (statusCode = 429 or 16500) in a given time window 
 
 # [Resource-specific](#tab/resource-specific)
-```Kusto
-let throttledRequests = CDBDataPlaneRequests
-| where StatusCode == "429" or StatusCode == "16500"
-| project  OperationName , TimeGenerated, ActivityId;
-CDBMongoRequests
-| project PIICommandText, ActivityId, DatabaseName , CollectionName
-| join kind=inner throttledRequests on ActivityId
-| project DatabaseName , CollectionName , PIICommandText , OperationName, TimeGenerated
-```
+   ```Kusto
+   let throttledRequests = CDBDataPlaneRequests
+   | where StatusCode == "429" or StatusCode == "16500"
+    | project  OperationName , TimeGenerated, ActivityId;
+   CDBMongoRequests
+   | project PIICommandText, ActivityId, DatabaseName , CollectionName
+   | join kind=inner throttledRequests on ActivityId
+   | project DatabaseName , CollectionName , PIICommandText , OperationName, TimeGenerated
+   ```
 
 # [Azure Diagnostics](#tab/azure-diagnostics)
-```Kusto
-let throttledRequests = AzureDiagnostics
-| where Category == "DataPlaneRequests"
-| where statusCode_s == "429" or statusCode_s == "16500" 
-| project  OperationName , TimeGenerated, activityId_g;
-AzureDiagnostics
-| where Category == "MongoRequests"
-| project piiCommandText_s, activityId_g, databasename_s , collectionname_s
-| join kind=inner throttledRequests on activityId_g
-| project databasename_s , collectionname_s , piiCommandText_s , OperationName, TimeGenerated
-```    
+   ```Kusto
+   let throttledRequests = AzureDiagnostics
+   | where Category == "DataPlaneRequests"
+   | where statusCode_s == "429" or statusCode_s == "16500" 
+   | project  OperationName , TimeGenerated, activityId_g;
+   AzureDiagnostics
+   | where Category == "MongoRequests"
+   | project piiCommandText_s, activityId_g, databasename_s , collectionname_s
+   | join kind=inner throttledRequests on activityId_g
+   | project databasename_s , collectionname_s , piiCommandText_s , OperationName, TimeGenerated
+   ```    
 ---
 
-3. Timed out requests (statusCode = 50) in a given time window 
+- Timed out requests (statusCode = 50) in a given time window 
 
 # [Resource-specific](#tab/resource-specific)
-```Kusto
-let throttledRequests = CDBDataPlaneRequests
-| where StatusCode == "50"
-| project  OperationName , TimeGenerated, ActivityId;
-CDBMongoRequests
-| project PIICommandText, ActivityId, DatabaseName , CollectionName
-| join kind=inner throttledRequests on ActivityId
-| project DatabaseName , CollectionName , PIICommandText , OperationName, TimeGenerated
-```
+   ```Kusto
+   let throttledRequests = CDBDataPlaneRequests
+   | where StatusCode == "50"
+   | project  OperationName , TimeGenerated, ActivityId;
+   CDBMongoRequests
+   | project PIICommandText, ActivityId, DatabaseName , CollectionName
+   | join kind=inner throttledRequests on ActivityId
+   | project DatabaseName , CollectionName , PIICommandText , OperationName, TimeGenerated
+   ```
 # [Azure Diagnostics](#tab/azure-diagnostics)
-```Kusto
-let throttledRequests = AzureDiagnostics
-| where Category == "DataPlaneRequests"
-| where statusCode_s == "50"
-| project  OperationName , TimeGenerated, activityId_g;
-AzureDiagnostics
-| where Category == "MongoRequests"
-| project piiCommandText_s, activityId_g, databasename_s , collectionname_s
-| join kind=inner throttledRequests on activityId_g
-| project databasename_s , collectionname_s , piiCommandText_s , OperationName, TimeGenerated
-```    
+   ```Kusto
+   let throttledRequests = AzureDiagnostics
+   | where Category == "DataPlaneRequests"
+   | where statusCode_s == "50"
+   | project  OperationName , TimeGenerated, activityId_g;
+   AzureDiagnostics
+   | where Category == "MongoRequests"
+   | project piiCommandText_s, activityId_g, databasename_s , collectionname_s
+   | join kind=inner throttledRequests on activityId_g
+   | project databasename_s , collectionname_s , piiCommandText_s , OperationName, TimeGenerated
+   ```    
 ---
 
-4. Queries with large response lengths (payload size of the server response)
+- Queries with large response lengths (payload size of the server response)
 
 # [Resource-specific](#tab/resource-specific)
-```Kusto
-let operationsbyUserAgent = CDBDataPlaneRequests
-| project OperationName, DurationMs, RequestCharge, ResponseLength, ActivityId;
-CDBMongoRequests
-//specify collection and database
-//| where DatabaseName == "DBNAME" and CollectionName == "COLLECTIONNAME"
-| join kind=inner operationsbyUserAgent on ActivityId
-| summarize max(ResponseLength) by PIICommandText
-| order by max_ResponseLength desc
-```
+   ```Kusto
+   let operationsbyUserAgent = CDBDataPlaneRequests
+   | project OperationName, DurationMs, RequestCharge, ResponseLength, ActivityId;
+   CDBMongoRequests
+   //specify collection and database
+   //| where DatabaseName == "DBNAME" and CollectionName == "COLLECTIONNAME"
+   | join kind=inner operationsbyUserAgent on ActivityId
+   | summarize max(ResponseLength) by PIICommandText
+   | order by max_ResponseLength desc
+   ```
 # [Azure Diagnostics](#tab/azure-diagnostics)
-```Kusto
-let operationsbyUserAgent = AzureDiagnostics
-| where Category=="DataPlaneRequests"
-| project OperationName, duration_s, requestCharge_s, responseLength_s, activityId_g;
-AzureDiagnostics
-| where Category == "MongoRequests"
-//specify collection and database
-//| where databasename_s == "DBNAME" and collectioname_s == "COLLECTIONNAME"
-| join kind=inner operationsbyUserAgent on activityId_g
-| summarize max(responseLength_s1) by piiCommandText_s
-| order by max_responseLength_s1 desc
-```    
+   ```Kusto
+   let operationsbyUserAgent = AzureDiagnostics
+   | where Category=="DataPlaneRequests"
+   | project OperationName, duration_s, requestCharge_s, responseLength_s, activityId_g;
+   AzureDiagnostics
+   | where Category == "MongoRequests"
+   //specify collection and database
+   //| where databasename_s == "DBNAME" and collectioname_s == "COLLECTIONNAME"
+   | join kind=inner operationsbyUserAgent on activityId_g
+   | summarize max(responseLength_s1) by piiCommandText_s
+   | order by max_responseLength_s1 desc
+   ```    
 ---
 
-5. RU Consumption by physical partition (across all replicas in the replica set)
+- RU Consumption by physical partition (across all replicas in the replica set)
 
 # [Resource-specific](#tab/resource-specific)
-```Kusto
-CDBPartitionKeyRUConsumption
-| where TimeGenerated >= now(-1d)
-//specify collection and database
-//| where DatabaseName == "DBNAME" and CollectionName == "COLLECTIONNAME"
-// filter by operation type
-//| where operationType_s == 'Create'
-| summarize sum(todouble(RequestCharge)) by toint(PartitionKeyRangeId)
-| render columnchart
-```
+   ```Kusto
+   CDBPartitionKeyRUConsumption
+   | where TimeGenerated >= now(-1d)
+   //specify collection and database
+   //| where DatabaseName == "DBNAME" and CollectionName == "COLLECTIONNAME"
+   // filter by operation type
+   //| where operationType_s == 'Create'
+   | summarize sum(todouble(RequestCharge)) by toint(PartitionKeyRangeId)
+   | render columnchart
+   ```
 
 # [Azure Diagnostics](#tab/azure-diagnostics)
-```Kusto
-AzureDiagnostics
-| where TimeGenerated >= now(-1d)
-| where Category == 'PartitionKeyRUConsumption'
-//specify collection and database
-//| where databasename_s == "DBNAME" and collectioname_s == "COLLECTIONNAME"
-// filter by operation type
-//| where operationType_s == 'Create'
-| summarize sum(todouble(requestCharge_s)) by toint(partitionKeyRangeId_s)
-| render columnchart  
-```    
+   ```Kusto
+   AzureDiagnostics
+   | where TimeGenerated >= now(-1d)
+   | where Category == 'PartitionKeyRUConsumption'
+   //specify collection and database
+   //| where databasename_s == "DBNAME" and collectioname_s == "COLLECTIONNAME"
+   // filter by operation type
+   //| where operationType_s == 'Create'
+   | summarize sum(todouble(requestCharge_s)) by toint(partitionKeyRangeId_s)
+   | render columnchart  
+   ```    
 ---
 
-6. RU Consumption by logical partition (across all replicas in the replica set)
+- RU Consumption by logical partition (across all replicas in the replica set)
 
 # [Resource-specific](#tab/resource-specific)
-```Kusto
-CDBPartitionKeyRUConsumption
-| where TimeGenerated >= now(-1d)
-//specify collection and database
-//| where DatabaseName == "DBNAME" and CollectionName == "COLLECTIONNAME"
-// filter by operation type
-//| where operationType_s == 'Create'
-| summarize sum(todouble(RequestCharge)) by PartitionKey, PartitionKeyRangeId
-| render columnchart  
-```
+   ```Kusto
+   CDBPartitionKeyRUConsumption
+   | where TimeGenerated >= now(-1d)
+   //specify collection and database
+   //| where DatabaseName == "DBNAME" and CollectionName == "COLLECTIONNAME"
+   // filter by operation type
+   //| where operationType_s == 'Create'
+   | summarize sum(todouble(RequestCharge)) by PartitionKey, PartitionKeyRangeId
+   | render columnchart  
+   ```
 # [Azure Diagnostics](#tab/azure-diagnostics)
-```Kusto
-AzureDiagnostics
-| where TimeGenerated >= now(-1d)
-| where Category == 'PartitionKeyRUConsumption'
-//specify collection and database
-//| where databasename_s == "DBNAME" and collectioname_s == "COLLECTIONNAME"
-// filter by operation type
-//| where operationType_s == 'Create'
-| summarize sum(todouble(requestCharge_s)) by partitionKey_s, partitionKeyRangeId_s
-| render columnchart  
-```
+   ```Kusto
+   AzureDiagnostics
+   | where TimeGenerated >= now(-1d)
+   | where Category == 'PartitionKeyRUConsumption'
+   //specify collection and database
+   //| where databasename_s == "DBNAME" and collectioname_s == "COLLECTIONNAME"
+   // filter by operation type
+   //| where operationType_s == 'Create'
+   | summarize sum(todouble(requestCharge_s)) by partitionKey_s, partitionKeyRangeId_s
+   | render columnchart  
+   ```
 ---
 
 ## Next steps 

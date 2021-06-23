@@ -33,146 +33,146 @@ For [resource-specific tables](cosmosdb-monitor-resource-logs.md#create-setting-
 
 # [Resource-specific](#tab/resource-specific)
 
-    ```Kusto
-    let topRequestsByRUcharge = CDBDataPlaneRequests 
-    | where TimeGenerated > ago(24h)
-    | project  RequestCharge , TimeGenerated, ActivityId;
-    CDBQueryRuntimeStatistics
-    | project QueryText, ActivityId, DatabaseName , CollectionName
-    | join kind=inner topRequestsByRUcharge on ActivityId
-    | project DatabaseName , CollectionName , QueryText , RequestCharge, TimeGenerated
-    | order by RequestCharge desc
-    | take 10
-    ```
+   ```Kusto
+   let topRequestsByRUcharge = CDBDataPlaneRequests 
+   | where TimeGenerated > ago(24h)
+   | project  RequestCharge , TimeGenerated, ActivityId;
+   CDBQueryRuntimeStatistics
+   | project QueryText, ActivityId, DatabaseName , CollectionName
+   | join kind=inner topRequestsByRUcharge on ActivityId
+   | project DatabaseName , CollectionName , QueryText , RequestCharge, TimeGenerated
+   | order by RequestCharge desc
+   | take 10
+   ```
 # [Azure Diagnostics](#tab/azure-diagnostics)
 
-    ```Kusto
-    let topRequestsByRUcharge = AzureDiagnostics
-    | where Category == "DataPlaneRequests" and TimeGenerated > ago(24h)
-    | project  requestCharge_s , TimeGenerated, activityId_g;
-    AzureDiagnostics
-    | where Category == "QueryRuntimeStatistics"
-    | project querytext_s, activityId_g, databasename_s , collectionname_s
-    | join kind=inner topRequestsByRUcharge on activityId_g
-    | project databasename_s , collectionname_s , querytext_s , requestCharge_s, TimeGenerated
-    | order by requestCharge_s desc
-    | take 10
-    ```    
+   ```Kusto
+   let topRequestsByRUcharge = AzureDiagnostics
+   | where Category == "DataPlaneRequests" and TimeGenerated > ago(24h)
+   | project  requestCharge_s , TimeGenerated, activityId_g;
+   AzureDiagnostics
+   | where Category == "QueryRuntimeStatistics"
+   | project querytext_s, activityId_g, databasename_s , collectionname_s
+   | join kind=inner topRequestsByRUcharge on activityId_g
+   | project databasename_s , collectionname_s , querytext_s , requestCharge_s, TimeGenerated
+   | order by requestCharge_s desc
+   | take 10
+   ```    
 ---
 
 - Requests throttled (statusCode = 429) in a given time window 
 
 # [Resource-specific](#tab/resource-specific)
 
-    ```Kusto
-    let throttledRequests = CDBDataPlaneRequests
-    | where StatusCode == "429"
-    | project  OperationName , TimeGenerated, ActivityId;
-    CDBQueryRuntimeStatistics
-    | project QueryText, ActivityId, DatabaseName , CollectionName
-    | join kind=inner throttledRequests on ActivityId
-    | project DatabaseName , CollectionName , QueryText , OperationName, TimeGenerated
-```
+   ```Kusto
+   let throttledRequests = CDBDataPlaneRequests
+   | where StatusCode == "429"
+   | project  OperationName , TimeGenerated, ActivityId;
+   CDBQueryRuntimeStatistics
+   | project QueryText, ActivityId, DatabaseName , CollectionName
+   | join kind=inner throttledRequests on ActivityId
+   | project DatabaseName , CollectionName , QueryText , OperationName, TimeGenerated
+   ```
 # [Azure Diagnostics](#tab/azure-diagnostics)
 
-    ```Kusto
-    let throttledRequests = AzureDiagnostics
-    | where Category == "DataPlaneRequests" and statusCode_s == "429"
-    | project  OperationName , TimeGenerated, activityId_g;
-    AzureDiagnostics
-    | where Category == "QueryRuntimeStatistics"
-    | project querytext_s, activityId_g, databasename_s , collectionname_s
-    | join kind=inner throttledRequests on activityId_g
-    | project databasename_s , collectionname_s , querytext_s , OperationName, TimeGenerated
-```    
+   ```Kusto
+   let throttledRequests = AzureDiagnostics
+   | where Category == "DataPlaneRequests" and statusCode_s == "429"
+   | project  OperationName , TimeGenerated, activityId_g;
+   AzureDiagnostics
+   | where Category == "QueryRuntimeStatistics"
+   | project querytext_s, activityId_g, databasename_s , collectionname_s
+   | join kind=inner throttledRequests on activityId_g
+   | project databasename_s , collectionname_s , querytext_s , OperationName, TimeGenerated
+   ```    
 ---
 
 - Queries with the largest response lengths (payload size of the server response)
 
 # [Resource-specific](#tab/resource-specific)
 
-    ```Kusto
-    let operationsbyUserAgent = CDBDataPlaneRequests
-    | project OperationName, DurationMs, RequestCharge, ResponseLength, ActivityId;
-    CDBQueryRuntimeStatistics
-    //specify collection and database
-    /| where DatabaseName == "DBNAME" and CollectionName == "COLLECTIONNAME"
-    | join kind=inner operationsbyUserAgent on ActivityId
-    | summarize max(ResponseLength) by QueryText
-    | order by max_ResponseLength desc
-```
+   ```Kusto
+   let operationsbyUserAgent = CDBDataPlaneRequests
+   | project OperationName, DurationMs, RequestCharge, ResponseLength, ActivityId;
+   CDBQueryRuntimeStatistics
+   //specify collection and database
+   //| where DatabaseName == "DBNAME" and CollectionName == "COLLECTIONNAME"
+   | join kind=inner operationsbyUserAgent on ActivityId
+   | summarize max(ResponseLength) by QueryText
+   | order by max_ResponseLength desc
+   ```
 # [Azure Diagnostics](#tab/azure-diagnostics)
 
-    ```Kusto
-    let operationsbyUserAgent = AzureDiagnostics
-    | where Category=="DataPlaneRequests"
-    | project OperationName, duration_s, requestCharge_s, responseLength_s, activityId_g;
-    AzureDiagnostics
-    | where Category == "QueryRuntimeStatistics"
-    //specify collection and database
-    //| where databasename_s == "DBNAME" and collectioname_s == "COLLECTIONNAME"
-    | join kind=inner operationsbyUserAgent on activityId_g
-    | summarize max(responseLength_s1) by querytext_s
-    | order by max_responseLength_s1 desc
-    ```    
+   ```Kusto
+   let operationsbyUserAgent = AzureDiagnostics
+   | where Category=="DataPlaneRequests"
+   | project OperationName, duration_s, requestCharge_s, responseLength_s, activityId_g;
+   AzureDiagnostics
+   | where Category == "QueryRuntimeStatistics"
+   //specify collection and database
+   //| where databasename_s == "DBNAME" and collectioname_s == "COLLECTIONNAME"
+   | join kind=inner operationsbyUserAgent on activityId_g
+   | summarize max(responseLength_s1) by querytext_s
+   | order by max_responseLength_s1 desc
+   ```    
 ---
 
 - RU Consumption by physical partition (across all replicas in the replica set)
 
 # [Resource-specific](#tab/resource-specific)
 
-    ```Kusto
-    CDBPartitionKeyRUConsumption
-    | where TimeGenerated >= now(-1d)
-    //specify collection and database
-    //| where DatabaseName == "DBNAME" and CollectionName == "COLLECTIONNAME"
-    // filter by operation type
-    //| where operationType_s == 'Create'
-    | summarize sum(todouble(RequestCharge)) by toint(PartitionKeyRangeId)
-    | render columnchart
-    ```
+   ```Kusto
+   CDBPartitionKeyRUConsumption
+   | where TimeGenerated >= now(-1d)
+   //specify collection and database
+   //| where DatabaseName == "DBNAME" and CollectionName == "COLLECTIONNAME"
+   // filter by operation type
+   //| where operationType_s == 'Create'
+   | summarize sum(todouble(RequestCharge)) by toint(PartitionKeyRangeId)
+   | render columnchart
+   ```
 # [Azure Diagnostics](#tab/azure-diagnostics)
 
-    ```Kusto
-    AzureDiagnostics
-    | where TimeGenerated >= now(-1d)
-    | where Category == 'PartitionKeyRUConsumption'
-    //specify collection and database
-    //| where databasename_s == "DBNAME" and collectioname_s == "COLLECTIONNAME"
-    // filter by operation type
-    //| where operationType_s == 'Create'
-    | summarize sum(todouble(requestCharge_s)) by toint(partitionKeyRangeId_s)
-    | render columnchart  
-    ```    
+   ```Kusto
+   AzureDiagnostics
+   | where TimeGenerated >= now(-1d)
+   | where Category == 'PartitionKeyRUConsumption'
+   //specify collection and database
+   //| where databasename_s == "DBNAME" and collectioname_s == "COLLECTIONNAME"
+   // filter by operation type
+   //| where operationType_s == 'Create'
+   | summarize sum(todouble(requestCharge_s)) by toint(partitionKeyRangeId_s)
+   | render columnchart  
+   ```    
 ---
 
 - RU Consumption by logical partition (across all replicas in the replica set)
 
 # [Resource-specific](#tab/resource-specific)
 
-    ```Kusto
-    CDBPartitionKeyRUConsumption
-    | where TimeGenerated >= now(-1d)
-    //specify collection and database
-    //| where DatabaseName == "DBNAME" and CollectionName == "COLLECTIONNAME"
-    // filter by operation type
-    //| where operationType_s == 'Create'
-    | summarize sum(todouble(RequestCharge)) by PartitionKey, PartitionKeyRangeId
-    | render columnchart  
-```
+   ```Kusto
+   CDBPartitionKeyRUConsumption
+   | where TimeGenerated >= now(-1d)
+   //specify collection and database
+   //| where DatabaseName == "DBNAME" and CollectionName == "COLLECTIONNAME"
+   // filter by operation type
+   //| where operationType_s == 'Create'
+   | summarize sum(todouble(RequestCharge)) by PartitionKey, PartitionKeyRangeId
+   | render columnchart  
+   ```
 # [Azure Diagnostics](#tab/azure-diagnostics)
 
-    ```Kusto
-    AzureDiagnostics
-    | where TimeGenerated >= now(-1d)
-    | where Category == 'PartitionKeyRUConsumption'
-    //specify collection and database
-    //| where databasename_s == "DBNAME" and collectioname_s == "COLLECTIONNAME"
-    // filter by operation type
-    //| where operationType_s == 'Create'
-    | summarize sum(todouble(requestCharge_s)) by partitionKey_s, partitionKeyRangeId_s
-    | render columnchart  
-    ```
+   ```Kusto
+   AzureDiagnostics
+   | where TimeGenerated >= now(-1d)
+   | where Category == 'PartitionKeyRUConsumption'
+   //specify collection and database
+   //| where databasename_s == "DBNAME" and collectioname_s == "COLLECTIONNAME"
+   // filter by operation type
+   //| where operationType_s == 'Create'
+   | summarize sum(todouble(requestCharge_s)) by partitionKey_s, partitionKeyRangeId_s
+   | render columnchart  
+   ```
 ---
 
 ## Next steps
