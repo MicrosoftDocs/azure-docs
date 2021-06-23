@@ -116,6 +116,22 @@
       href: deploy-traffic-manager-balance-workloads.md
     - name: Configure alerts and work with metrics 
       href: configure-alerts-for-azure-vmware-solution.md
+    - name: Disaster recovery to Azure Site Recovery
+      items:
+      - name: Prepare Azure
+        href: ../site-recovery/avs-tutorial-prepare-azure.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
+      - name: Prepare Azure VMware Solution 
+        href: ../site-recovery/avs-tutorial-prepare-avs.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
+      - name: Set up replication
+        href: ../site-recovery/avs-tutorial-replication.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
+      - name: Run a disaster recovery drill 
+        href: ../site-recovery/avs-tutorial-dr-drill-azure.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
+      - name: Fail over to Azure 
+        href: ../site-recovery/avs-tutorial-failover.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
+      - name: Reprotect VMs
+        href: ../site-recovery/avs-tutorial-reprotect.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
+      - name: Fail back from Azure 
+        href: ../site-recovery/avs-tutorial-failback.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
   - name: VMware solutions
     items:
     - name: Configure vRealize Operations
@@ -160,6 +176,8 @@
       href: /azure/azure-vmware/faq#hosts,-clusters,-and-private-clouds
     - name: Identity management
       href: /azure/azure-vmware/faq#identity-management
+    - name: CSP and multi-tenancy
+      href: /azure/azure-vmware/faq#csp-and-multi-tenancy
     - name: Billing and support
       href: /azure/azure-vmware/faq#billing-and-support
   - name: Videos 
