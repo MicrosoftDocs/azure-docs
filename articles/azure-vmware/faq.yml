@@ -336,3 +336,10 @@ sections:
 
       - question: When does metering begin and end for trial Azure VMware Solution clusters?
         answer: Trial clusters are limited to three hosts used for 30-day evaluations of Azure VMware Solution private clouds. After 30 days, clusters are automatically metered per their respective rates. If the trial clusters are deleted before the 30-day end date, the Azure VMware Solution trial will end at the time of deletion.
+
+      - question: How will I be charged for ExpressRoute Global Reach?
+        answer: |
+          Any ExpressRoute Global Reach circuit where one end terminates on an Azure VMware Solution ExpressRoute circuit is suppressed.  The following items are charged as regular ExpressRoute pricing:
+          - **ExpressRoute circuit:**  only the on-premises to Azure ExpressRoute circuit (not the Azure VMware Solution ExpressRoute circuit)
+          - **Data Transfer pricing:**  only the on-premises to Azure ExpressRoute circuit (not the Azure VMware Solution ExpressRoute circuit)
+          - **ExpressRoute Gateway:** Each virtual network that needs to attach to Azure VMware Solution needs a local or remote ExpressRoute Gateway
