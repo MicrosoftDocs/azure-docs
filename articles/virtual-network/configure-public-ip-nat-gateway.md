@@ -7,31 +7,17 @@ ms.author: allensu
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to 
-ms.date: 05/13/2021
+ms.date: 06/22/2021
 ms.custom: template-how-to 
 ---
 
 # Use a public IP address with a NAT gateway
 
-A public IP address in Azure is available in standard and basic SKUs. The selection of SKU determines the features of the IP address. The SKU determines the resources that the IP address can be associated with. 
+Azure NAT Gateway resources (part of Virtual Network NAT) are deployed to enable scalable outbound Internet connectivity from subnets within a virtual network.  Resources deployed in the NAT gateway virtual network subnet, such as load balancers, must be the standard SKU. Deployment of a NAT gateway to a virtual network subnet with basic SKU resources is unsupported. 
 
-Azure Virtual Network NAT is deployed to enable scalable outbound connectivity in a virtual network. Azure Virtual Network NAT supports standard SKU public IP addresses and public IP prefixes. Resources deployed in the nat gateway virtual network, such as load balancers, must be the standard SKU. Deployment of a NAT gateway to a virtual network with basic SKU resources is unsupported.
+NAT Gateway supports standard SKU public IP addresses and public IP prefixes.   Any combination is fine, though note the number of IPs allocated can't exceed 16. The addition of IP addresses or an IP prefix scales the Source Network Address Translation (SNAT) connections from resources using the NAT gateway. 
 
-Examples of resources that support standard SKU public IPs exclusively:
-
-* Cross-region load balancer
-* Azure Bastion
-
-A NAT gateway requires a public IP address or public IP prefix for it's configuration. A combination of public IPs and prefixes is also supported. The number of IPs allocated can't exceed 16.
-
-The addition of IP addresses or an IP prefix scales the Source Network Address Translation (SNAT) connections from resources using the NAT gateway.
-
-Examples of resources that support public IP prefixes:
-
-* NAT gateway
-* Azure Load Balancer
-
-Sometimes it's necessary within a deployment to update or change a public IP address associated with a resource. In this article, you'll learn how to create a NAT gateway using an existing public IP in your subscription. You'll learn how to change the current public IP associated to a NAT gateway. Finally, you'll change the NAT gateway configuration from a single IP to an IP prefix.
+In this article, you'll learn how to create a NAT gateway using an existing public IP in your subscription. You'll learn how to change the current public IP associated to a NAT gateway. Finally, you'll change the NAT gateway configuration from a single IP to an IP prefix. 
 
 ## Prerequisites
 
@@ -83,7 +69,7 @@ In this section, you'll create a NAT gateway resource. You'll select the IP addr
 
 In this section, you'll sign in to the Azure portal and change the IP address of the NAT gateway. 
 
-To change the IP, you'll associate a new public IP address created previously with the NAT gateway.
+To change the IP, you'll associate a new public IP address created previously with the NAT gateway. A NAT gateway must have at least one IP address assigned.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -106,6 +92,10 @@ To change the IP, you'll associate a new public IP address created previously wi
 10. Select **Save**.
 
 ## Add public IP prefix
+
+Public IP prefixes extend the scalability of Source Network Address Translation (SNAT) by allowing multiple IP addresses for outbound flows from the NAT Gateway, which is useful to avoid SNAT port exhaustion, as each IP provides 64,000 ephemeral ports that can be used.
+
+> [!NOTE] that when assigning a public IP prefix to a NAT gateway,the entire range will be used. 
 
 In this section, you'll change the outbound IP configuration to use a public IP prefix you created previously.
 
@@ -132,23 +122,18 @@ In this section, you'll change the outbound IP configuration to use a public IP 
 
 10. Select **Save**.
 
-## Delete public IP address
+## More information
 
-In this section, you'll delete the IP address you replaced in the previous section. Public IPs must be removed from resources before they can be deleted.
+* When utilizing NAT Gateway with virtual machines that have public IP addresses assigned, all ingress traffic addressed to the NAT Gateway public IP address(es) will also egress through the NAT Gateway.  Similarly, when utilizing a NAT Gateway with a Standard public load balancer, all ingress traffic addressed to the NAT Gateway public IP address(es) will also egress through the NAT Gateway.  Note that any outbound configuration from a load-balancing rule or outbound rules would be superseded by NAT gateway, and the members of the load balancer backend pool would also use the NAT Gateway for outbound.  Please see NAT Gateway Design Guidance for more information. 
 
-1. In the search box at the top of the portal, enter **Public IP**.
+* Both NAT Gateways and public IP addresses can have a TCP timeout value assigned for how long to keep a connection open before hearing keepalives.  If a public IP is assigned to a NAT Gateway, the timeout value on the IP takes precedence.  See NAT Gateway SNAT - Timers for more information. 
 
-2. In the search results, select **Public IP addresses**.
+## Caveats
 
-3. In **Public IP addresses**, select **myPublicIP** or your public IP address you want to remove.
-
-4. In the overview of **myPublic**, select **Delete**.
-
-5. Select **Yes** in **Delete public IP address**.
-
+* Public IPv6 address and Public IPv6 Prefixes are not supported on NAT Gateways at this time. NAT Gateways also cannot be deployed on a virtual network subnet with an IPv6 prefix. See Troubleshoot NAT Gateway for more information. 
 ## Next steps
 
-In this article, you learned how to create a load NAT gateway and use an existing public IP. You replaced the IP address in a NAT gateway outbound IP configuration. Finally, you changed an outbound IP configuration to use a public IP prefix and learned how to clean up an IP address no longer needed.
+In this article, you learned how to create a load NAT gateway and use an existing public IP. You replaced the IP address in a NAT gateway outbound IP configuration. Finally, you changed an outbound IP configuration to use a public IP prefix.
 
 - For more information about Azure Virtual Network NAT, see [What is Azure Virtual Network NAT?](nat-overview.md)
 - To learn more about public IP addresses in Azure, see [Public IP addresses](public-ip-addresses.md).
