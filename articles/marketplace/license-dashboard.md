@@ -81,7 +81,7 @@ You can use the download icon in the upper-right corner of any widget to downloa
 | SKU Name | Name of the plan in the offer |
 | Tenant ID | Unique ID of the tenant |
 | License State | License state |
-| Service Id | Unique identifier used in the package to map the plan with the license checks |
+| Service ID | Unique identifier used in the package to map the plan with the license checks |
 |||
 
 ## Next steps
