@@ -106,7 +106,7 @@ The behavior for new applications created after May 21, 2019 will depend on the 
 
 ## Implications on redirect URIs
 
-Applications that sign in users with any work or school account, or personal Microsoft accounts [multi-tenant) are subject to few restrictions when specifying redirect URIs.
+Applications that sign in users with any work or school account, or personal Microsoft accounts (multi-tenant) are subject to few restrictions when specifying redirect URIs.
 
 ### Single root domain restriction
 
