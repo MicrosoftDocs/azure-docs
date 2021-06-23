@@ -94,7 +94,7 @@ Make sure to add access from Cosmos DB to your Azure Key Vault instance. Follow 
 
 ### STEP 5: Onboard the workspace to Azure Sentinel via the onboarding API
 
-Onboard the workspace to Azure Sentinel via the Onboarding API. For more information, see [Azure Sentinel Onboarding](quickstart-onboard.md).
+Onboard the workspace to Azure Sentinel via the Onboarding API. For more information, see [Azure Sentinel Onboarding](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/securityinsights/resource-manager/Microsoft.SecurityInsights/preview/2021-03-01-preview/OnboardingStates.json).
 
 ## Key Encryption Key revocation or deletion
 
