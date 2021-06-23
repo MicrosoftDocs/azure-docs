@@ -11,6 +11,8 @@ keywords: "GitOps, Kubernetes, K8s, Azure, Helm, Arc, AKS, Azure Kubernetes Serv
 ---
 # Inner Loop Developer Experience for teams adopting GitOps
 
+This article describes how established inner loop can enhance developer productivity and help in seamless transition from inner dev loop to outer loop for teams adopting GitOps.
+
 ## Inner dev loop frameworks
 
 Building and deploying containers can slow down the inner dev experience and impact team productivity. Cloud-native development teams will benefit from a robust inner dev loop framework. Inner dev loop frameworks assist in the iterative process of writing code, building, and debugging.
@@ -18,11 +20,11 @@ Building and deploying containers can slow down the inner dev experience and imp
 Inner dev loop frameworks capabilities include:
 
  
-1. Automate repetitive steps like building code, containers, and deploying to target cluster. 
-1. Easily working with remote and local clusters, and supporting local tunnel debugging for hybrid setup.
-1. Ability to configure custom flow for team-based productivity.  
-1. Allow handling of microservice dependencies. 
-1. Hot reloading, port forwarding, log, and terminal access. 
+- Automate repetitive steps like building code, containers, and deploying to target cluster. 
+- Easily working with remote and local clusters, and supporting local tunnel debugging for hybrid setup.
+- Ability to configure custom flow for team-based productivity.
+- Allow handling of microservice dependencies. 
+- Hot reloading, port forwarding, log, and terminal access. 
 
 
 
@@ -31,7 +33,7 @@ Different dev teams, depending on the maturity and complexity of the service mig
 Luckily, there are many frameworks out there that support the listed capabilities. Microsoft offers Bridge to Kubernetes for local tunnel debugging and similar market offerings like DevSpace, Scaffold, and Tilt, among others.
 
 > [!NOTE]
-> Note: Don’t confuse the market offering DevSpace with Microsoft’s previously named DevSpace, which is now called Bridge to Kubernetes. 
+> Don’t confuse the market offering DevSpace with Microsoft’s previously named DevSpace, which is now called Bridge to Kubernetes. 
 
 
 ## Inner loop to outer loop transition 
@@ -46,10 +48,10 @@ Similar low-level manifests can be generated locally for the inner dev loop usin
 
 
 ### Diagram A: Inner Loop Flow
-:::image type="content" source="media/dev-innerloop.PNG" alt-text="Inner Loop Flow":::
+:::image type="content" source="media/dev-inner-loop.png" alt-text="Diagram for inner loop flow with devspace.":::
 
 ### Diagram B: Inner Loop to Outer Loop transition
-:::image type="content" source="media/innerloop-to-outerloop.PNG" alt-text="Inner Loop to Outer Loop Transition" :::
+:::image type="content" source="media/inner-loop-to-outer-loop.png" alt-text="Diagram for inner loop to outer loop transition." :::
 
 
 ## Example workflow
@@ -73,3 +75,7 @@ Suppose Alice wants to make changes to the application code and run and debug th
 
 > [!NOTE]
 > Find the sample code for above workflow at this [GitHub repo](https://github.com/Azure/arc-cicd-demo-src)
+
+
+## Next steps
+Learn more about creating connections between your cluster and a Git repository as a [configuration resource with Azure Arc enabled Kubernetes](./conceptual-configurations.md)
