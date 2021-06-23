@@ -265,7 +265,7 @@ tracer = Tracer(
 
 After the Azure AD authentication is enabled, you can choose to disable local authentication. This will allow you to ingest telemetry authenticated exclusively by Azure AD and impacts data access (for example, through API Keys). 
 
-You can disable local authentication by using the Azure portal, programmatically or Azure Policy.
+You can disable local authentication by using the Azure portal, Azure policy, or programmatically.
 
 ### Azure portal
 
