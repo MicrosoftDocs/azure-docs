@@ -39,6 +39,8 @@ Before you complete the steps in this article, you should already have:
 
 ## Create load balancer
 
+You can create either an internal load balancer or an external load balancer. An internal load balancer can only be from accessed private resources that are internal to the network.  An external load balancer can route traffic from the public to internal resources. When you configure an internal load balancer, use the same IP address as the availability group listener resource for the frontend IP when configuring the load-balancing rules. When you configure an external load balancer, you cannot use the same IP address as the availability group listener as the the listener IP address cannot be a public IP address. As such, to use an external load balancer, logically allocate an IP address in the same subnet as the availability group that does not conflict with any other IP address, and use this address as the frontend IP address for the load-balancing rules. 
+
 Use the [Azure portal](https://portal.azure.com) to create the load balancer:
 
 1. In the Azure portal, go to the resource group that contains the virtual machines.
