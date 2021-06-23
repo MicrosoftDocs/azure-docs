@@ -110,6 +110,5 @@ In this quickstart, you learned how to consume SMS events. You can receive SMS m
 
 You may also want to:
 
-
  - [Learn about event handling concepts](../../../event-grid/event-schema-communication-services.md)
  - [Learn about Event Grid](../../../event-grid/overview.md)

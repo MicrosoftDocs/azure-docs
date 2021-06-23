@@ -12,6 +12,8 @@
 - name: Quickstarts
   expanded: true
   items:
+  - name: Filter your audit log 
+    href: quickstart-filter-audit-log.md
   - name: Analyze sign-ins 
     href: quickstart-analyze-sign-in.md
   - name: Access logs with the Graph API

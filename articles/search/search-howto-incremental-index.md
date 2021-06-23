@@ -70,7 +70,7 @@ Modify the cache object to include the following required and optional propertie
 ```
 
 > [!NOTE]
-> The indexer cache requires a general purpose v2 storage account. For more information, review the [different types of storage accounts](https://docs.microsoft.com/azure/storage/common/storage-account-overview#types-of-storage-accounts).
+> The indexer cache requires a general purpose v2 storage account. For more information, review the [different types of storage accounts](../storage/common/storage-account-overview.md#types-of-storage-accounts).
 
 ### Step 3: Reset the indexer
 

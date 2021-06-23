@@ -9,12 +9,20 @@ ms.date: 07/14/2020
 ---
 
 
-# Connecting Azure Kubernetes Service and Azure Database for MySQL
+# Best practices for Azure Kubernetes Service and Azure Database for MySQL
 
-Azure Kubernetes Service (AKS) provides a managed Kubernetes cluster you can use in Azure. Below are some options to consider when using AKS and Azure Database for MySQL together to create an application.
+Azure Kubernetes Service (AKS) provides a managed Kubernetes cluster you can use in Azure. Below are some options to consider when using AKS and Azure Database for MySQL together to create an application. Here are some best practices to help you build applications when using these services.
 
 
-## Accelerated networking
+## Create Database before creating the AKS cluster
+Azure Database for MySQL has two deployment options:
+- Single Sever
+- Flexible Server (Preview)
+
+Single Server supports  Single availability zone and Flexible Server supports multiple availability zones. AKS on the other hand also supports enabling single or multiple availability zones.  Creating the database server first to see the availability zone the server is in and then create the AKS clusters in the same availability zone. This can improve performance for the application by reducing networking latency.
+
+
+## Use Accelerated networking
 Use accelerated networking-enabled underlying VMs in your AKS cluster. When accelerated networking is enabled on a VM, there is lower latency, reduced jitter, and decreased CPU utilization on the VM. Learn more about how accelerated networking works, the supported OS versions, and supported VM instances for [Linux](../virtual-network/create-vm-accelerated-networking-cli.md).
 
 From November 2018, AKS supports accelerated networking on those supported VM instances. Accelerated networking is enabled by default on new AKS clusters that use those VMs.
@@ -36,8 +44,9 @@ The output will be the generated resource group that AKS creates containing the 
 ```azurecli
 az network nic list --resource-group nodeResourceGroup -o table
 ```
+## Use Azure premium fileshare
+ Use [Azure premium fileshare](../storage/files/storage-how-to-create-premium-fileshare.md?tabs=azure-portal) for persistent storage that can be used by one or many pods, and can be dynamically or statically provisioned. Azure premium fileshare gives you best performance for your application if you expect large number of I/O operations on the file storage. To learn more , see [how to enable Azure Files](../aks/azure-files-dynamic-pv.md).
 
 
 ## Next steps
 - [Create an Azure Kubernetes Service cluster](../aks/kubernetes-walkthrough.md)
-- Learn how to [Install WordPress from a Helm chart using OSBA and Azure Database for MySQL](../aks/index.yml)

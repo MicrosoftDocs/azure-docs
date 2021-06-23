@@ -111,4 +111,4 @@ To demonstrate how to retrieve schema information by using this tool, you need a
 
 ## Next steps
 
-In this article, you learned how to find template schema information. To learn more about creating Resource Manager templates, see [Understand the structure and syntax of ARM templates](./template-syntax.md).
+In this article, you learned how to find template schema information. To learn more about creating Resource Manager templates, see [Understand the structure and syntax of ARM templates](./syntax.md).

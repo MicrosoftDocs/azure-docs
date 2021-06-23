@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/27/2021
+ms.date: 06/07/2021
 ms.author: tamram
 ms.subservice: blobs 
 ms.custom: "devx-track-csharp"
@@ -74,7 +74,7 @@ Calling **Undelete Blob** on a blob that has not been deleted has no effect. The
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/DataProtection.cs" id="Snippet_RecoverDeletedBlobs":::
 
-To restore a specific version, first call the **Undelete Blob** operation on the base blob or version, then copy the desired version over the base blob. The following example restores a block blob to the most recently saved version:
+To restore a specific soft-deleted snapshot, first call the **Undelete Blob** operation on the base blob, then copy the desired snapshot over the base blob. The following example restores a block blob to the most recently generated snapshot:
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/DataProtection.cs" id="Snippet_RecoverSpecificBlobSnapshot":::
 
@@ -92,7 +92,7 @@ foreach (CloudBlob blob in container.ListBlobs(useFlatBlobListing: true, blobLis
 }
 ```
 
-To restore a specific snapshot, first call the **Undelete Blob** operation on the base blob, then copy the desired snapshot over the base blob. The following example restores a block blob to its most recently generated snapshot:
+To restore a specific soft-deleted snapshot, first call the **Undelete Blob** operation on the base blob, then copy the desired snapshot over the base blob. The following example restores a block blob to its most recently generated snapshot:
 
 ```csharp
 // Restore the block blob.
@@ -126,6 +126,6 @@ Not applicable. Blob versioning is supported only in the Azure Storage client li
 
 ## Next steps
 
-- [Soft delete for Blob storage](./soft-delete-blob-overview.md)
+- [Soft delete for Blob storage](soft-delete-blob-overview.md)
 - [Enable soft delete for blobs](soft-delete-blob-enable.md)
 - [Blob versioning](versioning-overview.md)

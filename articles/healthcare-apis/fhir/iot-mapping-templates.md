@@ -7,7 +7,7 @@ ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: conceptual
 ms.date: 04/05/2021
-ms.author: punagpal
+ms.author: rabhaiya
 ---
 
 # Azure IoT Connector for FHIR (preview) mapping templates

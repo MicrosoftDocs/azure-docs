@@ -45,6 +45,8 @@ az extension update --name aks-preview
 To add a maintenance window, you can use the `az aks maintenanceconfiguration add` command.
 
 > [!IMPORTANT]
+> At this time, you must set `default` as the value for `--name`. Using any other name will cause your maintenance window to not run.
+>
 > Planned Maintenance windows are specified in Coordinated Universal Time (UTC).
 
 ```azurecli-interactive

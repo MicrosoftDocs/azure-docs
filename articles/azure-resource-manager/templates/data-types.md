@@ -131,4 +131,4 @@ The following example shows two secure parameters.
 
 ## Next steps
 
-To learn about the template syntax, see [Understand the structure and syntax of ARM templates](template-syntax.md).
+To learn about the template syntax, see [Understand the structure and syntax of ARM templates](./syntax.md).

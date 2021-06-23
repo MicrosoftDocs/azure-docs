@@ -129,5 +129,5 @@ The following example shows a virtual network and subnet that are both defined a
 
 ## Next steps
 
-* To learn about creating ARM templates, see [Understand the structure and syntax of ARM templates](template-syntax.md).
+* To learn about creating ARM templates, see [Understand the structure and syntax of ARM templates](./syntax.md).
 * To learn about the format of the resource name when referencing the resource, see the [reference function](template-functions-resource.md#reference).
