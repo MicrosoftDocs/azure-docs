@@ -44,21 +44,22 @@ Account keys are recommended for quick prototyping, during development only. It'
 
 ### Azure AD user authentication
  
- Azure AD authentication is described in the [Azure AD user authentication](../../spatial-anchors/concepts/authentication.md?tabs=csharp#azure-ad-user-authentication) in the Azure Spatial Anchors documentation.
+ Azure AD authentication is described in the [Azure Spatial Anchors documentation](../../spatial-anchors/concepts/authentication.md?tabs=csharp#azure-ad-user-authentication).
 
  Follow the steps to configure Azure Active Directory user authentication in the Azure Portal.
 
-1. Register your application in Azure AD. As part of registering, you will need to determine whether your application should be multitenant. You will also need to provide the redirect URLs allowed for your application in Authentication blade.
+1. Register your application in Azure AD. As part of registering, you will need to determine whether your application should be multitenant. You will also need to provide the redirect URLs allowed for your application in the Authentication blade.
 ![Authentication setup](./media/aad-app-setup.png)
-2. In API permissions tab, request **Delegated Permissions** for **mixedreality.signin** scope under **mixedreality**.
+1. In the API permissions tab, request **Delegated Permissions** for **mixedreality.signin** scope under **mixedreality**.
 ![Api permissions](./media/aad-app-api-permissions.png)
-3. Grant admin consent in Security -> Permissions tab.
+1. Grant admin consent in the Security -> Permissions tab.
 ![Admin consent](./media/aad-app-grant-admin-consent.png)
-4. Grant your application and users on behalf of which you planned to use delegated access permissions to your Azure Remote Rendering resource.
+1. Grant your application and users on behalf of which you planned to use delegated access permissions to your Azure Remote Rendering resource.
+1. In the Access Control panel grant desired [roles](#azure-role-based-access-control) for your applications and user, on behalf of which you want to use delegated access permissions to your Azure Remote Rendering resource.
 ![Add permissions](./media/arr-add-role-assignment.png)
 ![Role assignments](./media/arr-role-assignments.png)
 
-For information on using AD user authentication in your application code, see the [Tutorial: Securing Azure Remote Rendering and model storage - Azure Active Directory authentication](../tutorials/unity/security/security.md#azure-active-directory-azure-ad-authentication)
+For information on using Azure AD user authentication in your application code, see the [Tutorial: Securing Azure Remote Rendering and model storage - Azure Active Directory authentication](../tutorials/unity/security/security.md#azure-active-directory-azure-ad-authentication)
 
 ## Azure role-based access control
 
