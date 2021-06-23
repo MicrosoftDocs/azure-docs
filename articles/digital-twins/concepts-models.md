@@ -187,10 +187,10 @@ Here is a basic example of a component on a DTDL model. This example shows a Roo
 
 :::code language="json" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/IRoom.json" highlight="15-19, 28-41":::
 
-> [!IMPORTANT]
-> The component interface (thermostat) is defined in the same array as the interface that uses it (Room). Components must be defined this way in API calls in order for the interface to be found.
+If other models in this solution should also contain a thermostat, they can reference the same thermostat model as a component in their own definitions, just like Room does.
 
-If other models in this solution also have a thermostat, they can contain their own components that reference the same thermostat model.
+> [!IMPORTANT]
+> The component interface (thermostat in the example above) must be defined in the same array as any interfaces that use it (Room in the example above) in order for the component reference to be found.
 
 ## Model inheritance
 
