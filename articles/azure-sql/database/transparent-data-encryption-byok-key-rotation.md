@@ -44,8 +44,7 @@ For Az module installation instructions, see [Install Azure PowerShell](/powersh
 
 For installation, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
-* * *
-
+---
 
 ## Automatic key rotation
 
@@ -63,29 +62,27 @@ Automatic rotation for the TDE Protector can be enabled when configuring the TDE
 4. Click **Save**.
 
 
-
 # [PowerShell](#tab/azure-powershell)
 
 Use the [Set-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) cmdlet.
 
 ```powershell
-  
 # set the AutoRotation parameter to true to enable auto-rotation of the TDE protector
 Set-AzSqlServerTransparentDataEncryptionProtector -Type AzureKeyVault -KeyId <keyVaultKeyId> `
    -ServerName <logicalServerName> -ResourceGroup <SQLDatabaseResourceGroupName> `
     -AutoRotationEnabled <boolean>
 ```
 
-
 # [The Azure CLI](#tab/azure-cli)
 
 Use the [az sql server tde-key set](/cli/azure/sql/server/tde-key#az-sql-server-tde-key-set) command.
 
 ```azurecli
-
 # set the AutoRotation parameter to true to enable auto-rotation of the TDE protector
 az sql server tde-key set --server-key-type AzureKeyVault --kid <keyVaultKeyId> --resource-group <SQLDatabaseResourceGroupName> --server <logicalServerName> --auto-rotation-enabled <boolean>
 ```
+
+---
 
 ## Manual key rotation
 
@@ -125,7 +122,7 @@ az sql server key create --kid <keyVaultKeyId> --resource-group <SQLDatabaseReso
 az sql server tde-key set --server-key-type AzureKeyVault --kid <keyVaultKeyId> --resource-group <SQLDatabaseResourceGroupName> --server <logicalServerName>
 ```
 
-* * *
+---
 
 ## Switch TDE protector mode
 
@@ -161,7 +158,7 @@ The following examples use [az sql server tde-key set](/powershell/module/az.sql
    az sql server tde-key set --server-key-type ServiceManaged --resource-group <SQLDatabaseResourceGroupName> --server <logicalServerName>
    ```
 
-* * *
+---
 
 ## Next steps
 
