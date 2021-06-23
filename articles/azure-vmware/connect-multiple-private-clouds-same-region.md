@@ -21,6 +21,11 @@ You can connect a private cloud to multiple private clouds, and the connections 
 - Ensure that you have write access to each private cloud you're connecting
 - Ensure that the routed IP address space in each cloud is unique and doesn't overlap
 
+>[!IMPORTANT]
+>The **AVS interconnect** feature doesn't check for overlapping IP space the way native Azure vNet peering does before creating the peering. Therefore, it's your responsibility to ensure that there isn't an IP overlap between the private clouds.
+>
+>In Azure VMware Solution environments, it's possible to configure non-routed, overlapping IP deployments on NSX segments that aren't routed to Azure.  These don't cause issues with the AVS Interconnect feature, as it only routes between the NSX T0 on each private cloud.
+
 
 ## Add connection between two private clouds
 
