@@ -15,7 +15,7 @@ ms.author: alkohli
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-This article describes the information that you need to help understand the data residency behavior of Azure Stack Edge device and how to control data residency.  
+This article describes the information that you need to help understand the data residency and resiliency behavior for Azure Stack Edge and how to enable data residency in the service.  
 
 ## About data residency for Azure Stack Edge 
 
@@ -31,8 +31,8 @@ The data residency posture of the Azure Stack Edge services can be summarized fo
 
 - Existing Azure Stack Edge ordering and management service.
 - New Azure Edge Hardware Center (Preview) that will be used for new orders going forward.
-- Telemetry for the device and the service.
-- Proactive Support log collection where any logs that the service generates are stored in a single region and are not replicated to the paired region.
+<!--- Telemetry for the device and the service.
+- Proactive Support log collection where any logs that the service generates are stored in a single region and are not replicated to the paired region.-->
 
 Azure Stack Edge service also integrates with the following dependent services and their behavior is also summarized: 
 
