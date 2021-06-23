@@ -26,7 +26,8 @@ You can stream events from Azure's [**Activity log** service](../azure-monitor/e
 
 ## Prerequisites
 
-- You must have Contributor permissions on the Log Analytics workspace.
+- You must have read and write permissions on the Log Analytics workspace.
+
 - You must have Owner permissions on any subscription whose logs you want to start or stop streaming into Azure Sentinel.
 
 - To use Azure Policy to apply a log streaming policy to Azure Activity log subscriptions, you must have the Owner role for the policy assignment scope.
