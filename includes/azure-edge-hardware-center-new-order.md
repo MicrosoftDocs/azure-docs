@@ -2,7 +2,7 @@
 author: v-dalc
 ms.service: databox  
 ms.topic: include
-ms.date: 06/22/2021
+ms.date: 06/23/2021
 ms.author: alkohli
 ---
 
@@ -47,7 +47,7 @@ Because there isn't a 1-to-1 relationship between the order and a device, no dev
     |Azure Stack Hub               |TK<!--Not available in current portal-->                                                                    |
     |Azure Stack Modular Datacenter|TK<!--Not available in current portal-->                                                                    |
 
-8.  Select the device configuration, and then choose **Select**. The screen below shows available configurations for Azure Start Edge Pro - GPU devices.
+8.  Select the device configuration, and then choose **Select**. The screen below shows available configurations for Azure Stack Edge Pro - GPU devices.
 
     ![Screen for selecting a device model of the selected device type](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-07.png)<!--Remove pricing info from final graphic-->
 
@@ -57,9 +57,11 @@ Because there isn't a 1-to-1 relationship between the order and a device, no dev
 
     ![Screenshot of the Basics tab for entering an order name, resource group, and region for an Azure Edge Hardware Center order](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-08.png)
   
-10. On the **Shipping + quantity** tab, you'll start by specifying a ship to address for the order. 
+    On the **Shipping + quantity** tab, you'll add each ship to address you want to send devices to and then specify how many devices to send to each address.
 
-    - If this is your first order through the Azure Edge Hardware Center, select **Add a new address**.  
+10. On the **Shipping + quantity** tab, add each ship to address to send devices to: 
+
+    - To add a new ship to address, select **Add a new address**. 
 
        ![Screenshot of the Shipping + quantity tab, Add a new address option for an Azure Edge Hardware Center order](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-09.png)
 
@@ -67,19 +69,15 @@ Because there isn't a 1-to-1 relationship between the order and a device, no dev
 
        ![Screen for adding a new ship to address for an Azure Edge Hardware Center order](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-10-new-address.png)
 
-       If you're ordering more than one device, add a ship address for each location you want to ship to.
-
-    - To use a ship to address from a previous order, choose **Select address(es)**. On the **Select address(es)**, select one or more addresses, and choose **Select** screen**.
-    
-       If you're ordering multiple devices, select each address you'll ship to.
+    - To use a ship to address from a previous order, choose **Select address(es)**. Then, on the **Select address(es)** screen, select one or more addresses, and choose **Select**.
 
        ![Screen for selecting an existing address for an Azure Edge Hardware Center order](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-10-select-an-address.png)
 
     The **Shipping + quantity** tab now has a separate item for each ship to address.
 
-11. For each address, enter the **Quantity** of devices to ship.
+11. For each address, enter the **Quantity** of devices to ship on the **Shipping + quantity**  tab.
 
-     When you enter a quantity of more than one, a **+1 more** label is added to the end of the order item name. Select ****+ 1 more** to view the individual order items for that address.
+     When you enter a quantity of more than one, a **+1 more** label is added to the end of the order item name. Select **+ 1 more** to view the individual order items for that address.
 
      ![Screenshot showing the Shipping + quantity tab for an Azure Edge Hardware Center order with multiple devices shipping to two addresses](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-11-quantities-for-multiple-addresses.png)
 
@@ -89,17 +87,17 @@ Because there isn't a 1-to-1 relationship between the order and a device, no dev
 
     You can make two types of name change:
  
-    * Use a different name prefix for all of the order items, edit the **Name prefix** and then select **Apply**.
+    * To use a different name prefix for all of the order items, edit the **Name prefix** and then select **Apply**.
 
-    * Edit each order item name individually. 
+    * You can also edit the name of each order item individually. 
 
-    When you finish updating order item names, select **Done**.
+    When you finish, select **Done**.
 
     ![Screenshot showing how to rename order items for an Azure Edge Hardware Center order](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-13.png)
 
     Select **Next: Notification>** to continue.
 
-13. If you want to receive status notifications as your order progresses, enter as many as 20 the email addresses of recipients on the **Notifications** tab. To add an email address, enter the address, and select **Add**. You can add up to 20 email addresses.
+13. If you want to receive status notifications as your order progresses, enter the address for each recipient on the **Notifications** tab. To add an email address, enter the address, and select **Add**. You can add up to 20 email addresses.
 
     ![Screenshot of the Notifications tab for an Azure Edge Hardware Center order](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-14.png)
 
@@ -127,6 +125,6 @@ Because there isn't a 1-to-1 relationship between the order and a device, no dev
 
 ### Create a management resource for each device
 
-After your order is complete, you'll need to create a management resource for each device by following the same process that you use to [reset or reactivate a device](../articles/databox-online/azure-stack-edge-reset-reactivate-device.md). 
+After your order is complete, you'll need to create a management resource for each device. To create a management resource, follow the same process that you use to [reset or reactivate a device](../articles/databox-online/azure-stack-edge-reset-reactivate-device.md).
 
-Activating the device will associate each management resource with the order.
+Activating the device will associate the management resource with your Azure Edge Hardware Center order.
