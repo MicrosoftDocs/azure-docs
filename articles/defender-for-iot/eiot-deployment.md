@@ -2,7 +2,7 @@
 title: EIoT deployment guide
 description: Learn how to deploy EIoT for your Defender for IoT service.
 ms.topic: how-to
-ms.date: 06/22/2021
+ms.date: 06/23/2021
 ---
 
 # Deploy EIoT 
@@ -73,7 +73,9 @@ Azure Defender for IoT ensures quick and frictionless deployment of network sens
 
 **Configure an Azure instance**:
 
-Purchase, and set up an Azure IoTHub. The minimum size needed is the smallest hub ($20).
+Purchase, and set up an Azure IoTHub. The minimum size needed is the smallest hub ($20). 
+
+When creating an IoTHub, fill out your information on the Basics tab, but leave all other tabs on their default settings.
 
 > [!Note]
 > Due to GDPR regulations, EU customers must set their instances to the EU **Europe West** cloud. Any customer outside of the EU, should set their instance to US **US East** cloud.
@@ -151,7 +153,7 @@ You will need to download a package, and move it, and your activation file to th
 
 **To install the sensor**:
 
-1. Download the [package](https://eiotdsretemp.blob.core.windows.net/files/eiot-89cbc08bbc.deb?sp=r&st=2021-06-16T13:56:00Z&se=2021-06-16T18:56:00Z&spr=https&sv=2020-02-10&sr=b&sig=G0AStF9o1gJ3wEhCEWW7nu2hKz2q%2B4usYTen33T5Q4E%3D).
+1. Download the [package](https://aka.ms/iot-security-enterprise-package-latest) located at https://aka.ms/iot-security-enterprise-package-latest.
 
 1. Locate the package and rename it to `eiot.deb`.
 
