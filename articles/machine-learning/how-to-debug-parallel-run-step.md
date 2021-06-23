@@ -264,7 +264,7 @@ def init():
     entry_script = EntryScript()
     proc_name = entry_script.agent_name  # The process name in pattern "processNNN".
     log_dir = Path(entry_script.log_dir)  # logs/user/entry_script_log/<node_id>/.
-    log_dir.mkdir(parents=True, exist_ok=True)
+    log_dir.mkdir(parents=True, exist_ok=True) # Create the folder if not existing.
     stdout_file = str(log_dir / f"{proc_name}_demo_stdout.txt")
     stderr_file = str(log_dir / f"{proc_name}_demo_stderr.txt")
     proc = Popen(
@@ -389,6 +389,8 @@ ParallelRunStep will start new worker processes in replace of the ones exited ab
 
 * See these [Jupyter notebooks demonstrating Azure Machine Learning pipelines](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines)
 
-* See the SDK reference for help with the [azureml-pipeline-steps](/python/api/azureml-pipeline-steps/azureml.pipeline.steps) package. View reference [documentation](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunstep) for ParallelRunStep class.
+* See the SDK reference for help with the [azureml-pipeline-steps](/python/api/azureml-pipeline-steps/azureml.pipeline.steps) package.
+
+* View reference [documentation](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunconfig) for ParallelRunConfig class and [documentation](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunstep) for ParallelRunStep class.
 
 * Follow the [advanced tutorial](tutorial-pipeline-batch-scoring-classification.md) on using pipelines with ParallelRunStep. The tutorial shows how to pass another file as a side input.
