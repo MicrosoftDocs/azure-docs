@@ -41,7 +41,7 @@ To create a twin, you use the `CreateOrReplaceDigitalTwinAsync()` method on the 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="CreateTwinCall":::
 
 To create a digital twin, you need to provide:
-* The desired ID for the digital twin
+* The desired ID for the digital twin, which you are defining at this stage
 * The [model](concepts-models.md) you want to use
 
 Optionally, you can provide initial values for all properties of the digital twin. Properties are treated as optional and can be set later, but **they won't show up as part of a twin until they've been set.**
