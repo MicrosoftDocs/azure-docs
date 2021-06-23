@@ -7,11 +7,8 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: metrics-advisor
 ms.topic: include
-ms.date: 09/30/2020
+ms.date: 04/20/2021
 ms.author: mbullwin
 ---
 
-Within the query use the `@StartTime` parameter to get metric data for a single timestamp. Metrics Advisor will replace the parameter with a `yyyy-MM-ddTHH:mm:ss` format string when it runs the query.
-
-> [!IMPORTANT]
-> The query should return at most one record for each dimension combination, at each timestamp. And all records returned by the query must have the same timestamps. Metrics Advisor will run this query for each timestamp to ingest your data. See the [FAQ section on queries](/azure/cognitive-services/metrics-advisor/faq#how-do-i-write-a-valid-query-for-ingesting-my-data) for more information, and examples. 
+When editing the query, use the `@IntervalStart` and `@IntervalEnd` parameters to specify a slice of data for a single timestamp (this timestamp means an interval corresponding to the `Granularity` you set). Metrics Advisor will replace the parameters automatically with a `yyyy-MM-ddTHH:mm:ssZ` format string when it runs the query, and in the first round query, the `@IntervalStart` will be the `@Ingest data since (UTC)` you set. In the second round query, the `@IntervalStart` will be the beginning of next interval, etc.

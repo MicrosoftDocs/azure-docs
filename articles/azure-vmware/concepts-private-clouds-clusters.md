@@ -11,7 +11,7 @@ Azure VMware Solution delivers VMware-based private clouds in Azure. The private
 
 A private cloud includes clusters with:
 
-- Dedicated bare-metal server nodes provisioned with VMware ESXi hypervisor 
+- Dedicated bare-metal server hosts provisioned with VMware ESXi hypervisor 
 - vCenter Server for managing ESXi and vSAN 
 - VMware NSX-T software-defined networking for vSphere workload VMs  
 - VMware vSAN datastore for vSphere workload VMs  

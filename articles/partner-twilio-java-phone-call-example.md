@@ -192,7 +192,7 @@ For additional information about Twilio, see [https://www.twilio.com/docs][twili
 
 [twilio_pricing]: https://www.twilio.com/pricing
 [try_twilio]: https://www.twilio.com/try-twilio
-[twilio_api]: https://www.twilio.com/api
+[twilio_api]: https://www.twilio.com/docs/api
 [verify_phone]: https://www.twilio.com/user/account/phone-numbers/verified#
 [twilio_java_github]: https://github.com/twilio/twilio-java
 [twimlet_message_url]: https://twimlets.com/message
