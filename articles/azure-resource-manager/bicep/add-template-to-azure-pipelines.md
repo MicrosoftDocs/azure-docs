@@ -42,9 +42,7 @@ You're ready to either add an Azure PowerShell task or the copy file and deploy 
 
 ## Azure CLI task
 
-This section shows how to build a Bicep file into an ARM template before the template is deployed.
-
-The following YAML file builds a Bicep file by using an [Azure CLI task](/azure/devops/pipelines/tasks/deploy/azure-cli):
+The following YAML file creates a resource group and deploy a Bicep file by using an [Azure CLI task](/azure/devops/pipelines/tasks/deploy/azure-cli):
 
 ```yml
 trigger:
@@ -74,7 +72,7 @@ steps:
       az deployment group create --resource-group $(resourceGroupName) --template-file $(templateFile)
 ```
 
-The Azure CLI takes the following inputs:
+An Azure CLI task takes the following inputs:
 
 * `azureSubscription`, provide the name of the service connection that you created.  See [Prepare your project](#prepare-your-project).
 * `scriptType`, use **bash**.
