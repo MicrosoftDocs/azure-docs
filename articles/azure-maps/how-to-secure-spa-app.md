@@ -1,7 +1,7 @@
 ---
-title: How to secure a single page web application with non-interactive sign-in in Microsoft Azure Maps
+title: How to secure a single-page web application with non-interactive sign-in in Microsoft Azure Maps
 titleSuffix: Azure Maps
-description: How to configure a single page web application with non-interactive Azure role-based access control (Azure RBAC) and Azure Maps Web SDK.
+description: How to configure a single-page web application with non-interactive Azure role-based access control (Azure RBAC) and Azure Maps Web SDK.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 06/21/2021
@@ -12,11 +12,11 @@ manager: philmea
 ms.custom: devx-track-js, subject-rbac-steps
 ---
 
-# How to secure a single page web application with non-interactive sign-in
+# How to secure a single-page web application with non-interactive sign-in
 
-This article describes how to secure a single page web application with Azure Active Directory (Azure AD), when the user isn't able to sign in to Azure AD.
+This article describes how to secure a single-page web application with Azure Active Directory (Azure AD), when the user isn't able to sign in to Azure AD.
 
-To create this non-interactive authentication flow, we'll create an Azure Function secure web service that's responsible for acquiring access tokens from Azure AD. This web service will be exclusively available only to your single page web application.
+To create this non-interactive authentication flow, we'll create an Azure Function secure web service that's responsible for acquiring access tokens from Azure AD. This web service will be exclusively available only to your single-page web application.
 
 [!INCLUDE [authentication details](./includes/view-authentication-details.md)]
 
@@ -29,7 +29,7 @@ To create a secured web service application that's responsible for authenticatio
 
 1. Create a function in the Azure portal. For more information, see [Getting started with Azure Functions](../azure-functions/functions-get-started.md).
 
-2. Configure CORS policy on the Azure function to be accessible by the single page web application. The CORS policy secures browser clients to the allowed origins of your web application. For more information, see [Add CORS functionality](../app-service/app-service-web-tutorial-rest-api.md#add-cors-functionality).
+2. Configure CORS policy on the Azure function to be accessible by the single-page web application. The CORS policy secures browser clients to the allowed origins of your web application. For more information, see [Add CORS functionality](../app-service/app-service-web-tutorial-rest-api.md#add-cors-functionality).
 
 3. [Add a system-assigned identity](../app-service/overview-managed-identity.md?tabs=dotnet#add-a-system-assigned-identity) on the Azure function to enable creation of a service principal to authenticate to Azure AD.  
 
