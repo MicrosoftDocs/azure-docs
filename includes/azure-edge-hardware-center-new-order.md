@@ -44,10 +44,10 @@ Because there isn't a 1-to-1 relationship between the order and a device, no dev
     |Azure Stack Edge Pro - GPU    |<ul><li>Azure Stack Edge Pro - 1 GPU</li><li>Azure Stack Edge Pro - 2 GPU</li><ul>                          |
     |Azure Stack Edge Pro R        |<ul><li>Azure Stack Edge Pro R - single node</li><li>Azure Stack Edge Pro R - single node with UPS</li></ul>|
     |Azure Stack Edge Mini R       |One configuration, selected automatically.<!--Configuration selection screen is skipped.-->                 |
-    |Azure Stack Hub               |TK<!--Not available in current portal-->                                                                    |
-    |Azure Stack Modular Datacenter|TK<!--Not available in current portal-->                                                                    |
 
 8.  Select the device configuration, and then choose **Select**. The screen below shows available configurations for Azure Stack Edge Pro - GPU devices.
+
+    If you're ordering Azure Stack Edge Mini R devices, which all have the same configuration, you won't see this screen. 
 
     ![Screen for selecting a device model of the selected device type](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-07.png)<!--Remove pricing info from final graphic-->
 
@@ -125,6 +125,4 @@ Because there isn't a 1-to-1 relationship between the order and a device, no dev
 
 ### Create a management resource for each device
 
-After your order is complete, you'll need to create a management resource for each device. To create a management resource, follow the same process that you use to [reset or reactivate a device](../articles/databox-online/azure-stack-edge-reset-reactivate-device.md).
-
-Activating the device will associate the management resource with your Azure Edge Hardware Center order.
+[!INCLUDE [Create management resource](azure-edge-hardware-center-create-management-resource.md)]
