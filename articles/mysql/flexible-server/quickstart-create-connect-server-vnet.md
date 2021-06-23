@@ -53,7 +53,7 @@ Complete these steps to create a flexible server:
     MySQL version|**5.7**| A MySQL major version.|
     Admin username |**mydemouser**| Your own sign-in account to use when you connect to the server. The admin user name can't be **azure_superuser**, **admin**, **administrator**, **root**, **guest**, or **public**.|
     Password |Your password| A new password for the server admin account. It must contain between 8 and 128 characters. It must also contain characters from three of the following categories: English uppercase letters, English lowercase letters, numbers (0 through 9), and non-alphanumeric characters (!, $, #, %, and so on).|
-    Compute + storage | **Burstable**, **Standard_B1ms**, **10 GiB**, **100 iops**, **7 days** | The compute, storage, IOPS, and backup configurations for your new server. Select **Configure server** to change these values. Select **Save** if you change any compute and storage properties.|
+    Compute + storage | **Burstable**, **Standard_B1ms**, **20 GiB**, **7 days** | The compute, storage, IOPS, and backup configurations for your new server. Select **Configure server** to change these values. Select **Save** if you change any compute and storage properties.|
 
     >![TIP]
     > For faster data loads during migration, it is recommended to increase the IOPS to the maximum size supported by compute size and later scale it back to save cost.
@@ -75,12 +75,8 @@ Complete these steps to create a flexible server:
 
 9.  Select **Go to resource** to view the server's **Overview** page opens.
 
-## Connect to the Server from Azure Linux virtual machine
-Since the server is in virtual network, you can only connect to the server from other Azure services in the same virtual network as the server. To connect and manage the server, let's create a linux virtual machine.
-
-### Create Azure Linux virtual machine
-
-Create a Azure Linux virtual machine in the same virtual network. The virtual machine must be created in the same region in order to configure it in the same virtual network.
+## Create Azure Linux virtual machine
+Since the server is in virtual network, you can only connect to the server from other Azure services in the same virtual network as the server. To connect and manage the server, let's create a linux virtual machine. The virtual machine must be created in the **same region** and **same subscription**.
 
 1. Go to you resource group in which the server was created. Select **Add**.
 2. Select **Ubuntu Server 18.04 LTS**
@@ -107,7 +103,7 @@ Create a Azure Linux virtual machine in the same virtual network. The virtual ma
 7. Select **Networking** page to configure the virtual network. For virtual network, choose the **vnetenvironment1** created for the database server.
 ![Screenshot of select existing virtual network of the database server](./media/quick-create-connect-server-vnet/vm-vnet-configuration.png)
 
-8. Select **Manange subnet configuration** to create a new subnet for the server.
+8. Select **Manage subnet configuration** to create a new subnet for the server.
 
 ![Screenshot of manage subnet](../../virtual-machines/linux/media/quick-create-portal/vm-manage-subnet-integration.png)
 
@@ -135,7 +131,7 @@ Create a Azure Linux virtual machine in the same virtual network. The virtual ma
 	![Screenshot showing how to copy the IP address for the virtual machine](./media/quick-create-portal/ip-address.png)
 
 
-### Connect to virtual machine
+## Install MySQL client tools
 
 Create an SSH connection with the VM using Bash or PowerShell. At your prompt, open an SSH connection to your virtual machine. Replace the IP address with the one from your VM, and replace the path to the `.pem` with the path to where the key file was downloaded.
 
@@ -162,7 +158,7 @@ Connections to the database are enforced with SSL, hence you need to download th
 wget --no-check-certificate https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem
 ```
 
-### Connect to the server
+## Connect to the server from Azure Linux virtual machine
 With [mysql.exe](https://dev.mysql.com/doc/refman/8.0/en/mysql.html) client tool installed, we can now connect to the server from your local environment.
 
 ```bash
