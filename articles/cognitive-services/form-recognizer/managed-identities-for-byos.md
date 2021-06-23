@@ -1,5 +1,5 @@
 ---
-title: Bring Your Own Storage (BYOS) and Managed Identities
+title:  Use Managed Identities with bring-your-own-storage (BYOS) accounts
 titleSuffix: Azure Applied AI Services
 description: Understand how to use managed identities with BYOS accounts
 author: laujan
@@ -11,13 +11,12 @@ ms.date: 06/10/2021
 ms.author: lajanuar
 ---
 
-# Bring-your-own-storage (BYOS) accounts and Managed Identities (Preview)
+# Use Managed Identities with bring-your-own-storage (BYOS) accounts
 
 > [!IMPORTANT]
-> Assigning a role to a managed identity using the steps below is currently in preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> Azure role-based access control (Azure RBAC) assignment is currently in preview and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. You will use Azure RBAC assignments to grant permissions for managed identities.
 
-If you have a private Azure storage account protected by a Virtual Network (VNet) or firewall, Form Recognizer cannot access your account to read and list blob content. A bring-your-own-storage (BYOS) account in the Azure portal allows direct access to your storage content using an authorized Managed Identity. You upload your form, optical character recognition (OCR), and layout files to your BYOS account, where you control policies and network access, and Form Recognizer can access that account using a Managed Identity credential.
+If you have a private Azure storage account protected by a Virtual Network (VNet) or firewall or you have enabled a bring your own storage (BYOS) account Form Recognizer, cannot directly access your storage account data—access and authentication is supported by [Managed Identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview). Once managed identities is enabled, Form Recognizer service can access your storage account using an assigned managed identity credential.
 
 > [!NOTE]
 >
