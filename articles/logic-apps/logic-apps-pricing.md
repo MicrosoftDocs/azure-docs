@@ -78,11 +78,18 @@ To help you estimate more accurate consumption costs, review these tips:
 
 ## Standard pricing (single-tenant)
 
-In single-tenant Azure Logic Apps, logic app workflows follow the **Standard** pricing and billing model. For example, you create such logic apps when you use the **Logic App (Standard)** resource type, use the **Azure Logic Apps (Standard)** extension in Visual Studio Code. This model requires that logic apps use a hosting plan and a pricing tier, which determine the pricing to follow for metering and billing.
+In single-tenant Azure Logic Apps, logic app workflows follow the **Standard** pricing and billing model. For example, you create such logic apps when you use the **Logic App (Standard)** resource type, use the **Azure Logic Apps (Standard)** extension in Visual Studio Code. This pricing model requires that logic apps use a hosting plan and a pricing tier, which determine the pricing to follow for metering and billing.
 
 > [!NOTE]
-> For new **Logic App (Standard)** resources, you must currently use the **Workflow Standard** hosting plan. 
-> The App Service Plan and App Service Environment aren't available for new logic apps.
+> Currently, for new **Logic App (Standard)** resources, you must use the **Workflow Standard** hosting plan.
+> Although preview version logic apps supported the App Service and Premium Functions plans, 
+> the current official release doesn't support these plans nor App Service Environment for new logic apps. 
+> Instead, you must use the **Workflow Standard** plan.
+
+With the Standard logic app resource type, following components are metered and charged, 
+
+compute, storage, connections, integration account, 
+
 
 For more information about creating single-tenant based logic apps, review [Single-tenant versus multi-tenant and integration service environment](single-tenant-overview-compare.md).
 
