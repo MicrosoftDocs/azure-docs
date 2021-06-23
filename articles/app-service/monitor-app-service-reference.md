@@ -126,13 +126,6 @@ The following table lists the operations related to App Service that may be crea
 
 For more information on the schema of Activity Log entries, see [Activity  Log schema](/azure/azure-monitor/essentials/activity-log-schema). 
 
-## Schemas
-<!-- REQUIRED. Please keep heading in this order -->
-
-The following schemas are in use by App Service
-
-<!-- List the schema and their usage. This can be for resource logs, alerts, event hub formats, etc depending on what you think is important. -->
-
 ## See Also
 
 - See [Monitoring Azure App Service](monitor-app-service.md) for a description of monitoring Azure App Service.
