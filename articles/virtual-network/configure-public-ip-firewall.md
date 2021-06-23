@@ -13,13 +13,9 @@ ms.custom: template-how-to
 
 # Manage a public IP address with Azure Firewall
 
-A public IP address in Azure is available in standard and basic SKUs. The selection of SKU determines the features of the IP address. The SKU determines the resources that the IP address can be associated with. 
+Azure Firewall is a managed, cloud-based network security service that protects your Azure Virtual Network resources. Azure Firewall requires at least one public static IP address to be configured.  This IP or set of IPs are used as the external connection point to the Firewall.  Azure Firewall supports standard SKU public IP addresses. Basic SKU public IP address and public IP prefixes aren't supported. 
 
-Azure Firewall is a managed, cloud-based network security service that protects your Azure Virtual Network resources. Azure Firewall supports standard SKU public IP addresses. Public IP prefixes aren't supported.
-
-Azure Firewall requires a public IP address for it's configuration. A public IP address is used as the external connection point of the Azure Firewall.
-
-In this article, you'll learn how to create a Azure Firewall using an existing public IP in your subscription. 
+In this article, you'll learn how to create an Azure Firewall using an existing public IP in your subscription. You'll change the IP configuration of the firewall. Finally, you'll add an IP configuration to the firewall.
 
 ## Prerequisites
 
@@ -71,7 +67,7 @@ In this section, you'll create a Azure Firewall. You'll select the IP address yo
 
 ## Change public IP address
 
-In this section, you'll change the public IP address associated with the default public IP configuration of the firewall.
+In this section, you'll change the public IP address associated with the default public IP configuration of the firewall. A firewall must have at least one public IP address associated with its configuration. 
 
 1. In the search box at the top of the portal, enter **Firewall**.
 
@@ -89,7 +85,7 @@ In this section, you'll change the public IP address associated with the default
 
 ## Add public IP configuration
 
-In this section, you'll add a public IP configuration to the Azure Firewall.
+In this section, you'll add a public IP configuration to the Azure Firewall. For more information on multiple public IP addresses for Azure Firewall, see [Create an Azure Firewall with multiple public IP addresses](../firewall/features.md#multiple-public-ip-addresses).  
 
 1. In the search box at the top of the portal, enter **Firewall**.
 
@@ -106,6 +102,16 @@ In this section, you'll add a public IP configuration to the Azure Firewall.
 7. Select **myStandardPublicIP-3** in **Public IP address**.
 
 8. Select **Add**.
+
+## More information
+
+* An Azure Firewall can be integrated with a standard SKU load balancer as a method for protection of backend pool resources.  If you choose to associate it with a public load balancer, please note that you will want ingress traffic to be directed to the Firewall public IP address before being directed to the load balancer public IP address, and then egress via a user-defined route back to the Firewall public IP address.  For more information and setup instructions for this configuration, please see Integrate Azure Firewall with Azure Standard Load Balancer. 
+
+* An Azure Firewall can also be associated with a NAT gateway to extend the scalability of Source Network Address Translation (SNAT) or to avoid other sources having to permit traffic from a large number of public IPs on an Azure Firewall.  Using this configuration, all inbound traffic will utilize the public IP address(es) of the NAT gateway and egress through the Azure Firewall public IP address(es).  For more information, see Scale SNAT ports with Azure NAT Gateway.
+
+## Caveats
+
+* Because it uses the Standard load balancer platform, network filtering rules for protocols besides TCP and UDP don't work with SNAT to the public IP address associated with the Azure Firewall. 
 ## Next steps
 
 In this article, you learned how to create a Azure Firewall and use an existing public IP. You changed the public IP of the default IP configuration. Finally, you added a public IP configuration to the firewall.
