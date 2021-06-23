@@ -2,7 +2,7 @@
 title: Bicep functions
 description: Describes the functions to use in a Bicep file to retrieve values, work with strings and numerics, and retrieve deployment information.
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 06/16/2021
 ---
 
 # Bicep functions
@@ -78,6 +78,7 @@ The following functions are available for working with objects.
 The following functions are available for getting resource values:
 
 * [extensionResourceId](./bicep-functions-resource.md#extensionresourceid)
+* [getSecret](./bicep-functions-resource.md#getsecret)
 * [listAccountSas](./bicep-functions-resource.md#list)
 * [listKeys](./bicep-functions-resource.md#listkeys)
 * [listSecrets](./bicep-functions-resource.md#list)

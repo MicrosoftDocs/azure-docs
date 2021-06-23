@@ -13,12 +13,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/06/2021
+ms.date: 06/15/2021
 ms.author: b-juche
 ---
 # Storage service add-ons for Azure NetApp Files
 
-The **Storage service add-ons** portal menu of Azure NetApp Files provides a “launching pad” for supported third-party, ecosystem add-ons to the Azure NetApp Files storage service. 
+The **Storage service add-ons** portal menu of Azure NetApp Files provides a “launching pad” for available third-party, ecosystem add-ons to the Azure NetApp Files storage service. 
 
 ## Access storage service add-ons  
 

@@ -36,5 +36,25 @@
         href: 13-security.md
       - name: Summary
         href: 14-summary.md
-      - name: Appendix
-        href: 15-appendix.md
+   - name: Sample applications
+     href: 15-appendix.md
+   - name: Resources
+     items:
+      - name: Migrate data with mysqldump or phpmyadmin
+        href: ../../concepts-migrate-dump-restore.md
+        displayName: migrate, mysqldump
+      - name: Migrate data with dbForge Studio for MySQL
+        href: ../../concepts-migrate-dbforge-studio-for-mysql.md
+        displayName: migrate, dbforge
+      - name: Migrate data with MySQL Workbench
+        href: ../../concepts-migrate-import-export.md
+        displayName: import , migrate, export
+      - name: Migrate RDS MySQL data with MySQL Workbench
+        href: ../../how-to-migrate-rds-mysql-workbench.md
+        displayName: import , migrate, export
+      - name: Minimal downtime migration with DMS
+        href: ../../howto-migrate-online.md
+        displayName: migrate, dms, database migration service
+      - name: Troubleshoot common errors
+        href: ../../howto-troubleshoot-common-errors.md
+        displayName: SUPER privilege, DBA role, Access is denied

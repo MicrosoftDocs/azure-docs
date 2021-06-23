@@ -11,7 +11,7 @@ ms.subservice: service-overview
 ms.topic: reference
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 07/01/2021
+ms.date: 06/01/2021
 ---
 # Documentation changes for SQL Server on Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -22,7 +22,7 @@ Azure allows you to deploy a virtual machine (VM) with an image of SQL Server bu
 
 | Changes | Details |
 | --- | --- |
-| **SQL IaaS Agent extension improvement** | Restarting the SQL Server service is no longer necessary when registering with [SQL IaaS Agent extension](sql-server-iaas-agent-extension-automate-management.md) in [full mode](sql-agent-extension-manually-register-single-vm.md#full-mode)! | 
+| **SQL IaaS extension no longer requires restart** | Restarting the SQL Server service is no longer necessary when registering with [SQL IaaS Agent extension](sql-server-iaas-agent-extension-automate-management.md) in [full mode](sql-agent-extension-manually-register-single-vm.md#full-mode)! | 
 
 
 ## May 2021
