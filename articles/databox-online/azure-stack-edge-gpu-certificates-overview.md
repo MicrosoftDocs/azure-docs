@@ -126,12 +126,12 @@ There are three IoT Edge certificates that you need to install to enable this tr
 - **Device certificate authority** 
 - **Device key certificate**
 
+
 ### Caveats
 
 - The IoT Edge certificates are uploaded in `.pem` format. 
 
-
-For more information on IoT Edge certificates, see [Azure IoT Edge certificate details](../iot-edge/iot-edge-certs.md#iot-edge-certificates).
+For more information on IoT Edge certificates, see [Azure IoT Edge certificate details](../iot-edge/iot-edge-certs.md#iot-edge-certificates) and [Create IoT Edge production certificates](/azure/iot-edge/how-to-manage-device-certificates?view=iotedge-2020-11#create-production-certificates) .
 
 ## Support session certificates
 
