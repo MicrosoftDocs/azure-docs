@@ -111,7 +111,7 @@ In this section, you'll add a public IP configuration to the Azure Firewall. For
 
 ## Caveats
 
-* Azure firewall uses standard sku load balancer. Protocols other than TCP and UDP in network filter rules are unsupported for SNAT to the public IP of the firewall. 
+* Azure firewall uses standard SKU load balancer. Protocols other than TCP and UDP in network filter rules are unsupported for SNAT to the public IP of the firewall. 
 ## Next steps
 
 In this article, you learned how to create an Azure Firewall and use an existing public IP. You changed the public IP of the default IP configuration. Finally, you added a public IP configuration to the firewall.
