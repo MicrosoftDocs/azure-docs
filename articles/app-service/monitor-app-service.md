@@ -49,7 +49,7 @@ For reference, you can see a list of [all resource metrics supported in Azure Mo
 
 Data in Azure Monitor Logs is stored in tables where each table has its own set of unique properties.  
 
-All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](troubleshoot-diagnostic-logs.md#send-logs-to-azure-monitor-preview) The schema for App Service resource logs is found in the [App Service Data Reference](monitor-app-service-reference.md#schemas) 
+All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](troubleshoot-diagnostic-logs.md#send-logs-to-azure-monitor-preview).
 
 The [Activity log](/azure/azure-monitor/platform/activity-log) is a type of platform log in Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.  
 
