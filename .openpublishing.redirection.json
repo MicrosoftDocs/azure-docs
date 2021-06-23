@@ -8574,6 +8574,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure/marketplace/purchase-software-on-appsource.md",
+      "redirect_url": "/azure/marketplace/purchase-software-appsource",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure/marketplace/third-party-license.md",
       "redirect_url": "/azure/marketplace/isv-app-license",
       "redirect_document_id": false
