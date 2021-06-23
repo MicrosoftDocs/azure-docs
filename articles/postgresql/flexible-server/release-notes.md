@@ -24,9 +24,9 @@ This page provides latest news and updates regarding feature additions, engine v
 * Support for [SCRAM authentication](how-to-connect-scram.md) for all major versions with new server creates<sup>$</sup>.
 * Support for `pg_prewarm` to be preloaded using `shared_preload_libraries` with new server creates<sup>$</sup>.
 * Support for lo extension. See the [extensions page](./concepts-extensions.md) for versions supported with each major version <sup>$</sup>.
-* Several bug fixes, stability, and performance improvements.
+* Several bug fixes, stability, and performance improvements<sup>$</sup>.
   
-$ Your existing servers will be automatically upgraded to the latest supported minor version and new features are enabled in a future  maintenance window.
+<sup>**$**</sup> Your existing servers will be automatically upgraded to the latest supported minor version and also new features are enabled during your server's future maintenance window.
 
 ## Release: May 2021
 
