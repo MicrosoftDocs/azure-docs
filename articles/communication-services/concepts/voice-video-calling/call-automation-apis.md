@@ -48,9 +48,7 @@ In-call APIs enable an application to take actions in a call as an app-participa
 
 ![in-call application](../media/call-automation-in-call.png)
 
-[View the complete list of in-call APIs](../../samples) //need real URL//
-
-### In-Call Events //These should be links to sample JSON//
+### In-Call Events
 Event notifications are sent as JSON payloads to the calling application via the `callbackUri`set when joining the call. Events sent to in-call App-participants are:
 - CallState events (Establishing, Established, Terminating, Terminated)
 - DTMF received
@@ -68,10 +66,8 @@ Out-of-call APIs are available for actions such as:
 - Add or remove call participants.
 - Start/stop/pause/resume call recording.
 - Get information about call participants.
-
-[View the complete list of out-of-call APIs](../../samples) //need real URL//
-                                                        
-### Out-of-Call Events //These should be links to sample JSON//
+                                                       
+### Out-of-Call Events
 Event notifications are sent as JSON payloads to the calling application via the `callbackUri` providing in the originating API call. Actions with corresponding out-of-call events are:
 - Call Recording (Start, Stop, Pause, Resume)
 - Invite participant result
