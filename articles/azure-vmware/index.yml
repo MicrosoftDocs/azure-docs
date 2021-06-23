@@ -136,6 +136,8 @@ landingContent:
             url: configure-site-to-site-vpn-gateway.md
           - text: Configure Windows Server Failover Cluster
             url: configure-windows-server-failover-cluster.md
+          - text: Connect multiple private clouds in same region 
+            url: connect-multiple-private-clouds-same-region.md            
 
 # card 5
   - title: Azure native integration
