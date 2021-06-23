@@ -61,7 +61,7 @@ Then, you must supply basic device information. You can to edit this information
     | Device source code URL | Required if you are certifying a Solution-Ready Dev Kit, optional otherwise. URL must be to a GitHub location for your device code. |
 
     > [!Note]
-    > If you are marketing a Microsoft service (e.g. Azure Sphere), please ensure that your device name adheres to Microsoft [branding guidelines](http://www.microsoft.com/en-us/legal/intellectualproperty/trademarks).
+    > If you are marketing a Microsoft service (e.g. Azure Sphere), please ensure that your device name adheres to Microsoft [branding guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks).
 
 1. Select the `Next` button to continue to the `Certifications` tab.
 

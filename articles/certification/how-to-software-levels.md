@@ -31,7 +31,7 @@ User must develop, customize, and recompile their own device code to connect to 
 
 ## Next steps
 
-These levels are aimed to help you get started with building IoT solutions with Azure! Ready to get started? Visit the [Azure Certified Device catalog](http://devicecatalog.azure.com) to get searching for devices!
+These levels are aimed to help you get started with building IoT solutions with Azure! Ready to get started? Visit the [Azure Certified Device catalog](https://devicecatalog.azure.com) to get searching for devices!
 
 Are you a device builder who is looking to add this software level to your certified device? Check out the links below.
 - [Edit a previously published device](how-to-edit-published-device.md)
