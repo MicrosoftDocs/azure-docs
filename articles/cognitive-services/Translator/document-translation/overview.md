@@ -49,6 +49,8 @@ The following document file types are supported by Document Translation:
 |Comma Separated Values |.csv| A comma-delimited raw-data file used by spreadsheet programs.|
 |HTML|.html, .htm|Hyper Text Markup Language.|
 |Localization Interchange File Format|.xlf. , xliff| A parallel document format, export of Translation Memory systems. The languages used are defined inside the file.|
+|Markdown| .markdown, .mdown, .mkdn, .md, .mkd, .mdwn, .mdtxt, .mdtext, .rmd| A lightweight markup language for creating formatted text.|
+|MHTML|.mthml, .mht| A web page archive format used to combine HTML code and its companion resources.|
 |Microsoft Excel|.xls, .xlsx|A spreadsheet file for data analysis and documentation.|
 |Microsoft Outlook|.msg|An email message created or saved within Microsoft Outlook.|
 |Microsoft PowerPoint|.ppt, .pptx| A presentation file used to display content in a slideshow format.|
@@ -66,8 +68,9 @@ The following glossary file types are supported by Document Translation:
 
 | File type| File extension|Description|
 |---|---|--|
+|Comma Separated Values| .csv |A comma-delimited raw-data file used by spreadsheet programs.|
 |Localization Interchange File Format|.xlf. , xliff| A parallel document format, export of Translation Memory systems. The languages used are defined inside the file.|
-|Tab Separated Values/TAB|.tsv/.tab| A tab-delimited raw-data file used by spreadsheet programs.|
+|Tab Separated Values/TAB|.tsv, .tab| A tab-delimited raw-data file used by spreadsheet programs.|
 
 ## Next steps
 
