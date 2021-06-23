@@ -15,7 +15,7 @@ This article covers how to deploy and configure a disk pool. Before deploying a 
 This article covers how to configure and deploy a disk pool. In order for a disk pool to work correctly, you must complete the following steps:
 - Register your subscription for the preview.
 - Delegate a subnet to your disk pool.
-- Assign disk pool service provider RBAC permissions for management of your resources.
+- Assign disk pool service provider role-based access control (RBAC) permissions for management of your resources.
 - Create the disk pool.
     - Add disks to your disk pool.
 
@@ -46,24 +46,17 @@ Once your subscription has been registered, you can deploy a disk pool.
 In order for your disk pool to work with your client machines, you must delegate a subnet to your Azure disk pool. When creating a disk pool, you specify a virtual network and the delegated subnet. You may either create a new subnet or use an existing one and delegate to the **Microsoft.StoragePool** resource provider.
 
 1. Go to the virtual networks blade in the Azure portal and select the virtual network to use for the disk pool.
-1. From here, you can either:
-    - Select **Subnets** from the virtual network blade and select **+Subnet**.
-
-    Or
-
-    - Create a new subnet by completing the following required fields in the Add Subnet page:
-        - Name: Specify name.
-        - Address range: Specify IP address range.
+1. Select **Subnets** from the virtual network blade and select **+Subnet**.
+1. Create a new subnet by completing the following required fields in the Add Subnet page:
         - Subnet delegation: Select Microsoft.StoragePool
 
 For more information on subnet delegation, see [Add or remove a subnet delegation](../virtual-network/manage-subnet-delegation.md)
 
 ### Two: Provide StoragePool resource provider permission to the disks that will be in the disk pool.
 
-In order for your disk pool to work correctly, the StoragePool resource provider must be assigned an RBAC role that contains Read & Write permissions for every managed disk in the disk pool.
+For a disk to be able to be used in a disk pool, it must meet the following requirements:
 
-For a disk to be able to use a disk pool, it must meet the following requirements:
-
+- The **StoragePool** resource provider must have been assigned an RBAC role that contains Read & Write permissions for every managed disk in the disk pool.
 - Must be either a premium SSD or an ultra disk in the same availability zone as the disk pool, or deployed with ZRS.
     - For ultra disks, it must have a disk sector size of 512 bytes.
 - Must be a shared disk with a maxShares value of two or greater.
@@ -97,7 +90,7 @@ To add a disk, it must meet the following requirements:
 - Must be either a premium SSD or an ultra disk in the same availability zone as the disk pool, or deployed with ZRS.
     - For ultra disks, it must have a disk sector size of 512 bytes.
 - Must be a shared disk with a maxShares value of two or greater.
-- You must have granted RBAC permissions for this disk to your disk pool resource provider.
+- You must have granted RBAC permissions for the disk to your disk pool resource provider.
 
 If your disk meets these requirements, you can add it to a disk pool by selecting **+Add disk** in the disk pool blade.
 
@@ -118,8 +111,11 @@ Select Review + create.
 
 # [PowerShell](#tab/azure-powershell)
 
-The following script will
-
+The provided script will perform the following:
+- Install the necessary module for creating and using disk pools.
+- Create a disk and assign RBAC permissions to it.
+- Create a disk pool and add the disk to it.
+- Create and enable an iSCSI target.
 
 ```azurepowershell
 # Install the required module for Disk Pool
@@ -173,7 +169,11 @@ Get-AzDiskPoolIscsiTarget -name $iscsiTargetName -DiskPoolName $diskPoolName -Re
 
 # [Azure CLI](#tab/azure-cli)
 
-CLI content
+The provided script will perform the following:
+- Install the necessary extension for creating and using disk pools.
+- Create a disk and assign RBAC permissions to it.
+- Create a disk pool and add the disk to it.
+- Create and enable an iSCSI target.
 
 ```azurecli
 # Add disk pool CLI extension
