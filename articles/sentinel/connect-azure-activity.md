@@ -44,7 +44,7 @@ Here are some of the key improvements resulting from the move to the diagnostic 
 - Support for all categories of events logged by the Activity log service (the legacy mechanism supports only a subset - for example, no support for Service Health events).
 - Management at scale with Azure policy.
 
-See more....(LINKS)
+See the [Azure Monitor documentation](../azure-monitor/logs/data-platform-logs.md) for more in-depth treatment of [Azure Activity log](../azure-monitor/essentials/activity-log.md) and the [diagnostic settings pipeline](../azure-monitor/essentials/diagnostic-settings.md).
 
 ## Set up the Azure Activity log connector
 
