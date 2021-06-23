@@ -137,7 +137,6 @@ Provisioning and deprovisioning during sync group creation, update, and deletion
 ### General limitations
 
 - A table can't have an identity column that isn't the primary key.
-- A table must have a clustered index to use data sync.
 - A primary key can't have the following data types: sql_variant, binary, varbinary, image, xml.
 - Be cautious when you use the following data types as a primary key, because the supported precision is only to the second: time, datetime, datetime2, datetimeoffset.
 - The names of objects (databases, tables, and columns) can't contain the printable characters period (.), left square bracket ([), or right square bracket (]).
@@ -149,6 +148,7 @@ Provisioning and deprovisioning during sync group creation, update, and deletion
 - If two primary keys are only different in case (e.g. Foo and foo), Data Sync won't support this scenario.
 - Truncating tables is not an operation supported by Data Sync (changes won't be tracked).
 - Hyperscale databases are not supported. 
+- Memory-optimized tables are not supported.
 
 #### Unsupported data types
 

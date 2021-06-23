@@ -20,12 +20,12 @@ To access the Customers dashboard in Partner Center, under **Commercial Marketpl
 
 ## Customers dashboard
 
-The Customers dashboard displays data for customers who have acquired your offers. You can view graphical representations of the following items:
+The [Customers dashboard](https://go.microsoft.com/fwlink/?linkid=2166011) displays data for customers who have acquired your offers. You can view graphical representations of the following items:
 
 - Active and churned customers’ trend
 - Customer growth trend including existing, new, and churned customers
 - Customers by orders and usage
-- Customers percentile 
+- Customers percentile
 - Customer type by orders and usage
 - Customers by geography
 - Customers details table

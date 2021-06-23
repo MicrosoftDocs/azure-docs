@@ -8,7 +8,7 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 06/14/2021
+ms.date: 06/18/2021
 ms.custom: azure-synapse, sqldbrb=1
 ---
 # Auditing for Azure SQL Database and Azure Synapse Analytics
@@ -113,9 +113,6 @@ The following section describes the configuration of auditing using the Azure po
 Auditing of Microsoft Support operations for Azure SQL Server allows you to audit Microsoft support engineers' operations when they need to access your server during a support request. The use of this capability, along with your auditing, enables more transparency into your workforce and allows for anomaly detection, trend visualization, and data loss prevention.
 
 To enable Auditing of Microsoft Support operations navigate to **Auditing** under the Security heading in your **Azure SQL server** pane, and switch **Auditing of Microsoft support operations** to **ON**.
-
-  > [!IMPORTANT]
-  > Auditing of Microsoft support operations does not support storage account destination. To enable the capability, a Log Analytics workspace or an Event Hub destination has to be configured.
 
 ![Screenshot of Microsoft Support Operations](./media/auditing-overview/support-operations.png)
 
