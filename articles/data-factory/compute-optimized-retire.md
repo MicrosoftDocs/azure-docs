@@ -22,9 +22,9 @@ Azure Data Factory and Azure Synapse Analytics data flows provide a low-code mec
 | Memory Optimized Data Flows | Best performing runtime for data flows when working with large datasets and many calculations |
 | Compute Optimized Data Flows | Not recommended for production workloads |
 
-## Migration steps 
+## Migration steps
 
-Your Compute Optimized data flows will continue to work in pipelines as-is. However, new Azure Integration Runtimes and data flow activities will not be able to use Compute Optimized. When creating a new data flow activity:
+From now through 31 August 2024, your Compute Optimized data flows will continue to work in your existing pipelines. To avoid service disruption, please remove your existing Compute Optimized data flows before 31 August 2024 and follow the steps below to create a new Azure Integration Runtime and data flow activity. When creating a new data flow activity:
 
 1. Create a new Azure Integration Runtime with “General Purpose” or “Memory Optimized” as the compute type.
 2. Set your data flow activity using either of those compute types.

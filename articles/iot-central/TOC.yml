@@ -60,7 +60,7 @@
       - name: Create a gateway device template
         href: core/tutorial-define-gateway-device-type.md
       - name: Connect an IoT Edge device
-        href: core/tutorial-add-edge-as-leaf-device.md
+        href: /learn/modules/connect-iot-edge-device-to-iot-central
     - name: Build integrated solutions
       items:
       - name: Create a device group
