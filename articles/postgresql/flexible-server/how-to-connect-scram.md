@@ -13,7 +13,7 @@ ms.date: 06/23/2021
 > [!IMPORTANT]
 > Azure Database for PostgreSQL - Flexible Server is in preview
 
-Salted Challenge Response Authentication Mechanism (SCRAM) is a password-based mutual authentication protocol. It is a challenge-response scheme that adds several levels of security and prevents password sniffing on untrusted connections. SCRAM supports storing passwords on the server in a cryptographically hashed form which provides advanced security.  See this article for more details on SCRAM authentication.
+Salted Challenge Response Authentication Mechanism (SCRAM) is a password-based mutual authentication protocol. It is a challenge-response scheme that adds several levels of security and prevents password sniffing on untrusted connections. SCRAM supports storing passwords on the server in a cryptographically hashed form which provides advanced security. 
 
 To access the PostgreSQL database server using SCRAM method of authentication, your client libraries need to support SCRAM.  Refer to the [list of drivers](https://wiki.postgresql.org/wiki/List_of_drivers) that support SCRAM.
 
@@ -25,7 +25,7 @@ To access the PostgreSQL database server using SCRAM method of authentication, y
 1. Change password_encryption to SCRAM-SHA-256. Currently PostgreSQL only supports SCRAM using SHA-256.
         :::image type="content" source="./media/how-to-configure-scram/1_password_encryption.png" alt-text="Enable SCRAM password encryption"::: 
 2. Allow SCRAM-SHA-256 as the authentication method.
-        :::image type="content" source="./media/how-to-configure-scram/2_auth_method.png" alt-text="Enable SCRAM password encryption"::: 
+        :::image type="content" source="./media/how-to-configure-scram/2_auth_method.png" alt-text="Choose the authentication method"::: 
     >[!Important]
     > If you want to only enforce SCRAM, you may choose to only select SCRAM-SHA-256. It is recommended to verify  users are configured with SCRAM using the query mentioned in step #7 and your [client libraries](https://wiki.postgresql.org/wiki/List_of_drivers) support SCRAM. 
 3. Save the changes. These are dynamic properties and do not require server restart.
