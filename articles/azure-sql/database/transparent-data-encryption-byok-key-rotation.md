@@ -11,7 +11,7 @@ ms.topic: how-to
 author: shohamMSFT
 ms.author: shohamd
 ms.reviewer: vanto
-ms.date: 03/12/2019
+ms.date: 06/23/2021
 ---
 # Rotate the Transparent Data Encryption (TDE) protector
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -28,7 +28,7 @@ This guide discusses two options to rotate the TDE protector on the server.
 > Do not delete previous versions of the key after a rollover. When keys are rolled over, some data is still encrypted with the previous keys, such as older database backups.
 
 > [!NOTE]
-> This documentation applies to Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse Analytics (dedicated SQL pools). For documentation on Transparent Data Encryption for dedicated SQL pools inside Synapse Analytics workspaces, see [Azure Synapse Analytics encryption](../security/workspaces-encryption.md).
+> This article applies to Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse Analytics (dedicated SQL pools (formerly SQL DW)). For documentation on Transparent Data Encryption for dedicated SQL pools inside Synapse workspaces, see [Azure Synapse Analytics encryption](../security/workspaces-encryption.md).
 
 ## Prerequisites
 
