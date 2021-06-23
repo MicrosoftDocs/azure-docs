@@ -122,7 +122,7 @@ After a batch endpoint is created, you can use `show` to check the details. Use 
 
 A batch scoring workload runs as an offline job. Batch scoring is designed to process large data. Inputs are processed in parallel on the compute cluster. A data partition is assigned to a process on a node. A single node with multiple processes will have multiple partitions run in parallel. By default, batch scoring stores the scoring outputs in blob storage. You can start a batch scoring job using the Azure CLI by passing in the data inputs. You can also configure the outputs location and overwrite some of the settings to get the best performance.
 
-### Start a bath scoring job with different inputs options
+### Start a batch scoring job with different input options
 
 You have three options to specify the data inputs.
 
