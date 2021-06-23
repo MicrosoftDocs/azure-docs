@@ -33,9 +33,9 @@ Azure Arc enabled machine learning supports the following training scenarios:
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription [create a free account](https://aka.ms/AMLFree) before you begin.
-* Azure Arc enabled Kubernetes cluster. For more information, see the [Connect an existing Kubernetes cluster to Azure Arc quickstart guide](/azure-arc/kubernetes/quickstart-connect-cluster.md).
-* Fulfill [Azure Arc enabled Kubernetes cluster extensions prerequisites](/azure-arc/kubernetes/extensions#prerequisites).
+* An Azure subscription. If you don't have an Azure subscription [create a free account](https://azure.microsoft.com/free) before you begin.
+* Azure Arc enabled Kubernetes cluster. For more information, see the [Connect an existing Kubernetes cluster to Azure Arc quickstart guide](../azure-arc/kubernetes/quickstart-connect-cluster.md).
+* Fulfill [Azure Arc enabled Kubernetes cluster extensions prerequisites](../azure-arc/kubernetes/extensions.md#prerequisites).
   * Azure CLI version >= 2.24.0
   * Azure CLI k8s-extension extension version >= 0.4.3
 * An Azure Machine Learning workspace. [Create a workspace](how-to-manage-workspace.md?tabs=python) before you begin if you don't have one already.
@@ -225,8 +225,8 @@ amlarc_compute_name = os.environ.get("AML_COMPUTE_CLUSTER_NAME", "amlarc-compute
 resource_id = "/subscriptions/123/resourceGroups/rg/providers/Microsoft.Kubernetes/connectedClusters/amlarc-cluster"
 
 if amlarc_compute_name in ws.compute_targets:
-    compute_target = ws.compute_targets[amlarc_compute_name]
-    if compute_target and type(compute_target) is KubernetesCompute:
+    amlarc_compute = ws.compute_targets[amlarc_compute_name]
+    if amlarc_compute and type(amlarc_compute) is KubernetesCompute:
         print("found compute target: " + amlarc_compute_name)
 else:
     print("creating new compute target...")
@@ -259,8 +259,8 @@ amlarc_compute_name = os.environ.get("AML_COMPUTE_CLUSTER_NAME", "amlarc-compute
 resource_id = "/subscriptions/123/resourceGroups/rg/providers/Microsoft.Kubernetes/connectedClusters/amlarc-cluster"
 
 if amlarc_compute_name in ws.compute_targets:
-   compute_target = ws.compute_targets[amlarc_compute_name]
-   if compute_target and type(compute_target) is KubernetesCompute:
+   amlarc_compute = ws.compute_targets[amlarc_compute_name]
+   if amlarc_compute and type(amlarc_compute) is KubernetesCompute:
       print("found compute target: " + amlarc_compute_name)
 else:
    print("creating new compute target...")

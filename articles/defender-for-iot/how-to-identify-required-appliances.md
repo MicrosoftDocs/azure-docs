@@ -1,7 +1,7 @@
 ---
 title: Identify required appliances 
 description: Learn about hardware and virtual appliances for certified Defender for IoT sensors and the on-premises management console. 
-ms.date: 06/07/2021
+ms.date: 06/21/2021
 ms.topic: how-to
 ---
 
@@ -29,11 +29,11 @@ Defender for IoT supports both physical and virtual deployments.
 
 This section provides an overview of physical sensor models that are available. You can purchase sensors with preconfigured software or purchase sensors that are not preconfigured.
 
-| Deployment type | Corporate | Enterprise | SMB rack mount| SMB ruggedized|
+| Deployment type | Corporate | Enterprise | SMB rack mount| SMB Ruggedized |
 |--|--|--|--|--|
 | Image | :::image type="content" source="media/how-to-prepare-your-network/corporate-hpe-proliant-dl360-v2.png" alt-text="The corporate-level model."::: | :::image type="content" source="media/how-to-prepare-your-network/enterprise-and-smb-hpe-proliant-dl20-v2.png" alt-text="The enterprise-level model."::: | :::image type="content" source="media/how-to-prepare-your-network/enterprise-and-smb-hpe-proliant-dl20-v2.png" alt-text="The SMB-level model."::: | :::image type="content" source="media/how-to-prepare-your-network/office-ruggedized.png" alt-text="The SMB-ruggedized level model."::: |
 | Model | HPE ProLiant DL360 | HPE ProLiant DL20 | HPE ProLiant DL20 | HPE EL300 |
-| Monitoring ports | Up to 15 RJ45 or 8 OPT | Up to 8 RJ45 or 6 OPT | 4 RJ45 | Up to 5 |
+| Monitoring ports | Up to 15 RJ45 or 8 OPT | Up to 8 RJ45 or 6 OPT | Up to 4 RJ45 | Up to 5 RJ45 |
 | Maximum bandwidth [1](#anchortext) | 3 Gb/sec | 1 Gb/sec | 200 Mb/Sec | 100 Mb/sec |
 | Maximum protected devices | 30,000 | 15,000 | 1,000 | 800 |
 
@@ -54,7 +54,7 @@ This section provides an overview of the virtual sensors that are available.
 | Deployment type | Corporate | Enterprise | SMB |
 |--|--|--|--|
 | Maximum bandwidth | 2.5 Gb/sec | 800 Mb/sec | 160 Mb/sec |
-| Maximum protected devices | 30,000 | 10,000 | 2,500 |
+| Maximum protected devices | 30,000 | 10,000 | 800 |
 
 ## On-premises management console appliance
 

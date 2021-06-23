@@ -72,14 +72,14 @@ Rules for a network security group (NSG) or firewall can block communication bet
 
 To make Connection Monitor recognize your on-premises machines as sources for monitoring, install the Log Analytics agent on the machines.  Then enable the Network Performance Monitor solution. These agents are linked to Log Analytics workspaces, so you need to set up the workspace ID and primary key before the agents can start monitoring.
 
-To install the Log Analytics agent for Windows machines, see [Azure Monitor virtual machine extension for Windows](../virtual-machines/extensions/oms-windows.md).
+To install the Log Analytics agent for Windows machines, see [Install Log Analytics agent on Windows](../azure-monitor/agents/agent-windows.md).
 
 If the path includes firewalls or network virtual appliances (NVAs), then make sure that the destination is reachable.
 
 For Windows machines, to open the port, run the [EnableRules.ps1](https://aka.ms/npmpowershellscript) PowerShell script without any parameters in a PowerShell window with administrative privileges.
 
 For Linux machines, portNumbers to be used needs to be changed manually. 
-* Navigate to path: /var/opt/microsoft/omsagent/npm_state . 
+* Navigate to path: /var/opt/microsoft/omsagent/npm_state. 
 * Open file: npmdregistry
 * Change the value for Port Number ```“PortNumber:<port of your choice>”```
 

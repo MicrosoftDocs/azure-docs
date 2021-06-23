@@ -1,9 +1,9 @@
 ---
 title: 'Deploy Fusion Core on an Azure Stack Edge device'
 description: Learn how to deploy cloud solutions from Microsoft Azure and Metaswitch Networks that can help future-proof your network, drive down costs, and create new business models and revenue streams.
-services: vnf-manager
+
 author: djrmetaswitch
-ms.service: vnf-manager
+ms.service: private-multi-access-edge-compute-mec
 ms.topic: how-to
 ms.date: 06/16/2021
 ms.author: drichards
