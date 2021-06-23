@@ -4,7 +4,7 @@ description: How to create an Azure HPC Cache instance
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 06/21/2021
+ms.date: 06/23/2021
 ms.author: v-erkel 
 ms.custom: devx-track-azurepowershell
 ---
@@ -65,7 +65,7 @@ If you need help sizing your cache correctly, contact Microsoft Service and Supp
 
 ### Choose the cache type for your needs
 
-When you choose your cache capacity, you might notice that some throughput values have fixed cache size values, and others let you select from multiple cache size options. This is because there are two different styles of cache infrastructure:
+When you choose your cache capacity, you might notice that some throughput values have fixed cache sizes, and others let you select from multiple cache size options. This is because there are two different styles of cache infrastructure:
 
 * Standard caches - listed under **Read-write caching** in the throughput menu
 
@@ -94,12 +94,7 @@ Learn more about these options:
 * [Maximum number of storage targets](hpc-cache-add-storage.md#size-your-cache-correctly-to-support-your-storage-targets)
 * [Read and write caching modes](cache-usage-models.md#basic-file-caching-concepts)
 
-
-Choose one of the available throughput values. Also choose the cache storage size if your throughput size allows that option.
-
 ## Enable Azure Key Vault encryption (optional)
-
-The **Disk encryption keys** page appears between the **Cache** and **Tags** tabs.<!-- Read [Regional availability](hpc-cache-overview.md#region-availability) to learn more about region support. -->
 
 If you want to manage the encryption keys used for your cache storage, supply your Azure Key Vault information on the **Disk encryption keys** page. The key vault must be in the same region and in the same subscription as the cache.
 
@@ -113,13 +108,16 @@ You can skip this section if you do not need customer-managed keys. Azure encryp
 
 For a complete explanation of the customer-managed key encryption process, read [Use customer-managed encryption keys for Azure HPC Cache](customer-keys.md).
 
-![screenshot of encryption keys page with "customer managed" selected and key vault fields showing](media/create-encryption.png)
+![Screenshot of encryption keys page with "Customer managed" selected and the "Customer key settings" and "Managed identities" configuration forms showing.](media/create-encryption.png)
 
 Select **Customer managed** to choose customer-managed key encryption. The key vault specification fields appear. Select the Azure Key Vault to use, then select the key and version to use for this cache. The key must be a 2048-bit RSA key. You can create a new key vault, key, or key version from this page.
 
-Select xxx 
+Check the **Always use current key version** box if you want to use [automatic key rotation](../virtual-machines/disk-encryption.md#automatic-key-rotation-of-customer-managed-keys-preview).
 
-[ xxx just explain this image: media/cmk-identities-asc12.png xxx ]
+If you need to use a specific managed identity for this cache, configure it in the **Managed identities** section. Read the [managed identities documentation](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) for help.
+
+> [!NOTE]
+> You cannot change the assigned identity after you create the cache.
 
 After you create the cache, you must authorize it to use the key vault service. Read [Authorize Azure Key Vault encryption from the cache](customer-keys.md#3-authorize-azure-key-vault-encryption-from-the-cache) for details.
 

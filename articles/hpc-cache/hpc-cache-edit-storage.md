@@ -10,7 +10,9 @@ ms.author: v-erkel
 
 # Edit storage targets
 
-You can remove or modify storage targets with the Azure portal or by using the Azure CLI. You also can trigger actions on individual storage targets - like suspending service or writing cached data back to long-term storage - as described in Manage storage targets().
+You can modify, manage, or remove storage targets with the Azure portal or by using the Azure CLI.
+
+The xxx 
 
 Depending on the type of storage, you can modify these storage target values:
 
@@ -212,9 +214,9 @@ The configuration for ADLS-NFS usage models is identical to the NFS usage model 
 
 ## Manage storage targets
 
-You can xxx
+You can also perform management actions on individual storage targets. These actions supplement the cache-level management options discussed in [Manage your cache](hpc-cache-manage.md).
 
-To learn more about cache-level management actions, read [Manage your cache](hpc-cache-manage.md).
+Sometimes an individual storage target can get into a bad state and need to be temporarily removed, or permanently deleted. You also can flush cached data for a specific target.
 
 ![Screenshot of the storage targets page in the Azure portal, with the cursor over the menu exposed by clicking on the three dots (...) symbol to the far right of the storage target's row in the list.](media/storage-target-manage-options.png)
 
@@ -224,7 +226,7 @@ To learn more about cache-level management actions, read [Manage your cache](hpc
 * Resume
 * Delete
 
-### Flush cached files to the storage target 
+### Flush cached files to the storage target
 
 ### Suspend a storage target
 
@@ -233,7 +235,7 @@ The suspend feature disables client access to a storage target, but doesn't perm
 ### Force remove a storage target
 <!-- https://msazure.visualstudio.com/One/_workitems/edit/8267141 -->
 
-
+Delete 
 
 
 ## Next steps

@@ -4,7 +4,7 @@ description: How to define storage targets so that your Azure HPC Cache can use 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 05/05/2021
+ms.date: 06/23/2021
 ms.custom: subject-rbac-steps
 ms.author: v-erkel
 ---
@@ -33,11 +33,13 @@ Click the image below to watch a [video demonstration](https://azure.microsoft.c
 
 ## Size your cache correctly to support your storage targets
 
-<!-- asc12 to do: add L series standard (they all get 20 even though you can't change the size) -->
-The number of supported storage targets depends on the cache size, which is set when you create the cache. The size is a combination of throughput capacity (in GB/s) and storage capacity (in TB).
+The number of supported storage targets depends on the cache size, which is set when you create the cache. The cache capacity is a combination of throughput capacity (in GB/s) and storage capacity (in TB).
 
-* Up to 10 storage targets - If you choose the smallest or medium cache storage size for your selected throughput value, your cache can have up to 10 storage targets.
-* Up to 20 storage targets - Choose the highest available cache size for your selected throughput value if you want to use more than 10 storage targets. (If using Azure CLI, choose the highest valid cache size for your cache SKU.)
+* Up to 10 storage targets - If you choose a standard cache, and select the smallest or medium cache storage value for your selected throughput, your cache can have a maximum of 10 storage targets.
+* Up to 20 storage targets -
+
+  * All high-throughput caches (which have preconfigured cache storage sizes) can support up to 20 storage targets.
+  * Standard caches can support up to 20 storage targets if you choose the highest available cache size for your selected throughput value. (If using Azure CLI, choose the highest valid cache size for your cache SKU.)
 
 Read [Set cache capacity](hpc-cache-create.md#set-cache-capacity) to learn more about throughput and cache size settings.
 
@@ -48,7 +50,9 @@ A new Blob storage target needs an empty Blob container or a container that is p
 The Azure portal **Add storage target** page includes the option to create a new Blob container just before you add it.
 
 > [!NOTE]
-> For NFS-mounted blob storage, use the [ADLS-NFS storage target](#) type.
+>
+> * For NFS-mounted blob storage, use the [ADLS-NFS storage target](#add-a-new-adls-nfs-storage-target-preview) type.
+> * [High-throughput cache configurations](hpc-cache-create.md#choose-the-cache-type-for-your-needs) do not support standard Azure Blob storage targets. Use NFS-enabled blob storage (ADLS-NFS) instead.
 
 ### [Portal](#tab/azure-portal)
 
