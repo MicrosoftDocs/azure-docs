@@ -27,7 +27,7 @@ You can connect a private cloud to multiple private clouds, and the connections 
 >In Azure VMware Solution environments, it's possible to configure non-routed, overlapping IP deployments on NSX segments that aren't routed to Azure.  These don't cause issues with the AVS Interconnect feature, as it only routes between the NSX T0 on each private cloud.
 
 
-## Add connection between two private clouds
+## Add connection between private clouds
 
 1. In your Azure VMware Solution private cloud, under **Manage**, select **Connectivity**.
 
@@ -59,7 +59,6 @@ You can connect a private cloud to multiple private clouds, and the connections 
 1. In your Azure VMware Solution private cloud, under **Manage**, select **Connectivity**.
 
 2. For the connection you want to remove, on the right, select **Delete** (trash can) and then **Yes**.
-
 
 
 
