@@ -220,6 +220,8 @@
       items:
       - name: Load balancer
         href: configure-public-ip-load-balancer.md
+      - name: NAT gateway
+        href: configure-public-ip-nat-gateway.md
     - name: Create public IP address
       items:
       - name: Create public IP addresses - Portal
