@@ -19,7 +19,7 @@ This section provides information about best practices associated with the Azure
 
 ### Plug-in Microphone or Enable Microphone from Device Manager When ACS Call in Progress
 When there is no Microphone available, and later user will plug-in Microphone or enable Microphone in the OS, then Call Diagnostic "noMicrophoneDevicesEnumerated" will be raised.
-When this happens, application should invoke `askDevicePermission` to obtain user consent to enumerate devices.
+When this happens, application should invoke `askDevicePermission` to obtain user consent to enumerate devices. Then user should mute/unmute the microphone.
 
 ### Stop Video on Page Hide
 If app using ACS has an active call with the video, when user switches browser tab, or a user or different process or app puts browser in the background, then application must stop the video by calling `call.stopVideo` API.
