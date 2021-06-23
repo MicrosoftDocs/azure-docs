@@ -22,7 +22,7 @@ ms.author: bagol
 
 The following table lists the most commonly used, built-in Azure Sentinel workbooks.
 
-Access workbooks in Azure Sentinel under **Threat Management** > **Workbooks** on the left, and then search for the workbook you want to use. For more information, see [Tutorial: Visualize and monitor your data](tutorial-monitor-your-data.md).
+Access workbooks in Azure Sentinel under **Threat Management** > **Workbooks** on the left, and then search for the workbook you want to use. For more information, see [Visualize and monitor your data](tutorial-monitor-your-data.md).
 
 |Workbook name  |Description  |
 |---------|---------|
