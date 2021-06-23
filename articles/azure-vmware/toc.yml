@@ -79,7 +79,7 @@
   - name: Configure a site-to-site VPN in vWAN 
     href: configure-site-to-site-vpn-gateway.md
   - name: Connect multiple private clouds in same region 
-    href: connect-multiple-private-clouds-same-region
+    href: connect-multiple-private-clouds-same-region.md
   - name: Configure Windows Server Failover Cluster
     href: configure-windows-server-failover-cluster.md
   - name: Rotate cloudadmin credentials
