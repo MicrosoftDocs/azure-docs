@@ -23,15 +23,15 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is the Team Data Science Process?
-            url: /azure/architecture/overview
+            url: /azure/architecture/data-science-process/overview
       - linkListType: concept
         links:
           - text: Process lifecycle
-            url: /azure/architecture/lifecycle
+            url: /azure/architecture/data-science-process/lifecycle
           - text: Business understanding
-            url: /azure/architecture/lifecycle-business-understanding
+            url: /azure/architecture/data-science-process/lifecycle-business-understanding
           - text: Data acquisition
-            url: /azure/architecture/lifecycle-data
+            url: /azure/architecture/data-science-process/lifecycle-data
 
   # Card (optional)
   - title: Plan & develop a project
