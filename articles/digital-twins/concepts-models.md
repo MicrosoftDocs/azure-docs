@@ -190,6 +190,8 @@ Here is a basic example of a component on a DTDL model. This example shows a Roo
 > [!IMPORTANT]
 > The component interface (thermostat) is defined in the same array as the interface that uses it (Room). Components must be defined this way in API calls in order for the interface to be found.
 
+If other models in this solution also have a thermostat, they can contain their own components that reference the same thermostat model.
+
 ## Model inheritance
 
 Sometimes, you may want to specialize a model further. For example, it might be useful to have a generic model Room, and specialized variants ConferenceRoom and Gym. To express specialization, **DTDL supports inheritance**. Interfaces can inherit from one or more other interfaces. This is done by adding an `extends` field to the model.
