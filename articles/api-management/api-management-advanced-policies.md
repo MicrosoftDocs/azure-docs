@@ -385,7 +385,7 @@ The `emit-metric` policy sends custom metrics in the specified format to Applica
 
 ### Example
 
-Need intro to example. 
+Below example sends a custom metric to count the number of requests along with user ID and client IP as custom dimensions.
 
 ```xml
 <policies>
@@ -413,15 +413,15 @@ Need intro to example.
 #### emit-metric
 | Attribute | Description                | Required | Type               | Default value  |
 | --------- | -------------------------- | -------- | ------------------ | -------------- |
-| name      | Name of custom metric      | Yes      | string, expression | N/A            |
-| namespace | Namespace of custom metric | No       | string, expression | API Management |
+| name      | Name of custom metric.      | Yes      | string, expression | N/A            |
+| namespace | Namespace of custom metric. | No       | string, expression | API Management |
 | value     | Value of custom metric.    | No       | int, expression    | 1              |
 
 #### dimension
 | Attribute | Description                | Required | Type               | Default value  |
 | --------- | -------------------------- | -------- | ------------------ | -------------- |
-| name      | Name of custom metric      | Yes      | string, expression | N/A            |
-| value     | Value of custom metric. Can only be omitted if `name` matches one of default dimensions. If so, value is provided as per dimension name | No       | string, expression | N/A |
+| name      | Name of custom metric.      | Yes      | string, expression | N/A            |
+| value     | Value of custom metric. Can only be omitted if `name` matches one of default dimensions. If so, value is provided as per dimension name. | No       | string, expression | N/A |
 
 **Default dimension names that may be used without value:**
 | Name         | Value           |
