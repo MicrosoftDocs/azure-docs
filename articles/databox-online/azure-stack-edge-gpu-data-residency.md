@@ -1,5 +1,5 @@
 ---
-title: Data residency behavior of Azure Stack Edge Pro GPU/Pro R/Mini R devices
+title: Data residency and resiliency for Azure Stack Edge Pro GPU/Pro R/Mini R 
 description: Describes data residency posture for Azure Stack Edge.
 services: databox
 author: alkohli
@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 06/22/2021
+ms.date: 06/23/2021
 ms.author: alkohli
 ---
 
@@ -21,7 +21,7 @@ This article describes the information that you need to help understand the data
 
 Azure Stack Edge services uses [Azure Regional Pairs](/azure/best-practices-availability-paired-regions#azure-regional-pairs) when storing and processing customer data in all the geos where the service is available. For the Southeast Asia (Singapore) region, the service is currently paired with Hong Kong. The Azure region pairing implies that any data stored in Singapore is replicated in Hong Kong. Singapore has laws in place that require that the customer data not leave the country boundaries. 
 
-TO ensure that the customer data resides in a single region only, a new option is enabled in the Azure Stack Edge service. This option when selected, lets the service store and process the customer data only in Singapore region. The customer data is not replicated to Hong Kong. There is service-specific metadata (which is not sensitive data) that is still replicated to the paired region.  
+To ensure that the customer data resides in a single region only, a new option is enabled in the Azure Stack Edge service. This option when selected, lets the service store and process the customer data only in Singapore region. The customer data is not replicated to Hong Kong. There is service-specific metadata (which is not sensitive data) that is still replicated to the paired region.  
 
 With this option enabled, the service is resilient to zone-wide outages, but not to region-wide outages. If region-wide outages are important for you, then you should select the regional pair based replication.
 
@@ -57,7 +57,7 @@ The new Azure Edge Hardware Center service (Preview) is now available and allows
 
 In the event of region-wide outages, you won’t be able to access the order resources. You will not be able to return, cancel, or delete the resources. If you request for updates on your order status or need to initiate a device return urgently during the service outage, Microsoft Support will handle those requests.
 
-For detailed instructions, see [Create an order via the Azure Edge Hardware Center](azure-stack-edge-placeholder.md).
+For detailed instructions, see [Create an order via the Azure Edge Hardware Center](azure-stack-edge-gpu-deploy-prep.md#create-a-new-resource).
 
 
 <!--## Azure Stack Edge telemetry
