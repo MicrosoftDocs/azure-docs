@@ -38,12 +38,12 @@ Call recording currently supports mixed audio+video MP4 output format. The outpu
 Run-time control APIs can be used to manage recording via internal business logic triggers, such as an application creating a group call and recording the conversation, or from a user-triggered action that tells the server application to start recording. Call Recording APIs are [Out-of-Call APIs](../concepts/voice-video-calling/call-automation-apis#out-of-call-apis), using the `serverCallId` to initiate recording. When creating a call, a `serverCallId` is returned via the `Microsoft.Communication.CallLegStateChanged` event after a call has been established. The `serverCallId` can be found in the `data.serverCallId` field. See our [Call Recording Quickstart Sample](../../quickstarts/voice-video-calling/call-recording-sample) to learn about retrieving the `serverCallId` from th Calling Client SDK. A `recordingOperationId` is returned when recording is started, which is then used for follow-on operations like pause and resume.   
 
 | Operation                            | Operates On            | Comments                       |
-| :----------------------------------- | :--------------------- | :----------------------------- |
-| [Start Recording]() //need URL       | `serverCallId`         | Returns `recordingOperationId` | 
-| [Get Recording State]() //need URL   | `recordingOperationId` | Returns `recordingState`       | 
-| [Pause Recording]() //need URL       | `recordingOperationId` | Pausing and resuming call recording enables you to skip recording a portion of a call or meeting, and resume recording to a single file.  | 
-| [Resume Recording]() //need URL      | `recordingOperationId` | Resumes a Paused a recording operation. Content is included in the same file as content from prior to pausing. | 
-| [Stop Recording]() //need URL        | `recordingOperationId` | Stops recording, and initiates final media processing for file download. | 
+| :-------------------- | :--------------------- | :----------------------------- |
+| Start Recording       | `serverCallId`         | Returns `recordingOperationId` | 
+| Get Recording State   | `recordingOperationId` | Returns `recordingState`       | 
+| Pause Recording       | `recordingOperationId` | Pausing and resuming call recording enables you to skip recording a portion of a call or meeting, and resume recording to a single file. | 
+| Resume Recording      | `recordingOperationId` | Resumes a Paused a recording operation. Content is included in the same file as content from prior to pausing. | 
+| Stop Recording        | `recordingOperationId` | Stops recording, and initiates final media processing for file download. | 
 
 
 ## Event Grid notifications
@@ -56,8 +56,6 @@ An Event Grid notification `Microsoft.Communication.RecordingFileStatusUpdated` 
 | :------------------------------------------------------------------------------ | :---------------------- |
 | <Azure_Communication_Service_Endpoint>/recording/download/{documentId}          | recording media file    | 
 | <Azure_Communication_Service_Endpoint>/recording/download/{documentId}/metadata | recording metadata file | 
-
-Sample code for handling event grid notifications and downloading recording and metadata files can be found [here](../../quickstarts/voice-video-calling/download-recording-file-sample.md). 
 
 ### Notification Schema Reference
 ```
@@ -87,7 +85,7 @@ Sample code for handling event grid notifications and downloading recording and 
 ```
 
 ## Next steps
-Check out the [Call Recoding Quickstart Sample](../../quickstarts/voice-video-calling/call-recording-sample.md) to learn more.
+Check out the [Call Recoding Quickstart Sample](../../quickstarts/voice-video-calling/call-recording-sample) to learn more.
 
-Learn more about [Call Automation APIs](../concepts/voice-video-calling/call-automation-apis.md).
+Learn more about [Call Automation APIs](../concepts/voice-video-calling/call-automation-apis).
 
