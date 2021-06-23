@@ -1,16 +1,16 @@
 ---
 # This file is currently not connected to TOC. We are working on a new location Sept 2020
-title: How to purchase software on Microsoft AppSource
-description: Steps for one to purchase software on AppSource | Azure Marketplace. 
+title: Purchase software on Microsoft AppSource
+description: Steps for purchasing software on Microsoft AppSource (Azure Marketplace).
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
-ms.date: 03/20/2020
+ms.date: 06/23/2021
 ---
 
-# How to Purchase Software on Microsoft AppSource
+# Purchase Software on Microsoft AppSource
 
 Microsoft [AppSource](https://appsource.microsoft.com/) now enables customers to subscribe to SaaS applications that are offered by Microsoft partners. Customers can find certified web applications on the store and can manage the charges, upgrades, downgrades, and cancellations in a single place using Microsoft's Admin Center. This article describes how you can purchase an app from the store.
 
@@ -43,7 +43,7 @@ To purchase SaaS offers, you need:
     
 1. Select **Place order**.
 
-## How to configure software post-purchase
+## Configure software post-purchase
 
 After your order is received, it can take several seconds to get confirmed. You will receive a link to configure your SaaS subscription on the page, as well as an email confirming the purchase and the link to complete the configuration.
 
@@ -55,9 +55,9 @@ After your order is received, it can take several seconds to get confirmed. You 
 
 ## Contact support
 
-One can [submit a support ticket](https://admin.microsoft.com/Adminportal/Home?source=applauncher#/homepage) through the Microsoft 365 admin center.
+For support, submit a [support ticket](https://admin.microsoft.com/Adminportal/Home?source=applauncher#/homepage) through the Microsoft 365 admin center.
 
-For business products, [contact help here](/office365/admin/contact-support-for-business-products?tabs=phone).
+For business products, [contact help](/office365/admin/contact-support-for-business-products?tabs=phone).
 
 ## Next steps
 
