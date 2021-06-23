@@ -183,12 +183,12 @@ This section goes into more detail about **components** in DTDL models.
 
 ### Basic component example
 
-Here is a basic example of a component on a DTDL model. This example shows a Room model that makes use of a thermostat component.
+Here is a basic example of a component on a DTDL model. This example shows a Room model that makes use of a thermostat model as a component.
 
 :::code language="json" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/IRoom.json" highlight="15-19, 28-41":::
 
 > [!IMPORTANT]
-> The component interface (thermostat component) is defined in the same array as the interface that uses it (Room). Components must be defined this way in API calls in order for the interface to be found.
+> The component interface (thermostat) is defined in the same array as the interface that uses it (Room). Components must be defined this way in API calls in order for the interface to be found.
 
 ## Model inheritance
 
