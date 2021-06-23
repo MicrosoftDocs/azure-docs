@@ -2,7 +2,7 @@
 title: Script Sample - Create a new or modify the current file and folder backup policy
 description: Learn about how to use a script to create a new policy or modify the current file and folder Backup policy.
 ms.topic: sample
-ms.date: 06/22/2021
+ms.date: 06/23/2021
 ---
 
 # PowerShell Script to create a new or modify the current file and folder backup policy
@@ -166,3 +166,7 @@ Catch {
 1. Execute the script by providing the following parameters:
    - Schedule of backup and number of days/weeks/months or years that the backup needs to be retained.
    - -filePath- Files and folders that should be included or excluded from backup.
+
+## Next steps
+
+[Learn more](../backup-client-automation.md) about how to use PowerShell to deploy and manage on-premises backups using MARS agent.

@@ -2,7 +2,7 @@
 title: Script Sample - Configuring Backup for on-premises Windows server
 description: Learn how to use a script to configure Backup for on-premises Windows server.
 ms.topic: sample
-ms.date: 06/22/2021
+ms.date: 06/23/2021
 ---
 
 # PowerShell Script to configure Backup for on-premises Windows server
@@ -81,3 +81,7 @@ Enable-PSRemoting -Force
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force
 
 ```
+
+## Next steps
+
+[Learn more](../backup-client-automation.md) about how to use PowerShell to deploy and manage on-premises backups using MARS agent.

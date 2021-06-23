@@ -2,7 +2,7 @@
 title: Script Sample - Create a new or modify the current system state backup policy
 description: Learn about how to use a script to create a new or modify the current system state backup policy.
 ms.topic: sample
-ms.date: 06/22/2021
+ms.date: 06/23/2021
 ---
 
 #  PowerShell Script to create a new or modify the current system state backup policy
@@ -117,3 +117,7 @@ Catch {
 
 1. Save the above script on your machine with a name of your choice and .ps1 extension.
 1. Execute the script by providing the following parameters: <br> Schedule of backup and number of days/weeks/months or years that the backup needs to be retained.
+
+## Next steps
+
+[Learn more](../backup-client-automation.md) about how to use PowerShell to deploy and manage on-premises backups using MARS agent.
