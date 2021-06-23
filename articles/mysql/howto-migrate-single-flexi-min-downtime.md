@@ -178,8 +178,8 @@ To test replication, try adding some data to the customer tables on the primary 
 At this point, your applications are connected to the new Azure Database for MySQL Flexible server and changes in the source will no longer replicate to the target. 
 
 ## Next steps
-Learn more about Data-in replication  [Replicate data into Azure Database for MySQL Flexible Server](flexible-server/concepts-data-in-replication.md) and [Configure Azure Database for MySQL Flexible Server Data-in replication](./flexible-server/how-to-data-in-replication.md)
-Learn more about [troubleshooting common errors in Azure Database for MySQL](howto-troubleshoot-common-errors.md).
-Learn more about [migrating MySQL to Azure Database for MySQL offline using Azure Database Migration Service](../dms/tutorial-mysql-azure-mysql-offline-portal.md).
+* Learn more about Data-in replication  [Replicate data into Azure Database for MySQL Flexible Server](flexible-server/concepts-data-in-replication.md) and [Configure Azure Database for MySQL Flexible Server Data-in replication](./flexible-server/how-to-data-in-replication.md)
+* Learn more about [troubleshooting common errors in Azure Database for MySQL](howto-troubleshoot-common-errors.md).
+*  Learn more about [migrating MySQL to Azure Database for MySQL offline using Azure Database Migration Service](../dms/tutorial-mysql-azure-mysql-offline-portal.md).
 
 
