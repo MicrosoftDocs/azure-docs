@@ -23,8 +23,8 @@ You can only connect to private clouds in the same region. If you want to connec
 
 ## Prerequisites
 
-- Ensure that you have write access to each private cloud you're connecting
-- Ensure that the routed IP address space in each cloud is unique and doesn't overlap
+- Write access to each private cloud you're connecting
+- Routed IP address space in each cloud is unique and doesn't overlap
 
 >[!NOTE]
 >The **AVS interconnect** feature doesn't check for overlapping IP space the way native Azure vNet peering does before creating the peering. Therefore, it's your responsibility to ensure that there isn't overlap between the private clouds.
