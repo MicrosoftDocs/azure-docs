@@ -61,7 +61,7 @@ The second test we'll walk through is testing [error handling](https://touchston
 
 :::image type="content" source="media/davinci-plan-net/davinci-test-script-execution-passed.png" alt-text="Da Vinci plan net touchstone error test execution script passed":::
 
-## Touchstone Query test
+## Touchstone query test
 
 The next test we will walk through is the [query capabilities test](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/DaVinci/FHIR4-0-1-Test/PDEX/PlanNet/03-Query&activeOnly=false&contentEntry=TEST_SCRIPTS). This test is testing conformance against the profiles you loaded in the first test. You will need to have resources loaded that conform to the profiles. The best path would be to test against resources that you already have in your database, but we also have an **http file available** with sample resources pulled from the examples in the IG that you can use to create the resources and test against.  
 
