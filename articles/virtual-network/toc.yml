@@ -224,6 +224,8 @@
         href: configure-public-ip-nat-gateway.md
       - name: Firewall
         href: configure-public-ip-firewall.md
+      - name: VPN gateway
+        href: configure-public-ip-vpn-gateway.md
     - name: Create public IP address
       items:
       - name: Create public IP addresses - Portal
