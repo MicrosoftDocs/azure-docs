@@ -26,12 +26,30 @@ The [sign-up and sign-in journey](add-sign-up-and-sign-in-policy.md) allows user
 
 1. From the sign-up and sign-in page, the user clicks the **Forgot your password?** link. Azure AD B2C initiates the password reset flow.
 2. The user provides their email address and selects **Send verification code**. Azure AD B2C will then send the user a verification code.
+3. The user can then enter a new password.
+
 
 * The user needs to open the mail box and copy the verification code. The user then enters the verification code in Azure AD B2C password reset page, and selects **Verify code**.
 
 > [!NOTE]
 > After the email is verified, the user can still select **Change e-mail**, type the other email, and repeat the email verification from the beginning.
-3. The user can then enter a new password.
+
+> [!TIP]
+> In case you would prefer to hide the "Change Email" button on the screen, it can be achieved by hiding the respective HTML element(s) using CSS manipulation . 
+
+Example :  
+Add the below css in selfAsserted.HTML and customize the page as per https://docs.microsoft.com/en-us/azure/active-directory-b2c/customize-ui-with-html?pivots=b2c-user-flow:
+
+        <style type="text/css">
+           .changeClaims
+           {
+             visibility: hidden;
+           }
+        </style>
+
+Please note : changeclaims is the default name of the "Change Email" button on the selfasserted.html, which you can obtain by inspecting the page source of the sign up page using tools like Inspect
+![image](https://user-images.githubusercontent.com/10396742/123113768-70d4b500-d45c-11eb-92a9-b710ca458e6f.png)
+
 
 ![Password reset flow](./media/add-password-reset-policy/password-reset-flow.png)
 
