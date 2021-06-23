@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: overview
-ms.date: 09/22/2020
+ms.date: 06/02/2021
 ms.author: cherylmc
 # Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
 ---
@@ -62,9 +62,7 @@ To configure an end-to-end virtual WAN, you create the following resources:
 
 * **Site:** This resource is used for site-to-site connections only. The site resource is **vpnsite**. It represents your on-premises VPN device and its settings. By working with a Virtual WAN partner, you have a built-in solution to automatically export this information to Azure.
 
-## <a name="connectivity"></a>Types of connectivity
-
-Virtual WAN allows the following types of connectivity: Site-to-Site VPN, User VPN (Point-to-Site), and ExpressRoute.
+## <a name="connectivity"></a>Connectivity
 
 ### <a name="s2s"></a>Site-to-site VPN connections
 

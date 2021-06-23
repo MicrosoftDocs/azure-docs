@@ -15,6 +15,8 @@ ms.author: pafarley
 
 # Export or delete user data in Content Moderator
 
+[!INCLUDE [deprecation notice](includes/tool-deprecation.md)]
+
 Content Moderator collects user data to operate the service, but customers have full control to view, export, and delete their data using the [Review tool](https://contentmoderator.cognitive.microsoft.com/) and the [Moderation and Review APIs](./api-reference.md).
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]

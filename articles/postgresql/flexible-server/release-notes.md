@@ -29,7 +29,7 @@ This page provides latest news and updates regarding feature additions, engine v
 * Support to choose the Availability zone during Point-in-time recovery operation.
 * Support for new [regions](./overview.md#azure-regions) including Australia East, Canada Central, and France Central.
 * Support for [built-in PgBouncer](./concepts-pgbouncer.md) connection pooler. 
-* Support for [pglogical](https://github.com/2ndQuadrant/pglogical) extension version 2.3.2.
+<!--- * Support for [pglogical](https://github.com/2ndQuadrant/pglogical) extension version 2.3.2. -->
 * [Intelligent performance](concepts-query-store.md) in public preview.
 * Several bug fixes, stability and performance improvements.
 

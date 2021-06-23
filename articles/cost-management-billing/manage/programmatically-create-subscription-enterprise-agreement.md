@@ -13,7 +13,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 # Programmatically create Azure Enterprise Agreement subscriptions with the latest APIs
 
-This article helps you programmatically create Azure Enterprise Agreement (EA) subscriptions for an EA billing account using the most recent API versions. If you are still using the older preview version, see [Programmatically create Azure subscriptions with preview APIs](programmatically-create-subscription-preview.md). 
+This article helps you programmatically create Azure Enterprise Agreement (EA) subscriptions for an EA billing account using the most recent API versions. If you are still using the older preview version, see [Programmatically create Azure subscriptions legacy APIs](programmatically-create-subscription-preview.md). 
 
 In this article, you learn how to create subscriptions programmatically using Azure Resource Manager.
 
@@ -227,7 +227,7 @@ An in-progress status is returned as an `Accepted` state under `provisioningStat
 
 To install the latest version of the module that contains the `New-AzSubscriptionAlias` cmdlet, run `Install-Module Az.Subscription`. To install a recent version of PowerShellGet, see [Get PowerShellGet Module](/powershell/scripting/gallery/installing-psget).
 
-Run the following [New-AzSubscriptionAlias](/powershell/module/az.subscription/new-azsubscription) command, using the billing scope `"/providers/Microsoft.Billing/BillingAccounts/1234567/enrollmentAccounts/7654321"`. 
+Run the following [New-AzSubscriptionAlias](/powershell/module/az.subscription/get-azsubscriptionalias) command, using the billing scope `"/providers/Microsoft.Billing/BillingAccounts/1234567/enrollmentAccounts/7654321"`. 
 
 ```azurepowershell-interactive
 New-AzSubscriptionAlias -AliasName "sampleAlias" -SubscriptionName "Dev Team Subscription" -BillingScope "/providers/Microsoft.Billing/BillingAccounts/1234567/enrollmentAccounts/7654321" -Workload "Production"

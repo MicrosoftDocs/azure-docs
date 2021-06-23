@@ -448,4 +448,4 @@ The output from the preceding example is:
 
 ## Next steps
 
-* For a description of the sections in an ARM template, see [Understand the structure and syntax of ARM templates](template-syntax.md).
+* For a description of the sections in an ARM template, see [Understand the structure and syntax of ARM templates](./syntax.md).

@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 12/14/2020
+ms.date: 06/10/2021
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
@@ -76,7 +76,7 @@ You need a permanent account for testing with at least two users registered.
 
 **How to get Azure AD for developers?**
 
-You can get a free test account with all the premium Azure AD features - 90 days free and can get extended as long as you do dev work with it: https://docs.microsoft.com/office/developer-program/office-365-developer-program
+You can get a free test account with all the premium Azure AD features - 90 days free and can get extended as long as you do dev work with it: [Join the Microsoft 365 Developer Program](/office/developer-program/microsoft-365-developer-program).
 
 ## Step 1 - Choose the right single sign-on standard for your app
 
@@ -282,17 +282,6 @@ You can update or remove an existing gallery app in the [Microsoft Application N
 > [!NOTE]
 > If you have any issues with access, review the previous section on creating your account. If that doesn't work, contact the [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
-### List requests by customers
-
-Customers can submit a request to list an application by selecting **App requests by Customers** > **Submit new request**.
-
-![Shows the customer-requested apps tile](./media/howto-app-gallery-listing/customer-submit-request.png)
-
-Here's the flow of customer-requested applications.
-
-![Shows the customer-requested apps flow](./media/howto-app-gallery-listing/customer-request-2.png)
-
-
 ### Timelines
 
 The timeline for the process of listing a SAML 2.0 or WS-Fed application in the gallery is 7 to 10 business days.
@@ -311,7 +300,20 @@ For any escalations, send email to the [Azure AD SSO Integration Team](mailto:Sa
 ## Step 7 - Join the Microsoft partner network
 The Microsoft Partner Network provides instant access to exclusive resources, programs, tools, and connections. To join the network and create your go to market plan, see [Reach commercial customers](https://partner.microsoft.com/explore/commercial#gtm).
 
+## Request Apps by sharing ISV App team contact
+
+Customers can request application by sharing the Application and ISV contact information [here](https://microsoft.sharepoint.com/teams/apponboarding/Apps/SitePages/AppRequestsByCustomers.aspx).
+
+![Shows the customer-requested apps tile](./media/howto-app-gallery-listing/customer-submit-request.png)
+
+Here's the flow of customer-requested applications.
+
+![Shows the customer-requested apps flow](./media/howto-app-gallery-listing/customer-request-2.png)
+
+> [!Note]
+> If you have any [issues with access](#issues-on-logging-into-portal), send email to the [Azure AD App Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
 ## Next steps
+
 * [Build a SCIM endpoint and configure user provisioning](../app-provisioning/use-scim-to-provision-users-and-groups.md)
 * [Authentication scenarios for Azure AD](authentication-flows-app-scenarios.md)

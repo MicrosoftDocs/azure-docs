@@ -40,7 +40,7 @@ The core operations of Spatial Analysis are all built on a pipeline that ingests
 
 ### Follow a quickstart
 
-Once you're granted access to Spatial Analysis, follow the [quickstart](spatial-analysis-container.md) to set up the container and begin analyzing video.
+Follow the [quickstart](spatial-analysis-container.md) to set up the container and begin analyzing video.
 
 ## Responsible use of Spatial Analysis technology
 

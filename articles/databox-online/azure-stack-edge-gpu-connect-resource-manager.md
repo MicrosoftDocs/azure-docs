@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/01/2021
+ms.date: 06/08/2021
 ms.author: alkohli 
 ms.custom: devx-track-azurepowershell
 #Customer intent: As an IT admin, I need to understand how to connect to Azure Resource Manager on my Azure Stack Edge Pro device so that I can manage resources.
@@ -371,7 +371,7 @@ Set the Azure Resource Manager environment and verify that your device to client
             PS C:\Users\Administrator>
             ```
 
-
+If you run into issues with your Azure Resource Manager connections, see [Troubleshoot Azure Resource Manager issues](azure-stack-edge-gpu-troubleshoot-azure-resource-manager.md) for guidance. 
 
 > [!IMPORTANT]
 > The connection to Azure Resource Manager expires every 1.5 hours or if your Azure Stack Edge Pro device restarts. If this happens, any cmdlets that you execute, will return error messages to the effect that you are not connected to Azure anymore. You will need to sign in again.
@@ -458,4 +458,5 @@ ExtendedProperties : {}
 
 ## Next steps
 
-[Deploy VMs on your Azure Stack Edge Pro device](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md).
+- [Troubleshoot Azure Resource Manager issues](azure-stack-edge-gpu-troubleshoot-azure-resource-manager.md).
+- [Deploy VMs on your Azure Stack Edge Pro device](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md).

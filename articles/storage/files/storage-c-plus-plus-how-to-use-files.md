@@ -14,6 +14,13 @@ ms.subservice: files
 
 [!INCLUDE [storage-try-azure-tools-files](../../../includes/storage-try-azure-tools-files.md)]
 
+## Applies to
+| File share type | SMB | NFS |
+|-|:-:|:-:|
+| Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+
 ## About this tutorial
 
 In this tutorial, you'll learn how to perform basic operations on Azure Files. Through samples written in C++, you'll learn how to create shares and directories, upload, list, and delete files. If you are new to Azure Files, going through the concepts in the sections that follow will be helpful in understanding the samples.

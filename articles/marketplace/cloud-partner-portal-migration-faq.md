@@ -77,8 +77,8 @@ For the offer types supported in Partner Center, all offers were moved regardles
 | Azure application | Yes | Sign in to Partner Center to create new offers and manage offers that were created in Cloud Partner Portal. Learn more at [Create an Azure application offer](azure-app-offer-setup.md). |
 | Dynamics 365 Business Central | Yes | Sign in to Partner Center to create new offers and manage offers that were created in Cloud Partner Portal. Learn more at [Create a Dynamics 365 Business Central offer](dynamics-365-business-central-offer-setup.md). |
 | Dynamics 365 for Customer Engagement & PowerApps | Yes | Sign in to Partner Center to create new offers and manage offers that were created in Cloud Partner Portal. Learn more at [Create a Dynamics 365 for Customer Engagement & PowerApps offer](dynamics-365-customer-engage-offer-setup.md). |
-| Dynamics 365 for Operations | Yes | Sign in to Partner Center to create new offers and manage offers that were created in Cloud Partner Portal. Learn more at [Create a Dynamics 365 for Operations offer](partner-center-portal/create-new-operations-offer.md). |
-| Power BI App | Yes | Sign in to Partner Center to create new offers and manage offers that were created in Cloud Partner Portal. Learn more at [Create a Power BI app for AppSource](partner-center-portal/create-power-bi-app-offer.md). |
+| Dynamics 365 for Operations | Yes | Sign in to Partner Center to create new offers and manage offers that were created in Cloud Partner Portal. Learn more at [Create a Dynamics 365 for Operations offer](./dynamics-365-operations-offer-setup.md). |
+| Power BI App | Yes | Sign in to Partner Center to create new offers and manage offers that were created in Cloud Partner Portal. Learn more at [Create a Power BI app for AppSource](./power-bi-app-offer-setup.md). |
 | IoT Edge module | Yes | Sign in to Partner Center to create new offers and manage offers that were created in Cloud Partner Portal. Learn more at [Create, configure, and publish an IoT Edge module offer in Azure Marketplace](iot-edge-offer-setup.md). |
 | Container | Yes | Sign in to Partner Center to create new offers and manage offers that were created in Cloud Partner Portal. Learn more at [Create an Azure container offer](./azure-container-offer-setup.md). |
 | Consulting Service | Yes | Sign in to Partner Center to create new offers and manage offers that were created in Cloud Partner Portal. Learn more at [Create a consulting service offer](./create-consulting-service-offer.md). |
@@ -94,7 +94,7 @@ The offers you created in Cloud Partner Portal are available in Partner Center u
 
 ### Access the right program in Partner Center
 
-1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) with the same credentials used to sign into the Cloud Partner Portal. The navigation pane on the left displays options associated with the programs you are enrolled in.
+1. Sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2166002) with the same credentials used to sign into the Cloud Partner Portal. The navigation pane on the left displays options associated with the programs you are enrolled in.
 
     Example: assume you have access to three programs: the MPN program, the Referrals program, and the Commercial Marketplace program. When you sign into Partner Center, you will see these three programs on the navigation pane.
 
@@ -112,13 +112,13 @@ If you are part of multiple accounts, in Partner center you will see an account 
 
 ## How do I create new offers?
 
-Access the Commercial marketplace program in [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) to create new offers. On the Overview page, select **+ New offer**.
+Access the Commercial marketplace program in [Partner Center](https://go.microsoft.com/fwlink/?linkid=2165935) to create new offers.
 
 [![Screenshot shows the Partner Center Overview menu.](media/cpp-pc-faq/new-offer.png "Shows the Partner Center Overview menu")](media/cpp-pc-faq/new-offer.png#lightbox)
 
 ## I can't sign in and need to open a support ticket
 
-If you can't sign in to your account, you can open a [support ticket](https://partner.microsoft.com/support/v2/?stage=1) here.
+If you can't sign in to your account, you can open a [support ticket](https://go.microsoft.com/fwlink/?linkid=2165533) here.
 
 ## Where are instructions for using Partner Center?
 
@@ -150,7 +150,7 @@ You'll notice some branding changes. For example, *SKUs* are branded as *Plans* 
 
 Also, the information you previously provided in the **Marketplace** or **Storefront Details**  (Consulting Service, Power BI app) pages in the Cloud Partner Portal is now collected on the **Offer listing** page in Partner Center:
 
-[![Screenshot shows the Partner Center Offer listing page.](media/cpp-pc-faq/offer-listing.png](media/cpp-pc-faq/offer-listing.png#lightbox)
+[ ![Screenshot shows the Partner Center Offer listing page.](./media/cpp-pc-faq/offer-listing.png) ](./media/cpp-pc-faq/offer-listing.png#lightbox)
 
 The information you previously provided for SKUs in a single page in the Cloud Partner Portal may now be collected throughout several pages in Partner Center:
 

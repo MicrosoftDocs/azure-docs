@@ -123,7 +123,7 @@ The what-if operation lists six different types of changes:
 
 - **Create**: The resource doesn't currently exist but is defined in the template. The resource will be created.
 
-- **Delete**: This change type only applies when using [complete mode](deployment-modes.md) for deployment. The resource exists, but isn't defined in the template. With complete mode, the resource will be deleted. Only resources that [support complete mode deletion](complete-mode-deletion.md) are included in this change type.
+- **Delete**: This change type only applies when using [complete mode](deployment-modes.md) for deployment. The resource exists, but isn't defined in the template. With complete mode, the resource will be deleted. Only resources that [support complete mode deletion](./deployment-complete-mode-deletion.md) are included in this change type.
 
 - **Ignore**: The resource exists, but isn't defined in the template. The resource won't be deployed or modified.
 

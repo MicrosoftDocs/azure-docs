@@ -105,5 +105,5 @@ Azure allows you to deploy a virtual machine (VM) with an image of SQL Server bu
 
 * [Overview of SQL Server on a Linux VM](../linux/sql-server-on-linux-vm-what-is-iaas-overview.md)
 * [Provision SQL Server on a Linux virtual machine](../linux/sql-vm-create-portal-quickstart.md)
-* [FAQ (Linux)](../linux/frequently-asked-questions-faq.md)
+* [FAQ (Linux)](../linux/frequently-asked-questions-faq.yml)
 * [SQL Server on Linux documentation](/sql/linux/sql-server-linux-overview)
