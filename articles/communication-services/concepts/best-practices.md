@@ -22,7 +22,7 @@ When there is no Microphone available, and later user will plug-in Microphone or
 When this happens, application should invoke `askDevicePermission` to obtain user consent to enumerate devices.
 
 ### Stop Video on Page Hide
-When user move away from the browser tab, then stop the video given that the video was on.
+If app using ACS has an active call with the video, when user switches browser tab, or a user or different process or app puts browser in the background, then application must stop the video by calling `call.stopVideo` API
 ```JavaScript
 document.addEventListener("visibilitychange", function() {
 	if (document.visibilityState === 'visible') {
