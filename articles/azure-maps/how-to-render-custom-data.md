@@ -49,7 +49,9 @@ To get a static image with custom pins and labels:
 
 3. Enter a **Request name** for the request, such as *GET Static Image*.
 
+
 4. Select the **GET** HTTP method.
+
 
 5. Enter the following URL (replace `{subscription-key}` with your primary subscription key):
 
