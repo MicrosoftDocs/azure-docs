@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/25/2021
+ms.date: 06/23/2021
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: "it-pro;seo-update-azuread-jan"
@@ -84,7 +84,7 @@ Here are some additional details about these group settings.
 
 - These setting can take up to 15 minutes to take effect.
 - If you want to enable some, but not all, of your users to create groups, you can assign those users a role that can create groups, such as [Groups Administrator](../roles/permissions-reference.md#groups-administrator).
-- If you have service principals with permissions to create groups, even if you set these settings to **No**, these service principals will still be able to create groups. 
+- These settings are for users and don't impact service principals. For example, if you have a service principal with permissions to create groups, even if you set these settings to **No**, the service principal will still be able to create groups. 
 
 ## Next steps
 
