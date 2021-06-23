@@ -22,7 +22,7 @@ When there is no Microphone available, and later user will plug-in Microphone or
 When this happens, application should invoke `askDevicePermission` to obtain user consent to enumerate devices.
 
 ### Stop Video on Page Hide
-If app using ACS has an active call with the video, when user switches browser tab, or a user or different process or app puts browser in the background, then application must stop the video by calling `call.stopVideo` API
+If app using ACS has an active call with the video, when user switches browser tab, or a user or different process or app puts browser in the background, then application must stop the video by calling `call.stopVideo` API.
 ```JavaScript
 document.addEventListener("visibilitychange", function() {
 	if (document.visibilityState === 'visible') {
@@ -34,12 +34,12 @@ document.addEventListener("visibilitychange", function() {
 ```
 
 ### Dispose Video Stream Renderer View
-Application should dispose VideoStreamRendererView, or it's parent VideoStreamRenderer instance, if it doesn't need it anymore to render video and it decides to detach if from the DOM
+Application should dispose VideoStreamRendererView, or its parent VideoStreamRenderer instance, if it doesn't need it anymore to render video and it decides to detach if from the DOM.
 
 ### Hang up the Call on onbeforeunload Event
-App should invoke call.hangup on onbeforeunload event
+App should invoke call.hangup on onbeforeunload event.
 
 ### Hang up the Call on microphoneMuteUnexpectedly UFD
-Whey user is on call on iOS/Safari and receives the PSTN call then ACS looses microphone access. 
+When user is on call on iOS/Safari and receives the PSTN call then ACS loses microphone access. 
 ACS will raise Call Diagnostic event with `microphoneMuteUnexpectedly` type, at this point ACS will not be able to regain access to microphone.
 It's recommended to hang up the call ( `call.hangUp` ) when such situation occurs.
