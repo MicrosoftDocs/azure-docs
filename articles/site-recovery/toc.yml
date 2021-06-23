@@ -159,7 +159,11 @@
     - name: Using public IP addresses with Site Recovery
       href: concepts-public-ip-address-with-site-recovery.md
   - name: About failover and failback
-    href: failover-failback-overview.md
+    items:
+    - name: Classic
+      href: failover-failback-overview.md
+    - name: Preview
+      href: failover-failback-overview-preview.md
   - name: About recovery plans
     href: recovery-plan-overview.md
   - name: About migration to Azure
