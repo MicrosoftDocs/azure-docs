@@ -49,7 +49,7 @@ Get started with ML model lift and shift to ONNX runtime [here](https://aka.ms/c
 
 ### EGo
 
-The open source [EGo SDK](https://www.ego.dev) brings support for the Go programming language to enclaves. EGo builds upon the Open Enclave SDK and aims at making it easy to bring cloud-native services to the enclave world. For instance, if your goal is to make a Go-based microservice deployment on AKS confidential, then EGo can be a starting point.
+The open source [EGo SDK](https://www.ego.dev) brings support for the Go programming language to enclaves. EGo builds upon the Open Enclave SDK. It aims to make it easy to build confidential microservices. Follow this [step-by-step guide](https://github.com/edgelesssys/ego/tree/master/samples/aks), to deploy an EGo-based service on AKS.
 
 ## Container Based Sample Implementations
 
