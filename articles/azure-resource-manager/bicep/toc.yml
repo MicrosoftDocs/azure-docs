@@ -4,12 +4,14 @@
   items:
   - name: What is Bicep?
     href: overview.md
+    displayName: benefits,faq
   - name: Compare JSON and Bicep
     href: compare-template-syntax.md
 - name: Install
   items:
   - name: Install Bicep tools
     href: install.md
+    displayName: nightly
 - name: Quickstarts
   items:
   - name: Create Bicep templates - VS Code
@@ -28,18 +30,23 @@
         href: resource-declaration.md
       - name: Conditional deployment
         href: conditional-resource-deployment.md
+        displayName: runtime
       - name: Child resource name and type
         href: child-resource-name-type.md
+        displayName: parent,parent resource
       - name: Extension resources
         href: scope-extension-resources.md
     - name: Parameters
       href: parameters.md
+      displayName: decorators,secure,objects,constraints
     - name: Variables
       href: variables.md
+      displayName: configuration
     - name: Outputs
       href: outputs.md
     - name: Modules
       href: modules.md
+      displayName: scopes,consume
     - name: Loops
       items:
       - name: Resources
