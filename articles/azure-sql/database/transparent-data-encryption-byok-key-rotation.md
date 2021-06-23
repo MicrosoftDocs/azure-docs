@@ -51,7 +51,7 @@ For installation, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 Automatic rotation for the TDE Protector can be enabled when configuring the TDE Protector for the server, from the Azure Portal or via the below PowerShell or CLI commands. Once enabled, the server will continuously check the key vault for any new versions of the key being used as TDE Protector. If a new version of the key is detected, within 60 minutes the TDE Protector on the server will be automatically rotated to the latest key version. 
 
 
-# [Portal](#tab/azure-portal)
+### Using the Azure portal
 
 1. Browse to the **Transparent Data Encryption** blade for an existing server. 
  
@@ -61,6 +61,7 @@ Automatic rotation for the TDE Protector can be enabled when configuring the TDE
 
 4. Click **Save**.
 
+To enable automatic rotation for the TDE Protector using PowerShell or Azure CLI, see the following scripts.
 
 # [PowerShell](#tab/azure-powershell)
 
