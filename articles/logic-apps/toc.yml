@@ -4,6 +4,8 @@
   items:
   - name: About Azure Logic Apps
     href: logic-apps-overview.md
+  - name: About the Logic Apps designer
+    href: designer-overview.md
 - name: Quickstarts
   expanded: true
   items:
