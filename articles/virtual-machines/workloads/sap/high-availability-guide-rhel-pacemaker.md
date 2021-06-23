@@ -326,7 +326,7 @@ If there is a need to collect diagnostic information within the VM , it may be u
 > [!IMPORTANT]
 > Be aware that when `fence_kdump` is configured as a first level stonith, it will introduce delays in the fencing operations and respectively delays in the application resources failover.  
 > 
-> If crash dump is successfully detected, the fencing will be delayed until the crash recovery service completes. If the failed node is unreachable or if it doesn't respond, the fencing will be delayed by time determined by the configured number of iterations and `fence_kdump` timeout. For more details see [Insert Red Hat KB - TBD](https://access.redhat.com/solutions/2619961).  
+> If a crash dump is successfully detected, the fencing will be delayed until the crash recovery service completes. If the failed node is unreachable or if it doesn't respond, the fencing will be delayed by time determined by the configured number of iterations and the `fence_kdump` timeout. For more details see [Insert Red Hat KB - TBD](https://access.redhat.com/solutions/2619961).  
 > The proposed fence_kdump timeout may need to be adapted to the specific environment.
 >     
 > We recommend to configure `fence_kdump` stonith only when necessary to collect diagnostics within the VM and always in combination with traditional fence method as Azure Fence Agent.   
