@@ -71,11 +71,11 @@ To configure Data in replication, perform the following steps:
     CREATE USER 'syncuser'@'%' IDENTIFIED BY 'yourpassword';
     GRANT REPLICATION SLAVE ON *.* TO ' syncuser'@'%' REQUIRE SSL;
     ```
-     If you’re not using SSL, run the following command:
-     ```sql
+    If you’re not using SSL, run the following command:
+    ```sql
     CREATE USER 'syncuser'@'%' IDENTIFIED BY 'yourpassword';
     GRANT REPLICATION SLAVE ON *.* TO ' syncuser'@'%';
-     ```
+    ```
     
 5.	To back up the database using mydumper, run the following command on the Azure VM where we installed the mydumper\myloader:
     ```bash
