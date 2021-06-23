@@ -961,7 +961,7 @@
     "redirect_document_id": true
   },
   {
-    "source_path_from_root": "articles/azure-resource-manager/programmatically-create-subscription.md",
+    "source_path_from_root": "/articles/azure-resource-manager/programmatically-create-subscription.md",
     "redirect_url": "/azure/cost-management-billing/manage/programmatically-create-subscription",
     "redirect_document_id": false
   }
