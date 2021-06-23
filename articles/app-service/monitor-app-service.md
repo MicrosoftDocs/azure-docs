@@ -99,13 +99,13 @@ The following table lists common and recommended alert rules for App Service.
 
 | Alert type | Condition | Description  |
 |:---|:---|:---|
-| Metric | average connections is greater than 300 | |
-| Metric | total http 404 is greater than 5| |
-| Metric | total http server errors is greater than <logic undefined>| |
-| Activity Log | Signal name='Create or Update Web App (microsoft.web/sites)' |
-| Activity Log | Signal name='Delete Web App (microsoft.web/sites)'
-| Activity Log | Signal name='Restart Web App (microsoft.web/sites)'|
-| Activity Log | Signal name='Stop Web App (microsoft.web/sites)'|
+| Metric | Average connections is greater than 300 | When number of connections exceed a set value|
+| Metric | Total HTTP 404 is greater than 5| When HTTP 404 responses exceed a set value|
+| Metric | Total HTTP Server Errors is greater than 5| When HTTP 5xx errors exceed a set value|
+| Activity Log | 'Create or Update Web App' | When app is created or updated|
+| Activity Log | 'Delete Web App' | When app is deleted|
+| Activity Log | 'Restart Web App'| When app is restarted|
+| Activity Log | 'Stop Web App'| When app is stopped|
 
 ## Next steps
 
