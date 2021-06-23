@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.reviewer: matjazl
 ms.author: cavoeg
 author: modillon
-ms.date: 06/22/2021
+ms.date: 06/23/2021
 ---
 
 # Da Vinci Plan Net
@@ -51,9 +51,9 @@ Outside of defining search parameters, you need to load the [required profiles a
 
 ## Sample rest file
 
-To assist with creation of these search parameters and profiles, we have a sample http file on the open-source site that includes all the steps outlined above in a single file. Once you've uploaded all the necessary profiles and search parameters, you can run the capability statement test in Touchstone. The first test will pass, while the remaining will fail. This is due to a known issue because our Capability Statement doesn’t indicate supported include and revInclude search values: [Issue 1935](https://github.com/microsoft/fhir-server/issues/1935)
+To assist with creation of these search parameters and profiles, we have a sample http file on the open-source site that includes all the steps outlined above in a single file. Once you've uploaded all the necessary profiles and search parameters, you can run the capability statement test in Touchstone.
 
-:::image type="content" source="media/davinci-plan-net/davinci-plan-net-test-script-execution-failed.png" alt-text="Da Vinci plan net test execution script failed":::
+:::image type="content" source="media/davinci-plan-net/davinci-plan-net-test-script-execution-passed.png" alt-text="Da Vinci plan net test execution script passed":::
 
 ## Touchstone error handling test
 
