@@ -137,8 +137,10 @@ sections:
           CloudSimple offers all-flash VMware vSAN storage with every Private Cloud.  Each vSphere is created with its own vSAN datastore.  For details, see [Private Cloud VMware components - vSAN storage](vmware-components.md#vsan-storage).
           
       - question: |
-          Is encryption of data supported?Yes.  You can set up the vSAN storage on your Private Cloud to use a key management server (KMS) that is deployed on-premises or on Azure to encrypt data stored on vSAN.
+          Is encryption of data supported?
         answer: |
+          Yes.  You can set up the vSAN storage on your Private Cloud to use a key management server (KMS) that is deployed on-premises or on Azure to encrypt data stored on vSAN.
+
       - question: |
           How are failed disks handled?
         answer: |
