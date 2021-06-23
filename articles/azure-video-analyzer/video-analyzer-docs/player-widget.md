@@ -45,30 +45,33 @@ In this section we will create a JWT token that we will use later in the documen
    > [!NOTE] 
    > For more information about configuring your audience values see this [article](./access-policies.md)
 
-2. Launch Visual Studio Code and open folder that contains the *.sln file.
+2. Launch Visual Studio Code and open the folder where you downloaded the JWTTokenIssuer applicaiton into.  This folder should contain the *.csproj file.
 3. In the explorer pane navigate to the program.cs file
 4. Modify line 77 - change the audience to your Video Analyzer endpoint plus /videos/* so that it looks like:
 
    ```
    https://{Azure Video Analyzer Account ID}.api.{Azure Long Region Code}.videoanalyzer.azure.net/videos/*
    ```
-5. Modify line 78 - change the issuer to the issuer value of your certificate.  Example:  https://contoso.com
 
    > [!NOTE] 
-   > The Video Analyzer endpoint can be found in overview section of the Video Analyzer resource in Azure. You will need to click on the link "JSON View" 
+   > The Video Analyzer endpoint can be found in overview section of the Video Analyzer resource in the Azure portal.  This value is later referenced as `clientApiEndpointUrl` under the `List Video Analyzer video resources` section of this document.
 
    > [!div class="mx-imgBorder"]
-   > :::image type="content" source="./media/player-widget/endpoint.png" alt-text="Player widget - endpoint":::
+   > :::image type="content" source="./media/player-widget/Client_API_URL.png" alt-text="Player widget - endpoint":::
+5. Modify line 78 - change the issuer to the issuer value of your certificate.  Example:  https://contoso.com
 6. Save the file.
 7. Press `F5` to run the JWTTokenIssuer application.
+   >[!NOTE] You might be prompted with "Required assets to build and debug are missing from 'jwt token issuer'.Add them?"  Click `Yes`
+   
+   >> :::image type="content" source="./media/player-widget/VSCode_Required_Assets.png" alt-text="Visual Studio Code Required Assets":::
 
-This will build and execute the application.  After the build it will run by creating a certificate via openssl.  You can also run the JWTTokenIssuer.exe file located in the debug folder.  The advantage of running the application is that you can specify input options as follows:
+This will build and execute the application.  After the build it will create a self signed certificate and will generate the JWT token infromation from that certificate.  You can also run the JWTTokenIssuer.exe file that is located in the debug folder of the directory where the JWTTokenIssuer was built from.  The advantage of running the application is that you can specify input options as follows:
 
 - JwtTokenIssuer [--audience=<audience>] [--issuer=<issuer>] [--expiration=<expiration>] [--certificatePath=<filepath> --certificatePassword=<password>]
 
 JWTTokenIssuer will create the JWT token and the following needed components:
 
-- `kty`; `alg`; `kid`; `n`; `e`
+- `Issuer`, `Audience`, `Key Type`, `Algorithm`, `Key Id`, `RSA Key Modulus`, `RSA Key Exponent`, `Token`
 
 Ensure to copy these values out for later use.
 
@@ -93,15 +96,15 @@ Access policies define the permissions and duration of access to a given Video A
 
    - Audience - Audience for the JWT Token -- ${System.Runtime.BaseResourceUrlPattern} is the default.  To learn more about Audience and ${System.Runtime.BaseResourceUrlPattern} see this [article](./access-policies.md)
 
-   - Key Type - kty -- RSA 
+   - Key Type - RSA 
 
    - Algorithm - supported values are RS256, RS384, RS512
 
-   - Key ID - kid -- generated from your certificate
+   - Key ID - generated from your certificate.  See "Create A Token" section in this document for more information.
 
-   - N  value - for RSA the N value is the Modulus
+   - RSA Key Modulus - generated from your certificate.  See "Create A Token" section in this document for more information.
 
-   - E Value - for RSA the E value is the Public Exponent
+   - RSA Key Exponent - generated from your certificate.  See "Create A Token" section in this document for more information.
 
    > [!div class="mx-imgBorder"]
    > :::image type="content" source="./media/player-widget/access-policies-portal.png" alt-text="Player widget - access policies portal":::     
@@ -124,6 +127,7 @@ function getVideos()
     document.getElementById("videoList").value = xhttp.responseText.toString();
 }
 ```
+   >[!NOTE] The clientApiEndPoint and token are collected from the "Create a Token" section of this document.
 
 ## Add the Video Analyzer Player Component
 
