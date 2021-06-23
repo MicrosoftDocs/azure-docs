@@ -13,6 +13,8 @@
   - name: Automanage for Windows Server
     href: automanage-windows-server.md
     items:
+      - name: What's new
+        href: automanage-windows-server-whats-new.md
       - name: Hotpatch for new virtual machines
         href: automanage-hotpatch.md
   - name: Automanage account
