@@ -53,6 +53,10 @@ items:
       href: quickstarts/voice-video-calling/calling-client-samples.md
     - name: Join your calling app to a Teams meeting
       href: quickstarts/voice-video-calling/get-started-teams-interop.md
+    - name: Call automation
+      href: quickstarts/voice-video-calling/call-automation-api-sample.md
+    - name: Call recording
+      href: quickstarts/voice-video-calling/call-recording-sample.md
   - name: UI Library
     items:
       - name: Get started with Composites
