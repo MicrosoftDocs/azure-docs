@@ -125,6 +125,6 @@ Through the Azure Edge Hardware Center, you can place an order for multiple devi
 
 ### Create a management resource for each device
 
-After your order is complete, you'll need to create a management resource for each device by following the same process that you use to [reset or reactivate a device](azure-stack-edge-reset-reactivate-device.md). 
+After your order is complete, you'll need to create a management resource for each device by following the same process that you use to [reset or reactivate a device](../articles/databox-online/azure-stack-edge-reset-reactivate-device.md). 
 
 Activating the device will associate each management resource with the order.
