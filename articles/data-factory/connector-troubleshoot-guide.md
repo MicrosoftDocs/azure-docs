@@ -677,6 +677,18 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 - **Recommendation**:  Check the port of the target server. FTP uses port 21.
 
+### Error code: FtpFailedToReadFtpData
+
+- **Message**: `Failure happened on 'Sink' side. ErrorCode=FtpFailedToReadFtpData,'Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=Failed to read FTP data. Message: 'Failed to read data from ftp: The remote server returned an error: 227 Entering Passive Mode (*,*,*,*,*,*). .',Source=Microsoft.DataTransfer.ClientLibrary,''Type=System.Net.WebException,Message=The remote server returned an error: 227 Entering Passive Mode (*,*,*,*,*,*). .,Source=System,''Type=System.Net.Sockets.SocketException,Message=A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond *.*.*.*:*,Source=System,'`
+
+- **Cause**: ADF client might connect from a random unprivileged port (N>1023) to the FTP server's command port (default port 21).
+
+- **Recommendation**:  Check the port of the target server. FTP uses 21 and 1024-65535 or set port range to SHIR/Azure IR IP address.
+
+
+New work item
+
+
 
 ## HTTP
 
@@ -1014,6 +1026,16 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
     * If you're using Self-hosted IR, add the Self-hosted IR machine's IP to the allowlist.
     * If you're using Azure IR, add [Azure Integration Runtime IP addresses](./azure-integration-runtime-ip-addresses.md). If you don't want to add a range of IPs to the SFTP server allowlist, use Self-hosted IR instead.
 
+
+#### Error code: SftpOperationFail
+
+- **Message**: `Permission denied to access '%path;'`
+
+- **Cause**: The specified user does not have read or write permission to the source folder or file when operating.
+
+- **Recommendation**:  Grant the user with permission to read or write to the folder or files on SFTP server.
+ 
+ 
 ## SharePoint Online list
 
 ### Error code: SharePointOnlineAuthFailed
