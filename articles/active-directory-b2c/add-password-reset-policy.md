@@ -25,7 +25,7 @@ zone_pivot_groups: b2c-policy-type
 The [sign-up and sign-in journey](add-sign-up-and-sign-in-policy.md) allows users to reset their own password using the **Forgot your password?** link. The password reset flow involves the following steps:
 
 1. From the sign-up and sign-in page, the user clicks the **Forgot your password?** link. Azure AD B2C initiates the password reset flow.
-2. The user provides their email address and selects **Send verification code**. Azure AD B2C will then send the user a verification code.
+2. The user provides their email address and selects **Send verification code**. Azure AD B2C sends the verification code to the user's inbox. The user copies the verification code from the email, enters the code in the Azure AD B2C password reset page, and selects **Verify code**.
 3. The user can then enter a new password.
 
 
