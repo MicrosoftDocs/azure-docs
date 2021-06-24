@@ -13,18 +13,14 @@ ms.custom: template-how-to
 
 # Use a public IP address with Azure Bastion
 
-A public IP address in Azure is available in standard and basic SKUs. The selection of SKU determines the features of the IP address. The SKU determines the resources that the IP address can be associated with. 
+Public IP addresses are available in two SKUs; standard, and basic. The selection of SKU determines the features of the IP address. The SKU determines the resources that the IP address can be associated with.
 
 Azure Bastion is deployed to provide secure management connectivity to virtual machines in a virtual network. Azure Bastion Service enables you to securely and seamlessly RDP & SSH to your VMs in your Azure virtual network, without exposing a public IP on the VM, directly from the Azure portal, without the need of any additional client/agent or any piece of software. Azure Bastion supports standard SKU public IP addresses.
-
-Examples of resources that support standard SKU public IPs exclusively:
-
-* Cross-region load balancer
-* NAT gateway
 
 A Azure Bastion host requires a public IP address for it's configuration.
 
 In this article, you'll learn how to create a Azure Bastion host using an existing public IP in your subscription. Azure Bastion doesn't support the change of the public IP address after creation.  Azure Bastion doesn't support public IP prefixes.
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
@@ -70,6 +66,14 @@ In this section, you'll create a Azure Bastion host. You'll select the IP addres
 ## Change or remove public IP address
 
 Azure Bastion doesn't support the changing of the public IP address after creation.
+
+## More information
+
+* There isn't a requirement for a separate public IP on the virtual machine when connecting via Azure Bastion. Traffic is first routed to the public IP of Bastion and then from Bastion to the private IP address associated with the virtual machine. 
+
+## Caveats
+
+* Public IPv6 addresses aren't supported for Azure Bastion at this time.  
 
 ## Next steps
 
