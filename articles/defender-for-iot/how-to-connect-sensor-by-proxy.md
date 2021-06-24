@@ -13,7 +13,7 @@ The proxy uses an encrypted SSL tunnel, to transfers data from the sensors to th
 
 The following diagram shows data going from Azure Defender to IoT sensor in the OT segment to cloud via a proxy located in the IT network, and industrial DMZ.
 
-:::image type="content" source="media/how-to-connect-sensor-by-proxy/cloud-access-proxy.png" alt-text="Connect the sensor to a proxy through the cloud.":::
+Insert image here!!!!!!!!!!!!!!!!!!!!!!
 
 ## Set up your system
 
