@@ -137,4 +137,4 @@ CROSS JOIN (
 ## Next steps
 
 - For an introduction to elastic pools, see [Elastic pools help you manage and scale multiple databases in Azure SQL Database](./elastic-pool-overview.md).
-- For information on tuning query workloads to reduce resource utilization, see [Monitoring and tuning](/azure/sql-database/sql-database-monitoring-tuning-index), and [Monitoring and performance tuning](./monitor-tune-overview.md).
+- For information on tuning query workloads to reduce resource utilization, see [Monitoring and tuning](monitoring-tuning-index.md), and [Monitoring and performance tuning](./monitor-tune-overview.md).
