@@ -112,7 +112,7 @@ The person who will manage the physical device creates and maintains the managem
 
 [!INCLUDE [Create management resource](../../includes/azure-edge-hardware-center-create-management-resource.md)]
 
-### [Portal (Classic)](#tab/azure-portal)
+### [Portal (classic)](#tab/azure-portal)
 
 To create an Azure Stack Edge resource through the Azure Stack Edge service, take the following steps in the Azure portal.
 
@@ -132,7 +132,7 @@ To create an Azure Stack Edge resource through the Azure Stack Edge service, tak
 
 5. Pick the subscription that you want to use for the Azure Stack Edge Pro GPU device. Select the country or region to ship the physical device to. Then select **Show devices**.
 
-    ![Select the subscription to use for your Azure Stack Edge Pro GPU resource](media/azure-stack-edge-gpu-deploy-prep/create-resource-1.png)<!--Reshoot in Azure Stack Edge instead of Data Box Gateway.-->
+    ![Select the subscription to use for your Azure Stack Edge Pro GPU resource](media/azure-stack-edge-gpu-deploy-prep/create-resource-1.png)<!--Remove "Data Box Gateway" and recenter.-->
 
 6. Select the device type. Under **Azure Stack Edge Pro**, choose **Azure Stack Edge Pro with GPU** and then choose **Select**. If you see any issues or are unable to select the device type, go to [Troubleshoot order issues](azure-stack-edge-troubleshoot-ordering.md).
 

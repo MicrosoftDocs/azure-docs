@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 06/23/2021
+ms.date: 06/24/2021
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro R so I can use it to transfer data to Azure. 
 ---
@@ -96,7 +96,7 @@ The person who will manage the physical device creates and maintains the managem
 
 [!INCLUDE [Create management resource](../../includes/azure-edge-hardware-center-create-management-resource.md)]
 
-### [Portal (Classic)](#tab/azure-portal)
+### [Portal (classic)](#tab/azure-portal)
 
 To create an Azure Stack Edge resource, take the following steps in the Azure portal.
 
@@ -106,21 +106,21 @@ To create an Azure Stack Edge resource, take the following steps in the Azure po
 
 3. In **Manage Azure Stack Edge devices**, select the **Try Azure Hardware Center** link.
 
-    ![Switch to Azure Edge Hardware Center to order your Azure Stack Edge device](media/azure-stack-edge-gpu-deploy-prep/classic-order-experience-01.png)
+    ![Switch to Azure Edge Hardware Center to order your Azure Stack Edge device](media/azure-stack-edge-gpu-deploy-prep/classic-order-experience-1.png)
 
     This opens the **Get started** screen for creating an order in the Azure Edge Hardware Center. 
 
 4. If don't want to try ordering through the Hardware Center, select the **Order using classic ordering experience** link.
 
-   ![Switch to Azure Stack Edge classic ordering experience from Azure Edge Hardware Center](media/azure-stack-edge-gpu-deploy-prep/classic-order-experience-02.png)       
+   ![Switch to Azure Stack Edge classic ordering experience from Azure Edge Hardware Center](media/azure-stack-edge-gpu-deploy-prep/classic-order-experience-2.png)       
 
 3. Pick the subscription that you want to use for the Azure Stack Edge Pro device. Select the country to ship this physical device to. Select **Show devices**.
 
-    ![Select a subscription for an Azure Stack Edge Pro R resource](media/azure-stack-edge-pro-r-deploy-prep/create-resource-1.png)
+    ![Select a subscription and ship to address for Azure Stack Edge Pro R resource](media/azure-stack-edge-pro-r-deploy-prep/create-resource-1.png)<!--Update SKUs.-->
 
 4. Select device type. Under **Azure Stack Edge**, choose **Azure Stack Edge Pro R** and then choose **Select**. If you see any issues or are unable to select the device type, go to [Troubleshoot order issues](azure-stack-edge-troubleshoot-ordering.md).
 
-    ![Select the Azure Stack Edge Pro R device type for your order](media/azure-stack-edge-pro-r-deploy-prep/create-resource-2.png)
+    ![Select the Azure Stack Edge Pro R device type for your order](media/azure-stack-edge-pro-r-deploy-prep/create-resource-2.png)<!--OK as is.-->
 
 5. Based on your business need, you can select **Azure Stack Edge Pro R single node** or **Azure Stack Edge Pro R single node with UPS**.  
 
@@ -140,24 +140,24 @@ To create an Azure Stack Edge resource, take the following steps in the Azure po
     |Name   | A friendly name to identify the resource.<br>The name has between 2 and 50 characters containing letter, numbers, and hyphens.<br> Name starts and ends with a letter or a number.        |
     |Region     |For a list of all the regions where the Azure Stack Edge resource is available, see [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). If using Azure Government, all the government regions are available as shown in the [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/).<br> Choose a location closest to the geographical region where you want to deploy your device.|
 
-    ![Enter project details and instance details on the Basics tab](media/azure-stack-edge-pro-r-deploy-prep/create-resource-4.png)
+    ![Enter project details and instance details on the Basics tab](media/azure-stack-edge-pro-r-deploy-prep/create-resource-4.png)<!--Delete scrollbar.-->
 
 
 8. Select **Next: Shipping address**.
 
     - If you already have a device, select the combo box for **I have a Azure Stack Edge Pro R device**.
 
-        ![Select "I already have a device" if you are not ordering a new one](media/azure-stack-edge-pro-r-deploy-prep/create-resource-5.png)
+        ![Select "I already have a device" if you are not ordering a new one](media/azure-stack-edge-pro-r-deploy-prep/create-resource-5.png)<!--Delete scrollbar.-->
 
     - If this device is the new device that you're ordering, enter the contact name, company, address to ship the device, and contact information.
 
-        ![For a new device, enter contact, company, and address](media/azure-stack-edge-pro-r-deploy-prep/create-resource-6.png)
+        ![For a new device, enter contact, company, and address](media/azure-stack-edge-pro-r-deploy-prep/create-resource-6.png)<!--Delete scrollbar.-->
 
 9. Select **Next: Tags**. Optionally provide tags to categorize resources and consolidate billing. Select **Next: Review + create**.
 
 10. On the **Review + create** tab, review the **Pricing details**, **Terms of use**, and the details for your resource. Select the combo box for **I have reviewed the privacy terms**.
 
-    ![Review + create tab for an Azure Stack Edge order](media/azure-stack-edge-pro-r-deploy-prep/create-resource-7.png) 
+    ![Review + create tab for an Azure Stack Edge order](media/azure-stack-edge-pro-r-deploy-prep/create-resource-7.png)<> 
 
     You are also notified that during the resource creation, a Managed Service Identity (MSI) is enabled that lets you authenticate to cloud services. This identity exists for as long as the resource exists.
 
