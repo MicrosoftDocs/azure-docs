@@ -10,7 +10,7 @@
  ms.custom: include file
 ---
 
-1. Navigate to your **Virtual WAN -> Hubs**. On the **Hubs** page, select **+New Hub**.
+1. On the page for your virtual WAN, on the left pane, select **Hubs**. On the **Hubs** page, select **+New Hub**.
 
    :::image type="content" source="media/virtual-wan-p2s-hub/new-hub.jpg" alt-text="new hub":::
 
