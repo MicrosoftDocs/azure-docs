@@ -132,8 +132,12 @@
       href: deploy-disaster-recovery-using-vmware-hcx.md
   - name: VMware ecosystem
     items:
-    - name: Backup solutions for VMs
-      href: ecosystem-back-up-vms.md
+    - name: Baackup and restore
+      items:
+      - name: Backup solutions for VMs
+        href: ecosystem-back-up-vms.md
+      - name: Deploy JetStream DR 
+        href: deploy-disaster-recovery-using-jetstream.md
     - name: Migration solutions for VMs
       href: ecosystem-migration-vms.md
 - name: Resources
