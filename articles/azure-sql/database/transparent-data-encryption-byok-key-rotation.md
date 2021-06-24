@@ -1,8 +1,7 @@
 ---
-title: Rotate TDE protector (PowerShell & the Azure CLI)
+title: Rotate the Transparent Data Encryption (TDE) protector
 titleSuffix: Azure SQL Database & Azure Synapse Analytics 
-description: Learn how to rotate the Transparent Data Encryption (TDE) protector for a server in Azure used by Azure SQL Database and Azure Synapse Analytics using PowerShell and the Azure CLI.
-services: sql-database
+description: Learn how to rotate the Transparent Data Encryption (TDE) protector for a server in Azure used by Azure SQL Database and Azure Synapse Analytics
 ms.service: sql-database
 ms.subservice: security
 ms.custom: seo-lt-2019 sqldbrb=1, devx-track-azurecli
@@ -17,7 +16,7 @@ ms.date: 03/12/2019
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
 
-This article describes key rotation for a [server](logical-servers.md) using a TDE protector from Azure Key Vault. Rotating the logical TDE Protector for a server means switching to a new asymmetric key that protects the databases on the server. Key rotation is an online operation and should only take a few seconds to complete, because this only decrypts and re-encrypts the database's data encryption key, not the entire database.
+This article describes key rotation for a [server](logical-servers.md) using a TDE protector from Azure Key Vault. Rotating the logical TDE Protector for a server means switching to a new asymmetric key that protects the databases on the server. Key rotation is an online operation and should only take a few seconds to complete, as the operation only decrypts and re-encrypts the database's data encryption key, not the entire database.
 
 This guide discusses both automated and manual methods to rotate the TDE protector on the server.
 
@@ -29,7 +28,7 @@ This guide discusses both automated and manual methods to rotate the TDE protect
 
 ## Prerequisites
 
-- This how-to guide assumes that you are already using a key from Azure Key Vault as the TDE protector for Azure SQL Database or Azure Synapse Analytics. See [Transparent Data Encryption with BYOK Support](transparent-data-encryption-byok-overview.md).
+- This how-to guide assumes that you're already using a key from Azure Key Vault as the TDE protector for Azure SQL Database or Azure Synapse Analytics. See [Transparent Data Encryption with BYOK Support](transparent-data-encryption-byok-overview.md).
 - You must have Azure PowerShell installed and running.
 - [Recommended but optional] Create the key material for the TDE protector in a hardware security module (HSM) or local key store first, and import the key material to Azure Key Vault. Follow the [instructions for using a hardware security module (HSM) and Key Vault](../../key-vault/general/overview.md) to learn more.
 
@@ -48,7 +47,7 @@ For installation, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 ## Automatic key rotation
 
-Automatic rotation for the TDE Protector can be enabled when configuring the TDE Protector for the server, from the Azure Portal or via the below PowerShell or CLI commands. Once enabled, the server will continuously check the key vault for any new versions of the key being used as TDE Protector. If a new version of the key is detected, within 60 minutes the TDE Protector on the server will be automatically rotated to the latest key version. 
+Automatic rotation for the TDE Protector can be enabled when configuring the TDE Protector for the server, from the Azure portal or via the below PowerShell or CLI commands. Once enabled, the server will continuously check the key vault for any new versions of the key being used as TDE Protector. If a new version of the key is detected, within 60 minutes the TDE Protector on the server will be automatically rotated to the latest key version. 
 
 
 ### Using the Azure portal
@@ -59,7 +58,7 @@ Automatic rotation for the TDE Protector can be enabled when configuring the TDE
 
 3. Check the **Auto-rotate key** checkbox.
 
-4. Click **Save**.
+4. Select **Save**.
 
 To enable automatic rotation for the TDE Protector using PowerShell or Azure CLI, see the following scripts.
 
@@ -87,7 +86,7 @@ az sql server tde-key set --server-key-type AzureKeyVault --kid <keyVaultKeyId> 
 
 ## Manual key rotation
 
-Manual key rotation uses the following commands to add a completely new key, which could be under a new key name or even another key vault. Using this approach supports adding the same key to different key vaults to support high-availability and geo-dr scenarios.
+Manual key rotation uses the following commands to add a new key, which could be under a new key name or even another key vault. Using this approach supports adding the same key to different key vaults to support high-availability and geo-dr scenarios.
 
 > [!NOTE]
 > The combined length for the key vault name and key name cannot exceed 94 characters.
