@@ -10,6 +10,7 @@ ms.author: joseys
 ms.date: 06/21/2021
 ms.topic: overview
 ms.service: azure-communication-services
+zone_pivot_groups: acs-csharp-java
 ---
 # Call Recording API Quickstart
 Get started with Azure Communication Services by using the Communication Services Calling server SDKs to develop call recording features.
