@@ -41,7 +41,7 @@ Once your subscription has been registered, you can deploy a disk pool.
 
 ## Get started
 
-### One: Delegate subnet permission
+### Delegate subnet permission
 
 In order for your disk pool to work with your client machines, you must delegate a subnet to your Azure disk pool. When creating a disk pool, you specify a virtual network and the delegated subnet. You may either create a new subnet or use an existing one and delegate to the **Microsoft.StoragePool** resource provider.
 
@@ -52,7 +52,7 @@ In order for your disk pool to work with your client machines, you must delegate
 
 For more information on subnet delegation, see [Add or remove a subnet delegation](../virtual-network/manage-subnet-delegation.md)
 
-### Two: Provide StoragePool resource provider permission to the disks that will be in the disk pool.
+### Provide StoragePool resource provider permission to the disks that will be in the disk pool.
 
 For a disk to be able to be used in a disk pool, it must meet the following requirements:
 
@@ -68,7 +68,7 @@ For a disk to be able to be used in a disk pool, it must meet the following requ
 1. Select User, group, or service principal in the Assign access to list.
 1. In the Select section, search for **StoragePool Resource Provider**, select it, and save.
 
-## Three: Create a disk pool
+## Create a disk pool
 
 > [!IMPORTANT]
 > To use ultra disks instead of premium SSDs in your disk pool, fill out this form.
