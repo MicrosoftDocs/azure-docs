@@ -13,7 +13,7 @@ ms.custom: template-how-to
 
 # Manage a public IP address with a Azure Virtual Machine
 
-A public IP address in Azure is available in standard and basic SKUs. The selection of SKU determines the features of the IP address. The SKU determines the resources that the IP address can be associated with. 
+Public IP addresses are available in two SKUs; standard, and basic. The selection of SKU determines the features of the IP address. The SKU determines the resources that the IP address can be associated with.  
 
 Azure Virtual Machines are the main compute service in Azure. Customers can create Linux or Windows virtual machines. A public IP address can be assigned to a virtual machine for inbound connections to the virtual machine. 
 
@@ -24,9 +24,10 @@ In this article, you'll learn how to create a Azure Virtual Machine using an exi
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- Three standard SKU public IP address in your subscription. The IP address can't be associated with any resources. For more information on creating a standard SKU public IP address, see [Create a public IP - Azure portal](create-public-ip-portal.md).
-    - For the purposes of the examples in this article, name the new public IP addresses **myStandardPublicIP-1**, **myStandardPublicIP-2**, and **myStandardPublicIP-3**.
-
+- Two standard SKU public IP address in your subscription. The IP address can't be associated with any resources. For more information on creating a standard SKU public IP address, see [Create a public IP - Azure portal](create-public-ip-portal.md).
+    - For the purposes of the examples in this article, name the new public IP addresses **myStandardPublicIP-1** and **myStandardPublicIP-2**.
+- One standard SKU public IP address with the routing preference of **Internet** in your subscription. For more information on creating a public IP with the **Internet** routing preference, see [Configure routing preference for a public IP address using the Azure portal](./routing-preference-portal.md).
+    - For the purpose of the example in this article, name the new public IP address **myStandardPublicIP-3**.
 ## Create virtual machine existing public IP
 
 In this section, you'll create a virtual machine. You'll select the IP address you created in the prerequisites as the public IP for the virtual machine.
@@ -112,7 +113,7 @@ In this section, you'll change the public IP address associated with the default
 
 ## Add public IP configuration
 
-In this section, you'll add a public IP configuration to the virtual machine.
+In this section, you'll add a public IP configuration to the virtual machine. For more information on adding multiple IP addresses to a virtual machine, see [Assign multiple IP addresses to virtual machines using the Azure portal](./virtual-network-multiple-ip-addresses-portal.md). For more information on virtual machines configured with both types of routing preference, see [Configure both routing preference options for a virtual machine](./routing-preference-mixed-network-adapter-portal.md)
 
 1. In the search box at the top of the portal, enter **Virtual machine**.
 
