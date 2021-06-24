@@ -583,6 +583,9 @@
   - name: Migrate data with mysqldump or phpmyadmin
     href: concepts-migrate-dump-restore.md
     displayName: migrate, mysqldump
+  - name: Migrate large databases to Azure Database for MySQL using mydumper/myloader
+    href: concepts-migrate-mydumper-myloader.md
+    displayName: migrate, mydumper/myloader
   - name: Migrate data with dbForge Studio for MySQL
     href: concepts-migrate-dbforge-studio-for-mysql.md
     displayName: migrate, dbforge
@@ -592,6 +595,9 @@
   - name: Migrate RDS MySQL data with MySQL Workbench
     href: how-to-migrate-rds-mysql-workbench.md
     displayName: import , migrate, export
+  - name: Migration from Azure Database for MySQL – Single Server to Azure Database for MySQL – Flexible Server"
+    href: howto-migrate-single-flexible-minimum-downtime.md
+    displayName: migrate, Single to Flexible
   - name: Minimal downtime migration with DMS
     href: howto-migrate-online.md
     displayName: migrate, dms, database migration service

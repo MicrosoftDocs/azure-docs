@@ -8559,6 +8559,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/marketplace/purchase-software-on-appsource.md",
+      "redirect_url": "/marketplace/purchase-software-appsource",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure/marketplace/third-party-license.md",
       "redirect_url": "/azure/marketplace/isv-app-license",
       "redirect_document_id": false
@@ -36911,6 +36916,11 @@
     {
       "source_path_from_root": "/articles/vpn-gateway/nva-working-remotely-support.md",
       "redirect_url": "/azure/vpn-gateway/nva-work-remotely-support",
+      "redirect_document_id": false
+    },
+	 {
+      "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-howto-view-virtual-network-gateway-metrics.md",
+      "redirect_url": "/azure/vpn-gateway/monitor-vpn-gateway",
       "redirect_document_id": false
     },
     {
