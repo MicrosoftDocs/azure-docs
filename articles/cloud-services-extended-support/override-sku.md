@@ -97,5 +97,5 @@ The Azure portal doesn't allow you to use the **allowModelOverride** property to
 
 
 ## Next steps 
-- Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services (extended support).
-- Review [frequently asked questions](faq.md) for Cloud Services (extended support).
+- View the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services (extended support).
+- View [frequently asked questions](faq.md) for Cloud Services (extended support).
