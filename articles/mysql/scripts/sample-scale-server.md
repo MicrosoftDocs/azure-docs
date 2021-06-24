@@ -12,11 +12,11 @@ ms.date: 12/02/2019
 
 # Monitor and scale an Azure Database for MySQL server using Azure CLI
 
-[[!INCLUDE[applies-to-single-flexible-server](../../includes/applies-to-single-flexible-server.md)]]
+[[!INCLUDE[applies-to-single-flexible-server](../includes/applies-to-single-flexible-server.md)]]
 
 This sample CLI script scales compute and storage for a single Azure Database for MySQL server after querying the metrics. Compute can scale up or down. Storage can only scale up.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE[azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
 - This article requires version 2.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed. 
 
