@@ -1,5 +1,5 @@
 ---
-title: Model Conversion Error Codes and Exceptions
+title: Model Conversion Error Codes
 description: Model conversion error codes for the Azure Object Anchors service.
 author: jastenze
 manager: vriveras
@@ -34,7 +34,7 @@ Any errors that occur outside the actual asset conversion jobs will be thrown as
 
 | Exception                  | Cause                       |
 | ---                      | ---                               |
-| ArgumentException |  <ul><li>Occurs when using an invalidly constructed or all zero account ID to construct a request with the ObjectAnchorsConversionClient</li><li>Occurs when attempting to initialize the ObjectAnchorsConversionClient using an invalid whitespace account domain</li><li>Occurs when an unsupported service version is provided to the ObjectAnchorsConversionClient through ObjectAnchorsConversionClientOptions</li></ul> |
-| ArgumentNullException | <ul><li>Occurs when attempting to initialize the ObjectAnchorsConversionClient using an invalid null account domain</li><li>Occurs when attempting to initialize the ObjectAnchorsConversionClient using an invalid null  credential</li></ul> |
-| RequestFailedException | <ul><li>Occurs for all other issues resulting from a bad HTTP status code (unrelated to the status of a job that will/is/has run), such as an account not being found, an invalid upload uri being detected by the fronted, frontend service error, etc</li></ul> |
-| UnsupportedAssetFileTypeException | <ul><li>Occurs when attempting to submit a job with an asset with an extension or specified filetype that is unsupported by the Azure Object Anchors Conversion service</li></ul> |
+| ArgumentException |  <ul><li>Occurs when using an invalidly constructed or all zero account ID to construct a request with the ObjectAnchorsConversionClient.</li><li>Occurs when attempting to initialize the ObjectAnchorsConversionClient using an invalid whitespace account domain.</li><li>Occurs when an unsupported service version is provided to the ObjectAnchorsConversionClient through ObjectAnchorsConversionClientOptions.</li></ul> |
+| ArgumentNullException | <ul><li>Occurs when attempting to initialize the ObjectAnchorsConversionClient using an invalid null account domain.</li><li>Occurs when attempting to initialize the ObjectAnchorsConversionClient using an invalid null credential.</li></ul> |
+| RequestFailedException | <ul><li>Occurs for all other issues resulting from a bad HTTP status code (unrelated to the status of a job that will/is/has run), such as an account not being found, an invalid upload uri being detected by the fronted, frontend service error, etc.</li></ul> |
+| UnsupportedAssetFileTypeException | <ul><li>Occurs when attempting to submit a job with an asset with an extension or specified filetype that is unsupported by the Azure Object Anchors Conversion service.</li></ul> |
