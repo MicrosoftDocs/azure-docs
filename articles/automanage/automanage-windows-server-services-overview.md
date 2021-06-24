@@ -77,12 +77,12 @@ Azure Extended Network enables you to stretch an on-premises subnet into Azure t
 > [!NOTE]
 > Not all images and regions are available yet in Public Preview.  See table below for more information about availability.
 
-It is important to consider up front which Automanage for Windows Server capabilities you would like to use, then choose a corresponding VM image that supports all of those capabilities.  Some of the the Windows Server Azure Edition images support only a subset of capabilities.  See the table below for a matrix of capabilities and images.
+It's important to consider up front, which Automanage for Windows Server capabilities you would like to use, then choose a corresponding VM image that supports all of those capabilities.  Some of the Windows Server Azure Edition images support only a subset of capabilities.  See the table below for a matrix of capabilities and images.
 
 ### Deciding which image to use 
 
-|Image    |Capabilities | Preview state   |Regions   |On date    |
-| -- |-- | -- | -- | -- |
+|Image|Capabilities|Preview state|Regions|On date|
+|--|--|--|--|--|
 | Windows Server 2019 Datacenter: Azure Edition (Core) | Hotpatch | Public preview | (all) | March 12, 2021 |
 | Windows Server 2022  Datacenter: Azure Edition (Desktop experience) | SMB over QUIC, Extended Network | Public preview in some regions | North Europe, South Central US, West Central US | June 22, 2021 |
 | Windows Server 2022 Datacenter: Azure Edition (Core) | Hotpatch, SMB over QUIC, Extended Network | Public preview to start | (all) | July 12, 2021 |
