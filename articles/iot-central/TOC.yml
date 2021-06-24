@@ -60,7 +60,7 @@
       - name: Create a gateway device template
         href: core/tutorial-define-gateway-device-type.md
       - name: Connect an IoT Edge device
-        href: core/tutorial-add-edge-as-leaf-device.md
+        href: /learn/modules/connect-iot-edge-device-to-iot-central
     - name: Build integrated solutions
       items:
       - name: Create a device group
@@ -262,6 +262,8 @@
           href: core/howto-manage-users-roles-with-rest-api.md
         - name: Control devices
           href: core/howto-control-devices-with-rest-api.md
+        - name: Manage jobs
+          href: core/howto-manage-jobs-with-rest-api.md
     - name: Manage your devices
       items:
         - name: Add and remove devices
