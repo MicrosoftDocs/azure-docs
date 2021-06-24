@@ -44,7 +44,7 @@ To enable public network access for the Azure Migrate project, sign in to the Az
 
 ![Screenshot that shows how to change the network access mode.](./media/how-to-use-azure-migrate-with-private-endpoints/migration-project-properties.png)
 
-### Other considerations 
+### Other considerations
 
 **Considerations** | **Details**
 --- | ---
@@ -85,7 +85,7 @@ This section describes how to set up the Azure Migrate appliance. Then you'll us
     - After the private endpoints are created, the DNS CNAME resource records for the Azure Migrate resources are updated to an alias in a subdomain with the prefix *privatelink*. By default, Azure Migrate also creates a private DNS zone corresponding to the *privatelink* subdomain for each resource type and inserts DNS A records for the associated private endpoints. This action enables the Azure Migrate appliance and other software components that reside in the source network to reach the Azure Migrate resource endpoints on private IP addresses.
     - Azure Migrate also enables a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) for the migrate project and grants permissions to the managed identity to securely access the storage account.
 
-1. After the key is successfully generated, copy the key details to configure and register the appliance. 
+1. After the key is successfully generated, copy the key details to configure and register the appliance.
 
 #### Download the appliance installer file
 
@@ -96,7 +96,7 @@ Azure Migrate: Discovery and assessment use a lightweight Azure Migrate applianc
 
 To set up the appliance:
   1. Download the zipped file that contains the installer script from the portal.
-  1. Copy the zipped file on the server that will host the appliance. 
+  1. Copy the zipped file on the server that will host the appliance.
   1. After you download the zipped file, verify the file security.
   1. Run the installer script to deploy the appliance.
 
@@ -142,7 +142,7 @@ Open a browser on any machine that can connect to the appliance server. Open the
 
 #### Set up prerequisites
 
-1. Read the third-party information, and accept the **license terms**. 
+1. Read the third-party information, and accept the **license terms**.
 
 1. In the configuration manager under **Set up prerequisites**, do the following:
    - **Connectivity**: The appliance checks for access to the required URLs. If the server uses a proxy:
@@ -175,7 +175,7 @@ After the prerequisites check has completed, follow the steps to register the ap
 ### Assess your servers for migration to Azure
 After the discovery is complete, assess your servers, such as [VMware VMs](./tutorial-assess-vmware-azure-vm.md), [Hyper-V VMs](./tutorial-assess-hyper-v.md), [physical servers](./tutorial-assess-vmware-azure-vm.md), [AWS VMs](./tutorial-assess-aws.md), and [GCP VMs](./tutorial-assess-gcp.md), for migration to Azure VMs or Azure VMware Solution by using the Azure Migrate: Discovery and assessment tool.
 
-You can also [assess your on-premises machines](./tutorial-discover-import.md#prepare-the-csv) with the Azure Migrate: Discovery and assessment tool by using an imported CSV file. 
+You can also [assess your on-premises machines](./tutorial-discover-import.md#prepare-the-csv) with the Azure Migrate: Discovery and assessment tool by using an imported CSV file.
 
 ## Migrate servers to Azure by using Private Link
 
@@ -198,13 +198,13 @@ After you set up the replication appliance, follow these steps to create the req
 
 1. In **Discover machines** > **Are your machines virtualized?**, select **Not virtualized/Other**.
 1. In **Target region**, select and confirm the Azure region to which you want to migrate the machines.
-1. Select **Create resources** to create the required Azure resources. Don't close the page during the creation of resources. 
+1. Select **Create resources** to create the required Azure resources. Don't close the page during the creation of resources.
     - This step creates a Recovery Services vault in the background and enables a managed identity for the vault. A Recovery Services vault is an entity that contains the replication information of servers and is used to trigger replication operations.
-    - If the Azure Migrate project has private endpoint connectivity, a private endpoint is created for the Recovery Services vault. This step adds five fully qualified domain names (FQDNs) to the private endpoint, one for each microservice linked to the Recovery Services vault. 
+    - If the Azure Migrate project has private endpoint connectivity, a private endpoint is created for the Recovery Services vault. This step adds five fully qualified domain names (FQDNs) to the private endpoint, one for each microservice linked to the Recovery Services vault.
     - The five domain names are formatted in this pattern: <br/> _{Vault-ID}-asr-pod01-{type}-.{target-geo-code}_.privatelink.siterecovery.windowsazure.com
-    - By default, Azure Migrate automatically creates a private DNS zone and adds DNS A records for the Recovery Services vault microservices. The private DNS zone links to the private endpoint virtual network and allows the on-premises replication appliance to resolve the FQDNs to their private IP addresses.
+    - By default, Azure Migrate automatically creates a private DNS zone and adds DNS A records for the Recovery Services vault microservices. The private DNS is then linked to the private endpoint virtual network.
 
-1. Before you register the replication appliance, ensure that the vault's private link FQDNs are reachable from the machine that hosts the replication appliance. Learn more about [how to verify network connectivity](./troubleshoot-network-connectivity.md).
+1. Before you register the replication appliance, ensure that the vault's private link FQDNs are reachable from the machine that hosts the replication appliance. Additional DNS configuration may be required for the on-premises replication appliance to resolve the private link FQDNs to their private IP addresses. Learn more about [how to verify network connectivity](./troubleshoot-network-connectivity.md#verify-dns-resolution).
 
 1. After you verify the connectivity, download the appliance setup and key file, run the installation process, and register the appliance to Azure Migrate. Learn more about how to [set up the replication appliance](./tutorial-migrate-physical-virtual-machines.md#set-up-the-replication-appliance). After you set up the replication appliance, follow these instructions to [install the mobility service](./tutorial-migrate-physical-virtual-machines.md#install-the-mobility-service) on the machines you want to migrate.
 
@@ -214,7 +214,7 @@ Follow [these steps](./tutorial-migrate-physical-virtual-machines.md#replicate-m
 
 In **Replicate** > **Target settings** > **Cache/Replication storage account**, use the dropdown list to select a storage account to replicate over a private link.
 
-If your Azure Migrate project has private endpoint connectivity, you must [grant permissions to the Recovery Services vault managed identity](#grant-access-permissions-to-the-recovery-services-vault) to access the storage account required by Azure Migrate. 
+If your Azure Migrate project has private endpoint connectivity, you must [grant permissions to the Recovery Services vault managed identity](#grant-access-permissions-to-the-recovery-services-vault) to access the storage account required by Azure Migrate.
 
 To enable replications over a private link, [create a private endpoint for the storage account](#create-a-private-endpoint-for-the-storage-account-optional).
 

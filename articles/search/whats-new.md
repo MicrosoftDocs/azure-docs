@@ -7,7 +7,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 05/28/2021
+ms.date: 06/24/2021
 ms.custom: references_regions 
 ---
 # What's new in Azure Cognitive Search
