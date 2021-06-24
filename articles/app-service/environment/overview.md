@@ -76,7 +76,7 @@ There are a few features that are not available in ASEv3 that were available in 
 - use remote debug with your apps
 - upgrade yet from ASEv2
 - monitor your traffic with Network Watcher or NSG Flow
-- configure IP-based SSL with your apps
+- configure a IP-based TLS/SSL binding with your apps
 
 ## Pricing 
 
