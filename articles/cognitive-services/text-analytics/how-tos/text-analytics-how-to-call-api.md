@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 05/18/2021
+ms.date: 06/10/2021
 ms.author: aahi
 ---
 
@@ -27,7 +27,7 @@ Before you use the Text Analytics API, you will need to create a Azure resource 
 
 2.	Select the region you want to use for your endpoint.
 
-3.	Create the Text Analytics resource and go to the “keys and endpoint blade” in the left of the page. Copy the key to be used later when you call the APIs. You'll add this later as a value for the `Ocp-Apim-Subscription-Key` header.
+3.	Create the Text Analytics resource and go to the “Keys and Endpoint” section under Resource Management in the left of the page. Copy the key to be used later when you call the APIs. You'll add this later as a value for the `Ocp-Apim-Subscription-Key` header.
 
 4. To check the number of text records that have been sent using your Text Analytics resource:
 
@@ -151,7 +151,7 @@ The `/analyze` endpoint lets you choose which of the supported Text Analytics fe
             },
             {
                 "id": "doc2",
-                "text": "Pike place market is my favorite Seattle attraction."
+                "text": "Pike place market is my favorite Seattle attraction. The shops have very good food."
             }
         ]
     },
@@ -160,7 +160,7 @@ The `/analyze` endpoint lets you choose which of the supported Text Analytics fe
             {
                 "parameters": {
                     "model-version": "latest",
-                    "stringIndexType": "TextElements_v8",
+                    "stringIndexType": "TextElement_v8",
                     "loggingOptOut": "false"
                 }
             }
@@ -169,10 +169,10 @@ The `/analyze` endpoint lets you choose which of the supported Text Analytics fe
             {
                 "parameters": {
                     "model-version": "latest",
-                    "stringIndexType": "TextElements_v8",
+                    "stringIndexType": "TextElement_v8",
                     "loggingOptOut": "true",
                     "domain": "phi",
-                    "pii-categories":"default"
+                    "piiCategories":["default"]
                 }
             }
         ],
@@ -180,7 +180,7 @@ The `/analyze` endpoint lets you choose which of the supported Text Analytics fe
             {
                 "parameters": {
                     "model-version": "latest",
-                    "stringIndexType": "TextElements_v8",
+                    "stringIndexType": "TextElement_v8",
                     "loggingOptOut": "false"
                 }
             }
@@ -197,9 +197,9 @@ The `/analyze` endpoint lets you choose which of the supported Text Analytics fe
             {
                 "parameters": {
                     "model-version": "latest",
-                    "stringIndexType": "TextElements_v8",
+                    "stringIndexType": "TextElement_v8",
                     "loggingOptOut": "false",
-                    "opinionMining": "false"
+                    "opinionMining": "true"
                 }
             }
         ]
@@ -351,7 +351,8 @@ If successful, the GET request to the `/analyze` endpoint will return an object 
 ## See also
 
 * [Text Analytics overview](../overview.md)
-* [Frequently asked questions (FAQ)](../text-analytics-resource-faq.md)</br>
+* [Model versions](../concepts/model-versioning.md)
+* [Frequently asked questions (FAQ)](../text-analytics-resource-faq.yml)</br>
 * [Text Analytics product page](//go.microsoft.com/fwlink/?LinkID=759712)
 * [Using the Text Analytics client library](../quickstarts/client-libraries-rest-api.md)
 * [What's new](../whats-new.md)

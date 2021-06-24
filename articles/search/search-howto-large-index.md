@@ -94,7 +94,7 @@ Network data transfer speeds can be a limiting factor when indexing data. Indexi
 
 + Schedulers allow you to parcel out indexing at regular intervals so that you can spread it out over time.
 + Scheduled indexing can resume at the last known stopping point. If a data source is not fully crawled within a 24-hour window, the indexer will resume indexing on day two at wherever it left off.
-+ Partitioning data into smaller individual data sources enables parallel processing. You can break up source data into smaller components, such as into multiple containers in Azure Blob storage, and then create corresponding, multiple [data source objects](/rest/api/searchservice/create-data-source) in Azure Cognitive Search that can be indexed in parallel.
++ Partitioning data into smaller individual data sources enables parallel processing. You can break up source data into smaller components, such as into multiple containers in Azure Blob Storage, and then create corresponding, multiple [data source objects](/rest/api/searchservice/create-data-source) in Azure Cognitive Search that can be indexed in parallel.
 
 > [!NOTE]
 > Indexers are data-source-specific, so using an indexer approach is only viable for selected data sources on Azure: [SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), [Blob storage](search-howto-indexing-azure-blob-storage.md), [Table storage](search-howto-indexing-azure-tables.md), [Cosmos DB](search-howto-index-cosmosdb.md).
@@ -140,7 +140,7 @@ For indexers, processing capacity is loosely based on one indexer subsystem for 
 
 2. You can run as many indexers in parallel as the number of search units in your service. In **Settings** > **Scale**, [increase replicas](search-capacity-planning.md) or partitions for parallel processing: one additional replica or partition for each indexer workload. Leave a sufficient number for existing query volume. Sacrificing query workloads for indexing is not a good tradeoff.
 
-3. Distribute data into multiple containers at a level that Azure Cognitive Search indexers can reach. This could be multiple tables in Azure SQL Database, multiple containers in Azure Blob storage, or multiple collections. Define one data source object for each table or container.
+3. Distribute data into multiple containers at a level that Azure Cognitive Search indexers can reach. This could be multiple tables in Azure SQL Database, multiple containers in Azure Blob Storage, or multiple collections. Define one data source object for each table or container.
 
 4. Create and schedule multiple indexers to run in parallel:
 

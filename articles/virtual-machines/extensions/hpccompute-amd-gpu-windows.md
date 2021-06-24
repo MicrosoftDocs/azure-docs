@@ -11,7 +11,8 @@ ms.collection: windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/10/2020
-ms.author: vikancha
+ms.author: vikancha 
+ms.custom: devx-track-azurepowershell
 
 ---
 # AMD GPU driver extension for Windows
@@ -28,8 +29,8 @@ This extension supports the following OSs:
 
 | Distribution | Version |
 |---|---|
-| Windows 10 EMS | Build 1903 |
-| Windows 10 | Build 1809 |
+| Windows 10 EMS | Build 1909 |
+| Windows 10 | Build 1909 |
 | Windows Server 2016 | Core |
 | Windows Server 2019 | Core |
 

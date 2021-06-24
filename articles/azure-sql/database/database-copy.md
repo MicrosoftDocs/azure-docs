@@ -4,12 +4,12 @@ description: Create a transactionally consistent copy of an existing database in
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurepowershell
 ms.devlang: 
 ms.topic: how-to
-author: stevestein
-ms.author: sashan
-ms.reviewer: wiassaf
+author: shkale-msft
+ms.author: shkale
+ms.reviewer: mathoma
 ms.date: 03/10/2021
 ---
 # Copy a transactionally consistent copy of a database in Azure SQL Database
@@ -80,7 +80,12 @@ Start copying the source database with the [CREATE DATABASE ... AS COPY OF](/sql
 
 > [!NOTE]
 > Terminating the T-SQL statement does not terminate the database copy operation. To terminate the operation, drop the target database.
->
+> [!NOTE]
+> Database copy is not supported when the source and/or destination servers have a private endpoint configured and public network access is disabled. 
+If private endpoint is configured but public network access is allowed, initiating database copy when connected to the destination server from a public IP address will succeed.
+To determine the source IP address of current connection, execute `SELECT client_net_address FROM sys.dm_exec_connections WHERE session_id = @@SPID;`
+ 
+
 
 > [!IMPORTANT]
 > Selecting backup storage redundancy when using T-SQL CREATE DATABASE ... AS COPY OF command is not supported yet. 

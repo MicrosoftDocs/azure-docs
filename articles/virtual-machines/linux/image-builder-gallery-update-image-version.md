@@ -1,5 +1,5 @@
 ---
-title: Create a new VM image version from an existing image version using Azure Image Builder (preview)
+title: Create a new VM image version from an existing image version using Azure Image Builder
 description: Create a new VM image version from an existing image version using Azure Image Builder in Linux.
 author: cynthn
 ms.author: cynthn
@@ -10,7 +10,7 @@ ms.subservice: image-builder
 ms.collection: linux
 ms.reviewer: danis
 ---
-# Preview: Create a new VM image version from an existing image version using Azure Image Builder in Linux
+# Create a new VM image version from an existing image version using Azure Image Builder in Linux
 
 This article shows you how to take an existing image version in a [Shared Image Gallery](../shared-image-galleries.md), update it, and publish it as a new image version to the gallery.
 
@@ -18,17 +18,7 @@ We will be using a sample .json template to configure the image. The .json file 
 
 
 ## Register the features
-To use Azure Image Builder during the preview, you need to register the new feature.
-
-```azurecli-interactive
-az feature register --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview
-```
-
-Check the status of the feature registration.
-
-```azurecli-interactive
-az feature show --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview | grep state
-```
+To use Azure Image Builder, you need to register the feature.
 
 Check your registration.
 

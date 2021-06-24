@@ -87,7 +87,7 @@ Metrics-to-logs export is enabled on a per-resource level. To enable these logs:
 
 For metric export limitations, see the [Limitations](#limitations) section of this article.
 
-After you enable **AllMetrics** in the diagnostic settings of Standard Load Balancer, if you're using an event hub or Log Analytics workspace, these logs will be populated in the **AzureMonitor** table. 
+After you enable **AllMetrics** in the diagnostic settings of Standard Load Balancer, if you're using an event hub or Log Analytics workspace, these logs will be populated in the **AzureMetrics** table. 
 
 If you're exporting to storage, connect to your storage account and retrieve the JSON log entries for event and health probe logs. After you download the JSON files, you can convert them to CSV and view them in Excel, Power BI, or any other data visualization tool. 
 

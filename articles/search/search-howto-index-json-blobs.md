@@ -1,7 +1,7 @@
 ---
 title: Search over JSON blobs
 titleSuffix: Azure Cognitive Search
-description: Crawl Azure JSON blobs for text content using the Azure Cognitive Search Blob indexer. Indexers automate data ingestion for selected data sources like Azure Blob storage.
+description: Crawl Azure JSON blobs for text content using the Azure Cognitive Search Blob indexer. Indexers automate data ingestion for selected data sources like Azure Blob Storage.
 
 manager: nitinme
 author: HeidiSteen
@@ -13,7 +13,7 @@ ms.date: 02/01/2021
 ---
 # How to index JSON blobs using a Blob indexer in Azure Cognitive Search
 
-This article shows you how to [configure a blob indexer](search-howto-indexing-azure-blob-storage.md) for blobs that consist of JSON documents. JSON blobs in Azure Blob storage commonly assume any of these forms:
+This article shows you how to [configure a blob indexer](search-howto-indexing-azure-blob-storage.md) for blobs that consist of JSON documents. JSON blobs in Azure Blob Storage commonly assume any of these forms:
 
 + A single JSON document
 + A JSON document containing an array of well-formed JSON elements
@@ -37,7 +37,7 @@ The following sections describe each mode in more detail. If you are unfamiliar 
 
 ## Index single JSON documents (one per blob)
 
-By default, blob indexers parse JSON blobs as a single chunk of text, one search document for each blob in a container. If the JSON is structured, the search document can reflect that structure, with individual elements represented as individual fields. For example, assume you have the following JSON document in Azure Blob storage:
+By default, blob indexers parse JSON blobs as a single chunk of text, one search document for each blob in a container. If the JSON is structured, the search document can reflect that structure, with individual elements represented as individual fields. For example, assume you have the following JSON document in Azure Blob Storage:
 
 ```http
 {
@@ -213,4 +213,4 @@ You can also refer to individual array elements by using a zero-based index. For
 + [Define field mappings](search-indexer-field-mappings.md)
 + [Indexers overview](search-indexer-overview.md)
 + [How to index CSV blobs with a blob indexer](search-howto-index-csv-blobs.md)
-+ [Tutorial: Search semi-structured data from Azure Blob storage](search-semi-structured-data.md)
++ [Tutorial: Search semi-structured data from Azure Blob Storage](search-semi-structured-data.md)
