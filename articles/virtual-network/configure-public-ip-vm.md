@@ -1,5 +1,5 @@
 ---
-title: Manage public IP address with a Azure Virtual Machine
+title: Manage public IP address with an Azure Virtual Machine
 titleSuffix: Azure Virtual Network
 description: Learn about the ways a public IP address is used with Azure Virtual Machines and how to change the configuration.
 author: asudbring
@@ -11,23 +11,23 @@ ms.date: 05/13/2021
 ms.custom: template-how-to 
 ---
 
-# Manage a public IP address with a Azure Virtual Machine
+# Manage a public IP address with an Azure Virtual Machine
 
 Public IP addresses are available in two SKUs; standard, and basic. The selection of SKU determines the features of the IP address. The SKU determines the resources that the IP address can be associated with.  
 
-Azure Virtual Machines are the main compute service in Azure. Customers can create Linux or Windows virtual machines. A public IP address can be assigned to a virtual machine for inbound connections to the virtual machine. 
+Azure Virtual Machines is the main compute service in Azure. Customers can create Linux or Windows virtual machines. A public IP address can be assigned to a virtual machine for inbound connections to the virtual machine. 
 
-A virtual machine doesn't require a public IP address for it's configuration.
+A virtual machine doesn't require a public IP address for its configuration.
 
-In this article, you'll learn how to create a Azure Virtual Machine using an existing public IP in your subscription. You'll learn how to add a public IP address to a virtual machine, change the IP address, and how to remove the public IP.
+In this article, you'll learn how to create an Azure Virtual Machine using an existing public IP in your subscription. You'll learn how to add a public IP address to a virtual machine. You'll change the IP address. Finally, you'll learn how to remove the public IP.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- Two standard SKU public IP address in your subscription. The IP address can't be associated with any resources. For more information on creating a standard SKU public IP address, see [Create a public IP - Azure portal](create-public-ip-portal.md).
-    - For the purposes of the examples in this article, name the new public IP addresses **myStandardPublicIP-1** and **myStandardPublicIP-2**.
+- Two standard SKU public IP addresses in your subscription. The IP address can't be associated with any resources. For more information on creating a standard SKU public IP address, see [Create a public IP - Azure portal](create-public-ip-portal.md).
+    - For the examples in this article, name the new public IP addresses **myStandardPublicIP-1** and **myStandardPublicIP-2**.
 - One standard SKU public IP address with the routing preference of **Internet** in your subscription. For more information on creating a public IP with the **Internet** routing preference, see [Configure routing preference for a public IP address using the Azure portal](./routing-preference-portal.md).
-    - For the purpose of the example in this article, name the new public IP address **myStandardPublicIP-3**.
+    - For the example in this article, name the new public IP address **myStandardPublicIP-3**.
 ## Create virtual machine existing public IP
 
 In this section, you'll create a virtual machine. You'll select the IP address you created in the prerequisites as the public IP for the virtual machine.
@@ -97,7 +97,7 @@ In this section, you'll change the public IP address associated with the default
 
 4. Select **Networking** in **Settings** in **myVM**.
 
-5. In **Networking**, select the **Network interface** of the VM. The name of the NIC will be prefixed with the name of the VM and end with a random number.  In this example it is **myvm793**.
+5. In **Networking**, select the **Network interface** of the VM. The name of the NIC will be prefixed with the name of the VM and end with a random number.  In this example, it's **myvm793**.
 
     :::image type="content" source="./media/configure-public-ip-vm/network-interface.png" alt-text="Select network interface." border="true":::
 
@@ -113,7 +113,11 @@ In this section, you'll change the public IP address associated with the default
 
 ## Add public IP configuration
 
-In this section, you'll add a public IP configuration to the virtual machine. For more information on adding multiple IP addresses to a virtual machine, see [Assign multiple IP addresses to virtual machines using the Azure portal](./virtual-network-multiple-ip-addresses-portal.md). For more information on virtual machines configured with both types of routing preference, see [Configure both routing preference options for a virtual machine](./routing-preference-mixed-network-adapter-portal.md)
+In this section, you'll add a public IP configuration to the virtual machine. 
+
+For more information on adding multiple IP addresses, see [Assign multiple IP addresses to virtual machines using the Azure portal](./virtual-network-multiple-ip-addresses-portal.md). 
+
+For more information for using both types of routing preference, see [Configure both routing preference options for a virtual machine](./routing-preference-mixed-network-adapter-portal.md).
 
 1. In the search box at the top of the portal, enter **Virtual machine**.
 
@@ -123,7 +127,7 @@ In this section, you'll add a public IP configuration to the virtual machine. Fo
 
 4. Select **Networking** in **Settings** in **myVM**.
 
-5. In **Networking**, select the **Network interface** of the VM. The name of the NIC will be prefixed with the name of the VM and end with a random number.  In this example it is **myvm793**.
+5. In **Networking**, select the **Network interface** of the VM. The name of the NIC will be prefixed with the name of the VM and end with a random number.  In this example, it's **myvm793**.
 
     :::image type="content" source="./media/configure-public-ip-vm/network-interface.png" alt-text="Select network interface." border="true":::
 
@@ -151,7 +155,7 @@ In this section, you'll remove the public IP address from the network interface.
 
 4. Select **Networking** in **Settings** in **myVM**.
 
-5. In **Networking**, select the **Network interface** of the VM. The name of the NIC will be prefixed with the name of the VM and end with a random number.  In this example it is **myvm793**.
+5. In **Networking**, select the **Network interface** of the VM. The name of the NIC will be prefixed with the name of the VM and end with a random number.  In this example, it's **myvm793**.
 
     :::image type="content" source="./media/configure-public-ip-vm/network-interface.png" alt-text="Select network interface." border="true":::
 
