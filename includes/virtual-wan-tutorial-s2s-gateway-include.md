@@ -9,11 +9,11 @@
  ms.author: cherylmc
  ms.custom: include file
 ---
-1. Click **Site to site** to move to the Site to site tab.
+1. On the **Create virtual hub** page, click **Site to site** to open the **Site to site** tab.
 
    :::image type="content" source="./media/virtual-wan-tutorial-hub-include/site-to-site.png" alt-text="Screenshot shows the Create virtual hub pane with Site to site selected." border="false":::
 
-1. On the **Site-to-site** tab, complete the following fields:
+1. On the **Site to site** tab, complete the following fields:
 
    * Select **Yes** to create a Site-to-site VPN.
    * The AS Number field cannot be edited.
