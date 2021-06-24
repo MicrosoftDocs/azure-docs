@@ -593,7 +593,7 @@ The following table applies to Azure Batch.
 
 - **Recommendation**: This error occurs when ADF doesn't receive a response from HDInsight cluster when attempting to request the status of the running job. This issue might be on the cluster itself, or HDInsight service might have an outage.
 
-   Refer to HDInsight troubleshooting documentation at https://docs.microsoft.com/azure/hdinsight/hdinsight-troubleshoot-guide, or contact their support for further assistance.
+   Refer to [HDInsight troubleshooting documentation](../hdinsight/hdinsight-troubleshoot-guide.md), or contact Microsoft support for further assistance.
 
 ### Error code: 2302
 
