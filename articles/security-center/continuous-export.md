@@ -71,7 +71,7 @@ The steps below are necessary whether you're setting up a continuous export to L
 1. Select the specific subscription for which you want to configure the data export.
 1. From the sidebar of the settings page for that subscription, select **Continuous Export**.
 
-    :::image type="content" source="./media/continuous-export/continuous-export-options-page.png" alt-text="Export options in Azure Security Center":::
+    :::image type="content" source="./media/continuous-export/continuous-export-options-page.png" alt-text="Export options in Azure Security Center.":::
 
     Here you see the export options. There's a tab for each available export target. 
 
@@ -89,7 +89,7 @@ The steps below are necessary whether you're setting up a continuous export to L
 
     To include the findings with these recommendations, enable the **include security findings** option.
 
-    :::image type="content" source="./media/continuous-export/include-security-findings-toggle.png" alt-text="Include security findings toggle in continuous export configuration" :::
+    :::image type="content" source="./media/continuous-export/include-security-findings-toggle.png" alt-text="Include security findings toggle in continuous export configuration." :::
 
 1. From the "Export target" area, choose where you'd like the data saved. Data can be saved in a target on a different subscription (for example on a Central Event Hub instance or a central Log Analytics workspace).
 1. Select **Save**.
@@ -142,11 +142,11 @@ To deploy your continuous export configurations across your organization, use th
     > [!TIP]
     > You can also find these by searching Azure Policy:
     > 1. Open Azure Policy.
-    > :::image type="content" source="./media/continuous-export/opening-azure-policy.png" alt-text="Accessing Azure Policy":::
+    > :::image type="content" source="./media/continuous-export/opening-azure-policy.png" alt-text="Accessing Azure Policy.":::
     > 2. From the Azure Policy menu, select **Definitions** and search for them by name. 
 
 1. From the relevant Azure Policy page, select **Assign**.
-    :::image type="content" source="./media/continuous-export/export-policy-assign.png" alt-text="Assigning the Azure Policy":::
+    :::image type="content" source="./media/continuous-export/export-policy-assign.png" alt-text="Assigning the Azure Policy.":::
 
 1. Open each tab and set the parameters as desired:
     1. In the **Basics** tab, set the scope for the policy. To use centralized management, assign the policy to the Management Group containing the subscriptions that will use continuous export configuration. 
@@ -155,7 +155,7 @@ To deploy your continuous export configurations across your organization, use th
         > Each parameter has a tooltip explaining the options available to you.
         >
         > Azure Policy's parameters tab (1) provides access to similar configuration options as Security Center's continuous export page (2).
-        > :::image type="content" source="./media/continuous-export/azure-policy-next-to-continuous-export.png" alt-text="Comparing the parameters in continuous export with Azure Policy" lightbox="./media/continuous-export/azure-policy-next-to-continuous-export.png":::
+        > :::image type="content" source="./media/continuous-export/azure-policy-next-to-continuous-export.png" alt-text="Comparing the parameters in continuous export with Azure Policy." lightbox="./media/continuous-export/azure-policy-next-to-continuous-export.png":::
     1. Optionally, to apply this assignment to existing subscriptions, open the **Remediation** tab and select the option to create a remediation task.
 1. Review the summary page and select **Create**.
 
@@ -174,7 +174,7 @@ The name of the Log Analytics solution containing these tables depends on whethe
 > [!TIP]
 > To see the data on the destination workspace, you must enable one of these solutions **Security and Audit** or **SecurityCenterFree**.
 
-![The *SecurityAlert* table in Log Analytics](./media/continuous-export/log-analytics-securityalert-solution.png)
+![The *SecurityAlert* table in Log Analytics.](./media/continuous-export/log-analytics-securityalert-solution.png)
 
 To view the event schemas of the exported data types, visit the [Log Analytics table schemas](https://aka.ms/ASCAutomationSchemas).
 
@@ -189,7 +189,7 @@ To view alerts and recommendations from Security Center in Azure Monitor, config
 
 1. From Azure Monitor's **Alerts** page, select **New alert rule**.
 
-    ![Azure Monitor's alerts page](./media/continuous-export/azure-monitor-alerts.png)
+    ![Azure Monitor's alerts page.](./media/continuous-export/azure-monitor-alerts.png)
 
 1. In the create rule page, configure your new rule (in the same way you'd configure a [log alert rule in Azure Monitor](../azure-monitor/alerts/alerts-unified-log.md)):
 
@@ -198,7 +198,7 @@ To view alerts and recommendations from Security Center in Azure Monitor, config
     * For **Condition**, select **Custom log search**. In the page that appears, configure the query, lookback period, and frequency period. In the search query, you can type *SecurityAlert* or *SecurityRecommendation* to query the data types that Security Center continuously exports to as you enable the Continuous export to Log Analytics feature. 
     
     * Optionally, configure the [Action Group](../azure-monitor/alerts/action-groups.md) that you'd like to trigger. Action groups can trigger email sending, ITSM tickets, WebHooks, and more.
-    ![Azure Monitor alert rule](./media/continuous-export/azure-monitor-alert-rule.png)
+    ![Azure Monitor alert rule.](./media/continuous-export/azure-monitor-alert-rule.png)
 
 You'll now see new Azure Security Center alerts or recommendations (depending on your configured continuous export rules and the condition you defined in your Azure Monitor alert rule) in Azure Monitor alerts, with automatic triggering of an action group (if provided).
 
@@ -206,7 +206,7 @@ You'll now see new Azure Security Center alerts or recommendations (depending on
 
 To download a CSV report for alerts or recommendations, open the **Security alerts** or **Recommendations** page and select the **Download CSV report** button.
 
-:::image type="content" source="./media/continuous-export/download-alerts-csv.png" alt-text="Download alerts data as a CSV file" lightbox="./media/continuous-export/download-alerts-csv.png":::
+:::image type="content" source="./media/continuous-export/download-alerts-csv.png" alt-text="Download alerts data as a CSV file." lightbox="./media/continuous-export/download-alerts-csv.png":::
 
 > [!NOTE]
 > These reports contain alerts and recommendations for resources from the currently selected subscriptions.

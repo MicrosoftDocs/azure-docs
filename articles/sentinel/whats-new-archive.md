@@ -7,7 +7,7 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 05/13/2021
+ms.date: 06/15/2021
 ---
 
 # Archive for What's new in Azure Sentinel
@@ -25,6 +25,49 @@ Noted features are currently in PREVIEW. The [Azure Preview Supplemental Terms](
 > You can also contribute! Join us in the [Azure Sentinel Threat Hunters GitHub community](https://github.com/Azure/Azure-Sentinel/wiki).
 >
 
+
+## December 2020
+
+- [80 new built-in hunting queries](#80-new-built-in-hunting-queries)
+- [Log Analytics agent improvements](#log-analytics-agent-improvements)
+
+### 80 new built-in hunting queries
+ 
+Azure Sentinel's built-in hunting queries empower SOC analysts to reduce gaps in current detection coverage and ignite new hunting leads.
+
+This update for Azure Sentinel includes new hunting queries that provide coverage across the MITRE ATT&CK framework matrix:
+
+- **Collection**
+- **Command and Control**
+- **Credential Access**
+- **Discovery**
+- **Execution**
+- **Exfiltration**
+- **Impact**
+- **Initial Access**
+- **Persistence**
+- **Privilege Escalation**
+
+The added hunting queries are designed to help you find suspicious activity in your environment. While they may return legitimate activity and potentially malicious activity, they can be useful in guiding your hunting. 
+
+If after running these queries, you are confident with the results, you may want to convert them to analytics rules or add hunting results to existing or new incidents.
+
+All of the added queries are available via the Azure Sentinel Hunting page. For more information, see [Hunt for threats with Azure Sentinel](hunting.md).
+
+### Log Analytics agent improvements
+
+Azure Sentinel users benefit from the following Log Analytics agent improvements:
+
+- **Support for more operating systems**, including CentOS 8, RedHat 8, and SUSE Linux 15.
+- **Support for Python 3** in addition to Python 2
+
+Azure Sentinel uses the Log Analytics agent to sent events to your workspace, including Windows Security events, Syslog events, CEF logs, and more.
+
+> [!NOTE]
+> The Log Analytics agent is sometimes referred to as the OMS Agent or the Microsoft Monitoring Agent (MMA). 
+> 
+
+For more information, see the [Log Analytics documentation](../azure-monitor/agents/log-analytics-agent.md) and the [Log Analytics agent release notes](https://github.com/microsoft/OMS-Agent-for-Linux/releases).
 ## November 2020
 
 - [Monitor your Playbooks' health in Azure Sentinel](#monitor-your-playbooks-health-in-azure-sentinel)

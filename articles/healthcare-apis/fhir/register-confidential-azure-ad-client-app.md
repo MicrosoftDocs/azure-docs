@@ -7,7 +7,7 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 04/08/2021
-ms.author: matjazl
+ms.author: cavoeg
 ---
 
 # Register a confidential client application in Azure Active Directory

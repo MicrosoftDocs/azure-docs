@@ -368,7 +368,7 @@ sections:
       - question: |
           Does managed identities for Azure resources work with virtual machine scale sets?
         answer: |
-          Yes. You can [see](../active-directory/managed-identities-azure-resources/overview.md) some example MSI templates in Azure Quickstart templates for [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi) and [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi).
+          Yes. You can [see](../active-directory/managed-identities-azure-resources/overview.md) some example MSI templates in Azure Quickstart templates for [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vmss-msi) and [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vmss-msi).
 
   - name: Deleting
     questions:
