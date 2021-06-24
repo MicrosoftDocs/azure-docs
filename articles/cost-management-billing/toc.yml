@@ -172,13 +172,10 @@
         href: manage/azure-plan-subscription-transfer-partners.md
       - name: Transfer EA accounts
         href: manage/ea-transfers.md
-      - name: Transfer EA subscriptions to a partner
-        href: manage/transfer-enterprise-subscription-partner.md
       - name: Transfer MOSP subscription to EA
         href: manage/mosp-ea-transfer.md
       - name: Transfer CSP subscriptions
         href: manage/transfer-subscriptions-subscribers-csp.md
-      - name: Request Microsoft Customer Agreement ownership
       - name: Transfer Microsoft Customer Agreement ownership
         href: manage/mca-request-billing-ownership.md
       - name: Transfer Microsoft Partner Agreement ownership
