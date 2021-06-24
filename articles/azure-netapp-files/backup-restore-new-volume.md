@@ -48,6 +48,17 @@ Restoring a backup creates a new volume with the same protocol type. This articl
 
 ## Next steps  
 
-* 
+* [Understand Azure NetApp Files backup](backup-introduction.md)
+* [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)
+* [Register Azure NetApp Files backup](backup-register.md)
+* [Configure policy-based backups](backup-configure-policy-based.md)
+* [Configure manual backups](backup-configure-manual.md)
+* [Manage backup policies](backup-manage-policies.md)
+* [Search backups](backup-search.md)
+* [Disable backup functionality for a volume](backup-disable.md)
+* [Delete backups of a volume](backup-delete.md)
+* [Volume backup metrics](azure-netapp-files-metrics.md#volume-backup-metrics)
+* [Azure NetApp Files backup FAQs](azure-netapp-files-faqs.md#azure-netapp-files-backup-faqs)
+
 
 

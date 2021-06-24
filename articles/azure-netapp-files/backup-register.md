@@ -40,5 +40,16 @@ You can also use [Azure CLI commands](/cli/azure/feature?preserve-view=true&view
 
 ## Next steps  
 
-* 
+* [Understand Azure NetApp Files backup](backup-introduction.md)
+* [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)
+* [Configure policy-based backups](backup-configure-policy-based.md)
+* [Configure manual backups](backup-configure-manual.md)
+* [Manage backup policies](backup-manage-policies.md)
+* [Search backups](backup-search.md)
+* [Restore a backup to a new volume](backup-restore-new-volume.md)
+* [Disable backup functionality for a volume](backup-disable.md)
+* [Delete backups of a volume](backup-delete.md)
+* [Volume backup metrics](azure-netapp-files-metrics.md#volume-backup-metrics)
+* [Azure NetApp Files backup FAQs](azure-netapp-files-faqs.md#azure-netapp-files-backup-faqs)
+
 
