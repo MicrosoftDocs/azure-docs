@@ -4,7 +4,7 @@ description: Learn how to approach an Azure disk pool.
 author: roygara
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.date: 06/10/2021
+ms.date: 06/24/2021
 ms.author: rogarana
 ms.subservice: disks
 ---
@@ -15,7 +15,7 @@ Before you deploy a disk pool, it is important to understand the performance req
 
 ## Optimize for low latency
 
-If you're prioritizing for low latency, add ultra disks to your disk pool as the data storage. Ultra disks provides sub-ms disk latency. You must also evaluate your network configuration and ensure it's using the most optimal path. If you're using ExpressRoute to connect clients to disk pool, consider using [ExpressRoute FastPath](https://docs.microsoft.com/azure/expressroute/about-fastpath) to minimize network latency.
+If you're prioritizing for low latency, add ultra disks to your disk pool. Ultra disks provide sub-ms disk latency. You must also evaluate your network configuration and ensure it's using the most optimal path, to get the lowest latency possible. If you're using ExpressRoute to connect clients to disk pool, consider using [ExpressRoute FastPath](../expressroute/about-fastpath.md) to minimize network latency.
 
 ## Optimize for high throughput
 

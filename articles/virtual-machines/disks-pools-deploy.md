@@ -27,6 +27,9 @@ In order to successfully deploy a disk pool, you must have:
 - A set of managed disks (at least two) you want to add to a disk pool.
 - A virtual network with a subnet for your disk pool, deployed.
 
+If you're going to use the Azure PowerShell module, install [version 6.1.0 or newer](/powershell/module/az.diskpool/?view=azps-6.1.0).
+If you're going to use the Azure CLI, install [the latest version](/cli/azure/disk-pool?view=azure-cli-latest).
+
 ## Register your subscription for the preview
 
 Register your subscription to the **Microsoft.StoragePool** provider, to be able to create and use disk pools.
@@ -87,7 +90,8 @@ For a disk to be able to be used in a disk pool, it must meet the following requ
 
 To add a disk, it must meet the following requirements:
 
-- Must be either a premium SSD or an ultra disk in the same availability zone as the disk pool, or deployed with ZRS. Portal only supports adding premium SSDs now. 
+- Must be either a premium SSD or an ultra disk in the same availability zone as the disk pool, or deployed with ZRS.
+    - Currently, you can only add premium SSDs in the portal. Ultra disks must be added with either the Azure PowerShell module or the Azure CLI.
     - For ultra disks, it must have a disk sector size of 512 bytes.
 - Must be a shared disk with a maxShares value of two or greater.
 - You must have granted RBAC permissions for the disk to your disk pool resource provider.
