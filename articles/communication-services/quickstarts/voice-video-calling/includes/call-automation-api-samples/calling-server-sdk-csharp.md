@@ -35,7 +35,7 @@ Before you get started, make sure to:
 	- Connection String: Azure Communication Service resource's connection string.
 	- Source Phone: Phone number associated with the resource.
 	- DestinationIdentities: Destination identities to call. Multiple outbound calls are separated by a semi-colon and participants in an outbound call are separated by a comma.
-      For example +12345678901, 8:acs:ab12b0ea-85ea-4f83-b0b6-84d90209c7c4_00000009-bce0-da09-54b7-xxxxxxxxxxxx; +23456789012, 8:acs:ab12b0ea-85ea-4f83-b0b6-84d90209c7c4_00000009-bce0-da09-555-xxxxxxxxxxxx).
+      For example +12345678901, 8:acs:ab12b0ea-85ea-4f83-b0b6-84d90209c7c4_00000009-bce0-da09-54b7-xxxxxxxxxxxx; +12345678901, 8:acs:ab12b0ea-85ea-4f83-b0b6-84d90209c7c4_00000009-bce0-da09-555-xxxxxxxxxxxx).
 	- NgrokExePath: Folder path where ngrok.exe is installed/saved.
 	- SecretPlaceholder: Secret/Password that would be part of callback and will be used to validate incoming requests.
 	- CognitiveServiceKey: (Optional) Cognitive service key used for generating custom message
