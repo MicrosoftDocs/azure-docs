@@ -15,19 +15,19 @@ ms.date: 06/21/2021
 
 Azure provides a [global role-based authorization (RBAC) model](../role-based-access-control/role-assignments-portal.md) for all services managed through the portal or Resource Manager APIs. In Azure Cognitive Search, you can use RBAC in two scenarios:
 
-+ Portal access. Role membership determines the level of *service administration* rights.
++ Portal admin operations. Role membership determines the level of *service administration* rights.
 
-+ Outbound indexer access to external Azure data sources. When you [configure a managed identity](search-howto-managed-identities-data-sources.md), you can use RBAC on external data services, such as Azure Blob Storage, to allow read operations from the trusted search service.
++ Outbound indexer access to external Azure data sources, applicable when you [configure a managed identity](search-howto-managed-identities-data-sources.md). For a search service that runs under a managed identity, you can assign roles on external data services, such as Azure Blob Storage, to allow read operations from the trusted search service.
 
 RBAC scenarios that are **not** supported include:
 
 + [Custom roles](../role-based-access-control/custom-roles.md)
++ Inbound requests to the search service (use [key-based authentication](search-security-api-keys.md) instead)
++ User-identity access over search results (sometimes referred to as row-level security or document-level security.)
 
-+ Inbound requests to the search service, such as creating or querying an index (use [key-based authentication](search-security-api-keys.md) instead)
-
-+ User-identity access over search results (sometimes referred to as row-level security)
-
-  For document-level security, you can create [security filters](search-security-trimming-for-azure-search.md) to trim results by identity, removing documents for which the requestor should not have access.
+  > [!Tip]
+  > For document-level security, you can create [security filters](search-security-trimming-for-azure-search.md) to trim results by identity, removing documents for which the requestor should not have access.
+  >
 
 ## Azure roles used in Search
 
