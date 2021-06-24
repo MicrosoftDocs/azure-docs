@@ -124,6 +124,7 @@ The **Get-EflowVmFeature** command returns the status of the enablement of IoT E
 
 For more information, use the command `Get-Help Get-EflowVmFeature -full`.
 
+
 ## Get-EflowVmName
 
 The **Get-EflowVmName** command returns the virtual machine's current hostname. This command exists to account for the fact that the Windows hostname can change over time.
