@@ -7,12 +7,12 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/24/2021
+ms.date: 06/24/2021
 ---
 
 # Partner spotlight
 
-Get expert help from Microsoft partners who build end-to-end solutions that include Azure Cognitive Search. The following partners have deep experience in leveraging full-text search and AI enrichment across a range of business and technical scenarios.
+Get expert help from Microsoft partners who build comprehensive solutions that include Azure Cognitive Search. The following partners have deep experience with integration of full-text search and AI enrichment across a range of business and technical scenarios.
 
 | Partner | Description | Product link |
 |---------|-------------|----------------------|
