@@ -71,7 +71,7 @@ Complete these steps to create a flexible server:
 
 9. Wait until the deployment is complete and successful.
 
-   > :::image type="content" source="./media/quickstart-create-connect-server-vnet/deployment-success.png" alt-text="Screenshot that shows the Networking tab with new VNET.":::
+   > :::image type="content" source="./media/quickstart-create-connect-server-vnet/deployment-success.png" alt-text="Screenshot that shows the Networking settings with new VNET.":::
 
 9.  Select **Go to resource** to view the server's **Overview** page opens.
 
@@ -112,19 +112,19 @@ Since the server is in virtual network, you can only connect to the server from 
  ![Screenshot of adding a new subnet for virtual machine](./media/quickstart-create-connect-server-vnet/vm-add-new-subnet.png)
 
 10. After the subnet has been created successfully , close the page.
- ![Screenshot of adding a new subnet for virtual machine](./media/quickstart-create-connect-server-vnet/subnet-create-success.PNG)
+ ![Screenshot of success with adding a new subnet for virtual machine](./media/quickstart-create-connect-server-vnet/subnet-create-success.PNG)
 
 11. Select **Review + Create**.
 12. Select **Create**. When the **Generate new key pair** window opens, select **Download private key and create resource**. Your key file will be download as **myKey.pem**.
 
-![Screenshot of the dialog to download the private key and create](../media/quickstart-create-connect-server-vnet/vm-download-private-key.PNG)
+![Screenshot of the dialog to download the private key and create](./media/quickstart-create-connect-server-vnet/vm-download-private-key.PNG)
 
 >[!IMPORTANT]
 > Make sure you know where the `.pem` file was downloaded, you will need the path to it in the next step.
 
 13. When the deployment is finished, select **Go to resource**.
 
-![Screenshot of deployment success](./media/quick-create-connect-server-vnet/vvm-create-success.PNG)
+![Screenshot of deployment success](./media/quick-create-connect-server-vnet/vm-create-success.PNG)
 
 11. On the page for your new VM, select the public IP address and copy it to your clipboard.
 
