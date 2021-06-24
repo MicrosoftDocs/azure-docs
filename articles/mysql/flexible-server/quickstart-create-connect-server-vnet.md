@@ -9,7 +9,7 @@ ms.topic: quickstart
 ms.date: 04/18/2021
 ---
 
-# Connect to MySQL Server in Virtual network - Azure Database for MySQL Flexible Server
+# Connect Azure Database for SQL Flexible Server with private access connectivity method
 
 Azure Database for MySQL Flexible Server is a managed service that you can use to run, manage, and scale highly available MySQL servers in the cloud. This quickstart shows you how to create a flexible server in a virtual network by using the Azure portal.
 
@@ -39,7 +39,7 @@ Complete these steps to create a flexible server:
 
 4. On the **Basics** tab, enter the **subscription**, **resource group** , **region**, **administrator username** and **adminsitrator password**. 
 
-    > :::image type="content" source="./media/quickstart-create-connect-server-vnet/create-form.png" alt-text="Screenshot that shows the Basics tab of the Flexible server page.":::
+    > :::image type="content" source="./media/quickstart-create-connect-server-vnet/mysql-flexible-server-create-portal.png" alt-text="Screenshot that shows the Basics tab of the Flexible server page.":::
 
 With the default values, this will provision a MySQL server of version 5.7 with Burstable Sku using 1 vCore, 2GiB Memory and 20GiB storage. The backup retention is 7 days. You can change the configuration.
 
@@ -51,7 +51,7 @@ With the default values, this will provision a MySQL server of version 5.7 with 
     > :::image type="content" source="./media/quickstart-create-connect-server-vnet/create-new-vnet-for-mysql-server.png" alt-text="Screenshot that shows the Networking tab with new VNET.":::
 
 6. Select **OK** once you have provided the virtual network name and subnet information.
-    > :::image type="content" source="./media/quickstart-create-connect-server-vnet/show-new-vnet-information.png" alt-text="review VNET information":::
+    > :::image type="content" source="./media/quickstart-create-connect-server-vnet/show-server-vnet-information.png" alt-text="review VNET information":::
 
 7. Select **Review + create** to review your flexible server configuration.
 
