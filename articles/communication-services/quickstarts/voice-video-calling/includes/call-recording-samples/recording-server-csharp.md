@@ -73,7 +73,8 @@ var resumeRecording = await callingServerClient.InitializeServerCall("<servercal
 
 ## Download recording File using 'DownloadStreamingAsync' server API
 
-[!NOTE] An Azure Event grid Web hook is required to get the notification callback event when the recorded media is ready for download. For details, see [Record and download calls with Event Grid](https://docs.microsoft.com/azure/communication-services/quickstarts/voice-video-calling/download-recording-file-sample).
+> [!NOTE] 
+> An Azure Event grid Web hook is required to get the notification callback event when the recorded media is ready for download. For details, see [Record and download calls with Event Grid](https://docs.microsoft.com/azure/communication-services/quickstarts/voice-video-calling/download-recording-file-sample).
 
 When the recording is available for download, Azure Event Grid will trigger a notification callback event to the application with the following schema.
 
