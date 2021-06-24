@@ -861,7 +861,7 @@ Call diagnostics is an extended feature of the core `Call` API and allows you to
 ```js
 	/**
 	 *  Each diagnostic has the following data:
-     * - diagnostic is the type of diagnostic, e.g. NetworkSendQuality, DeviceSpeakWhileMuted, etc...
+     	 * - diagnostic is the type of diagnostic, e.g. NetworkSendQuality, DeviceSpeakWhileMuted, etc...
  	 * - value is DiagnosticQuality or DiagnosticFlag:
  	 *     - DiagnosticQuality = enum { Good = 1, Poor = 2, Bad = 3 }.
  	 *     - DiagnosticFlag = true | false.
@@ -870,10 +870,10 @@ Call diagnostics is an extended feature of the core `Call` API and allows you to
 	 */
 	 const diagnosticChangedListener = (diagnosticInfo: NetworkDiagnosticChangedEventArgs | MediaDiagnosticChangedEventArgs) => {
 		console.log(`Diagnostic changed: ` +
-					`Diagnostic: ${diagnosticInfo.diagnostic}` +
-					`Value: ${diagnosticInfo.value}` + 
-					`Value type: ${diagnosticInfo.valueType}` +
-					`Media type: ${diagnosticInfo.mediaType}` +
+			`Diagnostic: ${diagnosticInfo.diagnostic}` +
+			`Value: ${diagnosticInfo.value}` + 
+			`Value type: ${diagnosticInfo.valueType}` +
+			`Media type: ${diagnosticInfo.mediaType}` +
 
 		if (diagnosticInfo.valueType === 'DiagnosticQuality') {
 			if (diagnosticInfo.value === DiagnosticQuality.Bad) {
@@ -897,14 +897,20 @@ Call diagnostics is an extended feature of the core `Call` API and allows you to
 - Get the latest call diagnostic values hat were raised. If a diagnostic is undefined, that is because it was never raised.
 ```js
 	const latestNetworkDiagnostics = call.api(Features.Diagnostics).network.getLatest();
-	console.log(`noNetwork: ${latestNetworkDiagnostics.noNetwork.value}, value type = ${latestNetworkDiagnostics.noNetwork.valueType}`);
-	console.log(`networkReconnect: ${latestNetworkDiagnostics.networkReconnect.value}, value type = ${latestNetworkDiagnostics.networkReconnect.valueType}`);
-	console.log(`networkReceiveQuality: ${latestNetworkDiagnostics.networkReceiveQuality.value}, value type = ${latestNetworkDiagnostics.networkReceiveQuality.valueType}`);
+	console.log(`noNetwork: ${latestNetworkDiagnostics.noNetwork.value}, ` +
+			`value type = ${latestNetworkDiagnostics.noNetwork.valueType}`);
+	console.log(`networkReconnect: ${latestNetworkDiagnostics.networkReconnect.value}, ` +
+			`value type = ${latestNetworkDiagnostics.networkReconnect.valueType}`);
+	console.log(`networkReceiveQuality: ${latestNetworkDiagnostics.networkReceiveQuality.value}, ` +
+			`value type = ${latestNetworkDiagnostics.networkReceiveQuality.valueType}`);
 
 	const latestMediaDiagnostics = call.api(Features.Diagnostics).media.getLatest();
-	console.log(`speakingWhileMicrophoneIsMuted: ${latestMediaDiagnostics.speakingWhileMicrophoneIsMuted.value}, value type = ${latestMediaDiagnostics.speakingWhileMicrophoneIsMuted.valueType}`);
-	console.log(`cameraStartFailed: ${latestMediaDiagnostics.cameraStartFailed.value}, value type = ${latestMediaDiagnostics.cameraStartFailed.valueType}`);
-	console.log(`microphoneNotFunctioning: ${latestMediaDiagnostics.microphoneNotFunctioning.value}, value type = ${latestMediaDiagnostics.microphoneNotFunctioning.valueType}`);
+	console.log(`speakingWhileMicrophoneIsMuted: ${latestMediaDiagnostics.speakingWhileMicrophoneIsMuted.value}, ` +
+			`value type = ${latestMediaDiagnostics.speakingWhileMicrophoneIsMuted.valueType}`);
+	console.log(`cameraStartFailed: ${latestMediaDiagnostics.cameraStartFailed.value}, ` +
+			`value type = ${latestMediaDiagnostics.cameraStartFailed.valueType}`);
+	console.log(`microphoneNotFunctioning: ${latestMediaDiagnostics.microphoneNotFunctioning.value}, ` +
+			`value type = ${latestMediaDiagnostics.microphoneNotFunctioning.valueType}`);
 
 	
 ```
