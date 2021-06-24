@@ -47,7 +47,7 @@ The Hybrid Runbook Worker feature supports the following distributions. All oper
 * SUSE Linux Enterprise Server 12 and 15 (SUSE did not release versions numbered 13 or 14)
 
 > [!IMPORTANT]
-> Before enabling the Update Management feature, which depends on the system Hybrid Runbook Worker role, confirm the distributions it supports [here](update-management/overview.md#supported-operating-systems).
+> Before enabling the Update Management feature, which depends on the system Hybrid Runbook Worker role, confirm the distributions it supports [here](update-management/operating-system-requirements.md).
 
 ### Minimum requirements
 

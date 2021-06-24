@@ -12,7 +12,7 @@ ms.custom: template-how-to
 
 # Using Policy with Azure Site Recovery (Public Preview)
 
-This article describes how to set up [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) for your resources, using Azure Policy. [Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview) helps to enforce certain business rules on your Azure resources and assess compliance of said resources.
+This article describes how to set up [Azure Site Recovery](./site-recovery-overview.md) for your resources, using Azure Policy. [Azure Policy](../governance/policy/overview.md) helps to enforce certain business rules on your Azure resources and assess compliance of said resources.
 
 ## Disaster Recovery with Azure Policy
 Site Recovery helps you keep your applications up and running in the event of planned or unplanned zonal/regional outages. Enabling Site Recovery on your machines at scale through the Azure portal can be challenging. Now, you have way to enable Site Recovery en masse on specific Resource Groups (_Scope_ of the Policy) through the portal.
@@ -24,8 +24,8 @@ Azure Policy solves this problem. Once you have a disaster recovery policy creat
 
 ## Prerequisites
 
-- Understand how to assign a Policy [here](https://docs.microsoft.com/azure/governance/policy/assign-policy-portal).
-- Learn more about the Architecture of Azure to Azure Disaster Recovery [here](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-architecture).
+- Understand how to assign a Policy [here](../governance/policy/assign-policy-portal.md).
+- Learn more about the Architecture of Azure to Azure Disaster Recovery [here](./azure-to-azure-architecture.md).
 - Review the support matrix for Azure Site Recovery Policy Support:
 
 **Scenario** | **Support Statement**
@@ -92,7 +92,7 @@ You are on the way to create a Policy to enable Azure Site Recovery. Let us now 
 ## Remediation and other properties
 1. The Target Properties for Azure Site Recovery have been configured. However, this policy will take effect only for newly created virtual machines in the scope of the Policy. It can be applied to existing resources via a Remediation Task after the policy is assigned. You can create a Remediation Task here by checking _Create a Remediation Task_ checkbox.
 
-1. Azure Policy will create a [Managed Identity](https://aka.ms/arm-policy-identity), which will have owner permissions to enable Azure Site Recovery for the resources in the scope.
+1. Azure Policy will create a [Managed Identity](../governance/policy/how-to/remediate-resources.md), which will have owner permissions to enable Azure Site Recovery for the resources in the scope.
 
 1. You can configure a custom Non-Compliance message for the policy on the _Non-compliance messages_ tab.
 

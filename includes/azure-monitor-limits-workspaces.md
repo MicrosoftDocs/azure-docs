@@ -33,7 +33,7 @@ ms.custom: "include file"
 
 | Category | Limit | Comments |
 |:---|:---|:---|
-| Maximum records returned by a log query | 10,000 | Reduce results using query scope, time range, and filters in the query. |
+| Maximum records returned by a log query | 30,000 | Reduce results using query scope, time range, and filters in the query. |
 
 
 **Data Collector API**
@@ -48,7 +48,7 @@ ms.custom: "include file"
 | Category | Limit | Comments |
 |:---|:---|:---|
 | Maximum records returned in a single query | 500,000 | |
-| Maximum size of data returned | 64,000,000 bytes (~61 MiB)| |
+| Maximum size of data returned | ~104 MB (~100 MiB)| |
 | Maximum query running time | 10 minutes | See [Timeouts](https://dev.loganalytics.io/documentation/Using-the-API/Timeouts) for details.  |
 | Maximum request rate | 200 requests per 30 seconds per Azure AD user or client IP address | See [Rate limits](https://dev.loganalytics.io/documentation/Using-the-API/Limits) for details. |
 
@@ -57,6 +57,7 @@ ms.custom: "include file"
 | Category | Limit | Comments |
 |:---|:---|:---|
 | Max number of records | 500,000 | |
+| Maximum size of data returned | ~104 MB (~100 MiB) | |
 | Max query timeout | 110 second | |
 | Charts | | Visualization in Logs page and the connector are using different charting libraries and some functionality isn't available in the connector currently. |
 

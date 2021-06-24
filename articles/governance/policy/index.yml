@@ -11,7 +11,7 @@ metadata:
   ms.collection: collection
   author: DCtheGeek
   ms.author: dacoulte
-  ms.date: 03/16/2021
+  ms.date: 06/02/2021
 
 landingContent:
   - title: About Azure Policy
@@ -30,10 +30,12 @@ landingContent:
             url: ./concepts/assignment-structure.md
           - text: Exemption structure
             url: ./concepts/exemption-structure.md
-      - linkListType: video
+      - linkListType: architecture
         links:
-          - text: Azure Policy at Build 2018
-            url: https://channel9.msdn.com/events/Build/2018/THR2030
+          - text: Cloud Adoption Framework (Govern)
+            url: /azure/cloud-adoption-framework/govern/
+          - text: Enterprise-scale landing zones
+            url: /azure/cloud-adoption-framework/ready/enterprise-scale/
 
   - title: Get started
     linkLists:

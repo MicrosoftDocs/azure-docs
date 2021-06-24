@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 05/11/2021
+ms.date: 06/03/2021
 ms.custom: devx-track-python
 ---
 
@@ -17,10 +17,12 @@ ms.custom: devx-track-python
 
 In this article, learn how to configure Azure Firewall to control access to your Azure Machine Learning workspace and the public internet. To learn more about securing Azure Machine Learning, see [Enterprise security for Azure Machine Learning](concept-enterprise-security.md).
 
-> [!WARNING]
-> Access to data storage behind a firewall is only supported in code first experiences. Using the [Azure Machine Learning studio](overview-what-is-machine-learning-studio.md) to access data behind a firewall is not supported. To work with data storage on a private network with the studio, you must first [set up a virtual network](../virtual-network/quick-create-portal.md) and [give the studio access to data stored inside of a virtual network](how-to-enable-studio-virtual-network.md).
-
 ## Azure Firewall
+
+> [!IMPORTANT]
+> Azure Firewall is an Azure service that provides security _for Azure Virtual Network resources_. Some other Azure Services, such as Azure Storage Accounts, have their own firewall settings that _apply to the public endpoint for that specific service instance_. The information in this document is specific to Azure Firewall.
+> 
+> For information on service instance firewall settings, see [Use studio in a virtual network](how-to-enable-studio-virtual-network.md#firewall-settings).
 
 When using Azure Firewall, use __destination network address translation (DNAT)__ to create NAT rules for inbound traffic. For outbound traffic, create __network__ and/or __application__ rules. These rule collections are described in more detail in [What are some Azure Firewall concepts](../firewall/firewall-faq.yml#what-are-some-azure-firewall-concepts).
 
@@ -155,7 +157,7 @@ The hosts in this section are owned by Microsoft, and provide services required 
 | Compute instance | \*.instances.azureml.ms |  |  |
 
 > [!IMPORTANT]
-> Your firewall must allow communication with \*.instances.azureml.ms over __TCP__ port __18881__.
+> Your firewall must allow communication with \*.instances.azureml.ms over __TCP__ ports __18881, 443, and 8787__.
 
 **Associated resources used by Azure Machine Learning**
 

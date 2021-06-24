@@ -3,12 +3,13 @@ title: Classify your Azure SQL data using Azure Purview labels
 description: Import your classification from Azure Purview in your Azure SQL Database and Azure Synpase Analytics 
 services: sql-database
 ms.service: sql-database
+ms.subservice: security
 ms.custom: 
 ms.devlang: azurepowershell
 ms.topic: sample
 author: davidtrigano
 ms.author: datrigan
-ms.reviewer: vanto
+ms.reviewer: vanto, mathoma
 ms.date: 02/17/2021
 ---
 

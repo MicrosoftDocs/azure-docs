@@ -62,7 +62,7 @@ The user interface definition for creating a managed application instance includ
 {
   "name": "zipFileBlobUri",
   "type": "Microsoft.Common.TextBox",
-  "defaultValue": "https://github.com/Azure/azure-quickstart-templates/tree/master/101-custom-rp-with-function/artifacts/functionzip/functionpackage.zip",
+  "defaultValue": "https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.customproviders/custom-rp-with-function/artifacts/functionzip/functionpackage.zip",
   "label": "The Uri to the uploaded function zip file",
   "toolTip": "The Uri to the uploaded function zip file",
   "visible": true
@@ -348,6 +348,6 @@ If you have questions about Azure Managed Applications, you can try asking on [S
 
 ## Next steps
 
-To publish your managed application to the Azure Marketplace, see [Azure managed applications in the Marketplace](../../marketplace/create-new-azure-apps-offer.md).
+To publish your managed application to the Azure Marketplace, see [Azure managed applications in the Marketplace](../../marketplace/azure-app-offer-setup.md).
 
 Learn more about [Azure Custom Providers](../custom-providers/overview.md).

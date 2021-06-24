@@ -103,7 +103,7 @@ new PoolAddParameter
 
 ### Network File System
 
-Network File Systems (NFS) can be mounted to pool nodes, allowing traditional file systems to be accessed by Azure Batch. This could be a single NFS server deployed in the cloud, or an on-premises NFS server accessed over a virtual network. NFS mounts support [Avere vFXT](../avere-vfxt/avere-vfxt-overview.md) distributed in-memory cache solution for data-intensive high-performance computing (HPC) tasks as well as other standard NFS compliant interfaces such as [NFS for Azure Blob](https://docs.microsoft.com/azure/storage/blobs/network-file-system-protocol-support) and [NFS for Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-how-to-mount-nfs-shares).
+Network File Systems (NFS) can be mounted to pool nodes, allowing traditional file systems to be accessed by Azure Batch. This could be a single NFS server deployed in the cloud, or an on-premises NFS server accessed over a virtual network. NFS mounts support [Avere vFXT](../avere-vfxt/avere-vfxt-overview.md) distributed in-memory cache solution for data-intensive high-performance computing (HPC) tasks as well as other standard NFS compliant interfaces such as [NFS for Azure Blob](../storage/blobs/network-file-system-protocol-support.md) and [NFS for Azure Files](../storage/files/storage-files-how-to-mount-nfs-shares.md).
 
 ```csharp
 new PoolAddParameter

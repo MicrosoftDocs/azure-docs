@@ -13,6 +13,9 @@ ms.custom: include file
 ms.author: tchladek
 ---
 
+> [!NOTE]
+> Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/AccessTokensQuickstart)
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -56,7 +59,8 @@ Use the following code to begin:
 
 ```csharp
 using System;
-using Azure.Communication;
+using Azure;
+using Azure.Core;
 using Azure.Communication.Identity;
 
 namespace AccessTokensQuickstart
@@ -97,7 +101,7 @@ var client = new CommunicationIdentityClient(new Uri(endpoint), new AzureKeyCred
 If you have managed identity set up, see [Use managed identities](../managed-identity.md), you may also authenticate with managed identity.
 ```csharp
 TokenCredential tokenCredential = new DefaultAzureCredential();
-var client = new CommunicationIdentityClient(endpoint, tokenCredential);
+var client = new CommunicationIdentityClient(new Uri(endpoint), tokenCredential);
 ```
 
 ## Create an identity

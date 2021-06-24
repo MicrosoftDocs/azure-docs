@@ -34,7 +34,7 @@ For a code first experience, see the following articles to use the [Azure Machin
 
 ## Prerequisites
 
-- An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
+- An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 
 - Access to [Azure Machine Learning studio](https://ml.azure.com/).
 

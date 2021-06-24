@@ -29,7 +29,7 @@ landingContent:
           - text: Terminology
             url: overview-terminology.md
           - text: FAQ
-            url: overview-faq.md
+            url: overview-faq.yml
 
   # Card
   - title: Synapse SQL

@@ -143,6 +143,6 @@ Get started at development time with:
 [knowUsers]: app-insights-web-track-usage.md
 [platforms]: ./platforms.md
 [portal]: https://portal.azure.com/
-[qna]: ../faq.md
+[qna]: ../faq.yml
 [redfield]: ./monitor-performance-live-website-now.md
 

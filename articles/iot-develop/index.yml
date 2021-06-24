@@ -36,5 +36,19 @@ landingContent:
     linkLists:
     - linkListType: quickstart
       links:
-        - text: Get started with embedded device development
-          url: quickstart-device-development.md
+        - text: Connect an MXCHIP AZ3166 to Azure IoT
+          url: quickstart-devkit-mxchip-az3166.md
+        - text: Connect an MXCHIP AZ3166 to Azure IoT Hub
+          url: quickstart-devkit-mxchip-az3166-iot-hub.md
+        - text: Connect a Microchip ATSAME54-XPro to Azure IoT
+          url: quickstart-devkit-microchip-atsame54-xpro.md
+        - text: Connect an NXP MIMXRT1050-EVKB to Azure IoT
+          url: quickstart-devkit-nxp-mimxrt1050-evkb.md
+        - text: Connect an NXP MIMXRT1060-EVK to Azure IoT
+          url: quickstart-devkit-nxp-mimxrt1060-evk.md
+        - text: Connect a Renesas RX65N-2MB to Azure IoT
+          url: quickstart-devkit-renesas-rx65n-2mb.md
+        - text: Connect a Renesas RX65N Cloud Kit to Azure IoT
+          url: quickstart-devkit-renesas-rx65n-cloud-kit.md
+        - text: Connect an ST Microelectronics B-L475E/L4S5I-IOT01A to Azure IoT
+          url: quickstart-devkit-stm-b-l475e.md

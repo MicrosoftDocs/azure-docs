@@ -1,10 +1,10 @@
 ---
 title: How to install and run container for Form Recognizer
-titleSuffix: Azure Cognitive Services
-description: This article will explain how to use the Azure Cognitive Services Form Recognizer container to parse form and table data.
+titleSuffix: Azure Applied AI Services
+description: This article will explain how to use the Azure Form Recognizer container to parse form and table data.
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 02/04/2021
@@ -259,7 +259,7 @@ formrecognizer_config =
 
 ### Form Recognizer
 
-The container provides REST endpoint APIs, which you can find on the [Form Recognizer API]https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeWithCustomForm) reference page.
+The container provides REST endpoint APIs, which you can find on the [Form Recognizer API]https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm) reference page.
 
 
 [!INCLUDE [Validate container is running - Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]

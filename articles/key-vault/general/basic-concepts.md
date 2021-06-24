@@ -28,7 +28,7 @@ Here are other important terms:
 
 - **Managed HSM Crypto Officer/User**: Built-in roles that are usually assigned to users or service principals that will perform cryptographic operations using keys in Managed HSM. Crypto User can create new keys, but cannot delete keys.
 
-- **Managed HSM Crypto Service Encryption**: Built-in role that is usually assigned to a service accounts managed service identity (e.g. Storage account) for encryption of data at rest with customer managed key.
+- **Managed HSM Crypto Service Encryption User**: Built-in role that is usually assigned to a service accounts managed service identity (e.g. Storage account) for encryption of data at rest with customer managed key.
 
 - **Resource**: A resource is a manageable item that's available through Azure. Common examples are virtual machine, storage account, web app, database, and virtual network. There are many more.
 

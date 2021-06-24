@@ -43,7 +43,7 @@ POST https://login.microsoftonline.com/{tenant}/oauth2/v2.0/devicecode
 Content-Type: application/x-www-form-urlencoded
 
 client_id=6731de76-14a6-49ae-97bc-6eba6914391e
-scope=user.read%20openid%20profile
+&scope=user.read%20openid%20profile
 
 ```
 
@@ -81,9 +81,9 @@ While the user is authenticating at the `verification_uri`, the client should be
 POST https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token
 Content-Type: application/x-www-form-urlencoded
 
-grant_type: urn:ietf:params:oauth:grant-type:device_code
-client_id: 6731de76-14a6-49ae-97bc-6eba6914391e
-device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8...
+grant_type=urn:ietf:params:oauth:grant-type:device_code
+&client_id=6731de76-14a6-49ae-97bc-6eba6914391e
+&device_code=GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8...
 ```
 
 | Parameter | Required | Description|
