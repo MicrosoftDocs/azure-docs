@@ -447,33 +447,48 @@ await call.removeParticipant(pstnIdentifier);
 
 To list the video streams and screen sharing streams of remote participants, inspect the `videoStreams` collections:
 
+E.g. to pick first stream of a first participant:
 ```js
 const remoteVideoStream: RemoteVideoStream = call.remoteParticipants[0].videoStreams[0];
 const streamType: MediaStreamType = remoteVideoStream.mediaStreamType;
 ```
+To check what's the stream type inspect `mediaStreamType` property of a given stream. It will return 'Video' or 'ScreenSharing';
 
-To render `RemoteVideoStream`, you have to subscribe to it's `isAvailableChanged` event. If the `isAvailable` property changes to `true`, a remote participant is sending a stream. After that happens, create a new instance of `VideoStreamRenderer`, and then create a new `VideoStreamRendererView` instance by using the asynchronous `createView` method.  You can then attach `view.target` to any UI element.
+To render `RemoteVideoStream`, application should do the following:
+- application can then create a new instance of `VideoStreamRenderer`, supply `RemoteVideoStream` instance as an argument
+- check and/or subscribe to stream's `isAvailableChanged` event
+- once the `isAvailable` property changes to `true`, a remote participant is sending data, application can then create a new `VideoStreamRendererView` instance by using the asynchronous `createView` method
+- `createView` resolves after local endpoint subscribes to the video and receives first video frame, at this point application can attach `view` instance returned from `createView` to the DOM.
+- once stream becomes unavailable, application should `dispose` all view's associated with given stream, it may also choose to `dispose` a `VideoStreamRenderer` instance used to create all the `views`
 
-Whenever availability of a remote stream changes you can choose to destroy the whole `VideoStreamRenderer`, a specific `VideoStreamRendererView`
-or keep them, but this will result in displaying blank video frame.
+Note:
+- if stream becomes unavailable while before `createView` resolves - `createView` will be rejected with an information that stream became unavailable
+- after `VideoStreamRendererView` instance is disposed, it can not be reused, application must created new instance using `createView` method
 
+Full flow:
 ```js
-function subscribeToRemoteVideoStream(remoteVideoStream: RemoteVideoStream) {
-	let videoStreamRenderer: VideoStreamRenderer = new VideoStreamRenderer(remoteVideoStream);
-	const displayVideo = () => {
-		const view = await videoStreamRenderer.createView();
+let videoStreamRenderer: VideoStreamRenderer = new VideoStreamRenderer(remoteVideoStream);
+let view: VideoStreamRendererView;
+const renderVideo = () => {
+        try {
+		view = await videoStreamRenderer.createView();
 		htmlElement.appendChild(view.target);
-	}
-	remoteVideoStream.on('isAvailableChanged', async () => {
-		if (remoteVideoStream.isAvailable) {
-			displayVideo();
-		} else {
-			videoStreamRenderer.dispose();
-		}
-	});
+	} catch (e) {
+		console.warn(`Failed to createView, reason=${e.message}, code=${e.code}`);
+	}	
+}
+remoteVideoStream.on('isAvailableChanged', async () => {
 	if (remoteVideoStream.isAvailable) {
-		displayVideo();
+		renderVideo();
+	} else {
+		if (view) {
+			view.dispose();
+			view = undefined;
+		}
 	}
+});
+if (remoteVideoStream.isAvailable) {
+	renderVideo();
 }
 ```
 
