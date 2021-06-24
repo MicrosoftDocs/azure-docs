@@ -33,7 +33,18 @@ The [sign-up and sign-in journey](add-sign-up-and-sign-in-policy.md) allows user
 
 
 > [!NOTE]
-> In case you would prefer to hide the "Change Email" button on the screen, it can be achieved by hiding the respective HTML element(s) using CSS manipulation . 
+> After the email is verified, the user can still select **Change email**, type the another email, and repeat the email verification from the beginning. If you'd prefer to hide the **Change email** button, you can modify the CSS to hide the associated HTML element(s) on the page. For example, add the CSS entry below to the selfAsserted.HTML and [customize the user interface with HTML templates](customize-ui-with-html?pivots=b2c-user-flow):
+>
+> ```html
+> <style type="text/css">
+>    .changeClaims
+>    {
+>      visibility: hidden;
+>    }
+> </style>
+> ```
+>
+> Note that the default name of the **Change email** button in the selfasserted.html page is `changeclaims`. You can find this name by inspecting the page source of the sign-up page using a browser tool such as Inspect.
 
 Example :  
 Add the below css in selfAsserted.HTML and customize the page as per https://docs.microsoft.com/en-us/azure/active-directory-b2c/customize-ui-with-html?pivots=b2c-user-flow:
