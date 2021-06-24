@@ -12,8 +12,8 @@ ms.custom: include file
 ms.author: joseys
 ---
 
-> [!NOTE]
-> Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/add-chat)
+## Sample Code
+Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/OutboundCallReminder).
 
 ## Prerequisites
 Before you get started, make sure to:
@@ -27,20 +27,6 @@ Before you get started, make sure to:
 
 > [!NOTE]
 > The samples make use of the Microsoft Cognitive Services Speech SDK. By downloading the Microsoft Cognitive Services Speech SDK, you acknowledge its license, see [Speech SDK license agreement](https://aka.ms/csspeech/license201809).
-
-## Configuring application
-
-- Open the App.config file to configure the following settings
-
-	- Connection String: Azure Communication Service resource's connection string.
-	- Source Phone: Phone number associated with the resource.
-	- DestinationIdentities: Destination identities to call. Multiple outbound calls are separated by a semi-colon and participants in an outbound call are separated by a comma.
-      For example +12345678901, 8:acs:ab12b0ea-85ea-4f83-b0b6-84d90209c7c4_00000009-bce0-da09-54b7-xxxxxxxxxxxx; +12345556789, 8:acs:ab12b0ea-85ea-4f83-b0b6-84d90209c7c4_00000009-bce0-da09-555-xxxxxxxxxxxx).
-	- NgrokExePath: Folder path where ngrok.exe is installed/saved.
-	- SecretPlaceholder: Secret/Password that would be part of callback and will be used to validate incoming requests.
-	- CognitiveServiceKey: (Optional) Cognitive service key used for generating custom message
-	- CognitiveServiceRegion: (Optional) Region associated with cognitive service
-	- CustomMessage: (Optional) Text for the custom message to be converted to speech.
 
 ## Object model
 
