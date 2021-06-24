@@ -187,8 +187,8 @@ The following tables display the current Azure Sentinel feature availability in 
 | - [F5 BIG-IP ](../../sentinel/connect-f5-big-ip.md)                                       | GA             | GA             |
 | - [F5 Networks](../../sentinel/connect-f5.md)                                     | GA             | GA             |
 | - [Forcepoint NGFW](../../sentinel/connect-forcepoint-casb-ngfw.md)                                  | Public Preview | Public Preview |
-| - [Forepoint CASB](../../sentinel/connect-forcepoint-casb-ngfw.md)                                  | Public Preview | Public Preview |
-| - [Forepoint DLP ](../../sentinel/connect-forcepoint-dlp.md)                                   | Public Preview | Not Available      |
+| - [Forcepoint CASB](../../sentinel/connect-forcepoint-casb-ngfw.md)                                  | Public Preview | Public Preview |
+| - [Forcepoint DLP ](../../sentinel/connect-forcepoint-dlp.md)                                   | Public Preview | Not Available      |
 | - [ForgeRock Common Audit for CEF](../../sentinel/connect-data-sources.md)                  | Public Preview | Public Preview |
 | - [Fortinet](../../sentinel/connect-fortinet.md)                                         | GA             | GA             |
 | - [Google Workspace (G Suite) ](../../sentinel/connect-google-workspace.md)                      | Public Preview | Not Available      |
