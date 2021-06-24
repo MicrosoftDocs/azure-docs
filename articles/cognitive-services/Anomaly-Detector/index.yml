@@ -25,6 +25,8 @@ landingContent:
           url: overview.md
         - text: What is the Anomaly Detector multivariate?
           url: overview-multivariate.md
+        - text: What's new in Anomaly Detector?
+          url: whats-new.md
     - linkListType: get-started
       links:
         - text: Anomaly Detector demo
@@ -109,8 +111,6 @@ landingContent:
       links:
         - text: Join the Anomaly Detector Advisors group on Microsoft Teams
           url: https://aka.ms/adadvisorsjoin
-        - text: Featured user-generated content
-          url: user-generated-content.md
   
 - title: Help and feedback
   linkLists:

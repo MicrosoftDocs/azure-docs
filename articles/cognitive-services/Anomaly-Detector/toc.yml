@@ -9,6 +9,8 @@
       href: overview.md
     - name: Pricing
       href: https://aka.ms/adpricing
+    - name: What's new
+      href: whats-new.md
 - name: Quickstarts
   items:
     - name: Multivariate client libraries
@@ -94,8 +96,6 @@
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/anomaly-detector/context/context
     - name: Microsoft Learn modules
       href: /learn/modules/intro-to-anomaly-detector/
-    - name: User-generated content
-      href: user-generated-content.md
     - name: Join the Anomaly Detector Advisors group on Microsoft Teams
       href: https://aka.ms/adadvisorsjoin
     - name: Reference solution architecture
