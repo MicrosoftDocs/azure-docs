@@ -743,7 +743,7 @@ The following table applies to Azure Batch.
 
 - **Recommendation**: 
     1. Verify that the credentials are correct by opening the HDInsight cluster's Ambari UI in a browser.
-    1. If the cluster is in Virtual Network (VNet) and a self-hosted IR is being used, the HDI URL must be the private URL in VNets, and should have '-int' listed after the cluster name.
+    1. If the cluster is in Virtual Network (VNet) and a self-hosted IR is being used, the HDI URL must be the private URL in VNets, and should have `-int` listed after the cluster name.
     
        For example, change `https://mycluster.azurehdinsight.net/` to `https://mycluster-int.azurehdinsight.net/`. Note the `-int` after `mycluster`, but before `.azurehdinsight.net`
     1. If the cluster is in VNet, the self-hosted IR is being used, and the private URL was used, and yet the connection still failed, then the VM where the IR is installed had problems connecting to the HDI. 
