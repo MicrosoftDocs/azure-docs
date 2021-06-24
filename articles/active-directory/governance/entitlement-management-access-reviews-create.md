@@ -73,18 +73,6 @@ This setting determines how often access reviews will occur.
     
     ![Show the advanced review settings](./media/entitlement-management-access-reviews/access-reviews-advanced-settings.png)
 
-1. Use the **If reviewers don't respond** list to specify what happens for users that are not reviewed by the reviewer within the review period. Select one of the following:
-    1. **No change**. Leaves the user's access unchanged. 
-    1. **Remove access**. Removes the user's access. 
-    1. **Take recommendations** - Use the system's recommendation for denying or approving the user's continued access. 
-
-    > [!NOTE]
-    > This setting does not impact users who have been reviewed by the reviewers manually. If the final reviewer's decision is Deny, then the user's access will be removed. 
-
-1. To choose whether you would like your reviewer to receive recommendations during the review process, set **Show reviewer decision helpers** to **Yes**. The system recommendations are based on the users' access information. The reviewer will be recommended to approve the review if the user has signed-in at least once during the last 30 days. Alternatively, the reviewer will be recommended to deny the review if the user has not signed-in during the last 30 days. 
-
-1. Set **Require reviewer justification** to **Yes** to require the reviewer to give a reason for approval. If you set this option to **No**, then reviewer justification will be optional. 
-
 1. Click **Review + Create** if you are creating a new access package or **Update** if you are editing an access package, at the bottom of the page.
 
 > [!NOTE]
