@@ -29,6 +29,9 @@ The buttons at the top of the page can help you manage the cache:
 
 Read more about these options below.
 
+> [!TIP]
+> You can also manage individual storage targets - read [Manage storage targets](manage-storage-targets.md) for details.
+
 Click the image below to watch a [video](https://azure.microsoft.com/resources/videos/managing-hpc-cache/) that demonstrates cache management tasks.
 
 [![video thumbnail: Azure HPC Cache: Manage (click to visit the video page)](media/video-5-manage.png)](https://azure.microsoft.com/resources/videos/managing-hpc-cache/)

@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 06/17/2021
 ms.author: v-erkel
 ---
+<!-- filename is referenced from GUI in aka.ms/hpc-cache-usagemodel -->
 
 # Understand cache usage models
 

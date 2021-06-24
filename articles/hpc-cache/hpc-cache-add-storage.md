@@ -4,7 +4,7 @@ description: How to define storage targets so that your Azure HPC Cache can use 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 06/23/2021
+ms.date: 06/24/2021
 ms.custom: subject-rbac-steps
 ms.author: v-erkel
 ---
@@ -91,7 +91,7 @@ Azure HPC Cache uses [Azure role-based access control (Azure RBAC)](../role-base
 
 The storage account owner must explicitly add the roles [Storage Account Contributor](../role-based-access-control/built-in-roles.md#storage-account-contributor) and [Storage Blob Data Contributor](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) for the user "HPC Cache Resource Provider".
 
-You can do this ahead of time, or by clicking a link on the page where you add a Blob storage target. Keep in mind that it can take up to five minutes for the role settings to propagate through the Azure environment, so you should wait a few minutes after adding the roles before creating a storage target.
+You can do this ahead of time, or by clicking a link on the portal page where you add a Blob storage target. Keep in mind that it can take up to five minutes for the role settings to propagate through the Azure environment, so you should wait a few minutes after adding the roles before creating a storage target.
 
 1. Open **Access control (IAM)** for your storage account.
 
@@ -107,7 +107,7 @@ You can do this ahead of time, or by clicking a link on the page where you add a
     ![Add role assignment page](../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
    > [!NOTE]
-   > If you can't find the HPC Cache Resource Provider, try a search for the string "storagecache" instead. Users who participated in HPC Cache previews (before GA) might need to use the older name for the service principal.
+   > If you can't find the HPC Cache Resource Provider, try a search for the string "storagecache" instead. This was a pre-GA name for the service principal.
 
 <!-- 
 Steps to add the Azure roles:
@@ -184,7 +184,7 @@ az hpc-cache blob-storage-target add --resource-group "hpc-cache-group" \
 
 ## Add a new NFS storage target
 
-An NFS storage target has different settings from a Blob storage target. The usage model setting helps the cache to efficiently cache data from this storage system.
+An NFS storage target has different settings from a Blob storage target, including a usage model setting, which tells the cache how to store data from this storage system.
 
 ![Screenshot of add storage target page with NFS target defined](media/add-nfs-target.png)
 
@@ -192,7 +192,6 @@ An NFS storage target has different settings from a Blob storage target. The usa
 > Before you create an NFS storage target, make sure your storage system is accessible from the Azure HPC Cache and meets permission requirements. Storage target creation will fail if the cache can't access the storage system. Read [NFS storage requirements](hpc-cache-prerequisites.md#nfs-storage-requirements) and [Troubleshoot NAS configuration and NFS storage target issues](troubleshoot-nas.md) for details.
 
 ### Choose a usage model
-<!-- referenced from GUI by aka.ms link -->
 
 When you create a storage target that uses NFS to reach its storage system, you need to choose a usage model for that target. This model determines how your data is cached.
 
@@ -200,9 +199,8 @@ Read [Understand usage models](cache-usage-models.md) for more details about all
 
 The built-in usage models let you choose how to balance fast response with the risk of getting stale data. If you want to optimize speed for reading files, you might not care whether the files in the cache are checked against the back-end files. On the other hand, if you want to make sure your files are always up to date with the remote storage, choose a model that checks frequently.
 
-<!-- asc12 add restriction on L series: -->
 > [!NOTE]
-> L Series storage caches support read caching only so you can't choose those write models (write this better)
+> [High-throughput style caches](hpc-cache-create.md#choose-the-cache-type-for-your-needs) support read caching only.
 
 These three options cover most situations:
 
@@ -251,7 +249,7 @@ Provide this information for an NFS-backed storage target:
 
 * **Target type** - Choose **NFS**.
 
-* **Hostname** - Enter the IP address or fully qualified domain name for your NFS storage system. (Use a domain name only if your cache has access to a DNS server that can resolve the name.)
+* **Hostname** - Enter the IP address or fully qualified domain name for your NFS storage system. (Use a domain name only if your cache has access to a DNS server that can resolve the name.) You can enter multiple IP addresses if your storage system is referenced by multiple IPs.
 
 * **Usage model** - Choose one of the data caching profiles based on your workflow, described in [Choose a usage model](#choose-a-usage-model) above.
 
@@ -342,7 +340,9 @@ ADLS-NFS storage targets have some similarities with Blob storage targets and so
 
 * Like a Blob storage target, you need to give Azure HPC Cache permission to [access your storage account](#add-the-access-control-roles-to-your-account).
 * Like an NFS storage target, you need to set a cache [usage model](#choose-a-usage-model).
-* Because NFS-enabled blob containers have an NFS-compatible hierarchical structure, you do not need to use the cache to ingest data, and the containers are readable by other NFS systems. You can pre-load data in an ADLS-NFS container, then add it to an HPC Cache as a storage target, and then access the data later from outside of an HPC Cache. When you use a standard blob container as an HPC Cache storage target, the data is written in a proprietary format and can only be accessed from other Azure HPC Cache-compatible products.
+* Because NFS-enabled blob containers have an NFS-compatible hierarchical structure, you do not need to use the cache to ingest data, and the containers are readable by other NFS systems.
+
+  You can pre-load data in an ADLS-NFS container, then add it to an HPC Cache as a storage target, and then access the data later from outside of an HPC Cache. When you use a standard blob container as an HPC Cache storage target, the data is written in a proprietary format and can only be accessed from other Azure HPC Cache-compatible products.
 
 Before you can create an ADLS-NFS storage target, you must create an NFS-enabled storage account. Follow the tips in [Prerequisites for Azure HPC Cache](hpc-cache-prerequisites.md#nfs-mounted-blob-adls-nfs-storage-requirements-preview) and the instructions in [Mount Blob storage by using NFS](../storage/blobs/network-file-system-protocol-support-how-to.md). After your storage account is set up you can create a new container when you create the storage target.
 

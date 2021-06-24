@@ -4,15 +4,15 @@ description: How to edit Azure HPC Cache storage targets
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 03/29/2021
+ms.date: 06/24/2021
 ms.author: v-erkel
 ---
 
 # Edit storage targets
 
-You can modify, manage, or remove storage targets with the Azure portal or by using the Azure CLI.
+You can modify storage targets with the Azure portal or by using the Azure CLI. For example, you can change access policies, usage models, and namespace paths for an existing storage target.
 
-The xxx 
+Storage target *management* tasks, like suspending or deleting a storage target, are described in [Manage storage targets](manage-storage-targets.md).
 
 Depending on the type of storage, you can modify these storage target values:
 
@@ -27,39 +27,10 @@ Depending on the type of storage, you can modify these storage target values:
 
 * For ADLS-NFS storage targets, you can change the namespace path, access policy, and the usage model.
 
-You can't edit a storage target's name, type, or back-end storage system (Blob container or NFS hostname/IP address). If you need to change these properties, delete the storage target and create a replacement with the new value.
+You can't edit a storage target's name, type, or back-end storage system. If you need to change these properties, delete the storage target and create a replacement with the new value.
 
 > [!TIP]
 > The [Managing Azure HPC Cache video](https://azure.microsoft.com/resources/videos/managing-hpc-cache/) shows how to edit a storage target in the Azure portal.
-
-## Remove a storage target
-
-### [Portal](#tab/azure-portal)
-
-To remove a storage target, open the **Storage targets** page. Click the '...' next to the storage target and choose **Delete** from the menu. The other options on this menu are explained in [Manage storage targets](#manage-storage-targets).
-
-### [Azure CLI](#tab/azure-cli)
-
-[Set up Azure CLI for Azure HPC Cache](./az-cli-prerequisites.md).
-
-Use [az hpc-cache storage-target remove](/cli/azure/hpc-cache/storage-target#az_hpc_cache_storage_target_remove) to delete a storage target from the cache.
-
-```azurecli
-$ az hpc-cache storage-target remove --resource-group cache-rg --cache-name doc-cache0629 --name blob1
-
-{- Finished ..
-  "endTime": "2020-07-09T21:45:06.1631571+00:00",
-  "name": "2f95eac1-aded-4860-b19c-3f089531a7ec",
-  "startTime": "2020-07-09T21:43:38.5461495+00:00",
-  "status": "Succeeded"
-}
-```
-
----
-
-Deleting a storage target removes the storage system's association with this Azure HPC Cache system, but it does not change the back-end storage system. For example, if you used an Azure Blob storage container, the container and its contents still exist after you delete it from the cache. You can add the container to a different Azure HPC Cache, re-add it to this cache, or delete it with the Azure portal.
-
-Any file changes stored in the cache are written to the back-end storage system before the storage target is removed. This process can take an hour or more if a lot of changed data is in the cache.
 
 ## Change a blob storage target's namespace path
 
@@ -211,34 +182,8 @@ Use the **Namespace** page for your Azure HPC Cache to update namespace values. 
 
 The configuration for ADLS-NFS usage models is identical to the NFS usage model selection. Read the portal instructions in [Change the usage model](#change-the-usage-model) in the NFS section above. Additional tools for updating ADLS-NFS storage targets are in development.
 
-
-## Manage storage targets
-
-You can also perform management actions on individual storage targets. These actions supplement the cache-level management options discussed in [Manage your cache](hpc-cache-manage.md).
-
-Sometimes an individual storage target can get into a bad state and need to be temporarily removed, or permanently deleted. You also can flush cached data for a specific target.
-
-![Screenshot of the storage targets page in the Azure portal, with the cursor over the menu exposed by clicking on the three dots (...) symbol to the far right of the storage target's row in the list.](media/storage-target-manage-options.png)
-
-* Flush
-* Suspend
-* Force remove
-* Resume
-* Delete
-
-### Flush cached files to the storage target
-
-### Suspend a storage target
-
-The suspend feature disables client access to a storage target, but doesn't permanently remove the storage target from your cache. You can use this option if you need to disable a back-end storage system for maintenance, repair, or replacement.  <!-- https://msazure.visualstudio.com/One/_workitems/edit/5301521 -->
-
-### Force remove a storage target
-<!-- https://msazure.visualstudio.com/One/_workitems/edit/8267141 -->
-
-Delete 
-
-
 ## Next steps
 
-* Read [Add storage targets](hpc-cache-add-storage.md) to learn more about these options.
+* Read [Manage storage targets](manage-storage-targets.md) for information about stopping, deleting, and flushing individual storage targets.
+* Read [Add storage targets](hpc-cache-add-storage.md) to learn more about storage target options.
 * Read [Plan the aggregated namespace](hpc-cache-namespace.md) for more tips about using virtual paths.
