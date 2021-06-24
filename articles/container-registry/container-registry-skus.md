@@ -2,7 +2,7 @@
 title: Registry service tiers and features
 description: Learn about the features and limits (quotas) in the Basic, Standard, and Premium service tiers (SKUs) of Azure Container Registry.
 ms.topic: article
-ms.date: 06/09/2021
+ms.date: 06/24/2021
 ---
 
 # Azure Container Registry service tiers
@@ -27,34 +27,36 @@ The following table details the features and registry limits of the Basic, Stand
 
 ### Throughput 
 
-When generating a high rate of registry operations such as Docker image pulls or pushes, use the service tier's limits for read and write operations and bandwidth as a guide for expected image throughput. Additional factors will affect your registry performance in practice.
+When generating a high rate of registry operations, use the service tier's limits for read and write operations and bandwidth as a guide for expected performance. These limits affect data-plane operations including listing, deleting, pushing, and pulling images and other artifacts.
 
-Each image pull or push can generate a large number of atomic read and/or write operations on the registry. A large number of operations will translate into fewer images pushed or pulled. The number depends on:
+To estimate the throughput of image pulls and pushes specifically, consider the registry limits and these factors: 
 
-* Number and size of layers
+* Number and size of image layers
 * Reuse of layers or base images across images
 * additional API calls that might be required for each pull or push
 
 For details, see documentation for the [Docker HTTP API V2](https://docs.docker.com/registry/spec/api/).
 
-If you experience issues with throughput to your registry, see [Troubleshoot registry performance](container-registry-troubleshoot-performance.md). When evaluating or troubleshooting registry throughput, also consider the configuration of your client environment:
+When evaluating or troubleshooting registry throughput, also consider the configuration of your client environment:
 
 * your Docker daemon configuration for concurrent operations
 * your network connection to the registry's data endpoint or endpoints
 
+If you experience issues with throughput to your registry, see [Troubleshoot registry performance](container-registry-troubleshoot-performance.md). 
+
 ### Example
 
-Pushing a single 133 MB `nginx:latest` image to an Azure container registry requires multiple read and write operations: 
+Pushing a single 133 MB `nginx:latest` image to an Azure container registry requires multiple read and write operations for the image's 5 layers: 
 
 * Read operations to read the image manifest, if it exists in the registry
-* Write operations to write each of 5 image layers
+* Write operations to write the configuration blob of the image
 * Write operations to write the image manifest
 
 ### Throttling
 
-You may experience throttling of pull or push operations when the registry determines the rate of requests is too high. You may see an HTTP 429 error similar to `Too many requests`.
+You may experience throttling of pull or push operations when the registry determines the rate of requests exceeds the limits allowed for the registry's service tier. You may see an HTTP 429 error similar to `Too many requests`.
 
-Throttling could occur temporarily when you generate a burst of image pull or push operations in a very short period, even when the average rate of read and write operations is within registry limits. You may need to implement retry logic in your code or reduce the maximum rate of requests to the registry.
+Throttling could occur temporarily when you generate a burst of image pull or push operations in a very short period, even when the average rate of read and write operations is within registry limits. You may need to implement retry logic with some backoff in your code or reduce the maximum rate of requests to the registry.
 
 ## Changing tiers
 
