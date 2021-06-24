@@ -46,7 +46,7 @@ Account keys are recommended for quick prototyping, during development only. It'
 
 Azure AD authentication is described in the [Azure Spatial Anchors documentation](../../spatial-anchors/concepts/authentication.md?tabs=csharp#azure-ad-user-authentication).
 
-Follow the steps to configure Azure Active Directory user authentication in the Azure Portal.
+Follow the steps to configure Azure Active Directory user authentication in the Azure portal.
 
 1. Register your application in Azure AD. As part of registering, you will need to determine whether your application should be multitenant. You will also need to provide the redirect URLs allowed for your application in the Authentication blade.
 ![Authentication setup](./media/aad-app-setup.png)
