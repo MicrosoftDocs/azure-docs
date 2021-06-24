@@ -31,7 +31,6 @@ The [sign-up and sign-in journey](add-sign-up-and-sign-in-policy.md) allows user
 
 * The user needs to open the mail box and copy the verification code. The user then enters the verification code in Azure AD B2C password reset page, and selects **Verify code**.
 
-> [!NOTE]
 > After the email is verified, the user can still select **Change e-mail**, type the other email, and repeat the email verification from the beginning.
 
 > [!TIP]
