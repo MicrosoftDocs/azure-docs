@@ -9,7 +9,7 @@
  ms.author: cherylmc
  ms.custom: include file
 ---
-1. Select **Next: Site-to-site**.
+1. Click **Site to site** to move to the Site to site tab.
 
    :::image type="content" source="./media/virtual-wan-tutorial-hub-include/site-to-site.png" alt-text="Screenshot shows the Create virtual hub pane with Site to site selected." border="false":::
 

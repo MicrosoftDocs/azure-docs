@@ -18,6 +18,7 @@ In this tutorial you learn how to:
 > [!div class="checklist"]
 > * Create a virtual WAN
 > * Create a hub
+> * Create a Site-to-Site VPN gateway
 > * Create a site
 > * Connect a site to a hub
 > * Connect a VPN site to a hub
@@ -49,7 +50,7 @@ A hub is a virtual network that can contain gateways for site-to-site, ExpressRo
 
 ## <a name="gateway"></a>Create a site-to-site VPN gateway
 
-To create the Site-to-Site VPN gateway, continue on with the following steps. It takes 30 minutes to create the Site-to-Site VPN gateway in the virtual hub.
+It takes 30 minutes to create the Site-to-Site VPN gateway in the virtual hub.
 
 [!INCLUDE [Create a gateway](../../includes/virtual-wan-tutorial-s2s-gateway-include.md)]
 
