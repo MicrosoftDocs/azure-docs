@@ -189,4 +189,4 @@ The Composite bar view for Graph with the above settings will look like this:
 ## Next steps
 
 * [Deploy](../visualize/workbooks-automate.md) workbooks with Azure Resource Manager.
-* [Control](../platform/workbooks-access-control.md) and share access to your workbook resources.
+* [Control](./workbooks-access-control.md) and share access to your workbook resources.

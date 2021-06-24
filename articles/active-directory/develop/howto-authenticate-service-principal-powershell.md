@@ -11,7 +11,7 @@ ms.subservice: develop
 ms.custom: aaddev , devx-track-azurepowershell
 ms.topic: how-to
 ms.tgt_pltfrm: multiple
-ms.date: 06/26/2020
+ms.date: 02/22/2021
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ---
@@ -68,7 +68,7 @@ The example sleeps for 20 seconds to allow some time for the new service princip
 
 You can scope the role assignment to a specific resource group by using the **ResourceGroupName** parameter. You can scope to a specific resource by also using the **ResourceType** and **ResourceName** parameters. 
 
-If you **do not have Windows 10 or Windows Server 2016**, download the [Self-signed certificate generator](https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6/) from Microsoft Script Center. Extract its contents and import the cmdlet you need.
+If you **do not have Windows 10 or Windows Server 2016**, download the [New-SelfSignedCertificateEx cmdlet](https://www.pkisolutions.com/tools/pspki/New-SelfSignedCertificateEx/) from PKI Solutions. Extract its contents and import the cmdlet you need.
 
 ```powershell
 # Only run if you could not use New-SelfSignedCertificate

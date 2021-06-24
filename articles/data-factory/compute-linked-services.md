@@ -5,7 +5,8 @@ ms.service: data-factory
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
-ms.date: 05/08/2019
+ms.date: 05/08/2019 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Compute environments supported by Azure Data Factory
@@ -16,7 +17,7 @@ This article explains different compute environments that you can use to process
 
 The following table provides a list of compute environments supported by Data Factory and the activities that can run on them. 
 
-| Compute environment                                          | activities                                                   |
+| Compute environment                                          | Activities                                                   |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | [On-demand HDInsight cluster](#azure-hdinsight-on-demand-linked-service) or [your own HDInsight cluster](#azure-hdinsight-linked-service) | [Hive](transform-data-using-hadoop-hive.md), [Pig](transform-data-using-hadoop-pig.md), [Spark](transform-data-using-spark.md), [MapReduce](transform-data-using-hadoop-map-reduce.md), [Hadoop Streaming](transform-data-using-hadoop-streaming.md) |
 | [Azure Batch](#azure-batch-linked-service)                   | [Custom](transform-data-using-dotnet-custom-activity.md)     |
@@ -320,7 +321,7 @@ See following articles if you are new to Azure Batch service:
 * [New-AzBatchPool](/powershell/module/az.batch/New-AzBatchPool) cmdlet to create an Azure Batch pool.
 
 > [!IMPORTANT]
-> When creating a new Azure Batch pool, ‘VirtualMachineConfiguration’ must be used and NOT ‘CloudServiceConfiguration'. For more details refer [Azure Batch Pool migration guidance](https://docs.microsoft.com/azure/batch/batch-pool-cloud-service-to-virtual-machine-configuration). 
+> When creating a new Azure Batch pool, ‘VirtualMachineConfiguration’ must be used and NOT ‘CloudServiceConfiguration'. For more details refer [Azure Batch Pool migration guidance](../batch/batch-pool-cloud-service-to-virtual-machine-configuration.md). 
 
 ### Example
 
@@ -432,15 +433,16 @@ You create an Azure Machine Learning linked service to connect an Azure Machine 
 ```
 
 ### Properties
+
 | Property               | Description                              | Required                                 |
 | ---------------------- | ---------------------------------------- | ---------------------------------------- |
 | Type                   | The type property should be set to: **AzureMLService**. | Yes                                      |
 | subscriptionId         | Azure subscription ID              | Yes                                      |
 | resourceGroupName      | name | Yes                                      |
 | mlWorkspaceName        | Azure Machine Learning workspace name | Yes  |
-| servicePrincipalId     | Specify the application's client ID.     | No |
-| servicePrincipalKey    | Specify the application's key.           | No |
-| tenant                 | Specify the tenant information (domain name or tenant ID) under which your application resides. You can retrieve it by hovering the mouse in the upper-right corner of the Azure portal. | Required if updateResourceEndpoint is specified | No |
+| servicePrincipalId     | Specify the application's client ID.     | Yes |
+| servicePrincipalKey    | Specify the application's key.           | Yes |
+| tenant                 | Specify the tenant information (domain name or tenant ID) under which your application resides. You can retrieve it by hovering the mouse in the upper-right corner of the Azure portal. | Required if updateResourceEndpoint is specified |
 | connectVia             | The Integration Runtime to be used to dispatch the activities to this linked service. You can use Azure Integration Runtime or Self-hosted Integration Runtime. If not specified, it uses the default Azure Integration Runtime. | No |
 
 ## Azure Data Lake Analytics linked service

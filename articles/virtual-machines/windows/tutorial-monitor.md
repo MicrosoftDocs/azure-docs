@@ -3,13 +3,13 @@ title: Tutorial - Monitor Windows virtual machines in Azure
 description: In this tutorial, you learn how to monitor the performance and discovered application components running on your Windows virtual machines.
 author: mgoedtel
 manager: carmonm
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.subservice: monitoring
 ms.topic: tutorial
 ms.workload: infrastructure
 ms.date: 09/27/2018
 ms.author: magoedte
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurepowershell
 
 #Customer intent: As an IT administrator, I want to learn about monitoring so that I can review the health status and perform troubleshooting on Windows virtual machines.
 ---

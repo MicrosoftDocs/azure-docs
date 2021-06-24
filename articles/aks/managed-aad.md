@@ -15,11 +15,12 @@ AKS-managed Azure AD integration is designed to simplify the Azure AD integratio
 
 Cluster administrators can configure Kubernetes role-based access control (Kubernetes RBAC) based on a user's identity or directory group membership. Azure AD authentication is provided to AKS clusters with OpenID Connect. OpenID Connect is an identity layer built on top of the OAuth 2.0 protocol. For more information on OpenID Connect, see the [Open ID connect documentation][open-id-connect].
 
-Learn more about the Azure AD integration flow on the [Azure Active Directory integration concepts documentation](concepts-identity.md#azure-active-directory-integration).
+Learn more about the Azure AD integration flow on the [Azure Active Directory integration concepts documentation](concepts-identity.md#azure-ad-integration).
 
 ## Limitations 
 
 * AKS-managed Azure AD integration can't be disabled
+* Changing a AKS-managed Azure AD integrated cluster to legacy AAD is not supported
 * non-Kubernetes RBAC enabled clusters aren't supported for AKS-managed Azure AD integration
 * Changing the Azure AD tenant associated with AKS-managed Azure AD integration isn't supported
 
@@ -30,7 +31,7 @@ Learn more about the Azure AD integration flow on the [Azure Active Directory in
 * If you are using [helm](https://github.com/helm/helm), minimum version of helm 3.3.
 
 > [!Important]
-> You must use Kubectl with a minimum version of 1.18.1 or kubelogin. If you don't use the correct version, you will notice authentication issues.
+> You must use Kubectl with a minimum version of 1.18.1 or kubelogin. The difference between the minor versions of Kubernetes and kubectl should not be more than 1 version. If you don't use the correct version, you will notice authentication issues.
 
 To install kubectl and kubelogin, use the following commands:
 
@@ -182,6 +183,115 @@ If you want to access the cluster, follow the steps [here][access-cluster].
 
 There are some non-interactive scenarios, such as continuous integration pipelines, that aren't currently available with kubectl. You can use [`kubelogin`](https://github.com/Azure/kubelogin) to access the cluster with non-interactive service principal sign-in.
 
+## Disable local accounts (preview)
+
+When deploying an AKS Cluster, local accounts are enabled by default. Even when enabling RBAC or Azure Active Directory integration, `--admin` access still exists, essentially as a non-auditable backdoor option. With this in mind, AKS offers users the ability to disable local accounts via a flag, `disable-local`. A field, `properties.disableLocalAccounts`, has also been added to the managed cluster API to indicate whether the feature has been enabled on the cluster.
+
+> [!NOTE]
+> On clusters with Azure AD integration enabled, users belonging to a group specified by `aad-admin-group-object-ids` will still be able to gain access via non-admin credentials. On clusters without Azure AD integration enabled and `properties.disableLocalAccounts` set to true, obtaining both user and admin credentials will fail.
+
+### Register the `DisableLocalAccountsPreview` preview feature
+
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
+To use an AKS cluster without local accounts, you must enable the `DisableLocalAccountsPreview` feature flag on your subscription. Ensure you are using the latest version of the Azure CLI and the `aks-preview` extension.
+
+Register the `DisableLocalAccountsPreview` feature flag using the [az feature register][az-feature-register] command as shown in the following example:
+
+```azurecli-interactive
+az feature register --namespace "Microsoft.ContainerService" --name "DisableLocalAccountsPreview"
+```
+
+It takes a few minutes for the status to show *Registered*. You can check on the registration status using the [az feature list][az-feature-list] command:
+
+```azurecli-interactive
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/DisableLocalAccountsPreview')].{Name:name,State:properties.state}"
+```
+
+When ready, refresh the registration of the *Microsoft.ContainerService* resource provider using the [az provider register][az-provider-register] command:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
+
+### Create a new cluster without local accounts
+
+To create a new AKS cluster without any local accounts, use the [az aks create][az-aks-create] command with the `disable-local` flag:
+
+```azurecli-interactive
+az aks create -g <resource-group> -n <cluster-name> --enable-aad --aad-admin-group-object-ids <aad-group-id> --disable-local
+```
+
+In the output, confirm local accounts have been disabled by checking the field `properties.disableLocalAccounts` is set to true:
+
+```output
+"properties": {
+    ...
+    "disableLocalAccounts": true,
+    ...
+}
+```
+
+Attempting to get admin credentials will fail with an error message indicating the feature is preventing access:
+
+```azurecli-interactive
+az aks get-credentials --resource-group <resource-group> --name <cluster-name> --admin
+
+Operation failed with status: 'Bad Request'. Details: Getting static credential is not allowed because this cluster is set to disable local accounts.
+```
+
+### Disable local accounts on an existing cluster
+
+To disable local accounts on an existing AKS cluster, use the [az aks update][az-aks-update] command with the `disable-local` flag:
+
+```azurecli-interactive
+az aks update -g <resource-group> -n <cluster-name> --enable-aad --aad-admin-group-object-ids <aad-group-id> --disable-local
+```
+
+In the output, confirm local accounts have been disabled by checking the field `properties.disableLocalAccounts` is set to true:
+
+```output
+"properties": {
+    ...
+    "disableLocalAccounts": true,
+    ...
+}
+```
+
+Attempting to get admin credentials will fail with an error message indicating the feature is preventing access:
+
+```azurecli-interactive
+az aks get-credentials --resource-group <resource-group> --name <cluster-name> --admin
+
+Operation failed with status: 'Bad Request'. Details: Getting static credential is not allowed because this cluster is set to disable local accounts.
+```
+
+### Re-enable local accounts on an existing cluster
+
+AKS also offers the ability to re-enable local accounts on an existing cluster with the `enable-local` flag:
+
+```azurecli-interactive
+az aks update -g <resource-group> -n <cluster-name> --enable-aad --aad-admin-group-object-ids <aad-group-id> --enable-local
+```
+
+In the output, confirm local accounts have been re-enabled by checking the field `properties.disableLocalAccounts` is set to false:
+
+```output
+"properties": {
+    ...
+    "disableLocalAccounts": false,
+    ...
+}
+```
+
+Attempting to get admin credentials will succeed:
+
+```azurecli-interactive
+az aks get-credentials --resource-group <resource-group> --name <cluster-name> --admin
+
+Merged "<cluster-name>-admin" as current context in C:\Users\<username>\.kube\config
+```
+
 ## Use Conditional Access with Azure AD and AKS
 
 When integrating Azure AD with your AKS cluster, you can also use [Conditional Access][aad-conditional-access] to control access to your cluster.
@@ -226,6 +336,71 @@ In the Azure portal, navigate to Azure Active Directory, select *Enterprise appl
 
 :::image type="content" source="./media/managed-aad/conditional-access-sign-in-activity.png" alt-text="Failed sign-in entry due to Conditional Access policy":::
 
+## Configure just-in-time cluster access with Azure AD and AKS
+
+Another option for cluster access control is to use Privileged Identity Management (PIM) for just-in-time requests.
+
+>[!NOTE]
+> PIM is an Azure AD Premium capability requiring a Premium P2 SKU. For more on Azure AD SKUs, see the [pricing guide][aad-pricing].
+
+To integrate just-in-time access requests with an AKS cluster using AKS-managed Azure AD integration, complete the following steps:
+
+1. At the top of the Azure portal, search for and select Azure Active Directory.
+1. Take note of the Tenant ID, referred to for the rest of these instructions as `<tenant-id>`
+    :::image type="content" source="./media/managed-aad/jit-get-tenant-id.png" alt-text="In a web browser, the Azure portal screen for Azure Active Directory is shown with the tenant's ID highlighted.":::
+1. In the menu for Azure Active Directory on the left-hand side, under *Manage* select *Groups* then *New Group*.
+    :::image type="content" source="./media/managed-aad/jit-create-new-group.png" alt-text="Shows the Azure portal Active Directory groups screen with the 'New Group' option highlighted.":::
+1. Make sure a Group Type of *Security* is selected and enter a group name, such as *myJITGroup*. Under *Azure AD Roles can be assigned to this group (Preview)*, select *Yes*. Finally, select *Create*.
+    :::image type="content" source="./media/managed-aad/jit-new-group-created.png" alt-text="Shows the Azure portal's new group creation screen.":::
+1. You will be brought back to the *Groups* page. Select your newly created group and take note of the Object ID, referred to for the rest of these instructions as `<object-id>`.
+    :::image type="content" source="./media/managed-aad/jit-get-object-id.png" alt-text="Shows the Azure portal screen for the just-created group, highlighting the Object Id":::
+1. Deploy an AKS cluster with AKS-managed Azure AD integration by using the `<tenant-id>` and `<object-id>` values from earlier:
+    ```azurecli-interactive
+    az aks create -g myResourceGroup -n myManagedCluster --enable-aad --aad-admin-group-object-ids <object-id> --aad-tenant-id <tenant-id>
+    ```
+1. Back in the Azure portal, in the menu for *Activity* on the left-hand side, select *Privileged Access (Preview)* and select *Enable Privileged Access*.
+    :::image type="content" source="./media/managed-aad/jit-enabling-priv-access.png" alt-text="The Azure portal's Privileged access (Preview) page is shown, with 'Enable privileged access' highlighted":::
+1. Select *Add Assignments* to begin granting access.
+    :::image type="content" source="./media/managed-aad/jit-add-active-assignment.png" alt-text="The Azure portal's Privileged access (Preview) screen after enabling is shown. The option to 'Add assignments' is highlighted.":::
+1. Select a role of *member*, and select the users and groups to whom you wish to grant cluster access. These assignments can be modified at any time by a group admin. When you're ready to move on, select *Next*.
+    :::image type="content" source="./media/managed-aad/jit-adding-assignment.png" alt-text="The Azure portal's Add assignments Membership screen is shown, with a sample user selected to be added as a member. The option 'Next' is highlighted.":::
+1. Choose an assignment type of *Active*, the desired duration, and provide a justification. When you're ready to proceed, select *Assign*. For more on assignment types, see [Assign eligibility for a privileged access group (preview) in Privileged Identity Management][aad-assignments].
+    :::image type="content" source="./media/managed-aad/jit-set-active-assignment-details.png" alt-text="The Azure portal's Add assignments Setting screen is shown. An assignment type of 'Active' is selected and a sample justification has been given. The option 'Assign' is highlighted.":::
+
+Once the assignments have been made, verify just-in-time access is working by accessing the cluster. For example:
+
+```azurecli-interactive
+ az aks get-credentials --resource-group myResourceGroup --name myManagedCluster
+```
+
+Follow the steps to sign in.
+
+Use the `kubectl get nodes` command to view nodes in the cluster:
+
+```azurecli-interactive
+kubectl get nodes
+```
+
+Note the authentication requirement and follow the steps to authenticate. If successful, you should see output similar to the following:
+
+```output
+To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code AAAAAAAAA to authenticate.
+NAME                                STATUS   ROLES   AGE     VERSION
+aks-nodepool1-61156405-vmss000000   Ready    agent   6m36s   v1.18.14
+aks-nodepool1-61156405-vmss000001   Ready    agent   6m42s   v1.18.14
+aks-nodepool1-61156405-vmss000002   Ready    agent   6m33s   v1.18.14
+```
+
+### Troubleshooting
+
+If `kubectl get nodes` returns an error similar to the following:
+
+```output
+Error from server (Forbidden): nodes is forbidden: User "aaaa11111-11aa-aa11-a1a1-111111aaaaa" cannot list resource "nodes" in API group "" at the cluster scope
+```
+
+Make sure the admin of the security group has given your account an *Active* assignment.
+
 ## Next steps
 
 * Learn about [Azure RBAC integration for Kubernetes Authorization][azure-rbac-integration]
@@ -238,20 +413,26 @@ In the Azure portal, navigate to Azure Active Directory, select *Enterprise appl
 [kubernetes-webhook]:https://kubernetes.io/docs/reference/access-authn-authz/authentication/#webhook-token-authentication
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [aks-arm-template]: /azure/templates/microsoft.containerservice/managedclusters
+[aad-pricing]: https://azure.microsoft.com/pricing/details/active-directory/
 
 <!-- LINKS - Internal -->
 [aad-conditional-access]: ../active-directory/conditional-access/overview.md
 [azure-rbac-integration]: manage-azure-rbac.md
 [aks-concepts-identity]: concepts-identity.md
 [azure-ad-rbac]: azure-ad-rbac.md
-[az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
-[az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
-[az-group-create]: /cli/azure/group#az-group-create
+[az-aks-create]: /cli/azure/aks#az_aks_create
+[az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
+[az-group-create]: /cli/azure/group#az_group_create
 [open-id-connect]:../active-directory/develop/v2-protocols-oidc.md
-[az-ad-user-show]: /cli/azure/ad/user#az-ad-user-show
+[az-ad-user-show]: /cli/azure/ad/user#az_ad_user_show
 [rbac-authorization]: concepts-identity.md#role-based-access-controls-rbac
 [operator-best-practices-identity]: operator-best-practices-identity.md
 [azure-ad-rbac]: azure-ad-rbac.md
 [azure-ad-cli]: azure-ad-integration-cli.md
 [access-cluster]: #access-an-azure-ad-enabled-cluster
 [aad-migrate]: #upgrading-to-aks-managed-azure-ad-integration
+[aad-assignments]: ../active-directory/privileged-identity-management/groups-assign-member-owner.md#assign-an-owner-or-member-of-a-group
+[az-feature-register]: /cli/azure/feature#az_feature_register
+[az-feature-list]: /cli/azure/feature#az_feature_list
+[az-provider-register]: /cli/azure/provider#az_provider_register
+[az-aks-update]: /cli/azure/aks#az_aks_update

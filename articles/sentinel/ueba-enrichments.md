@@ -14,25 +14,63 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 01/04/2021
+ms.date: 05/10/2021
 ms.author: yelevin
 ---
 
 # Azure Sentinel UEBA enrichments reference
 
-These tables list and describe entity enrichments that can be used to focus and sharpen your investigation of security incidents.
+This article describes the Azure Sentinel **BehaviorAnalytics** table found in **Logs** and mentioned on the [entity details pages](identify-threats-with-entity-behavior-analytics.md#how-to-use-entity-pages), and provides the details of the entity enrichments fields in that table, the contents of which you can use to focus and sharpen your security incident investigations.
 
-The first two tables, **User insights** and **Device insights**, contain entity information from Active Directory / Azure AD and Microsoft Threat Intelligence sources.
+The following three dynamic fields from the BehaviorAnalytics table are described in the [tables below](#entity-enrichments-dynamic-fields).
 
-<a name="baseline-explained"></a>The rest of the tables, under **Activity insights tables**, contain entity information based on the behavioral profiles built by Azure Sentinel's entity behavior analytics. The activities are analyzed against a baseline that is dynamically compiled each time it is used. Each activity has its defined lookback period from which this dynamic baseline is derived. This period is specified in the [**Baseline**](#activity-insights-tables) column in this table.
+The [UsersInsights](#usersinsights-field) and  [DevicesInsights](#devicesinsights-field) fields contain entity information from Active Directory / Azure AD and Microsoft Threat Intelligence sources.
+
+The [ActivityInsights](#activityinsights-field) field contains entity information based on the behavioral profiles built by Azure Sentinel's entity behavior analytics. 
+
+<a name="baseline-explained"></a>User activities are analyzed against a baseline that is dynamically compiled each time it is used. Each activity has its defined lookback period from which the dynamic baseline is derived. The lookback period is specified in the [**Baseline**](#activityinsights-field) column in this table.
 
 > [!NOTE] 
-> The **Enrichment name** field in all three tables displays two rows of information. The first, in **bold**, is the "friendly name" of the enrichment. The second *(in italics and parentheses)* is the field name of the enrichment as stored in the [**Behavior Analytics table**](identify-threats-with-entity-behavior-analytics.md#data-schema).
+> The **Enrichment name** column in all the [entity enrichment field](#entity-enrichments-dynamic-fields) tables displays two rows of information. 
+> 
+> - The first, in **bold**, is the "friendly name" of the enrichment.
+> - The second *(in italics and parentheses)* is the field name of the enrichment as stored in the [**Behavior Analytics table**](#behavioranalytics-table).
 
-## User insights table
+## BehaviorAnalytics table
+
+The following table describes the behavior analytics data displayed on each [entity details page](identify-threats-with-entity-behavior-analytics.md#how-to-use-entity-pages) in Azure Sentinel.
+
+| Field                     | Type | Description                                                  |
+|---------------------------|------|--------------------------------------------------------------|
+| **TenantId**              | string | unique ID number of the tenant                             |
+| **SourceRecordId**        | string | unique ID number of the EBA event                          |
+| **TimeGenerated**         | datetime | timestamp of the activity's occurrence                   |
+| **TimeProcessed**         | datetime | timestamp of the activity's processing by the EBA engine |
+| **ActivityType**          | string | high-level category of the activity                        |
+| **ActionType**            | string | normalized name of the activity                            |
+| **UserName**              | string | username of the user that initiated the activity           |
+| **UserPrincipalName**     | string | full username of the user that initiated the activity      |
+| **EventSource**           | string | data source that provided the original event               |
+| **SourceIPAddress**       | string | IP address from which activity was initiated               |
+| **SourceIPLocation** | string | country from which activity was initiated, enriched from IP address |
+| **SourceDevice**          | string | hostname of the device that initiated the activity         |
+| **DestinationIPAddress**  | string | IP address of the target of the activity                   |
+| **DestinationIPLocation** | string | country of the target of the activity, enriched from IP address |
+| **DestinationDevice**     | string | name of the target device                                  |
+| **UsersInsights**         | dynamic | contextual enrichments of involved users ([details below](#usersinsights-field)) |
+| **DevicesInsights**       | dynamic | contextual enrichments of involved devices ([details below](#devicesinsights-field)) |
+| **ActivityInsights**      | dynamic | contextual analysis of activity based on our profiling ([details below](#activityinsights-field)) |
+| **InvestigationPriority** | int | anomaly score, between 0-10 (0=benign, 10=highly anomalous)   |
+|
+
+## Entity enrichments dynamic fields
+
+### UsersInsights field
+
+The following table describes the enrichments featured in the **UsersInsights** dynamic field in the BehaviorAnalytics table:
 
 | Enrichment name | Description | Sample value |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | **Account display name**<br>*(AccountDisplayName)* | The account display name of the user. | Admin, Hayden Cook |
 | **Account domain**<br>*(AccountDomain)* | The account domain name of the user. |  |
 | **Account object ID**<br>*(AccountObjectID)* | The account object ID of the user. | a58df659-5cab-446c-9dd0-5a3af20ce1c2 |
@@ -43,10 +81,12 @@ The first two tables, **User insights** and **Device insights**, contain entity 
 | **On premises SID**<br>*(OnPremisesSID)* | The on-premises SID of the user related to the action. | S-1-5-21-1112946627-1321165628-2437342228-1103 |
 |
 
-## Device insights table
+### DevicesInsights field
+
+The following table describes the enrichments featured in the **DevicesInsights** dynamic field in the BehaviorAnalytics table:
 
 | Enrichment name | Description | Sample value |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | **Browser**<br>*(Browser)* | The browser used in the action. | Edge, Chrome |
 | **Device family**<br>*(DeviceFamily)* | The device family used in the action. | Windows |
 | **Device type**<br>*(DeviceType)* | The client device type used in the action | Desktop |
@@ -58,7 +98,9 @@ The first two tables, **User insights** and **Device insights**, contain entity 
 | **User agent family**<br>*(UserAgentFamily)* | The user agent family used in the action. | Chrome, Edge, Firefox |
 |
 
-## Activity insights tables
+### ActivityInsights field
+
+The following tables describe the enrichments featured in the **ActivityInsights** dynamic field in the BehaviorAnalytics table:
 
 #### Action performed
 
@@ -158,3 +200,10 @@ The first two tables, **User insights** and **Device insights**, contain entity 
 | **Unusual number of devices deleted**<br>*(UnusualNumberOfDevicesDeleted)* | 5 | A user deleted an unusual number of devices. | True, False |
 | **Unusual number of users added to group**<br>*(UnusualNumberOfUsersAddedToGroup)* | 5 | A user added an unusual number of users to a group. | True, False |
 |
+
+## Next steps
+
+This document described the Azure Sentinel entity behavior analytics table schema.
+
+- Learn more about [entity behavior analytics](identify-threats-with-entity-behavior-analytics.md).
+- [Put UEBA to use](investigate-with-ueba.md) in your investigations.

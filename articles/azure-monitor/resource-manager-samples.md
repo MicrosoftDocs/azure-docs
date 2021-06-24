@@ -5,12 +5,12 @@ author: bwren
 ms.author: bwren
 services: azure-monitor
 ms.topic: sample
-ms.date: 05/18/2020
-ms.subservice: 
+ms.date: 05/18/2020 
+ms.custom: devx-track-azurepowershell
 ---
 # Resource Manager template samples for Azure Monitor
 
-Azure Monitor can be deployed and configured at scale using [Azure Resource Manager template](../azure-resource-manager/templates/template-syntax.md). The following articles provide sample templates for different Azure Monitor features. These samples can be modified for your particular requirements and deployed using any standard method for deploying Resource Manager templates. 
+Azure Monitor can be deployed and configured at scale using [Azure Resource Manager template](../azure-resource-manager/templates/syntax.md). The following articles provide sample templates for different Azure Monitor features. These samples can be modified for your particular requirements and deployed using any standard method for deploying Resource Manager templates. 
 
 ## Deploying the sample templates
 The basic steps to use the samples are:
@@ -48,7 +48,7 @@ az deployment group create \
 - [Log queries](logs/resource-manager-log-queries.md) - Create saved log queries in a Log Analytics workspace.
 - [Log Analytics Workspace](logs/resource-manager-workspace.md) - Create Log Analytics workspace and configure collection of different data sources from Log Analytics agent.
 - [Workbooks](visualize/resource-manager-workbooks.md) - Create workbooks.
-- [Azure Monitor for containers](containers/resource-manager-container-insights.md) - Onboard clusters to Azure Monitor for containers.
+- [Container insights](containers/resource-manager-container-insights.md) - Onboard clusters to Container insights.
 - [Azure Monitor for VMs](vm/resource-manager-vminsights.md) - Onboard virtual machines to Azure Monitor for VMs.
 
 

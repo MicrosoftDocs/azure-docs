@@ -1,8 +1,8 @@
 ---
 title: Limits - Azure Database for PostgreSQL - Single Server
 description: This article describes limits in Azure Database for PostgreSQL - Single Server, such as number of connection and storage engine options.
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/28/2020
@@ -65,6 +65,9 @@ A PostgreSQL connection, even idle, can occupy about 10MB of memory. Also, creat
 If you see an error related to **GSS**, you are likely using a newer client/driver version which Azure Postgres Single Server does not yet fully support. This error is known to affect [JDBC driver versions 42.2.15 and 42.2.16](https://github.com/pgjdbc/pgjdbc/issues/1868).
    - We plan to complete the update by the end of November. Consider using a working driver version in the meantime.
    - Or, consider disabling the GSS request.  Use a connection parameter like `gssEncMode=disable`.
+
+### Storage size reduction
+Storage size cannot be reduced. You have to create a new server with desired storage size, perform manual [dump and restore](./howto-migrate-using-dump-and-restore.md) and migrate your database(s) to the new server.
 
 ## Next steps
 - Understand [what’s available in each pricing tier](concepts-pricing-tiers.md)

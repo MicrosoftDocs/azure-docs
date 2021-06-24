@@ -1,18 +1,20 @@
 ---
 title: Update the Network Watcher extension to the latest version 
 description: Learn how to update the Azure Network Watcher extension to the latest version.
-services: virtual-machines-windows
+services: virtual-machines
 documentationcenter: ''
 author: damendo
 manager: balar
 editor: ''
 tags: azure-resource-manager
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.subservice: extensions
+ms.collection: windows
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 09/23/2020
-ms.author: damendo
+ms.author: damendo 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Update the Network Watcher extension to the latest version

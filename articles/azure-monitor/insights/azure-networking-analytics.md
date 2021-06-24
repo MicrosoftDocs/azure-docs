@@ -1,11 +1,11 @@
 ---
 title: Azure Networking Analytics solution in Azure Monitor | Microsoft Docs
 description: You can use the Azure Networking Analytics solution in Azure Monitor to review Azure network security group logs and Azure Application Gateway logs.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 06/21/2018
+ms.date: 06/21/2018 
+ms.custom: devx-track-azurepowershell
 
 ---
 

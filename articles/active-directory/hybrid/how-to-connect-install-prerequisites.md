@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 02/16/2021
+ms.date: 06/21/2021
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -32,7 +32,7 @@ Before you install Azure AD Connect, there are a few things that you need.
 * An Azure AD tenant allows, by default, 50,000 objects. When you verify your domain, the limit increases to 300,000 objects. If you need even more objects in Azure AD, open a support case to have the limit increased even further. If you need more than 500,000 objects, you need a license, such as Microsoft 365, Azure AD Premium, or Enterprise Mobility + Security.
 
 ### Prepare your on-premises data
-* Use [IdFix](https://support.office.com/article/Install-and-run-the-Office-365-IdFix-tool-f4bd2439-3e41-4169-99f6-3fabdfa326ac) to identify errors such as duplicates and formatting problems in your directory before you synchronize to Azure AD and Microsoft 365.
+* Use [IdFix](https://github.com/Microsoft/idfix) to identify errors such as duplicates and formatting problems in your directory before you [synchronize to Azure AD and Microsoft 365](https://support.office.com/article/Install-and-run-the-Office-365-IdFix-tool-f4bd2439-3e41-4169-99f6-3fabdfa326ac).
 * Review [optional sync features you can enable in Azure AD](how-to-connect-syncservice-features.md), and evaluate which features you should enable.
 
 ### On-premises Active Directory
@@ -81,6 +81,7 @@ We recommend that you harden your Azure AD Connect server to decrease the securi
 - Ensure every machine has a unique local administrator password. For more information, see [Local Administrator Password Solution (LAPS)](https://support.microsoft.com/help/3062591/microsoft-security-advisory-local-administrator-password-solution-laps) can configure unique random passwords on each workstation and server store them in Active Directory protected by an ACL. Only eligible authorized users can read or request the reset of these local administrator account passwords. You can obtain the LAPS for use on workstations and servers from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=46899). Additional guidance for operating an environment with LAPS and privileged access workstations (PAWs) can be found in [Operational standards based on clean source principle](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#operational-standards-based-on-clean-source-principle). 
 - Implement dedicated [privileged access workstations](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/) for all personnel with privileged access to your organization's information systems. 
 - Follow these [additional guidelines](/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface) to reduce the attack surface of your Active Directory environment.
+- Follow the [Monitor changes to federation configuration](how-to-connect-monitor-federation-changes.md) to setup alerts to monitor changes to the trust established between your Idp and Azure AD. 
 
 
 ### SQL Server used by Azure AD Connect
@@ -97,6 +98,7 @@ We recommend that you harden your Azure AD Connect server to decrease the securi
 
 ### Connectivity
 * The Azure AD Connect server needs DNS resolution for both intranet and internet. The DNS server must be able to resolve names both to your on-premises Active Directory and the Azure AD endpoints.
+* Azure AD Connect requires network connectivity to all configured domains
 * If you have firewalls on your intranet and you need to open ports between the Azure AD Connect servers and your domain controllers, see [Azure AD Connect ports](reference-connect-ports.md) for more information.
 * If your proxy or firewall limit which URLs can be accessed, the URLs documented in [Office 365 URLs and IP address ranges](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) must be opened. Also see [Safelist the Azure portal URLs on your firewall or proxy server](../../azure-portal/azure-portal-safelist-urls.md?tabs=public-cloud).
   * If you're using the Microsoft cloud in Germany or the Microsoft Azure Government cloud, see [Azure AD Connect sync service instances considerations](reference-connect-instances.md) for URLs.
@@ -170,9 +172,9 @@ During the installation of the synchronization service, Azure AD Connect checks 
 
 Under this registry key, Azure AD Connect will check to see if the following values are present and uncorrupted: 
 
-- [MachineAccessRestriction](https://docs.microsoft.com/windows/win32/com/machineaccessrestriction)
-- [MachineLaunchRestriction](https://docs.microsoft.com/windows/win32/com/machinelaunchrestriction)
-- [DefaultLaunchPermission](https://docs.microsoft.com/windows/win32/com/defaultlaunchpermission)
+- [MachineAccessRestriction](/windows/win32/com/machineaccessrestriction)
+- [MachineLaunchRestriction](/windows/win32/com/machinelaunchrestriction)
+- [DefaultLaunchPermission](/windows/win32/com/defaultlaunchpermission)
 
 ## Prerequisites for federation installation and configuration
 ### Windows Remote Management
@@ -225,7 +227,7 @@ The following table shows the minimum requirements for the Azure AD Connect sync
 | Fewer than 10,000 |1.6 GHz |4 GB |70 GB |
 | 10,000–50,000 |1.6 GHz |4 GB |70 GB |
 | 50,000–100,000 |1.6 GHz |16 GB |100 GB |
-| For 100,000 or more objects, the full version of SQL Server is required | | | |
+| For 100,000 or more objects, the full version of SQL Server is required. For performance reasons, installing locally is preferred. | | | |
 | 100,000–300,000 |1.6 GHz |32 GB |300 GB |
 | 300,000–600,000 |1.6 GHz |32 GB |450 GB |
 | More than 600,000 |1.6 GHz |32 GB |500 GB |

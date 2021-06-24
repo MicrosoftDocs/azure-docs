@@ -3,7 +3,8 @@ title: Deploy a .NET app in a container to Azure Service Fabric
 description: Learn how to containerize an existing .NET application using Visual Studio and debug containers in Service Fabric locally. The containerized application is pushed to an Azure container registry and deployed to a Service Fabric cluster. When deployed to Azure, the application uses Azure SQL DB to persist data.
 
 ms.topic: tutorial
-ms.date: 07/08/2019
+ms.date: 07/08/2019 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Tutorial: Deploy a .NET application in a Windows container to Azure Service Fabric
@@ -27,14 +28,14 @@ In this tutorial, you learn how to:
 2. Enable Windows features **Hyper-V** and **Containers**.
 3. Install [Docker Desktop for Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description) so that you can run containers on Windows 10.
 4. Install [Service Fabric runtime version 6.2 or later](service-fabric-get-started.md) and the [Service Fabric SDK version 3.1](service-fabric-get-started.md) or later.
-5. Install [Visual Studio 2019 Version 16.1](https://www.visualstudio.com/) or later with the **Azure development** and **ASP.NET and web development** workloads.
+5. Install [Visual Studio](https://www.visualstudio.com/) and enable **Azure development** and **ASP.NET and web development** workloads.
 6. Install [Azure PowerShell][link-azure-powershell-install]
 
 ## Download and run Fabrikam Fiber CallCenter
 
-1. Download the [Fabrikam Fiber CallCenter][link-fabrikam-github] sample application.  Click the **download archive** link.  From the *sourceCode* directory in the *fabrikam.zip* file, extract the *sourceCode.zip* file and then extract the *VS2015* directory to your computer.
+1. Download the [Fabrikam Fiber CallCenter][link-fabrikam-github] sample application from GitHub.
 
-2. Verify that the Fabrikam Fiber CallCenter application builds and runs without error.  Launch Visual Studio as an **administrator** and open the [FabrikamFiber.CallCenter.sln][link-fabrikam-github] file.  Press F5 to debug and run the application.
+2. Verify that the Fabrikam Fiber CallCenter application builds and runs without error.  Launch Visual Studio as **administrator** and open the [VS2015\FabrikamFiber.CallCenter.sln][link-fabrikam-github] file. Press F5 to run and debug the application.
 
    ![Screenshot of the Fabrikam Fiber CallCenter application home page running on the local host. The page shows a dashboard with a list of support calls.][fabrikam-web-page]
 
@@ -305,7 +306,7 @@ In this tutorial, you learned how to:
 
 In the next part of the tutorial, learn how to [Deploy a container application with CI/CD to a Service Fabric cluster](service-fabric-tutorial-deploy-container-app-with-cicd-vsts.md).
 
-[link-fabrikam-github]: https://aka.ms/fabrikamcontainer
+[link-fabrikam-github]: https://github.com/Azure-Samples/service-fabric-dotnet-containerize
 [link-azure-powershell-install]: /powershell/azure/install-Az-ps
 [link-servicefabric-create-secure-clusters]: service-fabric-cluster-creation-via-arm.md
 [link-visualstudio-cd-extension]: https://aka.ms/cd4vs

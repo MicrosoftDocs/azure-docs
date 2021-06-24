@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/15/2021
+ms.date: 06/11/2021
 ---
 
 # How to estimate and manage costs of an Azure Cognitive Search service
@@ -60,7 +60,7 @@ The minimum charge is the first search unit (one replica x one partition) at the
 
 Beyond the minimum, you can add replicas and partitions independently of each other. Incremental increases in capacity through replicas and partitions will increase your bill based on the following formula: **(replicas x partitions x billing rate)**, where the rate you're charged depends on the pricing tier you select.
 
-When you're estimating the cost of a search solution, keep in mind that pricing and capacity aren't linear (doubling capacity more than doubles the cost). For an example of how of the formula works, see [How to allocate replicas and partitions](search-capacity-planning.md#how-to-allocate-replicas-and-partitions).
+When you're estimating the cost of a search solution, keep in mind that pricing and capacity aren't linear (doubling capacity more than doubles the cost on the same tier). Also, at some point, switching up to a higher tier can give you better and faster performance at roughly the same price point. For more information and an example, see [Upgrade to a Standard S2 tier](search-performance-tips.md#tip-upgrade-to-a-standard-s2-tier).
 
 ### Bandwidth charges
 
@@ -107,7 +107,7 @@ In terms of the service itself, the only way to lower your bill is to reduce rep
 
 ## Next steps
 
-Learn how to monitor and manage costs across your Azure subscription.
+Want to optimize and save on your cloud spending?
 
 > [!div class="nextstepaction"]
-> [Azure Cost Management and Billing documentation](../cost-management-billing/cost-management-billing-overview.md)
+> [Start analyzing costs with Cost Management](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

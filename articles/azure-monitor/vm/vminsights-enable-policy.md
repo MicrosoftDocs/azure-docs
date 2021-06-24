@@ -1,7 +1,6 @@
 ---
-title: Enable Azure Monitor for VMs by using Azure Policy
-description: Describes how you enable Azure Monitor for VMs for multiple Azure virtual machines or virtual machine scale sets using Azure Policy.
-ms.subservice: 
+title: Enable VM insights by using Azure Policy
+description: Describes how you enable VM insights for multiple Azure virtual machines or virtual machine scale sets using Azure Policy.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -9,24 +8,24 @@ ms.date: 07/27/2020
 
 ---
 
-# Enable Azure Monitor for VMs by using Azure Policy
-This article explains how to enable Azure Monitor for VMs for Azure virtual machines or hybrid virtual machine connected with Azure Arc (preview) using Azure Policy. Azure Policy allows you to assign policy definitions that install the required agents for Azure Monitor for VMs across your Azure environment and automatically enable monitoring for VMs as each virtual machine is created. Azure Monitor for VMs provides a feature that allows you to discover and remediate noncompliant VMs in your environment. Use this feature instead of working directly with Azure Policy.
+# Enable VM insights by using Azure Policy
+This article explains how to enable VM insights for Azure virtual machines or hybrid virtual machine connected with Azure Arc (preview) using Azure Policy. Azure Policy allows you to assign policy definitions that install the required agents for VM insights across your Azure environment and automatically enable monitoring for VMs as each virtual machine is created. VM insights provides a feature that allows you to discover and remediate noncompliant VMs in your environment. Use this feature instead of working directly with Azure Policy.
 
 If you're not familiar with Azure Policy, get a brief introduction at [Deploy Azure Monitor at scale using Azure Policy](../deploy-scale.md).
 
 > [!NOTE]
-> To use Azure Policy with Azure virtual machine scale sets, or to work with Azure Policy directly to enable Azure virtual machines, see [Deploy Azure Monitor at scale using Azure Policy](../deploy-scale.md#azure-monitor-for-vms).
+> To use Azure Policy with Azure virtual machine scale sets, or to work with Azure Policy directly to enable Azure virtual machines, see [Deploy Azure Monitor at scale using Azure Policy](../deploy-scale.md#vm-insights).
 
 ## Prerequisites
-- [Create and configure a Log Analytics workspace](../insights/vminsights-configure-workspace.md).
-- See [Supported operating systems](../insights/vminsights-enable-overview.md#supported-operating-systems) to ensure that the operating system of the virtual machine or virtual machine scale set you're enabling is supported. 
+- [Create and configure a Log Analytics workspace](./vminsights-configure-workspace.md).
+- See [Supported operating systems](./vminsights-enable-overview.md#supported-operating-systems) to ensure that the operating system of the virtual machine or virtual machine scale set you're enabling is supported. 
 
 
-## Azure Monitor for VMs initiative
-Azure Monitor for VMs provides builtin policy definitions to install the Log Analytics agent and Dependency agent on Azure virtual machines. The initiative **Enable Azure Monitor for VMs** includes each of these policy definitions. Assign this initiative to a management group, subscription, or resource group to automatically install the agents on any Windows or Linux Azure virtual machines in that scope.
+## VM insights initiative
+VM insights provides builtin policy definitions to install the Log Analytics agent and Dependency agent on Azure virtual machines. The initiative **Enable VM insights** includes each of these policy definitions. Assign this initiative to a management group, subscription, or resource group to automatically install the agents on any Windows or Linux Azure virtual machines in that scope.
 
 ## Open Policy Coverage feature
-To access **Azure Monitor for VMs Policy Coverage**, go the **Virtual machines** in the **Azure Monitor** menu in the Azure portal. Select **Other onboarding options** and then **Enable** under **Enable using policy**.
+To access **VM insights Policy Coverage**, go the **Virtual machines** in the **Azure Monitor** menu in the Azure portal. Select **Other onboarding options** and then **Enable** under **Enable using policy**.
 
 [![Azure Monitor from VMs Get Started tab](./media/vminsights-enable-policy/get-started-page.png)](./media/vminsights-enable-policy/get-started-page.png#lightbox)
 
@@ -35,7 +34,7 @@ If you don't already have an assignment, create a new one by clicking **Assign P
 
 [![Create assignment](media/vminsights-enable-policy/create-assignment.png)](media/vminsights-enable-policy/create-assignment.png#lightbox)
 
-This is the same page to assign an initiative in Azure Policy except that it's hardcoded with the scope that you selected and the **Enable Azure Monitor for VMs** initiative definition. You can optionally change the **Assignment name** and add a **Description**. Select **Exclusions** if you want to provide an exclusion to the scope. For example, your scope could be a management group, and you could specify a subscription in that management group to be excluded from the assignment.
+This is the same page to assign an initiative in Azure Policy except that it's hardcoded with the scope that you selected and the **Enable VM insights** initiative definition. You can optionally change the **Assignment name** and add a **Description**. Select **Exclusions** if you want to provide an exclusion to the scope. For example, your scope could be a management group, and you could specify a subscription in that management group to be excluded from the assignment.
 
 [![Assign initiative](media/vminsights-enable-policy/assign-initiative.png)](media/vminsights-enable-policy/assign-initiative.png#lightbox)
 
@@ -49,9 +48,9 @@ On the **Parameters** page, select a **Log Analytics workspace** to be used by a
 Click **Review + Create** to review the details of the assignment before clicking **Create** to create it. Don't create a remediation task at this point since you will most likely need multiple remediation tasks to enable existing virtual machines. See [Remediate compliance results](#remediate-compliance-results) below.
 
 ## Review compliance
-Once an assignment is created, you can review and manage coverage for the **Enable Azure Monitor for VMs** initiative across your management groups and subscriptions. This will show how many virtual machines exist in each of the management groups or subscriptions and their compliance status.
+Once an assignment is created, you can review and manage coverage for the **Enable VM insights** initiative across your management groups and subscriptions. This will show how many virtual machines exist in each of the management groups or subscriptions and their compliance status.
 
-[![Azure Monitor for VMs Manage Policy page](media/vminsights-enable-policy/manage-policy-page-01.png)](media/vminsights-enable-policy/manage-policy-page-01.png#lightbox)
+[![VM insights Manage Policy page](media/vminsights-enable-policy/manage-policy-page-01.png)](media/vminsights-enable-policy/manage-policy-page-01.png#lightbox)
 
 
 The following table provides a description of the information in this view.
@@ -101,11 +100,11 @@ Click **Remediate** to create the remediation task and then **Remediate** to sta
 [![Screenshot shows the Policy Remediation pane for Monitor | Virtual Machines.](media/vminsights-enable-policy/remediation.png)](media/vminsights-enable-policy/remediation.png#lightbox)
 
 
-Once the remediation tasks are complete, your VMs should be compliant with agents installed and enabled for Azure Monitor for VMs. 
+Once the remediation tasks are complete, your VMs should be compliant with agents installed and enabled for VM insights. 
 
 ## Next steps
 
-Now that monitoring is enabled for your virtual machines, this information is available for analysis with Azure Monitor for VMs. 
+Now that monitoring is enabled for your virtual machines, this information is available for analysis with VM insights. 
 
-- To view discovered application dependencies, see [View Azure Monitor for VMs Map](vminsights-maps.md). 
-- To identify bottlenecks and overall utilization with your VM's performance, see [View Azure VM performance](vminsights-performance.md). 
+- To view discovered application dependencies, see [View VM insights Map](vminsights-maps.md). 
+- To identify bottlenecks and overall utilization with your VM's performance, see [View Azure VM performance](vminsights-performance.md).

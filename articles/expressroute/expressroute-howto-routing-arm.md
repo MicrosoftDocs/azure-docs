@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Tutorial: Configure peering for ExpressRoute circuit - Azure PowerShell'
 description: This tutorial shows you how to create and manage routing configuration for an ExpressRoute circuit in the Resource Manager deployment model using PowerShell.
 services: expressroute
@@ -6,7 +6,8 @@ author: duongau
 ms.service: expressroute
 ms.topic: tutorial
 ms.date: 10/08/2020
-ms.author: duau
+ms.author: duau 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Tutorial: Create and modify peering for an ExpressRoute circuit using PowerShell
@@ -158,6 +159,11 @@ Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 
 This section helps you create, get, update, and delete the Azure private peering configuration for an ExpressRoute circuit.
 
+> [!IMPORTANT]
+> IPv6 support for private peering is currently in **Public Preview**. 
+> 
+> 
+
 ### To create Azure private peering
 
 1. Import the PowerShell module for ExpressRoute.
@@ -228,8 +234,10 @@ This section helps you create, get, update, and delete the Azure private peering
    ```
 4. Configure Azure private peering for the circuit. Make sure that you have the following items before you continue with the next steps:
 
-   * A /30 subnet for the primary link. The subnet must not be part of any address space reserved for virtual networks.
-   * A /30 subnet for the secondary link. The subnet must not be part of any address space reserved for virtual networks.
+   * A pair of subnets that are not part of any address space reserved for virtual networks. One subnet will be used for the primary link, while the other will be used for the secondary link. From each of these subnets, you will assign the first usable IP address to your router as Microsoft uses the second usable IP for its router. You have three options for this pair of subnets:
+       * IPv4: Two /30 subnets.
+       * IPv6: Two /126 subnets.
+       * Both: Two /30 subnets and two /126 subnets.
    * A valid VLAN ID to establish this peering on. Ensure that no other peering in the circuit uses the same VLAN ID.
    * AS number for peering. You can use both 2-byte and 4-byte AS numbers. You can use a private AS number for this peering. Ensure that you aren't using 65515.
    * Optional:
@@ -240,6 +248,8 @@ This section helps you create, get, update, and delete the Azure private peering
    ```azurepowershell-interactive
    Add-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 200
 
+   Add-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "3FFE:FFFF:0:CD30::/126" -SecondaryPeerAddressPrefix "3FFE:FFFF:0:CD30::4/126" -VlanId 200 -PeerAddressType IPv6
+
    Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
    ```
 
@@ -247,6 +257,8 @@ This section helps you create, get, update, and delete the Azure private peering
 
    ```azurepowershell-interactive
    Add-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 200  -SharedKey "A1B2C3D4"
+
+   Add-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "3FFE:FFFF:0:CD30::/126" -SecondaryPeerAddressPrefix "3FFE:FFFF:0:CD30::4/126" -VlanId 200 -PeerAddressType IPv6 -SharedKey "A1B2C3D4"
    ```
 
    > [!IMPORTANT]
@@ -266,10 +278,10 @@ Get-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRoute
 
 ### <a name="updateprivate"></a>To update Azure private peering configuration
 
-You can update any part of the configuration using the following example. In this example, the VLAN ID of the circuit is being updated from 100 to 500.
+You can update any part of the configuration using the following example. In this example, the VLAN ID of the circuit is being updated from 200 to 500.
 
 ```azurepowershell-interactive
-Set-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 200
+Set-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 500
 
 Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```

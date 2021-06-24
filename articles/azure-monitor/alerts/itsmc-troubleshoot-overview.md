@@ -1,7 +1,6 @@
 ---
 title: Troubleshoot problems in ITSMC 
 description: Learn how to resolve common problems in IT Service Management Connector.  
-ms.subservice: alerts
 ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
@@ -50,7 +49,7 @@ The following sections identify common symptoms, possible causes, and resolution
 
 * Credentials are incorrect.
 * Privileges are insufficient.
-* The web app was incorrectly deployed.
+* For Service Manager connections: The web app was incorrectly deployed.
 
 **Resolution**:
 
@@ -90,3 +89,15 @@ The following sections identify common symptoms, possible causes, and resolution
 **Cause**: A newly created ITSMC instance has yet to finish the initial sync.
 
 **Resolution**: Review the [common errors and their resolutions](itsmc-dashboard-errors.md).
+
+### Sync connection 
+
+**Cause**: There can be several reasons for this symptom:
+
+* Templates are not shown as a part of the action definition dropdown and an error message is shown: "Can't retrieve the template configuration, see the connector logs for more information."
+* Values are not shown in the dropdowns of the default fields as a part of the action definition and an error message is shown: "No values found for the following fields: <field names>."
+* Incidents/Events are not created in ServiceNow.
+
+**Resolution**: 
+* [Sync the connector](itsmc-resync-servicenow.md).
+* Check the [dashboard](itsmc-dashboard.md) and review the errors in the section for connector status. Then review the [common errors and their resolutions](itsmc-dashboard-errors.md)

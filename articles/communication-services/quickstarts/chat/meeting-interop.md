@@ -1,33 +1,32 @@
 ---
 title: Getting started with Teams interop on Azure Communication Services
 titleSuffix: An Azure Communication Services quickstart
-description: In this quickstart, you'll learn how to join a Teams meeting with the Azure Communication Chat client library
+description: In this quickstart, you'll learn how to join a Teams meeting with the Azure Communication Chat SDK
 author: askaur
 ms.author: askaur
-ms.date: 12/08/2020
+ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
+zone_pivot_groups: acs-web-ios
 
 ---
 
 # Quickstart: Join your chat app to a Teams meeting
 
-[!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include-chat.md)]
 
-Get started with Azure Communication Services by connecting your chat solution to Microsoft Teams using the JavaScript client library. 
+> [!IMPORTANT]
+> To enable/disable [Teams tenant interoperability](../../concepts/teams-interop.md), complete [this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR21ouQM6BHtHiripswZoZsdURDQ5SUNQTElKR0VZU0VUU1hMOTBBMVhESS4u).
 
-## Prerequisites 
+Get started with Azure Communication Services by connecting your chat solution to Microsoft Teams. 
 
-1. A [Teams deployment](/deployoffice/teams-install). 
-2. A working [chat app](./get-started.md). 
+::: zone pivot="platform-web"
+[!INCLUDE [Teams interop with JavaScript SDK](./includes/meeting-interop-javascript.md)]
+::: zone-end
 
-## Enable Teams interoperability 
-
-A Communication Services user that joins a Teams meeting as a guest user can access the meeting's chat only when they've joined the Teams meeting call. See the [Teams interop](../voice-video-calling/get-started-teams-interop.md) documentation to learn how to add a Communication Services user to a Teams meeting call.
-
-You must be a member of the owning organization of both entities to use this feature.
-
-[!INCLUDE [Join Teams meetings](./includes/meeting-interop-javascript.md)]
+::: zone pivot="platform-ios"
+[!INCLUDE [Teams interop with iOS SDK](./includes/meeting-interop-swift.md)]
+::: zone-end
 
 ## Clean up resources
 

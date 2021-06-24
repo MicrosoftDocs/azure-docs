@@ -5,18 +5,17 @@ author: ofirmanor
 ms.author: ofmanor
 ms.topic: reference
 ms.date: 03/16/2020
-ms.subservice: alerts
 ---
 # Troubleshooting problems in Azure Monitor alerts
 
 This article discusses common problems in Azure Monitor alerting and notifications.
 
-Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues before the users of your system notice them. For more information on alerting, see [Overview of alerts in Microsoft Azure](../platform/alerts-overview.md).
+Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues before the users of your system notice them. For more information on alerting, see [Overview of alerts in Microsoft Azure](./alerts-overview.md).
 
 If you have a problem with an alert firing or not firing when expected, refer to the articles below. You can see "fired" alerts in the Azure portal.
 
 - [Troubleshooting Azure Monitor Metric Alerts in Microsoft Azure](alerts-troubleshoot-metric.md)  
-- [Troubleshooting Azure Monitor Log Alerts in Microsoft Azure](alerts-troubleshoot-metric.md)
+- [Troubleshooting Azure Monitor Log Alerts in Microsoft Azure](alerts-troubleshoot-log.md)
 
 If the alert fires as intended according to the Azure portal but the proper notifications do not occur, use the information in the rest of this article to troubleshoot that problem.
 
@@ -30,7 +29,7 @@ If you can see a fired alert in the Azure portal, but did not receive the email 
 
 1. **Was the email suppressed by an [action rule](../alerts/alerts-action-rules.md)**?
 
-    Check by clicking on the fired alert in the portal, and look at the history tab for suppressed [action groups](../platform/action-groups.md):
+    Check by clicking on the fired alert in the portal, and look at the history tab for suppressed [action groups](./action-groups.md):
 
     ![Alert action rule suppression history](media/alerts-troubleshoot/history-action-rule.png)
 
@@ -86,7 +85,7 @@ If you can see a fired alert in the portal, but did not receive the SMS, voice c
 
 1. **Was the action suppressed by an [action rule](../alerts/alerts-action-rules.md)?**
 
-    Check by clicking on the fired alert in the portal, and look at the history tab for suppressed [action groups](../platform/action-groups.md): 
+    Check by clicking on the fired alert in the portal, and look at the history tab for suppressed [action groups](./action-groups.md): 
 
     ![Alert action rule suppression history](media/alerts-troubleshoot/history-action-rule.png)
 
@@ -119,7 +118,7 @@ If you can see a fired alert in the portal, but its configured action did not tr
 
 1. **Was the action suppressed by an action rule?**
 
-    Check by clicking on the fired alert in the portal, and look at the history tab for suppressed [action groups](../platform/action-groups.md):
+    Check by clicking on the fired alert in the portal, and look at the history tab for suppressed [action groups](./action-groups.md):
 
     ![Alert action rule suppression history](media/alerts-troubleshoot/history-action-rule.png)
  
@@ -129,7 +128,7 @@ If you can see a fired alert in the portal, but its configured action did not tr
 
     1. **Have the source IP addresses been blocked?**
     
-       Add the [IP addresses](../platform/action-groups.md#action-specific-information) that the webhook is called from to your allow list.
+       Add the [IP addresses](./action-groups.md#action-specific-information) that the webhook is called from to your allow list.
 
     1. **Does your webhook endpoint work correctly?**
 
@@ -174,12 +173,12 @@ If you have received the alert, but believe some of its fields are missing or in
 
     Check if the format specified at the action level is what you expect. For example, you may have developed code that responds to alerts (webhook, function, logic app, etc.), expecting one format, but later in the action you or another person specified a different format.  
 
-    Also, check the payload format (JSON) for [activity log alerts](../alerts/activity-log-alerts-webhook.md), for [log search alerts](../alerts/alerts-log-webhook.md) (both Application Insights and log analytics), for [metric alerts](alerts-metric-near-real-time.md#payload-schema), for the [common alert schema](../alerts/alerts-common-schema-definitions.md), and for the deprecated [classic metric alerts](../platform/alerts-webhooks.md).
+    Also, check the payload format (JSON) for [activity log alerts](../alerts/activity-log-alerts-webhook.md), for [log search alerts](../alerts/alerts-log-webhook.md) (both Application Insights and log analytics), for [metric alerts](alerts-metric-near-real-time.md#payload-schema), for the [common alert schema](../alerts/alerts-common-schema-definitions.md), and for the deprecated [classic metric alerts](./alerts-webhooks.md).
 
  
 1. **Activity log alerts: Is the information available in the activity log?** 
 
-    [Activity log alerts](../platform/activity-log-alerts.md) are alerts that are based on events written to the Azure Activity Log, such as events about creating, updating, or deleting Azure resources, service health and resource health events, or findings from Azure Advisor and Azure Policy. If you have received an alert based on the activity log but some fields that you need are missing or incorrect, first check the events in the activity log itself. If the Azure resource did not write the fields you are looking for in its activity log event, those fields will not be included in the corresponding alert. 
+    [Activity log alerts](./activity-log-alerts.md) are alerts that are based on events written to the Azure Activity Log, such as events about creating, updating, or deleting Azure resources, service health and resource health events, or findings from Azure Advisor and Azure Policy. If you have received an alert based on the activity log but some fields that you need are missing or incorrect, first check the events in the activity log itself. If the Azure resource did not write the fields you are looking for in its activity log event, those fields will not be included in the corresponding alert. 
 
 ## Action rule is not working as expected 
 
@@ -239,9 +238,9 @@ If you received an error while trying to create, update or delete an [action rul
 
 1. **Did you verify the action rule parameters?**  
 
-    Check the [action rule documentation](../alerts/alerts-action-rules.md), or the [action rule PowerShell Set-AzActionRule](/powershell/module/az.alertsmanagement/set-azactionrule?view=azps-3.5.0) command. 
+    Check the [action rule documentation](../alerts/alerts-action-rules.md), or the [action rule PowerShell Set-AzActionRule](/powershell/module/az.alertsmanagement/set-azactionrule) command. 
 
 
 ## Next steps
 - If using a log alert, also see [Troubleshooting Log Alerts](./alerts-troubleshoot-log.md).
-- Go back to the [Azure portal](https://portal.azure.com) to check if you've solved your issue with guidance above 
+- Go back to the [Azure portal](https://portal.azure.com) to check if you've solved your issue with guidance above

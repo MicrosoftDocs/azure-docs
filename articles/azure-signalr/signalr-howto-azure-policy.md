@@ -49,7 +49,7 @@ When a resource is non-compliant, there are many possible reasons. To determine 
 
 ### Policy compliance in the Azure CLI
 
-You can also use the Azure CLI to get compliance data. For example, use the [az policy assignment list](/cli/azure/policy/assignment#az-policy-assignment-list) command in the CLI to get the policy IDs of the Azure SignalR Service policies that are applied:
+You can also use the Azure CLI to get compliance data. For example, use the [az policy assignment list](/cli/azure/policy/assignment#az_policy_assignment_list) command in the CLI to get the policy IDs of the Azure SignalR Service policies that are applied:
 
 ```azurecli
 az policy assignment list --query "[?contains(displayName,'SignalR')].{name:displayName, ID:id}" --output table
@@ -63,13 +63,13 @@ Name                                                                            
 [Preview]: Azure SignalR Service should use private links  /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.Authorization/policyAssignments/<assignmentId>
 ```
 
-Then run [az policy state list](/cli/azure/policy/state#az-policy-state-list) to return the JSON-formatted compliance state for all resources under a specific resource group:
+Then run [az policy state list](/cli/azure/policy/state#az_policy_state_list) to return the JSON-formatted compliance state for all resources under a specific resource group:
 
 ```azurecli
 az policy state list --g <resourceGroup>
 ```
 
-Or run [az policy state list](/cli/azure/policy/state#az-policy-state-list) to return the JSON-formatted compliance state of a specific SignalR resource:
+Or run [az policy state list](/cli/azure/policy/state#az_policy_state_list) to return the JSON-formatted compliance state of a specific SignalR resource:
 
 ```azurecli
 az policy state list \

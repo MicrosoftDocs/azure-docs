@@ -23,7 +23,7 @@ Password plugins such as "validate_password" and "caching_sha2_password" are not
 
 ## Storage engines
 
-MySQL supports many storage engines. On Azure Database for MySQL Flexible Server, the following storage engines are supported and unsupported:
+MySQL supports many storage engines. On Azure Database for MySQL, the following storage engines are supported and unsupported:
 
 ### Supported
 - [InnoDB](https://dev.mysql.com/doc/refman/5.7/en/innodb-introduction.html)
@@ -46,7 +46,7 @@ The MySQL service does not allow direct access to the underlying file system. So
 The following are unsupported:
 - DBA role: Restricted. Alternatively, you can use the administrator user (created during new server creation), allows you to perform most of DDL and DML statements. 
 - SUPER privilege: Similarly, [SUPER privilege](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super) is restricted.
-- DEFINER: Requires super privileges to create and is restricted. If importing data using a backup, remove the `CREATE DEFINER` commands manually or by using the `--skip-definer` command when performing a mysqldump.
+- DEFINER: Requires super privileges to create and is restricted. If importing data using a backup, remove the `CREATE DEFINER` commands manually or by using the `--skip-definer` command when performing a [mysqlpump](https://dev.mysql.com/doc/refman/5.7/en/mysqlpump.html).
 - System databases: The [mysql system database](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html) is read-only and used to support various PaaS functionality. You cannot make changes to the `mysql` system database.
 - `SELECT ... INTO OUTFILE`: Not supported in the service.
 - `LOAD_FILE(file_name)`: Not supported in the service.

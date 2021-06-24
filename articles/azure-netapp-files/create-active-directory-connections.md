@@ -13,23 +13,25 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 02/16/2021
+ms.date: 06/14/2021
 ms.author: b-juche
 ---
 # Create and manage Active Directory connections for Azure NetApp Files
 
-Several features of Azure NetApp Files require that you have an Active Directory connection.  For example, you need to have an Active Directory connection before you can create an [SMB volume](azure-netapp-files-create-volumes-smb.md) or a [dual-protocol volume](create-volumes-dual-protocol.md).  This article shows you how to create and manage Active Directory connections for Azure NetApp Files.
+Several features of Azure NetApp Files require that you have an Active Directory connection.  For example, you need to have an Active Directory connection before you can create an [SMB volume](azure-netapp-files-create-volumes-smb.md), a [NFSv4.1 Kerberos volume](configure-kerberos-encryption.md), or a [dual-protocol volume](create-volumes-dual-protocol.md).  This article shows you how to create and manage Active Directory connections for Azure NetApp Files.
 
 ## Before you begin  
 
-You must have already set up a capacity pool.   
-[Set up a capacity pool](azure-netapp-files-set-up-capacity-pool.md)   
-A subnet must be delegated to Azure NetApp Files.  
-[Delegate a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md)
+* You must have already set up a capacity pool. See [Set up a capacity pool](azure-netapp-files-set-up-capacity-pool.md).   
+* A subnet must be delegated to Azure NetApp Files. See [Delegate a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md).
 
 ## Requirements for Active Directory connections
 
- The requirements for Active Directory connections are as follows: 
+* You can configure only one Active Directory (AD) connection per subscription and per region.   
+
+    Azure NetApp Files does not support multiple AD connections in a single *region*, even if the AD connections are in different NetApp accounts. However, you can have multiple AD connections in a single subscription if the AD connections are in different regions. If you need multiple AD connections in a single region, you can use separate subscriptions to do so.  
+
+    The AD connection is visible only through the NetApp account it is created in. However, you can enable the Shared AD feature to allow NetApp accounts that are under the same subscription and same region to use an AD server created in one of the NetApp accounts. See [Map multiple NetApp accounts in the same subscription and region to an AD connection](#shared_ad). When you enable this feature, the AD connection becomes visible in all NetApp accounts that are under the same subscription and same region. 
 
 * The admin account you use must have the capability to create machine accounts in the organizational unit (OU) path that you will specify.  
 
@@ -82,6 +84,8 @@ A subnet must be delegated to Azure NetApp Files.
 
     [LDAP channel binding](https://support.microsoft.com/help/4034879/how-to-add-the-ldapenforcechannelbinding-registry-entry) configuration alone has no effect on the Azure NetApp Files service. However, if you use both LDAP channel binding and secure LDAP (for example, LDAPS or `start_tls`), then the SMB volume creation will fail.
 
+* For non-AD integrated DNS, you should add a DNS A/PTR record to enable Azure NetApp Files to function by using a “friendly name". 
+
 ## Decide which Domain Services to use 
 
 Azure NetApp Files supports both [Active Directory Domain Services](/windows-server/identity/ad-ds/plan/understanding-active-directory-site-topology) (ADDS) and Azure Active Directory Domain Services (AADDS) for AD connections.  Before you create an AD connection, you need to decide whether to use ADDS or AADDS.  
@@ -127,6 +131,8 @@ This setting is configured in the **Active Directory Connections** under **NetAp
 
 1. From your NetApp account, click **Active Directory connections**, then click **Join**.  
 
+    Azure NetApp Files supports only one Active Directory connection within the same region and the same subscription. If Active Directory is already configured by another NetApp account in the same subscription and region, you cannot configure and join a different Active Directory from your NetApp account. However, you can enable the Shared AD feature to allow an Active Directory configuration to be shared by multiple NetApp accounts within the same subscription and the same region. See [Map multiple NetApp accounts in the same subscription and region to an AD connection](#shared_ad).
+
     ![Active Directory Connections](../media/azure-netapp-files/azure-netapp-files-active-directory-connections.png)
 
 2. In the Join Active Directory window, provide the following information, based on the Domain Services you want to use:  
@@ -159,8 +165,10 @@ This setting is configured in the **Active Directory Connections** under **NetAp
         ![Join Active Directory](../media/azure-netapp-files/azure-netapp-files-join-active-directory.png)
 
     * **AES Encryption**   
-        Select this checkbox if you want to enable AES encryption for an SMB volume. See [Requirements for Active Directory connections](#requirements-for-active-directory-connections) for requirements. 
-
+        Select this checkbox if you want to enable AES encryption for AD authentication or if you require [encryption for SMB volumes](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume).   
+        
+        See [Requirements for Active Directory connections](#requirements-for-active-directory-connections) for requirements.  
+  
         ![Active Directory AES encryption](../media/azure-netapp-files/active-directory-aes-encryption.png)
 
         The **AES Encryption** feature is currently in preview. If this is your first time using this feature, register the feature before using it: 
@@ -178,7 +186,7 @@ This setting is configured in the **Active Directory Connections** under **NetAp
         Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFAesEncryption
         ```
         
-        You can also use [Azure CLI commands](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) `az feature register` and `az feature show` to register the feature and display the registration status. 
+        You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
     * **LDAP Signing**   
         Select this checkbox to enable LDAP signing. This functionality enables secure LDAP lookups between the Azure NetApp Files service and the user-specified [Active Directory Domain Services domain controllers](/windows/win32/ad/active-directory-domain-services). For more information, see [ADV190023 | Microsoft Guidance for Enabling LDAP Channel Binding and LDAP Signing](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023).  
@@ -200,7 +208,21 @@ This setting is configured in the **Active Directory Connections** under **NetAp
         Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFLdapSigning
         ```
         
-        You can also use [Azure CLI commands](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) `az feature register` and `az feature show` to register the feature and display the registration status. 
+        You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
+
+     * **Security privilege users**   <!-- SMB CA share feature -->   
+        You can grant security privilege (`SeSecurityPrivilege`) to users that require elevated privilege to access the Azure NetApp Files volumes. The specified user accounts will be allowed to perform certain actions on Azure NetApp Files SMB shares that require security privilege not assigned by default to domain users.   
+
+        For example, user accounts used for installing SQL Server in certain scenarios must be granted elevated security privilege. If you are using a non-administrator (domain) account to install SQL Server and the account does not have the security privilege assigned, you should add security privilege to the account.  
+
+        > [!IMPORTANT]
+        > Using the **Security privilege users** feature requires that you submit a waitlist request through the **[Azure NetApp Files SMB Continuous Availability Shares Public Preview waitlist submission page](https://aka.ms/anfsmbcasharespreviewsignup)**. Wait for an official confirmation email from the Azure NetApp Files team before using this feature.        
+        > 
+        > Using this feature is optional and supported only for SQL Server. The domain account used for installing SQL Server must already exist before you add it to the **Security privilege users** field. When you add the SQL Server installer's account to **Security privilege users**, the Azure NetApp Files service might validate the account by contacting the domain controller. The command might fail if it cannot contact the domain controller.  
+
+        For more information about `SeSecurityPrivilege` and SQL Server, see [SQL Server installation fails if the Setup account doesn't have certain user rights](/troubleshoot/sql/install/installation-fails-if-remove-user-right).
+
+        ![Screenshot showing the Security privilege users box of Active Directory connections window.](../media/azure-netapp-files/security-privilege-users.png) 
 
      * **Backup policy users**  
         You can include additional accounts that require elevated privileges to the computer account created for use with Azure NetApp Files. The specified accounts will be allowed to change the NTFS permissions at the file or folder level. For example, you can specify a non-privileged service account used for migrating data to an SMB file share in Azure NetApp Files.  
@@ -222,7 +244,7 @@ This setting is configured in the **Active Directory Connections** under **NetAp
         Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFBackupOperator
         ```
         
-        You can also use [Azure CLI commands](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) `az feature register` and `az feature show` to register the feature and display the registration status. 
+        You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status.  
 
     * Credentials, including your **username** and **password**
 
@@ -234,6 +256,28 @@ This setting is configured in the **Active Directory Connections** under **NetAp
 
     ![Created Active Directory connections](../media/azure-netapp-files/azure-netapp-files-active-directory-connections-created.png)
 
+## <a name="shared_ad"></a>Map multiple NetApp accounts in the same subscription and region to an AD connection  
+
+The Shared AD feature enables all NetApp accounts to share an Active Directory (AD) connection created by one of the NetApp accounts that belong to the same subscription and the same region. For example, using this feature, all NetApp accounts in the same subscription and region can use the common AD configuration to create an [SMB volume](azure-netapp-files-create-volumes-smb.md), a [NFSv4.1 Kerberos volume](configure-kerberos-encryption.md), or a [dual-protocol volume](create-volumes-dual-protocol.md). When you use this feature, the AD connection will be visible in all NetApp accounts that are under the same subscription and same region.   
+
+This feature is currently in preview. You need to register the feature before using it for the first time. After registration, the feature is enabled and works in the background. No UI control is required. 
+
+1. Register the feature: 
+
+    ```azurepowershell-interactive
+    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSharedAD
+    ```
+
+2. Check the status of the feature registration: 
+
+    > [!NOTE]
+    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is **Registered** before continuing.
+
+    ```azurepowershell-interactive
+    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSharedAD
+    ```
+You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
+ 
 ## Next steps  
 
 * [Create an SMB volume](azure-netapp-files-create-volumes-smb.md)

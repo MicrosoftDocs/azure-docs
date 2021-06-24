@@ -1,7 +1,6 @@
 ---
 title: Resource Manager template samples for log query alerts
 description: Sample Azure Resource Manager templates to deploy Azure Monitor log query alerts.
-ms.subservice: logs
 ms.topic: sample
 author: bwren
 ms.author: bwren
@@ -10,7 +9,7 @@ ms.date: 09/22/2020
 ---
 
 # Resource Manager template samples for log alert rules in Azure Monitor
-This article includes samples of [Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md) to create and configure log query alerts in Azure Monitor. Each sample includes a template file and a parameters file with sample values to provide to the template.
+This article includes samples of [Azure Resource Manager templates](../../azure-resource-manager/templates/syntax.md) to create and configure log query alerts in Azure Monitor. Each sample includes a template file and a parameters file with sample values to provide to the template.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
@@ -475,4 +474,4 @@ The following sample creates a rule that can target any resource.
 ## Next steps
 
 * [Get other sample templates for Azure Monitor](../resource-manager-samples.md).
-* [Learn more about alert rules](../platform/alerts-overview.md).
+* [Learn more about alert rules](./alerts-overview.md).

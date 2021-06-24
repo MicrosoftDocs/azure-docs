@@ -1,10 +1,8 @@
 ---
 title: Azure Monitor view designer to workbooks conversion summary and access
 description: Permissions required for accessing workbooks when transitioning from views in Azure Monitor.
-author: austonli
-ms.author: aul
-
-ms.subservice: 
+author: shijatsu
+ms.author: shijain
 ms.topic: conceptual
 ms.date: 02/07/2020
 

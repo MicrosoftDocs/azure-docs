@@ -1,6 +1,6 @@
 ---
-title: Built-in roles Windows Virtual Desktop - Azure
-description: An overview of built-in roles for Windows Virtual Desktop available for Azure RBAC.
+title: Built-in roles Azure Virtual Desktop - Azure
+description: An overview of built-in roles for Azure Virtual Desktop available for Azure RBAC.
 services: virtual-desktop
 author: Heidilohr
 
@@ -8,15 +8,15 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 12/15/2020
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
-# Built-in roles for Windows Virtual Desktop
+# Built-in roles for Azure Virtual Desktop
 
-Windows Virtual Desktop uses Azure role-based access controls (RBAC) to assign roles to users and admins. These roles give admins permission to carry out certain tasks. To learn more about built-in roles for Azure RBAC, see [Azure built-in roles](../role-based-access-control/built-in-roles.md).
+Azure Virtual Desktop uses Azure role-based access controls (RBAC) to assign roles to users and admins. These roles give admins permission to carry out certain tasks. To learn more about built-in roles for Azure RBAC, see [Azure built-in roles](../role-based-access-control/built-in-roles.md).
 
-The standard built-in roles for Azure are Owner, Contributor, and Reader. However, Windows Virtual Desktop has additional roles that let you separate management roles for host pools, app groups, and workspaces. This separation lets you have more granular control over administrative tasks. These roles are named in compliance with Azure's standard roles and least-privilege methodology.
+The standard built-in roles for Azure are Owner, Contributor, and Reader. However, Azure Virtual Desktop has additional roles that let you separate management roles for host pools, app groups, and workspaces. This separation lets you have more granular control over administrative tasks. These roles are named in compliance with Azure's standard roles and least-privilege methodology.
 
-Windows Virtual Desktop doesn't have a specific Owner role. However, you can use a standard Owner role for the service objects.
+Azure Virtual Desktop doesn't have a specific Owner role. However, you can use a standard Owner role for the service objects.
 
 ## Desktop Virtualization Contributor
 
@@ -141,7 +141,7 @@ The following list describes which permissions this role can access:
 
 ## Session Host Operator
 
-The Session Host Contributor role lets you view and remove session hosts, as well as change drain mode. They can't add session hosts using the Azure portal because they don't have write permission for host pool objects. If the registration token is valid (generated and not expired), you can use this role to add session hosts to the host pool outside of Azure portal if the admin has compute permissions  through the Virtual Machine Contributor role.
+The Session Host Operator role lets you view and remove session hosts, as well as change drain mode. They can't add session hosts using the Azure portal because they don't have write permission for host pool objects. If the registration token is valid (generated and not expired), you can use this role to add session hosts to the host pool outside of Azure portal if the admin has compute permissions  through the Virtual Machine Contributor role.
 
 The following list describes which permissions this role can access:
 

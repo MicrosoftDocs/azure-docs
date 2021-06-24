@@ -2,7 +2,8 @@
 title: Add an artifact repository to your lab in Azure DevTest Labs | Microsoft Docs
 description: Learn how to specify your own artifact repository for your lab in Azure DevTest Labs to store tools unavailable in the public artifact repository.
 ms.topic: article
-ms.date: 06/26/2020
+ms.date: 06/26/2020 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Add an artifact repository to your lab in DevTest Labs
@@ -69,7 +70,7 @@ This section provides steps to add an artifact repository to a lab in the Azure 
 6. Select **Save**.
 
 ## Use Azure Resource Manager template
-Azure Resource Management (Azure Resource Manager) templates are JSON files that describe resources in Azure that you want to create. For more information about these templates, see [Authoring Azure Resource Manager templates](../azure-resource-manager/templates/template-syntax.md).
+Azure Resource Management (Azure Resource Manager) templates are JSON files that describe resources in Azure that you want to create. For more information about these templates, see [Authoring Azure Resource Manager templates](../azure-resource-manager/templates/syntax.md).
 
 This section provides steps to add an artifact repository to a lab by using an Azure Resource Manager template.  The template creates the lab if it doesn't already exist.
 
@@ -178,7 +179,7 @@ New-AzResourceGroupDeployment `
 After New-AzResourceGroupDeployment run successfully, the command outputs important information like the provisioning state (should be succeeded) and any outputs for the template.
 
 ## Use Azure PowerShell
-This section provides you a sample PowerShell script that can be used to add an artifact repository to a lab. If you don't have Azure PowerShell, see [How to install and configure Azure PowerShell](/powershell/azure/?view=azps-1.2.0) for detailed instructions to install it.
+This section provides you a sample PowerShell script that can be used to add an artifact repository to a lab. If you don't have Azure PowerShell, see [How to install and configure Azure PowerShell](/powershell/azure/) for detailed instructions to install it.
 
 ### Full script
 Here is the full script, including some verbose messages and comments:
@@ -288,7 +289,7 @@ $propertiesObject = @{
     status = 'Enabled'
 }
 
-Write-Verbose @"Properties to be passed to New-AzResource:$($propertiesObject | Out-String)"
+Write-Verbose "Properties to be passed to New-AzResource:$($propertiesObject | Out-String)"
 
 #Resource will be added to current subscription.
 $resourcetype = 'Microsoft.DevTestLab/labs/artifactSources'

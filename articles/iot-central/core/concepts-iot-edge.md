@@ -9,11 +9,10 @@ ms.service: iot-central
 services: iot-central
 ms.custom: [device-developer, iot-edge]
 
+# This article applies to solution builders and device developers.
 ---
 
 # Connect Azure IoT Edge devices to an Azure IoT Central application
-
-*This article applies to solution builders and device developers.*
 
 Azure IoT Edge moves cloud analytics and custom business logic to devices so your organization can focus on business insights instead of data management. Scale out your IoT solution by packaging your business logic into standard containers, deploy those containers to your devices, and monitor them from the cloud.
 
@@ -39,7 +38,7 @@ An IoT Edge device can be:
 
 ## IoT Edge as a gateway
 
-An IoT Edge device can operate as a gateway that provides a connection between other devices on the network and your IoT Central application.
+An IoT Edge device can operate as a gateway that provides a connection between other downstream devices on the network and your IoT Central application.
 
 There are two gateway patterns:
 
@@ -51,7 +50,23 @@ The transparent and translation gateway patterns aren't mutually exclusive. A si
 
 To learn more about the IoT Edge gateway patterns, see [How an IoT Edge device can be used as a gateway](../../iot-edge/iot-edge-as-gateway.md).
 
-<!-- To do: add link to how to configure gateway article? -->
+### Downstream device relationships with a gateway and modules
+
+Downstream devices can connect to an IoT Edge gateway device through the *IoT Edge hub*  module. In this scenario, the IoT Edge device is a transparent gateway:
+
+:::image type="content" source="media/concepts-iot-edge/gateway-transparent.png" alt-text="Diagram of transparent gateway" border="false":::
+
+Downstream devices can also connect to an IoT Edge gateway device through a custom module. In the following scenario, downstream devices connect through a *Modbus* custom module. In this scenario, the IoT Edge device is a translation gateway:
+
+:::image type="content" source="media/concepts-iot-edge/gateway-module.png" alt-text="Diagram of custom module connection" border="false":::
+
+The following diagram shows connections to an IoT Edge gateway device through both types of modules. In this scenario, the IoT Edge device is both a transparent and a translation gateway:
+
+:::image type="content" source="media/concepts-iot-edge/gateway-module-transparent.png" alt-text="Diagram of connecting using both connection modules" border="false":::
+
+Downstream devices can connect to an IoT Edge gateway device through multiple custom modules. The following diagram shows downstream devices connecting through a Modbus custom module, a BLE custom module, and the *IoT Edge hub*  module:
+
+:::image type="content" source="media/concepts-iot-edge/gateway-two-modules-transparent.png" alt-text="Diagram of connecting using multiple custom modules" border="false":::
 
 ## IoT Edge devices and IoT Central
 
@@ -63,6 +78,20 @@ IoT Central uses [device templates](concepts-device-templates.md) to define how 
 * The commands a device responds to so that IoT Central can display a UI for an operator to use to call the commands.
 
 An IoT Edge device can send telemetry, synchronize property values, and respond to commands in the same way as a standard device. So, an IoT Edge device needs a device template in IoT Central.
+
+### IoT Edge device templates
+
+IoT Central device templates use models to describe the capabilities of devices. The following diagram shows the structure of the model for an IoT Edge device:
+
+:::image type="content" source="media/concepts-iot-edge/iot-edge-model.png" alt-text="Structure of model for IoT Edge device connected to IoT Central" border="false":::
+
+IoT Central models an IoT Edge device as follows:
+
+* Every IoT Edge device template has a capability model.
+* For every custom module listed in the deployment manifest, a module  capability model is generated.
+* A relationship is established between each module capability model and a device model.
+* A module capability model implements one or more module interfaces.
+* Each module interface contains telemetry, properties, and commands.
 
 ### IoT Edge deployment manifests and IoT Central device templates
 
@@ -162,8 +191,6 @@ To learn more, see [Tutorial: Add an Azure IoT Edge device to your Azure IoT Cen
 
 ### Update a deployment manifest
 
-If you create a new [version](howto-version-device-template.md) of the device template, you can replace the deployment manifest with a new version:
-
 When you replace the deployment manifest, any connected IoT Edge devices download the new manifest and update their modules. However, IoT Central doesn't update the interfaces in the device template with any changes to the module configuration. For example, if you replace the manifest shown in the previous snippet with the following manifest, you don't automatically see the **SendUnits** property in the **management** interface in the device template. Manually add the new property to the **management** interface for IoT Central to recognize it:
 
 ```json
@@ -248,8 +275,8 @@ You can also install the IoT Edge runtime in the following environments:
 
 If you selected an IoT Edge device to be a gateway device, you can add downstream relationships to device models for devices you want to connect to the gateway device.
 
-<!-- TODO - add link to Edge Gateway how-to -->
+To learn more, see [How to connect devices through an IoT Edge transparent gateway](how-to-connect-iot-edge-transparent-gateway.md).
 
 ## Next steps
 
-If you're a device developer, a suggested next step is to learn how to [Develop your own IoT Edge modules](../../iot-edge/module-development.md).
+A suggested next step is to learn how to [Develop your own IoT Edge modules](../../iot-edge/module-development.md).

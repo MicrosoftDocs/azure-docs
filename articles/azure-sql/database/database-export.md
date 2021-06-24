@@ -5,9 +5,9 @@ description: Export a database to a BACPAC file using the Azure portal.
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: data-movement
-author: stevestein
+author: cawrites
 ms.custom: sqldbrb=2
-ms.author: sstein
+ms.author: chadam
 ms.reviewer: 
 ms.date: 01/11/2021
 ms.topic: how-to
@@ -97,6 +97,14 @@ while ($exportStatus.Status -eq "InProgress")
 }
 [Console]::WriteLine("")
 $exportStatus
+```
+## Cancel the export request
+
+Use the [Database Operations - Cancel API](/rest/api/sql/databaseoperations/cancel)
+or the Powershell [Stop-AzSqlDatabaseActivity command](/powershell/module/az.sql/Stop-AzSqlDatabaseActivity), here an example of powershell command.
+
+```cmd
+Stop-AzSqlDatabaseActivity -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName -OperationId $Operation.OperationId
 ```
 
 ## Next steps

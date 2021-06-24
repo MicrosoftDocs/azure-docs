@@ -6,7 +6,7 @@ services: load-balancer
 documentationcenter: na
 author: asudbring 
 manager: KumudD
-Customer intent: I want to create a internal load balancer so that I can load balance internal traffic to VMs.
+# Customer intent: I want to create a internal load balancer so that I can load balance internal traffic to VMs.
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: quickstart
@@ -63,7 +63,7 @@ In this section, you'll create a virtual network and subnet.
     | Resource Group   | Select **CreateIntLBQS-rg** |
     | **Instance details** |                                                                 |
     | Name             | Enter **myVNet**                                    |
-    | Region           | Select **West Europe** |
+    | Region           | Select **(Europe) West Europe** |
 
 3. Select the **IP Addresses** tab or select the **Next: IP Addresses** button at the bottom of the page.
 
@@ -101,16 +101,17 @@ In this section, you'll create a virtual network and subnet.
 
 ## Create load balancer
 
-1. On the top left-hand side of the screen, select **Create a resource** > **Networking** > **Load Balancer**.
-
-2. In the **Basics** tab of the **Create load balancer** page, enter, or select the following information: 
+1. Select **Create a resource**. 
+2. In the search box, enter **Load balancer**. Select **Load balancer** in the search results.
+3. In the **Load balancer** page, select **Create**.
+4. On the **Create load balancer** page enter, or select the following information: 
 
     | Setting                 | Value                                              |
     | ---                     | ---                                                |
     | Subscription               | Select your subscription.    |    
     | Resource group         | Select **CreateIntLBQS-rg** created in the previous step.|
     | Name                   | Enter **myLoadBalancer**                                   |
-    | Region         | Select **West Europe**.                                        |
+    | Region         | Select **(Europe) West Europe**.                                        |
     | Type          | Select **Internal**.                                        |
     | SKU           | Select **Standard** |
     | Virtual network | Select **myVNet** created in the previous step. |
@@ -223,7 +224,7 @@ These VMs are added to the backend pool of the load balancer that was created ea
     | Resource Group | Select **CreateIntLBQS-rg** |
     | **Instance details** |  |
     | Virtual machine name | Enter **myVM1** |
-    | Region | Select **West Europe** |
+    | Region | Select **(Europe) West Europe** |
     | Availability Options | Select **Availability zones** |
     | Availability zone | Select **1** |
     | Image | Select **Windows Server 2019 Datacenter** |
@@ -265,6 +266,7 @@ These VMs are added to the backend pool of the load balancer that was created ea
     | Availability zone | **2** | **3** |
     | Network security group | Select the existing **myNSG**| Select the existing **myNSG** |
 
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 # [**Basic SKU**](#tab/option-1-create-internal-load-balancer-basic)
 
@@ -298,7 +300,7 @@ In this section, you'll create a virtual network and subnet.
     | Resource Group   | Select **CreateIntLBQS-rg** |
     | **Instance details** |                                                                 |
     | Name             | Enter **myVNet**                                    |
-    | Region           | Select **West Europe** |
+    | Region           | Select **(Europe) West Europe** |
 
 3. Select the **IP Addresses** tab or select the **Next: IP Addresses** button at the bottom of the page.
 
@@ -345,7 +347,7 @@ In this section, you'll create a virtual network and subnet.
     | Subscription               | Select your subscription.    |    
     | Resource group         | Select **CreateIntLBQS-rg** created in the previous step.|
     | Name                   | Enter **myLoadBalancer**                                   |
-    | Region         | Select **West Europe**.                                        |
+    | Region         | Select **(Europe) West Europe**.                                        |
     | Type          | Select **Internal**.                                        |
     | SKU           | Select **Basic** |
     | Virtual network | Select **myVNet** created in the previous step. |
@@ -504,6 +506,8 @@ These VMs are added to the backend pool of the load balancer that was created ea
     | Name |  **myVM2** | **myVM3** |
     | Availability set | Select **myAvailabilitySet** | Select **myAvailabilitySet** |
     | Network security group | Select the existing **myNSG** | Select the existing **myNSG** |
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ### Add virtual machines to the backend pool
 

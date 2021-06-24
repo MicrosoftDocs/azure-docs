@@ -33,8 +33,8 @@ landingContent:
       links:
         - text: Developer guide
           url: concepts-developer-guide-device.md
-        - text: Components
-          url: concepts-components.md
+        - text: Modeling guide
+          url: concepts-modeling-guide.md
         - text: IoT Plug and Play conventions
           url: concepts-convention.md  
         - text: IoT Plug and Play bridge

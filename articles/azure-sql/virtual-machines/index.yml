@@ -6,13 +6,12 @@ summary: Find concepts, quickstarts, tutorials, and samples for SQL Server insta
 metadata:
   title: SQL Server on Azure VM documentation
   description: Find documentation about SQL Server installed to Azure virtual machines, both Windows and Linux.
-  services: sql-database
-  ms.service: sql-database
-  ms.subservice: single-database
+  services: virtual-machines-sql
+  ms.service:  virtual-machines-sql
+  ms.subservice: service-overview
   ms.topic: landing-page
   author: MashaMSFT
   ms.author: mathoma
-  ms.reviewer: sstein
   ms.date: 05/27/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
@@ -49,7 +48,7 @@ landingContent:
           - text: Security considerations
             url: windows/security-considerations-best-practices.md
           - text: Performance guidelines
-            url: windows/performance-guidelines-best-practices.md
+            url: ./windows/performance-guidelines-best-practices-checklist.md
           - text: Pricing guidance 
             url: windows/pricing-guidance.md 
 
@@ -128,8 +127,8 @@ landingContent:
         links:
         - text: Azure portal
           url: windows/sql-vm-create-portal-quickstart.md
-        - text: Azure CLI samples
-          url: /cli/azure/sql/vm
+        - text: Azure CLI
+          url: /cli/azure/azure-cli-reference-for-sql#sql-virtual-machines-references
         - text: PowerShell samples
           url: windows/sql-vm-create-powershell-quickstart.md
         - text: ARM template samples 
@@ -151,7 +150,7 @@ landingContent:
           - text: Transact-SQL (T-SQL)
             url: /sql/t-sql/language-reference
           - text: Azure CLI
-            url: /cli/azure/sql
+            url: /cli/azure/azure-cli-reference-for-sql#sql-virtual-machines-references
           - text: PowerShell
             url: /powershell/module/az.sql
           - text: REST API

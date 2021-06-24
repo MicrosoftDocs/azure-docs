@@ -1,17 +1,17 @@
 ---
-title: 'Cosmos DB Apache Spark Connector for SQL API release notes and resources'
-description: Learn about the Azure Cosmos DB Apache Spark Connector for SQL API, including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB SQL Async Java SDK.
+title: 'Azure Cosmos DB Apache Spark 2 OLTP Connector for SQL API release notes and resources'
+description: Learn about the Azure Cosmos DB Apache Spark 2 OLTP Connector for SQL API, including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB SQL Async Java SDK.
 author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 08/12/2020
+ms.date: 04/06/2021
 ms.author: anfeldma
 ms.custom: devx-track-java
 ---
 
-# Azure Cosmos DB Apache Spark Connector for Core (SQL) API: Release notes and resources
+# Azure Cosmos DB Apache Spark 2 OLTP Connector for Core (SQL) API: Release notes and resources
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
@@ -25,7 +25,8 @@ ms.custom: devx-track-java
 > * [Sync Java SDK v2](sql-api-sdk-java.md)
 > * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
 > * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
-> * [Spark Connector](sql-api-sdk-java-spark.md)
+> * [Spark 3 OLTP Connector](sql-api-sdk-java-spark-v3.md)
+> * [Spark 2 OLTP Connector](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
 > * [REST Resource Provider](/rest/api/cosmos-db-resource-provider/)
@@ -33,7 +34,7 @@ ms.custom: devx-track-java
 > * [Bulk executor - .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Bulk executor - Java](sql-api-sdk-bulk-executor-java.md)
 
-You can accelerate big data analytics by using the Azure Cosmos DB Apache Spark Connector for Core (SQL). The Spark Connector allows you to run [Spark](https://spark.apache.org/) jobs on data stored in Azure Cosmos DB. Batch and stream processing are supported.
+You can accelerate big data analytics by using the Azure Cosmos DB Apache Spark 2 OLTP Connector for Core (SQL). The Spark Connector allows you to run [Spark](https://spark.apache.org/) jobs on data stored in Azure Cosmos DB. Batch and stream processing are supported.
 
 You can use the connector with [Azure Databricks](https://azure.microsoft.com/services/databricks) or [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/), which provide managed Spark clusters on Azure. The following table shows supported versions:
 
@@ -56,7 +57,7 @@ You can use the connector with [Azure Databricks](https://azure.microsoft.com/se
 | **SDK download** | [Download latest .jar](https://aka.ms/CosmosDB_OLTP_Spark_2.4_LKG), [Maven](https://search.maven.org/search?q=a:azure-cosmosdb-spark_2.4.0_2.11) |
 |**API documentation** | [Spark Connector reference]() |
 |**Contribute to the SDK** | [Azure Cosmos DB Connector for Apache Spark on GitHub](https://github.com/Azure/azure-cosmosdb-spark) | 
-|**Get started** | [Accelerate big data analytics by using the Apache Spark to Azure Cosmos DB connector](./spark-connector.md#bk_working_with_connector) <br> [Use Apache Spark Structured Streaming with Apache Kafka and Azure Cosmos DB](../hdinsight/apache-kafka-spark-structured-streaming-cosmosdb.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json) | 
+|**Get started** | [Accelerate big data analytics by using the Apache Spark to Azure Cosmos DB connector](./create-sql-api-spark.md) <br> [Use Apache Spark Structured Streaming with Apache Kafka and Azure Cosmos DB](../hdinsight/apache-kafka-spark-structured-streaming-cosmosdb.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json) | 
 
 ## Release history
 
@@ -115,7 +116,7 @@ You can use the connector with [Azure Databricks](https://azure.microsoft.com/se
 * Improves connection management and connection pooling to reduce the number of metadata calls.
 
 ## FAQ
-[!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
+[!INCLUDE [cosmos-db-sdk-faq](includes/cosmos-db-sdk-faq.md)]
 
 ## Next steps
 

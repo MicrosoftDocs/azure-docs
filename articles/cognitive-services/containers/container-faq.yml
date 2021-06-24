@@ -8,7 +8,7 @@ metadata:
   manager: nitinme
   ms.service: cognitive-services
   ms.topic: conceptual
-  ms.date: 02/04/2021
+  ms.date: 03/02/2021
   ms.author: aahi
     
 title: Azure Cognitive Services containers frequently asked questions (FAQ)
@@ -64,7 +64,7 @@ sections:
           We don't test containers with OpenShift, but generally, Cognitive Services containers should run on any platform that support Docker images. If you're using OpenShift, we recommend running the containers as `root-user`.
       - question: How do I provide product feedback and feature recommendations?
         answer: |    
-          Customers are encouraged to [voice their concerns](https://cognitive.uservoice.com/) publicly, and up-vote others who have done the same where potential issues overlap. The user voice tool can be used for both product feedback and feature recommendations.
+          Customers are encouraged to [voice their concerns](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395737) publicly, and up-vote others who have done the same where potential issues overlap. The feedback tool can be used for both product feedback and feature recommendations.
       - question: What status messages and errors are returned by Cognitive Services containers?
         answer: |    
           See the following table for a list of status messages and errors.
@@ -102,7 +102,23 @@ sections:
           * [Text Analytics](../text-analytics/how-tos/text-analytics-how-to-install-containers.md#billing)
 
           > [!IMPORTANT]
-          > Cognitive Services containers are not licensed to run without being connected to Azure for metering. Customers need to enable the containers to communicate billing information with the metering service at all times. Cognitive Services containers do not send customer data to Microsoft.
+          > Cognitive Services containers are not licensed to run without being connected to Azure for metering. Customers need to enable the containers to communicate billing information only with the metering service at all times. Cognitive Services containers do not send customer data to Microsoft.
+
+          Here’s an example of the information a container communicates for metering:
+          
+          
+          ```json 
+          "usageRequestBody": {
+            "id": "customer_subscriptionID",
+            "apiType": "textanalytics",
+            "containerType": "keyphrase",
+            "containerVersion": "1.1.00864.0001",
+            "containerId": "dep--keyphrase-",
+            "meter": {
+              "name": "CognitiveServices.TextAnalytics.Container.BatchScoring",
+              "quantity": 10.0
+            }
+            ```
 
       - question: What is the current support warranty for containers?
         answer: | 
@@ -145,4 +161,3 @@ sections:
 
 additionalContent: |
           [!INCLUDE [Containers next steps](includes/containers-next-steps.md)]
-

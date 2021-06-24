@@ -3,12 +3,13 @@ title: Classify your Azure SQL data using Azure Purview labels
 description: Import your classification from Azure Purview in your Azure SQL Database and Azure Synpase Analytics 
 services: sql-database
 ms.service: sql-database
+ms.subservice: security
 ms.custom: 
 ms.devlang: azurepowershell
 ms.topic: sample
 author: davidtrigano
 ms.author: datrigan
-ms.reviewer: vanto
+ms.reviewer: vanto, mathoma
 ms.date: 02/17/2021
 ---
 
@@ -249,6 +250,6 @@ foreach ($referredEntity in $referredEntities.psobject.Properties.GetEnumerator(
 
 ## Next steps
 
-For more information on the Azure PowerShell, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/).
+For more information on the Azure PowerShell, see [Azure PowerShell documentation](/powershell/).
 
-For more information on Azure Purview, see [Azure Purview documentation](https://docs.microsoft.com/azure/purview/).
+For more information on Azure Purview, see [Azure Purview documentation](../../purview/index.yml).

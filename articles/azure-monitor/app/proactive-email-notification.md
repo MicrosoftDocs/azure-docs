@@ -4,12 +4,16 @@ description: Change to the default notification recipients from Smart Detection.
 ms.topic: conceptual
 author: harelbr
 ms.author: harelbr
-ms.date: 03/13/2019
+ms.date: 02/14/2021
 
 ms.reviewer: mbullwin
 ---
-
 # Smart Detection e-mail notification change
+
+>[!NOTE]
+>You can migrate your Application Insight resources to alerts-bases smart detection (preview). The migration creates alert rules for the different smart detection modules. Once created, you can manage and configure these rules just like any other Azure Monitor alert rules. You can also configure action groups for these rules, thus enabling multiple methods of taking actions or triggering notification on new detections.
+>
+> See [Smart Detection Alerts migration](../alerts/alerts-smart-detections-migration.md) for more details on the migration process and the behavior of smart detection after the migration.
 
 Based on customer feedback, on April 1, 2019, we’re changing the default roles who receive email notifications from Smart Detection.
 
@@ -23,7 +27,7 @@ This change will affect all Smart Detection rules, excluding the following ones:
 
 * Smart Detection rules marked as preview. These Smart Detection rules don’t support email notifications today.
 
-* Failure Anomalies rule. This rule will start targeting the new default roles once it’s migrated from a classic alert to the unified alerts platform (more information is available [here](../alerts/monitoring-classic-retirement.md).)
+* Failure Anomalies rule.
 
 ## How to prepare for this change?
 

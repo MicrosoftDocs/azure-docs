@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
+
+# This article applies to device developers.
 ---
 
 # Telemetry, property, and command payloads
-
-_This article applies to device developers._
 
 A device template in Azure IoT Central is a blueprint that defines the:
 
@@ -20,7 +20,7 @@ A device template in Azure IoT Central is a blueprint that defines the:
 * Properties a device synchronizes with IoT Central.
 * Commands that IoT Central calls on a device.
 
-This article describes, for device developers, the JSON payloads that devices send and receive for telemetry, properties, and commands defined in a device template.
+This article describes the JSON payloads that devices send and receive for telemetry, properties, and commands defined in a device template.
 
 The article doesn't describe every possible type of telemetry, property, and command payload, but the examples illustrate all the key types.
 
@@ -46,6 +46,10 @@ IoT Central lets you view the raw data that a device sends to an application. Th
     On this view, you can select the columns to display and set a time range to view. The **Unmodeled data** column shows data from the device that doesn't match any property or telemetry definitions in the device template.
 
 ## Telemetry
+
+### Telemetry in components
+
+If the telemetry is defined in a component, add a custom message property called `$.sub` with the name of the component as defined in the device model. To learn more, see [Tutorial: Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md).
 
 ### Primitive types
 
@@ -432,6 +436,21 @@ A device client should send the state as JSON that looks like the following exam
 > [!NOTE]
 > The payload formats for properties applies to applications created on or after 07/14/2020.
 
+### Properties in components
+
+If the property is defined in a component, wrap the property in the component name. The following example sets the `maxTempSinceLastReboot` in the `thermostat2` component. The marker `__t` indicates that this a component:
+
+```json
+{
+  "thermostat2" : {  
+    "__t" : "c",  
+    "maxTempSinceLastReboot" : 38.7
+    } 
+}
+```
+
+To learn more, see [Tutorial: Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md).
+
 ### Primitive types
 
 This section shows examples of primitive property types that a device sends to an IoT Central application.
@@ -456,7 +475,7 @@ A device client should send a JSON payload that looks like the following example
 { "BooleanProperty": false }
 ```
 
-The following snippet from a device model shows the definition of a `boolean` property type:
+The following snippet from a device model shows the definition of a `long` property type:
 
 ```json
 {
@@ -710,11 +729,27 @@ A device client should send a JSON payload that looks like the following example
 }
 ```
 
-### Writeable property types
+### Writable property types
 
-This section shows examples of writeable property types that a device receives from an IoT Central application.
+This section shows examples of writable property types that a device receives from an IoT Central application.
 
-IoT Central expects a response from the device to writeable property updates. The response message should include the `ac` and `av` fields. The `ad` field is optional. See the following snippets for examples.
+If the writable property is defined in a component, the desired property message includes the component name. The following example shows the message requesting the device to update the `targetTemperature` in the `thermostat2` component. The marker `__t` indicates that this a component:
+
+```json
+{
+  "thermostat2": {
+    "targetTemperature": {
+      "value": 57
+    },
+    "__t": "c"
+  },
+  "$version": 3
+}
+```
+
+To learn more, see [Tutorial: Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md).
+
+IoT Central expects a response from the device to writable property updates. The response message should include the `ac` and `av` fields. The `ad` field is optional. See the following snippets for examples.
 
 `ac` is a numeric field that uses the values in the following table:
 
@@ -729,7 +764,7 @@ IoT Central expects a response from the device to writeable property updates. Th
 
 `ad` is an option string description.
 
-The following snippet from a device model shows the definition of a writeable `string` property type:
+The following snippet from a device model shows the definition of a writable `string` property type:
 
 ```json
 {
@@ -764,7 +799,7 @@ The device should send the following JSON payload to IoT Central after it proces
 }
 ```
 
-The following snippet from a device model shows the definition of a writeable `Enum` property type:
+The following snippet from a device model shows the definition of a writable `Enum` property type:
 
 ```json
 {
@@ -829,6 +864,8 @@ The device should send the following JSON payload to IoT Central after it proces
 ```
 
 ## Commands
+
+If the command is defined in a component, the name of the command the device receives includes the component name. For example, if the command is called `getMaxMinReport` and the component is called `thermostat2`, the device receives a request to execute a command called `thermostat2*getMaxMinReport`.
 
 The following snippet from a device model shows the definition of a command that has no parameters and that doesn't expect the device to return anything:
 
@@ -1000,11 +1037,20 @@ When the device has finished processing the request, it should send a property t
 
 ### Offline commands
 
-In the IoT Central web UI, you can select the **Queue if offline** option for a command. Offline commands are one-way notifications to the device from your solution that are delivered as soon as a device connects. Offline commands can have request parameters but don't return a response.
+In the IoT Central web UI, you can select the **Queue if offline** option for a command. Offline commands are one-way notifications to the device from your solution that are delivered as soon as a device connects. Offline commands can have a request parameter but don't return a response.
 
 The **Queue if offline** setting isn't included if you export a model or interface from the device template. You can't tell by looking at an exported model or interface JSON that a command is an offline command.
 
 Offline commands use [IoT Hub cloud-to-device messages](../../iot-hub/iot-hub-devguide-messages-c2d.md) to send the command and payload to the device.
+
+The payload of the message the device receives is the raw value of the parameter. A custom property called `method-name` stores the name of the IoT Central command. The following table shows some example payloads:
+
+| IoT Central request schema | Example payload received by device |
+| -------------------------- | ---------------------------------- |
+| No request parameter       | `@`                                |
+| Double                     | `1.23`                             |
+| String                     | `sample string`                    |
+| Object                     | `{"StartTime":"2021-01-05T08:00:00.000Z","Bank":2}` |
 
 The following snippet from a device model shows the definition of a command. The command has an object parameter with a datetime field and an enumeration:
 
@@ -1085,4 +1131,4 @@ If you enable the **Queue if offline** option in the device template UI for the 
 
 ## Next steps
 
-As a device developer, now that you've learned about device templates, a suggested next steps is to read [Get connected to Azure IoT Central](./concepts-get-connected.md) to learn more about how to register devices with IoT Central and how IoT Central secures device connections.
+Now that you've learned about device templates, a suggested next steps is to read [Get connected to Azure IoT Central](./concepts-get-connected.md) to learn more about how to register devices with IoT Central and how IoT Central secures device connections.

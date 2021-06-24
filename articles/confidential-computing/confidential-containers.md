@@ -1,12 +1,13 @@
 ---
- title: Confidential containers on Azure Kubernetes Service (AKS)
- description: Learn about unmodified container support on confidential containers.
- services: container-service
- author: agowdamsft
- ms.topic: article
- ms.date: 2/11/2020
- ms.author: amgowda
- ms.service: container-service
+title: Confidential containers on Azure Kubernetes Service (AKS)
+description: Learn about unmodified container support on confidential containers.
+services: container-service
+author: agowdamsft
+ms.topic: article
+ms.date: 2/11/2020
+ms.author: amgowda
+ms.service: container-service
+ms.subservice: confidential-computing
 ---
 
 # Confidential Containers
@@ -85,9 +86,18 @@ Get started with a sample application and deployment on AKS [here](https://graph
 
 Occlum supports AKS deployments. Follow the deployment instructions with various sample apps [here](https://github.com/occlum/occlum/blob/master/docs/azure_aks_deployment_guide.md)
 
+### Marblerun
+
+[Marblerun](https://marblerun.sh/) is an orchestration framework for confidential containers. It makes it easy to run and scale confidential services on SGX-enabled Kubernetes. Marblerun takes care of boilerplate tasks like verifying the services in your cluster, managing secrets for them, and establishing enclave-to-enclave mTLS connections between them. Marblerun also ensures that your cluster of confidential containers adheres to a manifest defined in simple JSON. The manifest can be verified by external clients via remote attestation. 
+
+![Marblerun Flow](./media/confidential-containers/marblerun-workflow.png)
+
+In a nutshell, Marblerun extends the confidentiality, integrity, and verifiability properties of a single enclave to a Kubernetes cluster. 
+
+Marblerun supports confidential containers created with Graphene, Occlum, and EGo. Examples for each SDK are given [here](https://www.marblerun.sh/docs/examples/). Marblerun is built to run on Kubernetes and alongside your existing cloud-native tooling. It comes with an easy-to-use CLI and helm charts. It has first-class support for confidential computing nodes on AKS. Information on how to deploy Marblerun on AKS can be found [here](https://www.marblerun.sh/docs/deployment/cloud/).
 
 ## Confidential Containers Demo
-View the confidential healthcare demo with confidential containers. Sample is available [here](https://docs.microsoft.com/azure/architecture/example-scenario/confidential/healthcare-inference). 
+View the confidential healthcare demo with confidential containers. Sample is available [here](/azure/architecture/example-scenario/confidential/healthcare-inference). 
 
 > [!VIDEO https://www.youtube.com/embed/PiYCQmOh0EI]
 

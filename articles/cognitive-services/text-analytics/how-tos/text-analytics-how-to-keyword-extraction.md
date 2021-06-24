@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 12/17/2020
+ms.date: 03/29/2021
 ms.author: aahi
 ---
 
@@ -116,7 +116,7 @@ For information about request definition, see [How to call the Text Analytics AP
 
 ## Step 2: Post the request
 
-Analysis is performed upon receipt of the request. For information about the size and number of requests you can send per minute or per second, see the [data limits](../overview.md#data-limits) section in the overview.
+Analysis is performed upon receipt of the request. For information about the size and number of requests you can send per minute or per second, see the [data limits](../concepts/data-limits.md) article.
 
 Recall that the service is stateless. No data is stored in your account. Results are returned immediately in the response.
 
@@ -126,7 +126,7 @@ All POST requests return a JSON formatted response with the IDs and detected pro
 
 Output is returned immediately. You can stream the results to an application that accepts JSON or save the output to a file on the local system, and then import it into an application that allows you to sort, search, and manipulate the data.
 
-An example of the output for key phrase extraction from the v3.1-preview.2 endpoint is shown here:
+An example of the output for key phrase extraction from the v3.1-preview endpoint is shown here:
 
 ### Synchronous result
 
@@ -257,7 +257,7 @@ In this article, you learned concepts and workflow for key phrase extraction by 
 ## See also
 
  [Text Analytics overview](../overview.md)
- [Frequently asked questions (FAQ)](../text-analytics-resource-faq.md)</br>
+ [Frequently asked questions (FAQ)](../text-analytics-resource-faq.yml)</br>
  [Text Analytics product page](//go.microsoft.com/fwlink/?LinkID=759712)
 
 ## Next steps
@@ -265,3 +265,4 @@ In this article, you learned concepts and workflow for key phrase extraction by 
 * [Text Analytics overview](../overview.md)
 * [Using the Text Analytics client library](../quickstarts/client-libraries-rest-api.md)
 * [What's new](../whats-new.md)
+* [Model versions](../concepts/model-versioning.md)

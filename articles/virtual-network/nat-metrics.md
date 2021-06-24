@@ -8,7 +8,7 @@ author: asudbring
 manager: KumudD
 ms.service: virtual-network
 ms.subservice: nat
-Customer intent: As an IT administrator, I want to understand available Azure Monitor metrics and alerts for Virtual Network NAT.
+# Customer intent: As an IT administrator, I want to understand available Azure Monitor metrics and alerts for Virtual Network NAT.
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na

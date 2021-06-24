@@ -4,7 +4,8 @@ description: This article tells how to troubleshoot and resolve issues arising d
 services: automation
 ms.subservice: process-automation
 ms.date: 04/04/2019
-ms.topic: troubleshooting
+ms.topic: troubleshooting 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Troubleshoot Start/Stop VMs during off-hours issues
@@ -144,7 +145,7 @@ Review the following list for potential resolutions:
   ```
 
 * To start and stop VMs, the Run As account for the Automation account must have appropriate permissions to the VM. To learn how to check the permissions on a resource, see [Quickstart: View roles assigned to a user using the Azure portal](../../role-based-access-control/check-access.md). You'll need to provide the application ID for the service principal used by the Run As account. You can retrieve this value by going to your Automation account in the Azure portal. Select **Run as accounts** under **Account Settings** and select the appropriate Run As account.
-* If the VM is having a problem starting or deallocating, there might be an issue on the VM itself. Examples are an update that's being applied when the VM is trying to shut down, a service that hangs, and more. Go to your VM resource, and check **Activity Logs** to see if there are any errors in the logs. You might also attempt to log in to the VM to see if there are any errors in the event logs. To learn more about troubleshooting your VM, see [Troubleshooting Azure virtual machines](../../virtual-machines/troubleshooting/index.yml).
+* If the VM is having a problem starting or deallocating, there might be an issue on the VM itself. Examples are an update that's being applied when the VM is trying to shut down, a service that hangs, and more. Go to your VM resource, and check **Activity Logs** to see if there are any errors in the logs. You might also attempt to log in to the VM to see if there are any errors in the event logs. To learn more about troubleshooting your VM, see [Troubleshooting Azure virtual machines](/troubleshoot/azure/virtual-machines/welcome-virtual-machines).
 * Check the [job streams](../automation-runbook-execution.md#job-statuses) to look for any errors. In the portal, go to your Automation account and select **Jobs** under **Process Automation**.
 
 ## <a name="custom-runbook"></a>Scenario: My custom runbook fails to start or stop my VMs

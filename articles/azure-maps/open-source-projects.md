@@ -65,16 +65,16 @@ The following is a list of open-source projects that extend the capabilities of 
 
 | Project Name | Description |
 |-|-|
-| [Azure Maps Cesium plugin](https://github.com/azure-samples/azure-maps-cesium) | A [Cesium JS](https://cesium.com/cesiumjs/) plugin that makes it easy to integrate Azure Maps services such as [tile layers](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview) and [geocoding services](https://docs.microsoft.com/rest/api/maps/search). |
-| [Azure Maps Leaflet plugin](https://github.com/azure-samples/azure-maps-leaflet) | A [leaflet](https://leafletjs.com/) JavaScript plugin that makes it easy to overlay tile layers from the [Azure Maps tile services](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview). |
- | [Azure Maps OpenLayers plugin](https://github.com/azure-samples/azure-maps-openlayers) | A [OpenLayers](https://www.openlayers.org/) JavaScript plugin that makes it easy to overlay tile layers from the [Azure Maps tile services](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview). |
+| [Azure Maps Cesium plugin](https://github.com/azure-samples/azure-maps-cesium) | A [Cesium JS](https://cesium.com/cesiumjs/) plugin that makes it easy to integrate Azure Maps services such as [tile layers](/rest/api/maps/renderv2/getmaptilepreview) and [geocoding services](/rest/api/maps/search). |
+| [Azure Maps Leaflet plugin](https://github.com/azure-samples/azure-maps-leaflet) | A [leaflet](https://leafletjs.com/) JavaScript plugin that makes it easy to overlay tile layers from the [Azure Maps tile services](/rest/api/maps/renderv2/getmaptilepreview). |
+ | [Azure Maps OpenLayers plugin](https://github.com/azure-samples/azure-maps-openlayers) | A [OpenLayers](https://www.openlayers.org/) JavaScript plugin that makes it easy to overlay tile layers from the [Azure Maps tile services](/rest/api/maps/renderv2/getmaptilepreview). |
 
 **Tools and resources**
 
 | Project Name | Description |
 |-|-|
 | [Azure Maps Docs](https://github.com/MicrosoftDocs/azure-docs/tree/master/articles/azure-maps) | Source for all Azure Location Based Services documentation. |
-| [Azure Maps Creator (Preview) Tools](https://github.com/Azure-Samples/AzureMapsCreator) | Python tools for Azure Maps Creator (Preview) Tools. |
+| [Azure Maps Creator Tools](https://github.com/Azure-Samples/AzureMapsCreator) | Python tools for Azure Maps Creator Tools. |
 
 A longer list of open-source projects for Azure Maps that includes community created projects is available [here](https://github.com/microsoft/Maps/blob/master/AzureMaps.md)
 

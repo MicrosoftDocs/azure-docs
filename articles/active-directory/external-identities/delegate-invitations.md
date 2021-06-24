@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 02/12/2021
+ms.date: 06/04/2021
 
 ms.author: mimart
 author: msmimart
@@ -49,19 +49,16 @@ By default, all users, including guests, can invite guest users.
 
    - **Guest user access is restricted to properties and memberships of their own directory objects (most restrictive)**: With this setting, guests can access only their own profiles. Guests are not allowed to see other users' profiles, groups, or group memberships.
 
-
 5. Under **Guest invite settings**, choose the appropriate settings:
 
     ![Guest invite settings](./media/delegate-invitations/guest-invite-settings.png)
 
-   - **Admins and users in the guest inviter role can invite**: To allow admins and users in the "Guest Inviter" role to invite guests, set this policy to **Yes**.
-
-   - **Members can invite**: To allow non-admin members of your directory to invite guests, set this policy to **Yes**.
-
-   - **Guests can invite**: To allow guests to invite other guests, set this policy to **Yes**.
-
-   > [!NOTE]
-   > If **Members can invite** is set to **No** and **Admins and users in the guest inviter role can invite** is set to **Yes**, users in the **Guest Inviter** role will still be able to invite guests.
+   - **Anyone in the organization can invite guest users including guests and non-admins (most inclusive)**: To allow guests in the organization to invite other guests including those who are not members of an organization, select this radio button.
+   - **Member users and users assigned to specific admin roles can invite guest users including guests with member permissions**: To allow member users and users who have specific administrator roles to invite guests, select this radio button.
+   - **Only users assigned to specific admin roles can invite guest users**: To allow only those users with administrator roles to invite guests, select this radio button. The administrator roles include [Global Administrator](../roles/permissions-reference.md#global-administrator), [User Administrator](../roles/permissions-reference.md#user-administrator), and [Guest Inviter](../roles/permissions-reference.md#guest-inviter).
+   - **No one in the organization can invite guest users including admins (most restrictive)**: To deny everyone in the organization from inviting guests, select this radio button.
+     > [!NOTE]
+     > If **Members can invite** is set to **No** and **Admins and users in the guest inviter role can invite** is set to **Yes**, users in the **Guest Inviter** role will still be able to invite guests.
 
 6. Under **Email one-time passcode for guests**, choose the appropriate settings (for more information, see [Email one-time passcode authentication](one-time-passcode.md)):
 
@@ -76,11 +73,11 @@ By default, all users, including guests, can invite guest users.
    >
    >![Enable Email one-time passcode opted in](media/delegate-invitations/enable-email-otp-opted-in.png)
 
-7. Under **Enable guest self-service sign up via user flows (Preview)**, select **Yes** if you want to be able to create user flows that let users sign up for apps. For more information about this setting, see [Add a self-service sign-up user flow to an app (Preview)](self-service-sign-up-user-flow.md).
+7. Under **Enable guest self-service sign up via user flows**, select **Yes** if you want to be able to create user flows that let users sign up for apps. For more information about this setting, see [Add a self-service sign-up user flow to an app](self-service-sign-up-user-flow.md).
 
     ![Self-service sign up via user flows setting](./media/delegate-invitations/self-service-sign-up-setting.png)
 
-7. Under **Collaboration restrictions**, choose whether to allow or deny invitations to the domains you specify. For more information, see [Allow or block invitations to B2B users from specific organizations](allow-deny-list.md).
+7. Under **Collaboration restrictions**, you can choose whether to allow or deny invitations to the domains you specify and enter specific domain names in the text boxes. For multiple domains, enter each domain on a new line. For more information, see [Allow or block invitations to B2B users from specific organizations](allow-deny-list.md).
 
     ![Collaboration restrictions settings](./media/delegate-invitations/collaboration-restrictions.png)
 ## Assign the Guest Inviter role to a user
@@ -99,5 +96,4 @@ See the following articles on Azure AD B2B collaboration:
 
 - [What is Azure AD B2B collaboration?](what-is-b2b.md)
 - [Add B2B collaboration guest users without an invitation](add-user-without-invite.md)
-- [Adding a B2B collaboration user to a role](add-guest-to-role.md)
-
+- [Adding a B2B collaboration user to a role](./add-users-administrator.md)

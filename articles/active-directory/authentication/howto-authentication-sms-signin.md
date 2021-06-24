@@ -6,8 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/21/2021
-
+ms.date: 03/15/2021
 ms.author: justinha
 author: justinha
 manager: daveba
@@ -32,18 +31,19 @@ To complete this article, you need the following resources and privileges:
     * If needed, [create an Azure Active Directory tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
 * You need *global administrator* privileges in your Azure AD tenant to enable SMS-based authentication.
 * Each user that's enabled in the text message authentication method policy must be licensed, even if they don't use it. Each enabled user must have one of the following Azure AD, EMS, Microsoft 365 licenses:
-    * [Azure AD Premium P1 or P2][azuread-licensing]
     * [Microsoft 365 (M365) F1 or F3][m365-firstline-workers-licensing]
     * [Enterprise Mobility + Security (EMS) E3 or E5][ems-licensing] or [Microsoft 365 (M365) E3 or E5][m365-licensing]
+    * [Office 365 F3][o365-f3]
 
-## Limitations
+## Known issues
 
-The following limitations apply to SMS-based authentication:
+Here are some known issues:
 
 * SMS-based authentication isn't currently compatible with Azure AD Multi-Factor Authentication.
 * Except for Teams, SMS-based authentication isn't compatible with native Office applications.
 * SMS-based authentication isn't recommended for B2B accounts.
 * Federated users won't authenticate in the home tenant. They only authenticate in the cloud.
+* If a user's default sign-in method is a text or call to your phone number, then the SMS code or voice call is sent automatically during multifactor authentication. As of June 2021, some apps will ask users to choose **Text** or **Call** first. This option prevents sending too many security codes for different apps. If the default sign-in method is the Microsoft Authenticator app ([which we highly recommend](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/it-s-time-to-hang-up-on-phone-transports-for-authentication/ba-p/1751752)), then the app notification is sent automatically.
 
 ## Enable the SMS-based authentication method
 
@@ -147,7 +147,7 @@ If you receive an error when you try to set a phone number for a user account in
 
 For additional ways to sign in to Azure AD without a password, such as the Microsoft Authenticator App or FIDO2 security keys, see [Passwordless authentication options for Azure AD][concepts-passwordless].
 
-You can also use the Microsoft Graph REST API beta to [enable][rest-enable] or [disable][rest-disable] SMS-based sign-in.
+You can also use the Microsoft Graph REST API to [enable][rest-enable] or [disable][rest-disable] SMS-based sign-in.
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../fundamentals/sign-up-organization.md
@@ -155,8 +155,8 @@ You can also use the Microsoft Graph REST API beta to [enable][rest-enable] or [
 [concepts-passwordless]: concept-authentication-passwordless.md
 [tutorial-azure-mfa]: tutorial-enable-azure-mfa.md
 [tutorial-sspr]: tutorial-enable-sspr.md
-[rest-enable]: /graph/api/phoneauthenticationmethod-enablesmssignin?view=graph-rest-beta&tabs=http
-[rest-disable]: /graph/api/phoneauthenticationmethod-disablesmssignin?view=graph-rest-beta&tabs=http
+[rest-enable]: /graph/api/phoneauthenticationmethod-enablesmssignin?tabs=http
+[rest-disable]: /graph/api/phoneauthenticationmethod-disablesmssignin?tabs=http
 
 <!-- EXTERNAL LINKS -->
 [azure-portal]: https://portal.azure.com

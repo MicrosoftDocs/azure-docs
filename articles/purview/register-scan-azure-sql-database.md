@@ -6,7 +6,7 @@ ms.author: hophan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
-ms.date: 10/02/2020
+ms.date: 06/08/2021
 # Customer intent: As a data steward or catalog administrator, I need to understand how to scan data into the catalog.
 ---
 
@@ -24,7 +24,7 @@ The Azure SQL Database data source supports the following functionality:
 
 ### Known limitations
 
-Azure Purview doesn't support scanning of [views](/sql/relational-databases/views/views?view=azuresqldb-current&preserve-view=true) in Azure SQL Database.
+> * Azure Purview doesn't support over 300 columns in the Schema tab and it will show "Additional-Columns-Truncated". 
 
 ## Prerequisites
 
@@ -85,18 +85,18 @@ To use a service principal, you can use an existing one or create a new one.
 The service principal or managed identity must have permission to get metadata for the database, schemas and tables. It must also be able to query the tables to sample for classification.
 
 - [Configure and manage Azure AD authentication with Azure SQL](../azure-sql/database/authentication-aad-configure.md)
-- If you are using managed identity, your Purview account has its own managed identity which is basically your Purview name when you created it. You must create an Azure AD user in Azure SQL Database with the exact Purview's managed identity or your own service principal by following tutorial on [Create the service principal user in Azure SQL Database](../azure-sql/database/authentication-aad-service-principal-tutorial.md#create-the-service-principal-user-in-azure-sql-database). You need to assign proper permission (e.g. `db_owner` or `db_datareader`) to the identity. Example SQL syntax to create user and grant permission:
+- If you are using managed identity, your Purview account has its own managed identity which is basically your Purview name when you created it. You must create an Azure AD user in Azure SQL Database with the exact Purview's managed identity or your own service principal by following tutorial on [Create the service principal user in Azure SQL Database](../azure-sql/database/authentication-aad-service-principal-tutorial.md#create-the-service-principal-user-in-azure-sql-database). You need to assign proper permission (e.g. `db_datareader`) to the identity. Example SQL syntax to create user and grant permission:
 
     ```sql
     CREATE USER [Username] FROM EXTERNAL PROVIDER
     GO
     
-    EXEC sp_addrolemember 'db_owner', [Username]
+    EXEC sp_addrolemember 'db_datareader', [Username]
     GO
     ```
 
     > [!Note]
-    > The `Username` is your own service principal or Purview's managed identity. You can read more about [fixed-database roles and their capabilities](/sql/relational-databases/security/authentication-access/database-level-roles?view=sql-server-ver15&preserve-view=true#fixed-database-roles).
+    > The `Username` is your own service principal or Purview's managed identity. You can read more about [fixed-database roles and their capabilities](/sql/relational-databases/security/authentication-access/database-level-roles#fixed-database-roles).
     
 ##### Add service principal to key vault and Purview's credential
 
@@ -132,11 +132,11 @@ Your database server must allow Azure connections to be enabled. This will allow
 
 To register a new Azure SQL Database in your data catalog, do the following:
 
-1. Navigate to your Purview account
+1. Navigate to your Purview account.
 
-1. Select **Sources** on the left navigation
+1. Select **Sources** on the left navigation.
 
-1. Select **Register**
+1. Select **Register**.
 
 1. On **Register sources**, select **Azure SQL Database**. Select **Continue**.
 
@@ -145,17 +145,16 @@ To register a new Azure SQL Database in your data catalog, do the following:
 On the **Register sources (Azure SQL Database)** screen, do the following:
 
 1. Enter a **Name** that the data source will be listed with in the Catalog.
-1. Choose how you want to point to your desired storage account:
-   1. Select **From Azure subscription**, select the appropriate subscription from the **Azure subscription** drop-down box and the appropriate server from the **Server name** drop-down box.
-   1. Or, you can select **Enter manually** and enter a **Server name**.
-1. **Finish** to register the data source.
+1. Select **From Azure subscription**, select the appropriate subscription from the **Azure subscription** drop-down box and the appropriate server from the **Server name** drop-down box.
+1. Select **Register** to register the data source.
 
 :::image type="content" source="media/register-scan-azure-sql-database/add-azure-sql-database.png" alt-text="register sources options" border="true":::
 
 [!INCLUDE [create and manage scans](includes/manage-scans.md)]
 
 > [!NOTE]
-> Deleting your scan does not delete your assets from previous Azure SQL Database scans.
+> * Deleting your scan does not delete your assets from previous Azure SQL Database scans.
+> * The asset will no longer be updated with schema changes if your source table be changed and rescan the source table after editing the description in the schema tab of Purview.
 
 ## Next steps
 

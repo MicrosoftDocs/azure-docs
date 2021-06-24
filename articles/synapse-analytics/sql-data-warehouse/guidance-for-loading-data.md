@@ -2,13 +2,13 @@
 title: Data loading best practices for dedicated SQL pools
 description: Recommendations and performance optimizations for loading data using dedicated SQL pools in Azure Synapse Analytics.
 services: synapse-analytics
-author: kevinvngo 
+author: julieMSFT 
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
 ms.date: 11/20/2020
-ms.author: kevin
+ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ---
@@ -68,7 +68,7 @@ Connect to the dedicated SQL pool and create a user. The following code assumes 
 ```
 <br><br>
 >[!IMPORTANT] 
->This is an extreme example of allocating 100% resources of the SQL pool to a single load. This will give you a maximum concurrency of 1. Be aware that this should be used only for the initial load where you will need to create additional workload groups with their own configurations to balanace resources across your workloads. 
+>This is an extreme example of allocating 100% resources of the SQL pool to a single load. This will give you a maximum concurrency of 1. Be aware that this should be used only for the initial load where you will need to create additional workload groups with their own configurations to balance resources across your workloads. 
 
 To run a load with resources for the loading workload group, sign in as loader and run the load.
 

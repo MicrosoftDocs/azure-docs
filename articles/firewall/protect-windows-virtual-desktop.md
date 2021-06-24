@@ -30,18 +30,18 @@ To learn more about Windows Virtual Desktop environments see [Windows Virtual De
 
 The Azure virtual machines you create for Windows Virtual Desktop must have access to several Fully Qualified Domain Names (FQDNs) to function properly. Azure Firewall provides a Windows Virtual Desktop FQDN Tag to simplify this configuration. Use the following steps to allow outbound Windows Virtual Desktop platform traffic:
 
-- Deploy Azure Firewall and configure your Windows Virtual Desktop host pool subnet User Defined Route (UDR) to route all traffic via the Azure Firewall. Your default route now points to the firewall.
+- Deploy Azure Firewall and configure your Windows Virtual Desktop host pool subnet User Defined Route (UDR) to route default traffic (0.0.0.0/0) via the Azure Firewall. Your default route now points to the firewall.
 - Create an application rule collection and add a rule to enable the *WindowsVirtualDesktop* FQDN tag. The source IP address range is the host pool virtual network, the protocol is **https**, and the destination is **WindowsVirtualDesktop**.
 
 - The set of required storage and service bus accounts for your Windows Virtual Desktop host pool is deployment specific, so it isn't yet captured in the WindowsVirtualDesktop FQDN tag. You can address this in one of the following ways:
 
-   - Allow https access from your host pool subnet to *xt.blob.core.windows.net, *eh.servicebus.windows.net and *xt.table.core.windows.net. These wildcard FQDNs enable the required access, but are less restrictive.
-   - Use the following log analytics query to list the exact required FQDNs, and then allow them explicitly in your firewall application rules:
+   - Allow https access from your host pool subnet to *xt.blob.core.windows.net, *eh.servicebus.windows.net. These wildcard FQDNs enable the required access, but are less restrictive.
+   - Use the following log analytics query to list the exact required FQDNs after deployment of WVD hostpool, and then allow them explicitly in your firewall application rules:
    ```
    AzureDiagnostics
    | where Category == "AzureFirewallApplicationRule"
    | search "Deny"
-   | search "gsm*eh.servicebus.windows.net" or "gsm*xt.blob.core.windows.net" or "gsm*xt.table.core.windows.net"
+   | search "gsm*eh.servicebus.windows.net" or "gsm*xt.blob.core.windows.net"
    | parse msg_s with Protocol " request from " SourceIP ":" SourcePort:int " to " FQDN ":" *
    | project TimeGenerated,Protocol,FQDN
    ```
@@ -49,7 +49,7 @@ The Azure virtual machines you create for Windows Virtual Desktop must have acce
 - Create a network rule collection add the following rules:
 
    - Allow DNS – allow traffic from your ADDS private IP address to * for TCP and UDP ports 53.
-   - Allow KMS – allow traffic from your Windows Virtual Desktop virtual machines to Windows Activation Service TCP port 1688. For more information about the destination IP addresses, see [Windows activation fails in forced tunneling scenario](../virtual-machines/troubleshooting/custom-routes-enable-kms-activation.md#solution).
+   - Allow KMS – allow traffic from your Windows Virtual Desktop virtual machines to Windows Activation Service TCP port 1688. For more information about the destination IP addresses, see [Windows activation fails in forced tunneling scenario](/troubleshoot/azure/virtual-machines/custom-routes-enable-kms-activation#solution).
 
 > [!NOTE]
 > Some deployments may not need DNS rules, for example Azure Active Directory Domain controllers forward DNS queries to Azure DNS at 168.63.129.16.
