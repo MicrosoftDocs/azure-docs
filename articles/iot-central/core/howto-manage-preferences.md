@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: peterpr
+
+# This article applies to operators, builders, and administrators.
 ---
 # Manage your personal application preferences
 
-*This article applies to operators, builders, and administrators.*
-
-IoT Central provides the flexibility to customize your applications to fit your need. We also provide some flexibility on a per-user basis to customize your own view. This article describes the various customization options that a user can apply to their profile.
+IoT Central provides the flexibility to customize your applications to fit your need. IoT Central also provides some flexibility on a per-user basis to customize your own view. This article describes the various customization options that a user can apply to their profile.
 
 ## Changing language
 

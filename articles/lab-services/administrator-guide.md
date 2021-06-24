@@ -84,23 +84,23 @@ By default, each lab has its own virtual network.  If you have virtual network p
 
 ## Shared image gallery
 
-A shared image gallery is attached to a lab account and serves as a central repository for storing images. An image is saved in the gallery when an educator chooses to export it from a lab's template VM. Each time an educator makes changes to the template VM and exports it, new versions of the image are saved and the previous versions are maintained.
+A shared image gallery is attached to a lab account and serves as a central repository for storing images. An image is saved in the gallery when an educator chooses to export it from a lab's template VM. Each time an educator makes changes to the template VM and exports it, new image definitions and\or versions are created in the gallery.  
 
-Instructors can publish an image version from the shared image gallery when they create a new lab. Although the gallery stores multiple versions of an image, educators can select only the latest version during lab creation.
+Instructors can publish an image version from the shared image gallery when they create a new lab. Although the gallery stores multiple versions of an image, educators can select only the most recent version during lab creation.  The most recent version is chosen based on the highest value of MajorVersion, then MinorVersion, then Patch.  For more information about versioning, see [Image versions](../virtual-machines/shared-image-galleries.md#image-versions).
 
-The Shared Image Gallery service is an optional resource that you might not need immediately if you're starting with only a few labs. However, Shared Image Gallery offers many benefits that are helpful as you scale up to additional labs:
+The shared image gallery service is an optional resource that you might not need immediately if you're starting with only a few labs. However, shared image gallery offers many benefits that are helpful as you scale up to additional labs:
 
 - **You can save and manage versions of a template VM image**
 
-    It's useful to create a custom image or make changes (software, configuration, and so on) to an image from the public Azure Marketplace gallery.  For example, it's common for educators to require different software or tooling be installed. Rather than requiring students to manually install these prerequisites on their own, different versions of the template VM image can be exported to a shared image gallery. You can then use these image versions when you create new labs.
+    It's useful to create a custom image or make changes (software, configuration, and so on) to an image from the Azure Marketplace gallery.  For example, it's common for educators to require different software or tooling be installed. Rather than requiring students to manually install these prerequisites on their own, different versions of the template VM image can be exported to a shared image gallery. You can then use these image versions when you create new labs.
 
 - **You can share and reuse template VM images across labs**
 
     You can save and reuse an image so that you don't have to configure it from scratch each time that you create a new lab. For example, if multiple classes need to use the same image, you can create it once and export it to the shared image gallery so that it can be shared across labs.
 
-- **Image availability is ensured through automatic replication**
+- **You can upload your own custom images from other environments outside of labs**
 
-    When you save an image from a lab to the shared image gallery, it's automatically replicated to other [regions within the same geography](https://azure.microsoft.com/global-infrastructure/regions/). If there's an outage for a region, publishing the image to your lab is unaffected, because an image replica from another region can be used.  Publishing VMs from multiple replicas can also help with performance.
+    You can [upload custom images other environments outside of the context of labs](how-to-attach-detach-shared-image-gallery.md).  For example, you can upload images from your own physical lab environment or from an Azure VM into shared image gallery.  Once an image is imported into the gallery, you can then use the images to create labs.
 
 To logically group shared images, you can do either of the following:
 
@@ -132,7 +132,7 @@ The region specifies the datacenter where information about a resource group is 
 
 A lab account's location indicates the region that a resource exists in.  
 
-### Lab
+### Lab    
 
 The location that a lab exists in varies, depending on the following factors:
 
@@ -158,18 +158,21 @@ A general rule is to set a resource's region to one that's closest to its users.
 
 ## VM sizing
 
-When administrators or Lab Creators create a lab, they can choose from a variety of VM sizes, depending on the needs of their classroom. Remember that the compute size availability depends on the region that your lab account is located in.
+When administrators or Lab Creators create a lab, they can choose from a variety of VM sizes, depending on the needs of their classroom. Remember that the size availability depends on the region that your lab account is located in.
 
-| Size | Specs | Series | Suggested use |
+In the following table, notice that several of the VM sizes map to more than one VM series.  Depending on capacity availability, Lab Services may use any of the VM series that are listed for a VM size.  For example, the *Small* VM size maps to using either the [Standard_A2_v2](../virtual-machines/av2-series.md) or the [Standard_A2](../virtual-machines/sizes-previous-gen.md#a-series) VM series.  When you choose *Small* as the VM size for your lab, Lab Services will first attempt to use the *Standard_A2_v2* series.  However, when there isn't sufficient capacity available, Lab Services will instead use the *Standard_A2* series.  The pricing is determined by the VM size and is the same regardless of which VM series Lab Services uses for that specific size. For more information on pricing for each VM size, read the [Lab Services pricing guide](https://azure.microsoft.com/pricing/details/lab-services/).
+
+
+| Size | Minimum Specs | Series | Suggested use |
 | ---- | ----- | ------ | ------------- |
-| Small| <ul><li>2&nbsp;cores</li><li>3.5 gigabytes (GB) RAM</li> | [Standard_A2_v2](../virtual-machines/av2-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Best suited for command line, opening web browser, low-traffic web servers, small to medium databases. |
-| Medium | <ul><li>4&nbsp;cores</li><li>7&nbsp;GB&nbsp;RAM</li> | [Standard_A4_v2](../virtual-machines/av2-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Best suited for relational databases, in-memory caching, and analytics. |
-| Medium (nested virtualization) | <ul><li>4&nbsp;cores</li><li>16&nbsp;GB&nbsp;RAM</li></ul> | [Standard_D4s_v3](../virtual-machines/dv3-dsv3-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#dsv3-series) | Best suited for relational databases, in-memory caching, and analytics.
-| Large | <ul><li>8&nbsp;cores</li><li>16&nbsp;GB&nbsp;RAM</li></ul>  | [Standard_A8_v2](../virtual-machines/av2-series.md) | Best suited for applications that need faster CPUs, better local disk performance, large databases, large memory caches.  This size also supports nested virtualization. |
-| Large (nested virtualization) | <ul><li>8&nbsp;cores</li><li>32&nbsp;GB&nbsp;RAM</li></ul>  | [Standard_D8s_v3](../virtual-machines/dv3-dsv3-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#dsv3-series) | Best suited for applications that need faster CPUs, better local disk performance, large databases, large memory caches. |
+| Small| <ul><li>2&nbsp;cores</li><li>3.5 gigabytes (GB) RAM</li> | [Standard_A2_v2](../virtual-machines/av2-series.md), [Standard_A2](../virtual-machines/sizes-previous-gen.md#a-series) | Best suited for command line, opening web browser, low-traffic web servers, small to medium databases. |
+| Medium | <ul><li>4&nbsp;cores</li><li>7&nbsp;GB&nbsp;RAM</li> | [Standard_A4_v2](../virtual-machines/av2-series.md), [Standard_A3](../virtual-machines/sizes-previous-gen.md#a-series) | Best suited for relational databases, in-memory caching, and analytics. |
+| Medium (nested virtualization) | <ul><li>4&nbsp;cores</li><li>16&nbsp;GB&nbsp;RAM</li></ul> | [Standard_D4s_v3](../virtual-machines/dv3-dsv3-series.md#dsv3-series) | Best suited for relational databases, in-memory caching, and analytics.  This size also supports nested virtualization.
+| Large | <ul><li>8&nbsp;cores</li><li>16&nbsp;GB&nbsp;RAM</li></ul>  | [Standard_A8_v2](../virtual-machines/av2-series.md), [Standard_A7](../virtual-machines/sizes-previous-gen.md#a-series) | Best suited for applications that need faster CPUs, better local disk performance, large databases, large memory caches. |
+| Large (nested virtualization) | <ul><li>8&nbsp;cores</li><li>32&nbsp;GB&nbsp;RAM</li></ul>  | [Standard_D8s_v3](../virtual-machines/dv3-dsv3-series.md#dsv3-series) | Best suited for applications that need faster CPUs, better local disk performance, large databases, large memory caches.  This size also supports nested virtualization. |
 | Small GPU (visualization) | <ul><li>6&nbsp;cores</li><li>56&nbsp;GB&nbsp;RAM</li>  | [Standard_NV6](../virtual-machines/nv-series.md) | Best suited for remote visualization, streaming, gaming, and encoding using frameworks such as OpenGL and DirectX. |
-| Small GPU (Compute) | <ul><li>6&nbsp;cores</li><li>56&nbsp;GB&nbsp;RAM</li></ul>  | [Standard_NC6](../virtual-machines/nc-series.md) |Best suited for computer-intensive applications such as AI and deep learning. |
-| Medium GPU (visualization) | <ul><li>12&nbsp;cores</li><li>112&nbsp;GB&nbsp;RAM</li></ul>  | [Standard_NV12](../virtual-machines/nv-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Best suited for remote visualization, streaming, gaming, and encoding using frameworks such as OpenGL and DirectX. |
+| Small GPU (Compute) | <ul><li>6&nbsp;cores</li><li>56&nbsp;GB&nbsp;RAM</li></ul>  | [Standard_NC6](../virtual-machines/nc-series.md), [Standard_NC6s_v3](../virtual-machines/ncv3-series.md) |Best suited for computer-intensive applications such as AI and deep learning. |
+| Medium GPU (visualization) | <ul><li>12&nbsp;cores</li><li>112&nbsp;GB&nbsp;RAM</li></ul>  | [Standard_NV12](../virtual-machines/nv-series.md), [Standard_NV12s_v3](../virtual-machines/nvv3-series.md), [Standard_NV12s_v2](../virtual-machines/sizes-previous-gen.md#nvv2-series)  | Best suited for remote visualization, streaming, gaming, and encoding using frameworks such as OpenGL and DirectX. |
 
 ## Manage identity
 
@@ -211,12 +214,37 @@ When you're assigning roles, it helps to follow these tips:
    - To give educators the ability to create new labs and manage the labs that they create, you need only assign them the Lab Creator role.
    - To give educators the ability to manage specific labs, but *not* the ability to create new labs, assign them either the Owner or Contributor role for each lab that they'll manage. For example, you might want to allow a professor and a teaching assistant to co-own a lab. For more information, see [Add Owners to a lab](./how-to-add-user-lab-owner.md).
 
+## Content filtering
+
+Your school may need to do content filtering to prevent students from accessing inappropriate websites.  For example, to comply with the [Children's Internet Protection Act (CIPA)](https://www.fcc.gov/consumers/guides/childrens-internet-protection-act).  Lab Services doesn't offer built-in support for content filtering.
+
+There are two approaches that schools typically consider for content filtering:
+- Configure a firewall to filter content at the network level.
+- Install 3rd party software directly on each computer that performs content filtering.
+
+The first approach isn't currently supported by Lab Services.  Lab Services hosts each lab's virtual network within a Microsoft-managed Azure subscription.  As a result, you don't have access to the underlying virtual network to do content filtering at the network level.  For more information on Lab Services' architecture, read the article [Architecture Fundamentals](./classroom-labs-fundamentals.md).
+
+Instead, we recommend the second approach which is to install 3rd party software on each lab's template VM.  There are a few key points to highlight as part of this solution:
+- If you plan to use the [auto-shutdown settings](./cost-management-guide.md#automatic-shutdown-settings-for-cost-control), you will need to unblock several Azure host names with the 3rd party software.  The auto-shutdown settings use a diagnostic extension that must be able to communicate back to Lab Services.  Otherwise, the auto-shutdown settings will fail to enable for the lab.
+- You may also want to have each student use a non-admin account on their VM so that they can't uninstall the content filtering software.  By default, Lab Services creates an admin account that each student uses to sign into their VM.  It is possible to add a non-admin account using a specialized image, but there are some known limitations.
+
+If your school needs to do content filtering, contact us via the [Azure Lab Services' forums](https://techcommunity.microsoft.com/t5/azure-lab-services/bd-p/AzureLabServices) for more information.
+
+## Endpoint management
+
+Many endpoint management tools, such as [Microsoft Endpoint Manager](https://techcommunity.microsoft.com/t5/azure-lab-services/configuration-manager-azure-lab-services/ba-p/1754407), require Windows VMs to have unique machine security identifiers (SIDs).  Using SysPrep to create a *generalized* image typically ensures that each Windows machine will have a new, unique machine SID generated when the VM boots from the image.
+
+With Lab Services, even if you use a *generalized* image to create a lab, the template VM and student VMs will all have the same machine SID.  The VMs have the same SID because the template VM's image is in a *specialized* state when it's published to create the student VMs.
+
+For example, the Azure Marketplace images are generalized.  If you create a lab from the Win 10 marketplace image and publish the template VM, all of the student VMs within a lab will have the same machine SID as the template VM.  The machine SIDs can be verified by using a tool such as [PsGetSid](/sysinternals/downloads/psgetsid).
+
+If you plan to use an endpoint management tool or similar software, we recommend that you test it with lab VMs to ensure that it works properly when machine SIDs are the same.  
+
 ## Pricing
 
 ### Azure Lab Services
 
 To learn about pricing, see [Azure Lab Services pricing](https://azure.microsoft.com/pricing/details/lab-services/).
-
 
 ### Shared Image Gallery
 
@@ -226,7 +254,7 @@ Creating a shared image gallery and attaching it to your lab account is free. No
 
 #### Storage charges
 
-To store image versions, a shared image gallery uses standard hard disk drive (HDD)-managed disks. The size of the HDD-managed disk that's used depends on the size of the image version that's being stored. To learn about pricing, see [Managed disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/).
+To store image versions, a shared image gallery uses standard hard disk drive (HDD) managed disks by default.  We recommend using HDD-managed disks when using shared image gallery with Lab Services.  The size of the HDD-managed disk that's used depends on the size of the image version that's being stored.  Lab Services supports image and disk sizes up to 128 GB.  To learn about pricing, see [Managed disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 #### Replication and network egress charges
 
@@ -253,7 +281,7 @@ The total cost per month is estimated as:
 
 * *Number of images &times; number of versions &times; number of replicas &times; managed disk price = total cost per month*
 
-In this  example, the cost is:
+In this example, the cost is:
 
 * 1 custom image (32 GB) &times; 2 versions &times; 8 US regions &times; $1.54 = $24.64 per month
 

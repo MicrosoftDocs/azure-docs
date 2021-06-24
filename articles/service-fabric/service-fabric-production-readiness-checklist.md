@@ -30,7 +30,7 @@ Is your application and cluster ready to take production traffic? Running and te
 1. Turn off automatic upgrades in production clusters, and turn it on for development and staging clusters (rollback as needed). 
 1. Establish a Recovery Point Objective (RPO) for your service, and set up a [disaster recovery process](service-fabric-disaster-recovery.md) and test it out.
 1. Plan for [scaling](service-fabric-cluster-scaling.md) your cluster manually or programmatically.
-1. Plan for [patching](service-fabric-patch-orchestration-application.md) your cluster nodes. 
+1. Plan for [patching](how-to-patch-cluster-nodes-windows.md) your cluster nodes. 
 1. Establish a CI/CD pipeline so that your latest changes are being continually tested. For example, using [Azure DevOps](service-fabric-tutorial-deploy-app-with-cicd-vsts.md) or [Jenkins](/azure/developer/jenkins/deploy-to-service-fabric-cluster)
 1. Test your development & staging clusters under load with the [Fault Analysis Service](service-fabric-testability-overview.md) and induce controlled [chaos](service-fabric-controlled-chaos.md). 
 1. Plan for [scaling](service-fabric-concepts-scalability.md) your applications. 

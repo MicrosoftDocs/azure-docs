@@ -6,7 +6,8 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 02/01/2021
 ms.author: govindk
-ms.reviewer: sngun
+ms.reviewer: sngun 
+ms.custom: devx-track-azurepowershell
 
 ---
 

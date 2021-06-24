@@ -3,13 +3,13 @@ title: Telemetry and logging for Spatial Analysis containers
 titleSuffix: Azure Cognitive Services
 description: Spatial Analysis provides each container with a common configuration framework insights, logging, and security settings.
 services: cognitive-services
-author: aahill
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 01/12/2021
-ms.author: aahi
+ms.date: 06/08/2021
+ms.author: pafarley
 ---
 
 # Telemetry and troubleshooting
@@ -156,7 +156,7 @@ To optimize logs uploaded to a remote endpoint, such as Azure Blob Storage, we r
 Log level configuration allows you to control the verbosity of the generated logs. Supported log levels are: `none`, `verbose`, `info`, `warning`,  and `error`. The default log verbose level for both nodes and platform is `info`. 
 
 Log levels can be modified globally by setting the `ARCHON_LOG_LEVEL` environment variable to one of the allowed values.
-It can also be set through the IoT Edge Module Twin document either globally, for all deployed skills, or for every specific skill by setting the values for `platformLogLevel` and `nodeLogLevel` as shown below.
+It can also be set through the IoT Edge Module Twin document either globally, for all deployed skills, or for every specific skill by setting the values for `platformLogLevel` and `nodesLogLevel` as shown below.
 
 ```json
 {
@@ -168,7 +168,7 @@ It can also be set through the IoT Edge Module Twin document either globally, fo
             },
             "graphs": {
                 "samplegraph": {
-                    "nodeLogLevel": "verbose",
+                    "nodesLogLevel": "verbose",
                     "platformLogLevel": "verbose"
                 }
             }
@@ -296,14 +296,6 @@ The following table lists the attributes in the query response.
 Check fetch log's lines, times, and sizes, if those settings look good replace ***DoPost*** to `true` and that will push the logs with same filters to destinations. 
 
 You can export logs from the Azure Blob Storage when troubleshooting issues. 
-
-## Common issues
-
-If you see the following message in the module logs, it might mean your Azure subscription needs to be approved: 
-
-"Container is not in a valid state. Subscription validation failed with status 'Mismatch'. Api Key is not intended for the given container type."
-
-For more information, see [Request approval to run the container](spatial-analysis-container.md#request-approval-to-run-the-container).
 
 ## Troubleshooting the Azure Stack Edge device
 

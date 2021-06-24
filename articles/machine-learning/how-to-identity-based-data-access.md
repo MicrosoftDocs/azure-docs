@@ -5,12 +5,12 @@ description: Learn how to use identity-based data access to connect to storage s
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.author: sihhu
-author: MayMSFT
+ms.topic: how-to
+ms.author: yogipandey
+author: ynpandey
 ms.reviewer: nibaccam
 ms.date: 02/22/2021
-ms.custom: how-to, contperf-fy21q1, devx-track-python, data4ml
+ms.custom: contperf-fy21q1, devx-track-python, data4ml
 
 # Customer intent: As an experienced Python developer, I need to make my data in Azure Storage available to my compute to train my machine learning models.
 ---
@@ -56,7 +56,7 @@ Certain machine learning scenarios involve training models with private data. In
 
 ## Prerequisites
 
-- An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
+- An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 
 - An Azure storage account with a supported storage type. These storage types are supported in preview: 
     - [Azure Blob Storage](../storage/blobs/storage-blobs-overview.md)

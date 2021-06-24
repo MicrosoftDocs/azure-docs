@@ -6,7 +6,7 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 04/07/2021
+ms.date: 06/17/2021
 ms.custom: references_regions
 # Customer intent: As a security officer, I need to understand how to use the Azure Purview connector for Amazon S3 service to set up, configure, and scan my Amazon S3 buckets.
 ---
@@ -25,9 +25,8 @@ The following scope is specific for the registering and scanning Amazon S3 bucke
 
 |Scope  |Description  |
 |---------|---------|
-|**Data limits**     |    The Purview scanner service currently supports scanning Amazon S3 buckets for up to 100 GB of data per tenant.     |
 |**File types**     | The Purview scanner service currently supports the following file types: <br><br>.avro, .csv, .doc, .docm, .docx, .dot, .json, .odp, .ods, .odt, .orc, .parquet, .pdf, .pot, .pps, .ppsx, .ppt, .pptm, .pptx, .psv, .ssv, .tsv, .txt, .xlc, .xls, .xlsb, .xlsm, .xlsx, .xlt, .xml        |
-|**Regions**     | The Purview connector for the Amazon S3 service is currently deployed only in the **AWS US East (Ohio)** and **Europe (Frankfurt)** regions. <br><br>For more information, see [Storage and scanning regions](#storage-and-scanning-regions).   |
+|**Regions**     | The Purview connector for the Amazon S3 service is currently deployed in specific regions only. <br><br>For more information, see [Storage and scanning regions](#storage-and-scanning-regions).   |
 |     |         |
 
 For more information, see the documented Purview limits at:
@@ -35,6 +34,7 @@ For more information, see the documented Purview limits at:
 - [Manage and increase quotas for resources with Azure Purview](how-to-manage-quotas.md)
 - [Supported data sources and file types in Azure Purview](sources-and-scans.md)
 - [Use private endpoints for your Purview account](catalog-private-link.md)
+
 ### Storage and scanning regions
 
 The following table maps the regions where you data is stored to the region where it would be scanned by Azure Purview.
@@ -46,25 +46,25 @@ The following table maps the regions where you data is stored to the region wher
 | Storage region | Scanning region |
 | ------------------------------- | ------------------------------------- |
 | US East (Ohio)                  | US East (Ohio)                        |
-| US East (N. Virginia)           | US East (Ohio) or US East (N. Virginia)                       |
-| US West (N. California)         | US East (Ohio)                        |
-| US West (Oregon)                | US East (Ohio)                        |
+| US East (N. Virginia)           | US East (N. Virginia)                       |
+| US West (N. California)         | US West (N. California)                        |
+| US West (Oregon)                | US West (Oregon)                      |
 | Africa (Cape Town)              | Europe (Frankfurt)                    |
-| Asia Pacific (Hong Kong)        | Europe (Frankfurt) or Asia Pacific (Sydney)                   |
-| Asia Pacific (Mumbai)           | Europe (Frankfurt) or Asia Pacific (Sydney)                   |
-| Asia Pacific (Osaka-Local)      | Europe (Frankfurt) or Asia Pacific (Sydney)                   |
-| Asia Pacific (Seoul)            | Europe (Frankfurt) or Asia Pacific (Sydney)                   |
-| Asia Pacific (Singapore)        | Europe (Frankfurt) or Asia Pacific (Sydney)                   |
-| Asia Pacific (Sydney)           | Europe (Frankfurt)  or Asia Pacific (Sydney)                  |
-| Asia Pacific (Tokyo)            | Europe (Frankfurt) or Asia Pacific (Sydney)                 |
+| Asia Pacific (Hong Kong)        | Asia Pacific (Tokyo)                |
+| Asia Pacific (Mumbai)           | Asia Pacific (Singapore)                |
+| Asia Pacific (Osaka-Local)      | Asia Pacific (Tokyo)                 |
+| Asia Pacific (Seoul)            | Asia Pacific (Tokyo)                 |
+| Asia Pacific (Singapore)        | Asia Pacific (Singapore)                 |
+| Asia Pacific (Sydney)           | Asia Pacific (Sydney)                  |
+| Asia Pacific (Tokyo)            | Asia Pacific (Tokyo)                |
 | Canada (Central)                | US East (Ohio)                        |
 | China (Beijing)                 | Not supported                    |
 | China (Ningxia)                 | Not supported                   |
 | Europe (Frankfurt)              | Europe (Frankfurt)                    |
-| Europe (Ireland)                | Europe (Frankfurt) or Europe (Ireland)                   |
-| Europe (London)                 | Europe (Frankfurt) or Europe (Ireland)                   |
-| Europe (Milan)                  | Europe (Frankfurt)                    |
-| Europe (Paris)                  | Europe (Frankfurt)                    |
+| Europe (Ireland)                | Europe (Ireland)                   |
+| Europe (London)                 | Europe (London)                 |
+| Europe (Milan)                  | Europe (Paris)                    |
+| Europe (Paris)                  | Europe (Paris)                   |
 | Europe (Stockholm)              | Europe (Frankfurt)                    |
 | Middle East (Bahrain)           | Europe (Frankfurt)                    |
 | South America (São Paulo)       | US East (Ohio)                        |
@@ -358,7 +358,7 @@ Continue with [Create a scan for one or more Amazon S3 buckets](#create-a-scan-f
 
 Once you've added your buckets as Purview data sources, you can configure a scan to run at scheduled intervals or immediately.
 
-1. Navigate to the Azure Purview **Sources** area, and then do one of the following:
+1. Select the **Data Map** tab on the left pane in the Purview Studio, and then do one of the following:
 
     - In the **Map view**, select **New scan** ![New scan icon.](./media/register-scan-amazon-s3/new-scan-button.png) in your data source box.
     - In the **List view**, hover over the row for your data source, and select **New scan** ![New scan icon.](./media/register-scan-amazon-s3/new-scan-button.png).

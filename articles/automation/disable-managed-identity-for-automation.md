@@ -1,13 +1,13 @@
 ---
-title: Disable your Azure Automation account managed identity (Preview)
+title: Disable your Azure Automation account managed identity (preview)
 description: This article explains how to disable and remove a managed identity for an Azure Automation account.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/04/2021
+ms.date: 04/14/2021
 ms.topic: conceptual
 ---
 
-# Disable your Azure Automation account managed identity (Preview)
+# Disable your Azure Automation account managed identity (preview)
 
 There are two ways to disable a system-assigned identity in Azure Automation. You can complete this task from the Azure portal, or by using an Azure Resource Manager (ARM) template.
 
@@ -37,6 +37,6 @@ Removing a system-assigned identity using this method also deletes it from Azure
 
 ## Next steps
 
-- For more information about enabling managed identity in Azure Automation, see [Enable and use managed identity for Automation (Preview)](enable-managed-identity-for-automation.md).
+- For more information about enabling managed identity in Azure Automation, see [Enable and use managed identity for Automation (preview)](enable-managed-identity-for-automation.md).
 
 - For an overview of Automation account security, see [Automation account authentication overview](automation-security-overview.md).

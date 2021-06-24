@@ -2,7 +2,8 @@
 title: View Azure activity logs to monitor resources
 description: Use the activity logs to review user actions and errors. Shows Azure portal PowerShell, Azure CLI, and REST.
 ms.topic: conceptual
-ms.date: 05/13/2019
+ms.date: 05/13/2019 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 # View activity logs to monitor actions on resources
 
@@ -134,7 +135,7 @@ You can use Resource Graph to see the change history for a resource. For more in
 
 ## Azure CLI
 
-To retrieve log entries, run the [az monitor activity-log list](/cli/azure/monitor/activity-log#az-monitor-activity-log-list) command with an offset to indicate the time span.
+To retrieve log entries, run the [az monitor activity-log list](/cli/azure/monitor/activity-log#az_monitor_activity_log_list) command with an offset to indicate the time span.
 
 ```azurecli-interactive
 az monitor activity-log list --resource-group ExampleGroup --offset 7d

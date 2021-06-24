@@ -34,7 +34,7 @@ In this tutorial, you'll use images of cats and dogs.  Since each image is eithe
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, create a [free account](https://aka.ms/AMLFree).
+* An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
 
 ## Create a workspace
 
@@ -207,4 +207,4 @@ Image labels can be exported in [COCO format](http://cocodataset.org/#format-dat
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create a data labeling project and export labels](how-to-create-labeling-projects.md).
+> [Train a machine learning image recognition model](how-to-use-labeled-dataset.md).

@@ -4,10 +4,10 @@ description: Create a SQL managed instance using Kubernetes tools
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: vin-yu
-ms.author: vinsonyu
+author: dnethi
+ms.author: dinethi
 ms.reviewer: mikeray
-ms.date: 02/11/2021
+ms.date: 06/02/2021
 ms.topic: how-to
 ---
 
@@ -37,7 +37,7 @@ This is an example yaml file:
 apiVersion: v1
 data:
   password: <your base64 encoded password>
-  username: <your base64 encoded user name. 'sa' is not allowed>
+  username: <your base64 encoded username>
 kind: Secret
 metadata:
   name: sql1-login-secret
@@ -47,22 +47,42 @@ apiVersion: sql.arcdata.microsoft.com/v1alpha1
 kind: sqlmanagedinstance
 metadata:
   name: sql1
+  annotations:
+    exampleannotation1: exampleannotationvalue1
+    exampleannotation2: exampleannotationvalue2
+  labels:
+    examplelabel1: examplelabelvalue1
+    examplelabel2: examplelabelvalue2
 spec:
-  limits:
-    memory: 4Gi
-    vcores: "4"
-  requests:
-    memory: 2Gi
-    vcores: "1"
-  service:
-    type: LoadBalancer
+  scheduling:
+    default:
+      resources:
+        limits:
+          cpu: "2"
+          memory: 4Gi
+        requests:
+          cpu: "1"
+          memory: 2Gi
+  services:
+    primary:
+      type: LoadBalancer
   storage:
+    backups:
+      volumes:
+      - className: default # Use default configured storage class or modify storage class based on your Kubernetes environment
+        size: 5Gi
     data:
-      className: default
-      size: 5Gi
+      volumes:
+      - className: default # Use default configured storage class or modify storage class based on your Kubernetes environment
+        size: 5Gi
+    datalogs:
+      volumes:
+      - className: default # Use default configured storage class or modify storage class based on your Kubernetes environment
+        size: 5Gi
     logs:
-      className: default
-      size: 1Gi
+      volumes:
+      - className: default # Use default configured storage class or modify storage class based on your Kubernetes environment
+        size: 5Gi
 ```
 
 ### Customizing the login and password
@@ -82,7 +102,6 @@ PowerShell
 
 #Example
 #[Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes('example'))
-
 ```
 
 Linux/macOS
@@ -133,7 +152,6 @@ kubectl create -n <your target namespace> -f <path to your yaml file>
 #kubectl create -n arc -f C:\arc-data-services\sqlmi.yaml
 ```
 
-
 ## Monitoring the creation status
 
 Creating the SQL managed instance will take a few minutes to complete. You can monitor the progress in another terminal window with the following commands:
@@ -152,10 +170,10 @@ kubectl get pods --namespace arc
 You can also check on the creation status of any particular pod by running a command like below.  This is especially useful for troubleshooting any issues.
 
 ```console
-kubectl describe po/<pod name> --namespace arc
+kubectl describe pod/<pod name> --namespace arc
 
 #Example:
-#kubectl describe po/sql1-0 --namespace arc
+#kubectl describe pod/sql1-0 --namespace arc
 ```
 
 ## Troubleshooting creation problems

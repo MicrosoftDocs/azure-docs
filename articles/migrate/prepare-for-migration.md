@@ -79,7 +79,7 @@ Required changes are summarized in the table.
 
 **Action** | **VMware (agentless migration)** | **VMware (agent-based)/physical machines** | **Windows on Hyper-V** 
 --- | --- | --- | ---
-**Configure the SAN policy as Online All**<br/><br/> This ensures that Windows volumes in Azure VM use the same drive letter assignments as the on-premises VM. | Set automatically for machines running Windows Server 2008 R2 or later.<br/><br/> Configure manually for earlier operating systems. | Set automatically in most cases. | Configure manually.
+**Configure the SAN policy as Online All**<br/><br/> | Set automatically for machines running Windows Server 2008 R2 or later.<br/><br/> Configure manually for earlier operating systems. | Set automatically in most cases. | Configure manually.
 **Install Hyper-V Guest Integration** | [Install manually](prepare-windows-server-2003-migration.md#install-on-vmware-vms) on machines running Windows Server 2003. | [Install manually](prepare-windows-server-2003-migration.md#install-on-vmware-vms) on machines running Windows Server 2003. | [Install manually](prepare-windows-server-2003-migration.md#install-on-hyper-v-vms) on machines running Windows Server 2003.
 **Enable Azure Serial Console**.<br/><br/>[Enable the console](/troubleshoot/azure/virtual-machines/serial-console-windows) on Azure VMs to help with troubleshooting. You don't need to reboot the VM. The Azure VM will boot by using the disk image. The disk image boot is equivalent to a reboot for the new VM. | Enable manually | Enable manually | Enable manually
 **Connect after migration**<br/><br/> To connect after migration, there are a number of steps to take before you migrate. | [Set up](#prepare-to-connect-to-azure-windows-vms) manually. | [Set up](#prepare-to-connect-to-azure-windows-vms) manually. | [Set up](#prepare-to-connect-to-azure-windows-vms) manually.
@@ -106,14 +106,12 @@ Configure this setting manually as follows:
 
 Azure Migrate completes these actions automatically for these versions
 
-- Red Hat Enterprise Linux  7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x (Azure Linux VM agent is also installed automatically during migration)
-- Cent OS 7.7, 7.6, 7.5, 7.4, 6.x (Azure Linux VM agent is also installed automatically during migration)
-- SUSE Linux Enterprise Server 12 SP1+
-- SUSE Linux Enterprise Server 15 SP1
+- Red Hat Enterprise Linux  8, 7.9, 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x (Azure Linux VM agent is also installed automatically during migration)
+- Cent OS 8, 7.7, 7.6, 7.5, 7.4, 6.x (Azure Linux VM agent is also installed automatically during migration)
+- SUSE Linux Enterprise Server 15 SP0, 15 SP1, 12, 11
 - Ubuntu 19.04, 19.10, 18.04LTS, 16.04LTS, 14.04LTS (Azure Linux VM agent is also installed automatically during migration)
-- Ubuntu 18.04LTS, 16.04LTS
 - Debian 9, 8, 7
-- Oracle Linux 7.7, 7.7-CI
+- Oracle Linux 6, 7.7, 7.7-CI 
 
 For other versions, prepare machines as summarized in the table.  
 

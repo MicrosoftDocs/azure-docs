@@ -6,7 +6,7 @@ ms.author: sunila
 ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 09/22/2020
+ms.date: 06/02/2021
 ---
 
 # Quickstart: Create an Azure Database for PostgreSQL - Flexible Server in the Azure portal
@@ -46,7 +46,10 @@ To create an Azure Database for PostgreSQL server, take the following steps:
     ---|---|---
     Subscription|Your subscription name|The  Azure subscription that you want to use for your server. If you have multiple subscriptions, choose the subscription in which you'd like to be billed for the resource.
     Resource group|*myresourcegroup*| A new resource group name or an existing one from your subscription.
-    Server name |*mydemoserver*|A unique name that identifies your Azure Database for PostgreSQL server. The domain name *postgres.database.azure.com* is appended to the server name you provide. The server can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain at least 3 through 63 characters.
+    Workload type|Default SKU selection|You can choose from Development (Burstable SKU), Production small/medium (General purpose SKU), or Production large (Memory optimized SKU). You can further customize the SKU and storage by clicking *Configure server* link.
+    Availability zone|Your preferred AZ|You can choose in which availability zone you want your server to be deployed. This is useful to co-locate with your application. If you choose *No preference*, a default AZ is selected for you.
+    High availability|Enable it zone-redundant deployment| By selecting this option, a standby server with the same configuration as your primary will be automatically provisioned in a different availability zone in the same region. Note: You can enable or disable high availability post server create as well.
+    Server name |*mydemoserver-pg*|A unique name that identifies your Azure Database for PostgreSQL server. The domain name *postgres.database.azure.com* is appended to the server name you provide. The server can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain at least 3 through 63 characters.
     Admin username |*myadmin*| Your own login account to use when you connect to the server. The admin login name can't be **azure_superuser**, **azure_pg_admin**, **admin**, **administrator**, **root**, **guest**, or **public**. It can't start with **pg_**.
     Password |Your password| A new password for the server admin account. It must contain between 8 and 128 characters. Your password must contain characters from three of the following categories: English uppercase letters, English lowercase letters, numbers (0 through 9), and non-alphanumeric characters (!, $, #, %, etc.).
     Location|The region closest to your users| The location that is closest to your users.
@@ -65,6 +68,7 @@ To create an Azure Database for PostgreSQL server, take the following steps:
 
     :::image type="content" source="./media/quickstart-create-database-portal/6-add-client-ip.png" alt-text="Select Add current client IP address":::
 
+    If you choose private access 
 6. Select **Review + create** to review your selections. Select **Create** to provision the server. This operation may take a few minutes.
 
 7. On the toolbar, select the **Notifications** icon (a bell) to monitor the deployment process. Once the deployment is done, you can select **Pin to dashboard**, which creates a tile for this server on your Azure portal dashboard as a shortcut to the server's **Overview** page. Selecting **Go to resource** opens the server's **Overview** page.
@@ -98,7 +102,7 @@ There are a number of applications you can use to connect to your Azure Database
    For example, the following command connects to the default database called **postgres** on your PostgreSQL server **mydemoserver.postgres.database.azure.com** using access credentials. Enter the `<server_admin_password>` you chose when prompted for password.
   
    ```bash
-   psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin --dbname=postgres
+   psql --host=mydemoserver-pg.postgres.database.azure.com --port=5432 --username=myadmin --dbname=postgres
    ```
 
    After you connect, the psql utility displays a postgres prompt where you type sql commands. In the initial connection output, a warning may appear because the psql you're using might be a different version than the Azure Database for PostgreSQL server version.
@@ -106,13 +110,14 @@ There are a number of applications you can use to connect to your Azure Database
    Example psql output:
 
    ```bash
-   psql (11.3, server 12.1)
-   WARNING: psql major version 11, server major version 12.
-            Some psql features might not work.
-   SSL connection (protocol: TLSv1.2, cipher: ECDHE-RSA-AES256-GCM-SHA384, bits: 256, compression: off)
+   psql (12.3 (Ubuntu 12.3-1.pgdg18.04+1), server 13.2)
+   WARNING: psql major version 12, server major version 13.
+         Some psql features might not work.
+   SSL connection (protocol: TLSv1.3, cipher: TLS_AES_256_GCM_SHA384, bits: 256, compression: off)
    Type "help" for help.
 
    postgres=>
+
    ```
 
    > [!TIP]

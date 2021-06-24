@@ -27,13 +27,13 @@ You can bridge the gap and strengthen your security posture across all applicati
 
 ## Secure hybrid access (SHA) through Azure AD Application Proxy
   
-Using [Application Proxy](./what-is-application-proxy.md) you can provide [secure remote access](./application-proxy.md) to your on-premises web applications. Your users don’t require to use a VPN. Users benefit by easily connecting to their applications from any device after a [single sign-on](./add-application-portal-setup-sso.md). Application Proxy provides remote access as a service and allows you to [easily publish your on-premise applications](./application-proxy-add-on-premises-application.md) to users outside the corporate network. It helps you scale your cloud access management without requiring you to modify your on-premises applications. [Plan an Azure AD Application Proxy deployment](./application-proxy-deployment-plan.md) as a next step.
+Using [Application Proxy](../app-proxy/what-is-application-proxy.md) you can provide [secure remote access](../app-proxy/application-proxy.md) to your on-premises web applications. Your users don’t require to use a VPN. Users benefit by easily connecting to their applications from any device after a [single sign-on](add-application-portal-setup-sso.md). Application Proxy provides remote access as a service and allows you to [easily publish your on-premise applications](../app-proxy/application-proxy-add-on-premises-application.md) to users outside the corporate network. It helps you scale your cloud access management without requiring you to modify your on-premises applications. [Plan an Azure AD Application Proxy deployment](../app-proxy/application-proxy-deployment-plan.md) as a next step.
 
 ## Azure AD partner integrations
 
 ### SHA through networking and delivery controllers
 
-In addition to [Azure AD Application Proxy](./what-is-application-proxy.md), to enable you to use the [Zero Trust framework](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/), Microsoft partners with third-party providers. You can use your existing networking and delivery controllers, and easily protect legacy applications that are critical to your business processes but that you couldn’t protect before with Azure AD. It’s likely you already have everything you need to start protecting these applications.
+In addition to [Azure AD Application Proxy](../app-proxy/what-is-application-proxy.md), to enable you to use the [Zero Trust framework](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/), Microsoft partners with third-party providers. You can use your existing networking and delivery controllers, and easily protect legacy applications that are critical to your business processes but that you couldn’t protect before with Azure AD. It’s likely you already have everything you need to start protecting these applications.
 
 ![Image shows secure hybrid access with networking partners and app proxy](./media/secure-hybrid-access/secure-hybrid-access.png)
 

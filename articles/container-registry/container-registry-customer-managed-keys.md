@@ -2,7 +2,7 @@
 title: Encrypt registry with a customer-managed key
 description: Learn about encryption-at-rest of your Azure container registry, and how to encrypt your Premium registry with a customer-managed key stored in Azure Key Vault
 ms.topic: article
-ms.date: 03/03/2021
+ms.date: 05/27/2021
 ms.custom:
 ---
 
@@ -21,7 +21,7 @@ This feature is available in the **Premium** container registry service tier. Fo
 
 ## Things to know
 
-* You can currently enable a customer-managed key only when you create a registry. When enabling the key, you configure a *user-assigned* managed identity to access the key vault.
+* You can currently enable a customer-managed key only when you create a registry. When enabling the key, you configure a *user-assigned* managed identity to access the key vault. Later, you can enable the registry's system-managed identity for key vault access if needed.
 * After enabling encryption with a customer-managed key on a registry, you can't disable the encryption.  
 * Azure Container Registry supports only RSA or RSA-HSM keys. Elliptic curve keys aren't currently supported.
 * [Content trust](container-registry-content-trust.md) is currently not supported in a registry encrypted with a customer-managed key.
@@ -122,7 +122,7 @@ az keyvault set-policy \
   --key-permissions get unwrapKey wrapKey
 ```
 
-Alternatively, use [Azure RBAC for Key Vault](../key-vault/general/rbac-guide.md) to assign permissions to the identity to access the key vault. For example, assign the Key Vault Crypto Service Encryption role to the identity using the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command:
+Alternatively, use [Azure RBAC for Key Vault](../key-vault/general/rbac-guide.md) to assign permissions to the identity to access the key vault. For example, assign the Key Vault Crypto Service Encryption role to the identity using the [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) command:
 
 ```azurecli 
 az role assignment create --assignee $identityPrincipalID \
@@ -511,11 +511,14 @@ az keyvault delete-policy \
   --object-id $identityPrincipalID
 ```
 
-Revoking the key effectively blocks access to all registry data, since the registry can't access the encryption key. If access to the key is enabled or the deleted key is restored, your registry will pick the key so you can again access the encrypted registry data.
+Revoking the key effectively blocks access to all registry data, since the registry can't access the encryption key. If access to the key is enabled or the deleted key is restored, your registry will pick the key so you can again access the encrypted registry data. 
 
 ## Advanced scenario: Key Vault firewall
 
-You might want to store the encryption key using an existing Azure key vault configured with a [Key Vault firewall](../key-vault/general/network-security.md), which denies public access and allows only private endpoint or selected virtual networks. 
+> [!IMPORTANT]
+> Currently, during registry deployment, a registry's *user-assigned* identity can only be configured to access an encryption key in a key vault that allows public access, not one configured with a [Key Vault firewall](../key-vault/general/network-security.md). 
+> 
+> To access a key vault protected with a Key Vault firewall, the registry must bypass the firewall using its *system-managed* identity. Currently these settings can only be configured after the registry is deployed. 
 
 For this scenario, first create a new user-assigned identity, key vault, and container registry encrypted with a customer-managed key, using the [Azure CLI](#enable-customer-managed-key---cli), [portal](#enable-customer-managed-key---portal), or [template](#enable-customer-managed-key---template). Detailed steps are in preceding sections in this article.
    > [!NOTE]
@@ -596,26 +599,26 @@ If this issue occurs with a system-assigned identity, please [create an Azure su
 ## Next steps
 
 * Learn more about [encryption at rest in Azure](../security/fundamentals/encryption-atrest.md).
-* Learn more about access policies and how to [secure access to a key vault](../key-vault/general/secure-your-key-vault.md).
+* Learn more about access policies and how to [secure access to a key vault](../key-vault/general/security-features.md).
 
 
 <!-- LINKS - external -->
 
 <!-- LINKS - internal -->
 
-[az-feature-register]: /cli/azure/feature#az-feature-register
-[az-feature-show]: /cli/azure/feature#az-feature-show
-[az-group-create]: /cli/azure/group#az-group-create
-[az-identity-create]: /cli/azure/identity#az-identity-create
-[az-feature-register]: /cli/azure/feature#az-feature-register
-[az-deployment-group-create]: /cli/azure/deployment/group#az-deployment-group-create
-[az-keyvault-create]: /cli/azure/keyvault#az-keyvault-create
-[az-keyvault-key-create]: /cli/azure/keyvault/key#az-keyvault-key-create
+[az-feature-register]: /cli/azure/feature#az_feature_register
+[az-feature-show]: /cli/azure/feature#az_feature_show
+[az-group-create]: /cli/azure/group#az_group_create
+[az-identity-create]: /cli/azure/identity#az_identity_create
+[az-feature-register]: /cli/azure/feature#az_feature_register
+[az-deployment-group-create]: /cli/azure/deployment/group#az_deployment_group_create
+[az-keyvault-create]: /cli/azure/keyvault#az_keyvault_create
+[az-keyvault-key-create]: /cli/azure/keyvault/key#az_keyvault_key_create
 [az-keyvault-key]: /cli/azure/keyvault/key
-[az-keyvault-set-policy]: /cli/azure/keyvault#az-keyvault-set-policy
-[az-keyvault-delete-policy]: /cli/azure/keyvault#az-keyvault-delete-policy
-[az-resource-show]: /cli/azure/resource#az-resource-show
-[az-acr-create]: /cli/azure/acr#az-acr-create
-[az-acr-show]: /cli/azure/acr#az-acr-show
-[az-acr-encryption-rotate-key]: /cli/azure/acr/encryption#az-acr-encryption-rotate-key
-[az-acr-encryption-show]: /cli/azure/acr/encryption#az-acr-encryption-show
+[az-keyvault-set-policy]: /cli/azure/keyvault#az_keyvault_set_policy
+[az-keyvault-delete-policy]: /cli/azure/keyvault#az_keyvault_delete_policy
+[az-resource-show]: /cli/azure/resource#az_resource_show
+[az-acr-create]: /cli/azure/acr#az_acr_create
+[az-acr-show]: /cli/azure/acr#az_acr_show
+[az-acr-encryption-rotate-key]: /cli/azure/acr/encryption#az_acr_encryption_rotate_key
+[az-acr-encryption-show]: /cli/azure/acr/encryption#az_acr_encryption_show

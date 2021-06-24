@@ -34,8 +34,8 @@ You can opt-in to receive in-VM notifications through [Azure Scheduled Events](.
 |--------|---------|
 | Max price is set to >= the current price. | VM is deployed if capacity and quota are available. |
 | Max price is set to < the current price. | The VM is not deployed. You will get an error message that the max price needs to be >= current price. |
-| Restarting a stop/deallocate VM if the max price is >= the current price | If there is capacity and quota, then the VM is deployed. |
-| Restarting a stop/deallocate VM if the max price is < the current price | You will get an error message that the max price needs to be >= current price. | 
+| Restarting a stopped/deallocated VM if the max price is >= the current price | If there is capacity and quota, then the VM is deployed. |
+| Restarting a stopped/deallocated VM if the max price is < the current price | You will get an error message that the max price needs to be >= current price. | 
 | Price for the VM has gone up and is now > the max price. | The VM gets evicted. You get a 30s notification before actual eviction. | 
 | After eviction the price for the VM goes back to being < the max price. | The VM will not be automatically re-started. You can restart the VM yourself, and it will be charged at the current price. |
 | If the max price is set to `-1` | The VM will not be evicted for pricing reasons. The max price will be the current price, up to the price for standard VMs. You will never be charged above the standard price.| 

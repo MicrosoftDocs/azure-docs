@@ -6,7 +6,8 @@ ms.topic: conceptual
 author: vhorne
 ms.service: web-application-firewall
 ms.date: 02/08/2020
-ms.author: victorh
+ms.author: victorh 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Create Web Application Firewall policies for Application Gateway

@@ -1,19 +1,19 @@
 ---
-title: Reference for writing expressions for attribute mappings in Azure Active Directory
+title: Reference for writing expressions for attribute mappings in Azure Active Directory Application Provisioning
 description: Learn how to use expression mappings to transform attribute values into an acceptable format during automated provisioning of SaaS app objects in Azure Active Directory. Includes a reference list of functions.
 services: active-directory
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/04/2021
+ms.date: 05/11/2021
 ms.author: kenwith
-ms.custom: contperf-fy21q2
+ms.reviewer: arvinh
 ---
 
-# Reference for writing expressions for attribute mappings in Azure AD
+# Reference for writing expressions for attribute mappings in Azure Active Directory
 
 When you configure provisioning to a SaaS application, one of the types of attribute mappings that you can specify is an expression mapping. For these, you must write a script-like expression that allows you to transform your users' data into formats that are more acceptable for the SaaS application.
 
@@ -399,7 +399,7 @@ The Item function returns one item from a multi-valued string/attribute.
 | **index** |Required |Integer | Index to an item in the multi-valued string|
 
 **Example:**
-`Item([proxyAddresses], 1)` returns the second item in the multi-valued attribute.
+`Item([proxyAddresses], 1)` returns the first item in the multi-valued attribute. Index 0 should not be used. 
 
 ---
 ### Join

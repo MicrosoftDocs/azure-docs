@@ -1,6 +1,6 @@
 ---
 title: Compare Azure Government and global Azure | Microsoft Docs
-description: Microsoft Azure Government uses same underlying technologies as global Azure, which includes the core components of Infrastructure-as-a-Service (IaaS), Platform-as-a-Service (PaaS), and Software-as-a-Service (SaaS). This article compares Azure Government and global Azure.
+description: Describe feature differences between Azure Government and global Azure.
 services: azure-government
 cloud: gov
 documentationcenter: ''
@@ -10,18 +10,18 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 03/07/2021
+ms.date: 04/20/2021
 ---
 
 # Compare Azure Government and global Azure
 
-Microsoft Azure Government uses same underlying technologies as global Azure, which includes the core components of [Infrastructure-as-a-Service (IaaS)](https://azure.microsoft.com/overview/what-is-iaas/), [Platform-as-a-Service (PaaS)](https://azure.microsoft.com/overview/what-is-paas/), and [Software-as-a-Service (SaaS)](https://azure.microsoft.com/overview/what-is-saas/). Both Azure and Azure Government have the same comprehensive security controls in place, as well as the same Microsoft commitment on the safeguarding of customer data. Whereas both cloud environments are assessed and authorized at the FedRAMP High impact level, Azure Government provides an additional layer of protection to customers through contractual commitments regarding storage of customer data in the United States and limiting potential access to systems processing customer data to screened US persons. These commitments may be of interest to customers using the cloud to store or process data subject to US export control regulations such as the EAR, ITAR, and DoE 10 CFR Part 810.
+Microsoft Azure Government uses same underlying technologies as global Azure, which includes the core components of [Infrastructure-as-a-Service (IaaS)](https://azure.microsoft.com/overview/what-is-iaas/), [Platform-as-a-Service (PaaS)](https://azure.microsoft.com/overview/what-is-paas/), and [Software-as-a-Service (SaaS)](https://azure.microsoft.com/overview/what-is-saas/). Both Azure and Azure Government have the same comprehensive security controls in place, as well as the same Microsoft commitment on the safeguarding of customer data. Whereas both cloud environments are assessed and authorized at the FedRAMP High impact level, Azure Government provides an additional layer of protection to customers through contractual commitments regarding storage of customer data in the United States and limiting potential access to systems processing customer data to [screened US persons](./documentation-government-plan-security.md#screening). These commitments may be of interest to customers using the cloud to store or process data subject to US export control regulations.
 
-### Export control implications
+## Export control implications
 
-Customers are responsible for designing and deploying their applications to meet [export control requirements](./documentation-government-overview-itar.md) such as those prescribed in the EAR and ITAR. In doing so, customers should not include sensitive or restricted information in Azure resource names, as explained in [Considerations for naming Azure resources](./documentation-government-concept-naming-resources.md). Data stored or processed in customer VMs, storage accounts, databases, Azure Import/Export, Azure Cache for Redis, ExpressRoute, Azure Cognitive Search, App Service, API Management, and other Azure services suitable for holding, processing, or transmitting customer data can contain export-controlled data. However, metadata for these Azure services is not permitted to contain export-controlled data. This metadata includes all configuration data entered when creating and maintaining an Azure service, including subscription names, service names, server names, database names, tenant role names, resource groups, deployment names, resource names, resource tags, circuit name, etc. It also includes all shipping information that is used to transport media for Azure Import/Export, such as carrier name, tracking number, description, return information, drive list, package list, storage account name, container name, etc. Sensitive data should not be included in HTTP headers sent to the REST API in search/query strings as part of the API.
+Customers are responsible for designing and deploying their applications to meet [US export control requirements](./documentation-government-overview-itar.md) such as the requirements prescribed in the EAR, ITAR, and DoE 10 CFR Part 810. In doing so, customers should not include sensitive or restricted information in Azure resource names, as explained in [Considerations for naming Azure resources](./documentation-government-concept-naming-resources.md).
 
-### Guidance for developers
+## Guidance for developers
 
 Azure Government services operate the same way as the corresponding services in global Azure, which is why most of the existing online Azure documentation applies equally well to Azure Government. However, there are some key differences that developers working on applications hosted in Azure Government must be aware of. For detailed information, see [Guidance for developers](./documentation-government-developer-guide.md). As a developer, you must know how to connect to Azure Government and once you connect you will mostly have the same experience as in global Azure. Table below lists API endpoints in Azure vs. Azure Government for accessing and managing various services.
 
@@ -87,7 +87,7 @@ Azure Government services operate the same way as the corresponding services in 
 |||abfa0a7c-a6b6-4736-8310-5855508787cd|6a02c803-dafd-4136-b4c3-5a6f318b4714|Service Principal ID|
 ||Azure Cognitive Search|\*.search.windows.net|\*.search.windows.us||
 
-### Service availability
+## Service availability
 
 Microsoft's goal is to enable 100% parity in service availability between Azure and Azure Government. For service availability in Azure Government, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia). Services available in Azure Government are listed by category and whether they are Generally Available or available through Preview. If a service is available in Azure Government, that fact is not reiterated in the rest of this article. Instead, customers are encouraged to review [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia) for the latest, up-to-date information on service availability.
 
@@ -161,6 +161,11 @@ The following Translator **features are not currently available** in Azure Gover
 
 This section outlines variations and considerations when using Analytics services in the Azure Government environment. For service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=data-share,power-bi-embedded,analysis-services,event-hubs,data-lake-analytics,storage,data-catalog,data-factory,synapse-analytics,stream-analytics,databricks,hdinsight&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia).
 
+### [Azure Data Factory](../data-factory/index.yml)
+
+The following Data Factory **features are not currently available** in Azure Government:
+
+- Mapping data flows
 
 ### [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks)
 
@@ -224,7 +229,12 @@ The following Virtual Machines **features are not currently available** in Azure
 
 ### [Azure Functions](../azure-functions/index.yml)
 
-When connecting your function app to Application Insights in Azure Government, make sure you use [`APPLICATIONINSIGHTS_CONNECTION_STRING`](../azure-functions/functions-app-settings.md#applicationinsights_connection_string), which lets you customize the Application Insights endpoint.
+The following Functions **features are not currently available** in Azure Government:
+
+- Running .NET 5 apps
+
+When connecting your Functions app to Application Insights in Azure Government, make sure you use [`APPLICATIONINSIGHTS_CONNECTION_STRING`](../azure-functions/functions-app-settings.md#applicationinsights_connection_string), which lets you customize the Application Insights endpoint.
+
 
 ## Databases
 
@@ -235,7 +245,6 @@ This section outlines variations and considerations when using Databases service
 The following Azure Database for MySQL **features are not currently available** in Azure Government:
 
 - Advanced Threat Protection
-- Private endpoint connections
 
 ### [Azure Database for PostgreSQL](../postgresql/index.yml)
 
@@ -244,7 +253,6 @@ The following Azure Database for PostgreSQL **features are not currently availab
 - Hyperscale (Citus) and Flexible server deployment options
 - The following features of the Single server deployment option
    - Advanced Threat Protection
-   - Private endpoint connections
 
 
 ## Developer Tools
@@ -378,6 +386,7 @@ The calculation for recommending that you should right-size or shut down underut
 
 If you want to be more aggressive at identifying underutilized virtual machines, you can adjust the CPU utilization rule on a per subscription basis.
 
+
 ## Media
 
 This section outlines variations and considerations when using Media services in the Azure Government environment.
@@ -392,7 +401,7 @@ For information on how to connect to Media Services v2, see [Access the Azure Me
 
 ### Media Services Video Indexer
 
-For more information, see [Create a Video Indexer account](../media-services/video-indexer/connect-to-azure.md#video-indexer-in-azure-government).
+For more information, see [Create a Video Indexer account](../azure-video-analyzer/video-analyzer-for-media-docs/connect-to-azure.md#create-a-new-account-on-azure).
 
 
 ## Migration
@@ -473,9 +482,9 @@ This section outlines variations and considerations when using Security services
 
 The following features have known limitations in Azure Government:
 
-- Limitations with B2B collaboration in supported Azure Government tenants:
-    - B2B collaboration is available in most Azure Government tenants created after June, 2019. Over time, more tenants will get access to this functionality. See [How can I tell if B2B collaboration is available in my Azure Government tenant?](../active-directory/external-identities/current-limitations.md#how-can-i-tell-if-b2b-collaboration-is-available-in-my-azure-us-government-tenant)
-    - B2B collaboration is currently only supported between tenants that are both within Azure US Government cloud and that both support B2B collaboration. If you invite a user in a tenant that isn't part of the Azure Government cloud or that doesn't yet support B2B collaboration, the invitation will fail or the user will be unable to redeem the invitation.
+- Limitations with B2B Collaboration in supported Azure US Government tenants:
+    - B2B Collaboration is available in most Azure US Government tenants created after June, 2019. Over time, more tenants will get access to this functionality. See [How can I tell if B2B collaboration is available in my Azure US Government tenant?](../active-directory/external-identities/current-limitations.md#how-can-i-tell-if-b2b-collaboration-is-available-in-my-azure-us-government-tenant)
+    - B2B collaboration is supported between tenants that are both within Azure US Government cloud and that both support B2B collaboration. Azure US Government tenants that support B2B collaboration can also collaborate with social users using Microsoft, Google accounts, or email one-time passcode accounts. If you invite a user outside of these groups (for example, if the user is in a tenant that isn't part of the Azure US Government cloud or doesn't yet support B2B collaboration), the invitation will fail or the user will be unable to redeem the invitation.
     - B2B collaboration via Power BI is not supported. When you invite a guest user from within Power BI, the B2B flow is not used and the guest user won't appear in the tenant's user list. If a guest user is invited through other means, they'll appear in the Power BI user list, but any sharing request to the user will fail and display a 403 Forbidden error.
     - Microsoft 365 Groups are not supported for B2B users and can't be enabled.
     - Some SQL tools such as SQL Server Management Studio (SSMS) require you to set the appropriate cloud parameter. In the tool's Azure service setup options, set the cloud parameter to Azure Government.
@@ -503,16 +512,16 @@ The following Azure Security Center **features are not currently available** in 
     - [Connect GCP account](../security-center/quickstart-onboard-gcp.md)
     - [Integrated vulnerability assessment for machines (powered by Qualys)](../security-center/deploy-vulnerability-assessment-vm.md).
 
-    >[!NOTE]
-    >Security Center internal assessments are provided to discover security misconfigurations, based on Common Configuration Enumeration such as password policy, windows FW rules, local machine audit and security policy, and additional OS hardening settings.
+    > [!NOTE]
+    > Security Center internal assessments are provided to discover security misconfigurations, based on Common Configuration Enumeration such as password policy, windows FW rules, local machine audit and security policy, and additional OS hardening settings.
 
 - **Threat detection**
     - [Azure Defender for App Service](../security-center/defender-for-app-service-introduction.md).
     - [Azure Defender for Key Vault](../security-center/defender-for-key-vault-introduction.md)
     - *Specific detections*: Detections based on VM log periodic batches, Azure core router network logs, and threat intelligence reports.
 
-    >[!NOTE]
-    >Near real-time alerts generated based on security events and raw data collected from the VMs are captured and displayed.
+    > [!NOTE]
+    > Near real-time alerts generated based on security events and raw data collected from the VMs are captured and displayed.
 
 - **Environment hardening**
     - [Adaptive network hardening](../security-center/security-center-adaptive-network-hardening.md)
@@ -524,7 +533,7 @@ The following Azure Security Center **features are not currently available** in 
 
 **Azure Security Center FAQ**
 
-For Azure Security Center FAQ, see [Azure Security Center frequently asked questions public documentation](../security-center/faq-general.md). Additional FAQ for Azure Security Center in Azure Government are listed below.
+For Azure Security Center FAQ, see [Azure Security Center frequently asked questions public documentation](../security-center/faq-general.yml). Additional FAQ for Azure Security Center in Azure Government are listed below.
 
 **What will customers be charged for Azure Security Center in Azure Government?**</br>
 Azure Security Center's integrated cloud workload protection platform (CWPP), Azure Defender, brings advanced, intelligent, protection of your Azure and hybrid resources and workloads. Azure Defender is free for the first 30 days. Should you choose to continue to use public preview or generally available features of Azure Defender beyond 30 days, we automatically start to charge for the service.
@@ -534,18 +543,7 @@ Azure Security Center is deployed in Azure Government regions but not in Azure G
 
 ### [Azure Sentinel](../sentinel/overview.md)
 
-The following **features have known limitations** in Azure Government:
-
-- Office 365 data connector
-    - The Office 365 data connector can be used only for [Office 365 GCC High and Office 365 DoD](/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/gcc-high-and-dod). Office 365 GCC can be accessed only from global (commercial) Azure.
-
-- AWS CloudTrail data connector
-    - The AWS CloudTrail data connector can be used only for [AWS in the Public Sector](https://aws.amazon.com/government-education/).
-
-### [Enterprise Mobility + Security (EMS)](/enterprise-mobility-security)
-
-For information about EMS suite capabilities in Azure Government, see the [Enterprise Mobility + Security for US Government Service Description](/enterprise-mobility-security/solutions/ems-govt-service-description).
-
+For feature variations and limitations, see [Cloud feature availability for US Government customers](../security/fundamentals/feature-availability.md#azure-sentinel).
 
 ## Storage
 
@@ -565,15 +563,15 @@ Azure relies on [paired regions](../best-practices-availability-paired-regions.m
 
 Table in Guidance for developers section shows URL endpoints for main Azure Storage services.
 
->[!NOTE]
->All your scripts and code need to account for the appropriate endpoints. See [**Configure Azure Storage Connection Strings**](../storage/common/storage-configure-connection-string.md).
+> [!NOTE]
+> All your scripts and code need to account for the appropriate endpoints. See [**Configure Azure Storage Connection Strings**](../storage/common/storage-configure-connection-string.md).
 
 For more information on APIs, see [Cloud Storage Account Constructor](/java/api/com.microsoft.azure.storage.cloudstorageaccount.cloudstorageaccount).
 
 The endpoint suffix to use in these overloads is *core.usgovcloudapi.net*.
 
->[!NOTE]
->If error 53 ("The network path was not found") is returned while you're [**mounting the file share**](../storage/files/storage-dotnet-how-to-use-files.md), a firewall might be blocking the outbound port. Try mounting the file share on VM that's in the same Azure subscription as the storage account.
+> [!NOTE]
+> If error 53 ("The network path was not found") is returned while you're [**mounting the file share**](../storage/files/storage-dotnet-how-to-use-files.md), a firewall might be blocking the outbound port. Try mounting the file share on VM that's in the same Azure subscription as the storage account.
 
 When you're deploying the **StorSimple** Manager service, use the [https://portal.azure.us/](https://portal.azure.us/) URL for the Azure Government portal. For deployment instructions for [StorSimple Virtual Array](../storsimple/storsimple-ova-system-requirements.md), see StorSimple Virtual Array system requirements. For the StorSimple 8000 series, see [StorSimple software, high availability, and networking requirements](../storsimple/storsimple-8000-system-requirements.md) and go to the **Deploy** section from the left menu. For more information on StorSimple, see the [StorSimple documentation](../storsimple/index.yml).
 
@@ -598,14 +596,20 @@ The following API Management **features are not currently available** in Azure G
 
 ### [App Service](../app-service/overview.md)
 
+The following App Service **resources are not currently available** in Azure Government:
+
+- App Service Certificate
+- App Service Managed Certificate
+- App Service Domain
+
 The following App Service **features are not currently available** in Azure Government:
 
-- Resource
-    - App Service Certificate
 - Deployment
     - Deployment options: only Local Git Repository and External Repository are available
 - Development tools
     - Resource explorer
+- Azure Government portal
+    - Private endpoints for Web Apps cannot be configured in the UI; however, private endpoints are enabled in Azure Government and you can use the Private Link Center if you need the UI.
 
 
 ## Next steps
