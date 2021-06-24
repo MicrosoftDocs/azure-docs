@@ -221,7 +221,7 @@ In this article, you can find the information needed to restrict a user's admini
 > [!div class="mx-tableFixed"]
 > | Task | Least privileged role | Additional roles |
 > | ---- | --------------------- | ---------------- |
-> | Read sign-in logs | Reports Reader | Security Reader<br/>Security Administrator |
+> | Read sign-in logs | Reports Reader | Security Reader<br/>Security Administrator<br/> Global Reader |
 
 ## Multi-factor authentication
 

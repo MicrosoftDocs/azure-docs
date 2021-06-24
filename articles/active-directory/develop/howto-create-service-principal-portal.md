@@ -1,7 +1,7 @@
 ---
-title: Create an Azure AD app & service principal in the portal
+title: Create an Azure AD app and service principal in the portal
 titleSuffix: Microsoft identity platform
-description: Create a new Azure Active Directory app & service principal to manage access to resources with role-based access control in Azure Resource Manager.
+description: Create a new Azure Active Directory app and service principal to manage access to resources with role-based access control in Azure Resource Manager.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -11,8 +11,7 @@ ms.subservice: develop
 ms.topic: how-to
 ms.date: 06/16/2021
 ms.author: ryanwi
-ms.reviewer: tomfitz
-ms.custom: aaddev, seoapril2019, identityplatformtop40, subject-rbac-steps
+ms.custom: aaddev, identityplatformtop40, subject-rbac-steps
 ---
 
 # How to: Use the portal to create an Azure AD application and service principal that can access resources
@@ -25,6 +24,7 @@ This article shows you how to use the portal to create the service principal in 
 > Instead of creating a service principal, consider using managed identities for Azure resources for your application identity. If your code runs on a service that supports managed identities and accesses resources that support Azure AD authentication, managed identities are a better option for you. To learn more about managed identities for Azure resources, including which services currently support it, see [What is managed identities for Azure resources?](../managed-identities-azure-resources/overview.md).
 
 ## App registration, app objects, and service principals
+
 There is no way to directly create a service principal using the Azure portal.  When you register an application through the Azure portal, an application object and service principal are automatically created in your home directory or tenant.  For more information on the relationship between app registration, application objects, and service principals, read [Application and service principal objects in Azure Active Directory](app-objects-and-service-principals.md).
 
 ## Permissions required for registering an app

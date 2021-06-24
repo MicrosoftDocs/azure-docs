@@ -1,7 +1,7 @@
 ---
 title: Defender for IoT installation
 description: Learn how to install a sensor and the on-premises management console for Azure Defender for IoT.
-ms.date: 06/07/2021
+ms.date: 06/21/2021
 ms.topic: how-to
 ---
 
@@ -33,12 +33,12 @@ The Defender for IoT appliance sensor connects to a SPAN port or network TAP and
 
 The following rack mount appliances are available:
 
-| **Deployment type** | **Corporate** | **Enterprise** | **SMB** |**Line** |
+| **Deployment type** | **Corporate** | **Enterprise** | **SMB** |**SMB Ruggedized** |
 |--|--|--|--|--|
-| **Model** | HPE ProLiant DL360 | Dell PowerEdge R340 XL | HPE ProLiant DL20 | HPE ProLiant DL20 |
-| **Monitoring ports** | up to 15 RJ45 or 8 OPT | up to 9 RJ45 or 6 OPT | up to 8 RJ45 or 6 OPT | 4 RJ45 |
-| **Max Bandwidth\*** | 3 Gb/Sec | 1 Gb/Sec | 1 Gb/Sec | 100 Mb/Sec |
-| **Max Protected Devices** | 30,000 | 10,000 | 15,000 | 1,000 |
+| **Model** | HPE ProLiant DL360 | HPE ProLiant DL20 | HPE ProLiant DL20 | HPE EL300 |
+| **Monitoring ports** | up to 15 RJ45 or 8 OPT | up to 8 RJ45 or 6 OPT | up to 4 RJ45 | Up to 5 RJ45 |
+| **Max Bandwidth\*** | 3 Gb/Sec | 1 Gb/Sec | 200 Mb/Sec | 100 Mb/Sec |
+| **Max Protected Devices** | 30,000 | 15,000 | 1,000 | 800 |
 
 *Maximum bandwidth capacity might vary depending on protocol distribution.
 
@@ -46,12 +46,12 @@ The following rack mount appliances are available:
 
 The following virtual appliances are available:
 
-| **Deployment type** | **Corporate** | **Enterprise** | **SMB** | **Line** |
-|--|--|--|--|--|
-| **Description** | Virtual appliance for corporate deployments | Virtual appliance for enterprise deployments | Virtual appliance for SMB deployments | Virtual appliance for line deployments |
-| **Max Bandwidth\*** | 2.5 Gb/Sec | 800 Mb/sec | 160 Mb/sec | 3 Mb/sec |
-| **Max protected devices** | 30,000 | 10,000 | 2,500 | 100 |
-| **Deployment Type** | Corporate | Enterprise | SMB | Line |
+| **Deployment type** | **Corporate** | **Enterprise** | **SMB** |
+|--|--|--|--|
+| **Description** | Virtual appliance for corporate deployments | Virtual appliance for enterprise deployments | Virtual appliance for SMB deployments |
+| **Max Bandwidth\*** | 2.5 Gb/Sec | 800 Mb/sec | 160 Mb/sec |
+| **Max protected devices** | 30,000 | 10,000 | 800 |
+| **Deployment Type** | Corporate | Enterprise | SMB |
 
 *Maximum bandwidth capacity might vary depending on protocol distribution.
 

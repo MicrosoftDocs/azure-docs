@@ -82,11 +82,29 @@
     href: configure-windows-server-failover-cluster.md
   - name: Rotate cloudadmin credentials
     href: rotate-cloudadmin-credentials.md
-  - name: Disaster recovery 
+  - name: Azure native integration
     items:
-    - name: Deploy disaster recovery using VMware HCX
-      href: deploy-disaster-recovery-using-vmware-hcx.md
-    - name: Disaster recovery to Azure Site Recovery
+    - name: Protect, monitor, and manage VMs
+      href: integrate-azure-native-services.md
+    - name: Integrate Azure Security Center
+      href: azure-security-integration.md
+    - name: Integrate Azure NetApp Files
+      href: netapp-files-with-azure-vmware-solution.md
+    - name: Protect web apps with Azure Application Gateway
+      href: protect-azure-vmware-solution-with-application-gateway.md
+    - name: Deploy Traffic Manager to balance workloads
+      href: deploy-traffic-manager-balance-workloads.md
+    - name: Configure alerts and work with metrics 
+      href: configure-alerts-for-azure-vmware-solution.md
+    - name: Back up and restore VMs with Azure Backup Server
+      items: 
+      - name: Back up VMware virtual machines 
+        href: /azure/backup/backup-azure-backup-server-vmware?context=/azure/azure-vmware/context/context
+      - name: Restore VMware virtual machines
+        href: /azure/backup/restore-azure-backup-server-vmware?context=/azure/azure-vmware/context/context
+      - name: Monitor Azure Backup workloads 
+        href: /azure/backup/backup-azure-monitoring-built-in-monitor?context=/azure/azure-vmware/context/context
+    - name: Disaster recovery using Azure Site Recovery
       items:
       - name: Prepare Azure
         href: ../site-recovery/avs-tutorial-prepare-azure.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
@@ -102,20 +120,6 @@
         href: ../site-recovery/avs-tutorial-reprotect.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
       - name: Fail back from Azure 
         href: ../site-recovery/avs-tutorial-failback.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
-  - name: Azure native integration
-    items:
-    - name: Protect, monitor, and manage VMs
-      href: integrate-azure-native-services.md
-    - name: Integrate Azure Security Center
-      href: azure-security-integration.md
-    - name: Integrate Azure NetApp Files
-      href: netapp-files-with-azure-vmware-solution.md
-    - name: Protect web apps with Azure Application Gateway
-      href: protect-azure-vmware-solution-with-application-gateway.md
-    - name: Deploy Traffic Manager to balance workloads
-      href: deploy-traffic-manager-balance-workloads.md
-    - name: Configure alerts and work with metrics 
-      href: configure-alerts-for-azure-vmware-solution.md
   - name: VMware solutions
     items:
     - name: Configure vRealize Operations
@@ -124,6 +128,8 @@
       href: azure-vmware-solution-horizon.md
     - name: Deploy VMs from the content library
       href: deploy-vm-content-library.md
+    - name: Deploy disaster recovery using VMware HCX
+      href: deploy-disaster-recovery-using-vmware-hcx.md
   - name: VMware ecosystem
     items:
     - name: Backup solutions for VMs
@@ -141,27 +147,29 @@
   - name: FAQ
     items:
     - name: General
-      href: faq.yml
+      href: ./faq.yml
     - name: Customer communication
-      href: /azure/azure-vmware/faq.yml#customer-communication
+      href: /azure/azure-vmware/faq#customer-communication
     - name: Configuration and setup 
-      href: /azure/azure-vmware/faq.yml#configuration-and-setup
+      href: /azure/azure-vmware/faq#configuration-and-setup
     - name: VMware software 
-      href: /azure/azure-vmware/faq.yml#vmware-software
+      href: /azure/azure-vmware/faq#vmware-software
     - name: Third-party backup solutions 
       href: /azure/azure-vmware/faq#third-party-backup-and-recovery
     - name: Compute
-      href: /azure/azure-vmware/faq.yml#compute
+      href: /azure/azure-vmware/faq#compute
     - name: Networking and interconnectivity
-      href: /azure/azure-vmware/faq.yml#networking-and-interconnectivity
+      href: /azure/azure-vmware/faq#networking-and-interconnectivity
     - name: Storage
-      href: /azure/azure-vmware/faq.yml#storage
+      href: /azure/azure-vmware/faq#storage
     - name: Hosts, clusters, and private clouds
-      href: /azure/azure-vmware/faq.yml#hosts,-clusters,-and-private-clouds
+      href: /azure/azure-vmware/faq#hosts,-clusters,-and-private-clouds
     - name: Identity management
-      href: /azure/azure-vmware/faq.yml#identity-management
+      href: /azure/azure-vmware/faq#identity-management
+    - name: CSP and multi-tenancy
+      href: /azure/azure-vmware/faq#csp-and-multi-tenancy
     - name: Billing and support
-      href: /azure/azure-vmware/faq.yml#billing-and-support
+      href: /azure/azure-vmware/faq#billing-and-support
   - name: Videos 
     items:
     - name: Playlist

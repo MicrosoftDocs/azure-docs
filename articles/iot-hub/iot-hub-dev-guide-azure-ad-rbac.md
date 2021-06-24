@@ -7,7 +7,7 @@ ms.author: jlian
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 04/21/2021
+ms.date: 06/24/2021
 ms.custom: ['Role: Cloud Development']
 ---
 
@@ -74,7 +74,7 @@ The following tables describe the permissions available for IoT Hub service API 
 | Microsoft.Devices/IotHubs/cloudToDeviceMessages/send/action | Send cloud-to-device message to any device  |
 | Microsoft.Devices/IotHubs/cloudToDeviceMessages/feedback/action | Receive, complete, or abandon cloud-to-device message feedback notification |
 | Microsoft.Devices/IotHubs/cloudToDeviceMessages/queue/purge/action | Deletes all the pending commands for a device  |
-| Microsoft.Devices/IotHubs/directMethods/invoke/action | Invokes a direct method on a device |
+| Microsoft.Devices/IotHubs/directMethods/invoke/action | Invokes a direct method on any device or module |
 | Microsoft.Devices/IotHubs/fileUpload/notifications/action  | Receive, complete, or abandon file upload notifications |
 | Microsoft.Devices/IotHubs/statistics/read | Read device and service statistics |
 | Microsoft.Devices/IotHubs/configurations/read | Read device management configurations |
@@ -88,6 +88,9 @@ The following tables describe the permissions available for IoT Hub service API 
 > - The [Twin Query](/rest/api/iothub/service/query/gettwins) operation requires `Microsoft.Devices/IotHubs/twins/read`.
 > - [Get Digital Twin](/rest/api/iothub/service/digitaltwin/getdigitaltwin) requires `Microsoft.Devices/IotHubs/twins/read` while [Update Digital Twin](/rest/api/iothub/service/digitaltwin/updatedigitaltwin) requires `Microsoft.Devices/IotHubs/twins/write`
 > - Both [Invoke Component Command](/rest/api/iothub/service/digitaltwin/invokecomponentcommand) and [Invoke Root Level Command](/rest/api/iothub/service/digitaltwin/invokerootlevelcommand) require `Microsoft.Devices/IotHubs/directMethods/invoke/action`.
+
+> [!NOTE]
+> To get data from IoT Hub using Azure AD, [set up routing to a separate Event Hub](iot-hub-devguide-messages-d2c.md#event-hubs-as-a-routing-endpoint). To access the [the built-in Event Hub compatible endpoint](iot-hub-devguide-messages-read-builtin.md), use the connection string (shared access key) method as before. 
 
 ## Azure AD access from Azure portal
 
@@ -103,9 +106,15 @@ To ensure an account doesn't have access outside of assigned permissions, *don't
 
 Then, make sure the account doesn't have any other roles that have the **Microsoft.Devices/iotHubs/listkeys/action** permission - such as [Owner](../role-based-access-control/built-in-roles.md#owner) or [Contributor](../role-based-access-control/built-in-roles.md#contributor). To let the account have resource access and can navigate the portal, assign [Reader](../role-based-access-control/built-in-roles.md#reader).
 
-## Built-in Event Hub compatible endpoint doesn't support Azure AD authentication
+## Azure IoT extension for Azure CLI
 
-The [the built-in endpoint](iot-hub-devguide-messages-read-builtin.md) doesn't support Azure AD integration. Accessing it with a security principal or managed identity isn't possible. To access the built-in endpoint, use the connection string (shared access key) method as before.
+Most commands against IoT Hub support Azure AD authentication. The type of auth used to execute commands can be controlled with the `--auth-type` parameter which accepts the values key or login. The value of `key` is set by default.
+
+- When `--auth-type` has the value of `key`, like before the CLI automatically discovers a suitable policy when interacting with IoT Hub.
+
+- When `--auth-type` has the value `login`, an access token from the Azure CLI logged in principal is used for the operation.
+
+To learn more, see the [Azure IoT extension for Azure CLI release page](https://github.com/Azure/azure-iot-cli-extension/releases/tag/v0.10.12)
 
 ## SDK samples
 

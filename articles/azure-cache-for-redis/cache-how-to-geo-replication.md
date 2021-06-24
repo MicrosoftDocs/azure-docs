@@ -33,6 +33,7 @@ To configure geo-replication between two caches, the following prerequisites mus
 
 Some features aren't supported with geo-replication:
 
+- Zone Redundancy isn't supported with geo-replication.
 - Persistence isn't supported with geo-replication.
 - Clustering is supported if both caches have clustering enabled and have the same number of shards.
 - Caches in the same VNET are supported.
