@@ -30,7 +30,7 @@ At a minimum, specify the following when you run `az acr pack build`:
 
 ## Example: Build Node.js image with Cloud Foundry builder
 
-The following example builds a container image from a Node.js app in the [Azure-Samples/nodejs-docs-hello-world](https://github.com/Azure-Samples/nodejs-docs-hello-world) repo, using the `cloudfoundry/cnb:cflinuxfs3` builder. This builder is cached by Azure Container Registry, so a `--pull` parameter isn't required:
+The following example builds a container image from a Node.js app in the [Azure-Samples/nodejs-docs-hello-world](https://github.com/Azure-Samples/nodejs-docs-hello-world) repo, using the `cloudfoundry/cnb:cflinuxfs3` builder.
 
 ```azurecli
 az acr pack build \
