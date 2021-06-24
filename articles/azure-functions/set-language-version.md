@@ -30,13 +30,13 @@ You can change the runtime version used by your function app. Because of the pot
 For in process .NET apps, the language version is tied to the runtime version of your function apps. For example, if the runtime version is set to `~3`, then your app is running .NET 3.1. To learn more on how set runtime version for your functions app, refer to [set runtime version article](./set-runtime-version.md). To learn on the .NET major versions that are supported, refer to [supported-languages article](./supported-languages.md)
 
 ### .NET isolated 
-For.NET apps running in isolated mode, the language version is set using `FUNCTIONS_WORKER_RUNTIME` app setting, and `netFrameworkVersion` site config.
+For.NET apps running in isolated mode, the language version is set using `FUNCTIONS_WORKER_RUNTIME` app setting and `netFrameworkVersion` site config.
 
-# [Azure CLI](#tab/azurecli-linux)
+# [Azure CLI](#tab/azurecli-windows)
 
 You can view and set `FUNCTIONS_WORKER_RUNTIME` app setting and `netFrameworkVersion`site config from the Azure CLI.  
 
-Using the Azure CLI, view the current `FUNCTIONS_WORKER_RUNTIME`  with the [az functionapp config appsettings set](/cli/azure/functionapp/appsettings) command.
+Using the Azure CLI, view the current `FUNCTIONS_WORKER_RUNTIME`  with the [az functionapp config appsettings show](/cli/azure/functionapp/appsettings) command.
 
 ```azurecli-interactive
 az functionapp config appsettings show --name <function_app> \
@@ -70,7 +70,7 @@ To set your app to run on isolated mode, you can update the `FUNCTIONS_WORKER_RU
 ```azurecli-interactive
 az functionapp config appsettings set --name <FUNCTION_APP> \
 --resource-group <RESOURCE_GROUP> \
---settings FUNCTIONS_WORKER_RUNTIME=dotnet-isolated
+--settings "FUNCTIONS_WORKER_RUNTIME=dotnet-isolated"
 ```
 
 Replace `<FUNCTION_APP>` with the name of your function app. Also replace `<RESOURCE_GROUP>` with the name of the resource group for your function app.
@@ -113,20 +113,18 @@ Replace `<FUNCTION_APP>` with the name of your function app. Also replace `<RESO
 
 You can run this command from the [Azure Cloud Shell](../cloud-shell/overview.md) by choosing **Try it** in the preceding code sample. You can also use the [Azure CLI locally](/cli/azure/install-azure-cli) to execute this command after executing [az login](/cli/azure/reference-index#az-login) to sign in.
 
-
 Similarly, the function app restarts after the change is made to the site config.
 
-For example, if the runtime version is set to `~3`, then your app is running .NET 3.1. To learn more on how set runtime version for your functions app, refer to [set runtime version article](./set-runtime-version.md). To learn on the .NET major versions that are supported, refer to [supported-languages article](./supported-languages.md)
 ::: zone-end
 
 ::: zone pivot="programming-language-python, programming-language-javascript,programming-language-powershell, programming-language-java,programming-language-csharp"
 ## Update functions app language version on Linux
 
-To set a Linux function app to a specific language version, you specify the language as well as the version of the language in 'LinuxFxVersion' field in site config. For example: if we want to pin a node 10 function app with latest runtime version
+To set a Linux function app to a specific language version, you specify the language as well as the version of the language in `LinuxFxVersion` field in site config. For example: if we want to pin a node 10 function app with latest runtime version.
 
 Set `linuxFxVersion` to `node|10`.
 
-For .NET apps running in isolated mode, `FUNCTIONS_WORKER_RUNTIME` needs to be set to `dotnet-isolated` and the prefix for `linuxFxVersion` is `dotnet-isolated`. For example, to set the .NET running isolated mode to use .NET 5, you need to set `linuxFxVersion` to `dotnet-isolated|5.0`
+For .NET apps running in isolated mode, `FUNCTIONS_WORKER_RUNTIME` needs to be set to `dotnet-isolated` and the prefix for `linuxFxVersion` is `dotnet-isolated`. For example, to set the .NET running isolated mode to use .NET 5, you need to set `linuxFxVersion` to `dotnet-isolated|5.0`.
 
 To see the full list of supported languages in Linux functions apps, please refer to this [article](./supported-languages.md)
 
@@ -134,7 +132,6 @@ To see the full list of supported languages in Linux functions apps, please refe
 > [!NOTE]
 >To learn about setting a Linux function app to a specific language version __and__ runtime version (for example, node 10 with host runtime version of 2), please visit this [article](./set-runtime-version.md#manual-version-updates-on-linux) 
 >
-
 
 # [Azure CLI](#tab/azurecli-linux)
 
@@ -177,7 +174,6 @@ az functionapp config set --name <FUNCTION_APP> \
 Replace `<FUNCTION_APP>` with the name of your function app. Also replace `<RESOURCE_GROUP>` with the name of the resource group for your function app. Also, replace `<LINUX_FX_VERSION>` with the values explained above.
 
 You can run this command from the [Azure Cloud Shell](../cloud-shell/overview.md) by choosing **Try it** in the preceding code sample. You can also use the [Azure CLI locally](/cli/azure/install-azure-cli) to execute this command after executing [az login](/cli/azure/reference-index#az-login) to sign in.
-
 
 Similarly, the function app restarts after the change is made to the site config.
 
