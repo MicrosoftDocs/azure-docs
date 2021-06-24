@@ -35,7 +35,7 @@ Call recording currently supports mixed audio+video MP4 output format. The outpu
 
 
 ## Run-time Control APIs
-Run-time control APIs can be used to manage recording via internal business logic triggers, such as an application creating a group call and recording the conversation, or from a user-triggered action that tells the server application to start recording. Call Recording APIs are [Out-of-Call APIs](../concepts/voice-video-calling/call-automation-apis#out-of-call-apis.md), using the `serverCallId` to initiate recording. When creating a call, a `serverCallId` is returned via the `Microsoft.Communication.CallLegStateChanged` event after a call has been established. The `serverCallId` can be found in the `data.serverCallId` field. See our [Call Recording Quickstart Sample](../../quickstarts/voice-video-calling/call-recording-sample.md) to learn about retrieving the `serverCallId` from the Calling Client SDK. A `recordingOperationId` is returned when recording is started, which is then used for follow-on operations like pause and resume.   
+Run-time control APIs can be used to manage recording via internal business logic triggers, such as an application creating a group call and recording the conversation, or from a user-triggered action that tells the server application to start recording. Call Recording APIs are [Out-of-Call APIs](..call-automation-apis.md#out-of-call-apis), using the `serverCallId` to initiate recording. When creating a call, a `serverCallId` is returned via the `Microsoft.Communication.CallLegStateChanged` event after a call has been established. The `serverCallId` can be found in the `data.serverCallId` field. See our [Call Recording Quickstart Sample](../../quickstarts/voice-video-calling/call-recording-sample.md) to learn about retrieving the `serverCallId` from the Calling Client SDK. A `recordingOperationId` is returned when recording is started, which is then used for follow-on operations like pause and resume.   
 
 | Operation                            | Operates On            | Comments                       |
 | :-------------------- | :--------------------- | :----------------------------- |
@@ -89,4 +89,4 @@ An Event Grid notification `Microsoft.Communication.RecordingFileStatusUpdated` 
 ## Next steps
 Check out the [Call Recoding Quickstart Sample](../../quickstarts/voice-video-calling/call-recording-sample.md) to learn more.
 
-Learn more about [Call Automation APIs](../concepts/voice-video-calling/call-automation-apis.md).
+Learn more about [Call Automation APIs](../call-automation-apis.md).
