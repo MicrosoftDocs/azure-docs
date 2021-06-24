@@ -35,21 +35,21 @@ Call Automation APIs are provided for both in-call (application-participant or a
 
 ## In-Call (App-Participant) APIs
 > [!NOTE] 
-> In-Call applications are billed as call participants at [standard PSTN and VoIP rates](https://azure.microsoft.com/en-in/pricing/details/communication-services/).
+> In-Call applications are billed as call participants at [standard PSTN and VoIP rates](https://azure.microsoft.com/pricing/details/communication-services/).
 
 > [!NOTE] 
 > In-Call actions are attributed to the App-participant associated with the `callConnectionId` used in the API call.
 
 In-call APIs enable an application to take actions in a call as an app-participant. When an application answers or joins a call, a `callConnectionId` is assigned, which is used for in-call actions such as:
-- Add or remove call participants.
-- Play audio prompts and listen for DTMF responses.
-- Listen to call roster updates and events.
-- Hang-up a call.
+- Add or remove call participants
+- Play audio prompts and listen for DTMF responses
+- Listen to call roster updates and events
+- Hang-up a call
 
 ![in-call application](../media/call-automation-in-call.png)
 
 ### In-Call Events
-Event notifications are sent as JSON payloads to the calling application via the `callbackUri`set when joining the call. Events sent to in-call App-participants are:
+Event notifications are sent as JSON payloads to the calling application via the `callbackUri` set when joining the call. Events sent to in-call app-participants are:
 - CallState events (Establishing, Established, Terminating, Terminated)
 - DTMF received
 - Play audio result
@@ -63,9 +63,9 @@ Out-of-Call APIs enable you to perform actions on a call or meeting without havi
 ![out-of-call application](../media/call-automation-out-of-call.png)
 
 Out-of-call APIs are available for actions such as:
-- Add or remove call participants.
-- Start/stop/pause/resume call recording.
-- Get information about call participants.
+- Add or remove call participants
+- Start/stop/pause/resume call recording
+- Get information about call participants
                                                        
 ### Out-of-Call Events
 Event notifications are sent as JSON payloads to the calling application via the `callbackUri` providing in the originating API call. Actions with corresponding out-of-call events are:
