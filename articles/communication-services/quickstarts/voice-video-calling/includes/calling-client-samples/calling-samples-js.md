@@ -897,18 +897,25 @@ Call diagnostics is an extended feature of the core `Call` API and allows you to
 - Get the latest call diagnostic values hat were raised. If a diagnostic is undefined, that is because it was never raised.
 ```js
 	const latestNetworkDiagnostics = call.api(Features.Diagnostics).network.getLatest();
+	
 	console.log(`noNetwork: ${latestNetworkDiagnostics.noNetwork.value}, ` +
 			`value type = ${latestNetworkDiagnostics.noNetwork.valueType}`);
+			
 	console.log(`networkReconnect: ${latestNetworkDiagnostics.networkReconnect.value}, ` +
 			`value type = ${latestNetworkDiagnostics.networkReconnect.valueType}`);
+			
 	console.log(`networkReceiveQuality: ${latestNetworkDiagnostics.networkReceiveQuality.value}, ` +
 			`value type = ${latestNetworkDiagnostics.networkReceiveQuality.valueType}`);
 
+
 	const latestMediaDiagnostics = call.api(Features.Diagnostics).media.getLatest();
+	
 	console.log(`speakingWhileMicrophoneIsMuted: ${latestMediaDiagnostics.speakingWhileMicrophoneIsMuted.value}, ` +
 			`value type = ${latestMediaDiagnostics.speakingWhileMicrophoneIsMuted.valueType}`);
+			
 	console.log(`cameraStartFailed: ${latestMediaDiagnostics.cameraStartFailed.value}, ` +
 			`value type = ${latestMediaDiagnostics.cameraStartFailed.valueType}`);
+			
 	console.log(`microphoneNotFunctioning: ${latestMediaDiagnostics.microphoneNotFunctioning.value}, ` +
 			`value type = ${latestMediaDiagnostics.microphoneNotFunctioning.valueType}`);
 
