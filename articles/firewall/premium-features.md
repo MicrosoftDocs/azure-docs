@@ -130,7 +130,6 @@ Azure Firewall Premium is supported in the following regions:
 - South Central US (Public / United States)
 - South India (Public / India)
 - Southeast Asia (Public / Asia Pacific)
-- Sweden Central (Public / Sweden)
 - Switzerland North (Public / Switzerland)
 - UAE Central (Public / UAE)
 - UAE North (Public / UAE)
