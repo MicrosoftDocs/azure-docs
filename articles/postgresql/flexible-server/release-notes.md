@@ -2,9 +2,8 @@
 title: Azure Database for PostgreSQL - Flexible Server Release notes
 description: Release notes of Azure Database for PostgreSQL - Flexible Server.
 author: sr-msft
-ms.custom: references_regions
 ms.author: srranga
-ms.custom: mvc
+ms.custom: references_regions
 ms.service: postgresql
 ms.topic: overview
 ms.date: 06/23/2021
