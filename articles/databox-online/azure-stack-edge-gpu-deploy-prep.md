@@ -132,11 +132,11 @@ To create an Azure Stack Edge resource through the Azure Stack Edge service, tak
 
 5. Pick the subscription that you want to use for the Azure Stack Edge Pro GPU device. Select the country or region to ship the physical device to. Then select **Show devices**.
 
-    ![Select the subscription to use for your Azure Stack Edge Pro GPU resource](media/azure-stack-edge-gpu-deploy-prep/create-resource-1.png)<!--Remove "Data Box Gateway" and recenter.-->
+    ![Select the subscription to use for your Azure Stack Edge Pro GPU resource](media/azure-stack-edge-gpu-deploy-prep/create-resource-1.png)
 
 6. Select the device type. Under **Azure Stack Edge Pro**, choose **Azure Stack Edge Pro with GPU** and then choose **Select**. If you see any issues or are unable to select the device type, go to [Troubleshoot order issues](azure-stack-edge-troubleshoot-ordering.md).
 
-    ![Select Azure Stack Edge Pro GPU device type for your order](media/azure-stack-edge-gpu-deploy-prep/create-resource-3.png)<!--Reshoot to update SKU selection.-->
+    ![Select Azure Stack Edge Pro GPU device type for your order](media/azure-stack-edge-gpu-deploy-prep/create-resource-3.png)
 
 7. Based on your business need, you can select Azure Stack Edge Pro with 1 or 2 Graphical Processing Units (GPUs) from Nvidia. 
 
@@ -167,7 +167,7 @@ To create an Azure Stack Edge resource through the Azure Stack Edge service, tak
 
     - If this is the new device that you're ordering, enter the contact name, company, address to ship the device, and contact information.
 
-        ![For a new device, enter contact, company, and address](media/azure-stack-edge-gpu-deploy-prep/create-resource-7.png)<!--Remove scrollbars.-->
+        ![For a new device, enter contact, company, and address](media/azure-stack-edge-gpu-deploy-prep/create-resource-7.png)
 
 11. Select **Next: Tags**. Optionally provide tags to categorize resources and consolidate billing. Select **Next: Review + create**.
 
