@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: krsh
-ms.date: 04/21/2021
+ms.date: 06/23/2021
 
 ---
 
@@ -170,5 +170,5 @@ Check the SAS URI before publishing it on Partner Center to avoid any issues rel
 ## Next steps
 
 - If you run into issues, see [VM SAS failure messages](azure-vm-sas-failure-messages.md)
-- [Sign in to Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership)
+- [Sign in to Partner Center](https://go.microsoft.com/fwlink/?linkid=2165935)
 - [Create a virtual machine offer on Azure Marketplace](azure-vm-create.md)

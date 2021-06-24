@@ -131,7 +131,7 @@ az webapp config storage-account list --resource-group <resource-group> --name <
 
     | Setting | Description |
     |-|-|
-    | **Name** | Name of the mount configuration. |
+    | **Name** | Name of the mount configuration. Spaces are not allowed. |
     | **Configuration options** | Select **Basic** if the storage account is not using [service endpoints](../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) or [private endpoints](../storage/common/storage-private-endpoints.md). Otherwise, select **Advanced**. |
     | **Storage accounts** | Azure Storage account. |
     | **Storage type** | Select the type based on the storage you want to mount. Azure Blobs only supports read-only access. |
