@@ -6,7 +6,7 @@ ms.topic: quickstart
 ms.date: 05/25/2021
 ---
 
-# Quickstart: Get started with Azure Video Analyzer
+# Quickstart: Get started with Azure Video Analyzer in the Azure Portal
 This quickstart walks you through the steps to get started with Azure Video Analyzer. You'll create an Azure Video Analyzer account and its accompanying resources by using the Azure portal. You'll use that account to deploy the Video Analyzer edge module and a Real Time Streaming Protocol (RTSP) camera simulator module to your Azure IoT Edge device. 
 
 After you complete the setup steps, you'll be able to run the simulated live video stream through a pipeline that detects and reports any motion in that stream. The following diagram graphically represents that pipeline.
@@ -21,7 +21,7 @@ After you complete the setup steps, you'll be able to run the simulated live vid
 * An IoT Edge device on which you have admin privileges:
    * [Deploy to an IoT Edge device](deploy-iot-edge-device.md)
    * [Deploy to an IoT Edge for Linux on Windows](deploy-iot-edge-linux-on-windows.md)
-* [Visual Studio Code](https://code.visualstudio.com/), with the [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) extension .
+* [Visual Studio Code](https://code.visualstudio.com/), with the [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) extension.
 
 > [!TIP] 
 > You might be prompted to install Docker while you're installing the Azure IoT Tools extension. Feel free to ignore the prompt.
@@ -595,7 +595,7 @@ Try the following direct methods as next steps:
 * Invoke `livePipelineSet`, but change the name to `mdpipeline2` and change `rtspUrl` to `rtsp://rtspsim:554/media/lots_015.mkv`. In the response payload, notice the newly created live pipeline (that is, status code 201).
   
   > [!NOTE]
-  > As explained in [Pipeline topologies](pipeline.md#pipeline-topologies), you can create multiple live pipelines, to analyze live video streams from many cameras by using the same pipeline topology. If you create additional live pipelines, take care to delete them during the cleanup step.
+  > As explained in [Pipeline topologies](pipeline.md#pipeline-topologies), you can create multiple live pipelines, to analyze live video streams from many cameras by using the same pipeline topology. If you create more live pipelines, take care to delete them during the cleanup step.
 
 ### Activate the live pipeline
 
@@ -693,10 +693,10 @@ The live pipeline that you created and activated uses the motion detection proce
 }
 ```
 
-The `inferences` section indicates that the type is motion. It provides additional data about the motion event. It also provides a bounding box for the region of the video frame (at the given time stamp) where motion was detected.
+The `inferences` section indicates that the type is motion. It provides more data about the motion event. It also provides a bounding box for the region of the video frame (at the given time stamp) where motion was detected.
 
     
-## Invoke additional direct method calls to clean up
+## Invoke more direct method calls to clean up
 
 Next, you can invoke direct methods to deactivate and delete the live pipeline (in that order).
 
