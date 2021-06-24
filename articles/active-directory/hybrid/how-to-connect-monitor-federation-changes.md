@@ -48,6 +48,11 @@ After the environment is configured, the data flows as follows:
  4. If the result of the query matches the alert logic (that is, the number of results is greater than or equal to 1), then the action group kicks in. Let’s assume that it kicked in, so the flow continues in step 5.  
  5. Notification is sent to the action group selected while configuring the alert.
 
+> [!NOTE]
+>  In addition to setting up alerts, we recommend periodically reviewing the configured domains within your Azure AD tenant and remove any stale, unrecognized, or suspicious domains. 
+
+
+
 
 ## Next steps
 
