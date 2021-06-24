@@ -135,7 +135,7 @@ See the visual diagram under the section [How it works](#how-it-works) for the n
       Get-AzResourceProvider -ProviderNamespace Microsoft.HybridCompute
       ```
 
-    * To register using the Azure CLI, run the following command. See [registering a resource provider with Azure PowerShell](../../azure-resource-manager/management/resource-providers-and-types.md#azure-cli) to learn more.
+    * To register using the Azure CLI, run the following command. See [registering a resource provider with the Azure CLI](../../azure-resource-manager/management/resource-providers-and-types.md#azure-cli) to learn more.
 
       ```azurecli
       az feature register --namespace Microsoft.HybridCompute --name ArcServerPrivateLinkPreview
