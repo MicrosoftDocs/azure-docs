@@ -14,6 +14,13 @@ ms.date: 06/09/2021
 
 Azure Data Factory and Azure Synapse Analytics data flows provide a low-code mechanism to transform data in ETL jobs at scale using a graphical design paradigm. Data flows execute on the Azure Data Factory and Azure Synapse Analytics serverless Integration Runtime facility. The scalable nature of Azure Data Factory and Azure Synapse Analytics Integration Runtimes enabled three different compute options for the Azure Databricks Spark environment that is utilized to execute data flows at scale: Memory Optimized, General Purpose, and Compute Optimized. Memory Optimized and General Purpose are the recommended classes of data flow compute to use with your Integration Runtime for production workloads. Because Compute Optimized will often not suffice for common use cases with data flows, we recommend using General Purpose or Memory Optimized data flows in production workloads.
 
+## Migration steps
+
+1. Create a new Azure Integration Runtime with “General Purpose” or “Memory Optimized” as the compute type.
+2. Set your data flow activity using either of those compute types.
+
+   ![Compute types](media/data-flow/compute-types.png)
+
 ## Comparison between different compute options 
 
 | Compute Option              | Performance                                                  |
