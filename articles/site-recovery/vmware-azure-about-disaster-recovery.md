@@ -3,7 +3,7 @@ title: VMware disaster recovery with Azure Site Recovery
 description: This article provides an overview of disaster recovery of VMware VMs to Azure using the Azure Site Recovery service.
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/12/2019
+ms.date: 06/24/2021
 ---
 
 # About disaster recovery of VMware VMs to Azure
@@ -12,10 +12,10 @@ This article provides an overview of disaster recovery for on-premises VMware VM
 
 ## What is BCDR?
 
-A business continuity and disaster recovery (BCDR) strategy helps keep your business up and running. During planned downtime and unexpected outages, BCDR keeps data safe and available, and ensures that apps continue running. In addition to platform BCDR features such as regional pairing, and high availability storage, Azure provides Recovery Services as an integral part of your BCDR solution. Recovery services include: 
+A business continuity and disaster recovery (BCDR) strategy helps keep your business up and running. During planned downtime and unexpected outages, BCDR keeps data safe and available, and ensures that apps continue running. In addition to platform BCDR features such as regional pairing, and high availability storage, Azure provides Recovery Services as an integral part of your BCDR solution. Recovery services include:
 
-- [Azure Backup](../backup/backup-overview.md) backs up your on-premises and Azure VM data. You can back up a file and folders, specific workloads, or an entire VM. 
-- [Azure Site Recovery](site-recovery-overview.md) provides resilience and disaster recovery for apps and workloads running on on-premises machines, or Azure IaaS VMs. Site Recovery orchestrates replication, and handles failover to Azure when outages occur. It also handles recovery from Azure to your primary site. 
+- [Azure Backup](../backup/backup-overview.md) backs up your on-premises and Azure VM data. You can back up a file and folders, specific workloads, or an entire VM.
+- [Azure Site Recovery](site-recovery-overview.md) provides resilience and disaster recovery for apps and workloads running on on-premises machines, or Azure IaaS VMs. Site Recovery orchestrates replication, and handles failover to Azure when outages occur. It also handles recovery from Azure to your primary site.
 
 > [!NOTE]
 > Site Recovery does not move or store customer data out of the target region, in which disaster recovery has been setup for the source machines. Customers may select a Recovery Services Vault from a different region if they so choose. The Recovery Services Vault contains metadata but no actual customer data.
@@ -24,7 +24,7 @@ A business continuity and disaster recovery (BCDR) strategy helps keep your busi
 
 1. After preparing Azure and your on-premises site, you set up and enable replication for your on-premises machines.
 2. Site Recovery orchestrates initial replication of the machine, in accordance with your policy settings.
-3. After the initial replication, Site Recovery replicates delta changes to Azure. 
+3. After the initial replication, Site Recovery replicates delta changes to Azure.
 4. When everything's replicating as expected, you run a disaster recovery drill.
     - The drill helps ensure that failover will work as expected when a real need arises.
     - The drill performs a test failover without impacting your production environment.
@@ -91,9 +91,10 @@ After you have your Azure and on-premises infrastructure in place, you can set u
         - The process server receives, optimizes, and sends replication data to cache storage account in Azure. It also handles automatic installation of the Mobility service on machines you want to replicate, and performs automatic discovery of VMs on VMware servers.
         - The master target server handles replication data during failback from Azure.
     - Set up includes registering the configuration server in the vault, downloading MySQL Server and VMware PowerCLI, and specifying the accounts created for automatic discovery and Mobility service installation.
-4. **Target environment**: You set up your target Azure environment by specifying your Azure subscription and network settings.
-5. **Replication policy**: You specify how replication should occur. Settings include how often recovery points are created and stored, and whether app-consistent snapshots should be created.
-6. **Enable replication**. You enable replication for on-premises machines. If you created an account to install the Mobility service, then it will be installed when you enable replication for a machine. 
+4. **ASR replication appliance**:You need to set up a replication appliance in your on-premises source environment. The replication appliance is the basic building block of the entire ASR on-premises infrastructure. For VMware disaster recovery, we recommend that [you deploy it as a VMware VM](#vvmware-azure-replication-appliance-requirements-preview.md#deploy-replication-appliance) that can be deployed from a downloadable OVF template.  Learn more about replication appliance [here](#vmware-azure-architecture-preview).   
+5. **Target environment**: You set up your target Azure environment by specifying your Azure subscription and network settings.
+6. **Replication policy**: You specify how replication should occur. Settings include how often recovery points are created and stored, and whether app-consistent snapshots should be created.
+7. **Enable replication**. You enable replication for on-premises machines. If you created an account to install the Mobility service, then it will be installed when you enable replication for a machine.
 
 *Need more help?*
 
@@ -117,4 +118,4 @@ After you have your Azure and on-premises infrastructure in place, you can set u
 
 ## Next steps
 
-With replication now in place, you should [run a disaster recovery drill](tutorial-dr-drill-azure.md) to ensure that failover works as expected. 
+With replication now in place, you should [run a disaster recovery drill](tutorial-dr-drill-azure.md) to ensure that failover works as expected.
