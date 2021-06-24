@@ -167,6 +167,6 @@ In this section, you'll remove the public IP address from the network interface.
 
 ## Next steps
 
-In this article, you learned how to create a Azure Firewall and use an existing public IP. You changed the public IP of the default IP configuration. Finally, you added a public IP configuration to the firewall.
+In this article, you learned how to create a virtual machine and use an existing public IP. You changed the public IP of the default IP configuration. Finally, you added a public IP configuration to the firewall with the Internet routing preference.
 
 - To learn more about public IP addresses in Azure, see [Public IP addresses](public-ip-addresses.md).
