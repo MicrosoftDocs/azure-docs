@@ -13,10 +13,6 @@ ms.date: 03/08/2021
 
 # Migrate to Azure Machine Learning 
 
-> [!Note]
-> Studio (classic) will retire on **August 31, 2024**. From now through August 31, 2024, you can continue to use existing Studio (classic) experiments and web services. However, you will not be able to create *new* Studio (classic) resources (workspace, web service plan, web service) after November 31, 2021.
-
-
 Learn how to migrate from Studio (classic) to [Azure Machine Learning](../overview-what-is-azure-ml.md). Azure Machine Learning provides a modernized data science platform that combines no-code and code-first approaches.
 
 This is a guide for a basic 'lift and shift' migration. If you want to optimize an existing machine learning workflow, or modernize an ml platform, see the [Azure Machine Learning adoption framework](https://github.com/solliancenet/microsoft-ml-kinetic/blob/main/aml-adoption-framework.md) for additional resources including digital survey tools, worksheets, and planning templates.
