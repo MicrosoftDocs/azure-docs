@@ -6,7 +6,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: how-to
-ms.date: 05/24/2019
+ms.date: 05/04/2021
 ms.author: alkohli
 ---
 # Open a support ticket for Azure Data Box
@@ -77,5 +77,9 @@ After creating a support ticket, you can manage the lifecycle of the ticket from
 ## Next steps
 
 Learn how to [Troubleshoot issues related to Data Box Disk](data-box-disk-troubleshoot.md).
-Learn how to [Troubleshoot issues related to Data Box](data-box-troubleshoot.md).
+
+Learn how to [Troubleshoot issues related to a Data Box](data-box-troubleshoot.md).
+
+Learn how to [Review copy errors in an upload from a Data Box or Data Box Disk device](data-box-troubleshoot-data-upload.md).
+
 Learn how to [Troubleshoot issues related to Data Box Blob storage](data-box-troubleshoot-rest.md).

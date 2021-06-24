@@ -1,8 +1,8 @@
 ---
 title: Copy data from and to Salesforce
 description: Learn how to copy data from Salesforce to supported sink data stores or from supported source data stores to Salesforce by using a copy activity in a data factory pipeline.
-ms.author: jingwang
-author: linda33wj
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
@@ -37,7 +37,7 @@ The Salesforce connector is built on top of the Salesforce REST/Bulk API. By def
 
 ## Prerequisites
 
-API permission must be enabled in Salesforce. For more information, see [Enable API access in Salesforce by permission set](https://www.data2crm.com/migration/faqs/enable-api-access-salesforce-permission-set/)
+API permission must be enabled in Salesforce.
 
 ## Salesforce request limits
 

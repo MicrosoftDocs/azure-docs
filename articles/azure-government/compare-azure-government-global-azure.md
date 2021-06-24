@@ -401,7 +401,7 @@ For information on how to connect to Media Services v2, see [Access the Azure Me
 
 ### Media Services Video Indexer
 
-For more information, see [Create a Video Indexer account](../media-services/video-indexer/connect-to-azure.md#video-indexer-in-azure-government).
+For more information, see [Create a Video Indexer account](../azure-video-analyzer/video-analyzer-for-media-docs/connect-to-azure.md#create-a-new-account-on-azure).
 
 
 ## Migration
@@ -533,7 +533,7 @@ The following Azure Security Center **features are not currently available** in 
 
 **Azure Security Center FAQ**
 
-For Azure Security Center FAQ, see [Azure Security Center frequently asked questions public documentation](../security-center/faq-general.md). Additional FAQ for Azure Security Center in Azure Government are listed below.
+For Azure Security Center FAQ, see [Azure Security Center frequently asked questions public documentation](../security-center/faq-general.yml). Additional FAQ for Azure Security Center in Azure Government are listed below.
 
 **What will customers be charged for Azure Security Center in Azure Government?**</br>
 Azure Security Center's integrated cloud workload protection platform (CWPP), Azure Defender, brings advanced, intelligent, protection of your Azure and hybrid resources and workloads. Azure Defender is free for the first 30 days. Should you choose to continue to use public preview or generally available features of Azure Defender beyond 30 days, we automatically start to charge for the service.
@@ -543,18 +543,7 @@ Azure Security Center is deployed in Azure Government regions but not in Azure G
 
 ### [Azure Sentinel](../sentinel/overview.md)
 
-The following **features have known limitations** in Azure Government:
-
-- Office 365 data connector
-    - The Office 365 data connector can be used only for [Office 365 GCC High and Office 365 DoD](/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/gcc-high-and-dod). Office 365 GCC can be accessed only from global (commercial) Azure.
-
-- AWS CloudTrail data connector
-    - The AWS CloudTrail data connector can be used only for [AWS in the Public Sector](https://aws.amazon.com/government-education/).
-
-### [Enterprise Mobility + Security (EMS)](/enterprise-mobility-security)
-
-For information about EMS suite capabilities in Azure Government, see the [Enterprise Mobility + Security for US Government Service Description](/enterprise-mobility-security/solutions/ems-govt-service-description).
-
+For feature variations and limitations, see [Cloud feature availability for US Government customers](../security/fundamentals/feature-availability.md#azure-sentinel).
 
 ## Storage
 
@@ -607,10 +596,14 @@ The following API Management **features are not currently available** in Azure G
 
 ### [App Service](../app-service/overview.md)
 
+The following App Service **resources are not currently available** in Azure Government:
+
+- App Service Certificate
+- App Service Managed Certificate
+- App Service Domain
+
 The following App Service **features are not currently available** in Azure Government:
 
-- Resource
-    - App Service Certificate
 - Deployment
     - Deployment options: only Local Git Repository and External Repository are available
 - Development tools

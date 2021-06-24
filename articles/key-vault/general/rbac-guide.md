@@ -40,7 +40,7 @@ only for specific scenarios:
 
 More about Azure Key Vault management guidelines, see:
 
-- [Azure Key Vault security features](security-features.md)
+- [Azure Key Vault best practices](best-practices.md)
 - [Azure Key Vault service limits](service-limits.md)
 
 ## Azure built-in roles for Key Vault data plane operations
@@ -288,8 +288,8 @@ For more Information about how to create custom roles, see:
 
 ## Known limits and performance
 
+-   Key Vault data plane RBAC is not supported in multi tenant scenarios like with Azure Lighthouse
 -   2000 Azure role assignments per subscription
-
 -   Role assignments latency: at current expected performance, it will take up to 10 minutes (600 seconds) after role assignments is changed for role to be applied
 
 ## Learn more

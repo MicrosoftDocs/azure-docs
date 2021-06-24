@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 11/06/2020
+ms.date: 06/11/2021
 ms.author: victorh
 ---
 
@@ -27,8 +27,9 @@ When a new DNS resolution takes place, new IP addresses are added to firewall ru
 - FQDN filtering in application rules for HTTP/S and MSSQL is based on an application level transparent proxy and the SNI header. As such, it can discern between two FQDNs that are resolved to the same IP address. This is not the case with FQDN filtering in network rules. 
 
    Always use application rules when possible:
-     - If the protocol is HTTP/S or MSSQL, use application rules for FQDN filtering.
-   - For any other protocols besides HTTP/S or MSSQL, you can use application or network rules for FQDN filtering.
+  - If the protocol is HTTP/S or MSSQL, use application rules for FQDN filtering.
+  - For services like AzureBackup, HDInsight, etc., use application rules with FQDN tags.
+  - For any other protocols, you can use network rules for FQDN filtering.
 
 ## Next steps
 

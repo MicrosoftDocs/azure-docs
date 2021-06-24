@@ -2,8 +2,8 @@
 title: Support matrix for Azure Blobs backup
 description: Provides a summary of support settings and limitations when backing up Azure Blobs.
 ms.topic: conceptual
-ms.date: 02/16/2021
-ms.custom: references_regions 
+ms.date: 05/20/2021
+ms.custom: references_regions
 ---
 
 # Support matrix for Azure Blobs backup
@@ -12,7 +12,7 @@ This article summarizes the regional availability, supported scenarios, and limi
 
 ## Supported regions
 
-Operational backup for blobs is currently available in the following regions: Australia Central, Australia East, Brazil South, Canada Central, Central India, Central US, East Asia, East US, East US 2, Germany West Central, Japan East, Japan West, Korea Central, Korea South, North Europe, South Central US, South East Asia, Switzerland North, UAE North, UK South, UK West, West Central US, West Europe, West US, West US 2
+Operational backup for blobs is currently available in the following regions: Australia Central, Australia Central 2, Australia East, Australia South East, Brazil South, Brazil South East, Canada Central, Canada East, Central India, Central US, East Asia, East US, East US 2, France Central, Germany North, Germany West Central, Japan East, Japan West, Korea Central, Korea South, North Central US, North Europe, Norway East, Norway West, South Africa North, South Central US, South East Asia, South India, Switzerland North, Switzerland West, UAE Central, UAE North, UK South, UK West, West Central US, West Europe, West India, West US, West US 2.
 
 ## Limitations
 

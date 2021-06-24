@@ -47,10 +47,10 @@ If you are already familiar with the Azure AD for developers (v1.0) endpoint (an
 However, you still need to use ADAL.NET if your application needs to sign in users with earlier versions of [Active Directory Federation Services (ADFS)](/windows-server/identity/active-directory-federation-services). For more information, see [ADFS support](https://aka.ms/msal-net-adfs-support).
 
 The following picture summarizes some of the differences between ADAL.NET and MSAL.NET for a public client application
-[![Side-by-side code for public client applications](./media/msal-compare-msaldotnet-and-adaldotnet/differences.png)](./media/msal-compare-msaldotnet-and-adaldotnet/differences.png#lightbox)
+[![Screenshot showing some of the differences between ADAL.NET and MSAL.NET for a public client application.](./media/msal-compare-msaldotnet-and-adaldotnet/differences.png)](./media/msal-compare-msaldotnet-and-adaldotnet/differences.png#lightbox)
 
 And the following picture summarizes some of the differences between ADAL.NET and MSAL.NET for a confidential client application
-[![Side-by-side code for confidential client applications](./media/msal-net-migration/confidential-client-application.png)](./media/msal-net-migration/confidential-client-application.png#lightbox)
+[![Screenshot showing some of the differences between ADAL.NET and MSAL.NET for a confidential client application.](./media/msal-net-migration/confidential-client-application.png)](./media/msal-net-migration/confidential-client-application.png#lightbox)
 
 ### NuGet packages and Namespaces
 

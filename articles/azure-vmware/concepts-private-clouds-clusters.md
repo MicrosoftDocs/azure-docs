@@ -2,7 +2,7 @@
 title: Concepts - Private clouds and clusters
 description: Learn about the key capabilities of Azure VMware Solution software-defined data centers and vSphere clusters. 
 ms.topic: conceptual
-ms.date: 04/27/2021
+ms.date: 05/13/2021
 ---
 
 #  Azure VMware Solution private cloud and cluster concepts
@@ -11,7 +11,7 @@ Azure VMware Solution delivers VMware-based private clouds in Azure. The private
 
 A private cloud includes clusters with:
 
-- Dedicated bare-metal server nodes provisioned with VMware ESXi hypervisor 
+- Dedicated bare-metal server hosts provisioned with VMware ESXi hypervisor 
 - vCenter Server for managing ESXi and vSAN 
 - VMware NSX-T software-defined networking for vSphere workload VMs  
 - VMware vSAN datastore for vSphere workload VMs  
@@ -80,7 +80,7 @@ Now that you've covered Azure VMware Solution private cloud concepts, you may wa
 
 - [Azure VMware Solution networking and interconnectivity concepts](concepts-networking.md)
 - [Azure VMware Solution storage concepts](concepts-storage.md)
-- [How to enable Azure VMware Solution resource](enable-azure-vmware-solution.md)
+- [How to enable Azure VMware Solution resource](deploy-azure-vmware-solution.md#step-1-register-the-microsoftavs-resource-provider)
 
 <!-- LINKS - internal -->
 [concepts-networking]: ./concepts-networking.md

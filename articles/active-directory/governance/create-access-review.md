@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 4/27/2021
+ms.date: 5/6/2021
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 # Create an access review of groups and applications in Azure AD access reviews
 
-Access to groups and applications for employees and guests changes over time. To reduce the risk associated with stale access assignments, administrators can use Azure Active Directory (Azure AD) to create access reviews for group members or application access. If you need to routinely review access, you can also create recurring access reviews. For more information about these scenarios, see [Manage user access](manage-user-access-with-access-reviews.md) and [Manage guest access](manage-guest-access-with-access-reviews.md).
+Access to groups and applications for employees and guests changes over time. To reduce the risk associated with stale access assignments, administrators can use Azure Active Directory (Azure AD) to create access reviews for group members or application access. Microsoft 365 and Security group owners can also use Azure AD to create access reviews for group members (preview) as long as the Global or User Administrator enables the setting via Access Reviews Settings blade. If you need to routinely review access, you can also create recurring access reviews. For more information about these scenarios, see [Manage user access](manage-user-access-with-access-reviews.md) and [Manage guest access](manage-guest-access-with-access-reviews.md).
 
 You can watch a quick video talking about enabling Access Reviews:
 
@@ -31,6 +31,7 @@ This article describes how to create one or more access reviews for group member
 
 - Azure AD Premium P2
 - Global administrator or User administrator
+- Microsoft 365 and Security group owner (Preview)
 
 For more information, see [License requirements](access-reviews-overview.md#license-requirements).
 
@@ -70,7 +71,8 @@ For more information, see [License requirements](access-reviews-overview.md#lice
     >[!NOTE]
     > If you selected All Microsoft 365 groups with guest users in Step 2, then your only option is to review Guest users in Step 3
 
-8. Click on Next: Reviews
+8. Click on **Next: Reviews**.
+
 9. In the **Select reviewers** section, select either one or more people to perform the access reviews. You can choose from:
     - **Group owner(s)** (Only available when performing a review on a Team or group)
     - **Selected user(s) or groups(s)**
@@ -84,7 +86,8 @@ For more information, see [License requirements](access-reviews-overview.md#lice
 
     ![Choose how often the review should happen](./media/create-access-review/frequency.png)
 
-11. Click the **Next: Settings** button at the bottom of the page
+11. Click the **Next: Settings** button at the bottom of the page.
+
 12.	In the **Upon completion settings** you can specify what happens after the review completes
 
     ![Create an access review - upon completion settings](./media/create-access-review/upon-completion-settings-new.png)
@@ -106,12 +109,11 @@ For more information, see [License requirements](access-reviews-overview.md#lice
 
     To learn more about best practices for removing guest users who no longer have access to resources in your organization read the article titled [Use Azure AD Identity Governance to review and remove external users who no longer have resource access.](access-reviews-external-users.md)
 
-   > [!NOTE]
-   > Action to apply on denied guest users is not configurable on reviews scoped to more than guest users. It is also not configurable for reviews of **All M365 groups with guest users.** When not configurable, the default option of removing user's membership from the resource is used on denied users.
+
+    > [!NOTE]
+    > Action to apply on denied guest users isn't configurable on reviews scoped to more than guest users. It's also not configurable for reviews of **All Microsoft 365 groups with guest users.** When not configurable, the default option of removing user's membership from the resource is used on denied users.
 
 13. You can send notifications to additional users or groups (Preview) to receive review completion updates. This feature allows for stakeholders other than the review creator to be updated on the progress of the review. To use this feature, select **Select User(s) or Group(s)** and add an additional user or group upon you want to receive the status of completion.
-
-    ![Upon completion settings - Add additional users to receive notifications](./media/create-access-review/upon-completion-settings-additional-receivers.png) 
 
 14.	In the **Enable review decision helpers** choose whether you would like your reviewer to receive recommendations during the review process.
 
@@ -126,10 +128,27 @@ For more information, see [License requirements](access-reviews-overview.md#lice
       ![additional content for reviewer](./media/create-access-review/additional-content-reviewer.png)
 
 16. Click on **Next: Review + Create** to move to the next page
+
 17.	Name the access review. Optionally, give the review a description. The name and description are shown to the reviewers.
-18.	Review the information and select **Create**
+
+18.	Review the information and select **Create**.
 
        ![create review screen](./media/create-access-review/create-review.png)
+
+## Allow  group owners to create and manage access reviews (Preview)
+
+Prerequisite role: Global or User Administrator
+
+1. Sign in to the Azure portal and open the [Identity Governance page](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
+
+1. In the left menu, under **Access reviews**, **settings**.
+
+1. On the Delegate who can create and manage access reviews page, set the **(Preview) Group owners can create and manage for access reviews of groups they own** setting to **Yes**.
+
+    ![create reviews - Enable group owners to review](./media/create-access-review/group-owners-review-access.png)
+
+    > [!NOTE]
+    > By default, the setting is set to **No** so it must be updated to allow group owners to create and manage access reviews.
 
 ## Start the access review
 
@@ -158,7 +177,10 @@ If you have assigned guests as reviewers and they have not accepted the invite, 
 
 ## Create reviews via APIs
 
-You can also create access reviews using APIs. What you do to manage access reviews of groups and application users in the Azure portal can also be done using Microsoft Graph APIs. For more information, see the [Azure AD access reviews API reference](/graph/api/resources/accessreviewsv2-root?view=graph-rest-beta&preserve-view=true). For a code sample, see [Example of retrieving Azure AD access reviews via Microsoft Graph](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/m-p/236096).
+You can also create access reviews using APIs. What you do to manage access reviews of groups and application users in the Azure portal can also be done using Microsoft Graph APIs. 
++ For more information, see the [Azure AD access reviews API reference](/graph/api/resources/accessreviewsv2-root).
++ For a tutorial, see [Use the access reviews API to review guest access to your Microsoft 365 groups](/graph/tutorial-accessreviews-m365group).
++ For a code sample, see [Example of retrieving Azure AD access reviews via Microsoft Graph](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/m-p/236096).
 
 ## Next steps
 

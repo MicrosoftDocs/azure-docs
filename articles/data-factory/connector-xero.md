@@ -1,11 +1,11 @@
 ---
 title: Copy data from Xero using Azure Data Factory 
 description: Learn how to copy data from Xero to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/26/2021
-ms.author: jingwang
+ms.author: jianleishen
 ---
 # Copy data from Xero using Azure Data Factory
 

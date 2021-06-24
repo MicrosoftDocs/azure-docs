@@ -1,6 +1,6 @@
 ---
 title: Connect to Microsoft Store client - Azure
-description: How to connect to Windows Virtual Desktop using the Microsoft Store client.
+description: How to connect to Azure Virtual Desktop using the Microsoft Store client.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 10/05/2020
@@ -11,7 +11,7 @@ manager: femila
 
 >Applies to: Windows 10.
 
-You can access Windows Virtual Desktop resources on devices with Windows 10.
+You can access Azure Virtual Desktop resources on devices with Windows 10.
 
 ## Install the Microsoft Store client
 
@@ -31,9 +31,9 @@ To subscribe to a workspace:
 2. Enter the Workspace URL into the Workspace URL field provided by your admin. The workspace URL can be either a URL or an email address.
    
    - If you're using a Workspace URL, use the URL your admin gave you.
-   - If you're connecting from Windows Virtual Desktop, use one of the following URLs depending on which version of the service you're using:
-       - Windows Virtual Desktop (classic): `https://rdweb.wvd.microsoft.com/api/feeddiscovery/webfeeddiscovery.aspx`.
-       - Windows Virtual Desktop: `https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery`.
+   - If you're connecting from Azure Virtual Desktop, use one of the following URLs depending on which version of the service you're using:
+       - Azure Virtual Desktop (classic): `https://rdweb.wvd.microsoft.com/api/feeddiscovery/webfeeddiscovery.aspx`.
+       - Azure Virtual Desktop: `https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery`.
   
 3. Tap **Subscribe**.
 4. Provide your credentials when prompted.

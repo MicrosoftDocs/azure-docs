@@ -25,6 +25,8 @@
       href: security-controls-policy.md
     - name: Security overview
       href: security-overview.md
+    - name: Private Link networking
+      href: private-link-security.md
 - name: How-to guides
   items:
   - name: Deploy
@@ -43,6 +45,10 @@
       href: onboard-windows-admin-center.md
     - name: Connect machines to Azure Arc with PowerShell
       href: onboard-powershell.md
+  - name: Migrate
+    items:
+    - name: Migrate machine to Azure
+      href: scenario-migrate-to-azure.md
   - name: Manage
     items:
     - name: VM extensions

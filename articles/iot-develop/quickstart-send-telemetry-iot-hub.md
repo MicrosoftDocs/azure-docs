@@ -7,7 +7,7 @@ ms.service: iot-develop
 ms.topic: quickstart
 ms.date: 05/04/2021
 ms.collection: embedded-developer, application-developer
-zone_pivot_groups: iot-develop-set2
+zone_pivot_groups: iot-develop-set1
 
 #Customer intent: As a device application developer, I want to learn the basic workflow of using an Azure IoT device SDK to build a client app on a device, connect the device securely to Azure IoT Hub, and send telemetry.
 ---
@@ -17,6 +17,24 @@ zone_pivot_groups: iot-develop-set2
 **Applies to**: [Device application developers](about-iot-develop.md#device-application-development)
 
 In this quickstart, you learn a basic Azure IoT application development workflow. You use the Azure CLI to create an Azure IoT hub and a device. Then you use an Azure IoT device SDK sample to run a simulated temperature controller, connect it securely to the hub, and send telemetry.
+
+:::zone pivot="programming-language-ansi-c"
+
+[!INCLUDE [iot-develop-send-telemetry-iot-hub-c](../../includes/iot-develop-send-telemetry-iot-hub-c.md)]
+
+:::zone-end
+
+:::zone pivot="programming-language-csharp"
+
+[!INCLUDE [iot-develop-send-telemetry-iot-hub-csharp](../../includes/iot-develop-send-telemetry-iot-hub-csharp.md)]
+
+:::zone-end
+
+:::zone pivot="programming-language-java"
+
+[!INCLUDE [iot-develop-send-telemetry-iot-hub-java](../../includes/iot-develop-send-telemetry-iot-hub-java.md)]
+
+:::zone-end
 
 :::zone pivot="programming-language-nodejs"
 
@@ -67,6 +85,8 @@ In this quickstart, you learned a basic Azure IoT application workflow for secur
 As a next step, explore the following articles to learn more about building device solutions with Azure IoT. 
 
 > [!div class="nextstepaction"]
+> [Control a device connected to an IoT hub](../iot-hub/quickstart-control-device-dotnet.md)
+> [!div class="nextstepaction"]
 > [Send telemetry to IoT Central](quickstart-send-telemetry-central.md)
 > [!div class="nextstepaction"]
-> [Get started with embedded development](quickstart-device-development.md)
+> [Connect an MXCHIP AZ3166 devkit to IoT Central](quickstart-devkit-mxchip-az3166.md)

@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 02/25/2021
+ms.date: 05/11/2021
 ms.author: alkohli
 ms.custom: references_regions
 ---
@@ -21,7 +21,7 @@ Questions and answers are arranged in the following categories:
 - Order device
 - Configure and connect 
 - Track status
-- Copy data 
+- Migrate data 
 - Ship device
 - Verify and upload data 
 - Chain of custody support
@@ -221,6 +221,10 @@ A.  To speed up the copy process:
 - Copy files to the VM's disk.-->
 
 
+### Q. Can I leverage Data Box to import data to a storage account with Private Endpoints configured?
+A. Yes. You can import data to a storage account that has private endpoint connections enabled. To let Data Box service import the data, select "Allow trusted Microsoft services to access this storage account" under the Networking section of the storage account.
+
+
 ### Q. Can I use multiple storage accounts with Data Box?
 A.  Yes. A maximum of 10 storage accounts, general purpose, classic, or blob storage are supported with Data Box. Both hot and cool blob are supported.
 
@@ -254,16 +258,16 @@ A.  During the transit, the following features on the Data Box help protect the 
  - The device is locked and needs an unlock password to enter and access data.
 For more information, go to [Data Box security features](data-box-security.md).  
 
-### Q. I have finished Prepare to Ship for my import order and shut down the device. Can I still add more data to the Data Box?
-A. Yes. You can turn on the device and add more data. You will need to run **Prepare to Ship** again once you have completed data copy.
+### Q. I finished Prepare to Ship for my import order and shut down the device. Can I still add more data to the Data Box?
+A. Yes. You can turn on the device and add more data. You'll need to run **Prepare to Ship** again once you have completed the data copy.
 
-### Q. I received my device and it is not booting up? How do I ship the device back?
+### Q. I received my device and it's not booting up? How do I ship the device back?
 A. If your device isn't booting, go to your order in the Azure portal. Download a shipping label, and attach it to the device. For more information, go to [Download shipping label](data-box-portal-admin.md#download-shipping-label).
 
 ## Verify and upload
 
 ### Q. How soon can I access my data in Azure once I've shipped the Data Box back? 
-A.  Once the order status for **Data Copy** shows as **Complete**, you should be able to access your data right away.
+A.  Once the order status for **Data Copy** shows as **Complete**, you can access your data right away.
 
 ### Q. Where is my data located in Azure after the upload?
 A.  When you copy the data to Data Box, depending on whether the data is block blob or page blob or Azure files, the data is uploaded to one of the following paths in your Azure Storage account:
@@ -276,6 +280,13 @@ A.  When you copy the data to Data Box, depending on whether the data is block b
 A.  If the container names have uppercase letters, those names are automatically converted to lowercase. If the names are not compliant in other ways (special characters, other languages, and so on), the upload will fail. For more guidance for naming shares, containers, and files, go to:
 - [Naming and referencing shares](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata)
 - [Block blobs and page blob conventions](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
+
+
+### Q. I was notified of copy errors during a data upload from my Data Box. What should I do?
+A.  When non-retryable data copy errors prevent any files in your import order from uploading to Azure, the errors are logged in the data copy log and you get a notification. You can't fix the errors. The upload has completed with errors. The notification is sent to make sure you know that the files didn't upload so you can fix any configuration errors before you try again. When you confirm that you're ready to proceed, the data will be secure erased from the device. If you don't respond, the order completes automatically after 14 days.
+
+For error information and steps to proceed with your order, see [Review copy errors in uploads from Azure Data Box and Azure Data Box Heavy devices](data-box-troubleshoot-data-upload.md).  
+
 
 ### Q. How do I verify the data I copied onto Data Box?
 A.  After the data copy is complete, when you run **Prepare to ship**, your data is validated. Data Box generates a list of files and checksums for the data during the validation process. You can download the list of files and verify the list against the files in the source data. For more information, go to [Prepare to ship](data-box-deploy-picked-up.md#prepare-to-ship).

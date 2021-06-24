@@ -18,7 +18,7 @@ ms.custom: has-adal-ref
 ---
 # Resolve error messages from the NPS extension for Azure AD Multi-Factor Authentication
 
-If you encounter errors with the NPS extension for Azure AD Multi-Factor Authentication, use this article to reach a resolution faster. NPS extension logs are found in Event Viewer under **Custom Views** > **Server Roles** > **Network Policy and Access Services** on the server where the NPS Extension is installed.
+If you encounter errors with the NPS extension for Azure AD Multi-Factor Authentication, use this article to reach a resolution faster. NPS extension logs are found in Event Viewer under **Applications and Services Logs** > **Microsoft** > **AzureMfa** > **AuthN** > **AuthZ** on the server where the NPS Extension is installed.
 
 ## Troubleshooting steps for common errors
 

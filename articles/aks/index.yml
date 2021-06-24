@@ -95,8 +95,6 @@ landingContent:
               url: /azure/architecture/operator-guides/aks/aks-triage-practices?WT.mc_id=AKSDOCSPAGE
             - text: Best practices for cluster operators and developers
               url: best-practices.md
-            - text: Checking for best practices
-              url: kube-advisor-tool.md
 
     # Card
   - title: Build your skills with Microsoft Learn
