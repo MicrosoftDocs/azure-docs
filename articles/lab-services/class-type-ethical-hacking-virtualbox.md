@@ -30,7 +30,7 @@ After the template machine is created, start the machine and connect to it to co
 
 1. Set up the machine to use [VirtualBox](https://www.virtualbox.org/) for nested virtual machines.
 2. Set up the [Kali](https://www.kali.org/) Linux image. Kali is a Linux distribution that includes tools for penetration testing and security auditing.
-3. Set up the Seed image. For this example, the [Seed](https://seedsecuritylabs.org/lab_env.html) image will be used. This image is created to purposely for security training.
+3. Set up the Seed image. For this example, the [Seed](https://seedsecuritylabs.org/lab_env.html) image will be used. This image is created specifically for security training.
 
 The rest of this article will cover the manual steps to completing the tasks above.
 
@@ -43,23 +43,23 @@ The rest of this article will cover the manual steps to completing the tasks abo
 
 Kali is a Linux distribution that includes tools for penetration testing and security auditing.
 
-1. Download the ova image from [Kali Linux VM VirtualBox images](https://www.kali.org/get-kali/#kali-virtual-machines).  I would recommend the 32bit version, the 64bit version loads with errors.  Remember the default username and password noted on the download page.
+1. Download the ova image from [Kali Linux VM VirtualBox images](https://www.kali.org/get-kali/#kali-virtual-machines).  We recommend the 32bit version, the 64bit version loads with errors.  Remember the default username and password noted on the download page.
 2. Open VirtualBox Manager and [import the .ova image.](https://docs.oracle.com/cd/E26217_01/E26796/html/qs-import-vm.html).  The Kali licensing agreement will need to be reviewed and accepted to continue.
 
 #### Note:
-- The VirtualBox default Ram for the Kali VM is 2 gig (2048), I would recommend increasing the Ram to at least 4 gig (4096) or more depending on your needs.  This can be changed by the students on their VMs.  Changing the Ram size within VirtualBox does not change the Lab Services VM size.
-- By default the Hard disk is set to an 80 gig limit, but is dynamically allocated.  Lab Service machines are limited to 128 gigs of hard drive space, so be careful of exceeding the disk space.
+- The VirtualBox default Ram for the Kali VM is 2 gig (2048), We recommend increasing the Ram to at least 4 gig (4096) or more depending on your needs.  This can be changed by the students on their VMs.  Changing the RAM size within VirtualBox does not change the Lab's VM size.
+- By default the Hard disk is set to an 80 gig limit, but is dynamically allocated.  Lab Service machines are limited to 128 gigs of hard drive space, so be careful not to exceed this disk size.
 - The Kali image has USB 2.0 enable which requires [Oracle VM VirtualBox Extension Pack](https://www.virtualbox.org/wiki/Downloads) or set the USB controller to 1.0 under the USB tab.
 
-### Setup Seed Lab images
+### Setup Seed lab images
 
 1. Download and extract the [SEED Labs VM image.](https://seedsecuritylabs.org/labsetup.html).
 2. Follow the directions to [create a VM in VirtualBox.](https://github.com/seed-labs/seed-labs/blob/master/manuals/vm/seedvm-manual.md)
 - If you need multiple SEED VMs make copies of the .iso for each machine, using the same .iso for different machines will not work properly.
 
-### Notes before Publishing
+### IMPORTANT before Publishing
 
-Makes sure that all the nested Virtual machines are powered off before publishing the template.  Leaving them powered on has had unexpected side effects, including damaging the virtual machines.
+Makes sure that all the nested virtual machines are powered off before publishing the template.  Leaving them powered on has had unexpected side effects, including damaging the virtual machines.
 
 ## Cost  
 
