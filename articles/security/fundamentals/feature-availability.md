@@ -14,7 +14,7 @@ ms.date: 06/24/2021
 This article describes feature availability in the Microsoft Azure and Azure Government clouds for the following security services:
 
 - [Azure Sentinel](#azure-sentinel)
-- [Azure Security Center)](#azure-security-center)
+- [Azure Security Center](#azure-security-center)
 
 > [!NOTE]
 > Additional security services will be added to this article soon.
