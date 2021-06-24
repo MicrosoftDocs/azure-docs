@@ -10,7 +10,7 @@ ms.date: 09/21/2020
 
 # Connect to Azure Database for MySQL - Flexible Server with encrypted connections
 
-[[!INCLUDE[applies-to-flexible-server](../includes/applies-to-flexible-server.md)]]
+[[!INCLUDE[applies-to-flexible-server](../includes/applies-to-flexible-server.md)]
 
 > [!IMPORTANT]
 > Azure Database for MySQL Flexible Server is currently in public preview
@@ -236,7 +236,7 @@ db, _ := sql.Open("mysql", connectionString)
 ```java
 # generate truststore and keystore in code
 
-[[!INCLUDE[applies-to-flexible-server](../includes/applies-to-flexible-server.md)]]
+[[!INCLUDE[applies-to-flexible-server](../includes/applies-to-flexible-server.md)]
 
 String importCert = " -import "+
     " -alias mysqlServerCACert "+
@@ -253,7 +253,7 @@ sun.security.tools.keytool.Main.main(genKey.trim().split("\\s+"));
 
 # use the generated keystore and truststore
 
-[[!INCLUDE[applies-to-flexible-server](../includes/applies-to-flexible-server.md)]]
+[[!INCLUDE[applies-to-flexible-server](../includes/applies-to-flexible-server.md)]
 
 System.setProperty("javax.net.ssl.keyStore","path_to_keystore_file");
 System.setProperty("javax.net.ssl.keyStorePassword","password");
@@ -271,7 +271,7 @@ conn = DriverManager.getConnection(url, properties);
 ```java
 # generate truststore and keystore in code
 
-[[!INCLUDE[applies-to-flexible-server](../includes/applies-to-flexible-server.md)]]
+[[!INCLUDE[applies-to-flexible-server](../includes/applies-to-flexible-server.md)]
 
 String importCert = " -import "+
     " -alias mysqlServerCACert "+
@@ -288,7 +288,7 @@ sun.security.tools.keytool.Main.main(genKey.trim().split("\\s+"));
 
 # use the generated keystore and truststore
 
-[[!INCLUDE[applies-to-flexible-server](../includes/applies-to-flexible-server.md)]]
+[[!INCLUDE[applies-to-flexible-server](../includes/applies-to-flexible-server.md)]
 
 System.setProperty("javax.net.ssl.keyStore","path_to_keystore_file");
 System.setProperty("javax.net.ssl.keyStorePassword","password");

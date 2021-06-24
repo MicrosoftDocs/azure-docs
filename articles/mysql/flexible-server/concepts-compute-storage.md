@@ -10,7 +10,7 @@ ms.date: 1/28/2021
 
 # Compute and storage options in Azure Database for MySQL - Flexible Server (Preview)
 
-[[!INCLUDE[applies-to-flexible-server](../includes/applies-to-flexible-server.md)]]
+[[!INCLUDE[applies-to-flexible-server](../includes/applies-to-flexible-server.md)]
 
 > [!IMPORTANT]
 > Azure Database for MySQL - Flexible Server is currently in public preview.

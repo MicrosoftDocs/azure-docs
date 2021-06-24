@@ -10,7 +10,7 @@ ms.date: 03/30/2021
 
 # Configure and access audit logs for Azure Database for MySQL - Flexible Server using the Azure CLI
 
-[[!INCLUDE[applies-to-flexible-server](../includes/applies-to-flexible-server.md)]]
+[[!INCLUDE[applies-to-flexible-server](../includes/applies-to-flexible-server.md)]
 
 > [!IMPORTANT]
 > Azure Database for MySQL - Flexible Server is currently in public preview.
@@ -49,7 +49,7 @@ Enable and configure audit logging.
 ```azurecli
 # Enable audit logs
 
-[[!INCLUDE[applies-to-flexible-server](../includes/applies-to-flexible-server.md)]]
+[[!INCLUDE[applies-to-flexible-server](../includes/applies-to-flexible-server.md)]
 az mysql flexible-server parameter set \
 --name audit_log_enabled \
 --resource-group myresourcegroup \

@@ -11,7 +11,7 @@ ms.custom: references_regions, devx-track-azurecli
 
 # Manage zone redundant high availability in Azure Database for MySQL Flexible Server with Azure CLI
 
-[[!INCLUDE[applies-to-flexible-server](../includes/applies-to-flexible-server.md)]]
+[[!INCLUDE[applies-to-flexible-server](../includes/applies-to-flexible-server.md)]
 
 > [!NOTE]
 > Azure Database for MySQL Flexible Server is in public preview. 
