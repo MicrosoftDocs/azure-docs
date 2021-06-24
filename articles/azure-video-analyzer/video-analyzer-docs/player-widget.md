@@ -57,13 +57,13 @@ In this section we will create a JWT token that we will use later in the documen
    > The Video Analyzer endpoint can be found in overview section of the Video Analyzer resource in the Azure portal.  This value is later referenced as `clientApiEndpointUrl` under the `List Video Analyzer video resources` section of this document.
 
    > [!div class="mx-imgBorder"]
-   > :::image type="content" source="./media/player-widget/Client_API_URL.png" alt-text="Player widget - endpoint":::
+   > :::image type="content" source="./media/player-widget/client-api-url.png" alt-text="Player widget - endpoint":::
 5. Modify line 78 - change the issuer to the issuer value of your certificate.  Example:  https://contoso.com
 6. Save the file.
 7. Press `F5` to run the JWTTokenIssuer application.
    >[!NOTE] You might be prompted with "Required assets to build and debug are missing from 'jwt token issuer'.Add them?"  Click `Yes`
    
-   >> :::image type="content" source="./media/player-widget/VSCode_Required_Assets.png" alt-text="Visual Studio Code Required Assets":::
+   >> :::image type="content" source="./media/player-widget/vscode-required-assets.png" alt-text="Visual Studio Code Required Assets":::
 
 This will build and execute the application.  After the build it will create a self signed certificate and will generate the JWT token infromation from that certificate.  You can also run the JWTTokenIssuer.exe file that is located in the debug folder of the directory where the JWTTokenIssuer was built from.  The advantage of running the application is that you can specify input options as follows:
 
