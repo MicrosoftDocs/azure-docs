@@ -29,6 +29,13 @@ As an access package manager, you can automatically retry a user’s request for
 
 This article describes how to reprocess requests for an existing access package.
 
+## Prerequisites
+
+To use Azure AD entitlement management and assign users to access packages, you must have one of the following licenses:
+
+- Azure AD Premium P2
+- Enterprise Mobility + Security (EMS) E5 license
+
 ## Open an existing access package and reprocess user requests
 
 **Prerequisite role**: Global administrator, Identity Governance administrator, User administrator, Catalog owner, Access package manager or Access package assignment manager
@@ -48,3 +55,6 @@ If you have a set of users whose requests are in various states (Delivered, Part
 1.	Click **Reprocess**.
 
 ## Next steps
+
+- [View requests for an access package](entitlement-management-access-package-requests.md)
+- [Approve or deny access requests](entitlement-management-request-approve.md)

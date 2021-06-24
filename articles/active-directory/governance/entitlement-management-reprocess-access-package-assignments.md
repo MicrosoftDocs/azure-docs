@@ -30,6 +30,13 @@ Entitlement Management does not block outside updates to the access package’s 
 
 This article describes how to reprocess assignments in an existing access package.
 
+## Prerequisites
+
+To use Azure AD entitlement management and assign users to access packages, you must have one of the following licenses:
+
+- Azure AD Premium P2
+- Enterprise Mobility + Security (EMS) E5 license
+
 ## Open an existing access package and reprocess user assignments
 
 **Prerequisite role**: Global administrator, Identity Governance administrator, User administrator, Catalog owner, Access package manager or Access package assignment manager
@@ -49,3 +56,6 @@ If you have a set of users whose requests are in various states (Delivered, Part
 1.	Click **Reprocess**.
 
 ## Next steps
+
+- [View, add, and remove assignments for an access package](entitlement-management-access-package-assignments.md)
+- [View reports and logs](entitlement-management-reports.md)
