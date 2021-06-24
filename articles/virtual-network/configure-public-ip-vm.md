@@ -1,5 +1,5 @@
 ---
-title: Manage public IP address with an Azure Virtual Machine
+title: Manage a public IP address with an Azure Virtual Machine
 titleSuffix: Azure Virtual Network
 description: Learn about the ways a public IP address is used with Azure Virtual Machines and how to change the configuration.
 author: asudbring

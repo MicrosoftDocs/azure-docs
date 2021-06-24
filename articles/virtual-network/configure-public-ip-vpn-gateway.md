@@ -1,5 +1,5 @@
 ---
-title: Use a public IP address with a VPN gateway
+title: Manage a public IP address with a VPN gateway
 titleSuffix: Azure Virtual Network
 description: Learn about the ways a public IP address is used with a VPN gateway and how to change the configuration.
 author: asudbring
@@ -11,7 +11,7 @@ ms.date: 06/23/2021
 ms.custom: template-how-to 
 ---
 
-# Use a public IP address with a VPN gateway
+# Manage a public IP address with a VPN gateway
 
 Public IP addresses are available in two SKUs; standard, and basic. The selection of SKU determines the features of the IP address. The SKU determines the resources that the IP address can be associated with. 
 

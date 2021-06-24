@@ -216,7 +216,7 @@
       href: deploy-container-networking.md
   - name: IP services
     items:
-    - name: Resource configuration
+    - name: Resource management
       items:
       - name: Load balancer
         href: configure-public-ip-load-balancer.md

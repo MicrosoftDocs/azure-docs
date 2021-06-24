@@ -1,5 +1,5 @@
 ---
-title: Manage public IP address with Azure Firewall
+title: Manage a public IP address with Azure Firewall
 titleSuffix: Azure Virtual Network
 description: Learn about the ways a public IP address is used with Azure Firewall and how to change the configuration.
 author: asudbring

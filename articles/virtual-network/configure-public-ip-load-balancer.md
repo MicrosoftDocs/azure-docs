@@ -1,5 +1,5 @@
 ---
-title: Use a public IP address with a load balancer
+title: Manage a public IP address with a load balancer
 titleSuffix: Azure Virtual Network
 description: Learn about the ways a public IP address is used with an Azure Load Balancer and how to change the configuration.
 author: asudbring
@@ -11,7 +11,7 @@ ms.date: 05/12/2021
 ms.custom: template-how-to 
 ---
 
-# Use a public IP address with a load balancer
+# Manage a public IP address with a load balancer
 
 A public load balancer is a Layer 4 solution for distributing TCP and UDP traffic to a backend pool. Basic and standard SKUs are available for load balancer. 
 
