@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 06/10/2021
+ms.date: 06/14/2021
 ms.author: b-juche
 ---
 # Create a dual-protocol (NFSv3 and SMB) volume for Azure NetApp Files
@@ -115,8 +115,12 @@ To create NFS volumes, see [Create an NFS volume](azure-netapp-files-create-volu
 3. Click **Protocol**, and then complete the following actions:  
     * Select **dual-protocol (NFSv3 and SMB)** as the protocol type for the volume.   
 
-    * Specify the **Volume path** for the volume.   
-    This volume path is the name of the shared volume. The name must start with an alphabetical character, and it must be unique within each subscription and each region.  
+    * Specify a unique **Volume Path**. This path is used when you create mount targets. The requirements for the path are as follows:  
+
+        - It must be unique within each subnet in the region. 
+        - It must start with an alphabetical character.
+        - It can contain only letters, numbers, or dashes (`-`). 
+        - The length must not exceed 80 characters.
 
     * Specify the **Security Style** to use: NTFS (default) or UNIX.
 

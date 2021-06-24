@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/08/2021
+ms.date: 06/14/2021
 
 ms.author: justinha
 author: justinha
@@ -102,7 +102,7 @@ The following authentication methods are available for SSPR:
 * Mobile app code
 * Email
 * Mobile phone
-* Office phone
+* Office phone (available only for tenants with paid subscriptions)
 * Security questions
 
 Users can only reset their password if they have registered an authentication method that the administrator has enabled.

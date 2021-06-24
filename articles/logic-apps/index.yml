@@ -62,7 +62,7 @@ landingContent:
       - linkListType: get-started
         links:
           - text: "Template: Run timer jobs on a schedule"
-            url: https://azure.microsoft.com/resources/templates/301-logicapps-jobscheduler/
+            url: https://azure.microsoft.com/resources/templates/logicapps-jobscheduler/
       - linkListType: learn
         links:
           - text: Route and process data automatically

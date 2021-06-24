@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/11/2021
+ms.date: 06/21/2021
 ms.author: bwren 
 ms.custom: devx-track-azurepowershell
 ---
@@ -46,9 +46,9 @@ Also, some solutions, such as [Azure Defender (Security Center)](https://azure.m
 
 [Log Analytics Dedicated Clusters](logs-dedicated-clusters.md) are collections of workspaces into a single managed Azure Data Explorer cluster to support advanced scenarios such as [Customer-Managed Keys](customer-managed-keys.md).  Log Analytics Dedicated Clusters use a commitment tier pricing model that must be configured to at least 1000 GB/day. The cluster commitment tier has a 31-day commitment period after the commitment level is increased. During the commitment period, the commitment tier level cannot be reduced, but it can be increased at any time. When workspaces are associated to a cluster, the data ingestion billing for those workspaces is done at the cluster level using the configured commitment tier level. Learn more about [creating a Log Analytics Clusters](customer-managed-keys.md#create-cluster) and [associating workspaces to it](customer-managed-keys.md#link-workspace-to-cluster). Commitment tier pricing information is available at the [Azure Monitor pricing page]( https://azure.microsoft.com/pricing/details/monitor/).
 
-The cluster commitment tier level is configured via programmatically with Azure Resource Manager using the `Capacity` parameter under `Sku`. The `Capacity` is specified in units of GB and can have values of 1000 GB/day or more in increments of 100 GB/day. This is detailed at [Azure Monitor customer-managed key](customer-managed-keys.md#create-cluster).
+The cluster commitment tier level is configured via programmatically with Azure Resource Manager using the `Capacity` parameter under `Sku`. The `Capacity` is specified in units of GB and can have values of 1000, 2000 or 5000 GB/day. This is detailed at [Creating a cluster](logs-dedicated-clusters.md#creating-a-cluster).
 
-There are two modes of billing for usage on a cluster. These can be specified by the `billingType` parameter when [configuring your cluster](customer-managed-keys.md#customer-managed-key-operations). The two modes are: 
+There are two modes of billing for usage on a cluster. These can be specified by the `billingType` parameter when [creating a cluster](logs-dedicated-clusters.md#creating-a-cluster) or set after creation. The two modes are: 
 
 1. **Cluster**: in this case (which is the default), billing for ingested data is done at the cluster level. The ingested data quantities from each workspace associated to a cluster are aggregated to calculate the daily bill for the cluster. Per-node allocations from [Azure Defender (Security Center)](../../security-center/index.yml) are applied at the workspace level prior to this aggregation of aggregated data across all workspaces in the cluster. 
 
@@ -225,7 +225,7 @@ Valid values for `retentionInDays` are from 30 through 730.
 
 The `Usage` and `AzureActivity` data types cannot be set with custom retention. They will take on the maximum of the default workspace retention or 90 days. 
 
-A great tool to connect directly to Azure Resource Manager to set retention by data type is the OSS tool [ARMclient](https://github.com/projectkudu/ARMClient).  Learn more about ARMclient from articles by [David Ebbo](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) and [Daniel Bowbyes](https://blog.bowbyes.co.nz/2016/11/02/using-armclient-to-directly-access-azure-arm-rest-apis-and-list-arm-policy-details/).  Here's an example using ARMClient, setting SecurityEvent data to a 730-day retention:
+A great tool to connect directly to Azure Resource Manager to set retention by data type is the OSS tool [ARMclient](https://github.com/projectkudu/ARMClient).  Learn more about ARMclient from articles by [David Ebbo](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) and Daniel Bowbyes.  Here's an example using ARMClient, setting SecurityEvent data to a 730-day retention:
 
 ```
 armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables/SecurityEvent?api-version=2017-04-26-preview "{properties: {retentionInDays: 730}}"
@@ -315,6 +315,19 @@ Higher usage is caused by one, or both of:
 - More data than expected being sent to Log Analytics workspace (perhaps due to starting to use a new solution or a configuration change to an existing solution): see [Understanding ingested data volume](#understanding-ingested-data-volume) 
 
 If you observe high data ingestion reported using the `Usage` records (see [below](#data-volume-by-solution)), but you don't observe the same results summing `_BilledSize` directly on the [data type](#data-volume-for-specific-events), it's possible you have significant late arriving data. [Here](#late-arriving-data) is more information on how to diagnose this. 
+
+### Log Analytics Workspace Insights
+
+Start understanding your data voumes in the **Usage** tab of the [Log Analytics Workspace Insights workbook](log-analytics-workspace-insights-overview.md). On the **Usage Dashboard**, you can easily see:
+- Which data tables are ingesting the most data volume in the main table,  
+- What are the top resources contributing data, and 
+- What is the trend of data ingestion.
+
+You can pivot to the **Additional Queries** to easily execution more queries useful to understanding your data patterns. 
+
+Learn more about the [capabilities of the Usage tab](log-analytics-workspace-insights-overview.md#usage-tab). 
+
+While this workbook can anaswer many of the questions without even needing to run a query, to answer more specific questions or do deeper analyses, the queries in the next two sections will help to get you started. 
 
 ## Understanding nodes sending data
 
@@ -547,7 +560,7 @@ Some suggestions for reducing the volume of logs collected include:
 | Solution data from computers that don't need the solution | Use [solution targeting](../insights/solution-targeting.md) to collect data from only required groups of computers. |
 | Application Insights | Review options for [managing Application Insights data volume](../app/pricing.md#managing-your-data-volume) |
 | [SQL Analytics](../insights/azure-sql.md) | Use [Set-AzSqlServerAudit](/powershell/module/az.sql/set-azsqlserveraudit) to tune the auditing settings. |
-| Azure Sentinel | Review any [Sentinel data sources](../../sentinel/connect-data-sources.md) which you recently enabled as sources of additional data volume. |
+| Azure Sentinel | Review any [Sentinel data sources](../../sentinel/connect-data-sources.md) which you recently enabled as sources of additional data volume. Learn more about [managing Sentinel costs](../../sentinel/azure-sentinel-billing.md#manage-azure-sentinel-costs) |
 
 ### Getting nodes as billed in the Per Node pricing tier
 

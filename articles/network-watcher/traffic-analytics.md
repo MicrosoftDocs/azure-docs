@@ -193,7 +193,7 @@ If your account is not assigned to one of the built-in roles, it must be assigne
 - "Microsoft.Network/virtualNetworks/read"
 - "Microsoft.Network/expressRouteCircuits/read"
 
-For information on how to check user access permissions, see [Traffic analytics FAQ](traffic-analytics-faq.md).
+For information on how to check user access permissions, see [Traffic analytics FAQ](traffic-analytics-faq.yml).
 
 ### Enable Network Watcher
 
@@ -432,7 +432,7 @@ Do you have malicious traffic in your environment? Where is it originating from?
 
 ## Frequently asked questions
 
-To get answers to frequently asked questions, see [Traffic analytics FAQ](traffic-analytics-faq.md).
+To get answers to frequently asked questions, see [Traffic analytics FAQ](traffic-analytics-faq.yml).
 
 ## Next steps
 

@@ -346,7 +346,7 @@ The following snippet shows this property in the message exported to Blob storag
 
 ## Property changes format
 
-Each message or record represents one change to a device or cloud property. For device properties, only changes in the reported value are exported as a separate message. Information in the exported message includes:
+Each message or record represents changes to device and cloud properties. Information in the exported message includes:
 
 - `applicationId`: The ID of the IoT Central application.
 - `messageSource`: The source for the message - `properties`.
@@ -355,8 +355,9 @@ Each message or record represents one change to a device or cloud property. For 
 - `schema`: The name and version of the payload schema.
 - `enqueuedTime`: The time at which this change was detected by IoT Central.
 - `templateId`: The ID of the device template associated with the device.
+- `properties`: An array of properties that changed, including the names of the properties and values that changed. The component and module information is included if the property is modelled within a component or an IoT Edge module.
 - `enrichments`: Any enrichments set up on the export.
-
+- 
 For Event Hubs and Service Bus, IoT Central exports new messages data to your event hub or Service Bus queue or topic in near real time. In the user properties (also referred to as application properties) of each message, the `iotcentral-device-id`, `iotcentral-application-id`, `iotcentral-message-source`, and `iotcentral-message-type` are included automatically.
 
 For Blob storage, messages are batched and exported once per minute.
@@ -374,13 +375,13 @@ The following example shows an exported property change message received in Azur
     "enqueuedTime": "2020-08-05T22:37:32.942Z",
     "properties": [{
         "name": "MachineSerialNumber",
-        "value": "abc"
+        "value": "abc",
+        "module": "VitalsModule",
+        "component": "DeviceComponent"
     }],
     "enrichments": {
         "userSpecifiedKey" : "sampleValue"
-    },
-    "module": "VitalsModule",
-    "component": "DeviceComponent"
+    }
 }
 ```
 ## Device connectivity changes format

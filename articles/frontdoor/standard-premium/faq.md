@@ -273,7 +273,7 @@ Yes, Azure Front Door does support alerts. Alerts are configured on metrics.
 
 ### Will I be billed for the Azure Front Door resources that are disabled?
 
-Azure Front Door resources, like Front Door profiles, are not billed if disabled. WAF policies and rules are billed even if disabled.
+Azure Front Door resources, like Front Door profiles, are not billed if disabled.
 
 ## Next steps
 
