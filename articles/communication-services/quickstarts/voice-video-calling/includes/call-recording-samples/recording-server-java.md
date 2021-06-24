@@ -99,6 +99,7 @@ When the recording is available for download, Azure Event Grid will trigger a no
                 {
                     "documentId": string, // Document id for retrieving from AMS storage
                     "contentLocation": string, //ACS URL where the content is located
+                    "metadataLocation": string, // ACS URL where the metadata for this chunk is located
                     "index": int, // Index providing ordering for this chunk in the entire recording
                     "endReason": string, // Reason for chunk ending: "SessionEnded", "ChunkMaximumSizeExceeded”, etc.
                 }
