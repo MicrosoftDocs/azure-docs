@@ -4,7 +4,7 @@ description: Learn how to manage an Azure disk pool.
 author: roygara
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.date: 06/10/2021
+ms.date: 06/23/2021
 ms.author: rogarana
 ms.subservice: disks
 ---
@@ -15,7 +15,7 @@ Once you've deployed a disk pool, there are two management actions available to 
 - Add or remove a disk to or from a disk pool
 - Disable iSCSI support on a disk
 
-## Add/Remove a disk to/from a pool
+## Add a disk to a pool
 
 Your disk must meet the following requirements in order to be added to the disk pool:
 - Must be either a premium SSD or an ultra disk in the same region and availability zone as the disk pool, or use ZRS.
@@ -31,9 +31,9 @@ PowerShell content
 
 ```azurecli
 #Initialize input parameters 
-resourceGroupName='yuemlu-avs-rg'
-diskName='disk-1tb-1'
-diskPoolName='yuemlu-eastus-diskpool'
+resourceGroupName='<yourResourceGroupName>'
+diskName='<yourDiskName>'
+diskPoolName='<diskPoolName>'
 targetName='target1'
 lunName='lun-0'
 
@@ -54,4 +54,4 @@ az disk-pool iscsi-target update --name $targetName \
 
 ## Disable iSCSI on a disk and remove it from the pool
 
-iSCSI support can be disabled or enabled on each individual disk in a disk pool by updating the iSCSI configuration. Before you disable iSCSI support on a disk, confirm there is no outstanding iSCSI connection to the iSCSI lun the disk is exposed as. When the disk is removed from the disk pool, it isn't deleted to ensure there is no data loss. You must manually delete the disk if you don't want to incur further charges for having the disk.
+iSCSI support can be disabled on a disk to remove it from a disk pool. Before you disable iSCSI support on a disk, confirm there is no outstanding iSCSI connection to the iSCSI lun the disk is exposed as. When the disk is removed from the disk pool, it isn't deleted to ensure there is no data loss. You must manually delete the disk if you don't want to incur further charges for having the disk.
