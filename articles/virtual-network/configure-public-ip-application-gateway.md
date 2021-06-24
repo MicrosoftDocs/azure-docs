@@ -43,7 +43,7 @@ In this section, you'll create an Application Gateway resource. You'll select th
     | ------- | ----- |
     | **Project details** |   |
     | Subscription | Select your subscription. |
-    | Resource group | Select **Create new**.<ul><li>Enter **myResourceGroupAppGW**.</li></ul></br> Select **OK**. |
+    | Resource group | Select **Create new**.<ul><li>Enter **myResourceGroupAppGW**.</li></ul>Select **OK**. |
     | **Instance details** |   |
     | Application gateway name | Enter **myAppGateway**. |
     | Region | Select **(US) West US 2**. |
@@ -53,7 +53,7 @@ In this section, you'll create an Application Gateway resource. You'll select th
     | Maximum instance count | Leave the default of **10**. |
     | Availability zone | Leave the default of **None**. |
     | HTTP2 | Leave the default of **Disabled**. |
-    | Virtual network | Select **Create new**. <ul><li>In **Create virtual network**, enter **myVNet** for name.</li><li>Leave the default address space in **ADDRESS SPACE**.</li><li>In **SUBNETS**, change **default** to **myAGSubnet**.</li><li>In the second subnet name, enter **myBackendSubnet**.</li><li>In **Address range**, enter a range within the default address space.</li></ul></br> Select **OK**.|
+    | Virtual network | Select **Create new**. <ul><li>In **Create virtual network**, enter **myVNet** for name.</li><li>Leave the default address space in **ADDRESS SPACE**.</li><li>In **SUBNETS**, change **default** to **myAGSubnet**.</li><li>In the second subnet name, enter **myBackendSubnet**.</li><li>In **Address range**, enter a range within the default address space.</li></ul>Select **OK**.|
 
 6. Select **Next: Frontends**.
 
@@ -83,7 +83,7 @@ In this section, you'll create an Application Gateway resource. You'll select th
     | **Backend targets** |    |
     | Target type | Leave the default of **Backend pool**. |
     | Backend target | Select **myBackendPool**. |
-    | HTTP settings | Select **Add new**.<ul><li>Enter **myHTTPsetting** in **Name**.</li><li>Leave the other settings at the defaults.</li></ul></br>Select **Add**.|
+    | HTTP settings | Select **Add new**.<ul><li>Enter **myHTTPsetting** in **Name**.</li><li>Leave the other settings at the defaults.</li></ul>Select **Add**.|
 
 13. Select **Add**.
 
