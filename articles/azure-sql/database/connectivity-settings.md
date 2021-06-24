@@ -129,9 +129,7 @@ The following PowerShell script shows how to `Get` and `Set` the **Minimal TLS V
 (Get-AzSqlServer -ServerName sql-server-name -ResourceGroupName sql-server-group).MinimalTlsVersion
 
 # Update Minimal TLS Version to 1.2
-$SecureString = ConvertTo-SecureString "password" -AsPlainText -Force
-
-Set-AzSqlServer -ServerName sql-server-name -ResourceGroupName sql-server-group -SqlAdministratorPassword $SecureString  -MinimalTlsVersion "1.2"
+Set-AzSqlServer -ServerName sql-server-name -ResourceGroupName sql-server-group -MinimalTlsVersion "1.2"
 ```
 
 ## Set the minimal TLS version via the Azure CLI
