@@ -50,12 +50,7 @@ Run-time control APIs can be used to manage recording via internal business logi
 
 > Azure Communication Services provides short term media storage for recordings. **Export any recorded content you wish to preserve within 48 hours.** After 48 hours, recordings will no longer be available.
 
-An Event Grid notification `Microsoft.Communication.RecordingFileStatusUpdated` is published when a recording is ready for retrieval, typically 1-2 minutes after the recording process has completed (e.g. meeting ended, recording stopped). Recording event notifications include a document ID, which is used to retrieve both recorded media and a recording metadata file:
-
-| URI                                                                             | Returns                 |
-| :------------------------------------------------------------------------------ | :---------------------- |
-| <Azure_Communication_Service_Endpoint>/recording/download/{documentId}          | recording media file    | 
-| <Azure_Communication_Service_Endpoint>/recording/download/{documentId}/metadata | recording metadata file | 
+An Event Grid notification `Microsoft.Communication.RecordingFileStatusUpdated` is published when a recording is ready for retrieval, typically a few minutes after the recording process has completed (e.g. meeting ended, recording stopped). Recording event notifications include `contentLocation` and `metadataLocation`, which are used to retrieve both recorded media and a recording metadata file.
 
 ### Notification Schema Reference
 ```
