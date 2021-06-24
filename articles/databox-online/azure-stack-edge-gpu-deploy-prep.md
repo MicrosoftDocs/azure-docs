@@ -122,25 +122,26 @@ To create an Azure Stack Edge resource through the Azure Stack Edge service, tak
 
 3. In **Manage Azure Stack Edge devices**, select the **Try Azure Hardware Center** link.
 
-    ![Switch to Azure Edge Hardware Center to order your Azure Stack Edge device](media/azure-stack-edge-gpu-deploy-prep/classic-order-experience-01.png)
+    ![Switch to Azure Edge Hardware Center to order your Azure Stack Edge device](media/azure-stack-edge-gpu-deploy-prep/classic-order-experience-1.png)
 
     This opens the **Get started** screen for creating an order in the Azure Edge Hardware Center. 
 
 4. If don't want to try ordering through the Hardware Center, select the **Order using classic ordering experience** link.
 
-   ![Switch to Azure Stack Edge classic ordering experience from Azure Edge Hardware Center](media/azure-stack-edge-gpu-deploy-prep/classic-order-experience-02.png)       
+   ![Switch to Azure Stack Edge classic ordering experience from Azure Edge Hardware Center](media/azure-stack-edge-gpu-deploy-prep/classic-order-experience-2.png)       
 
 5. Pick the subscription that you want to use for the Azure Stack Edge Pro GPU device. Select the country or region to ship the physical device to. Then select **Show devices**.
 
-    ![Select a subscription for your Azure Stack Edge resource](media/azure-stack-edge-gpu-deploy-prep/create-resource-01.png)<!--Reshot in Azure Stack Edge instead of Data Box Gateway.-->
+    ![Select the subscription to use for your Azure Stack Edge Pro GPU resource](media/azure-stack-edge-gpu-deploy-prep/create-resource-1.png)<!--Reshoot in Azure Stack Edge instead of Data Box Gateway.-->
 
-6. Select device type. Under **Azure Stack Edge Pro**, choose **Azure Stack Edge Pro with GPU** and then choose **Select**. If you see any issues or are unable to select the device type, go to [Troubleshoot order issues](azure-stack-edge-troubleshoot-ordering.md).
+6. Select the device type. Under **Azure Stack Edge Pro**, choose **Azure Stack Edge Pro with GPU** and then choose **Select**. If you see any issues or are unable to select the device type, go to [Troubleshoot order issues](azure-stack-edge-troubleshoot-ordering.md).
 
-    ![Select Azure Stack Edge Pro GPU device type for your order](media/azure-stack-edge-gpu-deploy-prep/create-resource-02.png)<!--Minor UI text update.-->
+    ![Select Azure Stack Edge Pro GPU device type for your order](media/azure-stack-edge-gpu-deploy-prep/create-resource-3.png)<!--Reshoot to update SKU selection.-->
 
 7. Based on your business need, you can select Azure Stack Edge Pro with 1 or 2 Graphical Processing Units (GPUs) from Nvidia. 
 
-    ![Select a 1 GPU or 2 GPU configuration for your Azure Stack Edge Pro GPU order](media/azure-stack-edge-gpu-deploy-prep/create-resource-03.png)
+    ![Select a 1 GPU or 2 GPU configuration for your Azure Stack Edge Pro GPU order](media/azure-stack-edge-gpu-deploy-prep/create-resource-4
+.png)
 
 8. On the **Basics** tab, enter or select the following **Project details**.
     
@@ -156,17 +157,17 @@ To create an Azure Stack Edge resource through the Azure Stack Edge service, tak
     |Name   | A friendly name to identify the resource.<br>The name has from 2 to 50 characters containing letters, numbers, and hyphens.<br> Name starts and ends with a letter or a number.        |
     |Region     |For a list of all the regions where the Azure Stack Edge resource is available, see [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). If using Azure Government, all the government regions are available as shown in the [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/).<br> Choose a location closest to the geographical region where you want to deploy your device.|
 
-    ![Enter project details and instance details on the Basic tab.](media/azure-stack-edge-gpu-deploy-prep/create-resource-04.png)
+    ![Enter project details and instance details on the Basics tab](media/azure-stack-edge-gpu-deploy-prep/create-resource-5.png)
 
 10. Select **Next: Shipping address**.
 
     - If you already have a device, select the combo box for **I already have a device**.
 
-        ![Select I already have a device if you are not ordering a new one](media/azure-stack-edge-gpu-deploy-prep/create-resource-6.png)
+        ![Select "I already have a device" if you are not ordering a new one](media/azure-stack-edge-gpu-deploy-prep/create-resource-6.png)
 
     - If this is the new device that you're ordering, enter the contact name, company, address to ship the device, and contact information.
 
-        ![For a new device, enter contact and address information](media/azure-stack-edge-gpu-deploy-prep/create-resource-7.png)<!--Removed scrollbars.-->
+        ![For a new device, enter contact, company, and address](media/azure-stack-edge-gpu-deploy-prep/create-resource-7.png)<!--Remove scrollbars.-->
 
 11. Select **Next: Tags**. Optionally provide tags to categorize resources and consolidate billing. Select **Next: Review + create**.
 
