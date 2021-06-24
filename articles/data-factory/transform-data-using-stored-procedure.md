@@ -72,10 +72,10 @@ The following table describes these JSON properties:
 ## Parameter data type mapping
 The data type you specify for the parameter is the Azure Data Factory type that maps to the data type in the data source you are using. You can find the data type mappings for your data source described in the connectors documentation. For example:
 
-- [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#data-type-mapping-for-azure-sql-data-warehouse)
+- [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#data-type-mapping-for-azure-synapse-analytics)
 - [Azure SQL Database data type mapping](connector-azure-sql-database.md#data-type-mapping-for-azure-sql-database)
-- [Oracle  data type mapping](connector-oracle.md#data-type-mapping-for-oracle.md)
-- [SQL Server data type mapping](connector-sql-server.md#data-type-mapping-for-sql-server.md)
+- [Oracle  data type mapping](connector-oracle.md#data-type-mapping-for-oracle)
+- [SQL Server data type mapping](connector-sql-server.md#data-type-mapping-for-sql-server)
 
 ## Next steps
 See the following articles that explain how to transform data in other ways: 
