@@ -42,9 +42,8 @@ JetStream DR software consists of three main components: Management Server Virtu
 The MSA is used to install and configure host components on the compute cluster and then to administer JetStream DR software. The DRVA runs the data path DR components. Multiple DRVAs can run concurrently for better scalability. Each DRVA has one or more dedicated partitions attached as an iSCSI LUN or as a low‐latency VDISK. The partitions are used to maintain replication logs and repositories for persistent metadata.
 
 
-## Register the vCenter Server with the MSA
+## Register the vCenter Server with the Management Server Appliance
 
 
 
 ## Next steps
-
