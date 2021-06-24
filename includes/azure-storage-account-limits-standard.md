@@ -10,7 +10,7 @@
  ms.custom: include file
 ---
 
-The following table describes default limits for Azure general-purpose v2 (GPv2), v1 (GPv1), and Blob storage accounts. The *ingress* limit refers to all data that is sent to a storage account. The *egress* limit refers to all data that is received from a storage account.
+The following table describes default limits for Azure general-purpose v2 (GPv2), general-purpose v1 (GPv1), and Blob storage accounts. The *ingress* limit refers to all data that is sent to a storage account. The *egress* limit refers to all data that is received from a storage account.
 
 Microsoft recommends that you use a GPv2 storage account for most scenarios. You can easily upgrade a GPv1 or a Blob storage account to a GPv2 account with no downtime and without the need to copy data. For more information, see [Upgrade to a GPv2 storage account](../articles/storage/common/storage-account-upgrade.md).
 
@@ -23,9 +23,9 @@ Microsoft recommends that you use a GPv2 storage account for most scenarios. You
 | Maximum storage account capacity | 5 PiB <sup>1</sup>|
 | Maximum number of blob containers, blobs, file shares, tables, queues, entities, or messages per storage account | No limit |
 | Maximum request rate<sup>1</sup> per storage account | 20,000 requests per second |
-| Default maximum ingress<sup>1</sup> per general-purpose v2 and Blob storage account in most North America, Europe, and Asia public cloud regions. For a list of exceptions, see [region exceptions](#region-exceptions).  | 60 Gbps |
+| Default maximum ingress<sup>1</sup> per general-purpose v2 and Blob storage account in most North America, Europe, and Asia public cloud regions. For a list of exceptions, see [Region exceptions](#region-exceptions).  | 60 Gbps |
 | Default maximum ingress<sup>1</sup> for general-purpose v1 storage accounts (all regions) | 10 Gbps |
-| Default maximum egress for general-purpose v2 and Blob storage accounts in most North America, Europe, and Asia public cloud regions. For a list of exceptions, see [region exceptions](#region-exceptions). | 120 Gbps |
+| Default maximum egress for general-purpose v2 and Blob storage accounts in most North America, Europe, and Asia public cloud regions. For a list of exceptions, see [Region exceptions](#region-exceptions). | 120 Gbps |
 | Maximum egress for general-purpose v1 storage accounts (US regions) | 20 Gbps if RA-GRS/GRS is enabled, 30 Gbps for LRS/ZRS<sup>2</sup> |
 | Maximum egress for general-purpose v1 storage accounts (non-US regions) | 10 Gbps if RA-GRS/GRS is enabled, 15 Gbps for LRS/ZRS<sup>2</sup> |
 | Maximum number of IP address rules per storage account | 200 |
