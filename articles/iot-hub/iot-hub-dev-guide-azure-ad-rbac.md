@@ -7,7 +7,7 @@ ms.author: jlian
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 06/23/2021
+ms.date: 06/24/2021
 ms.custom: ['Role: Cloud Development']
 ---
 
@@ -105,7 +105,7 @@ Then, make sure the account doesn't have any other roles that have the **Microso
 
 ## Built-in Event Hub compatible endpoint doesn't support Azure AD authentication
 
-The [the built-in endpoint](iot-hub-devguide-messages-read-builtin.md) doesn't support Azure AD integration. Accessing it with a security principal or managed identity isn't possible. To access the built-in endpoint, use the connection string (shared access key) method as before.
+The [the built-in endpoint](iot-hub-devguide-messages-read-builtin.md) doesn't support Azure AD integration. Accessing it with a security principal or managed identity isn't possible. To get data from IoT Hub using Azure AD, [set up routing to a separate Event Hub](iot-hub-devguide-messages-d2c.md#event-hubs-as-a-routing-endpoint).To access the built-in endpoint, use the connection string (shared access key) method as before.
 
 ## SDK samples
 
