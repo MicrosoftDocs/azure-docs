@@ -75,4 +75,4 @@ Event notifications are sent as JSON payloads to the calling application via the
 ## Next steps
 Check out the [Call Automation Quickstart Sample](../../quickstarts/voice-video-calling/call-automation-api-sample.md) to learn more.
 
-Learn more about [Call Recording](../concepts/voice-video-calling/call-recording.md).
+Learn more about [Call Recording](../call-recording.md).
