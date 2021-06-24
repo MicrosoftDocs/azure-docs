@@ -125,7 +125,7 @@
     - name: Support requirements for configuration and process servers
       href: vmware-azure-configuration-server-requirements.md
     - name: Support requirements for replication appliance (preview)
-      href: vmware-azure-replication-appliance-requirements-preview.md
+      href: deploy-vmware-azure-replication-appliance-preview.md
   - name: VMware to Azure architecture
     items:
     - name: Classic

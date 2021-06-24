@@ -9,7 +9,7 @@ ms.date: 06/23/2021
 # Configuration server requirements for VMware disaster recovery to Azure
 
 >[!NOTE]
-> The information in this article applies to Azure Site Recovery Classic releases. For information about replication appliance requirements (in preview), [see this article](vmware-azure-replication-appliance-requirements-preview.md).
+> The information in this article applies to Azure Site Recovery Classic releases. For information about replication appliance requirements (in preview), [see this article](deploy-vmware-azure-replication-appliance-preview.md).
 
 You deploy an on-premises configuration server when you use [Azure Site Recovery](site-recovery-overview.md) for disaster recovery of VMware VMs and physical servers to Azure.
 

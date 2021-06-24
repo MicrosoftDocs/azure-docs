@@ -1,6 +1,6 @@
 ---
-title: Set up Azure VM disaster recovery to a secondary region with Azure Site Recovery
-description: Quickly set up disaster recovery to another Azure region for an Azure VM, using the Azure Site Recovery service.
+title: Replicate VMware VMs to Azure, using Azure Site Recovery replication appliance - preview.
+description: Quickly set up disaster recovery for VMware VMs to Azure, using the Azure Site Recovery replication appliance.
 ms.topic: quickstart
 ms.date: 06/23/2021
 ms.custom: mvc
@@ -26,7 +26,7 @@ To complete this tutorial, you need an Azure subscription and a VMware VM.
 - Sign in to the [Azure portal](https://portal.azure.com/).
 - To get started, navigate to [[Azure private preview portal](https://aka.ms/rcmcanary). And do the steps detailed in the following sections.
   [Create a recovery Services vault](https://docs.microsoft.com/azure/site-recovery/quickstart-create-vault-template?tabs=CLI)
-- [Register and deploy ASR replication appliance](deploy-vmware-azure-replication-appliance.md)
+- [Register and deploy ASR replication appliance](deploy-vmware-azure-replication-appliance-preview.md)
 
 ## Enable replication of VMware VMs
 
