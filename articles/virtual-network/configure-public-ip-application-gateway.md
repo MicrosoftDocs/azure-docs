@@ -1,5 +1,5 @@
 ---
-title: Use a public IP address with a Azure Application Gateway
+title: Use a public IP address with an Azure Application Gateway
 titleSuffix: Azure Virtual Network
 description: Learn about the ways a public IP address is used with an Azure Application Gateway and how to change the configuration.
 author: asudbring
@@ -11,21 +11,13 @@ ms.date: 05/13/2021
 ms.custom: template-how-to 
 ---
 
-# Use a public IP address with a Azure Application Gateway
+# Use a public IP address with an Azure Application Gateway
 
-A public IP address in Azure is available in standard and basic SKUs. The selection of SKU determines the features of the IP address. The SKU determines the resources that the IP address can be associated with. 
+Azure Application Gateway is a web traffic load balancer that manages traffic to your web applications. Application Gateway makes routing decisions based on attributes of an HTTP request. Examples of attributes such as URI path or host headers.  The frontend of an Application Gateway is the connection point for the applications in its backend pool. 
 
-Azure Application Gateway is a web traffic load balancer that enables you to manage traffic to your web applications. Application Gateway can make routing decisions based on additional attributes of an HTTP request, for example URI path or host headers. Application Gateway supports standard SKU public IP addresses. Basic public IPs and public IP prefixes aren't supported.
+An Application Gateway frontend can be a private IP address, public IP address, or both.  The V1 SKU of Application Gateway supports basic public IPs, static, or dynamic.  The V2 SKU supports standard SKU public IPs that are static only. Application Gateway V2 SKU doesn't support an internal IP address as it's only frontend.  For more information, see [Application Gateway front-end IP address configuration](../application-gateway/configuration-front-end-ip.md).  
 
-Examples of resources that support standard SKU public IPs exclusively:
-
-* Cross-region load balancer
-* Azure Bastion
-* NAT gateway
-
-Application Gateway requires a public IP address for it's configuration. A public IP address is used for the frontend of the Application Gateway. The frontend is the connection point for the applications behind the Application Gateway. A Application Gateway frontend can be a private IP address, public IP address, or both.
-
-In this article, you'll learn how to create a Application Gateway using an existing public IP in your subscription. 
+In this article, you'll learn how to create an Application Gateway using an existing public IP in your subscription. 
 
 ## Prerequisites
 
@@ -35,7 +27,7 @@ In this article, you'll learn how to create a Application Gateway using an exist
 
 ## Create Application Gateway existing public IP
 
-In this section, you'll create a Application Gateway resource. You'll select the IP address you created in the prerequisites as the public IP for the Application Gateway.
+In this section, you'll create an Application Gateway resource. You'll select the IP address you created in the prerequisites as the public IP for the Application Gateway.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -51,13 +43,13 @@ In this section, you'll create a Application Gateway resource. You'll select the
     | ------- | ----- |
     | **Project details** |   |
     | Subscription | Select your subscription. |
-    | Resource group | Select **Create new**. </br> Enter **myResourceGroupAppGW**. </br> Select **OK**. </br> Alternatively, select your resource group. |
+    | Resource group | Select **Create new**. </br> Enter **myResourceGroupAppGW**. </br> Select **OK**. </br> |
     | **Instance details** |   |
     | Application gateway name | Enter **myAppGateway**. |
     | Region | Select **(US) West US 2**. |
     | Tier | Leave the default of **Standard V2**. |
     | Enable autoscaling | Leave the default of **Yes**. |
-    | Minium instance count | Leave the default of **0**. |
+    | Minimum instance count | Leave the default of **0**. |
     | Maximum instance count | Leave the default of **10**. |
     | Availability zone | Leave the default of **None**. |
     | HTTP2 | Leave the default of **Disabled**. |
@@ -108,9 +100,16 @@ In this section, you'll create a Application Gateway resource. You'll select the
 
 Application gateway doesn't support changing the public IP address after creation.
 
+## More information
+
+* If a dynamic Basic SKU IP is associated with an Application Gateway frontend, it only changes when the gateway is stopped or started. The DNS name associated with an Application Gateway frontend doesn't change. 
+
+## Caveats
+
+* Public IPv6 addresses aren't supported on Application Gateways at this time.  
 ## Next steps
 
-In this article, you learned how to create a Application Gateway and use an existing public IP. 
+In this article, you learned how to create an Application Gateway and use an existing public IP. 
 
 - For more information about Azure Virtual Network NAT, see [What is Azure Virtual Network NAT?](nat-overview.md)
 - To learn more about public IP addresses in Azure, see [Public IP addresses](public-ip-addresses.md).
