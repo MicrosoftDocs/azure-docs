@@ -2,7 +2,7 @@
 title: Use Azure Private Link to securely connect networks to Azure Arc
 description: Learn how to use Azure Private Link to securely connect networks to Azure Arc.
 ms.topic: conceptual
-ms.date: 06/22/2021
+ms.date: 06/24/2021
 ---
 
 # Use Azure Private Link to securely connect networks to Azure Arc
@@ -118,6 +118,34 @@ See the visual diagram under the section [How it works](#how-it-works) for the n
 ## Create a Private Link Scope
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. To register your subscription for the Azure Arc enabled servers Private Link preview, you need to register the resource provider **Microsoft.HybridCompute**. You can do this from the Azure portal, with Azure PowerShell, or the Azure CLI. Do not proceed with step 3 until you've confirmed the resource provider is registered, otherwise you'll recieve a deployment error. 
+
+    * To register from the Azure portal, see [Register the resource provider](../../azure-resource-manager/management/resource-providers-and-types#azure-portal) to enable the Arc enabled servers Private Link preview from the Azure portal. Under step 5, specify **Microsoft.HybridCompute**.
+
+    * To register using the Azure PowerShell, use:
+
+       ```azurepowershell
+       Register-AzProviderFeature -ProviderNamespace Microsoft.HybridCompute -FeatureName ArcServerPrivateLinkPreview
+       ```
+
+       Which returns a message that registration is on-going. To verify the resource provider is successfully registered, use: 
+       
+       ```azurepowershell
+       Get-AzResourceProvider -ProviderNamespace Microsoft.HybridCompute
+       ```
+
+    * To register using the Azure CLI, use:
+
+    ```azurecli
+    az feature register --namespace Microsoft.HybridCompute --name ArcServerPrivateLinkPreview
+    ```
+
+       Which returns a message that registration is on-going. To verify the resource provider is successfully registered, use: 
+
+       ```azurecli-interactive
+       az provider show --namespace Microsoft.HybridCompute
+       ```
 
 1. Go to **Create a resource** in the Azure portal and search for **Azure Arc Private Link Scope**. Or you can use the following link to open the [Azure Arc Private Link Scope](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.HybridCompute%2FprivateLinkScopes) page in the portal.
 
