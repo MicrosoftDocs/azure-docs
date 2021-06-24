@@ -23,7 +23,6 @@ For Video Analyzer, we will deploy via IoT Hub, but the Azure Stack Edge resourc
 
     This is the user assigned [managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) used to manage access to the above storage account.
 * An [Azure Stack Edge](../../databox-online/azure-stack-edge-gpu-deploy-prep.md) resource
-   
 * [An IoT Hub](../../iot-hub/iot-hub-create-through-portal.md)
 * Storage account
 
