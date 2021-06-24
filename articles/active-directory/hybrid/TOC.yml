@@ -30,6 +30,8 @@
      items:
      - name: What is Azure AD Connect and Connect Health?
        href: whatis-azure-ad-connect.md
+     - name: What is Azure AD Connect V2.0?
+       href: whatis-azure-ad-connect-v2.md
      - name: Choose the right authentication
        href: ./choose-ad-authn.md
      - name: Identity synchronization and duplicate attribute resiliency
