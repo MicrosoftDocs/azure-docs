@@ -9,6 +9,7 @@ services: azure-communication-services
 ms.author: joseys
 ms.date: 04/13/2021
 ms.topic: overview
+ms.custom: references_regions
 ms.service: azure-communication-services
 ---
 # Calling Recording overview
