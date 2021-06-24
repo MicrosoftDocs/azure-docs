@@ -40,6 +40,10 @@ Arrays start with a left bracket (`[`) and end with a right bracket (`]`). An ar
 },
 
 "outputs": {
+  "arrayOutput": {
+    "type": "array",
+    "value": "[variables('exampleArray')]"
+  },
   "firstExampleArrayElement": {
     "type": "int",
     "value": "[parameters('exampleArray')[0]]"
@@ -60,6 +64,10 @@ The elements of an array can be the same type or different types.
 }
 
 "outputs": {
+  "arrayOutput": {
+    "type": "array",
+    "value": "[variables('mixedArray')]"
+  },
   "firstMixedArrayElement": {
     "type": "string",
     "value": "[variables('mixedArray')[0]]"
