@@ -59,7 +59,7 @@ Provisioning issues can include the following failure scenarios:
 > [!NOTE]
 > For more information about VM generalization, see:
 > - [Linux documentation](azure-vm-create-using-approved-base.md#generalize-the-image)
-> - [Windows documentation](../virtual-machines/windows/capture-image-resource.md#generalize-the-windows-vm-using-sysprep)
+> - [Windows documentation](../virtual-machines/generalize.md#windows)
 
 ## VHD specifications
 
