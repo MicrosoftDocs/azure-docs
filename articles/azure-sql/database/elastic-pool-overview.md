@@ -96,22 +96,9 @@ The following steps can help you estimate whether a pool is more cost-effective 
 > [!IMPORTANT]
 > If the number of databases in a pool approaches the maximum supported, make sure to consider [Resource management in dense elastic pools](elastic-pool-resource-management.md).
 
-### Per database settings
+### Per database properties
 
-For each elastic pool, you can optionally specify per database minimum (MIN) and maximum (MAX) DTUs or vCores, to modify resource consumption patterns within the pool. Specified MIN and MAX values apply to all databases in the pool. Specifying different MIN and MAX values for individual databases in the pool is not supported.
-
-> [!NOTE]
-> While the per database MIN and MAX values are expressed in DTUs and vCores, they also govern consumption of other resource types, such as data IO, log IO, and worker threads. As you adjust MIN and MAX values, reservations and limits for all resource types are adjusted proportionally to specified MIN and MAX.
-
-When you specify a per database MAX, you are preventing databases in the pool from increasing their resource consumption up to pool limits. For example, if you set the per database MAX in a 20 vCore pool to 10, then no database in the pool will be able to use more than 10 vCores (which, in this example, is half of the pool's resources). If the workload in each database does not need all available pool resources to perform adequately, consider setting a per database MAX to prevent a single database from monopolizing pool resources. By default, per database MAX is set to the number of DTUs or vCores specified for the elastic pool, allowing each database to use all pool resources when there is no resource contention.
-
-When you specify a per database MIN, you reserve resources for each database in the pool. The higher is the MIN value, the larger is the per database resource reservation. Consider setting a per database MIN when you want to guarantee resource availability for each database regardless of resource consumption by other databases in the pool. By default, per database MIN is set to zero.
-
-> [!IMPORTANT]
-> Because resources in an elastic pool are finite, specifying a MIN value prevents databases from using resources up to pool limits. Even if most databases in a pool are idle, resources reserved for them are not available for other databases.
->
-> Additionally, specifying a MIN value implicitly limits the total number of databases in the pool. For example, if you set the MIN value to 2 vCores in a 20 vCore elastic pool, it means that you will not be able to add more than 10 databases to the pool.
-> 
+You can optionally set "per database" properties to modify resource consumption patterns in elastic pools. For more information, see resource limits documentation for [DTU](resource-limits-dtu-elastic-pools.md#database-properties-for-pooled-databases) and [vCore](resource-limits-vcore-elastic-pools.md#database-properties-for-pooled-databases) elastic pools.
 
 ## Using other SQL Database features with elastic pools
 
