@@ -32,7 +32,7 @@ The [sign-up and sign-in journey](add-sign-up-and-sign-in-policy.md) allows user
 * The user needs to open the mail box and copy the verification code. The user then enters the verification code in Azure AD B2C password reset page, and selects **Verify code**.
 
 
-> [!TIP]
+> [!NOTE]
 > In case you would prefer to hide the "Change Email" button on the screen, it can be achieved by hiding the respective HTML element(s) using CSS manipulation . 
 
 Example :  
