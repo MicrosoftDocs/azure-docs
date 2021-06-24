@@ -19,7 +19,7 @@ ms.custom: aaddev, contperf-fy21q4
 You can publish your app in the Azure Active Directory (Azure AD) app gallery. When your app is published, it will show up as an option for customers when they are [adding apps to their tenant](/en-us/azure/active-directory/manage-apps/add-application-portal). 
 
 The steps to publishing your app in the Azure AD app gallery are:
-1. Prerequisites](#prerequisites)
+1. Prerequisites
 1. Choose the right single sign-on standard for your app.
 1. Implement single sign-on in your app.
 1. Implement SCIM user provisioning in your app (optional)
