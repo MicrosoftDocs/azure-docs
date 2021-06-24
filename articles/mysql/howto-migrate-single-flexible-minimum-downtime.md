@@ -101,7 +101,7 @@ For more details about using mydumper, see [mydumper/myloader](concepts-migrate-
     ```
 In this command, **./backup** refers to the output directory used in the command in the previous step.
 The results should appear as shown in the following image:
-    :::image type="content" source="./media/howto-migrate-single-flexible-mininum-downtime/metadata.png" alt-text="Continuous sync with the Azure Database Migration Service":::        
+    :::image type="content" source="./media/howto-migrate-single-flexible-minimum-downtime/metadata.png" alt-text="Continuous sync with the Azure Database Migration Service":::        
     
 Make sure to note the binary file name for use in later steps.
 7. Restore the database using myloader by running the following command:

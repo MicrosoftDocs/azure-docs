@@ -596,7 +596,7 @@
     href: how-to-migrate-rds-mysql-workbench.md
     displayName: import , migrate, export
   - name: Migration from Azure Database for MySQL – Single Server to Azure Database for MySQL – Flexible Server"
-    href: howto-migrate-single-flexi-min-downtime.md
+    href: howto-migrate-single-flexible-minimum-downtime.md
     displayName: migrate, Single to Flexible
   - name: Minimal downtime migration with DMS
     href: howto-migrate-online.md
