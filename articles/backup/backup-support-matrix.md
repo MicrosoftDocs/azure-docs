@@ -151,6 +151,15 @@ Azure Backup has added the Cross Region Restore feature to strengthen data avail
 | MARS Agent/On premises  | No                                                           | N/A               |
 | AFS (Azure file shares)                 | No                                                           | N/A               |
 
+## Resource health
+
+|     |     |
+| --- | --- |
+| **Supported Resources** | Recovery Services vault |
+| **Supported Regions** | East US 2, East Asia and France Central |
+| **For unsupported regions** | The resource health status is shown as "Unknown". |
+
+
 ## Next steps
 
 - [Review support matrix](backup-support-matrix-iaas.md) for Azure VM backup.
