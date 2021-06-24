@@ -5,7 +5,7 @@ author: roygara
 ms.service: storage
 ms.subservice: files
 ms.topic: how-to
-ms.date: 06/15/2021
+ms.date: 06/23/2021
 ms.author: rogarana 
 ms.custom: devx-track-azurepowershell, subject-rbac-steps
 ---
