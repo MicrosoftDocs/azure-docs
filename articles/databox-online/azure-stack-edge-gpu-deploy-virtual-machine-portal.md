@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 06/10/2021
+ms.date: 06/24/2021
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to configure compute on an Azure Stack Edge Pro GPU device so that I can use it to transform data before I send it to Azure.
 ---
@@ -163,31 +163,30 @@ Follow these steps to create a VM after you've created a VM image.<!--Use this p
 
     ![Screenshot that shows the Networking tab.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-networking-1.png)<!--OK as is.-->
 
-    Select **Next: Advanced**.
-
-1. On the **Advanced** tab, you can select an extension to install and specify the custom data or a cloud-init script to customize your VM. 
+    Select **Next: Advanced**. On the **Advanced** tab, you can select an extension to install during VM deployment, and you can specify a `cloud-init` script to customize your VM.
 
     ![Screenshot that shows the Advanced tab.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-advanced-tab.png)
 
-1. *ADD EXTENSIONS COMMENTARY HERE. We mainly expect them to install a GPU extension for a GPU VM? This is the plain vanilla version of VM deployment.*
+1. If you're creating a GPU virtual machine, you can install the GPU extension during VM deployment from the **Advanced** tab. The GPU extensions are only available for a virtual machine with a VM size supported for GPU VMs. For more information, see [Deploy GPU VMs](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md).
 
-    To add an extension:<!--Detailed steps may move to "Deploy GPU VM. Parking them here for now.-->  
-    
+    > [!NOTE]
+    > If you're using a Red Hat image, you'll need to install the GPU extension after VM deployment. Follow the steps in [Install GPU extension](azure-stack-edge-gpu-deploy-virtual-machine-install-gpu-extension.md).
+
     1. Choose **Select an extension to install**.
 
        ![Screenshot that shows the Select an extension option on the Advanced tab.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-advanced-tab-select-an-extension-to-install.png)
 
-    1. On the **Add extension** pane, select the extension you want to install.
+    1. On the **Add extension** pane, select the extension to install.
 
        ![Screenshot that shows the Add extension pane. Select the extension to install.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-advanced-tab-with-extension-added.png)
 
-       The **Advanced** tab displays the extension you selected.
+       The **Advanced** tab shows the extension you selected.
 
        ![Screenshot that shows an extension added to the Advanced tab.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-add-extension-pane.png) 
 
-1. If you want to use the cloud-init utility to customize the new VM on its first boot, under **Custom data and cloud init**, paste your cloud-init script into the **Custom data** box. 
+1. If you want to use the `cloud-init` utility to customize the new VM on its first boot, on the **Advanced** tab, paste your `cloud-init` script into the **Custom data** box under **Custom data and cloud init**. 
 
-    You can use cloud-init to install packages and write files, or to configure users and security. As cloud-init runs during the initial boot process, no other steps are required to apply your configuration. For more information on cloud-init, see [Cloud-init overview](../virtual-machines/linux/tutorial-automate-vm-deployment.md#cloud-init-overview).
+    <!--You can use `cloud-init` to install packages and write files, or to configure users and security. As `cloud-init` runs during the initial boot process, no other steps are required to apply your configuration. -->For more information about using `cloud-init`, see [Cloud-init overview](../virtual-machines/linux/tutorial-automate-vm-deployment.md#cloud-init-overview).
 
     ![Screenshot that shows the Advanced tab with a cloud init script in the Custom data box.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-advanced-tab-with-cloud-init-script.png)
 

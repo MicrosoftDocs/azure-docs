@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 06/22/2021
+ms.date: 06/25/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge Pro GPU device using APIs so that I can efficiently manage my VMs.
 ---
@@ -40,13 +40,13 @@ Follow these steps when deploying GPU VMs on your device via the Azure portal:
    
     1. On the **Basics** tab, select a [VM size from NCasT4-v3-series](azure-stack-edge-gpu-virtual-machine-sizes.md#ncast4_v3-series-preview).<!--Is this link too cryptic?-->
 
-    1. On the **Advanced** tab, SELECT GPU EXTENSION TO INSTALL. If you don't want to install the GPU extension now, you can do it after the VM is deployed.
+    1. On the **Advanced** tab, you can select a GPU extension to install during VM deployment. If you don't want to install the extension now, you can deploy it later.
 
-    Once the GPU VM is successfully created, you can view this VM in the list of virtual machines in your Azure Stack Edge resource in the Azure portal.
+1. Once the GPU VM is successfully created, you can view this VM in the list of virtual machines in your Azure Stack Edge resource in the Azure portal.
 
-        ![GPU VM in list of virtual machines in Azure portal](media/azure-stack-edge-gpu-deploy-gpu-virtual-machine/list-virtual-machine-1.png)
+    ![GPU VM in list of virtual machines in Azure portal](media/azure-stack-edge-gpu-deploy-gpu-virtual-machine/list-virtual-machine-1.png)
 
-    1. Select the VM and drill down to the details. <!--Copy the IP allocated to the VM. Included in the templates procedure because they will need to use this immediately to install the GPU extension using a template?-->
+Select the VM and drill down to the details. <!--Copy the IP allocated to the VM. Included in the templates procedure because they will need to use this immediately to install the GPU extension using a template?-->
 
     ![IP allocated to GPU VM in Azure portal](media/azure-stack-edge-gpu-deploy-gpu-virtual-machine/get-ip-gpu-virtual-machine-1.png)
 
