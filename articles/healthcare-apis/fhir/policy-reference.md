@@ -1,9 +1,9 @@
 ---
 title: Built-in policy definitions for Azure API for FHIR
 description: Lists Azure Policy built-in policy definitions for Azure API for FHIR. These built-in policy definitions provide common approaches to managing your Azure resources.
-ms.date: 05/14/2021
+ms.date: 06/11/2021
 author: matjazl
-ms.author: matjazl
+ms.author: zxue
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference

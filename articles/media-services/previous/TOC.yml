@@ -400,7 +400,7 @@
   - name: Troubleshoot
     items:
     - name: Frequently asked questions
-      href: media-services-frequently-asked-questions.md
+      href: media-services-frequently-asked-questions.yml
     - name: Troubleshooting guide for live streaming
       href: media-services-troubleshooting-live-streaming.md
     - name: Error codes

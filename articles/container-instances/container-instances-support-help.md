@@ -96,4 +96,4 @@ News and information about Azure Container Instances is shared at the [Azure blo
 
 ## Next steps
 
-Learn more about [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/)
+Learn more about [Azure Container Instances](./index.yml)

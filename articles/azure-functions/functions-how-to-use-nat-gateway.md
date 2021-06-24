@@ -64,6 +64,8 @@ Next, you create a function app in the [Premium plan](functions-premium-plan.md)
 
 ## Create a function app in a Premium plan
 
+This tutorial shows you how to create your function app in a [Premium plan](functions-premium-plan.md). The same functionality is also available when using a [Dedicated (App Service) plan](dedicated-plan.md).
+
 > [!NOTE]  
 > For the best experience in this tutorial, choose .NET for runtime stack and choose Windows for operating system. Also, create you function app in the same region as your virtual network.
 
