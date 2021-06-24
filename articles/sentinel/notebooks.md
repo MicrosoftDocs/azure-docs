@@ -92,9 +92,12 @@ This procedure describes how to create an Azure ML workspace from Azure Sentinel
     :::image type="content" source="media/notebooks/sentinel-notebooks-default-aml.png" alt-text="Select a default AML workspace for your notebooks.":::
 
 
-## Launch an Azure Sentinel notebook using your Azure ML workspace
+## Launch a notebook in your Azure ML workspace
 
-After you've created an AML workspace, start launching your notebooks from Azure Sentinel.
+After you've created an AML workspace, start launching your notebooks in your Azure ML workspace, from Azure Sentinel.
+
+**To launch your notebook**:
+
 1. From the Azure portal, navigate to **Azure Sentinel** > **Threat management** > **Notebooks**, where you can see notebooks that Azure Sentinel provides.
 
     > [!TIP]
@@ -126,8 +129,8 @@ After you've created an AML workspace, start launching your notebooks from Azure
 1. Once your notebook server is created and started, you can starting running your notebook cells. In each cell, select the **Run** icon to run your notebook code.
 
     For more information, see [Command mode shortcuts.](/azure/machine-learning/how-to-run-jupyter-notebooks)
-    
-2. If you need to restart the notebook kernel and rerun the notebook cells from the beginning, select the menu -> **Kernel operations** -> **Restart kernel**.
+
+1. If you need to restart the notebook kernel and rerun the notebook cells from the beginning, select **Kernel operations** > **Restart kernel**. For example:
 
     :::image type="content" source="media/notebooks/sentinel-notebooks-restart-kernel.png" alt-text="Restart a notebook kernel.":::
 
