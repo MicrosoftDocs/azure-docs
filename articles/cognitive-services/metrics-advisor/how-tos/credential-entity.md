@@ -98,7 +98,7 @@ The first is for `Service Principal Client Id`, the other is for `Service Princi
 
 * **Service Principal Client Secret:** Set a `Name` for this secret, the name will be used in credential entity configuration, and the value should be your Service Principal `Client Secret Value` in **Step 2**.
 
-    ![secret1: sp client id](../media/credential-entity/secret2-sp-secret-value.png)
+    ![secret2: sp client secret](../media/credential-entity/secret2-sp-secret-value.png)
 
 Until now, the *client id* and *client secret* of service principal are finally stored in Key Vault. Next, you need to create another service principal to store the key vault. Therefore, you should **create two service principals**, one to save client id and client secret, which will be stored in a key vault, the other is to store the key vault.
 
@@ -116,7 +116,7 @@ Until now, the *client id* and *client secret* of service principal are finally 
 
 **Step 6. Grant Service Principal access to Key Vault.**  Go to the key vault resource you created, in **Settings->Access polices**, by selecting 'Add Access Policy' to make connection between key vault and the second service principal in **Step 5**, and 'Save'.
 
-![add client secret](../media/credential-entity/grant-sp-to-kv.png)
+![grant sp to key vault](../media/credential-entity/grant-sp-to-kv.png)
 
 
 ## Configurations Conclusion

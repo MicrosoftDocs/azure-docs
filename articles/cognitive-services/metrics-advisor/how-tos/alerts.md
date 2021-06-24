@@ -85,21 +85,22 @@ To create a web hook, you will need to add the following information:
 - Timeout 30s
 - Retry for 5xx error, ignore other error. Will not follow 301/302 redirect request.
 - Request body: 
-
-        {
-        "value": [{
-        	"hookId": "b0f27e91-28cf-4aa2-aa66-ac0275df14dd",
-        	"alertType": "Anomaly",
-        	"alertInfo": {
-        		"anomalyAlertingConfigurationId": "1bc6052e-9a2a-430b-9cbd-80cd07a78c64",
-        		"alertId": "172536dbc00",
-        		"timestamp": "2020-05-27T00:00:00Z",
-        		"createdTime": "2020-05-29T10:04:45.590Z",
-        		"modifiedTime": "2020-05-29T10:04:45.590Z"
-        	},
-        	"callBackUrl": "https://kensho2-api.azurewebsites.net/alert/anomaly/configurations/1bc6052e-9a2a-430b-9cbd-80cd07a78c64/alerts/172536dbc00/incidents"
-        }]
-        }
+```
+{
+"value": [{
+	"hookId": "b0f27e91-28cf-4aa2-aa66-ac0275df14dd",
+	"alertType": "Anomaly",
+	"alertInfo": {
+		"anomalyAlertingConfigurationId": "1bc6052e-9a2a-430b-9cbd-80cd07a78c64",
+		"alertId": "172536dbc00",
+		"timestamp": "2020-05-27T00:00:00Z",
+		"createdTime": "2020-05-29T10:04:45.590Z",
+		"modifiedTime": "2020-05-29T10:04:45.590Z"
+	},
+	"callBackUrl": "https://kensho2-api.azurewebsites.net/alert/anomaly/configurations/1bc6052e-9a2a-430b-9cbd-80cd07a78c64/alerts/172536dbc00/incidents"
+}]
+}
+```
 
 **Step3. (optional)** Store your certificate in Azure Key vaults and get identifier
 As mentioned, if accessing the endpoint needs to be authenticated by a certificate, the certificate should be stored in Azure Key vaults. 
