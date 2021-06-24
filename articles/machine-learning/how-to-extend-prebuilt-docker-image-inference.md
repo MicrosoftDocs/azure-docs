@@ -56,7 +56,7 @@ docker build -f <above dockerfile> -t <image_name>:<tag> .
 > [!TIP]
 > More details about `docker build` can be found here in the [Docker documentation](https://docs.docker.com/engine/reference/commandline/build/).
 
-If the `docker build` command isn't available locally, use the Azure Container Registry ACR for your Azure Machine Learning Workspace to build the Docker image in the cloud. For more information, see [Tutorial: Build and deploy container images with Azure Container Registry](/azure/container-registry/container-registry-tutorial-quick-task).
+If the `docker build` command isn't available locally, use the Azure Container Registry ACR for your Azure Machine Learning Workspace to build the Docker image in the cloud. For more information, see [Tutorial: Build and deploy container images with Azure Container Registry](../container-registry/container-registry-tutorial-quick-task.md).
 
 > [!IMPORTANT]
 > Microsoft recommends that you first validate that your Dockerfile works locally before trying to create a custom base image via Azure Container Registry.

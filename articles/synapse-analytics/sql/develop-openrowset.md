@@ -416,5 +416,4 @@ AS [r]
 
 ## Next steps
 
-For more samples, see the [query data storage quickstart](query-data-storage.md) to learn how to use `OPENROWSET` to read [CSV](query-single-csv-file.md), [PARQUET](query-parquet-files.md), [DELTA LAKE](query-delta-lake-format.md), and [JSON](query-json-files.md) file formats. Check [best practices](best-practices-sql-on-demand.md) for achieving optimal performance. You can also learn how to save the results of your query to Azure Storage using [CETAS](develop-tables-cetas.md).
-
+For more samples, see the [query data storage quickstart](query-data-storage.md) to learn how to use `OPENROWSET` to read [CSV](query-single-csv-file.md), [PARQUET](query-parquet-files.md), [DELTA LAKE](query-delta-lake-format.md), and [JSON](query-json-files.md) file formats. Check [best practices](./best-practices-serverless-sql-pool.md) for achieving optimal performance. You can also learn how to save the results of your query to Azure Storage using [CETAS](develop-tables-cetas.md).

@@ -246,6 +246,8 @@
       href: how-to-connect-fed-hybrid-azure-ad-join-post-config-tasks.md
     - name: Emergency rotation of AD FS certificates
       href: how-to-connect-emergency-ad-fs-certificate-rotation.md
+    - name: Monitor changes to federation configuration
+      href: how-to-connect-monitor-federation-changes.md
   - name: Manage single sign-on 
     items:
 
@@ -382,6 +384,8 @@
     href: how-to-connect-fed-compatibility.md
   - name: TLS 1.2 enforcement
     href: reference-connect-tls-enforcement.md
+  - name: ADSync Reference
+    href: reference-connect-adsync.md
   - name: ADSyncConfig Reference
     href: reference-connect-adsyncconfig.md
   - name: ADSyncTools Reference

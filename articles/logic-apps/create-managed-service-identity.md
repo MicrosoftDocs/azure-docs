@@ -431,7 +431,7 @@ As a specific example, suppose that you want to run the [Snapshot Blob operation
 
 > [!IMPORTANT]
 > To access Azure storage accounts behind firewalls by using HTTP requests and managed identities, 
-> make sure that you also set up your storage account with the [exception that allows access by trusted Microsoft services](../connectors/connectors-create-api-azureblobstorage.md#access-trusted-service).
+> make sure that you also set up your storage account with the [exception that allows access by trusted Microsoft services](../connectors/connectors-create-api-azureblobstorage.md#access-blob-storage-with-managed-identities).
 
 To run the [Snapshot Blob operation](/rest/api/storageservices/snapshot-blob), the HTTP action specifies these properties:
 

@@ -43,31 +43,19 @@ The Azure API for FHIR has the following capabilities to help you configure your
 
 ## Patient Access API Implementation Guides
 
-The Patient Access API describes adherence to four FHIR implementation guides.
+The Patient Access API describes adherence to four FHIR implementation guides:
 
-### [CARIN IG for Blue Button®](http://hl7.org/fhir/us/carin-bb/STU1/index.html):
+* [CARIN IG for Blue Button®](http://hl7.org/fhir/us/carin-bb/STU1/index.html): Payers are required to make patients' claims and encounters data available according to the CARIN IG for Blue Button Implementation Guide (C4BB IG). The C4BB IG provides a set of resources that payers can display to consumers via a FHIR API and includes the details required for claims data in the Interoperability and Patient Access API. This implementation guide uses the ExplanationOfBenefit (EOB) Resource as the main resource, pulling in other resources as they are referenced.
+* [HL7 FHIR Da Vinci PDex IG](http://hl7.org/fhir/us/davinci-pdex/STU1/index.html): The Payer Data Exchange Implementation Guide (PDex IG) is focused on ensuring that payers provide all relevant patient clinical data to meet the requirements for the Patient Access API. This uses the US Core profiles on R4 Resources and includes (at a minimum) encounters, providers, organizations, locations, dates of service, diagnoses, procedures, and observations. While this data may be available in FHIR format, it may also come from other systems in the format of claims data, HL7 V2 messages, and C-CDA documents.
+* [HL7 US Core IG](https://www.hl7.org/fhir/us/core/toc.html): The HL7 US Core Implementation Guide (US Core IG) is the backbone for the PDex IG described above. While the PDex IG limits some resources even further than the US Core IG, many resources just follow the standards in the US Core IG.
 
-Payers are required to make patients' claims and encounters data available according to the CARIN IG for Blue Button Implementation Guide (C4BB IG). The C4BB IG provides a set of resources that payers can display to consumers via a FHIR API and includes the details required for claims data in the Interoperability and Patient Access API. This implementation guide uses the ExplanationOfBenefit (EOB) Resource as the main resource, pulling in other resources as they are referenced.
-
-### [HL7 FHIR Da Vinci PDex IG](http://hl7.org/fhir/us/davinci-pdex/STU1/index.html)
-
-The Payer Data Exchange Implementation Guide (PDex IG) is focused on ensuring that payers provide all relevant patient clinical data to meet the requirements for the Patient Access API. This uses the US Core profiles on R4 Resources and includes (at a minimum) encounters, providers, organizations, locations, dates of service, diagnoses, procedures, and observations. While this data may be available in FHIR format, it may also come from other systems in the format of claims data, HL7 V2 messages, and C-CDA documents.
-
-### [HL7 US Core IG](https://www.hl7.org/fhir/us/core/toc.html)
-
-The HL7 US Core Implementation Guide (US Core IG) is the backbone for the PDex IG described above. While the PDex IG limits some resources even further than the US Core IG, many resources just follow the standards in the US Core IG.
-
-### [HL7 FHIR Da Vinci - PDex US Drug Formulary IG](http://hl7.org/fhir/us/Davinci-drug-formulary/index.html)
-
-Part D Medicare Advantage plans have to make formulary information available via the Patient API. They do this using the PDex US Drug Formulary Implementation Guide (USDF IG). The USDF IG defines a FHIR interface to a health insurer’s drug formulary information, which is a list of brand-name and generic prescription drugs that a health insurer agrees to pay for. The main use case of this is so that patients can understand if there are alternative drug available to one that has been prescribed to them and to compare drug costs.
+* [HL7 FHIR Da Vinci - PDex US Drug Formulary IG](http://hl7.org/fhir/us/Davinci-drug-formulary/index.html): Part D Medicare Advantage plans have to make formulary information available via the Patient API. They do this using the PDex US Drug Formulary Implementation Guide (USDF IG). The USDF IG defines a FHIR interface to a health insurer’s drug formulary information, which is a list of brand-name and generic prescription drugs that a health insurer agrees to pay for. The main use case of this is so that patients can understand if there are alternative drug available to one that has been prescribed to them and to compare drug costs.
 
 ## Provider Directory API Implementation Guide
 
-The Provider Directory API describes adherence to one implementation guide.
+The Provider Directory API describes adherence to one implementation guide:
 
-### [HL7 Da Vinci PDex Plan Network IG](http://build.fhir.org/ig/HL7/davinci-pdex-plan-net/)
-
-This implementation guide defines a FHIR interface to a health insurer’s insurance plans, their associated networks, and the organizations and providers that participate in these networks.
+* [HL7 Da Vinci PDex Plan Network IG](http://build.fhir.org/ig/HL7/davinci-pdex-plan-net/): This implementation guide defines a FHIR interface to a health insurer’s insurance plans, their associated networks, and the organizations and providers that participate in these networks.
 
 ## Touchstone
 

@@ -55,5 +55,6 @@ You need to synchronize identity data between your on-premises LDAP v3 directori
 * [Overview and creation a LDAP Connector](/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericldap) 
 
    > [!NOTE]
-   > LDAP Connectors are an advanced configuration requiring some familiarity with Forefront Identity Manager and/or Microsoft Identity Manager. If used in production, we advise questions about this configuration should go through [Premier Support](https://support.microsoft.com/premier) or Microsoft Partner Network.
-
+   > Deploying the LDAP Connector requires an advanced configuration and this connector is provided under limited support. Configuring this connector requires familiarity with Microsoft Identity Manager and the specific LDAP directory. 
+   >
+   > Customers who require to deploy this configuration in a production environment are recommended to work with a partner such as Microsoft Consulting Services for help, guidance and support for this configuration.

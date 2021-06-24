@@ -91,7 +91,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: FAQ
-            url: notification-hubs-push-notification-faq.md
+            url: notification-hubs-push-notification-faq.yml
           - text: Support options
             url: https://azure.microsoft.com/support/options/
           - text: Microsoft Q&A question page

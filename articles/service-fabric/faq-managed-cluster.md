@@ -62,7 +62,7 @@ Yes, Service Fabric managed clusters support stateless node types for any second
 
 ### Can I select between automatic and manual upgrades for my cluster runtime?
 
-Yes, you can select between automatic and manual upgrades. For more information, see [cluster upgrades](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-upgrade).
+Yes, you can select between automatic and manual upgrades. For more information, see [cluster upgrades](./service-fabric-cluster-upgrade.md).
 
 ## Applications
 
