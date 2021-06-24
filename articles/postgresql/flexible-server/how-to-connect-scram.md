@@ -20,9 +20,9 @@ To access the PostgreSQL database server using SCRAM method of authentication, y
 ## Configuring SCRAM authentication
 
 1. Change password_encryption to SCRAM-SHA-256. Currently PostgreSQL only supports SCRAM using SHA-256.
-        :::image type="content" source="./media/how-to-configure-scram/1_password_encryption.png" alt-text="Enable SCRAM password encryption"::: 
+        :::image type="content" source="./media/how-to-configure-scram/1-password-encryption.png" alt-text="Enable SCRAM password encryption"::: 
 2. Allow SCRAM-SHA-256 as the authentication method.
-        :::image type="content" source="./media/how-to-configure-scram/2_auth_method.png" alt-text="Choose the authentication method"::: 
+        :::image type="content" source="./media/how-to-configure-scram/2-auth-method.png" alt-text="Choose the authentication method"::: 
     >[!Important]
     > If you want to only enforce SCRAM, you may choose to only select SCRAM-SHA-256.Before enforcing, it is recommended to choose both MD5 and SCRAM-SHA-256 as authentication methods until you update all user passwords to SCRAM-SHA-256. You can verify the authentication type for users using the query mentioned in step #7.
 3. Save the changes. These are dynamic properties and do not require server restart.
