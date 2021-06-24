@@ -183,8 +183,7 @@ if (identifierKind == CommunicationIdentifierKind.UserIdentity) {
 	participant = new PhoneNumberIdentifier(addedParticipant);
 }
 
-String alternateCallerId = new PhoneNumberIdentifier(this.callConfiguration.sourcePhoneNumber).toString();
-Response<AddParticipantResult> response = callConnection.addParticipantWithResponse(participant, alternateCallerId, operationContext, null);
+Response<AddParticipantResult> response = callConnection.addParticipantWithResponse(participant, this.callConfiguration.sourcePhoneNumber, operationContext, null);
 ```
 
 ## Cancel media processing
