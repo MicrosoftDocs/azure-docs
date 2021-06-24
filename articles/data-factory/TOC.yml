@@ -932,4 +932,4 @@
   - name: Support options
     href: https://azure.microsoft.com/support/options/
   - name: Limits
-    href: https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#data-factory-limits
+    href: ../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits
