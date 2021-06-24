@@ -14,7 +14,7 @@ ms.date: 06/25/2021
 ---
 # Quickstart: Create a managed instance using Azure PowerShell
 
-In this quickstart, learn to create an instance of [Azure SQL Managed Instance](single-database-overview.md) using Azure PowerShell. 
+In this quickstart, learn to create an instance of [Azure SQL Managed Instance](sql-managed-instance-paas-overview.md) using Azure PowerShell. 
 
 
 ## Prerequisite
@@ -24,7 +24,7 @@ In this quickstart, learn to create an instance of [Azure SQL Managed Instance](
 
 ## Set variables
 
-Creating a SQL Manged Instance requires creating several resources within Azure, and as such, the Azure PowerShell commands rely on variables to simplify the experience. Define the variables, and then execute the rest of the steps within the same PowerShell session. 
+Creating a SQL Manged Instance requires creating several resources within Azure, and as such, the Azure PowerShell commands rely on variables to simplify the experience. Define the variables, and then execute the the cmdlets in each section within the same PowerShell session. 
 
 ```azurepowershell-interactive
 $NSnetworkModels = "Microsoft.Azure.Commands.Network.Models"
@@ -196,7 +196,7 @@ This operation may take some time to complete. To learn more, see [Management op
 
 ## Clean up resources
 
-Keep the resource group, and managed instance to go on to the next steps, and learn how to connect to your SQL Managed Instance. 
+Keep the resource group, and managed instance to go on to the next steps, and learn how to connect to your SQL Managed Instance using a client virtual machine. 
 
 When you're finished using these resources, you can delete the resource group you created, which will also delete the server and single database within it.
 
@@ -208,12 +208,11 @@ Remove-AzResourceGroup -ResourceGroupName $resourceGroupName
 
 ## Next steps
 
-
-After your SQL Managed Instance creation completes, create a client VM to connect to your SQL Managed Instance, and restore a sample database. 
+After your SQL Managed Instance is created, deploy a client VM to connect to your SQL Managed Instance, and restore a sample database. 
 
 > [!div class="nextstepaction"]
 > [Create client VM](connect-vm-instance-configure.md)
-> [Restore database](connect-query-ssms.md)
+> [Restore database](restore-sample-database-quickstart.md)
 
 
 
