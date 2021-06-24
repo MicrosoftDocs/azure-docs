@@ -11,7 +11,7 @@ ms.custom: devx-track-azurepowershell
 
 # Quickstart: Create a private container registry using Azure PowerShell
 
-Azure Container Registry is a managed, private Docker container registry service for building, storing, and serving Docker container images. In this quickstart, you learn how to create an Azure container registry using PowerShell. Then, use Docker commands to push a container image into the registry, and finally pull and run the image from your registry.
+Azure Container Registry is a private registry service for building, storing, and managing container images and related artifacts. In this quickstart, you create an Azure container registry instance with Azure  PowerShell. Then, use Docker commands to push a container image into the registry, and finally pull and run the image from your registry.
 
 ## Prerequisites
 
@@ -49,7 +49,7 @@ The registry name must be unique within Azure, and contain 5-50 alphanumeric cha
 $registry = New-AzContainerRegistry -ResourceGroupName "myResourceGroup" -Name "myContainerRegistry007" -EnableAdminUser -Sku Basic
 ```
 
-In this quickstart you create a *Basic* registry, which is a cost-optimized option for developers learning about Azure Container Registry. For details on available service tiers, see [Container registry service tiers][container-registry-skus].
+[!INCLUDE [container-registry-quickstart-sku](../../includes/container-registry-quickstart-sku.md)]
 
 ## Log in to registry
 
