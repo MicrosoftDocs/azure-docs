@@ -279,6 +279,11 @@
       "source_path_from_root": "/articles/iot-pnp/howto-use-embedded-c.md",
       "redirect_url": "/azure/iot-pnp/quickstart-connect-device?pivots=programming-language-embedded-c",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-pnp/howto-use-dtdl-authoring-tools.md",
+      "redirect_url": "/azure/iot-pnp/concepts-modeling-guide#lifecycle-and-tools",
+      "redirect_document_id": false
     }
   ]
 }
