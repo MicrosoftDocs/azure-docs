@@ -7,7 +7,7 @@ author: yushwang
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 06/22/2021
+ms.date: 06/24/2021
 ms.author: yushwang 
 
 ---
@@ -33,7 +33,7 @@ Each part of this article helps you form a basic building block for configuring 
 
 ### <a name="diagram"></a>Diagram 1
 
-:::image type="content" source="./media/nat-overview/vpn-nat.png" alt-text="Diagram 1." lightbox="./media/nat-overview/vpn-nat.png" border="false":::
+:::image type="content" source="./media/nat-overview/vpn-nat.png" alt-text="Screenshot of diagram 1." lightbox="./media/nat-overview/vpn-nat.png" border="false":::
 
 ### Prerequisites
 
@@ -67,11 +67,11 @@ The following screenshots show examples of the resources to create.
    :::image type="content" source="./media/nat-howto/vpn-gateway.png" alt-text="Screenshot showing the gateway." lightbox="./media/nat-howto/vpn-gateway.png":::
 * **Branch 1 local network gateway**
 
-   :::image type="content" source="./media/nat-howto/branch1.png" alt-text="Screenshot showing Branch 1 local network gateway." lightbox="./media/nat-howto/branch1.png" :::
+   :::image type="content" source="./media/nat-howto/branch-1.png" alt-text="Screenshot showing Branch 1 local network gateway." lightbox="./media/nat-howto/branch-1.png" :::
 
 * **Branch 2 local network gateway**
 
-   :::image type="content" source="./media/nat-howto/branch2.png" alt-text="Screenshot showing Branch 2 local network gateway." lightbox="./media/nat-howto/branch2.png":::
+   :::image type="content" source="./media/nat-howto/branch-2.png" alt-text="Screenshot showing Branch 2 local network gateway." lightbox="./media/nat-howto/branch-2.png":::
 
    > [!IMPORTANT] 
    > During preview, if the local network gateway address space is the same or smaller than the VNet address space, use **BGP** and leave the local network gateway address space field **blank**. Static routing (non-BGP) is not supported in this scenario during preview.
@@ -115,7 +115,7 @@ In this step, you associate the NAT rules with each connection resource.
 
 1. Under Ingress NAT Rules, select the NAT rules created previously.
 
-   :::image type="content" source="./media/nat-howto/config-nat.png" alt-text="Screenshot showing the NAT rules." lightbox="./media/nat-howto/config-nat.png":::
+   :::image type="content" source="./media/nat-howto/config-nat.png" alt-text="Screenshot showing the configured NAT rules." lightbox="./media/nat-howto/config-nat.png":::
 
 1. Click **Save** to apply the configurations to the connection resource.
 
