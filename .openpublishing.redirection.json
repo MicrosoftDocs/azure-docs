@@ -61890,10 +61890,6 @@
       "redirect_url": "/azure/architecture/data-science-process/hive-walkthrough",
       "redirect_document_id": false
     }, {
-      "source_path": "articles/machine-learning/team-data-science-process/index.yml",
-      "redirect_url": "/azure/architecture/data-science-process/index",
-      "redirect_document_id": false
-    }, {
       "source_path": "articles/machine-learning/team-data-science-process/ingest-data.md",
       "redirect_url": "/azure/architecture/data-science-process/ingest-data",
       "redirect_document_id": false
