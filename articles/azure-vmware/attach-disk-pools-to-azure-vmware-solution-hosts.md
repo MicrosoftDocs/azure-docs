@@ -13,7 +13,7 @@ ms.date: 06/28/2021
 [Azure disk pools](../virtual-machines/disks-pools.md) offer persistent block storage to applications and workloads backed by Azure Disks. You can use disks as the persistent storage for Azure VMWare Solution for optimal cost and performance. For example, you can scale up by using disk pools instead of scaling clusters if you host storage-intensive workloads. You can also use disks to replicate data from on-premises or primary VMware environments to disk storage for the secondary site.
 
 >[!IMPORTANT]
->Azure Disk Pools on Azure VMware Solution (Preview) is currently in public preview.
+>Azure disk pools on Azure VMware Solution (Preview) is currently in public preview.
 >This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 >For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -23,6 +23,7 @@ Azure Disks are attached to the managed iSCSI controller, a virtual machine depl
 >To scale storage independent of the Azure VMware Solution hosts, we support surfacing [Premium Disks](/azure/virtual-machines/disks-types#premium-ssd) as the datastores.
 
 The diagram shows how disk pools work with Azure VMware Solution hosts. Each iSCSI controller can access each managed disk over iSCSI, and the Azure VMware Solution hosts can access the iSCSI controller over iSCSI.
+
 
 :::image type="content" source="media/disk-pools/azure-disks-attached-to-managed-iscsi-controllers.png" alt-text="Diagram showing how disk pools work with Azure VMware Solution hosts. Each iSCSI controller can access each managed disk over iSCSI, and the Azure VMware Solution hosts can access the iSCSI controller over iSCSI." border="false":::
 
@@ -36,7 +37,7 @@ You can only connect the disk pool to an Azure VMware Solution private cloud in 
 
 - Scalability and performance requirements of your workloads are identified. For details, see [Planning for Azure disk pools](../virtual-machines/disks-pools-planning.md).
 
-- [Azure VMware Solution private cloud](deploy-azure-vmware-solution.md) deployed with a [virtual network configured](deploy-azure-vmware-solution.md#step-3-connect-to-azure-virtual-network-with-expressroute). For more information, see [Network planning checklist](tutorial-network-checklist.md) and [Configure networking for your VMware private cloud](tutorial-configure-networking.md). Use either the Standard (1 Gbps) or High Performance (2 Gbps) SKU for the Azure VMware Solution private cloud.
+- [Azure VMware Solution private cloud](deploy-azure-vmware-solution.md) deployed with a [virtual network configured](deploy-azure-vmware-solution.md#step-3-connect-to-azure-virtual-network-with-expressroute). For more information, see [Network planning checklist](tutorial-network-checklist.md) and [Configure networking for your VMware private cloud](tutorial-configure-networking.md).  Use either the Standard (1 Gbps) or High Performance (2 Gbps) SKU for the Azure VMware Solution private cloud.
 
 - Disk pool as the backing storage deployed and exposed as an iSCSI target with each disk as an individual LUN. For details, see [Deploy an Azure disk pool](../virtual-machines/disks-pools-deploy.md).
 
@@ -95,7 +96,7 @@ You'll attach to a disk pool surfaced through an iSCSI target as the VMware data
 
 ## Delete an iSCSI datastore from your private cloud
 
-When you delete a private cloud datastore, the disk pool resources don't get deleted. There is no maintenance window required for this operation.
+When you delete a private cloud datastore, the disk pool resources don't get deleted. There's no maintenance window required for this operation.
 
 1. Power off the VMs and remove all objects associated with the iSCSI datastores, which include:
    - VMs (remove from inventory)
@@ -113,7 +114,7 @@ When you delete a private cloud datastore, the disk pool resources don't get del
 
 Now that you've attached a disk pool to your Azure VMware Solution hosts, you may want to learn about:
 
-- [Managing an Azure disk pool](../virtual-machines/disks-pools-manage.md ).  Once you've deployed a disk pool, there are various management actions available to you. You can add or remove a disk to or from a disk pool, Update iSCSI LUN mapping, or add ACLs (Only applicable if ACL mode is set to Static).
+- [Managing an Azure disk pool](../virtual-machines/disks-pools-manage.md ).  Once you've deployed a disk pool, there are various management actions available to you. You can add or remove a disk to or from a disk pool, update iSCSI LUN mapping, or add ACLs.
 
 - [Deleting a disk pool](/azure/virtual-machines/disks-pools-deprovision#delete-a-disk-pool). When you delete a disk pool, all the resources in the managed resource group are also deleted.
 
