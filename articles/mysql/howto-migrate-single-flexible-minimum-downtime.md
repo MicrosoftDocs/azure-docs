@@ -76,7 +76,6 @@ To configure Data in replication, perform the following steps:
     CREATE USER 'syncuser'@'%' IDENTIFIED BY 'yourpassword';
     GRANT REPLICATION SLAVE ON *.* TO ' syncuser'@'%';
     ```
-    
 5.	To back up the database using mydumper, run the following command on the Azure VM where we installed the mydumper\myloader:
     ```bash
     $ mydumper --host=<primary_server>.mysql.database.azure.com --user=<username>@<primary_server> --password=<Password> --outputdir=./backup --rows=100 -G -E -R -z --trx-consistency-only --compress --build-empty-files --threads=16 --compress-protocol --ssl  --regex '^(classicmodels\.)' -L mydumper-logs.txt
