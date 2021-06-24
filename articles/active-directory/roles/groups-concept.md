@@ -22,11 +22,11 @@ ms.collection: M365-identity-device-management
 > Role-assignable groups is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-Azure Active Directory (Azure AD) lets you use groups for role assignments. Assigning roles to groups can simplify the management of role assignments in Azure AD with minimal effort from your Global Administrators and Privileged Role Administrators.
+Azure Active Directory (Azure AD) lets you target Azure AD groups for role assignments. Assigning roles to groups can simplify the management of role assignments in Azure AD with minimal effort from your Global Administrators and Privileged Role Administrators.
 
 ## Why assign roles to groups?
 
-Consider the example where the Contoso company has hired people across geographies to manage and reset passwords for employees in its Azure AD organization. Instead of asking a Privileged Role Administrator or Global Administrator to assign the Helpdesk Administrator role to each person individually, they can create a Contoso_Helpdesk_Administrators group and assign it to the role. When people join the group, they are assigned the role indirectly. Your existing governance workflow can then take care of the approval process and auditing of the group's membership to ensure that only legitimate users are members of the group and are thus assigned to the Helpdesk Administrator role.
+Consider the example where the Contoso company has hired people across geographies to manage and reset passwords for employees in its Azure AD organization. Instead of asking a Privileged Role Administrator or Global Administrator to assign the Helpdesk Administrator role to each person individually, they can create a Contoso_Helpdesk_Administrators group and assign the role to the group. When people join the group, they are assigned the role indirectly. Your existing governance workflow can then take care of the approval process and auditing of the group's membership to ensure that only legitimate users are members of the group and are thus assigned the Helpdesk Administrator role.
 
 ## How role assignments to groups work
 
@@ -39,15 +39,17 @@ To assign a role to a group, you must create a new security or Microsoft 365 gro
 Role-assignable groups have the following restrictions:
 
 - You can only set the `isAssignableToRole` property or the **Azure AD roles can be assigned to the group** option for new groups.
-- The role-assignable property is **immutable**. Once a group is created with this property set, it can't be changed.
+- The `isAssignableToRole` property is **immutable**. Once a group is created with this property set, it can't be changed.
 - You can't make an existing group a role-assignable group.
 - A maximum of 300 role-assignable groups can be created in a single Azure AD organization (tenant).
 
 ## How are role-assignable groups protected?
 
-If a group is assigned a role, any IT administrator who can manage group membership could also indirectly manage the membership of that role. For example, assume that a group named Contoso_User_Administrators is assigned the User Administrator role. An Exchange Administrator who can modify group membership could add themselves to the Contoso_User_Administrators group and in that way become a User Administrator. As you can see, an administrator could elevate their privilege in a way you did not intend.
+If a group is assigned a role, any IT administrator who can manage group membership could also indirectly manage the membership of that role. For example, assume that a group named Contoso_User_Administrators is assigned the User Administrator role. An Exchange administrator who can modify group membership could add themselves to the Contoso_User_Administrators group and in that way become a User Administrator. As you can see, an administrator could elevate their privilege in a way you did not intend.
 
-Only groups that have the `isAssignableToRole` property set to `true` at creation time can be assigned to a role. This property is immutable. Once a group is created with this property set, it can't be changed. You can't set the property on an existing group. Role-assignable groups are designed to help prevent potential breaches by having the following restrictions:
+Only groups that have the `isAssignableToRole` property set to `true` at creation time can be assigned a role. This property is immutable. Once a group is created with this property set, it can't be changed. You can't set the property on an existing group.
+
+Role-assignable groups are designed to help prevent potential breaches by having the following restrictions:
 
 - Only Global Administrators and Privileged Role Administrators can create a role-assignable group.
 - The membership type for role-assignable groups must be Assigned and can't be an Azure AD dynamic group. Automated population of dynamic groups could lead to an unwanted account being added to the group and thus assigned to the role.
@@ -57,7 +59,7 @@ Only groups that have the `isAssignableToRole` property set to `true` at creatio
 
 ## Use PIM to make a group eligible for a role assignment
 
-If you do not want members of the group to have standing access to a role, you can use [Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md). Make a group eligible for a role assignment. Each member of the group is then eligible to activate the role assignment for the group for a fixed time duration.
+If you do not want members of the group to have standing access to a role, you can use [Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) to make a group eligible for a role assignment. Each member of the group is then eligible to activate the role assignment for a fixed time duration.
 
 > [!Note]
 > You must be using an updated version of PIM to be able to assign a Azure AD role to a group. You could be using an older version of PIM because your Azure AD organization leverages the PIM API. Send email to pim_preview@microsoft.com to move your organization and update your API. For more information, see [Azure AD roles and features in PIM](../privileged-identity-management/azure-ad-roles-features.md).
