@@ -121,7 +121,7 @@ Onboard a new sensor for this scenario.
 
 **To onboard a sensor**:
 
-1. Navigate to the [Home - Microsoft Azure](https://ms.portal.azure.com/?enterpriseiot=true#home) at `https://ms.portal.azure.com/?enterpriseiot=true#home`.
+1. Navigate to the [Home - Microsoft Azure](https://ms.portal.azure.com/?enterpriseiot=true#home) located at `https://ms.portal.azure.com/?enterpriseiot=true#home`.
 
 1. Select **Onboard sensor**.
 
@@ -153,7 +153,7 @@ You will need to download a package, and move it, and your activation file to th
 
 **To install the sensor**:
 
-1. Download the [package](https://aka.ms/iot-security-enterprise-package-latest) located at https://aka.ms/iot-security-enterprise-package-latest.
+1. Download the [package](https://aka.ms/iot-security-enterprise-package-latest) located at `https://aka.ms/iot-security-enterprise-package-latest`.
 
 1. Locate the package and rename it to `eiot.deb`.
 
