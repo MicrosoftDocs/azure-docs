@@ -45,44 +45,49 @@ In this section we will create a JWT token that we will use later in the documen
    > [!NOTE] 
    > For more information about configuring your audience values see this [article](./access-policies.md)
 
-2. Launch Visual Studio Code and open folder that contains the *.sln file.
-3. In the explorer pane navigate to the program.cs file
-4. Modify line 77 - change the audience to your Video Analyzer endpoint plus /videos/* so that it looks like:
+2. Open Visual Studio Code, and then go to the folder where you downloaded the JWTTokenIssuer application. This folder should contain the *\*.csproj* file.
+3. In the explorer pane, go to the *program.cs* file.
+4. On line 77, change the audience to your Video Analyzer endpoint, followed by /videos/\*, so it looks like:
 
    ```
    https://{Azure Video Analyzer Account ID}.api.{Azure Long Region Code}.videoanalyzer.azure.net/videos/*
    ```
-5. Modify line 78 - change the issuer to the issuer value of your certificate.  Example:  https://contoso.com
 
    > [!NOTE] 
-   > The Video Analyzer endpoint can be found in overview section of the Video Analyzer resource in Azure. You will need to click on the link "JSON View" 
+   > The Video Analyzer endpoint can be found in overview section of the Video Analyzer resource in the Azure portal. This value is referenced as `clientApiEndpointUrl` in [List Video Analyzer video resources](#list-video-analyzer-video-resources) later in this article.
 
-   > [!div class="mx-imgBorder"]
-   > :::image type="content" source="./media/player-widget/endpoint.png" alt-text="Player widget - endpoint":::
+   :::image type="content" source="./media/player-widget/client-api-url.png" alt-text="Screenshot that shows the player widget endpoint.":::
+    
+5. On line 78, change the issuer to the issuer value of your certificate. Example: `https://contoso.com`
 6. Save the file.
-7. Press `F5` to run the JWTTokenIssuer application.
+7. Select `F5` to run the JWTTokenIssuer application.
 
-This will build and execute the application.  After the build it will run by creating a certificate via openssl.  You can also run the JWTTokenIssuer.exe file located in the debug folder.  The advantage of running the application is that you can specify input options as follows:
+   > [!NOTE]
+   > You might be prompted with the message `Required assets to build and debug are missing from 'jwt token issuer'. Add them?` Select `Yes`.
+   
+   :::image type="content" source="./media/player-widget/vscode-required-assets.png" alt-text="Screenshot that shows the required asset prompt in Visual Studio Code.":::
 
-- JwtTokenIssuer [--audience=<audience>] [--issuer=<issuer>] [--expiration=<expiration>] [--certificatePath=<filepath> --certificatePassword=<password>]
+The application builds and then executes. After it builds, it creates a self-signed certificate and generates the JWT token infromation from that certificate. You also can run the JWTTokenIssuer.exe file that's located in the debug folder of the directory where the JWTTokenIssuer built from. The advantage of running the application is that you can specify input options as follows:
 
-JWTTokenIssuer will create the JWT token and the following needed components:
+- `JwtTokenIssuer [--audience=<audience>] [--issuer=<issuer>] [--expiration=<expiration>] [--certificatePath=<filepath> --certificatePassword=<password>]`
 
-- `kty`; `alg`; `kid`; `n`; `e`
+JWTTokenIssuer creates the JWT token and the following needed components:
 
-Ensure to copy these values out for later use.
+- `Issuer`, `Audience`, `Key Type`, `Algorithm`, `Key Id`, `RSA Key Modulus`, `RSA Key Exponent`, `Token`
+
+Be sure to copy these values for later use.
 
 ## Create an access policy
 
-Access policies define the permissions and duration of access to a given Video Analyzer video stream.  For this tutorial we will configure an Access Policy for Video Analyzer in the Azure portal.  
+Access policies define the permissions and duration of access to a given Video Analyzer video stream. For this tutorial we will configure an Access Policy for Video Analyzer in the Azure portal.  
 
 1. Log into the Azure portal and navigate to your Resource Group where your Video Analyzer account is located.
 1. Select the Video Analyzer resource.
 1. Under Video Analyzer select Access Policies
 
-   > [!div class="mx-imgBorder"]
-   > :::image type="content" source="./media/player-widget/portal-access-policies.png" alt-text="Player widget - portal access policies":::    
-1. Click on new and enter the following:
+   :::image type="content" source="./media/player-widget/portal-access-policies.png" alt-text="Player widget - portal access policies":::
+   
+1. Select **New** and enter the following information:
 
    > [!NOTE] 
    > These values come from the JWTTokenIssuer application created in the previous step.
@@ -91,21 +96,21 @@ Access policies define the permissions and duration of access to a given Video A
 
    - Issuer - must match the JWT Token Issuer 
 
-   - Audience - Audience for the JWT Token -- ${System.Runtime.BaseResourceUrlPattern} is the default.  To learn more about Audience and ${System.Runtime.BaseResourceUrlPattern} see this [article](./access-policies.md)
+   - Audience - Audience for the JWT Token -- ${System.Runtime.BaseResourceUrlPattern} is the default. To learn more about Audience and ${System.Runtime.BaseResourceUrlPattern} see this [article](./access-policies.md).
 
-   - Key Type - kty -- RSA 
+   - Key Type - RSA 
 
    - Algorithm - supported values are RS256, RS384, RS512
 
-   - Key ID - kid -- generated from your certificate
+   - Key ID - generated from your certificate. For more information, see [Create a token](#create-a-token).
 
-   - N  value - for RSA the N value is the Modulus
+   - RSA Key Modulus - generated from your certificate. For more information, see [Create a token](#create-a-token).
 
-   - E Value - for RSA the E value is the Public Exponent
+   - RSA Key Exponent - generated from your certificate. For more information, see [Create a token](#create-a-token).
 
-   > [!div class="mx-imgBorder"]
-   > :::image type="content" source="./media/player-widget/access-policies-portal.png" alt-text="Player widget - access policies portal":::     
-1. click `save`.
+   :::image type="content" source="./media/player-widget/access-policies-portal.png" alt-text="Player widget - access policies portal"::: 
+   
+1. Select **Save**.
 
 ## List Video Analyzer video resources
 
@@ -124,6 +129,8 @@ function getVideos()
     document.getElementById("videoList").value = xhttp.responseText.toString();
 }
 ```
+   > [!NOTE]
+   >The clientApiEndPoint and token are collected from the "Create a Token" section of this document.
 
 ## Add the Video Analyzer Player Component
 
@@ -256,13 +263,13 @@ The package used to get the code into your application is an NPM package [here](
 npm install @azure/video-analyzer/widgets
 ```
 
-Or you can import it within your application code using this for Typescript:
+Or you can import it within your application code using this for TypeScript:
 
 ```typescript
 import { Player } from '@video-analyzer/widgets';
 ```
 
-Or this for Javascript if you want to create a player widget dynamically:
+Or this for JavaScript if you want to create a player widget dynamically:
 ```javascript
 <script async type="module" src="https://unpkg.com/@azure/video-analyzer-widgets@latest/dist/global.min.js"></script>
 ```
@@ -273,7 +280,7 @@ If you use this method to import, you will need to programatically create the pl
 const avaPlayer = new ava.widgets.player();
 ```
 
-Or in Typescript:
+Or in TypeScript:
 
 ```typescript
 const avaPlayer = new Player();
