@@ -49,7 +49,7 @@ After the environment is configured, the data flows as follows:
  5. Notification is sent to the action group selected while configuring the alert.
 
 > [!NOTE]
->  In addition to setting up alerts, we recommend periodically reviewing the configured domains within your Azure AD tenant and remove any stale, unrecognized, or suspicious domains. 
+>  In addition to setting up alerts, we recommend periodically reviewing the configured domains within your Azure AD tenant and removing any stale, unrecognized, or suspicious domains. 
 
 
 
