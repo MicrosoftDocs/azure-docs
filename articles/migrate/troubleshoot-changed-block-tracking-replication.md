@@ -302,7 +302,7 @@ This happens when ESXi hosts cannot connect to the network. Follow the resolutio
 ### Error message: An error occurred while saving the snapshot: Invalid change tracker error code
 This error occurs when there's a problem with the underlying datastore on which the snapshot is being stored. Follow the resolution given in the [VMware KB](https://kb.vmware.com/s/article/2042742).
 
-### Error message: An error occurred while saving the snapshot: Invalid change tracker error code
+### Error message: An error occurred while taking a snapshot: Unable to open the snapshot file.
 This error occurs when the size of the snapshot file created is larger than the available free space in the datastore where the VM is located. Follow the resolution given in this [document](https://go.microsoft.com/fwlink/?linkid=2166464).
 
 ## Replication cycle failed
