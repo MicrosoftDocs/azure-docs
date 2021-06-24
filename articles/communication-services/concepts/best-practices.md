@@ -42,4 +42,4 @@ Your application should invoke `call.hangup` when the `onbeforeunload` event is 
 ### Hang up the Call on microphoneMuteUnexpectedly UFD
 When an iOS/Safari user receives a PSTN call, Azure Communication Services loses microphone access. 
 Azure Communication Services will raise the `microphoneMuteUnexpectedly` call diagnostic event, and at this point Communication Services will not be able to regain access to microphone.
-It's recommended to hang up the call ( `call.hangUp` ) when such situation occurs.
+It's recommended to hang up the call ( `call.hangUp` ) when this situation occurs.
