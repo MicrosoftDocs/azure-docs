@@ -24,6 +24,9 @@ ms.custom: mvc
 - Support to provide multiple server credentials on Azure Migrate appliance to discover installed applications (software inventory), agentless dependency analysis and discover SQL Server instances and databases in your VMware environment. [Learn more](tutorial-discover-vmware.md#provide-server-credentials)
 - Discovery and assessment of SQL Server instances and databases running in your VMware environment is now in preview. [Learn More](concepts-azure-sql-assessment-calculation.md) Refer to the [Discovery](tutorial-discover-vmware.md) and [assessment](tutorial-assess-sql.md) tutorials to get started.
 - Agentless VMware migration now supports concurrent replication of 500 VMs per vCenter.
+- Azure Migrate: App Containerization tool now lets you package applications running on servers into a container image and deploy the containerized application to Azure Kubernetes Service.  
+For more information, see [ASP.NET app containerization and migration to Azure Kubernetes Service](tutorial-app-containerization-aspnet-kubernetes.md) and [Java web app containerization and migration to Azure Kubernetes Service](tutorial-app-containerization-java-kubernetes.md) tutorials to get started.
+
 
 ## Update (January 2021)
 -  Azure Migrate: Server Migration tool now lets you migrate VMware virtual machines, physical servers, and virtual machines from other clouds to Azure virtual machines with disks encrypted with server-side encryption with customer-managed keys (CMK).
