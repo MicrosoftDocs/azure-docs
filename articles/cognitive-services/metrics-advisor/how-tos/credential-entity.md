@@ -45,6 +45,8 @@ You should set the **Name** and **Connection String**, then select 'create'.
 
 You should set the **Name** and **Account Key**, then select 'create'. Account key could be found in Azure Storage Account (Azure Data Lake Storage Gen2) resource in **Access keys** setting.
 
+<!-- 增加basic说明，tips是错的；增加一下怎么管理；加一个step1的link
+-->
 ![set credential entity for data lake](../media/credential-entity/credential-entity-data-lake.png)
 
 ## Service Principal

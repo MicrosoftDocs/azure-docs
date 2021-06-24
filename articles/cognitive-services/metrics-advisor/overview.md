@@ -70,6 +70,20 @@ The workflow is simple: after onboarding your data, you can fine-tune the anomal
 * [Introducing Metrics Advisor](https://www.youtube.com/watch?v=0Y26cJqZMIM)
 * [New to Cognitive Services](https://www.youtube.com/watch?v=7tCLJHdBZgM)
 
+## Data retention & limitation: 
+
+Metrics Advisor will keep at most **10,000** time intervals ([what is an interval?](tutorials/write-a-valid-query.md#what-is-an-interval)) forward counting from current timestamp, no matter there's data available or not. Data falls out of the window will be deleted.  Data retention mapping to count of days for different metric granularity: 
+
+| Granularity(min) |	Retention(day) |
+|------------------| ------------------|
+|  1 | 6.94 |
+|  5 | 34.72|
+| 15 | 104.1|
+| 60(=hourly) | 416.67 |
+| 1440(=daily)|10000.00|
+
+There’re also further limitations, please refer to [FAQ](faq.yml#data-retention-&-limitation) for more details. 
+
 ## Next steps
 
 * Explore a quickstart: [Monitor your first metric on web](quickstarts/web-portal.md).
