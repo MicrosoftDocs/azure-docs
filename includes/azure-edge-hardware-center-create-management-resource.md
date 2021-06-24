@@ -2,7 +2,7 @@
 author: v-dalc
 ms.service: databox  
 ms.topic: include
-ms.date: 06/23/2021
+ms.date: 06/24/2021
 ms.author: alkohli
 ---
 
@@ -31,7 +31,7 @@ To create a management resource for a device ordered through the Azure Edge Hard
     | **Select a subscription**    | Select the subscription that was used for the order in Azure Edge Hardware Center.           |
     | **Resource group**           | Select the resource group that was used for the order.                                       |
     | **Name**                     | Provide a name for the management resource.                                                  |
-    | **Deploy Azure resource in** | Select the country or region where the metadata for the management resource will be stored. You may want to store the metadata in a different country/region than the physical location of the device. |
+    | **Deploy Azure resource in** | Select the country or region where the metadata for the management resource will reside. This can be different from the physical location of the device. |
     | **Device type**              | Select the device type. This option corresponds to the configuration that was selected for the hardware product in the Azure Edge Hardware Center order.<br>For example, for an Azure Stack Edge Pro - GPU device, the device type is either **Azure Stack Edge Pro - 1 GPU** or **Azure Stack Edge Pro - 1 GPU**.|       
 
     ![Screenshot the Basics tab of the Create management resource wizard, with example field entries](media/azure-edge-hardware-center-create-management-resource/create-management-resource-04.png)
@@ -43,3 +43,5 @@ To create a management resource for a device ordered through the Azure Edge Hard
     The **Create** button isn't available until all validation checks have passed. Validation checks search through the orders for the resource group, looking for an order item for the same device type that doesn't already have a management resource associated with it.
 
     ![Screenshot showing the Review + create screen when creating a new management resource in Azure Stack Edge](media/azure-edge-hardware-center-create-management-resource/create-management-resource-05.png) 
+
+<!--Add confirmation step/screenshot when final portal is available.-->
