@@ -113,9 +113,14 @@ Let's start by creating a Stream Analytics job. After you create the job, you de
 
 3. Replace `[YourOutputAlias]` with the output alias of the job.
 
-   ![Add a query to a Stream Analytics job in Azure](./media/iot-hub-live-data-visualization-in-power-bi/add-query-to-stream-analytics-job.png)
+1. Add a the following `WHERE` clause as the last line of the query. This line ensures that only messages with a **temperature** property will be forwarded to Power BI.
 
-4. Select **Save query**.
+    ```sql
+    WHERE temperature IS NOT NULL
+    ```
+1. Your query should look similar to the following screenshot. Select **Save query**.
+
+    :::image type="content" source="./media/iot-hub-live-data-visualization-in-power-bi/add-query-to-stream-analytics-job.png" alt-text="Add a query to a Stream Analytics job":::
 
 ### Run the Stream Analytics job
 
@@ -155,28 +160,27 @@ The following steps show you how to create and publish a report using the Power 
 
       ![Add a line chart for temperature to a Microsoft Power BI report](./media/iot-hub-live-data-visualization-in-power-bi/power-bi-add-temperature.png)
 
-7. Create another line chart to show real-time humidity over time. To do this, click on a blank part of the canvas and follow the same steps above to place **EventEnqueuedUtcTime** on the x-axis and **humidity** on the y-axis.
-
-   ![Add a line chart for humidity to a Microsoft Power BI report](./media/iot-hub-live-data-visualization-in-power-bi/power-bi-add-humidity.png)
-
 8. Select **Save** to save the report.
 
 9. Select **Reports** on the left pane, and then select the report that you just created.
 
-10. Select **File** > **Publish to web**.
+10. Select **File** > **Embed report** > **Website or portal**.
 
-    ![Select publish to web for the Microsoft Power BI report](./media/iot-hub-live-data-visualization-in-power-bi/power-bi-select-publish-to-web.png)
+    :::image type="content" source="./media/iot-hub-live-data-visualization-in-power-bi/power-bi-select-embed-report.png" alt-text="Select embed report website for the Microsoft Power BI report":::
 
     > [!NOTE]
     > If you get a notification to contact your administrator to enable embed code creation, you may need to contact them. Embed code creation must be enabled before you can complete this step.
     >
     > ![Contact your administrator notification](./media/iot-hub-live-data-visualization-in-power-bi/contact-admin.png)
 
-11. Select **Create embed code**, and then select **Publish**.
+11. You're provided the report link that you can share with anyone for report access and a code snippet that you can use to integrate the report into your blog or website. Copy the link in the **Secure embed code** window and then close the window.
 
-You're provided the report link that you can share with anyone for report access and a code snippet that you can use to integrate the report into your blog or website.
+    :::image type="content" source="./media/iot-hub-live-data-visualization-in-power-bi/copy-secure-embed-code.png" alt-text="Copy the embed report link":::
 
-![Publish a Microsoft Power BI report](./media/iot-hub-live-data-visualization-in-power-bi/power-bi-web-output.png)
+12. Open a web browser and paste the link into the address bar.
+
+    :::image type="content" source="./media/iot-hub-live-data-visualization-in-power-bi/power-bi-web-output.png" alt-text="Publish a Microsoft Power BI report":::
+
 
 Microsoft also offers the [Power BI mobile apps](https://powerbi.microsoft.com/en-us/documentation/powerbi-power-bi-apps-for-mobile-devices/) for viewing and interacting with your Power BI dashboards and reports on your mobile device.
 
