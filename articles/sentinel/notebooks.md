@@ -126,6 +126,10 @@ After you've created an AML workspace, start launching your notebooks from Azure
 1. Once your notebook server is created and started, you can starting running your notebook cells. In each cell, select the **Run** icon to run your notebook code.
 
     For more information, see [Command mode shortcuts.](/azure/machine-learning/how-to-run-jupyter-notebooks)
+    
+2. If you need to restart the notebook kernel and rerun the notebook cells from the beginning, select the menu -> **Kernel operations** -> **Restart kernel**.
+
+    :::image type="content" source="media/notebooks/sentinel-notebooks-restart-kernel.png" alt-text="Restart a notebook kernel.":::
 
 > [!NOTE]
 > If you run into issues with your notebooks, see the [Azure Machine Learning notebook troubleshooting](/azure/machine-learning/how-to-run-jupyter-notebooks).
