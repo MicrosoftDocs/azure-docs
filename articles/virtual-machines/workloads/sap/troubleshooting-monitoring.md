@@ -11,7 +11,7 @@ ms.subservice: baremetal-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 6/17/2021
+ms.date: 06/23/2021
 ms.author: madhukan
 ms.custom: 
     - H1Hack27Feb2017
@@ -68,6 +68,10 @@ When you work with the Microsoft Support team to troubleshoot an issue, you may 
 ```
 tar  -czvf health_check_logs.tar.gz /var/log/health_check
 ```
+
+## Azure Monitor for SAP Solutions
+
+You can use Azure Monitor for SAP Solutions to monitor all of the resources listed above and more. Azure Monitor for SAP Solutions is native to Azure. It allows you to collect data from Azure infrastructure and databases into a single location and visually correlate the data for faster troubleshooting. For more information, see [Azure Monitor for SAP Solutions](../../../virtual-machines/workloads/sap/azure-monitor-overview.md).
 
 ## Next steps
 

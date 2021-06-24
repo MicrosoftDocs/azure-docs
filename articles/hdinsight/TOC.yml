@@ -313,7 +313,7 @@
       - name: Archived release notes for Azure HDInsight
         href: ./hdinsight-release-notes-archive.md 
     - name: Frequently asked questions (FAQ)
-      href: ./hdinsight-faq.md
+      href: ./hdinsight-faq.yml
     - name: Migrate to granular role-based access for cluster configurations
       href: ./hdinsight-migrate-granular-access-cluster-configurations.md
     - name: Information about using HDInsight on Linux
