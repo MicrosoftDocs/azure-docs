@@ -28,14 +28,13 @@ You'll learn how to:
 To complete this quickstart, make sure you have:
 
 * All prerequisites from either the [Unity HoloLens](get-started-unity-hololens.md) or the [Unity HoloLens with MRTK](get-started-unity-hololens-mrtk.md) quickstarts.
-* <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2020.3.8f1 or newer</a>
-* <a href="https://unity3d.com/get-unity/download" target="_blank">Unity Hub</a>
+* <a href="https://unity3d.com/get-unity/download" target="_blank">Unity Hub with Unity 2020.3.8f1 or newer</a>
 
 ## Open and upgrade the sample project
 
 Follow the steps from either the [Unity HoloLens](get-started-unity-hololens.md) or the [Unity HoloLens with MRTK](get-started-unity-hololens-mrtk.md) quickstarts to clone the [samples repository](https://github.com/Azure/azure-object-anchors), and download the Azure Object Anchors package for Unity.
 
-Open Unity Hub. Select the **Add** button and pick either the `quickstarts/apps/unity/basic` or the `quickstarts/apps/unity/mrtk` project. Then, under the **Unity Version** column, select the version of Unity 2020 in the dropdown that you've installed on your machine. Finally, select the **Project Name** column and open the sample in Unity.
+Open Unity Hub. Select the **Add** button and pick either the `quickstarts/apps/unity/basic` or the `quickstarts/apps/unity/mrtk` project. Then, under the **Unity Version** column, select the version of Unity 2020 in the dropdown that you've installed on your machine. Under the **Target Platform** column, select **Universal Windows Platform**. Finally, select the **Project Name** column and open the sample in Unity.
 
 :::image type="content" source="./media/upgrade-unity-2020.png" alt-text="upgrade unity 2020":::
 
@@ -43,33 +42,27 @@ You'll see a dialog asking for confirmation to upgrade your project. Select the 
 
 :::image type="content" source="./media/confirm-unity-upgrade.png" alt-text="confirm unity upgrade":::
 
-During the upgrade, if you get a dialog telling you about your project having compilation errors, select the **Ignore** button.
-
-:::image type="content" source="./media/ignore-compilation-errors.png" alt-text="ignore compilation errors":::
-
-Select **File -> Building Settings**. Select **Universal Windows Platform** and then select **Switch Platform**. If Unity Editor says you need to download some components first, download and install them. Then, close the **Build Settings** dialog *instead* of selecting the **Build** button. Finally, close **Unity Editor**, and reopen the sample project using **Unity Hub**.
-
 ## Upgrade package dependencies
 
-Back in **Unity Editor**, select **Window -> Package Manager**. At the top of the window, ensure **Unity Registry** is selected as the packages source. Scroll down the list of packages until you find **Open XR Plugin**. Ensure the version displayed is 1.2.2 or newer, if not, select **See other versions** to locate it. Finally, select the **Install** button.
-
-:::image type="content" source="./media/unity-package-manager.png" alt-text="unity package manager":::
-
-You'll see a dialog asking for confirmation to enable the new input system. Select the **Yes** button.
-
-:::image type="content" source="./media/new-input-system.png" alt-text="new input system":::
-
-Once the installation process completes, close **Package Manager**, and close **Unity**.
+Once the upgrade process completes, **Unity Editor** will open up.
 
 Follow the <a a href="/windows/mixed-reality/develop/unity/welcome-to-mr-feature-tool" target="_blank">Mixed Reality Feature Tool</a> documentation to set up the tool and learn how to use it.
 
 Under the **Platform Support** section, install the **Mixed Reality OpenXR Plugin** feature package, version 1.0.0 or newer, into the Unity project folder. If you're working with the `quickstarts/apps/unity/mrtk` project, also open the **Mixed Reality Toolkit** section, locate the **Mixed Reality Toolkit Foundation** and **Mixed Reality Toolkit Tools** feature packages, and upgrade them to version 2.7.0 or newer.
 
-## Update configuration settings
+Go back to your **Unity Editor**. It might take a few minutes, while the **Mixed Reality Feature Tool** feature packages are installed.
 
-Reopen the sample project in **Unity**. It might take a few minutes, while the **Mixed Reality Feature Tool** feature packages are installed. If you get a dialog asking you to overwrite MRTK shaders, select **Yes**.
+You'll see a dialog asking for confirmation to enable the new input system. Select the **Yes** button.
+
+:::image type="content" source="./media/new-input-system.png" alt-text="new input system":::
+
+ If you get a dialog asking you to overwrite MRTK shaders, select **Yes**.
 
 :::image type="content" source="./media/mrtk-shaders.png" alt-text="mrtk shaders":::
+
+Once the install process completes, Unity will restart automatically.
+
+## Update configuration settings
 
 Back in **Unity Editor**, follow the <a href="/windows/mixed-reality/develop/unity/xr-project-setup#configuring-xr-plugin-management-for-openxr" target="_blank">Configuring XR Plugin Management for OpenXR</a> documentation to set up the **XR Plugin Management** in your **Project Settings**. Then, follow the <a href="/windows/mixed-reality/develop/unity/xr-project-setup#optimization" target="_blank">Optimization</a> documentation to apply the recommended project settings for HoloLens 2.
 
