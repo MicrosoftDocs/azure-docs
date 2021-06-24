@@ -18,17 +18,17 @@ This article describes the security features in Azure Cognitive Search that prot
 
 ## Network access
 
-A search service is hosted on Azure and typically accessed over public network connections. Understanding the service's access patterns can help you determine the appropriate controls for protecting against unauthorized access.
+A search service is hosted on Azure and typically accessed over public network connections. Understanding the service's access patterns can help you determine the appropriate controls for preventing unauthorized access.
 
 Cognitive Search has three basic network traffic patterns:
 
-+ Inbound requests made to the service (the predominant pattern)
-+ Outbound requests issued by the search service to other services on Azure
-+ Internal requests over the secure Microsoft backbone network
++ Inbound requests made to the search service (the predominant pattern)
++ Outbound requests issued by the search service to other services on Azure and elsewhere
++ Internal service-to-service requests over the secure Microsoft backbone network
 
-Inbound requests range from creating objects, loading data, and querying indexes or the service for information. For inbound access, there is a progression of security measures protecting the search service endpoint: from API keys on the request, to inbound rules in the firewall, to private endpoints that fully shield your service from the public internet.
+Inbound requests range from creating objects, loading data, and queries. For inbound access, there is a progression of security measures protecting the search service endpoint: from API keys on the request, to inbound rules in the firewall, to private endpoints that fully shield your service from the public internet.
 
-Outbound requests are mostly made by indexers and include read and write operations. Read operations include data ingestion or document cracking when loading content from external sources. Write operations to external services are few: a search service writes to log files, and it will write to Azure Storage when creating knowledge stores, persisting cached enrichments, and persisting debug sessions. A skillset can also include custom skills that run external code, for example in Azure Functions or in a web app.
+Outbound requests are mostly made by indexers, and include both read and write operations. Read operations include data ingestion or document cracking when loading content from external sources. Write operations to external services are few: a search service writes to log files, and it will write to Azure Storage when creating knowledge stores, persisting cached enrichments, and persisting debug sessions. Finally, a skillset can also include custom skills that run external code, for example in Azure Functions or in a web app.
 
 Internal requests include service-to-service calls, such as calls made to Cognitive Services if you are using built-in skills, or to Azure Private Link if you set up a private endpoint.
 
@@ -40,11 +40,11 @@ Inbound security features protect the search service endpoint through increasing
 
 Optionally, you can implement additional layers of control by setting firewall rules that limit access to specific IP addresses. For advanced protection, you can enable Azure Private Link to shield your service endpoint from all internet traffic.
 
-### Key-based authentication using API keys
+### Connect over the public internet
 
-By default, a search service is accessed through the public cloud, using key-based authentication for admin or query access to the search service endpoint. Submission of a valid key is considered proof the request originates from a trusted entity. Key-based authentication is covered in the next section.
+By default, a search service endpoint is accessed through the public cloud, using key-based authentication for admin or query access to the search service endpoint. Keys are required. Submission of a valid key is considered proof the request originates from a trusted entity. Key-based authentication is covered in the next section. Without API keys, you'll get 401 and 404 responses on the request.
 
-### Configure IP firewalls
+### Connect through IP firewalls
 
 To further control access to your search service, you can create inbound firewall rules that allow access to specific IP address or a range of IP addresses. All client connections must be made through an allowed IP address, or the connection is denied.
 
@@ -54,7 +54,7 @@ You can use the portal to [configure inbound access](service-configure-firewall.
 
 Alternatively, you can use the management REST APIs. Starting with API version 2020-03-13, with the [IpRule](/rest/api/searchmanagement/services/createorupdate#iprule) parameter, you can restrict access to your service by identifying IP addresses, individually or in a range, that you want to grant access to your search service.
 
-### Network isolation through a private endpoint (no Internet traffic)
+### Connect to a private endpoint (network isolation, no Internet traffic)
 
 You can establish a [private endpoint](../private-link/private-endpoint-overview.md) for Azure Cognitive Search allows a client on a [virtual network](../virtual-network/virtual-networks-overview.md) to securely access data in a search index over a [Private Link](../private-link/private-link-overview.md).
 
@@ -66,7 +66,13 @@ While this solution is the most secure, using additional services is an added co
 
 ### Outbound connections to external services
 
-You can provide credentials on the connection string. Or, you can set up a managed identity to make search a trusted service when accessing data from Azure Storage, Azure SQL, Cosmos DB, or other Azure data sources. A managed identity is a substitute for credentials or access keys on the connection. For more information about this capability, see [Connect to a data source using a managed identity](search-howto-managed-identities-data-sources.md).
+Indexers and skillsets are both objects that can make external connections. You'll provide connection information as part of the object definition, using one of these mechanisms.
+
++ Credentials in the connection string
+
++ Managed identity in the connection string
+
+  You can set up a managed identity to make search a trusted service when accessing data from Azure Storage, Azure SQL, Cosmos DB, or other Azure data sources. A managed identity is a substitute for credentials or access keys on the connection. For more information about this capability, see [Connect to a data source using a managed identity](search-howto-managed-identities-data-sources.md).
 
 ## Authentication
 
