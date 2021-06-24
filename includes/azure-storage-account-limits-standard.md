@@ -7,7 +7,7 @@
  ms.topic: include
  ms.date: 06/24/2021
  ms.author: tamram
- ms.custom: include file
+ ms.custom: include file, references_regions
 ---
 
 The following table describes default limits for Azure general-purpose v2 (GPv2), general-purpose v1 (GPv1), and Blob storage accounts. The *ingress* limit refers to all data that is sent to a storage account. The *egress* limit refers to all data that is received from a storage account.
