@@ -679,11 +679,11 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 ### Error code: FtpFailedToReadFtpData
 
-- **Message**: `Failed to read data from ftp: The remote server returned an error: 227 Entering Passive Mode (*,*,*,*,*,*). .'`
+- **Message**: `Failed to read data from ftp: The remote server returned an error: 227 Entering Passive Mode (*,*,*,*,*,*). .`
 
 - **Cause**: Port range between 1024 to 65535 is not open for data transfer under passive mode that ADF supports.
 
-- **Recommendation**:  Check the port of the target server. FTP uses 21 and 1024-65535 or set port range to SHIR/Azure IR IP address.
+- **Recommendation**:  Check the port of the target server. Open port 1024-65535 or port range in between 1024-65535 to SHIR/Azure IR IP address.
 
 
 ## HTTP
