@@ -125,27 +125,27 @@ See the visual diagram under the section [How it works](#how-it-works) for the n
 
     * To register using the Azure PowerShell, use:
 
-    ```azurepowershell
-    Register-AzProviderFeature -ProviderNamespace Microsoft.HybridCompute -FeatureName ArcServerPrivateLinkPreview
-    ```
+      ```azurepowershell
+      Register-AzProviderFeature -ProviderNamespace Microsoft.HybridCompute -FeatureName ArcServerPrivateLinkPreview
+      ```
 
-    Which returns a message that registration is on-going. To verify the resource provider is successfully registered, use: 
+      Which returns a message that registration is on-going. To verify the resource provider is successfully registered, use: 
        
-    ```azurepowershell
-    Get-AzResourceProvider -ProviderNamespace Microsoft.HybridCompute
-    ```
+      ```azurepowershell
+      Get-AzResourceProvider -ProviderNamespace Microsoft.HybridCompute
+      ```
 
     * To register using the Azure CLI, use:
 
-    ```azurecli
-    az feature register --namespace Microsoft.HybridCompute --name ArcServerPrivateLinkPreview
-    ```
+      ```azurecli
+      az feature register --namespace Microsoft.HybridCompute --name ArcServerPrivateLinkPreview
+      ```
 
-    Which returns a message that registration is on-going. To verify the resource provider is successfully registered, use: 
+      Which returns a message that registration is on-going. To verify the resource provider is successfully registered, use: 
 
-    ```azurecli-interactive
-    az provider show --namespace Microsoft.HybridCompute
-    ```
+      ```azurecli-interactive
+      az provider show --namespace Microsoft.HybridCompute
+      ```
 
 1. Go to **Create a resource** in the Azure portal and search for **Azure Arc Private Link Scope**. Or you can use the following link to open the [Azure Arc Private Link Scope](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.HybridCompute%2FprivateLinkScopes) page in the portal.
 
