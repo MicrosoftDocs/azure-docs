@@ -82,7 +82,7 @@ Depending on your organization's needs, you can import to a dedicated registry o
 
 ## Update image references
 
-When you import and manage public images in your private container registry, update your build and deployment workflows to refer to your privately managed images. 
+Developers of application images should ensure that their code references local content under their control.
 
 * Update image references to use the private registry. For example, update a `FROM baseimage:v1` statement in a Dockerfile to `FROM myregistry.azurecr.io/mybaseimage:v1`
 * Configure credentials or an authentication mechanism to use the private registry. The exact mechanism depends on the tools you use to access the registry and how you manage user access.
@@ -90,8 +90,6 @@ When you import and manage public images in your private container registry, upd
     * Learn more about [options to authenticate](container-registry-authentication.md) with an Azure container registry.
 
 ## Automate application image updates
-
-Developers of application images should ensure that their code references local content under their control. For example, a `Docker FROM` statement in a Dockerfile should reference an image in a private base image registry instead of a public registry. 
 
 Expanding on image import, set up an [Azure Container Registry task](container-registry-tasks-overview.md) to automate application image builds when base images are updated. An automated build task can track both [base image updates](container-registry-tasks-base-images.md) and [source code updates](container-registry-tasks-overview.md#trigger-task-on-source-code-update).
 
