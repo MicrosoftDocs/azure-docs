@@ -28,11 +28,11 @@ See [Monitoring Load Balancer](monitor-load-balancer.md) for details on collecti
 | Byte count | Public and internal load balancer | Standard Load Balancer reports the data processed per front end. You may notice that the bytes are not distributed equally across the backend instances. This is expected as Azure's Load Balancer algorithm is based on flows. | Sum |
 | Packet count | Public and internal load balancer | Standard Load Balancer reports the packets processed per front end. | Sum |
 
-For more information, see a list of [all platform metrics supported in Azure Monitor for load balancer](../azure-monitor/platform/metrics-supported.md#microsoftnetworkloadbalancers).
+For more information, see a list of [all platform metrics supported in Azure Monitor for load balancer](../azure-monitor/essentials/metrics-supported.md#microsoftnetworkloadbalancers).
 
 ## Metric Dimensions
 
-For more information on what metric dimensions are, see [Multi-dimensional metrics](/azure/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics).
+For more information on what metric dimensions are, see [Multi-dimensional metrics](/azure/azure-monitor/essentials/data-platform-metrics#multi-dimensional-metrics).
 
 Load Balancer has the following dimensions associated with its metrics.
 
