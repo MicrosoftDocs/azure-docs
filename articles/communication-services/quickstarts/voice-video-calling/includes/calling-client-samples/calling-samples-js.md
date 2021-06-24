@@ -22,8 +22,8 @@ Use the `npm install` command to install the Azure Communication Services callin
 ```console
 npm install @azure/communication-common --save
 npm install @azure/communication-calling --save
-
 ```
+The ACS Web Calling sdk must be used through https. For local development, use localhost or local 'file:'
 
 ## Documentation support
 - [Submit issues/bugs on github](https://github.com/Azure/Communication/issues)
@@ -849,6 +849,64 @@ function subscribeToRemoteVideoStream(stream: RemoteVideoStream, participant: Re
 		displayVideo();
 	}
 }
+```
+
+## Call diagnostics
+Call diagnostics is an extended feature of the core `Call` API and allows you to diagnose an active call.
+```js
+	const callQualityApi = call.api(Features.CallQuality);
+```
+
+- Subscribe to `diagnosticChanged` event to monitor when any call diagnostic changes.
+```js
+	/**
+	 *  Each diagnostic has the following data:
+     * - diagnostic is the type of diagnostic, e.g. NetworkSendQuality, DeviceSpeakWhileMuted, etc...
+ 	 * - value is DiagnosticQuality or DiagnosticFlag:
+ 	 *     - DiagnosticQuality = enum { Good = 1, Poor = 2, Bad = 3 }.
+ 	 *     - DiagnosticFlag = true | false.
+ 	 * - valueType = 'DiagnosticQuality' | 'DiagnosticFlag'
+ 	 * - mediaType is the media type associated with the event, e.g. Audio, Video, ScreenShare. These are defined in `CallDiagnosticEventMediaType`.
+	 */
+	 const diagnosticChangedListener = (diagnosticInfo: NetworkDiagnosticChangedEventArgs | MediaDiagnosticChangedEventArgs) => {
+		console.log(`Diagnostic changed: ` +
+					`Diagnostic: ${diagnosticInfo.diagnostic}` +
+					`Value: ${diagnosticInfo.value}` + 
+					`Value type: ${diagnosticInfo.valueType}` +
+					`Media type: ${diagnosticInfo.mediaType}` +
+
+		if (diagnosticInfo.valueType === 'DiagnosticQuality') {
+			if (diagnosticInfo.value === DiagnosticQuality.Bad) {
+				console.error(`${diagnosticInfo.diagnostic} is bad quality`);
+
+			} else if (diagnosticInfo.value === DiagnosticQuality.Poor) {
+				console.error(`${diagnosticInfo.diagnostic} is poor quality`);
+			}
+
+		} else if (diagnosticInfo.valueType === 'DiagnosticFlag') {
+			if (diagnosticInfo.value === true) {
+				console.error(`${diagnosticInfo.diagnostic}`);
+			}
+		}
+	};
+	
+	call.api(Features.Diagnostics).network.on('diagnosticChanged', diagnosticChangedListener);
+	call.api(Features.Diagnostics).media.on('diagnosticChanged', diagnosticChangedListener);
+```
+
+- Get the latest call diagnostic values hat were raised. If a diagnostic is undefined, that is because it was never raised.
+```js
+	const latestNetworkDiagnostics = call.api(Features.Diagnostics).network.getLatest();
+	console.log(`noNetwork: ${latestNetworkDiagnostics.noNetwork.value}, value type = ${latestNetworkDiagnostics.noNetwork.valueType}`);
+	console.log(`networkReconnect: ${latestNetworkDiagnostics.networkReconnect.value}, value type = ${latestNetworkDiagnostics.networkReconnect.valueType}`);
+	console.log(`networkReceiveQuality: ${latestNetworkDiagnostics.networkReceiveQuality.value}, value type = ${latestNetworkDiagnostics.networkReceiveQuality.valueType}`);
+
+	const latestMediaDiagnostics = call.api(Features.Diagnostics).media.getLatest();
+	console.log(`speakingWhileMicrophoneIsMuted: ${latestMediaDiagnostics.speakingWhileMicrophoneIsMuted.value}, value type = ${latestMediaDiagnostics.speakingWhileMicrophoneIsMuted.valueType}`);
+	console.log(`cameraStartFailed: ${latestMediaDiagnostics.cameraStartFailed.value}, value type = ${latestMediaDiagnostics.cameraStartFailed.valueType}`);
+	console.log(`microphoneNotFunctioning: ${latestMediaDiagnostics.microphoneNotFunctioning.value}, value type = ${latestMediaDiagnostics.microphoneNotFunctioning.valueType}`);
+
+	
 ```
 
 ## Learn about eventing models
