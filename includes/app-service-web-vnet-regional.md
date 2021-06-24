@@ -38,7 +38,11 @@ When you want your apps in plan to reach a VNet that's already connected to by a
 
 The feature is fully supported for both Windows and Linux apps, including [custom containers](../articles/app-service/quickstart-custom-container.md). All of the behaviors act the same between Windows apps and Linux apps.
 
-### Integration routing scope
+### Routes
+
+There are two types of routing to consider when configuring regional VNet Integration. Application routing is what traffic is routed from your application and into the VNet. Network routing is the ability to control how traffic is routed from your VNet and out.
+
+#### Application routing
 
 You can configure the routing scope applied to your regional VNet integration by enabling routing of all traffic. If all traffic routing is not enabled, your app routes only [RFC1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3) traffic into your VNet. If you want to route all of your outbound traffic into your VNet, make sure that all traffic routing is enabled.
 
@@ -65,22 +69,7 @@ You can also configure traffic routing using CLI:
 az webapp config set --resource-group myRG --name myWebApp --vnet-route-all-enabled [true|false]
 ```
 
-### Service endpoints
-
-Regional VNet Integration enables you to reach Azure services that are secured with service endpoints. To access a service endpoint-secured service, you must do the following:
-
-1. Configure regional VNet Integration with your web app to connect to a specific subnet for integration.
-1. Go to the destination service and configure service endpoints against the integration subnet.
-
-### Network security groups
-
-You can use network security groups (NSG) to block inbound and outbound traffic to resources in a VNet. An app that uses regional VNet Integration can use a [network security group][VNETnsg] to block outbound traffic to resources in your VNet or the internet. To block traffic to public addresses, you must ensure you [route all traffic](#integration-routing-scope) to the VNet. When all traffic routing is not enabled, NSGs are only applied to RFC1918 traffic.
-
-An NSG that's applied to your integration subnet is in effect regardless of any route tables applied to your integration subnet. 
-
-The inbound rules in an NSG do not apply to your app because VNet Integration affects only outbound traffic from your app. To control inbound traffic to your app, use the Access Restrictions feature.
-
-### Route tables
+#### Network routing
 
 You can use route tables to route outbound traffic from your app to wherever you want. Route tables affect your destination traffic. Without route all enabled, only private traffic (RFC1918) is affected by your route tables. Common destinations can include firewall devices or gateways. Routes that are set on your integration subnet won't affect replies to inbound app requests. 
 
@@ -88,20 +77,35 @@ If you want to route all outbound traffic on-premises, you can use a route table
 
 Border Gateway Protocol (BGP) routes also affect your app traffic. If you have BGP routes from something like an ExpressRoute gateway, your app outbound traffic is affected. Similar to user defined routes, BGP routes affect traffic according to your routing scope setting.
 
+### Network security groups
+
+You can use network security groups (NSG) to block inbound and outbound traffic to resources in a VNet. An app that uses regional VNet Integration can use a [network security group][VNETnsg] to block outbound traffic to resources in your VNet or the internet. To block traffic to public addresses, you must ensure you [route all traffic](#application-routing) to the VNet. When all traffic routing is not enabled, NSGs are only applied to RFC1918 traffic.
+
+An NSG that's applied to your integration subnet is in effect regardless of any route tables applied to your integration subnet. 
+
+The inbound rules in an NSG do not apply to your app because VNet Integration affects only outbound traffic from your app. To control inbound traffic to your app, use the Access Restrictions feature.
+
+### Service endpoints
+
+Regional VNet Integration enables you to reach Azure services that are secured with service endpoints. To access a service endpoint-secured service, you must do the following:
+
+1. Configure regional VNet Integration with your web app to connect to a specific subnet for integration.
+1. Go to the destination service and configure service endpoints against the integration subnet.
+
+### Private endpoints
+
+If you want to make calls to [private endpoints][privateendpoints], then you must make sure that your DNS lookups resolve to the private endpoint. You can enforce this behavior in one of the following ways: 
+
+* Integrate with Azure DNS private zones. When your VNet doesn't have a custom DNS server, this is done automatically when the zones are linked to the VNet.
+* Manage the private endpoint in the DNS server used by your app. To do this you must know the private endpoint address and then point the endpoint you are trying to reach to that address using an A record.
+* Configure your own DNS server to forward to Azure DNS private zones.
+
 ### Azure DNS private zones 
 
 After your app integrates with your VNet, it uses the same DNS server that your VNet is configured with, and if no custom DNS is specified it will use Azure default DNS and any private zones linked to the VNet.
 
 > [!NOTE]
 > For Linux Apps you need to enable routing of all traffic to use Azure DNS private zones.
-
-### Private endpoints
-
-If you want to make calls to [private endpoints][privateendpoints], then you must make sure that your DNS lookups resolve to the private endpoint. You can enforce this behavior in one of the following ways: 
-
-* Integrate with Azure DNS private zones. When your VNet doesn't have a custom DNS server, this is done automatically.
-* Manage the private endpoint in the DNS server used by your app. To do this you must know the private endpoint address and then point the endpoint you are trying to reach to that address using an A record.
-* Configure your own DNS server to forward to Azure DNS private zones.
 
 ### Limitations
 
