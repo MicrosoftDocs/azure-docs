@@ -228,6 +228,8 @@
         href: configure-public-ip-vpn-gateway.md
       - name: Application gateway
         href: configure-public-ip-application-gateway.md
+      - name: Virtual machine
+        href: configure-public-ip-vm.md
     - name: Create public IP address
       items:
       - name: Create public IP addresses - Portal
