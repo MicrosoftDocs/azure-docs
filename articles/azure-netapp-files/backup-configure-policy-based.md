@@ -22,6 +22,9 @@ Azure NetApp Files backup supports *policy-based* (scheduled) backups and *manua
 
 This article shows you how to configure policy-based backups.  For manual backup configuration, see [Configure manual backups](backup-configure-manual.md).  
 
+> [!NOTE]
+> The Azure NetApp Files backup feature is currently in preview. Before using the feature for the first time, you need to [register](backup-register.md). 
+
 ## About policy-based backups  
 
 A volume needs to have the following two types of policies for the policy-based backup feature to work:  
@@ -33,7 +36,7 @@ A snapshot policy handles creating snapshots on the volume. It is used by the ba
 
 Backups are long-running operations. The system schedules backups based on the primary workload (which is given a higher priority) and runs backups in the background. Depending on the size of the volume being backed up, a backup can run in background for hours. There is no option to select the start time for backups. The service performs the backups based on the internal scheduling and optimization logic. 
 
-Assigning a policy creates a baseline snapshot that is the current state of the volume and transfers the snapshot to Azure Blob storage. The baseline snapshot is created with a name starting with `snapmirror`. This baseline snapshot will be deleted automatically when the first scheduled backup is complete (based on the policy). If the backup policy is attached to a volume, the backups list will be empty until the baseline snapshot is transferred. When the backup is complete, the baseline backup entry will appear in the list of backups for the volume. After the baseline transfer, the list will be updated daily based on the policy. An empty list of backups indicates that the baseline backup is in progress. If a volume already has existing manual backups before you assign a backup policy, the baseline snapshot is not created. A baseline snapshot is created only when the volume has no prior.
+Assigning a policy creates a baseline snapshot that is the current state of the volume and transfers the snapshot to Azure Blob storage. The baseline snapshot is created with a name starting with `snapmirror`. This baseline snapshot will be deleted automatically when the first scheduled backup is complete (based on the policy). If the backup policy is attached to a volume, the backup list will be empty until the baseline snapshot is transferred. When the backup is complete, the baseline backup entry will appear in the list of backups for the volume. After the baseline transfer, the list will be updated daily based on the policy. An empty list of backups indicates that the baseline backup is in progress. If a volume already has existing manual backups before you assign a backup policy, the baseline snapshot is not created. A baseline snapshot is created only when the volume has no prior backups.
 
 ## Configure and apply a snapshot policy  
 
@@ -55,7 +58,7 @@ You need to create a snapshot policy and associate the snapshot policy to the vo
     * For a monthly snapshot configuration, specify the day of the month and time of the day when you want the snapshot created. 
     * For each snapshot configuration, specify the number of snapshots that you want to keep.
 
-    For example, if you want to have daily backups, you must configure a snapshot policy with a daily snapshot schedule and snapshot count, and then apply that daily snapshot policy to the volume. If you change the snapshot policy or delete the daily snapshot configuration, new daily snapshots will not be created, resulting in daily backups not taking place. The same process and behavior apply to weekly and monthly backups.  
+    For example, if you want to have daily backups, you must configure a snapshot policy with a daily snapshot schedule and snapshot count, and then apply that daily snapshot policy to the volume. If you change the snapshot policy or delete the daily snapshot configuration, new daily snapshots will not be created, resulting in daily backups not taking place. The same process and behavior apply to weekly, and monthly backups.  
 
     Ensure that each snapshot has a unique snapshot schedule configuration. By design, Azure NetApp Files prevents you from deleting the latest backup. If multiple snapshots have the same time (for example, the same daily and weekly schedule configuration), Azure NetApp Files considers them as the latest snapshots, and deleting those backups is prevented.  
 
@@ -100,9 +103,9 @@ To enable a policy-based (scheduled) backup:
 The following example configuration shows you how to configure a data protection policy on the volume with 5 latest daily snapshots, 4 latest weekly snapshots, and 3 latest monthly snapshots on the volume. This configuration results in backing up 15 latest daily snapshots, 6 latest weekly snapshots, and 4 latest monthly snapshots.
 
 * Snapshot policy:   
-    Daily: `Number of snapshots to Keep = 5`   
-    Weekly: `Number of snapshots to Keep = 4`   
-    Monthly: `Number of snapshots to Keep = 3`
+    Daily: `Number of Snapshots to Keep = 5`   
+    Weekly: `Number of Snapshots to Keep = 4`   
+    Monthly: `Number of Snapshots to Keep = 3`
 * Backup policy:   
     Daily: `Daily Backups to Keep = 15`   
     Weekly: `Weekly Backups to Keep = 6`   
@@ -110,11 +113,11 @@ The following example configuration shows you how to configure a data protection
 
 ### Example of an invalid configuration
 
-The following example configuration has a backup policy configured for taking daily backups, but the snapshot policy does not have a corresponding configuration. As a result, no daily snapshots are created to be backed up by the backup policy. This configuration would back up only weekly and monthly snapshots.
+The following example configuration has a backup policy configured for daily backups, but the snapshot policy does not have a corresponding configuration. As a result, no daily snapshots are created to be backed up by the backup policy. This configuration would back up only weekly and monthly snapshots.
 
 * Snapshot policy:   
-    Weekly: `Number of snapshots to Keep = 4`   
-    Monthly: `Number of snapshots to Keep = 3`   
+    Weekly: `Number of Snapshots to Keep = 4`   
+    Monthly: `Number of Snapshots to Keep = 3`   
 * Backup policy:   
     Daily: `Daily Backups to Keep = 15`   
     Weekly: `Weekly Backups to Keep = 6`   
@@ -128,9 +131,9 @@ After you enable the backup functionality, you need to assign a backup policy to
 
 To enable the backup functionality for a volume:  
 
-1. Select **Volumes** and select the volume for which you want to enable backup.
+1. Go to **Volumes** and select the volume for which you want to enable backup.
 2. Select **Configure**.
-3. In the Configure Backups page, toggle the Enabled setting to **On**.
+3. In the Configure Backups page, toggle the **Enabled** setting to **On**.
 4. In the **Snapshot Policy** drop-down menu, assign the snapshot policy to use for the volume. 
 5. In the **Backup Policy** drop-down menu, assign the backup policy to use for the volume. Click **OK**.
 

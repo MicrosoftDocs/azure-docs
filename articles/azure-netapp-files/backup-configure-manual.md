@@ -22,15 +22,18 @@ Azure NetApp Files backup supports *policy-based* (scheduled) backups and *manua
 
 This article shows you how to configure manual backups. For policy-based backup configuration, see [Configure policy-based backups](backup-configure-policy-based.md).  
 
+> [!NOTE]
+> The Azure NetApp Files backup feature is currently in preview. Before using the feature for the first time, you need to [register](backup-register.md). 
+
 ## About manual backups  
 
 Every Azure NetApp Files volume must have the backup functionality enabled before any backups (policy-based or manual) can be taken.   
 
-After you enable the backup functionality, you have the option to manually backup a volume. A manual backup takes a point-in-time snapshot of the active file system and backs up   that snapshot to the Azure storage account.
+After you enable the backup functionality, you have the option to manually back up a volume. A manual backup takes a point-in-time snapshot of the active file system and backs up   that snapshot to the Azure storage account.
 
 The following list summarizes manual backup behaviors:  
 
-* You can create manual backups on a volume even if the volume is already backup-enabled and configured with backup policies.  However, there can be only one outstanding manual-backup request for the volume. If you assign a backup policy and if baseline transfer is still in progress, then the creation of a manual backup will be blocked until the baseline transfer is complete.
+* You can create manual backups on a volume even if the volume is already backup-enabled and configured with backup policies.  However, there can be only one outstanding manual-backup request for the volume. If you assign a backup policy and if the baseline transfer is still in progress, then the creation of a manual backup will be blocked until the baseline transfer is complete.
 
 * Creating a manual backup generates a snapshot on the volume. The snapshot is then transferred to Azure Blob storage. This snapshot is not deleted automatically; you need to manually delete that snapshot.  However, deleting the snapshot generated for the latest manual backup is not allowed.  As such, after you create a subsequent manual backup, you can then clean up (delete) the snapshots generated for previous manual backups if you do not need to keep them. 
 
@@ -40,19 +43,19 @@ If you haven’t done so, enable the backup functionality for the volume before 
 
 1. Go to **Volumes** and select the specific volume for which you want to enable backup.
 2. Select **Configure**.
-3. In the Configure Backup page, toggle the **Enabled** setting to On.   
-    The Vault information is prepopulated. 
+3. In the Configure Backup page, toggle the **Enabled** setting to **On**.   
+    The Vault field is prepopulated. 
 4. Click **OK**.   
 
 ![Screenshot that shows the Enabled setting of Configure Backups window.](../media/azure-netapp-files/backup-configure-enabled.png)
 
 ## Create a manual backup for a volume
 
-1. Go to **Volumes** and select the volume for which you create a manual backup.
+1. Go to **Volumes** and select the volume for which you want to create a manual backup.
 2. Select **Add Backup**.
 3. Specify a backup name.   
 
-    * Manual backup names must 3 to 256 characters in length.   
+    * Manual backup names must be 3 to 256 characters in length.   
 
     * As a best practice, prepend a prefix in the following format before the actual backup name. Doing so helps you identify the manual backup if the volume is deleted (with backups retained).   
 

@@ -39,7 +39,7 @@ To modify the backup policy settings:
     ![Screenshot that shows the Modify Backup Policy window.](../media/azure-netapp-files/backup-modify-policy.png)
 
     > [!NOTE] 
-    > After backups are enabled and have taken effect for the scheduled frequency, you cannot change the backup retention count to 0. A minimum number of 1 retention is required for the backup policy. See [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md) for details.  
+    > After backups are enabled and have taken effect for the scheduled frequency, you cannot change the backup retention count to `0`. A minimum number of `1` retention is required for the backup policy. See [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md) for details.  
 
 ## Suspend a backup policy  
 
@@ -47,20 +47,20 @@ A backup policy can be suspended so that it does not perform any new backup oper
 
 ### Suspend a backup policy for all volumes associated with the policy
 
-1.	Navigate to **Backups**.
+1. Navigate to **Backups**.
 
-2.	Select **Backup Policies**, click the three dots (`…`) to the right of a backup policy, and click **Edit**. 
+2. Select **Backup Policies**, click the three dots (`…`) to the right of a backup policy, and click **Edit**. 
 
-3. Toggle Policy State to **Disabled**, enter the policy name to confirm, and click **Save**. 
+3. Toggle **Policy State** to **Disabled**, enter the policy name to confirm, and click **Save**. 
 
     ![Screenshot that shows the Modify Backup Policy window with Policy State disabled.](../media/azure-netapp-files/backup-modify-policy-disabled.png)
 
 ### Suspend a backup policy for a specific volume 
 
-1. Select **Volumes**.
+1. Go to **Volumes**. 
 2. Select the specific volume whose backups you want to suspend.
 3. Select **Configure**.
-4. In the Configure Backups page, toggle Policy State to **Suspend**, enter the volume name to confirm, and click **OK**.   
+4. In the Configure Backups page, toggle **Policy State** to **Suspend**, enter the volume name to confirm, and click **OK**.   
 
     ![Screenshot that shows the Configure Backups window with the Suspend Policy State.](../media/azure-netapp-files/backup-modify-policy-suspend.png)
 

@@ -36,13 +36,13 @@ Restoring a backup creates a new volume with the same protocol type. This articl
 
 4. In the Create a Volume page that appears, provide information for the fields in the page as applicable, and click **Review + Create** to begin restoring the backup to a new volume.   
 
-    * The **protocol** field is pre-populated from the original volume and cannot be changed.    
-        However, if you restore a volume from the backup list at the NetApp account level, you need to specify the Protocol field. The protocol field must match the protocol of the original volume. Otherwise, the restore operation will fail with the following error:  
+    * The **Protocol** field is pre-populated from the original volume and cannot be changed.    
+        However, if you restore a volume from the backup list at the NetApp account level, you need to specify the Protocol field. The Protocol field must match the protocol of the original volume. Otherwise, the restore operation will fail with the following error:  
         `Protocol Type value mismatch between input and source volume of backupId <backup-id of the selected backup>. Supported protocol type : <Protocol Type of the source volume>`
 
-    * The **quota** value must be greater than or equal to the size of the backup from which the restore is triggered (minimum 100 GiB).
+    * The **Quota** value must be greater than or equal to the size of the backup from which the restore is triggered (minimum 100 GiB).
 
-    * The **capacity pool** that the backup is restored into must have sufficient unused capacity to host the new restored volume. Otherwise, the restore operation will fail.   
+    * The **Capacity pool** that the backup is restored into must have sufficient unused capacity to host the new restored volume. Otherwise, the restore operation will fail.   
 
     ![Screenshot that shows the Create a Volume page.](../media/azure-netapp-files/backup-restore-create-volume.png)
 
