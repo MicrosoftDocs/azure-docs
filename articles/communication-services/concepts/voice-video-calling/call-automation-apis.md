@@ -17,7 +17,7 @@ Call Automation APIs allow you to connect with your users at scale through autom
 ![in and out-of-call apps](../media/call-automation-apps.png)
 
 Call Automation APIs are provided for both in-call (application-participant or app-participant) actions, and out-of-call actions. Two key differences between these sets of APIs are:
-1. In-call APIs require that an application joins the call as a participant. App-participants are billed at [standard PSTN and VoIP rates](https://azure.microsoft.com/en-in/pricing/details/communication-services/).
+1. In-call APIs require your application to join the call as a participant. App-participants are billed at [standard PSTN and VoIP rates](https://azure.microsoft.com/pricing/details/communication-services/).
 2. In-call APIs use the `callConnectionId` associated with app-participant, while Out-of-Call APIs use the `serverCallId` associated with the call instance. 
 
 ## Use cases
