@@ -75,7 +75,7 @@
     href: skus.md
   - name: Health monitoring
     items:
-    - name: Monitor Load balancer
+    - name: Monitor load balancer
       href: monitor-load-balancer.md
     - name: Monitoring data reference
       href: monitor-load-balancer-reference.md
