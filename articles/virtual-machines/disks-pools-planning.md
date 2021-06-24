@@ -11,11 +11,11 @@ ms.subservice: disks
 
 # Disk pools planning guide
 
-Before you deploy a disk pool, it is important to identify the performance requirements of your workload. Determining your requirements in advance allows you to get the most performance out of your disk pool. The performance of a disk pool is determined by three main factors: The disk pool's scalability target, the scalability targets for individual disks contained in the disk pool, and the networking configuration that connects the clients to the disk pool. Adjusting these three factors will tweak the performance you get from a disk pool.
+Before you deploy a disk pool, it is important to understand the performance requirements of your workload. Determining your requirements in advance allows you to get the most performance out of your disk pool. The performance of a disk pool is determined by three main factors: The disk pool's scalability target, the scalability targets of individual disks contained in the disk pool, and the networking connection between the client machines to the disk pool. Adjusting these three factors will tweak the performance you get from a disk pool.
 
 ## Optimize for low latency
 
-If you're prioritizing low latency, use ultra disks inside your disk pool. Ultra disks allow for sub-ms latency disk IO. You must also evaluate your network configuration and ensure it's using the most optimal path. Your clients should be in the same virtual network as the disk pool, and if you're using ExpressRoute, consider using ExpressRoute FastPath to minimize network latency.
+If you're prioritizing for low latency, add ultra disks to your disk pool as the data storage. Ultra disks provides sub-ms disk latency. You must also evaluate your network configuration and ensure it's using the most optimal path. If you're using ExpressRoute to connect clients to disk pool, consider using [ExpressRoute FastPath](https://docs.microsoft.com/azure/expressroute/about-fastpath) to minimize network latency.
 
 ## Optimize for high throughput
 

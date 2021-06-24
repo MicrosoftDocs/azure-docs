@@ -15,7 +15,7 @@ This article covers the deletion process for a disk pool, as well as how to disa
 
 ## Delete a disk pool
 
-When you delete a disk pool, all the resources in the managed resource group are also deleted. If there are outstanding iSCSI connections to the disk pool, you cannot delete the disk pool. You must disconnect all clients with iSCSI connections to the disk pool first. Disks that have been added to the disk pool are not deleted.
+When you delete a disk pool, all the resources in the managed resource group are also deleted. If there are outstanding iSCSI connections to the disk pool, you cannot delete the disk pool. You must disconnect all clients with iSCSI connections to the disk pool first. Disks that have been added to the disk pool will not be deleted.
 
 # [Portal](#tab/azure-portal)
 
@@ -39,7 +39,7 @@ az disk-pool delete --name "myDiskPool" --resource-group "myResourceGroup"
 
 ## Disable iSCSI support
 
-If you disable iSCSI support on a disk pool, you effectively can no longer use a disk pool.
+If you disable iSCSI support on a disk pool, you effectively can no longer connect to a disk pool.
 
 When you first enable iSCSI support on a disk pool, an iSCSI target is created as the endpoint for the iSCSI connection. You can disable iSCSI support on the disk pool by deleting the iSCSI target. Each disk pool can only have one iSCSI target configured.
 

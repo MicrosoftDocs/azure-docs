@@ -87,7 +87,7 @@ For a disk to be able to be used in a disk pool, it must meet the following requ
 
 To add a disk, it must meet the following requirements:
 
-- Must be either a premium SSD or an ultra disk in the same availability zone as the disk pool, or deployed with ZRS.
+- Must be either a premium SSD or an ultra disk in the same availability zone as the disk pool, or deployed with ZRS. Portal only supports adding premium SSDs now. 
     - For ultra disks, it must have a disk sector size of 512 bytes.
 - Must be a shared disk with a maxShares value of two or greater.
 - You must have granted RBAC permissions for the disk to your disk pool resource provider.
