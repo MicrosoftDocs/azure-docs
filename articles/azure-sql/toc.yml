@@ -318,7 +318,7 @@
     items:
     - name: Create database
       items:
-      - name: Azure portal
+      - name: Azure portal, PowerShell, Az CLI
         href: database/single-database-create-quickstart.md
       - name: ARM template
         displayName: Resource Manager
@@ -802,7 +802,7 @@
       - name: Azure portal
         href: managed-instance/instance-create-quickstart.md
       - name: PowerShell
-        href: managed-instance/scripts/create-configure-managed-instance-powershell.md
+        href: managed-instance/create-configure-managed-instance-powershell-quickstart.md
       - name: ARM template
         displayName: Resource Manager
         href: managed-instance/create-template-quickstart.md
