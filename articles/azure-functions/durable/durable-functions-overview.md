@@ -21,7 +21,7 @@ Durable Functions currently supports the following languages:
 * **JavaScript**: supported only for version 2.x of the Azure Functions runtime. Requires version 1.7.0 of the Durable Functions extension, or a later version. 
 * **Python**: requires version 2.3.1 of the Durable Functions extension, or a later version.
 * **F#**: precompiled class libraries and F# script. F# script is only supported for version 1.x of the Azure Functions runtime.
-* **PowerShell**: support for Durable Functions is currently in public preview. Supported only for version 3.x of the Azure Functions runtime and PowerShell 7. Requires version 2.2.2 of the Durable Functions extension, or a later version. Only the following patterns are currently supported: [Function chaining](#chaining), [Fan-out/fan-in](#fan-in-out), [Async HTTP APIs](#async-http).
+* **PowerShell**: Supported only for version 3.x of the Azure Functions runtime and PowerShell 7. Requires version 2.x of the bundle extensions.
 
 To access the latest features and updates, it is recommended you use the latest versions of the Durable Functions extension and the language-specific Durable Functions libraries. Learn more about [Durable Functions versions](durable-functions-versions.md).
 
@@ -123,13 +123,13 @@ You can use the `context` object to invoke other functions by name, pass paramet
 ```PowerShell
 param($Context)
 
-$X = Invoke-ActivityFunction -FunctionName 'F1'
-$Y = Invoke-ActivityFunction -FunctionName 'F2' -Input $X
-$Z = Invoke-ActivityFunction -FunctionName 'F3' -Input $Y
-Invoke-ActivityFunction -FunctionName 'F4' -Input $Z
+$X = Invoke-DurableActivity -FunctionName 'F1'
+$Y = Invoke-DurableActivity -FunctionName 'F2' -Input $X
+$Z = Invoke-DurableActivity -FunctionName 'F3' -Input $Y
+Invoke-DurableActivity -FunctionName 'F4' -Input $Z
 ```
 
-You can use the `Invoke-ActivityFunction` command to invoke other functions by name, pass parameters, and return function output. Each time the code calls `Invoke-ActivityFunction` without the `NoWait` switch, the Durable Functions framework checkpoints the progress of the current function instance. If the process or virtual machine recycles midway through the execution, the function instance resumes from the preceding `Invoke-ActivityFunction` call. For more information, see the next section, Pattern #2: Fan out/fan in.
+You can use the `Invoke-DurableActivity` command to invoke other functions by name, pass parameters, and return function output. Each time the code calls `Invoke-DurableActivity` without the `NoWait` switch, the Durable Functions framework checkpoints the progress of the current function instance. If the process or virtual machine recycles midway through the execution, the function instance resumes from the preceding `Invoke-DurableActivity` call. For more information, see the next section, Pattern #2: Fan out/fan in.
 
 ---
 
@@ -230,18 +230,18 @@ The automatic checkpointing that happens at the `yield` call on `context.task_al
 param($Context)
 
 # Get a list of work items to process in parallel.
-$WorkBatch = Invoke-ActivityFunction -FunctionName 'F1'
+$WorkBatch = Invoke-DurableActivity -FunctionName 'F1'
 
 $ParallelTasks =
     foreach ($WorkItem in $WorkBatch) {
-        Invoke-ActivityFunction -FunctionName 'F2' -Input $WorkItem -NoWait
+        Invoke-DurableActivity -FunctionName 'F2' -Input $WorkItem -NoWait
     }
 
 $Outputs = Wait-ActivityFunction -Task $ParallelTasks
 
 # Aggregate all outputs and send the result to F3.
 $Total = ($Outputs | Measure-Object -Sum).Sum
-Invoke-ActivityFunction -FunctionName 'F3' -Input $Total
+Invoke-DurableActivity -FunctionName 'F3' -Input $Total
 ```
 
 The fan-out work is distributed to multiple instances of the `F2` function. Please note the usage of the `NoWait` switch on the `F2` function invocation: this switch allows the orchestrator to proceed invoking `F2` without for activity completion. The work is tracked by using a dynamic list of tasks. The `Wait-ActivityFunction` command is called to wait for all the called functions to finish. Then, the `F2` function outputs are aggregated from the dynamic task list and passed to the `F3` function.
@@ -395,7 +395,32 @@ main = df.Orchestrator.create(orchestrator_function)
 
 # [PowerShell](#tab/powershell)
 
-Monitor is currently not supported in PowerShell.
+```powershell
+param($Context)
+
+$output = @()
+
+$jobId = $Context.Input.JobId
+$machineId = $Context.Input.MachineId
+$pollingInterval = New-TimeSpan -Seconds $Context.Input.PollingInterval
+$expiryTime = $Context.Input.ExpiryTime
+
+while ($Context.CurrentUtcDateTime -lt $expiryTime) {
+    $jobStatus = Invoke-DurableActivity -FunctionName 'GetJobStatus' -Input $jobId
+    if ($jobStatus -eq "Completed") {
+        # Perform an action when a condition is met.
+        $output += Invoke-DurableActivity -FunctionName 'SendAlert' -Input $machineId
+        break
+    }
+
+    # Orchestration sleeps until this time.
+    Start-DurableTimer -Duration $pollingInterval
+}
+
+# Perform more work here, or let the orchestration end.
+
+$output
+```
 
 ---
 
@@ -497,7 +522,32 @@ To create the durable timer, call `context.create_timer`. The notification is re
 
 # [PowerShell](#tab/powershell)
 
-Human interaction is currently not supported in PowerShell.
+```powershell
+param($Context)
+
+$output = @()
+
+$duration = New-TimeSpan -Seconds $Context.Input.Duration
+$managerId = $Context.Input.ManagerId
+
+$output += Invoke-DurableActivity -FunctionName "RequestApproval" -Input $managerId
+
+$durableTimeoutEvent = Start-DurableTimer -Duration $duration -NoWait
+$approvalEvent = Start-DurableExternalEventListener -EventName "ApprovalEvent" -NoWait
+
+$firstEvent = Wait-DurableTask -Task @($approvalEvent, $durableTimeoutEvent) -Any
+
+if ($approvalEvent -eq $firstEvent) {
+    Stop-DurableTimerTask -Task $durableTimeoutEvent
+    $output += Invoke-DurableActivity -FunctionName "ProcessApproval" -Input $approvalEvent
+}
+else {
+    $output += Invoke-DurableActivity -FunctionName "EscalateApproval"
+}
+
+$output
+```
+To create the durable timer, call `Start-DurableTimer`. The notification is received by `Start-DurableExternalEventListener`. Then, `Wait-DurableTask` is called to decide whether to escalate (timeout happens first) or process the approval (the approval is received before timeout).
 
 ---
 
@@ -548,7 +598,11 @@ async def main(client: str):
 
 # [PowerShell](#tab/powershell)
 
-Human interaction is currently not supported in PowerShell.
+```powershell
+
+Send-DurableExternalEvent -InstanceId $InstanceId -EventName "ApprovalEvent" -EventData "true"
+
+``````
 
 ---
 
@@ -669,7 +723,7 @@ Clients can enqueue *operations* for (also known as "signaling") an entity funct
 [FunctionName("EventHubTriggerCSharp")]
 public static async Task Run(
     [EventHubTrigger("device-sensor-events")] EventData eventData,
-    [DurableClient] IDurableOrchestrationClient entityClient)
+    [DurableClient] IDurableEntityClient entityClient)
 {
     var metricType = (string)eventData.Properties["metric"];
     var delta = BitConverter.ToInt32(eventData.Body, eventData.Body.Offset);
@@ -681,7 +735,7 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> Dynamically generated proxies are also available in .NET for signaling entities in a type-safe way. And in addition to signaling, clients can also query for the state of an entity function using [type-safe methods](durable-functions-bindings.md#entity-client-usage) on the orchestration client binding.
+> Dynamically generated proxies are also available in .NET for signaling entities in a type-safe way. And in addition to signaling, clients can also query for the state of an entity function using [type-safe methods](durable-functions-dotnet-entities.md#accessing-entities-through-interfaces) on the orchestration client binding.
 
 # [JavaScript](#tab/javascript)
 

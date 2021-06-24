@@ -12,6 +12,61 @@ This article describes how to use Azure Service Bus to optimize performance when
 
 Throughout this article, the term "client" refers to any entity that accesses Service Bus. A client can take the role of a sender or a receiver. The term "sender" is used for a Service Bus queue client or a topic client that sends messages to a Service Bus queue or a topic. The term "receiver" refers to a Service Bus queue client or subscription client that receives messages from a Service Bus queue or a subscription.
 
+## Resource planning and considerations
+
+As with any technical resourcing, prudent planning is key in ensuring that Azure Service Bus is providing the performance that your application expects. The right configuration or topology for your Service Bus namespaces depends on a host of factors involving your application architecture and how each of the Service Bus features are used.
+
+### Pricing tier
+
+Service Bus offers various pricing tiers. It is recommended to pick the appropriate tier for your application requirements.
+
+   * **Standard tier** - Suited for developer/test environments or low throughput scenarios where the applications are **not sensitive** to throttling.
+
+   * **Premium tier** - Suited for production environments with varied throughput requirements where predictable latency and throughput is required. Additionally, Service Bus premium namespaces can be [auto scaled](automate-update-messaging-units.md) can be enabled to accommodate spikes in throughput.
+
+> [!NOTE]
+> If the right tier is not picked, there is a risk of overwhelming the Service Bus namespace which may lead to [throttling](service-bus-throttling.md).
+>
+> Throttling does not lead to loss of data. Applications leveraging the Service Bus SDK can utilize the default retry policy to ensure that the data is eventually accepted by Service Bus.
+>
+
+### Calculating throughput for Premium
+
+Data sent to Service Bus is serialized to binary and then deserialized when received by the receiver. Thus, while applications think of **messages** as atomic units of work, Service Bus measures throughput in terms of bytes (or megabytes).
+
+When calculating the throughput requirement, consider the data that is being sent to Service Bus (ingress) and data that is received from Service Bus (egress).
+
+As expected, throughput is higher for smaller message payloads that can be batched together.
+
+#### Benchmarks
+
+Here is a [GitHub sample](https://github.com/Azure-Samples/service-bus-dotnet-messaging-performance) which you can run to see the expected throughput you will receive for your SB namespace. In our [benchmark tests](https://techcommunity.microsoft.com/t5/Service-Bus-blog/Premium-Messaging-How-fast-is-it/ba-p/370722), we observed approximately 4 MB/second per Messaging Unit (MU) of ingress and egress.
+
+The benchmarking sample doesn't use any advanced features, so the throughput your applications observe will be different based on your scenarios.
+
+#### Compute considerations
+
+Using certain Service Bus features may require compute utilization that may decrease the expected throughput. Some of these features are -
+
+1. Sessions.
+2. Fanning out to multiple subscriptions on a single topic.
+3. Running many filters on a single subscription.
+4. Scheduled messages.
+5. Deferred messages.
+6. Transactions.
+7. De-duplication & look back time window.
+8. Forward to (forwarding from one entity to another).
+
+If your application leverages any of the above features and you are not receiving the expected throughput, you can review the **CPU usage** metrics and consider scaling up your Service Bus Premium namespace.
+
+You can also utilize Azure Monitor to [automatically scale the Service Bus namespace](automate-update-messaging-units.md).
+
+### Sharding across namespaces
+
+While scaling up Compute (Messaging Units) allocated to the namespace is an easier solution, it **may not** provide a linear increase in the throughput. This is because of Service Bus internals (storage, network, etc.) which may be limiting the throughput.
+
+The cleaner solution in this case is to shard your entities (queues, and topics) across different Service Bus Premium namespaces. You may also consider sharding across different namespaces in different Azure regions.
+
 ## Protocols
 Service Bus enables clients to send and receive messages via one of three protocols:
 
@@ -30,7 +85,7 @@ There are three supported Azure Service Bus .NET SDKs. Their APIs are similar, a
 | NuGet Package | Primary Namespace(s) | Minimum Platform(s) | Protocol(s) |
 |---------------|----------------------|---------------------|-------------|
 | [Azure.Messaging.ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus) | `Azure.Messaging.ServiceBus`<br>`Azure.Messaging.ServiceBus.Administration` | .NET Core 2.0<br>.NET Framework 4.6.1<br>Mono 5.4<br>Xamarin.iOS 10.14<br>Xamarin.Mac 3.8<br>Xamarin.Android 8.0<br>Universal Windows Platform 10.0.16299 | AMQP<br>HTTP |
-| [Microsoft.Azure.ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus/) | `Microsoft.Azure.ServiceBus`<br>`Microsoft.Azure.ServiceBus.Management` | .NET Core 2.0<br>.NET Framework 4.6.1<br>Mono 5.4<br>Xamarin.iOS 10.14<br>Xamarin.Mac 3.8<br>Xamarin.Android 8.0<br>Universal Windows Platform 10.0.16299 | AMQP<br>HTTP |
+| [Microsoft.Azure.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus) | `Microsoft.Azure.ServiceBus`<br>`Microsoft.Azure.ServiceBus.Management` | .NET Core 2.0<br>.NET Framework 4.6.1<br>Mono 5.4<br>Xamarin.iOS 10.14<br>Xamarin.Mac 3.8<br>Xamarin.Android 8.0<br>Universal Windows Platform 10.0.16299 | AMQP<br>HTTP |
 | [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus) | `Microsoft.ServiceBus`<br>`Microsoft.ServiceBus.Messaging` | .NET Framework 4.6.1 | AMQP<br>SBMP<br>HTTP |
 
 For more information on minimum .NET Standard platform support, see [.NET implementation support](/dotnet/standard/net-standard#net-implementation-support).
@@ -159,7 +214,7 @@ await processor.StartProcessingAsync();
 
 # [Microsoft.Azure.ServiceBus SDK](#tab/net-standard-sdk)
 
-See the GitHub repository for full <a href="https://github.com/Azure/azure-service-bus/blob/master/samples/DotNet/Microsoft.Azure.ServiceBus/SendersReceiversWithQueues" target="_blank">source code examples <span class="docon docon-navigate-external x-hidden-focus"></span></a>:
+See the [GitHub repository](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/SendersReceiversWithQueues) for full source code examples. 
 
 ```csharp
 var receiver = new MessageReceiver(connectionString, queueName, ReceiveMode.PeekLock);
@@ -187,7 +242,7 @@ The `MessageReceiver` object is instantiated with the connection string, queue n
 
 # [WindowsAzure.ServiceBus SDK](#tab/net-framework-sdk)
 
-See the GitHub repository for full <a href="https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/SendersReceiversWithQueues" target="_blank">source code examples <span class="docon docon-navigate-external x-hidden-focus"></span></a>:
+See the [GitHub repository](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/SendersReceiversWithQueues) for full source code examples.
 
 ```csharp
 var factory = MessagingFactory.CreateFromConnectionString(connectionString);
@@ -302,9 +357,9 @@ var queue = await managementClient.CreateQueueAsync(queueDescription);
 ```
 
 For more information, see the following articles:
-* <a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.management.queuedescription.enablebatchedoperations" target="_blank">`Microsoft.Azure.ServiceBus.Management.QueueDescription.EnableBatchedOperations` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
-* <a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.management.subscriptiondescription.enablebatchedoperations" target="_blank">`Microsoft.Azure.ServiceBus.Management.SubscriptionDescription.EnableBatchedOperations` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
-* <a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.management.topicdescription.enablebatchedoperations" target="_blank">`Microsoft.Azure.ServiceBus.Management.TopicDescription.EnableBatchedOperations` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+- [QueueDescription.EnableBatchedOperations property](/dotnet/api/microsoft.azure.servicebus.management.queuedescription.enablebatchedoperations)
+- [SubscriptionDescription.EnabledBatchedOperations property](/dotnet/api/microsoft.azure.servicebus.management.subscriptiondescription.enablebatchedoperations)
+* [TopicDescription.EnableBatchedOperations](/dotnet/api/microsoft.azure.servicebus.management.topicdescription.enablebatchedoperations)
 
 # [WindowsAzure.ServiceBus SDK](#tab/net-framework-sdk)
 
@@ -319,9 +374,9 @@ var queue = namespaceManager.CreateQueue(queueDescription);
 ```
 
 For more information, see the following articles:
-* <a href="https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.queuedescription.enablebatchedoperations" target="_blank">`Microsoft.ServiceBus.Messaging.QueueDescription.EnableBatchedOperations` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
-* <a href="https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.enablebatchedoperations" target="_blank">`Microsoft.ServiceBus.Messaging.SubscriptionDescription.EnableBatchedOperations` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
-* <a href="https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.topicdescription.enablebatchedoperations" target="_blank">`Microsoft.ServiceBus.Messaging.TopicDescription.EnableBatchedOperations` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+* [`Microsoft.ServiceBus.Messaging.QueueDescription.EnableBatchedOperations`](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enablebatchedoperations)
+* [`Microsoft.ServiceBus.Messaging.SubscriptionDescription.EnableBatchedOperations`](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.enablebatchedoperations)
+* [`Microsoft.ServiceBus.Messaging.TopicDescription.EnableBatchedOperations`](/dotnet/api/microsoft.servicebus.messaging.topicdescription.enablebatchedoperations).
 
 ---
 
@@ -353,15 +408,15 @@ You can set values for these properties in [ServiceBusReceiverOptions](/dotnet/a
 
 For more information, see the following `PrefetchCount` properties:
 
-* <a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.queueclient.prefetchcount" target="_blank">`Microsoft.Azure.ServiceBus.QueueClient.PrefetchCount` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
-* <a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.subscriptionclient.prefetchcount" target="_blank">`Microsoft.Azure.ServiceBus.SubscriptionClient.PrefetchCount` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+* [`Microsoft.Azure.ServiceBus.QueueClient.PrefetchCount`](/dotnet/api/microsoft.azure.servicebus.queueclient.prefetchcount)
+* [`Microsoft.Azure.ServiceBus.SubscriptionClient.PrefetchCount`](/dotnet/api/microsoft.azure.servicebus.subscriptionclient.prefetchcount)
 
 # [WindowsAzure.ServiceBus SDK](#tab/net-framework-sdk)
 
 For more information, see the following `PrefetchCount` properties:
 
-* <a href="https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.queueclient.prefetchcount" target="_blank">`Microsoft.ServiceBus.Messaging.QueueClient.PrefetchCount` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
-* <a href="https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptionclient.prefetchcount" target="_blank">`Microsoft.ServiceBus.Messaging.SubscriptionClient.PrefetchCount` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+* [`Microsoft.ServiceBus.Messaging.QueueClient.PrefetchCount`](/dotnet/api/microsoft.servicebus.messaging.queueclient.prefetchcount)
+* [`Microsoft.ServiceBus.Messaging.SubscriptionClient.PrefetchCount`](/dotnet/api/microsoft.servicebus.messaging.subscriptionclient.prefetchcount)
 
 ---
 

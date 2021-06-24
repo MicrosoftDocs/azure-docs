@@ -4,7 +4,7 @@ description: Learn how to troubleshoot security and access control issues in Azu
 author: lrtoyou1223
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 02/24/2021
+ms.date: 05/31/2021
 ms.author: lle
 ---
 
@@ -177,12 +177,24 @@ For example: The Azure Blob Storage sink was using Azure IR (public, not Managed
 
 #### Cause
 
-ADF may still use Managed VNet IR, but you could encounter such error because the public endpoint to Azure Blob Storage in Managed VNet is not reliable based on the testing result, and Azure Blob Storage and Azure Data Lake Gen2 are not supported to be connected through public endpoint from ADF Managed Virtual Network according to [Managed virtual network & managed private endpoints](https://docs.microsoft.com/azure/data-factory/managed-virtual-network-private-endpoint#outbound-communications-through-public-endpoint-from-adf-managed-virtual-network).
+ADF may still use Managed VNet IR, but you could encounter such error because the public endpoint to Azure Blob Storage in Managed VNet is not reliable based on the testing result, and Azure Blob Storage and Azure Data Lake Gen2 are not supported to be connected through public endpoint from ADF Managed Virtual Network according to [Managed virtual network & managed private endpoints](./managed-virtual-network-private-endpoint.md#outbound-communications-through-public-endpoint-from-adf-managed-virtual-network).
 
 #### Solution
 
 - Having private endpoint enabled on the source and also the sink side when using the Managed VNet IR.
 - If you still want to use the public endpoint, you can switch to public IR only instead of using the Managed VNet IR for the source and the sink. Even if you switch back to public IR, ADF may still use the Managed VNet IR if the Managed VNet IR is still there.
+
+## Sharing Self-hosted Integration Runtime
+
+### Sharing a self-hosted IR from a different tenant is not supported 
+
+#### Symptoms
+
+You might notice other data factories (on different tenants) as you're attempting to share the self-hosted IR from the Azure Data Factory UI, but you can't share it across data factories that are on different tenants.
+
+#### Cause
+
+The self-hosted IR can't be shared across tenants.
 
 ## Next steps
 

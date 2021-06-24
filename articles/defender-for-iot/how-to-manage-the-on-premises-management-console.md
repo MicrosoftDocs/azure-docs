@@ -1,12 +1,8 @@
 ---
 title: Manage the on-premises management console 
 description: Learn about on-premises management console options like backup and restore, defining the host name, and setting up a proxy to sensors.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/12/2021
 ms.topic: article
-ms.service: azure
 ---
 
 # Manage the on-premises management console
@@ -45,6 +41,8 @@ Azure Defender for IoT uses SSL and TLS certificates to:
 - Meet specific certificate and encryption requirements requested by your organization by uploading the CA-signed certificate.
 
 - Allow validation between the management console and connected sensors, and between a management console and a high-availability management console. Validation is evaluated against a certificate revocation list and the certificate expiration date. *If validation fails, communication between the management console and the sensor is halted and a validation error appears in the console*. This option is enabled by default after installation.
+
+   When validation is `ON`, the appliance should be able to establish connection to the CRL server defined by the certificate.
 
 Third-party forwarding rules aren't validated. Examples are alert information sent to SYSLOG, Splunk, or ServiceNow; and communication with Active Directory.
 
@@ -165,7 +163,7 @@ A `.pem`, or `.der` formatted file with a different extension. The file is recog
 
 A key file is in the same format as a PEM file, but it has a different extension. 
 
-#### Additional commonly available key artifacts
+#### Other commonly available key artifacts
 
 **.csr - certificate signing request**.  
 
@@ -321,7 +319,7 @@ To edit the management console's host name configured in the organizational DNS 
 
 ## Define VLAN names
 
-VLAN names are not synchronized between the sensor and the management console. You should define identical names on components.
+VLAN names are not synchronized between the sensor and the management console. Define identical names on components.
 
 In the networking area, select **VLAN** and add names to the discovered VLAN IDs. Then select **Save**.
 

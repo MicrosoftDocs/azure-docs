@@ -26,7 +26,7 @@ This feature is available in the **Premium** container registry service tier. Fo
 ## Preview limitations
 
 - Task agent pools currently support Linux nodes. Windows nodes aren't currently supported.
-- Task agent pools are available in preview in the following regions: West US 2, South Central US, East US 2, East US, Central US, USGov Arizona, USGov Texas, and USGov Virginia.
+- Task agent pools are available in preview in the following regions: West US 2, South Central US, East US 2, East US, Central US, West Europe, North Europe, Canada Central, USGov Arizona, USGov Texas, and USGov Virginia.
 - For each registry, the default total vCPU (core) quota is 16 for all standard agent pools and is 0 for isolated agent pools. Open a [support request][open-support-ticket] for additional allocation.
 - You can't currently cancel a task run on an agent pool.
 
@@ -51,10 +51,10 @@ Agent pool tiers provide the following resources per instance in the pool.
 
 ### Set default registry (optional)
 
-To simplify Azure CLI commands that follow, set the default registry by running the [az configure][az-configure] command:
+To simplify Azure CLI commands that follow, set the default registry by running the [az config][az-config] command:
 
 ```azurecli
-az configure --defaults acr=<registryName>
+az config set defaults.acr=<registryName>
 ```
 
 The following examples assume that you've set the default registry. If not, pass a `--registry <registryName>` parameter in each `az acr` command.
@@ -180,11 +180,11 @@ For more examples of container image builds and maintenance in the cloud, check 
 [azure-cli]:           /cli/azure/install-azure-cli
 [open-support-ticket]: https://aka.ms/acr/support/create-ticket
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
-[az-configure]: /cli/azure#az-configure
-[az-acr-agentpool-create]: /cli/azure/acr/agentpool#az-acr-agentpool-create
-[az-acr-agentpool-update]: /cli/azure/acr/agentpool#az-acr-agentpool-update
-[az-acr-agentpool-show]: /cli/azure/acr/agentpool#az-acr-agentpool-show
-[az-acr-build]: /cli/azure/acr#az-acr-build
-[az-acr-task-create]: /cli/azure/acr/task#az-acr-task-create
-[az-acr-task-run]: /cli/azure/acr/task#az-acr-task-run
+[az-config]: /cli/azure#az_config
+[az-acr-agentpool-create]: /cli/azure/acr/agentpool#az_acr_agentpool_create
+[az-acr-agentpool-update]: /cli/azure/acr/agentpool#az_acr_agentpool_update
+[az-acr-agentpool-show]: /cli/azure/acr/agentpool#az_acr_agentpool_show
+[az-acr-build]: /cli/azure/acr#az_acr_build
+[az-acr-task-create]: /cli/azure/acr/task#az_acr_task_create
+[az-acr-task-run]: /cli/azure/acr/task#az_acr_task_run
 [create-reg-cli]: container-registry-get-started-azure-cli.md

@@ -6,8 +6,8 @@ author: ms-puneet-nagpal
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: conceptual
-ms.date: 08/03/2020
-ms.author: punagpal
+ms.date: 04/05/2021
+ms.author: rabhaiya
 ---
 
 # Azure IoT Connector for FHIR (preview) mapping templates
@@ -128,7 +128,7 @@ The JsonPathContentTemplate allows matching on and extracting values from an Eve
 {
     "typeName": "bloodpressure",
     "typeMatchExpression": "$..[?(@systolic && @diastolic)]",
-    "deviceIdExpression": "$.deviceid",
+    "deviceIdExpression": "$.deviceId",
     "timestampExpression": "$.endDate",
     "values": [
         {

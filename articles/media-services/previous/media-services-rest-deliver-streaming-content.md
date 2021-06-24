@@ -43,7 +43,7 @@ The [following](#types) section shows the enum types whose values are used in th
 For information on how to connect to the AMS API, see [Access the Azure Media Services API with Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md). 
 
 >[!NOTE]
->After successfully connecting to https://media.windows.net, you will receive a 301 redirect specifying another Media Services URI. You must make subsequent calls to the new URI.
+>After successfully connecting to `https://media.windows.net`, you will receive a 301 redirect specifying another Media Services URI. You must make subsequent calls to the new URI.
 
 ## Create an OnDemand streaming locator
 To create the OnDemand streaming locator and get URLs, you need to do the following:

@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 11/24/2020
+ms.date: 03/29/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -49,6 +49,8 @@ By default Conditional Access requires all selected controls.
 
 Selecting this checkbox will require users to perform Azure AD Multi-Factor Authentication. More information about deploying Azure AD Multi-Factor Authentication can be found in the article [Planning a cloud-based Azure AD Multi-Factor Authentication deployment](../authentication/howto-mfa-getstarted.md).
 
+[Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-overview) satisfies the requirement for multi-factor authentication in Conditional Access policies. 
+
 ### Require device to be marked as compliant
 
 Organizations who have deployed Microsoft Intune can use the information returned from their devices to identify devices that meet specific compliance requirements. This policy compliance information is forwarded from Intune to Azure AD where Conditional Access can make decisions to grant or block access to resources. For more information about compliance policies, see the article [Set rules on devices to allow access to resources in your organization using Intune](/intune/protect/device-compliance-get-started).
@@ -69,7 +71,7 @@ Organizations can require that an access attempt to the selected cloud apps need
 
 In order to leverage this grant control, Conditional Access requires that the device be registered in Azure Active Directory which requires the use of a broker app. The broker app can be the Microsoft Authenticator for iOS, or either the Microsoft Authenticator or Microsoft Company portal for Android devices. If a broker app is not installed on the device when the user attempts to authenticate, the user gets redirected to the appropriate app store to install the required broker app.
 
-This setting applies to the following iOS and Android apps:
+The following client apps have been confirmed to support this setting:
 
 - Microsoft Azure Information Protection
 - Microsoft Bookings
@@ -81,6 +83,7 @@ This setting applies to the following iOS and Android apps:
 - Microsoft Invoicing
 - Microsoft Kaizala
 - Microsoft Launcher
+- Microsoft Lists
 - Microsoft Office
 - Microsoft OneDrive
 - Microsoft OneNote
@@ -125,6 +128,7 @@ The following client apps have been confirmed to support this setting:
 - Microsoft Cortana
 - Microsoft Edge
 - Microsoft Excel
+- Microsoft Lists (iOS)
 - Microsoft Office
 - Microsoft OneDrive
 - Microsoft OneNote

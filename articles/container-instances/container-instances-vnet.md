@@ -110,7 +110,7 @@ The log output should show that `wget` was able to connect and download the inde
 
 ### Example - YAML
 
-You can also deploy a container group to an existing virtual network by using a YAML file, a [Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-vnet
+You can also deploy a container group to an existing virtual network by using a YAML file, a [Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.containerinstance/aci-vnet
 ), or another programmatic method such as with the Python SDK. 
 
 For example, when using a YAML file, you can deploy to a virtual network with a subnet delegated to Azure Container Instances. Specify the following properties:
@@ -219,7 +219,7 @@ az network vnet delete --resource-group $RES_GROUP --name aci-vnet
 
 ## Next steps
 
-To deploy a new virtual network, subnet, network profile, and container group using a Resource Manager template, see [Create an Azure container group with VNet](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-vnet
+To deploy a new virtual network, subnet, network profile, and container group using a Resource Manager template, see [Create an Azure container group with VNet](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.containerinstance/aci-vnet
 ).
 
 <!-- IMAGES -->
@@ -229,8 +229,8 @@ To deploy a new virtual network, subnet, network profile, and container group us
 [aci-helloworld]: https://hub.docker.com/_/microsoft-azuredocs-aci-helloworld
 
 <!-- LINKS - Internal -->
-[az-container-create]: /cli/azure/container#az-container-create
-[az-container-show]: /cli/azure/container#az-container-show
-[az-network-vnet-create]: /cli/azure/network/vnet#az-network-vnet-create
-[az-network-profile-list]: /cli/azure/network/profile#az-network-profile-list
+[az-container-create]: /cli/azure/container#az_container_create
+[az-container-show]: /cli/azure/container#az_container_show
+[az-network-vnet-create]: /cli/azure/network/vnet#az_network_vnet_create
+[az-network-profile-list]: /cli/azure/network/profile#az_network_profile_list
 [container-regions]: container-instances-region-availability.md

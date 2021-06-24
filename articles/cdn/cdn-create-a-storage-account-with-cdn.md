@@ -113,4 +113,4 @@ In the preceding steps, you created a CDN profile and an endpoint in a resource 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Use CDN to server static content from a web app](cdn-add-to-web-app.md)
+> [Tutorial: Use CDN to serve static content from a web app](cdn-add-to-web-app.md)

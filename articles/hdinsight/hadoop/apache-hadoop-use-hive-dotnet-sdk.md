@@ -9,7 +9,7 @@ ms.date: 12/24/2019
 
 # Run Apache Hive queries using HDInsight .NET SDK
 
-[!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
+[!INCLUDE [hive-selector](../includes/hdinsight-selector-use-hive.md)]
 
 Learn how to submit Apache Hive queries using HDInsight .NET SDK. You write a C# program to submit a Hive query for listing Hive tables, and display the results.
 
@@ -130,7 +130,7 @@ The HDInsight .NET SDK provides .NET client libraries, which makes it easier to 
 
 The output of the application should be similar to:
 
-![HDInsight Hadoop Hive job output](./media/apache-hadoop-use-hive-dotnet-sdk/hdinsight-hadoop-use-hive-net-sdk-output.png)
+:::image type="content" source="./media/apache-hadoop-use-hive-dotnet-sdk/hdinsight-hadoop-use-hive-net-sdk-output.png" alt-text="HDInsight Hadoop Hive job output" border="true":::
 
 ## Next steps
 

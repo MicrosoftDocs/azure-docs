@@ -3,14 +3,14 @@ title: 'Quickstart: Configure network security group flow logs by using an Azure
 description: Learn how to enable network security group (NSG) flow logs programmatically by using an Azure Resource Manager template (ARM template) and Azure PowerShell.
 services: network-watcher
 author: damendo
-Customer intent: I need to enable the network security group flow logs by using an Azure Resource Manager template.
-
-ms.service: network-watcher
-ms.topic: quickstart
-ms.date: 01/07/2021
 ms.author: damendo
-ms.custom: subject-armqs
-
+ms.date: 01/07/2021
+ms.topic: quickstart
+ms.service: network-watcher
+ms.custom: devx-track-azurepowershell
+  - subject-armqs
+  - mode-arm
+# Customer intent: I need to enable the network security group flow logs by using an Azure Resource Manager template.
 ---
 
 # Quickstart: Configure network security group flow logs by using an ARM template
@@ -23,7 +23,7 @@ We start with an overview of the properties of the NSG flow log object. We provi
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template opens in the Azure portal.
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-networkwatcher-flowLogs-create%2Fazuredeploy.json)
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fnetworkwatcher-flowLogs-create%2Fazuredeploy.json)
 
 ## Prerequisites
 
@@ -31,9 +31,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Review the template
 
-The template that we use in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-networkwatcher-flowlogs-create).
+The template that we use in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/networkwatcher-flowlogs-create/).
 
-:::code language="json" source="~/quickstart-templates/101-networkwatcher-flowlogs-create/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/networkwatcher-flowLogs-create/azuredeploy.json":::
 
 These resources are defined in the template:
 
@@ -79,7 +79,7 @@ For a complete overview of the NSG flow logs object properties, see [Microsoft.N
 
 If you're using ARM templates for the first time, see the following articles to learn more about ARM templates:
 
-- [Deploy resources with ARM templates and Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md#deploy-local-template-or-bicep-file)
+- [Deploy resources with ARM templates and Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md#deploy-local-template)
 - [Tutorial: Create and deploy your first ARM template](../azure-resource-manager/templates/template-tutorial-create-first-template.md)
 
 The following example is a complete template. It's also the simplest version of the template. The example contains the minimum parameters that are passed to set up NSG flow logs. For more examples, see the overview article [Configure NSG flow logs from an Azure Resource Manager template](network-watcher-nsg-flow-logging-azure-resource-manager.md).

@@ -6,7 +6,7 @@ ms.author: shasb
 ms.service: azure-arc
 ms.topic: tutorial 
 ms.date: 03/02/2021
-ms.custom: template-tutorial 
+ms.custom: template-tutorial , devx-track-azurecli
 ---
 
 # Tutorial: Deploy configurations using GitOps on an Azure Arc enabled Kubernetes cluster 
@@ -16,7 +16,7 @@ In this tutorial, you will apply configurations using GitOps on an Azure Arc ena
 > [!div class="checklist"]
 > * Create a configuration on an Azure Arc enabled Kubernetes cluster using an example Git repository.
 > * Validate that the configuration was successfully created.
-> * Apply configuration form a private Git repository.
+> * Apply configuration from a private Git repository.
 > * Validate the Kubernetes configuration.
 
 ## Prerequisites
@@ -25,6 +25,16 @@ In this tutorial, you will apply configurations using GitOps on an Azure Arc ena
 - An existing Azure Arc enabled Kubernetes connected cluster.
     - If you haven't connected a cluster yet, walk through our [Connect an Azure Arc enabled Kubernetes cluster quickstart](quickstart-connect-cluster.md).
 - An understanding of the benefits and architecture of this feature. Read more in [Configurations and GitOps - Azure Arc enabled Kubernetes article](conceptual-configurations.md).
+- Install the `k8s-configuration` Azure CLI extension of version >= 1.0.0:
+  
+  ```azurecli
+  az extension add --name k8s-configuration
+  ```
+
+    >[!TIP]
+    > If the `k8s-configuration` extension is already installed, you can update it to the latest version using the following command - `az extension update --name k8s-configuration`
+
+- If your Git repository is located outside the firewall and git protocol is being used with the configuration repository parameter, then TCP on port 9418 (`git://:9418`) needs to be enabled for egress access on firewall.
 
 ## Create a configuration
 
@@ -136,7 +146,7 @@ Just like private keys, you can provide your known_hosts content directly or in 
 >[!NOTE]
 >* Helm operator chart version 1.2.0+ supports the HTTPS Helm release private auth.
 >* HTTPS Helm release is not supported for AKS managed clusters.
->* If you need Flux to access the Git repository through your proxy, you will need to update the Azure Arc agents with the proxy settings. For more information, see [Connect using an outbound proxy server](./connect-cluster.md#connect-using-an-outbound-proxy-server).
+>* If you need Flux to access the Git repository through your proxy, you will need to update the Azure Arc agents with the proxy settings. For more information, see [Connect using an outbound proxy server](./quickstart-connect-cluster.md#5-connect-using-an-outbound-proxy-server).
 
 
 ## Additional Parameters
@@ -168,6 +178,9 @@ Customize the configuration with the following optional parameters:
 If you don't want Flux to write to the repository and `--git-user` or `--git-email` aren't set, then `--git-readonly` will automatically be set.
 
 For more information, see the [Flux documentation](https://aka.ms/FluxcdReadme).
+
+>[!NOTE]
+> Flux defaults to sync from the `master` branch of the git repo. However, newer git repositories have the root branch named `main`, in which case you need to set `--git-branch=main` in the --operator-params. 
 
 > [!TIP]
 > You can create a configuration in the Azure portal in the **GitOps** tab of the Azure Arc enabled Kubernetes resource.

@@ -2,14 +2,14 @@
 title: Configure permission classifications with Azure AD
 description: Learn how to manage delegated permission classifications.
 services: active-directory
-author: kenwith
-manager: daveba
+author: mtillman
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 06/01/2020
-ms.author: phsignor
+ms.author: mtillman
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2
 ---

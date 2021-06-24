@@ -1,12 +1,8 @@
 ---
 title: Manage proprietary protocols (Horizon) 
 description: Defender for IoT Horizon delivers an Open Development Environment (ODE) used to secure IoT and ICS devices running proprietary protocols.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/12/2020
 ms.topic: reference
-ms.service: azure
 ---
 
 # Defender for IoT Horizon
@@ -35,7 +31,7 @@ Once the plugin is developed, you can use Horizon web console to:
 
     :::image type="content" source="media/how-to-manage-proprietary-protocols/horizon-plugin.png" alt-text="Upload through your horizon plugin."::: 
 
-This feature is available to Administrator, cyberx or Support Users.
+This feature is available to Administrator, Cyberx, or Support users.
 
 To sign in to the Horizon console:
 

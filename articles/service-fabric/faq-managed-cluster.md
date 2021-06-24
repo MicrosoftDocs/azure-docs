@@ -4,13 +4,13 @@ description: Frequently asked questions about Service Fabric managed clusters, i
 ms.topic: troubleshooting
 ms.author: pepogors
 author: peterpogorski
-ms.date: 02/15/2021
+ms.date: 5/10/2021
 ms.custom: references_regions
 ---
 
 # Service Fabric managed clusters frequently asked questions
 
-Here are some frequently asked questions (FAQs) and answers for Service Fabric managed clusters (preview).
+Here are some frequently asked questions (FAQs) and answers for Service Fabric managed clusters.
 
 ## General
 
@@ -18,13 +18,13 @@ Here are some frequently asked questions (FAQs) and answers for Service Fabric m
 
 Service Fabric managed clusters are an evolution of the Service Fabric cluster resource model designed to make it easier to deploy and manage clusters. A Service Fabric managed cluster uses the Azure Resource Manager encapsulation model so that a user only needs to define and deploy a single cluster resource compared to the many independent resources that they must deploy today (Virtual Machine Scale Set, Load Balancer, IP, and more).
 
-### What regions are supported in the preview?
+### What regions are supported?
 
-Supported regions for the Service Fabric managed clusters preview include `centraluseuap`, `eastus2euap`, `eastasia`, `northeurope`, `westcentralus`, and `eastus2`.
+Service Fabric managed clusters are supported in all public cloud regions.
 
 ### Can I do an in-place migration of my existing Service Fabric cluster to a managed cluster resource?
 
-No. At this time you would need to create a new Service Fabric cluster resource to use the new Service Fabric managed cluster resource type.
+No. You will need to create a new Service Fabric cluster resource to use the new Service Fabric managed cluster resource type.
 
 ### Is there an additional cost for Service Fabric managed clusters?
 
@@ -50,15 +50,19 @@ No. It isn't currently possible to have an internal-only load balancer. We recom
 
 ### Can I autoscale my cluster?
 
-Autoscaling is not currently available in the preview.
+Autoscaling is not currently supported.
 
 ### Can I deploy my cluster across availability zones?
 
-Cross availability zone clusters are not currently available in the preview.
+Yes, Service Fabric managed clusters which span availability zones are supported in Azure regions which support availability zones. For more information, see [Service Fabric managed clusters across availability zones](.\service-fabric-cross-availability-zones.md).
+
+### Can I deploy stateless node types on a Service Fabric managed cluster? 
+
+Yes, Service Fabric managed clusters support stateless node types for any secondary node types. For more information, see [Service Fabric managed cluster stateless node types](./how-to-managed-cluster-stateless-node-type.md)
 
 ### Can I select between automatic and manual upgrades for my cluster runtime?
 
-In the preview, all runtime upgrades will be completed automatically.
+Yes, you can select between automatic and manual upgrades. For more information, see [cluster upgrades](./service-fabric-cluster-upgrade.md).
 
 ## Applications
 
@@ -69,3 +73,7 @@ The local development experience remains unchanged from existing Service Fabric 
 ### Can I deploy my applications as an Azure Resource Manager resource?
 
 Yes. Support has been added to deploy applications as an Azure Resource Manager resource (in addition to deployment using PowerShell and CLI). To get started, see [Deploy a Service Fabric managed cluster application using ARM template](how-to-managed-cluster-app-deployment-template.md).
+
+### Can I deploy applications with managed identities?
+
+ Yes, applications with managed identities can be deployed to a Service Fabric managed cluster. For more information see, [Application managed identities](.\concepts-managed-identity.md).

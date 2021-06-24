@@ -58,7 +58,7 @@ Key is the field in the event data that you're using for filtering. It can be on
 - Number
 - Boolean
 - String
-- Array. You need to set the `enableAdvancedFilteringOnArrays` property to true to use this feature. Currently, the Azure portal doesn't support enabling this feature. 
+- Array. You need to set the `enableAdvancedFilteringOnArrays` property to true to use this feature. 
 
     ```json
     "filter":
@@ -449,7 +449,7 @@ FOR_EACH filter IN (a, b, c)
 ```
 
 ## StringIn
-The **StringIn** operator checks whether the **key** value **exactly matches** one of the specified **filter** values. In the following example, it checks whether the value of the `key1` attribute in the `data` section is `exact` or `string` or `matches`. 
+The **StringIn** operator checks whether the **key** value **exactly matches** one of the specified **filter** values. In the following example, it checks whether the value of the `key1` attribute in the `data` section is `contoso` or `fabrikam` or `factory`. 
 
 ```json
 "advancedFilters": [{

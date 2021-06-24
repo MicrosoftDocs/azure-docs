@@ -53,13 +53,13 @@ Now that you have completed the build definition, queue up a new build to make s
 
 
 ## Summary
-Now you have a running image factory that can generate and distribute custom images to your labs on demand. At this point, it’s just a matter of getting your images set up properly and identifying the target labs. As mentioned in the previous article, the **Labs.json** file located in your **Configuration** folder specifies which images should be made available in each of the target labs. As you add other DevTest Labs to your organization, you simply need to add an entry in the Labs.json for the new lab.
+Now you have a running image factory that can generate and distribute custom images to your labs on demand. At this point, it's just a matter of getting your images set up properly and identifying the target labs. As mentioned in the previous article, the **Labs.json** file located in your **Configuration** folder specifies which images should be made available in each of the target labs. As you add other DevTest Labs to your organization, you simply need to add an entry in the Labs.json for the new lab.
 
-Adding a new image to your factory is also simple. When you want to include a new image in your factory you open the [Azure portal](https://portal.azure.com), navigate to your factory DevTest Labs, select the button to add a VM, and choose the desired marketplace image and artifacts. Instead of selecting the **Create** button to make the new VM, select **View Azure Resource Manager template**” and save the template as a .json file somewhere within the **GoldenImages** folder in your repository. The next time you run your image factory, it will create your custom image.
+Adding a new image to your factory is also simple. When you want to include a new image in your factory you open the [Azure portal](https://portal.azure.com), navigate to your factory DevTest Labs, select the button to add a VM, and choose the desired marketplace image and artifacts. Instead of selecting the **Create** button to make the new VM, select **View Azure Resource Manager template**" and save the template as a .json file somewhere within the **GoldenImages** folder in your repository. The next time you run your image factory, it will create your custom image.
 
 
 ## Next steps
 1. [Schedule your build/release](/azure/devops/pipelines/build/triggers?tabs=designer) to run the image factory periodically. It refreshes your factory-generated images on a regular basis.
 2. Make more golden images for your factory. You may also consider [creating artifacts](devtest-lab-artifact-author.md) to script additional pieces of your VM setup tasks and include the artifacts in your factory images.
-4. Create a [separate build/release](/azure/devops/pipelines/overview?view=azure-devops-2019) to run the **DistributeImages** script separately. You can run this script when you make changes to Labs.json and get images copied to target labs without having to recreate all the images again.
+4. Create a [separate build/release](/azure/devops/pipelines/overview) to run the **DistributeImages** script separately. You can run this script when you make changes to Labs.json and get images copied to target labs without having to recreate all the images again.
 

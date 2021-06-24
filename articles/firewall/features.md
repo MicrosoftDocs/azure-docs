@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 03/10/2021
+ms.date: 06/11/2021
 ms.author: victorh
 ---
 
@@ -50,11 +50,11 @@ Azure Firewall Availability Zones are available in regions that support Availabi
 > [!NOTE]
 > Availability Zones can only be configured during deployment. You can't configure an existing firewall to include Availability Zones.
 
-For more information about Availability Zones, see [Regions and Availability Zones in Azure](../availability-zones/az-overview.md)
+For more information about Availability Zones, see [Regions and Availability Zones in Azure](../availability-zones/az-overview.md).
 
 ## Unrestricted cloud scalability
 
-Azure Firewall can scale up as much as you need  to accommodate changing network traffic flows, so you don't need to budget for your peak traffic.
+Azure Firewall can scale out as much as you need  to accommodate changing network traffic flows, so you don't need to budget for your peak traffic.
 
 ## Application FQDN filtering rules
 
@@ -81,6 +81,8 @@ A [service tag](service-tags.md) represents a group of IP address prefixes to he
 All outbound virtual network traffic IP addresses are translated to the Azure Firewall public IP (Source Network Address Translation). You can identify and allow traffic originating from your virtual network to remote Internet destinations. Azure Firewall doesn't SNAT when the destination IP is a private IP range per [IANA RFC 1918](https://tools.ietf.org/html/rfc1918). 
 
 If your organization uses a public IP address range for private networks, Azure Firewall will SNAT the traffic to one of the firewall private IP addresses in AzureFirewallSubnet. You can configure Azure Firewall to **not** SNAT your public IP address range. For more information, see [Azure Firewall SNAT private IP address ranges](snat-private-range.md).
+
+You can monitor SNAT port utilization in Azure Firewall metrics. Learn more and see our recommendation on SNAT port utilization in our [firewall logs and metrics documentation](logs-and-metrics.md#metrics).
 
 ## Inbound DNAT support
 

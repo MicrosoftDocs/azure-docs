@@ -18,21 +18,22 @@ HBv2-series VMs feature 200 Gb/sec Mellanox HDR InfiniBand. These VMs are connec
 
 [Premium Storage](premium-storage-performance.md): Supported<br>
 [Premium Storage caching](premium-storage-performance.md): Supported<br>
+[Ultra Disks](disks-types.md#ultra-disk): Supported ([Learn more](https://techcommunity.microsoft.com/t5/azure-compute/ultra-disk-storage-for-hpc-and-gpu-vms/ba-p/2189312) about availability, usage and performance) <br>
 [Live Migration](maintenance-and-updates.md): Not Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Not Supported<br>
 [VM Generation Support](generation-2.md): Generation 1 and 2<br>
 [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported ([Learn more](https://techcommunity.microsoft.com/t5/azure-compute/accelerated-networking-on-hb-hc-hbv2-and-ndv2/ba-p/2067965) about performance and potential issues) <br>
-[Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br>
+[Ephemeral OS Disks](ephemeral-os-disks.md): Supported ([In preview](ephemeral-os-disks.md#preview---ephemeral-os-disks-can-now-be-stored-on-temp-disks))<br>
 <br>
 
 | Size | vCPU | Processor | Memory (GiB) | Memory bandwidth GB/s | Base CPU frequency (GHz) | All-cores frequency (GHz, peak) | Single-core frequency (GHz, peak) | RDMA performance (Gb/s) | MPI support | Temp storage (GiB) | Max data disks | Max Ethernet vNICs |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_HB120rs_v2 | 120 | AMD EPYC 7V12 | 456 | 350 | 2.45 | 3.1 | 3.3 | 200 | All | 480 + 960 | 8 | 8 |
 
-Learn more about:
-- Underlying [architecture and VM topology](./workloads/hpc/hbv2-series-overview.md)
-- [Supported software stack](./workloads/hpc/hbv2-series-overview.md#software-specifications) including supported OS
-- Expected [performance](./workloads/hpc/hbv2-performance.md) of the HBv2-series VM.
+Learn more about the:
+- [Architecture and VM topology](./workloads/hpc/hbv2-series-overview.md)
+- Supported [software stack](./workloads/hpc/hbv2-series-overview.md#software-specifications) including supported OS
+- Expected [performance](./workloads/hpc/hbv2-performance.md) of the HBv2-series VM
 
 [!INCLUDE [hpc-include](./workloads/hpc/includes/hpc-include.md)]
 

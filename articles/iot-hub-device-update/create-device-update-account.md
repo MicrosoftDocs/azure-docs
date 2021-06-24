@@ -91,6 +91,9 @@ To configure IoT Hub
 
 3. Click "Update"
 
+   > [!NOTE] 
+   > If you are using a Free tier of Azure IoT Hub, the allowed number of message routes are limited to 5. Device Update for IoT Hub needs to configure 4 message routes to work as expected. 
+
 [Learn  about the message routes that are configured.](device-update-resources.md) 
 
 
@@ -122,7 +125,11 @@ In order for other users to have access to Device Update, users must be granted 
 
 ## Next steps
 
-[Import an update using Device Update for IoT Hub.](import-update.md)
+Try updating a device using one of the following quick tutorials:
+
+ - [Device update on a simulator](device-update-simulator.md)
+ - [Device update on Raspberry Pi](device-update-raspberry-pi.md)
+ - [Device update on Ubuntu Server 18.04 x64 Package agent](device-update-ubuntu-agent.md)
 
 [Learn about Device update account and instance.](device-update-resources.md) 
 

@@ -25,7 +25,7 @@ This topic includes overall security guidelines that help establish secure acces
 
 Azure complies with several industry regulations and standards that can enable you to build a compliant solution with SQL Server running in a virtual machine. For information about regulatory compliance with Azure, see [Azure Trust Center](https://azure.microsoft.com/support/trust-center/).
 
-[!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
+For comprehensive details, see the other articles in this series: [Checklist](performance-guidelines-best-practices-checklist.md), [VM size](performance-guidelines-best-practices-vm-size.md), [Storage](performance-guidelines-best-practices-storage.md), [HADR configuration](hadr-cluster-best-practices.md), [Collect baseline](performance-guidelines-best-practices-collect-baseline.md). 
 
 ## Control access to the SQL virtual machine
 
@@ -83,7 +83,7 @@ You don't want attackers to easily guess account names or passwords. Use the fol
 
 - Create a unique local administrator account that is not named **Administrator**.
 
-- Use complex strong passwords for all your accounts. For more information about how to create a strong password, see [Create a strong password](https://support.microsoft.com/instantanswers/9bd5223b-efbe-aa95-b15a-2fb37bef637d/create-a-strong-password) article.
+- Use complex strong passwords for all your accounts. For more information about how to create a strong password, see [Create a strong password](https://support.microsoft.com/account-billing/how-to-create-a-strong-password-for-your-microsoft-account-f67e4ddd-0dbe-cd75-cebe-0cfda3cf7386) article.
 
 - By default, Azure selects Windows Authentication during SQL Server virtual machine setup. Therefore, the **SA** login is disabled and a password is assigned by setup. We recommend that the **SA** login should not be used or enabled. If you must have a SQL login, use one of the following strategies:
 
@@ -105,6 +105,14 @@ For more information about virtual machine security, see the [virtual machines s
 
 ## Next steps
 
-If you are also interested in best practices around performance, see [Performance Best Practices for SQL Server on Azure Virtual Machines](performance-guidelines-best-practices.md).
+To learn more, see the other articles in this series:
 
-For other topics related to running SQL Server in Azure VMs, see [SQL Server on Azure Virtual Machines overview](sql-server-on-azure-vm-iaas-what-is-overview.md). If you have questions about SQL Server virtual machines, see the [Frequently Asked Questions](frequently-asked-questions-faq.md).
+- [Quick checklist](performance-guidelines-best-practices-checklist.md)
+- [VM size](performance-guidelines-best-practices-vm-size.md)
+- [Storage](performance-guidelines-best-practices-storage.md)
+- [Security](security-considerations-best-practices.md)
+- [HADR settings](hadr-cluster-best-practices.md)
+- [Collect baseline](performance-guidelines-best-practices-collect-baseline.md)
+
+For other topics related to running SQL Server in Azure VMs, see [SQL Server on Azure Virtual Machines overview](sql-server-on-azure-vm-iaas-what-is-overview.md). If you have questions about SQL Server virtual machines, see the [Frequently Asked Questions](frequently-asked-questions-faq.yml).
+

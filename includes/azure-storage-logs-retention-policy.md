@@ -7,4 +7,4 @@
 ---
 
 > [!IMPORTANT]
-> You can't set a retention policy. However, you can manage the retention policy of a log container by defining a lifecycle management policy. To learn how, see [Optimize costs by automating Azure Blob Storage access tiers](/azure/storage/blobs/storage-lifecycle-management-concepts).
+> You can't set a retention policy. However, you can manage the retention policy of a log container by defining a lifecycle management policy. To learn how, see [Optimize costs by automating Azure Blob Storage access tiers](../articles/storage/blobs/storage-lifecycle-management-concepts.md).

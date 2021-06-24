@@ -1,10 +1,10 @@
 ---
 title: How to use Queue Storage from Ruby - Azure Storage
 description: Learn how to use the Azure Queue Storage to create and delete queues, and insert, get, and delete messages. Samples written in Ruby.
-author: mhopkins-msft
-ms.author: mhopkins
+author: twooley
+ms.author: twooley
 ms.reviewer: dineshm
-ms.date: 12/08/2016
+ms.date: 06/08/2021
 ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
@@ -37,7 +37,7 @@ To use Azure Storage, you need to download and use the Ruby Azure package, which
 ### Use RubyGems to obtain the package
 
 1. Use a command-line interface such as PowerShell (Windows), Terminal (Mac), or Bash (Unix).
-2. Type `gem install Azure` in the command window to install the gem and dependencies.
+2. Type `gem install azure` in the command window to install the gem and dependencies.
 
 ### Import the package
 

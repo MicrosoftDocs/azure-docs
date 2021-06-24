@@ -25,6 +25,9 @@ To show the current PHP version, run the following command in the [Cloud Shell](
 az webapp config show --resource-group <resource-group-name> --name <app-name> --query phpVersion
 ```
 
+> [!NOTE]
+> To address a development slot, include the parameter `--slot` followed by the name of the slot.
+
 To show all supported PHP versions, run the following command in the [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
@@ -41,6 +44,9 @@ To show the current PHP version, run the following command in the [Cloud Shell](
 az webapp config show --resource-group <resource-group-name> --name <app-name> --query linuxFxVersion
 ```
 
+> [!NOTE]
+> To address a development slot, include the parameter `--slot` followed by the name of the slot.
+
 To show all supported PHP versions, run the following command in the [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
@@ -56,7 +62,7 @@ az webapp list-runtimes --linux | grep PHP
 Run the following command in the [Cloud Shell](https://shell.azure.com) to set the PHP version to 7.4:
 
 ```azurecli-interactive
-az webapp config set --name <app-name> --resource-group <resource-group-name> --php-version 7.4
+az webapp config set --resource-group <resource-group-name> --name <app-name> --php-version 7.4
 ```
 
 ::: zone-end
@@ -66,7 +72,7 @@ az webapp config set --name <app-name> --resource-group <resource-group-name> --
 Run the following command in the [Cloud Shell](https://shell.azure.com) to set the PHP version to 7.2:
 
 ```azurecli-interactive
-az webapp config set --name <app-name> --resource-group <resource-group-name> --linux-fx-version "PHP|7.2"
+az webapp config set --resource-group <resource-group-name> --name <app-name> --linux-fx-version "PHP|7.2"
 ```
 
 ::: zone-end
@@ -240,7 +246,7 @@ getenv("DB_HOST")
 
 The web framework of your choice may use a subdirectory as the site root. For example, [Laravel](https://laravel.com/), uses the *public/* subdirectory as the site root.
 
-To customize the site root, set the virtual application path for the app by using the [`az resource update`](/cli/azure/resource#az-resource-update) command. The following example sets the site root to the *public/* subdirectory in your repository. 
+To customize the site root, set the virtual application path for the app by using the [`az resource update`](/cli/azure/resource#az_resource_update) command. The following example sets the site root to the *public/* subdirectory in your repository. 
 
 ```azurecli-interactive
 az resource update --name web --resource-group <group-name> --namespace Microsoft.Web --resource-type config --parent sites/<app-name> --set properties.virtualApplications[0].physicalPath="site\wwwroot\public" --api-version 2015-06-01
@@ -486,7 +492,6 @@ When a working PHP app behaves differently in App Service or has errors, try the
 ::: zone pivot="platform-linux"
 
 > [!div class="nextstepaction"]
-> [App Service Linux FAQ](faq-app-service-linux.md)
+> [App Service Linux FAQ](faq-app-service-linux.yml)
 
 ::: zone-end
-

@@ -12,8 +12,8 @@ ms.topic: tutorial
 ms.custom: "mvc, seodec18, devx-track-azurecli"
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/20/2020
-ms.author: mbaldwin
+ms.date: 03/25/2021
+ms.author: keithp
 ---
 
 # Tutorial: Deploying HSMs into an existing virtual network using the Azure CLI
@@ -30,7 +30,7 @@ A typical, high availability, multi-region deployment architecture may look as f
 
 ![multi region deployment](media/tutorial-deploy-hsm-cli/high-availability-architecture.png)
 
-This tutorial focuses on a pair of HSMs and required ExpressRoute Gateway (see Subnet 1 above) being integrated into an existing virtual network (see VNET 1 above).  All other resources are standard Azure resources. The same integration process can be used for HSMs in subnet 4 on VNET 3 above.
+This tutorial focuses on a pair of HSMs and required [ExpressRoute gateway](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md) (see Subnet 1 above) being integrated into an existing virtual network (see VNET 1 above).  All other resources are standard Azure resources. The same integration process can be used for HSMs in subnet 4 on VNET 3 above.
 
 ## Prerequisites
 
@@ -47,7 +47,7 @@ All instructions below assume that you have already navigated to the Azure porta
 
 ## Provisioning a Dedicated HSM
 
-Provisioning HSMs and integrating them into an existing virtual network via ExpressRoute Gateway will be validated using ssh. This validation helps ensure reachability and basic availability of the HSM device for any further configuration activities.
+Provisioning HSMs and integrating them into an existing virtual network via [ExpressRoute gateway](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md) will be validated using ssh. This validation helps ensure reachability and basic availability of the HSM device for any further configuration activities.
 
 ### Validating Feature Registration
 
@@ -98,7 +98,7 @@ az network vnet subnet create \
 
 After you configure your network, use these Azure CLI commands to provision your HSMs.
 
-1. Use the [az dedicated-hsm create](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_create) command to provision the first HSM. The HSM is named hsm1. Substitute your subscription:
+1. Use the [az dedicated-hsm create](/cli/azure/dedicated-hsm#az_dedicated_hsm_create) command to provision the first HSM. The HSM is named hsm1. Substitute your subscription:
 
    ```azurecli
    az dedicated-hsm create --location westus --name hsm1 --resource-group myRG --network-profile-network-interfaces \
@@ -107,7 +107,7 @@ After you configure your network, use these Azure CLI commands to provision your
 
    This deployment should take approximately 25 to 30 minutes to complete with the bulk of that time being the HSM devices.
 
-1. To see a current HSM, run the [az dedicated-hsm show](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_show) command:
+1. To see a current HSM, run the [az dedicated-hsm show](/cli/azure/dedicated-hsm#az_dedicated_hsm_show) command:
 
    ```azurecli
    az dedicated-hsm show --resource group myRG --name hsm1
@@ -120,19 +120,19 @@ After you configure your network, use these Azure CLI commands to provision your
         /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRG/providers/Microsoft.Network/virtualNetworks/MyHSM-vnet/subnets/MyHSM-vnet
    ```
 
-1. Run the [az dedicated-hsm list](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_list) command to view details about your current HSMs:
+1. Run the [az dedicated-hsm list](/cli/azure/dedicated-hsm#az_dedicated_hsm_list) command to view details about your current HSMs:
 
    ```azurecli
    az dedicated-hsm list --resource-group myRG
    ```
 
-There are some other commands that might be useful. Use the [az dedicated-hsm update](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_update) command to update an HSM:
+There are some other commands that might be useful. Use the [az dedicated-hsm update](/cli/azure/dedicated-hsm#az_dedicated_hsm_update) command to update an HSM:
 
 ```azurecli
 az dedicated-hsm update --resource-group myRG –name hsm1
 ```
 
-To delete an HSM, use the [az dedicated-hsm delete](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_delete) command:
+To delete an HSM, use the [az dedicated-hsm delete](/cli/azure/dedicated-hsm#az_dedicated_hsm_delete) command:
 
 ```azurecli
 az dedicated-hsm delete --resource-group myRG –name hsm1
@@ -229,14 +229,14 @@ The output should look as shown on the image below:
 
 ![Screenshot shows output in PowerShell window.](media/tutorial-deploy-hsm-cli/hsm-show-output.png)
 
-At this point, you have allocated all resources for a highly available, two HSM deployment and validated access and operational state. Any further configuration or testing involves more work with the HSM device itself. For this, you should follow the instructions in the Thales Luna Network HSM 7 Administration Guide chapter 7 to initialize the HSM and create partitions. All documentation and software are available directly from Thales for download once you are registered in the Thales Customer Support Portal and have a Customer ID. Download Client Software version 7.2 to get all required components.
+At this point, you have allocated all resources for a highly available, two HSM deployment and validated access and operational state. Any further configuration or testing involves more work with the HSM device itself. For this, you should follow the instructions in the Thales Luna 7 HSM Administration Guide chapter 7 to initialize the HSM and create partitions. All documentation and software are available directly from Thales for download once you are registered in the [Thales customer support portal](https://supportportal.thalesgroup.com/csm) and have a Customer ID. Download Client Software version 7.2 to get all required components.
 
 ## Delete or clean up resources
 
 If you have finished with just the HSM device, then it can be deleted as a resource and returned to the free pool. The obvious concern when doing this is any sensitive customer data that is on the device. The best way to "zeroize" a device is to get the HSM admin password wrong 3 times (note: this is not appliance admin, it's the actual HSM admin). As a safety measure to protect key material, the device cannot be deleted as an Azure resource until it is in the zeroized state.
 
 > [!NOTE]
-> if you have issue with any Thales device configuration you should contact [Thales customer support](https://safenet.gemalto.com/technical-support/).
+> if you have issue with any Thales device configuration you should contact [Thales customer support](https://supportportal.thalesgroup.com/csm).
 
 If you have finished with all resources in this resource group, then you can remove them all with the following command:
 

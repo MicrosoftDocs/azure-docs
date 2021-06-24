@@ -32,7 +32,7 @@ The high level summary of the deployment workflow using templates is as follows:
 
     1. **Device prerequisites**
 
-        1. Connect to Azure Resource Manager on device.
+        1. [Connect to Azure Resource Manager](azure-stack-edge-gpu-connect-resource-manager.md) on device.
         2. Enable compute via the local UI.
 
     2. **Client prerequisites**
@@ -107,7 +107,7 @@ New-AzureRmStorageAccount -Name <Storage account name> -ResourceGroupName <Resou
 ```
 
 > [!NOTE]
-> Only the local storage accounts such as Locally redundant storage (Standard_LRS or Premium_LRS) can be created via Azure Resource Manager. To create tiered storage accounts, see the steps in [Add, connect to storage accounts on your Azure Stack Edge Pro](azure-stack-edge-j-series-deploy-add-storage-accounts.md).
+> Only the local storage accounts such as Locally redundant storage (Standard_LRS or Premium_LRS) can be created via Azure Resource Manager. To create tiered storage accounts, see the steps in [Add, connect to storage accounts on your Azure Stack Edge Pro](./azure-stack-edge-gpu-deploy-add-storage-accounts.md).
 
 A sample output is shown below.
 

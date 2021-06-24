@@ -7,7 +7,8 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 07/23/2020
 ms.author: cynthn
-ms.subservice: disks
+ms.subservice: disks 
+ms.custom: devx-track-azurepowershell
 ---
 # Ephemeral OS disks for Azure VMs
 
@@ -65,7 +66,7 @@ Set-AzVmssStorageProfile -DiffDiskSetting Local -OsDiskCaching ReadOnly
 
 ## CLI
 
-To use an ephemeral disk for a CLI VM deployment, set the `--ephemeral-os-disk` parameter in [az vm create](/cli/azure/vm#az-vm-create) to `true` and the `--os-disk-caching` parameter to `ReadOnly`.
+To use an ephemeral disk for a CLI VM deployment, set the `--ephemeral-os-disk` parameter in [az vm create](/cli/azure/vm#az_vm_create) to `true` and the `--os-disk-caching` parameter to `ReadOnly`.
 
 ```azurecli-interactive
 az vm create \
@@ -78,7 +79,7 @@ az vm create \
   --generate-ssh-keys
 ```
 
-For scale sets, you use the same `--ephemeral-os-disk true` parameter for [az-vmss-create](/cli/azure/vmss#az-vmss-create) and set the `--os-disk-caching` parameter to `ReadOnly`.
+For scale sets, you use the same `--ephemeral-os-disk true` parameter for [az-vmss-create](/cli/azure/vmss#az_vmss_create) and set the `--os-disk-caching` parameter to `ReadOnly`.
 
 ## Portal
 
@@ -246,4 +247,4 @@ A: Ephemeral disks do not support:
 > 
  
 ## Next steps
-You can create a VM with an ephemeral OS disk using the [Azure CLI](/cli/azure/vm#az-vm-create).
+You can create a VM with an ephemeral OS disk using the [Azure CLI](/cli/azure/vm#az_vm_create).

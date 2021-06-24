@@ -5,12 +5,12 @@ description: Create datastores and datasets to securely connect to data in stora
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.author: nibaccam
-author: nibaccam
+ms.topic: how-to
+ms.author: yogipandey
+author: ynpandey
 ms.reviewer: nibaccam
 ms.date: 09/22/2020
-ms.custom: how-to, data4ml
+ms.custom: data4ml
 
 # Customer intent: As low code experience data scientist, I need to make my data in storage on Azure available to my remote compute to train my ML models.
 ---
@@ -34,7 +34,7 @@ For a code first experience, see the following articles to use the [Azure Machin
 
 ## Prerequisites
 
-- An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
+- An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 
 - Access to [Azure Machine Learning studio](https://ml.azure.com/).
 
@@ -67,7 +67,7 @@ After you create a datastore, create a dataset to interact with your data. Datas
 
 There are two types of datasets, FileDataset and TabularDataset. 
 [FileDatasets](how-to-create-register-datasets.md#filedataset) create references to single or multiple files or public URLs. Whereas,
-[TabularDatasets](how-to-create-register-datasets.md#tabulardataset) represent your data in a tabular format. 
+[TabularDatasets](how-to-create-register-datasets.md#tabulardataset) represent your data in a tabular format. You can create TabularDatasets from .csv, .tsv, .parquet, .jsonl files, and from SQL query results.
 
 The following steps and animation show how to create a dataset in [Azure Machine Learning studio](https://ml.azure.com).
 
@@ -154,7 +154,7 @@ You can find account key, SAS token, and service principal information on your [
 
 > [!IMPORTANT]
 > * If you need to change your access keys for an Azure Storage account (account key or SAS token), be sure to sync the new credentials with your workspace and the datastores connected to it. Learn how to [sync your updated credentials](how-to-change-storage-access-key.md). <br> <br>
-> * If you unregister and re-register a datastore with the same name, and it fails, the Azure Key Vault for your workspace may not have soft-delete enabled. By default, soft-delete is enabled for the key vault instance created by your workspace, but it may not be enabled if you used an existing key vault or have a workspace created prior to October 2020. For information on how to enable soft-delete, see [Turn on Soft Delete for an existing key vault]( https://docs.microsoft.com/azure/key-vault/general/soft-delete-change#turn-on-soft-delete-for-an-existing-key-vault).”
+> * If you unregister and re-register a datastore with the same name, and it fails, the Azure Key Vault for your workspace may not have soft-delete enabled. By default, soft-delete is enabled for the key vault instance created by your workspace, but it may not be enabled if you used an existing key vault or have a workspace created prior to October 2020. For information on how to enable soft-delete, see [Turn on Soft Delete for an existing key vault](../key-vault/general/soft-delete-change.md#turn-on-soft-delete-for-an-existing-key-vault).
 
 ### Permissions
 

@@ -2,7 +2,7 @@
 title: Compare Azure Storage queues and Service Bus queues
 description: Analyzes differences and similarities between two types of queues offered by Azure.
 ms.topic: article
-ms.date: 11/04/2020
+ms.date: 06/15/2021
 ---
 
 # Storage queues and Service Bus queues - compared and contrasted
@@ -34,7 +34,7 @@ As a solution architect/developer, **you should consider using Service Bus queue
 * Your solution needs to receive messages without having to poll the queue. With Service Bus, you can achieve it by using a long-polling receive operation using the TCP-based protocols that Service Bus supports.
 * Your solution requires the queue to provide a guaranteed first-in-first-out (FIFO) ordered delivery.
 * Your solution needs to support automatic duplicate detection.
-* You want your application to process messages as parallel long-running streams (messages are associated with a stream using the [SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid) property on the message). In this model, each node in the consuming application competes for streams, as opposed to messages. When a stream is given to a consuming node, the node can examine the state of the application stream state using transactions.
+* You want your application to process messages as parallel long-running streams (messages are associated with a stream using the **session ID** property on the message). In this model, each node in the consuming application competes for streams, as opposed to messages. When a stream is given to a consuming node, the node can examine the state of the application stream state using transactions.
 * Your solution requires transactional behavior and atomicity when sending or receiving multiple messages from a queue.
 * Your application handles messages that can exceed 64 KB but won't likely approach the 256-KB limit.
 * You deal with a requirement to provide a role-based access model to the queues, and different rights/permissions for senders and receivers. For more information, see the following articles:
@@ -54,17 +54,17 @@ This section compares some of the fundamental queuing capabilities provided by S
 
 | Comparison Criteria | Storage queues | Service Bus queues |
 | --- | --- | --- |
-| Ordering guarantee |**No** <br/><br>For more information, see the first note in the [Additional Information](#additional-information) section.</br> | **Yes - First-In-First-Out (FIFO)**<br/><br>(through the use of [message sessions](message-sessions.md)) |
+| Ordering guarantee |**No** <br/><br>For more information, see the first note in the [Additional Information](#additional-information) section.</br> | **Yes - First-In-First-Out (FIFO)**<br/><br>(by using [message sessions](message-sessions.md)) |
 | Delivery guarantee |**At-Least-Once** |**At-Least-Once** (using PeekLock receive mode. It's the default) <br/><br/>**At-Most-Once** (using ReceiveAndDelete receive mode) <br/> <br/> Learn more about various [Receive modes](service-bus-queues-topics-subscriptions.md#receive-modes)  |
 | Atomic operation support |**No** |**Yes**<br/><br/> |
-| Receive behavior |**Non-blocking**<br/><br/>(completes immediately if no new message is found) |**Blocking with or without a timeout**<br/><br/>(offers long polling, or the ["Comet technique"](https://go.microsoft.com/fwlink/?LinkId=613759))<br/><br/>**Non-blocking**<br/><br/>(through the use of .NET managed API only) |
-| Push-style API |**No** |**Yes**<br/><br/>[QueueClient.OnMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage#Microsoft_ServiceBus_Messaging_QueueClient_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__) and [MessageSessionHandler.OnMessage](/dotnet/api/microsoft.servicebus.messaging.messagesessionhandler.onmessage#Microsoft_ServiceBus_Messaging_MessageSessionHandler_OnMessage_Microsoft_ServiceBus_Messaging_MessageSession_Microsoft_ServiceBus_Messaging_BrokeredMessage__) sessions .NET API. |
+| Receive behavior |**Non-blocking**<br/><br/>(completes immediately if no new message is found) |**Blocking with or without a timeout**<br/><br/>(offers long polling, or the ["Comet technique"](https://go.microsoft.com/fwlink/?LinkId=613759))<br/><br/>**Non-blocking**<br/><br/>(using .NET managed API only) |
+| Push-style API |**No** |**Yes**<br/><br/>Our .NET, Java, JavaScript, and Go SDKs provide push-style API. |
 | Receive mode |**Peek & Lease** |**Peek & Lock**<br/><br/>**Receive & Delete** |
 | Exclusive access mode |**Lease-based** |**Lock-based** |
-| Lease/Lock duration |**30 seconds (default)**<br/><br/>**7 days (maximum)** (You can renew or release a message lease using the [UpdateMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.updatemessage) API.) |**60 seconds (default)**<br/><br/>You can renew a message lock using the [RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock) API. |
-| Lease/Lock precision |**Message level**<br/><br/>Each message can have a different timeout value, which you can then update as needed while processing the message, by using the [UpdateMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.updatemessage) API. |**Queue level**<br/><br/>(each queue has a lock precision applied to all of its messages, but you can renew the lock using the [RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock) API.) |
-| Batched receive |**Yes**<br/><br/>(explicitly specifying message count when retrieving messages, up to a maximum of 32 messages) |**Yes**<br/><br/>(implicitly enabling a pre-fetch property or explicitly through the use of transactions) |
-| Batched send |**No** |**Yes**<br/><br/>(through the use of transactions or client-side batching) |
+| Lease/Lock duration |**30 seconds (default)**<br/><br/>**7 days (maximum)** (You can renew or release a message lease using the [UpdateMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.updatemessage) API.) |**30 seconds (default)**<br/><br/>You can renew the message lock for the same lock duration each time manually or use the automatic lock renewal feature where the client manages lock renewal for you. |
+| Lease/Lock precision |**Message level**<br/><br/>Each message can have a different timeout value, which you can then update as needed while processing the message, by using the [UpdateMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.updatemessage) API. |**Queue level**<br/><br/>(each queue has a lock precision applied to all of its messages, but the lock can be renewed as described in the previous row) |
+| Batched receive |**Yes**<br/><br/>(explicitly specifying message count when retrieving messages, up to a maximum of 32 messages) |**Yes**<br/><br/>(implicitly enabling a pre-fetch property or explicitly by using transactions) |
+| Batched send |**No** |**Yes**<br/><br/>(by using transactions or client-side batching) |
 
 ### Additional information
 * Messages in Storage queues are typically first-in-first-out, but sometimes they can be out of order. For example, when the visibility-timeout duration of a message expires because a client application crashed while processing a message. When the visibility timeout expires, the message becomes visible again on the queue for another worker to dequeue it. At that point, the newly visible message might be placed in the queue to be dequeued again.
@@ -73,12 +73,12 @@ This section compares some of the fundamental queuing capabilities provided by S
     - Decoupling application components to increase scalability and tolerance for failures
     - Load leveling
     - Building process workflows.
-* Inconsistencies with regard to message handling in the context of Service Bus sessions can be avoided by using session state to store the application's state relative to the progress of handling the session's message sequence, and by using transactions around settling received messages and updating the session state. This kind of consistency feature is sometimes labeled *exactly once processing* in other vendor's products. Any transaction failures will obviously cause messages to be redelivered and that's why the term isn't exactly adequate.
+* Inconsistencies regarding message handling in the context of Service Bus sessions can be avoided by using session state to store the application's state relative to the progress of handling the session's message sequence, and by using transactions around settling received messages and updating the session state. This kind of consistency feature is sometimes labeled *exactly once processing* in other vendor's products. Any transaction failures will obviously cause messages to be redelivered and that's why the term isn't exactly adequate.
 * Storage queues provide a uniform and consistent programming model across queues, tables, and BLOBs – both for developers and for operations teams.
 * Service Bus queues provide support for local transactions in the context of a single queue.
 * The **Receive and Delete** mode supported by Service Bus provides the ability to reduce the messaging operation count (and associated cost) in exchange for lowered delivery assurance.
 * Storage queues provide leases with the ability to extend the leases for messages. This feature allows the worker processes to maintain short leases on messages. So, if a worker crashes, the message can be quickly processed again by another worker. Also, a worker can extend the lease on a message if it needs to process it longer than the current lease time.
-* Storage queues offer a visibility timeout that you can set upon the enqueuing or dequeuing of a message. Also, you can update a message with different lease values at run-time, and update different values across messages in the same queue. Service Bus lock timeouts are defined in the queue metadata. However, you can renew the lock by calling the [RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock) method.
+* Storage queues offer a visibility timeout that you can set upon the enqueuing or dequeuing of a message. Also, you can update a message with different lease values at run-time, and update different values across messages in the same queue. Service Bus lock timeouts are defined in the queue metadata. However, you can renew the message lock for the pre-defined lock duration manually or use the automatic lock renewal feature where the client manages lock renewal for you.
 * The maximum timeout for a blocking receive operation in Service Bus queues is 24 days. However, REST-based timeouts have a maximum value of 55 seconds.
 * Client-side batching provided by Service Bus enables a queue client to batch multiple messages into a single send operation. Batching is only available for asynchronous send operations.
 * Features such as the 200-TB ceiling of Storage queues (more when you virtualize accounts) and unlimited queues make it an ideal platform for SaaS providers.
@@ -95,11 +95,11 @@ This section compares advanced capabilities provided by Storage queues and Servi
 | Poison message support |**Yes** |**Yes** |
 | In-place update |**Yes** |**Yes** |
 | Server-side transaction log |**Yes** |**No** |
-| Storage metrics |**Yes**<br/><br/>**Minute Metrics** provides real-time metrics for availability, TPS, API call counts, error counts, and more. They're all in real time, aggregated per minute and reported within a few minutes from what just happened in production. For more information, see [About Storage Analytics Metrics](/rest/api/storageservices/fileservices/About-Storage-Analytics-Metrics). |**Yes**<br/><br/>(bulk queries by calling [GetQueues](/dotnet/api/microsoft.servicebus.namespacemanager.getqueues#Microsoft_ServiceBus_NamespaceManager_GetQueues)) |
-| State management |**No** |**Yes**<br/><br/>[Microsoft.ServiceBus.Messaging.EntityStatus.Active](/dotnet/api/microsoft.servicebus.messaging.entitystatus), [Microsoft.ServiceBus.Messaging.EntityStatus.Disabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus), [Microsoft.ServiceBus.Messaging.EntityStatus.SendDisabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus), [Microsoft.ServiceBus.Messaging.EntityStatus.ReceiveDisabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus) |
+| Storage metrics |**Yes**<br/><br/>**Minute Metrics** provides real-time metrics for availability, TPS, API call counts, error counts, and more. They're all in real time, aggregated per minute and reported within a few minutes from what just happened in production. For more information, see [About Storage Analytics Metrics](/rest/api/storageservices/fileservices/About-Storage-Analytics-Metrics). |**Yes**<br/><br/>For information about metrics supported by Azure Service Bus, see [Message metrics](monitor-service-bus-reference.md#message-metrics). |
+| State management |**No** |**Yes** (Active, Disabled, SendDisabled, ReceiveDisabled. For details on these states, see [Queue status](entity-suspend.md#queue-status)) |
 | Message autoforwarding |**No** |**Yes** |
 | Purge queue function |**Yes** |**No** |
-| Message groups |**No** |**Yes**<br/><br/>(through the use of messaging sessions) |
+| Message groups |**No** |**Yes**<br/><br/>(by using messaging sessions) |
 | Application state per message group |**No** |**Yes** |
 | Duplicate detection |**No** |**Yes**<br/><br/>(configurable on the sender side) |
 | Browsing message groups |**No** |**Yes** |
@@ -108,14 +108,14 @@ This section compares advanced capabilities provided by Storage queues and Servi
 ### Additional information
 * Both queuing technologies enable a message to be scheduled for delivery at a later time.
 * Queue autoforwarding enables thousands of queues to autoforward their messages to a single queue, from which the receiving application consumes the message. You can use this mechanism to achieve security, control flow, and isolate storage between each message publisher.
-* Storage queues provide support for updating message content. You can use this functionality for persisting state information and incremental progress updates into the message so that it can be processed from the last known checkpoint, instead of starting from scratch. With Service Bus queues, you can enable the same scenario through the use of message sessions. Sessions enable you to save and retrieve the application processing state (by using [SetState](/dotnet/api/microsoft.servicebus.messaging.messagesession.setstate#Microsoft_ServiceBus_Messaging_MessageSession_SetState_System_IO_Stream_) and [GetState](/dotnet/api/microsoft.servicebus.messaging.messagesession.getstate#Microsoft_ServiceBus_Messaging_MessageSession_GetState)).
+* Storage queues provide support for updating message content. You can use this functionality for persisting state information and incremental progress updates into the message so that it can be processed from the last known checkpoint, instead of starting from scratch. With Service Bus queues, you can enable the same scenario by using message sessions. For more information, see [Message session state](message-sessions.md#message-session-state).
 * Service Bus queues support [dead lettering](service-bus-dead-letter-queues.md). It can be useful for isolating messages that meet the following criteria:
     - Messages can't be processed successfully by the receiving application 
     - Messages can't reach their destination because of an expired time-to-live (TTL) property. The TTL value specifies how long a message remains in the queue. With Service Bus, the message will be moved to a special queue called $DeadLetterQueue when the TTL period expires.
 * To find "poison" messages in Storage queues, when dequeuing a message the application examines the [DequeueCount](/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage.dequeuecount) property of the message. If **DequeueCount** is greater than a given threshold, the application moves the message to an application-defined "dead letter" queue.
 * Storage queues enable you to obtain a detailed log of all of the transactions executed against the queue, and aggregated metrics. Both of these options are useful for debugging and understanding how your application uses Storage queues. They're also useful for performance-tuning your application and reducing the costs of using queues.
-* Message sessions supported by Service Bus enable messages that belong to a logical group to be associated with a receiver. It creates a session-like affinity between messages and their respective receivers. You can enable this advanced functionality in Service Bus by setting the [SessionID](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid#Microsoft_ServiceBus_Messaging_BrokeredMessage_SessionId) property on a message. Receivers can then listen on a specific session ID and receive messages that share the specified session identifier.
-* The duplication detection feature of Service Bus queues automatically removes duplicate messages sent to a queue or topic, based on the value of the [MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.messageid#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) property.
+* [Message sessions](message-sessions.md) supported by Service Bus enable messages that belong to a logical group to be associated with a receiver. It creates a session-like affinity between messages and their respective receivers. You can enable this advanced functionality in Service Bus by setting the session ID property on a message. Receivers can then listen on a specific session ID and receive messages that share the specified session identifier.
+* The duplication detection feature of Service Bus queues automatically removes duplicate messages sent to a queue or topic, based on the value of the message ID property.
 
 ## Capacity and quotas
 This section compares Storage queues and Service Bus queues from the perspective of [capacity and quotas](service-bus-quotas.md) that may apply.
@@ -167,14 +167,14 @@ This section discusses the authentication and authorization features supported b
 | --- | --- | --- |
 | Authentication |**Symmetric key** |**Symmetric key** |
 | Security model |Delegated access via SAS tokens. |SAS |
-| Identity provider federation |**No** |**Yes** |
+| Identity provider federation |**Yes** |**Yes** |
 
 ### Additional information
 * Every request to either of the queuing technologies must be authenticated. Public queues with anonymous access aren't supported. Using [SAS](service-bus-sas.md), you can address this scenario by publishing a write-only SAS, read-only SAS, or even a full-access SAS.
 * The authentication scheme provided by Storage queues involves the use of a symmetric key. This key is a hash-based Message Authentication Code (HMAC), computed with the SHA-256 algorithm and encoded as a **Base64** string. For more information about the respective protocol, see [Authentication for the Azure Storage Services](/rest/api/storageservices/fileservices/Authentication-for-the-Azure-Storage-Services). Service Bus queues support a similar model using symmetric keys. For more information, see [Shared Access Signature Authentication with Service Bus](service-bus-sas.md).
 
 ## Conclusion
-By gaining a deeper understanding of the two technologies, you can make a more informed decision on which queue technology to use, and when. The decision on when to use Storage queues or Service Bus queues clearly depends on a number of factors. These factors may depend heavily on the individual needs of your application and its architecture. 
+By gaining a deeper understanding of the two technologies, you can make a more informed decision on which queue technology to use, and when. The decision on when to use Storage queues or Service Bus queues clearly depends on many factors. These factors may depend heavily on the individual needs of your application and its architecture. 
 
 You may prefer to choose Storage queues for reasons such as the following ones:
 
@@ -182,7 +182,7 @@ You may prefer to choose Storage queues for reasons such as the following ones:
 - If you require basic communication and messaging between services 
 - Need queues that can be larger than 80 GB in size
 
-Service Bus queues provide a number of advanced features such as the following ones. So, they may be a preferred choice if you're building a hybrid application or if your application otherwise requires these features.
+Service Bus queues provide many advanced features such as the following ones. So, they may be a preferred choice if you're building a hybrid application or if your application otherwise requires these features.
 
 - [Sessions](message-sessions.md)
 - [Transactions](service-bus-transactions.md)
@@ -198,9 +198,6 @@ The following articles provide more guidance and information about using Storage
 * [Get started with Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
 * [How to Use the Queue Storage Service](../storage/queues/storage-dotnet-how-to-use-queues.md)
 * [Best practices for performance improvements using Service Bus brokered messaging](service-bus-performance-improvements.md)
-* [Introducing Queues and Topics in Azure Service Bus (blog post)](https://www.serverless360.com/blog/azure-service-bus-queues-vs-topics)
-* [The Developer's Guide to Service Bus](http://www.cloudcasts.net/devguide/Default.aspx?id=11030)
-* [Using the Queuing Service in Azure](https://www.developerfusion.com/article/120197/using-the-queuing-service-in-windows-azure/)
 
 [Azure portal]: https://portal.azure.com
 

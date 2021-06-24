@@ -1,5 +1,5 @@
 ---
-title: Configure front-end frameworks with Azure Static Web Apps Preview
+title: Configure front-end frameworks with Azure Static Web Apps
 description: Settings for popular front-end frameworks needed for Azure Static Web Apps
 services: static-web-apps
 author: craigshoemaker
@@ -9,7 +9,7 @@ ms.date: 07/18/2020
 ms.author: cshoe
 ---
 
-# Configure front-end frameworks and libraries with Azure Static Web Apps Preview
+# Configure front-end frameworks and libraries with Azure Static Web Apps
 
 The Azure Static Web Apps requires that you have the appropriate configuration values in the [build configuration file](github-actions-workflow.md) for your front-end framework or library.
 
@@ -47,6 +47,7 @@ The intent of the table columns is explained by the following items:
 | [Polymer](https://www.polymer-project.org/) | `build/default` | n/a |
 | [Preact](https://preactjs.com/) | `build` | n/a |
 | [React](https://reactjs.org/) | `build` | n/a |
+| [RedwoodJS](https://redwoodjs.com/) | `web/dist` | `yarn rw build` |
 | [Stencil](https://stenciljs.com/) | `www` | n/a |
 | [Svelte](https://svelte.dev/) | `public` | n/a |
 | [Three.js](https://threejs.org/) | `/` | n/a |

@@ -1,8 +1,6 @@
 ---
 title: Granular role-based access Azure HDInsight cluster configurations
 description: Learn about the changes required as part of the migration to granular role-based access for HDInsight cluster configurations.
-author: tylerfox
-ms.author: tyfox
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/20/2020
@@ -26,8 +24,8 @@ permissions of Contributor or Owner. To summarize:
 
 | Role                                  | Previously                                                                                       | Going Forward       |
 |---------------------------------------|--------------------------------------------------------------------------------------------------|-----------|
-| Reader                                | - Read access, including secrets.                                                                   | - Read access, **excluding** secrets |           |   |   |
-| HDInsight Cluster Operator<br>(New Role) | N/A                                                                                              | - Read/write access, including secrets         |   |   |
+| Reader                                | - Read access, including secrets.                                                                   | - Read access, **excluding** secrets | 
+| HDInsight Cluster Operator<br>(New Role) | N/A                                                                                              | - Read/write access, including secrets         | 
 | Contributor                           | - Read/write access, including secrets.<br>- Create and manage all of types of Azure resources.<br>- Execute script actions.     | No change |
 | Owner                                 | - Read/write access including secrets.<br>- Full access to all resources<br>- Delegate access to others.<br>- Execute script actions. | No change |
 
@@ -191,7 +189,7 @@ Cluster configurations are now behind granular role-based access control and req
 
 ### Why do I see "Insufficient privileges to complete the operation" when running the Azure CLI command to assign the HDInsight Cluster Operator role to another user or service principal?
 
-In addition to having the Owner role, the user or service principal executing the command needs to have sufficient Azure AD permissions to look up the object IDs of the assignee. This message indicates insufficient Azure AD permissions. Try replacing the `-–assignee` argument with `–assignee-object-id` and provide the object ID of the assignee as the parameter instead of the name (or the principal ID in the case of a managed identity). See the optional parameters section of the [az role assignment create documentation](/cli/azure/role/assignment#az-role-assignment-create) for more info.
+In addition to having the Owner role, the user or service principal executing the command needs to have sufficient Azure AD permissions to look up the object IDs of the assignee. This message indicates insufficient Azure AD permissions. Try replacing the `-–assignee` argument with `–assignee-object-id` and provide the object ID of the assignee as the parameter instead of the name (or the principal ID in the case of a managed identity). See the optional parameters section of the [az role assignment create documentation](/cli/azure/role/assignment#az_role_assignment_create) for more info.
 
 If this still doesn't work, contact your Azure AD admin to acquire the correct permissions.
 

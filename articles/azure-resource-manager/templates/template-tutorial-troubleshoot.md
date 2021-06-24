@@ -1,10 +1,11 @@
-﻿---
+---
 title: Troubleshoot deployments
 description: Learn how to monitor and troubleshoot Azure Resource Manager template (ARM template) deployments. Shows activity logs and deployment history.
 author: mumian
 ms.date: 01/15/2019
 ms.topic: tutorial
-ms.author: jgao
+ms.author: jgao 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Tutorial: Troubleshoot ARM template deployments
@@ -36,13 +37,13 @@ To complete this article, you need:
 
 ## Create a problematic template
 
-Open a template called [Create a standard storage account](https://azure.microsoft.com/resources/templates/101-storage-account-create/) from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/), and setup two template issues.
+Open a template called [Create a standard storage account](https://azure.microsoft.com/resources/templates/storage-account-create/) from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/), and setup two template issues.
 
 1. From Visual Studio Code, select **File** > **Open File**.
 2. In **File name**, paste the following URL:
 
     ```url
-    https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
+    https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage/storage-account-create/azuredeploy.json
     ```
 
 3. Select **Open** to open the file.

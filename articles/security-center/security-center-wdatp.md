@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 06/10/2021
 ms.author: memildin
 ---
 
@@ -30,10 +30,10 @@ Microsoft Defender for Endpoint is a holistic, cloud delivered endpoint security
 
 | Aspect                          | Details                                                                                                                                                                                                                                                                                                       |
 |---------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Release state:                  | Generally available (GA)                                                                                                                                                                                                                                                                                      |
+| Release state:                  | General Availability (GA)                                                                                                                                                                                                                                                                                      |
 | Pricing:                        | Requires [Azure Defender for servers](defender-for-servers-introduction.md)                                                                                                                                                                                                                                             |
 | Supported platforms:            |  • Azure machines running Windows<br> • Azure Arc machines running Windows|
-| Supported versions of Windows:  |  • **General Availability (GA) -** Detection on Windows Server 2016, 2012 R2, and 2008 R2 SP1<br> • **Preview -** Detection on Windows Server 2019, [Windows Virtual Desktop (WVD)](../virtual-desktop/overview.md), and [Windows 10 Enterprise multi-session](../virtual-desktop/windows-10-multisession-faq.md) (formerly Enterprise for Virtual Desktops (EVD)|
+| Supported versions of Windows for detection:  |  • Windows Server 2019, 2016, 2012 R2, and 2008 R2 SP1<br> • [Windows Virtual Desktop (WVD)](../virtual-desktop/overview.md)<br> • [Windows 10 Enterprise multi-session](../virtual-desktop/windows-10-multisession-faq.yml) (formerly Enterprise for Virtual Desktops (EVD)|
 | Unsupported operating systems:  |  • Windows 10 (other than EVD or WVD)<br> • Linux|
 | Required roles and permissions: | To enable/disable the integration: **Security admin** or **Owner**<br>To view MDATP alerts in Security Center: **Security reader**, **Reader**, **Resource Group Contributor**, **Resource Group Owner**, **Security admin**, **Subscription owner**, or **Subscription Contributor**|
 | Clouds:                         | ![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) China Gov, Other Gov                                                        |
@@ -57,28 +57,34 @@ By integrating Defender for Endpoint with Security Center, you'll benefit from t
 
     :::image type="content" source="./media/security-center-wdatp/microsoft-defender-security-center.png" alt-text="Microsoft Defender for Endpoint's own Security Center" lightbox="./media/security-center-wdatp/microsoft-defender-security-center.png":::
 
-## Microsoft Defender for Endpoint tenant location
+## What are the requirements for the Microsoft Defender for Endpoint tenant?
 
-When you use Azure Security Center to monitor your servers, a Microsoft Defender for Endpoint tenant is automatically created. Data collected by Defender for Endpoint is stored in the geo-location of the tenant as identified during provisioning. Customer data - in pseudonymized form - may also be stored in the central storage and processing systems in the United States. 
+When you use Azure Security Center to monitor your servers, a Microsoft Defender for Endpoint tenant is automatically created. 
 
-After you've configured the location, you can't change it. If you have your own license for Microsoft Defender for Endpoint and need to move your data to another location, contact Microsoft Support to reset the tenant.
+- **Location:** Data collected by Defender for Endpoint is stored in the geo-location of the tenant as identified during provisioning. Customer data - in pseudonymized form - may also be stored in the central storage and processing systems in the United States. After you've configured the location, you can't change it. If you have your own license for Microsoft Defender for Endpoint and need to move your data to another location, contact Microsoft Support to reset the tenant.
+- **Moving subscriptions:** If you've moved your Azure subscription between Azure tenants, some manual preparatory steps are required before Security Center will deploy Defender for Endpoint. For full details, [contact Microsoft support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 
-## Enabling the Microsoft Defender for Endpoint integration
+## Enable the Microsoft Defender for Endpoint integration
 
-1. Confirm that your machine meets the necessary requirements for Defender for Endpoint:
+### Prerequisites
 
-    - For **all versions of Windows**:
-        - Configure the network settings described in [Configure device proxy and Internet connectivity settings](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet)
-        - If you're deploying Defender to Endpoint to an on-premises machines, connect it to Azure Arc as explained in [Connect hybrid machines with Azure Arc enabled servers](../azure-arc/servers/learn/quick-enable-hybrid-vm.md)
-    - In addition, for **Windows Server 2019 machines**, confirm that they're running a valid agent and have the MicrosoftMonitoringAgent extension
+Confirm that your machine meets the necessary requirements for Defender for Endpoint:
 
+1. Ensure the machine is connected to Azure as required:
+
+    - For **Windows** servers, configure the network settings described in [Configure device proxy and Internet connectivity settings](/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet)
+    - For **on-premises** machines, connect it to Azure Arc as explained in [Connect hybrid machines with Azure Arc enabled servers](../azure-arc/servers/learn/quick-enable-hybrid-vm.md)
+    - For **Windows Server 2019** and [Windows Virtual Desktop (WVD)](../virtual-desktop/overview.md) machines, confirm that your machines have the MicrosoftMonitoringAgent extension.
+    
 1. Enable **Azure Defender for servers**. See [Quickstart: Enable Azure Defender](enable-azure-defender.md).
-
 1. If you've already licensed and deployed Microsoft Defender for Endpoints on your servers, remove it using the procedure described in [Offboard Windows servers](/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints#offboard-windows-servers).
-1. From Security Center's menu, select **Pricing & settings**.
-1. Select the subscription you want to change.
-1. Select **Threat detection**.
+1. If you've moved your subscription between Azure tenants, some manual preparatory steps are also required. For full details, [contact Microsoft support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+
+
+### Enable the integration
+1. From Security Center's menu, select **Pricing & settings** and select the subscription you want to change.
+1. Select **Integrations**.
 1. Select **Allow Microsoft Defender for Endpoint to access my data**, and select **Save**.
 
     :::image type="content" source="./media/security-center-wdatp/enable-integration-with-edr.png" alt-text="Enable the integration between Azure Security Center and Microsoft's EDR solution, Microsoft Defender for Endpoint":::
@@ -115,11 +121,25 @@ To generate a benign Microsoft Defender for Endpoint test alert:
     > [!TIP]
     > The alert is triggered with **Informational** severity.
 
-## FAQ for Security Center's integrated Microsoft Defender for Endpoint
+## FAQ - Security Center's integration with Microsoft Defender for Endpoint
 
+- [What's this "MDE.Windows" extension running on my machine?](#whats-this-mdewindows-extension-running-on-my-machine)
 - [What are the licensing requirements for Microsoft Defender for Endpoint?](#what-are-the-licensing-requirements-for-microsoft-defender-for-endpoint)
 - [If I already have a license for Microsoft Defender for Endpoint can I get a discount for Azure Defender?](#if-i-already-have-a-license-for-microsoft-defender-for-endpoint-can-i-get-a-discount-for-azure-defender)
 - [How do I switch from a third-party EDR tool?](#how-do-i-switch-from-a-third-party-edr-tool)
+
+### What's this "MDE.Windows" extension running on my machine?
+
+In the past, Microsoft Defender for Endpoint was provisioned by the Log Analytics agent. When [we expanded support to include Windows Server 2019](release-notes.md#microsoft-defender-for-endpoint-integration-with-azure-defender-now-supports-windows-server-2019-and-windows-10-virtual-desktop-wvd-released-for-general-availability-ga), we also added an extension to perform the automatic onboarding. 
+
+Security Center automatically deploys the MDE.Windows extension to machines running:
+
+- Windows Server 2019 
+- Windows 10 Virtual Desktop (WVD)
+- Other versions of Windows Server if Security Center doesn't recognize the OS version (for example, when a custom VM image is used). In this case, Microsoft Defender for Endpoint is still provisioned by the Log Analytics agent.
+
+> [!TIP]
+> If you delete the MDE.Windows extension, it will not remove Microsoft Defender for Endpoint. to 'offboard', see [Offboard Windows servers.](/microsoft-365/security/defender-endpoint/configure-server-endpoints?view=o365-worldwide).
 
 ### What are the licensing requirements for Microsoft Defender for Endpoint?
 Defender for Endpoint is included at no additional cost with **Azure Defender for servers**. Alternatively, it can be purchased separately for 50 machines or more.
@@ -127,7 +147,9 @@ Defender for Endpoint is included at no additional cost with **Azure Defender fo
 ### If I already have a license for Microsoft Defender for Endpoint can I get a discount for Azure Defender?
 If you've already got a license for Microsoft Defender for Endpoint, you won't have to pay for that part of your Azure Defender license.
 
-To confirm your discount, contact Security Center's support team and provide the relevant workspace ID, region, and license information for each relevant license.
+To request your discount, contact Security Center's support team and provide the relevant workspace ID, region, and number of Microsoft Defender for Endpoint licenses applied for machines in the given workspace.
+
+The discount will be effective starting from the approval date, and will not take place retroactively.
 
 ### How do I switch from a third-party EDR tool?
 Full instructions for switching from a non-Microsoft endpoint solution are available in the Microsoft Defender for Endpoint documentation: [Migration overview](/windows/security/threat-protection/microsoft-defender-atp/switch-to-microsoft-defender-migration).

@@ -1,65 +1,70 @@
 ---
-title: Microsoft Azure Stack Edge Pro technical specifications and compliance| Microsoft Docs
-description: Learn about the technical specifications and compliance for your Azure Stack Edge Pro
+title: Azure Stack Edge Pro FPGA technical specifications and compliance
+description: Learn about the technical specifications and compliance for your Azure Stack Edge Pro FPGA
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/02/2020
+ms.date: 04/12/2021
 ms.author: alkohli
 ---
-# Azure Stack Edge Pro technical specifications
+# Azure Stack Edge Pro FPGA technical specifications
 
-The hardware components of your Microsoft Azure Stack Edge Pro device adhere to the technical specifications and regulatory standards outlined in this article. The technical specifications describe the Power supply units (PSUs), storage capacity, enclosures, and environmental standards.
+The hardware components of your Microsoft Azure Stack Edge Pro FPGA device adhere to the technical specifications and regulatory standards outlined in this article. The technical specifications describe the Power supply units (PSUs), storage capacity, enclosures, and environmental standards.
 
 ## Compute, memory specifications
 
-The Azure Stack Edge Pro device has the following specifications for compute and memory:
+The Azure Stack Edge Pro FPGA device has the following specifications for compute and memory:
 
-| Specification           | Value                  |
-|-------------------------|----------------------------|
-| CPU    | 2 X 10 core CPU Intel Xeon Silver 4114 2.2G                    |
-| Memory              | 128 GB RAM (8x 16GB RDIMM)                 |
+| Specification           | Value                             |
+|-------------------------|-----------------------------------|
+| CPU type                | Dual Intel Xeon Silver 4114 2.2 G |
+| CPU: raw                | 20 total cores, 40 total vCPUs    |
+| CPU: usable             | 32 vCPUs                          |
+| Memory type             | 8 x 16 GB RDIMM                   |
+| Memory: raw             | 128 GB RAM (8 x 16 GB)           |
+| Memory: usable          | 102 GB RAM                        |
+
 
 ## FPGA specifications
 
-A Field Programmable Gate Array (FPGA) is included on every Azure Stack Edge Pro device that enables Machine Learning (ML) scenarios.
+A Field Programmable Gate Array (FPGA) is included on every Azure Stack Edge Pro FPGA device that enables Machine Learning (ML) scenarios.
 
-| Specification           | Value                  |
+| Specification           | Value                      |
 |-------------------------|----------------------------|
 | FPGA   | Intel Arria 10 <br> Available Deep Neural Network (DNN) models are the same as those [supported by cloud FPGA instances](../machine-learning/how-to-deploy-fpga-web-service.md#fpga-support-in-azure).|
 
 ## Power supply unit specifications
 
-The Azure Stack Edge Pro device has two 100-240 V Power supply units (PSUs) with high-performance fans. The two PSUs provide a redundant power configuration. If a PSU fails, the device continues to operate normally on the other PSU until the failed module is replaced. The following table lists the technical specifications of the PSUs.
+The Azure Stack Edge Pro FPGA device has two 100-240 V Power supply units (PSUs) with high-performance fans. The two PSUs provide a redundant power configuration. If a PSU fails, the device continues to operate normally on the other PSU until the failed module is replaced. The following table lists the technical specifications of the PSUs.
 
 | Specification           | 750 W PSU                  |
 |-------------------------|----------------------------|
-| Maximum output power    | 750 W                     |
+| Maximum output power    | 750 W                      |
 | Frequency               | 50/60 Hz                   |
 | Voltage range selection | Auto ranging: 100-240 V AC |
 | Hot pluggable           | Yes                        |
 
-### Azure Stack Edge Pro power cord specifications by region
+### Azure Stack Edge Pro FPGA power cord specifications by region
 
-Your Azure Stack Edge Pro device needs a power cord that varies depending on your Azure region.
-For technical specifications of all the supported power cords, see [Azure Stack Edge Pro power cord specifications by region](azure-stack-edge-technical-specifications-power-cords-regional.md).
+Your Azure Stack Edge Pro FPGA device needs a power cord that varies depending on your Azure region.
+For technical specifications of all the supported power cords, see [Azure Stack Edge Pro FPGA power cord specifications by region](azure-stack-edge-technical-specifications-power-cords-regional.md).
 
 <!--## Power consumption statistics
 
-The following table lists the typical power consumption data (actual values may vary from the published) for the Azure Stack Edge Pro device.-->
+The following table lists the typical power consumption data (actual values may vary from the published) for the Azure Stack Edge Pro FPGA device.-->
 
 ## Network interface specifications
 
-Your Azure Stack Edge Pro device has 6 network interfaces, PORT1- PORT6.
+Your Azure Stack Edge Pro FPGA device has 6 network interfaces, PORT1- PORT6.
 
 | Specification           | Description                 |
 |-------------------------|----------------------------|
 |  Network interfaces    | 2 X 1 GbE interfaces – 1 management, not user configurable, used for initial setup. The other interface is user configurable, can be used for data transfer, and is DHCP by default. <br>2 X 25 GbE interfaces – These can also operate as 10 GbE interfaces. These data interfaces can be configured by user as DHCP (default) or static. <br> 2 X 25 GbE interfaces - These data interfaces can be configured by user as DHCP (default) or static.                  |
 
-The Network Adapters used are: 
+The Network Adapters used are:
 
 | Specification           | Description                 |
 |-------------------------|----------------------------|
@@ -70,14 +75,14 @@ Please consult the Hardware Compatibility List from Intel QLogic for compatible 
 
 ## Storage specifications
 
-The Azure Stack Edge Pro devices have 9 X 2.5" NVMe SSDs, each with a capacity of 1.6 TB. Of these SSDs, 1 is an operating system disk, and the other 8 are data disks. The total usable capacity for the device is roughly 12.5 TB. The following table has the details for the storage capacity of the device.
+The Azure Stack Edge Pro FPGA devices have 9 X 2.5" NVMe SSDs, each with a capacity of 1.6 TB. Of these SSDs, 1 is an operating system disk, and the other 8 are data disks. The total usable capacity for the device is roughly 12.5 TB. The following table has the details for the storage capacity of the device.
 
 |     Specification                          |     Value             |
 |--------------------------------------------|-----------------------|
 |    Number of solid-state drives (SSDs)     |    8                  |
 |    Single SSD capacity                     |    1.6 TB             |
 |    Total capacity                          |    12.8 TB            |
-|    Total usable capacity*                  |    ~ 12.5 TB            |
+|    Total usable capacity*                  |    ~ 12.5 TB          |
 
 **Some space is reserved for internal use.*
 
@@ -89,19 +94,19 @@ The following tables list the various enclosure specifications for dimensions an
 
 The following table lists the dimensions of the enclosure in millimeters and inches.
 
-|     Enclosure     |     Millimeters     |     Inches     |
-|-------------------|---------------------|----------------|
-|    Height         |    44.45            |    1.75"          |
-|    Width          |    434.1           |    17.09"          |
-|    Length          |    740.4           |    29.15"          |
+|     Enclosure     |     Millimeters    |     Inches     |
+|-------------------|--------------------|----------------|
+|    Height         |    44.45           |    1.75"       |
+|    Width          |    434.1           |    17.09"      |
+|    Length         |    740.4           |    29.15"      |
 
 The following table lists the dimensions of the shipping package in millimeters and inches.
 
-|     Package     |     Millimeters     |     Inches     |
+|     Package       |     Millimeters     |     Inches     |
 |-------------------|---------------------|----------------|
-|    Height         |    311.2            |    12.25"          |
-|    Width          |    642.8          |    25.31"          |
-|    Length          |   1,051.1          |    41.38"          |
+|    Height         |    311.2            |    12.25"      |
+|    Width          |    642.8            |    25.31"      |
+|    Length         |   1,051.1           |    41.38"      |
 
 ### Enclosure weight
 

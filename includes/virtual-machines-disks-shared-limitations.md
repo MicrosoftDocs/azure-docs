@@ -5,7 +5,7 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 09/30/2020
+ ms.date: 06/11/2021
  ms.author: rogarana
  ms.custom: include file
 ---
@@ -20,6 +20,7 @@ When sharing ultra disks, they have the following additional limitations:
 
 - Currently limited to Azure Resource Manager or SDK support. 
 - Only basic disks can be used with some versions of Windows Server Failover Cluster, for details see [Failover clustering hardware requirements and storage options](/windows-server/failover-clustering/clustering-requirements).
+- Only [server-side encryption](../articles/virtual-machines/disk-encryption.md) is supported, [Azure Disk Encryption](../articles/virtual-machines/windows/disk-encryption-overview.md) is not currently supported.
 
 Shared ultra disks are available in all regions that support ultra disks by default, and do not require you to sign up for access to use them.
 
@@ -33,7 +34,8 @@ Shared ultra disks are available in all regions that support ultra disks by defa
 - When using [proximity placement groups (PPG)](../articles/virtual-machines/windows/proximity-placement-groups.md), all virtual machines sharing a disk must be part of the same PPG.
 - Only basic disks can be used with some versions of Windows Server Failover Cluster, for details see [Failover clustering hardware requirements and storage options](/windows-server/failover-clustering/clustering-requirements).
 - Azure Site Recovery support is not yet available.
-- Azure Backup is available through [Azure Disk Backup (preview)](../articles/backup/disk-backup-overview.md).
+- Azure Backup is available through [Azure Disk Backup](../articles/backup/disk-backup-overview.md).
+- Only [server-side encryption](../articles/virtual-machines/disk-encryption.md) is supported, [Azure Disk Encryption](../articles/virtual-machines/windows/disk-encryption-overview.md) is not currently supported.
 
 #### Regional availability
 

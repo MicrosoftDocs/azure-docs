@@ -1,10 +1,15 @@
 - name: Fundamentals Documentation
   href: index.yml
 
+- name: Recovering from systemic identity compromise
+  href: recover-from-identity-compromise.md
+  
 - name: Overview
   items:
   - name: Introduction to Azure security
     href: overview.md
+  - name: End-to-end security
+    href: end-to-end.md
   - name: Shared responsibility in the cloud
     href: shared-responsibility.md
 
@@ -44,6 +49,8 @@
     items:
     - name: Firmware security
       href: firmware.md
+    - name: Code integrity
+      href: code-integrity.md
     - name: Secure Boot
       href: secure-boot.md
     - name: Measured boot & host attestation
@@ -66,7 +73,9 @@
   - name: Security checklist
     href: steps-secure-identity.md
   - name: Choose passwordless 
-    href: ../../active-directory/authentication/concept-authentication-passwordless.md
+    href: ../../active-directory/authentication/concept-authentication-passwordless.md?toc=/azure/security/fundamentals/toc.json&bc=/azure/security/breadcrumb/toc.json
+  - name: Authentication
+    href: /azure/architecture/framework/security/design-identity-authentication?toc=/azure/security/fundamentals/toc.json&bc=/azure/security/breadcrumb/toc.json
 
 
 
@@ -79,11 +88,11 @@
   - name: DDoS Protection best practices
     href: ../../ddos-protection/fundamental-best-practices.md
   - name: DDoS Protection security baseline
-    href: ddos-protection-security-baseline.md
+    href: /security/benchmark/azure/baselines/ddos-protection-security-baseline?toc=/azure/security/fundamentals/TOC.json
   - name: Dangling DNS and subdomain takeover
     href: subdomain-takeover.md
   - name: Secure hybrid network architecture
-    href: /azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?bc=%2fazure%2fsecurity%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsecurity%2ftoc.json
+    href: /azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=/azure/security/fundamentals/toc.json&bc=/azure/security/breadcrumb/toc.json
 
 - name: IaaS security
   items:
@@ -95,7 +104,7 @@
     href: virtual-machines-overview.md
   - name: Best practices - IaaS workloads
     href: iaas.md
-  - name: Azure marketplace images
+  - name: Azure Marketplace images
     href: azure-marketplace-images.md
 
 - name: Data security, encryption, and storage
@@ -125,11 +134,11 @@
     - name: Security checklist
       href: database-security-checklist.md
   - name: Storage security guide
-    href: ../../storage/blobs/security-recommendations.md?bc=%2fazure%2fsecurity%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsecurity%2ftoc.json
+    href: ../../storage/blobs/security-recommendations.md?toc=/azure/security/fundamentals/toc.json&bc=/azure/security/breadcrumb/toc.json
   - name: Customer Lockbox
     href: customer-lockbox-overview.md
   - name: Security baseline for Customer Lockbox
-    href: customer-lockbox-security-baseline.md
+    href: /security/benchmark/azure/baselines/lockbox-security-baseline?toc=/azure/security/fundamentals/TOC.json
 
 - name: Application
   items:
@@ -168,6 +177,8 @@
   items:
   - name: Azure security services
     href: services-technologies.md
+  - name: Feature availability for US Government clouds
+    href: feature-availability.md
   - name: Security white papers
     href: https://azure.microsoft.com/resources/whitepapers/search/?term=security&type=WhitePaperResource
   - name: Best practices

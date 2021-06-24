@@ -3,7 +3,7 @@ author: aahill
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 02/09/2021
+ms.date: 06/11/2021
 ms.author: aahi
 ---
 
@@ -11,7 +11,7 @@ ms.author: aahi
 
 # [Version 3.1 preview](#tab/version-3-1)
 
-[v3.1 Reference documentation](/python/api/azure-ai-textanalytics/azure.ai.textanalytics) | [v3.1 Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics) | [v3.1 Package (PiPy)](https://pypi.org/project/azure-ai-textanalytics/) | [v3.1 Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/samples)
+[v3.1 Reference documentation](/python/api/azure-ai-textanalytics/azure.ai.textanalytics?preserve-view=true&view=azure-python-preview) | [v3.1 Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics) | [v3.1 Package (PiPy)](https://pypi.org/project/azure-ai-textanalytics/5.1.0b7/) | [v3.1 Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/samples)
 
 # [Version 3.0](#tab/version-3)
 
@@ -37,7 +37,7 @@ After installing Python, you can install the client library with:
 # [Version 3.1 preview](#tab/version-3-1)
 
 ```console
-pip install azure-ai-textanalytics --pre
+pip install azure-ai-textanalytics==5.1.0b7
 ```
 
 > [!TIP]
@@ -224,112 +224,6 @@ Neutral=0.77
 Negative=0.02
 ```
 
-## Opinion mining
-
-In order to do sentiment analysis with opinion mining, create a new function called `sentiment_analysis_with_opinion_mining_example()` that takes the client as an argument, then calls the `analyze_sentiment()` function with option flag `show_opinion_mining=True`. The returned response object will contain not only the sentiment label and score of the entire input document with sentiment analysis for each sentence, but also aspect and opinion level sentiment analysis.
-
-
-```python
-def sentiment_analysis_with_opinion_mining_example(client):
-
-    documents = [
-        "The food and service were unacceptable, but the concierge were nice"
-    ]
-
-    result = client.analyze_sentiment(documents, show_opinion_mining=True)
-    doc_result = [doc for doc in result if not doc.is_error]
-
-    positive_reviews = [doc for doc in doc_result if doc.sentiment == "positive"]
-    negative_reviews = [doc for doc in doc_result if doc.sentiment == "negative"]
-
-    positive_mined_opinions = []
-    mixed_mined_opinions = []
-    negative_mined_opinions = []
-
-    for document in doc_result:
-        print("Document Sentiment: {}".format(document.sentiment))
-        print("Overall scores: positive={0:.2f}; neutral={1:.2f}; negative={2:.2f} \n".format(
-            document.confidence_scores.positive,
-            document.confidence_scores.neutral,
-            document.confidence_scores.negative,
-        ))
-        for sentence in document.sentences:
-            print("Sentence: {}".format(sentence.text))
-            print("Sentence sentiment: {}".format(sentence.sentiment))
-            print("Sentence score:\nPositive={0:.2f}\nNeutral={1:.2f}\nNegative={2:.2f}\n".format(
-                sentence.confidence_scores.positive,
-                sentence.confidence_scores.neutral,
-                sentence.confidence_scores.negative,
-            ))
-            for mined_opinion in sentence.mined_opinions:
-                aspect = mined_opinion.aspect
-                print("......'{}' aspect '{}'".format(aspect.sentiment, aspect.text))
-                print("......Aspect score:\n......Positive={0:.2f}\n......Negative={1:.2f}\n".format(
-                    aspect.confidence_scores.positive,
-                    aspect.confidence_scores.negative,
-                ))
-                for opinion in mined_opinion.opinions:
-                    print("......'{}' opinion '{}'".format(opinion.sentiment, opinion.text))
-                    print("......Opinion score:\n......Positive={0:.2f}\n......Negative={1:.2f}\n".format(
-                        opinion.confidence_scores.positive,
-                        opinion.confidence_scores.negative,
-                    ))
-            print("\n")
-        print("\n")
-          
-sentiment_analysis_with_opinion_mining_example(client)
-```
-
-### Output
-
-```console
-Document Sentiment: positive
-Overall scores: positive=0.84; neutral=0.00; negative=0.16
-
-Sentence: The food and service were unacceptable, but the concierge were nice
-Sentence sentiment: positive
-Sentence score:
-Positive=0.84
-Neutral=0.00
-Negative=0.16
-
-......'negative' aspect 'food'
-......Aspect score:
-......Positive=0.01
-......Negative=0.99
-
-......'negative' opinion 'unacceptable'
-......Opinion score:
-......Positive=0.01
-......Negative=0.99
-
-......'negative' aspect 'service'
-......Aspect score:
-......Positive=0.01
-......Negative=0.99
-
-......'negative' opinion 'unacceptable'
-......Opinion score:
-......Positive=0.01
-......Negative=0.99
-
-......'positive' aspect 'concierge'
-......Aspect score:
-......Positive=1.00
-......Negative=0.00
-
-......'positive' opinion 'nice'
-......Opinion score:
-......Positive=1.00
-......Negative=0.00
-
-
-
-
-
-Press any key to continue . . .
-
-```
 
 # [Version 3.0](#tab/version-3)
 
@@ -379,6 +273,122 @@ Positive=0.21
 Neutral=0.77
 Negative=0.02
 ```
+
+---
+
+## Opinion mining
+
+# [Version 3.1 preview](#tab/version-3-1)
+
+
+In order to do sentiment analysis with opinion mining, create a new function called `sentiment_analysis_with_opinion_mining_example()` that takes the client as an argument, then calls the `analyze_sentiment()` function with option flag `show_opinion_mining=True`. The returned response object will contain not only the sentiment label and score of the entire input document with sentiment analysis for each sentence, but also aspect and opinion level sentiment analysis.
+
+
+```python
+def sentiment_analysis_with_opinion_mining_example(client):
+
+    documents = [
+        "The food and service were unacceptable, but the concierge were nice"
+    ]
+
+    result = client.analyze_sentiment(documents, show_opinion_mining=True)
+    doc_result = [doc for doc in result if not doc.is_error]
+
+    positive_reviews = [doc for doc in doc_result if doc.sentiment == "positive"]
+    negative_reviews = [doc for doc in doc_result if doc.sentiment == "negative"]
+
+    positive_mined_opinions = []
+    mixed_mined_opinions = []
+    negative_mined_opinions = []
+
+    for document in doc_result:
+        print("Document Sentiment: {}".format(document.sentiment))
+        print("Overall scores: positive={0:.2f}; neutral={1:.2f}; negative={2:.2f} \n".format(
+            document.confidence_scores.positive,
+            document.confidence_scores.neutral,
+            document.confidence_scores.negative,
+        ))
+        for sentence in document.sentences:
+            print("Sentence: {}".format(sentence.text))
+            print("Sentence sentiment: {}".format(sentence.sentiment))
+            print("Sentence score:\nPositive={0:.2f}\nNeutral={1:.2f}\nNegative={2:.2f}\n".format(
+                sentence.confidence_scores.positive,
+                sentence.confidence_scores.neutral,
+                sentence.confidence_scores.negative,
+            ))
+            for mined_opinion in sentence.mined_opinions:
+                target = mined_opinion.target
+                print("......'{}' target '{}'".format(target.sentiment, target.text))
+                print("......Target score:\n......Positive={0:.2f}\n......Negative={1:.2f}\n".format(
+                    target.confidence_scores.positive,
+                    target.confidence_scores.negative,
+                ))
+                for assessment in mined_opinion.assessments:
+                    print("......'{}' assessment '{}'".format(assessment.sentiment, assessment.text))
+                    print("......Assessment score:\n......Positive={0:.2f}\n......Negative={1:.2f}\n".format(
+                        assessment.confidence_scores.positive,
+                        assessment.confidence_scores.negative,
+                    ))
+            print("\n")
+        print("\n")
+          
+sentiment_analysis_with_opinion_mining_example(client)
+```
+
+### Output
+
+```console
+Document Sentiment: positive
+Overall scores: positive=0.84; neutral=0.00; negative=0.16
+
+Sentence: The food and service were unacceptable, but the concierge were nice
+Sentence sentiment: positive
+Sentence score:
+Positive=0.84
+Neutral=0.00
+Negative=0.16
+
+......'negative' target 'food'
+......Target score:
+......Positive=0.01
+......Negative=0.99
+
+......'negative' assessment 'unacceptable'
+......Assessment score:
+......Positive=0.01
+......Negative=0.99
+
+......'negative' target 'service'
+......Target score:
+......Positive=0.01
+......Negative=0.99
+
+......'negative' assessment 'unacceptable'
+......Assessment score:
+......Positive=0.01
+......Negative=0.99
+
+......'positive' target 'concierge'
+......Target score:
+......Positive=1.00
+......Negative=0.00
+
+......'positive' assessment 'nice'
+......Assessment score:
+......Positive=1.00
+......Negative=0.00
+
+
+
+
+
+Press any key to continue . . .
+
+```
+
+# [Version 3.0 preview](#tab/version-3)
+
+This feature is not available in version 3.0.
 
 ---
 
@@ -439,7 +449,7 @@ Language:  French
 
 ---
 
-## Named Entity recognition (NER)
+## Named Entity Recognition (NER)
 
 # [Version 3.1 preview](#tab/version-3-1)
 
@@ -481,7 +491,88 @@ Named Entities:
         Confidence Score:        0.8    Length:          9      Offset:          34
 ```
 
-### Entity Linking
+### Personally Identifiable Information recognition
+
+Create a new function called `pii_recognition_example` that takes the client as an argument, then calls the `recognize_pii_entities()` function and iterates through the results. The returned response object will contain the list of detected entities in `entity` if successful, and an `error` if not. For each detected entity, print its Category and Sub-Category if exists.
+
+```python
+def pii_recognition_example(client):
+    documents = [
+        "The employee's SSN is 859-98-0987.",
+        "The employee's phone number is 555-555-5555."
+    ]
+    response = client.recognize_pii_entities(documents, language="en")
+    result = [doc for doc in response if not doc.is_error]
+    for doc in result:
+        print("Redacted Text: {}".format(doc.redacted_text))
+        for entity in doc.entities:
+            print("Entity: {}".format(entity.text))
+            print("\tCategory: {}".format(entity.category))
+            print("\tConfidence Score: {}".format(entity.confidence_score))
+            print("\tOffset: {}".format(entity.offset))
+            print("\tLength: {}".format(entity.length))
+pii_recognition_example(client)
+```
+
+### Output
+
+```console
+Redacted Text: The employee's SSN is ***********.
+Entity: 859-98-0987
+        Category: U.S. Social Security Number (SSN)
+        Confidence Score: 0.65
+        Offset: 22
+        Length: 11
+Redacted Text: The employee's phone number is ************.
+Entity: 555-555-5555
+        Category: Phone Number
+        Confidence Score: 0.8
+        Offset: 31
+        Length: 12
+```
+
+# [Version 3.0](#tab/version-3)
+
+Create a new function called `entity_recognition_example` that takes the client as an argument, then calls the `recognize_entities()` function and iterates through the results. The returned response object will contain the list of detected entities in `entity` if successful, and an `error` if not. For each detected entity, print its Category and Sub-Category if exists.
+
+```python
+def entity_recognition_example(client):
+
+    try:
+        documents = ["I had a wonderful trip to Seattle last week."]
+        result = client.recognize_entities(documents = documents)[0]
+
+        print("Named Entities:\n")
+        for entity in result.entities:
+            print("\tText: \t", entity.text, "\tCategory: \t", entity.category, "\tSubCategory: \t", entity.subcategory,
+                    "\n\tConfidence Score: \t", round(entity.confidence_score, 2), "\n")
+
+    except Exception as err:
+        print("Encountered exception. {}".format(err))
+entity_recognition_example(client)
+```
+
+### Output
+
+```console
+Named Entities:
+
+        Text:    trip   Category:        Event  SubCategory:     None
+        Confidence Score:        0.61
+
+        Text:    Seattle        Category:        Location       SubCategory:     GPE
+        Confidence Score:        0.82
+
+        Text:    last week      Category:        DateTime       SubCategory:     DateRange
+        Confidence Score:        0.8
+```
+
+
+---
+
+## Entity linking
+
+# [Version 3.1 preview](#tab/version-3-1)
 
 Create a new function called `entity_linking_example()` that takes the client as an argument, then calls the `recognize_linked_entities()` function and iterates through the results. The returned response object will contain the list of detected entities in `entities` if successful, and an `error` if not. Since linked entities are uniquely identified, occurrences of the same entity are grouped under a `entity` object as a list of `match` objects.
 
@@ -569,87 +660,7 @@ Linked Entities:
                 Length: 11
 ```
 
-### Personally Identifiable Information recognition
-
-Create a new function called `pii_recognition_example` that takes the client as an argument, then calls the `recognize_pii_entities()` function and iterates through the results. The returned response object will contain the list of detected entities in `entity` if successful, and an `error` if not. For each detected entity, print its Category and Sub-Category if exists.
-
-```python
-def pii_recognition_example(client):
-    documents = [
-        "The employee's SSN is 859-98-0987.",
-        "The employee's phone number is 555-555-5555."
-    ]
-    response = client.recognize_pii_entities(documents, language="en")
-    result = [doc for doc in response if not doc.is_error]
-    for doc in result:
-        print("Redacted Text: {}".format(doc.redacted_text))
-        for entity in doc.entities:
-            print("Entity: {}".format(entity.text))
-            print("\tCategory: {}".format(entity.category))
-            print("\tConfidence Score: {}".format(entity.confidence_score))
-            print("\tOffset: {}".format(entity.offset))
-            print("\tLength: {}".format(entity.length))
-pii_recognition_example(client)
-```
-
-### Output
-
-```console
-Redacted Text: The employee's SSN is ***********.
-Entity: 859-98-0987
-        Category: U.S. Social Security Number (SSN)
-        Confidence Score: 0.65
-        Offset: 22
-        Length: 11
-Redacted Text: The employee's phone number is ************.
-Entity: 555-555-5555
-        Category: Phone Number
-        Confidence Score: 0.8
-        Offset: 31
-        Length: 12
-```
-
 # [Version 3.0](#tab/version-3)
-
-> [!NOTE]
-> In version `3.0`: 
-> * Entity linking is a separate request than NER.
-
-Create a new function called `entity_recognition_example` that takes the client as an argument, then calls the `recognize_entities()` function and iterates through the results. The returned response object will contain the list of detected entities in `entity` if successful, and an `error` if not. For each detected entity, print its Category and Sub-Category if exists.
-
-```python
-def entity_recognition_example(client):
-
-    try:
-        documents = ["I had a wonderful trip to Seattle last week."]
-        result = client.recognize_entities(documents = documents)[0]
-
-        print("Named Entities:\n")
-        for entity in result.entities:
-            print("\tText: \t", entity.text, "\tCategory: \t", entity.category, "\tSubCategory: \t", entity.subcategory,
-                    "\n\tConfidence Score: \t", round(entity.confidence_score, 2), "\n")
-
-    except Exception as err:
-        print("Encountered exception. {}".format(err))
-entity_recognition_example(client)
-```
-
-### Output
-
-```console
-Named Entities:
-
-        Text:    trip   Category:        Event  SubCategory:     None
-        Confidence Score:        0.61
-
-        Text:    Seattle        Category:        Location       SubCategory:     GPE
-        Confidence Score:        0.82
-
-        Text:    last week      Category:        DateTime       SubCategory:     DateRange
-        Confidence Score:        0.8
-```
-
-### Entity Linking
 
 Create a new function called `entity_linking_example()` that takes the client as an argument, then calls the `recognize_linked_entities()` function and iterates through the results. The returned response object will contain the list of detected entities in `entities` if successful, and an `error` if not. Since linked entities are uniquely identified, occurrences of the same entity are grouped under a `entity` object as a list of `match` objects.
 
@@ -721,7 +732,7 @@ Linked Entities:
 
 ---
 
-### Key phrase extraction
+## Key phrase extraction
 
 # [Version 3.1 preview](#tab/version-3-1)
 
@@ -798,62 +809,83 @@ key_phrase_extraction_example(client)
 
 # [Version 3.1 preview](#tab/version-3-1)
 
+You can use the Analyze operation to perform asynchronous batch requests for: NER, key phrase extraction, sentiment analysis, and PII detection. The below sample shows a basic example on one operation. You can find a more advanced sample [on GitHub](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/textanalytics/azure-ai-textanalytics/samples/sample_analyze_actions.py).
+
 [!INCLUDE [Analyze operation pricing](../analyze-operation-pricing-caution.md)]
 
-Create a new function called `analyze_example()` that takes the client as an argument, then calls the `begin_analyze()` function. The result will be a long running operation which will be polled for results.
+Create a new function called `analyze_batch_example()` that takes the client as an argument, then calls the `begin_analyze_actions()` function. The result will be a long running operation which will be polled for results.
 
 ```python
-    def analyze_example(client):
+from azure.ai.textanalytics import (
+    RecognizeEntitiesAction,
+    ExtractKeyPhrasesAction
+)
+
+def analyze_batch_example(client):
         documents = [
             "Microsoft was founded by Bill Gates and Paul Allen."
         ]
 
-        poller = text_analytics_client.begin_analyze(
+        poller = client.begin_analyze_actions(
             documents,
             display_name="Sample Text Analysis",
-            entities_recognition_tasks=[EntitiesRecognitionTask()]
+            actions=[RecognizeEntitiesAction(), ExtractKeyPhrasesAction()]
         )
 
         result = poller.result()
+        action_results = [action_result for action_result in list(result) if not action_result.is_error]
+        first_action_result = action_results[0]
+        print("Results of Entities Recognition action:")
+        docs = [doc for doc in first_action_result.document_results if not doc.is_error]
+        for idx, doc in enumerate(docs):
+            print("\nDocument text: {}".format(documents[idx]))
+            for entity in doc.entities:
+                print("Entity: {}".format(entity.text))
+                print("...Category: {}".format(entity.category))
+                print("...Confidence Score: {}".format(entity.confidence_score))
+                print("...Offset: {}".format(entity.offset))
+                print("...Length: {}".format(entity.length))
+            print("------------------------------------------")
 
-        for page in result:
-            for task in page.entities_recognition_results:
-                print("Results of Entities Recognition task:")
-                
-                docs = [doc for doc in task.results if not doc.is_error]
-                for idx, doc in enumerate(docs):
-                    print("\nDocument text: {}".format(documents[idx]))
-                    for entity in doc.entities:
-                        print("Entity: {}".format(entity.text))
-                        print("...Category: {}".format(entity.category))
-                        print("...Confidence Score: {}".format(entity.confidence_score))
-                        print("...Offset: {}".format(entity.offset))
-                    print("------------------------------------------")
+        second_action_result = action_results[1]
+        print("Results of Key Phrase Extraction action:")
+        docs = [doc for doc in second_action_result.document_results if not doc.is_error]
 
-analyze_example(client)
+        for idx, doc in enumerate(docs):
+            print("Document text: {}\n".format(documents[idx]))
+            print("Key Phrases: {}\n".format(doc.key_phrases))
+            print("------------------------------------------")
+
+analyze_batch_example(client)
 ```
 
 ### Output
 
 ```console
-Results of Entities Recognition task:
+Results of Entities Recognition action:
+
 Document text: Microsoft was founded by Bill Gates and Paul Allen.
 Entity: Microsoft
 ...Category: Organization
-...Confidence Score: 0.83
+...Confidence Score: 1.0
 ...Offset: 0
+...Length: 9
 Entity: Bill Gates
 ...Category: Person
-...Confidence Score: 0.85
+...Confidence Score: 1.0
 ...Offset: 25
+...Length: 10
 Entity: Paul Allen
 ...Category: Person
-...Confidence Score: 0.9
+...Confidence Score: 1.0
 ...Offset: 40
+...Length: 10
 ------------------------------------------
-```
+Results of Key Phrase Extraction action:
+Document text: Microsoft was founded by Bill Gates and Paul Allen.
 
-You can also use the Analyze operation to detect PII and key phrase extraction. See the [Analyze sample](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/samples/async_samples) on GitHub.
+Key Phrases: ['Bill Gates', 'Paul Allen', 'Microsoft']
+```
 
 # [Version 3.0](#tab/version-3)
 

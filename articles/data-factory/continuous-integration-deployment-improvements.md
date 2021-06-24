@@ -4,7 +4,7 @@ description: Learn how to publish for continuous integration and delivery automa
 ms.service: data-factory
 author: nabhishek
 ms.author: abnarain
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.topic: conceptual
 ms.date: 02/02/2021
 ---
@@ -115,7 +115,7 @@ Follow these steps to get started:
             "build":"node node_modules/@microsoft/azure-data-factory-utilities/lib/index"
         },
         "dependencies":{
-            "@microsoft/azure-data-factory-utilities":"^0.1.3"
+            "@microsoft/azure-data-factory-utilities":"^0.1.5"
         }
     } 
     ```
@@ -146,6 +146,7 @@ Follow these steps to get started:
     - task: Npm@1
       inputs:
         command: 'install'
+        workingDir: '$(Build.Repository.LocalPath)/<folder-of-the-package.json-file>' #replace with the package.json folder
         verbose: true
       displayName: 'Install npm package'
     
@@ -155,6 +156,7 @@ Follow these steps to get started:
     - task: Npm@1
       inputs:
         command: 'custom'
+        workingDir: '$(Build.Repository.LocalPath)/<folder-of-the-package.json-file>' #replace with the package.json folder
         customCommand: 'run build validate $(Build.Repository.LocalPath) /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testResourceGroup/providers/Microsoft.DataFactory/factories/yourFactoryName'
       displayName: 'Validate'
     
@@ -164,6 +166,7 @@ Follow these steps to get started:
     - task: Npm@1
       inputs:
         command: 'custom'
+        workingDir: '$(Build.Repository.LocalPath)/<folder-of-the-package.json-file>' #replace with the package.json folder
         customCommand: 'run build export $(Build.Repository.LocalPath) /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testResourceGroup/providers/Microsoft.DataFactory/factories/yourFactoryName "ArmTemplate"'
       displayName: 'Validate and Generate ARM template'
     
@@ -171,7 +174,7 @@ Follow these steps to get started:
     
     - task: PublishPipelineArtifact@1
       inputs:
-        targetPath: '$(Build.Repository.LocalPath)/ArmTemplate'
+        targetPath: '$(Build.Repository.LocalPath)/<folder-of-the-package.json-file>/ArmTemplate' #replace with the package.json folder
         artifact: 'ArmTemplates'
         publishLocation: 'pipeline'
     ```

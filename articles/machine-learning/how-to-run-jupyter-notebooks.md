@@ -8,10 +8,9 @@ ms.author: osomorog
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.custom: how-to
+ms.topic: how-to
 ms.date: 01/19/2021
-# As a data scientist, I want to run Jupyter notebooks in my workspace in Azure Machine Learning studio
+#Customer intent: As a data scientist, I want to run Jupyter notebooks in my workspace in Azure Machine Learning studio.
 ---
 
 # Run Jupyter Notebooks in your workspace
@@ -20,9 +19,13 @@ Learn how to run your Jupyter notebooks directly in your workspace in Azure Mach
 
 For information on how to create and manage files, including notebooks, see [Create and manage files in your workspace](how-to-manage-files.md).
 
+> [!IMPORTANT]
+> Features marked as (preview) are provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, create a [free account](https://aka.ms/AMLFree) before you begin.
+* An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 * A Machine Learning workspace. See [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
 
 ## Edit a notebook
@@ -39,23 +42,35 @@ You can also launch Jupyter or JupyterLab from the notebook toolbar.  Azure Mach
 
 Use focus mode to expand your current view so you can focus on your active tabs. Focus mode hides the Notebooks file explorer.
 
-1. In the terminal window toolbar, select **Focus mode** to turn on focus mode. Depending on your window width, this may be located under the **...** menu item in your toolbar.
+1. In the terminal window toolbar, select **Focus mode** to turn on focus mode. Depending on your window width, the tool may be located under the **...** menu item in your toolbar.
 1. While in focus mode, return to the standard view by selecting **Standard view**.
 
     :::image type="content" source="media/how-to-run-jupyter-notebooks/focusmode.gif" alt-text="Toggle focus mode / standard view":::
 
-## Use IntelliSense
+## Code completion (IntelliSense)
 
-[IntelliSense](https://code.visualstudio.com/docs/editor/intellisense) is a code-completion aid that includes a number of features: List Members, Parameter Info, Quick Info, and Complete Word. These features help you to learn more about the code you're using, keep track of the parameters you're typing, and add calls to properties and methods with only a few keystrokes.  
+[IntelliSense](https://code.visualstudio.com/docs/editor/intellisense) is a code-completion aid that includes many features: List Members, Parameter Info, Quick Info, and Complete Word. With only a few keystrokes, you can:
+* Learn more about the code you're using
+* Keep track of the parameters you're typing
+* Add calls to properties and methods 
 
-When typing code, use Ctrl+Space to trigger IntelliSense.
+### Insert code snippets (preview)
+
+Use **Ctrl+Space** to trigger IntelliSense code snippets.  Scroll through the suggestions or start typing to find the code you want to insert.  Once you insert code, tab through the arguments to customize the code for your own use.
+
+:::image type="content" source="media/how-to-run-jupyter-notebooks/insert-snippet.gif" alt-text="Insert a code snippet":::
+
+These same snippets are available when you open your notebook in VS Code. For a complete list of available snippets, see [Azure Machine Learning VS Code Snippets](https://github.com/Azure/azureml-snippets/blob/main/snippets/snippets.md).
+
+You can browse and search the list of snippets by using the notebook toolbar to open the snippet panel.
+
+:::image type="content" source="media/how-to-run-jupyter-notebooks/open-snippet-panel.png" alt-text="Open snippet panel tool in the notebook toolbar":::
+
+From the snippets panel, you can also submit a request to add new snippets.
+
+:::image type="content" source="media/how-to-run-jupyter-notebooks/propose-new-snippet.png" alt-text="Snippet panel allows you to propose a new snippet":::
 
 ## Clean your notebook (preview)
-
-> [!IMPORTANT]
-> The gather feature is currently in public preview.
-> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Over the course of creating a notebook, you typically end up with cells you used for data exploration or debugging. The *gather* feature will help you produce a clean notebook without these extraneous cells.
 
@@ -75,7 +90,7 @@ In the notebook toolbar, select the menu and then **File&gt;Save and checkpoint*
 
 :::image type="content" source="media/how-to-run-jupyter-notebooks/file-save.png" alt-text="Screenshot of save tool in notebook toolbar":::
 
-Every notebook is autosaved every 30 seconds. Autosave updates only the initial *ipynb* file, not the checkpoint file.
+Every notebook is autosaved every 30 seconds. AutoSave updates only the initial *ipynb* file, not the checkpoint file.
  
 Select **Checkpoints** in the notebook menu to create a named checkpoint and to revert the notebook to a saved checkpoint.
 
@@ -155,7 +170,7 @@ These actions will reset the notebook state and will reset all variables in the 
 
 ## Add new kernels
 
-[Use the terminal ](how-to-access-terminal.md#add-new-kernels) to create and add new kernels to your compute instance. The notebook will automatically find all Jupyter kernels installed on the connected compute instance.
+[Use the terminal](how-to-access-terminal.md#add-new-kernels) to create and add new kernels to your compute instance. The notebook will automatically find all Jupyter kernels installed on the connected compute instance.
 
 Use the kernel dropdown on the right to change to any of the installed kernels.  
 
@@ -268,9 +283,11 @@ Using the following keystroke shortcuts, you can more easily navigate and run co
 
 ## Troubleshooting
 
-* If you can't connect to a notebook, ensure that web socket communication is **not** disabled. For compute instance Jupyter functionality to work, web socket communication must be enabled. Please ensure your network allows websocket connections to *.instances.azureml.net and *.instances.azureml.ms. 
+* If you can't connect to a notebook, ensure that web socket communication is **not** disabled. For compute instance Jupyter functionality to work, web socket communication must be enabled. Ensure your network allows websocket connections to *.instances.azureml.net and *.instances.azureml.ms. 
 
-* When compute instance is deployed in a private link workspace it can be only be [accessed from within virtual network](https://docs.microsoft.com/azure/machine-learning/how-to-secure-training-vnet#compute-instance). If you are using custom DNS or hosts file please add an entry for < instance-name >.< region >.instances.azureml.ms with private IP address of workspace private endpoint. For more information see the [custom DNS](./how-to-custom-dns.md?tabs=azure-cli) article.
+* When compute instance is deployed in a private link workspace it can be only be [accessed from within virtual network](./how-to-secure-training-vnet.md#compute-instance). If you are using custom DNS or hosts file please add an entry for < instance-name >.< region >.instances.azureml.ms with private IP address of workspace private endpoint. For more information see the [custom DNS](./how-to-custom-dns.md?tabs=azure-cli) article.
+
+* If your kernel crashed and was restarted you can run the following command to look at jupyter log and find out more details. `sudo journalctl -u jupyter`. if kernel issues persist, please consider using a compute instance with more memory.
     
 ## Next steps
 

@@ -2,7 +2,7 @@
 title: Concepts - Network interconnectivity
 description: Learn about key aspects and use cases of networking and interconnectivity in Azure VMware Solution.
 ms.topic: conceptual
-ms.date: 03/11/2021
+ms.date: 05/13/2021
 ---
 
 # Azure VMware Solution networking and interconnectivity concepts
@@ -11,9 +11,9 @@ ms.date: 03/11/2021
 
 There are two ways to interconnectivity in the Azure VMware Solution private cloud:
 
-1. [**Basic Azure-only interconnectivity**](#azure-virtual-network-interconnectivity) lets you manage and use your private cloud with only a single virtual network in Azure. This implementation is best suited for Azure VMware Solution evaluations or implementations that don't require access from on-premises environments.
+- [**Basic Azure-only interconnectivity**](#azure-virtual-network-interconnectivity) lets you manage and use your private cloud with only a single virtual network in Azure. This implementation is best suited for Azure VMware Solution evaluations or implementations that don't require access from on-premises environments.
 
-1. [**Full on-premises to private cloud interconnectivity**](#on-premises-interconnectivity) extends the basic Azure-only implementation to include interconnectivity between on-premises and Azure VMware Solution private clouds.
+- [**Full on-premises to private cloud interconnectivity**](#on-premises-interconnectivity) extends the basic Azure-only implementation to include interconnectivity between on-premises and Azure VMware Solution private clouds.
  
 In this article, we'll cover the key concepts that establish networking and interconnectivity, including requirements and limitations. This article provides you with the information you need to know to configure your networking to work with Azure VMware Solution.
 
@@ -62,13 +62,13 @@ For full interconnectivity to your private cloud, you need to enable ExpressRout
 
 Now that you've covered Azure VMware Solution network and interconnectivity concepts, you may want to learn about:
 
-- [Azure VMware Solution storage concepts](concepts-storage.md).
-- [Azure VMware Solution identity concepts](concepts-identity.md).
-- [How to enable Azure VMware Solution resource](enable-azure-vmware-solution.md).
+- [Azure VMware Solution storage concepts](concepts-storage.md)
+- [Azure VMware Solution identity concepts](concepts-identity.md)
+- [How to enable Azure VMware Solution resource](deploy-azure-vmware-solution.md#step-1-register-the-microsoftavs-resource-provider)
 
 <!-- LINKS - external -->
 [enable Global Reach]: ../expressroute/expressroute-howto-set-global-reach.md
 
 <!-- LINKS - internal -->
-[concepts-upgrades]: ./concepts-upgrades.md
+[concepts-upgrades]: ./concepts-private-clouds-clusters#host-maintenance-and-lifecycle-management
 [concepts-storage]: ./concepts-storage.md
