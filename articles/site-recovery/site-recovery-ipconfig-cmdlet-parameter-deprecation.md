@@ -41,7 +41,7 @@ These parameters will no longer be accepted by the cmdlet.
  
 ## Alternatives 
 
-As an alternative, a new cmdlet [New-AzRecoveryServicesAsrVMNicIPConfig](https://docs.microsoft.com/powershell/module/az.recoveryservices/new-azrecoveryservicesasrvmnicipconfig) is introduced for configuring IP Config FO/TFO settings. 
+As an alternative, a new cmdlet [New-AzRecoveryServicesAsrVMNicIPConfig](/powershell/module/az.recoveryservices/new-azrecoveryservicesasrvmnicipconfig) is introduced for configuring IP Config FO/TFO settings. 
 
 
 ## Remediation steps

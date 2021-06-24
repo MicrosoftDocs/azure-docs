@@ -32,7 +32,7 @@ You might want to use the pay-as-you-go images if you don't want to worry about 
 ### Red Hat Gold Images
 
 Azure also offers Red Hat Gold Images (`rhel-byos`). These images might be useful to customers who have existing Red Hat subscriptions and want to use them in Azure. You're required to enable your existing Red Hat subscriptions for Red Hat Cloud Access before you can use them in Azure. Access to these images is granted automatically when your Red Hat subscriptions are enabled for Cloud Access and meet the eligibility requirements. Using these images allows a customer to avoid double billing that might be incurred from using the pay-as-you-go images.
-* Learn how to [enable your Red Hat subscriptions for Cloud Access with Azure](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/enabling-and-maintaining-subs_cloud-access).
+* Learn how to [enable your Red Hat subscriptions for Cloud Access with Azure](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/red-hat-cloud-access-program-overview_cloud-access#ref_ca-unit-conversion_cloud-access).
 * Learn how to [locate Red Hat Gold Images in the Azure portal, the Azure CLI, or PowerShell cmdlet](./byos.md).
 
 > [!NOTE]

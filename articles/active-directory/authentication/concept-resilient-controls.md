@@ -280,7 +280,7 @@ Undo the changes you made as part of the activated contingency plan once the ser
 
 * [Azure AD Authentication Documentation](./howto-mfaserver-iis.md)
 * [Manage emergency-access administrative accounts in Azure AD](../roles/security-emergency-access.md)
-* [Configure named locations in Azure Active Directory](../reports-monitoring/quickstart-configure-named-locations.md)
+* [Configure named locations in Azure Active Directory](../conditional-access/location-condition.md)
   * [Set-MsolDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings)
 * [How to configure hybrid Azure Active Directory joined devices](../devices/hybrid-azuread-join-plan.md)
 * [Windows Hello for Business Deployment Guide](/windows/security/identity-protection/hello-for-business/hello-deployment-guide)

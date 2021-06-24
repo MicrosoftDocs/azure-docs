@@ -25,7 +25,7 @@ resource myStorageAccount 'Microsoft.Storage/storageAccounts@2019-06-01' = {
 
 You set a symbolic name for the resource. In the preceding example, the symbolic name is `myStorageAccount`. You can use any value for the symbolic name but it can't be the same as another resource, parameter, or variable in the Bicep file. The symbolic name isn't the same as the resource name. You use the symbolic name to easily reference the resource in other parts of your Bicep file.
 
-Bicep doesn't support `apiProfile`, which is available in [Azure Resource Manager templates (ARM templates) JSON](../templates/template-syntax.md).
+Bicep doesn't support `apiProfile`, which is available in [Azure Resource Manager templates (ARM templates) JSON](../templates/syntax.md).
 
 ## Set resource name
 
@@ -204,14 +204,16 @@ resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' existing = {
 output blobEndpoint string = stg.properties.primaryEndpoints.blob
 ```
 
-The preceding example don't deploy the storage account, but the declaration provides access to properties on the existing resource. Using the 'stg' symbolic name, you can access properties on the storage account.
+The preceding example doesn't deploy the storage account, but the declaration provides access to properties on the existing resource. Using the 'stg' symbolic name, you can access properties on the storage account.
 
-The following examples shows how to specify the `scope` property:
+The following example shows how to specify the `scope` property:
 
+```bicep
 resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' existing = {
   name: 'exampleStorage'
   scope: resourceGroup(mySub, myRg)
 }
+```
 
 ## Next steps
 

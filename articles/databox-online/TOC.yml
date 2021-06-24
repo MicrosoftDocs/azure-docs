@@ -245,6 +245,8 @@
           href: azure-stack-edge-gpu-prepare-windows-generalized-image-iso.md
         - name: Use specialized image
           href: azure-stack-edge-gpu-deploy-vm-specialized-image-powershell.md 
+        - name: Use Azure Marketplace image
+          href: azure-stack-edge-gpu-create-virtual-machine-marketplace-image.md 
       - name: Deploy VMs
         items:
         - name: Via Azure portal
@@ -282,7 +284,7 @@
           - name: Connect to VM console
             href: azure-stack-edge-gpu-connect-virtual-machine-console.md
           - name: Collect VM guest logs
-            href: azure-stack-edge-gpu-collect-virtual-machine-guest-logs.md
+            href: azure-stack-edge-gpu-collect-virtual-machine-guest-logs.md          
           - name: VM image upload
             href: azure-stack-edge-gpu-troubleshoot-virtual-machine-image-upload.md
           - name: VM deployment
@@ -347,12 +349,18 @@
         href: azure-stack-edge-gpu-enable-azure-monitor.md
     - name: Troubleshoot
       items:
-      - name: Device issues 
-        href: azure-stack-edge-gpu-troubleshoot.md
       - name: Ordering issues
         href: azure-stack-edge-troubleshoot-ordering.md   
       - name: Activation issues
         href: azure-stack-edge-gpu-troubleshoot-activation.md    
+      - name: Device logs and diagnostics 
+        href: azure-stack-edge-gpu-troubleshoot.md
+      - name: Azure Resource Manager issues 
+        href: azure-stack-edge-gpu-troubleshoot-azure-resource-manager.md
+      - name: Blob issues
+        href: azure-stack-edge-gpu-troubleshoot-blob-storage.md
+      - name: IoT Edge issues
+        href: azure-stack-edge-gpu-troubleshoot-iot-edge.md
       - name: Contact Microsoft Support
         href: azure-stack-edge-contact-microsoft-support.md 
   - name: Shared release notes
@@ -441,6 +449,8 @@
           href: azure-stack-edge-troubleshoot.md
         - name: Ordering issues
           href: azure-stack-edge-troubleshoot-ordering.md
+        - name: IoT Edge
+          href: azure-stack-edge-troubleshoot-iot-edge.md
         - name: Contact Microsoft Support
           href: azure-stack-edge-contact-microsoft-support.md    
     - name: Monitor

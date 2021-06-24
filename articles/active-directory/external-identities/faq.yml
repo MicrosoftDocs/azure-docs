@@ -75,7 +75,7 @@ sections:
       - question: |
           Can I make a guest user a limited administrator?
         answer: |
-          Absolutely. For more information, see [Adding guest users to a role](add-guest-to-role.md).
+          Absolutely. For more information, see [Adding guest users to a role](./add-users-administrator.md).
           
       - question: |
           Does Azure AD B2B collaboration allow B2B users to access the Azure portal?

@@ -324,13 +324,13 @@
 - name: Azure Sentinel and continuous threat monitoring for SAP
   items:
     - name: Deploy the Azure Sentinel solution for SAP
-      href: /azure/sentinel/sap-deploy-solution#deploy-sap-security-content
+      href: ../../../sentinel/sap-deploy-solution.md#deploy-sap-security-content
     - name: Detailed requirements
-      href: /azure/sentinel/sap-solution-detailed-requirements
+      href: ../../../sentinel/sap-solution-detailed-requirements.md
     - name: Available SAP logs reference
-      href: /azure/sentinel/sap-solution-log-reference
+      href: ../../../sentinel/sap-solution-log-reference.md
     - name: SAP security content reference
-      href: /azure/sentinel/sap-solution-security-content
+      href: ../../../sentinel/sap-solution-security-content.md
 - name: Azure Monitor for SAP Solutions
   items:
   - name: Azure Monitor for SAP Solutions Overview

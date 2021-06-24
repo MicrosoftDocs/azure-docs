@@ -15,15 +15,15 @@ zone_pivot_groups: acs-plat-web-ios-android
 Get started with Azure Communication Services by using the Communication Services Calling SDK to add PSTN calling to your app.
 
 ::: zone pivot="platform-web"
-[!INCLUDE [Calling with JavaScript](./includes/pstn-call-js.md)]
+[!INCLUDE [Calling with JavaScript](./includes/pstn/pstn-call-js.md)]
 ::: zone-end
 
 ::: zone pivot="platform-android"
-[!INCLUDE [Calling with Android](./includes/pstn-call-android.md)]
+[!INCLUDE [Calling with Android](./includes/pstn/pstn-call-android.md)]
 ::: zone-end
 
 ::: zone pivot="platform-ios"
-[!INCLUDE [Calling with iOS](./includes/pstn-call-ios.md)]
+[!INCLUDE [Calling with iOS](./includes/pstn/pstn-call-ios.md)]
 ::: zone-end
 
 ## Clean up resources

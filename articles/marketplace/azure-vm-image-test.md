@@ -1,6 +1,6 @@
 ---
 title: Test an Azure virtual machine image for Azure Marketplace
-description: Learn how to test and submit an Azure virtual machine offer in Azure Marketplace.
+description: Test and submit an Azure virtual machine offer in Azure Marketplace.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
@@ -275,4 +275,4 @@ In this example, curl will be used to to make a POST API call to Azure Active Di
 
 ## Next steps
 
-- Sign in to [Partner Center](https://partner.microsoft.com/).
+- Sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2166002).

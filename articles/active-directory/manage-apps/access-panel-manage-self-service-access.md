@@ -2,14 +2,14 @@
 title: How to use self-service application access in Azure AD
 description: Enable self-service so users can find apps in Azure AD
 services: active-directory
-author: iantheninja
+author: mtillman
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/11/2017
-ms.author: iangithinji
+ms.author: mtillman
 ms.reviewer: japere,asteen
 ---
 
