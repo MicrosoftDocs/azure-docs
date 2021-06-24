@@ -31,7 +31,7 @@ You must do the following :
 - Assign Azure AD B2B Users to the SAML Application.
 
 When you've completed the steps above, your app should be up and running. To test Azure AD B2B access:
-1.	Open a browser and navigate to the External URL that you created when you published the app.
+1.	Open a browser and navigate to the external URL that you created when you published the app.
 2.	Sign in with the Azure AD B2B account that you assigned to the app. You should be able to load the application and have SSO into the application.
 
 ## Access to IWA and KCD apps
