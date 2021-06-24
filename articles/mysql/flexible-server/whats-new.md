@@ -1,6 +1,6 @@
 ---
-title: What's new in Azure Database for MySQL Flexible Server
-description: Learn about recent updates to Azure Database for MySQL - Flexible server, a relational database service in the Microsoft cloud based on the MySQL Community Edition.
+title: What's new in Azure Database for MySQL - Flexible Server
+description: Learn about recent updates to Azure Database for MySQL - Flexible Server, a relational database service in the Microsoft cloud based on the MySQL Community Edition.
 author: hjtoland3
 ms.service: mysql
 ms.author: jtoland
@@ -8,7 +8,8 @@ ms.custom: mvc
 ms.topic: conceptual
 ms.date: 06/18/2021
 ---
-# What's new in Azure Database for MySQL - Flexible Server?
+
+# What's new in Azure Database for MySQL - Flexible Server (Preview)?
 
 [Azure Database for MySQL - Flexible Server](./overview.md#azure-database-for-mysql---flexible-server-preview) is a deployment mode that's designed to provide more granular control and flexibility over database management functions and configuration settings than does the Single Server deployment mode. The service currently supports community version of MySQL 5.7 and 8.0.
 
@@ -29,7 +30,7 @@ This release of Azure Database for MySQL - Flexible Server includes the followin
 
 - **Free 12-month offer**
 
-  Beginning June 15, 2021, new Azure users can take advantage of our 12-month [Azure free account](https://azure.microsoft.com/free/), which provides up to 750 hours of Azure Database for MySQL – Flexible Server and 32 GB of storage per month. Customers can take advantage of this offer to develop and deploy applications that use Azure Database for MySQL – Flexible Server (Preview).
+  As of June 15, 2021, the [Azure free account](https://azure.microsoft.com/free/) provides customers with up to 12 months of free access to Azure Database for MySQL – Flexible Server with 750 hours of usage and 32 GB of storage per month. Customers can take advantage of this offer to develop and deploy applications that use Azure Database for MySQL – Flexible Server. [Learn more](https://go.microsoft.com/fwlink/?linkid=2165892).
 
 - **Storage auto-grow**
 
@@ -49,7 +50,8 @@ This release of Azure Database for MySQL - Flexible Server includes the followin
 
 - **Known issue**
 
-  If a client application trying to connect to an instance of Flexible Server is in a peered virtual network (VNet), the application may not be able to connect using the Flexible Server *servername* because it cannot resolve the DNS name for the Flexible Server instance from a peered VNet. [Learn more](concepts-networking.md#connecting-from-peered-vnets-in-same-azure-region).
+  - If a client application trying to connect to an instance of Flexible Server is in a peered virtual network (VNet), the application may not be able to connect using the Flexible Server *servername* because it cannot resolve the DNS name for the Flexible Server instance from a peered VNet. [Learn more](concepts-networking.md#connecting-from-peered-vnets-in-same-azure-region).
+  - If you have an existing server with storage provisioned less than 20 GB in size and you try to perform a compute scale up or down operation, the compute scaling operation fails. You can resolve the issue by scaling up the provisioned storage to 20 GB and retrying the compute scaling operation.
 
 ## May 2021
 

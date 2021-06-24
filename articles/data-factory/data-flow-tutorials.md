@@ -34,6 +34,8 @@ As updates are constantly made to the product, some features have added or diffe
 
 [Debugging workflows for data flows](https://youtu.be/y3suL7UsWVw)
 
+[Updated monitoring view](https://www.youtube.com/watch?v=FWCBslsk6KE)
+
 ## Transformation overviews
 
 [Aggregate transformation](http://youtu.be/jdL75xIr98I)
