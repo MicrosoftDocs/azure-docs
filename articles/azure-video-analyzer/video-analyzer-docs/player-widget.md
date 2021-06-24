@@ -250,7 +250,7 @@ We did a simple configuration for the player above, but it supports a wider rang
 
 ### Alternate ways to load the code into your application
 
-The package used to get the code into your application is an NPM package [here](https://www.npmjs.com/package/video-analyzer-widgets).  While in the above example the latest version  was loaded at run time directly from the repository, you can also download and install the package locally using:
+The package used to get the code into your application is an NPM package [here](https://www.npmjs.com/package/@azure/video-analyzer-widgets).  While in the above example the latest version  was loaded at run time directly from the repository, you can also download and install the package locally using:
 
 ```bash
 npm install @azure/video-analyzer/widgets
@@ -287,4 +287,4 @@ document.firstElementChild.appendChild(avaPlayer);
 
 ## Next steps
 
-* Learn more about the [widget API](https://github.com/Azure/video-analyzer/widgets)
+* Learn more about the [widget API](https://github.com/Azure/video-analyzer/tree/main/widgets)

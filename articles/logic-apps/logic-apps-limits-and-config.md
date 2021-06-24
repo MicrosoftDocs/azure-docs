@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rohithah, rarayudu, azla
 ms.topic: reference
-ms.date: 05/25/2021
+ms.date: 06/23/2021
 ---
 
 # Limits and configuration reference for Azure Logic Apps
@@ -42,7 +42,7 @@ The following tables list the values for a single workflow definition:
 | `description` - Maximum length | 256 characters ||
 | `parameters` - Maximum number of items | 50 parameters ||
 | `outputs` - Maximum number items | 10 outputs ||
-| `trackedProperties` - Maximum size | 16,000 characters ||
+| `trackedProperties` - Maximum size | 8,000 characters ||
 ||||
 
 <a name="run-duration-retention-limits"></a>

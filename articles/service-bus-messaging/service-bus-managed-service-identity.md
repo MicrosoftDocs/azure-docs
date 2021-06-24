@@ -2,7 +2,8 @@
 title: Managed identities for Azure resources with Service Bus
 description: This article describes how to use managed identities to access with Azure Service Bus entities (queues, topics, and subscriptions).
 ms.topic: article
-ms.date: 04/23/2021
+ms.date: 06/14/2021
+ms.custom: subject-rbac-steps
 ---
 
 # Authenticate a managed identity with Azure Active Directory to access Azure Service Bus resources
@@ -87,30 +88,10 @@ Once the application is created, follow these steps:
 Once you've enabled this setting, a new service identity is created in your Azure Active Directory (Azure AD) and configured into the App Service host.
 
 ### To Assign Azure roles using the Azure portal
-Now, assign the service identity to a role in the required scope in your Service Bus resources. To assign a role to a Service Bus namespace, navigate to the namespace in the Azure portal. Display the Access Control (IAM) settings for the resource, and follow these instructions to manage role assignments:
+Assign one of the [Service Bus roles](#azure-built-in-roles-for-azure-service-bus) to the managed service identity at the desired scope (Service Bus namespace, resource group, subscription). For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md). 
 
 > [!NOTE]
-> The following steps assigns a service identity role to your Service Bus namespaces. You can follow the same steps to assign a role at other supported scopes (resource group and subscription). 
-> 
-> [Create a Service Bus Messaging namespace](service-bus-create-namespace-portal.md) if you don't have one. 
-
-1. In the Azure portal, navigate to your Service Bus namespace and display the **Overview** for the namespace. 
-1. Select **Access Control (IAM)** on the left menu to display access control settings for the Service Bus namespace.
-1.  Select the **Role assignments** tab to see the list of role assignments.
-3.	Select **Add**, and then select **Add role assignment**.
-4.	On the **Add role assignment** page, follow these steps:
-    1. For **Role**, select the Service Bus role that you want to assign. In this example, it's **Azure Service Bus Data Owner**.
-    1. For the **Assign access to** field, select **App Service** under **System assigned managed identity**. 
-    1. Select the **subscription** in which the managed identity for the web app was created.
-    1. Select the **managed identity** for the web app you created. The default name for the identity is same as the name of the web app. 
-    1. Then, select **Save**.
-        
-        ![Add role assignment page](./media/service-bus-managed-service-identity/add-role-assignment-page.png)
-
-    Once you've assigned the role, the web application will have access to the Service Bus entities under the defined scope. 
-
-    > [!NOTE]
-    > For a list of services that support managed identities, see [Services that support managed identities for Azure resources](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md).
+> For a list of services that support managed identities, see [Services that support managed identities for Azure resources](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md).
 
 ### Run the app
 Now, modify the default page of the ASP.NET application you created. You can use the web application code from [this GitHub repository](https://github.com/Azure-Samples/app-service-msi-servicebus-dotnet).  

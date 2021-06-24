@@ -3,13 +3,13 @@ title: How to install and run the Spatial Analysis container - Computer Vision
 titleSuffix: Azure Cognitive Services
 description: The Spatial Analysis container lets you can detect people and distances.
 services: cognitive-services
-author: aahill
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 01/12/2021
-ms.author: aahi
+ms.date: 06/08/2021
+ms.author: pafarley
 ---
 
 # Install and run the Spatial Analysis container (Preview)

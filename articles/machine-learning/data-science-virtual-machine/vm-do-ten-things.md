@@ -46,7 +46,7 @@ In this article, you'll learn how to use your DSVM to perform data science tasks
 
 
 ## Use Jupyter Notebooks
-The Jupyter Notebook provides a browser-based IDE for data exploration and modeling. You can use Python 2, Python 3, or R (both open source and Microsoft R Server) in a Jupyter Notebook.
+The Jupyter Notebook provides a browser-based IDE for data exploration and modeling. You can use Python 2, Python 3, or R in a Jupyter Notebook.
 
 To start the Jupyter Notebook, select the **Jupyter Notebook** icon on the **Start** menu or on the desktop. In the DSVM command prompt, you can also run the command ```jupyter notebook``` from the directory where you have existing notebooks or where you want to create new notebooks.  
 
@@ -65,6 +65,12 @@ After you start Jupyter, navigate to the `/notebooks` directory for example note
 When you're in the notebook, you can explore your data, build the model, and test the model by using your choice of libraries.
 
 ## Explore data and develop models with Microsoft Machine Learning Server
+
+> [!NOTE]
+> Support for Machine Learning Server Standalone will end July 1, 2021. We will remove it from the DSVM images after
+> June, 30. Existing deployments will continue to have access to the software but due to the reached support end date,
+> there will be no support for it after July 1, 2021.
+
 You can use languages like R and Python to do your data analytics right on the DSVM.
 
 For R, you can use an IDE like RStudio that can be found on the start menu or on the desktop. Or you can use R Tools for Visual Studio. Microsoft has provided additional libraries on top of the open-source CRAN R to enable scalable analytics and the ability to analyze data larger than the memory size allowed in parallel chunked analysis. 

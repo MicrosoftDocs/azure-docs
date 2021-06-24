@@ -49,8 +49,8 @@ Set the environment variables:
 
 ```azurecli-interactive
 export VERSION=0.8.4
-export $CLUSTER_NAME=<arc-cluster-name>
-export $RESOURCE_GROUP=<resource-group-name>
+export CLUSTER_NAME=<arc-cluster-name>
+export RESOURCE_GROUP=<resource-group-name>
 ```
 
 While Arc enabled Open Service Mesh is in preview, the `az k8s-extension create` command only accepts `pilot` for the `--release-train` flag. `--auto-upgrade-minor-version` is always set to `false` and a version must be provided. If you have an OpenShift cluster, use the steps in the [section](#install-a-specific-version-of-osm-on-openshift-cluster).
@@ -301,7 +301,7 @@ Add namespaces to the mesh by running the following command:
 osm namespace add <namespace_name>
 ```
 
-More information about onboarding services can be found [here](https://docs.openservicemesh.io/docs/tasks_usage/onboard_services/).
+More information about onboarding services can be found [here](https://docs.openservicemesh.io/docs/tasks/onboard_services/).
 
 ### Configure OSM with Service Mesh Interface (SMI) policies
 
@@ -314,7 +314,7 @@ You can start with a [demo application](https://release-v0-8.docs.openservicemes
 
 The OSM extension has [Jaeger](https://www.jaegertracing.io/docs/getting-started/), [Prometheus](https://prometheus.io/docs/prometheus/latest/installation/) and [Grafana](https://grafana.com/docs/grafana/latest/installation/) installation disabled by default so that users can integrate OSM with their own running instances of those tools instead. To integrate with your own instances, check the following documentation:
 
-- [BYO-Jaeger instance](https://github.com/openservicemesh/osm-docs/blob/main/content/docs/tasks_usage/observability/tracing.md#byo-bring-your-own)
+- [BYO-Jaeger instance](https://github.com/openservicemesh/osm-docs/blob/main/content/docs/tasks/observability/tracing.md#byo-bring-your-own)
     - To set the values described in this documentation, you will need to update the `osm-config` ConfigMap with the following settings:
         ```json
         {

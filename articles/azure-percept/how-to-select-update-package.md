@@ -14,13 +14,13 @@ ms.custom: template-how-to
 This page provides guidance on how to select the update package that is best for your dev kit and the download locations for the update packages.
 
 For more information on how to update your device, see these articles:
-- [Update your Azure Percept DK over-the-air](https://docs.microsoft.com/azure/azure-percept/how-to-update-over-the-air)
-- [Update your Azure Percept DK via USB](https://docs.microsoft.com/azure/azure-percept/how-to-update-via-usb)
+- [Update your Azure Percept DK over-the-air](./how-to-update-over-the-air.md)
+- [Update your Azure Percept DK via USB](./how-to-update-via-usb.md)
 
 
 ## Prerequisites
 
-- An [Azure Percept DK](https://go.microsoft.com/fwlink/?linkid=2155270) that has been [set up and connected to Azure Percept Studio and IoT Hub](https://docs.microsoft.com/azure/azure-percept/quickstart-percept-dk-set-up).
+- An [Azure Percept DK](https://go.microsoft.com/fwlink/?linkid=2155270) that has been [set up and connected to Azure Percept Studio and IoT Hub](./quickstart-percept-dk-set-up.md).
 
 ## Identify the model name and software version of your dev kit
 To ensure you apply the correct update package to your dev kit, you must first determine which software version it's currently running.
@@ -29,7 +29,7 @@ To ensure you apply the correct update package to your dev kit, you must first d
 > Applying the incorrect update package could result in your dev kit becoming inoperable. It is important that you follow these steps to ensure you apply the correct update package.
 
 Option 1:
-1. Log in to the [Azure Percept Studio](/azure/azure-percept/overview-azure-percept-studio).
+1. Log in to the [Azure Percept Studio](./overview-azure-percept-studio.md).
 2. In **Devices**, choose your devkit device.
 3. In the **General** tab, look for the **Model** and **SW Version** information.
 
@@ -52,5 +52,5 @@ Using the **model** and **swVersion** identified in the previous section, check 
 
 ## Next steps
 Update your dev kits via the methods and update packages determined in the previous section.
-- [Update your Azure Percept DK over-the-air](https://docs.microsoft.com/azure/azure-percept/how-to-update-over-the-air)
-- [Update your Azure Percept DK via USB](https://docs.microsoft.com/azure/azure-percept/how-to-update-via-usb)
+- [Update your Azure Percept DK over-the-air](./how-to-update-over-the-air.md)
+- [Update your Azure Percept DK via USB](./how-to-update-via-usb.md)
