@@ -1,5 +1,5 @@
 ---
-title: Azure Stack Edge Pro FPGA security
+title: Azure Stack Edge Pro GPU/Pro FPGA security
 description: Describes the security and privacy features that protect your Azure Stack Edge Pro FPGA device, service, and data on-premises and in the cloud.
 services: Data Box Edge
 author: alkohli
@@ -10,7 +10,7 @@ ms.topic: article
 ms.date: 08/21/2019
 ms.author: alkohli
 ---
-# Azure Stack Edge Pro FPGA security and data protection
+# Azure Stack Edge security and data protection
 
 Security is a major concern when you're adopting a new technology, especially if the technology is used with confidential or proprietary data. Azure Stack Edge Pro FPGA helps you ensure that only authorized entities can view, modify, or delete your data.
 
@@ -29,7 +29,7 @@ The Azure Stack Edge service is a management service that's hosted in Azure. The
 
 [!INCLUDE [data-box-edge-gateway-data-rest](../../includes/data-box-edge-gateway-service-protection.md)]
 
-## Azure Stack Edge Pro FPGA device protection
+## Azure Stack Edge device protection
 
 The Azure Stack Edge Pro FPGA device is an on-premises device that helps transform your data by processing it locally and then sending it to Azure. Your device:
 
