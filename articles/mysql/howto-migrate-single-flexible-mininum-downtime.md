@@ -12,9 +12,8 @@ ms.date: 06/18/2021
 
 You can migrate an instance of Azure Database for MySQL – Single Server to of Azure Database for MySQL – Flexible Server with minimum downtime to your applications by using a combination of open-source tools such as mydumper/myloader together with Data-in replication. 
 
-> [!NOTE]
-> This article contains references to the term _slave_, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
->
+>[!NOTE]
+>This article contains references to the term _slave_, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
 Data-in replication is a technique that replicates data changes from the source server to the destination server based on the binary log file position method, such that the MySQL instance operating as the source (where the database changes originate) writes updates and changes as “events” to the binary log. The information in the binary log is stored in different logging formats according to the database changes being recorded. Replicas are configured to read the binary log from the source and to execute the events in the binary log on the replica's local database.
 
@@ -31,16 +30,16 @@ In this tutorial, you learn how to:
 ## Prerequisites
 To complete this tutorial, you need:
 * An instance of Azure Database for MySQL Single Server running version 5.7 or 8.0. 
->[!Note]
-> If you are running Azure Database for MySQL Single Server version 5.6, upgrade your instance to 5.7 and then configure data in replication. To learn more, see [Major version upgrade in Azure Database for MySQL - Single Server](how-to-major-version-upgrade.md).
+    >[!Note]
+    >If you are running Azure Database for MySQL Single Server version 5.6, upgrade your instance to 5.7 and then configure data in replication. To learn more, see [Major version upgrade in Azure Database for MySQL - Single Server](how-to-major-version-upgrade.md).
 * An instance of Azure Database for MySQL Flexible Server. For more information, see the article [Create an instance in Azure Database for MySQL Flexible Server](./flexible-server/quickstart-create-server-portal.md).
->[!Note]
->Configuring Data-in replication for zone redundant high availability servers is not supported. If you would like to have zone redundant HA for your target server then perform these steps
->    1. Create the server with Zone redundant HA enabled
->    2. Disable HA 
->    3. Follow the article to setup data-in replication 
->    4. Post cutover remove the Data-in replication configuration
->    5. Enable HA
+    >[!Note]
+    >Configuring Data-in replication for zone redundant high availability servers is not supported. If you would like to have zone redundant HA for your target server then perform these steps:<br>
+    >* Create the server with Zone redundant HA enabled<br>
+    >* Disable HA<br>
+    >* Follow the article to setup data-in replication<br> 
+    >* Post cutover remove the Data-in replication configuration<br>
+    >* Enable HA<br>
 * To connect and create a database using MySQL Workbench. For more information, see the article [Use MySQL Workbench to connect and query data](./flexible-server/connect-workbench.md).
 * To ensure that you have an Azure VM running Linux in same region (or on the same VNet, in case of private access) that hosts your source and target databases.
 * To install mysql client or MySQL Workbench (the client tools) on your Azure VM. Ensure that you can connect to both the primary and replica server. For the purposes of this article, mysql client is installed.
@@ -60,12 +59,11 @@ To configure Data in replication, perform the following steps:
     ```sql
     SHOW VARIABLES LIKE 'log_bin';
     ```
->[!Note]
-> With Azure Database for MySQL Single Server with the large storage, which supports up to 16TB, this enabled by default.
+    >[!Note]
+    >With Azure Database for MySQL Single Server with the large storage, which supports up to 16TB, this enabled by default.
 
->[!Tip] 
-> With Azure Database for MySQL Single Server, which supports up to 4TB, this is not enabled by default. However, if you promote a [read replica](howto-read-replicas-portal.md) for the source server and then delete read replica, the parameter will be set to ON.
->
+    >[!Tip] 
+    >With Azure Database for MySQL Single Server, which supports up to 4TB, this is not enabled by default. However, if you promote a [read replica](howto-read-replicas-portal.md) for the source server and then delete read replica, the parameter will be set to ON.
 
 4.	Based on the SSL enforcement for the source server, create a user in the source server with the replication permission by running the appropriate command.
     If you’re using SSL, run the following command:
@@ -83,12 +81,12 @@ To configure Data in replication, perform the following steps:
     ```bash
     $ mydumper --host=<primary_server>.mysql.database.azure.com --user=<username>@<primary_server> --password=<Password> --outputdir=./backup --rows=100 -G -E -R -z --trx-consistency-only --compress --build-empty-files --threads=16 --compress-protocol --ssl  --regex '^(classicmodels\.)' -L mydumper-logs.txt
     ```
->[!Tip]
->The option **--trx-consistency-only** is a required for transactional consistency while we take backup 
->* The mydumper equivalent of mysqldump’s --single-transaction. 
->* Useful if all your tables are InnoDB. 
->* The “main” thread only needs to hold the global lock until the “dump” threads can start a transaction.
->* Offers the shortest duration of global locking
+    >[!Tip]
+    >The option **--trx-consistency-only** is a required for transactional consistency while we take backup 
+    >* The mydumper equivalent of mysqldump’s --single-transaction. 
+    >* Useful if all your tables are InnoDB. 
+    >* The “main” thread only needs to hold the global lock until the “dump” threads can start a transaction.
+    >* Offers the shortest duration of global locking
 
 The “main” thread only needs to hold the global lock until the “dump” threads can start a transaction.
 
@@ -103,10 +101,10 @@ For more details about using mydumper, see [mydumper/myloader](concepts-migrate-
     ```
 In this command, **./backup** refers to the output directory used in the command in the previous step.
 The results should appear as shown in the following image:
-    :::image type="content" source="./media/howto-migrate-single-flexi-min-downtime/metadata.png" alt-text="Continuous sync with the Azure Database Migration Service":::        
+    :::image type="content" source="./media/howto-migrate-single-flexible-mininum-downtime/metadata.png" alt-text="Continuous sync with the Azure Database Migration Service":::        
     
 Make sure to note the binary file name for use in later steps.
-7.	Restore the database using myloader by running the following command:
+7. Restore the database using myloader by running the following command:
 ```bash
 $ myloader --host=<servername>.mysql.database.azure.com --user=<username> --password=<Password> --directory=./backup --queries-per-transaction=100 --threads=16 --compress-protocol --ssl --verbose=3 -e 2>myloader-logs.txt
 ```
@@ -114,7 +112,7 @@ The variables in this command are explained below:
 * **--host:** Name of the replica server
 * **--user:** Name of a user. You can use server admin or a user with read\write permission capable of restoring the schemas and data to the database 
 * **--Password:** Password for the user above
-8.	Depending on the SSL enforcement on the primary server, connect to the replica server using the mysql client tool and perform the following the steps.
+8. Depending on the SSL enforcement on the primary server, connect to the replica server using the mysql client tool and perform the following the steps.
     * If SSL enforcement is enabled, then:
 
         i. Download the certificate needed to communicate over SSL with your Azure Database for MySQL server from [here](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem).
@@ -144,9 +142,9 @@ The variables in this command are explained below:
      ```sql
      show slave status \G; 
      ```
->[!Note] 
->If you are using MySQL Workbench the \G modifier is not required.
-
+    >[!Note] 
+    >If you are using MySQL Workbench the \G modifier is not required.
+    
 If the state of *Slave_IO_Running* and *Slave_SQL_Running* are Yes and the value of *Seconds_Behind_Master* is 0, then replication is working well. Seconds_Behind_Master indicates how late the replica is. If the value is something other than 0, then  the replica is processing updates.
 
 ## Testing the replication (optional)

@@ -27,10 +27,10 @@ This quickstart shows you how to install, back up, and restore a MySQL database 
 Before you begin migrating your MySQL database, you need to:
 1. Create an Azure Database for MySQL server by using the [Azure portal](./flexible-server/quickstart-create-server-portal.md).
 2. Create an Azure VM running Linux by using the [Azure portal](../virtual-machines/linux/quick-create-portal.md) (preferably Ubuntu). 
->[!Note]
-> Prior to installing the tools, consider the following points:
-> * If your source is on-premises and has a high bandwidth connection to Azure (using ExpressRoute), consider installing the tool on an Azure VM. 
-> * If you have a challenge in the bandwidth between the source and target, consider installing mydumper near the source and myloader near the target server. You can use tools **[Azcopy](../storage/common/storage-use-azcopy-v10.md)** to move the data from on-premises or other cloud solutions to Azure.
+    >[!Note]
+    >Prior to installing the tools, consider the following points:<br>
+    >* If your source is on-premises and has a high bandwidth connection to Azure (using ExpressRoute), consider installing the tool on an Azure VM.<br> 
+    >* If you have a challenge in the bandwidth between the source and target, consider installing mydumper near the source and myloader near the target server. You can use tools **[Azcopy](../storage/common/storage-use-azcopy-v10.md)** to move the data from on-premises or other cloud solutions to Azure.
 
 3. Install mysql client, do the following steps: 
      * Update the package index on the Azure VM running Linux by running the following command:
@@ -49,15 +49,15 @@ To install mydumper/myloader, do the following steps.
     ```bash
     $ wget https://github.com/maxbube/mydumper/releases/download/v0.10.1/mydumper_0.10.1-2.$(lsb_release -cs)_amd64.deb
     ```
-> [!Note] 
-> $(lsb_release -cs) helps to identify your distribution.
+    > [!Note] 
+    > $(lsb_release -cs) helps to identify your distribution.
 2.	To install the .deb package for mydumper, run the following command:
     ```bash
     $ dpkg -i mydumper_0.10.1-2.$(lsb_release -cs)_amd64.deb
     ```
 
->[!Tip] 
->The command you use to install the package will differ based on the Linux distribution you have as the installers are different. The mydumper/myloader is available for following distributions Fedora, RedHat , Ubuntu, Debian, CentOS , openSUSE and MacOSX. For more information, see **[How to install mydumper](https://github.com/maxbube/mydumper#how-to-install-mydumpermyloader)**
+    >[!Tip] 
+    >The command you use to install the package will differ based on the Linux distribution you have as the installers are different. The mydumper/myloader is available for following distributions Fedora, RedHat , Ubuntu, Debian, CentOS , openSUSE and MacOSX. For more information, see **[How to install mydumper](https://github.com/maxbube/mydumper#how-to-install-mydumpermyloader)**
 
 
 
@@ -77,10 +77,10 @@ This command uses the following variables:
 * **--trx-consistency-only:** Transactional consistency only
 * **--threads:** Number of threads to use, default 4. Recommended a use a value equal to 2x of the vCore of the computer.
 
->[!Note] 
-> * For more information on other options, you can use with mydumper, run the following command:
-**mydumper --help** . For more details see, [mydumper\myloader documentation](https://centminmod.com/mydumper.html)
-> * To dump multiple databases in parallel, you can modiffy regex variable as shown in the example:  **regex ’^(DbName1\.|DbName2\.)**
+    >[!Note] 
+    >For more information on other options, you can use with mydumper, run the following command:
+    **mydumper --help** . For more details see, [mydumper\myloader documentation](https://centminmod.com/mydumper.html)<br>
+    >To dump multiple databases in parallel, you can modiffy regex variable as shown in the example:  **regex ’^(DbName1\.|DbName2\.)**
 
 ## Restore your database using myloader
 * To restore the database that you backed up using mydumper, run the following command:
@@ -107,5 +107,5 @@ After the database is restored, it’s always recommended to validate the data c
 ## Next steps
 * Learn more about the [mydumper/myloader project in GitHub](https://github.com/maxbube/mydumper).
 * Learn [How to migrate large MySQL databases](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/best-practices-for-migrating-large-databases-to-azure-database/ba-p/1362699).
-* [Tutorial: Minimal Downtime Migration of Azure Database for MySQL – Single Server to Azure Database for MySQL – Flexible Server](howto-migrate-single-flexi-min-downtime.md)
+* [Tutorial: Minimal Downtime Migration of Azure Database for MySQL – Single Server to Azure Database for MySQL – Flexible Server](howto-migrate-single-flexible-mininum-downtimee.md)
 * Learn more about Data-in replication  [Replicate data into Azure Database for MySQL Flexible Server](flexible-server/concepts-data-in-replication.md) and [Configure Azure Database for MySQL Flexible Server Data-in replication](./flexible-server/how-to-data-in-replication.md)
