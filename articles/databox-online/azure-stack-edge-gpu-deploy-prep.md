@@ -114,32 +114,42 @@ The person who will manage the physical device creates and maintains the managem
 
 ### [Portal (Classic)](#tab/azure-portal)
 
-To create an Azure Stack Edge resource, take the following steps in the Azure portal.
+To create an Azure Stack Edge resource through the Azure Stack Edge service, take the following steps in the Azure portal.
 
 1. Use your Microsoft Azure credentials to sign in to the Azure portal at this URL: [https://portal.azure.com](https://portal.azure.com).
 
-2. Select **+ Create a resource**. Search for and select **Azure Stack Edge**. Select **Create**. 
+2. In **Services**, search for and select **Azure Stack Edge**. Then select **+ Create**. 
 
-3. Pick the subscription that you want to use for the Azure Stack Edge Pro device. Select the country to where you want to ship this physical device. Select **Show devices**.
+3. In **Manage Azure Stack Edge devices**, select the **Try Azure Hardware Center** link.
+
+    ![Switch to Azure Edge Hardware Center to order your Azure Stack Edge device](media/azure-stack-edge-gpu-deploy-prep/classic-order-experience-01.png)
+
+    This opens the **Get started** screen for creating an order in the Azure Edge Hardware Center. 
+
+4. If don't want to try ordering through the Hardware Center, select the **Order using classic ordering experience** link.
+
+   ![Switch to Azure Stack Edge classic ordering experience from Azure Edge Hardware Center](media/azure-stack-edge-gpu-deploy-prep/classic-order-experience-02.png)       
+
+5. Pick the subscription that you want to use for the Azure Stack Edge Pro GPU device. Select the country or region to ship the physical device to. Then select **Show devices**.
 
     ![Create a resource 1](media/azure-stack-edge-gpu-deploy-prep/create-resource-1.png)
 
-4. Select device type. Under **Azure Stack Edge Pro**, choose **Azure Stack Edge Pro with GPU** and then choose **Select**. If you see any issues or are unable to select the device type, go to [Troubleshoot order issues](azure-stack-edge-troubleshoot-ordering.md).
+6. Select device type. Under **Azure Stack Edge Pro**, choose **Azure Stack Edge Pro with GPU** and then choose **Select**. If you see any issues or are unable to select the device type, go to [Troubleshoot order issues](azure-stack-edge-troubleshoot-ordering.md).
 
     ![Create a resource 3](media/azure-stack-edge-gpu-deploy-prep/create-resource-3.png)
 
-5. Based on your business need, you can select Azure Stack Edge Pro with 1 or 2 Graphical Processing Units (GPUs) from Nvidia. 
+7. Based on your business need, you can select Azure Stack Edge Pro with 1 or 2 Graphical Processing Units (GPUs) from Nvidia. 
 
     ![Create a resource 4](media/azure-stack-edge-gpu-deploy-prep/create-resource-4.png)
 
-6. On the **Basics** tab, enter or select the following **Project details**.
+8. On the **Basics** tab, enter or select the following **Project details**.
     
     |Setting  |Value  |
     |---------|---------|
     |Subscription    |The subscription is automatically populated based on the earlier selection. Subscription is linked to your billing account. |
     |Resource group  |Select an existing group or create a new group.<br>Learn more about [Azure Resource Groups](../azure-resource-manager/management/overview.md).     |
 
-7. Enter or select the following **Instance details**.
+9. Enter or select the following **Instance details**.
 
     |Setting  |Value  |
     |---------|---------|
@@ -148,7 +158,7 @@ To create an Azure Stack Edge resource, take the following steps in the Azure po
 
     ![Create a resource 5](media/azure-stack-edge-gpu-deploy-prep/create-resource-5.png)
 
-8. Select **Next: Shipping address**.
+10. Select **Next: Shipping address**.
 
     - If you already have a device, select the combo box for **I already have a device**.
 
@@ -158,15 +168,15 @@ To create an Azure Stack Edge resource, take the following steps in the Azure po
 
         ![Create a resource 7](media/azure-stack-edge-gpu-deploy-prep/create-resource-7.png)
 
-9. Select **Next: Tags**. Optionally provide tags to categorize resources and consolidate billing. Select **Next: Review + create**.
+11. Select **Next: Tags**. Optionally provide tags to categorize resources and consolidate billing. Select **Next: Review + create**.
 
-10. On the **Review + create** tab, review the **Pricing details**, **Terms of use**, and the details for your resource. Select the combo box for **I have reviewed the privacy terms**.
+12. On the **Review + create** tab, review the **Pricing details**, **Terms of use**, and the details for your resource. Select the combo box for **I have reviewed the privacy terms**.
 
     ![Create a resource 8](media/azure-stack-edge-gpu-deploy-prep/create-resource-8.png) 
 
     You are also notified that during the resource creation, a Managed Service Identity (MSI) is enabled that lets you authenticate to cloud services. This identity exists for as long as the resource exists.
 
-11. Select **Create**.
+13. Select **Create**.
 
     The resource creation takes a few minutes. An MSI is also created that lets the Azure Stack Edge device communicate with the resource provider in Azure.
 
