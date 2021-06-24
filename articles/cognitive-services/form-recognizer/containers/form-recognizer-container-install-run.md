@@ -119,7 +119,7 @@ If you are only making analyze calls, the host machine requirements are as follo
 
 * Replace the {ENDPOINT_URI} and {API_KEY} values with your resource Endpoint URI and the API Key from the Azure resource page.
 
-   :::image type="content" source="../media/containers/keys-and-endpoint.png" alt-text="Screenshot: Azure portal keys and endpoint page":::
+   :::image type="content" source="../media/containers/keys-and-endpoint.png" alt-text="Screenshot: Azure portal keys and endpoint page.":::
 
 * Ensure that the EULA value is set to "accept".
 
@@ -552,7 +552,7 @@ There are several ways to validate that the container is running:
   |**http://<span></span>localhost:5000/swagger** | The container provides a full set of documentation for the endpoints and a Try it out feature. With this feature, you can enter your settings into a web-based HTML form and make the query without having to write any code. After the query returns, an example CURL command is provided to demonstrate the HTTP headers and body format that's required.
   |
 
-:::image type="content" source="../media/containers/container-webpage.png" alt-text="Screenshot: Azure container welcome page":::
+:::image type="content" source="../media/containers/container-webpage.png" alt-text="Screenshot: Azure container welcome page.":::
 
 ## Stop the containers
 
