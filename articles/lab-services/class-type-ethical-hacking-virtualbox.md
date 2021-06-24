@@ -1,5 +1,5 @@
 ---
-title: Set up an Ethical Hacking lab on VirtualBox with Azure Lab Services | Microsoft Docs
+title: Set up an ethical hacking lab on VirtualBox with Azure Lab Services | Microsoft Docs
 description: Learn how to set up a lab using Azure Lab Services to teach ethical hacking with VirtualBox. 
 ms.topic: article
 ms.date: 06/11/2021
@@ -46,7 +46,7 @@ Kali is a Linux distribution that includes tools for penetration testing and sec
 1. Download the ova image from [Kali Linux VM VirtualBox images](https://www.kali.org/get-kali/#kali-virtual-machines).  We recommend the 32bit version, the 64bit version loads with errors.  Remember the default username and password noted on the download page.
 2. Open VirtualBox Manager and [import the .ova image.](https://docs.oracle.com/cd/E26217_01/E26796/html/qs-import-vm.html).  The Kali licensing agreement will need to be reviewed and accepted to continue.
 
-#### Note:
+[!Note]
 - The VirtualBox default Ram for the Kali VM is 2 gig (2048), We recommend increasing the Ram to at least 4 gig (4096) or more depending on your needs.  This can be changed by the students on their VMs.  Changing the RAM size within VirtualBox does not change the Lab's VM size.
 - By default the Hard disk is set to an 80 gig limit, but is dynamically allocated.  Lab Service machines are limited to 128 gigs of hard drive space, so be careful not to exceed this disk size.
 - The Kali image has USB 2.0 enable which requires [Oracle VM VirtualBox Extension Pack](https://www.virtualbox.org/wiki/Downloads) or set the USB controller to 1.0 under the USB tab.
@@ -55,9 +55,9 @@ Kali is a Linux distribution that includes tools for penetration testing and sec
 
 1. Download and extract the [SEED Labs VM image.](https://seedsecuritylabs.org/labsetup.html).
 2. Follow the directions to [create a VM in VirtualBox.](https://github.com/seed-labs/seed-labs/blob/master/manuals/vm/seedvm-manual.md)
-- If you need multiple SEED VMs make copies of the .iso for each machine, using the same .iso for different machines will not work properly.
+   If you need multiple SEED VMs make copies of the .iso for each machine, using the same .iso for different machines will not work properly.
 
-### IMPORTANT before Publishing
+[!IMPORTANT] before Publishing
 
 Makes sure that all the nested virtual machines are powered off before publishing the template.  Leaving them powered on has had unexpected side effects, including damaging the virtual machines.
 

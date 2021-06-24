@@ -20,7 +20,7 @@ For detailed information on how to set up this type of lab, see [Setup a lab for
 For detailed information on how to set up this type of lab, see [Setup a lab for ArcMap\ArcGIS Desktop](class-type-arcgis.md).
 
 ## Autodesk
-[AutoDesk](https://www.autodesk.com/) offers software solutions in architecture, engineering, construction, design, manufacturing, and more.  These solutions are commonly used in engineering classes and in the [Project Lead the Way](class-type-pltw.md) curriculum.
+[Autodesk](https://www.autodesk.com/) offers software solutions in architecture, engineering, construction, design, manufacturing, and more.  These solutions are commonly used in engineering classes and in the [Project Lead the Way](class-type-pltw.md) curriculum.
 
 For detailed information on how to set up this type of lab, see [Autodesk](class-type-autodesk.md).
 
