@@ -35,7 +35,7 @@ The following example builds a container image from a Node.js app in the [Azure-
 ```azurecli
 az acr pack build \
     --registry myregistry \
-    --image {{.Run.Registry}}/node-app:1.0 \
+    --image node-app:1.0 \
     --pull --builder cloudfoundry/cnb:cflinuxfs3 \
     https://github.com/Azure-Samples/nodejs-docs-hello-world.git
 ```
