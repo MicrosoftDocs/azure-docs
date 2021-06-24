@@ -81,7 +81,9 @@ To use either a [managed Azure Machine Learning __compute target__](concept-comp
 
 ### Create a compute cluster in a virtual network
 
-To create a Machine Learning Compute cluster, use the following steps:
+# [Studio](#tab/azure-studio)
+
+Use the following steps to create a compute cluster in the Azure Machine Learning studio:
 
 1. Sign in to [Azure Machine Learning studio](https://ml.azure.com/), and then select your subscription and workspace.
 1. Select __Compute__ on the left, __Compute clusters__ from the center, and then select __+ New__.
@@ -101,7 +103,9 @@ To create a Machine Learning Compute cluster, use the following steps:
 
 1. Select __Create__ to create the compute cluster.
 
-You can also create a Machine Learning compute cluster by using the Azure Machine Learning SDK. The following code creates a new Machine Learning Compute cluster in the `default` subnet of a virtual network named `mynetwork`:
+# [Python](#tab/python)
+
+The following code creates a new Machine Learning Compute cluster in the `default` subnet of a virtual network named `mynetwork`:
 
 ```python
 from azureml.core.compute import ComputeTarget, AmlCompute
@@ -136,6 +140,8 @@ except ComputeTargetException:
     # Wait for the cluster to be completed, show the output log
     cpu_cluster.wait_for_completion(show_output=True)
 ```
+
+---
 
 When the creation process finishes, you train your model by using the cluster in an experiment. For more information, see [Select and use a compute target for training](how-to-set-up-training-targets.md).
 
