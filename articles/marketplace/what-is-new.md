@@ -35,6 +35,7 @@ Learn about important updates in Microsoft's commercial marketplace program. Thi
 
 | Category | Description | Date |
 | ------------ | ------------- | ------------- |
+| Policies | We’ve updated the [commercial marketplace certification policies](/legal/marketplace/certification-policies). | 2021-07-01 |
 | Policies | We’ve updated the [commercial marketplace certification policies](/legal/marketplace/certification-policies). | 2021-05-07 |
 | Policy | The [Microsoft Publisher Agreement](/legal/marketplace/msft-publisher-agreement) has been updated. To see what’s changed, see [Change history for Microsoft Publisher Agreement](/legal/marketplace/mpa-change-history). | 2021-04-16 |
 | Offers | Microsoft 365 independent software vendors (ISVs) can now link their software as a service (SaaS) offer to their related Teams apps, Office add-ins (WXPO), and SharePoint SPFx solutions in Partner Center. SaaS ISVs can also declare if their SaaS offer is integrated with Microsoft Graph API. To learn more, see [Test and deploy Microsoft 365 Apps by partners in the Integrated apps portal](/microsoft-365/admin/manage/test-and-deploy-microsoft-365-apps). | 2021-04-08 |
