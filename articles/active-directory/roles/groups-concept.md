@@ -1,6 +1,6 @@
 ---
-title: Assign Azure AD roles to groups to manage role assignments (preview) - Azure Active Directory
-description: Assign Azure AD roles to Azure AD groups to simplify role assignment management in Azure Active Directory.
+title: Use Azure AD groups to manage role assignments (preview) - Azure Active Directory
+description: Use Azure AD groups to simplify role assignment management in Azure Active Directory.
 services: active-directory
 author: rolyon
 manager: daveba
@@ -16,7 +16,7 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# Assign Azure AD roles to groups to manage role assignments (preview)
+# Use Azure AD groups to manage role assignments (preview)
 
 > [!IMPORTANT]
 > Role-assignable groups is currently in PREVIEW.
@@ -87,4 +87,4 @@ Using this feature requires an Azure AD Premium P1 license. To also use Privileg
 ## Next steps
 
 - [Create a role-assignable group](groups-create-eligible.md)
-- [Assign a role to a role-assignable group](groups-assign-role.md)
+- [Assign Azure AD roles to groups](groups-assign-role.md)

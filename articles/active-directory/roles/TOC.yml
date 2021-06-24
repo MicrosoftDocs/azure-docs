@@ -18,7 +18,7 @@
       href: ../../role-based-access-control/rbac-and-directory-admin-roles.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
     - name: Microsoft 365 roles
       href: m365-workload-docs.md
-  - name: Assign roles to groups
+  - name: Use groups to manage role assignments
     href: groups-concept.md
   - name: Administrative units  
     href: administrative-units.md
