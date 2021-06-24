@@ -10,12 +10,17 @@ ms.date: 06/28/2021
 
 # Attach disk pools to Azure VMware Solution hosts (Preview)
 
-[Azure disk pools](../virtual-machines/disks-pools.md) (currently in [Preview](https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/)) offer persistent block storage to applications and workloads backed by Azure Disks. You can use disks as the persistent storage for Azure VMWare Solution for optimal cost and performance. For example, you can scale up by using disk pools instead of scaling clusters if you host storage-intensive workloads. You can also use disks to replicate data from on-premises or primary VMware environments to disk storage for the secondary site.
+[Azure disk pools](../virtual-machines/disks-pools.md) offer persistent block storage to applications and workloads backed by Azure Disks. You can use disks as the persistent storage for Azure VMWare Solution for optimal cost and performance. For example, you can scale up by using disk pools instead of scaling clusters if you host storage-intensive workloads. You can also use disks to replicate data from on-premises or primary VMware environments to disk storage for the secondary site.
+
+>[!IMPORTANT]
+>Azure Disk Pools (Preview) is currently in public preview.
+>This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+>For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Azure Disks are attached to the managed iSCSI controller, a virtual machine deployed under the managed resource group. Disks get deployed as storage targets to a disk pool, and each storage target shows as an iSCSI LUN under the iSCSI target. You can expose a disk pool as an iSCSI target connected to Azure VMware Solution hosts as a datastore. A disk pool surfaces as a single endpoint for all underlying disks added as storage targets. Each disk pool can have only one iSCSI controller.
 
 >[!TIP]
->To scale storage independent of the Azure VMware Solution hosts, we support surfacing Premium Disks](/azure/virtual-machines/disks-types#premium-ssd) as the datastores.
+>To scale storage independent of the Azure VMware Solution hosts, we support surfacing [Premium Disks](/azure/virtual-machines/disks-types#premium-ssd) as the datastores.
 
 The diagram shows how disk pools work with Azure VMware Solution hosts. Each iSCSI controller can access each managed disk over iSCSI, and the Azure VMware Solution hosts can access the iSCSI controller over iSCSI.
 
@@ -42,7 +47,7 @@ You can only connect the disk pool to an Azure VMware Solution private cloud in 
 You'll attach to a disk pool surfaced through an iSCSI target as the VMware datastore of an Azure VMware Solution private cloud.
 
 >[!IMPORTANT]
->While in **Public Preview**, only attach a disk pool to a test, non-production, or pilot cluster.
+>While in **Public Preview**, only attach a disk pool to a test or non-production cluster.
 
 1. Install the `vmware `extension.
 
