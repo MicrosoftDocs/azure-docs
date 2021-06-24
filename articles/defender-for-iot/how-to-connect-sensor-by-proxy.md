@@ -1,13 +1,13 @@
 ---
 title: Connect sensors with a proxy
-description: 
+description: Learn how to configure Azure Defender for IoT to communicate with a sensor through a proxy that has no direct internet access.
 ms.topic: how-to
 ms.date: 06/24/2021
 ---
 
 # Connect Azure Defender for IoT sensors without direct internet access by using a proxy 
 
-This article describes how to configure communication with Azure by using a proxy for sensors that have no direct internet access. To connect the sensor you will need a forward proxy with HTTP tunnelling that uses the HTTP CONNECT command for connectivity. The instructions here are given uses the open-source Squid proxy, any other proxy which supports CONNECT can be used. 
+This article describes how to configure Azure Defender for IoT to communicate with a sensor through a proxy that has no direct internet access. To connect the sensor you will need a forward proxy with HTTP tunnelling that uses the HTTP CONNECT command for connectivity. The instructions here are given uses the open-source Squid proxy, any other proxy which supports CONNECT can be used. 
 
 The proxy uses an end-to-end encrypted SSL tunnel, to transfers data from the sensors to the service. The proxy doesn't inspect, analyze, or cache any data. 
 
@@ -17,7 +17,7 @@ The following diagram shows data going from Azure Defender to IoT sensor in the 
 
 ## Setup your system
 
-For this scenario we will be installing, and configuring the latest version of [Squid](squid-cache.org) on an Ubuntu 18 server.
+For this scenario we will be installing, and configuring the latest version of [Squid](http://www.squid-cache.org/) on an Ubuntu 18 server.
 
 > [!Note]
 > Azure Defender for IoT does not offer support for Squid or any other proxy service.
