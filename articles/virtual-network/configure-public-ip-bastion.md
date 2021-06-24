@@ -15,11 +15,11 @@ ms.custom: template-how-to
 
 Public IP addresses are available in two SKUs; standard, and basic. The selection of SKU determines the features of the IP address. The SKU determines the resources that the IP address can be associated with.
 
-Azure Bastion is deployed to provide secure management connectivity to virtual machines in a virtual network. Azure Bastion Service enables you to securely and seamlessly RDP & SSH to your VMs in your Azure virtual network, without exposing a public IP on the VM, directly from the Azure portal, without the need of any additional client/agent or any piece of software. Azure Bastion supports standard SKU public IP addresses.
+Azure Bastion is deployed to provide secure management connectivity to virtual machines in a virtual network. Azure Bastion Service enables you to securely and seamlessly RDP & SSH to the VMs in your virtual network. Azure bastion enables connections without exposing a public IP on the VM. Connections are made directly from the Azure portal, without the need of an extra client/agent or piece of software. Azure Bastion supports standard SKU public IP addresses.
 
-A Azure Bastion host requires a public IP address for it's configuration.
+An Azure Bastion host requires a public IP address for its configuration.
 
-In this article, you'll learn how to create a Azure Bastion host using an existing public IP in your subscription. Azure Bastion doesn't support the change of the public IP address after creation.  Azure Bastion doesn't support public IP prefixes.
+In this article, you'll learn how to create an Azure Bastion host using an existing public IP in your subscription. Azure Bastion doesn't support the change of the public IP address after creation.  Azure Bastion doesn't support public IP prefixes.
 
 ## Prerequisites
 
@@ -29,7 +29,7 @@ In this article, you'll learn how to create a Azure Bastion host using an existi
 
 ## Create Azure Bastion using existing IP
 
-In this section, you'll create a Azure Bastion host. You'll select the IP address you created in the prerequisites as the public IP for bastion host.
+In this section, you'll create an Azure Bastion host. You'll select the IP address you created in the prerequisites as the public IP for bastion host.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -69,7 +69,7 @@ Azure Bastion doesn't support the changing of the public IP address after creati
 
 ## More information
 
-* There isn't a requirement for a separate public IP on the virtual machine when connecting via Azure Bastion. Traffic is first routed to the public IP of Bastion and then from Bastion to the private IP address associated with the virtual machine. 
+* There isn't a requirement for a separate public IP on the virtual machine when connecting via Azure Bastion. Traffic is first routed to the public IP of Bastion. Bastion then routes RDP or SSH connections to the private IP address associated with the virtual machine. 
 
 ## Caveats
 
@@ -77,7 +77,7 @@ Azure Bastion doesn't support the changing of the public IP address after creati
 
 ## Next steps
 
-In this article, you learned how to create a Azure Bastion and use an existing public IP. 
+In this article, you learned how to create an Azure Bastion and use an existing public IP. 
 
 - For more information about Azure Bastion, see [What is Azure Bastion?](../bastion/bastion-overview.md)
 - To learn more about public IP addresses in Azure, see [Public IP addresses](public-ip-addresses.md).
