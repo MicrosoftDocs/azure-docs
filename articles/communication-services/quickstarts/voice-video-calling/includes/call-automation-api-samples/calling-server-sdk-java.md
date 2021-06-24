@@ -12,8 +12,8 @@ ms.custom: include file
 ms.author: joseys
 ---
 
-> [!NOTE]
-> Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/add-chat)
+## Sample Code
+Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/OutboundCallReminder).
 
 ## Prerequisites
 Before you get started, make sure to:
@@ -27,20 +27,6 @@ Before you get started, make sure to:
 
 > [!NOTE]
 > The samples make use of the Microsoft Cognitive Services Speech SDK. By downloading the Microsoft Cognitive Services Speech SDK, you acknowledge its license, see [Speech SDK license agreement](https://aka.ms/csspeech/license201809).
-
-## Configuring application
-
-- Open the `config.properities` file to configure the following settings
-
-	- Connection String: Azure Communication Service resource's connection string.
-	- Source Phone: Phone number associated with the resource.
-	- DestinationIdentities: Destination identities to call. Multiple outbound calls are separated by a semi-colon and participants in an outbound call are separated by a comma.
-      For example +12345678901, 8:acs:ab12b0ea-85ea-4f83-b0b6-84d90209c7c4_00000009-bce0-da09-54b7-xxxxxxxxxxxx; +12345556789, 8:acs:ab12b0ea-85ea-4f83-b0b6-84d90209c7c4_00000009-bce0-da09-555-xxxxxxxxxxxx).
-	- NgrokExePath: Folder path where ngrok.exe is installed/saved.
-	- SecretPlaceholder: Secret/Password that would be part of callback and will be used to validate incoming requests.
-	- CognitiveServiceKey: (Optional) Cognitive service key used for generating custom message
-	- CognitiveServiceRegion: (Optional) Region associated with cognitive service
-	- CustomMessage: (Optional) Text for the custom message to be converted to speech.
 
 ## Add the package references for the calling server SDK
 
@@ -124,17 +110,17 @@ Use the `createCallConnectionWithResponse` method of the `CallingServerClient` o
 ```java
 CommunicationUserIdentifier source = new CommunicationUserIdentifier(this.callConfiguration.SourceIdentity);
 PhoneNumberIdentifier target = new PhoneNumberIdentifier(targetPhoneNumber);
-List<MediaType> callModality = new ArrayList<MediaType>() { {add(MediaType.AUDIO);} };
-List<EventSubscriptionType> eventSubscriptionType = new ArrayList<EventSubscriptionType>() {
-		{add(EventSubscriptionType.PARTICIPANTS_UPDATED); add(EventSubscriptionType.DTMF_RECEIVED);}};
+List<MediaType> callModality = new ArrayList<>() { {add(MediaType.AUDIO);} };
+List<EventSubscriptionType> eventSubscriptionType = new ArrayList<>() {
+        {add(EventSubscriptionType.PARTICIPANTS_UPDATED); add(EventSubscriptionType.DTMF_RECEIVED);}};
 
-CreateCallOptions createCallOption = new CreateCallOptions(this.callConfiguration.AppCallbackUrl,
-		callModality, eventSubscriptionType);
-createCallOption.setAlternateCallerId(new PhoneNumberIdentifier(this.callConfiguration.SourcePhoneNumber));
+CreateCallOptions createCallOption = new CreateCallOptions(this.callConfiguration.appCallbackUrl,
+        callModality, eventSubscriptionType);
+createCallOption.setAlternateCallerId(new PhoneNumberIdentifier(this.callConfiguration.sourcePhoneNumber));
 
-Logger.LogMessage(Logger.MessageType.INFORMATION,"Performing CreateCall operation");
+Logger.logMessage(Logger.MessageType.INFORMATION,"Performing CreateCall operation");
 
-List<CommunicationIdentifier> targets = new ArrayList<CommunicationIdentifier>() { {add(target);} };
+List<CommunicationIdentifier> targets = new ArrayList<>() { {add(target);} };
 
 Response<CallConnection> response = this.callingServerClient.createCallConnectionWithResponse(source, targets, createCallOption, null);
 callConnection = response.getValue();
@@ -154,7 +140,7 @@ Once a call is created, you can use the `playAudioWithResponse` method of the `C
 
 ```java
 // Preparing data for request
-String audioFileUri = callConfiguration.AudioFileUrl;
+String audioFileUri = callConfiguration.audioFileUrl;
 Boolean loop = true;
 String operationContext = UUID.randomUUID().toString();
 String audioFileId = UUID.randomUUID().toString();
@@ -163,7 +149,7 @@ playAudioOptions.setLoop(loop);
 playAudioOptions.setAudioFileId(audioFileId);
 playAudioOptions.setOperationContext(operationContext);
 
-Logger.LogMessage(Logger.MessageType.INFORMATION, "Performing PlayAudio operation");
+Logger.logMessage(Logger.MessageType.INFORMATION, "Performing PlayAudio operation");
 Response<PlayAudioResult> playAudioResponse = this.callConnection.playAudioWithResponse(audioFileUri, playAudioOptions, null);
 
 PlayAudioResult response = playAudioResponse.getValue();
@@ -172,7 +158,7 @@ PlayAudioResult response = playAudioResponse.getValue();
 The `playAudio` method returns `Response<PlayAudioResult>`, which can be used to get the `OperationStatus` using the `getStatus()` method. The `OperationStatus` could have the following values: `NotStarted`, `Running`, `Completed`, or `Failed`.
 
 ```java
-Logger.LogMessage(Logger.MessageType.INFORMATION, "playAudioWithResponse -- > " + GetResponse(playAudioResponse) + 
+Logger.logMessage(Logger.MessageType.INFORMATION, "playAudioWithResponse -- > " + GetResponse(playAudioResponse) +
 ", Id: " + response.getOperationId() + ", OperationContext: " + response.getOperationContext() + ", OperationStatus: " +
 response.getStatus().toString());
 ```
@@ -197,8 +183,7 @@ if (identifierKind == CommunicationIdentifierKind.UserIdentity) {
 	participant = new PhoneNumberIdentifier(addedParticipant);
 }
 
-String alternateCallerId = new PhoneNumberIdentifier(
-		ConfigurationManager.GetInstance().GetAppSettings("SourcePhone")).toString();
+String alternateCallerId = new PhoneNumberIdentifier(this.callConfiguration.sourcePhoneNumber).toString();
 Response<AddParticipantResult> response = callConnection.addParticipantWithResponse(participant, alternateCallerId, operationContext, null);
 ```
 
