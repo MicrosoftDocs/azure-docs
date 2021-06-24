@@ -45,7 +45,7 @@ Hotpatch is available in public preview on the following images:
 - Windows Server 2019 Datacenter: Azure Edition (Core)
 - Windows Server 2022 Datacenter: Azure Edition (Core)
 
-Hotpatch gives you the ability to apply security updates on your VM without rebooting.  Additionally, Automanage for Windows Server automates the onboarding, configuration, and orchestration of Hotpatching.  To learn more, see [Hotpatch](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).  
+Hotpatch gives you the ability to apply security updates on your VM without rebooting.  Additionally, Automanage for Windows Server automates the onboarding, configuration, and orchestration of Hotpatching.  To learn more, see [Hotpatch](automanage-hotpatch).  
 
 ### SMB over QUIC
 
@@ -92,7 +92,7 @@ It is important to consider up front which Automanage for Windows Server capabil
 > [!NOTE]
 > _Windows Server 2022 Datacenter: Azure Edition (Core)_ is not yet available for Public Preview, and _Windows Server 2022 Datacenter: Azure Edition (Desktop experience)_ is not yet supported in all regions.  For more information, see [getting started](#getting-started-with-windows-server-azure-edition).
 
-To start using Automanage for Windows Server capabilities on a new VM, use your preferred method to create an Azure VM, and select the Windows Server Azure Edition image that corresponds to the set of [capabilities](#getting-started-with-windows-server-azure-edition) that you would like to use.  Configuration of those capabilities may be needed during VM creation. You can learn more about VM configuration in the individual capability topics (such as [Hotpatch](https://docs.microsoft.com/azure/automanage/automanage-hotpatch)).
+To start using Automanage for Windows Server capabilities on a new VM, use your preferred method to create an Azure VM, and select the Windows Server Azure Edition image that corresponds to the set of [capabilities](#getting-started-with-windows-server-azure-edition) that you would like to use.  Configuration of those capabilities may be needed during VM creation. You can learn more about VM configuration in the individual capability topics (such as [Hotpatch](automanage-hotpatch)).
 
 ## Next steps
 
