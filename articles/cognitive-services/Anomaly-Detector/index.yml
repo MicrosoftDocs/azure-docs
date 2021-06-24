@@ -111,8 +111,7 @@ landingContent:
       links:
         - text: Join the Anomaly Detector Advisors group on Microsoft Teams
           url: https://aka.ms/adadvisorsjoin
-        - text: Featured user-generated content
-          url: user-generated-content.md
+          
     - linkListType: reference
       links:
         - text: Troubleshooting multivariate
