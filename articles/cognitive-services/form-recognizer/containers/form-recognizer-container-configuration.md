@@ -14,7 +14,7 @@ ms.author: lajanuar
 
 > [!IMPORTANT]
 >
-> Form Recognizer containers are in gated preview. To use them, you must submit an [online request](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUNlpBU1lFSjJUMFhKNzVHUUVLN1NIOEZETiQlQCN0PWcu), and have it approved. See [**Request approval to run container**](#request-approval-to-run-the-container) below for more information.
+> Form Recognizer containers are in gated preview. To use them, you must submit an [online request](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUNlpBU1lFSjJUMFhKNzVHUUVLN1NIOEZETiQlQCN0PWcu), and have it approved. See [**Request approval to run container**](form-recognizer-container-install-run.md#request-approval-to-run-the-container) below for more information.
 
 With Azure Form Recognizer containers, you can build an application architecture that's optimized to take advantage of both robust cloud capabilities and edge locality. Containers provide a minimalist, virtually-isolated environment that can be easily deployed on-premise and in the cloud. In this article, you will learn to configure the Form Recognizer container run-time environment by using the `docker compose` command arguments. Form Recognizer features are supported by seven Form Recognizer containers—**Layout**, **Business Card**,**ID Document**,  **Receipt**, **Invoice**, **Custom API**, and **Custom Supervised**—plus the **Read** OCR container. These containers have several required settings and a few optional settings. For a few examples, see the [Example docker-compose.yml file](#example-docker-composeyml-file) section.
 
@@ -33,7 +33,7 @@ Each container has the following configuration settings:
 |No|[Logging](#logging-settings)|Provides ASP.NET Core logging support for your container. |
 
 > [!IMPORTANT]
-> The [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting), and [`Eula`](#eula-setting) settings are used together. You must provide valid values for all three settings; otherwise, your containers won't start. For more information about using these configuration settings to instantiate a container, see [Billing](form-recognizer-container-install-run.md#billing).
+> The [`ApiKey`](#apikey-and-billing-configuration-setting), [`Billing`](#apikey-and-billing-configuration-setting), and [`Eula`](#eula-setting) settings are used together. You must provide valid values for all three settings; otherwise, your containers won't start. For more information about using these configuration settings to instantiate a container, see [Billing](form-recognizer-container-install-run.md#billing).
 
 ## ApiKey and Billing configuration setting
 
