@@ -121,9 +121,9 @@ See the visual diagram under the section [How it works](#how-it-works) for the n
 
 1. To register your subscription for the Azure Arc enabled servers Private Link preview, you need to register the resource provider **Microsoft.HybridCompute**. You can do this from the Azure portal, with Azure PowerShell, or the Azure CLI. Do not proceed with step 3 until you've confirmed the resource provider is registered, otherwise you'll recieve a deployment error. 
 
-    * To register from the Azure portal, see [Register the resource provider](../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal) to enable the Arc enabled servers Private Link preview from the Azure portal. Under step 5, specify **Microsoft.HybridCompute**.
+    * To register from the Azure portal, see [Register the resource provider](../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal) to enable the Arc enabled servers Private Link preview from the Azure portal. For step 5, specify **Microsoft.HybridCompute**.
 
-    * To register using the Azure PowerShell, use:
+    * To register using the Azure PowerShell, run the following command. See [registering a resource provider with Azure PowerShell](../../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell) to learn more.
 
       ```azurepowershell
       Register-AzProviderFeature -ProviderNamespace Microsoft.HybridCompute -FeatureName ArcServerPrivateLinkPreview
@@ -135,7 +135,7 @@ See the visual diagram under the section [How it works](#how-it-works) for the n
       Get-AzResourceProvider -ProviderNamespace Microsoft.HybridCompute
       ```
 
-    * To register using the Azure CLI, use:
+    * To register using the Azure CLI, run the following command. See [registering a resource provider with Azure PowerShell](../../azure-resource-manager/management/resource-providers-and-types.md#azure-cli) to learn more.
 
       ```azurecli
       az feature register --namespace Microsoft.HybridCompute --name ArcServerPrivateLinkPreview
