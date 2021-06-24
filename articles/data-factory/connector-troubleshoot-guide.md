@@ -679,7 +679,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 ### Error code: FtpFailedToReadFtpData
 
-- **Message**: `Failed to read data from ftp: The remote server returned an error: 227 Entering Passive Mode (*,*,*,*,*,*). .`
+- **Message**: `Failed to read data from ftp: The remote server returned an error: 227 Entering Passive Mode (*,*,*,*,*,*).`
 
 - **Cause**: Port range between 1024 to 65535 is not open for data transfer under passive mode that ADF supports.
 
