@@ -100,7 +100,7 @@ Create, and onboard a new subscription, even if you already have a current subsc
 
 **To onboard a new subscription**:
 
-1. Navigate to the [Azure portal](https://ms.portal.azure.com/) located at `https://ms.portal.azure.com/?enterpriseiot=true#home`.
+1. Navigate to the [Home - Microsoft Azure](https://ms.portal.azure.com/) located at `https://ms.portal.azure.com/?enterpriseiot=true#home`.
 
     > [!Note]
     > You must select the specific link provided in step #1 or you will not be able to compete the process listed below.
@@ -121,7 +121,7 @@ Onboard a new sensor for this scenario.
 
 **To onboard a sensor**:
 
-1. Navigate to the [Azure portal](https://ms.portal.azure.com/?enterpriseiot=true#home) at `https://ms.portal.azure.com/?enterpriseiot=true#home`.
+1. Navigate to the [Home - Microsoft Azure](https://ms.portal.azure.com/?enterpriseiot=true#home) at `https://ms.portal.azure.com/?enterpriseiot=true#home`.
 
 1. Select **Onboard sensor**.
 
