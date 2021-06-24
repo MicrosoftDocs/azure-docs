@@ -22,7 +22,7 @@ Open: What is the exact state of the VM?
 
 Open: Confirm on whether the VM is impacted if there is no outstanding traffic to the data store 
 
-The health of the AVS cluster is not impacted with the exception on placing a host to maintenance mode. When you attempt to place a host to maintenance mode when any of connected datastore is inaccessible, you can still successfully migrate VMs that do not have data stored on the inaccessible datastore of this host. For VMs with data stored on the inaccessible datastore, migration will fail. You need to follow the instruction here for mitigation. 
+The health of the AVS cluster is not impacted with the exception on placing a host to maintenance mode. When you attempt to place a host into maintenance mode when any connected datastores are inaccessible, you can still successfully migrate VMs that do not have data stored on the inaccessible datastore of this host. For VMs with data stored on the inaccessible datastore, migration will fail. You need to follow the instruction here for mitigation. 
 
 ### Does AVS cluster recover automatically when the disk pool iSCSI endpoint becomes available? 
 
