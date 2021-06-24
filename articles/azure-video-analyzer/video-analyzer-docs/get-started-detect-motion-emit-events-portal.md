@@ -7,7 +7,7 @@ ms.date: 05/25/2021
 ---
 
 # Quickstart: Get started with Azure Video Analyzer in the Azure Portal
-This quickstart walks you through the steps to get started with Azure Video Analyzer. You'll create an Azure Video Analyzer account and its accompanying resources by using the Azure portal. You'll use that account to deploy the Video Analyzer edge module and a Real Time Streaming Protocol (RTSP) camera simulator module to your Azure IoT Edge device. 
+This quickstart walks you through the steps to get started with Azure Video Analyzer. You'll create an Azure Video Analyzer account and its accompanying resources by using the Azure portal. You'll then use that account to deploy the Video Analyzer edge module and a Real Time Streaming Protocol (RTSP) camera simulator module to your Azure IoT Edge device. 
 
 After you complete the setup steps, you'll be able to run the simulated live video stream through a pipeline that detects and reports any motion in that stream. The following diagram graphically represents that pipeline.
 
@@ -17,7 +17,8 @@ After you complete the setup steps, you'll be able to run the simulated live vid
 ## Prerequisites
 
 * An active Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/).  
-[!INCLUDE [the video analyzer account and storage account must be in the same subscription and region](./includes/note-account-storage-same-subscription.md)]
+
+  [!INCLUDE [the video analyzer account and storage account must be in the same subscription and region](./includes/note-account-storage-same-subscription.md)]
 * An IoT Edge device on which you have admin privileges:
    * [Deploy to an IoT Edge device](deploy-iot-edge-device.md)
    * [Deploy to an IoT Edge for Linux on Windows](deploy-iot-edge-linux-on-windows.md)
@@ -75,7 +76,7 @@ When you create an Azure Video Analyzer account, you have to associate an Azure 
 ### Deploy the Video Analyzer edge module
 
 1. Go to your Video Analyzer account.
-1. Select **Edge Modules** under the **Edge** pane.
+1. Select **Edge Modules** in the **Edge** pane.
 1. Select **Add edge modules**, enter **avaedge** as the name for the new edge module, and select **Add**.
 1. The **Copy the provisioning token** page appears on the right side of your screen. Copy the following snippet under **Recommended desired properties for IoT module deployment**. You'll need it in a later step.
     ```JSON
@@ -92,7 +93,7 @@ When you create an Azure Video Analyzer account, you have to associate an Azure 
     ```
 1. Go to your Azure IoT Hub instance.
 1. Select **IoT Edge** under **Automatic Device Management**.
-1. Select the **Device ID** value for your IoT Edge Device.
+1. Select the **Device ID** value for your IoT Edge device.
 1. Select **Set modules**.
 1. Select **Add**, and then select **IoT Edge Module** from the dropdown menu.
 1. Enter **avaedge** for **IoT Edge Module Name**.
@@ -163,7 +164,7 @@ When you create an Azure Video Analyzer account, you have to associate an Azure 
 
 On the device details page, verify that the **avaedge** and **rtspsim** modules are listed as both **Specified in Deployment** and **Reported by Device**.  
 
-It might take a few moments for the modules to be started on the device and then reported back to IoT Hub. Refresh the page to see an updated status. Status code **200 –OK** means that [the IoT Edge runtime](../../iot-edge/iot-edge-runtime.md) is healthy and is operating fine.  
+It might take a few moments for the modules to be started on the device and then reported back to IoT Hub. Refresh the page to see an updated status. Status code **200 -- OK** means that [the IoT Edge runtime](../../iot-edge/iot-edge-runtime.md) is healthy and is operating fine.  
 
 ![Screenshot that shows a status value for an IoT Edge runtime.](./media/deploy-iot-edge-device/status.png)
 
@@ -187,9 +188,8 @@ It might take a few moments for the modules to be started on the device and then
     * Video Analyzer edge module (module name **avaedge**)
     * RTSP simulator (module name **rtspsim**)
 
-
-> [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/get-started-detect-motion-emit-events/modules-node.png" alt-text="Screenshot that shows the expanded Modules node.":::
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/get-started-detect-motion-emit-events/modules-node.png" alt-text="Screenshot that shows the expanded Modules node.":::
 
 > [!TIP]
 > If you have [manually deployed Video Analyzer](deploy-iot-edge-device.md) on an edge device (such as an ARM64 device), the module will appear under that device, under Azure IoT Hub. You can select that module and contine with the following steps.
@@ -199,7 +199,7 @@ It might take a few moments for the modules to be started on the device and then
 When you use this quickstart, events will be sent to IoT Hub. To see these events, follow these steps:
 
 1. In Visual Studio Code, open the **Extensions** tab (or select Ctrl+Shift+X) and search for **Azure IoT Hub**.
-1. Right-click and select **Extension Settings**.
+1. Right-click the IoT Hub extension and select **Extension Settings**.
  
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/get-started-detect-motion-emit-events/extension-settings.png" alt-text="Screenshot that shows the selection of Extension Settings.":::
@@ -236,7 +236,7 @@ This step enumerates all the [pipeline topologies](pipeline.md) in the module.
     }
     ```
 
-Within a few seconds, the following response will appear in the **OUTPUT** window:
+Within a few seconds, the following response appears in the **OUTPUT** window:
     
 ```
 [DirectMethod] Invoking Direct Method [pipelineTopologyList] to [deviceId/avaedge] ...
@@ -326,7 +326,7 @@ By using the same steps described earlier, you can invoke `pipelineTopologySet` 
 }
 ```
 
-This JSON payload creates a topology that defines three parameters, where two of them have default values. The topology has one source node ([RTSP source](pipeline.md#rtsp-source)), one processor node ([motion detection processor](pipeline.md#motion-detection-processor), and one sink node ([IoT Hub message sink](pipeline.md#iot-hub-message-sink)). The payload shows the visual representation of the topology.
+This JSON payload creates a topology that defines three parameters, two of which have default values. The topology has one source node ([RTSP source](pipeline.md#rtsp-source)), one processor node ([motion detection processor](pipeline.md#motion-detection-processor), and one sink node ([IoT Hub message sink](pipeline.md#iot-hub-message-sink)). The payload shows the visual representation of the topology.
 
 Within a few seconds, the following response appears in the **OUTPUT** window:
 
@@ -585,14 +585,14 @@ Within few seconds, the following response appears in the **OUTPUT** window:
 
 In the response payload, notice that:
 
-* Status code is 201, indicating a new live pipeline was created.
-* State is "Inactive", indicating that the live pipeline was created but not activated. For more information, see the [pipeline states](pipeline.md#pipeline-states).
+* The status code is 201, indicating a new live pipeline was created.
+* The state is `Inactive`, indicating that the live pipeline was created but not activated. For more information, see [Pipeline states](pipeline.md#pipeline-states).
 
 Try the following direct methods as next steps:
 
-* Invoke `livePipelineSet` again with the same payload, and note that the returned status code is now 200.
-* Invoke `livePipelineSet` again but with a different description, and note the updated description in the response payload, indicating that the live pipeline was successfully updated.
-* Invoke `livePipelineSet`, but change the name to `mdpipeline2` and change `rtspUrl` to `rtsp://rtspsim:554/media/lots_015.mkv`. In the response payload, notice the newly created live pipeline (that is, status code 201).
+* Invoke `livePipelineSet` again with the same payload. Note that the returned status code is now 200.
+* Invoke `livePipelineSet` again but with a different description. Note the updated description in the response payload, indicating that the live pipeline was successfully updated.
+* Invoke `livePipelineSet`, but change the name to `mdpipeline2` and change `rtspUrl` to `rtsp://rtspsim:554/media/lots_015.mkv`. In the response payload, note the newly created live pipeline (that is, status code 201).
   
   > [!NOTE]
   > As explained in [Pipeline topologies](pipeline.md#pipeline-topologies), you can create multiple live pipelines, to analyze live video streams from many cameras by using the same pipeline topology. If you create more live pipelines, take care to delete them during the cleanup step.
