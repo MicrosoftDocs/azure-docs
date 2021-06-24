@@ -53,30 +53,30 @@ This release of Azure AD Connect contains several cmdlets that require PowerShel
 ## Azure AD Connect V2.0 FAQ
 
 
-***Why is this important for me?*** 
+**Why is this important for me?** </br>
 Next year several of the components in your current Azure AD Connect server installations will go out of support. If you are using unsupported products, it will be harder for our support team to provide you with the support experience your organization requires. So we recommend all customers to upgrade to this newer version as soon as they can. 
 
 This is especially important since we have had to update our prerequisites for Azure AD Connect and you may need additional time to plan and update your servers to the newer versions of these prerequisites 
 
-***Is there any new functionality I need to know about?***
+**Is there any new functionality I need to know about?** </br>
 No – this release does not contain any new functionality. This release only contains updates of some of the foundational components on Azure AD Connect. 
 
-***Can I upgrade from any previous version to V2.0?***
+**Can I upgrade from any previous version to V2.0?** </br>
 Yes – upgrades from any previous version of Azure AD Connect to Azure AD Connect V2.0 is supported. Please follow the guidance in this article to determine what is the best upgrade strategy for you. 
 
-***Can I export the configuration of my current server and import it in Azure AD Connect V2.0?*** 
+**Can I export the configuration of my current server and import it in Azure AD Connect V2.0?** </br>
 Yes, you can do that, and it is a great way to migrate to Azure AD Connect V2.0 – especially if you are also upgrading to a new operating system version. You can read more about the Import/export configuration feature and how you can use it in this article. 
 
-***I have enabled auto upgrade for Azure AD Connect – will I get this new version automatically?*** 
+**I have enabled auto upgrade for Azure AD Connect – will I get this new version automatically?** </br> 
 No – Azure AD Connect V2.0 will not be made available for auto upgrade at this time. We are planning to create a future release that will be made available for auto upgrade, and which will help customers who are eligible for auto upgrade to remain in a supported state. 
 
-***I am not ready to upgrade yet – how much time do I have?*** 
+**I am not ready to upgrade yet – how much time do I have?** </br>
 You should upgrade to Azure AD Connect V2.0 as soon as you can. For the time being we will continue to support older versions of Azure AD Connect, but it may prove difficult to provide a good support experience if some of the components in Azure AD Connect have dropped out of support. This is particularly important for ADAL and TLS1.0/1.1 as these services might stop working unexpectedly after they are deprecated. 
 
-***I use an external SQL database and do not use SQL 2012 LocalDb – do I still have to upgrade?*** 
+**I use an external SQL database and do not use SQL 2012 LocalDb – do I still have to upgrade?** </br>
 Yes, you still need to upgrade to remain in a supported state even if you do not use SQL Server 2012, due to the TLS1.0/1.1 and ADAL deprecation. 
 
-***What happens if I do not upgrade?*** 
+**What happens if I do not upgrade?** </br>
 Until one of the components that are being retired are actually deprecated, you will not see any impact. Azure AD Connect will keep on working. 
 
 We expect TLS 1.0/1.1 to be deprecated in January 2022, and you need to make sure you are not using these protocols by that date as your service may stop working unexpectedly. You can manually configure your server for TLS 1.2 though, and that does not require an update of Azure AD Connect to V2.0 
@@ -84,7 +84,7 @@ We expect TLS 1.0/1.1 to be deprecated in January 2022, and you need to make sur
 In June 2022, ADAL will go out of support. When ADAL goes out of support authentication may stop working unexpectedly and this will block the Azure AD Connect server from working properly. We strongly advise you to upgrade to Azure AD Connect V2.0 before June 2022. You cannot upgrade to a supported authentication library with your current Azure AD Connect version. 
 
 
-## License requirements for using Azure AD Connect
+## License requirements for using Azure AD Connect V2.0
 
 [!INCLUDE [active-directory-free-license.md](../../../includes/active-directory-free-license.md)]
 
