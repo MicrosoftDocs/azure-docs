@@ -21,6 +21,7 @@ Below are SDKs/scenarios not supported in the Public Preview:
 - [Certificate/secret based Azure AD](../../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md) isn't recommended for production. Use Managed Identities instead. 
 - On by default Codeless monitoring (for languages) for App Service, VM/Virtual machine scale sets, Azure Functions etc.
 - [Availability tests](availability-overview.md).
+- [Profiler](profiler-overview.md).
 
 ## Prerequisites to enable Azure AD authentication ingestion
 
