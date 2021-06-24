@@ -334,7 +334,7 @@ If a problem occurs during a backup operation, Azure NetApp Files backup automat
 
 ### Can I change the location or storage tier of my backup vault?
 
-No, Azure NetApp Files automatically manages the backup data location within Azure Blob storage, and this location or blob storage tier cannot be modified by the user.
+No, Azure NetApp Files automatically manages the backup data location within Azure Blob storage, and this location or Azure Blob storage tier cannot be modified by the user.
 
 ### What types of security are provided for the backup data?
 
