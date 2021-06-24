@@ -16,7 +16,7 @@ Security is a major concern when you're adopting a new technology, especially if
 
 This article describes the Azure Stack Edge security features that help protect each of the solution components and the data stored in them.
 
-Azure Stack Edge Pro FPGA consists of four main components that interact with each other:
+Azure Stack Edge consists of four main components that interact with each other:
 
 - **Azure Stack Edge service, hosted in Azure**. The management resource that you use to create the device order, configure the device, and then track the order to completion.
 - **Azure Stack Edge Pro FPGA device**. The transfer device that's shipped to you so you can import your on-premises data into Azure.
