@@ -101,34 +101,34 @@ Since the server is in virtual network, you can only connect to the server from 
 	![Screenshot of the inbound port rules section where you select what ports inbound connections are allowed on](../../virtual-machines/linux/media/quick-create-portal/inbound-port-rules.png)
 
 7. Select **Networking** page to configure the virtual network. For virtual network, choose the **vnetenvironment1** created for the database server.
-![Screenshot of select existing virtual network of the database server](./media/quick-create-connect-server-vnet/vm-vnet-configuration.png)
+![Screenshot of select existing virtual network of the database server](./media/quickstart-create-connect-server-vnet/vm-vnet-configuration.png)
 
 8. Select **Manage subnet configuration** to create a new subnet for the server.
 
-![Screenshot of manage subnet](../../virtual-machines/linux/media/quick-create-portal/vm-manage-subnet-integration.png)
+![Screenshot of manage subnet](./media/quickstart-create-connect-server-vnet/vm-manage-subnet-integration.PNG)
 
 9. Add new subnet for the virtual machine.
 
- ![Screenshot of adding a new subnet for virtual machine](../../virtual-machines/linux/media/quick-create-portal/vm-add-new-subnet.png)
+ ![Screenshot of adding a new subnet for virtual machine](./media/quickstart-create-connect-server-vnet/vm-add-new-subnet.png)
 
 10. After the subnet has been created successfully , close the page.
- ![Screenshot of adding a new subnet for virtual machine](../../virtual-machines/linux/media/quick-create-portal/subnet-create-success.png)
+ ![Screenshot of adding a new subnet for virtual machine](./media/quickstart-create-connect-server-vnet/subnet-create-success.PNG)
 
 11. Select **Review + Create**.
 12. Select **Create**. When the **Generate new key pair** window opens, select **Download private key and create resource**. Your key file will be download as **myKey.pem**.
 
-![Screenshot of the dialog to download the private key and create](../../virtual-machines/linux/media/quick-create-portal/vm-download-private-key.png)
+![Screenshot of the dialog to download the private key and create](../media/quickstart-create-connect-server-vnet/vm-download-private-key.PNG)
 
 >[!IMPORTANT]
 > Make sure you know where the `.pem` file was downloaded, you will need the path to it in the next step.
 
 13. When the deployment is finished, select **Go to resource**.
 
-![Screenshot of deployment success](./media/quick-create-connect-server-vnet/vvm-create-success.png)
+![Screenshot of deployment success](./media/quick-create-connect-server-vnet/vvm-create-success.PNG)
 
 11. On the page for your new VM, select the public IP address and copy it to your clipboard.
 
-	![Screenshot showing how to copy the IP address for the virtual machine](./media/quick-create-portal/ip-address.png)
+	![Screenshot showing how to copy the IP address for the virtual machine](../../virtual-machines/linux/media/quick-create-portal/ip-address.png)
 
 
 ## Install MySQL client tools
