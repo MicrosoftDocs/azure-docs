@@ -16,7 +16,7 @@ ms.author: lajanuar
 >
 > Form Recognizer containers are in gated preview. To use them, you must submit an [online request](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUNlpBU1lFSjJUMFhKNzVHUUVLN1NIOEZETiQlQCN0PWcu), and have it approved. See [**Request approval to run container**](#request-approval-to-run-the-container) below for more information.
 
-With Azure Form Recognizer containers, you can build an application architecture that's optimized to take advantage of both robust cloud capabilities and edge locality. Containers provide a minimalist, virtually-isolated environment that can be easily deployed on-premise and in the cloud. In this article, you will learn to configure the Form Recognizer container run-time environment by using the `docker compose` command arguments. Form Recognizer features are supported by seven Form Recognizer containers—**Layout**, **Business Card**,**ID Document**,  **Receipt**, **Invoice**, **Custom API**, and **Custom Supervised**—plus the **Read** OCR container. These containers have several required settings and a few optional settings. For a few examples, see the [Example docker-compose.yml file](#example-docker-composeyml-file) section. 
+With Azure Form Recognizer containers, you can build an application architecture that's optimized to take advantage of both robust cloud capabilities and edge locality. Containers provide a minimalist, virtually-isolated environment that can be easily deployed on-premise and in the cloud. In this article, you will learn to configure the Form Recognizer container run-time environment by using the `docker compose` command arguments. Form Recognizer features are supported by seven Form Recognizer containers—**Layout**, **Business Card**,**ID Document**,  **Receipt**, **Invoice**, **Custom API**, and **Custom Supervised**—plus the **Read** OCR container. These containers have several required settings and a few optional settings. For a few examples, see the [Example docker-compose.yml file](#example-docker-composeyml-file) section.
 
 ## Configuration settings
 
@@ -37,9 +37,9 @@ Each container has the following configuration settings:
 
 ## ApiKey and Billing configuration setting
 
-The `ApiKey` setting specifies the Azure resource key that's used to track billing information for the container. The value for the ApiKey must be a valid key for the _Form Recognizer_ resource that's specified for `Billing` in the "Billing configuration setting" section.
+The `ApiKey` setting specifies the Azure resource key that's used to track billing information for the container. The value for the ApiKey must be a valid key for the resource that's specified for `Billing` in the "Billing configuration setting" section.
 
-The `Billing` setting specifies the endpoint URI of the _Form Recognizer_ resource on Azure that's used to meter billing information for the container. The value for this configuration setting must be a valid endpoint URI for a _Form Recognizer_ resource on Azure. The container reports usage about every 10 to 15 minutes.
+The `Billing` setting specifies the endpoint URI of the resource on Azure that's used to meter billing information for the container. The value for this configuration setting must be a valid endpoint URI for a resource on Azure. The container reports usage about every 10 to 15 minutes.
 
  You can find these settings in the Azure portal on the **Keys and Endpoint* *page.
 
@@ -75,7 +75,7 @@ The exact syntax of the host volume location varies depending on the host operat
 
 ## Example docker-compose.yml file
 
-The `docker compose` method is comprised of three steps:
+The **docker compose** method is comprised of three steps:
 
  1. Create a Dockerfile.
  1. Define the services in a **docker-compose.yml** so they can be run together in an isolated environment.
@@ -83,7 +83,7 @@ The `docker compose` method is comprised of three steps:
 
 ### Single container example
 
-In this example, you enter {FORM_RECOGNIZER_ENDPOINT_URI} and {FORM_RECOGNIZER_API_KEY} values for your Layout container instance.
+In this example, enter {FORM_RECOGNIZER_ENDPOINT_URI} and {FORM_RECOGNIZER_API_KEY} values for your Layout container instance.
 
 #### **Layout container**
 
@@ -111,7 +111,7 @@ networks:
 
 #### **Receipt and OCR Read containers**
 
-In this example, you enter {FORM_RECOGNIZER_ENDPOINT_URI} and {FORM_RECOGNIZER_API_KEY} values for your Receipt container and {COMPUTER_VISION_ENDPOINT_URI} and {COMPUTER_VISION_API_KEY} values for your Computer Vision Read container.
+In this example, enter {FORM_RECOGNIZER_ENDPOINT_URI} and {FORM_RECOGNIZER_API_KEY} values for your Receipt container and {COMPUTER_VISION_ENDPOINT_URI} and {COMPUTER_VISION_API_KEY} values for your Computer Vision Read container.
 
 ```yml
 version: "3"
@@ -147,4 +147,3 @@ networks:
 
 > [!div class="nextstepaction"]
 > [Learn more about running multiple containers and the docker compose command](form-recognizer-container-install-run.md)
-
