@@ -37,7 +37,7 @@ document.addEventListener("visibilitychange", function() {
 Communication Services applications should dispose `VideoStreamRendererView`, or its parent `VideoStreamRenderer` instance, when it is no longer needed.
 
 ### Hang up the Call on onbeforeunload Event
-App should invoke call.hangup on onbeforeunload event.
+Your application should invoke `call.hangup` when the `onbeforeunload` event is emitted.
 
 ### Hang up the Call on microphoneMuteUnexpectedly UFD
 When user is on call on iOS/Safari and receives the PSTN call then ACS loses microphone access. 
