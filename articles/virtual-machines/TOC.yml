@@ -691,6 +691,8 @@
     - name: Prepare a VHD to Upload
       displayName: Windows custom images, images, windows, upload, prepare, VHD
       href: ./windows/prepare-for-upload-vhd-image.md
+    - name: Generalizing a VM
+      href: generalize.md
     - name: Upload a VHD and create a managed image
       displayName: Windows custom images, images, windows, upload, prepare, VHD, managed
       href: ./windows/upload-generalized-managed.md
@@ -788,6 +790,8 @@
         - name: Windows
           displayName: Shared Image Gallery, SIG, sig, gallery, image, create
           href: ./windows/shared-images-portal.md
+      - name: Capture a VM in the portal
+        href: capture-image-portal.md
     - name: Resource Manager Templates
       items:
       - name: Create a Shared Image Gallery
