@@ -114,6 +114,7 @@ The response returned from the preceding example is as follows:
 ```
 > [!NOTE]
 > The api [Network Watchers - Set Flow Log Configuration](https://docs.microsoft.com/rest/api/network-watcher/network-watchers/set-flow-log-configuration) used above is old and may soon be deprecated.
+
 > It is recommended to use the new [Flow Logs - Create Or Update](https://docs.microsoft.com/rest/api/network-watcher/flow-logs/create-or-update) rest api instead.
 
 ## Disable Network Security Group flow logs
@@ -169,6 +170,7 @@ The response returned from the preceding example is as follows:
 
 > [!NOTE]
 > The api [Network Watchers - Set Flow Log Configuration](https://docs.microsoft.com/rest/api/network-watcher/network-watchers/set-flow-log-configuration) used above is old and may soon be deprecated.
+
 > It is recommended to use the new [Flow Logs - Create Or Update](https://docs.microsoft.com/rest/api/network-watcher/flow-logs/create-or-update) rest api to disable flow logs and the [Flow Logs - Delete](https://docs.microsoft.com/rest/api/network-watcher/flow-logs/delete) to delete flow logs resource.
 
 ## Query flow logs
@@ -211,6 +213,7 @@ The following is an example of the response returned:
 
 > [!NOTE]
 > The api [Network Watchers - Get Flow Log Status](https://docs.microsoft.com/rest/api/network-watcher/network-watchers/get-flow-log-status) used above, requires an additional "reader" permission in the resource group of the network watcher. Also, this api is old and may soon be deprecated.
+
 > It is recommended to use the new [Flow Logs - Get](https://docs.microsoft.com/rest/api/network-watcher/flow-logs/get) rest api instead.
 
 ## Download a flow log
