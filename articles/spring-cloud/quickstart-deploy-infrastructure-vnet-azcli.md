@@ -141,7 +141,7 @@ To deploy the Azure Spring Cloud cluster using the Azure CLI script, follow thes
 1. Add the required extensions to Azure CLI.
 
    ```azurecli
-   az extension add --name spring-cloud
+   az extension add --name spring-cloud --version 2.3.0
    ```
 
 1. Choose a deployment location from the regions where Azure Spring Cloud is available, as shown in [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=spring-cloud&regions=all).
@@ -180,9 +180,9 @@ To deploy the Azure Spring Cloud cluster using the Azure CLI script, follow thes
 
    - The name of the subnet to be used by the Spring Cloud runtime service (for example, *snet-runtime*).
 
-   - The name of the resource group for the Azure Log Analytics workspace to be used for storing diagnostic logs (for example, *la-cb5sqq6574o2a*).
+   - The name of the resource group for the Azure Log Analytics workspace to be used for storing diagnostic logs.
 
-   - The name of the Azure Log Analytics workspace.
+   - The name of the Azure Log Analytics workspace (for example, *la-cb5sqq6574o2a*).
 
    - The CIDR ranges from your virtual network to be used by Azure Spring Cloud (for example, *XX.X.X.X/16,XX.X.X.X/16,XX.X.X.X/16*).
 
