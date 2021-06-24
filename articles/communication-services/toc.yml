@@ -113,6 +113,10 @@ items:
         href: concepts/call-flows.md
       - name: Call flow topologies
         href: concepts/detailed-call-flows.md
+      - name: Call automation APIs
+        href: concepts/voice-video-calling/call-automation-apis.md
+      - name: Call recording
+        href: concepts/voice-video-calling/call-recording.md
       - name: Known issues
         href: concepts/known-issues.md
   - name: UI Library
