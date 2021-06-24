@@ -268,9 +268,8 @@ The metrics and logs you can collect are discussed in the following sections.
 
 ## Analyzing metrics
 
-You can analyze metrics for *Load Balancer* with metrics from other Azure services using metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Getting started with Azure Metrics Explorer](/azure/azure-monitor/platform/metrics-getting-started) for details on using this tool. 
+You can analyze metrics for Load Balancer with metrics from other Azure services using metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Getting started with Azure Metrics Explorer](/azure/azure-monitor/platform/metrics-getting-started) for details on using this tool. 
 
-<!-- Point to the list of metrics available in your monitor-service-reference article. -->
 For a list of the platform metrics collected for Load Balancer, see [Monitoring Load Balancer data reference metrics](monitor-load-balancer-reference.md#metrics)  
 
 For reference, you can see a list of [all resource metrics supported in Azure Monitor](/azure/azure-monitor/platform/metrics-supported).
@@ -291,7 +290,6 @@ For a list of the tables used by Azure Monitor Logs and queryable by Log Analyti
 
 > [!NOTE]
 > There is currently an issue with Kusto queries that prevents data from being retrieved from load balancer logs.
-
 
 
 ## Alerts

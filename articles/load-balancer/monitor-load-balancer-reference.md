@@ -92,12 +92,6 @@ The following table lists the operations related to Load Balancer that may be cr
 
 For more information on the schema of Activity Log entries, see [Activity Log schema](/azure/azure-monitor/essentials/activity-log-schema). 
 
-## Schemas
-
-The following schemas are in use by Load Balancer
-
-
-
 ## See Also
 
 - See [Monitoring Azure Load Balancer](monitor-load-balancer.md) for a description of monitoring Azure Load Balancer.
