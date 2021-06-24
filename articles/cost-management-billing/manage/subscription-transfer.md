@@ -22,7 +22,7 @@ This article also helps you understand the things you should know *before* you t
 
 If you want to keep the billing ownership but change the type of your subscription, see [Switch your Azure subscription to another offer](../manage/switch-azure-offer.md). To control who can access resources in the subscription, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
 
-If you're an Enterprise Agreement (EA) customer, your enterprise administrators can transfer billing ownership of your subscriptions between accounts in the EA portal. For more information, see [Change Azure subscription or account ownership](ea-portal-administration.dm#change-azure-subscription-or-account-ownership).
+If you're an Enterprise Agreement (EA) customer, your enterprise administrators can transfer billing ownership of your subscriptions between accounts in the EA portal. For more information, see [Change Azure subscription or account ownership](ea-portal-administration.md#change-azure-subscription-or-account-ownership).
 
 This article focuses on subscription transfers. However, resource transfer is also discussed because it's required for some subscription transfer scenarios.
 
@@ -75,10 +75,10 @@ Dev/Test subscriptions aren't shown in the following table. Transfers for Dev/Te
 | EA | MCA - individual | Billing | The transfer is completed as part of the MCA transition process from an EA. For more information, see [Complete Enterprise Agreement tasks in your billing account for a Microsoft Customer Agreement](mca-enterprise-operations.md). |
 | EA | EA | Billing | The transfer has no downtime because it's just a billing change. Transferring between EA enrollments requires a [billing support ticket](https://azure.microsoft.com/support/create-ticket/). |
 | EA | MCA - Microsoft field | Billing | The transfer is completed as part of the MCA transition process from an EA. For more information, see [Complete Enterprise Agreement tasks in your billing account for a Microsoft Customer Agreement](mca-enterprise-operations.md). |
-| EA | Azure Plan/MPA | Billing | The transfer has no downtime because it's just a billing change. There are limitations and restrictions. For more information, see [Transfer EA subscriptions to a CSP partner](ransfer-subscriptions-subscribers-csp.md#transfer-ea-subscriptions-to-a-csp-partner). |
+| EA | Azure Plan/MPA | Billing | The transfer has no downtime because it's just a billing change. There are limitations and restrictions. For more information, see [Transfer EA subscriptions to a CSP partner](transfer-subscriptions-subscribers-csp.md#transfer-ea-subscriptions-to-a-csp-partner). |
 | MCA - individual | MOSP (PAYG) |  Billing | The transfer has no downtime because it's just a billing change. See [Transfer Azure subscription billing ownership for a Microsoft Customer Agreement](mca-request-billing-ownership.md). VERIFY THAT THIS IS THE RIGHT LINK. |
 | MCA - individual | MCA - individual | Billing | The transfer has no downtime because it's just a billing change. See [Transfer Azure subscription billing ownership for a Microsoft Customer Agreement](mca-request-billing-ownership.md). |
-| MCA - individual | EA |  Billing | NEED TO SUMMARIZE HOW THIS IS INITIATED BY THE CUSTOMER AND AND HOW THIS IS COMPLETED IN THE EA PORTAL. NEED TO ADD NEW DOC (OR NEW SECTION IN https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-administration. |
+| MCA - individual | EA |  Billing | NEED TO SUMMARIZE HOW THIS IS INITIATED BY THE CUSTOMER AND AND HOW THIS IS COMPLETED IN THE EA PORTAL. NEED TO ADD NEW DOC (OR NEW SECTION IN `https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-administration`. |
 | MCA - individual | MCA - Microsoft field | Billing | The transfer has no downtime because it's just a billing change. See [Transfer Azure subscription billing ownership for a Microsoft Customer Agreement](mca-request-billing-ownership.md).  |
 | MCA - Microsoft field | MOSP |  Billing | Requires a [billing support ticket](https://azure.microsoft.com/support/create-ticket/). |
 | MCA - Microsoft field | MCA - individual |  Billing | SOT IMPORT.  |
