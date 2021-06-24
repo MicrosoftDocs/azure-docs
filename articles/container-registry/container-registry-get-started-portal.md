@@ -6,6 +6,7 @@ ms.topic: quickstart
 ms.custom:
   - mvc
   - mode-portal
+  - contperf-fy21q4
 ---
 # Quickstart: Create an Azure container registry using the Azure portal
 
