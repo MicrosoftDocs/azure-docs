@@ -11,6 +11,8 @@ ms.topic: include
 ms.custom: include file
 ms.author: joseys
 ---
+## Sample Code
+Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/ServerRecording).
 
 ## Prerequisites
 
@@ -29,6 +31,47 @@ The following classes handle some of the major features of the recording Server 
 | Name                                  | Description                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
 | CallingServerClient | This class is needed for the recording functionality. You create an instance of CallingServerClient using ACS resource connection string and use it to start/stop and pause/resume a call recording. |
+
+## Getting serverCallId as a requirement for call recording server APIs
+
+> [!NOTE]
+> This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment. To use this api please use 'beta' release of ACS Calling Web SDK. End to End client sample with recording is available at [Public Preview](https://github.com/Azure-Samples/communication-services-web-calling-hero/tree/public-preview).
+
+Call recording is an extended feature of the core Call API. You first need to obtain the recording feature API object:
+
+```JavaScript
+const callRecordingApi = call.api(Features.Recording);
+```
+
+Subscribe to recording changes:
+
+```JavaScript
+const isRecordingActiveChangedHandler = () => {
+  console.log(callRecordingApi.isRecordingActive);
+};
+
+callRecordingApi.on('isRecordingActiveChanged', isRecordingActiveChangedHandler);
+```
+
+Get server call id which can be used to start/stop/pause/resume recording sessions:
+
+Once the call is connected use the `getServerCallId` method to get the server call id.
+
+```JavaScript
+callAgent.on('callsUpdated', (e: { added: Call[]; removed: Call[] }): void => {
+    e.added.forEach((addedCall) => {
+        addedCall.on('stateChanged', (): void => {
+            if (addedCall.state === 'Connected') {
+                addedCall.info.getServerCallId().then(result => {
+                    dispatch(setServerCallId(result));
+                }).catch(err => {
+                    console.log(err);
+                });
+            }
+        });
+    });
+});
+```
 
 ## Create a calling server client
 
@@ -110,6 +153,6 @@ Use `DownloadStreamingAsync` API for downloading the recorded media.
 
 ```csharp
 var recordingDownloadUri = new Uri(downloadLocation);
-var response = DownloadExtentions.DownloadStreamingAsync(callingServerClient, recordingDownloadUri);
+var response = callingServerClient.DownloadStreamingAsync(recordingDownloadUri);
 ```
 The downloadLocation for the recording can be fetched from the `contentLocation` attribute of the `recordingChunk`. `DownloadStreamingAsync` method returns response of type `Response<Stream>`, which contains the downloaded content.
