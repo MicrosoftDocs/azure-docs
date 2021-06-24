@@ -132,7 +132,7 @@
       href: deploy-disaster-recovery-using-vmware-hcx.md
   - name: VMware ecosystem
     items:
-    - name: Baackup and restore
+    - name: Backup and restore
       items:
       - name: Backup solutions for VMs
         href: ecosystem-back-up-vms.md
