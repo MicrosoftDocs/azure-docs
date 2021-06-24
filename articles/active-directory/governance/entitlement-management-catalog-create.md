@@ -83,7 +83,7 @@ To include resources in an access package, the resources must exist in a catalog
 
 1. If you have [Multi-Geo](/microsoft-365/enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-microsoft-365) enabled for SharePoint, select the environment you would like to select sites from.
     
-    :::image type="content" source="media/entitlement-management-catalog-create/sharepoint-multigeo-select.png" alt-text="Access package - Add resource roles - Select SharePoint Multi-geo sites":::
+    :::image type="content" source="media/entitlement-management-catalog-create/sharepoint-multi-geo-select.png" alt-text="Access package - Add resource roles - Select SharePoint Multi-geo sites":::
 
 1. Then select the sites you would like to be added to the catalog. 
 
