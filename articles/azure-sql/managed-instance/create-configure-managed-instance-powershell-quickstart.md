@@ -1,8 +1,8 @@
 ---
-title: Create a single database
-description: Create a single database in Azure SQL Database using the Azure portal, PowerShell, or the Azure CLI.
-services: sql-database
-ms.service: sql-database
+title: Create Azure SQL Managed Instance - Quickstart
+description: Create an instance of Azure SQL Managed Instance using Azure PowerShell. 
+services: sql-managed-instance
+ms.service: sql-managed-instance
 ms.subservice: deployment-configuration
 ms.custom: contperf-fy21q1, devx-track-azurecli, devx-track-azurepowershell
 ms.devlang:
@@ -10,12 +10,11 @@ ms.topic: quickstart
 author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: 
-ms.date: 01/27/2021
+ms.date: 06/25/2021
 ---
 # Quickstart: Create a managed instance using Azure PowerShell
 
-In this quickstart, you create an instance of [Azure SQL Managed Instance](single-database-overview.md) using Azure PowerShell. 
-
+In this quickstart, learn to create an instance of [Azure SQL Managed Instance](single-database-overview.md) using Azure PowerShell. 
 
 
 ## Prerequisite
@@ -25,7 +24,7 @@ In this quickstart, you create an instance of [Azure SQL Managed Instance](singl
 
 ## Set variables
 
-Creating a SQL Manged Instance requires creating several resources within Azure, and as such, the PowerShell script requires the use of variables. Define the variables, and then execute the rest of the steps within the same PowerShell session. 
+Creating a SQL Manged Instance requires creating several resources within Azure, and as such, the Azure PowerShell commands rely on variables to simplify the experience. Define the variables, and then execute the rest of the steps within the same PowerShell session. 
 
 ```azurepowershell-interactive
 $NSnetworkModels = "Microsoft.Azure.Commands.Network.Models"
