@@ -119,6 +119,12 @@ sections:
 
   - name: Custom containers
     questions:
+    
+      - question: |
+          Can I use Managed Identities with App Service when pulling images form ACR?
+        answer: |
+          Yes, This is currently supported through CLI with portal support coming soon. You can uses [System Assigned](https://github.com/Azure/app-service-linux-docs/blob/master/HowTo/use_system-assigned_managed_identities.md) or [User Assigned](https://github.com/Azure/app-service-linux-docs/blob/master/HowTo/use_user-assigned_managed_identities.md) identities.
+      
       - question: |
           I'm using my own custom container. I want the platform to mount an SMB share to the `/home/` directory.
         answer: |
