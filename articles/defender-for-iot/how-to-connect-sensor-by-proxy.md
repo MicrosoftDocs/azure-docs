@@ -1,21 +1,21 @@
 ---
 title: Connect sensors with a proxy
-description: Learn how to configure Azure Defender for IoT to communicate with a sensor through a proxy that has no direct internet access.
+description: Learn how to configure Azure Defender for IoT to communicate with a sensor through a proxy with no direct internet access.
 ms.topic: how-to
 ms.date: 06/24/2021
 ---
 
 # Connect Azure Defender for IoT sensors without direct internet access by using a proxy 
 
-This article describes how to configure Azure Defender for IoT to communicate with a sensor through a proxy that has no direct internet access. To connect the sensor you will need a forward proxy with HTTP tunnelling that uses the HTTP CONNECT command for connectivity. The instructions here are given uses the open-source Squid proxy, any other proxy which supports CONNECT can be used. 
+This article describes how to configure Azure Defender for IoT to communicate with a sensor through a proxy with no direct internet access. Connect the sensor with a forwarding proxy that has HTTP tunneling, and uses the HTTP CONNECT command for connectivity. The instructions here are given uses the open-source Squid proxy, any other proxy that supports CONNECT can be used. 
 
-The proxy uses an end-to-end encrypted SSL tunnel, to transfers data from the sensors to the service. The proxy doesn't inspect, analyze, or cache any data. 
+The proxy uses an encrypted SSL tunnel, to transfers data from the sensors to the service. The proxy doesn't inspect, analyze, or cache any data. 
 
 The following diagram shows data going from Azure Defender to IoT sensor in the OT segment to cloud via a proxy located in the IT network, and industrial DMZ.
 
-:::image type="content" source="media/how-to-connect-sensor-by-proxy/cloud-access-proxyA.png" alt-text="Connect the sensor ro the a proxy through the cloud.":::
+:::image type="content" source="media/how-to-connect-sensor-by-proxy/cloud-access-proxyA.png" alt-text="Connect the sensor to a proxy through the cloud.":::
 
-## Setup your system
+## Set up your system
 
 For this scenario we will be installing, and configuring the latest version of [Squid](http://www.squid-cache.org/) on an Ubuntu 18 server.
 
@@ -40,7 +40,7 @@ For this scenario we will be installing, and configuring the latest version of [
     sudo apt-get install squid 
     ```
 
-1. Locate the squid configuration file which is located at `/etc/squid/squid.conf`, and `/etc/squid/conf.d/`.
+1. Locate the squid configuration file that is located at `/etc/squid/squid.conf`, and `/etc/squid/conf.d/`.
 
 1. Make a backup of the original file using the following command.
 
@@ -54,9 +54,9 @@ For this scenario we will be installing, and configuring the latest version of [
 
 1. Add `acl sensor1 src <sensor-ip>`, and `http_access allow sensor1` into the file.
 
-    :::image type="content" source="media/how-to-connect-sensor-by-proxy/add-lines.png" alt-text="Add the following 2 lines into the text and save the file.":::
+    :::image type="content" source="media/how-to-connect-sensor-by-proxy/add-lines.png" alt-text="Add the following two lines into the text and save the file.":::
 
-1. (Optional) Add additional sensors by adding an extra lines for each sensor.
+1. (Optional) Add more sensors by adding an extra line for each sensor.
 
 1. Enable the Squid service to start at launch with the following command.
 
