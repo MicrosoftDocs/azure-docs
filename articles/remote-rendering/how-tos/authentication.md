@@ -54,7 +54,6 @@ Account keys are recommended for quick prototyping, during development only. It'
 ![Api permissions](./media/aad-app-api-permissions.png)
 1. Grant admin consent in the Security -> Permissions tab.
 ![Admin consent](./media/aad-app-grant-admin-consent.png)
-1. Grant your application and users on behalf of which you planned to use delegated access permissions to your Azure Remote Rendering resource.
 1. In the Access Control panel grant desired [roles](#azure-role-based-access-control) for your applications and user, on behalf of which you want to use delegated access permissions to your Azure Remote Rendering resource.
 ![Add permissions](./media/arr-add-role-assignment.png)
 ![Role assignments](./media/arr-role-assignments.png)
