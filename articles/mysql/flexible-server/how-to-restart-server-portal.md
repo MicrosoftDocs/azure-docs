@@ -19,6 +19,7 @@ The server restart will be blocked if the service is busy. For example, the serv
 The time required to complete a restart depends on the MySQL recovery process. To decrease the restart time, we recommend you minimize the amount of activity occurring on the server prior to the restart.
 
 ## Prerequisites
+
 To complete this how-to guide, you need:
 - An [Azure Database for MySQL Flexible server](quickstart-create-server-portal.md)
 

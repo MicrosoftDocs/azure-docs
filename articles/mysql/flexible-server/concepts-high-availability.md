@@ -11,15 +11,8 @@ ms.date: 01/29/2021
 # High availability concepts in Azure Database for MySQL Flexible Server (Preview)
 
 [[!INCLUDE[applies-to-flexible-server](../includes/applies-to-flexible-server.md)]]
-[[!INCLUDE[applies-to-flexible-server](includes/applies-to-flexible-server.md)]]
 
-[[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-flexible-server.md)]]
-
-[]
-
-
-
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > Azure Database for MySQL - Flexible Server is currently in public preview.
 
 Azure Database for MySQL Flexible Server (Preview), allows configuring high availability with automatic failover using **zone redundant** high availability option. When deployed in a zone redundant configuration, flexible server automatically provisions and manages a standby replica in a different availability zone. Using storage level replication, the data is **synchronously replicated** to the standby server in the secondary zone to enable zero data loss after a failover. The failover is fully transparent from the client application and doesn't require any user actions. The standby server is not available for any read or write operations but is a passive standby to enable fast failover. The failover times typically ranges from 60-120 seconds.

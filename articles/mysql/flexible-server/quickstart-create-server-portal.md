@@ -13,9 +13,10 @@ ms.date: 10/22/2020
 
 [[!INCLUDE[applies-to-flexible-server](../includes/applies-to-flexible-server.md)]]
 
+
 Azure Database for MySQL Flexible Server is a managed service that you can use to run, manage, and scale highly available MySQL servers in the cloud. This quickstart shows you how to create a flexible server by using the Azure portal.
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > Azure Database for MySQL Flexible Server is currently in public preview.
 
 If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
@@ -115,7 +116,7 @@ wget --no-check-certificate https://dl.cacerts.digicert.com/DigiCertGlobalRootCA
 mysql -h mydemoserver.mysql.database.azure.com -u mydemouser -p --ssl=true --ssl-ca=DigiCertGlobalRootCA.crt.pem
 ```
 > [!IMPORTANT]
-> While connecting to your flexible server using Azure Cloud Shell, you will require to use --ssl=true parameter and not --ssl-mode=REQUIRED.
+>While connecting to your flexible server using Azure Cloud Shell, you will require to use --ssl=true parameter and not --ssl-mode=REQUIRED.
 > The primary reason is Azure Cloud Shell comes with pre-installed mysql.exe client from MariaDB distribution which requires --ssl parameter while mysql client from Oracle's distribution requires --ssl-mode parameter.
 
 If you see the following error message while connecting to your flexible server following the command earlier, you missed setting the firewall rule using the "Allow public access from any Azure service within Azure to this server" mentioned earlier or the option isn't saved. Please retry setting firewall and try again.

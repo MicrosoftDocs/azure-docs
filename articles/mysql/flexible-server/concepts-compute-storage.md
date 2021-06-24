@@ -11,15 +11,8 @@ ms.date: 1/28/2021
 # Compute and storage options in Azure Database for MySQL - Flexible Server (Preview)
 
 [[!INCLUDE[applies-to-flexible-server](../includes/applies-to-flexible-server.md)]]
-[[!INCLUDE[applies-to-flexible-server](includes/applies-to-flexible-server.md)]]
 
-[[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-flexible-server.md)]]
-
-[]
-
-
-
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > Azure Database for MySQL - Flexible Server is currently in public preview.
 
 You can create an Azure Database for MySQL Flexible Server in one of three different compute tiers: Burstable, General Purpose, and Memory Optimized. The compute tiers are differentiated by the underlying VM SKU used B-series, D-series, and E-series. The choice of compute tier and size determines the memory and vCores available on the server. The same storage technology is used across all compute tiers. All resources are provisioned at the MySQL server level. A server can have one or many databases.
@@ -75,8 +68,8 @@ The detailed specifications of the available server types are as follows:
 
 To get more details about the compute series available, refer to Azure VM documentation for [Burstable (B-series)](../../virtual-machines/sizes-b-series-burstable.md), [General Purpose (Ddsv4-series)](../../virtual-machines/ddv4-ddsv4-series.md), and [Memory Optimized (Edsv4-series)](../../virtual-machines/edv4-edsv4-series.md).
 
->[!NOTE]
->For [Burstable (B-series) compute tier](../../virtual-machines/sizes-b-series-burstable.md) if the VM is started/stopped or restarted, the credits may be lost. For more information, see [Burstable (B-Series) FAQ](../../virtual-machines/sizes-b-series-burstable.md#q-why-is-my-remaining-credit-set-to-0-after-a-redeploy-or-a-stopstart).
+> [!NOTE]
+> For [Burstable (B-series) compute tier](../../virtual-machines/sizes-b-series-burstable.md) if the VM is started/stopped or restarted, the credits may be lost. For more information, see [Burstable (B-Series) FAQ](../../virtual-machines/sizes-b-series-burstable.md#q-why-is-my-remaining-credit-set-to-0-after-a-redeploy-or-a-stopstart).
 
 ## Storage
 
@@ -142,7 +135,7 @@ To learn more about the maximum IOPS per compute size is shown below:
 
 The maximum IOPS is dependent on the maximum available IOPS per compute size. Refer to the column *Max uncached disk throughput: IOPS/MBps* in the [B-series](../../virtual-machines/sizes-b-series-burstable.md), [Ddsv4-series](../../virtual-machines/ddv4-ddsv4-series.md), and [Edsv4-series](../../virtual-machines/edv4-edsv4-series.md) documentation.
 
-> [!Important]
+> [!IMPORTANT]
 > **Complimentary IOPS** are equal to MINIMUM("Max uncached disk throughput: IOPS/MBps" of compute size, 300 + storage provisioned in GiB * 3)<br>
 > **Minimum IOPS** is 360 across all compute sizes<br>
 > **Maximum IOPS** is determined by the selected compute size. In preview, the maximum IOPS supported is 20,000 IOPS.

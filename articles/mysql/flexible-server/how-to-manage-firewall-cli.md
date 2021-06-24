@@ -65,7 +65,8 @@ Refer to the Azure CLI [reference documentation](/cli/azure/mysql/flexible-serve
     ```azurecli-interactive
     az mysql flexible-server create --public-access 0.0.0.0
     ```
-    > [!IMPORTANT]
+    
+> [!IMPORTANT]
     > This option configures the firewall to allow public access from Azure services and resources within Azure to this server including connections from the subscriptions of other customers. When selecting this option, make sure your login and user permissions limit access to only authorized users.
     >
 - Create a flexible server with public access and allow all IP address
@@ -112,7 +113,7 @@ az mysql flexible-server firewall-rule create --name mydemoserver --start-ip-add
 ```
 
 > [!IMPORTANT]
-> This option configures the firewall to allow public access from Azure services and resources within Azure to this server including connections from the subscriptions of other customers. When selecting this option, make sure your login and user permissions limit access to only authorized users.
+>This option configures the firewall to allow public access from Azure services and resources within Azure to this server including connections from the subscriptions of other customers. When selecting this option, make sure your login and user permissions limit access to only authorized users.
 > 
 
 Upon success, each create command output lists the details of the firewall rule you have created, in JSON format (by default). If there is a failure, the output shows error message text instead.

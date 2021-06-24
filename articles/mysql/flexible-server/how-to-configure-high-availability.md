@@ -15,7 +15,7 @@ ms.custom: references_regions
 
 This article describes how you can enable or disable zone redundant high availability configuration in your flexible server.
 
-High availability feature provisions physically separate primary and standby replica in different zones. For more details, see [high availability concepts documentation](./concepts/../concepts-high-availability.md). 
+High availability feature provisions physically separate primary and standby replica in different zones. For more details, see [high availability concepts documentation](./concepts/../concepts-high-availability.md).
 
 > [!IMPORTANT]
 > You can only enable zone redundant high availability during flexible server creation.
@@ -38,7 +38,8 @@ This section provides details specifically for HA-related fields. You can follow
 4.  If high availability option is checked, the burstable tier will not be available to choose. You can choose either
     **General purpose** or **Memory Optimized** compute tiers.
 
-    > [!IMPORTANT]
+    
+> [!IMPORTANT]
     > We only support zone redundant high availability for the ***General purpose*** and ***Memory optimized*** pricing tier.
 
 5.  Select the **Compute size** for your choice from the dropdown.

@@ -14,6 +14,7 @@ ms.custom: mvc, devx-track-azurecli
 
 [[!INCLUDE[applies-to-flexible-server](../includes/applies-to-flexible-server.md)]]
 
+
 :::image type="content" source="media/tutorial-php-database-app/complete-checkbox-published.png" alt-text="PHP Web App in Azure with Flexible Server":::
 
 [Azure App Service](../../app-service/overview.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This tutorial shows how to create a PHP app in Azure and connect it to a MySQL database. When you're finished, you'll have a [Laravel](https://laravel.com/) app running on Azure App Service on Linux.
@@ -142,7 +143,7 @@ az mysql flexible-server create  --resource-group myResourceGroup --public-acces
 ```
 
 > [!IMPORTANT]
-> - Make a note of the **servername** and **connection string** to use it in the next step to connect and run laravel data migration.
+>- Make a note of the **servername** and **connection string** to use it in the next step to connect and run laravel data migration.
 > - For **IP-Address**  argument, provide the IP of your client machine. The server is locked when created and you need to permit access to your client machine to manage the server locally.
 
 ### Configure server firewall to allow web app to connect to the server

@@ -25,6 +25,7 @@ In this article, we will focus on creation of MySQL server with **Private access
 You can deploy your flexible server into a virtual network and subnet during server creation. After the flexible server is deployed, you cannot move it into another virtual network, subnet or to *Public access (allowed IP addresses)*.
 
 ## Prerequisites
+
 To create a flexible server in a virtual network, you need:
 - A [Virtual Network](../../virtual-network/quick-create-portal.md#create-a-virtual-network)
     > [!Note]

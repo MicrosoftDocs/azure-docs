@@ -70,7 +70,7 @@ When an application within Azure attempts to connect to your server, the firewal
 The resources do not need to be in the same virtual network (VNet) or resource group for the firewall rule to enable those connections. If the connection attempt is not allowed, the request does not reach the Azure Database for MySQL Flexible Server.
 
 > [!IMPORTANT]
-> This option configures the firewall to allow all connections from Azure including connections from the subscriptions of other customers. When selecting this option, make sure your login and user permissions limit access to only authorized users.
+>This option configures the firewall to allow all connections from Azure including connections from the subscriptions of other customers. When selecting this option, make sure your login and user permissions limit access to only authorized users.
 >
 > We recommend choosing the **Private access (VNet Integration)** to securely access flexible server.
 >

@@ -18,6 +18,7 @@ ms.date: 9/29/2020
 You can configure the Azure Database for MySQL Flexible Server [audit logs](concepts-audit-logs.md) and diagnostic settings from the Azure portal.
 
 ## Prerequisites
+
 The steps in this article require that you have [flexible server](quickstart-create-server-portal.md).
 
 ## Configure audit logging

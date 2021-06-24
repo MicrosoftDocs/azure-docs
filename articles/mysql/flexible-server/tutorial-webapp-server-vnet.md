@@ -14,8 +14,10 @@ ms.custom: mvc, devx-track-azurecli
 
 [[!INCLUDE[applies-to-flexible-server](../includes/applies-to-flexible-server.md)]]
 
+
 > [!IMPORTANT]
 > Azure Database for MySQL - Flexible Server is currently in public preview.
+
 
 This tutorial shows you how create a Azure App Service Web App with  MySQL Flexible Server (Preview) inside a [Virtual network](../../virtual-network/virtual-networks-overview.md).
 

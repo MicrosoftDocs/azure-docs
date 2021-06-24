@@ -13,6 +13,7 @@ ms.custom: vc, devx-track-azurecli
 
 [[!INCLUDE[applies-to-flexible-server](../includes/applies-to-flexible-server.md)]]
 
+
 In this quickstart, you deploy a WordPress application on Azure Kubernetes Service (AKS) cluster with Azure Database for MySQL - Flexible Server (Preview) using the Azure CLI. 
 **[AKS](../../aks/intro-kubernetes.md)** is a managed Kubernetes service that lets you quickly deploy and manage clusters. **[Azure Database for MySQL - Flexible Server (Preview)](overview.md)** is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings. Currently Flexible server is in Preview.
 
@@ -192,8 +193,7 @@ docker build --tag myblog:latest .
 
 Deploy your image to [Docker hub](https://docs.docker.com/get-started/part3/#create-a-docker-hub-repository-and-push-your-image) or [Azure Container registry](../../container-registry/container-registry-get-started-azure-cli.md).
 
-> [!IMPORTANT]
->If you are using Azure container regdistry (ACR), then run the ```az aks update``` command to attach ACR account with the AKS cluster.
+> [!IMPORTANT]>If you are using Azure container regdistry (ACR), then run the ```az aks update``` command to attach ACR account with the AKS cluster.
 >
 >```azurecli-interactive
 >az aks update -n myAKSCluster -g wordpress-project --attach-acr <your-acr-name>

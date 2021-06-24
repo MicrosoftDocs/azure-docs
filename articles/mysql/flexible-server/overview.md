@@ -12,6 +12,7 @@ ms.date: 6/19/2021
 
 [[!INCLUDE[applies-to-flexible-server](../includes/applies-to-flexible-server.md)]]
 
+
 Azure Database for MySQL powered by the MySQL community edition is available in two deployment modes:
 
 - Single Server

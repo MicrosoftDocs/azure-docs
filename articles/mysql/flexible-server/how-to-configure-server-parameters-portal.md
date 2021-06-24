@@ -12,7 +12,7 @@ ms.date: 11/10/2020
 
 [[!INCLUDE[applies-to-flexible-server](../includes/applies-to-flexible-server.md)]]
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > Azure Database for MySQL - Flexible Server is currently in public preview.
 
 You can manage Azure Database for MySQL Flexible Server configuration using server parameters. The server parameters are configured with the default and recommended value when you create the server.  
@@ -64,7 +64,7 @@ CALL mysql.az_load_timezone();
 ```
 
 > [!IMPORTANT]
-> You should restart the server to ensure the time zone tables are properly populated.<!-- FIX ME To restart the server, use the [Azure portal](how-to-restart-server-portal.md) or [CLI](how-to-restart-server-cli.md).-->
+>You should restart the server to ensure the time zone tables are properly populated.<!-- FIX ME To restart the server, use the [Azure portal](how-to-restart-server-portal.md) or [CLI](how-to-restart-server-cli.md).-->
 
 To view available time zone values, run the following command:
 

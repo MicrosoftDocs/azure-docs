@@ -10,15 +10,8 @@ ms.date: 9/21/2020
 # Slow query logs in Azure Database for MySQL Flexible Server (Preview)
 
 [[!INCLUDE[applies-to-flexible-server](../includes/applies-to-flexible-server.md)]]
-[[!INCLUDE[applies-to-flexible-server](includes/applies-to-flexible-server.md)]]
 
-[[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-flexible-server.md)]]
-
-[]
-
-
-
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > Azure Database for MySQL - Flexible Server is currently in public preview.
 
 In Azure Database for MySQL Flexible Server, the slow query log is available to users to configure and access. Slow query logs are disabled by default and can be enabled to assist with identifying performance bottlenecks during troubleshooting.
@@ -36,7 +29,7 @@ Other parameters you can adjust to control slow query logging behavior include:
 - **log_throttle_queries_not_using_indexes**: limits the number of non-indexed queries that can be written to the slow query log. This parameter takes effect when `log_queries_not_using_indexes` is set to *ON*
 
 > [!IMPORTANT]
-> If your tables are not indexed, setting the `log_queries_not_using_indexes` and `log_throttle_queries_not_using_indexes` parameters to **ON** may affect MySQL performance since all queries running against these non-indexed tables will be written to the slow query log.
+>If your tables are not indexed, setting the `log_queries_not_using_indexes` and `log_throttle_queries_not_using_indexes` parameters to **ON** may affect MySQL performance since all queries running against these non-indexed tables will be written to the slow query log.
 
 See the MySQL [slow query log documentation](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html) for full descriptions of the slow query log parameters.
 

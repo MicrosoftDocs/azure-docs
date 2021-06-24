@@ -237,6 +237,7 @@ db, _ := sql.Open("mysql", connectionString)
 # generate truststore and keystore in code
 
 [[!INCLUDE[applies-to-flexible-server](../includes/applies-to-flexible-server.md)]]
+
 String importCert = " -import "+
     " -alias mysqlServerCACert "+
     " -file " + ssl_ca +
@@ -253,6 +254,7 @@ sun.security.tools.keytool.Main.main(genKey.trim().split("\\s+"));
 # use the generated keystore and truststore
 
 [[!INCLUDE[applies-to-flexible-server](../includes/applies-to-flexible-server.md)]]
+
 System.setProperty("javax.net.ssl.keyStore","path_to_keystore_file");
 System.setProperty("javax.net.ssl.keyStorePassword","password");
 System.setProperty("javax.net.ssl.trustStore","path_to_truststore_file");
@@ -270,6 +272,7 @@ conn = DriverManager.getConnection(url, properties);
 # generate truststore and keystore in code
 
 [[!INCLUDE[applies-to-flexible-server](../includes/applies-to-flexible-server.md)]]
+
 String importCert = " -import "+
     " -alias mysqlServerCACert "+
     " -file " + ssl_ca +
@@ -286,6 +289,7 @@ sun.security.tools.keytool.Main.main(genKey.trim().split("\\s+"));
 # use the generated keystore and truststore
 
 [[!INCLUDE[applies-to-flexible-server](../includes/applies-to-flexible-server.md)]]
+
 System.setProperty("javax.net.ssl.keyStore","path_to_keystore_file");
 System.setProperty("javax.net.ssl.keyStorePassword","password");
 System.setProperty("javax.net.ssl.trustStore","path_to_truststore_file");
