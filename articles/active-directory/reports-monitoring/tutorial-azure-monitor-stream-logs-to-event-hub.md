@@ -14,7 +14,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/18/2019
+ms.date: 06/23/2021
 ms.author: markvi
 ms.reviewer: dhanyahk
 
@@ -57,13 +57,19 @@ To use this feature, you need:
 
 7. Select **OK** to exit the event hub configuration.
 
-8. Do either or both of the following:
-    * To send audit logs to the event hub, select the **AuditLogs** check box. 
-    * To send sign-in logs to the event hub, select the **SignInLogs** check box.
+8. Do any combination of the following:
+    - To send audit logs to the event hub, select the **AuditLogs** check box. 
+    - To send interactive user sign-in logs to the event hub, select the **SignInLogs** check box.
+    - To send non-interactive user sign-in logs to the event hub, select the **NonInteractiveUserSignInLogs** check box. 
+    - To send service principal sign-in logs to the event hub, select the **ServicePrincipalSignInLogs** check box.
+    - To send managed identity sign-in logs to the event hub, select the **ManagedIdentitySignInLogs** check box.
+    - To send provisioning logs to the event hub, select the **ProvisioningLogs** check box.
+    - To send sign-ins sent to Azure AD by an AD FS Connect Health agent, select the **ADFSSignInLogs** check box.
+
+    >[!Note]
+    >Some sign-in categories contain large amounts of log data depending on your tenant’s configuration. In general, the non-interactive user sign-ins and service principal sign-ins can be 5 to 10 times larger than the interactive user sign-ins.
 
 9. Select **Save** to save the setting.
-
-    ![Diagnostics settings](./media/quickstart-azure-monitor-stream-logs-to-event-hub/DiagnosticSettings.png)
 
 10. After about 15 minutes, verify that events are displayed in your event hub. To do so, go to the event hub from the portal and verify that the **incoming messages** count is greater than zero. 
 
