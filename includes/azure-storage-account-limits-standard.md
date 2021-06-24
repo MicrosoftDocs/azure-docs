@@ -5,7 +5,7 @@
  author: tamram
  ms.service: storage
  ms.topic: include
- ms.date: 06/23/2021
+ ms.date: 06/24/2021
  ms.author: tamram
  ms.custom: include file
 ---
@@ -20,12 +20,12 @@ Microsoft recommends that you use a GPv2 storage account for most scenarios. You
 | Resource | Limit |
 | --- | --- |
 | Number of storage accounts per region per subscription, including standard, and premium storage accounts.| 250 |
-| Maximum storage account capacity | 5 PiB <sup>1</sup>|
+| Default maximum storage account capacity | 5 PiB <sup>1</sup>|
 | Maximum number of blob containers, blobs, file shares, tables, queues, entities, or messages per storage account | No limit |
-| Maximum request rate<sup>1</sup> per storage account | 20,000 requests per second |
-| Default maximum ingress<sup>1</sup> per general-purpose v2 and Blob storage account in most North America, Europe, and Asia public cloud regions. For a list of exceptions, see [Region exceptions](#region-exceptions).  | 60 Gbps |
-| Default maximum ingress<sup>1</sup> for general-purpose v1 storage accounts (all regions) | 10 Gbps |
-| Default maximum egress for general-purpose v2 and Blob storage accounts in most North America, Europe, and Asia public cloud regions. For a list of exceptions, see [Region exceptions](#region-exceptions). | 120 Gbps |
+| Default maximum request rate per storage account | 20,000 requests per second<sup>1</sup> |
+| Default maximum ingress per general-purpose v2 and Blob storage account in most North America, Europe, and Asia public cloud regions. For a list of exceptions, see [Region exceptions](#region-exceptions).  | 60 Gbps<sup>1</sup> |
+| Default maximum ingress for general-purpose v1 storage accounts (all regions) | 10 Gbps<sup>1</sup> |
+| Default maximum egress for general-purpose v2 and Blob storage accounts in most North America, Europe, and Asia public cloud regions. For a list of exceptions, see [Region exceptions](#region-exceptions). | 120 Gbps<sup>1</sup> |
 | Maximum egress for general-purpose v1 storage accounts (US regions) | 20 Gbps if RA-GRS/GRS is enabled, 30 Gbps for LRS/ZRS<sup>2</sup> |
 | Maximum egress for general-purpose v1 storage accounts (non-US regions) | 10 Gbps if RA-GRS/GRS is enabled, 15 Gbps for LRS/ZRS<sup>2</sup> |
 | Maximum number of IP address rules per storage account | 200 |
@@ -33,7 +33,7 @@ Microsoft recommends that you use a GPv2 storage account for most scenarios. You
 | Maximum number of resource instance rules per storage account | 200 |
 | Maximum number of private endpoints per storage account | 200 |
 
-<sup>1</sup> Azure Storage standard accounts support higher capacity limits and higher limits for ingress by request. To request an increase in account limits, contact [Azure Support](https://azure.microsoft.com/support/faq/).
+<sup>1</sup> Azure Storage standard accounts support higher capacity limits and higher limits for ingress and egress by request. To request an increase in account limits, contact [Azure Support](https://azure.microsoft.com/support/faq/).
 
 <sup>2</sup> If your storage account has read-access enabled with geo-redundant storage (RA-GRS) or geo-zone-redundant storage (RA-GZRS), then the egress targets for the secondary location are identical to those of the primary location. For more information, see [Azure Storage replication](../articles/storage/common/storage-redundancy.md).
 
@@ -60,3 +60,4 @@ All non-public cloud regions and the following public cloud regions have default
    - South Africa North
    - South Central US
    - West US 3
+- For  read-access geo-redundant storage (RA-GRS) and read-access geo-zone-redundant storage (RA-GZRS) accounts, all regions that are listed as exceptions for LRS, GRS, ZRS, and GZRS accounts.
