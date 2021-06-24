@@ -36,7 +36,7 @@ For more information on Load Balancer insights, see [Using Insights to monitor a
 
 Load Balancer collects the same kinds of monitoring data as other Azure resources that are described in [Monitoring data from Azure resources](/azure/azure-monitor/insights/monitor-azure-resource#monitoring-data-from-Azure-resources). 
 
-See [Monitoring *Load Balancer* data reference](monitor-load-balancer.md) for detailed information on the metrics and logs metrics created by Load Balancer.
+See [Monitoring Load Balancer data reference](monitor-load-balancer.md) for detailed information on the metrics and logs metrics created by Load Balancer.
 
 Load Balancer provides additional monitoring data through:
 
@@ -57,7 +57,7 @@ You can create a diagnostic setting by using the Azure portal, PowerShell, or th
 
 For general guidance, see [Create diagnostic setting to collect platform logs and metrics in Azure](/azure/azure-monitor/platform/diagnostic-settings).
 
-When you create a diagnostic setting, you specify which categories of logs to collect. The category for *Load Balancer* is **AllMetrics**
+When you create a diagnostic setting, you specify which categories of logs to collect. The category for Load Balancer is **AllMetrics**
 
 ### Portal
 

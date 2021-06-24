@@ -56,7 +56,7 @@ This section refers to all of the Azure Monitor Logs Kusto tables relevant to Lo
 
 | Resource type | Notes |
 | ----- | ------|
-| [Load Balancer](/azure-monitor/reference/tables/tables-resourcetype#load-balancers)
+| [Load Balancer](/azure-monitor/reference/tables/tables-resourcetype#load-balancers) |  |
 ### Diagnostics tables
 
 Diagnostics tables are currently unsupported by Azure Load Balancer.
