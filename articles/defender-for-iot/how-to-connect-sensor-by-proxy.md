@@ -1,0 +1,65 @@
+---
+title: Connect sensors with a proxy
+description: 
+ms.topic: how-to
+ms.date: 06/24/2021
+---
+
+# Connect Azure Defender for IoT sensors without direct internet access by using a proxy 
+
+This article describes how to configure communication with Azure by using a proxy for sensors that have no direct internet access. To connect the sensor you will need a forward proxy with HTTP tunnelling that uses the HTTP CONNECT command for connectivity. The instructions here are given uses the open-source Squid proxy, any other proxy which supports CONNECT can be used. 
+
+The proxy uses an end-to-end encrypted SSL tunnel, to transfers data from the sensors to the service. The proxy doesn't inspect, analyze, or cache any data. 
+
+The following diagram shows data going from Azure Defender to IoT sensor in the OT segment to cloud via a proxy located in the IT network, and industrial DMZ.
+
+:::image type="content" source="media/how-to-connect-sensor-by-proxy/cloud-access-proxyA.png" alt-text="Connect the sensor ro the a proxy through the cloud.":::
+
+## Setup your system
+
+For this scenario we will be installing, and configuring the latest version of [Squid](squid-cache.org) on an Ubuntu 18 server.
+
+> [!Note]
+> Azure Defender for IoT does not offer support for Squid or any other proxy service.
+
+**To install Squid proxy on an Ubuntu 18 server**:
+
+1. Sign in to your designated proxy Ubuntu machine.
+
+1. Launch a terminal window.
+ 
+1. Update your software to the latest version using the following command.
+
+    ```bash
+    sudo apt-get update 
+    ```
+
+1. Install the Squid package using the following command.
+
+    ```bash
+    sudo apt-get install squid 
+    ```
+
+1. Locate the squid configuration file which is located at `/etc/squid/squid.conf`, and `/etc/squid/conf.d/`.
+
+1. Make a backup of the original file using the following command.
+
+    ```bash
+    sudo cp -v /etc/squid/squid.conf{,.factory}'/etc/squid/squid.conf' -> '/etc/squid/squid.conf.factory sudo nano /etc/squid/squid.conf
+    ```
+
+1. Open `/etc/squid/squid.conf` in a text editor.
+
+1. Search for `# INSERT YOUR OWN RULE(S) HERE TO ALLOW ACCESS FROM YOUR CLIENTS`.
+
+1. Add `acl sensor1 src <sensor-ip>`, and `http_access allow sensor1` into the file.
+
+    :::image type="content" source="media/how-to-connect-sensor-by-proxy/add-lines.png" alt-text="Add the following 2 lines into the text and save the file.":::
+
+1. (Optional) Add additional sensors by adding an extra lines for each sensor.
+
+1. Enable the Squid service to start at launch with the following command.
+
+    ```bash
+    sudo systemctl enable squid 
+    ``` 
