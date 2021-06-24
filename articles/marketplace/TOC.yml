@@ -20,9 +20,7 @@
     - name: Manage tenants
       href: manage-tenants.md    
     - name: Find or create a company work account
-      href: company-work-accounts.md  
-    - name: Account migration from CPP to Partner Center
-      href: account-migration-from-cpp-to-pc.md
+      href: company-work-accounts.md
     - name: Notifying Microsoft
       href: submit-legal-notice.md
   - name: Manage users
@@ -42,7 +40,7 @@
   - name: Transacting in the commercial marketplace
     href: marketplace-commercial-transaction-capabilities-and-considerations.md
   - name: License management
-    href: third-party-license.md
+    href: isv-app-license.md
   - name: Private offers
     href: private-offers.md
   - name: Plans and pricing
@@ -78,7 +76,7 @@
     - name: Co-sell requirements
       href: co-sell-requirements.md
     - name: Verify co-sell status
-      href: co-sell-status.md  
+      href: co-sell-status.md
     - name: Migrate co-sell solutions from OCP GTM
       href: co-sell-solution-migration.md 
     - name: Resell through CSP Partners
@@ -88,7 +86,7 @@
     - name: Azure consumption commitment enrollment
       href: azure-consumption-commitment-enrollment.md
     - name: Preferred solutions
-      href: /marketplace/appsource-overview#microsoft-preferred-solutionsmicrosoft-preferred-solutions
+      href: /marketplace/appsource-overview#microsoft-preferred-solutions
     - name: Integrated solutions
       href: integrated-solutions-for-publishers.md
   - name: Activate marketplace rewards
@@ -415,6 +413,8 @@
     href: customer-dashboard.md
   - name: Marketplace Insights dashboard
     href: insights-dashboard.md
+  - name: License dashboard
+    href: license-dashboard.md
   - name: Downloads dashboard
     href: downloads-dashboard.md
   - name: Ratings and reviews dashboard

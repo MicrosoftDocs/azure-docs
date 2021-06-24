@@ -9,11 +9,11 @@ ms.date: 04/07/2020
 
 # Create Apache Hadoop clusters in HDInsight by using Resource Manager templates
 
-[!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
+[!INCLUDE [selector](includes/hdinsight-create-linux-cluster-selector.md)]
 
 In this article, you learn several ways to create Azure HDInsight clusters using [Azure Resource Manager templates](../azure-resource-manager/templates/deploy-powershell.md). To learn about other cluster creation tools and features, click the tab selector on the top of this page. See also, [Cluster creation methods](hdinsight-hadoop-provision-linux-clusters.md#cluster-setup-methods).
 
-[!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+[!INCLUDE [delete-cluster-warning](includes/hdinsight-delete-cluster-warning.md)]
 
 ## Resource Manager templates
 

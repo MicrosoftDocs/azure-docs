@@ -1,6 +1,6 @@
 ---
 title: View and manage service providers
-description: Customers can use the Service providers page in the Azure portal to view info about service providers, service provider offers, and delegated resources.
+description: Customers can view info about Azure Lighthouse service providers, service provider offers, and delegated resources in the Azure portal.
 ms.date: 02/16/2021
 ms.topic: how-to
 ---
