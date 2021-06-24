@@ -19,7 +19,7 @@ This article explains in detail how to:
 - Extend the IoT Plug and Play bridge with an adapter.
 - Implement common callbacks for a bridge adapter.
 
-For an example that shows how to get stared with the bridge, see [How to connect the IoT Plug and Play bridge sample that runs on Linux or Windows to IoT Hub](howto-use-iot-pnp-bridge.md).
+For an example that shows how to get started with the bridge, see [How to connect the IoT Plug and Play bridge sample that runs on Linux or Windows to IoT Hub](howto-use-iot-pnp-bridge.md).
 
 The guidance and samples in this article assume basic familiarity with [Azure Digital Twins](../digital-twins/overview.md) and [IoT Plug and Play](overview-iot-plug-and-play.md). Additionally, this article assumes familiarity with how to [Build, and deploy the IoT Plug and Play bridge](howto-build-deploy-extend-pnp-bridge.md).
 
