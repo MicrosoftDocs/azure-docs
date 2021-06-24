@@ -230,6 +230,8 @@
         href: configure-public-ip-application-gateway.md
       - name: Virtual machine
         href: configure-public-ip-vm.md
+      - name: Bastion
+        href: configure-public-ip-bastion.md
     - name: Create public IP address
       items:
       - name: Create public IP addresses - Portal
