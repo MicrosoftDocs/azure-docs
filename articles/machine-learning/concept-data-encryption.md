@@ -54,7 +54,7 @@ To enable provisioning a Cosmos DB instance in your subscription with customer-m
 
 * Register the Microsoft.MachineLearning and Microsoft.DocumentDB resource providers in your subscription, if not done already.
 
-* Use the following parameters when creating the Azure Machine Learning workspace. Both parameters are mandatory and supported in SDK, CLI, REST APIs, and Resource Manager templates.
+* Use the following parameters when creating the Azure Machine Learning workspace. Both parameters are mandatory and supported in SDK, Azure CLI, REST APIs, and Resource Manager templates.
 
     * `resource_cmk_uri`: This parameter is the full resource URI of the customer managed key in your key vault, including the [version information for the key](../key-vault/general/about-keys-secrets-certificates.md#objects-identifiers-and-versioning). 
 
@@ -145,7 +145,7 @@ Microsoft may collect non-user identifying information like resource names (for 
 
 Microsoft also recommends not storing sensitive information (such as account key secrets) in environment variables. Environment variables are logged, encrypted, and stored by us. Similarly when naming [run_id](/python/api/azureml-core/azureml.core.run%28class%29), avoid including sensitive information such as user names or secret project names. This information may appear in telemetry logs accessible to Microsoft Support engineers.
 
-You may opt out from diagnostic data being collected by setting the `hbi_workspace` parameter to `TRUE` while provisioning the workspace. This functionality is supported when using the AzureML Python SDK, CLI, REST APIs, or Azure Resource Manager templates.
+You may opt out from diagnostic data being collected by setting the `hbi_workspace` parameter to `TRUE` while provisioning the workspace. This functionality is supported when using the AzureML Python SDK, the Azure CLI, REST APIs, or Azure Resource Manager templates.
 
 ## Using Azure Key Vault
 
