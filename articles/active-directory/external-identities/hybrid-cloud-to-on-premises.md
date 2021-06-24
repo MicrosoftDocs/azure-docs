@@ -30,7 +30,7 @@ You must do the following :
 - Publish the on-premises SAML-based application through Azure AD Application Proxy by following the instructions in [SAML single sign-on for on-premises applications with Application Proxy](../app-proxy/application-proxy-configure-single-sign-on-on-premises-apps.md).
 - Assign Azure AD B2B Users to the SAML Application.
 
-When you've completed all these steps above, your app should be up and running. To test the Azure AD B2B Access:
+When you've completed the steps above, your app should be up and running. To test Azure AD B2B access:
 1.	Open a browser and navigate to the External URL that you created when you published the app.
 2.	Sign in with the Azure AD B2B account that you assigned to the app. You should be able to load the application and have SSO into the application.
 
