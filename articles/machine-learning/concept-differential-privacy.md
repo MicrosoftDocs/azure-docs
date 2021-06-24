@@ -1,20 +1,21 @@
 ---
-title: Implement differential privacy with the SmartNoise package (preview)
+title: Differential privacy in machine learning (preview)
 titleSuffix: Azure Machine Learning
-description: Learn what differential privacy is and how the SmartNoise package can help you implement differential private systems that preserve data privacy.
+description: Learn what differential privacy is and how you can implement differentially private systems that preserve data privacy.
 author: luisquintanilla
 ms.author: luquinta 
-ms.date: 12/21/2020
+ms.date: 01/21/2020
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-#intent: As a data scientist, I want to know what differential privacy is and how SmartNoise can help me implement a differentially private system.
+ms.custom:  responsible-ml
+#Customer intent: As a data scientist, I want to know what differential privacy is and how I can implement a differentially private systems.
 ---
 
-# Preserve data privacy by using differential privacy and the SmartNoise package (preview)
+# What is differential privacy in machine learning (preview)
 
-Learn what differential privacy is and how the SmartNoise package can help you implement differentially private systems.
+Learn about differential privacy in machine learning and how it works.
 
 As the amount of data that an organization collects and uses for analyses increases, so do concerns of privacy and security. Analyses require data. Typically, the more data used to train models, the more accurate they are. When personal information is used for these analyses, it's especially important that the data remains private throughout its use.
 
@@ -23,9 +24,9 @@ As the amount of data that an organization collects and uses for analyses increa
 Differential privacy is a set of systems and practices that help keep the data of individuals safe and private.
 
 > [!div class="mx-imgBorder"]
-> ![Differential Privacy Process](./media/concept-differential-privacy/differential-privacy-process.jpg)
+> ![Differential privacy machine learning process](./media/concept-differential-privacy/differential-privacy-machine-learning.jpg)
 
-In traditional scenarios, raw data is stored in files and databases. When users analyze data, they typically use the raw data. This is a concern because it might infringe on an individual's privacy. Differential privacy tries to deal with this problem by adding "noise" or randomness to the data so that users can't identify any individual data points. At the least, such a system provides plausible deniability.
+In traditional scenarios, raw data is stored in files and databases. When users analyze data, they typically use the raw data. This is a concern because it might infringe on an individual's privacy. Differential privacy tries to deal with this problem by adding "noise" or randomness to the data so that users can't identify any individual data points. At the least, such a system provides plausible deniability. Therefore, the privacy of individuals is preserved with limited impact on the accuracy of the data.
 
 In differentially private systems, data is shared through requests called **queries**. When a user submits a query for data, operations known as **privacy mechanisms** add noise to the requested data. Privacy mechanisms return an *approximation of the data* instead of the raw data. This privacy-preserving result appears in a **report**. Reports consist of two parts, the actual data computed and a description of how the data was created.
 
@@ -37,22 +38,22 @@ Epsilon values are non-negative. Values below 1 provide full plausible deniabili
 
 Another value directly correlated to epsilon is **delta**. Delta is a measure of the probability that a report is not fully private. The higher the delta, the higher the epsilon. Because these values are correlated, epsilon is used more often.
 
-## Privacy budget
+## Limit queries with a privacy budget
 
-To ensure privacy in systems where multiple queries are allowed, differential privacy defines a rate limit. This limit is known as a **privacy budget**. Privacy budgets are allocated an epsilon amount, typically between 1 and 3 to limit the risk of reidentification. As reports are generated, privacy budgets keep track of the epsilon value of individual reports as well as the aggregate for all reports. After a privacy budget is spent or depleted, users can no longer access data.  
+To ensure privacy in systems where multiple queries are allowed, differential privacy defines a rate limit. This limit is known as a **privacy budget**. Privacy budgets prevent data from being recreated through multiple queries. Privacy budgets are allocated an epsilon amount, typically between 1 and 3 to limit the risk of reidentification. As reports are generated, privacy budgets keep track of the epsilon value of individual reports as well as the aggregate for all reports. After a privacy budget is spent or depleted, users can no longer access data. 
 
 ## Reliability of data
 
-Although the preservation of privacy should be the goal, there is a tradeoff when it comes to usability and reliability of the data. In data analytics, accuracy can be thought of as a measure of uncertainty introduced by sampling errors. This uncertainty tends to fall within certain bounds. **Accuracy** from a differential privacy perspective instead measures the reliability of the data, which is affected by the uncertainty introduced by the privacy mechanisms. In short, a higher level of noise or privacy translates to data that has a lower epsilon, accuracy, and reliability. Although the data is more private, because it's not reliable, the less likely it is to be used.
+Although the preservation of privacy should be the goal, there is a tradeoff when it comes to usability and reliability of the data. In data analytics, accuracy can be thought of as a measure of uncertainty introduced by sampling errors. This uncertainty tends to fall within certain bounds. **Accuracy** from a differential privacy perspective instead measures the reliability of the data, which is affected by the uncertainty introduced by the privacy mechanisms. In short, a higher level of noise or privacy translates to data that has a lower epsilon, accuracy, and reliability. 
 
-## Implementing differentially private systems
+## Open-source differential privacy libraries
 
-Implementing differentially private systems is difficult. SmartNoise is an open-source project that contains different components for building global differentially private systems. SmartNoise is made up of the following top-level components:
+SmartNoise is an open-source project that contains different components for building global differentially private systems. SmartNoise is made up of the following top-level components:
 
-- Core
-- SDK
+- SmartNoise Core library
+- SmartNoise SDK library
 
-### Core
+### SmartNoise Core
 
 The core library includes the following privacy mechanisms for implementing a differentially private system:
 
@@ -63,7 +64,7 @@ The core library includes the following privacy mechanisms for implementing a di
 |Runtime     | The medium to execute the analysis. The reference runtime is written in Rust but runtimes can be written using any computation framework such as SQL and Spark depending on your data needs.        |
 |Bindings     | Language bindings and helper libraries to build analyses. Currently SmartNoise provides Python bindings. |
 
-### SDK
+### SmartNoise SDK
 
 The system library provides the following tools and services for working with tabular and relational data:
 
@@ -75,6 +76,6 @@ The system library provides the following tools and services for working with ta
 
 ## Next steps
 
-[Preserve data privacy](how-to-differential-privacy.md) in Azure Machine Learning.
+[How to build a differentially private system](how-to-differential-privacy.md) in Azure Machine Learning.
 
-To learn more about the components of SmartNoise, check out the GitHub repositories for [SmartNoise Core package](https://github.com/opendifferentialprivacy/smartnoise-core), [SmartNoise SDK](https://github.com/opendifferentialprivacy/smartnoise-sdk), and [SmartNoise samples](https://github.com/opendifferentialprivacy/smartnoise-samples).
+To learn more about the components of SmartNoise, check out the GitHub repositories for [SmartNoise Core](https://github.com/opendifferentialprivacy/smartnoise-core), [SmartNoise SDK](https://github.com/opendifferentialprivacy/smartnoise-sdk), and [SmartNoise samples](https://github.com/opendifferentialprivacy/smartnoise-samples).

@@ -3,11 +3,11 @@ title: Azure Enterprise enrollment invoices
 description: This article explains how to manage and act on your Azure Enterprise invoice.
 author: bandersmsft
 ms.author: banders
-ms.date: 12/09/2020
+ms.date: 03/05/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
-ms.reviewer: boalcsva
+ms.reviewer: ruturajd
 ms.custom: contperf-fy21q1
 ---
 
@@ -93,29 +93,41 @@ The Azure Enterprise portal filters inactive enrollments out of view. You'll nee
 
 ## Change a PO number for an upcoming overage invoice
 
-The Azure Enterprise portal automatically generates a default purchase order (PO) number unless the enterprise administrator sets one before the invoice date. An enterprise administrator can update the PO number up to seven days after receiving an automated invoice notification email.
+The Azure Enterprise portal automatically generates a default purchase order (PO) number unless the enterprise administrator sets one before the invoice date. An enterprise administrator can update the PO number up to seven days after receiving an automated invoice notification email. 
 
-### To update the Azure services purchase order number:
+To prevent automatic generation of PO numbers every month, you can lock the PO number. See [Lock PO number](#lock-po-number-to-prevent-automatic-update-in-upcoming-billing-cycles).
+
+### Update the Azure services purchase order number
 
 1. From the Azure Enterprise portal, select **Report** > **Usage Summary**.
 1. Select **Edit PO Numbers** in the upper-right corner.
 1. Select the **Azure Services** radio button.
 1. Select an **Invoice Period** from the date ranges drop-down menu.
-
    You can edit a PO number during a seven-day period after you get an invoice notification, but before you've paid the invoice.
 1. Enter a new PO number in the **PO Number** field.
 1. Select **Save** to submit your change.
 
-### To update the Azure Marketplace purchase order number:
+### Update the Azure Marketplace purchase order number
 
 1. From the Azure Enterprise portal, select **Report** > **Usage Summary**.
 1. Select **Edit PO Numbers** in the upper-right corner.
 1. Select the **Marketplace** radio button.
-1. Select an **Invoice Period** from the date ranges drop-down menu.
-
-   You can edit a PO number during a seven-day period after you get an invoice notification, but before you've paid the invoice.
+1. Select an **Invoice Period** from the date ranges drop-down menu.  
+    You can edit a PO number during a seven-day period after you get an invoice notification, but before you've paid the invoice.
 1. Enter a new PO number in the **PO Number** field.
 1. Select **Save** to submit your change.
+
+### Lock PO number to prevent automatic update in upcoming billing cycles
+
+After you lock the PO number, it remains locked for all new invoices and you don't have to update the PO number.
+
+1.	In the Azure Enterprise portal, select **Report** > **Usage Summary**.
+2.	Select **Edit PO Numbers** in the upper-right corner.
+3.	Type a new PO number in the **PO Number** field.
+4.	Select the **Lock PO number** box.
+5.	Select **Save** to submit your change.  
+    :::image type="content" source="./media/ea-portal-enrollment-invoices/lock-po.png" alt-text="Screenshot showing the View/Edit PO Numbers box." lightbox="./media/ea-portal-enrollment-invoices/lock-po.png" :::
+
 
 ## Azure enterprise billing frequency
 
@@ -214,7 +226,7 @@ To apply your Azure Prepayment to overages, you must meet the following criteria
 - Your available Azure Prepayment amount covers the full number of incurred charges, including all past unpaid Azure invoices.
 - The billing term that you want to complete must be fully closed. Billing fully closes after the fifth day of each month.
 - The billing period that you want to offset must be fully closed.
-- Your Azure Prepayment Discount (ACD) is based on the actual new Prepayment minus any funds planned for the previous consumption. This requirement applies only to overage charges incurred. It's only valid for services that consume Azure Prepayment, so doesn't apply to Azure Marketplace charges. Azure Marketplace charges are billed separately.
+- Your Azure Prepayment Discount (APD) is based on the actual new Prepayment minus any funds planned for the previous consumption. This requirement applies only to overage charges incurred. It's only valid for services that consume Azure Prepayment, so doesn't apply to Azure Marketplace charges. Azure Marketplace charges are billed separately.
 
 To complete an overage offset, you or the account team can open a support request. An emailed approval from your enterprise administrator or Bill to Contact is required.
 
@@ -233,7 +245,7 @@ Refer to [Azure services](https://azure.microsoft.com/services/) and [Azure pric
 
 ### Enterprise Agreement units of measure
 
-The units of measure for Enterprise Agreements are often different than seen in our other programs such as the Microsoft Online Services Agreement program (MOSA). This disparity means that, for a number of services, the unit of measure is aggregated to provide the normalized pricing. The unit of measure shown in the Azure Enterprise portal's Usage Summary view is always the Enterprise measure. A full list of current units of measure and conversions for each service is provided in the [Friendly Service Names](https://azurepricing.blob.core.windows.net/supplemental/Friendly_Service_Names.xlsx) Excel file.
+The units of measure for Enterprise Agreements are often different than seen in our other programs such as the Microsoft Online Services Agreement program (MOSA). This disparity means that, for a number of services, the unit of measure is aggregated to provide the normalized pricing. The unit of measure shown in the Azure Enterprise portal's Usage Summary view is always the Enterprise measure. A full list of current units of measure and conversions for each service is provided by submitting a [support request](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ### Conversion between usage detail report and the usage summary page
 
@@ -319,13 +331,6 @@ If the change of channel partner (COCP) happens in the middle of the month, a cu
 The invoices will be released following the month after the billing period ends. If the billing cadence is monthly, then September's invoice will be released in October for both partners. If the billing cycle is quarterly or annually, the customer can expect an invoice for the previous associated partner for the usage under their period and rest will be to the new partner based on the billing cadence.
 
 ## Next steps
-
-- The following Excel files provide details on Azure services and are updated on the 6th and 20th of every month:
-
-   | Title | Description | File name |
-   | --- | --- | --- |
-   | [Friendly Service Names](https://azurepricing.blob.core.windows.net/supplemental/Friendly_Service_Names.xlsx) | Lists all active services and includes: <br>  <ul><li>service category</li>   <li>friendly service name</li>   <li>Prepayment name and part number</li> <li>consumption name and part number</li>   <li>units of measure</li>   <li>conversion factors between reported usage and displayed Enterprise portal usage</li></ul> | Friendly\_Service\_Names.xlsx |
-   | [Service Download Fields](https://azurepricing.blob.core.windows.net/supplemental/Service_Download_Fields.xlsx) | This spreadsheet provides a listing of all possible combinations of the service-related fields in the Usage Download Report. | Service\_Download\_Fields.xlsx |
 
 - For information about understanding your invoice and charges, see [Understand your Azure Enterprise Agreement bill](../understand/review-enterprise-agreement-bill.md).
 - To start using the Azure Enterprise portal, see [Get started with the Azure EA portal](ea-portal-get-started.md).

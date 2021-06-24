@@ -2,7 +2,8 @@
 title: Azure Event Hubs - Visualize data anomalies in real-time events
 description: 'Tutorial: Visualize data anomalies in real-time events sent to Microsoft Azure Event Hubs'
 ms.topic: tutorial
-ms.date: 06/23/2020
+ms.date: 06/23/2020 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Tutorial: Visualize data anomalies in real-time events sent to Azure Event Hubs
@@ -344,7 +345,7 @@ Log into your Power BI account. Go to **My Workspace**. On the line with your da
 
 ### Clean up resources using Azure CLI
 
-To remove the resource group, use the [az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete) command.
+To remove the resource group, use the [az group delete](/cli/azure/group#az_group_delete) command.
 
 ```azurecli-interactive
 az group delete --name $resourceGroup

@@ -30,30 +30,14 @@ This tutorial covers the following tasks:
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin. 
 
-* Get the latest version of [Java Development Kit (JDK)](/java/azure/jdk/?view=azure-java-stable&preserve-view=true). 
+* Get the latest version of [Java Development Kit (JDK)](/java/azure/jdk/). 
 
 * [Download](https://maven.apache.org/download.cgi) and [install](https://maven.apache.org/install.html) the [Maven](https://maven.apache.org/) binary archive. 
   - On Ubuntu, you can run `apt-get install maven` to install Maven. 
 
 ## Create a database account 
 
-1. Sign in to the [Azure portal](https://portal.azure.com/). 
-
-2. Select **Create a resource** > **Databases** > **Azure Cosmos DB**. 
-
-3. In the **New account** pane, enter the settings for the new Azure Cosmos account. 
-
-   |Setting   |Suggested value  |Description  |
-   |---------|---------|---------|
-   |ID   |   Enter a unique name    | Enter a unique name to identify this Azure Cosmos account. <br/><br/>Because cassandra.cosmosdb.azure.com is appended to the ID that you provide to create your contact point, use a unique but identifiable ID.         |
-   |API    |  Cassandra   |  The API determines the type of account to create. <br/> Select **Cassandra**, because in this article you will create a wide-column database that can be queried by using Cassandra Query Language (CQL) syntax.  |
-   |Subscription    |  Your subscription        |  Select Azure subscription that you want to use for this Azure Cosmos account.        |
-   |Resource Group   | Enter a name    |  Select **Create New**, and then enter a new resource-group name for your account. For simplicity, you can use the same name as your ID.    |
-   |Location    |  Select the region closest to your users    |  Select the geographic location in which to host your Azure Cosmos account. Use the location that's closest to your users, to give them the fastest access to the data.    |
-
-   :::image type="content" source="./media/create-cassandra-api-account-java/create-account.png" alt-text="Create account with portal":::
-
-4. Select **Create**. <br/>The account creation takes a few minutes. After the resource is created, you can see the **Deployment succeeded** notification on the right side of the portal.
+[!INCLUDE [cosmos-db-create-dbaccount-cassandra](includes/cosmos-db-create-dbaccount-cassandra.md)]
 
 ## Get the connection details of your account  
 

@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
-ms.date: 03/06/2020
+ms.date: 01/07/2021
 ms.author: vinigam
 
 ---
@@ -118,5 +118,5 @@ Depending on the conditions, we know which one of the four fields will be popula
 
 ## Next steps
 
-- To get answers to frequently asked questions, see [Traffic Analytics FAQ](traffic-analytics-faq.md).
+- To get answers to frequently asked questions, see [Traffic Analytics FAQ](traffic-analytics-faq.yml).
 - To see details about functionality, see [Traffic Analytics documentation](traffic-analytics.md).

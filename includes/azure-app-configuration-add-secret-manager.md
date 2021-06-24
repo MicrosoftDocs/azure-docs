@@ -2,6 +2,27 @@
 
 A tool called Secret Manager stores sensitive data for development work outside of your project tree. This approach helps prevent the accidental sharing of app secrets within source code. Complete the following steps to enable the use of Secret Manager in the ASP.NET Core project:
 
+#### [.NET 5.x](#tab/core5x)
+
+Navigate to the project's root directory, and run the following command to enable secrets storage in the project:
+
+```dotnetcli
+dotnet user-secrets init
+```
+
+A `UserSecretsId` element containing a GUID is added to the *.csproj* file:
+
+```xml
+<Project Sdk="Microsoft.NET.Sdk.Web">
+    
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <UserSecretsId>79a3edd0-2092-40a2-a04d-dcb46d5ca9ed</UserSecretsId>
+    </PropertyGroup>
+
+</Project>
+```
+
 #### [.NET Core 3.x](#tab/core3x)
 
 Navigate to the project's root directory, and run the following command to enable secrets storage in the project:

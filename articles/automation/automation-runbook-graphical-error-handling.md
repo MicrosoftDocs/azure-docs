@@ -4,7 +4,8 @@ description: This article tells how to implement error handling logic in graphic
 services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
-ms.topic: conceptual
+ms.topic: conceptual 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Handle errors in graphical runbooks
@@ -42,7 +43,7 @@ The recommended practice is to create a dedicated error handling runbook with co
 1. Sends a notification about this problem.
 2. Starts another runbook that automatically provisions a new VM instead.
 
-One solution is to have an error link in the runbook pointing to an activity that handles step one. For example, the runbook can connect the `Write-Warning` cmdlet to an activity for step two, such as the [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.5.0) cmdlet.
+One solution is to have an error link in the runbook pointing to an activity that handles step one. For example, the runbook can connect the `Write-Warning` cmdlet to an activity for step two, such as the [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook) cmdlet.
 
 You can also generalize this behavior for use in many runbooks by putting these two activities in a separate error handling runbook. Before your original runbook calls this error handling runbook, it can construct a custom message from its data and then pass it as a parameter to the error handling runbook.
 
@@ -54,7 +55,7 @@ After enabling the configuration setting, have your runbook create an activity t
 
 In the following example, a runbook retrieves a variable that contains the computer name of a VM. It then attempts to start the VM with the next activity.<br><br> ![Automation runbook error handling example](media/automation-runbook-graphical-error-handling/runbook-example-error-handling.png)<br><br>      
 
-The `Get-AutomationVariable` activity and the [Start-AzVM](/powershell/module/Az.Compute/Start-AzVM?view=azps-3.5.0) cmdlet are configured to convert exceptions to errors. If there are problems getting the variable or starting the VM, the code generates errors.<br><br> ![Automation runbook error-handling activity settings](media/automation-runbook-graphical-error-handling/activity-blade-convertexception-option.png).
+The `Get-AutomationVariable` activity and the [Start-AzVM](/powershell/module/Az.Compute/Start-AzVM) cmdlet are configured to convert exceptions to errors. If there are problems getting the variable or starting the VM, the code generates errors.<br><br> ![Automation runbook error-handling activity settings](media/automation-runbook-graphical-error-handling/activity-blade-convertexception-option.png).
 
 Error links flow from these activities to a single `error management` code activity. This activity is configured with a simple PowerShell expression that uses the `throw` keyword to stop processing, along with `$Error.Exception.Message` to get the message that describes the current exception.<br><br> ![Automation runbook error handling code example](media/automation-runbook-graphical-error-handling/runbook-example-error-handling-code.png)
 

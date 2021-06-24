@@ -4,7 +4,7 @@ description: In this Quickstart, learn how to create an Azure Database for MySQL
 author: mksuni
 ms.service: mysql
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurepowershell
 ms.author: sumuth
 ms.date: 10/23/2020
 ---
@@ -92,7 +92,7 @@ Create a _mysql-flexible-server-template.json_ file and copy this JSON script in
       "location": "[parameters('location')]",
       "sku": {
         "name": "Standard_D4ds_v4",
-        "tier": "[parameters('serverEdition')]"        
+        "tier": "[parameters('serverEdition')]"
       },
       "tags": "[parameters('tags')]",
       "properties": {

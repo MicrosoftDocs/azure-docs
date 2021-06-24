@@ -1,7 +1,6 @@
 ---
 title: Monitoring solutions in Azure Monitor | Microsoft Docs
 description: Monitoring solutions in Azure Monitor are a collection of logic, visualization, and data acquisition rules that provide metrics pivoted around a particular problem area.  This article provides information on installing and using monitoring solutions.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -24,7 +23,7 @@ Use the dropdown boxes at the top of the screen to change the workspace or the t
 
 [![Screenshot shows the Azure portal menu with Solutions selected and solutions displayed in the Solutions pane.](media/solutions/overview.png)](media/solutions/overview.png#lightbox)
 
-Monitoring solutions can contain multiple types of Azure resources, and you can view any resources included with a solution just like any other resource. For example, any log queries included in the solution are listed under **Solution Queries** in [Query explorer](../log-query/log-analytics-tutorial.md). You can use those queries when performing ad hoc analysis with [log queries](../log-query/log-query-overview.md).
+Monitoring solutions can contain multiple types of Azure resources, and you can view any resources included with a solution just like any other resource. For example, any log queries included in the solution are listed under **Solution Queries** in [Query explorer](../logs/log-analytics-tutorial.md). You can use those queries when performing ad hoc analysis with [log queries](../logs/log-query-overview.md).
 
 ## List installed monitoring solutions
 
@@ -44,7 +43,7 @@ Click on the name of a solution to open its summary page. This page displays any
 
 ### [Azure CLI](#tab/azure-cli)
 
-Use the [az monitor log-analytics solution list](/cli/azure/ext/log-analytics-solution/monitor/log-analytics/solution#ext-log-analytics-solution-az-monitor-log-analytics-solution-list) command to list the monitoring solutions installed in your subscription.   Before running the `list` command, follow the prerequisites found in [Install a monitoring solution](#install-a-monitoring-solution).
+Use the [az monitor log-analytics solution list](/cli/azure/monitor/log-analytics/solution#az_monitor_log_analytics_solution_list) command to list the monitoring solutions installed in your subscription.   Before running the `list` command, follow the prerequisites found in [Install a monitoring solution](#install-a-monitoring-solution).
 
 ```azurecli
 # List all log-analytics solutions in the current subscription.
@@ -82,7 +81,7 @@ Get-AzMonitorLogAnalyticsSolution -ResourceGroupName MyResourceGroup
 
 ### [Portal](#tab/portal)
 
-Monitoring solutions from Microsoft and partners are available from the [Azure Marketplace](https://azuremarketplace.microsoft.com). You can search available solutions and install them using the following procedure. When you install a solution, you must select a [Log Analytics workspace](../platform/manage-access.md) where the solution will be installed and where its data will be collected.
+Monitoring solutions from Microsoft and partners are available from the [Azure Marketplace](https://azuremarketplace.microsoft.com). You can search available solutions and install them using the following procedure. When you install a solution, you must select a [Log Analytics workspace](../logs/manage-access.md) where the solution will be installed and where its data will be collected.
 
 1. From the [list of solutions for your subscription](#list-installed-monitoring-solutions), click **Add**.
 1. Browse or search for a solution. You can also browse solutions from [this search link](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/management-tools?page=1&subcategories=management-solutions).
@@ -97,7 +96,7 @@ Monitoring solutions from Microsoft and partners are available from the [Azure M
 Members of the community can submit management solutions to Azure Quickstart Templates. You can install these solutions directly or download them templates for later installation.
 
 1. Follow the process described in [Log Analytics workspace and Automation account](#log-analytics-workspace-and-automation-account) to link a workspace and account.
-2. Go to [Azure Quickstart Templates](https://azure.microsoft.com/documentation/templates/).
+2. Go to [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/).
 3. Search for a solution that you're interested in.
 4. Select the solution from the results to view its details.
 5. Click the **Deploy to Azure** button.
@@ -118,7 +117,7 @@ Members of the community can submit management solutions to Azure Quickstart Tem
 
 1. Sign in.
 
-   If you're using a local install of the CLI, sign in using the [az login](/cli/azure/reference-index#az-login) command.  Follow the steps displayed in your terminal to complete the authentication process.
+   If you're using a local install of the CLI, sign in using the [az login](/cli/azure/reference-index#az_login) command.  Follow the steps displayed in your terminal to complete the authentication process.
 
     ```azurecli
     az login
@@ -140,9 +139,9 @@ Members of the community can submit management solutions to Azure Quickstart Tem
 
 ### Install a solution with the Azure CLI
 
-When you install a solution, you must select a [Log Analytics workspace](../platform/manage-access.md) where the solution will be installed and where its data will be collected.  With the Azure CLI, you manage workspaces by using the [az monitor log-analytics workspace](/cli/azure/monitor/log-analytics/workspace) reference commands.  Follow the process described in [Log Analytics workspace and Automation account](#log-analytics-workspace-and-automation-account) to link a workspace and account.
+When you install a solution, you must select a [Log Analytics workspace](../logs/manage-access.md) where the solution will be installed and where its data will be collected.  With the Azure CLI, you manage workspaces by using the [az monitor log-analytics workspace](/cli/azure/monitor/log-analytics/workspace) reference commands.  Follow the process described in [Log Analytics workspace and Automation account](#log-analytics-workspace-and-automation-account) to link a workspace and account.
 
-Use the [az monitor log-analytics solution create](/cli/azure/ext/log-analytics-solution/monitor/log-analytics/solution) to install a monitoring solution.  Parameters in square brackets are optional.
+Use the [az monitor log-analytics solution create](/cli/azure/monitor/log-analytics/solution) to install a monitoring solution.  Parameters in square brackets are optional.
 
 ```azurecli
 az monitor log-analytics solution create --name
@@ -204,7 +203,7 @@ az monitor log-analytics solution create --resource-group MyResourceGroup \
 ### Install a solution with Azure PowerShell
 
 When you install a solution, you must select a
-[Log Analytics workspace](../platform/manage-access.md) where the solution will be installed and
+[Log Analytics workspace](../logs/manage-access.md) where the solution will be installed and
 where its data will be collected. With Azure PowerShell, you manage workspaces by using the cmdlets
 in the [Az.MonitoringSolutions](/powershell/module/az.monitoringsolutions) PowerShell module. Follow
 the process described in
@@ -234,7 +233,7 @@ New-AzMonitorLogAnalyticsSolution -Type Containers -ResourceGroupName MyResource
 
 ## Log Analytics workspace and Automation account
 
-All monitoring solutions require a [Log Analytics workspace](../platform/manage-access.md) to store data collected by the solution and to host its log searches and views. Some solutions also require an [Automation account](../../automation/automation-security-overview.md) to contain runbooks and related resources. The workspace and account must meet the following requirements.
+All monitoring solutions require a [Log Analytics workspace](../logs/manage-access.md) to store data collected by the solution and to host its log searches and views. Some solutions also require an [Automation account](../../automation/automation-security-overview.md) to contain runbooks and related resources. The workspace and account must meet the following requirements.
 
 * Each installation of a solution can only use one Log Analytics workspace and one Automation account. You can install the solution separately into multiple workspaces.
 * If a solution requires an Automation account, then the Log Analytics workspace and Automation account must be linked to one another. A Log Analytics workspace may only be linked to one Automation account, and an Automation account may only be linked to one Log Analytics workspace.
@@ -257,7 +256,7 @@ To remove an installed solution using the portal, locate it in the [list of inst
 
 ### [Azure CLI](#tab/azure-cli)
 
-To remove an installed solution using the Azure CLI, use the [az monitor log-analytics solution delete](/cli/azure/ext/log-analytics-solution/monitor/log-analytics/solution#ext-log-analytics-solution-az-monitor-log-analytics-solution-delete) command.
+To remove an installed solution using the Azure CLI, use the [az monitor log-analytics solution delete](/cli/azure/monitor/log-analytics/solution#az_monitor_log_analytics_solution_delete) command.
 
 ```azurecli
 az monitor log-analytics solution delete --name
@@ -281,5 +280,5 @@ Remove-AzMonitorLogAnalyticsSolution  -ResourceGroupName MyResourceGroup -Name W
 ## Next steps
 
 * Get a [list of monitoring solutions from Microsoft](../monitor-reference.md).
-* Learn how to [create queries](../log-query/log-query-overview.md) to analyze data collected by monitoring solutions.
+* Learn how to [create queries](../logs/log-query-overview.md) to analyze data collected by monitoring solutions.
 * See all [Azure CLI commands for Azure Monitor](/cli/azure/azure-cli-reference-for-monitor).

@@ -13,21 +13,21 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 12/14/2020
+ms.date: 04/21/2021
 ms.author: phjensen
 ---
 
-# Tips and tricks for using Azure Application Consistent Snapshot tool (preview)
+# Tips and tricks for using Azure Application Consistent Snapshot tool
 
 This article provides tips and tricks that might be helpful when you use AzAcSnap.
 
 ## Limit service principal permissions
 
-It may be necessary to limit the scope of the AzAcSnap service principal.  Review the [Azure RBAC documentation](https://docs.microsoft.com/azure/role-based-access-control/) for more details on fine-grained access management of Azure resources.  
+It may be necessary to limit the scope of the AzAcSnap service principal.  Review the [Azure RBAC documentation](../role-based-access-control/index.yml) for more details on fine-grained access management of Azure resources.  
 
 The following is an example role definition with the minimum required actions needed for AzAcSnap to function.
 
-```bash
+```azurecli
 az role definition create --role-definition '{ \
   "Name": "Azure Application Consistent Snapshot tool", \
   "IsCustom": "true", \
@@ -43,6 +43,27 @@ az role definition create --role-definition '{ \
   "AssignableScopes": ["/subscriptions/<insert your subscription id>"] \
 }'
 ```
+
+For restore options to work successfully, the AzAcSnap service principal also needs to be able to create volumes.  In this case the role definition needs an additional action, therefore the complete service principal should look like the following example.
+
+```azurecli
+az role definition create --role-definition '{ \
+  "Name": "Azure Application Consistent Snapshot tool", \
+  "IsCustom": "true", \
+  "Description": "Perform snapshots and restores on ANF volumes.", \
+  "Actions": [ \
+    "Microsoft.NetApp/*/read", \
+    "Microsoft.NetApp/netAppAccounts/capacityPools/volumes/snapshots/write", \
+    "Microsoft.NetApp/netAppAccounts/capacityPools/volumes/snapshots/delete", \
+    "Microsoft.NetApp/netAppAccounts/capacityPools/volumes/write" \
+  ], \
+  "NotActions": [], \
+  "DataActions": [], \
+  "NotDataActions": [], \
+  "AssignableScopes": ["/subscriptions/<insert your subscription id>"] \
+}'
+```
+
 
 ## Take snapshots manually
 
@@ -136,7 +157,7 @@ A storage volume snapshot can be restored to a new volume (`-c restore --restore
 A snapshot can be copied back to the SAP HANA data area, but SAP HANA must not be running when a
 copy is made (`cp /hana/data/H80/mnt00001/.snapshot/hana_hourly.2020-06-17T113043.1586971Z/*`).
 
-For Azure Large Instance, you could contact the Microsoft operations team by opening a service request to restore a desired snapshot from the existing available snapshots. You can open a service request from Azure portal: <https://portal.azure.com.>
+For Azure Large Instance, you could contact the Microsoft operations team by opening a service request to restore a desired snapshot from the existing available snapshots. You can open a service request from Azure portal: <https://portal.azure.com>
 
 If you decide to perform the disaster recovery failover, the `azacsnap -c restore --restore revertvolume` command at the DR site will automatically make available the most recent (`/hana/data` and `/hana/logbackups`) volume snapshots to allow for an SAP HANA recovery. Use this command with caution as it breaks replication between production and DR sites.
 
@@ -185,7 +206,7 @@ In some cases, customers already have tools to protect SAP HANA and only want to
 
     ```output
     {
-      "version": "5.0 Preview",
+      "version": "5.0",
       "logPath": "./logs",
       "securityPath": "./security",
       "comments": [
@@ -234,7 +255,7 @@ In some cases, customers already have tools to protect SAP HANA and only want to
     ```output
     List snapshot details called with snapshotFilter 'TestBootVolume'
     #, Volume, Snapshot, Create Time, HANA Backup ID, Snapshot Size
-    #1, t210_sles_boot_azsollabbl20a31_vol, TestBootVolume.2020-07-03T034651.7059085Z, "Fri Jul 03 03:48:24 2020", "otherVolume Backup|azacsnap version: 5.0 Preview (20200617.75879)", 200KB
+    #1, t210_sles_boot_azsollabbl20a31_vol, TestBootVolume.2020-07-03T034651.7059085Z, "Fri Jul 03 03:48:24 2020", "otherVolume Backup|azacsnap version: 5.0 (Build: 20210421.6349)", 200KB
     , t210_sles_boot_azsollabbl20a31_vol, , , Size used by Snapshots, 1.31GB
     ```
 
@@ -253,7 +274,7 @@ A 'boot' snapshot can be recovered as follows:
 
 1. The customer will need to shut down the server.
 1. After the Server is shut down, the customer will need to open a service request that contains the Machine ID and Snapshot to restore.
-    > Customers can open a service request from the Azure portal: <https://portal.azure.com.>
+    > Customers can open a service request from the Azure portal: <https://portal.azure.com>
 1. Microsoft will restore the Operating System LUN using the specified Machine ID and Snapshot, and then boot the Server.
 1. The customer will then need to confirm Server is booted and healthy.
 

@@ -3,14 +3,14 @@ title: Translator Detect Method
 titleSuffix: Azure Cognitive Services
 description: Identify the language of a piece of text with the Azure Cognitive Services Translator Detect method.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
-ms.author: swmachan
+ms.author: lajanuar
 ---
 
 # Translator 3.0: Detect
@@ -94,26 +94,19 @@ An example JSON response is:
 
 ```json
 [
-  {
-    "language": "de",
-    "score": 0.92,
-    "isTranslationSupported": true,
-    "isTransliterationSupported": false,
-    "alternatives": [
-      {
-        "language": "pt",
-        "score": 0.23,
+
+    {
+
+        "language": "de",
+
+        "score": 1.0,
+
         "isTranslationSupported": true,
+
         "isTransliterationSupported": false
-      },
-      {
-        "language": "sk",
-        "score": 0.23,
-        "isTranslationSupported": true,
-        "isTransliterationSupported": false
-      }
-    ]
-  }
+
+    }
+
 ]
 ```
 

@@ -1,16 +1,16 @@
 ---
-title: Monitor Azure Cosmos DB with Azure Monitor for Cosmos DB| Microsoft Docs
-description: This article describes the Azure Monitor for Cosmos DB feature that provides Cosmos DB owners with a quick understanding of performance and utilization issues with their CosmosDB accounts.
-author: mrbullwinkle
-ms.author: mbullwin
+title: Monitor Azure Cosmos DB with Azure Monitor Cosmos DB insights| Microsoft Docs
+description: This article describes the Cosmos DB insights feature of Azure Monitor that provides Cosmos DB owners with a quick understanding of performance and utilization issues with their CosmosDB accounts.
+author: lgayhardt
+ms.author: lagayhar
 ms.topic: conceptual
 ms.date: 05/11/2020
 
 ---
 
-# Explore Azure Monitor for Azure Cosmos DB
+# Explore Azure Monitor Cosmos DB insights
 
-Azure Monitor for Azure Cosmos DB provides a view of the overall performance, failures, capacity, and operational health of all your Azure Cosmos DB resources in a unified interactive experience. This article will help you understand the benefits of this new monitoring experience, and how you can modify and adapt the experience to fit the unique needs of your organization.   
+Cosmos DB insights provides a view of the overall performance, failures, capacity, and operational health of all your Azure Cosmos DB resources in a unified interactive experience. This article will help you understand the benefits of this new monitoring experience, and how you can modify and adapt the experience to fit the unique needs of your organization.   
 
 ## Introduction
 
@@ -83,13 +83,51 @@ Select **Capacity** at the top of the page and the **Capacity** portion of the w
 
 As with the overview workbook, selecting the drop-down next to an Azure Cosmos DB resource in the **Subscription** column will reveal a breakdown by the individual containers that make up the database.
 
-### Operations 
+### Operations
 
-Select **Operations** at the top of the page and the **Operations** portion of the workbook template opens. It gives you the ability to see your requests broken down by the type of requests made. 
+Select **Operations** at the top of the page and the **Operations** portion of the workbook template opens. It gives you the ability to see your requests broken down by the type of requests made.
 
 So in the example below you see that `eastus-billingint` is predominantly receiving read requests, but with a small number of upsert and create requests. Whereas `westeurope-billingint` is read-only from a request perspective, at least over the past four hours that the workbook is currently scoped to via its time range parameter.
 
-![Operations workbook](./media/cosmosdb-insights-overview/operation.png) 
+![Operations workbook](./media/cosmosdb-insights-overview/operation.png)
+
+## View from an Azure Cosmos DB resource
+
+1. Search for or select any of your existing Azure Cosmos DB accounts.
+
+:::image type="content" source="./media/cosmosdb-insights-overview/cosmosdb-search.png" alt-text="Search for Azure Cosmos DB." border="true":::
+
+2. Once you've navigated to your Azure Cosmos DB account, in the Monitoring section select **Insights (preview)** or **Workbooks** to perform further analysis on throughput, requests, storage, availability, latency, system, and account management.
+
+:::image type="content" source="./media/cosmosdb-insights-overview/cosmosdb-overview.png" alt-text="Cosmos DB Insights Overview." border="true":::
+
+### Time range
+
+By default, the **Time Range** field displays data from the **Last 24 hours**. You can modify the time range to display data anywhere from the last 5 minutes to the last seven days. The time range selector also includes a **Custom** mode that allows you to type in the start/end dates to view a custom time frame based on available data for the selected account.
+
+:::image type="content" source="./media/cosmosdb-insights-overview/cosmosdb-time-range.png" alt-text="Cosmos DB Time Range." border="true":::
+
+### Insights overview
+
+The **Overview** tab provides the most common metrics for the selected Azure Cosmos DB account including:
+
+* Total Requests
+* Failed Requests (429s)
+* Normalized RU Consumption (max)
+* Data & Index Usage
+* Cosmos DB Account Metrics by Collection
+
+**Total Requests:** This graph provides a view of the total requests for the account broken down by status code. The units at the bottom of the graph are a sum of the total requests for the period.
+
+:::image type="content" source="./media/cosmosdb-insights-overview/cosmosdb-total-requests.png" alt-text="Cosmos DB Total Requests Graph." border="true":::
+
+**Failed Requests (429s)**: This graph provides a view of failed requests with a status code of 429. The units at the bottom of the graph are a sum of the total failed requests for the period.
+
+:::image type="content" source="./media/cosmosdb-insights-overview/cosmosdb-429.png" alt-text="Cosmos DB Failed Requests Graph." border="true":::
+
+**Normalized RU Consumption (max)**: This graph provides the max percentage between 0-100% of Normalized RU Consumption units for the specified period.
+
+:::image type="content" source="./media/cosmosdb-insights-overview/cosmosdb-normalized-ru.png" alt-text="Cosmos DB Normalized RU Consumption." border="true":::
 
 ## Pin, export, and expand
 
@@ -97,8 +135,7 @@ You can pin any one of the metric sections to an [Azure Dashboard](../../azure-p
 
 ![Metric section pin to dashboard example](./media/cosmosdb-insights-overview/pin.png)
 
-To export your data into the Excel format, select the down arrow icon to the left of the pushpin 
-icon.
+To export your data into the Excel format, select the down arrow icon to the left of the pushpin icon.
 
 ![Export workbook icon](./media/cosmosdb-insights-overview/export.png)
 
@@ -106,7 +143,7 @@ To expand or collapse all drop-down views in the workbook, select the expand ico
 
 ![Expand workbook icon](./media/cosmosdb-insights-overview/expand.png)
 
-## Customize Azure Monitor for Azure Cosmos DB
+## Customize Cosmos DB insights
 
 Since this experience is built on top of Azure Monitor workbook templates, you have the ability to **Customize** > **Edit** and **Save** a copy of your modified version into a custom workbook. 
 
@@ -122,6 +159,6 @@ For troubleshooting guidance, refer to the dedicated workbook-based insights [tr
 
 ## Next steps
 
-* Configure [metric alerts](../platform/alerts-metric.md) and [service health notifications](../../service-health/alerts-activity-log-service-notifications-portal.md) to set up automated alerting to aid in detecting issues.
+* Configure [metric alerts](../alerts/alerts-metric.md) and [service health notifications](../../service-health/alerts-activity-log-service-notifications-portal.md) to set up automated alerting to aid in detecting issues.
 
-* Learn the scenarios workbooks are designed to support, how to author new and customize existing reports, and more by reviewing [Create interactive reports with Azure Monitor workbooks](../platform/workbooks-overview.md).
+* Learn the scenarios workbooks are designed to support, how to author new and customize existing reports, and more by reviewing [Create interactive reports with Azure Monitor workbooks](../visualize/workbooks-overview.md).

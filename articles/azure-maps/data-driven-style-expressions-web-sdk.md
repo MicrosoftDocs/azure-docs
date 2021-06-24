@@ -676,7 +676,7 @@ For more information, see the [Add a heat map layer](map-add-heat-map-layer.md) 
 
 ### Line progress expression
 
-A line progress expression retrieves the progress along a gradient line in a line layer and is defined as `['line-progress']`. This value is a number between 0 and 1. It's used in combination with an `interpolation` or `step` expression. This expression can only be used with the [strokeGradient option]( https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions#strokegradient) of the line layer. 
+A line progress expression retrieves the progress along a gradient line in a line layer and is defined as `['line-progress']`. This value is a number between 0 and 1. It's used in combination with an `interpolation` or `step` expression. This expression can only be used with the [strokeGradient option](/javascript/api/azure-maps-control/atlas.linelayeroptions#strokegradient) of the line layer.
 
 > [!NOTE]
 > The `strokeGradient` option of the line layer requires the `lineMetrics` option of the data source to be set to `true`.

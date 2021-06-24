@@ -12,7 +12,7 @@ ms.custom: devx-track-python, github-actions-azure, devx-track-azurecli
 
 # Deploy to App Service using GitHub Actions
 
-Get started with [GitHub Actions](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions) to automate your workflow and deploy to [Azure App Service](overview.md) from GitHub. 
+Get started with [GitHub Actions](https://docs.github.com/en/actions/learn-github-actions) to automate your workflow and deploy to [Azure App Service](overview.md) from GitHub. 
 
 ## Prerequisites 
 
@@ -20,7 +20,7 @@ Get started with [GitHub Actions](https://docs.github.com/en/free-pro-team@lates
 - A GitHub account. If you don't have one, sign up for [free](https://github.com/join).  
 - A working Azure App Service app. 
     - .NET: [Create an ASP.NET Core web app in Azure](quickstart-dotnetcore.md)
-    - ASP.NET: [Create an ASP.NET Framework web app in Azure](quickstart-dotnet-framework.md)
+    - ASP.NET: [Create an ASP.NET Framework web app in Azure](./quickstart-dotnetcore.md?tabs=netframework48)
     - JavaScript: [Create a Node.js web app in Azure App Service](quickstart-nodejs.md)  
     - Java: [Create a Java app on Azure App Service](quickstart-java.md)
     - Python: [Create a Python app in Azure App Service](quickstart-python.md)
@@ -59,7 +59,7 @@ You can also deploy a workflow without using the Deployment Center. To do so, yo
 
 The recommended way to authenticate with Azure App Services for GitHub Actions is with a publish profile. You can also authenticate with a service principal but the process requires more steps. 
 
-Save your publish profile credential or service principal as a [GitHub secret](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets) to authenticate with Azure. You'll access the secret within your workflow. 
+Save your publish profile credential or service principal as a [GitHub secret](https://docs.github.com/en/actions/reference/encrypted-secrets) to authenticate with Azure. You'll access the secret within your workflow. 
 
 # [Publish profile](#tab/applevel)
 
@@ -76,7 +76,7 @@ A publish profile is an app-level credential. Set up your publish profile as a G
 
 # [Service principal](#tab/userlevel)
 
-You can create a [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) with the [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command in the [Azure CLI](/cli/azure/). Run this command with [Azure Cloud Shell](https://shell.azure.com/) in the Azure portal or by selecting the **Try it** button.
+You can create a [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) with the [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) command in the [Azure CLI](/cli/azure/). Run this command with [Azure Cloud Shell](https://shell.azure.com/) in the Azure portal or by selecting the **Try it** button.
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name "myApp" --role contributor \
@@ -231,7 +231,7 @@ You can restore NuGet dependencies and run msbuild with `run`.
   run: nuget restore
 
 - name: Add msbuild to PATH
-  uses: microsoft/setup-msbuild@v1.0.0
+  uses: microsoft/setup-msbuild@v1.0.2
 
 - name: Run msbuild
   run: msbuild .\SampleWebApplication.sln
@@ -355,7 +355,7 @@ jobs:
       run: nuget restore
   
     - name: Add msbuild to PATH
-      uses: microsoft/setup-msbuild@v1.0.0
+      uses: microsoft/setup-msbuild@v1.0.2
 
     - name: Run MSBuild
       run: msbuild .\SampleWebApplication.sln
@@ -577,7 +577,7 @@ jobs:
       run: nuget restore
   
     - name: Add msbuild to PATH
-      uses: microsoft/setup-msbuild@v1.0.0
+      uses: microsoft/setup-msbuild@v1.0.2
 
     - name: Run MSBuild
       run: msbuild .\SampleWebApplication.sln
@@ -742,7 +742,7 @@ You can find our set of Actions grouped into different repositories on GitHub, e
 
 - [Docker login/logout](https://github.com/Azure/docker-login)
 
-- [Events that trigger workflows](https://docs.github.com/en/free-pro-team@latest/actions/reference/events-that-trigger-workflows)
+- [Events that trigger workflows](https://docs.github.com/en/actions/reference/events-that-trigger-workflows)
 
 - [K8s deploy](https://github.com/Azure/k8s-deploy)
 

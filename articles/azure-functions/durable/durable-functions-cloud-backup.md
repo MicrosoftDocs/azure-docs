@@ -67,6 +67,23 @@ Notice the `yield context.df.Task.all(tasks);` line. All the individual calls to
 
 After yielding from `context.df.Task.all`, we know that all function calls have completed and have returned values back to us. Each call to `E2_CopyFileToBlob` returns the number of bytes uploaded, so calculating the sum total byte count is a matter of adding all those return values together.
 
+# [Python](#tab/python)
+
+The function uses the standard *function.json* for orchestrator functions.
+
+[!code-json[Main](~/samples-durable-functions-python/samples/fan_in_fan_out/E2_BackupSiteContent/function.json)]
+
+Here is the code that implements the orchestrator function:
+
+[!code-python[Main](~/samples-durable-functions-python/samples/fan_in_fan_out/E2_BackupSiteContent/\_\_init\_\_.py)]
+
+Notice the `yield context.task_all(tasks);` line. All the individual calls to the `E2_CopyFileToBlob` function were *not* yielded, which allows them to run in parallel. When we pass this array of tasks to `context.task_all`, we get back a task that won't complete *until all the copy operations have completed*. If you're familiar with [`asyncio.gather`](https://docs.python.org/3/library/asyncio-task.html#asyncio.gather) in Python, then this is not new to you. The difference is that these tasks could be running on multiple virtual machines concurrently, and the Durable Functions extension ensures that the end-to-end execution is resilient to process recycling.
+
+> [!NOTE]
+> Although tasks are conceptually similar to Python awaitables, orchestrator functions should use `yield` as well as the `context.task_all` and `context.task_any` APIs to manage task parallelization.
+
+After yielding from `context.task_all`, we know that all function calls have completed and have returned values back to us. Each call to `E2_CopyFileToBlob` returns the number of bytes uploaded, so we can calculate the sum total byte count by adding all the return values together.
+
 ---
 
 ### Helper activity functions
@@ -90,6 +107,16 @@ And here is the implementation:
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E2_GetFileList/index.js)]
 
 The function uses the `readdirp` module (version 2.x) to recursively read the directory structure.
+
+# [Python](#tab/python)
+
+The *function.json* file for `E2_GetFileList` looks like the following:
+
+[!code-json[Main](~/samples-durable-functions-python/samples/fan_in_fan_out/E2_GetFileList/function.json)]
+
+And here is the implementation:
+
+[!code-python[Main](~/samples-durable-functions-python/samples/fan_in_fan_out/E2_GetFileList/\_\_init\_\_.py)]
 
 ---
 
@@ -117,6 +144,16 @@ The JavaScript implementation uses the [Azure Storage SDK for Node](https://gith
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E2_CopyFileToBlob/index.js)]
 
+# [Python](#tab/python)
+
+The *function.json* file for `E2_CopyFileToBlob` is similarly simple:
+
+[!code-json[Main](~/samples-durable-functions-python/samples/fan_in_fan_out/E2_CopyFileToBlob/function.json)]
+
+The Python implementation uses the [Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python) to upload the files to Azure Blob Storage.
+
+[!code-python[Main](~/samples-durable-functions-python/samples/fan_in_fan_out/E2_CopyFileToBlob/\_\_init\_\_.py)]
+
 ---
 
 The implementation loads the file from disk and asynchronously streams the contents into a blob of the same name in the "backups" container. The return value is the number of bytes copied to storage, that is then used by the orchestrator function to compute the aggregate sum.
@@ -126,7 +163,7 @@ The implementation loads the file from disk and asynchronously streams the conte
 
 ## Run the sample
 
-You can start the orchestration by sending the following HTTP POST request.
+You can start the orchestration, on Windows, by sending the following HTTP POST request.
 
 ```
 POST http://{host}/orchestrators/E2_BackupSiteContent
@@ -134,6 +171,16 @@ Content-Type: application/json
 Content-Length: 20
 
 "D:\\home\\LogFiles"
+```
+
+Alternatively, on a Linux Function App (Python currently only runs on Linux for App Service), you can start the orchestration like so:
+
+```
+POST http://{host}/orchestrators/E2_BackupSiteContent
+Content-Type: application/json
+Content-Length: 20
+
+"/home/site/wwwroot"
 ```
 
 > [!NOTE]

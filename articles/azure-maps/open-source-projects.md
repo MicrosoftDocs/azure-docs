@@ -60,12 +60,21 @@ The following is a list of open-source projects that extend the capabilities of 
 | [Azure Maps .NET UWP IoT Remote Control](https://github.com/Azure-Samples/azure-maps-dotnet-webgl-uwp-iot-remote-control) | This is a sample application that shows how to build a remotely controlled map using Azure Maps and IoT hub services. |
 | [Implement IoT spatial analytics using Azure Maps](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing) | Tracking and capturing relevant events that occur in space and time is a common IoT scenario. |
 
+**Third party map control plugins**
+<a name="third-part-map-control-plugins"></a>
+
+| Project Name | Description |
+|-|-|
+| [Azure Maps Cesium plugin](https://github.com/azure-samples/azure-maps-cesium) | A [Cesium JS](https://cesium.com/cesiumjs/) plugin that makes it easy to integrate Azure Maps services such as [tile layers](/rest/api/maps/renderv2/getmaptilepreview) and [geocoding services](/rest/api/maps/search). |
+| [Azure Maps Leaflet plugin](https://github.com/azure-samples/azure-maps-leaflet) | A [leaflet](https://leafletjs.com/) JavaScript plugin that makes it easy to overlay tile layers from the [Azure Maps tile services](/rest/api/maps/renderv2/getmaptilepreview). |
+ | [Azure Maps OpenLayers plugin](https://github.com/azure-samples/azure-maps-openlayers) | A [OpenLayers](https://www.openlayers.org/) JavaScript plugin that makes it easy to overlay tile layers from the [Azure Maps tile services](/rest/api/maps/renderv2/getmaptilepreview). |
+
 **Tools and resources**
 
 | Project Name | Description |
 |-|-|
 | [Azure Maps Docs](https://github.com/MicrosoftDocs/azure-docs/tree/master/articles/azure-maps) | Source for all Azure Location Based Services documentation. |
-| [Azure Maps Creator (Preview) Tools](https://github.com/Azure-Samples/AzureMapsCreator) | Python tools for Azure Maps Creator (Preview) Tools. |
+| [Azure Maps Creator Tools](https://github.com/Azure-Samples/AzureMapsCreator) | Python tools for Azure Maps Creator Tools. |
 
 A longer list of open-source projects for Azure Maps that includes community created projects is available [here](https://github.com/microsoft/Maps/blob/master/AzureMaps.md)
 

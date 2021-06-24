@@ -3,14 +3,14 @@ title: Translator Transliterate Method
 titleSuffix: Azure Cognitive Services
 description: Convert text in one language from one script to another script with the Translator Transliterate method.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
-ms.author: swmachan
+ms.author: lajanuar
 ---
 
 # Translator 3.0: Transliterate

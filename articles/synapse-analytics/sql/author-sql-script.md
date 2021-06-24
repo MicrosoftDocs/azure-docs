@@ -83,4 +83,4 @@ To move a SQL script into a folder, you can select the sql script and choose "Mo
 ## Next steps
 
 For more information about authoring a SQL script, see
-[Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics).
+[Azure Synapse Analytics](../index.yml).

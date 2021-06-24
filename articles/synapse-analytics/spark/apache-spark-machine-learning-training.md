@@ -48,11 +48,11 @@ When using automated ML within Azure Synapse Analytics, you can leverage the dee
 > You can learn more about creating an Azure Machine Learning automated ML experiment by following this [tutorial](./spark/../apache-spark-azure-machine-learning-tutorial.md).
 
 ## Azure Cognitive Services
-[Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/what-are-cognitive-services) provides machine learning capabilities to solve general problems such as analyzing text for emotional sentiment or analyzing images to recognize objects or faces. You don't need special machine learning or data science knowledge to use these services. A Cognitive Service provides part or all of the components in a machine learning solution: data, algorithm, and trained model. These services are meant to require general knowledge about your data without needing experience with machine learning or data science. You can leverage these pre-trained Cognitive Services automatically within Azure Synapse Analytics.
+[Azure Cognitive Services](../../cognitive-services/what-are-cognitive-services.md) provides machine learning capabilities to solve general problems such as analyzing text for emotional sentiment or analyzing images to recognize objects or faces. You don't need special machine learning or data science knowledge to use these services. A Cognitive Service provides part or all of the components in a machine learning solution: data, algorithm, and trained model. These services are meant to require general knowledge about your data without needing experience with machine learning or data science. You can leverage these pre-trained Cognitive Services automatically within Azure Synapse Analytics.
 
 ## Next steps
 This article provides an overview of the various options to train machine learning models within Apache Spark pools in Azure Synapse Analytics. You can learn more about model training by following the tutorial below:
 
-- Run Automated ML experiments using Azure Machine Learning and Azure Synapse Analytics: [Automated ML Tutorial](./spark/../apache-spark-autoscale.md) 
-- Run SparkML experiments: [Apache SparkML Tutorial](../spark/apache-spark-azure-machine-learning-tutorial.md)
+- Run Automated ML experiments using Azure Machine Learning and Azure Synapse Analytics: [Automated ML Tutorial](../spark/apache-spark-azure-machine-learning-tutorial.md) 
+- Run SparkML experiments: [Apache SparkML Tutorial](../spark/apache-spark-machine-learning-mllib-notebook.md)
 - View the default libraries: [Azure Synapse Analytics runtime](../spark/apache-spark-version-support.md)

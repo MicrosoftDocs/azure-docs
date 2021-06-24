@@ -10,9 +10,9 @@ ms.author: mbaldwin
 ms.custom: references_regions
 
 ---
-# Microsoft Azure Attestation (preview)
+# Microsoft Azure Attestation 
 
-Microsoft Azure Attestation (preview) is a unified solution for remotely verifying the trustworthiness of a platform and integrity of the binaries running inside it. The service supports attestation of the platforms backed by Trusted Platform Modules (TPMs) alongside the ability to attest to the state of Trusted Execution Environments (TEEs) such as [Intel® Software Guard Extensions](https://www.intel.com/content/www/us/en/architecture-and-technology/software-guard-extensions.html) (SGX) enclaves and [Virtualization-based Security](/windows-hardware/design/device-experiences/oem-vbs) (VBS) enclaves. 
+Microsoft Azure Attestation is a unified solution for remotely verifying the trustworthiness of a platform and integrity of the binaries running inside it. The service supports attestation of the platforms backed by Trusted Platform Modules (TPMs) alongside the ability to attest to the state of Trusted Execution Environments (TEEs) such as [Intel® Software Guard Extensions](https://www.intel.com/content/www/us/en/architecture-and-technology/software-guard-extensions.html) (SGX) enclaves and [Virtualization-based Security](/windows-hardware/design/device-experiences/oem-vbs) (VBS) enclaves. 
 
 Attestation is a process for demonstrating that software binaries were properly instantiated on a trusted platform. Remote relying parties can then gain confidence that only such intended software is running on trusted hardware. Azure Attestation is a unified customer-facing service and framework for attestation.
 
@@ -30,10 +30,21 @@ SGX refers to hardware-grade isolation, which is supported on certain Intel CPUs
 
 Client applications can be designed to take advantage of SGX enclaves by delegating security-sensitive tasks to take place inside those enclaves. Such applications can then make use of Azure Attestation to routinely establish trust in the enclave and its ability to access sensitive data.
 
+Intel® Xeon® Scalable processors only support [ECDSA-based attestation solutions](https://software.intel.com/content/www/us/en/develop/topics/software-guard-extensions/attestation-services.html#Elliptic%20Curve%20Digital%20Signature%20Algorithm%20(ECDSA)%20Attestation) for remotely attesting SGX enclaves. Utilizing ECDSA based attestation model, Azure Attestation supports validation of Intel® Xeon® E3 processors and Intel® Xeon® Scalable processor-based server platforms. 
+
+> [!NOTE]
+> To perform attestation of Intel® Xeon® Scalable processor-based server platforms using Azure Attestation, users are expected to install [Azure DCAP version 1.10.0](https://github.com/microsoft/Azure-DCAP-Client) or higher.
+
 ### Open Enclave
 [Open Enclave](https://openenclave.io/sdk/) (OE) is a collection of libraries targeted at creating a single unified enclaving abstraction for developers to build TEE-based applications. It offers a universal secure app model that minimizes platform specificities. Microsoft views it as an essential stepping-stone toward democratizing hardware-based enclave technologies such as SGX and increasing their uptake on Azure.
 
 OE standardizes specific requirements for verification of an enclave evidence. This qualifies OE as a highly fitting attestation consumer of Azure Attestation.
+
+### TPM attestation 
+
+Trusted Platform Module (TPM) based attestation is critical to provide proof of a platforms’ state. TPM acts as the root of trust and the security coprocessor to provide cryptographic validity to the measurements(evidence). Devices with a TPM, can rely on attestation to prove that boot integrity is not compromised along with using the claims to detect feature states enablement’s during boot. 
+
+Client applications can be designed to take advantage of TPM attestation by delegating security-sensitive tasks to only take place after a platform has been validated to be secure. Such applications can then make use of Azure Attestation to routinely establish trust in the platform and its ability to access sensitive data.
 
 ## Azure Attestation can run in a TEE
 
@@ -55,8 +66,8 @@ Azure Attestation customers have expressed a requirement for Microsoft to be ope
 Azure Attestation is the preferred choice for attesting TEEs as it offers the following benefits: 
 
 - Unified framework for attesting multiple environments such as TPMs, SGX enclaves and VBS enclaves 
-- Multi-tenant service which allows configuration of custom attestation providers and policies to restrict token generation
-- Offers default providers which can attest with no configuration from users
+- Allows creation of custom attestation providers and configuration of policies to restrict token generation
+- Offers regional shared providers which can attest with no configuration from users
 - Protects its data while-in use with implementation in an SGX enclave
 - Highly available service 
 
@@ -67,10 +78,10 @@ Azure Attestation is the preferred choice for attesting TEEs as it offers the fo
 Clusters deployed in two regions will operate independently under normal circumstances. In the case of a fault or outage of one region, the following takes place:
 
 - Azure Attestation BCDR will provide seamless failover in which customers do not need to take any extra step to recover
-- The [Azure Traffic Manager](../traffic-manager/index.yml) for the region will detect the health probe is degraded and switch the endpoint to paired region
+- The [Azure Traffic Manager](../traffic-manager/index.yml) for the region will detect that the health probe is degraded and switches the endpoint to paired region
 - Existing connections will not work and will receive internal server error or timeout issues
-- All control plane operations will be blocked. Customers will not be able to create attestation providers and update policies in the primary region
-- All data plane operations, including attest calls, will continue to work in primary region
+- All control plane operations will be blocked. Customers will not be able to create attestation providers in the primary region
+- All data plane operations, including attest calls and policy configuration, will be served by secondary region. Customers can continue to work on data plane operations with the original URI corresponding to primary region
 
 ## Next steps
 - Learn about [Azure Attestation basic concepts](basic-concepts.md)

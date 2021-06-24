@@ -1,16 +1,10 @@
 ---
 title: Azure Security Center threat intelligence report | Microsoft Docs
 description: This page helps you to use Azure Security Center threat intelligence reports during an investigation to find more information about security alerts
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: 5662e312-e8c2-4736-974e-576eeb333484
 ms.service: security-center
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 06/15/2020
 ms.author: memildin
 
@@ -53,11 +47,11 @@ This type of information is useful during the incident response process, where t
 1. Select an alert. 
     The alerts details page opens with more details about the alert. Below is the **Ransomware indicators detected** alert details page.
 
-    [![Ransomware indicators detected alert details page](media/security-center-threat-report/ransomware-indicators-detected-link-to-threat-intel-report.png)](media/security-center-threat-report/ransomware-indicators-detected-link-to-threat-intel-report.png#lightbox)
+    [![Ransomware indicators detected alert details page.](media/security-center-threat-report/ransomware-indicators-detected-link-to-threat-intel-report.png)](media/security-center-threat-report/ransomware-indicators-detected-link-to-threat-intel-report.png#lightbox)
 
 1. Select the link to the report, and a PDF will open in your default browser.
 
-    [![Potentially Unsafe Action alert details page](media/security-center-threat-report/threat-intelligence-report.png)](media/security-center-threat-report/threat-intelligence-report.png#lightbox)
+    [![Potentially Unsafe Action alert details page.](media/security-center-threat-report/threat-intelligence-report.png)](media/security-center-threat-report/threat-intelligence-report.png#lightbox)
 
     You can optionally download the PDF report. 
 

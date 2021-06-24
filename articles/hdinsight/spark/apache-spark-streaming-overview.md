@@ -1,9 +1,6 @@
 ---
 title: Spark Streaming in Azure HDInsight 
 description: How to use Apache Spark Streaming applications on HDInsight Spark clusters.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
@@ -14,7 +11,7 @@ ms.date: 04/23/2020
 
 [Apache Spark](https://spark.apache.org/) Streaming provides data stream processing on HDInsight Spark clusters. With a guarantee that any input event is processed exactly once, even if a node failure occurs. A Spark Stream is a long-running job that receives input data from a wide variety of sources, including Azure Event Hubs. Also: Azure IoT Hub, Apache Kafka, Apache Flume, Twitter, `ZeroMQ`, raw TCP sockets, or from monitoring Apache Hadoop YARN filesystems. Unlike a solely event-driven process, a Spark Stream batches input data into time windows. Such as a 2-second slice, and then transforms each batch of data using map, reduce, join, and extract operations. The Spark Stream then writes the transformed data out to filesystems, databases, dashboards, and the console.
 
-![Stream Processing with HDInsight and Spark Streaming](./media/apache-spark-streaming-overview/hdinsight-spark-streaming.png)
+:::image type="content" source="./media/apache-spark-streaming-overview/hdinsight-spark-streaming.png" alt-text="Stream Processing with HDInsight and Spark Streaming" border="false":::
 
 Spark Streaming applications must wait a fraction of a second to collect each `micro-batch` of events before sending that batch on for processing. In contrast, an event-driven application processes each event immediately. Spark Streaming latency is typically under a few seconds. The benefits of the micro-batch approach are more efficient data processing and simpler aggregate calculations.
 
@@ -28,7 +25,7 @@ Start with a single event, say a temperature reading from a connected thermostat
 
 Each RDD represents events collected over a user-defined timeframe called the *batch interval*. As each batch interval elapses, a new RDD is produced that contains all the data from that interval. The continuous set of RDDs is collected into a DStream. For example, if the batch interval is one second long, your DStream emits a batch every second containing one RDD that contains all the data ingested during that second. When processing the DStream, the temperature event appears in one of these batches. A Spark Streaming application processes the batches that contain the events and ultimately acts on the data stored in each RDD.
 
-![Example DStream with Temperature Events](./media/apache-spark-streaming-overview/hdinsight-spark-streaming-example.png)
+:::image type="content" source="./media/apache-spark-streaming-overview/hdinsight-spark-streaming-example.png" alt-text="Example DStream with Temperature Events" border="false":::
 
 ## Structure of a Spark Streaming application
 
@@ -166,9 +163,9 @@ To do aggregate calculations on your DStream over some time period, for example 
 
 Sliding windows can overlap, for example, you can define a window with a length of two seconds, that slides every one second. This action means every time you do an aggregation calculation, the window will include data from the last one second of the previous window. And any new data in the next one second.
 
-![Example Initial Window with Temperature Events](./media/apache-spark-streaming-overview/hdinsight-spark-streaming-window-01.png)
+:::image type="content" source="./media/apache-spark-streaming-overview/hdinsight-spark-streaming-window-01.png" alt-text="Example Initial Window with Temperature Events" border="false":::
 
-![Example Window with Temperature Events After Sliding](./media/apache-spark-streaming-overview/hdinsight-spark-streaming-window-02.png)
+:::image type="content" source="./media/apache-spark-streaming-overview/hdinsight-spark-streaming-window-02.png" alt-text="Example Window with Temperature Events After Sliding" border="false":::
 
 The following example  updates the code that uses the DummySource, to collect the batches into a window with a one-minute duration and a one-minute slide.
 
@@ -242,7 +239,7 @@ To deliver resiliency and fault tolerance, Spark Streaming relies on checkpointi
 
 You typically build a Spark Streaming application locally into a JAR file. Then deploy it to Spark on HDInsight by copying the JAR file to the default attached storage. You can start your application  with the LIVY REST APIs available from your cluster using  a POST operation. The body of the POST includes a JSON document that provides the path to your JAR. And the name of the class whose main method defines and runs the streaming application, and optionally the resource requirements of the job (such as the number of executors, memory, and cores). Also, any configuration settings your application code requires.
 
-![Deploying a Spark Streaming application](./media/apache-spark-streaming-overview/hdinsight-spark-streaming-livy.png)
+:::image type="content" source="./media/apache-spark-streaming-overview/hdinsight-spark-streaming-livy.png" alt-text="Deploying a Spark Streaming application" border="false":::
 
 The status of all applications can also be checked with a GET request against a LIVY endpoint. Finally, you can end a running application by issuing a DELETE request against the LIVY endpoint. For details on the LIVY API, see [Remote jobs with Apache LIVY](apache-spark-livy-rest-interface.md)
 

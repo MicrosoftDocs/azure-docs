@@ -248,9 +248,9 @@ ApiKey={API_KEY} \
 Logging:Console:LogLevel:Default=Information
 ```
 
-## [Speech Language Detection](#tab/lid)
+## [Speech Language Identification](#tab/lid)
 
-### Basic example for Speech language detection
+### Basic example for Speech language identification
 
 ```Docker
 docker run --rm -it -p 5000:5000 --memory 12g --cpus 6 \
@@ -260,7 +260,7 @@ Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
 ```
 
-### Logging example for Speech language detection
+### Logging example for Speech language identification
 
 ```Docker
 docker run --rm -it -p 5000:5000 --memory 12g --cpus 6 \

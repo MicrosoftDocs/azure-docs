@@ -27,7 +27,7 @@ forwarded without making any modifications to the event payload.
 The implementation of this pattern is covered by the
 [Event replication between Event Hubs](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopy) and
 [Event replication between Event Hubs and Service Bus](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopyToServiceBus)
-samples.
+samples and the [Use Apache Kafka MirrorMaker with Event Hubs](event-hubs-kafka-mirror-maker-tutorial.md) tutorial for the specific case of replicating data from an Apache Kafka broker into Event Hubs.
 
 ### Streams and order preservation
 
@@ -52,7 +52,7 @@ partition](event-hubs-features.md#partitions).
 >
 > In the EventProcessor, you set the position through the InitialOffsetProvider
 > on the EventProcessorOptions. With the other receiver APIs, the position is
-> passed through teh constructor. 
+> passed through the constructor. 
 
 
 The pre-built replication function helpers [provided as
@@ -139,7 +139,7 @@ the subordinate zone corresponding to your primary Event Hub:
 
 | CNAME record                | Alias                    |
 | --------------------------- | ------------------------ |
-| `eventhub.test.example.com` | `test1.test.example.com` |
+| `eventhub.test.example.com` | `eh1.test.example.com`   |
 
 Using a DNS client that allows for querying CNAME and SRV records explicitly
 (the built-in clients of Java and .NET only allow for simple resolution of names
@@ -233,7 +233,7 @@ replication tasks.
 
 The last scenario requires excluding already replicated events from being
 replicated again. The technique is demonstrated and explained in the
-[EventHubToEventHubMerge](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/main/code/EventHubToEventHubMerge)
+[EventHubToEventHubMerge](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/code/EventHubMerge)
 sample.
 
 ## Editor
@@ -339,7 +339,7 @@ select * into dest2Output from inputSource where Info = 2
 
 The log projection pattern flattens the event stream onto an indexed database,
 with events becoming records in the database. Typically, events are added to the
-same collection or table, and the Event Hub partition key becomes party of the
+same collection or table, and the Event Hub partition key becomes part of the
 the primary key looking for making the record unique.
 
 Log projection can produce a time-series historian of your event data or a

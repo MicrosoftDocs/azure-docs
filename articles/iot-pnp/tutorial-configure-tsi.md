@@ -1,24 +1,30 @@
 ---
-title: Use Azure Time Series Insights to store and analyze your Azure IoT Plug and Play device telemetry  
-description: Set up a Time Series Insights environment and connect your IoT hub to view and analyze telemetry from your IoT Plug and Play devices.
-author: lyrana
-ms.author: lyhughes
+title: Tutorial - Use Azure Time Series Insights to store and analyze your Azure IoT Plug and Play device telemetry
+description: Tutorial - Set up a Time Series Insights environment and connect your IoT hub to view and analyze telemetry from your IoT Plug and Play devices.
+author: deepakpalled
+ms.author: dpalled
+manager: diviso
 ms.date: 10/14/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
 
-# As an IoT solution builder, I want to historize and analyze data from my IoT Plug and Play devices by routing to Time Series Insights.
+# Customer intent: As an IoT solution builder, I want to historize and analyze data from my IoT Plug and Play devices by routing to Time Series Insights.
 ---
 
-# Preview tutorial: Create and configure a Time Series Insights Gen2 environment
+# Tutorial: Create and configure a Time Series Insights Gen2 environment
 
 In this tutorial, you learn how to create and configure an [Azure Time Series Insights Gen2](../time-series-insights/overview-what-is-tsi.md) environment to integrate with your IoT Plug and Play solution. Use Time Series Insights to collect, process, store, query, and visualize time series data at the scale of Internet of Things (IoT).
 
-First, you provision a Time Series Insights environment and connect your IoT hub as a streaming event source. Then you work through model synchronization to author your [Time Series Model](../time-series-insights/concepts-model-overview.md). You use the [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl) sample model files that you used for the temperature controller and thermostat devices.
+In this tutorial, you
+
+> [!div class="checklist"]
+> * Provision a Time Series Insights environment and connect your IoT hub as a streaming event source.
+> * Work through model synchronization to author your [Time Series Model](../time-series-insights/concepts-model-overview.md).
+> * Use the [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl) sample model files that you used for the temperature controller and thermostat devices.
 
 > [!NOTE]
-> This integration between Time Series Insights and IoT Plug and Play is in preview. The way that DTDL device models map to the Time Series Insights Time Series Model might change. 
+> This integration between Time Series Insights and IoT Plug and Play is in preview. The way that DTDL device models map to the Time Series Insights Time Series Model might change.
 
 ## Prerequisites
 
@@ -29,10 +35,6 @@ At this point, you have:
 * An Azure IoT hub.
 * A Device Provisioning Service (DPS) instance linked to your IoT hub. The DPS instance should have an individual device enrollment for your IoT Plug and Play device.
 * A connection to your IoT hub from either a single-component device or a multiple-component device that streams simulated data.
-
-To avoid the requirement to install the Azure CLI locally, you can use Azure Cloud Shell to set up the cloud services.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## Prepare your event source
 
@@ -76,7 +78,7 @@ storage=mytsicoldstore
 rg=my-pnp-resourcegroup
 az storage account create -g $rg -n $storage --https-only
 key=$(az storage account keys list -g $rg -n $storage --query [0].value --output tsv)
-az timeseriesinsights environment longterm create --name my-tsi-env --resource-group $rg --time-series-id-properties iothub-connection-device-id, dt-subject --sku-name L1 --sku-capacity 1 --data-retention 7 --storage-account-name $storage --storage-management-key $key --location eastus2
+az tsi environment gen2 create --name "my-tsi-env" --location eastus2 --resource-group $rg --sku name="L1" capacity=1 --time-series-id-properties name=iothub-connection-device-id type=String --time-series-id-properties name=dt-subject type=String --warm-store-configuration data-retention=P7D --storage-configuration account-name=$storage management-key=$key
 ```
 
 Connect your IoT Hub event source. Replace `my-pnp-resourcegroup`, `my-pnp-hub`, and `my-tsi-env` with the values you chose. The following command references the consumer group for Time Series Insights that you created previously:
@@ -87,7 +89,7 @@ iothub=my-pnp-hub
 env=my-tsi-env
 es_resource_id=$(az iot hub create -g $rg -n $iothub --query id --output tsv)
 shared_access_key=$(az iot hub policy list -g $rg --hub-name $iothub --query "[?keyName=='service'].primaryKey" --output tsv)
-az timeseriesinsights event-source iothub create -g $rg --environment-name $env -n iot-hub-event-source --consumer-group-name tsi-consumer-group  --key-name iothubowner --shared-access-key $shared_access_key --event-source-resource-id $es_resource_id
+az tsi event-source iothub create --event-source-name iot-hub-event-source --environment-name $env --resource-group $rg --location eastus2 --consumer-group-name tsi-consumer-group --key-name iothubowner --shared-access-key $shared_access_key --event-source-resource-id $es_resource_id --iot-hub-name $iothub
 ```
 
 In the [Azure portal](https://portal.azure.com), go to your resource group, and then select your new Time Series Insights environment. Go to the **Time Series Insights Explorer URL** shown in the instance overview:
@@ -115,7 +117,7 @@ Next, you translate your DTDL device model to the asset model in Azure Time Seri
 
 ### Define your types
 
-You can begin ingesting data into Azure Time Series Insights Gen2 without having predefined a model. When telemetry arrives, Time Series Insights attempts to automatically resolve time series instances based on your Time Series ID property values. All instances are assigned the *default type*. You need to manually create a new type to correctly categorize your instances. 
+You can begin ingesting data into Azure Time Series Insights Gen2 without having predefined a model. When telemetry arrives, Time Series Insights attempts to automatically resolve time series instances based on your Time Series ID property values. All instances are assigned the *default type*. You need to manually create a new type to correctly categorize your instances.
 
 The following details outline the simplest method to synchronize your device DTDL models with your Time Series Model types:
 
@@ -131,7 +133,7 @@ The following details outline the simplest method to synchronize your device DTD
 |-----------|------------------|-------------|
 | `@id` | `id` | `dtmi:com:example:TemperatureController;1` |
 | `displayName`    | `name`   |   `Temperature Controller`  |
-| `description`  |  `description`  |  `Device with two thermostats and remote reboot.` |  
+| `description`  |  `description`  |  `Device with two thermostats and remote reboot.` |
 |`contents` (array)| `variables` (object)  | See the following example.
 
 ![Screenshot showing D T D L to Time Series Model type.](./media/tutorial-configure-tsi/DTDL-to-TSM-Type.png)
@@ -153,7 +155,7 @@ Open a text editor and save the following JSON to your local drive.
           "kind": "numeric",
           "value": {
             "tsx": "coalesce($event.workingSet.Long, toLong($event.workingSet.Double))"
-          }, 
+          },
           "aggregation": {
             "tsx": "avg($value)"
           }
@@ -219,10 +221,11 @@ Go back to the charting pane and expand **Device Fleet** > your device. Select *
 
 ![Screenshot showing how to change the instance type for thermostat2.](./media/tutorial-configure-tsi/charting-values.png)
 
+## Clean up resources
+
+[!INCLUDE [iot-pnp-clean-resources](../../includes/iot-pnp-clean-resources.md)]
+
 ## Next steps
 
-* To learn more about the various charting options, including interval sizing and y-axis controls, see [Azure Time Series Insights Explorer](../time-series-insights/concepts-ux-panels.md).
-
-* For an in-depth overview of your environment's Time Series Model, see [Time Series Model in Azure Time Series Insights Gen2](../time-series-insights/concepts-model-overview.md).
-
-* To dive into the query APIs and the Time Series Expression syntax, see [Azure Time Series Insights Gen2 Query APIs](/rest/api/time-series-insights/reference-query-apis).
+> [!div class="nextstepaction"]
+> To learn more about the various charting options, including interval sizing and y-axis controls, see [Azure Time Series Insights Explorer](../time-series-insights/concepts-ux-panels.md).

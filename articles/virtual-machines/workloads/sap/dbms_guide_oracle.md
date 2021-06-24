@@ -8,12 +8,11 @@ manager: bburns
 editor: ''
 tags: azure-resource-manager
 keywords: 'SAP, Azure, Oracle, Data Guard'
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/20/2020
+ms.date: 01/18/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -235,7 +234,7 @@ ms.custom: H1Hack27Feb2017
 [resource-group-overview]:../../../azure-resource-manager/management/overview.md
 [resource-groups-networking]:../../../networking/networking-overview.md
 [sap-pam]:https://support.sap.com/pam 
-[sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
+[sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
 [sap-templates-2-tier-os-disk]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-disk%2Fazuredeploy.json
 [sap-templates-2-tier-user-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-image%2Fazuredeploy.json
 [sap-templates-3-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image%2Fazuredeploy.json
@@ -250,7 +249,7 @@ ms.custom: H1Hack27Feb2017
 [storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
 [template-201-vm-from-specialized-vhd]:https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd
 [templates-101-simple-windows-vm]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-windows-vm
-[templates-101-vm-from-user-image]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image
+[templates-101-vm-from-user-image]:https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-from-user-image
 [virtual-machines-linux-attach-disk-portal]:../../linux/attach-disk-portal.md
 [virtual-machines-azure-resource-manager-architecture]:../../../resource-manager-deployment-model.md
 [virtual-machines-azurerm-versus-azuresm]:../../../resource-manager-deployment-model.md
@@ -441,15 +440,19 @@ In this case, we recommend installing/locating Oracle home, stage, `saptrace`, `
 
 ### Storage configuration
 
-The filesystems of ext4, xfs, or Oracle ASM are supported for Oracle Database files on Azure. All database files must be stored on these file systems based on VHDs or Managed Disks. These disks are mounted to the Azure VM and are based on [Azure page blob storage](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) or [Azure Managed Disks](../../managed-disks-overview.md).
+The filesystems of ext4, xfs, NFSv4.1 (only on Azure NetApp Files (ANF)) or Oracle ASM (see SAP Note [#2039619](https://launchpad.support.sap.com/#/notes/2039619) for release/version requirements) are supported for Oracle Database files on Azure. All database files must be stored on these file systems based on VHDs, Managed Disks, or ANF. These disks are mounted to the Azure VM and are based on [Azure page blob storage](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs), [Azure Managed Disks](../../managed-disks-overview.md), or [Azure NetApp Files](https://azure.microsoft.com/services/netapp/).
 
-For Oracle Linux UEK kernels, a minimum of UEK version 4 is required to support [Azure premium SSDs](../../premium-storage-performance.md#disk-caching).
+Minimum requirements list like: 
+
+- For Oracle Linux UEK kernels, a minimum of UEK version 4 is required to support [Azure premium SSDs](../../premium-storage-performance.md#disk-caching).
+- For Oracle with ANF the minimum supported Oracle Linux is 8.2.
+- For Oracle with ANF the minimum supported Oracle version is 19c (19.8.0.0)
 
 Checkout the article [Azure Storage types for SAP workload](./planning-guide-storage.md) to get more details of the specific Azure block storage types suitable for DBMS workload.
 
-It is highly recommended to use [Azure managed disks](../../managed-disks-overview.md). It also is highly recommended using [Azure premium SSDs](../../disks-types.md) for your Oracle Database deployments.
+Using Azure block storage, it is highly recommended to use [Azure managed disks](../../managed-disks-overview.md) and [Azure premium SSDs](../../disks-types.md) for your Oracle Database deployments.
 
-Network drives or remote shares like Azure file services aren't supported for Oracle Database files. For more information, see the following: 
+Except for Azure NetApp Files, other shared disks, network drives, or remote shares like Azure File Services (AFS) aren't supported for Oracle Database files. For more information, see the following: 
 
 - [Introducing Microsoft Azure File Service](/archive/blogs/windowsazurestorage/introducing-microsoft-azure-file-service)
 
@@ -465,10 +468,10 @@ Minimum configuration:
 
 | Component | Disk | Caching | Stripping* |
 | --- | ---| --- | --- |
-| /oracle/\<SID>/origlogaA & mirrlogB | Premium or Ultra disk | None | Not needed |
-| /oracle/\<SID>/origlogaB & mirrlogA | Premium or Ultra disk | None | Not needed |
-| /oracle/\<SID>/sapdata1...n | Premium or Ultra disk | Read-only | Can be used for Premium |
-| /oracle/\<SID>/oraarch | Standard | None | Not needed |
+| /oracle/\<SID>/origlogaA & mirrlogB | Premium, Ultra disk, or ANF | None | Not needed |
+| /oracle/\<SID>/origlogaB & mirrlogA | Premium, Ultra disk, or ANF | None | Not needed |
+| /oracle/\<SID>/sapdata1...n | Premium, Ultra disk, or ANF | Read-only | Can be used for Premium |
+| /oracle/\<SID>/oraarch | Standard or ANF | None | Not needed |
 | Oracle Home, `saptrace`, ... | OS disk (Premium) | | Not needed |
 
 *Stripping: LVM stripe or MDADM using RAID0
@@ -479,13 +482,13 @@ Performance configuration:
 
 | Component | Disk | Caching | Stripping* |
 | --- | ---| --- | --- |
-| /oracle/\<SID>/origlogaA | Premium or Ultra disk | None | Can be used for Premium  |
-| /oracle/\<SID>/origlogaB | Premium or Ultra disk | None | Can be used for Premium |
-| /oracle/\<SID>/mirrlogAB | Premium or Ultra disk | None | Can be used for Premium |
-| /oracle/\<SID>/mirrlogBA | Premium or Ultra disk | None | Can be used for Premium |
-| /oracle/\<SID>/sapdata1...n | Premium or Ultra disk | Read-only | Recommended for Premium  |
-| /oracle/\<SID>/sapdata(n+1)* | Premium or Ultra disk | None | Can be used for Premium |
-| /oracle/\<SID>/oraarch* | Premium or Ultra disk | None | Not needed |
+| /oracle/\<SID>/origlogaA | Premium, Ultra disk, or ANF | None | Can be used for Premium  |
+| /oracle/\<SID>/origlogaB | Premium, Ultra disk, or ANF | None | Can be used for Premium |
+| /oracle/\<SID>/mirrlogAB | Premium, Ultra disk, or ANF | None | Can be used for Premium |
+| /oracle/\<SID>/mirrlogBA | Premium, Ultra disk, or ANF | None | Can be used for Premium |
+| /oracle/\<SID>/sapdata1...n | Premium, Ultra disk, or ANF | Read-only | Recommended for Premium  |
+| /oracle/\<SID>/sapdata(n+1)* | Premium, Ultra disk, or ANF | None | Can be used for Premium |
+| /oracle/\<SID>/oraarch* | Premium, Ultra disk, or ANF | None | Not needed |
 | Oracle Home, `saptrace`, ... | OS disk (Premium) | Not needed |
 
 *Stripping: LVM stripe or MDADM using RAID0
@@ -496,6 +499,10 @@ Performance configuration:
 
 
 If more IOPS are required when using Azure premium storage, we recommend using LVM (Logical Volume Manager) or MDADM to create one large logical volume over multiple mounted disks. For more information, see [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) regarding guidelines and pointers on how to leverage LVM or MDADM. This approach simplifies the administration overhead of managing the disk space and helps you avoid the effort of manually distributing files across multiple mounted disks.
+
+If you plan to use Azure NetApp Files make sure the dNFS client is configured properly. Using dNFS is mandatory to have a supported environment. The configuration of dNFS is documented in the article [Creating an Oracle Database on Direct NFS](https://docs.oracle.com/en/database/oracle/oracle-database/19/ntdbi/creating-an-oracle-database-on-direct-nfs.html#GUID-2A0CCBAB-9335-45A8-B8E3-7E8C4B889DEA).
+
+An example demonstrating the usage of Azure NetApp Files based NFS for Oracle databases is presented in the blog [Deploy SAP AnyDB (Oracle 19c) with Azure NetApp Files](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/deploy-sap-anydb-oracle-19c-with-azure-netapp-files/ba-p/2064043).
 
 
 #### Write Accelerator

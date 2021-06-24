@@ -1,15 +1,15 @@
 ---
 title: Resize an OS disk that has a GPT partition
 description: This article provides instructions on how to resize an OS disk that has a GUID Partition Table (GPT) partition in Linux.
-services: virtual-machines-linux
-documentationcenter: ''
+services: virtual-machines
+ms.topic: article
 author: kailashmsft
 manager: dcscontentpm
 editor: ''
 tags: ''
-
-ms.service: security
-ms.topic: troubleshooting
+ms.service: virtual-machines
+ms.subservice: disks
+ms.collection: linux
 ms.workload: infrastructure-services
 ms.devlang: azurecli
 ms.date: 05/03/2020
@@ -395,6 +395,7 @@ When the VM has restarted, complete these steps:
 > [!NOTE]
 > To use the same procedure to resize any other logical volume, change the LV name in step 12.
 
+
 ### RHEL RAW
 
 To increase the size of the OS disk in an RHEL RAW partition:
@@ -408,7 +409,7 @@ When the VM has restarted, complete these steps:
 1. Access your VM as a **root** user by using the following command:
 
    ```bash
-   [root@dd-rhel7vm ~]# sudo -i
+   [root@dd-rhel7vm ~]# sudo -i
    ```
 
 1. When the VM has restarted, complete the following step:

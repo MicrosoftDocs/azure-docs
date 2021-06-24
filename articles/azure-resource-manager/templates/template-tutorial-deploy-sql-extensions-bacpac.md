@@ -4,7 +4,8 @@ description: Learn how to use Azure SQL Database extensions to import SQL BACPAC
 author: mumian
 ms.date: 12/09/2019
 ms.topic: tutorial
-ms.author: jgao
+ms.author: jgao 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Tutorial: Import SQL BACPAC files with ARM templates
@@ -50,7 +51,7 @@ The BACPAC file must be stored in an Azure Storage account before it can be impo
 * Upload the BACPAC file to the container.
 * Display the storage account key and the blob URL.
 
-1. Select **Try it** to open the shell. Then paste the following PowerShell script into the shell window.
+1. Select **Try it** to open Azure Cloud Shell. Then paste the following PowerShell script into the shell window.
 
     ```azurepowershell-interactive
     $projectName = Read-Host -Prompt "Enter a project name that is used to generate Azure resource names"

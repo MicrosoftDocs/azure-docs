@@ -113,6 +113,14 @@ sudo docker ps
 
 The list includes a container called **live555**.
 
+## Clean up resources
+
+If you've finished with the application, you can remove all the resources you created as follows:
+
+1. In the IoT Central application, navigate to the **Your application** page in the **Administration** section. Then select **Delete**.
+1. In the Azure portal, delete the **lva-rg** resource group.
+1. On your local machine, stop the **amp-viewer** Docker container.
+
 ## Next steps
 
 You've now deployed the IoT Edge runtime, the LVA modules, and the Live555 simulation stream in a Linux VM running on Azure.

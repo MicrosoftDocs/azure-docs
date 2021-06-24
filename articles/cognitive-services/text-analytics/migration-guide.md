@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 12/17/2020
+ms.date: 05/21/2021
 ms.author: aahi
 ---
 
@@ -31,7 +31,7 @@ If your application uses the REST API, update its request endpoint to the v3 end
 See the reference documentation for examples of the JSON response.
 * [Version 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)
 * [Version 3.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Sentiment) 
-* [Version 3.1-preview](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Sentiment)
+* [Version 3.1-preview](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-5/operations/Sentiment)
 
 #### Client libraries
 
@@ -40,9 +40,6 @@ See the reference documentation for examples of the JSON response.
 ## [NER and entity linking](#tab/named-entity-recognition)
 
 ### Feature changes
-
-> [!NOTE] 
-> Currently, [v3 entity categories](named-entity-types.md) are only returned on English and Spanish text. The API returns version 2.1 results for requests in other languages, provided they are supported in version 2.1.
 
 In version 2.1, the Text Analytics API uses one endpoint for Named Entity Recognition (NER) and entity linking. Version 3 provides expanded named entity detection, and uses separate endpoints for NER and entity linking requests. Starting in v3.1-preview.1, NER can additionally detect personal `pii` and health `phi` information. 
 
@@ -63,17 +60,46 @@ You will also need to update your application to use the [entity categories](nam
 See the reference documentation for examples of the JSON response.
 * [Version 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
 * [Version 3.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/EntitiesRecognitionGeneral) 
-* [Version 3.1-preview](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/EntitiesRecognitionGeneral)
+* [Version 3.1-preview](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-5/operations/EntitiesRecognitionGeneral)
 
 #### Client libraries
 
 [!INCLUDE [Client library migration information](includes/client-library-migration-section.md)]
 
+#### Version 2.1 entity categories
+
+The following table lists the entity categories returned for NER v2.1.
+
+| Category   | Description                          |
+|------------|--------------------------------------|
+| Person   |   Names of people.  |
+|Location    | Natural and human-made landmarks, structures, geographical features, and geopolitical entities |
+|Organization | Companies, political groups, musical bands, sport clubs, government bodies, and public organizations. Nationalities and religions are not included in this entity type. |
+| PhoneNumber | Phone numbers (US and EU phone numbers only). |
+| Email | Email addresses. |
+| URL | URLs to websites. |
+| IP | Network IP addresses. |
+| DateTime | Dates and times of day.| 
+| Date | Calender dates. |
+| Time | Times of day |
+| DateRange | Date ranges. |
+| TimeRange | Time ranges. |
+| Duration | Durations. |
+| Set | Set, repeated times. |
+| Quantity | Numbers and numeric quantities. |
+| Number | Numbers. |
+| Percentage | Percentages.|
+| Ordinal | Ordinal numbers. |
+| Age | Ages. |
+| Currency | Currencies. |
+| Dimension | Dimensions and measurements. |
+| Temperature | Temperatures. |
+
 ## [Language detection](#tab/language-detection)
 
 ### Feature changes 
 
-The language detection feature has not changed in v3 outside of the endpoint version, but the JSON response will contain `ConfidenceScore` instead of `score`. V3 also only returns a single language in the output. 
+The language detection feature output has changed in v3. The JSON response will contain `ConfidenceScore` instead of `score`. V3 also only returns one language in a  `detectedLanguage` attribute for each document.
 
 ### Steps to migrate
 
@@ -84,7 +110,7 @@ If your application uses the REST API, update its request endpoint to the v3 end
 See the reference documentation for examples of the JSON response.
 * [Version 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7)
 * [Version 3.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Languages) 
-* [Version 3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Languages)
+* [Version 3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-5/operations/Languages)
 
 #### Client libraries
 
@@ -105,7 +131,7 @@ If your application uses the REST API, update its request endpoint to the v3 end
 See the reference documentation for examples of the JSON response.
 * [Version 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6)
 * [Version 3.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/KeyPhrases) 
-* [Version 3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-1/operations/KeyPhrases)
+* [Version 3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-5/operations/KeyPhrases)
 
 #### Client libraries
 

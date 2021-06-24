@@ -7,12 +7,35 @@ ms.topic: troubleshooting
 ms.date: 09/15/2020
 ms.author: jeffpatt
 ms.subservice: files
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurepowershell
 ---
 
 # Troubleshoot Azure NFS file shares
 
 This article lists some common problems related to Azure NFS file shares. It provides potential causes and workarounds when these problems are encountered.
+
+## Applies to
+| File share type | SMB | NFS |
+|-|:-:|:-:|
+| Standard file shares (GPv2), LRS/ZRS | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Standard file shares (GPv2), GRS/GZRS | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Premium file shares (FileStorage), LRS/ZRS | ![No](../media/icons/no-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+
+## chgrp "filename" failed: Invalid argument (22)
+
+### Cause 1: idmapping is not disabled
+Azure Files disallows alphanumeric UID/GID. So idmapping must be disabled. 
+
+### Cause 2: idmapping was disabled, but got re-enabled after encountering bad file/dir name
+Even if idmapping has been correctly disabled, the settings for disabling idmapping gets overridden in some cases. For example, when the Azure Files encounters a bad file name, it sends back an error. Upon seeing this particular error code, NFS v 4.1 Linux client decides to re-enable idmapping and the future requests are sent again with alphanumeric UID/GID. For a list of unsupported characters on Azure Files, see this [article](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata). Colon is one of the unsupported characters. 
+
+### Workaround
+Check that idmapping is disabled and nothing is re-enabling it, then perform the following:
+
+- Unmount the share
+- Disable id-mapping with # echo Y > /sys/module/nfs/parameters/nfs4_disable_idmapping
+- Mount the share back
+- If running rsync, run rsync with “—numeric-ids” argument from directory which do not have any bad dir/file name.
 
 ## Unable to create an NFS share
 
@@ -35,7 +58,7 @@ Connect-AzAccount
 $context = Get-AzSubscription -SubscriptionId <yourSubscriptionIDHere>
 Set-AzContext $context
 
-Register-AzProviderFeature -FeatureName AllowNfsFileShares - ProviderNamespace Microsoft.Storage
+Register-AzProviderFeature -FeatureName AllowNfsFileShares -ProviderNamespace Microsoft.Storage
 
 Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
 ```
@@ -46,8 +69,7 @@ NFS is only available on storage accounts with the following configuration:
 
 - Tier - Premium
 - Account Kind - FileStorage
-- Redundancy - LRS
-- Regions - East US, East US 2, UK South, SouthEast Asia
+- Regions - [List of supported regions](./storage-files-how-to-create-nfs-shares.md?tabs=azure-portal#regional-availability)
 
 #### Solution
 
@@ -110,11 +132,11 @@ If the package is not installed, install the package on your distribution.
 
 ```
 sudo apt update
-sudo apt install-nfscommon
+sudo apt install nfs-common
 ```
 ##### Fedora, Red Hat Enterprise Linux 8+, CentOS 8+
 
-Use the dnf package manager:`sudo dnf install nfs-common`.
+Use the dnf package manager:`sudo dnf install nfs-utils`.
 
 Older versions of Red Hat Enterprise Linux and CentOS use the yum package manager: `sudo yum install nfs-common`.
 
@@ -129,6 +151,21 @@ The NFS protocol communicates to its server over port 2049, make sure that this 
 #### Solution
 
 Verify that port 2049 is open on your client by running the following command: `telnet <storageaccountnamehere>.file.core.windows.net 2049`. If the port is not open, open it.
+
+## ls (list files) shows incorrect/inconsistent results
+
+### Cause: Inconsistency between cached values and server file metadata values when the file handle is open
+Sometimes the "list files" command displays a non zero size as expected and in the very next list files command instead shows size 0 or a very old time stamp. This is a known issue due to inconsistent caching of file metadata values while the file is open. You may use one of the following workarounds to resolve this:
+
+#### Workaround 1: For fetching file size, use wc -c instead of ls -l
+Using wc -c will always fetch the latest value from the server and won't have any inconsistency.
+
+#### Workaround 2: Use "noac" mount flag
+Remount the file system using the "noac" flag with your mount command. This will always fetch all the metadata values from the server. There may be some minor perf overhead for all metadata operations if this workaround is used.
+
+
+## Unable to mount an NFS share that is restored back from soft-deleted state
+There is a known issue during preview where NFS shares gets soft deleted despite the platform not fully supporting it. These shares will routinely get deleted upon its expiration. You can also early-delete them by "undelete share + disable soft-delete + delete share" flow. However, if you try to recover and use the shares, you will get access denied or permission denied or NFS I/O error on the client.
 
 ## Need help? Contact support.
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your problem resolved quickly.

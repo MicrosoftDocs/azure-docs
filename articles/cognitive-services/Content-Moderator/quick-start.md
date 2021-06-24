@@ -9,13 +9,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 09/29/2020
+ms.date: 05/24/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: content moderator, content moderation
 ---
 
 # Quickstart: Try Content Moderator on the web
+
+[!INCLUDE [deprecation notice](includes/tool-deprecation.md)]
 
 In this quickstart, you'll use the online Content Moderator Review tool to test out the basic functionality of Content Moderator without having to write any code. If you wish to integrate this service into your content moderation app more quickly, see the other quickstarts in the [Next steps](#next-steps) section.
 
@@ -84,6 +86,6 @@ Or, continue with the next steps to get started using the Moderation APIs in you
 ## Next steps
 
 Learn how to use the Moderation APIs themselves in your app.
-- Implement image moderation. Use the [API console](try-image-api.md) or follow a [client library or REST API quickstart](client-libraries.md) to scan images and detect potential adult and racy content by using tags, confidence scores, and other extracted information.
-- Implement text moderation. Use the [API console](try-text-api.md) or follow a [client library or REST API quickstart](client-libraries.md) to scan text content for potential profanity, machine-assisted unwanted text classification (preview), and personal data.
+- Implement image moderation. Use the [API console](try-image-api.md) or follow a [quickstart](client-libraries.md) to scan images and detect potential adult and racy content by using tags, confidence scores, and other extracted information.
+- Implement text moderation. Use the [API console](try-text-api.md) or follow a [quickstart](client-libraries.md) to scan text content for potential profanity, personal data, and other unwanted text.
 - Implement video moderation. Follow the [Video moderation how-to guide for C#](video-moderation-api.md) to scan videos and detect potential adult and racy content. 

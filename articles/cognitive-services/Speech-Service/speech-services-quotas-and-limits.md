@@ -1,20 +1,20 @@
 ---
-title: Speech Services Quotas and Limits
+title: Speech service Quotas and Limits
 titleSuffix: Azure Cognitive Services
-description: Quick reference, detailed description, and best practices on Azure Cognitive Speech Services Quotas and Limits
+description: Quick reference, detailed description, and best practices on Azure Cognitive Speech service Quotas and Limits
 services: cognitive-services
 author: alexeyo26
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/07/2020
+ms.date: 04/07/2021
 ms.author: alexeyo
 ---
 
-# Speech Services Quotas and Limits
+# Speech service Quotas and Limits
 
-This article contains a quick reference and the **detailed description** of Azure Cognitive Speech Services Quotas and Limits for all [pricing tiers](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). It also contains some best practices to avoid request throttling. 
+This article contains a quick reference and the **detailed description** of Azure Cognitive Speech service Quotas and Limits for all [pricing tiers](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). It also contains some best practices to avoid request throttling. 
 
 ## Quotas and Limits quick reference
 Jump to [Text-to-Speech Quotas and limits](#text-to-speech-quotas-and-limits-per-speech-resource)
@@ -22,16 +22,19 @@ Jump to [Text-to-Speech Quotas and limits](#text-to-speech-quotas-and-limits-per
 In the tables below Parameters without "Adjustable" row are **not** adjustable for all price tiers.
 
 #### Online Transcription
+For the usage with [Speech SDK](speech-sdk.md) and/or [Speech-to-text REST API for short audio](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio).
 
 | Quota | Free (F0)<sup>1</sup> | Standard (S0) |
 |--|--|--|
-| **Concurrent Request limit (Base and Custom models)** | 1 | 20 (default value) |
+| **Concurrent Request limit - Base model endpoint** | 1 | 100 (default value) |
+| Adjustable | No<sup>2</sup> | Yes<sup>2</sup> |
+| **Concurrent Request limit - Custom endpoint** | 1 | 100 (default value) |
 | Adjustable | No<sup>2</sup> | Yes<sup>2</sup> |
 
 #### Batch Transcription
 | Quota | Free (F0)<sup>1</sup> | Standard (S0) |
 |--|--|--|
-| REST API limit | Batch transcription is not available for F0 | 300 requests per minute |
+| [Speech-to-text REST API V2.0 and v3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30) limit | Batch transcription is not available for F0 | 300 requests per minute |
 | Max audio input file size | N/A | 1 GB |
 | Max input blob size (may contain more than one file, for example, in a zip archive; ensure to note the file size limit above) | N/A | 2.5 GB |
 | Max blob container size | N/A | 5 GB |
@@ -55,19 +58,18 @@ In the tables below Parameters without "Adjustable" row are **not** adjustable f
 ### Text-to-Speech Quotas and limits per Speech resource
 In the table below Parameters without "Adjustable" row are **not** adjustable for all price tiers.
 
-| Quota | Free (F0)<sup>3</sup> | Standard (S0) |
-|--|--|--|
-| **Max number of Transactions per Second (TPS) for Standard and Neural voices** | 200<sup>4</sup> | 200<sup>4</sup> |  |
-| **Concurrent Request limit for Custom voice** |  |  |
-| Default value | 10 | 10 |
-| Adjustable | No<sup>5</sup> | Yes<sup>5</sup> |
-| **HTTP-specific quotas** |  |
-| Max Audio length produced per request | 10 min | 10 min |
-| Max number of distinct `<voice>` tags in SSML | 50 | 50 |
-| **Websocket specific quotas** |  |  |
-|Max Audio length produced per turn | 10 min | 10 min |
-|Max SSML Message size per turn |64 KB |64 KB |
-| **REST API limit** | 20 requests per minute | 25 requests per 5 seconds |
+| Quota                                                                          | Free (F0)<sup>3</sup>  | Standard (S0)   |
+|--------------------------------------------------------------------------------|------------------------|-----------------|
+| **Max number of Transactions per Second (TPS) for Standard and Neural voices** | 200<sup>4</sup>        | 200<sup>4</sup> |
+| **Concurrent Request limit for Custom voice**                                  |                        |                 |
+| Default value                                                                  | 10                     | 10              |
+| Adjustable                                                                     | No<sup>5</sup>         | Yes<sup>5</sup> |
+| **HTTP-specific quotas**                                                       |                        |                 |
+| Max Audio length produced per request                                          | 10 min                 | 10 min          |
+| Max number of distinct `<voice>` tags in SSML                                  | 50                     | 50              |
+| **Websocket specific quotas**                                                  |                        |                 |
+| Max Audio length produced per turn                                             | 10 min                 | 10 min          |
+| Max SSML Message size per turn                                                 | 64 KB                  | 64 KB           |
 
 
 <sup>3</sup> For **Free (F0)** pricing tier see also monthly allowances at the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).<br/>
@@ -90,16 +92,20 @@ The next sections describe specific cases of adjusting quotas.<br/>
 Jump to [Text-to-Speech. Increasing Transcription Concurrent Request limit for Custom voice](#text-to-speech-increasing-transcription-concurrent-request-limit-for-custom-voice)
 
 ### Speech-to-text: increasing online transcription concurrent request limit
-By default the number of concurrent requests is limited to 20 per Speech resource (Base model) or per Custom endpoint (Custom model). For Standard pricing tier this amount can be increased. Before submitting the request, ensure you are familiar with the material in [this section](#detailed-description-quota-adjustment-and-best-practices) and aware of these [best practices](#general-best-practices-to-mitigate-throttling-during-autoscaling).
+By default the number of concurrent requests is limited to 100 per Speech resource (Base model) and to 100 per Custom endpoint (Custom model). For Standard pricing tier this amount can be increased. Before submitting the request, ensure you are familiar with the material in [this section](#detailed-description-quota-adjustment-and-best-practices) and aware of these [best practices](#general-best-practices-to-mitigate-throttling-during-autoscaling).
 
-Increasing the Concurrent Request limit does **not** directly affect your costs. Speech Services uses "Pay only for what you use" model. The limit defines how high the Service may scale before it starts throttle your requests.
+>[!NOTE]
+> If you use custom models, please be aware, that one Speech resource may be associated with many custom endpoints hosting many custom model deployments. Each Custom endpoint has the default number of concurrent request limit (100) set by creation. If you need to adjust it, you need to make the adjustment of each custom endpoint **separately**. Please also note, that the value of the number of concurrent request limit for the base model of a Speech resource has **no** effect to the custom endpoints associated with this resource.
+
+
+Increasing the Concurrent Request limit does **not** directly affect your costs. Speech service uses "Pay only for what you use" model. The limit defines how high the Service may scale before it starts throttle your requests.
 
 Concurrent Request limits for **Base** and **Custom** models need to be adjusted **separately**.
 
 Existing value of Concurrent Request limit parameter is **not** visible via Azure portal, Command-Line tools, or API requests. To verify the existing value, create an Azure Support Request.
 
 >[!NOTE]
->[Speech containers](speech-container-howto.md) do not require increases of Concurrent Request limit, as containers are constrained only by the CPUs of the hardware they are hosted on. However Speech containers have their own capacity limitations that should be taken into account. See the question *"Could you help with capacity planning and cost estimation of on-prem Speech-to-text containers?"* from the [Speech containers FAQ](speech-container-faq.md).
+>[Speech containers](speech-container-howto.md) do not require increases of Concurrent Request limit, as containers are constrained only by the CPUs of the hardware they are hosted on. However Speech containers have their own capacity limitations that should be taken into account. See the question *"Could you help with capacity planning and cost estimation of on-prem Speech-to-text containers?"* from the [Speech containers FAQ](./speech-container-howto.md).
 
 #### Have the required information ready:
 - For **Base model**:
@@ -160,7 +166,7 @@ Generally, it is highly recommended to test the workload and the workload patter
 ### Text-to-speech: increasing transcription concurrent request limit for Custom Voice
 By default the number of concurrent requests for a Custom Voice endpoint is limited to 10. For Standard pricing tier this amount can be increased. Before submitting the request, ensure you are familiar with the material in [this section](#detailed-description-quota-adjustment-and-best-practices) and aware of these [best practices](#general-best-practices-to-mitigate-throttling-during-autoscaling).
 
-Increasing the Concurrent Request limit does **not** directly affect your costs. Speech Services uses "Pay only for what you use" model. The limit defines how high the Service may scale before it starts throttle your requests.
+Increasing the Concurrent Request limit does **not** directly affect your costs. Speech service uses "Pay only for what you use" model. The limit defines how high the Service may scale before it starts throttle your requests.
 
 Existing value of Concurrent Request limit parameter is **not** visible via Azure portal, Command-Line tools, or API requests. To verify the existing value, create an Azure Support Request.
 
@@ -200,4 +206,3 @@ Initiate the increase of Concurrent Request limit for your resource or if necess
   - Azure resource information you [collected before](#prepare-the-required-information) 
   - Complete entering the required information and click *Create* button in *Review + create* tab
   - Note the support request number in Azure portal notifications. You will be contacted shortly for further processing
-

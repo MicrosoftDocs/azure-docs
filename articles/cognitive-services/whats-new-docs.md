@@ -1,30 +1,27 @@
 ---
 title: "Cognitive Services: What's new in docs"
-description: "What's new in the Cognitive Services docs for November 1, 2020 through November 30, 2020. "
+description: "What's new in the Cognitive Services docs for May 1, 2021 - May 31, 2021."
 author: erhopf
 manager: nitinme
 ms.topic: conceptual
 ms.author: erhopf
 ms.service: cognitive-services
-ms.date: 12/07/2020
+ms.date: 06/14/2021
 ---
 
-# Cognitive Services docs: What's new for November 1, 2020 - November 30, 2020
+# Cognitive Services docs: What's new for May 1, 2021 - May 31, 2021
 
-Welcome to what's new in the Cognitive Services docs from November 1, 2020 through November 30, 2020. This article lists some of the major changes to docs during this period.
-
-## Cognitive Services
-
-### Updated articles
-
-- [Quickstart: Create a Cognitive Services resource using the Azure Command-Line Interface(CLI)](cognitive-services-apis-create-account-cli.md)
-- [Cognitive Services development options](cognitive-services-development-options.md)
-- [Azure Cognitive Services support and help options](cognitive-services-support-options.md)
-- [Enable diagnostic logging for Azure Cognitive Services](diagnostic-logging.md)
-- [Natural language support for Azure Cognitive Services](language-support.md)
-- [Azure security baseline for Cognitive Services](security-baseline.md)
+Welcome to what's new in the Cognitive Services docs from May 1, 2021 through May 31, 2021. This article lists some of the major changes to docs during this period.
 
 ## Containers
+
+### New articles
+
+- [Install and run Translator containers](translator/containers/translator-how-to-install-container.md)
+- [Configure Translator Docker containers](translator/containers/translator-container-configuration.md)
+- [Container: Translator translate method](translator/containers/translator-container-supported-parameters.md)
+
+
 
 ### Updated articles
 
@@ -34,48 +31,50 @@ Welcome to what's new in the Cognitive Services docs from November 1, 2020 throu
 
 ### New articles
 
-- [Form Recognizer prebuilt invoice model](/azure/cognitive-services/form-recognizer/concept-invoices)
-- [Form Recognizer Layout service](/azure/cognitive-services/form-recognizer/concept-layout)
-- [Quickstart: Extract invoice data using the Form Recognizer REST API with Python](/azure/cognitive-services/form-recognizer/quickstarts/python-invoices)
+- [Reference: Azure Form Recognizer client library v3.0.0 and REST API v2.0](/azure/cognitive-services/form-recognizer/api-v2-0/reference-sdk-api-v2-0)
 
 ### Updated articles
 
-- [Receipt concepts](/azure/cognitive-services/form-recognizer/concept-receipts)
-- [What is Form Recognizer?](/azure/cognitive-services/form-recognizer/overview)
-- [Train a Form Recognizer model with labels using the sample labeling tool](/azure/cognitive-services/form-recognizer/quickstarts/label-tool)
-- [Quickstart: Extract business card data using the Form Recognizer REST API with Python](/azure/cognitive-services/form-recognizer/quickstarts/python-business-cards)
-- [What's new in Form Recognizer?](/azure/cognitive-services/form-recognizer/whats-new)
+- [Form Recognizer prebuilt business cards model](/azure/cognitive-services/form-recognizer/concept-business-cards)
+- [Quickstart: Get started with the client library SDKs or REST API](/azure/cognitive-services/form-recognizer/quickstarts/client-library)
+- [What's new in Form Recognizer](/azure/cognitive-services/form-recognizer/whats-new)
+- [Form Recognizer landing page](/azure/cognitive-services/form-recognizer)
 
-## Metrics Advisor
+## Translator
 
 ### New articles
 
-- [Metrics Advisor: what's new in the docs](/azure/cognitive-services/metrics-advisor/whats-new)
+- [Frequently asked questions—Translator API](translator/translator-faq.md)
 
 ### Updated articles
 
-- [Provide anomaly feedback](/azure/cognitive-services/metrics-advisor/how-tos/anomaly-feedback)
-- [Metrics Advisor frequently asked questions](/azure/cognitive-services/metrics-advisor/faq)
-- [Quickstart: Use the client libraries or REST APIs to customize your solution](/azure/cognitive-services/metrics-advisor/quickstarts/rest-api-and-client-library)
+#### Document Translation is now GA
+- [Get started with Document Translation](translator/document-translation/get-started-with-document-translation.md)
+- All nine reference pages have been updated to remove the preview parameter from the REST API endpoint.
+## Personalizer
 
-## QnA Maker 
+### Updated articles
 
-### New articles 
-
-* [QnA Maker managed public preview announcement](https://techcommunity.microsoft.com/t5/azure-ai/introducing-qna-maker-managed-now-in-public-preview/ba-p/1845575)
-* [Create a new QnA Maker managed service](https://docs.microsoft.com/azure/cognitive-services/qnamaker/how-to/set-up-qnamaker-service-azure?tabs=v2)
-* [Migrate your existing knowledge base to QnA Maker managed](https://docs.microsoft.com/azure/cognitive-services/qnamaker/tutorials/migrate-knowledge-base)
+- [What's new in Personalizer](/azure/cognitive-services/personalizer/whats-new)
 
 ## Text Analytics
 
 ### Updated articles
 
-- [Data and rate limits for the Text Analytics API](/azure/cognitive-services/text-analytics/concepts/data-limits)
-- [How to: Use Text Analytics for health (preview)](/azure/cognitive-services/text-analytics/how-tos/text-analytics-for-health)
+- [Tutorial: Integrate Power BI with the Text Analytics Cognitive Service](/azure/cognitive-services/text-analytics/tutorials/tutorial-power-bi-key-phrases)
+- [Extract information in Excel using Text Analytics and Power Automate](/azure/cognitive-services/text-analytics/tutorials/extract-excel-information)
 - [How to call the Text Analytics REST API](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-call-api)
 - [How to use Named Entity Recognition in Text Analytics](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking)
-- [How to: Sentiment analysis and Opinion Mining](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis)
 - [What's new in the Text Analytics API?](/azure/cognitive-services/text-analytics/whats-new)
-- [Example: Detect language with Text Analytics](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-language-detection)
+
+## Community contributors
+
+The following people contributed to the Cognitive Services docs during this period. Thank you! Learn how to contribute by following the links under "Get involved" in the [what's new landing page](index.yml).
+
+- [enzocanoo](https://github.com/enzocanoo) - Enzo Cano (2)
+- [hyoshioka0128](https://github.com/hyoshioka0128) - Hiroshi Yoshioka (2)
+- [sassdawe](https://github.com/sassdawe) - DavidSass (1)
+- [SzymonSel](https://github.com/SzymonSel) - Szymon Seliga (1)
+- [thomash0815](https://github.com/thomash0815) (1)
 
 [!INCLUDE [Service specific updates](./includes/service-specific-updates.md)]

@@ -5,7 +5,7 @@ keywords: app service, azure app service, scale, scalable, app service plan, app
 ms.assetid: ff00902b-9858-4bee-ab95-d3406018c688
 ms.topic: article
 ms.date: 10/01/2020
-ms.custom: seodec18, devx-track-azurecli
+ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
 
 ---
 
@@ -120,4 +120,4 @@ New-AzAppServicePlan -ResourceGroupName <resource_group_name> `
 ## More resources
 
 [Scale up an app in Azure](manage-scale-up.md)
-[Scale instance count manually or automatically](../azure-monitor/platform/autoscale-get-started.md)
+[Scale instance count manually or automatically](../azure-monitor/autoscale/autoscale-get-started.md)

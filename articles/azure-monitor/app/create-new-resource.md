@@ -2,13 +2,17 @@
 title: Create a new Azure Application Insights resource | Microsoft Docs
 description: Manually set up Application Insights monitoring for a new live application.
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 02/10/2021 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 ---
 
 # Create an Application Insights resource
 
 Azure Application Insights displays data about your application in a Microsoft Azure *resource*. Creating a new resource is therefore part of [setting up Application Insights to monitor a new application][start]. After you have created your new resource, you can get its instrumentation key and use that to configure the Application Insights SDK. The instrumentation key links your telemetry to the resource.
+
+> [!IMPORTANT]
+> [Classic Application Insights has been deprecated](https://azure.microsoft.com/updates/we-re-retiring-classic-application-insights-on-29-february-2024/). Please follow these [instructions on how upgrade to workspace-based Application Insights](convert-classic-resource.md).
 
 ## Sign in to Microsoft Azure
 
@@ -25,14 +29,15 @@ Sign in to the [Azure portal](https://portal.azure.com), and create an Applicati
    | **Name**      | `Unique value` | Name that identifies the app you are monitoring. |
    | **Resource Group**     | `myResourceGroup`      | Name for the new or existing resource group to host App Insights data. |
    | **Region** | `East US` | Choose a location near you, or near where your app is hosted. |
-   | **Resource Mode** | `Classic` or `Workspace-based` | Workspace-based resources are currently in public preview and allow you to send your Application Insights telemetry to a common Log Analytics workspace. For more information, see the [article on workspace-based resources](create-workspace-resource.md).
+   | **Resource Mode** | `Classic` or `Workspace-based` | Workspace-based resources allow you to send your Application Insights telemetry to a common Log Analytics workspace. For more information, see the [article on workspace-based resources](create-workspace-resource.md).
 
 > [!NOTE]
-> While you can use the same resource name across different resource groups, it can be beneficial to use a globally unique name. This can be useful if you plan to [perform cross resource queries](../log-query/cross-workspace-query.md#identifying-an-application) as it simplifies the required syntax.
+> While you can use the same resource name across different resource groups, it can be beneficial to use a globally unique name. This can be useful if you plan to [perform cross resource queries](../logs/cross-workspace-query.md#identifying-an-application) as it simplifies the required syntax.
 
 Enter the appropriate values into the required fields, and then select **Review + create**.
 
-![Enter values into required fields, and then select "review + create".](./media/create-new-resource/review-create.png)
+> [!div class="mx-imgBorder"]
+> ![Enter values into required fields, and then select "review + create".](./media/create-new-resource/review-create.png)
 
 When your app has been created, a new pane opens. This pane is where you see performance and usage data about your monitored application. 
 
@@ -41,7 +46,7 @@ When your app has been created, a new pane opens. This pane is where you see per
 The instrumentation key identifies the resource that you want to associate your telemetry data with. You will need to copy the instrumentation key and add it to your application's code.
 
 > [!IMPORTANT]
-> New Azure regions **require** the use of connection strings instead of instrumentation keys. [Connection string](./sdk-connection-string.md?tabs=net) identifies the resource that you want to associate your telemetry data with. It also allows you to modify the endpoints your resource will use as a destination for your telemetry. You will need to copy the connection string and add it to your application's code or to an environment variable.
+> [Connection Strings](./sdk-connection-string.md) are recommended over instrumentation keys. New Azure regions **require** the use of connection strings instead of instrumentation keys. Connection string identifies the resource that you want to associate your telemetry data with. It also allows you to modify the endpoints your resource will use as a destination for your telemetry. You will need to copy the connection string and add it to your application's code or to an environment variable.
 
 ## Install the SDK in your app
 
@@ -90,7 +95,7 @@ SamplingPercentage :
 TenantId           : {subid}
 ```
 
-For the full PowerShell documentation for this cmdlet, and to learn how to retrieve the instrumentation key consult the [Azure PowerShell documentation](/powershell/module/az.applicationinsights/new-azapplicationinsights?view=azps-2.5.0).
+For the full PowerShell documentation for this cmdlet, and to learn how to retrieve the instrumentation key consult the [Azure PowerShell documentation](/powershell/module/az.applicationinsights/new-azapplicationinsights).
 
 ### Azure CLI (preview)
 
@@ -147,17 +152,16 @@ az monitor app-insights component create --app demoApp --location eastus --kind 
 }
 ```
 
-For the full Azure CLI documentation for this command, and to learn how to retrieve the instrumentation key consult the [Azure CLI documentation](/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest#ext-application-insights-az-monitor-app-insights-component-create).
+For the full Azure CLI documentation for this command, and to learn how to retrieve the instrumentation key consult the [Azure CLI documentation](/cli/azure/monitor/app-insights/component#az_monitor_app_insights_component_create).
 
 ## Next steps
 * [Diagnostic Search](./diagnostic-search.md)
-* [Explore metrics](../platform/metrics-charts.md)
-* [Write Analytics queries](../log-query/log-query-overview.md)
+* [Explore metrics](../essentials/metrics-charts.md)
+* [Write Analytics queries](../logs/log-query-overview.md)
 
 <!--Link references-->
 
 [api]: ./api-custom-events-metrics.md
 [diagnostic]: ./diagnostic-search.md
-[metrics]: ../platform/metrics-charts.md
+[metrics]: ../essentials/metrics-charts.md
 [start]: ./app-insights-overview.md
-

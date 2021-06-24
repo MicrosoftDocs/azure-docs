@@ -3,6 +3,7 @@ title: Troubleshoot connectivity between Synapse Studio and storage
 description: Troubleshoot connectivity between Synapse Studio and storage  
 author: saveenr 
 ms.service: synapse-analytics 
+ms.subservice: troubleshooting
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: xujiang1 
@@ -58,4 +59,4 @@ You can use the command "nslookup \<storage-account-name\>.dfs.core.windows.net"
 
 
 ## Next steps
-If the previous steps don't help to resolve your issue, [create a support ticket](../../sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md).
+If the previous steps don't help to resolve your issue, [create a support ticket](../sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md).

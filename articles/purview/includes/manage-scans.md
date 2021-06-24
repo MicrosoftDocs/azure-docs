@@ -1,10 +1,10 @@
 ---
-author: hrasheed-msft
+author: hophanms
+ms.author: hophan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: include
-ms.date: 11/20/2020
-ms.author: hrasheed
+ms.date: 1/20/2021
 ---
 ## Creating and running a scan
 
@@ -13,11 +13,11 @@ ms.author: hrasheed
 
 To create and run a new scan, do the following:
 
-1. Navigate to the **Sources**
+1. Select the **Data Map** tab on the left pane in the Purview Studio.
 
 1. Select the data source that you registered.
 
-1. Select **+ New scan**
+1. Select **New scan**
 
 1. Select the credential to connect to your data source. 
 

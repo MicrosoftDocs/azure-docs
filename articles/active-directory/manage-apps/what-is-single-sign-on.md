@@ -2,14 +2,14 @@
 title: What is Azure single sign-on (SSO)?
 description: Learn how single sign-on (SSO) works with Azure Active Directory. Use SSO so users don't need to remember passwords for every application. Also use SSO to simplify the administration of account management.
 services: active-directory
-author: kenwith
-manager: celestedg
+author: mtillman
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: overview
 ms.date: 12/03/2019
-ms.author: kenwith
+ms.author: mtillman
 ms.reviewer: arvindh, japere
 ms.custom: contperf-fy21q1
 ---

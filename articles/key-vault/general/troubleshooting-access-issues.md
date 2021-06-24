@@ -14,7 +14,7 @@ ms.topic: how-to
 ## Frequently asked questions
 
 ### I am not able to list or get secrets/keys/certificate. I am seeing "something went wrong.." Error.
-If you are having problem with listing/getting/creating or accessing secret, make sure that you have access policy defined to do that operation: [Key Vault Access Policies](https://docs.microsoft.com/azure/key-vault/general/group-permissions-for-apps)
+If you are having problem with listing/getting/creating or accessing secret, make sure that you have access policy defined to do that operation: [Key Vault Access Policies](./assign-access-policy-cli.md)
 
 ### How can I identify how and when key vaults are accessed?
 
@@ -27,10 +27,10 @@ As you start to scale your service, the number of requests sent to your key vaul
 ### I am not able to modify access policy, how can it be enabled?
 The user needs to have sufficient AAD permissions to modify access policy. In this case, the user would need to have higher contributor role.
 
-### I am seeing 'Unkwown Policy' error. What does that mean?
+### I am seeing 'Unknown Policy' error. What does that mean?
 There are two different possibilities of seeing access policy in Unknown section:
 * There might be a previous user who had access and for some reason that user does not exist.
-* If access policy is added via powershell and the access policy is added for the application objectid instead of the service priciple
+* If access policy is added via powershell and the access policy is added for the application objectid instead of the service principal.
 
 ### How can I assign access control per key vault object? 
 
