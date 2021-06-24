@@ -691,6 +691,8 @@
     - name: Prepare a VHD to Upload
       displayName: Windows custom images, images, windows, upload, prepare, VHD
       href: ./windows/prepare-for-upload-vhd-image.md
+    - name: Generalizing a VM
+      href: generalize.md
     - name: Upload a VHD and create a managed image
       displayName: Windows custom images, images, windows, upload, prepare, VHD, managed
       href: ./windows/upload-generalized-managed.md
@@ -788,6 +790,8 @@
         - name: Windows
           displayName: Shared Image Gallery, SIG, sig, gallery, image, create
           href: ./windows/shared-images-portal.md
+      - name: Capture a VM in the portal
+        href: capture-image-portal.md
     - name: Resource Manager Templates
       items:
       - name: Create a Shared Image Gallery
@@ -1556,9 +1560,18 @@
     href: ../azure-monitor/vm/monitor-vm-azure.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
   - name: Monitoring VMs
     items:
-    - name: Windows
-      displayName: Monitoring VMs
-      href: ./windows/tutorial-monitor.md
+    - name: Overview
+      href: ../azure-monitor/vm/monitor-virtual-machine.md?context=/azure/virtual-machines/context/context
+    - name: Configure monitoring
+      href: ../azure-monitor/vm/monitor-virtual-machine-configure.md?context=/azure/virtual-machines/context/context
+    - name: Analyze data
+      href: ../azure-monitor/vm/monitor-virtual-machine-analyze.md?context=/azure/virtual-machines/context/context
+    - name: Monitor security
+      href: ../azure-monitor/vm/monitor-virtual-machine-security.md?context=/azure/virtual-machines/context/context
+    - name: Create alerts
+      href: ../azure-monitor/vm/monitor-virtual-machine-alerts.md?context=/azure/virtual-machines/context/context
+    - name: Monitor workloads
+      href: ../azure-monitor/vm/monitor-virtual-machine-workloads.md?context=/azure/virtual-machines/context/context
   - name: Agents
     items:
     - name: Agents overview
