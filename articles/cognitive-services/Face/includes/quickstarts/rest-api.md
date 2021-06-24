@@ -24,16 +24,17 @@ Use the Face REST API to:
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
-* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="Create a Face resource"  target="_blank">create a Face resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="Create a Face resource"  target="_blank">create a Face resource </a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
     * You'll need the key and endpoint from the resource you create to connect your application to the Face API. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+* [PowerShell version 6.0+](/powershell/scripting/install/installing-powershell-core-on-windows), or a similar command-line application.
 
 
 ## Detect faces in an image
 
 You'll use a command like the following to call the Face API and get face attribute data from an image. First, copy the code into a text editor&mdash;you'll need to make changes to certain parts of the command before you can run it.
 
-:::code language="shell" source="~/cognitive-services-quickstart-code/curl/face/detect.sh" ID="detection_model_2":::
+:::code language="shell" source="~/cognitive-services-quickstart-code/curl/face/detect.sh" ID="detection_model_3":::
 
 Make the following changes:
 1. Assign `Ocp-Apim-Subscription-Key` to your valid Face subscription key.
@@ -221,9 +222,9 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 
 ## Next steps
 
-In this quickstart, you learned how to use the Face REST API to do basic facial recognition tasks. Next, explore the reference documentation to learn more about the library.
+In this quickstart, you learned how to use the Face REST API to do basic facial recognition tasks. Next, learn about the different face detection models and how to specify the right model for your use case.
 
 > [!div class="nextstepaction"]
-> [Face API reference](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
+> [Specify a face detection model version](../../Face-API-How-to-Topics/specify-detection-model.md)
 
 * [What is the Face service?](../../overview.md)

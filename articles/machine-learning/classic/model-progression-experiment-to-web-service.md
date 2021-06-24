@@ -1,9 +1,9 @@
 ---
 title: 'ML Studio (classic): How a model becomes a web service - Azure'
-description: An overview of the mechanics of how your Azure Machine Learning Studio (classic) model progresses from a development experiment to a Web service.
+description: An overview of the mechanics of how your Machine Learning Studio (classic) model progresses from a development experiment to a Web service.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: conceptual
 
 author: likebupt
@@ -14,9 +14,9 @@ ms.date: 03/20/2017
 
 # How a Machine Learning Studio (classic) model progresses from an experiment to a Web service
 
-**APPLIES TO:**  ![This is a check mark, which means that this article applies to Machine Learning Studio (classic).](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![This is an X, which means that this article applies to Azure Machine Learning.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
+**APPLIES TO:**  ![This is a check mark, which means that this article applies to Machine Learning Studio (classic).](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![This is an X, which means that this article does not apply to Azure Machine Learning.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
-Azure Machine Learning Studio (classic) provides an interactive canvas that allows you to develop, run, test, and iterate an ***experiment*** representing a predictive analysis model. There are a wide variety of modules available that can:
+Machine Learning Studio (classic) provides an interactive canvas that allows you to develop, run, test, and iterate an ***experiment*** representing a predictive analysis model. There are a wide variety of modules available that can:
 
 * Input data into your experiment
 * Manipulate the data
@@ -25,7 +25,7 @@ Azure Machine Learning Studio (classic) provides an interactive canvas that allo
 * Evaluate the results
 * Output final values
 
-Once you're satisfied with your experiment, you can deploy it as a ***Classic Azure Machine Learning Web service*** or a ***New Azure Machine Learning Web service*** so that users can send it new data and receive back results.
+Once you're satisfied with your experiment, you can deploy it as a ***Machine Learning (classic) Web service*** or an ***Azure Machine Learning Web service*** so that users can send it new data and receive back results.
 
 In this article, we give an overview of the mechanics of how your Machine Learning model progresses from a development experiment to an operationalized Web service.
 
@@ -34,7 +34,7 @@ In this article, we give an overview of the mechanics of how your Machine Learni
 >
 >
 
-While Azure Machine Learning Studio (classic) is designed to help you develop and deploy a *predictive analysis model*, it's possible to use Studio (classic) to develop an experiment that doesn't include a predictive analysis model. For example, an experiment might just input data, manipulate it, and then output the results. Just like a predictive analysis experiment, you can deploy this non-predictive experiment as a Web service, but it's a simpler process because the experiment isn't training or scoring a machine learning model. While it's not the typical to use Studio (classic) in this way, we'll include it in the discussion so that we can give a complete explanation of how Studio (classic) works.
+While Machine Learning Studio (classic) is designed to help you develop and deploy a *predictive analysis model*, it's possible to use Studio (classic) to develop an experiment that doesn't include a predictive analysis model. For example, an experiment might just input data, manipulate it, and then output the results. Just like a predictive analysis experiment, you can deploy this non-predictive experiment as a Web service, but it's a simpler process because the experiment isn't training or scoring a machine learning model. While it's not the typical to use Studio (classic) in this way, we'll include it in the discussion so that we can give a complete explanation of how Studio (classic) works.
 
 ## Developing and deploying a predictive Web service
 Here are the stages that a typical solution follows as you develop and deploy it using Machine Learning Studio (classic):
@@ -44,7 +44,7 @@ Here are the stages that a typical solution follows as you develop and deploy it
 *Figure 1 - Stages of a typical predictive analysis model*
 
 ### The training experiment
-The ***training experiment*** is the initial phase of developing your Web service in Machine Learning Studio (classic). The purpose of the training experiment is to give you a place to develop, test, iterate, and eventually train a machine learning model. You can even train multiple models simultaneously as you look for the best solution, but once you're done experimenting you'll select a single trained model and eliminate the rest from the experiment. For an example of developing a predictive analysis experiment, see [Develop a predictive analytics solution for credit risk assessment in Azure Machine Learning Studio (classic)](tutorial-part1-credit-risk.md).
+The ***training experiment*** is the initial phase of developing your Web service in Machine Learning Studio (classic). The purpose of the training experiment is to give you a place to develop, test, iterate, and eventually train a machine learning model. You can even train multiple models simultaneously as you look for the best solution, but once you're done experimenting you'll select a single trained model and eliminate the rest from the experiment. For an example of developing a predictive analysis experiment, see [Develop a predictive analytics solution for credit risk assessment in Machine Learning Studio (classic)](tutorial-part1-credit-risk.md).
 
 ### The predictive experiment
 Once you have a trained model in your training experiment, click **Set Up Web Service** and select **Predictive Web Service** in Machine Learning Studio (classic) to initiate the process of converting your training experiment to a ***predictive experiment***. The purpose of the predictive experiment is to use your trained model to score new data, with the goal of eventually becoming operationalized as an Azure Web service.
@@ -60,12 +60,12 @@ There may be more changes you want to make to get your predictive experiment rea
 In this conversion process, the training experiment is not discarded. When the process is complete, you have two tabs in Studio (classic): one for the training experiment and one for the predictive experiment. This way you can make changes to the training experiment before you deploy your Web service and rebuild the predictive experiment. Or you can save a copy of the training experiment to start another line of experimentation.
 
 > [!NOTE]
-> When you click **Predictive Web Service** you start an automatic process to convert your training experiment to a predictive experiment, and this works well in most cases. If your training experiment is complex (for example, you have multiple paths for training that you join together), you might prefer to do this conversion manually. For more information, see [How to prepare your model for deployment in Azure Machine Learning Studio (classic)](deploy-a-machine-learning-web-service.md).
+> When you click **Predictive Web Service** you start an automatic process to convert your training experiment to a predictive experiment, and this works well in most cases. If your training experiment is complex (for example, you have multiple paths for training that you join together), you might prefer to do this conversion manually. For more information, see [How to prepare your model for deployment in Machine Learning Studio (classic)](deploy-a-machine-learning-web-service.md).
 >
 >
 
 ### The web service
-Once you're satisfied that your predictive experiment is ready, you can deploy your service as either a Classic Web service or a New Web service based on Azure Resource Manager. To operationalize your model by deploying it as a *Classic Machine Learning Web service*, click **Deploy Web Service** and select **Deploy Web Service [Classic]**. To deploy as *New Machine Learning Web service*, click **Deploy Web Service** and select **Deploy Web Service [New]**. Users can now send data to your model using the Web service REST API and receive back the results. For more information, see [How to consume an Azure Machine Learning Web service](consume-web-services.md).
+Once you're satisfied that your predictive experiment is ready, you can deploy your service as either a Classic Web service or a New Web service based on Azure Resource Manager. To operationalize your model by deploying it as a *Classic Machine Learning Web service*, click **Deploy Web Service** and select **Deploy Web Service [Classic]**. To deploy as *New Machine Learning Web service*, click **Deploy Web Service** and select **Deploy Web Service [New]**. Users can now send data to your model using the Web service REST API and receive back the results. For more information, see [How to consume a Machine Learning Web service](consume-web-services.md).
 
 ## The non-typical case: creating a non-predictive Web service
 If your experiment does not train a predictive analysis model, then you don't need to create both a training experiment and a scoring experiment - there's just one experiment, and you can deploy it as a Web service. Machine Learning Studio (classic) detects whether your experiment contains a predictive model by analyzing the modules you've used.
@@ -106,11 +106,11 @@ If you want to make changes to your original predictive experiment, such as sele
 ## Next steps
 For more details on the process of developing and experiment, see the following articles:
 
-* converting the experiment - [How to prepare your model for deployment in Azure Machine Learning Studio (classic)](deploy-a-machine-learning-web-service.md)
-* deploying the Web service - [Deploy an Azure Machine Learning web service](deploy-a-machine-learning-web-service.md)
+* converting the experiment - [How to prepare your model for deployment in Machine Learning Studio (classic)](deploy-a-machine-learning-web-service.md)
+* deploying the Web service - [Deploy a Machine Learning web service](deploy-a-machine-learning-web-service.md)
 * retraining the model - [Retrain Machine Learning models programmatically](./retrain-machine-learning-model.md)
 
 For examples of the whole process, see:
 
-* [Machine learning tutorial: Create your first experiment in Azure Machine Learning Studio (classic)](create-experiment.md)
-* [Walkthrough: Develop a predictive analytics solution for credit risk assessment in Azure Machine     Learning](tutorial-part1-credit-risk.md)
+* [Machine learning tutorial: Create your first experiment in Machine Learning Studio (classic)](create-experiment.md)
+* [Walkthrough: Develop a predictive analytics solution for credit risk assessment in Machine Learning Studio (classic)](tutorial-part1-credit-risk.md)

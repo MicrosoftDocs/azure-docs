@@ -17,9 +17,9 @@ ms.reviewer:
 ---
 # How to use Continuous Access Evaluation enabled APIs in your applications
 
-[Continuous Access Evaluation](../conditional-access/concept-continuous-access-evaluation.md) (CAE) is an emerging industry standard that allows access tokens to be revoked based on [critical events](../conditional-access/concept-continuous-access-evaluation.md#critical-event-evaluation) and [policy evaluation](../conditional-access/concept-continuous-access-evaluation.md#conditional-access-policy-evaluation-preview) rather than relying on token expiry based on lifetime. For some resource APIs, because risk and policy are evaluated in real time, this can increase token lifetime up to 28 hours. These long-lived tokens will be proactively refreshed by the Microsoft Authentication Library (MSAL), increasing the resiliency of your applications.
+[Continuous Access Evaluation](../conditional-access/concept-continuous-access-evaluation.md) (CAE) is an Azure AD feature that allows access tokens to be revoked based on [critical events](../conditional-access/concept-continuous-access-evaluation.md#critical-event-evaluation) and [policy evaluation](../conditional-access/concept-continuous-access-evaluation.md#conditional-access-policy-evaluation-preview) rather than relying on token expiry based on lifetime. For some resource APIs, because risk and policy are evaluated in real time, this can increase token lifetime up to 28 hours. These long-lived tokens will be proactively refreshed by the Microsoft Authentication Library (MSAL), increasing the resiliency of your applications.
 
-This article shows you how to use CAE-enabled APIs in your applications.
+This article shows you how to use CAE-enabled APIs in your applications. Applications not using MSAL can add support for [claims challenges, claims requests, and client capabilities](claims-challenge.md) to use CAE.
 
 ## Implementation considerations
 
@@ -36,9 +36,9 @@ For example:
 ```console
 HTTP 401; Unauthorized
 WWW-Authenticate=Bearer
- authorization_uri="https://login.windows.net/common/oauth2/authorize",
- error="insufficient_claims",
- claims="eyJhY2Nlc3NfdG9rZW4iOnsibmJmIjp7ImVzc2VudGlhbCI6dHJ1ZSwgInZhbHVlIjoiMTYwNDEwNjY1MSJ9fX0="
+  authorization_uri="https://login.windows.net/common/oauth2/authorize",
+  error="insufficient_claims",
+  claims="eyJhY2Nlc3NfdG9rZW4iOnsibmJmIjp7ImVzc2VudGlhbCI6dHJ1ZSwgInZhbHVlIjoiMTYwNDEwNjY1MSJ9fX0="
 ```
 
 Your app would check for:
@@ -112,4 +112,5 @@ You can test your application by signing in a user to the application then using
 
 ## Next steps
 
-To learn more, see [Continuous access evaluation](../conditional-access/concept-continuous-access-evaluation.md).
+- [Continuous access evaluation](../conditional-access/concept-continuous-access-evaluation.md) conceptual overview
+- [Claims challenges, claims requests, and client capabilities](claims-challenge.md)

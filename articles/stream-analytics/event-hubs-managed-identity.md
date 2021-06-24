@@ -1,11 +1,11 @@
 ---
 title: Use managed identities to access Event Hub from an Azure Stream Analytics job (Preview)
 description: This article describes how to use managed identities to authenticate your Azure Stream Analytics job to Azure Event Hubs input and output.
-author: mamccrea
-ms.author: mamccrea
+author: sidramadoss
+ms.author: sidram
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 11/30/2020
+ms.date: 06/07/2021
 ---
 
 # Use managed identities to access Event Hub from an Azure Stream Analytics job (Preview)
@@ -15,6 +15,9 @@ Azure Stream Analytics supports Managed Identity authentication for both A
 A managed identity is a managed application registered in Azure Active Directory that represents a given Stream Analytics job. The managed application is used to authenticate to a targeted resource, including Event Hubs that are behind a firewall or virtual network (VNet). For more information about how to bypass firewalls, see [Allow access to Azure Event Hubs namespaces via private endpoints](../event-hubs/private-link-service.md#trusted-microsoft-services).
 
 This article shows you how to enable Managed Identity for an Event Hubs input or output of a Stream Analytics job through the Azure portal. Before you enabled Managed Identity, you must first have a Stream Analytics job and Event Hub resource.
+
+### Limitation
+During preview, sampling input from Event Hubs on Azure portal will not work when using Managed Identity authentication mode.
 
 ## Create a managed identity  
 
@@ -55,6 +58,9 @@ For the Stream Analytics job to access your Event Hub using managed identity, th
 1. Select **Save** and wait a minute or so for changes to propagate.
 
 You can also grant this role at the Event Hub Namespace level, which will naturally propagate the permissions to all Event Hubs created under it. That is, all Event Hubs under a Namespace can be used as a managed-identity-authenticating resource in your Stream Analytics job.
+
+> [!NOTE]
+> Due to global replication or caching latency, there may be a delay when permissions are revoked or granted. Changes should be reflected within 8 minutes.
 
 ## Create an Event Hub input or output  
 

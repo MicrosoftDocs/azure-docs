@@ -1,8 +1,8 @@
 --- 
 title: Azure VMware Solution by CloudSimple - Stretch a Layer 2 network on-premises to Private Cloud
 description: Describes how to set up a Layer 2 VPN between NSX-T on a CloudSimple Private Cloud and an on-premises standalone NSX Edge client
-author: sharaths-cs
-ms.author: b-shsury 
+author: shortpatti
+ms.author: v-patsho
 ms.date: 08/19/2019 
 ms.topic: article 
 ms.service: azure-vmware-cloudsimple 

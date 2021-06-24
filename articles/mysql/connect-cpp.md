@@ -21,7 +21,7 @@ This quickstart uses the resources created in either of the following guides as 
 - [Create an Azure Database for MySQL server using Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
 You also need to:
-- Install [.NET Framework](https://www.microsoft.com/net/download)
+- Install [.NET Framework](https://dotnet.microsoft.com/download/dotnet-framework)
 - Install [Visual Studio](https://www.visualstudio.com/downloads/)
 - Install [MySQL Connector/C++](https://dev.mysql.com/downloads/connector/cpp/) 
 - Install [Boost](https://www.boost.org/)

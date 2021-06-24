@@ -90,7 +90,7 @@ To configure Azure Purview to trust your new service principal:
 
 1. For **Assign access to** leave the default, **User, group, or service principal**
 
-1. For **Select** enter the name of the user, Azure Active Directory group or service principal you wish to assign and then click on their name in the results pane.
+1. For **Select** enter the name of the previosly created service principal you wish to assign and then click on their name in the results pane.
 
 1. Click on **Save**
 
@@ -111,7 +111,7 @@ Find and save the following values:
   * In the **Manage** section in the left pane, select **Properties**, find the **Tenant ID**, and then select the **Copy to clipboard** icon to save its value.
 * Atlas endpoint:
   * From the [Azure Purview accounts page](https://aka.ms/purviewportal) in the Azure portal, find and select your Azure Purview account in the list.
-  * Select **Overview**, find **Atlas Endpoint**, and then select the **Copy to clipboard** icon to save its value. Remove the *https://* portion of the string when you use it later.
+  * Select **Properties**, find **Atlas Endpoint**, and then select the **Copy to clipboard** icon to save its value. Remove the *https://* portion of the string when you use it later.
 * Account name:
   * Extract the name of your catalog from the Atlas endpoint string. For example, if your Atlas endpoint is `https://ThisIsMyCatalog.catalog.purview.azure.com`, your account name is `ThisIsMyCatalog`.
 
@@ -140,7 +140,7 @@ Find and save the following values:
 
 
 
-1. [Install Node.js](https://github.com/Azure/autorest/blob/master/docs/installing-autorest.md).
+1. [Install Node.js](https://github.com/Azure/autorest/blob/v2/docs/installing-autorest.md).
 1. Open PowerShell and run the following command:
 
    ```powershell
@@ -171,7 +171,7 @@ Find and save the following values:
 1. Make sure the version is at least 2.3.21, and then select **Install**.
 1. Build and run the application.
 
-The sample code returns a count of how many typedefs are in the catalog and shows how to handle role assignments. For details, see `DoRoleAssignmentOperations()` in the sample code. For more information about the project, see [Project Setup](https://github.com/Azure/autorest/blob/master/docs/client/proj-setup.md).
+The sample code returns a count of how many typedefs are in the catalog and shows how to handle role assignments. For details, see `DoRoleAssignmentOperations()` in the sample code. For more information about the project, see [Project Setup](https://github.com/Azure/autorest/blob/v2/docs/client/proj-setup.md).
 
 ### Sample code for the console application
 
@@ -197,6 +197,7 @@ namespace PurviewCatalogSdkTest
         {
             Console.WriteLine("Azure Purview client");
 
+            // You need to change the api path below (e.g. /api) based on what you're trying to call
             string baseUri = string.Format("https://{0}.catalog.purview.azure.com/api", accountName);
 
             // Get token and set auth

@@ -1,12 +1,12 @@
 ---
 title: Configure custom settings
 description: Configure settings that apply to the entire Azure App Service environment. Learn how to do it with Azure Resource Manager templates.
-author: stefsch
+author: ccompy
 
 ms.assetid: 1d1d85f3-6cc6-4d57-ae1a-5b37c642d812
 ms.topic: tutorial
-ms.date: 10/03/2020
-ms.author: stefsch
+ms.date: 01/29/2021
+ms.author: ccompy
 ms.custom: mvc, seodec18
 ---
 
@@ -57,7 +57,7 @@ For example, if an App Service Environment has four front ends, it will take rou
 
 ## Enable Internal Encryption
 
-The App Service Environment operates as a black box system where you cannot see the internal components or the communication within the system. To enable higher throughput, encryption is not enabled by default between internal components. The system is secure as the traffic is completely inaccessible to being monitored or accessed. If you have a compliance requirement though that requires complete encryption of the data path from end to end, there is a way to enable this with a clusterSetting.  
+The App Service Environment operates as a black box system where you cannot see the internal components or the communication within the system. To enable higher throughput, encryption is not enabled by default between internal components. The system is secure as the traffic is inaccessible to being monitored or accessed. If you have a compliance requirement though that requires complete encryption of the data path from end to end, there is a way to enable encryption of the complete data path with a clusterSetting.  
 
 ```json
 "clusterSettings": [
@@ -67,7 +67,7 @@ The App Service Environment operates as a black box system where you cannot see 
     }
 ],
 ```
-This will encrypt internal network traffic in your ASE between the front ends and workers, encrypt the pagefile and also encrypt the worker disks. After the InternalEncryption clusterSetting is enabled, there can be an impact to your system performance. When you make the change to enable InternalEncryption, your ASE will be in an unstable state until the change is fully propagated. Complete propagation of the change can take a few hours to complete, depending on how many instances you have in your ASE. We highly recommend that you do not enable this on an ASE while it is in use. If you need to enable this on an actively used ASE, we highly recommend that you divert traffic to a backup environment until the operation completes. 
+Setting InternalEncryption to true encrypts internal network traffic in your ASE between the front ends and workers, encrypts the pagefile and also encrypts the worker disks. After the InternalEncryption clusterSetting is enabled, there can be an impact to your system performance. When you make the change to enable InternalEncryption, your ASE will be in an unstable state until the change is fully propagated. Complete propagation of the change can take a few hours to complete, depending on how many instances you have in your ASE. We highly recommend that you do not enable InternalEncryption on an ASE while it is in use. If you need to enable InternalEncryption on an actively used ASE, we highly recommend that you divert traffic to a backup environment until the operation completes. 
 
 
 ## Disable TLS 1.0 and TLS 1.1
@@ -88,13 +88,13 @@ If you want to disable all inbound TLS 1.0 and TLS 1.1 traffic for all of the ap
 The name of the setting says 1.0 but when configured, it disables both TLS 1.0 and TLS 1.1.
 
 ## Change TLS cipher suite order
-Another question from customers is if they can modify the list of ciphers negotiated by their server and this can be achieved by modifying the **clusterSettings** as shown below. The list of cipher suites available can be retrieved from [this MSDN article](https://msdn.microsoft.com/library/windows/desktop/aa374757\(v=vs.85\).aspx).
+The ASE supports changing the cipher suite from the default. The default set of ciphers is the same set that is used in the multi-tenant service. Changing the cipher suites affects an entire App Service deployment making this only possible in the single-tenant ASE. There are two cipher suites required for an ASE; TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384, and TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256. If you wish to operate your ASE with the strongest and most minimal set of cipher suites, then use just the two required ciphers. To configure your ASE to use just the ciphers that it requires, modify the **clusterSettings** as shown below. 
 
 ```json
 "clusterSettings": [
     {
         "name": "FrontEndSSLCipherSuiteOrder",
-        "value": "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384_P256,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256_P256,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P256,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P256,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA_P256"
+        "value": "TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"
     }
 ],
 ```
@@ -103,7 +103,7 @@ Another question from customers is if they can modify the list of ciphers negoti
 > If incorrect values are set for the cipher suite that SChannel cannot understand, all TLS communication to your server might stop functioning. In such a case, you will need to remove the *FrontEndSSLCipherSuiteOrder* entry from **clusterSettings** and submit the updated Resource Manager template to revert back to the default cipher suite settings.  Please use this functionality with caution.
 
 ## Get started
-The Azure Quickstart Resource Manager template site includes a template with the base definition for [creating an App Service Environment](https://azure.microsoft.com/documentation/templates/201-web-app-ase-create/).
+The Azure Quickstart Resource Manager template site includes a template with the base definition for [creating an App Service Environment](https://azure.microsoft.com/resources/templates/web-app-ase-create/).
 
 <!-- LINKS -->
 

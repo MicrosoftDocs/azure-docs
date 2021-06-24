@@ -1,9 +1,9 @@
 ---
 title: 'ML Studio (classic): Manage web services - Azure'
-description: Manage your Machine Learning New and Classic Web services using the Microsoft Azure Machine Learning Web Services portal. Since Classic Web services and New Web services are based on different underlying technologies, you have slightly different management capabilities for each of them.
+description: Manage your Machine Learning Studio (classic) Web services using the Machine Learning Web Services portal. 
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 
 author: likebupt
@@ -11,20 +11,20 @@ ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/28/2017
 ---
-# Manage a web service using the Azure Machine Learning Studio (classic) Web Services portal
+# Manage a web service using the Machine Learning Studio (classic) Web Services portal
 
 **APPLIES TO:**  ![Applies to.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![Does not apply to.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
-You can manage your Machine Learning New and Classic Web services using the Microsoft Azure Machine Learning Web Services portal. Since Classic Web services and New Web services are based on different underlying technologies, you have slightly different management capabilities for each of them.
+You can manage your Machine Learning Studio (classic) web services using the Machine Learning Web Services portal. 
 
 In the Machine Learning Web Services portal you can:
 
 * Monitor how the web service is being used.
 * Configure the description, update the keys for the web service (New only), update your storage account key (New only), enable logging, and enable or disable sample data.
 * Delete the web service.
-* Create, delete, or update billing plans (New only).
-* Add and delete endpoints (Classic only)
+* Create, delete, or update billing plans: [Azure Machine Learning only](../index.yml).
+* Add and delete endpoints: ML Studio (classic) only
 
 >[!NOTE]
 >You also can manage Classic web services in [Machine Learning Studio (classic)](https://studio.azureml.net) on the **Web services** tab.
@@ -33,19 +33,19 @@ In the Machine Learning Web Services portal you can:
 
 New web services are deployed as Azure resources. As such, you must have the correct permissions to deploy and manage New web services.  To deploy or manage New web services you must be assigned a contributor or administrator role on the subscription to which the web service is deployed. If you invite another user to a machine learning workspace, you must assign them to a contributor or administrator role on the subscription before they can deploy or manage web services. 
 
-If the user does not have the correct permissions to access resources in the Azure Machine Learning Web Services portal, they will receive the following error when trying to deploy a web service:
+If the user does not have the correct permissions to access resources in the Machine Learning Web Services portal, they will receive the following error when trying to deploy a web service:
 
 *Web Service deployment failed. This account does not have sufficient access to the Azure subscription that contains the Workspace. In order to deploy a Web Service to Azure, the same account must be invited to the Workspace and be given access to the Azure subscription that contains the Workspace.*
 
-For more information on creating a workspace, see [Create and share an Azure Machine Learning Studio (classic) workspace](create-workspace.md).
+For more information on creating a workspace, see [Create and share a Machine Learning Studio (classic) workspace](create-workspace.md).
 
-For more information on setting access permissions, see [Add or remove Azure role assignments using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+For more information on setting access permissions, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 
 ## Manage New Web services
 To manage your New Web services:
 
-1. Sign in to the [Microsoft Azure Machine Learning Web Services](https://services.azureml.net/quickstart) portal using your Microsoft Azure account - use the account that's associated with the Azure subscription.
+1. Sign in to the [Machine Learning Web Services](https://services.azureml.net/quickstart) portal using your Microsoft Azure account - use the account that's associated with the Azure subscription.
 2. On the menu, click **Web Services**.
 
 This displays a list of deployed Web services for your subscription. 
@@ -106,13 +106,13 @@ The plan dashboard provides the following information:
 
 ## Manage Classic Web Services
 > [!NOTE]
-> The procedures in this section are relevant to managing Classic web services through the Azure Machine Learning Web Services portal. For information on managing Classic Web services through the Machine Learning Studio (classic) and the Azure portal, see [Manage an Azure Machine Learning Studio (classic) workspace](manage-workspace.md).
+> The procedures in this section are relevant to managing Classic web services through the Machine Learning Web Services portal. For information on managing Classic Web services through the Machine Learning Studio (classic) and the Azure portal, see [Manage a Machine Learning Studio (classic) workspace](manage-workspace.md).
 > 
 > 
 
 To manage your Classic Web services:
 
-1. Sign in to the [Microsoft Azure Machine Learning Web Services](https://services.azureml.net/quickstart) portal using your Microsoft Azure account - use the account that's associated with the Azure subscription.
+1. Sign in to the [Machine Learning Web Services](https://services.azureml.net/quickstart) portal using your Microsoft Azure account - use the account that's associated with the Azure subscription.
 2. On the menu, click **Classic Web Services**.
 
 To manage a Classic Web Service, click **Classic Web Services**. From the Classic Web Services page you can:

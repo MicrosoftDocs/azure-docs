@@ -6,12 +6,13 @@ author: mksuni
 ms.author: sumuth
 ms.topic: tutorial
 ms.date: 11/25/2020
-ms.custom: mvc
+ms.custom: vc, devx-track-azurecli
 ---
 
 # Tutorial: Deploy WordPress app on AKS with Azure Database for MySQL - Flexible Server
 
-In this quickstart, you deploy a WordPress application on Azure Kubernetes Service (AKS) cluster with Azure Database for MySQL - Flexible Server (Preview) using the Azure CLI. [AKS](../../aks/intro-kubernetes.md) is a managed Kubernetes service that lets you quickly deploy and manage clusters. [Azure Database for MySQL - Flexible Server (Preview)](overview.md) is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings. Currently Flexible server is in Preview.
+In this quickstart, you deploy a WordPress application on Azure Kubernetes Service (AKS) cluster with Azure Database for MySQL - Flexible Server (Preview) using the Azure CLI. 
+**[AKS](../../aks/intro-kubernetes.md)** is a managed Kubernetes service that lets you quickly deploy and manage clusters. **[Azure Database for MySQL - Flexible Server (Preview)](overview.md)** is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings. Currently Flexible server is in Preview.
 
 > [!NOTE]
 > - Azure Database for MySQL Flexible Server is currently in public preview
@@ -54,10 +55,10 @@ The following example output shows the resource group created successfully:
 
 ## Create AKS cluster
 
-Use the [az aks create](/cli/azure/aks?view=azure-cli-latest&preserve-view=true#az-aks-create) command to create an AKS cluster. The following example creates a cluster named *myAKSCluster* with one node. This will take several minutes to complete.
+Use the [az aks create](/cli/azure/aks#az_aks_create) command to create an AKS cluster. The following example creates a cluster named *myAKSCluster* with one node. This will take several minutes to complete.
 
 ```azurecli-interactive
-az aks create --resource-group wordpress-project --name wordpresscluster--node-count 1 --generate-ssh-keys
+az aks create --resource-group wordpress-project --name myAKSCluster --node-count 1 --generate-ssh-keys
 ```
 
 After a few minutes, the command completes and returns JSON-formatted information about the cluster.
@@ -67,16 +68,16 @@ After a few minutes, the command completes and returns JSON-formatted informatio
 
 ## Connect to the cluster
 
-To manage a Kubernetes cluster, you use [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/), the Kubernetes command-line client. If you use Azure Cloud Shell, `kubectl` is already installed. To install `kubectl` locally, use the [az aks install-cli](/cli/azure/aks?view=azure-cli-latest&preserve-view=true#az-aks-install-cli) command:
+To manage a Kubernetes cluster, you use [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/), the Kubernetes command-line client. If you use Azure Cloud Shell, `kubectl` is already installed. To install `kubectl` locally, use the [az aks install-cli](/cli/azure/aks#az_aks_install_cli) command:
 
 ```azurecli-interactive
 az aks install-cli
 ```
 
-To configure `kubectl` to connect to your Kubernetes cluster, use the [az aks get-credentials](/cli/azure/aks?view=azure-cli-latest&preserve-view=true#az-aks-get-credentials) command. This command downloads credentials and configures the Kubernetes CLI to use them.
+To configure `kubectl` to connect to your Kubernetes cluster, use the [az aks get-credentials](/cli/azure/aks#az_aks_get_credentials) command. This command downloads credentials and configures the Kubernetes CLI to use them.
 
 ```azurecli-interactive
-az aks get-credentials --resource-group wordpress-project --name wordpresscluster
+az aks get-credentials --resource-group wordpress-project --name myAKSCluster
 ```
 
 > [!NOTE]
@@ -96,7 +97,7 @@ aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.12.8
 ```
 
 ## Create an Azure Database for MySQL - Flexible Server
-Create a flexible server with the [az mysql flexible-server create](/cli/azure/mysql/flexible-server?view=azure-cli-latest&preserve-view=true)command. The following command creates a server using service defaults and values from your Azure CLI's local context:
+Create a flexible server with the [az mysql flexible-server create](/cli/azure/mysql/flexible-server)command. The following command creates a server using service defaults and values from your Azure CLI's local context:
 
 ```azurecli-interactive
 az mysql flexible-server create --public-access <YOUR-IP-ADDRESS>
@@ -110,7 +111,7 @@ The server created has the below attributes:
 - Since the command is using Local context it will create the server in the resource group ```wordpress-project``` and in the region ```eastus```.
 
 
-## Build your WordPress docker image
+### Build your WordPress docker image
 
 Download the [latest WordPress](https://wordpress.org/download/) version. Create new directory ```my-wordpress-app``` for your project and use this simple folder structure
 
@@ -122,7 +123,7 @@ Download the [latest WordPress](https://wordpress.org/download/) version. Create
       	. . . . . . .
         ├───wp-content
         │   ├───plugins
-     	  . . . . . . .
+        . . . . . . .
         └───wp-includes
         . . . . . . .
         ├───wp-config-sample.php
@@ -168,6 +169,7 @@ define('DB_COLLATE', '');
 define('MYSQL_CLIENT_FLAGS', MYSQLI_CLIENT_SSL);
 ```
 
+### Create a Dockerfile
 Create a new Dockerfile and copy this code snippet. This Dockerfile in setting up Apache web server with PHP and enabling mysqli extension.
 
 ```docker
@@ -177,12 +179,12 @@ RUN docker-php-ext-install mysqli
 RUN docker-php-ext-enable mysqli
 ```
 
-## Build your Docker image
-Make sure you're in the directory ```my-wordpress-app``` in a terminal using the ```cd``` command. Run the following command to build your bulletin board image:
+### Build your docker image
+Make sure you're in the directory ```my-wordpress-app``` in a terminal using the ```cd``` command. Run the following command to build the image:
 
 ``` bash
 
-docker build --tag myblog:latest . 
+docker build --tag myblog:latest .
 
 ```
 
@@ -268,8 +270,6 @@ The following example output shows the Deployments and Services created successf
 ```output
 deployment "wordpress-blog" created
 service "php-svc" created
-deployment "azure-vote-front" created
-service "php-svc" created
 ```
 
 ## Test the application
@@ -307,7 +307,7 @@ Open a web browser to the external IP address of your service to see your WordPr
 
 ## Clean up the resources
 
-To avoid Azure charges, you should clean up unneeded resources.  When the cluster is no longer needed, use the [az group delete](/cli/azure/group?view=azure-cli-latest&preserve-view=true#az_group_delete) command to remove the resource group, container service, and all related resources.
+To avoid Azure charges, you should clean up unneeded resources.  When the cluster is no longer needed, use the [az group delete](/cli/azure/group#az_group_delete) command to remove the resource group, container service, and all related resources.
 
 ```azurecli-interactive
 az group delete --name wordpress-project --yes --no-wait
@@ -322,4 +322,3 @@ az group delete --name wordpress-project --yes --no-wait
 - Learn how to [scale your cluster](../../aks/tutorial-kubernetes-scale.md)
 - Learn how to manage your [MySQL flexible server](./quickstart-create-server-cli.md)
 - Learn how to [configure server parameters](./how-to-configure-server-parameters-cli.md) for your database server.
-

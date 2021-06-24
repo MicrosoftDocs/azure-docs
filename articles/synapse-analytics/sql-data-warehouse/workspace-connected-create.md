@@ -19,6 +19,7 @@ All SQL data warehouse users can now access and use an existing dedicated SQL po
 ## Prerequisites
 Before you enable the Synapse workspace features on your data warehouse, you must ensure that you've the following
 - Rights to create and manage the SQL resources that are hosted on the SQL logical server.
+- Write permissions on the host SQL Server. 
 - Rights to create Azure Synapse resources.
 - An Azure Active Directory admin identified on the logical server
 
@@ -52,6 +53,9 @@ The following steps must be completed to ensure that your existing dedicated SQL
 4. Select one of the dedicated SQL pool (formerly SQL DW) instances hosted on the logical server. In the overview page, select **Launch Synapse Studio** or Go to the [Sign in to the Synapse Studio](https://web.azuresynapse.net) and sign in to your workspace.
 
 5. Open the **Data hub** and expand the dedicated SQL pool in the Object explorer to ensure that you've access and can query your data warehouse.
+
+    > [!NOTE] 
+    > A connected workspace can be deleted at anytime. Deleting the workspace will not delete the connected dedicated SQL pool (formerly SQL DW). Workspace feature can be re-enable on the dedicated SQL pool (formerly SQL DW) when the delete operation has completed.
 
 ## Next steps
 Getting started with [Synapse Workspace and Studio](../get-started.md).

@@ -92,7 +92,7 @@ Security Center assesses the configuration of your resources to identify securit
 >[!Note]
 >To learn more about roles and allowed actions in Security Center, see [Permissions in Azure Security Center](../../security-center/security-center-permissions.md).
 
-Security Center uses the Microsoft Monitoring Agent. This is the same agent that the Azure Monitor service uses. Data collected from this agent is stored in either an existing Log Analytics [workspace](../../azure-monitor/platform/manage-access.md) associated with your Azure subscription or a new workspace, taking into account the geolocation of the VM.
+Security Center uses the Microsoft Monitoring Agent. This is the same agent that the Azure Monitor service uses. Data collected from this agent is stored in either an existing Log Analytics [workspace](../../azure-monitor/logs/manage-access.md) associated with your Azure subscription or a new workspace, taking into account the geolocation of the VM.
 
 ## Azure Monitor
 
@@ -106,23 +106,23 @@ Azure Monitor includes the following components.
 
 ### Azure Activity Log
 
-The [Azure Activity Log](../../azure-monitor/platform/platform-logs-overview.md) provides insight into the operations that were performed on resources in your subscription. It was previously known as “Audit Log” or “Operational Log,” because it reports control-plane events for your subscriptions.
+The [Azure Activity Log](../../azure-monitor/essentials/platform-logs-overview.md) provides insight into the operations that were performed on resources in your subscription. It was previously known as “Audit Log” or “Operational Log,” because it reports control-plane events for your subscriptions.
 
 ### Azure diagnostic logs
 
-[Azure diagnostic logs](../../azure-monitor/platform/platform-logs-overview.md) are emitted by a resource and provide rich, frequent data about the operation of that resource. The content of these logs varies by resource type.
+[Azure diagnostic logs](../../azure-monitor/essentials/platform-logs-overview.md) are emitted by a resource and provide rich, frequent data about the operation of that resource. The content of these logs varies by resource type.
 
 Windows event system logs are one category of diagnostic logs for VMs. Blob, table, and queue logs are categories of diagnostic logs for storage accounts.
 
-Diagnostic logs differ from the [Activity Log](../../azure-monitor/platform/platform-logs-overview.md). The Activity log provides insight into the operations that were performed on resources in your subscription. Diagnostic logs provide insight into operations that your resource performed itself.
+Diagnostic logs differ from the [Activity Log](../../azure-monitor/essentials/platform-logs-overview.md). The Activity log provides insight into the operations that were performed on resources in your subscription. Diagnostic logs provide insight into operations that your resource performed itself.
 
 ### Metrics
 
-Azure Monitor provides telemetry that gives you visibility into the performance and health of your workloads on Azure. The most important type of Azure telemetry data is the [metrics](../../azure-monitor/platform/data-platform.md) (also called performance counters) emitted by most Azure resources. Azure Monitor provides several ways to configure and consume these metrics for monitoring and troubleshooting.
+Azure Monitor provides telemetry that gives you visibility into the performance and health of your workloads on Azure. The most important type of Azure telemetry data is the [metrics](../../azure-monitor/data-platform.md) (also called performance counters) emitted by most Azure resources. Azure Monitor provides several ways to configure and consume these metrics for monitoring and troubleshooting.
 
 ### Azure Diagnostics
 
-Azure Diagnostics enables the collection of diagnostic data on a deployed application. You can use the Diagnostics extension from various sources. Currently supported are [Azure cloud service roles](/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service), [Azure virtual machines](/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service) running Microsoft Windows, and [Azure Service Fabric](../../azure-monitor/platform/diagnostics-extension-overview.md).
+Azure Diagnostics enables the collection of diagnostic data on a deployed application. You can use the Diagnostics extension from various sources. Currently supported are [Azure cloud service roles](/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service), [Azure virtual machines](/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service) running Microsoft Windows, and [Azure Service Fabric](../../azure-monitor/agents/diagnostics-extension-overview.md).
 
 ## Azure Network Watcher
 
@@ -169,21 +169,21 @@ Blueprints provide a declarative way to orchestrate the deployment of various re
 
 ## DevOps
 
-Before [Developer Operations (DevOps)](https://www.visualstudio.com/learn/what-is-devops/) application development, teams were in charge of gathering business requirements for a software program and writing code. Then a separate QA team tested the program in an isolated development environment. If requirements were met, the QA team released the code for operations to deploy. The deployment teams were further fragmented into groups like networking and database. Each time a software program was “thrown over the wall” to an independent team, it added bottlenecks.
+Before [Developer Operations (DevOps)](https://azure.microsoft.com/overview/what-is-devops/) application development, teams were in charge of gathering business requirements for a software program and writing code. Then a separate QA team tested the program in an isolated development environment. If requirements were met, the QA team released the code for operations to deploy. The deployment teams were further fragmented into groups like networking and database. Each time a software program was “thrown over the wall” to an independent team, it added bottlenecks.
 
 DevOps enables teams to deliver more secure, higher-quality solutions faster and more cheaply. Customers expect a dynamic and reliable experience when consuming software and services. Teams must rapidly iterate on software updates and measure the impact of the updates. They must respond quickly with new development iterations to address issues or provide more value.  
 
 Cloud platforms such as Microsoft Azure have removed traditional bottlenecks and helped commoditize infrastructure. Software reigns in every business as the key differentiator and factor in business outcomes. No organization, developer, or IT worker can or should avoid the DevOps movement.
 
-Mature DevOps practitioners adopt several of the following practices. These practices [involve people](https://www.visualstudio.com/learn/what-is-devops-culture/) to form strategies based on the business scenarios. Tooling can help automate the various practices.
+Mature DevOps practitioners adopt several of the following practices. These practices [involve people](/devops/what-is-devops) to form strategies based on the business scenarios. Tooling can help automate the various practices.
 
 - [Agile planning and project management](https://www.visualstudio.com/learn/what-is-agile/) techniques are used to plan and isolate work into sprints, manage team capacity, and help teams quickly adapt to changing business needs.
-- [Version control, usually with Git](https://www.visualstudio.com/learn/what-is-git/), enables teams located anywhere in the world to share source and integrate with software development tools to automate the release pipeline.
-- [Continuous integration](https://www.visualstudio.com/learn/what-is-continuous-integration/) drives the ongoing merging and testing of code, which leads to finding defects early.  Other benefits include less time wasted on fighting merge issues and rapid feedback for development teams.
-- [Continuous delivery](https://www.visualstudio.com/learn/what-is-continuous-delivery/) of software solutions to production and testing environments helps organizations quickly fix bugs and respond to ever-changing business requirements.
-- [Monitoring](https://www.visualstudio.com/learn/what-is-monitoring/) of running applications--including production environments for application health, as well as customer usage--helps organizations form a hypothesis and quickly validate or disprove strategies.  Rich data is captured and stored in various logging formats.
-- [Infrastructure as Code (IaC)](https://www.visualstudio.com/learn/what-is-infrastructure-as-code/) is a practice that enables the automation and validation of creation and teardown of networks and virtual machines to help with delivering secure, stable application hosting platforms.
-- [Microservices](https://www.visualstudio.com/learn/what-are-microservices/) architecture is used to isolate business use cases into small reusable services.  This architecture enables scalability and efficiency.
+- [Version control, usually with Git](/devops/develop/git/what-is-git), enables teams located anywhere in the world to share source and integrate with software development tools to automate the release pipeline.
+- [Continuous integration](/devops/develop/what-is-continuous-integration) drives the ongoing merging and testing of code, which leads to finding defects early.  Other benefits include less time wasted on fighting merge issues and rapid feedback for development teams.
+- [Continuous delivery](/devops/deliver/what-is-continuous-delivery) of software solutions to production and testing environments helps organizations quickly fix bugs and respond to ever-changing business requirements.
+- [Monitoring](/devops/operate/what-is-monitoring) of running applications--including production environments for application health, as well as customer usage--helps organizations form a hypothesis and quickly validate or disprove strategies.  Rich data is captured and stored in various logging formats.
+- [Infrastructure as Code (IaC)](/devops/deliver/what-is-infrastructure-as-code) is a practice that enables the automation and validation of creation and teardown of networks and virtual machines to help with delivering secure, stable application hosting platforms.
+- [Microservices](/devops/deliver/what-are-microservices) architecture is used to isolate business use cases into small reusable services.  This architecture enables scalability and efficiency.
 
 ## Next steps
 

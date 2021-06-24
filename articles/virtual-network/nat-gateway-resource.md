@@ -9,12 +9,12 @@ author: asudbring
 manager: KumudD
 ms.service: virtual-network
 ms.subservice: nat
-Customer intent: As an IT administrator, I want to learn more about how to design virtual networks with NAT gateway resources.
+# Customer intent: As an IT administrator, I want to learn more about how to design virtual networks with NAT gateway resources.
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/28/2020
+ms.date: 01/28/2021
 ms.author: allensu
 ---
 
@@ -56,7 +56,7 @@ The following diagram shows the writeable references between the different Azure
 
 NAT is recommended for most workloads unless you have a specific dependency on [pool-based Load Balancer outbound connectivity](../load-balancer/load-balancer-outbound-connections.md).  
 
-You can migrate from standard load balancer scenarios, including [outbound rules](../load-balancer/load-balancer-outbound-rules-overview.md), to NAT gateway. To migrate, move the public ip and public ip prefix resources from load balancer frontends to NAT gateway. New IP addresses for NAT gateway aren't required. Standard public IP address resources and public IP prefix resource can be reused as long as the total doesn't exceed 16 IP addresses. Plan for migration with service interruption in mind during the transition.  You can minimize the interruption by automating the process. Test the migration in a staging environment first.  During the transition, inbound originated flows aren't affected.
+You can migrate from standard load balancer scenarios, including [outbound rules](../load-balancer/load-balancer-outbound-connections.md#outboundrules), to NAT gateway. To migrate, move the public ip and public ip prefix resources from load balancer frontends to NAT gateway. New IP addresses for NAT gateway aren't required. Standard public IP address resources and public IP prefix resource can be reused as long as the total doesn't exceed 16 IP addresses. Plan for migration with service interruption in mind during the transition.  You can minimize the interruption by automating the process. Test the migration in a staging environment first.  During the transition, inbound originated flows aren't affected.
 
 
 The following example is a snippet from an Azure Resource Manager template.  This template deploys several resources, including a NAT gateway.  The template has the following parameters in this example:
@@ -69,20 +69,20 @@ The following example is a snippet from an Azure Resource Manager template.  Thi
 
 The total number of IP addresses provided by all IP address and prefix resources can't exceed 16 IP addresses total. Any number of IP addresses between 1 and 16 is allowed.
 
-:::code language="json" source="~/quickstart-templates/101-nat-gateway-vnet/azuredeploy.json" range="81-96":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/nat-gateway-vnet/azuredeploy.json" range="81-96":::
 
 When the NAT gateway resource has been created, it can be used on one or more subnets of a virtual network. Specify which subnets use this NAT gateway resource. A NAT gateway isn't able to span more than one virtual network. It isn't required to assign the same NAT gateway to all subnets of a virtual network. Individual subnets can be configured with different NAT gateway resources.
 
 Scenarios that don't use availability zones will be regional (no zone specified). If you're using availability zones, you can specify a zone to isolate NAT to a specific zone. Zone-redundancy isn't supported. Review NAT [availability zones](#availability-zones).
 
-:::code language="json" source="~/quickstart-templates/101-nat-gateway-vnet/azuredeploy.json" range="1-146" highlight="81-96":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/nat-gateway-vnet/azuredeploy.json" range="1-146" highlight="81-96":::
 
 NAT gateways are defined with a property on a subnet within a virtual network. Flows created by virtual machines on subnet **subnetname** of virtual network **vnetname** will use the NAT gateway. All outbound connectivity will use the IP addresses associated with **natgatewayname** as the source IP address.
 
 For more information on the Azure Resource Manager template used in this example, see:
 
 - [Quickstart: Create a NAT gateway - Resource Manager template](quickstart-create-nat-gateway-template.md)
-- [Virtual Network NAT](https://azure.microsoft.com/resources/templates/101-nat-gateway-1-vm/)
+- [Virtual Network NAT](https://azure.microsoft.com/resources/templates/nat-gateway-1-vm/)
 
 ## Design Guidance
 
@@ -212,7 +212,7 @@ If your scenario requires inbound endpoints, you have two options:
 
 You can't achieve a zonal promise with NAT gateway resources when virtual machine instances are deployed in multiple zones within the same subnet.   And even if there were multiple zonal NAT gateways attached to a subnet, the virtual machine instance wouldn't know which NAT gateway resource to select.
 
-A zonal promise does't exist when 
+A zonal promise doesn't exist when 
 a) the zone of a virtual machine instance and the zone of a zonal NAT gateway are not aligned, or
 b) a regional NAT gateway resource is used with zonal virtual machine instances.
 
@@ -222,13 +222,13 @@ While the scenario will appear to work, its health model and failure mode is und
 >The zones property of a NAT gateway resource isn't mutable.  Redeploy NAT gateway resource with the intended regional or zone preference.
 
 >[!NOTE] 
->IP addresses by themselves aren't zone-redundant if no zone is specified.  The frontend of a [Standard Load Balancer is zone-redundant](../load-balancer/load-balancer-standard-availability-zones.md#frontend) if an IP address isn't created in a specific zone.  This doesn't apply to NAT.  Only regional or zone-isolation is supported.
+>IP addresses by themselves aren't zone-redundant if no zone is specified.  The frontend of a [Standard Load Balancer is zone-redundant](../load-balancer/load-balancer-standard-availability-zones.md) if an IP address isn't created in a specific zone.  This doesn't apply to NAT.  Only regional or zone-isolation is supported.
 
 ## Performance
 
 Each NAT gateway resource can provide up to 50 Gbps of throughput. You can split your deployments into multiple subnets and assign each subnet or groups of subnets a NAT gateway to scale out.
 
-Each NAT gateway can support 64,000 flows for TCP and UDP respectively per assigned outbound IP address.  Review the following section on Source Network Address Translation (SNAT) for details as well as the [troubleshooting article](https://docs.microsoft.com/azure/virtual-network/troubleshoot-nat) for specific problem resolution guidance.
+Each NAT gateway can support 64,000 flows for TCP and UDP respectively per assigned outbound IP address.  Review the following section on Source Network Address Translation (SNAT) for details as well as the [troubleshooting article](./troubleshoot-nat.md) for specific problem resolution guidance.
 
 ## Source Network Address Translation
 
@@ -262,7 +262,7 @@ NAT gateways opportunistically reuse source (SNAT) ports.  The following illustr
 |:---:|:---:|:---:|
 | 4 | 192.168.0.16:4285 | 65.52.0.2:80 |
 
-A NAT gateway will likely translate flow 4 to a port that may be used for other destinations as well.  See [Scaling](https://docs.microsoft.com/azure/virtual-network/nat-gateway-resource#scaling) for additional discussion on correctly sizing your IP address provisioning.
+A NAT gateway will likely translate flow 4 to a port that may be used for other destinations as well.  See [Scaling](#scaling) for additional discussion on correctly sizing your IP address provisioning.
 
 | Flow | Source tuple | SNAT'ed source tuple | Destination tuple | 
 |:---:|:---:|:---:|:---:|
@@ -305,7 +305,7 @@ NAT gateway resources opportunistically reuse source (SNAT) ports. As design gui
 
 SNAT ports to different destinations are most likely to be reused when possible. And as SNAT port exhaustion approaches, flows may not succeed.  
 
-See [SNAT fundamentals](https://docs.microsoft.com/azure/virtual-network/nat-gateway-resource#source-network-address-translation) for example.
+See [SNAT fundamentals](#source-network-address-translation) for example.
 
 
 ### Protocols
@@ -337,6 +337,7 @@ A SNAT port is available for reuse to the same destination IP address and destin
 - NAT is compatible with standard SKU public IP, public IP prefix, and load balancer resources.   Basic resources (for example basic load balancer) and any products derived from them aren't compatible with NAT.  Basic resources must be placed on a subnet not configured with NAT.
 - IPv4 address family is supported.  NAT doesn't interact with IPv6 address family.  NAT can't be deployed on a subnet with an IPv6 prefix.
 - NAT can't span multiple virtual networks.
+- IP fragmentation is not supported.
 
 ## Suggestions
 
@@ -347,20 +348,3 @@ We want to know how we can improve the service. Are missing a capability? Make y
 * Learn about [virtual network NAT](nat-overview.md).
 * Learn about [metrics and alerts for NAT gateway resources](nat-metrics.md).
 * Learn about [troubleshooting NAT gateway resources](troubleshoot-nat.md).
-* Tutorial for validating NAT Gateway
-  - [Azure CLI](tutorial-create-validate-nat-gateway-cli.md)
-  - [PowerShell](tutorial-create-validate-nat-gateway-powershell.md)
-  - [Portal](tutorial-create-validate-nat-gateway-portal.md)
-* Quickstart for deploying a NAT gateway resource
-  - [Azure CLI](./quickstart-create-nat-gateway-cli.md)
-  - [PowerShell](./quickstart-create-nat-gateway-powershell.md)
-  - [Portal](./quickstart-create-nat-gateway-portal.md)
-  - [Template](./quickstart-create-nat-gateway-template.md)
-* Learn about NAT gateway resource API
-  - [REST API](https://docs.microsoft.com/rest/api/virtualnetwork/natgateways)
-  - [Azure CLI](https://docs.microsoft.com/cli/azure/network/nat/gateway)
-  - [PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-aznatgateway)
-* Learn about [availability zones](../availability-zones/az-overview.md).
-* Learn about [standard load balancer](../load-balancer/load-balancer-standard-overview.md).
-* Learn about [availability zones and standard load balancer](../load-balancer/load-balancer-standard-availability-zones.md).
-* [Tell us what to build next for Virtual Network NAT in UserVoice](https://aka.ms/natuservoice).

@@ -14,7 +14,8 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/18/2020
 ms.author: rolyon
-ms.reviewer: bagovind
+ms.reviewer: bagovind 
+ms.custom: devx-track-azurepowershell
 ---
 # Create or update Azure custom roles using Azure PowerShell
 
@@ -398,4 +399,4 @@ Are you sure you want to remove role definition with name 'Virtual Machine Opera
 
 - [Tutorial: Create an Azure custom role using Azure PowerShell](tutorial-custom-role-powershell.md)
 - [Azure custom roles](custom-roles.md)
-- [Azure Resource Manager resource provider operations](resource-provider-operations.md)
+- [Azure resource provider operations](resource-provider-operations.md)

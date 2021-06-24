@@ -1,13 +1,13 @@
 ### YamlMime:Landing
 
-title: Immersive Reader documentation
+title: Azure Immersive Reader documentation
 summary: Immersive Reader is a tool that implements proven techniques to improve reading comprehension for emerging readers, language learners, and people with learning differences. You can use Immersive Reader in your web application by using the Immersive Reader SDK.
 
 metadata:
-  title: Immersive Reader documentation
+  title: Azure Immersive Reader documentation
   description: Immersive Reader is a tool that implements proven techniques to improve reading comprehension for emerging readers, language learners, and people with learning differences. You can use Immersive Reader in your web application by using the Immersive Reader SDK.
   services: service
-  ms.service: cognitive-services
+  ms.service: applied-ai-services
   ms.subservice: immersive-reader
   ms.topic: landing-page
   ms.collection: collection
@@ -24,6 +24,8 @@ landingContent:
         links:
           - text: What is Immersive Reader?
             url: overview.md
+          - text: What are Azure Applied AI Services?
+            url: ../../applied-ai-services/what-are-applied-ai-services.md
       - linkListType: video
         links:
           - text: Getting started - short engineering videos
@@ -43,29 +45,20 @@ landingContent:
           url: ./quickstarts/client-libraries.md?pivots=programming-language-kotlin
         - text: Use Swift (iOS)
           url: ./quickstarts/client-libraries.md?pivots=programming-language-swift
-      - linkListType: tutorial
-        links:
-          - text: Android
-            url: tutorial-android.md
-          - text: iOS
-            url: tutorial-ios.md
-          - text: Python
-            url: tutorial-python.md
-          - text: Use multiple Immersive Reader resources
-            url: tutorial-multiple-resources.md
-
   - title: Explore Immersive Reader
     linkLists:
       - linkListType: how-to-guide
         links:
           - text: Create an Immersive Reader Resource
             url: how-to-create-immersive-reader.md
+          - text: Use multiple Immersive Reader resources
+            url: how-to-multiple-resources.md
+          - text: Launch the Immersive Reader
+            url: how-to-launch-immersive-reader.md
           - text: Set the cookie policy
             url: how-to/set-cookie-policy.md
           - text: Display math
             url: how-to/display-math.md
-          - text: Launch the Immersive Reader with HTML content
-            url: how-to-launch-with-html.md
           - text: Customize Immersive Reader button
             url: how-to-customize-launch-button.md
           - text: Cache the authentication token

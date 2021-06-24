@@ -8,7 +8,7 @@ ms.author: shresha
 manager: dpalled
 ms.workload: big-data
 ms.topic: overview
-ms.date: 10/02/2020
+ms.date: 12/16/2020
 ms.custom: seodec18
 ---
 
@@ -81,6 +81,21 @@ With the introduction of these key industrial IoT capabilities, Azure Time Serie
 | Near real-time data exploration | The [Azure Time Series Insights Gen2 Explorer](./concepts-ux-panels.md) user experience provides visualization for all data streaming through the ingestion pipeline. After you connect an event source, you can view, explore, and query event data. In this way, you can validate whether a device emits data as expected. You also can monitor an IoT asset for health, productivity, and overall effectiveness. |
 | Extensibility and integration | The Power BI Connector integration is available directly in the Time Series Explorer user experience through the **Export** option, allowing customers to export the time series queries they create in our user experience directly into the Power BI desktop and view their time series charts alongside other BI analytics. This opens the door to a new class of scenarios for industrial IoT enterprises who have invested in Power BI by providing a single pane of glass over analytics from various data sources including IoT time series. |
 | Custom applications built on the Azure Time Series Insights Gen2 platform | Azure Time Series Insights Gen2 supports the [JavaScript SDK](https://github.com/microsoft/tsiclient/blob/master/docs/API.md). The SDK provides rich controls and simplified access to queries. Use the SDK to build custom IoT applications on top of Azure Time Series Insights Gen2 to suit your business needs. You also can use the Azure Time Series Insights Gen2 [Query APIs](./concepts-query-overview.md) directly to drive data into custom IoT applications. |
+
+## Region availability
+
+Visit the [Azure Global Infrastructure products by region](https://azure.microsoft.com/global-infrastructure/services/?products=time-series-insights) page to learn where Azure Time Series Insights is available.
+
+Azure Time Series Insights resides in a single region. However, it does store/process customer data outside the region the customer deploys the service instance in, except for the following regions where data is not replicated outside of the region:
+
+* East Asia
+* Southeast Asia
+*	Australia Southeast
+*	West Europe
+*	UK South
+*	West US
+*	France Central
+*	Canada Central
 
 ## Next steps
 

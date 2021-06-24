@@ -61,7 +61,7 @@ In this section, you will create a Virtual Network and the subnet to host the VM
     | Size | Leave the default **Standard DS1 v2**. |
     | **ADMINISTRATOR ACCOUNT** |  |
     | Username | Enter a username of your choosing. |
-    | Password | Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    | Password | Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.yml?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-).|
     | Confirm Password | Reenter password. |
     | **INBOUND PORT RULES** |  |
     | Public inbound ports | Leave the default **None**. |
@@ -217,7 +217,7 @@ After you've created **myVm**, connect to it from the internet as follows:
     Address:  10.1.3.4
     ```
 
-3. Test the private link connection for the PostgreSQL server using any available client. In the example below I have used [Azure Data studio](/sql/azure-data-studio/download?view=sql-server-ver15&preserve-view=true) to do the operation.
+3. Test the private link connection for the PostgreSQL server using any available client. In the example below I have used [Azure Data studio](/sql/azure-data-studio/download) to do the operation.
 
 4. In **New connection**, enter or select this information:
 

@@ -2,10 +2,10 @@
 title: Tutorial - Create & deploy template
 description: Create your first Azure Resource Manager template (ARM template). In the tutorial, you learn about the template file syntax and how to deploy a storage account.
 author: mumian
-ms.date: 09/28/2020
+ms.date: 12/17/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.custom:
+ms.custom: devx-track-azurepowershell
 
 #Customer intent: As a developer new to Azure deployment, I want to learn how to use Visual Studio Code to create and edit Resource Manager templates, so I can use the templates to deploy Azure resources.
 
@@ -17,7 +17,7 @@ This tutorial introduces you to Azure Resource Manager templates (ARM templates)
 
 This tutorial is the first of a series. As you progress through the series, you modify the starting template step by step until you've explored all of the core parts of an ARM template. These elements are the building blocks for much more complex templates. We hope by the end of the series you're confident creating your own templates and ready to automate your deployments with templates.
 
-If you want to learn about the benefits of using templates and why you should automate deployment with templates, see [ARM template overview](overview.md).
+If you want to learn about the benefits of using templates and why you should automate deployment with templates, see [ARM template overview](overview.md). To learn about ARM templates through a guided set of modules on Microsoft Learn, see [Deploy and manage resources in Azure by using ARM templates](/learn/paths/deploy-manage-resource-manager-templates/).
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 

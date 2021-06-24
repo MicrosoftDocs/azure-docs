@@ -2,7 +2,8 @@
 title: Frequently asked questions for Azure Kubernetes Service (AKS)
 description: Find answers to some of the common questions about Azure Kubernetes Service (AKS).
 ms.topic: conceptual
-ms.date: 08/06/2020
+ms.date: 05/23/2021
+ms.custom: references_regions
 
 ---
 
@@ -44,6 +45,12 @@ Azure automatically applies security patches to the Linux nodes in your cluster 
 ### Windows Server nodes
 
 For Windows Server nodes, Windows Update does not automatically run and apply the latest updates. On a regular schedule around the Windows Update release cycle and your own validation process, you should perform an upgrade on the cluster and the Windows Server node pool(s) in your AKS cluster. This upgrade process creates nodes that run the latest Windows Server image and patches, then removes the older nodes. For more information on this process, see [Upgrade a node pool in AKS][nodepool-upgrade].
+
+### Are there additional security threats relevant to AKS that customers should be aware of?
+
+Microsoft provides guidance on additional actions you can take to secure your workloads through services like [Azure Security Center](https://azure.microsoft.com/services/security-center/). The following is a list of additional security threats related to AKS and Kubernetes that customers should be aware of:
+
+* [New large-scale campaign targets Kubeflow](https://techcommunity.microsoft.com/t5/azure-security-center/new-large-scale-campaign-targets-kubeflow/ba-p/2425750) - June 8, 2021
 
 ## Why are two resource groups created with AKS?
 
@@ -128,7 +135,9 @@ Windows Server support for node pool includes some limitations that are part of 
 
 ## Does AKS offer a service-level agreement?
 
-AKS provides SLA guarantees as an optional add-on feature with [Uptime SLA][uptime-sla].
+AKS provides SLA guarantees as an optional add-on feature with [Uptime SLA][uptime-sla]. 
+
+The Free SKU offered by default doesn't have a associated Service Level *Agreement*, but has a Service Level *Objective* of 99.5%. It could happen that transient connectivity issues are observed in case of upgrades, unhealthy underlay nodes, platform maintenance, application overwhelming the API Server with requests, etc. If your workload doesn't tolerate API Server restarts, then we suggest using Uptime SLA.
 
 ## Can I apply Azure reservation discounts to my AKS agent nodes?
 
@@ -142,7 +151,7 @@ Moving your AKS cluster between tenants is currently unsupported.
 
 Movement of clusters between subscriptions is currently unsupported.
 
-## Can I move my AKS clusters from the current Azure subscription to another? 
+## Can I move my AKS clusters from the current Azure subscription to another?
 
 Moving your AKS cluster and its associated resources between Azure subscriptions isn't supported.
 
@@ -150,7 +159,7 @@ Moving your AKS cluster and its associated resources between Azure subscriptions
 
 Moving or renaming your AKS cluster and its associated resources isn't supported.
 
-## Why is my cluster delete taking so long? 
+## Why is my cluster delete taking so long?
 
 Most clusters are deleted upon user request; in some cases, especially where customers are bringing their own Resource Group, or doing cross-RG tasks deletion can take additional time or fail. If you have an issue with deletes, double-check that you do not have locks on the RG, that any resources outside of the RG are disassociated from the RG, and so on.
 
@@ -162,7 +171,7 @@ You can, but AKS doesn't recommend this. Upgrades should be performed when the s
 
 No, delete/remove any nodes in a failed state or otherwise removed from the cluster prior to upgrading.
 
-## I ran a cluster delete, but see the error `[Errno 11001] getaddrinfo failed` 
+## I ran a cluster delete, but see the error `[Errno 11001] getaddrinfo failed`
 
 Most commonly, this is caused by users having one or more Network Security Groups (NSGs) still in use and associated with the cluster.  Remove them and attempt the delete again.
 
@@ -170,7 +179,7 @@ Most commonly, this is caused by users having one or more Network Security Group
 
 Confirm your service principal hasn't expired.  See: [AKS service principal](./kubernetes-service-principal.md) and [AKS update credentials](./update-credentials.md).
 
-## My cluster was working, but suddenly can't provision LoadBalancers, mount PVCs, etc.? 
+## My cluster was working, but suddenly can't provision LoadBalancers, mount PVCs, etc.?
 
 Confirm your service principal hasn't expired.  See: [AKS service principal](./kubernetes-service-principal.md)  and [AKS update credentials](./update-credentials.md).
 
@@ -192,11 +201,11 @@ While AKS has resilience mechanisms to withstand such a config and recover from 
 
 ## Can I use custom VM extensions?
 
-The Log Analytics agent is supported because it's an extension managed by Microsoft. Otherwise no, AKS is a managed service, and manipulation of the IaaS resources isn't supported. To install custom components, use the Kubernetes APIs and mechanisms. For example, use DaemonSets to install required components.
+No, AKS is a managed service, and manipulation of the IaaS resources isn't supported. To install custom components, use the Kubernetes APIs and mechanisms. For example, use DaemonSets to install required components.
 
 ## Does AKS store any customer data outside of the cluster's region?
 
-The feature to enable storing customer data in a single region is currently only available in the Southeast Asia Region (Singapore) of the Asia Pacific Geo. For all other regions, customer data is stored in Geo.
+The feature to enable storing customer data in a single region is currently only available in the Southeast Asia Region (Singapore) of the Asia Pacific Geo and Brazil South (Sao Paulo State) Region of Brazil Geo. For all other regions, customer data is stored in Geo.
 
 ## Are AKS images required to run as root?
 
@@ -251,6 +260,28 @@ Below is an example ip route setup of transparent mode, each Pod's interface wil
 - Provides better handling of UDP traffic and mitigation for UDP flood storm when ARP times out. In bridge mode, when bridge doesn't know a MAC address of destination pod in intra-VM Pod-to-Pod communication, by design, this results in storm of the packet to all ports. Solved in Transparent mode as there are no L2 devices in path. See more [here](https://github.com/Azure/azure-container-networking/issues/704).
 - Transparent mode performs better in Intra VM Pod-to-Pod communication in terms of throughput and latency when compared to bridge mode.
 
+## How to avoid permission ownership setting slow issues when the volume has a lot of files?
+
+Traditionally if your pod is running as a non-root user (which you should), you must specify a `fsGroup` inside the pod’s security context so that the volume can be readable and writable by the Pod. This requirement is covered in more detail in [here](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/).
+
+But one side-effect of setting `fsGroup` is that, each time a volume is mounted, Kubernetes must recursively `chown()` and `chmod()` all the files and directories inside the volume - with a few exceptions noted below. This happens even if group ownership of the volume already matches the requested `fsGroup`, and can be pretty expensive for larger volumes with lots of small files, which causes pod startup to take a long time. This scenario has been a known problem before v1.20 and the workaround is setting the Pod run as root:
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: security-context-demo
+spec:
+  securityContext:
+    runAsUser: 0
+    fsGroup: 0
+```
+
+The issue has been resolved by Kubernetes v1.20, refer [Kubernetes 1.20: Granular Control of Volume Permission Changes](https://kubernetes.io/blog/2020/12/14/kubernetes-release-1.20-fsgroupchangepolicy-fsgrouppolicy/) for more details.
+
+## Can I use FIPS cryptographic libraries with deployments on AKS?
+
+FIPS-enabled nodes are currently available in preview on Linux-based node pools. For more details, see [Add a FIPS-enabled node pool (preview)](use-multiple-node-pools.md#add-a-fips-enabled-node-pool-preview).
 
 <!-- LINKS - internal -->
 
@@ -259,8 +290,8 @@ Below is an example ip route setup of transparent mode, each Pod's interface wil
 [aks-advanced-networking]: ./configure-azure-cni.md
 [aks-rbac-aad]: ./azure-ad-integration-cli.md
 [node-updates-kured]: node-updates-kured.md
-[aks-preview-cli]: /cli/azure/ext/aks-preview/aks
-[az-aks-create]: /cli/azure/aks#az-aks-create
+[aks-preview-cli]: /cli/azure/aks
+[az-aks-create]: /cli/azure/aks#az_aks_create
 [aks-rm-template]: /azure/templates/microsoft.containerservice/2019-06-01/managedclusters
 [aks-cluster-autoscaler]: cluster-autoscaler.md
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool

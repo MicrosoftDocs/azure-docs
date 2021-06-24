@@ -3,7 +3,6 @@ title: Apache Spark & Hive - Hive Warehouse Connector - Azure HDInsight
 description: Learn how to integrate Apache Spark and Apache Hive with the Hive Warehouse Connector on Azure HDInsight.
 author: nis-goel
 ms.author: nisgoel
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 05/28/2020
@@ -19,7 +18,7 @@ Apache Hive offers support for database transactions that are Atomic, Consistent
 
 Apache Spark, has a Structured Streaming API that gives streaming capabilities not available in Apache Hive. Beginning with HDInsight 4.0, Apache Spark 2.3.1 and Apache Hive 3.1.0 have separate metastores. The separate metastores can make interoperability difficult. The Hive Warehouse Connector makes it easier to use Spark and Hive together. The HWC library loads data from LLAP daemons to Spark executors in parallel. This process makes it more efficient and adaptable than a standard JDBC connection from Spark to Hive.
 
-![hive warehouse connector architecture](./media/apache-hive-warehouse-connector/hive-warehouse-connector-architecture.png)
+:::image type="content" source="./media/apache-hive-warehouse-connector/hive-warehouse-connector-architecture.png" alt-text="hive warehouse connector architecture" border="true":::
 
 Some of the operations supported by the Hive Warehouse Connector are:
 
@@ -34,7 +33,11 @@ Some of the operations supported by the Hive Warehouse Connector are:
 ## Hive Warehouse Connector setup
 
 > [!IMPORTANT]
-> The HiveServer2 Interactive instance installed on Spark 2.4 Enterprise Security Package clusters is not supported for use with the Hive Warehouse Connector. Instead, you must configure a separate HiveServer2 Interactive cluster to host your HiveServer2 Interactive workloads. A Hive Warehouse Connector configuration that utilizes a single Spark 2.4 cluster is not supported.
+> - The HiveServer2 Interactive instance installed on Spark 2.4 Enterprise Security Package clusters is not supported for use with the Hive Warehouse Connector. Instead, you must configure a separate HiveServer2 Interactive cluster to host your HiveServer2 Interactive workloads. A Hive Warehouse Connector configuration that utilizes a single Spark 2.4 cluster is not supported.
+> - Hive Warehouse Connector (HWC) Library is not supported for use with Interactive Query Clusters where Workload Management (WLM) feature is enabled. <br>
+In a scenario where you only have Spark workloads and want to use HWC Library, ensure Interactive Query cluster doesn't have Workload Management feature enabled (`hive.server2.tez.interactive.queue` configuration is not set in Hive configs). <br>
+For a scenario where both Spark workloads (HWC) and LLAP native workloads exists, You need to create two separate Interactive Query Clusters with shared metastore database. One cluster for native LLAP workloads where WLM feature can be enabled on need basis and other cluster for HWC only workload where WLM feature shouldn't be configured.
+It is important to note that you can view the WLM resource plans from both the clusters even if it is enabled in only one cluster. Don't make any changes to resource plans in the cluster where WLM feature is disabled as it might impact the WLM functionality in other cluster.
 
 Hive Warehouse Connector needs separate clusters for Spark and Interactive Query workloads. Follow these steps to set up these clusters in Azure HDInsight.
 
@@ -50,12 +53,12 @@ Hive Warehouse Connector needs separate clusters for Spark and Interactive Query
 
 1. From a web browser, navigate to `https://LLAPCLUSTERNAME.azurehdinsight.net/#/main/services/HIVE` where LLAPCLUSTERNAME is the name of your Interactive Query cluster.
 
-1. Navigate to **Summary** > **HiveServer2 Interactive JDBC URL** and note the value. The value may be similar to: `jdbc:hive2://zk0-iqgiro.rekufuk2y2ce.bx.internal.cloudapp.net:2181,zk1-iqgiro.rekufuk2y2ce.bx.internal.cloudapp.net:2181,zk4-iqgiro.rekufuk2y2ce.bx.internal.cloudapp.net:2181/;serviceDiscoveryMode=zooKeeper;zooKeeperNamespace=hiveserver2-interactive`.
+1. Navigate to **Summary** > **HiveServer2 Interactive JDBC URL** and note the value. The value may be similar to: `jdbc:hive2://<zookeepername1>.rekufuk2y2ce.bx.internal.cloudapp.net:2181,<zookeepername2>.rekufuk2y2ce.bx.internal.cloudapp.net:2181,<zookeepername3>.rekufuk2y2ce.bx.internal.cloudapp.net:2181/;serviceDiscoveryMode=zooKeeper;zooKeeperNamespace=hiveserver2-interactive`.
 
-1. Navigate to **Configs** > **Advanced** > **Advanced hive-site** > **hive.zookeeper.quorum** and note the value. The value may be similar to: `zk0-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181,zk1-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181,zk4-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181`.
+1. Navigate to **Configs** > **Advanced** > **Advanced hive-site** > **hive.zookeeper.quorum** and note the value. The value may be similar to: `<zookeepername1>.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181,<zookeepername2>.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181,<zookeepername3>.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181`.
 
 1. Navigate to **Configs** > **Advanced** > **General** > **hive.metastore.uris** and note the 
-value. The value may be similar to: `thrift://iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083,thrift://hn1-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083`.
+value. The value may be similar to: `thrift://iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083,thrift://hn*.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083`.
 
 1. Navigate to **Configs** > **Advanced** > **Advanced hive-interactive-site** > **hive.llap.daemon.service.hosts** and note the value. The value may be similar to: `@llap0`.
 
@@ -65,7 +68,7 @@ value. The value may be similar to: `thrift://iqgiro.rekufuk2y2cezcbowjkbwfnyvd.
 
 1. Expand **Custom spark2-defaults**.
 
-    ![Apache Ambari Spark2 configuration](./media/apache-hive-warehouse-connector/hive-warehouse-connector-spark2-ambari.png)
+    :::image type="content" source="./media/apache-hive-warehouse-connector/hive-warehouse-connector-spark2-ambari.png" alt-text="Apache Ambari Spark2 configuration" border="true":::
 
 1. Select **Add Property...** to add the following configurations:
 
@@ -96,13 +99,13 @@ Apart from the configurations mentioned in the previous section, add the followi
     
     * From a web browser, navigate to `https://CLUSTERNAME.azurehdinsight.net/#/main/services/HIVE/summary` where CLUSTERNAME is the name of your Interactive Query cluster. Click on **HiveServer2 Interactive**. You will see the Fully Qualified Domain Name (FQDN) of the head node on which LLAP is running as shown in the screenshot. Replace `<llap-headnode>` with this value.
 
-        ![hive warehouse connector Head Node](./media/apache-hive-warehouse-connector/head-node-hive-server-interactive.png)
+        :::image type="content" source="./media/apache-hive-warehouse-connector/head-node-hive-server-interactive.png" alt-text="hive warehouse connector Head Node" border="true":::
 
     * Use [ssh command](../hdinsight-hadoop-linux-use-ssh-unix.md) to connect to your Interactive Query cluster. Look for `default_realm` parameter in the `/etc/krb5.conf` file. Replace `<AAD-DOMAIN>` with this value as an uppercase string, otherwise the credential won't be found.
 
-        ![hive warehouse connector AAD Domain](./media/apache-hive-warehouse-connector/aad-domain.png)
+        :::image type="content" source="./media/apache-hive-warehouse-connector/aad-domain.png" alt-text="hive warehouse connector AAD Domain" border="true":::
 
-    * For instance, `hive/hn0-ng36ll.mjry42ikpruuxgs2qy2kpg4q5e.cx.internal.cloudapp.net@PKRSRVUQVMAE6J85.D2.INTERNAL.CLOUDAPP.NET`.
+    * For instance, `hive/hn*.mjry42ikpruuxgs2qy2kpg4q5e.cx.internal.cloudapp.net@PKRSRVUQVMAE6J85.D2.INTERNAL.CLOUDAPP.NET`.
     
 1. Save changes and restart components as needed.
 
@@ -204,21 +207,21 @@ kinit USERNAME
     hive.executeQuery("SELECT * FROM demo").show()
     ```
 
-    ![demo table before applying ranger policy](./media/apache-hive-warehouse-connector/hive-warehouse-connector-table-before-ranger-policy.png)
+    :::image type="content" source="./media/apache-hive-warehouse-connector/hive-warehouse-connector-table-before-ranger-policy.png" alt-text="demo table before applying ranger policy" border="true":::
 
 1. Apply a column masking policy that only shows the last four characters of the column.  
     1. Go to the Ranger Admin UI at `https://LLAPCLUSTERNAME.azurehdinsight.net/ranger/`.
     1. Click on the Hive service for your cluster under **Hive**.
-        ![ranger service manager](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-service-manager.png)
+        :::image type="content" source="./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-service-manager.png" alt-text="ranger service manager" border="true":::
     1. Click on the **Masking** tab and then **Add New Policy**
 
-        ![hive warehouse connector ranger hive policy list](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-hive-policy-list.png)
+        :::image type="content" source="./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-hive-policy-list.png" alt-text="hive warehouse connector ranger hive policy list" border="true":::
 
     1. Provide a desired policy name. Select database: **Default**, Hive table: **demo**, Hive column: **name**, User: **rsadmin2**, Access Types: **select**, and **Partial mask: show last 4** from the **Select Masking Option** menu. Click **Add**.
-                ![create policy](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-create-policy.png)
+                :::image type="content" source="./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-create-policy.png" alt-text="create policy" border="true":::
 1. View the table's contents again. After applying the ranger policy, we can see only the last four characters of the column.
 
-    ![demo table after applying ranger policy](./media/apache-hive-warehouse-connector/hive-warehouse-connector-table-after-ranger-policy.png)
+    :::image type="content" source="./media/apache-hive-warehouse-connector/hive-warehouse-connector-table-after-ranger-policy.png" alt-text="demo table after applying ranger policy" border="true":::
 
 ## Next steps
 

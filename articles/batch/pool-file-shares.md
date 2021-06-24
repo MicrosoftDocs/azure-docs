@@ -15,7 +15,7 @@ ms.date: 05/24/2018
 
 * Azure file shares are [cost-efficient](https://azure.microsoft.com/pricing/details/storage/files/) and can be configured with data replication to another region so are globally redundant. 
 
-* You can mount an Azure file share concurrently from an on-premises computer. However, ensure that you understand [concurrency implications](../storage/common/storage-concurrency.md) especially when using REST APIs.
+* You can mount an Azure file share concurrently from an on-premises computer. However, ensure that you understand [concurrency implications](../storage/blobs/concurrency-manage.md) especially when using REST APIs.
 
 * See also the general [planning considerations](../storage/files/storage-files-planning.md) for Azure file shares.
 

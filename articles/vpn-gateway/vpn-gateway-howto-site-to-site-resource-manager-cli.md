@@ -1,6 +1,6 @@
 ---
 title: 'Connect on-premises networks to a virtual network: Site-to-Site VPN: CLI'
-description: Create an IPsec site-to-site VPN Gateway connection from your on-premises network to an Azure virtual network over the public internet using the CLI.
+description: Learn how to create an IPsec site-to-site VPN Gateway connection from your on-premises network to an Azure virtual network over the public internet using the CLI.
 titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: cherylmc
@@ -16,7 +16,7 @@ ms.author: cherylmc
 This article shows you how to use the Azure CLI to create a Site-to-Site VPN gateway connection from your on-premises network to the VNet. The steps in this article apply to the Resource Manager deployment model. You can also create this configuration using a different deployment tool or deployment model by selecting a different option from the following list:<br>
 
 > [!div class="op_single_selector"]
-> * [Azure portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+> * [Azure portal](./tutorial-site-to-site-portal.md)
 > * [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 > * [CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 > * [Azure portal (classic)](vpn-gateway-howto-site-to-site-classic-portal.md)
@@ -193,5 +193,5 @@ This section contains common commands that are helpful when working with site-to
 * For information about Forced Tunneling, see [About Forced Tunneling](vpn-gateway-forced-tunneling-rm.md).
 * For information about Highly Available Active-Active connections, see [Highly Available cross-premises and VNet-to-VNet connectivity](vpn-gateway-highlyavailable.md).
 * For a list of networking Azure CLI commands, see [Azure CLI](/cli/azure/network).
-* For information about creating a site-to-site VPN connection using Azure Resource Manager template, see [Create a Site-to-Site VPN Connection](https://azure.microsoft.com/resources/templates/101-site-to-site-vpn-create/).
-* For information about creating a vnet-to-vnet VPN connection using Azure Resource Manager template, see [Deploy HBase geo replication](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-geo/).
+* For information about creating a site-to-site VPN connection using Azure Resource Manager template, see [Create a Site-to-Site VPN Connection](https://azure.microsoft.com/resources/templates/site-to-site-vpn-create/).
+* For information about creating a vnet-to-vnet VPN connection using Azure Resource Manager template, see [Deploy HBase geo replication](https://azure.microsoft.com/resources/templates/hdinsight-hbase-replication-geo/).

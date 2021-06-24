@@ -12,7 +12,8 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
-ms.author: kumud
+ms.author: kumud 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Add IPv6 to an IPv4 application in Azure virtual network - Azure CLI
@@ -43,7 +44,7 @@ az network public-ip create \
 
 ## Configure IPv6 load balancer frontend
 
-Configure the load balancer with the new IPv6 IP address using [az network lb frontend-ip create](https://docs.microsoft.com/cli/azure/network/lb/frontend-ip?view=azure-cli-latest#az-network-lb-frontend-ip-create) as follows:
+Configure the load balancer with the new IPv6 IP address using [az network lb frontend-ip create](/cli/azure/network/lb/frontend-ip#az_network_lb_frontend_ip_create) as follows:
 
 ```azurecli-interactive
 az network lb frontend-ip create \
@@ -55,7 +56,7 @@ az network lb frontend-ip create \
 
 ## Configure IPv6 load balancer backend pool
 
-Create the backend pool for NICs with IPv6 addresses using [az network lb address-pool create](https://docs.microsoft.com/cli/azure/network/lb/address-pool?view=azure-cli-latest#az-network-lb-address-pool-create) as follows:
+Create the backend pool for NICs with IPv6 addresses using [az network lb address-pool create](/cli/azure/network/lb/address-pool#az_network_lb_address_pool_create) as follows:
 
 ```azurecli-interactive
 az network lb address-pool create \
@@ -66,7 +67,7 @@ az network lb address-pool create \
 
 ## Configure IPv6 load balancer rules
 
-Create IPv6 load balancer rules with [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#az-network-lb-rule-create).
+Create IPv6 load balancer rules with [az network lb rule create](/cli/azure/network/lb/rule#az_network_lb_rule_create).
 
 ```azurecli-interactive
 az network lb rule create \
@@ -99,7 +100,7 @@ az network vnet subnet update \
 
 ## Add IPv6 configuration to NICs
 
-Configure the VM NICs with an IPv6 address using [az network nic ip-config create](https://docs.microsoft.com/cli/azure/network/nic/ip-config?view=azure-cli-latest#az-network-nic-ip-config-create) as follows:
+Configure the VM NICs with an IPv6 address using [az network nic ip-config create](/cli/azure/network/nic/ip-config#az_network_nic_ip_config_create) as follows:
 
 ```azurecli-interactive
 az network nic ip-config create \

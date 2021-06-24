@@ -66,6 +66,22 @@ az role assignment create \
     --role "Azure Kubernetes Service Cluster Admin Role"
 ```
 
+> [!IMPORTANT]
+> In some cases, the *user.name* in the account is different than the *userPrincipalName*, such as with Azure AD guest users:
+>
+> ```output
+> $ az account show --query user.name -o tsv
+> user@contoso.com
+> $ az ad user list --query "[?contains(otherMails,'user@contoso.com')].{UPN:userPrincipalName}" -o tsv
+> user_contoso.com#EXT#@contoso.onmicrosoft.com
+> ```
+>
+> In this case, set the value of *ACCOUNT_UPN* to the *userPrincipalName* from the Azure AD user. For example, if your account *user.name* is *user\@contoso.com*:
+> 
+> ```azurecli-interactive
+> ACCOUNT_UPN=$(az ad user list --query "[?contains(otherMails,'user@contoso.com')].{UPN:userPrincipalName}" -o tsv)
+> ```
+
 > [!TIP]
 > If you want to assign permissions to an Azure AD group, update the `--assignee` parameter shown in the previous example with the object ID for the *group* rather than a *user*. To obtain the object ID for a group, use the [az ad group show][az-ad-group-show] command. The following example gets the object ID for the Azure AD group named *appdev*: `az ad group show --group appdev --query objectId -o tsv`
 
@@ -141,14 +157,14 @@ For enhanced security on access to AKS clusters, [integrate Azure Active Directo
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [azure-cli-install]: /cli/azure/install-azure-cli
-[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
+[az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
 [azure-rbac]: ../role-based-access-control/overview.md
 [api-cluster-admin]: /rest/api/aks/managedclusters/listclusteradmincredentials
 [api-cluster-user]: /rest/api/aks/managedclusters/listclusterusercredentials
-[az-aks-show]: /cli/azure/aks#az-aks-show
-[az-account-show]: /cli/azure/account#az-account-show
-[az-ad-user-show]: /cli/azure/ad/user#az-ad-user-show
-[az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
-[az-role-assignment-delete]: /cli/azure/role/assignment#az-role-assignment-delete
+[az-aks-show]: /cli/azure/aks#az_aks_show
+[az-account-show]: /cli/azure/account#az_account_show
+[az-ad-user-show]: /cli/azure/ad/user#az_ad_user_show
+[az-role-assignment-create]: /cli/azure/role/assignment#az_role_assignment_create
+[az-role-assignment-delete]: /cli/azure/role/assignment#az_role_assignment_delete
 [aad-integration]: ./azure-ad-integration-cli.md
-[az-ad-group-show]: /cli/azure/ad/group#az-ad-group-show
+[az-ad-group-show]: /cli/azure/ad/group#az_ad_group_show

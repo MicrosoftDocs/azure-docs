@@ -7,7 +7,7 @@ ms.date: 12/6/2020
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
-ms.custom: devx-track-js, devx-track-azurecli
+ms.custom: devx-track-js
 ---
 
 # Quickstart: Azure Key Vault certificate client library for JavaScript (version 4)
@@ -87,7 +87,7 @@ set KEY_VAULT_NAME=<your-key-vault-name>
 ````
 Windows PowerShell
 ```powershell
-$Env:KEY_VAULT_NAME=<your-key-vault-name>
+$Env:KEY_VAULT_NAME="<your-key-vault-name>"
 ```
 
 macOS or Linux
@@ -187,7 +187,7 @@ const retrievedCertificate = await client.getCertificate(certificateName);
 
 ### Delete a certificate
 
-Finally, let's delete and purge the certificate from your key vault with the [beginDeleteCertificate]https://docs.microsoft.com/javascript/api/@azure/keyvault-certificates/certificateclient?#beginDeleteCertificate_string__BeginDeleteCertificateOptions_) and [purgeDeletedCertificate](https://docs.microsoft.com/javascript/api/@azure/keyvault-certificates/certificateclient?#purgeDeletedCertificate_string__PurgeDeletedCertificateOptions_) methods.
+Finally, let's delete and purge the certificate from your key vault with the [beginDeleteCertificate](https://docs.microsoft.com/javascript/api/@azure/keyvault-certificates/certificateclient?#beginDeleteCertificate_string__BeginDeleteCertificateOptions_) and [purgeDeletedCertificate](https://docs.microsoft.com/javascript/api/@azure/keyvault-certificates/certificateclient?#purgeDeletedCertificate_string__PurgeDeletedCertificateOptions_) methods.
 
 ```javascript
 const deletePoller = await client.beginDeleteCertificate(certificateName);
@@ -258,7 +258,7 @@ main().then(() => console.log('Done')).catch((ex) => console.log(ex.message));
 
 Execute the following commands to run the app.
 
-```azurecli
+```cmd
 npm install
 npm index.js
 ```
@@ -282,4 +282,4 @@ In this quickstart, you created a key vault, stored a certificate, and retrieved
 - See an [Access Key Vault from App Service Application Tutorial](../general/tutorial-net-create-vault-azure-web-app.md)
 - See an [Access Key Vault from Virtual Machine Tutorial](../general/tutorial-net-virtual-machine.md)
 - See the [Azure Key Vault developer's guide](../general/developers-guide.md)
-- Review [Azure Key Vault best practices](../general/best-practices.md)
+- Review the [Key Vault security overview](../general/security-features.md)

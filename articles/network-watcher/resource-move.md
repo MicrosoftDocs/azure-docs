@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
-ms.date: 07/27/2020
+ms.date: 01/07/2021
 ms.author: damendo
 
 
@@ -27,4 +27,4 @@ Moving resources across regions is currently not supported for any child resourc
 
 ## Next Steps
 * Read the [Network Watcher overview](./network-watcher-monitoring-overview.md)
-* See the [Network Watcher FAQ](./frequently-asked-questions.md)
+* See the [Network Watcher FAQ](./frequently-asked-questions.yml)

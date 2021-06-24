@@ -39,7 +39,7 @@ The following headers are required:
 
 | Name | Description |
 | :--- | :---------- |
-| subscriptionId | The subscription ID that identifies an Azure subscription. If you have multiple subscriptions, see [Working with multiple subscriptions](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). |
+| subscriptionId | The subscription ID that identifies an Azure subscription. If you have multiple subscriptions, see [Working with multiple subscriptions](/cli/azure/manage-azure-subscriptions-azure-cli). |
 | resourceGroupName | The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API, CLI, or the portal. |
 | loadBalancerName | The name of the Azure Load Balancer. |
 | metric names | Comma-separated list of valid  [Load Balancer metrics](./load-balancer-standard-diagnostics.md). |
@@ -59,40 +59,40 @@ Status code 200 is returned when the list of metric values is returned successfu
 
 ```json
 {
-	"cost": 0,
-	"timespan": "2018-06-05T03:00:00Z/2018-06-07T03:00:00Z",
-	"interval": "PT1M",
-	"value": [
-		{
-			"id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/providers/Microsoft.Insights/metrics/ByteCount",
-			"type": "Microsoft.Insights/metrics",
-			"name": {
-				"value": "ByteCount",
-				"localizedValue": "Byte Count"
-			},
-			"unit": "Count",
-			"timeseries": [
-				{
-					"metadatavalues": [],
-					"data": [
-						{
-							"timeStamp": "2018-06-06T17:24:00Z",
-							"total": 1067921034.0
-						},
-						{
-							"timeStamp": "2018-06-06T17:25:00Z",
-							"total": 0.0
-						},
-						{
-							"timeStamp": "2018-06-06T17:26:00Z",
-							"total": 3781344.0
-						},
-					]
-				}
-			]
-		}
-	],
-	"namespace": "Microsoft.Network/loadBalancers",
-	"resourceregion": "eastus"
+    "cost": 0,
+    "timespan": "2018-06-05T03:00:00Z/2018-06-07T03:00:00Z",
+    "interval": "PT1M",
+    "value": [
+        {
+            "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/providers/Microsoft.Insights/metrics/ByteCount",
+            "type": "Microsoft.Insights/metrics",
+            "name": {
+                "value": "ByteCount",
+                "localizedValue": "Byte Count"
+            },
+            "unit": "Count",
+            "timeseries": [
+                {
+                    "metadatavalues": [],
+                    "data": [
+                        {
+                            "timeStamp": "2018-06-06T17:24:00Z",
+                            "total": 1067921034.0
+                        },
+                        {
+                            "timeStamp": "2018-06-06T17:25:00Z",
+                            "total": 0.0
+                        },
+                        {
+                            "timeStamp": "2018-06-06T17:26:00Z",
+                            "total": 3781344.0
+                        },
+                    ]
+                }
+            ]
+        }
+    ],
+    "namespace": "Microsoft.Network/loadBalancers",
+    "resourceregion": "eastus"
 }
 ```

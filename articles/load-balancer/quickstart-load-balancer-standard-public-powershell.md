@@ -5,17 +5,18 @@ description: This quickstart shows how to create a load balancer using Azure Pow
 services: load-balancer
 documentationcenter: na
 author: asudbring
-manager: KumudD
-Customer intent: I want to create a load balancer so that I can load balance internet traffic to VMs.
-ms.assetid: 
-ms.service: load-balancer
-ms.devlang: na
-ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 11/22/2020
 ms.author: allensu
-ms:custom: seodec18
+manager: KumudD
+ms.date: 11/22/2020
+ms.assetid: 
+ms.topic: quickstart
+ms.service: load-balancer
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.custom: devx-track-azurepowershell
+  - mode-api
+# Customer intent: I want to create a load balancer so that I can load balance internet traffic to VMs.
 ---
 
 # Quickstart: Create a public load balancer to load balance VMs using Azure PowerShell
@@ -46,6 +47,8 @@ New-AzResourceGroup -Name 'CreatePubLBQS-rg' -Location 'eastus'
 >[!NOTE]
 >Standard SKU load balancer is recommended for production workloads. For more information about skus, see **[Azure Load Balancer SKUs](skus.md)**.
 
+:::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/resources-diagram.png" alt-text="Standard load balancer resources created for quickstart." border="false":::
+
 ## Create a public IP address - Standard
 
 Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) to create a public IP address.
@@ -57,6 +60,7 @@ $publicip = @{
     Location = 'eastus'
     Sku = 'Standard'
     AllocationMethod = 'static'
+    Zone = 1,2,3
 }
 New-AzPublicIpAddress @publicip
 
@@ -71,7 +75,7 @@ $publicip = @{
     Location = 'eastus'
     Sku = 'Standard'
     AllocationMethod = 'static'
-    Zone = '1'
+    Zone = 1
 }
 New-AzPublicIpAddress @publicip
 
@@ -162,14 +166,14 @@ Create a network security group to define inbound connections to your virtual ne
 ## Create backend subnet config ##
 $subnet = @{
     Name = 'myBackendSubnet'
-    AddressPrefix = '10.0.0.0/24'
+    AddressPrefix = '10.1.0.0/24'
 }
 $subnetConfig = New-AzVirtualNetworkSubnetConfig @subnet 
 
 ## Create Azure Bastion subnet. ##
 $bastsubnet = @{
     Name = 'AzureBastionSubnet' 
-    AddressPrefix = '10.0.1.0/24'
+    AddressPrefix = '10.1.1.0/24'
 }
 $bastsubnetConfig = New-AzVirtualNetworkSubnetConfig @bastsubnet
 
@@ -178,7 +182,7 @@ $net = @{
     Name = 'myVNet'
     ResourceGroupName = 'CreatePubLBQS-rg'
     Location = 'eastus'
-    AddressPrefix = '10.0.0.0/16'
+    AddressPrefix = '10.1.0.0/16'
     Subnet = $subnetConfig,$bastsubnetConfig
 }
 $vnet = New-AzVirtualNetwork @net
@@ -319,6 +323,8 @@ Id     Name            PSJobTypeName   State         HasMoreData     Location   
 4      Long Running O… AzureLongRunni… Completed     True            localhost            New-AzVM
 ```
 
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+
 ## Create outbound rule configuration
 Load balancer outbound rules configure outbound source network address translation (SNAT) for VMs in the backend pool. 
 
@@ -335,6 +341,7 @@ $publicipout = @{
     Location = 'eastus'
     Sku = 'Standard'
     AllocationMethod = 'static'
+    Zone = 1,2,3
 }
 New-AzPublicIpAddress @publicipout
 
@@ -349,7 +356,7 @@ $publicipout = @{
     Location = 'eastus'
     Sku = 'Standard'
     AllocationMethod = 'static'
-    Zone = '1'
+    Zone = 1
 }
 New-AzPublicIpAddress @publicipout
 
@@ -359,7 +366,7 @@ New-AzPublicIpAddress @publicipout
 
 * Create a new frontend IP configuration with [Add-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/add-azloadbalancerfrontendipconfig).
 
-* Create a new outbound pool with [Add-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/add-azloadbalancerbackendaddresspoolconfig). 
+* Create a new outbound backend address pool with [Add-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/add-azloadbalancerbackendaddresspoolconfig). 
 
 * Apply the pool and frontend IP address to the load balancer with [Set-AzLoadBalancer](/powershell/module/az.network/set-azloadbalancer).
 *  Create a new outbound rule for the outbound backend pool with [Add-AzLoadBalancerOutboundRuleConfig](/powershell/module/az.network/new-azloadbalanceroutboundruleconfig). 
@@ -440,6 +447,8 @@ $nicvm | Set-AzNetworkInterfaceIpConfig @be | Set-AzNetworkInterface
 
 >[!NOTE]
 >Standard SKU load balancer is recommended for production workloads. For more information about skus, see **[Azure Load Balancer SKUs](skus.md)**.
+
+:::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/resources-diagram-basic.png" alt-text="Basic load balancer resources created in quickstart." border="false":::
 
 ## Create a public IP address - Basic
 
@@ -541,14 +550,14 @@ Create a network security group to define inbound connections to your virtual ne
 ## Create backend subnet config ##
 $subnet = @{
     Name = 'myBackendSubnet'
-    AddressPrefix = '10.0.0.0/24'
+    AddressPrefix = '10.1.0.0/24'
 }
 $subnetConfig = New-AzVirtualNetworkSubnetConfig @subnet 
 
 ## Create Azure Bastion subnet. ##
 $bastsubnet = @{
     Name = 'AzureBastionSubnet' 
-    AddressPrefix = '10.0.1.0/24'
+    AddressPrefix = '10.1.1.0/24'
 }
 $bastsubnetConfig = New-AzVirtualNetworkSubnetConfig @bastsubnet
 
@@ -557,7 +566,7 @@ $net = @{
     Name = 'myVNet'
     ResourceGroupName = 'CreatePubLBQS-rg'
     Location = 'eastus'
-    AddressPrefix = '10.0.0.0/16'
+    AddressPrefix = '10.1.0.0/16'
     Subnet = $subnetConfig,$bastsubnetConfig
 }
 $vnet = New-AzVirtualNetwork @net
@@ -711,6 +720,8 @@ Id     Name            PSJobTypeName   State         HasMoreData     Location   
 4      Long Running O… AzureLongRunni… Completed     True            localhost            New-AzVM
 ```
 
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+
 ---
 
 ## Install IIS
@@ -783,7 +794,7 @@ Remove-AzResourceGroup -Name 'CreatePubLBQS-rg'
 
 ## Next steps
 
-In this quickstart
+In this quickstart:
 
 * You created a standard or basic public load balancer
 * Attached virtual machines. 

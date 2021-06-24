@@ -45,7 +45,7 @@ QnAMaker service endpoint is useful for debugging purposes when you contact QnAM
 
 </details>
 
-# [QnA Maker managed (preview release)](#tab/v2)
+# [Custom question answering (preview release)](#tab/v2)
 
 <details>
 <summary><b>How can I improve the throughput performance for query predictions?</b></summary>
@@ -181,7 +181,7 @@ If you have content from multiple languages, be sure to create a separate servic
 
 </details>
 
-# [QnA Maker managed (preview release)](#tab/v2)
+# [Custom question answering (preview release)](#tab/v2)
 
 <details>
 <summary><b>Why is my URL(s)/file(s) not extracting question-answer pairs?</b></summary>
@@ -299,7 +299,15 @@ If you delete an Azure Cognitive Search index, the operation is final and the in
 <summary><b>I deleted my `testkb` index in my Search service. How can I fix this?</b></summary>
 
 **Answer**:
-Your old data can't be recovered. Create a new QnA Maker resource and create your knowledge base again.
+In case you deleted the `testkb` index in your Search service, you can restore the data from the last published KB. Please use the recovery tool [RestoreTestKBIndex](https://github.com/pchoudhari/QnAMakerBackupRestore/tree/master/RestoreTestKBFromProd) available on GitHub. 
+
+</details>
+
+<details>
+<summary><b>I am receiving the following error: Please check if QnA Maker App service's CORS settings allow https://www.qnamaker.ai or if there are any organization specific network restrictions. How can I resolve this?</b></summary>
+
+**Answer**:
+In the API section of the App service blade, update the CORS setting to * or "https://www.qnamaker.ai". If this doesn't resolve the issue, check for any organization specific restrictions.
 
 </details>
 
@@ -349,8 +357,33 @@ The disk space for your app service might be full. Steps to fix your disk space:
 1. Access your knowledge base to verify it works now.
 
 </details>
+<details>
+<summary><b>Why is my Application Insights not working?</b></summary>
 
-# [QnA Maker managed (preview release)](#tab/v2)
+**Answer**:
+Please Cross check and update below steps to fix the issue:
+
+1. In App Service -> Settings group -> Configuration section -> Application Settings -> Name "UserAppInsightsKey" parameters is configured properly and set to the respective application insights Overview tab ("Instrumentation Key") Guid. 
+
+1. In App Service -> Settings group -> "Application Insights" section -> Make sure app insights is enabled and connected to respective application insights resource.
+
+</details>
+
+<details>
+<summary><b>My Application Insights is enabled but why is it not working properly?</b></summary>
+
+**Answer**:
+Please follow the below given steps: 
+
+1.  Copy the value of '“APPINSIGHTS_INSTRUMENTATIONKEY” name' into 'UserAppInsightsKey' name by overriding if there is some value already present there. 
+
+1.  If the 'UserAppInsightsKey' key does not exist in app settings, please add a new key with that name and copy the value.
+
+1.  Save it and this will automatically restart the app service. This should resolve the issue. 
+
+</details>
+
+# [Custom question answering (preview release)](#tab/v2)
 
 
 <details>
@@ -362,10 +395,10 @@ If you delete an Azure Cognitive Search index, the operation is final and the in
 </details>
 
 <details>
-<summary><b>I deleted my `testkb` index in my Search service. How can I fix this?</b></summary>
+<summary><b>I deleted my `testkbv2` index in my Search service. How can I fix this?</b></summary>
 
 **Answer**:
-Your old data can't be recovered. Create a new QnA Maker resource and create your knowledge base again.
+In case you deleted the `testkbv2` index in your Search service, you can restore the data from the last published KB. Please use the recovery tool [RestoreTestKBIndex](https://github.com/pchoudhari/QnAMakerBackupRestore/tree/master/RestoreTestKBFromProd) available on GitHub. 
 
 </details>
 
@@ -395,7 +428,7 @@ The name of the Azure Cognitive Search resource is the QnA Maker resource name w
 <summary><b>Do I need to use Bot Framework in order to use QnA Maker?</b></summary>
 
 **Answer**:
-No, you do not need to use the [Bot Framework](https://github.com/Microsoft/botbuilder-dotnet) with QnA Maker. However, QnA Maker is offered as one of several templates in [Azure Bot Service](/azure/bot-service/?preserve-view=true&view=azure-bot-service-4.0). Bot Service enables rapid intelligent bot development through Microsoft Bot Framework, and it runs in a server-less environment.
+No, you do not need to use the [Bot Framework](https://github.com/Microsoft/botbuilder-dotnet) with QnA Maker. However, QnA Maker is offered as one of several templates in [Azure Bot Service](/azure/bot-service/). Bot Service enables rapid intelligent bot development through Microsoft Bot Framework, and it runs in a server-less environment.
 
 </details>
 
@@ -442,14 +475,14 @@ Follow these steps to embed the QnA Maker service as a web-chat control in your 
 
 </details>
 
-# [QnA Maker managed (preview release)](#tab/v2)
+# [Custom question answering (preview release)](#tab/v2)
 
 
 <details>
 <summary><b>Do I need to use Bot Framework in order to use QnA Maker?</b></summary>
 
 **Answer**:
-No, you do not need to use the [Bot Framework](https://github.com/Microsoft/botbuilder-dotnet) with QnA Maker. However, QnA Maker is offered as one of several templates in [Azure Bot Service](/azure/bot-service/?preserve-view=true&view=azure-bot-service-4.0). Bot Service enables rapid intelligent bot development through Microsoft Bot Framework, and it runs in a server-less environment.
+No, you do not need to use the [Bot Framework](https://github.com/Microsoft/botbuilder-dotnet) with QnA Maker. However, QnA Maker is offered as one of several templates in [Azure Bot Service](/azure/bot-service/). Bot Service enables rapid intelligent bot development through Microsoft Bot Framework, and it runs in a server-less environment.
 
 </details>
 
@@ -509,7 +542,7 @@ When you create your QnA Maker service, you selected an Azure region. Your knowl
 
 </details>
 
-# [QnA Maker managed (preview release)](#tab/v2)
+# [Custom question answering (preview release)](#tab/v2)
 
 <details>
 <summary><b>What data is stored and where is it stored?</b></summary>

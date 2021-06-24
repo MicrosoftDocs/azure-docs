@@ -1,22 +1,22 @@
 ---
-title: Manage migration projects at scale with Azure Migrate
-description: Learn how to effectively use Azure Migrate on delegated customer resources.
-ms.date: 12/4/2020
+title: Manage Azure Migrate projects at scale
+description: Azure Lighthouse helps you effectively use Azure Migrate across delegated customer resources.
+ms.date: 05/11/2021
 ms.topic: how-to
 ---
 
-# Manage migration projects at scale with Azure Migrate
+# Manage Azure Migrate projects at scale with Azure Lighthouse
 
-As a service provider, you may have onboarded multiple customer tenants to [Azure Lighthouse](../overview.md). Azure Lighthouse allows service providers to perform operations at scale across several Azure Active Directory (Azure AD) tenants at once, making management tasks more efficient.
+This topic provides an overview of how [Azure Lighthouse](../overview.md) can help you use [Azure Migrate](../../migrate/migrate-services-overview.md) in a scalable way across multiple Azure Active Directory (Azure AD) tenants.
 
-[Azure Migrate](../../migrate/migrate-services-overview.md) provides a centralized hub to assess and migrate to Azure on-premises servers, infrastructure, applications, and data. Typically, partners who performing assessments and migration at scale for multiple customers must access each customer subscription individually by using the [CSP (Cloud Solution Provider) subscription model](/partner-center/customers-revoke-admin-privileges) or by [creating a guest user in the customer tenant](/azure/active-directory/external-identities/what-is-b2b).
+Azure Lighthouse allows service providers to perform operations at scale across several tenants at once, making management tasks more efficient.
+
+Azure Migrate provides a centralized hub to assess and migrate to Azure on-premises servers, infrastructure, applications, and data. Typically, partners who performing assessments and migration at scale for multiple customers must access each customer subscription individually by using the [CSP (Cloud Solution Provider) subscription model](/partner-center/customers-revoke-admin-privileges) or by [creating a guest user in the customer tenant](../../active-directory/external-identities/what-is-b2b.md).
 
 Azure Lighthouse integration with Azure Migrate lets service providers discover, assess, and migrate workloads for different customers at scale, while allowing customers to have full visibility and control of their environments. Through Azure delegated resource management, service providers have a single view of all of the Azure Migrate projects they manage across multiple customer tenants.
 
 > [!NOTE]
 > Via Azure Lighthouse, partners can perform discovery, assessment and migration for on-premises VMware VMs, Hyper-V VMs, physical servers and AWS/GCP instances. There are two options for [VMware VM migration](../../migrate/server-migrate-overview.md). Currently, only the agent-based method of migration can be used when working on a migration project in a delegated customer subscription; migration using agentless replication is not currently supported through delegated access to the customer's scope.
-
-This topic provides an overview of how to use [Azure Migrate](../../migrate/migrate-services-overview.md) in a scalable way.
 
 > [!TIP]
 > Though we refer to service providers and customers in this topic, this guidance also applies to [enterprises using Azure Lighthouse to manage multiple tenants](../concepts/enterprise.md).
@@ -34,7 +34,7 @@ This approach minimizes context switching for service providers working across m
 The workflow for this model will be similar to the following:
 
 1. The customer is [onboarded to Azure Lighthouse](onboard-customer.md). The Contributor built-in role is required for the identity that will be used with Azure Migrate. See the [delegated-resource-management-azmigrate](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/delegated-resource-management-azmigrate) sample template for an example using this role.
-1. The designated user signs into the managing tenant in the Azure portal, then goes to Azure Migrate. This user [creates an Azure Migrate project](/azure/migrate/create-manage-projects), selecting the appropriate delegated customer subscription.
+1. The designated user signs into the managing tenant in the Azure portal, then goes to Azure Migrate. This user [creates an Azure Migrate project](../../migrate/create-manage-projects.md), selecting the appropriate delegated customer subscription.
 1. The user then [performs steps for discovery and assessment](../../migrate/tutorial-discover-vmware.md).
 
    For VMware VMs, before you configure the appliance, you can limit discovery to vCenter Server datacenters, clusters, a folder of clusters, hosts, a folder of hosts, or individual VMs. To set the scope, assign permissions on the account that the appliance uses to access the vCenter Server. This is useful if multiple customers' VMs are hosted on the hypervisor. You can't limit the discovery scope of Hyper-V.
@@ -56,7 +56,7 @@ This approach enables services providers to start migration discovery and assess
 The workflow for this model will be similar to the following:
 
 1. The customer is [onboarded to Azure Lighthouse](onboard-customer.md). The Contributor built-in role is required for the identity that will be used with Azure Migrate. See the [delegated-resource-management-azmigrate](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/delegated-resource-management-azmigrate) sample template for an example using this role.
-1. The designated user signs into the managing tenant in the Azure portal, then goes to Azure Migrate. This user [creates an Azure Migrate project](/azure/migrate/create-manage-projects) in a subscription belonging to the managing tenant.
+1. The designated user signs into the managing tenant in the Azure portal, then goes to Azure Migrate. This user [creates an Azure Migrate project](../../migrate/create-manage-projects.md) in a subscription belonging to the managing tenant.
 1. The user then [performs steps for discovery and assessment](../../migrate/tutorial-discover-vmware.md). The on-premises VMs will be discovered and assessed within the migration project created in the managing tenant, then migrated from there.
 
    If you are managing multiple customers in the same Hyper-V host, you can discover all workloads at once. Customer-specific VMs can be selected in the same group, then an assessment can be created, and migration can be performed by selecting the appropriate customer's subscription as the target destination. There is no need to limit the discovery scope, and you can maintain a  full overview of all customer workloads in one migration project.
@@ -68,12 +68,11 @@ https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/delegate
 
 ## Partner recognition for customer migrations
 
-As a member of the [Microsoft Partner Network](https://partner.microsoft.com), you can link your partner ID with the credentials used to manage delegated customer resources. Through Partner Admin Link (PAL), Microsoft can attribute influence and Azure consumed revenue to your organization based on the tasks you perform for customers, including migration projects.
+As a member of the [Microsoft Partner Network](https://partner.microsoft.com), you can link your partner ID with the credentials used to manage delegated customer resources. This allows Microsoft to attribute influence and Azure consumed revenue to your organization based on the tasks you perform for customers, including migration projects.
 
 For more information, see [Link your partner ID to track your impact on delegated resources](partner-earned-credit.md).
 
 ## Next steps
 
-- Learn about [Azure Migrate](../../migrate/migrate-services-overview.md).
-- Learn about [cross-tenant management experiences](../concepts/cross-tenant-management-experience.md).
-
+- Learn more about [Azure Migrate](../../migrate/migrate-services-overview.md).
+- Learn about other [cross-tenant management experiences](../concepts/cross-tenant-management-experience.md) supported by Azure Lighthouse.

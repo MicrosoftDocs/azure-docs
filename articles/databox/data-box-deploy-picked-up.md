@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 12/10/2020
+ms.date: 05/07/2021
 ms.author: alkohli
 ms.localizationpriority: high
 
@@ -274,6 +274,35 @@ If you come across any issues, email Data Box Operations Asia [adbo@microsoft.co
 
 ## Erasure of data from Data Box
  
+
+::: zone-end
+
+## [United Arab Emirates](#tab/in-uae)
+
+1. Keep the original box used to ship the device for return shipment.
+2. Make sure the data copy to device is complete, and the **Prepare to ship** step completed successfully.
+3. Note the reference number on the **Prepare to ship** page of the device local web UI.
+4. Power off the device, and remove the cables. Spool and securely place the power cord that was provided with the device in the back of the device.
+6. Pack the device for return shipment in the original box.
+7. Email [Azure Data Box Operations](mailto:adbops@microsoft.com) to get an ID that will be used to identify the package when it arrives back at the datacenter.
+8. Write down this ID on the printed shipping label, next to the return address so that it’s clearly visible.  
+9. Book a pickup online by going to [DHL Express UAE](https://mydhl.express.dhl/ae/en/home.html#/schedulePickupTab) > **Schedule a Pickup**.
+   - Enter the reference number from the **Prepare to ship** page of the device local web UI in the waybill number field.
+   - Bookings are accepted from 9:00 AM – 2:00 PM six days a week (excluding Fri and public holidays).
+   - Pickup requests should be placed at least 90 minutes before customer closing time.
+10. If you come across any issue with the DHL booking tool, you can contact DHL using any of these methods:
+    - Call 04-2924545.
+    - Email [ecom.ae@dhl.com](mailto:ecom.ae@dhl.com) with details of the issue(s), and put the waybill number in the Subject: line.
+    - Call DHL Customer Support at 600 567567.
+
+::: zone target="chromeless"
+
+## Verify data upload to Azure
+
+[!INCLUDE [data-box-verify-upload](../../includes/data-box-verify-upload.md)]
+
+## Erasure of data from Data Box
+ 
 Once the upload to Azure is complete, the Data Box erases the data on its disks as per the [NIST SP 800-88 Revision 1 guidelines](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi).
 
 ::: zone-end
@@ -313,14 +342,14 @@ Once the upload to Azure is complete, the Data Box erases the data on its disks 
 
 ::: zone target="docs"
 
-[!INCLUDE [data-box-verify-upload-return](../../includes/data-box-verify-upload-return.md)]
+[!INCLUDE [data-box-verify-upload-return](../../includes/data-box-verify-upload.md)]
 
 ::: zone-end
 -->
 
 ## [Self-Managed](#tab/in-selfmanaged)
 
-If you're using Data Box in US Government, Japan, Singapore, Korea, India, South Africa, or West Europe, and you selected self-managed shipping when you created your order, follow these instructions.
+If you're using Data Box in US Government, Japan, Singapore, Korea, India, South Africa, United Kingdom, West Europe, Australia, or Brazil, and you selected self-managed shipping when you created your order, follow these instructions.
 
 1. Write down the Authorization code that's shown on the **Prepare to Ship** page of the local web UI for the Data Box after the step completes successfully.
 2. Power off the device and remove the cables. Spool and securely place the power cord that was provided with the device at the back of the device.
@@ -332,8 +361,12 @@ If you're using Data Box in US Government, Japan, Singapore, Korea, India, South
     Body:
         1. Order name  
         2. Authorization code available after Prepare to Ship has completed [Yes/No]  
-        3. Contact name of the person dropping off. You will need to display a Government approved ID during the drop off.
+        3. Contact name of the person dropping off. You will need to display a government-approved ID during the drop off.
     ```
+
+   > [!NOTE]
+   > - Required information for return may vary by region. 
+   > - If you're returning a Data Box in Brazil, see [Use self-managed shipping for Azure Data Box](data-box-portal-customer-managed-shipping.md) for detailed instructions. 
 
 ::: zone target="chromeless"
 
@@ -356,4 +389,3 @@ Once the upload to Azure is complete, the Data Box erases the data on its disks 
 [!INCLUDE [data-box-verify-upload-return](../../includes/data-box-verify-upload-return.md)]
 
 ::: zone-end
-

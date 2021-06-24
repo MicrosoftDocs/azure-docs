@@ -7,13 +7,15 @@ author: MashaMSFT
 tags: azure-resource-manager
 ms.assetid: bdc63fd1-db49-4e76-87d5-b5c6a890e53c
 ms.service: virtual-machines-sql
+ms.subservice: backup
 
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: mathoma
-ms.reviewer: jroth
+ms.reviewer: jroth 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Automated Backup for SQL Server 2014 virtual machines (Resource Manager)
@@ -85,7 +87,7 @@ When finished, select the **Apply** button on the bottom of the **Backups** page
 If you are enabling Automated Backup for the first time, Azure configures the SQL Server IaaS Agent in the background. During this time, the Azure portal might not show that Automated Backup is configured. Wait several minutes for the agent to be installed and configured. After that, the Azure portal will reflect the new settings.
 
 > [!NOTE]
-> You can also configure Automated Backup using a template. For more information, see [Azure quickstart template for Automated Backup](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-sql-existing-autobackup-update).
+> You can also configure Automated Backup using a template. For more information, see [Azure quickstart template for Automated Backup](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-sql-existing-autobackup-update).
 
 ## Configure with PowerShell
 

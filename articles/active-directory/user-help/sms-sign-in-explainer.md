@@ -1,5 +1,5 @@
 ---
-title: SMS sign-in user experience for phone number (preview) - Azure AD
+title: SMS sign-in user experience for phone number - Azure AD
 description: Learn more about SMS sign-in user experience for new or existing phone numbers
 services: active-directory
 author: curtand
@@ -8,13 +8,13 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 04/14/2020
+ms.date: 06/10/2021
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: "user-help, seo-update-azuread-jan"
 ---
 
-# Use your phone number as a user name (preview)
+# Use your phone number as a user name
 
 Registering a device gives your phone access to your organization's services and doesn't allow your organization access to your phone. If you're an administrator, you can find more information in [Configure and enable users for SMS-based authentication](../authentication/howto-authentication-sms-signin.md).
 
@@ -31,7 +31,7 @@ If you get a new phone or new number and you register it with an organization fo
 1. You will see a prompt that says "SMS verified. Your phone was registered successfully."
 
 > [!Important]
-> Due to a known issue in the preview, for a short time adding phone number will not register the number for SMS sign-in. You'll have to sign in with the added number and then follow the prompts to register the number for SMS sign-in.
+> Due to a known issue, for a short time adding phone number will not register the number for SMS sign-in. You'll have to sign in with the added number and then follow the prompts to register the number for SMS sign-in.
 
 ### When the phone number is in use
 

@@ -5,7 +5,7 @@ author: savjani
 ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
+ms.date: 01/15/2021
 ---
 # Monitor Azure Database for MariaDB performance with Query Store
 
@@ -15,7 +15,7 @@ The Query Store feature in Azure Database for Mariadb provides a way to track qu
 
 ## Common scenarios for using Query Store
 
-Query store can be used in a number of scenarios, including the following:
+Query store can be used in many scenarios, including the following:
 
 - Detecting regressed queries
 - Determining the number of times a query was executed in a given time window
@@ -28,14 +28,14 @@ Query Store is an opt-in feature, so it isn't active by default on a server. The
 ### Enable Query Store using the Azure portal
 
 1. Sign in to the Azure portal and select your Azure Database for MariaDB server.
-1. Select **Server Parameters** in the **Settings** section of the menu.
-1. Search for the query_store_capture_mode parameter.
-1. Set the value to ALL and **Save**.
+2. Select **Server Parameters** in the **Settings** section of the menu.
+3. Search for the query_store_capture_mode parameter.
+4. Set the value to ALL and **Save**.
 
 To enable wait statistics in your Query Store:
 
 1. Search for the query_store_wait_sampling_capture_mode parameter.
-1. Set the value to ALL and **Save**.
+2. Set the value to ALL and **Save**.
 
 Allow up to 20 minutes for the first batch of data to persist in the mysql database.
 
@@ -102,9 +102,9 @@ Use the [Azure portal](howto-server-parameters.md) to get or set a different val
 
 ## Views and functions
 
-View and manage Query Store using the following views and functions. Anyone in the [select privilege public role](howto-create-users.md#create-additional-admin-users) can use these views to see the data in Query Store. These views are only available in the **mysql** database.
+View and manage Query Store using the following views and functions. Anyone in the [select privilege public role](howto-create-users.md#create-more-admin-users) can use these views to see the data in Query Store. These views are only available in the **mysql** database.
 
-Queries are normalized by looking at their structure after removing literals and constants. If two queries are identical except for literal values, they will have the same hash.
+Queries are normalized by looking at their structure after removing literals and constants. If two queries are identical except for literal values, they'll have the same hash.
 
 ### mysql.query_store
 
@@ -132,8 +132,8 @@ This view returns all the data in Query Store. There is one row for each distinc
 | `sum_select_full_join` | bigint(20)| NO| Number of full joins|
 | `sum_select_scan` | bigint(20)| NO| Number of select scans |
 | `sum_sort_rows` | bigint(20)| NO| Number of rows sorted|
-| `sum_no_index_used` | bigint(20)| NO| Number of times when the query did not use any indexes|
-| `sum_no_good_index_used` | bigint(20)| NO| Number of times when the query execution engine did not use any good indexes|
+| `sum_no_index_used` | bigint(20)| NO| Number of times when the query didn't use any indexes|
+| `sum_no_good_index_used` | bigint(20)| NO| Number of times when the query execution engine didn't use any good indexes|
 | `sum_created_tmp_tables` | bigint(20)| NO| Total number of temp tables created|
 | `sum_created_tmp_disk_tables` | bigint(20)| NO| Total number of temp tables created in disk (generates I/O)|
 | `first_seen` | timestamp| NO| The first occurrence (UTC) of the query during the aggregation window|
@@ -141,7 +141,7 @@ This view returns all the data in Query Store. There is one row for each distinc
 
 ### mysql.query_store_wait_stats
 
-This view returns wait events data in Query Store. There is one row for each distinct database ID, user ID, query ID, and event.
+This view returns wait events data in Query Store. There's one row for each distinct database ID, user ID, query ID, and event.
 
 | **Name**| **Data Type** | **IS_NULLABLE** | **Description** |
 |---|---|---|---|
@@ -165,7 +165,7 @@ This view returns wait events data in Query Store. There is one row for each dis
 
 ## Limitations and known issues
 
-- If a MariaDB server has the parameter `default_transaction_read_only` on, Query Store cannot capture data.
+- If a MariaDB server has the parameter `default_transaction_read_only` on, Query Store can't capture data.
 - Query Store functionality can be interrupted if it encounters long Unicode queries (\>= 6000 bytes).
 - The retention period for wait statistics is 24 hours.
 - Wait statistics uses sample ti capture a fraction of events. The frequency can be modified using the parameter `query_store_wait_sampling_frequency`.

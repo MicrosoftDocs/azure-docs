@@ -81,4 +81,4 @@ MSAL exposes a `reason` field, which you can use to provide a better user experi
 
 ## Next steps
 
-Consider enabling [Logging in MSAL for Java](msal-logging.md?tabs=java) to help you diagnose and debug issues.
+Consider enabling [Logging in MSAL for Java](msal-logging-java.md) to help you diagnose and debug issues.

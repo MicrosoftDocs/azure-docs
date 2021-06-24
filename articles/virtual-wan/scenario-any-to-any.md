@@ -1,20 +1,20 @@
 ---
 title: 'Scenario: any-to-any'
 titleSuffix: Azure Virtual WAN
-description: Scenarios for routing - Any-to-any
+description: Learn about Virtual WAN any-to-any routing scenarios, where any spoke can reach another spoke.
 services: virtual-wan
 author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 04/27/2021
 ms.author: cherylmc
 ms.custom: fasttrack-edit
 
 ---
 # Scenario: Any-to-any
 
-When working with Virtual WAN virtual hub routing, there are quite a few available scenarios. In an Any-to-any scenario, any spoke can reach another spoke. When multiple hubs exist, hub-to-hub routing (also known as inter-hub) is enabled by default in Standard Virtual WAN. For more information about virtual hub routing, see [About virtual hub routing](about-virtual-hub-routing.md).
+When working with Virtual WAN virtual hub routing, there are quite a few available scenarios. In an Any-to-any scenario, any spoke can reach another spoke. When multiple hubs exist, hub-to-hub routing (also known as inter-hub) is enabled by default in Standard Virtual WAN. You can create this configuration using various methods, such as the Azure portal, or an [Azure Quickstart Template](quickstart-any-to-any-template.md). For more information about virtual hub routing, see [About virtual hub routing](about-virtual-hub-routing.md). 
 
 ## <a name="design"></a>Design
 
@@ -54,7 +54,7 @@ These connections (by default at creation) are associated to the Default route t
 
 ## <a name="workflow"></a>Workflow
 
-This scenario is enabled by default for Standard Virtual WAN. If the setting for branch-to-branch are disabled in WAN configuration, that will disallow connectivity between branch spokes. VPN/ExpressRoute/User VPN are considered as branch spokes in Virtual WAN
+This scenario is enabled by default for Standard Virtual WAN. If the settings for branch-to-branch are disabled in WAN configuration, that will disallow connectivity between branch spokes. VPN/ExpressRoute/User VPN are considered as branch spokes in Virtual WAN
 
 ## Next steps
 

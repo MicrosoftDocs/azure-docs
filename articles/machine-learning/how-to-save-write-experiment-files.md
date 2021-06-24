@@ -9,8 +9,7 @@ manager: danielsc
 ms.reviewer: nibaccam
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.custom: how-to
+ms.topic: how-to
 ms.date: 03/10/2020
 
 ---
@@ -25,13 +24,13 @@ When launching training runs on a [compute target](concept-compute-target.md), t
 
 Before you can initiate an experiment on a compute target or your local machine, you must ensure that the necessary files are available to that compute target, such as dependency files and data files your code needs to run.
 
-Azure Machine Learning runs training scripts by copying the entire source directory. If you have sensitive data that you don't want to upload, use a [.ignore file](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) or don't include it in the source directory . Instead, access your data using a [datastore](/python/api/azureml-core/azureml.data?preserve-view=true&view=azure-ml-py).
+Azure Machine Learning runs training scripts by copying the entire source directory. If you have sensitive data that you don't want to upload, use a [.ignore file](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) or don't include it in the source directory. Instead, access your data using a [datastore](/python/api/azureml-core/azureml.data).
 
 The storage limit for experiment snapshots is 300 MB and/or 2000 files.
 
 For this reason, we recommend:
 
-* **Storing your files in an Azure Machine Learning [datastore](/python/api/azureml-core/azureml.data?preserve-view=true&view=azure-ml-py).** This prevents experiment latency issues, and has the advantages of accessing data from a remote compute target, which means authentication and mounting are managed by Azure Machine Learning. Learn more about specifying a datastore as your source directory, and uploading files to your datastore in the [Access data from your datastores](how-to-access-data.md) article.
+* **Storing your files in an Azure Machine Learning [dataset](/python/api/azureml-core/azureml.data).** This prevents experiment latency issues, and has the advantages of accessing data from a remote compute target, which means authentication and mounting are managed by Azure Machine Learning. Learn more about how to specify a dataset as your input data source in your training script with [Train with datasets](how-to-train-with-datasets.md).
 
 * **If you only need a couple data files and dependency scripts and can't use a datastore,** place the files in the same folder directory as your training script. Specify this folder as your `source_directory` directly in your training script, or in the code that calls your training script.
 
@@ -59,9 +58,9 @@ Jupyter notebooks| Create a `.amlignore` file or move your notebook into a new, 
 
 Due to the isolation of training experiments, the changes to files that happen during runs are not necessarily persisted outside of your environment. If your script modifies the files local to compute, the changes are not persisted for your next experiment run, and they're not propagated back to the client machine automatically. Therefore, the changes made during the first experiment run don't and shouldn't affect those in the second.
 
-When writing changes, we recommend writing files to an Azure Machine Learning datastore. See [Access data from your datastores](how-to-access-data.md).
+When writing changes, we recommend writing files to storage via an Azure Machine Learning dataset with an [OutputFileDatasetConfig object](/python/api/azureml-core/azureml.data.output_dataset_config.outputfiledatasetconfig). See [how to create an OutputFileDatasetConfig](how-to-train-with-datasets.md#where-to-write-training-output).
 
-If you don't require a datastore, write files to the `./outputs` and/or `./logs` folder.
+Otherwise, write files to the `./outputs` and/or `./logs` folder.
 
 >[!Important]
 > Two folders, *outputs* and *logs*, receive special treatment by Azure Machine Learning. During training, when you write files to`./outputs` and`./logs` folders, the files will automatically upload to your run history, so that you have access to them once your run is finished.
@@ -72,6 +71,6 @@ If you don't require a datastore, write files to the `./outputs` and/or `./logs`
 
 ## Next steps
 
-* Learn more about [accessing data from your datastores](how-to-access-data.md).
+* Learn more about [accessing data from storage](how-to-access-data.md).
 
 * Learn more about [Create compute targets for model training and deployment](how-to-create-attach-compute-studio.md)
