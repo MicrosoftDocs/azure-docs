@@ -62093,6 +62093,10 @@
       "source_path": "articles/machine-learning/team-data-science-process/walkthroughs.md",
       "redirect_url": "/azure/architecture/data-science-process/walkthroughs",
       "redirect_document_id": false
+    }, {
+      "source_path": "articles/machine-learning/team-data-science-process/index.yml",
+      "redirect_url": "/azure/architecture/data-science-process/overview",
+      "redirect_document_id": false
     }
   ]
 }
