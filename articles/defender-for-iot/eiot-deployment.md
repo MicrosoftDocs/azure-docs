@@ -2,7 +2,7 @@
 title: EIoT deployment guide
 description: Learn how to deploy EIoT for your Defender for IoT service.
 ms.topic: how-to
-ms.date: 06/23/2021
+ms.date: 06/24/2021
 ---
 
 # Deploy EIoT 
