@@ -123,7 +123,3 @@ Because there isn't a 1-to-1 relationship between the order and a device, no dev
 
     ![Screenshot showing a summary of orders for the resource group in the Azure Edge Hardware Center](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-18.png)
 
-
-### Create a management resource for each device
-
-[!INCLUDE [Create management resource](azure-edge-hardware-center-create-management-resource.md)]

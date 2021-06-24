@@ -85,6 +85,13 @@ If you have an existing Azure Stack Edge resource to manage your physical device
 
 [!INCLUDE [Create ](../../includes/azure-edge-hardware-center-new-order.md)]
 
+### Create a management resource for each device
+
+After an order in the Azure Edge Management Center is complete, you will create a management resource for each device that you ordered.
+
+The person who will manage the physical device creates and maintains the management resource from the Azure Stack Edge portal. The activation key that's assigned to the management resource will associate the management resource with the order item when the device is activated.  
+
+[!INCLUDE [Create management resource](../../azure-edge-hardware-center-create-management-resource.md)]
 
 ### [Portal (Classic)](#tab/azure-portal)
 
