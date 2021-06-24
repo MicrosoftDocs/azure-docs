@@ -14,9 +14,18 @@ ms.date: 06/23/2021
 
 # Data sources gallery
 
+Find a data connector from Microsoft or a partner to simplify data ingestion into a search index. This article has the following sections:
+
++ [Generally available data sources by Cognitive Search](#ga)
++ [Preview data sources by Cognitive Search](#preview)
++ [Power Query Connectors (preview)](#powerquery)
++ [Data sources from our Partners](#partners)
+
+<a name="ga"></a>
+
 ## Generally available data sources by Cognitive Search
 
-Pull in content from other Azure services using indexers and the following data source connectors.
+Pull in content from other Azure services using indexers and the following data source connectors. 
 
 :::row:::
 :::column span="":::
@@ -121,6 +130,8 @@ Connect to Azure Storage through Azure Data Laker Storage Gen2 to extract conten
 :::row-end:::
 
 ---
+
+<a name="preview"></a>
 
 ## Preview data sources by Cognitive Search
 
@@ -229,6 +240,8 @@ Connect to MySQL database on Azure to extract rows in a table, serialized into J
 :::row-end:::
 
 ---
+
+<a name="powerquery"></a>
 
 ## Power Query Connectors (preview)
 
@@ -367,6 +380,8 @@ Extract searchable data and metadata from a Snowflake database and populate an i
    :::column-end:::
 
 :::row-end:::
+
+<a name="partners"></a>
 
 ## Data sources from our Partners
 
@@ -2596,7 +2611,7 @@ by [Raytion](https://www.raytion.com/contact)
 
 Secure enterprise search connector for reliably indexing content from Symantec Enterprise Vault and intelligently searching it with Azure Cognitive Search. It robustly indexes archived data, such as e-mails, attachments, files, calendar items and contacts from Enterprise Vault in near real time. The connector fully supports Symantec Enterprise Vault’s authentication models Basic, NTLM and Kerberos authentication.
 
-[More details](https://www.raytion.com/connectors/raytion-symantec-enterprise-vault-connector)
+[More details](https://www.raytion.com/connectors/raytion-enterprise-vault-connector-2)
 
 :::column-end:::
 :::column span="":::
@@ -2659,7 +2674,7 @@ by [Raytion](https://www.raytion.com/contact)
 
 Secure enterprise search connector for reliably indexing content from Veritas Enterprise Vault and intelligently searching it with Azure Cognitive Search. It robustly indexes archived data, such as e-mails, attachments, files, calendar items and contacts from Enterprise Vault in near real time. The connector fully supports Veritas Enterprise Vault’s authentication models Basic, NTLM and Kerberos authentication.
 
-[More details](https://www.raytion.com/connectors/raytion-veritas-enterprise-vault-connector)
+[More details](https://www.raytion.com/connectors/raytion-enterprise-vault-connector)
 
 :::column-end:::
 :::row-end:::
