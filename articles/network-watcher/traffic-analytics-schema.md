@@ -149,10 +149,10 @@ Listed below are the fields in the schema and what they signify
 | AllowedOutFlows_d | |	Count of outbound flows that were allowed (Outbound to the network interface at which the flow was captured) |
 | DeniedOutFlows_d	| |	Count of outbound flows that were denied (Outbound to the network interface at which the flow was captured) |
 | FlowCount_d |	Deprecated. Total flows that matched the same four-tuple. In case of flow types ExternalPublic and AzurePublic, count will include the flows from various PublicIP addresses as well.
-| InboundPackets_d | Packets received as captured at the network interface where NSG rule was applied | This is populated only for the Version 2 of NSG flow log schema |
-| OutboundPackets_d	 | Packets sent as captured at the network interface where NSG rule was applied | This is populated only for the Version 2 of NSG flow log schema |
-| InboundBytes_d |	Bytes received as captured at the network interface where NSG rule was applied | This is populated only for the Version 2 of NSG flow log schema |
-| OutboundBytes_d |	Bytes sent as captured at the network interface where NSG rule was applied | This is populated only for the Version 2 of NSG flow log schema |
+| InboundPackets_d | Represents packets sent from the destination to the source of the flow | This is populated only for the Version 2 of NSG flow log schema |
+| OutboundPackets_d	 | Represents packets sent from the source to the destination of the flow | This is populated only for the Version 2 of NSG flow log schema |
+| InboundBytes_d |	Represents bytes sent from the destination to the source of the flow | This is populated only for the Version 2 of NSG flow log schema |
+| OutboundBytes_d |Represents bytes sent from the source to the destination of the flow | This is populated only for the Version 2 of NSG flow log schema |
 | CompletedFlows_d	|  | This is populated with non-zero value only for the Version 2 of NSG flow log schema |
 | PublicIPs_s | <PUBLIC_IP>\|\<FLOW_STARTED_COUNT>\|\<FLOW_ENDED_COUNT>\|\<OUTBOUND_PACKETS>\|\<INBOUND_PACKETS>\|\<OUTBOUND_BYTES>\|\<INBOUND_BYTES> | Entries separated by bars |
 | SrcPublicIPs_s | <SOURCE_PUBLIC_IP>\|\<FLOW_STARTED_COUNT>\|\<FLOW_ENDED_COUNT>\|\<OUTBOUND_PACKETS>\|\<INBOUND_PACKETS>\|\<OUTBOUND_BYTES>\|\<INBOUND_BYTES> | Entries separated by bars |
