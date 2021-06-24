@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rohithah, rarayudu, azla
 ms.topic: reference
-ms.date: 05/25/2021
+ms.date: 06/23/2021
 ---
 
 # Limits and configuration reference for Azure Logic Apps
@@ -42,7 +42,7 @@ The following tables list the values for a single workflow definition:
 | `description` - Maximum length | 256 characters ||
 | `parameters` - Maximum number of items | 50 parameters ||
 | `outputs` - Maximum number items | 10 outputs ||
-| `trackedProperties` - Maximum size | 16,000 characters ||
+| `trackedProperties` - Maximum size | 8,000 characters ||
 ||||
 
 <a name="run-duration-retention-limits"></a>
@@ -279,7 +279,7 @@ The following tables list the values for a single inbound or outbound call:
 
 ### Timeout duration
 
-By default, the HTTP action and APIConnection actions follow the [standard asynchronous operation pattern](/architecture/patterns/async-request-reply), while the Response action follows the *synchronous operation pattern*. Some managed connector operations make asynchronous calls or listen for webhook requests, so the timeout for these operations might be longer than the following limits. For more information, review [each connector's technical reference page](/connectors/connector-reference/connector-reference-logicapps-connectors) and also the [Workflow triggers and actions](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action) documentation.
+By default, the HTTP action and APIConnection actions follow the [standard asynchronous operation pattern](/azure/architecture/patterns/async-request-reply), while the Response action follows the *synchronous operation pattern*. Some managed connector operations make asynchronous calls or listen for webhook requests, so the timeout for these operations might be longer than the following limits. For more information, review [each connector's technical reference page](/connectors/connector-reference/connector-reference-logicapps-connectors) and also the [Workflow triggers and actions](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action) documentation.
 
 > [!NOTE]
 > For the **Logic App (Standard)** resource type in the single-tenant model, stateless workflows can only run *synchronously*.

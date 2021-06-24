@@ -17,7 +17,7 @@ zone_pivot_groups: programming-languages-speech-services-nomore-variant
 
 Language identification is used to determine the language being spoken in audio passed to the Speech SDK when compared against a list of provided languages. The value returned by language identification is then used to select the language model for speech to text, providing you with a more accurate transcription. 
 
-Language identification can also be used while doing [speech translation](/azure/cognitive-services/speech-service/get-started-speech-translation?tabs=script%2Cwindowsinstall&pivots=programming-language-csharp#multi-lingual-translation-with-language-identification), or by doing [standalone identification](#standalone-language-identification). To see which languages are available, see [Language support](language-support.md).
+Language identification can also be used while doing [speech translation](./get-started-speech-translation.md?pivots=programming-language-csharp&tabs=script%2cwindowsinstall#multi-lingual-translation-with-language-identification), or by doing [standalone identification](#standalone-language-identification). To see which languages are available, see [Language support](language-support.md).
 
 ## Prerequisites
 
@@ -27,10 +27,10 @@ This article assumes you have an Azure subscription and speech resource, and als
 
 Language identification currently has a limit of **four languages** for single-shot recognition, and **10 languages** for continuous recognition. Keep this limitation in mind when constructing your `AutoDetectSourceLanguageConfig` object. In the samples below, you use `AutoDetectSourceLanguageConfig` to define a list of possible languages that you want to identify, and then reference those languages when running speech recognition.
 
-::: zone pivot="programming-language-csharp"
-
 > [!IMPORTANT]
-> This feature as shown below is currently in **preview**.
+> Continuous language identification is currently in **preview** and only supported in C# and C++.
+
+::: zone pivot="programming-language-csharp"
 
 The following example runs single-shot recognition, prioritizing `Latency`. This property can also be set to `Accuracy` depending on the priority for your use-case. `Latency` is the best option to use if you need a low-latency result (e.g. for live streaming scenarios), but don't know the language in the audio sample. 
 

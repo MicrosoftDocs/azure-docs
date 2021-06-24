@@ -3,11 +3,11 @@ title: Configure maintenance window (Preview)
 description: Learn how to set the time when planned maintenance should be performed on your Azure SQL databases, elastic pools, and managed instance databases.
 services: sql-database
 ms.service: sql-db-mi
-ms.subservice: service
+ms.subservice: deployment-configuration
 ms.topic: how-to
-author: stevestein
-ms.author: sstein
-ms.reviewer: 
+author: scott-kim-sql
+ms.author: scottkim
+ms.reviewer: mathoma
 ms.date: 03/23/2021
 ---
 # Configure maintenance window (Preview)

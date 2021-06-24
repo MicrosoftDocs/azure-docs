@@ -8,7 +8,8 @@ ms.topic: overview
 ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
-ms.reviewer: jrasnick 
+ms.reviewer: jrasnick  
+ms.custom: devx-track-azurepowershell
 ---
 
 # Control storage account access for serverless SQL pool in Azure Synapse Analytics
@@ -93,11 +94,9 @@ You can use the following combinations of authorization and Azure Storage types:
 
 | Authorization type  | Blob Storage   | ADLS Gen1        | ADLS Gen2     |
 | ------------------- | ------------   | --------------   | -----------   |
-| [SAS](?tabs=shared-access-signature#supported-storage-authorization-types)    | Supported\*      | Not  supported   | Supported\*     |
+| [SAS](?tabs=shared-access-signature#supported-storage-authorization-types)    | Supported      | Not  supported   | Supported     |
 | [Managed Identity](?tabs=managed-identity#supported-storage-authorization-types) | Supported      | Supported        | Supported     |
-| [User Identity](?tabs=user-identity#supported-storage-authorization-types)    | Supported\*      | Supported\*        | Supported\*     |
-
-\* SAS token and Azure AD Identity can be used to access storage that is not protected with firewall.
+| [User Identity](?tabs=user-identity#supported-storage-authorization-types)    | Supported      | Supported        | Supported     |
 
 ## Firewall protected storage
 

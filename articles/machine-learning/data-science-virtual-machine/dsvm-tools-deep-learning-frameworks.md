@@ -58,7 +58,7 @@ Deep learning frameworks on the DSVM are listed below.
 
 | Category | Value |
 |--|--|
-| Version(s) supported | 2.4 |
+| Version(s) supported | 2.5 |
 | Supported DSVM editions | Windows Server 2019<br>Ubuntu 18.04 |
 | How is it configured / installed on the DSVM? | Installed in Python, conda environment 'py38_tensorflow' |
 | How to run it | Terminal: Activate the correct environment, and then run Python. <br/> * Jupyter: Connect to [Jupyter](provision-vm.md) or [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine), and then open the TensorFlow directory for samples. |

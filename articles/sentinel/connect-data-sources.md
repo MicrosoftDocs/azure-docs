@@ -44,23 +44,28 @@ The following data connection methods are supported by Azure Sentinel:
 - **Service to service integration**:<br> Some services are connected natively, such as AWS and Microsoft services, these services leverage the Azure foundation for out-of-the box integration, the following solutions can be connected in a few clicks:
     - [Amazon Web Services - CloudTrail](connect-aws.md)
     - [Azure Active Directory](connect-azure-active-directory.md) - audit logs and sign-in logs
+    - [Azure Active Directory Identity Protection](connect-azure-ad-Identity-protection.md)
     - [Azure Activity](connect-azure-activity.md)
-    - [Azure AD Identity Protection](connect-azure-ad-Identity-protection.md)
     - [Azure DDoS Protection](connect-azure-ddos-protection.md)
+    - [Azure Defender](connect-azure-security-center.md) alerts from Azure Security Center
     - [Azure Defender for IoT](connect-asc-iot.md) (formerly Azure Security Center for IoT)
-    - [Azure Information Protection](connect-azure-information-protection.md)
     - [Azure Firewall](connect-azure-firewall.md)
-    - [Azure Security Center](connect-azure-security-center.md) - alerts from Azure Defender solutions
+    - [Azure Information Protection](connect-azure-information-protection.md)
+    - [Azure Key Vault](connect-azure-key-vault.md)
+    - [Azure Kubernetes Service (AKS)](connect-azure-kubernetes-service.md)
+    - [Azure SQL Databases](connect-azure-sql-logs.md)
+    - [Azure Storage Account](connect-azure-storage-account.md)
     - [Azure Web Application Firewall (WAF)](connect-azure-waf.md) (formerly Microsoft WAF)
-    - [Cloud App Security](connect-cloud-app-security.md)
     - [Domain name server](connect-dns.md)
+    - [Dynamics 365](connect-dynamics-365.md)
     - [Microsoft 365 Defender](connect-microsoft-365-defender.md) - includes M365D incidents and Defender for Endpoint raw data
+    - [Microsoft Cloud App Security](connect-cloud-app-security.md)
     - [Microsoft Defender for Endpoint](connect-microsoft-defender-advanced-threat-protection.md) (formerly Microsoft Defender Advanced Threat Protection)
     - [Microsoft Defender for Identity](connect-azure-atp.md) (formerly Azure Advanced Threat Protection)
     - [Microsoft Defender for Office 365](connect-office-365-advanced-threat-protection.md) (formerly Office 365 Advanced Threat Protection)
-    - [Office 365](connect-office-365.md) (now with Teams!)
+    - [Office 365](connect-office-365.md) (includes Teams)
     - [Windows firewall](connect-windows-firewall.md)
-    - [Windows security events](connect-windows-security-events.md)
+    - (Windows) [Security events](connect-windows-security-events.md)
 
 - **External solutions via API**: Some data sources are connected using APIs that are provided by the connected data source. Typically, most security technologies provide a set of APIs through which event logs can be retrieved.The APIs connect to Azure Sentinel and gather specific data types and send them to Azure Log Analytics. Appliances connected via API include:
     

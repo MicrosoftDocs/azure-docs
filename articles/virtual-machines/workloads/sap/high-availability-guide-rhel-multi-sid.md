@@ -40,7 +40,7 @@ ms.author: radeltch
 
 [sap-swcenter]:https://support.sap.com/en/my-support/software-downloads.html
 
-[template-multisid-xscs]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-xscs-md%2Fazuredeploy.json
+[template-multisid-xscs]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-3-tier-marketplace-image-multi-sid-xscs-md%2Fazuredeploy.json
 
 [sap-hana-ha]:sap-hana-high-availability-rhel.md
 [glusterfs-ha]:high-availability-guide-rhel-glusterfs.md
@@ -263,7 +263,7 @@ This documentation assumes that:
     sudo pcs resource create vip_NW2_ASCS IPaddr2 \
     ip=10.3.1.52 cidr_netmask=24 \
      --group g-NW2_ASCS
-	
+  
     sudo pcs resource create nc_NW2_ASCS azure-lb port=62010 \
      --group g-NW2_ASCS
 
@@ -504,7 +504,7 @@ This documentation assumes that:
 
     Online: [ rhelmsscl1 rhelmsscl2 ]
 
-	Full list of resources:
+    Full list of resources:
 
     rsc_st_azure   (stonith:fence_azure_arm):      Started rhelmsscl1
     Resource Group: g-NW1_ASCS

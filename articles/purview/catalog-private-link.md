@@ -6,7 +6,7 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 05/10/2021
+ms.date: 06/11/2021
 # Customer intent: As a Purview admin, I want to set up private endpoints for my Purview account, for secure access.
 ---
 
@@ -85,7 +85,33 @@ The DNS resource records for PurviewA, when resolved in the VNet hosting the pri
 | `PurviewA.purview.azure.com` | CNAME | `PurviewA.privatelink.purview.azure.com` |
 | `PurviewA.privatelink.purview.azure.com` | A | \<private endpoint IP address\> |
 | `Web.purview.azure.com` | CNAME | \<private endpoint IP address\> |
- 
+
+<br>
+
+ > [!important]
+ > If you do not use DNS Forwarders and instead you manage A records directly in your on-premises DNS servers to resolve the endpoints through their private IP addresses, you may need to create additional A records in your DNS Servers:
+
+| Name | Type | Value |
+| ---------- | -------- | --------------- |
+| `PurviewA.Purview.azure.com` | A | \<account private endpoint IP address of Azure Purview> |
+| `PurviewA.scan.Purview.azure.com` | A | \<account private endpoint IP address of Azure Purview> |
+| `PurviewA.catalog.Purview.azure.com` | A | \<account private endpoint IP address of Azure Purview\> |
+| `PurviewA.proxy.purview.azure.com` | A | \<account private endpoint IP address of Azure Purview\> |
+| `PurviewA.guardian.purview.azure.com` | A | \<account private endpoint IP address of Azure Purview\> |
+| `PurviewA.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
+| `PurviewA.manifest.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
+| `PurviewA.cdn.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
+| `PurviewA.hub.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
+| `PurviewA.catalog.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
+| `PurviewA.cseo.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
+| `PurviewA.datascan.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
+| `PurviewA.datashare.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
+| `PurviewA.datasource.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
+| `PurviewA.policy.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
+| `PurviewA.sensitivity.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
+
+<br> 
+
 _Example for Azure Purview DNS name resolution from outside the VNet or when Azure Private Endpoint is not configured:_
 
    :::image type="content" source="media/catalog-private-link/purview-name-resolution-external.png" alt-text="Purview Name Resolution from outside CorpNet":::

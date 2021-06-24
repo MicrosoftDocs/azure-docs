@@ -140,11 +140,11 @@ The next piece in the skillset is an array of skills. You can think of each skil
 
 ## Add built-in skills
 
-Let's look at the first skill, which is the built-in [entity recognition skill](cognitive-search-skill-entity-recognition.md):
+Let's look at the first skill, which is the built-in [entity recognition skill](cognitive-search-skill-entity-recognition-v3.md):
 
 ```json
     {
-      "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
+      "@odata.type": "#Microsoft.Skills.Text.V3.EntityRecognitionSkill",
       "context": "/document",
       "categories": [ "Organization" ],
       "defaultLanguageCode": "en",
@@ -169,7 +169,7 @@ Let's look at the first skill, which is the built-in [entity recognition skill](
 
 * Outputs from the one skill can conflict with outputs from a different skill. If you have multiple skills returning a ```result``` property, you can use the ```targetName``` property of skill outputs to capture a named JSON output from a skill into a different property.
 
-* The skill has one input called "text", with a source input set to ```"/document/content"```. The skill (entity recognition) operates on the *content* field of each document, which is a standard field created by the Azure blob indexer. 
+* The skill has one input called "text", with a source input set to ```"/document/content"```. The skill (entity recognition) operates on the *content* field of each document, which is a standard field created by the Azure Blob indexer. 
 
 * The skill has one output called ```"organizations"``` that is captured in a property ```orgs```. Outputs exist only during processing. To chain this output to a downstream skill's input, reference the output as ```"/document/orgs"```.
 

@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: azla
 ms.topic: how-to
-ms.date: 05/25/2021
+ms.date: 06/08/2021
 ---
 
 # Create parameters for values that change in workflows across environments for single-tenant Azure Logic Apps
@@ -87,6 +87,16 @@ To replace parameter files dynamically using the Azure CLI, run the following co
 
 ```azurecli
 az functionapp deploy --resource-group MyResourceGroup --name MyLogicApp --src-path C:\parameters.json --type static --target-path parameters.json
+```
+
+If you have a NuGet-based Logic App project, you have to update your project file (**&lt;logic-app-name&gt;.csproj**) to include the parameters file in the build output, for example:
+  
+```csproj
+<ItemGroup>
+  <None Update="parameters.json">
+    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+  </None>
+</ItemGroup>
 ```
 
 > [!NOTE]

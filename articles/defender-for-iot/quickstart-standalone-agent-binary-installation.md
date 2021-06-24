@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Install Defender for IoT micro agent (Preview)'
 description: In this quickstart, learn how to install, and authenticate the Defender Micro Agent.
-ms.date: 05/19/2021
+ms.date: 06/07/2021
 ms.topic: quickstart
 ---
 
@@ -65,9 +65,9 @@ To get the module identity connection string from the IoT Hub:
 
    :::image type="content" source="media/quickstart-standalone-agent-binary-installation/module-identities.png" alt-text="Select the module identities tab.":::
 
-1. In the **Module Identity Details** page, copy the primary key by selecting the **copy** button.
+1. In the **Module Identity Details** page, copy the Connection string (primary key) by selecting the **copy** button.
 
-   :::image type="content" source="media/quickstart-standalone-agent-binary-installation/copy-button.png" alt-text="Select the copy button to copy the primary key.":::
+   :::image type="content" source="media/quickstart-standalone-agent-binary-installation/copy-button.png" alt-text="Select the copy button to copy the Connection string (primary key).":::
 
 #### Configure authentication using a module identity connection string
 
@@ -76,7 +76,7 @@ To configure the agent to authenticate using a module identity connection string
 1. Place a file named `connection_string.txt` containing the connection string encoded in utf-8 in the defender agent directory `/var/defender_iot_micro_agent` path by entering the following command:
 
     ```bash
-    sudo bash -c 'echo <connection string> /var/defender_iot_micro_agent/connection_string.txt'
+    sudo bash -c 'echo "<connection string>" > /var/defender_iot_micro_agent/connection_string.txt'
     ```
 
     The `connection_string.txt` should be located in the following path location `/var/defender_iot_micro_agent/connection_string.txt`.

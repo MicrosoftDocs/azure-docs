@@ -2,7 +2,7 @@
 title: Limit Azure Automation Update Management deployment scope
 description: This article tells how to use scope configurations to limit the scope of an Update Management deployment.
 services: automation
-ms.date: 05/27/2021
+ms.date: 06/03/2021
 ms.topic: conceptual
 ms.custom: mvc
 ---
@@ -30,21 +30,21 @@ To limit the scope for your Update Management deployment:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-3. In the Azure portal, navigate to **Log Analytics workspaces**. Select your workspace from the list.
+2. In the Azure portal, navigate to **Log Analytics workspaces**. Select your workspace from the list.
 
-4. In your Log Analytics workspace, select **Scope Configurations (Preview)** from the left-hand menu.
+3. In your Log Analytics workspace, select **Scope Configurations (Preview)** from the left-hand menu.
 
-5. Select the ellipsis to the right of the  **MicrosoftDefaultScopeConfig-Updates** scope configuration, and select **Edit**.
+4. Select the ellipsis to the right of the  **MicrosoftDefaultScopeConfig-Updates** scope configuration, and select **Edit**.
 
-6. In the editing pane, expand **Select Computer Groups**. The **Computer Groups** pane shows the saved searches that are added to the scope configuration. The saved search used by Update Management is:
+5. In the editing pane, expand **Select Computer Groups**. The **Computer Groups** pane shows the saved searches that are added to the scope configuration. The saved search used by Update Management is:
 
     |Name     |Category  |Alias  |
     |---------|---------|---------|
     |MicrosoftDefaultComputerGroup     | Updates        | Updates__MicrosoftDefaultComputerGroup         |
 
-7. If you added a custom group, it is shown in the list. To deselect it, clear the checkbox to the left of the item. To add a custom group to the scope, select it and then when you are finished with your changes, click **Select**.
+6. If you added a custom group, it is shown in the list. To deselect it, clear the checkbox to the left of the item. To add a custom group to the scope, select it and then when you are finished with your changes, click **Select**.
 
-8. On the **Edit scope configuration** page, click **OK** to save your changes.
+7. On the **Edit scope configuration** page, click **OK** to save your changes.
 
 ## Next steps
 

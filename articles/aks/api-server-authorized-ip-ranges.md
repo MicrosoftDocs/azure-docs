@@ -178,7 +178,7 @@ For more information, see [Security concepts for applications and clusters in AK
 
 <!-- LINKS - external -->
 [cni-networking]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
-[dev-spaces-ranges]: ../dev-spaces/configure-networking.md#aks-cluster-network-requirements
+[dev-spaces-ranges]: ../dev-spaces/index.yml#aks-cluster-network-requirements
 [kubenet]: https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/#kubenet
 
 <!-- LINKS - internal -->

@@ -1,7 +1,7 @@
 ---
 title: "What's new in Azure Active Directory application proxy"
 description: "New and updated documentation for the Azure Active Directory application proxy."
-ms.date: 04/27/2021
+ms.date: 06/02/2021
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.topic: reference
@@ -15,9 +15,18 @@ manager: mtillman
 
 Welcome to what's new in Azure Active Directory application proxy documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the service, see [What's new in Azure Active Directory](../fundamentals/whats-new.md).
 
+## May 2021
+
+### Updated articles
+
+- [Secure access to on-premises APIs with Azure Active Directory Application Proxy](application-proxy-secure-api-access.md)
+- [Integrate Azure Active Directory Application Proxy with SharePoint (SAML)](application-proxy-integrate-with-sharepoint-server-saml.md)
+- [Enable remote access to SharePoint with Azure Active Directory Application Proxy](application-proxy-integrate-with-sharepoint-server.md)
+
+
 ## April 2021
 
-Application proxy content has moved out of the [application management content set](/azure/active-directory/manage-apps/) and into its own content set.
+Application proxy content has moved out of the [application management content set](../manage-apps/index.yml) and into its own content set.
 
 ## March 2021
 

@@ -997,26 +997,19 @@ When using the `/detect` endpoint, the response will include alternate detection
 
 ```json
 [
+
     {
-        "alternatives": [
-            {
-                "isTranslationSupported": true,
-                "isTransliterationSupported": false,
-                "language": "nl",
-                "score": 0.92
-            },
-            {
-                "isTranslationSupported": true,
-                "isTransliterationSupported": false,
-                "language": "sk",
-                "score": 0.77
-            }
-        ],
-        "isTranslationSupported": true,
-        "isTransliterationSupported": false,
+
         "language": "de",
-        "score": 1.0
+
+        "score": 1.0,
+
+        "isTranslationSupported": true,
+
+        "isTransliterationSupported": false
+
     }
+
 ]
 ```
 

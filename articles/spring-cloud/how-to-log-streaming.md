@@ -27,8 +27,8 @@ Azure Spring Cloud enables log streaming in Azure CLI to get real-time applicati
 
 To avoid repeatedly specifying your resource group and service instance name, set your default resource group name and cluster name.
 ```azurecli
-az configure --defaults group=<service group name>
-az configure --defaults spring-cloud=<service instance name>
+az config set defaults.group=<service group name>
+az config set defaults.spring-cloud=<service instance name>
 ```
 In following examples, the resource group and service name will be omitted in the commands.
 

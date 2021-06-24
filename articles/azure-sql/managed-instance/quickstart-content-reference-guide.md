@@ -4,13 +4,13 @@ titleSuffix: Azure SQL Managed Instance
 description: "A reference for content that helps you get started with Azure SQL Managed Instance. "
 services: sql-database
 ms.service: sql-managed-instance
-ms.subservice: operations
+ms.subservice: deployment-configuration
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: quickstart
 author: davidtrigano
 ms.author: datrigan
-ms.reviewer: vanto
+ms.reviewer: vanto, mathoma
 ms.date: 07/11/2019
 ---
 # Getting started with Azure SQL Managed Instance

@@ -63,7 +63,11 @@ Follow the next steps by selecting the tab that matches your choice.
 The **Registry** dropdown displays the registries in the same subscription as your app. **Select** the registry you want.
 
 > [!NOTE]
-> To deploy from a registry in a different subscription, **select** **Private Registry** in **Registry source** instead.
+>  - If want to use Managed Identities to lock down ACR access follow this guide:
+>    - [How to use system-assigned Managed Identities with App Service and Azure Container Registry](https://github.com/Azure/app-service-linux-docs/blob/master/HowTo/use_system-assigned_managed_identities.md)
+>    - [How to use user-assigned Managed Identities with App Service and Azure Container Registry](https://github.com/Azure/app-service-linux-docs/blob/master/HowTo/use_user-assigned_managed_identities.md)
+>  - To deploy from a registry in a different subscription, **select** **Private Registry** in **Registry source** instead.
+>   
 
 ::: zone pivot="container-windows"
 **Select** the **Image** and **Tag** to deploy. If you want, **type** the start up command in **Startup File**. 
@@ -256,6 +260,6 @@ az acr webhook create --name <webhook-name> --registry <registry-name> --resourc
 * [Azure Container Registry](https://azure.microsoft.com/services/container-registry/)
 * [Create a .NET Core web app in App Service on Linux](quickstart-dotnetcore.md)
 * [Quickstart: Run a custom container on App Service](quickstart-custom-container.md)
-* [App Service on Linux FAQ](faq-app-service-linux.md)
+* [App Service on Linux FAQ](faq-app-service-linux.yml)
 * [Configure custom containers](configure-custom-container.md)
 * [Actions workflows to deploy to Azure](https://github.com/Azure/actions-workflow-samples)

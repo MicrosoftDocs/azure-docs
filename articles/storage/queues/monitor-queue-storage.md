@@ -9,7 +9,7 @@ ms.date: 10/26/2020
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: queues
-ms.custom: "monitoring, devx-track-csharp, devx-track-azurecli"
+ms.custom: "monitoring, devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell"
 ---
 
 # Monitoring Azure Queue Storage

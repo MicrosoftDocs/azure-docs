@@ -18,7 +18,7 @@ This article describes how to manage various tasks on an Azure Cosmos account us
 
 ### <a id="create-database-account-via-portal"></a>Azure portal
 
-[!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
+[!INCLUDE [cosmos-db-create-dbaccount](includes/cosmos-db-create-dbaccount.md)]
 
 ### <a id="create-database-account-via-cli"></a>Azure CLI
 

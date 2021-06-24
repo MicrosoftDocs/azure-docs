@@ -7,7 +7,7 @@ ms.author: jlian
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 04/21/2021
+ms.date: 06/23/2021
 ms.custom: ['Role: Cloud Development']
 ---
 
@@ -74,7 +74,7 @@ The following tables describe the permissions available for IoT Hub service API 
 | Microsoft.Devices/IotHubs/cloudToDeviceMessages/send/action | Send cloud-to-device message to any device  |
 | Microsoft.Devices/IotHubs/cloudToDeviceMessages/feedback/action | Receive, complete, or abandon cloud-to-device message feedback notification |
 | Microsoft.Devices/IotHubs/cloudToDeviceMessages/queue/purge/action | Deletes all the pending commands for a device  |
-| Microsoft.Devices/IotHubs/directMethods/invoke/action | Invokes a direct method on a device |
+| Microsoft.Devices/IotHubs/directMethods/invoke/action | Invokes a direct method on any device or module |
 | Microsoft.Devices/IotHubs/fileUpload/notifications/action  | Receive, complete, or abandon file upload notifications |
 | Microsoft.Devices/IotHubs/statistics/read | Read device and service statistics |
 | Microsoft.Devices/IotHubs/configurations/read | Read device management configurations |
