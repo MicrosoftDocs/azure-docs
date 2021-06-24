@@ -131,7 +131,7 @@ Response:
 >[!NOTE]
 >* The "isTroubleshootingAllowed" flag – describes if the table is allowed in the service
 >* The "isTroubleshootEnabled" indicates if the feature is enabled for the table - can be switched on or off (true or false)
->* When disabling the "isTroubleshootEnabled" flag for a specific table, re-enabling it is possible only one week after the prior enable date.
+>* When disabling the "isTroubleshootEnabled" flag for a specific table, re-enabling it is possible only one week after the prior disable date.
 >* Currently this is supported only for tables under Pay-As-You-Go SKU (some other SKUs will also be supported in the future) - [Read more about pricing](https://docs.microsoft.com/services-hub/health/azure_pricing).
 
 ## Schema for Container logs (ContainerLogV2)
