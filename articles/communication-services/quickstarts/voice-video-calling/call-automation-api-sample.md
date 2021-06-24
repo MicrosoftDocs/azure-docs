@@ -10,6 +10,7 @@ ms.author: joseys
 ms.date: 06/08/2021
 ms.topic: overview
 ms.service: azure-communication-services
+zone_pivot_groups: acs-csharp-java
 ---
 # Call Automation API Quickstart
 Get started with Azure Communication Services by using the Communication Services Calling server SDKs to build an automated call routing solution.
