@@ -158,6 +158,8 @@ When developing for Android, your logs are stored in `.blog` files. Note that yo
 
 On Android Studio, navigate to the Device File Explorer by selecting View > Tool Windows > Device File Explorer from both the simulator and the device. The `.blog` file will be located within your application's directory, which should look something like `/data/data/[app_name_space:com.contoso.com.acsquickstartapp]/files/acs_sdk.blog`. You can attach this file to your support request.
 
+---
+
 ## Enable and access call logs (Windows)
 
 When developing for Windows, your logs are stored in `.blog` files. Note that you can't view the logs directly because they're encrypted.
@@ -170,7 +172,6 @@ These can be accessed by looking at where your app is keeping its local data. Th
 5. Open the folder with the logs by typing `start ` followed by the path returned by the step 3. For example: `start C:\Users\myuser\AppData\Local\Packages\e84000dd-df04-4bbc-bf22-64b8351a9cd9_k2q8b5fxpmbf6`
 6. Please attach all the `*.blog` and `*.etl` files to your Azure support request.
 
----
 
 ## Calling SDK error codes
 
@@ -178,7 +179,7 @@ The Azure Communication Services Calling SDK uses the following error codes to h
 
 | Error code | Description | Action to take |
 | -------- | ---------------| ---------------|
-| 403 | Forbidden / Authentication failure. | Ensure that your Communication Services token is valid and not expired. |
+| 403 | Forbidden / Authentication failure. | Ensure that your Communication Services token is valid and not expired. If you are using Teams Interoperability, make sure your Teams tenant has been added to the preview access allowlist. To enable/disable [Teams tenant interoperability](https://docs.microsoft.com/azure/communication-services/concepts/teams-interop), complete [this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR21ouQM6BHtHiripswZoZsdURDQ5SUNQTElKR0VZU0VUU1hMOTBBMVhESS4u).|
 | 404 | Call not found. | Ensure that the number you're calling (or call you're joining) exists. |
 | 408 | Call controller timed out. | Call Controller timed out waiting for protocol messages from user endpoints. Ensure clients are connected and available. |
 | 410 | Local media stack or media infrastructure error. | Ensure that you're using the latest SDK in a supported environment. |
@@ -189,6 +190,17 @@ The Azure Communication Services Calling SDK uses the following error codes to h
 | 490, 491, 496, 487, 498 | Local endpoint network issues. | Check your network. |
 | 500, 503, 504 | Communication Services infrastructure error. | File a support request through the Azure portal. |
 | 603 | Call globally declined by remote Communication Services participant | Expected behavior. |
+
+## Chat SDK error codes
+
+The Azure Communication Services Chat SDK uses the following error codes to help you troubleshoot chat issues. The error codes are exposed through the `error.code` property in the error response.
+
+| Error code | Description | Action to take |
+| -------- | ---------------| ---------------|
+| 401 | Unauthorized | Ensure that your Communication Services token is valid and not expired. |
+| 403 | Forbidden | Ensure that the initiator of the request has access to the resource. |
+| 429 | Too many requests | Ensure that your client-side application handles this scenario in a user-friendly manner. If the error persists please file a support request. |
+| 503 | Service Unavailable | File a support request through the Azure portal. |
 
 ## Related information
 - [Logs and diagnostics](logging-and-diagnostics.md)

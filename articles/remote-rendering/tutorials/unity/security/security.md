@@ -44,7 +44,7 @@ var task = ARRSessionService.CurrentActiveSession.Connection.LoadModelFromSasAsy
 The above lines use the `FromSas` version of the params and session action. They must be converted to the non-SAS versions:
 
 ```cs
-var loadModelParams = new LoadModelOptions(storageAccountPath, blobContainerName, modelPath, modelEntity);
+var loadModelParams = new LoadModelOptions(storageAccountPath, blobName, modelPath, modelEntity);
 var task = ARRSessionService.CurrentActiveSession.Connection.LoadModelAsync(loadModelParams);
 ```
 
@@ -58,12 +58,12 @@ Let's modify **RemoteRenderingCoordinator** to load a custom model, from a linke
     /// Loads a model from blob storage that has been linked to the ARR instance
     /// </summary>
     /// <param name="storageAccountName">The storage account name, this contains the blob containers </param>
-    /// <param name="blobContainerName">The blob container name, i.e. arroutput</param>
+    /// <param name="blobName">The blob container name, i.e. arroutput</param>
     /// <param name="modelPath">The relative path inside the container to the model, i.e. test/MyCustomModel.arrAsset</param>
     /// <param name="parent">The parent Transform for this remote entity</param>
     /// <param name="progress">A call back method that accepts a float progress value [0->1]</param>
     /// <returns></returns>
-    public async Task<Entity> LoadModel(string storageAccountName, string blobContainerName, string modelPath, Transform parent = null, Action<float> progress = null)
+    public async Task<Entity> LoadModel(string storageAccountName, string blobName, string modelPath, Transform parent = null, Action<float> progress = null)
     {
         //Create a root object to parent a loaded model to
         var modelEntity = ARRSessionService.CurrentActiveSession.Connection.CreateEntity();
@@ -82,20 +82,8 @@ Let's modify **RemoteRenderingCoordinator** to load a custom model, from a linke
             modelGameObject.name = parent.name + "_Entity";
         }
 
-    #if UNITY_WSA
-        //Anchor the model in the world, prefer anchoring parent if there is one
-        if (parent != null)
-        {
-            parent.gameObject.AddComponent<WorldAnchor>();
-        }
-        else
-        {
-            modelGameObject.AddComponent<WorldAnchor>();
-        }
-    #endif
-
         //Load a model that will be parented to the entity
-        var loadModelParams = new LoadModelOptions($"{storageAccountName}.blob.core.windows.net", blobContainerName, modelPath, modelEntity);
+        var loadModelParams = new LoadModelOptions($"{storageAccountName}.blob.core.windows.net", blobName, modelPath, modelEntity);
         var loadModelAsync = ARRSessionService.CurrentActiveSession.Connection.LoadModelAsync(loadModelParams, progress);
         var result = await loadModelAsync;
         return modelEntity;
@@ -104,7 +92,7 @@ Let's modify **RemoteRenderingCoordinator** to load a custom model, from a linke
 
     For the most part, this code is identical to the original `LoadModel` method, however we've replaced the SAS version of the method calls with the non-SAS versions.
 
-    The additional inputs `storageAccountName` and `blobContainerName` have also been added to the arguments. We'll call this new **LoadModel** method from another method similar to the very first **LoadTestModel** method we created in the first tutorial.
+    The additional inputs `storageAccountName` and `blobName` have also been added to the arguments. We'll call this new **LoadModel** method from another method similar to the very first **LoadTestModel** method we created in the first tutorial.
 
 1. Add the following method to **RemoteRenderingCoordinator** just after **LoadTestModel**
 
@@ -385,9 +373,12 @@ Since the User Credentials aren't stored on the device (or in this case even ent
 
 In the Unity Editor, when AAD Auth is active, you will need to authenticate every time you launch the application. On device, the authentication step will happen the first time and only be required again when the token expires or is invalidated.
 
-1. Add the **AADAuthentication** component to the **RemoteRenderingCoordinator** GameObject.
+1. Add the **AAD Authentication** component to the **RemoteRenderingCoordinator** GameObject.
 
     ![AAD auth component](./media/azure-active-directory-auth-component.png)
+
+> [!NOTE]
+> If you are using the completed project from the [ARR samples repository](https://github.com/Azure/azure-remote-rendering), make sure to enable the **AAD Authentication** component by clicking the checkbox next to its title.
 
 1. Fill in your values for the Client ID and the Tenant ID. These values can be found in your App Registration's Overview Page:
 
@@ -400,7 +391,7 @@ In the Unity Editor, when AAD Auth is active, you will need to authenticate ever
     ![Screenshot that highlights the Application (client) ID and Directory (tenant) ID.](./media/app-overview-data.png)
 
 1. Press Play in the Unity Editor and consent to running a session.
-    Since the **AADAuthentication** component has a view controller, its automatically hooked up to display a prompt after the session authorization modal panel.
+    Since the **AAD Authentication** component has a view controller, its automatically hooked up to display a prompt after the session authorization modal panel.
 1. Follow the instructions found in the panel to the right of the **AppMenu**.
     You should see something similar to this:
     ![Illustration that shows the instruction panel that appears to the right of the AppMenu.](./media/device-flow-instructions.png)

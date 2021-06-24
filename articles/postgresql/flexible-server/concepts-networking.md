@@ -5,7 +5,7 @@ author: niklarin
 ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 04/22/2021
+ms.date: 06/04/2021
 ---
 
 # Networking overview - Azure Database for PostgreSQL - Flexible Server
@@ -41,6 +41,8 @@ The following characteristics apply whether you choose to use the private access
 * The server has a fully qualified domain name (fqdn). For the hostname property in connection strings, we recommend using the fqdn instead of an IP address.
 * Both options control access at the server-level, not at the database- or table-level. You would use PostgreSQL’s roles properties to control database, table, and other object access.
 
+>[!NOTE]
+> Since Azure Database for PostgreSQL is a managed database service, users are not provided host or OS access to view or modify configuration files such as `pg_hba.conf`. The content of the file is automatically updated based on the network settings.
 
 ## Private access (VNet integration)
 Private access with virtual network (vnet) integration provides private and secure communication for your PostgreSQL flexible server.
@@ -65,29 +67,33 @@ Here are some concepts to be familiar with when using virtual networks with Post
 
    Your PostgreSQL flexible server must be in a subnet that is **delegated** for PostgreSQL flexible server use only. This delegation means that only Azure Database for PostgreSQL Flexible Servers can use that subnet. No other Azure resource types can be in the delegated subnet. You delegate a subnet by assigning its delegation property as Microsoft.DBforPostgreSQL/flexibleServers.
 
+   > [!IMPORTANT]
+   > The names including `AzureFirewallSubnet`, `AzureFirewallManagementSubnet`, `AzureBastionSubnet` and `GatewaySubnet` are reserved names within Azure. Please do not use these as your subnet name.
+
 * **Network security groups (NSG)** - 
    Security rules in network security groups enable you to filter the type of network traffic that can flow in and out of virtual network subnets and network interfaces. See [network security group overview](../../virtual-network/network-security-groups-overview.md) documentation for more information.
 
 * **Private DNS zone integration** - 
-   Azure private DNS zone integration allows you to resolve the private DNS within the current VNET or any in-region peered VNET where the private DNS Zone is linked. See [private DNS zone documentation](https://docs.microsoft.com/azure/dns/private-dns-overview) for more details.
+   Azure private DNS zone integration allows you to resolve the private DNS within the current VNET or any in-region peered VNET where the private DNS Zone is linked. See [private DNS zone documentation](../../dns/private-dns-overview.md) for more details.
 
 Learn how to create a flexible server with private access (VNet integration) in [the Azure portal](how-to-manage-virtual-network-portal.md) or [the Azure CLI](how-to-manage-virtual-network-cli.md).
 
 ### Integration with custom DNS server
 
-If you are using the custom DNS server then you must use a DNS forwarder to resolve the FQDN of Azure Database for PostgreSQL - Flexible Server. The forwarder IP address should be [168.63.129.16](https://docs.microsoft.com/azure/virtual-network/what-is-ip-address-168-63-129-16) and the custom DNS server should be inside the VNet. Refer to [name resolution that uses your own DNS server](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) to learn more.
+If you are using the custom DNS server then you must use a DNS forwarder to resolve the FQDN of Azure Database for PostgreSQL - Flexible Server. The forwarder IP address should be [168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md). The custom DNS server should be inside the VNet or reachable via the VNET's DNS Server setting. Refer to [name resolution that uses your own DNS server](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) to learn more.
 
 ### Private DNS zone and VNET peering
 
 Private DNS zone settings and VNET peering are independent of each other.
 
-* By default, a new private DNS zone is auto-provisioned per server using the server name provided. However, if you want to setup your own private DNS zone to use with the flexible server, please see the [private DNS overview](https://docs.microsoft.com/azure/dns/private-dns-overview) documentation.
-* If you want to connect to the flexible server from a client that is provisioned in another VNET, you have to link the private DNS zone with the VNET. See [how to link the virtual network](https://docs.microsoft.com/azure/dns/private-dns-getstarted-portal#link-the-virtual-network) documentation.
+* By default, a new private DNS zone is auto-provisioned per server using the server name provided. However, if you want to setup your own private DNS zone to use with the flexible server, please see the [private DNS overview](../../dns/private-dns-overview.md) documentation.
+* If you want to connect to the flexible server from a client that is provisioned in another VNET, you have to link the private DNS zone with the VNET. See [how to link the virtual network](../../dns/private-dns-getstarted-portal.md#link-the-virtual-network) documentation.
 
 > [!NOTE]
-> Private DNS zone names that end with `private.postgres.database.azure.com` can only be linked.
+> Private DNS zone names that end with `postgres.database.azure.com` can only be linked.
 
 ### Unsupported virtual network scenarios
+
 * Public endpoint (or public IP or DNS) - A flexible server deployed to a virtual network cannot have a public endpoint
 * After the flexible server is deployed to a virtual network and subnet, you cannot move it to another virtual network or subnet. You cannot move the virtual network into another resource group or subscription.
 * Subnet size (address spaces) cannot be increased once resources exist in the subnet
@@ -95,6 +101,7 @@ Private DNS zone settings and VNET peering are independent of each other.
 
 
 ## Public access (allowed IP addresses)
+
 Characteristics of the public access method include:
 * Only the IP addresses you allow have permission to access your PostgreSQL flexible server. By default no IP addresses are allowed. You can add IP addresses during server creation or afterwards.
 * Your PostgreSQL server has a publicly resolvable DNS name

@@ -7,9 +7,10 @@ author: tamram
 ms.author: tamram
 ms.devlang: dotnet
 ms.topic: overview
-ms.date: 01/07/2021
+ms.date: 05/27/2021
 ms.subservice: tables
 ---
+
 # What is Azure Table storage ? 
 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../../includes/storage-table-cosmos-db-tip-include.md)]

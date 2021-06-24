@@ -47,7 +47,7 @@ The appliance has the following services:
 - **SQL discovery and assessment agent**: sends the configuration and performance metadata of SQL Server instances and databases to Azure.
 
 > [!Note]
-> The last 3 services are only available in the appliance used for discovery and assessment of servers running in your VMware environment.<br/> Discovery and assessment of SQL Server instances and databases running in your VMware environment is now in preview. To try out this feature, use [**this link**](https://aka.ms/AzureMigrate/SQL) to create a project in **Australia East** region. If you already have a project in Australia East and want to try out this feature, please ensure that you have completed these [**prerequisites**](how-to-discover-sql-existing-project.md) on the portal.
+> The last 3 services are only available in the appliance used for discovery and assessment of servers running in your VMware environment.
 
 ## Discovery and collection process
 

@@ -73,7 +73,7 @@ If you use any existing EA APIs, you need to update them to support MCA billing 
 
 | Purpose | Old offering | New offering |
 | --- | --- | --- |
-| Cloudyn | [Cloudyn.com](https://www.cloudyn.com) | [Azure Cost Management](https://azure.microsoft.com/services/cost-management/) |
+| Cloudyn | Cloudyn | [Azure Cost Management](https://azure.microsoft.com/services/cost-management/) |
 | Power BI | [Microsoft Consumption Insights](/power-bi/desktop-connect-azure-consumption-insights) content pack and connector |  [Azure Consumption Insights connector](/power-bi/desktop-connect-azure-consumption-insights) |
 
 ## APIs to get balance and credits
@@ -514,7 +514,7 @@ To get reservation summaries with the Reservation Summaries API:
 
 ## Move from Cloudyn to Cost Management
 
-Organizations using [Cloudyn](https://cloudyn.com) should start using [Azure Cost Management](https://azure.microsoft.com/services/cost-management/) for any cost management needs. Cost Management is available in the Azure portal with no onboarding and an eight-hour latency. For more information, see the [Cost Management documentation](../index.yml).
+Organizations using Cloudyn should start using [Azure Cost Management](https://azure.microsoft.com/services/cost-management/) for any cost management needs. Cost Management is available in the Azure portal with no onboarding and an eight-hour latency. For more information, see the [Cost Management documentation](../index.yml).
 
 With Azure Cost Management, you can:
 

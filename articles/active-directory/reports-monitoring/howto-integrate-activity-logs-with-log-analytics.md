@@ -4,7 +4,7 @@ description: Learn how to integrate Azure Active Directory logs with Azure Monit
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: daveba
+manager: mtillman
 editor: ''
 
 ms.assetid: 2c3db9a8-50fa-475a-97d8-f31082af6593
@@ -14,9 +14,9 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/18/2019
+ms.date: 06/11/2021
 ms.author: markvi
-ms.reviewer: dhanyahk
+ms.reviewer: besiler
 
 ms.collection: M365-identity-device-management
 ---
@@ -60,7 +60,12 @@ To use this feature, you need:
 
 ## Licensing requirements
 
-Using this feature requires an Azure AD Premium P1 or P2 license. To find the right license for your requirements, see [Comparing generally available features of the Free, Basic, and Premium editions](https://azure.microsoft.com/pricing/details/active-directory/).
+Using this feature requires an Azure AD Premium P1 or P2 tenant. 
+You can find the license type of your tenant on the **[Overview](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)** page in **Azure Active Directory**.
+
+![Tenant information](./media/howto-integrate-activity-logs-with-log-analytics/tenant-information.png)
+ 
+If you want to know for how long the activity data is stored in a Premium tenant, see: [How long does Azure AD store the data?](reference-reports-data-retention.md#how-long-does-azure-ad-store-the-data)
 
 ## Send logs to Azure Monitor
 

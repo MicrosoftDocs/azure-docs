@@ -36,7 +36,7 @@ Version 9 of the Azure Search .NET SDK targets 2019-05-06 version of Azure Searc
 * [AI enrichment](cognitive-search-concept-intro.md) is the ability to extract text from images, blobs, and other unstructured data sources - enriching the content to make it more searchable in an Azure Search index.
 * Support for [complex types](search-howto-complex-data-types.md) allows you to model almost any nested JSON structure in an Azure Search index.
 * [Autocomplete](search-add-autocomplete-suggestions.md) provides an alternative to the **Suggest** API for implementing search-as-you-type behavior. Autocomplete "finishes" the word or phrase that a user is currently typing.
-* [JsonLines parsing mode](search-howto-index-json-blobs.md), part of Azure Blob indexing, creates one search document per JSON entity that is separated by a newline.
+* [JsonLines parsing mode](search-howto-index-json-blobs.md), part of blob indexing, creates one search document per JSON entity that is separated by a newline.
 
 ### New preview features in version 8.0-preview
 Version 8.0-preview of the Azure Search .NET SDK targets API version 2017-11-11-Preview. This version includes all the same features of version 9, plus:

@@ -6,7 +6,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 01/19/2021
+ms.date: 06/14/2021
 ms.author: victorh
 ms.custom: mvc, devx-track-js, devx-track-azurecli
 ---
@@ -16,6 +16,9 @@ ms.custom: mvc, devx-track-js, devx-track-azurecli
 In this quickstart, you use Azure CLI to create an application gateway. Then you test it to make sure it works correctly. 
 
 The application gateway directs application web traffic to specific resources in a backend pool. You assign listeners to ports, create rules, and add resources to a backend pool. For the sake of simplicity, this article uses a simple setup with a public front-end IP address, a basic listener to host a single site on the application gateway, a basic request routing rule, and two virtual machines in the backend pool.
+
+:::image type="content" source="media/quick-create-portal/application-gateway-qs-resources.png" alt-text="application gateway resources":::
+
 
 You can also complete this quickstart using [Azure PowerShell](quick-create-powershell.md) or the [Azure portal](quick-create-portal.md).
 
@@ -46,14 +49,14 @@ az network vnet create \
   --name myVNet \
   --resource-group myResourceGroupAG \
   --location eastus \
-  --address-prefix 10.0.0.0/16 \
+  --address-prefix 10.21.0.0/16 \
   --subnet-name myAGSubnet \
-  --subnet-prefix 10.0.1.0/24
+  --subnet-prefix 10.21.0.0/24
 az network vnet subnet create \
   --name myBackendSubnet \
   --resource-group myResourceGroupAG \
   --vnet-name myVNet   \
-  --address-prefix 10.0.2.0/24
+  --address-prefix 10.21.1.0/24
 az network public-ip create \
   --resource-group myResourceGroupAG \
   --name myAGPublicIPAddress \

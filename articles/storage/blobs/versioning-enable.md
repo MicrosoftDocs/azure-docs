@@ -7,10 +7,10 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/09/2021
+ms.date: 06/07/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-azurepowershell
 ---
 
 # Enable and manage blob versioning

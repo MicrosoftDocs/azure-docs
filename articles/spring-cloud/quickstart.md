@@ -207,9 +207,9 @@ The following procedure creates an instance of Azure Spring Cloud using the Azur
 
    ![ASC icon start](media/spring-cloud-quickstart-launch-app-portal/find-spring-cloud-start.png)
 
-1. On the Azure Spring Cloud page, select **+ Add**.
+1. On the Azure Spring Cloud page, select **+ Create**.
 
-   ![ASC icon add](media/spring-cloud-quickstart-launch-app-portal/spring-cloud-add.png)
+   ![ASC icon add](media/spring-cloud-quickstart-launch-app-portal/spring-cloud-create.png)
 
 1. Fill out the form on the Azure Spring Cloud **Create** page.  Consider the following guidelines:
 
@@ -221,6 +221,8 @@ The following procedure creates an instance of Azure Spring Cloud using the Azur
    ![ASC portal start](media/spring-cloud-quickstart-launch-app-portal/portal-start.png)
 
 6. Select **Review and create**.
+
+7. Select **Create**.
 
 ## Build and deploy the app
 
@@ -409,7 +411,7 @@ The following procedure builds and deploys the application using the Azure CLI. 
     az extension add --name spring-cloud
     ```
     
-1. Create the app with public endpoint assigned. If you are using Java 11, include the `--runtime-version=Java_11` switch.
+1. Create the app with public endpoint assigned. If you selected Java version 11 when generating the Spring Cloud project, include the --runtime-version=Java_11 switch.
 
     ```azurecli
     az spring-cloud app create -n hellospring -s <service instance name> -g <resource group name> --assign-endpoint true

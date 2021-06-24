@@ -74,7 +74,7 @@ Custom script extensions are available for the VMs on your device that help conf
 
 For more information, see [Deploy Custom Script Extension on VMs running on your device](azure-stack-edge-gpu-deploy-virtual-machine-custom-script-extension.md)
 
-You can also use GPU extensions for your VM when you want to install GPU drivers when the GPU VMs are provisioned. For more information, see [Create GPU VMs](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md#create-gpu-vms) and [Install GPU extensions](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md#install-gpu-extension).
+You can also use GPU extensions for your VM if you want to install GPU drivers when the GPU VMs are provisioned. For more information, see [Create GPU VMs](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md#create-gpu-vms) and [Install GPU extensions](azure-stack-edge-gpu-deploy-virtual-machine-install-gpu-extension.md).
 
 ## Create a VM
 

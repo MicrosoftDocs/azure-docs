@@ -71,6 +71,8 @@
       href: create-single-tenant-workflows-azure-portal.md
     - name: Create single-tenant workflows - Visual Studio Code
       href: create-single-tenant-workflows-visual-studio-code.md
+    - name: Edit host and app settings for logic apps in single-tenant
+      href: edit-app-settings-host-settings.md
     - name: Create parameters for single-tenant workflows
       href: parameterize-workflow-app.md
     - name: DevOps deployment for single-tenant
@@ -81,6 +83,12 @@
       href: secure-single-tenant-workflow-virtual-network-private-endpoint.md
     - name: Estimate storage costs for single-tenant workflows
       href: estimate-storage-costs.md
+  - name: Azure Arc enabled Logic Apps
+    items:
+    - name: About Azure Arc enabled Logic Apps
+      href: azure-arc-enabled-logic-apps-overview.md
+    - name: Create and deploy Arc enabled logic apps
+      href: azure-arc-enabled-logic-apps-create-deploy-workflows.md
   - name: Develop
     items:
     - name: Create from prebuilt templates
@@ -199,8 +207,8 @@
         href: logic-apps-enterprise-integration-edifact-decode.md
       - name: Handle EDIFACT files with UNH2.5 segment
         href: logic-apps-enterprise-integration-edifact_inputfile_unh2.5.md
-      - name: Exchange RosettaNet messages
-        href: logic-apps-enterprise-integration-rosettanet.md
+    - name: Exchange RosettaNet messages
+      href: logic-apps-enterprise-integration-rosettanet.md
     - name: Exchange X12 messages
       href: logic-apps-enterprise-integration-x12.md
       items: 
@@ -324,8 +332,6 @@
       href: logic-apps-enterprise-integration-transform.md
     - name: Twilio
       href: ../connectors/connectors-create-api-twilio.md
-    - name: Wunderlist
-      href: ../connectors/connectors-create-api-wunderlist.md
     - name: X12
       href: logic-apps-enterprise-integration-x12.md
     - name: XML Validation

@@ -89,7 +89,7 @@ Path rules are case insensitive.
 |`/Repos/*/Comments/*`     |no|
 |`/CurrentUser/Comments/*`     |yes|
 
-You can check out a [Resource Manager template using URL-based routing](https://azure.microsoft.com/documentation/templates/201-application-gateway-url-path-based-routing) for more information.
+You can check out a [Resource Manager template using URL-based routing](https://azure.microsoft.com/resources/templates/application-gateway-url-path-based-routing) for more information.
 
 ## PathBasedRouting rule
 

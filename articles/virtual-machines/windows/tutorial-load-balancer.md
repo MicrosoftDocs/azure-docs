@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.workload: infrastructure
 ms.date: 12/03/2018
 ms.author: cynthn
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurepowershell
 
 #Customer intent: As an IT administrator, I want to learn how to load balance virtual machines in Azure so that I can deploy a redundant application with traffic automatically distributed to available VMs.
 ---
