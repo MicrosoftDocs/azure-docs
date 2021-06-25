@@ -110,7 +110,7 @@ Choose technical characteristics:
 Select migration method and migrate where you migrate your databases using offline migration (native backup/restore, database import/export) or online migration (Azure Data Migration Service, transactional replication). Monitor applications to ensure that you have expected performance.
 
 > [!NOTE]
-> To migrate an individual database into either a single database or an elastic pool, see [Migrate a SQL Server database to Azure SQL Database](../database/migrate-to-database-from-sql-server.md).
+> To migrate an individual database into either a single database or an elastic pool, see [Migrate a SQL Server database to Azure SQL Database](../../database/migrate-to-database-from-sql-server.md).
 
 - Based on the baseline CPU usage, you can provision a managed instance that matches the number 
 of cores that you are using on SQL Server, having in mind that CPU characteristics might need to 
@@ -146,7 +146,7 @@ credentials, SQL Agent jobs and operators, and server-level triggers.
 SQL Managed Instance is a managed service that allows you to delegate some of the regular DBA 
 activities to the platform as they are built in. Therefore, some instance-level data does not 
 need to be migrated, such as maintenance jobs for regular backups or Always On configuration, as 
-[high availability](../database/high-availability-sla.md) is built in.
+[high availability](../../database/high-availability-sla.md) is built in.
 
 SQL Managed Instance supports the following database migration options (currently these are the 
 only supported migration methods):
@@ -220,7 +220,7 @@ The following diagram provides a high-level overview of the process:
 
 ![Diagram shows SQL Server with an arrow labeled BACKUP / Upload to URL flowing to Azure Storage 
 and a second arrow labeled RESTORE from URL flowing from Azure Storage to a Managed Instance of 
-SQL.](./media/migrate-to-instance-from-sql-server/migration-flow.png)
+SQL.](../../database/media/migrate-to-instance-from-sql-server/migration-flow.png)
 
 The following table provides more information regarding the methods you can use depending on 
 source SQL Server version you are running:
