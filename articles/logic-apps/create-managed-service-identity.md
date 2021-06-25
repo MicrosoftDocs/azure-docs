@@ -25,11 +25,11 @@ This article shows how to set up both kinds of managed identities for your logic
 
 Azure Logic Apps supports both [*system-assigned* managed identities](../active-directory/managed-identities-azure-resources/overview.md) and [*user-assigned* managed identities](../active-directory/managed-identities-azure-resources/overview.md), which you can share across a group of logic apps, based on where your logic app workflows run:
 
-* A multi-tenant or consumption based logic app supports both the system-assigned identity and a *single* user-assigned identity. However, at the logic app level or the connection level, you can use only one managed identity type because you can't enable both at the same time.
+* A multi-tenant (Consumption plan) based logic app supports both the system-assigned identity and a *single* user-assigned identity. However, at the logic app level or the connection level, you can use only one managed identity type because you can't enable both at the same time.
 
-  A single-tenant or standard based logic app currently supports only the system-assigned identity.
+  A single-tenant (Standard plan) based logic app currently supports only the system-assigned identity.
 
-  For more information about multi-tenant versus single-tenant, review the documentation, [Single-tenant versus multi-tenant and integration service environment](single-tenant-overview-compare.md).
+  For more information about multi-tenant (Consumption plan) and single-tenant (Standard plan), review the documentation, [Single-tenant versus multi-tenant and integration service environment](single-tenant-overview-compare.md).
 
 <a name="built-in-managed-identity"></a>
 <a name="managed-connectors-managed-identity"></a>
@@ -81,7 +81,7 @@ Unlike user-assigned identities, you don't have to manually create the system-as
    > [!NOTE]
    > If you get an error that you can have only a single managed identity, your logic app is already 
    > associated with the user-assigned identity. Before you can add the system-assigned identity, 
-   > you must first *remove* the user-assigned identity from your logic app.
+   > you have to first *remove* the user-assigned identity from your logic app.
 
    Your logic app can now use the system-assigned identity, which is registered with Azure AD and is represented by an object ID.
 
@@ -143,7 +143,7 @@ When Azure creates your logic app resource definition, the `identity` object get
 
 ### Enable user-assigned identity
 
-To set up a user-assigned managed identity for your logic app, you must first create that identity as a separate standalone Azure resource. Here are the options that you can use:
+To set up a user-assigned managed identity for your logic app, you have to first create that identity as a separate standalone Azure resource. Here are the options that you can use:
 
 * [Azure portal](#azure-portal-user-identity)
 * [ARM template](#template-user-identity)
@@ -196,7 +196,7 @@ To set up a user-assigned managed identity for your logic app, you must first cr
    > [!NOTE]
    > If you get an error that you can have only a single managed identity, your logic app is already 
    > associated with the system-assigned identity. Before you can add the user-assigned identity, 
-   > you must first disable the system-assigned identity on your logic app.
+   > you have to first disable the system-assigned identity on your logic app.
 
    Your logic app is now associated with the user-assigned managed identity.
 
@@ -476,7 +476,7 @@ The Azure Resource Manager action, **Read a resource**, can use the managed iden
 
    If the managed identity isn't enabled, the following error appears when you try to create the connection:
 
-   *You must enable managed identity for your logic app and then grant required access to the identity in the target resource.*
+   *You have to enable the managed identity for your logic app and then grant required access to the identity in the target resource.*
 
    ![Screenshot that shows Azure Resource Manager action with error when no managed identity is enabled.](./media/create-managed-service-identity/system-assigned-managed-identity-disabled.png)
 
