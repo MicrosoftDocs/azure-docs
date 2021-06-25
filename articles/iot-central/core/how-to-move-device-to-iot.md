@@ -1,8 +1,8 @@
 ---
 title: How to move a device to Azure IoT Central from IoT Hub
 description: How to move device to Azure IoT Central from IoT Hub
-author: philmea
-ms.author: philmea
+author: dominicbetts
+ms.author: dobett
 ms.date: 02/20/2021 
 ms.topic: how-to
 ms.service: iot-central
@@ -25,7 +25,7 @@ To connect a device to IoT Central from the IoT Hub a device needs to be updated
 * The [Scope ID](../../iot-dps/concepts-service.md) of the IoT Central application.
 * A key derived either from the [group SAS](concepts-get-connected.md) key or [the X.509 cert](../../iot-hub/iot-hub-x509ca-overview.md)
 
-To interact with IoT Central, there must be a device template that models the properties/telemetry/commands that the device implements. For more information, see [Get connected to IoT Central](concepts-get-connected.md) and [What are device templates?](concepts-device-templates.md)
+To interact with IoT Central, there must be a device template that models the properties/telemetry/commands that the device implements. For more information, see [Get connected to IoT Central](concepts-get-connected.md) and [What are device templates?](concepts-device-templates.md).
 
 ## Next steps
 
