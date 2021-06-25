@@ -1,7 +1,7 @@
 ---
 title: Enable VM extension from Azure portal
 description: This article describes how to deploy virtual machine extensions to Azure Arc enabled servers running in hybrid cloud environments from the Azure portal.
-ms.date: 06/21/2021
+ms.date: 06/25/2021
 ms.topic: conceptual
 ---
 
@@ -71,12 +71,13 @@ You can update one or select multiple extensions eligible for an update from the
 
 You can update one extension by one of three ways:
 
-1. By selecting an extension from the list of installed extensions, and under the properties of the extension, select the **Update** option.
+* By selecting an extension from the list of installed extensions, and under the properties of the extension, select the **Update** option.
 
     :::image type="content" source="media/manage-vm-extensions-portal/vm-extensions-update-from-extension.png" alt-text="Update extension from selected extension." border="true":::
 
-1. By selecting the extension from the list of installed extensions, and select the **Update** option from the top of the page.
-1. By selecting one or more extensions that are eligible for an update from the list of installed extensions, and then select the **Update** option.
+* By selecting the extension from the list of installed extensions, and select the **Update** option from the top of the page.
+
+* By selecting one or more extensions that are eligible for an update from the list of installed extensions, and then select the **Update** option.
 
     :::image type="content" source="media/manage-vm-extensions-portal/vm-extensions-update-selected.png" alt-text="Update selected extension." border="true":::
 
