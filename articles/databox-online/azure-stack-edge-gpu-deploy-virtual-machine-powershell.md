@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 06/24/2021
+ms.date: 06/25/2021
 ms.author: alkohli
 ms.custom: devx-track-azurepowershell
 #Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge Pro device. I want to use APIs so that I can efficiently manage my VMs.
@@ -21,9 +21,18 @@ This article describes how to create and manage a virtual machine (VM) on your A
 
 ## VM deployment workflow
 
-The deployment workflow is displayed in the following diagram:
+The high-level deployment workflow of the VM deployment is as follows:
 
-![Diagram of the VM deployment workflow.](media/azure-stack-edge-gpu-deploy-virtual-machine-powershell/vm-workflow-r.svg)
+1. Connect to the local Azure Resource Manager of your device.
+1. Identify the built-in subscription on the device.
+1. Bring your VM image.
+1. Create a resource group in the built-in subscription. The resource group will contain the VM and all the related resources.
+1. Create a local storage account on the device to store the VHD that will be used to create a VM image.
+1. Upload a Windows/Linux source image into the storage account to create a managed disk.
+1. Use the managed disk to create a VM image.
+1. Enable compute on a device port to create a virtual switch.
+1. This creates a virtual network using the virtual switch attached to the port on which you enabled compute.
+1. Create a VM using the previously created VM image, virtual network, and virtual network interface(s) to communicate within the virtual network and assign a public IP address to remotely access the VM. Optionally include data disks to provide more storage for your VM.
 
 ## Prerequisites
 
@@ -1020,6 +1029,8 @@ Get-AzVM -ResourceGroupName <String> -Name <String>
 ```powershell
 Get-AzureRmVM -ResourceGroupName <String> -Name <String>
 ```
+
+For more information about this cmdlet, see [List VMs](/powershell/module/az.compute/get-azvm?view=azps-6.1.0).
 ---
 
 ### Turn on the VM
