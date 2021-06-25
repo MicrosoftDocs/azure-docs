@@ -16,7 +16,7 @@ ms.author: lajanuar
 > [!IMPORTANT]
 > Azure role-based access control (Azure RBAC) assignment is currently in preview and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. You will use Azure RBAC assignments to grant permissions for managed identities.
 
- If you have a private Azure storage account protected by a Virtual Network (VNet) or firewall or you have enabled a bring your own storage (BYOS) account, Form Recognizer, cannot directly access your storage account data.Private Azure storage account access and authentication is supported by [Managed Identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview). Once managed identities is enabled, Form Recognizer service can access your storage account using an assigned managed identity credential. In this article, you'll learn to enable a system-assigned managed identity and create a user-assigned managed identity for your Form Recognizer instance.
+ If you have a private Azure storage account protected by a Virtual Network (VNet) or firewall or you have enabled a bring your own storage (BYOS) account, Form Recognizer, cannot directly access your storage account data. Private Azure storage account access and authentication is supported by [Managed Identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview). Once managed identities is enabled, Form Recognizer service can access your storage account using an assigned managed identity credential. In this article, you'll learn to enable a system-assigned managed identity and create a user-assigned managed identity for your Form Recognizer instance.
 
 > [!NOTE]
 >
