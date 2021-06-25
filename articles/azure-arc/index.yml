@@ -66,27 +66,26 @@ conceptualContent:
           itemType: overview
           text: Enable Arc-enabled SQL Server (preview)
       # footerLink (optional)
-        - footerLink:
-          url: ./servers/index.yml
-          text: See more
+      footerLink:
+        url: ./servers/index.yml
+        text: See more
     # Card
     - title: Azure Arc-enabled Kubernetes
       links:
-        - url: ./kubernetes/use-gitops-with-helm.md
-          itemType: deploy
-          text: Deploy Helm charts using GitOps
-        - url: ./kubernetes/use-azure-policy.md
-          itemType: how-to-guide
-          text: Enforce GitOps using Azure Policy
+        - url: ./kubernetes/quickstart-connect-cluster.md
+          itemType: quickstart
+          text: Connect a cluster to Azure Arc
         - url: ../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md
           itemType: tutorial
           text: Monitor using Azure Monitor for containers
-        - url: ./kubernetes/tutorial-arc-enabled-open-service-mesh.md
+        - url: ./kubernetes/use-azure-policy.md
           itemType: how-to-guide
+          text: Enforce GitOps using Azure Policy
           text: Azure Arc-enabled Open Service Mesh (Preview)
-        - url: ./kubernetes/index.yml
-          itemType: get-started
-          text: See more...
+      # footerLink (optional)
+      footerLink:
+        url: ./kubernetes/index.yml
+        text: See more
     # Card
     - title: Azure Arc-enabled data services (preview)
       links:
