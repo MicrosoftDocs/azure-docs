@@ -442,6 +442,7 @@ The following steps describe how this topology works:
 
     The query from On-premises DNS Server to DNS Server in step 7 ultimately returns the IP addresses associated with the Private Endpoint to the Azure Machine Learning workspace. These IP addresses are returned to the original client, which will now communicate with the Azure Machine Learning workspace over the Private Endpoint configured in step 1.
 
+<a id='hosts'></a>
 ## Example: Hosts file
 
 The `hosts` file is a text document that Linux, macOS, and Windows all use to override name resolution for the local computer. The file contains a list of IP addresses and the corresponding host name. When the local computer tries to resolve a host name, if the host name is listed in the `hosts` file, the name is resolved to the corresponding IP address.
