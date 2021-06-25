@@ -152,7 +152,7 @@ This section describes common AD FS customizations.
 
 AD FS issues the **InsideCorporateNetwork** claim if the user who is authenticating is inside the corporate network. This claim can then be passed on to Azure AD. The claim is used to bypass multi-factor authentication based on the user's network location. To learn how to determine whether this functionality currently is enabled in AD FS, see [Trusted IPs for federated users](../authentication/howto-mfa-adfs.md).
 
-The **InsideCorporateNetwork** claim isn't available after your domains are converted to password hash synchronization. You can use [named locations in Azure AD](../reports-monitoring/quickstart-configure-named-locations.md) to replace this functionality.
+The **InsideCorporateNetwork** claim isn't available after your domains are converted to password hash synchronization. You can use [named locations in Azure AD](../conditional-access/location-condition.md) to replace this functionality.
 
 After you configure named locations, you must update all Conditional Access policies that were configured to either include or exclude the network **All trusted locations** or **MFA Trusted IPs** values to reflect the new named locations.
 

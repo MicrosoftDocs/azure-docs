@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 01/21/2021
+ms.date: 06/10/2021
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: "user-help, seo-update-azuread-jan"

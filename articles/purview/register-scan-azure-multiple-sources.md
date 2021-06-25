@@ -75,7 +75,7 @@ To register new multiple sources in your data catalog, do the following:
 
 To create and run a new scan, do the following:
 
-1. Go to the **Sources** section.
+1. Select the **Data Map** tab on the left pane in the Purview Studio.
 1. Select the data source that you registered.
 1. Select **View details** > **+ New scan**, or use the **Scan** quick-action icon on the source tile.
 1. For **Name**, fill in the name.

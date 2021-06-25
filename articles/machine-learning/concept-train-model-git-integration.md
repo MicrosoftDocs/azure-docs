@@ -147,7 +147,7 @@ If your training files are not located in a git repository on your development e
 
 ## View the logged information
 
-The git information is stored in the properties for a training run. You can view this information using the Azure portal, Python SDK, and CLI. 
+The git information is stored in the properties for a training run. You can view this information using the Azure portal, Python SDK, and Azure CLI. 
 
 ### Azure portal
 
@@ -183,7 +183,7 @@ After submitting a training run, a [Run](/python/api/azureml-core/azureml.core.r
 run.properties['azureml.git.commit']
 ```
 
-### CLI
+### Azure CLI
 
 The `az ml run` CLI command can be used to retrieve the properties from a run. For example, the following command returns the properties for the last run in the experiment named `train-on-amlcompute`:
 
@@ -191,7 +191,7 @@ The `az ml run` CLI command can be used to retrieve the properties from a run. F
 az ml run list -e train-on-amlcompute --last 1 -w myworkspace -g myresourcegroup --query '[].properties'
 ```
 
-For more information, see the [az ml run](/cli/azure/ml/run) reference documentation.
+For more information, see the [az ml run](/cli/azure/ml(v1)/run) reference documentation.
 
 ## Next steps
 

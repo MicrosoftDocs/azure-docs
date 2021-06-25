@@ -631,7 +631,7 @@ Set the Azure Resource Manager environment and verify that your device to client
             PS C:\Users\Administrator>
             ```
 
----
+If you run into issues with your Azure Resource Manager connections, see [Troubleshoot Azure Resource Manager issues](azure-stack-edge-gpu-troubleshoot-azure-resource-manager.md) for guidance. 
 
 > [!IMPORTANT]
 > The connection to Azure Resource Manager expires every 1.5 hours or if your Azure Stack Edge device restarts. If this happens, any cmdlets that you execute, will return error messages to the effect that you are not connected to Azure anymore. You will need to sign in again.
@@ -800,4 +800,5 @@ You have now switched to the intended environment.
 
 ## Next steps
 
-[Deploy VMs on your Azure Stack Edge device](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md).
+- [Troubleshoot Azure Resource Manager issues](azure-stack-edge-gpu-troubleshoot-azure-resource-manager.md).
+- [Deploy VMs on your Azure Stack Edge Pro device](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md).
