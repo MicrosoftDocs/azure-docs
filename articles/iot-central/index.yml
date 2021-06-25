@@ -54,8 +54,6 @@ landingContent:
             url: core/concepts-telemetry-properties-commands.md
       - linkListType: how-to-guide
         links:
-          - text: Connect an Azure Sphere device
-            url: core/howto-connect-sphere.md
           - text: Troubleshoot device connectivity
             url: core/troubleshoot-connection.md
   - title: Build integrated solutions
@@ -76,8 +74,6 @@ landingContent:
             url: core/howto-create-analytics.md
           - text: Export data to cloud destinations
             url: core/howto-export-data.md
-          - text: Move devices from IoT Hub
-            url: core/how-to-move-device-to-iot.md
       - linkListType: reference
         links:
           - text: REST API
@@ -110,8 +106,6 @@ landingContent:
             url: core/howto-administer.md
           - text: Manage users and roles
             url: core/howto-manage-users-roles.md 
-          - text: View your bill
-            url: core/howto-view-bill.md
           - text: Customize application UI
             url: core/howto-customize-ui.md  
       - linkListType: sample

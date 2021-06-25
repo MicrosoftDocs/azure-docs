@@ -160,14 +160,26 @@ If all DTUs of an elastic pool are used, then each database in the pool receives
 
 ### Database properties for pooled databases
 
-The following table describes the properties for pooled databases.
+For each elastic pool, you can optionally specify per database minimum and maximum DTUs to modify resource consumption patterns within the pool. Specified min and max values apply to all databases in the pool. Customizing min and max DTUs for individual databases in the pool is not supported. 
+
+You can also set maximum storage per database, for example to prevent a database from consuming all pool storage. This setting can be configured independently for each database.
+
+The following table describes per database properties for pooled databases. 
 
 | Property | Description |
 |:--- |:--- |
-| Max eDTUs per database |The maximum number of eDTUs that any database in the pool may use, if available based on utilization by other databases in the pool. Max eDTU per database is not a resource guarantee for a database. This setting is a global setting that applies to all databases in the pool. Set max eDTUs per database high enough to handle peaks in database utilization. Some degree of overcommitting is expected since the pool generally assumes hot and cold usage patterns for databases where all databases are not simultaneously peaking. For example, suppose the peak utilization per database is 20 eDTUs and only 20% of the 100 databases in the pool are peak at the same time. If the eDTU max per database is set to 20 eDTUs, then it is reasonable to overcommit the pool by 5 times, and set the eDTUs per pool to 400. |
-| Min eDTUs per database |The minimum number of eDTUs that any database in the pool is guaranteed. This setting is a global setting that applies to all databases in the pool. The min eDTU per database may be set to 0, and is also the default value. This property is set to anywhere between 0 and the average eDTU utilization per database. The product of the number of databases in the pool and the min eDTUs per database cannot exceed the eDTUs per pool. For example, if a pool has 20 databases and the eDTU min per database set to 10 eDTUs, then the eDTUs per pool must be at least as large as 200 eDTUs. |
-| Max storage per database |The maximum database size set by the user for a database in a pool. However, pooled databases share allocated pool storage. Even if the total max storage *per database* is set to be greater than the total available storage *space of the pool*, the total space actually used by all of the databases will not be able to exceed the available pool limit. Max database size refers to the maximum size of the data files and does not include the space used by log files. |
+| Max DTUs per database |The maximum number of DTUs that any database in the pool may use, if available based on utilization by other databases in the pool. Max DTUs per database is not a resource guarantee for a database. If the workload in each database does not need all available pool resources to perform adequately, consider setting max DTUs per database to prevent a single database from monopolizing pool resources. Some degree of over-committing is expected since the pool generally assumes hot and cold usage patterns for databases, where all databases are not simultaneously peaking. |
+| Min DTUs per database |The minimum number of DTUs reserved for any database in the pool. Consider setting a min DTUs per database when you want to guarantee resource availability for each database regardless of resource consumption by other databases in the pool. The min DTUs per database may be set to 0, and is also the default value. This property is set to anywhere between 0 and the average DTUs utilization per database.|
+| Max storage per database |The maximum database size set by the user for a database in a pool. Pooled databases share allocated pool storage, so the size a database can reach is limited to the smaller of remaining pool storage and maximum database size. Maximum database size refers to the maximum size of the data files and does not include the space used by the log file. |
 |||
+
+> [!IMPORTANT]
+> Because resources in an elastic pool are finite, setting min DTUs per database to a value greater than 0 implicitly limits resource utilization by each database. If, at a point in time, most databases in a pool are idle, resources reserved to satisfy the min DTUs guarantee are not available to databases active at that point in time.
+>
+> Additionally, setting min DTUs per database to a value greater than 0 implicitly limits the number of databases that can be added to the pool. For example, if you set the min DTUs to 100 in a 400 DTU pool, it means that you will not be able to add more than 4 databases to the pool, because 100 DTUs are reserved for each database.
+> 
+
+While the per database properties are expressed in DTUs, they also govern consumption of other resource types, such as data IO, log IO, and worker threads. As you adjust min and max per database DTUs values, reservations and limits for all resource types are adjusted proportionally.
 
 ## Next steps
 
