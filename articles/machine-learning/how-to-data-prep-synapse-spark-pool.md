@@ -96,6 +96,8 @@ To begin data preparation with the Apache Spark pool and your custom environment
 
 >[!IMPORTANT]
 > Make sure to [Allow session level packages](../synapse-analytics/spark/apache-spark-manage-python-packages.md#session-scoped-packages-preview) is enabled in the linked Synapse workspace.
+>
+>![get attached compute name](media/how-to-data-prep-synapse-spark-pool/enable-session-level-package.png)
 
 ```python
 %synapse start -c SynapseSparkPoolAlias -e myenv -s AzureMLworkspaceSubscriptionID -r AzureMLworkspaceResourceGroupName -w AzureMLworkspaceName
