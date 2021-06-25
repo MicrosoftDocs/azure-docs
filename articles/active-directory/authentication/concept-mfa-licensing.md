@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/07/2021
+ms.date: 06/24/2021
 
 ms.author: justinha
 author: justinha
@@ -16,7 +16,7 @@ ms.collection: M365-identity-device-management
 ---
 # Features and licenses for Azure AD Multi-Factor Authentication
 
-To protect user accounts in your organization, multi-factor authentication should be used. This feature is especially important for accounts that have privileged access to resources. Basic multi-factor authentication features are available to Microsoft 365 and Azure Active Directory (Azure AD) administrators for no extra cost. If you want to upgrade the features for your admins or extend multi-factor authentication to the rest of your users, you can purchase Azure AD Multi-Factor Authentication in several ways.
+To protect user accounts in your organization, multi-factor authentication should be used. This feature is especially important for accounts that have privileged access to resources. Basic multi-factor authentication features are available to Microsoft 365 and Azure Active Directory (Azure AD) global administrators for no extra cost. If you want to upgrade the features for your admins or extend multi-factor authentication to the rest of your users, you can purchase Azure AD Multi-Factor Authentication in several ways.
 
 > [!IMPORTANT]
 > This article details the different ways that Azure AD Multi-Factor Authentication can be licensed and used. For specific details about pricing and billing, see the [Azure AD Multi-Factor Authentication pricing page](https://azure.microsoft.com/pricing/details/multi-factor-authentication/).

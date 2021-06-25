@@ -39,8 +39,16 @@ landingContent:
             url: https://youtu.be/M4Rf1s0WcWQ?t=19
 
   # Card
-  - title: Index Azure data
+  - title: Index data
     linkLists:
+      - linkListType: overview
+        links:
+          - text: Data source gallery
+            url: search-data-sources-gallery.md
+          - text: Creating indexes
+            url: search-what-is-an-index.md
+          - text: Importing data
+            url: search-what-is-data-import.md
       - linkListType: how-to-guide
         links:
           - text: Index from Azure Blob Storage
@@ -49,13 +57,9 @@ landingContent:
             url: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
           - text: Index from Cosmos DB
             url: search-howto-index-cosmosdb.md
-      - linkListType: tutorial
-        links:
-          - text: Index semi-structured blob data
-            url: search-semi-structured-data.md
 
   # Card
-  - title: 10-minute quickstarts
+  - title: Get started
     linkLists:
       - linkListType: quickstart
         links:
@@ -63,10 +67,34 @@ landingContent:
             url: search-create-service-portal.md
           - text: Create an index
             url: search-get-started-portal.md
-          - text: Create demo app
+          - text: Create a demo app
             url: search-create-app-portal.md
           - text: Extract text from images and app files
             url: cognitive-search-quickstart-blob.md
+            
+  # Card
+  - title: Develop apps
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Add search to web apps
+            url: tutorial-csharp-overview.md
+      - linkListType: how-to-guide
+        links:
+          - text: Develop in .NET
+            url: search-howto-dotnet-sdk.md
+          - text: Call REST APIs in VS Code
+            url: search-get-started-vs-code.md
+          - text: Call REST APIs in Postman
+            url: search-get-started-rest.md
+      - linkListType: reference
+        links:
+          - text: Azure SDK for .NET
+            url: /dotnet/api/overview/azure/search.documents-readme
+          - text: Azure SDK for Python
+            url: /python/api/overview/azure/search-documents-readme
+          - text: REST API Reference
+            url: /rest/api/searchservice/index
 
   # Card
   - title: Enrich with AI
@@ -92,24 +120,6 @@ landingContent:
           - text: Built-in skills
             url: cognitive-search-predefined-skills.md
          
-  # Card
-  - title: Index any data
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Define an index
-            url: search-what-is-an-index.md
-          - text: Import data
-            url: search-what-is-data-import.md
-          - text: Index using Power Query connectors
-            url: search-how-to-index-power-query-data-sources.md
-      - linkListType: reference
-        links:
-          - text: Create Index (REST)
-            url: /rest/api/searchservice/create-index
-          - text: Create Indexer (REST)
-            url: /rest/api/searchservice/create-indexer
-
   # Card
   - title: Query data
     linkLists:

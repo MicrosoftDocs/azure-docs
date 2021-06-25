@@ -3,7 +3,7 @@ title: Request real-time public transit data with Microsoft Azure Maps Mobility 
 description: Learn how to request real-time public transit data, such as arrivals at a transit stop. See how to use the Azure Maps Mobility services (Preview) for this purpose.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 12/07/2020
+ms.date: 06/23/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
@@ -14,9 +14,8 @@ ms.custom: mvc
 # Request real-time public transit data using the Azure Maps Mobility services (Preview) 
 
 > [!IMPORTANT]
-> Azure Maps Mobility services are currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> The Azure Maps Mobility Services Preview has been retired and will no longer be available and supported after October 5, 2021. All other Azure Maps APIs and Services are unaffected by this retirement announcement.
+> For details, see [Azure Maps Mobility Preview Retirement](https://azure.microsoft.com/updates/azure-maps-mobility-services-preview-retirement/).
 
 
 This article shows you how to use Azure Maps [Mobility services](/rest/api/maps/mobility) to request real-time public transit data.
@@ -35,19 +34,15 @@ In order to request real-time arrivals data of a particular public transit stop,
 
 Let's use "522" as our metro ID, which is the metro ID for the  "Seattle–Tacoma–Bellevue, WA" area. Use "522---2060603" as the stop ID, this bus stop is at "Ne 24th St & 162nd Ave Ne, Bellevue WA". To request the next five real-time arrivals data, for all next live arrivals at this stop, complete the following steps:
 
-1. Open the Postman app, and let's create a collection to store the requests. Near the top of the Postman app, select **New**. In the **Create New** window, select **Collection**.  Name the collection and select the **Create** button.
+1. Open the Postman app. Select **New** to create the request. In the **Create New** window, select **HTTP Request**. Enter a **Request name** for the request.
 
-2. To create the request, select **New** again. In the **Create New** window, select **Request**. Enter a **Request name** for the request. Select the collection you created in the previous step, as the location in which to save the request. Then, select **Save**.
-
-    ![Create a request in Postman](./media/how-to-request-transit-data/postman-new.png)
-
-3. Select the **GET** HTTP method on the builder tab and enter the following URL to create a GET request. Replace `{subscription-key}`, with your Azure Maps primary key.
+2. Select the **GET** HTTP method on the builder tab and enter the following URL to create a GET request. Replace `{subscription-key}`, with your Azure Maps primary key.
 
     ```HTTP
     https://atlas.microsoft.com/mobility/realtime/arrivals/json?subscription-key={subscription-key}&api-version=1.0&metroId=522&query=522---2060603&transitType=bus
     ```
 
-4. After a successful request, you'll receive the following response.  Notice that parameter 'scheduleType' defines whether the estimated arrival time is based on real-time or static data.
+3. After a successful request, you'll receive the following response.  Notice that parameter 'scheduleType' defines whether the estimated arrival time is based on real-time or static data.
 
     ```JSON
     {
