@@ -20,7 +20,7 @@ This quickstart shows you how to use an Azure Resource Manager template (ARM tem
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-[![Deploy to Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-vm-simple-linux%2fazuredeploy.json)
+[![Deploy to Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.compute%2fvm-simple-linux%2fazuredeploy.json)
 
 ## Prerequisites
 
@@ -28,9 +28,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-vm-simple-linux/).
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/vm-simple-linux/).
 
-:::code language="json" source="~/quickstart-templates/101-vm-simple-linux/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.compute/vm-simple-linux/azuredeploy.json":::
 
 
 Several resources are defined in the template:
@@ -47,7 +47,7 @@ Several resources are defined in the template:
 
 1. Select the following image to sign in to Azure and open a template. The template creates a key vault and a secret.
 
-    [![Deploy to Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-vm-simple-linux%2fazuredeploy.json)
+    [![Deploy to Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.compute%2fvm-simple-linux%2fazuredeploy.json)
 
 1. Select or enter the following values. Use the default values, when available.
 
@@ -57,7 +57,7 @@ Several resources are defined in the template:
     - **Admin username**: provide a username, such as *azureuser*.
     - **Authentication type**: You can choose between using an SSH key or a password.
     - **Admin Password Or Key** depending on what you choose for authentication type:
-        - If you choose **password**, the password must be at least 12 characters long and meet the [defined complexity requirements](faq.md#what-are-the-password-requirements-when-creating-a-vm).
+        - If you choose **password**, the password must be at least 12 characters long and meet the [defined complexity requirements](faq.yml#what-are-the-password-requirements-when-creating-a-vm-).
         - If you choose **sshPublicKey**, paste in the contents of your public key.
     - **DNS label prefix**: enter a unique identifier to use as part of the DNS label.
     - **Ubuntu OS version**: select which version of Ubuntu you want to run on the VM.
@@ -78,7 +78,7 @@ You can use the Azure portal to check on the VM and other resource that were cre
 
 ## Clean up resources
 
-When no longer needed, delete the resource group, which deletes the VM and all of the resources in the resource group. 
+When no longer needed, delete the resource group, which deletes the VM and all of the resources in the resource group.
 
 1. Select the **Resource group**.
 1. On the page for the resource group, select **Delete**.

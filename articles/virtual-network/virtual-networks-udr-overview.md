@@ -11,7 +11,7 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/26/2021
+ms.date: 04/14/2021
 ms.author: aldomel
 
 ---
@@ -107,7 +107,7 @@ When there is an exact prefix match between a route with an explicit IP prefix a
    3. AzureCloud regional tags (eg. AzureCloud.canadacentral, AzureCloud.eastasia)
    4. The AzureCloud tag </br></br>
 
-To use this feature specify a Service Tag name for the address prefix parameter in route table commands. For example, in Powershell you can create a new route to direct traffic sent to an Azure Storage IP prefix to a virtual appliance by using: </br>
+To use this feature specify a Service Tag name for the address prefix parameter in route table commands. For example, in Powershell you can create a new route to direct traffic sent to an Azure Storage IP prefix to a virtual appliance by using: </br></br>
 
 ```azurepowershell-interactive
 New-AzRouteConfig -Name "StorageRoute" -AddressPrefix "Storage" -NextHopType "VirtualAppliance" -NextHopIpAddress "10.0.100.4"
@@ -119,6 +119,10 @@ The same command for CLI will be: </br>
 az network route-table route create -g MyResourceGroup --route-table-name MyRouteTable -n StorageRoute --address-prefix Storage --next-hop-type VirtualAppliance --next-hop-ip-address 10.0.100.4
 ```
 </br>
+
+#### Known Issues (April 2021)
+
+When BGP routes are present or a Service Endpoint is configured on your subnet, routes may not be evaluated with the correct priority. This feature does not currently work for dual stack (IPv4+IPv6) virtual networks. A fix for these scenarios is currently in progress </br>
 
 
 > [!NOTE] 

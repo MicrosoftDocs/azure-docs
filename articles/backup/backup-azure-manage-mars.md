@@ -3,7 +3,7 @@ title: Manage and monitor MARS Agent backups
 description: Learn how to manage and monitor Microsoft Azure Recovery Services (MARS) Agent backups by using the Azure Backup service.
 ms.reviewer: srinathv
 ms.topic: conceptual
-ms.date: 10/07/2019
+ms.date: 06/08/2021
 ---
 # Manage Microsoft Azure Recovery Services (MARS) Agent backups by using the Azure Backup service
 
@@ -88,9 +88,8 @@ There are two ways to stop protecting Files and Folders backup:
   - You'll be able to restore the backed-up data for unexpired recovery points.
   - If you decide to resume protection, then you can use the *Re-enable backup schedule* option. After that, data will be retained based on the new retention policy.
 - **Stop protection and delete backup data**.
-  - This option will stop all future backup jobs from protecting your data and delete all the recovery points.
-  - You'll receive a delete Backup data alert email with a message *Your data for this Backup item has been deleted. This data will be temporarily available for 14 days, after which it will be permanently deleted* and recommended action *Reprotect the Backup item within 14 days to recover your data.*
-  - To resume protection, reprotect within 14 days from delete operation.
+  - This option will stop all future backup jobs from protecting your data. If the vault security features are not enabled, all recovery points are immediately deleted.<br>If the security features are enabled, the deletion is delayed by 14 days, and you'll receive an alert email with a message *Your data for this Backup item has been deleted. This data will be temporarily available for 14 days, after which it will be permanently deleted* and a recommended action *Reprotect the Backup item within 14 days to recover your data.*<br>In this state, the retention policy continues to apply, and the backup data remains billable. [Learn more](backup-azure-security-feature.md#enable-security-features) on how to enable vault security features.
+  - To resume protection, reprotect the server within 14 days from the delete operation. In this duration, you can also restore the data to an alternate server.
 
 ### Stop protection and retain backup data
 
@@ -190,15 +189,43 @@ We recommend the following configuration for your antivirus software to avoid co
 
 1. **Add Path Exclusions**: To avoid degradation of performance and possible conflicts, exclude the following paths from real-time monitoring by the antivirus software:
     1. `%ProgramFiles%\Microsoft Azure Recovery Services Agent` and subfolders
-    1. **Scratch folder**: If the scratch folder isn't in the standard location, add that to the exclusions as well.  [See here for steps](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible) to determine the scratch folder location.
+    1. **Scratch folder**: If the scratch folder isn't in the standard location, add that to the exclusions as well.  [See here for steps](backup-azure-file-folder-backup-faq.yml#how-to-check-if-scratch-folder-is-valid-and-accessible-) to determine the scratch folder location.
 1. **Add Binary Exclusions**: To avoid degradation of backup and console activities, exclude processes for the following binaries from real-time monitoring by the antivirus software:
     1. `%ProgramFiles%\Microsoft Azure Recovery Services Agent\bin\cbengine.exe`
 
 >[!NOTE]
 >While excluding these paths will be sufficient for most antivirus software, some may still continue to interfere with MARS Agent operations. If you are seeing unexpected failures, uninstall the antivirus software temporarily and monitor to see if the problem goes away. If this resolves the issue, contact your antivirus software vendor for assistance with proper configuration of their product.
 
+## Monitor using Backup Reports
+
+Azure Backup provides a reporting solution that uses Azure Monitor logs and Azure workbooks. To get started, you must have [Backup Reports configured](configure-reports.md) for your vault. Once configured, data begins to flow into the workspace and can be queried using the backup reports.
+
+To monitor backup data usage and daily churn, follow these steps:
+
+1. Navigate to the **Overview** pane of the vault and click **Backup Reports**.
+
+1. In the **Backup Report** blade, under the **Overview** section, select the configured log analytics workspace. 
+
+1. Set the report filter **Backup Solution** to **Azure Backup Agent** to view MARS agent backups only. 
+
+   Set **Subscription Name**, **Vault Location**, and **Vault Name** as applicable.
+ 
+    ![Set the report filter Backup Solution.](./media/backup-azure-manage-mars/set-report-filter-backup-solution.png)
+
+1. To view the usage by billed entity, navigate to the **Usage** tab. 
+
+   The total protected instances billed. and the storage usage data are displayed. You can also see the trend information.
+ 
+    ![View the usage by billed entity.](./media/backup-azure-manage-mars/view-usage-by-billed-entity.png)
+
+1. To view the average backup data added by backup jobs for each volume in the protected server, navigate to the **Jobs** tab. 
+ 
+    ![View the average backup data.](./media/backup-azure-manage-mars/view-average-backup-data.png)
+
+Learn more about [other report tabs](configure-reports.md) and receiving those [reports through email](backup-reports-email.md).
+
 ## Next steps
 
 - For information about supported scenarios and limitations, refer to the [Support Matrix for the MARS Agent](./backup-support-matrix-mars-agent.md).
 - Learn more about [On demand backup policy retention behavior](backup-windows-with-mars-agent.md#set-up-on-demand-backup-policy-retention-behavior).
-- For more frequently asked questions, see the [MARS agent FAQ](backup-azure-file-folder-backup-faq.md).
+- For more frequently asked questions, see the [MARS agent FAQ](backup-azure-file-folder-backup-faq.yml).

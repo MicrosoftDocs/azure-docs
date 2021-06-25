@@ -4,8 +4,9 @@ description: Learn how to configure customer-managed keys for your Azure Cosmos 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 04/01/2021
-ms.author: thweiss
+ms.date: 04/23/2021
+ms.author: thweiss 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Configure customer-managed keys for your Azure Cosmos account with Azure Key Vault
@@ -238,18 +239,29 @@ Because a system-assigned managed identity can only be retrieved after the creat
 
 1. Add a new access policy to your Azure Key Vault account, just as described [above](#add-access-policy), but using the `principalId` you copied at the previous step instead of Azure Cosmos DB's first-party identity.
 
-1. Update your Azure Cosmos DB account to specify that you want to use the system-assigned managed identity when accessing your encryption keys in Azure Key Vault. You can do this by specifying this property in your account's Azure Resource Manager template:
+1. Update your Azure Cosmos DB account to specify that you want to use the system-assigned managed identity when accessing your encryption keys in Azure Key Vault. You can do this:
 
-   ```json
-   {
-       "type": " Microsoft.DocumentDB/databaseAccounts",
-       "properties": {
-           "defaultIdentity": "SystemAssignedIdentity",
-           // ...
-       },
-       // ...
-   }
-   ```
+   - by specifying this property in your account's Azure Resource Manager template:
+
+     ```json
+     {
+         "type": " Microsoft.DocumentDB/databaseAccounts",
+         "properties": {
+             "defaultIdentity": "SystemAssignedIdentity",
+             // ...
+         },
+         // ...
+     }
+     ```
+
+   - by updating your account with the Azure CLI:
+
+     ```azurecli
+     resourceGroupName='myResourceGroup'
+     accountName='mycosmosaccount'
+     
+     az cosmosdb update --resource-group $resourceGroupName --name $accountName --default-identity "SystemAssignedIdentity"
+     ```
 
 1. Optionally, you can then remove the Azure Cosmos DB first-party identity from your Azure Key Vault access policy.
 
@@ -324,7 +336,7 @@ This feature is currently available only for new accounts.
 
 ### Is it possible to use customer-managed keys in conjunction with the Azure Cosmos DB [analytical store](analytical-store-introduction.md)?
 
-Yes, but you must [use your Azure Cosmos DB account's managed identity](#using-managed-identity) in your Azure Key Vault access policy before enabling the analytical store.
+Yes, Azure Synapse Link only supports configuring customer-managed keys using your Azure Cosmos DB account's managed identity. You must [use your Azure Cosmos DB account's managed identity](#using-managed-identity) in your Azure Key Vault access policy before [enabling Azure Synapse Link](configure-synapse-link.md#enable-synapse-link) on your account.
 
 ### Is there a plan to support finer granularity than account-level keys?
 

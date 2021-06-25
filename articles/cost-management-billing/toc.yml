@@ -126,10 +126,12 @@
       href: manage/azure-plan-subscription-transfer-partners.md
     - name: Get started in the Azure EA portal
       href: manage/ea-portal-get-started.md
+    - name: Request Withholding Tax credit - India
+      href: manage/withholding-tax-credit-india.md
   - name: Security
     items:
     - name: Security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/cost-management-security-baseline?toc=/azure/cost-management-billing/toc.json
 - name: How-to guides
   items:
   - name: Configure Cost Management + Billing
@@ -162,9 +164,9 @@
         href: manage/azurestudents-subscription-disabled.md
       - name: Transfer ownership
         href: manage/billing-subscription-transfer.md
-      - name: Request Microsoft Customer Agreement ownership
+      - name: Transfer Microsoft Customer Agreement ownership
         href: manage/mca-request-billing-ownership.md
-      - name: Request Microsoft Partner Agreement ownership
+      - name: Transfer Microsoft Partner Agreement ownership
         href: manage/mpa-request-ownership.md
       - name: Set up and configure AWS integration
         href: costs/aws-integration-set-up-configure.md
@@ -218,7 +220,7 @@
         href: manage/programmatically-create-subscription-microsoft-customer-agreement.md
       - name: Create MPA subscriptions programmatically
         href: manage/programmatically-create-subscription-microsoft-partner-agreement.md
-      - name: Create subscriptions programmatically - preview APIs
+      - name: Create subscriptions programmatically - legacy APIs
         href: manage/programmatically-create-subscription-preview.md
     - name: Manage Enterprise Agreement subscriptions
       items:
@@ -428,6 +430,8 @@
       href: /rest/api/consumption/reservationsdetails
 - name: Resources
   items:
+  - name: FAQ
+    href: cost-management-billing-faq.yml
   - name: Build your skills with Microsoft Learn
     href: /learn/browse/?products=azure-cost-management
   - name: Cost Management feedback forum
@@ -446,8 +450,6 @@
       href: manage/review-enterprise-billing.md
     - name: Review subscription use
       href: manage/review-subscription-billing.md
-    - name: Review resource usage
-      href: manage/review-service-usage-api.md
 - name: Cloudyn
   items:
   - name: Overview

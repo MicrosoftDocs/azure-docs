@@ -4,7 +4,8 @@ description: This article provides an overview of the Hybrid Runbook Worker, whi
 services: automation
 ms.subservice: process-automation
 ms.date: 01/22/2021
-ms.topic: conceptual
+ms.topic: conceptual 
+ms.custom: devx-track-azurepowershell
 ---
 # Hybrid Runbook Worker overview
 
@@ -83,7 +84,7 @@ Azure Automation Hybrid Runbook Worker can be used in Azure Government to suppor
 
 ### Update Management addresses for Hybrid Runbook Worker
 
-In addition to the standard addresses and ports required for the Hybrid Runbook Worker, Update Management has other network configuration requirements described under the [network planning](./update-management/overview.md#ports) section.
+In addition to the standard addresses and ports required for the Hybrid Runbook Worker, Update Management has other network configuration requirements described under the [network planning](./update-management/plan-deployment.md#ports) section.
 
 ## Azure Automation State Configuration on a Hybrid Runbook Worker
 

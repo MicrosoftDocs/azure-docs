@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: tfitzmac
   ms.author: tomfitz
-  ms.date: 03/04/2020
+  ms.date: 06/01/2021
 
 # highlightedContent section (optional)
 # Maximum of 8 items
@@ -29,10 +29,10 @@ highlightedContent:
       itemType: overview
       url: templates/overview.md
     # Card
-    - title: Create your first template
-      itemType: tutorial
-      url: templates/template-tutorial-create-first-template.md
-    
+    - title: What is Bicep?
+      itemType: overview
+      url: bicep/overview.md
+
 # conceptualContent section (optional)
 conceptualContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
@@ -46,7 +46,7 @@ conceptualContent:
         - url: templates/template-tutorial-create-first-template.md
           itemType: tutorial
           text: Beginner tutorial series
-        - url: templates/template-syntax.md
+        - url: ./templates/syntax.md
           itemType: reference
           text: Template syntax
         - url: templates/template-functions.md
@@ -58,12 +58,40 @@ conceptualContent:
         - url: templates/deploy-powershell.md
           itemType: how-to-guide
           text: Deploy
-        - url: templates/template-best-practices.md
+        - url: ./templates/best-practices.md
           itemType: concept
           text: Best practices
       # footerLink (optional)
       footerLink:
         url: templates/index.yml
+        text: See more
+    # Card
+    - title: Deploy Bicep files
+      links:
+        - url: bicep/overview.md
+          itemType: overview
+          text: Overview
+        - url: /learn/modules/deploy-azure-resources-by-using-bicep-templates
+          itemType: learn
+          text: Deploy Azure resources
+        - url: bicep/file.md
+          itemType: reference
+          text: Bicep file structure
+        - url: bicep/data-types.md
+          itemType: reference
+          text: Bicep data types
+        - url: bicep/bicep-functions.md
+          itemType: reference
+          text: Bicep functions
+        - url: bicep/operators.md
+          itemType: reference
+          text: Bicep operators
+        - url: bicep/deploy-powershell.md
+          itemType: how-to-guide
+          text: Deploy
+      # footerLink (optional)
+      footerLink:
+        url: bicep/index.yml
         text: See more
     # Card
     - title: Manage resources
@@ -102,7 +130,7 @@ conceptualContent:
         - url: managed-applications/create-uidefinition-overview.md
           itemType: how-to-guide
           text: Define portal pane for creating app
-        - url: ../marketplace/create-new-azure-apps-offer.md
+        - url: ../marketplace/azure-app-offer-setup.md
           itemType: tutorial
           text: Add app to Marketplace
       # footerLink (optional)

@@ -91,6 +91,9 @@ To configure IoT Hub
 
 3. Click "Update"
 
+   > [!NOTE] 
+   > If you are using a Free tier of Azure IoT Hub, the allowed number of message routes are limited to 5. Device Update for IoT Hub needs to configure 4 message routes to work as expected. 
+
 [Learn  about the message routes that are configured.](device-update-resources.md) 
 
 

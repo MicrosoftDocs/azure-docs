@@ -3,7 +3,7 @@ title: 'Quickstart: Create a PHP web app'
 description: Deploy your first PHP Hello World to Azure App Service in minutes. You deploy using Git, which is one of many ways to deploy to App Service.
 ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
 ms.topic: quickstart
-ms.date: 08/01/2020
+ms.date: 05/02/2021
 zone_pivot_groups: app-service-platform-windows-linux
 ---
 
@@ -69,13 +69,13 @@ In your terminal window, press **Ctrl+C** to exit the web server.
 [!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group-linux.md)]
 ::: zone-end
 
-[!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan.md)]
+[!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan-linux-no-h.md)]
 
 ## Create a web app
 
-In the Cloud Shell, create a web app in the `myAppServicePlan` App Service plan with the [`az webapp create`](/cli/azure/webapp#az-webapp-create) command. 
+In the Cloud Shell, create a web app in the `myAppServicePlan` App Service plan with the [`az webapp create`](/cli/azure/webapp#az_webapp_create) command. 
 
-In the following example, replace `<app-name>` with a globally unique app name (valid characters are `a-z`, `0-9`, and `-`). The runtime is set to `PHP|7.4`. To see all supported runtimes, run [`az webapp list-runtimes`](/cli/azure/webapp#az-webapp-list-runtimes). 
+In the following example, replace `<app-name>` with a globally unique app name (valid characters are `a-z`, `0-9`, and `-`). The runtime is set to `PHP|7.4`. To see all supported runtimes, run [`az webapp list-runtimes`](/cli/azure/webapp#az_webapp_list_runtimes). 
 
 ```azurecli-interactive
 # Bash

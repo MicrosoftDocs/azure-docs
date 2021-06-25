@@ -11,6 +11,7 @@ ms.reviewer: ravastra
 
 In addition to the Azure portal, you can use Azure CLI to manage blockchain members and transaction nodes for your Azure Blockchain Service.
 
+[!INCLUDE [Retirement note](./includes/retirement.md)]
 ## Launch Azure Cloud Shell
 
 The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account.
@@ -23,7 +24,7 @@ If you prefer to install and use the CLI locally, see [install Azure CLI](/cli/a
 
 1. Sign in.
 
-    Sign in using the [az login](/cli/azure/reference-index#az-login) command if you're using a local install of the CLI.
+    Sign in using the [az login](/cli/azure/reference-index#az_login) command if you're using a local install of the CLI.
 
     ```azurecli
     az login
@@ -35,7 +36,7 @@ If you prefer to install and use the CLI locally, see [install Azure CLI](/cli/a
 
     When working with extension references for the Azure CLI, you must first install the extension.  Azure CLI extensions give you access to experimental and pre-release commands that have not yet shipped as part of the core CLI.  To learn more about extensions including updating and uninstalling, see [Use extensions with Azure CLI](/cli/azure/azure-cli-extensions-overview).
 
-    Install the [extension for Azure Blockchain Service](/cli/azure/ext/blockchain/blockchain) by running the following command:
+    Install the [extension for Azure Blockchain Service](/cli/azure/blockchain) by running the following command:
 
     ```azurecli-interactive
     az extension add --name blockchain
@@ -43,7 +44,7 @@ If you prefer to install and use the CLI locally, see [install Azure CLI](/cli/a
 
 ## Create blockchain member
 
-Example [creates a blockchain member](/cli/azure/ext/blockchain/blockchain/member#ext-blockchain-az-blockchain-member-create) in Azure Blockchain Service that runs the Quorum ledger protocol in a new consortium.
+Example [creates a blockchain member](/cli/azure/blockchain/member#az_blockchain_member_create) in Azure Blockchain Service that runs the Quorum ledger protocol in a new consortium.
 
 ```azurecli
 az blockchain member create \
@@ -70,7 +71,7 @@ az blockchain member create \
 
 ## Change blockchain member passwords or firewall rules
 
-Example [updates a blockchain member](/cli/azure/ext/blockchain/blockchain/member#ext-blockchain-az-blockchain-member-update)'s password, consortium management password, and firewall rule.
+Example [updates a blockchain member](/cli/azure/blockchain/member#az_blockchain_member_update)'s password, consortium management password, and firewall rule.
 
 ```azurecli
 az blockchain member update \
@@ -87,11 +88,11 @@ az blockchain member update \
 | **name** | Name that identifies your Azure Blockchain Service member. |
 | **password** | The password for the member's default transaction node. Use the password for basic authentication when connecting to blockchain member's default transaction node public endpoint. The password must meet three of the following four requirements: length needs to be between 12 & 72 characters, 1 lower case character, 1 upper case character, 1 number, and 1 special character that is not number sign(#), percent(%), comma(,), star(*), back quote(\`), double quote("), single quote('), dash(-) and semicolumn(;)|
 | **consortium-management-account-password** | The consortium account password is also known as the member account password. The member account password is used to encrypt the private key for the Ethereum account that is created for your member. You use the member account and member account password for consortium management. |
-| **firewall-rules** | Start and end IP address for IP allow list. |
+| **firewall-rules** | Start and end IP address for IP allowlist. |
 
 ## Create transaction node
 
-[Create a transaction node](/cli/azure/ext/blockchain/blockchain/transaction-node#ext-blockchain-az-blockchain-transaction-node-create) inside an existing blockchain member. By adding transaction nodes, you can increase security isolation and distribute load. For example, you could have a transaction node endpoint for different client applications.
+[Create a transaction node](/cli/azure/blockchain/transaction-node#az_blockchain_transaction_node_create) inside an existing blockchain member. By adding transaction nodes, you can increase security isolation and distribute load. For example, you could have a transaction node endpoint for different client applications.
 
 ```azurecli
 az blockchain transaction-node create \
@@ -111,7 +112,7 @@ az blockchain transaction-node create \
 
 ## Change transaction node password
 
-Example [updates a transaction node](/cli/azure/ext/blockchain/blockchain/transaction-node#ext-blockchain-az-blockchain-transaction-node-update) password.
+Example [updates a transaction node](/cli/azure/blockchain/transaction-node#az_blockchain_transaction_node_update) password.
 
 ```azurecli
 az blockchain transaction-node update \
@@ -130,7 +131,7 @@ az blockchain transaction-node update \
 
 ## List API keys
 
-API keys can be used for node access similar to user name and password. There are two API keys to support key rotation. Use the following command to [list your API keys](/cli/azure/ext/blockchain/blockchain/member#ext-blockchain-az-blockchain-transaction-node-list-api-key).
+API keys can be used for node access similar to user name and password. There are two API keys to support key rotation. Use the following command to [list your API keys](/cli/azure/blockchain/member#az_blockchain_transaction_node_list-api-key).
 
 ```azurecli
 az blockchain member list-api-key \
@@ -145,7 +146,7 @@ az blockchain member list-api-key \
 
 ## Regenerate API keys
 
-Use the following command to [regenerate your API keys](/cli/azure/ext/blockchain/blockchain/member#ext-blockchain-az-blockchain-transaction-node-regenerate-api-key).
+Use the following command to [regenerate your API keys](/cli/azure/blockchain/member#az_blockchain_transaction_node_regenerate-api-key).
 
 ```azurecli
 az blockchain member regenerate-api-key \
@@ -162,7 +163,7 @@ az blockchain member regenerate-api-key \
 
 ## Delete a transaction node
 
-Example [deletes a blockchain member transaction node](/cli/azure/ext/blockchain/blockchain/transaction-node#ext-blockchain-az-blockchain-transaction-node-delete).
+Example [deletes a blockchain member transaction node](/cli/azure/blockchain/transaction-node#az_blockchain_transaction_node_delete).
 
 ```azurecli
 az blockchain transaction-node delete \
@@ -179,7 +180,7 @@ az blockchain transaction-node delete \
 
 ## Delete a blockchain member
 
-Example [deletes a blockchain member](/cli/azure/ext/blockchain/blockchain/member#ext-blockchain-az-blockchain-member-delete).
+Example [deletes a blockchain member](/cli/azure/blockchain/member#az_blockchain_member_delete).
 
 ```azurecli
 az blockchain member delete \

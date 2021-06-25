@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Tutorial - Azure ExpressRoute: Add a gateway to a VNet - Azure PowerShell'
 description: This tutorial helps you add VNet gateway to an already created Resource Manager VNet for ExpressRoute using Azure PowerShell.
 services: expressroute
@@ -8,7 +8,7 @@ ms.service: expressroute
 ms.topic: tutorial
 ms.date: 10/05/2020
 ms.author: duau
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurepowershell
 
 ---
 # Tutorial: Configure a virtual network gateway for ExpressRoute using PowerShell
@@ -98,6 +98,12 @@ The steps for this task use a VNet based on the values in the following configur
    ```azurepowershell-interactive
    $pip = New-AzPublicIpAddress -Name $GWIPName  -ResourceGroupName $RG -Location $Location -AllocationMethod Dynamic
    ```
+      
+   If you plan to use IPv6-based private peering over ExpressRoute, please set the IP SKU to Standard and the AllocationMethod to Static:
+   ```azurepowershell-interactive
+   $pip = New-AzPublicIpAddress -Name $GWIPName  -ResourceGroupName $RG -Location $Location -AllocationMethod Static -SKU Standard
+   ```
+   
 1. Create the configuration for your gateway. The gateway configuration defines the subnet and the public IP address to use. In this step, you're specifying the configuration that will be used when you create the gateway. Use the following sample to create your gateway configuration.
 
    ```azurepowershell-interactive
@@ -109,7 +115,7 @@ The steps for this task use a VNet based on the values in the following configur
    New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG -Location $Location -IpConfigurations $ipconf -GatewayType Expressroute -GatewaySku Standard
    ```
 > [!IMPORTANT]
-> If you plan to use IPv6-based private peering over ExpressRoute, make sure to select an AZ SKU (ErGw1AZ, ErGw2AZ, ErGw3AZ) for **-GatewaySku**.
+> If you plan to use IPv6-based private peering over ExpressRoute, make sure to select an AZ SKU (ErGw1AZ, ErGw2AZ, ErGw3AZ) for **-GatewaySku** or use Non-AZ SKU (Standard, HighPerformance, UltraPerformance) for -GatewaySKU with Standard and Static Public IP.
 > 
 > 
 

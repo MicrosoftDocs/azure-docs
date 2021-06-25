@@ -28,7 +28,7 @@ These Cognitive Services are language agnostic and don't have limitations based 
 * [Computer Vision](./computer-vision/language-support.md)
 * [Form Recognizer (Preview)](./form-recognizer/language-support.md)
 * [Ink Recognizer (Preview)](/previous-versions/azure/cognitive-services/Ink-Recognizer/language-support)
-* [Video Indexer](../media-services/video-indexer/language-identification-model.md#guidelines-and-limitations)
+* [Video Indexer](../azure-video-analyzer/video-analyzer-for-media-docs/language-identification-model.md#guidelines-and-limitations)
 
 ## Language
 

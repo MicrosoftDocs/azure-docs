@@ -49,8 +49,6 @@ macOS 10.13 and above
 
    The directory listing should contain the third-party notice and license files, as well as a `MicrosoftCognitiveServicesSpeech.framework` directory.
 
-You can now move on to [Next steps](#next-steps) below.
-
 ## Next steps
 
 [!INCLUDE [windows](../quickstart-list.md)]

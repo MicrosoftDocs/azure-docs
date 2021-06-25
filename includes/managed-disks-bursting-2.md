@@ -5,15 +5,13 @@
  author: albecker1
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 03/04/2021
+ ms.date: 06/02/2021
  ms.author: albecker1
  ms.custom: include file
 ---
-## Disk-level bursting
-
 ### On-demand bursting (preview)
 
-Disks using the on-demand bursting model of disk bursting can burst beyond original provisioned targets, as often as needed by their workload, up to the max burst target. For example, on a 1-TiB P30 disk, the provisioned IOPS is 5000 IOPS. When disk bursting is enabled on this disk, your workloads can issue IOs to this disk up to the max burst performance of 30,000 IOPS and 1,000 MBps.
+Premium SSDs using the on-demand bursting model of disk bursting can burst beyond original provisioned targets, as often as needed by their workload, up to the max burst target. For example, on a 1-TiB P30 disk, the provisioned IOPS is 5000 IOPS. When disk bursting is enabled on this disk, your workloads can issue IOs to this disk up to the max burst performance of 30,000 IOPS and 1,000 MBps.
 
 If you expect your workloads to frequently run beyond the provisioned perf target, disk bursting won't be cost-effective. In this case, we recommend that you change your disk's performance tier to a [higher tier](../articles/virtual-machines/disks-performance-tiers.md) instead, for better baseline performance. Review your billing details and assess that against the traffic pattern of your workloads.
 
@@ -27,7 +25,7 @@ Before you enable on-demand bursting, understand the following:
 
 #### Billing
 
-Disks using the on-demand bursting model are charged an hourly burst enablement flat fee and transaction costs apply to any burst transactions beyond the provisioned target. Transaction costs are charged using the pay-as-you go model, based on uncached disk IOs, including both reads and writes that exceed provisioned targets. The following is an example of disk traffic patterns over a billing hour:
+Premium SSDs using the on-demand bursting model are charged an hourly burst enablement flat fee and transaction costs apply to any burst transactions beyond the provisioned target. Transaction costs are charged using the pay-as-you go model, based on uncached disk IOs, including both reads and writes that exceed provisioned targets. The following is an example of disk traffic patterns over a billing hour:
 
 Disk configuration: Premium SSD – 1 TiB (P30), Disk bursting enabled.
 
@@ -53,9 +51,12 @@ The burst transaction is accounted as the max number of transactions from either
 
 You can refer to the [Managed Disks pricing page](https://azure.microsoft.com/pricing/details/managed-disks/) for details on pricing and use [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/?service=storage) to make the assessment for your workload. 
 
+
+To enable on-demand bursting, see [Enable on-demand bursting](../articles/virtual-machines/disks-enable-bursting.md).
+
 ### Credit-based bursting
 
-Credit-based bursting is available for disk sizes P20 and smaller in all regions in Azure Public, Government, and China Clouds. By default, disk bursting is enabled on all new and existing deployments of supported disk sizes. VM-level bursting only uses credit-based bursting.
+For premium SSDs, credit-based bursting is available for disk sizes P20 and smaller. For standard SSDs, credit-based bursting is available for disk sizes E30 and smaller. For both standard and premium SSDs, credit-based bursting is available in all regions in Azure Public, Government, and China Clouds. By default, disk bursting is enabled on all new and existing deployments of supported disk sizes. VM-level bursting only uses credit-based bursting.
 
 ## Virtual machine-level bursting
 

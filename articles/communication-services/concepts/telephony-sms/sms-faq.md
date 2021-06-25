@@ -39,7 +39,7 @@ Opt-outs for US toll-free numbers are mandated and enforced by US carriers.
 
 ## How can I receive messages using Azure Communication Services?
 
-Azure Communication Services customers can use Azure Event Grid to receive incoming messages. Follow this [quickstart](https://docs.microsoft.com/azure/communication-services/quickstarts/telephony-sms/handle-sms-events) to setup your event-grid to receive messages.
+Azure Communication Services customers can use Azure Event Grid to receive incoming messages. Follow this [quickstart](../../quickstarts/telephony-sms/handle-sms-events.md) to setup your event-grid to receive messages.
 
 ## Can I send/receive long messages (>2048 chars)?
 
@@ -52,4 +52,4 @@ In the United States, Azure Communication Services does not check for landline n
 ## Can I send messages to multiple recipients?
 
 
-Yes, you can make one request with multiple recipients. Follow this [quickstart](https://docs.microsoft.com/azure/communication-services/quickstarts/telephony-sms/send?pivots=programming-language-csharp) to send messages to multiple recipients.
+Yes, you can make one request with multiple recipients. Follow this [quickstart](../../quickstarts/telephony-sms/send.md?pivots=programming-language-csharp) to send messages to multiple recipients.

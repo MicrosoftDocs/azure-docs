@@ -9,11 +9,11 @@ ms.date: 08/06/2020
 
 # Create Linux-based clusters in HDInsight by using the Azure portal
 
-[!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
+[!INCLUDE [selector](includes/hdinsight-create-linux-cluster-selector.md)]
 
 The Azure portal is a web-based management tool for services and resources hosted in the Microsoft Azure cloud. In this article, you learn how to create Linux-based Azure HDInsight clusters by using the portal. Additional details are available from [Create HDInsight clusters](./hdinsight-hadoop-provision-linux-clusters.md).
 
-[!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+[!INCLUDE [delete-cluster-warning](includes/hdinsight-delete-cluster-warning.md)]
 
 The Azure portal exposes most of the cluster properties. By using Azure Resource Manager templates, you can hide many details. For more information, see [Create Apache Hadoop clusters in HDInsight by using Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
@@ -21,7 +21,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Create clusters
 
-[!INCLUDE [secure-transfer-enabled-storage-account](../../includes/hdinsight-secure-transfer.md)]
+[!INCLUDE [secure-transfer-enabled-storage-account](includes/hdinsight-secure-transfer.md)]
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 

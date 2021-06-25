@@ -1,6 +1,6 @@
 ---
 author: aahill
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 02/04/2021

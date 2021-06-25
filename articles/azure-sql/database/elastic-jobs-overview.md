@@ -3,13 +3,13 @@ title: Elastic Database Jobs (preview)
 description: 'Configure Elastic Database Jobs (preview) to run Transact-SQL (T-SQL) scripts across a set of one or more databases in Azure SQL Database'
 services: sql-database
 ms.service: sql-database
-ms.subservice: scale-out
+ms.subservice: elastic-jobs
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
 author: srinia
 ms.author: srinia
-ms.reviewer: sstein
+ms.reviewer: mathoma
 ms.date: 12/18/2018
 ---
 # Create, configure, and manage elastic jobs (preview)
@@ -72,7 +72,7 @@ Currently, the preview is limited to 100 concurrent jobs.
 
 To ensure resources aren't overburdened when running jobs against databases in a SQL elastic pool, jobs can be configured to limit the number of databases a job can run against at the same time.
 
-Set the number of concurrent databases a job runs on by setting the `sp_add_jobstep` stored procedure's `@max_parallelism` parameter in T-SQL, or `Add-AzSqlElasticJobStep -MaxParallelism` in PowerShell.
+Set the number of concurrent databases a job runs on by setting the `sp_add_jobstep` stored procedure's `@max_parallelism` parameter in T-SQL.
 
 ## Best practices for creating jobs
 
