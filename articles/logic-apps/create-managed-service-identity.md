@@ -330,13 +330,13 @@ On the Azure resource where you want to use the managed identity, give your iden
    > If the **Add role assignment** option is disabled, you don't have permissions to assign roles. 
    > For more information, review [Azure AD built-in roles](../active-directory/roles/permissions-reference.md).
 
-1. On the **Roles** tab, select the role that gives your identity the necessary access to the target resource.
+1. After the **Add role assignment** page opens, on the **Role** tab, select the role that gives your identity the necessary access to the target resource.
 
    For this example, find and select the role that's named **Storage Blob Data Contributor**, which can access blobs in an Azure Storage container. For more information, review [Roles that can access blobs in an Azure Storage container](../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights).
 
-1. On the **Members** tab, under **Assign access to**, select **Managed identity** > **Add members**.
+1. On the **Members** tab, under **Assign access to**, select **Managed identity** > **Add members** so that you can set up your managed identity with the previously selected role.
 
-1. Based on your managed identity's type, provide the following information:
+1. Based on your managed identity's type, select or provide the following values:
 
    | Managed identity type | Azure service instance | Subscription | Select |
    |-----------------------|------------------------|--------------|--------|
