@@ -17,7 +17,7 @@ ms.author: erhopf
 > [!NOTE]
 > This page assumes you've read [Prepare test data for Custom Speech](./how-to-custom-speech-test-and-train.md) and have uploaded a dataset for inspection.
 
-Custom Speech provides tools that allow you to visually inspect the recognition quality of a model by comparing audio data with the corresponding recognition result. From the [Speech Studio](https://speech.microsoft.com/customspeech), you can play back uploaded audio and determine if the provided recognition result is correct. This tool helps you inspect quality of Microsoft's baseline speech-to-text model, inspect a trained custom model, or compare transcription by two models.
+Custom Speech provides tools that allow you to visually inspect the recognition quality of a model by comparing audio data with the corresponding recognition result. From the [Speech Studio](https://aka.ms/speechstudio/customspeech), you can play back uploaded audio and determine if the provided recognition result is correct. This tool helps you inspect quality of Microsoft's baseline speech-to-text model, inspect a trained custom model, or compare transcription by two models.
 
 In this document, you learn how to visually inspect the quality of Microsoft's baseline speech-to-text model, and/or custom models that you've trained . You also learn how to use the online transcription editor to create and refine labeled audio datasets.
 
@@ -25,9 +25,9 @@ In this document, you learn how to visually inspect the quality of Microsoft's b
 
 Follow these instructions to create a test:
 
-1. Sign in to the [Speech Studio](https://speech.microsoft.com/customspeech).
-2. Navigate to **Speech-to-text > Custom Speech > [name of project] > Testing**.
-3. Click **Add Test**.
+1. Sign in to the [Speech Studio](https://aka.ms/speechstudio/customspeech).
+2. Navigate to **Speech-to-text > Custom Speech > [name of project] > Test models**.
+3. Click **Create new test**.
 4. Select **Inspect quality (Audio-only data)**. Give the test a name, description, and select your audio dataset.
 5. Select up to two models that you'd like to test.
 6. Click **Create**.
@@ -56,9 +56,9 @@ The only requirement to use the transcription editor is to have audio data uploa
 
 ### Import datasets to Editor
 
-To import data into the Editor, first navigate to **Custom Speech > [Your project] > Editor**.
+To import data into the Editor, first navigate to **Custom Speech > [Your project] > Speech datasets > Editor**
 
-![Editor tab](media/custom-speech/custom-speech-editor-detail.png)
+![custom-speech-editor](https://user-images.githubusercontent.com/48979402/123387952-e494d000-d5ca-11eb-923f-552475f9c76b.png)
 
 Next, use the following steps to import data.
 
@@ -79,15 +79,13 @@ After the data upload has succeeded, click on each item name to see details of t
 
 The detail page lists all the segments in each audio file, and you can click into the desired utterance. For each utterance, you can play back the audio and examine the transcripts, and edit the transcriptions if you find any insertion, deletion, or substitution errors. See the [data evaluation how-to](how-to-custom-speech-evaluate-data.md) for more detail on error types.
 
-![Editor page](media/custom-speech/custom-speech-editor.png)
+![custom-speech-editor-details](https://user-images.githubusercontent.com/48979402/123388951-f62aa780-d5cb-11eb-8bc6-ea7d902cf5cf.png)
 
 After you've made edits, click the **Save** button.
 
 ### Export datasets from the Editor
 
 To export datasets back to the **Data** tab, navigate to the data detail page and click the **Export** button to export all the files as a new dataset. You can also filter the files by last edited time, audio durations, etc. to partially select the desired files. 
-
-![Export data](media/custom-speech/custom-speech-editor-export.png)
 
 The files exported to Data will be used as a brand-new dataset and will not affect any of the existing data/training/testing entities.
 
