@@ -27,8 +27,8 @@ Call Automation APIs are provided for both in-call (application-participant or a
 | Play audio prompts and listen for responses                    | X                         |               |
 | Monitor in-call events                                         | X                         |               |
 | Create calls with multiple participants                        | X                         |               |
+| Get call participants and participant details                  | X                         |               |
 | Add or remove call participants                                | X                         | X             |
-| Get call participants and participant details                  | X                         | X             |
 | Server-side actions in peer-to-peer calls (e.g. recording)     |                           | X             |
 | Play audio announcements to all participants                   |                           | X             |
 | Start and manage call recording                                |                           | X             |
@@ -65,7 +65,6 @@ Out-of-Call APIs enable you to perform actions on a call or meeting without havi
 Out-of-call APIs are available for actions such as:
 - Add or remove call participants
 - Start/stop/pause/resume call recording
-- Get information about call participants
                                                        
 ### Out-of-Call Events
 Event notifications are sent as JSON payloads to the calling application via the `callbackUri` providing in the originating API call. Actions with corresponding out-of-call events are:
