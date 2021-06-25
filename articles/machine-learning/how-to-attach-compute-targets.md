@@ -356,7 +356,7 @@ compute_target.detach()
 ```
 
 > [!WARNING]
-> Detaching a cluster **does not delete the cluster**. To delete an Azure Kubernetes Service cluster, see [Use the Azure CLI with AKS](/azure/aks/kubernetes-walkthrough#delete-the-cluster#delete-the-cluster) or to delete an Azure Arc enabled Kubernetes cluster, see [Azure Arc quickstart](/azure/azure-arc/kubernetes/quickstart-connect-cluster#clean-up-resources).
+> Detaching a cluster **does not delete the cluster**. To delete an Azure Kubernetes Service cluster, see [Use the Azure CLI with AKS](to /azure/aks/kubernetes-walkthrough#delete-the-cluster) or to delete an Azure Arc enabled Kubernetes cluster, see [Azure Arc quickstart](/azure/azure-arc/kubernetes/quickstart-connect-cluster#7-clean-up-resources).
 
 ## Notebook examples
 
