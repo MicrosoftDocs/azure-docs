@@ -4,8 +4,8 @@ description: Learn how to connect an Azure Sphere (DevKit) device to an Azure Io
 services: iot-central
 ms.service: iot-central
 ms.topic: how-to
-ms.author: sandeepu
-author: sandeeppujar
+ms.author: dobett
+author: dominicbetts
 ms.date: 04/30/2020
 ms.custom: device-developer
 
