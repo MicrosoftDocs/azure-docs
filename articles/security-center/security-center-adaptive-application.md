@@ -56,7 +56,7 @@ Select the recommendation, or open the adaptive application controls page to vie
 
 1. Open the Azure Defender dashboard and from the advanced protection area, select **Adaptive application controls**.
 
-    :::image type="content" source="./media/security-center-adaptive-application/opening-adaptive-application-control.png" alt-text="Opening adaptive application controls from the Azure Dashboard" lightbox="./media/security-center-adaptive-application/opening-adaptive-application-control.png":::
+    :::image type="content" source="./media/security-center-adaptive-application/opening-adaptive-application-control.png" alt-text="Opening adaptive application controls from the Azure Dashboard." lightbox="./media/security-center-adaptive-application/opening-adaptive-application-control.png":::
 
     The **Adaptive application controls** page opens with your VMs grouped into the following tabs:
 
@@ -82,13 +82,13 @@ Select the recommendation, or open the adaptive application controls page to vie
 
 1. Open the **Recommended** tab. The groups of machines with recommended allow lists appears.
 
-   ![Recommended tab](./media/security-center-adaptive-application/adaptive-application-recommended-tab.png)
+   ![Recommended tab.](./media/security-center-adaptive-application/adaptive-application-recommended-tab.png)
 
 1. Select a group. 
 
 1. To configure your new rule, review the various sections of this **Configure application control rules** page and the contents, which will be unique to this specific group of machines:
 
-   ![Configure a new rule](./media/security-center-adaptive-application/adaptive-application-create-rule.png)
+   ![Configure a new rule.](./media/security-center-adaptive-application/adaptive-application-create-rule.png)
 
    1. **Select machines** - By default, all machines in the identified group are selected. Unselect any to removed them from this rule.
    
@@ -122,7 +122,7 @@ To edit the rules for a group of machines:
 
    1. Select **Add rule**.
 
-      ![Add a custom rule](./media/security-center-adaptive-application/adaptive-application-add-custom-rule.png)
+      ![Add a custom rule.](./media/security-center-adaptive-application/adaptive-application-add-custom-rule.png)
 
    1. If you're defining a known safe path, change the **Rule type** to 'Path' and enter a single path. You can include wildcards in the path.
    
@@ -145,7 +145,7 @@ To edit the rules for a group of machines:
 
     This pane shows the name of the group (which can be modified), the OS type, the location, and other relevant details.
 
-    :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-group-settings.png" alt-text="The group settings page for adaptive application controls" lightbox="./media/security-center-adaptive-application/adaptive-application-group-settings.png":::
+    :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-group-settings.png" alt-text="The group settings page for adaptive application controls." lightbox="./media/security-center-adaptive-application/adaptive-application-group-settings.png":::
 
 1. Optionally, modify the group's name or file type protection modes.
 
@@ -178,13 +178,13 @@ To remediate the issues:
 
 1. To investigate further, select a group.
 
-   ![Recent alerts](./media/security-center-adaptive-application/recent-alerts.png)
+   ![Recent alerts.](./media/security-center-adaptive-application/recent-alerts.png)
 
 1. For further details, and the list of affected machines, select an alert.
 
     The alerts page shows the more details of the alerts and provides a **Take action** link with recommendations of how to mitigate the threat.
 
-    :::image type="content" source="media/security-center-adaptive-application/adaptive-application-alerts-start-time.png" alt-text="The start time of adaptive application controls alerts is the ":::
+    :::image type="content" source="media/security-center-adaptive-application/adaptive-application-alerts-start-time.png" alt-text="The start time of adaptive application controls alerts is the .":::
 
     > [!NOTE]
     > Adaptive application controls calculates events once every twelve hours. The "activity start time" shown in the alerts page is the time that adaptive application controls created the alert, **not** the time that the suspicious process was active.

@@ -5,7 +5,7 @@
  author: duongau
  ms.service: frontdoor
  ms.topic: include
- ms.date: 02/18/2021
+ ms.date: 06/25/2021
  ms.author: duau
  ms.custom: include file
 ---
@@ -46,6 +46,8 @@
 | Maximum rules per rule set | 100 | 100 |
 | Maximum origin per origin group | 50 | 50 |
 | Maximum routes per endpoint | 100 | 200 |
+| URLs in a single cache purge call | 100 | 100 |
+| Custom web application firewall rules per policy | 100 | 100 |
 | Web application firewall match conditions per custom rule | 10 | 10 |
 | Web application firewall IP address ranges per match condition | 600 | 600 |
 | Web application firewall string match values per match condition | 10 | 10 |
@@ -78,3 +80,5 @@
 * Maximum URL size - 8,192 bytes - Specifies maximum length of the raw URL (scheme + hostname + port + path + query string of the URL)
 * Maximum Query String size - 4,096 bytes - Specifies the maximum length of the query string, in bytes.
 * Maximum HTTP response header size from health probe URL - 4,096 bytes - Specified the maximum length of all the response headers of health probes. 
+* Maximum rules engine action header value character: 640 characters.
+* Maximum rules engine condition header value character: 256 characters.

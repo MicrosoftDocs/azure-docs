@@ -49,11 +49,11 @@ Security Center is offered in two modes:
 ### How can I track who in my organization enabled Azure Defender changes in Security Center?
 Azure Subscriptions may have multiple administrators with permissions to change the pricing settings. To find out which user made a change, use the Azure Activity Log.
 
-:::image type="content" source="media/security-center-pricing/logged-change-to-pricing.png" alt-text="Azure Activity log showing a pricing change event":::
+:::image type="content" source="media/security-center-pricing/logged-change-to-pricing.png" alt-text="Azure Activity log showing a pricing change event.":::
 
 If the user's info isn't listed in the **Event initiated by** column, explore the event's JSON for the relevant details.
 
-:::image type="content" source="media/security-center-pricing/tracking-pricing-changes-in-activity-log.png" alt-text="Azure Activity log JSON explorer":::
+:::image type="content" source="media/security-center-pricing/tracking-pricing-changes-in-activity-log.png" alt-text="Azure Activity log JSON explorer.":::
 
 
 ### What are the plans offered by Security Center? 
@@ -98,7 +98,7 @@ No. When you enable [Azure Defender for servers](defender-for-servers-introducti
 | Deallocating | Transitional state. When completed, the VM will show as Deallocated.                                                                             | Not billed            |
 | Deallocated  | The VM has been stopped successfully and removed from the host.                                                                                  | Not billed            |
 
-:::image type="content" source="media/security-center-pricing/deallocated-virtual-machines.png" alt-text="Azure Virtual Machines showing a deallocated machine":::
+:::image type="content" source="media/security-center-pricing/deallocated-virtual-machines.png" alt-text="Azure Virtual Machines showing a deallocated machine.":::
 
 ### Will I be charged for machines without the Log Analytics agent installed?
 Yes. When you enable [Azure Defender for servers](defender-for-servers-introduction.md) on a subscription, the machines in that subscription get a range of protections even if you haven't installed the Log Analytics agent.

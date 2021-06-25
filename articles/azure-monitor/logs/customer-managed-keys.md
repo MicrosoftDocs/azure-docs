@@ -113,8 +113,7 @@ These settings can be updated in Key Vault via CLI and PowerShell:
 
 ## Create cluster
 
-Clusters support two [managed identity types](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types): System-assigned and User-assigned, while a single identity can be defined in a cluster depending on your scenario. 
-- System-assigned managed identity is simpler and being generated automatically with the cluster creation when identity `type` is set to "*SystemAssigned*". This identity can be used later to grant storage access to your Key Vault for wrap and unwrap operations. 
+Clusters support System-assigned managed identity and identity `type` property should be set to `SystemAssigned`. The identity is being generated automatically with the cluster creation and can be used later to grant storage access to your Key Vault for wrap and unwrap operations. 
   
   Identity settings in cluster for System-assigned managed identity
   ```json
@@ -124,22 +123,6 @@ Clusters support two [managed identity types](../../active-directory/managed-ide
       }
   }
   ```
-
-- If you want to configure Customer-managed key at cluster creation, you should have a key and User-assigned identity granted in your Key Vault beforehand, then create the cluster with these settings: identity `type` as "*UserAssigned*", `UserAssignedIdentities` with the *resource ID* of your identity.
-
-  Identity settings in cluster for User-assigned managed identity
-  ```json
-  {
-  "identity": {
-  "type": "UserAssigned",
-    "userAssignedIdentities": {
-      "subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.ManagedIdentity/UserAssignedIdentities/<cluster-assigned-managed-identity>"
-      }
-  }
-  ```
-
-> [!IMPORTANT]
-> You can't use User-assigned managed identity if your Key Vault is in Private-Link (vNet). You can use System-assigned managed identity in this scenario.
 
 Follow the procedure illustrated in [Dedicated Clusters article](./logs-dedicated-clusters.md#creating-a-cluster). 
 
@@ -433,11 +416,9 @@ Customer-Managed key is provided on dedicated cluster and these operations are r
 - Behavior with Key Vault availability
   - In normal operation -- Storage caches AEK for short periods of time and goes back to Key Vault to unwrap periodically.
     
-  - Transient connection errors -- Storage handles transient errors (timeouts, connection failures, DNS issues) by allowing keys to stay in cache for a short while longer and this overcomes any small blips in availability. The query and ingestion capabilities continue without interruption.
+  - Key Vault connection errors -- Storage handles transient errors (timeouts, connection failures, DNS issues) by allowing keys to stay in cache for the duration of the availablility issue and this overcomes blips and availability issues. The query and ingestion capabilities continue without interruption.
     
-  - Live site -- unavailability of about 30 minutes will cause the Storage account to become unavailable. The query capability is unavailable and ingested data is cached for several hours using Microsoft key to avoid data loss. When access to Key Vault is restored, query becomes available and the temporary cached data is ingested to the data-store and encrypted with Customer-managed key.
-
-  - Key Vault access rate -- The frequency that Azure Monitor Storage accesses Key Vault for wrap and unwrap operations is between 6 to 60 seconds.
+- Key Vault access rate -- The frequency that Azure Monitor Storage accesses Key Vault for wrap and unwrap operations is between 6 to 60 seconds.
 
 - If you update your cluster while the cluster is at provisioning or updating state, the update will fail.
 

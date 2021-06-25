@@ -204,6 +204,8 @@ The above skillset example assumes that a normalized-images field exists. To gen
 ```
 
 ## See also
+
++ [What is optical character recognition](../cognitive-services/computer-vision/overview-ocr.md)
 + [Built-in skills](cognitive-search-predefined-skills.md)
 + [TextMerger skill](cognitive-search-skill-textmerger.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)

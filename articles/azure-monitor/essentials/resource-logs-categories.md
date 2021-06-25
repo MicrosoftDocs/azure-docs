@@ -934,19 +934,6 @@ If you think there is something is missing, you can open a GitHub comment at the
 |BigDataPoolAppsEnded|Big Data Pool Applications Ended|No|
 
 
-## Microsoft.Synapse/workspaces/kustoPools
-
-|Category|Category Display Name|Costs To Export|
-|---|---|---|
-|Command|Command|Yes|
-|FailedIngestion|Failed ingest operations|Yes|
-|IngestionBatching|Ingestion batching|Yes|
-|Query|Query|Yes|
-|SucceededIngestion|Successful ingest operations|Yes|
-|TableDetails|Table details|Yes|
-|TableUsageStatistics|Table usage statistics|Yes|
-
-
 ## Microsoft.Synapse/workspaces/sqlPools
 
 |Category|Category Display Name|Costs To Export|

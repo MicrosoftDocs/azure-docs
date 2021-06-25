@@ -1,13 +1,14 @@
 ---
-title: Make requests with Postman
+title: Make API requests with Postman
 titleSuffix: Azure Digital Twins
-description: Learn how to configure and use Postman to test the Azure Digital Twins APIs.
+description: Learn how to configure and use Postman to call the Azure Digital Twins APIs.
 ms.author: baanders
 author: baanders
 ms.service: digital-twins
 services: digital-twins
 ms.topic: how-to
-ms.date: 11/10/2020
+ms.date: 6/16/2021
+ms.custom: contperf-fy21q4
 ---
 
 # How to use Postman to send requests to the Azure Digital Twins APIs
