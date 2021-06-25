@@ -12,7 +12,7 @@ manager: femila
 ---
 # App hosting licenses for Azure Virtual Desktop
 
-This article explains the licensing requirements for using Azure Virtual Desktop to stream remote applications to external users. In this arcitle, you'll learn how licensing Azure Virtual Desktop for external users is different than for internal users, how per-user access pricing works in detail, and how to license other products you plan to use with Azure Virtual Desktop.
+This article explains the licensing requirements for using Azure Virtual Desktop to stream remote applications to external users. In this article, you'll learn how licensing Azure Virtual Desktop for external users is different than for internal users, how per-user access pricing works in detail, and how to license other products you plan to use with Azure Virtual Desktop.
 
 ## Licensing Azure Virtual Desktop for external users
 
