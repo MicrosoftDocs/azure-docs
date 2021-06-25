@@ -14,7 +14,7 @@ ms.author: bagol
 
 With today's widespread adoption of cloud and remote work, security operations center (SOC) teams must protect an increasingly decentralized digital estate. Organizations are making do with siloed, patchwork security solutions, just as cyber threats are becoming more sophisticated and relentless. Businesses need a centralized security information and event management (SIEM) and security orchestration, automation, and response (SOAR) solution that meets growing needs across a decentralized digital estate.
 
-[Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel) is a cloud-native SIEM + SOAR solution that provides the scope, flexibility, and real-time analysis to meet today's security needs. Azure Sentinel can help businesses across IT, financial services, e-commerce, big data, and other vertical enterprises to modernize their SOCs.
+[Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel) is a cloud-native SIEM + SOAR solution that provides the scope, flexibility, and real-time analysis to meet today's security needs. Azure Sentinel can help businesses across IT, financial services, e-commerce, big data, and other enterprises to modernize their SOCs.
 
 Enterprises can rapidly adopt Azure Sentinel as a single solution, use Azure Sentinel in a side-by-side configuration with an existing SIEM, or transition to a full Azure Sentinel deployment. This article presents recommendations, considerations, and steps for adopting, migrating, and transitioning security operations to Azure Sentinel.
 
@@ -52,7 +52,7 @@ Azure Sentinel helps secure your entire digital estate, without the costly infra
 
 Today's SOC teams must do more with less. With an estimated 3.5 million unfilled security professional jobs in 2021, [44 percent of security alerts are never investigated](https://www.microsoft.com/security/blog/wp-content/uploads/2020/07/Azure-Sentinel-whitepaper.pdf). The mean time to detect a threat has increased to 197 days, while the time to contain the threat has stretched to 69 days. The volume of cloud service logs and noisy alerts is increasing.
 
-A cloud-native SIEM can help mitigate these challenges:
+A cloud-native SIEM can help mitigate these challenges.
 
 - Azure Sentinel's AI and automation capabilities can save significant time for SOC teams. By combining low-fidelity alerts about different entities into potential high-fidelity security incidents, Azure Sentinel helps reduce noise and alert fatigue.
 
@@ -86,7 +86,7 @@ Based on experience responding to high volumes of real-world attacks, key areas 
   
 - **Mean time to remediate (MTTR).** Compare the MTTR for incidents investigated by each SIEM, assuming analysts at equivalent skill levels.
   
-- **Hunting speed and agility.** Measure how fast teams can hunt, starting from a fully-formed hypothesis, to querying the data, to getting the results on each SIEM platform.
+- **Hunting speed and agility.** Measure how fast teams can hunt, starting from a fully formed hypothesis, to querying the data, to getting the results on each SIEM platform.
   
 - **Capacity growth friction.** Compare the level of difficulty in adding capacity as usage grows. Keep in mind that cloud services and applications tend to generate more log data than traditional on-premises workloads.|
 
@@ -104,7 +104,7 @@ Three architectural models correspond to these migration stages:
 
 - **On-premises SIEM architecture** is the classic model, with both analytics and database functions residing on-premises. This article considers an on-premises SIEM to be the before state, prior to migration.
   
-  A legacy SIEM can usually maintain good coverage of on-premises assets. But the fast pace of cloud innovation and the scale limitations of physical hardware might mean insufficient security coverage for assets in clouds like Azure, AWS, Google Cloud Platform (GCP), or Microsoft 365. An on-premises SIEM that isn't designed with AI can overwhelm your SOC with a large volume of alerts.
+  A legacy SIEM can usually maintain good coverage of on-premises assets. But the fast pace of cloud innovation and the scale limitations of physical hardware might lead to insufficient security coverage for assets in clouds like Azure, AWS, Google Cloud Platform (GCP), or Microsoft 365. An on-premises SIEM that isn't designed with AI can overwhelm your SOC with a large volume of alerts.
   
 - **Side-by-side architecture** configuration uses an on-premises SIEM and cloud-native SIEM at the same time. There are various configurations for this stage, but typically local resources use the on-premises SIEM, while cloud resources and new workloads use cloud-based analytics.
   
@@ -124,11 +124,11 @@ Side-by-side configuration is usually a temporary step in a migration journey to
 
 Longer-term side-by-side deployment is a potential starting point for an organization that wants to take advantage of Azure Sentinel's strengths, but isn't yet ready to move away from its existing SIEM. Moving to Azure Sentinel over time provides more opportunities to modernize your SIEM while taking advantage of the cost savings and flexibility the cloud provides. You get the full value of Azure Sentinel's correlation and investigation capabilities across all your data sources.
 
-While short-term transitional side-by-side deployment is recommended, Azure Sentinel's cloud-native nature makes it easy to run side-by-side with your traditional SIEM as long as needed, giving you the flexibility to approach migration in a way that best fits your organization.
+While short-term transitional side-by-side deployment is recommended, Azure Sentinel's cloud-native nature makes it easy to run side-by-side with your traditional SIEM as long as needed. This flexibility gives you the flexibility to approach migration in a way that best fits your organization.
 
 #### Transitional side-by-side approach
 
-The transitional side-by-side approach involves running Azure Sentinel side-by-side with a legacy SIEM just long enough to complete a migration, with the end goal of moving permanently to Azure Sentinel.
+The transitional side-by-side approach involves running Azure Sentinel side-by-side with a legacy SIEM just long enough to complete a migration. The end goal is moving completely to Azure Sentinel.
 
 **Pros:**
 
@@ -169,7 +169,7 @@ In this model, you ingest and analyze cloud data within Azure Sentinel, while st
 
 You can forward alerts using different tools and methods, such as [Logstash](connect-logstash.md), [APIs](https://techcommunity.microsoft.com/t5/azure-sentinel/azure-sentinel-api-101/ba-p/1438928), or [Syslog](connect-syslog.md). Any of these methods can send alerts to Azure Sentinel and store them in [JSON](https://techcommunity.microsoft.com/t5/azure-sentinel/tip-easily-use-json-fields-in-sentinel/ba-p/768747) format in your Azure Sentinel [Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace).
 
-By sending alerts from your legacy SIEM to Azure Sentinel, your team can cross-correlate and investigate those alerts in Azure Sentinel, and still access the legacy SIEM for deeper investigation if needed. Meanwhile, you can continue migrating data sources over an extended transition period.
+By sending alerts from your legacy SIEM to Azure Sentinel, your team can cross-correlate and investigate those alerts in Azure Sentinel. The team can still access the legacy SIEM for deeper investigation if needed. Meanwhile, you can continue migrating data sources over an extended transition period.
 
 In this recommended side-by-side migration method, you can get full value from Azure Sentinel, while also migrating data sources at the pace that's right for your organization. This approach avoids duplicating costs for data storage and ingestion while you move your data sources over.
 
@@ -186,7 +186,7 @@ This configuration has some benefits. It's cost effective, because you can move 
 
 However, there are downsides to this approach. Simply forwarding enriched incidents to a legacy SIEM limits the value you get from Azure Sentinel's investigation, hunting, and automation capabilities.
 
-For more information and examples of sending alerts and incidents from Azure Sentinel to legacy SIEMs, see:
+For more information about sending alerts and incidents from Azure Sentinel to legacy SIEMs, see:
 
 - [Send enriched Azure Sentinel alerts to your legacy SIEM](https://techcommunity.microsoft.com/t5/azure-sentinel/sending-enriched-azure-sentinel-alerts-to-3rd-party-siem-and/ba-p/1456976).
 - [Send enriched Azure Sentinel alerts to IBM QRadar](https://techcommunity.microsoft.com/t5/azure-sentinel/azure-sentinel-side-by-side-with-qradar/ba-p/1488333).
@@ -210,7 +210,7 @@ The following side-by-side approaches aren't recommended:
 
 ### Side-by-side full process integration
 
-The following diagram shows full integration of all SIEM, SOAR, and case management processes in a side-by-side deployment of a legacy SIEM with Azure Sentinel .
+The following diagram shows full integration of all SIEM, SOAR, and case management processes in a side-by-side deployment of a legacy SIEM with Azure Sentinel.
 
 > [!TIP]
 > Because dividing analytics between two SIEMs adds complexity to investigations, you can set up *case-management* software to manage the workflow. Case tickets process elements for managing incidents, such as owner and activity history. Capturing investigation history and insights takes a burden off analysts, allowing them to focus on attackers rather than processes.
@@ -274,7 +274,7 @@ Azure Sentinel has four built-in rule types:
 
 - The powerful [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/) sends read-only requests to a [Log Analytics](/azure/azure-monitor/logs/log-analytics-tutorial) database to process data and return results. KQL states requests in plain text, using a data-flow model designed to make the syntax easy to read, author, and automate. You can use KQL across other Microsoft solutions like [Microsoft Defender for Endpoint](https://www.microsoft.com/microsoft-365/security/endpoint-defender) and [Application Insights](/azure/azure-monitor/app/app-insights-overview).
   
-  Several other Microsoft services also store data in Log Analytics or [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer/), reducing the learning curve for queries or correlations, regardless of source.
+  Several other Microsoft services also store data in Log Analytics or [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer/), reducing the learning curve for queries or correlations, whatever the source.
 
 #### Rule migration flow
 

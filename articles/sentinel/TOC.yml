@@ -76,7 +76,7 @@
 - name: How-tos
   items:
   - name: Migrate to Azure Sentinel
-    href: sentinel-solutions-deploy.md
+    href: migration.md
   - name: Collect data
     items:
     - name: Connect data sources
