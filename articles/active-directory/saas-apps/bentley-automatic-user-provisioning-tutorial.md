@@ -147,9 +147,6 @@ Once you've configured provisioning, use the following resources to monitor your
 2. Check the [progress bar](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) to see the status of the provisioning cycle and how close it is to completion
 3. If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).
 
-## Connector limitations
-* The enterprise extension attribute "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager" is not supported and will be removed.
-
 ## Additional resources
 
 * [Managing user account provisioning for Enterprise Apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)

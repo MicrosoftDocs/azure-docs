@@ -22,4 +22,4 @@ Ensure that you have already [created a Relay namespace][namespace-how-to].
     ![Select New](./media/relay-create-hybrid-connection-portal/create-hc-3.png)
 7. Select **Create**.
 
-[namespace-how-to]: ../articles/service-bus-relay/relay-create-namespace-portal.md 
+[namespace-how-to]: ../articles/azure-relay/relay-create-namespace-portal.md 

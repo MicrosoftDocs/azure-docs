@@ -1,3 +1,4 @@
+items:
 - name: Face Documentation
   href: index.yml
 - name: Overview
@@ -44,7 +45,7 @@
     - name: Configure containers
       href: face-resource-container-config.md
     - name: Use container instances
-      href: /azure/cognitive-services/containers/azure-container-instance-recipe?context=/azure/cognitive-services/face/context/context
+      href: ../containers/azure-container-instance-recipe.md?context=%2fazure%2fcognitive-services%2fface%2fcontext%2fcontext
     - name: All Cognitive Services containers documentation
       href: ../containers/index.yml
       maintainContext: true
@@ -75,13 +76,13 @@
   - name: Face REST API
     href: APIReference.md
   - name: .NET
-    href: /dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet
+    href: /dotnet/api/overview/azure/cognitiveservices/client/faceapi
   - name: Java
-    href: /java/api/overview/azure/cognitiveservices/client/faceapi?view=azure-java-stable
+    href: /java/api/overview/azure/cognitiveservices/client/faceapi
   - name: Node.js
     href: /javascript/api/@azure/cognitiveservices-face
   - name: Python
-    href: /python/api/azure-cognitiveservices-vision-face/?view=azure-python
+    href: /python/api/azure-cognitiveservices-vision-face/
   - name: Go
     href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face
 - name: Resources

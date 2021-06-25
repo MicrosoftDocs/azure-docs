@@ -51,6 +51,17 @@
     items:
     - name: Receive device data through Azure IoT Hub
       href: device-data-through-iot-hub.md
+  - name: Interoperability and Patient Access
+    expanded: false
+    items:
+    - name: CMS Interoperability and Patient Access rule introduction
+      href: cms-tutorial-introduction.md
+    - name: CARIN Implementation Guide for Blue Button
+      href: carin-implementation-guide-blue-button-tutorial.md
+    - name: Da Vinci Drug Formulary
+      href: davinci-drug-formulary-tutorial.md
+    - name: Da Vinci PDex
+      href: davinci-pdex-tutorial.md
 - name: How-to guides
   expanded: false
   items:
@@ -70,7 +81,7 @@
   - name: Configure settings
     expanded: false
     items:
-    - name: Configure additional Azure API for FHIR settings
+    - name: Configure another Azure API for FHIR settings
       href: azure-api-for-fhir-additional-settings.md
     - name: Configure Azure RBAC
       href: configure-azure-rbac.md
@@ -97,18 +108,29 @@
       href: how-to-run-a-reindex.md
     - name: Search examples for Azure API for FHIR
       href: search-samples.md
-  - name: Export data
-    expanded: false
-    items:
+  - name: Operations
+    expand: false
+    items:  
+    - name: Profile validation
+      href: validation-against-profiles.md
     - name: Export data
-      href: export-data.md
-    - name: De-identified export
-      href: de-identified-export.md
-  - name: Convert data
-    expanded: false
-    items:
-    - name: $convert-data and FHIR Converter Extension Templates
-      href: convert-data.md
+      expanded: false
+      items:
+      - name: Export data
+        href: export-data.md
+      - name: De-identified export
+        href: de-identified-export.md
+      - name: Move data to Synapse
+        href: move-to-synapse.md
+    - name: Convert data
+      expanded: false
+      items:
+      - name: $convert-data and FHIR Converter Extension Templates
+        href: convert-data.md
+    - name: Patient-everything in FHIR
+      href: patient-everything.md
+    - name: $member-match operation
+      href: tutorial-member-match.md
   - name: Find identity object IDs
     href: find-identity-object-ids.md
   - name: Diagnostic logging and metrics

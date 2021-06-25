@@ -1,16 +1,16 @@
 ---
-title: Expand existing Windows Virtual Desktop (classic) host pool with new session hosts - Azure
-description: How to expand an existing host pool with new session hosts in Windows Virtual Desktop (classic).
+title: Expand existing Azure Virtual Desktop (classic) host pool with new session hosts - Azure
+description: How to expand an existing host pool with new session hosts in Azure Virtual Desktop (classic).
 author: Heidilohr
 ms.topic: how-to
 ms.date: 03/31/2021
 ms.author: helohr
 manager: femila
 ---
-# Expand an existing host pool with new session hosts in Windows Virtual Desktop (classic)
+# Expand an existing host pool with new session hosts in Azure Virtual Desktop (classic)
 
 >[!IMPORTANT]
->This content applies to Windows Virtual Desktop (classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects, see [this article](../expand-existing-host-pool.md).
+>This content applies to Azure Virtual Desktop (classic), which doesn't support Azure Resource Manager Azure Virtual Desktop objects. If you're trying to manage Azure Resource Manager Azure Virtual Desktop objects, see [this article](../expand-existing-host-pool.md).
 
 As you ramp up usage within your host pool, you may need to expand your existing host pool with new session hosts to handle the new load.
 
@@ -27,7 +27,7 @@ Before you start, make sure you've created a host pool and session host virtual 
 You'll also need the following information from when you first created the host pool and session host VMs:
 
 - VM size, image, and name prefix
-- Domain join and Windows Virtual Desktop tenant administrator credentials
+- Domain join and Azure Virtual Desktop tenant administrator credentials
 - Virtual network name and subnet name
 
 The next three sections are three methods you can use to expand the host pool. You can do either with whichever deployment tool you're comfortable with.
@@ -77,7 +77,7 @@ All values in this section should match what you provided when you first created
 3.    For *Region*, select the same region where the existing host pool session host VMs are located.
 4.    For *Hostpool name*, enter the name of the existing host pool.
 5.    For *Desktop type*, select the desktop type that matches the existing host pool.
-6.    For *Default desktop users*, enter a comma-separated list of any additional users who you want to sign in to the Windows Virtual Desktop clients and access a desktop after the Azure Marketplace offering finishes. For example, if you want to assign user3@contoso.com and user4@contoso.com access, enter user3@contoso.com,user4@contoso.com.
+6.    For *Default desktop users*, enter a comma-separated list of any additional users who you want to sign in to the Azure Virtual Desktop clients and access a desktop after the Azure Marketplace offering finishes. For example, if you want to assign user3@contoso.com and user4@contoso.com access, enter user3@contoso.com,user4@contoso.com.
 7.    Select **Next : Configure virtual machine**.
 
 >[!NOTE]
@@ -103,14 +103,14 @@ All parameter values in this section should match what you provided when you fir
 1. For *Image source* and *Image OS version*, enter the same information that you provided when you first created the host pool.
 2. For *AD domain join UPN* and the associated passwords, enter the same information that you provided when you first created the host pool to join the VMs to the Active Directory domain. These credentials will be used to create a local account on your virtual machines. You can reset these local accounts to change their credentials later.
 3. For the virtual network information, select the same virtual network and subnet for where your existing host pool session host VMs are located.
-4. Select **Next : Configure Windows Virtual Desktop information**.
+4. Select **Next : Configure Azure Virtual Desktop information**.
 
-### Windows Virtual Desktop information
+### Azure Virtual Desktop information
 
 All parameter values in this section should match what you provided when you first created the host pool and session host VMs:
 
-1. For *Windows Virtual Desktop tenant group name*, enter the name for the tenant group that contains your tenant. Leave it as the default unless you were provided a specific tenant group name.
-2. For *Windows Virtual Desktop tenant name*, enter the name of the tenant where you'll be creating this host pool.
+1. For *Azure Virtual Desktop tenant group name*, enter the name for the tenant group that contains your tenant. Leave it as the default unless you were provided a specific tenant group name.
+2. For *Azure Virtual Desktop tenant name*, enter the name of the tenant where you'll be creating this host pool.
 3. Specify the same credentials you used when you first created the host pool and session host VMs. If you are using a service principal, enter the ID of the Azure Active Directory instance where your service principal is located.
 4. Select **Next : Review + create**.
 
@@ -120,7 +120,7 @@ Follow the instructions in [Run the Azure Resource Manager template for provisio
 
 ## Next steps
 
-Now that you've expanded your existing host pool, you can sign in to a Windows Virtual Desktop client to test them as part of a user session. You can connect to a session with any of the following clients:
+Now that you've expanded your existing host pool, you can sign in to a Azure Virtual Desktop client to test them as part of a user session. You can connect to a session with any of the following clients:
 
 - [Connect with the Windows Desktop client](connect-windows-7-10-2019.md)
 - [Connect with the web client](connect-web-2019.md)

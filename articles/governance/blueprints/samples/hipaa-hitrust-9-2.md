@@ -6,10 +6,10 @@ ms.topic: sample
 ---
 # HIPAA HITRUST 9.2 blueprint sample
 
-The HIPAA HITRUST 9.2 blueprint sample provides governance guard-rails using
-[Azure Policy](../../policy/overview.md) that help you assess specific HIPAA HITRUST 9.2
-controls. This blueprint helps customers deploy a core set of policies for any Azure-deployed
-architecture that must implement HIPAA HITRUST 9.2 controls.
+The HIPAA HITRUST 9.2 blueprint sample provides governance guardrails using
+[Azure Policy](../../policy/overview.md) that help you assess specific HIPAA HITRUST 9.2 controls.
+This blueprint helps customers deploy a core set of policies for any Azure-deployed architecture
+that must implement HIPAA HITRUST 9.2 controls.
 
 ## Control mapping
 

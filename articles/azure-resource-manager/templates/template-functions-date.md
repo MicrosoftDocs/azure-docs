@@ -2,16 +2,15 @@
 title: Template functions - date
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to work with dates.
 ms.topic: conceptual
-ms.date: 11/18/2020
+ms.date: 05/11/2021
 ---
+
 # Date functions for ARM templates
 
 Resource Manager provides the following functions for working with dates in your Azure Resource Manager template (ARM template):
 
 * [dateTimeAdd](#datetimeadd)
 * [utcNow](#utcnow)
-
-[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
 
 ## dateTimeAdd
 
@@ -34,8 +33,6 @@ The datetime value that results from adding the duration value to the base value
 ### Examples
 
 The following example template shows different ways of adding time values.
-
-# [JSON](#tab/json)
 
 ```json
 {
@@ -70,22 +67,6 @@ The following example template shows different ways of adding time values.
 }
 ```
 
-# [Bicep](#tab/bicep)
-
-```bicep
-param baseTime string = utcNow('u')
-
-var add3Years = dateTimeAdd(baseTime, 'P3Y')
-var subtract9Days = dateTimeAdd(baseTime, '-P9D')
-var add1Hour = dateTimeAdd(baseTime, 'PT1H')
-
-output add3YearsOutput string = add3Years
-output subtract9DaysOutput string = subtract9Days
-output add1HourOutput string = add1Hour
-```
-
----
-
 When the preceding template is deployed with a base time of `2020-04-07 14:53:14Z`, the output is:
 
 | Name | Type | Value |
@@ -95,8 +76,6 @@ When the preceding template is deployed with a base time of `2020-04-07 14:53:14
 | add1HourOutput | String | 4/7/2020 3:53:14 PM |
 
 The next example template shows how to set the start time for an Automation schedule.
-
-# [JSON](#tab/json)
 
 ```json
 {
@@ -148,30 +127,6 @@ The next example template shows how to set the start time for an Automation sche
 }
 ```
 
-# [Bicep](#tab/bicep)
-
-```bicep
-param omsAutomationAccountName string = 'demoAutomation'
-param scheduleName string = 'demSchedule1'
-param baseTime string = utcNow('u')
-
-var startTime = dateTimeAdd(baseTime, 'PT1H')
-
-...
-
-resource scheduler 'Microsoft.Automation/automationAccounts/schedules@2015-10-31' = {
-  name: concat(omsAutomationAccountName, '/', scheduleName)
-  properties: {
-    description: 'Demo Scheduler'
-    startTime: startTime
-    interval: 1
-    frequency: 'Hour'
-  }
-}
-```
-
----
-
 ## utcNow
 
 `utcNow(format)`
@@ -199,8 +154,6 @@ The current UTC datetime value.
 ### Examples
 
 The following example template shows different formats for the datetime value.
-
-# [JSON](#tab/json)
 
 ```json
 {
@@ -239,20 +192,6 @@ The following example template shows different formats for the datetime value.
 }
 ```
 
-# [Bicep](#tab/bicep)
-
-```bicep
-param utcValue string = utcNow()
-param utcShortValue string = utcNow('d')
-param utcCustomValue string = utcNow('M d')
-
-output utcOutput string = utcValue
-output utcShortOutput string = utcShortValue
-output utcCustomOutput string = utcCustomValue
-```
-
----
-
 The output from the preceding example varies for each deployment but will be similar to:
 
 | Name | Type | Value |
@@ -262,8 +201,6 @@ The output from the preceding example varies for each deployment but will be sim
 | utcCustomOutput | string | 3 5 |
 
 The next example shows how to use a value from the function when setting a tag value.
-
-# [JSON](#tab/json)
 
 ```json
 {
@@ -299,25 +236,6 @@ The next example shows how to use a value from the function when setting a tag v
 }
 ```
 
-# [Bicep](#tab/bicep)
-
-```bicep
-param utcShort string = utcNow('d')
-param rgName string
-
-resource myRg 'Microsoft.Resources/resourceGroups@2020-10-01' = {
-  name: rgName
-  location: 'westeurope'
-  tags: {
-    createdDate: utcShort
-  }
-}
-
-output utcShortOutput string = utcShort
-```
-
----
-
 ## Next steps
 
-* For a description of the sections in an ARM template, see [Understand the structure and syntax of ARM templates](template-syntax.md).
+* For a description of the sections in an ARM template, see [Understand the structure and syntax of ARM templates](./syntax.md).

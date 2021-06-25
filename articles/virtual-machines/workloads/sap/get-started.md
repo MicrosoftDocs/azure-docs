@@ -13,7 +13,7 @@ ms.assetid: ad8e5c75-0cf6-4564-ae62-ea1246b4e5f2
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/27/2021
+ms.date: 06/17/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -77,6 +77,11 @@ In this section, you can find information in how to configure SSO with most of t
 In this section, you find documents about Microsoft Power BI integration into SAP data sources as well as Azure Data Factory integration into SAP BW.
 
 ## Change Log
+- June 17, 2020: Change in [High availability of SAP HANA on Azure VMs on RHEL](./sap-hana-high-availability-rhel.md) to remove meta keyword from HANA resource creation command (RHEL 8.x)
+- June 09, 2021: Correct VM SKU names for M192---_v2 in [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md)
+- May 26, 2021: Change in [SAP HANA scale-out HSR with Pacemaker on Azure VMs on SLES](./sap-hana-high-availability-scale-out-hsr-suse.md), [HA for SAP HANA scale-up with ANF on RHEL](./sap-hana-high-availability-netapp-files-red-hat.md) and [SAP HANA scale-out HSR with Pacemaker on Azure VMs on RHEL](./sap-hana-high-availability-scale-out-hsr-rhel.md) to add configuration to prepare the OS for running HANA on ANF  
+- May 13, 2021: Change in [Setting up Pacemaker on SLES in Azure](./high-availability-guide-suse-pacemaker.md) to clarify how resource agent azure-events operates 
+- April 30, 2021: Change in [Setting up Pacemaker on SLES in Azure](./high-availability-guide-suse-pacemaker.md) to include warning about incompatible change with Azure Fence Agent in a version of package python3-azure-mgmt-compute (SLES 15)  
 - April 27, 2021: Change in [SAP ASCS/SCS instance with WSFC and file share](./sap-high-availability-guide-wsfc-file-share.md) to add links to important SAP notes in the prerequisites section
 - April 27, 2021: Added new Msv2, Mdsv2 VMs into HANA storage configuration in [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md)
 - April 27, 2021: Added requirement for using same storage types in HANA System Replication across all VMs of HSR configuration in [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md)

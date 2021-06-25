@@ -24,9 +24,9 @@ Clusters running on Azure and standalone clusters running on Windows both can us
 
 ### Node-to-node certificate security
 
-Service Fabric uses X.509 server certificates that you specify as part of the node-type configuration when you create a cluster. At the end of this article, you can see a brief overview of what these certificates are and how you can acquire or create them.
+Service Fabric uses X.509 server certificates that you specify as part of the node-type configuration when you create a cluster. You can set up certificate security either in the Azure portal, by using an Azure Resource Manager template, or by using a standalone JSON template. At the end of this article, you can see a brief overview of what these certificates are and how you can acquire or create them.
 
-Set up certificate security when you create the cluster, either in the Azure portal, by using an Azure Resource Manager template, or by using a standalone JSON template. Service Fabric SDK's default behavior is to deploy and install the certificate with the furthest into the future expiring date; the classic behavior allowed the defining of primary and secondary certificates, to allow manually initiated rollovers, and is not recommended for use over the new functionality. The primary certificates that will be use has the furthest into the future expiring date, should be different from the admin client and read-only client certificates that you set for [client-to-node security](#client-to-node-security).
+Service Fabric SDK's default behavior is to deploy and install the certificate with the furthest into the future expiring date. This primary certificate should be different from the admin client and read-only client certificates that you set for [client-to-node security](#client-to-node-security). The SDK's classic behavior allowed the defining of primary and secondary certificates to allow manually initiated rollovers; it is not recommended for use over the new functionality. 
 
 To learn how to set up certificate security in a cluster for Azure, see [Set up a cluster by using an Azure Resource Manager template](service-fabric-cluster-creation-via-arm.md).
 
@@ -61,11 +61,9 @@ To learn how to set up certificate security in a cluster for a standalone Window
 
 ### Client-to-node Azure Active Directory security on Azure
 
-Azure AD enables organizations (known as tenants) to manage user access to applications. Applications are divided into those with a web-based sign-in UI and those with a native client experience. If you have not already created a tenant, start by reading [How to get an Azure Active Directory tenant][active-directory-howto-tenant].
+Azure Active Directory (Azure AD) enables organizations (known as tenants) to manage user access to applications. Applications are divided into those with a web-based sign-in UI and those with a native client experience. If you have not already created a tenant, start by reading [How to get an Azure Active Directory tenant][active-directory-howto-tenant].
 
-A Service Fabric cluster offers several entry points to its management functionality, including the web-based [Service Fabric Explorer][service-fabric-visualizing-your-cluster] and [Visual Studio][service-fabric-manage-application-in-visual-studio]. As a result, you create two Azure AD applications to control access to the cluster, one web application and one native application.
-
-For clusters running on Azure, you also can secure access to management endpoints by using Azure Active Directory (Azure AD). To learn how to create the required Azure AD artifacts and how to populate them when you create the cluster, see [Set up Azure AD to authenticate clients](service-fabric-cluster-creation-setup-aad.md).
+For clusters running on Azure, you can also use Azure AD to secure access to management endpoints. A Service Fabric cluster offers several entry points to its management functionality, including the web-based [Service Fabric Explorer][service-fabric-visualizing-your-cluster] and [Visual Studio][service-fabric-manage-application-in-visual-studio]. As a result, to control access to the cluster you create two Azure AD applications: one web application and one native application. To learn how to create the required Azure AD artifacts and how to populate them when you create the cluster, see [Set up Azure AD to authenticate clients](service-fabric-cluster-creation-setup-aad.md).
 
 ## Security recommendations
 

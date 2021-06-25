@@ -19,7 +19,7 @@ This FAQ answers common questions about using and purchasing ClearDB MySQL datab
 > [!IMPORTANT]
 > As of June 13, 2018, ClearDB transitioned Azure-based customers currently billed by Microsoft to a direct billing model with ClearDB. The information in this article is now out of date. You will no longer be able to create or upgrade a ClearDB database that was created in Azure.
 >
-> For more details and next steps, see [Changes to ClearDB service plans](https://w2.cleardb.net/important-change-of-billing-notice-for-all-azure-cleardb-service-plans/).
+> For more details and next steps, see [Changes to ClearDB service plans](https://www.navisite.com/blog/news/update-change-of-billing-notice-for-all-azure-cleardb-service-plans/).
 
 ## What options do I have for MySQL on Azure?
 See [ClearDB](https://w2.cleardb.net/) for the latest information on that service. ClearDB is a MySQL hosting service and manages the MySQL infrastructure for you. 
@@ -57,7 +57,7 @@ No, Azure will not warn you if you delete a marketplace purchase that your appli
 Azure Marketplace is not available to customers enrolled in Azerbaijan, Croatia, Norway or Puerto Rico. ClearDB is not available in these regions.
 
 ## What pricing tier should I choose for a production web app and database?
-Use Basic or a higher pricing tier for Web Apps. For ClearDB, we recommend either a Saturn or Jupiter plan. Review the features & limitations of each pricing tier for both [Web Apps](https://azure.microsoft.com/pricing/details/app-service/) and [ClearDB MySQL databases](https://w2.cleardb.net/important-change-of-billing-notice-for-all-azure-cleardb-service-plans/) to choose the one that fits your needs.
+Use Basic or a higher pricing tier for Web Apps. For ClearDB, we recommend either a Saturn or Jupiter plan. Review the features & limitations of each pricing tier for both [Web Apps](https://azure.microsoft.com/pricing/details/app-service/) and [ClearDB MySQL databases](https://www.navisite.com/blog/news/update-change-of-billing-notice-for-all-azure-cleardb-service-plans/) to choose the one that fits your needs.
 
 ## How do I upgrade my ClearDB database from one plan to another?
 In the [Azure portal](https://portal.azure.com), you can scale up a ClearDB shared hosting database. Read this [article](https://blogs.msdn.microsoft.com/appserviceteam/2016/10/06/upgrade-your-cleardb-mysql-database-in-azure-portal/) to learn more. We currently don't support upgrade for ClearDB Premium clusters in the Azure portal.

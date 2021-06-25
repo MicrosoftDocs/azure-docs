@@ -382,6 +382,8 @@
     href: how-to-connect-fed-compatibility.md
   - name: TLS 1.2 enforcement
     href: reference-connect-tls-enforcement.md
+  - name: ADSync Reference
+    href: reference-connect-adsync.md
   - name: ADSyncConfig Reference
     href: reference-connect-adsyncconfig.md
   - name: ADSyncTools Reference

@@ -83,13 +83,11 @@ While you use ExpressRoute, you can apply the route filter associated with Micro
 * To establish baseline and performance history to help detect emerging issues of Microsoft 365 performance, see [Office 365 performance tuning using baselines and performance history][Microsoft 365perf].
 
 <!--Link References-->
-[ExR-Intro]: https://docs.microsoft.com/azure/expressroute/expressroute-introduction 
-[CreatePeering]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-routing-portal-resource-manager
+[ExR-Intro]: ./expressroute-introduction.md
+[CreatePeering]: ./expressroute-howto-routing-portal-resource-manager.md
 [MGN]: https://azure.microsoft.com/blog/how-microsoft-builds-its-fast-and-reliable-global-network/
-[AFD]: https://docs.microsoft.com/azure/frontdoor/front-door-overview
-[ExRRF]: https://docs.microsoft.com/azure/expressroute/how-to-routefilter-portal
-[Teams]: https://docs.microsoft.com/microsoftteams/microsoft-teams-online-call-flows
+[AFD]: ../frontdoor/front-door-overview.md
+[ExRRF]: ./how-to-routefilter-portal.md
+[Teams]: /microsoftteams/microsoft-teams-online-call-flows
 [Microsoft 365-Test]: https://connectivity.office.com/
-[Microsoft 365perf]: https://docs.microsoft.com/microsoft-365/enterprise/performance-tuning-using-baselines-and-history?view=o365-worldwide
-
-
+[Microsoft 365perf]: /microsoft-365/enterprise/performance-tuning-using-baselines-and-history

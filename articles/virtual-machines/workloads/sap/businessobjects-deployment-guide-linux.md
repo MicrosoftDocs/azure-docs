@@ -17,7 +17,7 @@ ms.author: depadia
 
 ---
 
-# SAP BusinessObjects BI platform deployment guide for linux on Azure
+# SAP BusinessObjects BI platform deployment guide for Linux on Azure
 
 This article describes the strategy to deploy SAP BusinessObjects BI Platform on Azure for Linux. In this example, two virtual machines with Premium SSD Managed Disks as its install directory are configured. Azure Database for MySQL is used for CMS database, and Azure NetApp Files for File Repository Server is shared across both servers. The default Tomcat Java web application and BI Platform application are installed together on both virtual machines. To load balance the user request, Application Gateway is used that has native TLS/SSL offloading capabilities.
 
@@ -105,7 +105,7 @@ As you're creating your Azure NetApp Files for SAP BOBI Platform File Repository
 6. The Azure NetApp Files feature isn't zone-aware yet. Currently, the feature isn't deployed in all availability zones in an Azure region. Be aware of the potential latency implications in some Azure regions.
 7. Azure NetApp Files volumes can be deployed as NFSv3 or NFSv4.1 volumes. Both protocols are supported for the SAP BI Platform Applications.
 
-## Configure file systems on linux servers
+## Configure file systems on Linux servers
 
 The steps in this section use the following prefixes:
 
@@ -367,7 +367,7 @@ For more information, see [Private Link for Azure Database for MySQL](../../../m
    +----------------------------------------------------------------------------+
    ```
 
-### Install MySQL C API connector (libmysqlclient) on linux server
+### Install MySQL C API connector (libmysqlclient) on a Linux server
 
 For SAP BOBI Application server to access database, it requires database client/drivers. MySQL C API Connector for Linux has to be used to access CMS and Audit databases. ODBC connection to CMS database isn't supported. This section provides instructions on how to set up MySQL C API Connector on Linux.
 

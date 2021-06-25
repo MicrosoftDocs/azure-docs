@@ -89,7 +89,7 @@ To complete these steps, you will need:
 
 - [Bash in Azure Cloud Shell](../cloud-shell/overview.md) or [Azure CLI](/cli/azure)
 - Account Administrator of the subscription you want to transfer in the source directory
-- [Owner](built-in-roles.md#owner) role in the target directory
+- A user account in both the source and target directory for the user making the directory change
 
 ## Step 1: Prepare for the transfer
 
@@ -247,7 +247,7 @@ When you create a key vault, it is automatically tied to the default Azure Activ
 1. Use [az account show](/cli/azure/account#az_account_show) to get your subscription ID.
 
     ```azurecli
-    subscriptionId=$(az account show --query id | sed -e 's/^"//' -e 's/"$//')
+    subscriptionId=$(az account show --query id | sed -e 's/^"//' -e 's/"//')
     ```
 
 1. Use the [az graph](/cli/azure/graph) extension to list other Azure resources with known Azure AD directory dependencies.

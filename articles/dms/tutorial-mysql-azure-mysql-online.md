@@ -19,7 +19,7 @@ ms.date: 01/08/2020
 You can use Azure Database Migration Service to migrate the databases from an on-premises MySQL instance to [Azure Database for MySQL](../mysql/index.yml) with minimal downtime. In other words, migration can be achieved with minimum downtime to the application. In this tutorial, you migrate the **Employees** sample database from an on-premises instance of MySQL 5.7 to Azure Database for MySQL by using an online migration activity in Azure Database Migration Service.
 
 > [!IMPORTANT]
-> The “MySQL to Azure Database for MySQL” online migration scenario is being replaced with a parallelized, highly performant offline migration scenario on June 1, 2021. For online migrations, you can use this new offering together with [data-in replication](../mysql/concepts-data-in-replication.md). Alternatively, use open-source tools such as [MyDumper/MyLoader](https://centminmod.com/mydumper.html) with data-in replication for online migrations. 
+> The “MySQL to Azure Database for MySQL” online migration scenario will **no longer be available after June 1, 2021**. A parallelized, highly performant [offline migration capability](./tutorial-mysql-azure-mysql-offline-portal.md) is **now available in preview** to support “MySQL to Azure Database for MySQL” migrations. For online migrations, you can use open-source tools such as [MyDumper/MyLoader](https://centminmod.com/mydumper.html) with [data-in replication](../mysql/concepts-data-in-replication.md).
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]

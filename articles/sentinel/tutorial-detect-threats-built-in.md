@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/12/2021
+ms.date: 05/11/2021
 ms.author: yelevin
 
 ---
@@ -50,7 +50,9 @@ Based on Fusion technology, advanced multistage attack detection in Azure Sentin
 >
 > To see which detections are in preview, see [Advanced multistage attack detection in Azure Sentinel](fusion.md).
 
-### Machine learning behavioral analytics
+In addition, the Fusion engine can now correlate alerts produced by [scheduled analytics rules](#scheduled) with those from other systems, producing high-fidelity incidents as a result.
+
+### Machine learning (ML) behavioral analytics
 
 These templates are based on proprietary Microsoft machine learning algorithms, so you cannot see the internal logic of how they work and when they run. Because the logic is hidden and therefore not customizable, you can only create one rule with each template of this type.
 
@@ -59,9 +61,18 @@ These templates are based on proprietary Microsoft machine learning algorithms, 
 >
 > - By creating and enabling any rules based on the ML behavior analytics templates, **you give Microsoft permission to copy ingested data outside of your Azure Sentinel workspace's geography** as necessary for processing by the machine learning engines and models.
 
+### Anomaly
+
+Anomaly rule templates use SOC-ML (machine learning) to detect specific types of anomalous behavior. Each rule has its own unique parameters and thresholds, appropriate to the behavior being analyzed, and while its configuration can't be changed or fine-tuned, you can duplicate the rule, change and fine-tune the duplicate, run the duplicate in **Flighting** mode and the original concurrently in **Production** mode, compare results, and switch the duplicate to **Production** if and when its fine-tuning is to your liking. Learn more about [SOC-ML](soc-ml-anomalies.md) and [working with anomaly rules](work-with-anomaly-rules.md).
+
+> [!IMPORTANT]
+> The Anomaly rule templates are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
 ### Scheduled
 
 Scheduled analytics rules are based on built-in queries written by Microsoft security experts. You can see the query logic and make changes to it. You can use the scheduled rules template and customize the query logic and scheduling settings to create new rules.
+
+Several new scheduled analytics rule templates produce alerts that are correlated by the Fusion engine with alerts from other systems to produce high-fidelity incidents. See [Advanced multistage attack detection](fusion.md#configure-scheduled-analytics-rules-for-fusion-detections) for details.
 
 > [!TIP]
 > Rule scheduling options include configuring the rule to run every specified number of minutes, hours, or days, with the clock starting when you enable the rule.
@@ -78,6 +89,10 @@ Scheduled analytics rules are based on built-in queries written by Microsoft sec
 1. Clicking the **Create rule** button opens the rule creation wizard based on the selected template. All the details are autofilled, and with the **Scheduled** or **Microsoft security** templates, you can customize the logic and other rule settings to better suit your specific needs. You can repeat this process to create additional rules based on the built-in template. After following the steps in the rule creation wizard to the end, you will have finished creating a rule based on the template. The new rules will appear in the **Active rules** tab.
 
     For more details on how to customize your rules in the rule creation wizard, see [Tutorial: Create custom analytics rules to detect threats](tutorial-detect-threats-custom.md).
+
+## Export rules to an ARM template
+
+You can easily [export your rule to an Azure Resource Manager (ARM) template](import-export-analytics-rules.md) if you want to manage and deploy your rules as code. You can also import rules from template files in order to view and edit them in the user interface.
 
 ## Next steps
 

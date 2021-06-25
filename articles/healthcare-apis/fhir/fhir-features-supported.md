@@ -6,7 +6,7 @@ author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 4/15/2021
+ms.date: 6/16/2021
 ms.author: cavoeg
 ---
 
@@ -31,7 +31,7 @@ Previous versions also currently supported include: `3.0.2`
 | update (conditional)           | Yes       | Yes       | Yes       |                                                     |
 | patch                          | No        | No        | No        |                                                     |
 | delete                         | Yes       | Yes       | Yes       |  See Note  below.                                   |
-| delete (conditional)           | No        | No        | No        |                                                     |
+| delete (conditional)           | Yes       | Yes        | Yes        |                                                     |
 | history                        | Yes       | Yes       | Yes       |                                                     |
 | create                         | Yes       | Yes       | Yes       | Support both POST/PUT                               |
 | create (conditional)           | Yes       | Yes       | Yes       | Issue [#1382](https://github.com/microsoft/fhir-server/issues/1382) |
@@ -63,7 +63,9 @@ All the operations that are supported that extend the RESTful API.
 | Patient/$export        | Yes       | Yes       | Yes       |         |
 | Group/$export          | Yes       | Yes       | Yes       |         |
 | $convert-data          | Yes       | Yes       | Yes       |         |
-
+| $validate              | Yes       | Yes       | Yes       |         |
+| $member-match          | Yes       | Yes       | Yes       |         |
+| $patient-everything    | Yes       | No        | Yes       |         |
 
 ## Persistence
 
@@ -83,24 +85,13 @@ Currently, the allowed actions for a given role are applied *globally* on the AP
 
 * [**Request Units (RUs)**](../../cosmos-db/concepts-limits.md) - You can configure up to 10,000 RUs in the portal for Azure API for FHIR. You will need a minimum of 400 RUs or 40 RUs/GB, whichever is larger. If you need more than 10,000 RUs, you can put in a support ticket to have this increased. The maximum available is 1,000,000.
 
-* **Concurrent connections** and **Instances** - By default, you have five concurrent connections on two instances in the cluster (for a total of 10 concurrent requests). If you believe you need more concurrent requests, open a support ticket with details on your needs.
-
 * **Bundle size** - Each bundle is limited to 500 items.
 
 * **Data size** - Data/Documents must each be slightly less than 2 MB.
 
-## Performance expectations
+* **Subscription Limit** - By default, each subscription is limited to a maximum of 10 FHIR Server Instances. If you need more instances per subscription, open a support ticket and provide details about your needs.
 
-The performance of the system is dependent on the number of RUs, concurrent connections, and the type of operations you are performing (Put, Post, etc.). Below are some general ranges of what you can expect based on configured RUs. In general, performance scales linearly with an increase in RUs:
-
-| # of RUs | Resources/sec |    Max Storage (GB)*    |
-|----------|---------------|--------|                 
-| 400      | 5-10          |     10   |
-| 1,000    | 100-150       |      25  |
-| 10,000   | 225-400       |      250  |
-| 100,000  | 2,500-4,000   |      2,500  |
-
-Note: Per Cosmos DB requirement, there is a requirement of a minimum throughput of 40 RU/s per GB of storage. 
+* **Concurrent connections and Instances** - By default, you have 15 concurrent connections on two instances in the cluster (for a total of 30 concurrent requests). If you need more concurrent requests, open a support ticket and provide details about your needs.
 
 ## Next steps
 

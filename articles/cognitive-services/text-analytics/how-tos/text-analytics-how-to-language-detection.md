@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 04/02/2021
+ms.date: 06/10/2021
 ms.author: aahi
 ---
 
@@ -86,9 +86,9 @@ All POST requests return a JSON-formatted response with the IDs and detected pro
 
 Output is returned immediately. You can stream the results to an application that accepts JSON or save the output to a file on the local system. Then, import the output into an application that you can use to sort, search, and manipulate the data.
 
-Results for the example request should look like the following JSON. Notice that it's one document with multiple items. Output is in English. Language identifiers include a friendly name and a language code in [ISO 639-1](https://www.iso.org/standard/22109.html) format.
+Results for the example request should look like the following JSON document. Notice that it's one JSON document with multiple items with each item representing the detection result for every document you sumbit. Output is in English. 
 
-A positive score of 1.0 expresses the highest possible confidence level of the analysis.
+Language detection will return one predominant language for one document, along with it's [ISO 639-1](https://www.iso.org/standard/22109.html) name, friendly name and confidence score. A positive score of 1.0 expresses the highest possible confidence level of the analysis.
 
 ```json
 {
@@ -298,3 +298,4 @@ In this article, you learned concepts and workflow for language detection by usi
 * [Text Analytics overview](../overview.md)
 * [Using the Text Analytics client library](../quickstarts/client-libraries-rest-api.md)
 * [What's new](../whats-new.md)
+* [Model versions](../concepts/model-versioning.md)

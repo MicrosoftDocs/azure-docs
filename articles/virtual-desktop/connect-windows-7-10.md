@@ -1,6 +1,6 @@
 ---
-title: Connect to Windows Virtual Desktop Windows 10 or 7 - Azure
-description: How to connect to Windows Virtual Desktop using the Windows Desktop client.
+title: Connect to Azure Virtual Desktop Windows 10 or 7 - Azure
+description: How to connect to Azure Virtual Desktop using the Windows Desktop client.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 09/22/2020
@@ -11,7 +11,7 @@ ms.custom: template-how-to
 
 # Connect with the Windows Desktop client
 
-You can access Windows Virtual Desktop resources on devices with Windows 10, Windows 10 IoT Enterprise, and  Windows 7 using the Windows Desktop client. 
+You can access Azure Virtual Desktop resources on devices with Windows 10, Windows 10 IoT Enterprise, and  Windows 7 using the Windows Desktop client. 
 
 > [!IMPORTANT]
 > This does not support Window 8 or Windows 8.1.
@@ -55,7 +55,7 @@ To launch the resource once subscribed, go to the **Connection Center** and doub
 The resources grouped by workspace will appear in the **Connection Center**.
 
    > [!NOTE]
-   > The Windows client automatically defaults to Windows Virtual Desktop (classic). 
+   > The Windows client automatically defaults to Azure Virtual Desktop (classic). 
    > 
    > However, if the client detects additional Azure Resource Manager resources, it adds them automatically or notifies the user that they're available.
 
@@ -67,9 +67,9 @@ The resources grouped by workspace will appear in the **Connection Center**.
 
    |Available Resources|URL|
    |-|-|
-   |Windows Virtual Desktop (classic)|`https://rdweb.wvd.microsoft.com/api/feeddiscovery/webfeeddiscovery.aspx`|
-   |Windows Virtual Desktop|`https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery`|
-   |Windows Virtual Desktop (US Gov)|`https://rdweb.wvd.azure.us/api/arm/feeddiscovery`|
+   |Azure Virtual Desktop (classic)|`https://rdweb.wvd.microsoft.com/api/feeddiscovery/webfeeddiscovery.aspx`|
+   |Azure Virtual Desktop|`https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery`|
+   |Azure Virtual Desktop (US Gov)|`https://rdweb.wvd.azure.us/api/arm/feeddiscovery`|
    
    - For **Email**, use your email address. 
       

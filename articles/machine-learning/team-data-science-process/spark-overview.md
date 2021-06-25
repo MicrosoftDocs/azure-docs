@@ -78,7 +78,7 @@ The following procedures are related to Spark 1.6. For  the Spark 2.0 version, u
 
 <!-- -->
 
-> [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
+> [!INCLUDE [delete-cluster-warning](../../hdinsight/includes/hdinsight-delete-cluster-warning.md)]
 >
 >
 

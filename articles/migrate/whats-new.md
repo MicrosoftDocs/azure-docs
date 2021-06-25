@@ -1,5 +1,5 @@
 ---
-title: What's new in Azure Migrate 
+title: What's new in Azure Migrate
 description: Learn about what's new and recent updates in the Azure Migrate service.
 ms.topic: overview
 author: anvar-ms
@@ -12,6 +12,12 @@ ms.custom: mvc
 # What's new in Azure Migrate
 
 [Azure Migrate](migrate-services-overview.md) helps you to discover, assess, and migrate on-premises servers, apps, and data to the Microsoft Azure cloud. This article summarizes new releases and features in Azure Migrate.
+
+## Update (June 2021)
+- Azure Migrate allows you to register servers running SQL server with SQL VM RP during replication to automatically install SQL IaaS Agent Extension. This feature is available for agentless VMware, agentless Hyper-V, and agent-based migrations.
+
+## Update (May 2021)
+- Migration of VMs and physical servers with OS disks up to 4 TB is now supported using the agent-based migration method.
 
 ## Update (March 2021)
 - Support to provide multiple server credentials on Azure Migrate appliance to discover installed applications (software inventory), agentless dependency analysis and discover SQL Server instances and databases in your VMware environment. [Learn more](tutorial-discover-vmware.md#provide-server-credentials)
@@ -54,7 +60,7 @@ ms.custom: mvc
 
 ## Update (April 2020)
 
-Azure Migrate supports deployments in Azure Government. 
+Azure Migrate supports deployments in Azure Government.
 
 - You can discover and assess VMware VMs, Hyper-V VMs, and physical servers.
 - You can migrate VMware VMs, Hyper-V VMs, and physical servers to Azure.

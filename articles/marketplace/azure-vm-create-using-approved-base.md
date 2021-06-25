@@ -1,6 +1,6 @@
 ---
-title: Create an Azure virtual machine offer (VM) from an approved base, Azure Marketplace
-description: Learn how to create a virtual machine (VM) offer from an approved base.
+title: Create an Azure virtual machine offer (VM) from an approved base
+description: Learn how to create a virtual machine (VM) offer from an approved base (Azure Marketplace).
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
@@ -9,7 +9,7 @@ ms.author: krsh
 ms.date: 04/16/2021
 ---
 
-# How to create a virtual machine using an approved base
+# Create a virtual machine using an approved base
 
 This article describes how to use Azure to create a virtual machine (VM) containing a pre-configured, endorsed operating system. If this isn't compatible with your solution, it's possible to [create and configure an on-premises VM](azure-vm-create-using-own-image.md) using an approved operating system.
 

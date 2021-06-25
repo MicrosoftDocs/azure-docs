@@ -1,5 +1,5 @@
 ---
-title: What is Azure Machine Learning
+title: What is Azure Machine Learning?
 description: Azure Machine Learning is an integrated data science solution for data scientists and MLops to model and deploy ML applications at cloud scale.
 services: machine-learning
 ms.service: machine-learning
@@ -39,8 +39,6 @@ Azure Machine Learning provides all the tools developers and data scientists nee
 
 + Jupyter notebooks: use our [example notebooks](https://github.com/Azure/MachineLearningNotebooks) or create your own notebooks to leverage our <a href="/python/api/overview/azure/ml/intro" target="_blank">SDK for Python</a> samples for your machine learning. 
 
-+ R scripts or notebooks in which you use the <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html" target="_blank">SDK for R</a> to write your own code, or use the R modules in the designer.
-
 + The [Many Models Solution Accelerator](https://aka.ms/many-models) (preview) builds on Azure Machine Learning and enables you to train, operate, and manage hundreds or even thousands of machine learning models.
 
 + [Machine learning extension for Visual Studio Code (preview)](how-to-set-up-vs-code-remote.md) provides you with a full-featured development environment for building and managing your machine learning projects.
@@ -53,9 +51,9 @@ Azure Machine Learning provides all the tools developers and data scientists nee
 
 You can even use [MLflow to track metrics and deploy models](how-to-use-mlflow.md) or Kubeflow to [build end-to-end workflow pipelines](https://www.kubeflow.org/docs/azure/).
 
-## Build ML models in Python or R
+## Build ML models in with the Python SDK
 
-Start training on your local machine using the Azure Machine Learning <a href="/python/api/overview/azure/ml/intro" target="_blank">Python SDK</a> or <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html" target="_blank">R SDK</a>. Then, you can scale out to the cloud. 
+Start training on your local machine using the Azure Machine Learning <a href="/python/api/overview/azure/ml/intro" target="_blank">Python SDK</a>. Then, you can scale out to the cloud. 
 
 With many available [compute targets](how-to-create-attach-compute-studio.md), like Azure Machine Learning Compute and [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks), and with [advanced hyperparameter tuning services](how-to-tune-hyperparameters.md), you can build better models faster by using the power of the cloud.
 
@@ -121,14 +119,15 @@ Your Azure Storage account, compute targets, and other resources can be used sec
 
 ## Next steps
 
-- Create your first experiment with your preferred method:
-- + [Get started in your own development environment](tutorial-1st-experiment-sdk-setup-local.md)
-  + [Use Jupyter notebooks on a compute instance to train & deploy ML models](tutorial-1st-experiment-sdk-setup.md)
+Start with [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md).  Then use these resources to create your first experiment with your preferred method:
+
+  + [Run a "Hello world!" Python script (part 1 of 3)](tutorial-1st-experiment-hello-world.md)
+  + [Use a Jupyter notebook to train image classification models](tutorial-train-models-with-aml.md)
   + [Use automated machine learning to train & deploy ML models](tutorial-first-experiment-automated-ml.md) 
   + [Manage resources in Visual Studio Code](how-to-manage-resources-vscode.md)
   + [Use Visual Studio Code to train and deploy an image classification model](tutorial-train-deploy-image-classification-model-vscode.md)
   + [Use the designer's drag & drop capabilities to train & deploy](tutorial-designer-automobile-price-train-score.md) 
-  + [Use the machine learning CLI to train and deploy a model](tutorial-train-deploy-model-cli.md)
+  + [Use the machine learning CLI to train a model](how-to-train-cli.md)
 
 - Learn about [machine learning pipelines](concept-ml-pipelines.md) to build, optimize, and manage your machine learning scenarios.
 

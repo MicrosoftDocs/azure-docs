@@ -8,7 +8,8 @@ ms.topic: how-to
 ms.date: 02/12/2021
 ms.author: normesta
 ms.reviewer: dineshm
-ms.subservice: blobs
+ms.subservice: blobs 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Map a custom domain to an Azure Blob Storage endpoint
@@ -51,7 +52,7 @@ The host name is the storage endpoint URL without the protocol identifier and th
 
 1. In the [Azure portal](https://portal.azure.com), go to your storage account.
 
-2. In the menu pane, under **Settings**, select **Properties**.  
+2. In the menu pane, under **Settings**, select **Endpoints**.  
 
 3. Copy the value of the **Blob service** endpoint or the **Static website** endpoint to a text file. 
   
@@ -95,14 +96,14 @@ Create a CNAME record to point to your host name. A CNAME record is a type of Do
 
 1. In the [Azure portal](https://portal.azure.com), go to your storage account.
 
-2. In the menu pane, under **Settings**, select **Networking**.
+2. In the menu pane, under **Security + networking**, select **Networking**.
 
 3. In the **Networking** page, choose the **Custom domain** tab.
 
    > [!NOTE]
    > This option does not appear in accounts that have the hierarchical namespace feature enabled. For those accounts, use either PowerShell or the Azure CLI to complete this step.
 
-3. In the **Domain name** text box, enter the name of your custom domain, including the subdomain  
+3. In the **Domain name** text box, enter the name of your custom domain, including the subdomain.  
    
    For example, if your domain is *contoso.com* and your subdomain alias is *www*, enter `www.contoso.com`. If your subdomain is *photos*, enter `photos.contoso.com`.
 
@@ -185,7 +186,7 @@ The host name is the storage endpoint URL without the protocol identifier and th
 
 1. In the [Azure portal](https://portal.azure.com), go to your storage account.
 
-2. In the menu pane, under **Settings**, select **Properties**.  
+2. In the menu pane, under **Settings**, select **Endpoints**.  
 
 3. Copy the value of the **Blob service** endpoint or the **Static website** endpoint to a text file.  
 
@@ -231,14 +232,14 @@ When you pre-register your custom domain with Azure, you permit Azure to recogni
 
 1. In the [Azure portal](https://portal.azure.com), go to your storage account.
 
-2. In the menu pane, under **Settings**, select **Networking**.
+2. In the menu pane, under **Security + networking**, select **Networking**.
 
 3. In the **Networking** page, choose the **Custom domain** tab.
 
    > [!NOTE]
    > This option does not appear in accounts that have the hierarchical namespace feature enabled. For those accounts, use either PowerShell or the Azure CLI to complete this step.
 
-3. In the **Domain name** text box, enter the name of your custom domain, including the subdomain  
+3. In the **Domain name** text box, enter the name of your custom domain, including the subdomain.  
    
    For example, if your domain is *contoso.com* and your subdomain alias is *www*, enter `www.contoso.com`. If your subdomain is *photos*, enter `photos.contoso.com`.
 
@@ -322,7 +323,7 @@ To remove a custom domain mapping, deregister the custom domain. Use one of the 
 
 1. In the [Azure portal](https://portal.azure.com), go to your storage account.
 
-2. In the menu pane, under **Settings**, select **Networking**.
+2. In the menu pane, under **Security + networking**, select **Networking**.
 
 3. In the **Networking** page, choose the **Custom domain** tab.
 
