@@ -4,7 +4,7 @@ description: Learn how to deploy an Azure disk pool.
 author: roygara
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.date: 06/22/2021
+ms.date: 06/25/2021
 ms.author: rogarana
 ms.subservice: disks
 ---
@@ -85,6 +85,8 @@ For a disk to be able to be used in a disk pool, it must meet the following requ
 1. Select the subnet that has been delegated to the StoragePool resource provider, and its associated virtual network.
 1. Select **Next** to add disks to your disk pool.
 
+    :::image type="content" source="media/disks-pools-deploy/create-a-disk-pool.png" alt-text="Screenshot of the basic blade for create a disk pool.":::
+
 #### Add disks
 
 ##### Prerequisites
@@ -99,20 +101,18 @@ To add a disk, it must meet the following requirements:
 
 If your disk meets these requirements, you can add it to a disk pool by selecting **+Add disk** in the disk pool blade.
 
+    :::image type="content" source="media/disks-pools-deploy/create-a-disk-pool-disks-blade.png" alt-text="Screenshot of the disks blade for create a disk pool, add a disk highlighted.":::
+
 ### Enable iSCSI
 
 1. Select the **iSCSI** blade.
 1. Select **Enable iSCSI**.
 1. Enter the name of the iSCSI target, the iSCSI target IQN will generate based on this name.
+    - If you want to disable the iSCSI target for an individual disk, you can do this by selecting **Disable** under **Status** for an individual disk.
+    - The ACL mode is set to **Dynamic** by default. To use your disk pool as a storage solution for AVS, the ACL mode must be set to **Dynamic**.
+1. Select **Review + create**.
 
-#### Enable iSCSI targets for disks
-
-In the disks enablement section you can choose to enable or disable individual iSCSI targets.
-
-In the Access Control List options section, the ACL mode is set to **Dynamic**. To use your disk pool as a storage solution for AVS, the ACL mode must be set to **Dynamic**.
-
-Select Review + create.
-
+    :::image type="content" source="media/disks-pools-deploy/create-a-disk-pool-iscsi-blade.png" alt-text="Screenshot of the iscsi blade for create a disk pool.":::
 
 # [PowerShell](#tab/azure-powershell)
 
