@@ -79,7 +79,7 @@ Follow these steps to assign required permissions:
 
 ## Prepare infrastructure - set up Azure Site Recovery Replication appliance
 
-You need to [set up an Azure Site Recovery replication appliance on the on-premises environment](deploy-vmware-azure-replication-appliance-preview) to channel mobility agent communications.
+You need to [set up an Azure Site Recovery replication appliance on the on-premises environment](deploy-vmware-azure-replication-appliance-preview.md) to channel mobility agent communications.
 
 ## Enable replication of VMware VMs
 

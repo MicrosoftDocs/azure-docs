@@ -2,7 +2,7 @@
 title: Replicate VMware VMs to Azure, using Azure Site Recovery replication appliance - preview.
 description: Quickly set up disaster recovery for VMware VMs to Azure, using the Azure Site Recovery replication appliance.
 ms.topic: quickstart
-ms.date: 06/23/2021
+ms.date: 06/25/2021
 ms.custom: mvc
 ---
 
