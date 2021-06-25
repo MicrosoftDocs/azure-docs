@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/24/2021
+ms.date: 06/25/2021
 ms.author: ajburnle
 ms.reviewer: 
 ms.collection: M365-identity-device-management
@@ -41,7 +41,7 @@ To use Azure AD entitlement management and assign users to access packages, you 
 
 **Prerequisite role**: Global administrator, Identity Governance administrator, User administrator, Catalog owner, Access package manager or Access package assignment manager
 
-If you have a set of users whose requests are in various states (Delivered, Partially Delivered, Failed), you will likely need to reprocess some of those requests. Follow these steps to reprocess requests for an existing access package:
+If you have a set of users whose assignments are in the "Delivered" state and you want to reassign them to resources in an access package in which they don't have access, you will likely need to reprocess some of those assignments. Follow these steps to reprocess requests for an existing access package:
 
 1.	Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -50,6 +50,8 @@ If you have a set of users whose requests are in various states (Delivered, Part
 1.	In the left menu, click **Access packages** and then open the access package with the user assignment you want to reprocess.
 
 1.	Underneath **Manage** on the left side, click **Assignments**.
+
+    ![Entitlement management in the Azure portal](./media/entitlement-management-reprocess-access-package-assignments/reprocess-access-package-assignment.png)
 
 1.	Select all users whose assignments you wish to reprocess.
 

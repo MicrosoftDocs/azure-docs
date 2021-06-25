@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/24/2021
+ms.date: 06/25/2021
 ms.author: ajburnle
 ms.reviewer: 
 ms.collection: M365-identity-device-management
@@ -25,7 +25,7 @@ ms.collection: M365-identity-device-management
 As an access package manager, you can automatically retry a user’s request for access to an access package at any time by using the reprocess functionality. Reprocessing eliminates the need for users to repeat the access package request process if their access to resources is not successfully provisioned.
 
 > [!NOTE]
-> You can reprocess a request for up to seven days from the time that the original request is completed. For requests that were completed more than seven days ago, users will need to cancel and make new requests in MyAccess.
+> You can reprocess a request for up to 14 days from the time that the original request is completed. For requests that were completed more than 14 days ago, users will need to cancel and make new requests in MyAccess.
 
 This article describes how to reprocess requests for an existing access package.
 
@@ -40,7 +40,7 @@ To use Azure AD entitlement management and assign users to access packages, you 
 
 **Prerequisite role**: Global administrator, Identity Governance administrator, User administrator, Catalog owner, Access package manager or Access package assignment manager
 
-If you have a set of users whose requests are in various states (Delivered, Partially Delivered, Failed), you will might need to reprocess some of those requests. Follow these steps to reprocess requests for an existing access package:
+If you have a set of users whose requests are in the "Partially Delivered" or "Failed" state, you might need to reprocess some of those requests. Follow these steps to reprocess requests for an existing access package:
 
 1.	Sign in to the [Azure portal](https://portal.azure.com).
 
