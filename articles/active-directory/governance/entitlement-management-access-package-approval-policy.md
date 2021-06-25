@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 #Customer intent: As an administrator, I want detailed information about how I can edit an access package so that requestors have the resources they need to perform their job.
 
 ---
-# Change approval and requestor information (preview) settings for an access package in Azure AD entitlement management
+# Change approval and requestor information settings for an access package in Azure AD entitlement management
 
 As an access package manager, you can change the approval and requestor information settings for an access package at any time by editing an existing policy or adding a new policy.
 
@@ -155,7 +155,7 @@ For example, if you listed Alice and Bob as the first stage approver(s), list Ca
 
 1. Click **Next**.
 
-## Collect additional requestor information for approval (preview)
+## Collect additional requestor information for approval
 
 In order to make sure users are getting access to the right access packages, you can require requestors to answer custom text field or multiple choice questions at the time of request. There is a limit of 20 questions per policy and a limit of 25 answers for multiple choice questions. The questions will then be shown to approvers to help them make a decision.
 
@@ -174,12 +174,15 @@ In order to make sure users are getting access to the right access packages, you
 
 1. Select the **Answer format** in which you would like requestors to answer. Answer formats include: *short text*, *multiple choice*, and *long text*.
  
-    ![Access package - Policy- Select view and edit multiple choice answer format](./media/entitlement-management-access-package-approval-policy/answer-format-view-edit.png)
+    ![Access package - Policy- Select Edit and localize multiple choice answer format](./media/entitlement-management-access-package-approval-policy/answer-format-view-edit.png)
  
-1. If selecting multiple choice, click on the **view and edit** button to configure the answer options.
-    1. After selecting view and edit the **View/edit question** pane will open.
+1. If selecting multiple choice, click on the **Edit and localize** button to configure the answer options.
+    1. After selecting Edit and localize the **View/edit question** pane will open.
     1. Type in the response options you wish to give the requestor when answering the question in the **Answer values** boxes.
-    1. Type in as many responses as you need then click **Save**.
+    1. Type in as many responses as you need.
+    1. If you would like to add your own localization for the multiple choice options, select the **Optional language code** for the language in which you want to localize a specific option.
+    1. In the language you configured, type the option in the Localized text box.
+    1. Once you have added all of the localizations needed for each multiple choice option, click **Save**.
     
     ![Access package - Policy- Enter multiple choice options](./media/entitlement-management-access-package-approval-policy/answer-multiple-choice.png)
   
@@ -187,7 +190,7 @@ In order to make sure users are getting access to the right access packages, you
 
 1. Fill out the remaining tabs (e.g., Lifecycle) based on your needs.
 
-After you have configured requestor information in your access package policy, can view the requestor's responses to the questions. For guidance on seeing requestor information, see [View requestor's answers to questions (Preview)](entitlement-management-request-approve.md#view-requestors-answers-to-questions-preview).
+After you have configured requestor information in your access package policy, can view the requestor's responses to the questions. For guidance on seeing requestor information, see [View requestor's answers to questions](entitlement-management-request-approve.md#view-requestors-answers-to-questions).
 
 ## Next steps
 - [Change lifecycle settings for an access package](entitlement-management-access-package-lifecycle-policy.md)
