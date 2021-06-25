@@ -258,7 +258,7 @@ using Microsoft.AspNetCore.Authorization;
 
 ## Add the to do list view
 
-To call the to do web api, you need to have an access token with the right scopes. In this step, you an action to the `Home` controller. Under the `Views/Home` folder, add the `TodoList.cshtml` view.
+To call the to do web api, you need to have an access token with the right scopes. In this step, you add an action to the `Home` controller. Under the `Views/Home` folder, add the `TodoList.cshtml` view.
 
 ```razor
 @{
