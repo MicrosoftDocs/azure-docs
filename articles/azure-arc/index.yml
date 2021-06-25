@@ -54,20 +54,21 @@ conceptualContent:
     - title: Azure Arc-enabled servers
       links:
         - url: ./servers/learn/quick-enable-hybrid-vm.md
-          itemType: get-started
-          text: Deploy Arc-enabled servers agent
-        - url: ./servers/learn/tutorial-enable-vm-insights.md
-          itemType: tutorial
-          text: Monitor a hybrid machine with Azure Monitor for VMs
+          itemType: quickstart
+          text: Connect hybrid machines
+        - url: ./servers/security-overview.md
+          itemType: concept
+          text: Security overview
         - url: ./servers/policy-reference.md
           itemType: learn
           text: Admission control policies using Azure Policy
         - url: /sql/sql-server/azure-arc/overview
           itemType: overview
           text: Enable Arc-enabled SQL Server (preview)
-        - url: ./servers/index.yml
-          itemType: get-started
-          text: See more...
+      # footerLink (optional)
+        footerLink:
+          url: ./servers/index.yml
+          text: See more
     # Card
     - title: Azure Arc-enabled Kubernetes
       links:
