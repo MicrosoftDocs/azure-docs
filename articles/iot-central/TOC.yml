@@ -228,6 +228,8 @@
       items:
         - name: Add tiles to your dashboard
           href: core/howto-add-tiles-to-your-dashboard.md
+        - name: Use location data
+          href: core/howto-use-location-data.md
         - name: Configure rules
           href: core/howto-configure-rules.md
         - name: Create webhooks on rules
