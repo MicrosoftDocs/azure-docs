@@ -55,7 +55,7 @@ The status of items that appear in this tables may change over time as support c
 | [File management plane REST API](/rest/api/storagerp/file-shares)	| ✔️ |
 | Encryption at rest|	✔️ |
 | Encryption in transit| ⛔ |
-| [LRS or ZRS redundancy types](storage-files-planning.md#redundancy)|	✔️ ||
+| [LRS or ZRS redundancy types](storage-files-planning.md#redundancy)|	✔️ |
 | [Private endpoints](storage-files-networking-overview.md#private-endpoints) | ✔️  |
 | [Grant network access to specific Azure virtual networks](storage-files-networking-endpoints.md#restrict-access-to-the-public-endpoint-to-specific-virtual-networks)|  ✔️  |
 | Grant network access to specific IP addresses| ⛔ |
