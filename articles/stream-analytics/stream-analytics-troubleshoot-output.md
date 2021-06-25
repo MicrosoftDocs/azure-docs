@@ -70,7 +70,7 @@ When you configure an Azure SQL database as output to a Stream Analytics job, it
 
 When you set up unique key constraints on the SQL table, Azure Stream Analytics removes duplicate records. It splits the data into batches and recursively inserts the batches until a single duplicate record is found. The split and insert process ignores the duplicates one at a time. For a streaming job that has many duplicate rows, the process is inefficient and time-consuming. If you see multiple key violation warning messages in your Activity log for the previous hour, it's likely that your SQL output is slowing down the entire job.
 
-To resolve this issue, [configure the index]( https://docs.microsoft.com/sql/t-sql/statements/create-index-transact-sql) that's causing the key violation by enabling the IGNORE_DUP_KEY option. This option allows SQL to ignore duplicate values during bulk inserts. Azure SQL Database simply produces a warning message instead of an error. As a result, Azure Stream Analytics no longer produces primary key violation errors.
+To resolve this issue, [configure the index](/sql/t-sql/statements/create-index-transact-sql) that's causing the key violation by enabling the IGNORE_DUP_KEY option. This option allows SQL to ignore duplicate values during bulk inserts. Azure SQL Database simply produces a warning message instead of an error. As a result, Azure Stream Analytics no longer produces primary key violation errors.
 
 Note the following observations when configuring IGNORE_DUP_KEY for several types of indexes:
 

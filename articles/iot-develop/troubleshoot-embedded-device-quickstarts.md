@@ -101,7 +101,7 @@ You can't complete the process of flashing your device. You'll know this if you 
 
 ### Resolution
 
-* Make sure you're connected to the correct USB port on the device. Some devices have two ports.
+* Make sure you're connected to the correct USB port on the device. Some devices have more than one port.
 * Try using a different Micro USB cable. Some devices and cables are incompatible.
 * Try connecting to a different USB port on your computer. A USB port might be disconnected internally, disabled in software, or temporarily in an unusable state.
 * Restart your computer.

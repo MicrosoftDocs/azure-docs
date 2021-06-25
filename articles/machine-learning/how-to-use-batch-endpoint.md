@@ -24,7 +24,7 @@ In this article, you learn to do the following tasks:
 > [!div class="checklist"]
 > * Create a batch endpoint with a no-code experience for MLflow model
 > * Check a batch endpoint detail
-> * Start a batch scoring job using CLI
+> * Start a batch scoring job using Azure CLI
 > * Monitor batch scoring job execution progress and check scoring results
 > * Add a new deployment to a batch endpoint
 > * Start a batch scoring job using REST
@@ -34,7 +34,7 @@ In this article, you learn to do the following tasks:
 ## Prerequisites
 
 * An Azure subscription
-If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
+If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 
 * The Azure Command Line Interface (CLI) and ML extension.
 
@@ -122,9 +122,9 @@ After a batch endpoint is created, you can use `show` to check the details. Use 
 az ml endpoint show --name mybatchedp --type batch
 ```
 
-## Start a batch scoring job using CLI
+## Start a batch scoring job using the Azure CLI
 
-A batch scoring workload runs as an offline job. Batch scoring is designed to process large data. Inputs are processed in parallel on the compute cluster. A data partition is assigned to a process on a node. A single node with multiple processes will have multiple partitions run in parallel. By default, batch scoring stores the scoring outputs in blob storage. You can start a batch scoring job using CLI by passing in the data inputs. You can also configure the outputs location and overwrite some of the settings to get the best performance.
+A batch scoring workload runs as an offline job. Batch scoring is designed to process large data. Inputs are processed in parallel on the compute cluster. A data partition is assigned to a process on a node. A single node with multiple processes will have multiple partitions run in parallel. By default, batch scoring stores the scoring outputs in blob storage. You can start a batch scoring job using the Azure CLI by passing in the data inputs. You can also configure the outputs location and overwrite some of the settings to get the best performance.
 
 ### Start a bath scoring job with different inputs options
 
@@ -190,7 +190,7 @@ az ml endpoint invoke --name mybatchedp --type batch --input-path https://pipeli
 
 Batch scoring jobs usually take some time to process the entire set of inputs. You can monitor the job progress from Azure Machine Learning studio. The studio link is provided in the response of `invoke`, as the value of `interactionEndpoints.Studio.endpoint`.
 
-You can also check job details along with status using CLI.
+You can also check job details along with status using the Azure CLI.
 
 Get the job name from the invoke response.
 
@@ -320,3 +320,4 @@ You can also keep the resource group but delete a single workspace. Display the 
 In this article, you learned how to create and call batch endpoints, allowing you to score large amounts of data. See these other articles to learn more about Azure Machine Learning:
 
 * [Troubleshooting batch endpoints](how-to-troubleshoot-batch-endpoints.md)
+* [Deploy and score a machine learning model with a managed online endpoint (preview)](how-to-deploy-managed-online-endpoints.md)

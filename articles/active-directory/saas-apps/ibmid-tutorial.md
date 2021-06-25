@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/11/2021
+ms.date: 06/22/2021
 ms.author: jeedes
 
 ---
@@ -33,10 +33,13 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* IBMid supports **SP and IDP** initiated SSO
-* IBMid supports **Just In Time** user provisioning
+* IBMid supports **SP and IDP** initiated SSO.
+* IBMid supports **Just In Time** user provisioning.
 
-## Adding IBMid from the gallery
+> [!NOTE]
+> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
+
+## Add IBMid from the gallery
 
 To configure the integration of IBMid into Azure AD, you need to add IBMid from the gallery to your list of managed SaaS apps.
 
@@ -46,7 +49,6 @@ To configure the integration of IBMid into Azure AD, you need to add IBMid from 
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **IBMid** in the search box.
 1. Select **IBMid** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
-
 
 ## Configure and test Azure AD SSO for IBMid
 
@@ -71,23 +73,25 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
+1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
     a. In the **Identifier** text box, type one of the following URLs:
 
     | Identifier |
     | ---------- |
-    | `https://idaas.iam.ibm.com/idaas/mtfim/sps/idaas/saml20` |
+    | Production : |
     | `https://ibmlogin.ice.ibmcloud.com/saml/sps/saml20sp/saml20` |
+    | Pre-Production : |
     | `https://prepiam.ice.ibmcloud.com/saml/sps/saml20sp/saml20` |
     |
 
-    a. In the **Reply URL** text box, type one of the following URLs:
+    b. In the **Reply URL** text box, type one of the following URLs:
 
     | Reply URL |
     | ---------- |
-    | `https://idaas.iam.ibm.com/idaas/mtfim/sps/idaas/saml20/login` |
+    | Production : |
     | `https://login.ibm.com/saml/sps/saml20sp/saml20/login` |
+    | Pre-Production : |
     | `https://prepiam.ice.ibmcloud.com/saml/sps/saml20sp/saml20/login` |
     |
 
@@ -95,7 +99,6 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     In the **Sign-on URL** text box, type the URL:
     `https://myibm.ibm.com/`
-
 
 1. Click **Save**.
 
@@ -165,7 +168,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### IDP initiated:
 
-* Click on **Test this application** in Azure portal and you should be automatically signed in to the IBMid for which you set up the SSO 
+* Click on **Test this application** in Azure portal and you should be automatically signed in to the IBMid for which you set up the SSO. 
 
 You can also use Microsoft My Apps to test the application in any mode. When you click the IBMid tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the IBMid for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 

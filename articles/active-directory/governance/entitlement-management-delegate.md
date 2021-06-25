@@ -24,7 +24,7 @@ ms.collection: M365-identity-device-management
 
 # Delegation and roles in Azure AD entitlement management
 
-By default, Global administrators and User administrators can create and manage all aspects of Azure AD entitlement management. However, the users in these roles may not know all the situations where access packages are required. Typically it's users within the respective departments, teams, or projects who know who they're collaborating with, using what resources, and for how long. Instead of granting unrestricted permissions to non-administrators, you can grant users the least permissions they need to do their job and avoid creating conflicting or inappropriate access rights.
+By default, Global administrators and Identity governance administrators can create and manage all aspects of Azure AD entitlement management. However, the users in these roles may not know all the situations where access packages are required. Typically it's users within the respective departments, teams, or projects who know who they're collaborating with, using what resources, and for how long. Instead of granting unrestricted permissions to non-administrators, you can grant users the least permissions they need to do their job and avoid creating conflicting or inappropriate access rights.
 
 This video provides an overview of how to delegate access governance from IT administrator to users who aren't administrators.
 
@@ -64,7 +64,7 @@ After delegation, the marketing department might have roles similar to the follo
 
 | User | Job role | Azure AD role | Entitlement management role |
 | --- | --- | --- | --- |
-| Hana | IT administrator | Global administrator, Identity Governance administrator or User administrator |  |
+| Hana | IT administrator | Global administrator or Identity Governance administrator  |  |
 | Mamta | Marketing manager | User | Catalog creator and Catalog owner |
 | Bob | Marketing lead | User | Catalog owner |
 | Jessica | Marketing project manager | User | Access package manager |
@@ -117,7 +117,7 @@ The following table lists the tasks that the entitlement management roles can do
 
 A Global administrator can add or remove any group (cloud-created security groups or cloud-created Microsoft 365 Groups), application, or SharePoint Online site in a catalog. A User administrator can add or remove any group or application in a catalog, except for a group configured as assignable to a directory role. Note that a user administrator can manage access packages in a catalog that includes groups configured as assignable to a directory role.  For more information on role-assignable groups, reference [Create a role-assignable group in Azure Active Directory](../roles/groups-create-eligible.md).
 
-For a user who isn't a Global administrator or a User administrator, to add groups, applications, or SharePoint Online sites to a catalog, that user must have *both* the required Azure AD directory role and catalog owner entitlement management role. The following table lists the role combinations that are required to add resources to a catalog. To remove resources from a catalog, you must have the same roles.
+For a user who isn't a global administrator, to add groups, applications, or SharePoint Online sites to a catalog, that user must have *both* an Azure AD directory role or ownership of the resource, and a and catalog owner entitlement management role for the catalog. The following table lists the role combinations that are required to add resources to a catalog. To remove resources from a catalog, you must have the same roles.
 
 | Azure AD directory role | Entitlement management role | Can add security group | Can add Microsoft 365 Group | Can add app | Can add SharePoint Online site |
 | --- | :---: | :---: | :---: | :---: | :---: |
