@@ -111,5 +111,5 @@ DELETE https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
 
 ## Next steps
 
-- [Use cloud groups to manage role assignments](groups-concept.md)
-- [Troubleshooting roles assigned to cloud groups](groups-faq-troubleshooting.md)
+- [Use Azure AD groups to manage role assignments](groups-concept.md)
+- [Troubleshoot Azure AD roles assigned to groups](groups-faq-troubleshooting.md)
