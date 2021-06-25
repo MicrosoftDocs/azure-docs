@@ -101,7 +101,7 @@ To add a disk, it must meet the following requirements:
 
 If your disk meets these requirements, you can add it to a disk pool by selecting **+Add disk** in the disk pool blade.
 
-    :::image type="content" source="media/disks-pools-deploy/create-a-disk-pool-disks-blade.png" alt-text="Screenshot of the disks blade for create a disk pool, add a disk highlighted.":::
+:::image type="content" source="media/disks-pools-deploy/create-a-disk-pool-disks-blade.png" alt-text="Screenshot of the disks blade for create a disk pool, add a disk highlighted.":::
 
 ### Enable iSCSI
 
