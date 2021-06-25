@@ -544,8 +544,6 @@ If all vCores of an elastic pool are busy, then each database in the pool receiv
 
 For each elastic pool, you can optionally specify per database minimum and maximum vCores to modify resource consumption patterns within the pool. Specified min and max values apply to all databases in the pool. Customizing min and max vCores for individual databases in the pool is not supported. 
 
-While the per database properties are expressed in vCores, they also govern consumption of other resource types, such as data IO, log IO, and worker threads. As you adjust min and max per database vCore values, reservations and limits for all resource types are adjusted proportionally.
-
 You can also set maximum storage per database, for example to prevent a database from consuming all pool storage. This setting can be configured independently for each database.
 
 The following table describes per database properties for pooled databases. 
@@ -553,18 +551,20 @@ The following table describes per database properties for pooled databases.
 | Property | Description |
 |:--- |:--- |
 | Max vCores per database |The maximum number of vCores that any database in the pool may use, if available based on utilization by other databases in the pool. Max vCores per database is not a resource guarantee for a database. If the workload in each database does not need all available pool resources to perform adequately, consider setting max vCores per database to prevent a single database from monopolizing pool resources. Some degree of over-committing is expected since the pool generally assumes hot and cold usage patterns for databases, where all databases are not simultaneously peaking. |
-| Min vCores per database |The minimum number of vCores that any database in the pool is guaranteed regardless of resource consumption by other databases in the pool. The min vCores per database may be set to 0, and is also the default value. This property is set to anywhere between 0 and the average vCores utilization per database.|
+| Min vCores per database |The minimum number of vCores reserved for any database in the pool. Consider setting a min vCores per database when you want to guarantee resource availability for each database regardless of resource consumption by other databases in the pool. The min vCores per database may be set to 0, and is also the default value. This property is set to anywhere between 0 and the average vCores utilization per database.|
 | Max storage per database |The maximum database size set by the user for a database in a pool. Pooled databases share allocated pool storage, so the size a database can reach is limited to the smaller of remaining pool storage and maximum database size. Maximum database size refers to the maximum size of the data files and does not include the space used by the log file. |
 |||
 
 > [!IMPORTANT]
 > Because resources in an elastic pool are finite, setting min vCores per database to a value greater than 0 implicitly limits resource utilization by each database. If, at a point in time, most databases in a pool are idle, resources reserved to satisfy the min vCores guarantee are not available to databases active at that point in time.
 >
-> Additionally, setting min vCores per database to a value greater than 0 implicitly limits the number of databases that can be added to the pool. For example, if you set the min vCores to 2 in a 20 vCore pool, it means that you will not be able to add more than 10 databases to the pool.
+> Additionally, setting min vCores per database to a value greater than 0 implicitly limits the number of databases that can be added to the pool. For example, if you set the min vCores to 2 in a 20 vCore pool, it means that you will not be able to add more than 10 databases to the pool, because 2 vCores are reserved for each database.
 > 
 
+Even though the per database properties are expressed in vCores, they also govern consumption of other resource types, such as data IO, log IO, and worker threads. As you adjust min and max per database vCore values, reservations and limits for all resource types are adjusted proportionally.
+
 > [!NOTE]
-> The resource limits of individual databases in elastic pools are generally the same as for single databases outside of pools that has the same compute size (service objective). For example, the max concurrent workers for an GP_Gen4_1 database is 200 workers. So, the max concurrent workers for a database in a GP_Gen4_1 pool is also 200 workers. Note, the total number of concurrent workers in GP_Gen4_1 pool is 210.
+> The resource limits of individual databases in elastic pools are generally the same as for single databases outside of pools that have the same compute size (service objective). For example, the max concurrent workers for an GP_Gen4_1 database is 200 workers. So, the max concurrent workers for a database in a GP_Gen4_1 pool is also 200 workers. Note, the total number of concurrent workers in GP_Gen4_1 pool is 210.
 
 ## Next steps
 

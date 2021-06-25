@@ -162,8 +162,6 @@ If all DTUs of an elastic pool are used, then each database in the pool receives
 
 For each elastic pool, you can optionally specify per database minimum and maximum DTUs to modify resource consumption patterns within the pool. Specified min and max values apply to all databases in the pool. Customizing min and max DTUs for individual databases in the pool is not supported. 
 
-While the per database properties are expressed in DTUs, they also govern consumption of other resource types, such as data IO, log IO, and worker threads. As you adjust min and max per database DTUs values, reservations and limits for all resource types are adjusted proportionally.
-
 You can also set maximum storage per database, for example to prevent a database from consuming all pool storage. This setting can be configured independently for each database.
 
 The following table describes per database properties for pooled databases. 
@@ -171,15 +169,17 @@ The following table describes per database properties for pooled databases.
 | Property | Description |
 |:--- |:--- |
 | Max DTUs per database |The maximum number of DTUs that any database in the pool may use, if available based on utilization by other databases in the pool. Max DTUs per database is not a resource guarantee for a database. If the workload in each database does not need all available pool resources to perform adequately, consider setting max DTUs per database to prevent a single database from monopolizing pool resources. Some degree of over-committing is expected since the pool generally assumes hot and cold usage patterns for databases, where all databases are not simultaneously peaking. |
-| Min DTUs per database |The minimum number of DTUs that any database in the pool is guaranteed regardless of resource consumption by other databases in the pool. The min DTUs per database may be set to 0, and is also the default value. This property is set to anywhere between 0 and the average DTUs utilization per database.|
+| Min DTUs per database |The minimum number of DTUs reserved for any database in the pool. Consider setting a min DTUs per database when you want to guarantee resource availability for each database regardless of resource consumption by other databases in the pool. The min DTUs per database may be set to 0, and is also the default value. This property is set to anywhere between 0 and the average DTUs utilization per database.|
 | Max storage per database |The maximum database size set by the user for a database in a pool. Pooled databases share allocated pool storage, so the size a database can reach is limited to the smaller of remaining pool storage and maximum database size. Maximum database size refers to the maximum size of the data files and does not include the space used by the log file. |
 |||
 
 > [!IMPORTANT]
 > Because resources in an elastic pool are finite, setting min DTUs per database to a value greater than 0 implicitly limits resource utilization by each database. If, at a point in time, most databases in a pool are idle, resources reserved to satisfy the min DTUs guarantee are not available to databases active at that point in time.
 >
-> Additionally, setting min DTUs per database to a value greater than 0 implicitly limits the number of databases that can be added to the pool. For example, if you set the min DTUs to 100 in a 400 DTU pool, it means that you will not be able to add more than 4 databases to the pool.
+> Additionally, setting min DTUs per database to a value greater than 0 implicitly limits the number of databases that can be added to the pool. For example, if you set the min DTUs to 100 in a 400 DTU pool, it means that you will not be able to add more than 4 databases to the pool, because 100 DTUs are reserved for each database.
 > 
+
+While the per database properties are expressed in DTUs, they also govern consumption of other resource types, such as data IO, log IO, and worker threads. As you adjust min and max per database DTUs values, reservations and limits for all resource types are adjusted proportionally.
 
 ## Next steps
 
