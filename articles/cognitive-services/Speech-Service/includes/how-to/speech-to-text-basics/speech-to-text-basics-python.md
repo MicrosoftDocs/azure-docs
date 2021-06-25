@@ -117,7 +117,7 @@ elif result.reason == speechsdk.ResultReason.Canceled:
 
 The previous examples use single-shot recognition, which recognizes a single utterance. The end of a single utterance is determined by listening for silence at the end or until a maximum of 15 seconds of audio is processed.
 
-In contrast, continuous recognition is used when you want to **control** when to stop recognizing. It requires you to connect to the `EventSignal` to get the recognition results, and in to stop recognition, you must call [stop_continuous_recognition()](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer#stop-continuous-recognition--) or [stop_continuous_recognition()](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer#stop-continuous-recognition-async--). Here's an example of how continuous recognition is performed on an audio input file.
+In contrast, continuous recognition is used when you want to **control** when to stop recognizing. It requires you to connect to the `EventSignal` to get the recognition results, and to stop recognition, you must call [stop_continuous_recognition()](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer#stop-continuous-recognition--) or [stop_continuous_recognition()](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer#stop-continuous-recognition-async--). Here's an example of how continuous recognition is performed on an audio input file.
 
 Let's start by defining the input and initializing a [`SpeechRecognizer`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechrecognizer):
 
@@ -202,7 +202,11 @@ As an example, if you have a command "Move to" and a possible destination of "Wa
 Single words or complete phrases can be added to a Phrase List. During recognition, an entry in a phrase list is used to boost recognition of the words and phrases in the list even when the entries appear in the middle of the utterance. 
 
 > [!IMPORTANT]
-> The Phrase List feature is available in the following languages: en-US, de-DE, en-AU, en-CA, en-GB, es-ES, es-MX, fr-CA, fr-FR, it-IT, ja-JP, ko-KR, pt-BR, zh-CN
+> The Phrase List feature is available in the following languages: en-US, de-DE, en-AU, en-CA, en-GB, en-IN, es-ES, fr-FR, it-IT, ja-JP, pt-BR, zh-CN
+>
+> For other locales and if you have a large number of phrases, [training a custom model](../../../custom-speech-overview.md) will likely be the better choice to improve accuracy.
+>
+> Do not use the Phrase List feature with custom endpoints. Instead, train a custom model that includes the phrases.
 
 To use a phrase list, first create a [`PhraseListGrammar`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.phraselistgrammar) object, then add specific words and phrases with [`addPhrase`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.phraselistgrammar#addphrase-phrase--str-).
 

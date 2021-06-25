@@ -1,9 +1,11 @@
 ---
 title: Use Azure Service Bus topics and subscriptions with Java (azure-messaging-servicebus)
-description: In this quickstart, you write Java code using the azure-messaging-servicebus package to send messages to an Azure Service Bus topic and then receive messages from subscriptions to that topic. 
-ms.devlang: Java
+description: In this quickstart, you write Java code using the azure-messaging-servicebus package to send messages to an Azure Service Bus topic and then receive messages from subscriptions to that topic.
+ms.date: 02/13/2021
 ms.topic: quickstart
-ms.date: 11/09/2020
+ms.devlang: Java
+ms.custom:
+  - mode-api
 ---
 
 # Send messages to an Azure Service Bus topic and receive messages from subscriptions to the topic (Java)
@@ -26,14 +28,41 @@ In this section, you'll create a Java console project, and add code to send mess
 Create a Java project using Eclipse or a tool of your choice. 
 
 ### Configure your application to use Service Bus
-Add a reference to Azure Service Bus library. The Java client library for Service Bus is available in the [Maven Central Repository](https://search.maven.org/search?q=a:azure-messaging-servicebus). You can reference this library using the following dependency declaration inside your Maven project file:
+Add references to Azure Core and Azure Service Bus libraries. 
+
+If you are using Eclipse and created a Java console application, convert your Java project to a Maven: right-click the project in the **Package Explorer** window, select **Configure** -> **Convert to Maven project**. Then, add dependencies to these two libraries as shown in the following example.
 
 ```xml
-<dependency>
-    <groupId>com.azure</groupId>
-    <artifactId>azure-messaging-servicebus</artifactId>
-    <version>7.0.0</version>
-</dependency>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.myorg.sbusquickstarts</groupId>
+	<artifactId>sbustopicqs</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<build>
+    	<sourceDirectory>src</sourceDirectory>
+    	<plugins>
+      		<plugin>
+        		<artifactId>maven-compiler-plugin</artifactId>
+        		<version>3.8.1</version>
+        		<configuration>
+          			<release>15</release>
+        		</configuration>
+      		</plugin>
+		</plugins>
+	</build>
+	<dependencies>
+  		<dependency>
+    		<groupId>com.azure</groupId>
+    		<artifactId>azure-core</artifactId>
+    		<version>1.13.0</version>
+		</dependency>
+		<dependency>
+    		<groupId>com.azure</groupId>
+    		<artifactId>azure-messaging-servicebus</artifactId>
+    		<version>7.0.2</version>
+		</dependency>
+	</dependencies>
+</project>
 ```
 
 ### Add code to send messages to the topic
@@ -41,9 +70,9 @@ Add a reference to Azure Service Bus library. The Java client library for Servic
 
     ```java
     import com.azure.messaging.servicebus.*;
-    import com.azure.messaging.servicebus.models.*;
+    
+    import java.util.concurrent.CountDownLatch;
     import java.util.concurrent.TimeUnit;
-    import java.util.function.Consumer;
     import java.util.Arrays;
     import java.util.List;
     ```    
@@ -59,7 +88,7 @@ Add a reference to Azure Service Bus library. The Java client library for Servic
 3. Add a method named `sendMessage` in the class to send one message to the topic. 
 
     ```java
-        static void sendMessage()
+    static void sendMessage()
     {
         // create a Service Bus Sender client for the queue 
         ServiceBusSenderClient senderClient = new ServiceBusClientBuilder()
@@ -89,7 +118,7 @@ Add a reference to Azure Service Bus library. The Java client library for Servic
     ```
 1. Add a method named `sendMessageBatch` method to send messages to the topic you created. This method creates a `ServiceBusSenderClient` for the topic, invokes the `createMessages` method to get the list of messages, prepares one or more batches, and sends the batches to the topic. 
 
-```java
+    ```java
     static void sendMessageBatch()
     {
         // create a Service Bus Sender client for the topic 
@@ -134,31 +163,21 @@ Add a reference to Azure Service Bus library. The Java client library for Servic
         //close the client
         senderClient.close();
     }
-```
+    ```
 
 ## Receive messages from a subscription
 In this section, you'll add code to retrieve messages from a subscription to the topic. 
 
 1. Add a method named `receiveMessages` to receive messages from the subscription. This method creates a `ServiceBusProcessorClient` for the subscription by specifying a handler for processing messages and another one for handling errors. Then, it starts the processor, waits for few seconds, prints the messages that are received, and then stops and closes the processor.
 
+    > [!IMPORTANT]
+    > Replace `ServiceBusTopicTest` in `ServiceBusTopicTest::processMessage` in the code with the name of your class. 
+
     ```java
     // handles received messages
     static void receiveMessages() throws InterruptedException
     {
-        // Consumer that processes a single message received from Service Bus
-        Consumer<ServiceBusReceivedMessageContext> messageProcessor = context -> {
-            ServiceBusReceivedMessage message = context.getMessage();
-            System.out.println("Received message: " + message.getBody().toString() + " from the subscription: " + subName);
-        };
-
-        // Consumer that handles any errors that occur when receiving messages
-        Consumer<Throwable> errorHandler = throwable -> {
-            System.out.println("Error when receiving messages: " + throwable.getMessage());
-            if (throwable instanceof ServiceBusReceiverException) {
-                ServiceBusReceiverException serviceBusReceiverException = (ServiceBusReceiverException) throwable;
-                System.out.println("Error source: " + serviceBusReceiverException.getErrorSource());
-            }
-        };
+        CountDownLatch countdownLatch = new CountDownLatch(1);
 
         // Create an instance of the processor through the ServiceBusClientBuilder
         ServiceBusProcessorClient processorClient = new ServiceBusClientBuilder()
@@ -166,8 +185,8 @@ In this section, you'll add code to retrieve messages from a subscription to the
             .processor()
             .topicName(topicName)
             .subscriptionName(subName)
-            .processMessage(messageProcessor)
-            .processError(errorHandler)
+            .processMessage(ServiceBusTopicTest::processMessage)
+            .processError(context -> processError(context, countdownLatch))
             .buildProcessorClient();
 
         System.out.println("Starting the processor");
@@ -176,9 +195,55 @@ In this section, you'll add code to retrieve messages from a subscription to the
         TimeUnit.SECONDS.sleep(10);
         System.out.println("Stopping and closing the processor");
         processorClient.close();    	
-    }
+    }  
     ```
-2. Update the `main` method to invoke `sendMessage`, `sendMessageBatch`, and `receiveMessages` methods and to throw `InterruptedException`.     
+2. Add the `processMessage` method to process a message received from the Service Bus subscription. 
+
+    ```java
+    private static void processMessage(ServiceBusReceivedMessageContext context) {
+        ServiceBusReceivedMessage message = context.getMessage();
+        System.out.printf("Processing message. Session: %s, Sequence #: %s. Contents: %s%n", message.getMessageId(),
+            message.getSequenceNumber(), message.getBody());
+    }    
+    ```
+3. Add the `processError` method to handle error messages.
+
+    ```java
+    private static void processError(ServiceBusErrorContext context, CountDownLatch countdownLatch) {
+        System.out.printf("Error when receiving messages from namespace: '%s'. Entity: '%s'%n",
+            context.getFullyQualifiedNamespace(), context.getEntityPath());
+
+        if (!(context.getException() instanceof ServiceBusException)) {
+            System.out.printf("Non-ServiceBusException occurred: %s%n", context.getException());
+            return;
+        }
+
+        ServiceBusException exception = (ServiceBusException) context.getException();
+        ServiceBusFailureReason reason = exception.getReason();
+
+        if (reason == ServiceBusFailureReason.MESSAGING_ENTITY_DISABLED
+            || reason == ServiceBusFailureReason.MESSAGING_ENTITY_NOT_FOUND
+            || reason == ServiceBusFailureReason.UNAUTHORIZED) {
+            System.out.printf("An unrecoverable error occurred. Stopping processing with reason %s: %s%n",
+                reason, exception.getMessage());
+
+            countdownLatch.countDown();
+        } else if (reason == ServiceBusFailureReason.MESSAGE_LOCK_LOST) {
+            System.out.printf("Message lock lost for message: %s%n", context.getException());
+        } else if (reason == ServiceBusFailureReason.SERVICE_BUSY) {
+            try {
+                // Choosing an arbitrary amount of time to wait until trying again.
+                TimeUnit.SECONDS.sleep(1);
+            } catch (InterruptedException e) {
+                System.err.println("Unable to sleep for period of time");
+            }
+        } else {
+            System.out.printf("Error source %s, reason %s, message: %s%n", context.getErrorSource(),
+                reason, context.getException());
+        }
+    }  
+    ```
+1. Update the `main` method to invoke `sendMessage`, `sendMessageBatch`, and `receiveMessages` methods and to throw `InterruptedException`.     
 
     ```java
     public static void main(String[] args) throws InterruptedException {    	
@@ -192,12 +257,13 @@ In this section, you'll add code to retrieve messages from a subscription to the
 Run the program to see the output similar to the following output:
 
 ```console
+Sent a single message to the topic: mytopic
 Sent a batch of messages to the topic: mytopic
 Starting the processor
-Received message: First message from the subscription: mysub
-Received message: Second message from the subscription: mysub
-Received message: Third message from the subscription: mysub
-Stopping and closing the processor
+Processing message. Session: e0102f5fbaf646988a2f4b65f7d32385, Sequence #: 1. Contents: Hello, World!
+Processing message. Session: 3e991e232ca248f2bc332caa8034bed9, Sequence #: 2. Contents: First message
+Processing message. Session: 56d3a9ea7df446f8a2944ee72cca4ea0, Sequence #: 3. Contents: Second message
+Processing message. Session: 7bd3bd3e966a40ebbc9b29b082da14bb, Sequence #: 4. Contents: Third message
 ```
 
 On the **Overview** page for the Service Bus namespace in the Azure portal, you can see **incoming** and **outgoing** message count. You may need to wait for a minute or so and then refresh the page to see the latest values. 

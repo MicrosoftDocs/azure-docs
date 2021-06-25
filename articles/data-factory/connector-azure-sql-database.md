@@ -1,16 +1,12 @@
 ---
 title: Copy and transform data in Azure SQL Database
 description: Learn how to copy data to and from Azure SQL Database, and transform data in Azure SQL Database by using Azure Data Factory.
-services: data-factory
-ms.author: jingwang
-author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/11/2021
+ms.date: 06/15/2021
 ---
 
 # Copy and transform data in Azure SQL Database by using Azure Data Factory
@@ -41,8 +37,6 @@ For Copy activity, this Azure SQL Database connector supports these functions:
 
 If you use Azure SQL Database [serverless tier](../azure-sql/database/serverless-tier-overview.md), note when the server is paused, activity run fails instead of waiting for the auto resume to be ready. You can add activity retry or chain additional activities to make sure the server is live upon the actual execution.
 
->[!NOTE]
-> Azure SQL Database [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) isn't supported by this connector now. To work around, you can use a [generic ODBC connector](connector-odbc.md) and a SQL Server ODBC driver via a self-hosted integration runtime. Learn more from [Using Always Encrypted](#using-always-encrypted) section. 
 
 > [!IMPORTANT]
 > If you copy data by using the Azure integration runtime, configure a [server-level firewall rule](../azure-sql/database/firewall-configure.md) so that Azure services can access the server.
@@ -50,7 +44,7 @@ If you use Azure SQL Database [serverless tier](../azure-sql/database/serverless
 
 ## Get started
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that are used to define Azure Data Factory entities specific to an Azure SQL Database connector.
 
@@ -66,7 +60,11 @@ These properties are supported for an Azure SQL Database linked service:
 | servicePrincipalKey | Specify the application's key. Mark this field as **SecureString** to store it securely in Azure Data Factory or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes, when you use Azure AD authentication with a service principal |
 | tenant | Specify the tenant information, like the domain name or tenant ID, under which your application resides. Retrieve it by hovering the mouse in the upper-right corner of the Azure portal. | Yes, when you use Azure AD authentication with a service principal |
 | azureCloudType | For service principal authentication, specify the type of Azure cloud environment to which your Azure AD application is registered. <br/> Allowed values are **AzurePublic**, **AzureChina**, **AzureUsGovernment**, and **AzureGermany**. By default, the data factory's cloud environment is used. | No |
+| alwaysEncryptedSettings | Specify **alwaysencryptedsettings** information that's needed to enable Always Encrypted to protect sensitive data stored in SQL server by using either managed identity or service principal. For more information, see the JSON example following the table and [Using Always Encrypted](#using-always-encrypted) section. If not specified, the default always encrypted setting is disabled. |No |
 | connectVia | This [integration runtime](concepts-integration-runtime.md) is used to connect to the data store. You can use the Azure integration runtime or a self-hosted integration runtime if your data store is located in a private network. If not specified, the default Azure integration runtime is used. | No |
+
+> [!NOTE]
+> Azure SQL Database [**Always Encrypted**](/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-ver15) is not supported in data flow. 
 
 For different authentication types, refer to the following sections on prerequisites and JSON samples, respectively:
 
@@ -75,7 +73,7 @@ For different authentication types, refer to the following sections on prerequis
 - [Azure AD application token authentication: Managed identities for Azure resources](#managed-identity)
 
 >[!TIP]
->If you hit an error with the error code "UserErrorFailedToConnectToSqlServer" and a message like "The session limit for the database is XXX and has been reached," add `Pooling=false` to your connection string and try again.
+>If you hit an error with the error code "UserErrorFailedToConnectToSqlServer" and a message like "The session limit for the database is XXX and has been reached," add `Pooling=false` to your connection string and try again. `Pooling=false` is also recommended for **SHIR(Self Hosted Integration Runtime)** type linked service setup. Pooling and other connection parameters can be added as new parameter names and values in **Additional connection properties** section of linked service creation form.
 
 ### SQL authentication
 
@@ -113,6 +111,32 @@ For different authentication types, refer to the following sections on prerequis
                     "type": "LinkedServiceReference"
                 },
                 "secretName": "<secretName>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+**Example: Use Always Encrypted**
+
+```json
+{
+    "name": "AzureSqlDbLinkedService",
+    "properties": {
+        "type": "AzureSqlDatabase",
+        "typeProperties": {
+            "connectionString": "Data Source=tcp:<servername>.database.windows.net,1433;Initial Catalog=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+        },
+        "alwaysEncryptedSettings": {
+            "alwaysEncryptedAkvAuthType": "ServicePrincipal",
+            "servicePrincipalId": "<service principal id>",
+            "servicePrincipalKey": {
+                "type": "SecureString",
+                "value": "<service principal key>"
             }
         },
         "connectVia": {
@@ -383,6 +407,7 @@ To copy data to Azure SQL Database, the following properties are supported in th
 | writeBatchSize | Number of rows to insert into the SQL table *per batch*.<br/> The allowed value is **integer** (number of rows). By default, Azure Data Factory dynamically determines the appropriate batch size based on the row size. | No |
 | writeBatchTimeout | The wait time for the batch insert operation to finish before it times out.<br/> The allowed value is **timespan**. An example is "00:30:00" (30 minutes). | No |
 | disableMetricsCollection | Data Factory collects metrics such as Azure SQL Database DTUs for copy performance optimization and recommendations, which introduces additional master DB access. If you are concerned with this behavior, specify `true` to turn it off. | No (default is `false`) |
+| maxConcurrentConnections |The upper limit of concurrent connections established to the data store during the activity run. Specify a value only when you want to limit concurrent connections.| No |
 
 **Example 1: Append data**
 
@@ -642,7 +667,12 @@ Settings specific to Azure SQL Database are available in the **Source Options** 
 
 **Query**: If you select Query in the input field, enter a SQL query for your source. This setting overrides any table that you've chosen in the dataset. **Order By** clauses aren't supported here, but you can set a full SELECT FROM statement. You can also use user-defined table functions. **select * from udfGetData()** is a UDF in SQL that returns a table. This query will produce a source table that you can use in your data flow. Using queries is also a great way to reduce rows for testing or for lookups.
 
+**Stored procedure**: Choose this option if you wish to generate a projection and source data from a stored procedure that is executed from your source database. You can type in the schema, procedure name, and parameters, or click on Refresh to ask ADF to discover the schemas and procedure names. Then you can click on Import to import all procedure parameters using the form ``@paraName``.
+
+![Stored procedure](media/data-flow/stored-procedure-2.png "Stored Procedure")
+
 - SQL Example: ```Select * from MyTable where customerId > 1000 and customerId < 2000```
+- Parameterized SQL Example: ``"select * from {$tablename} where orderyear > {$year}"``
 
 **Batch size**: Enter a batch size to chunk large data into reads.
 
@@ -755,32 +785,19 @@ To learn details about the properties, check [GetMetadata activity](control-flow
 
 ## Using Always Encrypted
 
-When you copy data from/to Azure SQL Database with [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine), use [generic ODBC connector](connector-odbc.md) and SQL Server ODBC driver via Self-hosted Integration Runtime. This Azure SQL Database connector does not support Always Encrypted now. 
+When you copy data from/to SQL Server with [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine), follow below steps: 
 
-More specifically:
+1. Store the [Column Master Key (CMK)](/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted?view=sql-server-ver15) in an [Azure Key Vault](/azure/key-vault/general/overview). Learn more on [how to configure Always Encrypted by using Azure Key Vault](/azure/azure-sql/database/always-encrypted-azure-key-vault-configure?tabs=azure-powershell)
 
-1. Set up a Self-hosted Integration Runtime if you don't have one. See [Self-hosted Integration Runtime](create-self-hosted-integration-runtime.md) article for details.
+2. Make sure to great access to the key vault where the [Column Master Key (CMK)](/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted?view=sql-server-ver15) is stored. Refer to this [article](/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted?view=sql-server-ver15#key-vaults) for required permissions.
 
-2. Download the 64-bit ODBC driver for SQL Server from [here](/sql/connect/odbc/download-odbc-driver-for-sql-server), and install on the Integration Runtime machine. Learn more about how this driver works from [Using Always Encrypted with the ODBC Driver for SQL Server](/sql/connect/odbc/using-always-encrypted-with-the-odbc-driver#using-the-azure-key-vault-provider).
+3. Create linked service to connect to your SQL database and enable 'Always Encrypted' function by using either managed identity or service principal. 
 
-3. Create linked service with ODBC type to connect to your SQL database, refer to the following samples:
-
-    - To use **SQL authentication**: Specify the ODBC connection string as below, and select **Basic** authentication to set the user name and password.
-
-        ```
-        Driver={ODBC Driver 17 for SQL Server};Server=<serverName>;Database=<databaseName>;ColumnEncryption=Enabled;KeyStoreAuthentication=KeyVaultClientSecret;KeyStorePrincipalId=<servicePrincipalKey>;KeyStoreSecret=<servicePrincipalKey>
-        ```
-
-    - To use **Data Factory Managed Identity authentication**: 
-
-        1. Follow the same [prerequisites](#managed-identity) to create database user for the managed identity and grant the proper role in your database.
-        2. In linked service, specify the ODBC connection string as below, and select **Anonymous** authentication as the connection string itself indicates`Authentication=ActiveDirectoryMsi`.
-
-        ```
-        Driver={ODBC Driver 17 for SQL Server};Server=<serverName>;Database=<databaseName>;ColumnEncryption=Enabled;KeyStoreAuthentication=KeyVaultClientSecret;KeyStorePrincipalId=<servicePrincipalKey>;KeyStoreSecret=<servicePrincipalKey>; Authentication=ActiveDirectoryMsi;
-        ```
-
-4. Create dataset and copy activity with ODBC type accordingly. Learn more from [ODBC connector](connector-odbc.md) article.
+>[!NOTE]
+>SQL Server [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) supports below scenarios: 
+>1. Either source or sink data stores is using managed identity or service principal as key provider authentication type.
+>2. Both source and sink data stores are using managed identity as key provider authentication type.
+>3. Both source and sink data stores are using the same service principal as key provider authentication type.
 
 ## Next steps
 

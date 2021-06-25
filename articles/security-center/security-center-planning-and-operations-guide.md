@@ -29,7 +29,7 @@ In the next section, you will learn how to plan for each one of those areas and 
 
 
 > [!NOTE]
-> Read [Azure Security Center frequently asked questions (FAQ)](faq-general.md) for a list of common questions that can also be useful during the designing and planning phase.
+> Read [Azure Security Center frequently asked questions (FAQ)](faq-general.yml) for a list of common questions that can also be useful during the designing and planning phase.
 
 ## Security roles and access controls
 Depending on the size and structure of your organization, multiple individuals and teams may use Security Center to perform different security-related tasks. In the following diagram, you have an example of fictitious personas and their respective roles and security responsibilities:
@@ -131,14 +131,14 @@ Azure Security Center uses the Log Analytics agent – this is the same agent us
 
 ### Agent
 
-When automatic provisioning is enabled in the security policy, the Log Analytics agent (for [Windows](../azure-monitor/platform/agent-windows.md) or [Linux](../azure-monitor/learn/quick-collect-linux-computer.md)) is installed on all supported Azure VMs, and any new ones that are created. If the VM or computer already has the Log Analytics agent installed, Azure Security Center will leverage the current installed agent. The agent's process is designed to be non-invasive and have very minimal impact on VM performance.
+When automatic provisioning is enabled in the security policy, the Log Analytics agent (for [Windows](../azure-monitor/agents/agent-windows.md) or [Linux](../azure-monitor/vm/quick-collect-linux-computer.md)) is installed on all supported Azure VMs, and any new ones that are created. If the VM or computer already has the Log Analytics agent installed, Azure Security Center will leverage the current installed agent. The agent's process is designed to be non-invasive and have very minimal impact on VM performance.
 
 The Log Analytics agent for Windows requires use TCP port 443. See the [Troubleshooting article](security-center-troubleshooting-guide.md) for additional details.
 
 If at some point you want to disable Data Collection, you can turn it off in the security policy. However, because the Log Analytics agent may be used by other Azure management and monitoring services, the agent will not be uninstalled automatically when you turn off data collection in Security Center. You can manually uninstall the agent if needed.
 
 > [!NOTE]
-> To find a list of supported VMs, read the [Azure Security Center frequently asked questions (FAQ)](faq-vms.md).
+> To find a list of supported VMs, read the [Azure Security Center frequently asked questions (FAQ)](faq-vms.yml).
 
 ### Workspace
 
@@ -228,7 +228,6 @@ In the [How to Leverage the Azure Security Center & Microsoft Operations Managem
 In this document, you learned how to plan for Security Center adoption. To learn more about Security Center, see the following:
 
 * [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md)
-* [Security health monitoring in Azure Security Center](security-center-monitoring.md) — Learn how to monitor the health of your Azure resources.
 * [Monitoring partner solutions with Azure Security Center](./security-center-partner-integration.md) — Learn how to monitor the health status of your partner solutions.
-* [Azure Security Center FAQ](faq-general.md) — Find frequently asked questions about using the service.
+* [Azure Security Center FAQ](faq-general.yml) — Find frequently asked questions about using the service.
 * [Azure Security blog](/archive/blogs/azuresecurity/) — Find blog posts about Azure security and compliance.

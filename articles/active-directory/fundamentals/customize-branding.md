@@ -54,7 +54,7 @@ Your custom branding won't immediately appear when your users go to sites such a
 
         - **Banner logo.** Select a .png or .jpg version of your logo to appear on the sign-in page after the user enters a username and on the **My Apps** portal page.
             
-            The image can't be taller than 60 pixels or wider than 280 pixels. We recommend using a transparent image since the background might not match your logo background. We also recommend not adding padding around the image or it might make your logo look small.
+            The image can't be taller than 60 pixels or wider than 280 pixels, and the file shouldn’t be larger than 10KB. We recommend using a transparent image since the background might not match your logo background. We also recommend not adding padding around the image or it might make your logo look small. 
 
         - **Username hint.** Type the hint text that appears to users if they forget their username. This text must be Unicode, without links or code, and can't exceed 64 characters. If guests sign in to your app, we suggest not adding this hint.
 
@@ -62,13 +62,16 @@ Your custom branding won't immediately appear when your users go to sites such a
 
            You can customize the sign-in page text you entered. To begin a new paragraph, use the enter key twice. You can also change text formatting to include bold, italics, an underline or clickable link. Use the following syntax to add formatting to text: 
 
-          > Hyperlink: ```[text](link)``` 
+          > Hyperlink: `[text](link)` 
           
-          > Bold: ``` **text** ``` or ``` __text__ ``` 
+          > Bold: `**text**` or `__text__` 
           
-          > Italics: ``` *text* ``` or ``` _text_ ``` 
+          > Italics: `*text*` or `_text_` 
           
-          > Underline: ``` ++text++ ``` 
+          > Underline: `++text++` 
+         
+          > [!IMPORTANT]
+          > Hyperlinks that are added with sign-in page text render as text in native environments, like in desktop and mobile applications.
 
     - **Advanced settings**
             

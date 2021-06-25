@@ -1,7 +1,7 @@
 ---
 title: FedRAMP Moderate blueprint sample controls
 description: Control mapping of the FedRAMP Moderate blueprint sample. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 01/08/2021
+ms.date: 04/02/2021
 ms.topic: sample
 ---
 # Control mapping of the FedRAMP Moderate blueprint sample
@@ -160,7 +160,7 @@ Adaptive application control in Azure Security Center is an intelligent, automat
 application filtering solution that can block or prevent specific software from running on your
 virtual machines. Application control can run in an enforcement mode that prohibits non-approved
 application from running. This blueprint assigns an Azure Policy definition that helps you monitor
-virtual machines where an application allowed list is recommended but has not yet been configured.
+virtual machines where an application allowlist is recommended but has not yet been configured.
 
 - Adaptive Application Controls should be enabled on virtual machines
 
@@ -170,7 +170,7 @@ Adaptive application control in Azure Security Center is an intelligent, automat
 application filtering solution that can block or prevent specific software from running on your
 virtual machines. Application control helps you create approved application lists for your virtual
 machines. This blueprint assigns an [Azure Policy](../../../policy/overview.md) definition that
-helps you monitor virtual machines where an application allowed list is recommended but has not yet
+helps you monitor virtual machines where an application allowlist is recommended but has not yet
 been configured.
 
 - Adaptive Application Controls should be enabled on virtual machines
@@ -181,7 +181,7 @@ Adaptive application control in Azure Security Center is an intelligent, automat
 application filtering solution that can block or prevent specific software from running on your
 virtual machines. Application control can help you enforce and monitor compliance with software
 restriction policies. This blueprint assigns an [Azure Policy](../../../policy/overview.md)
-definition that helps you monitor virtual machines where an application allowed list is recommended
+definition that helps you monitor virtual machines where an application allowlist is recommended
 but has not yet been configured.
 
 - Adaptive Application Controls should be enabled on virtual machines
@@ -285,10 +285,10 @@ vulnerabilities in your deployed resources.
 
 ## SC-5 Denial of Service Protection
 
-Azure's distributed denial of service (DDoS) standard tier provides additional features and
+Azure's distributed denial of service (DDoS) Standard tier provides additional features and
 mitigation capabilities over the basic service tier. These additional features include Azure Monitor
 integration and the ability to review post-attack mitigation reports. This blueprint assigns an
-[Azure Policy](../../../policy/overview.md) definition that audits if the DDoS standard tier is
+[Azure Policy](../../../policy/overview.md) definition that audits if the DDoS Standard tier is
 enabled. Understanding the capability difference between the service tiers can help you select the
 best solution to address denial of service protections for your Azure environment.
 
@@ -429,8 +429,8 @@ you can take appropriate action.
 - Deploy Threat Detection on SQL servers
 
 > [!NOTE]
-> Availability of specific Azure Policy definitions may vary in Azure Government and other national 
-> clouds. 
+> Availability of specific Azure Policy definitions may vary in Azure Government and other national
+> clouds.
 
 ## Next steps
 
@@ -439,7 +439,7 @@ articles to learn about the blueprint and how to deploy this sample:
 
 > [!div class="nextstepaction"]
 > [FedRAMP Moderate blueprint - Overview](./index.md)
-> [FodRAMP Moderate blueprint - Deploy steps](./deploy.md)
+> [FedRAMP Moderate blueprint - Deploy steps](./deploy.md)
 
 Additional articles about blueprints and how to use them:
 

@@ -5,7 +5,7 @@ description: Frequently asked questions about the Metrics Advisor service.
 services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 11/05/2020

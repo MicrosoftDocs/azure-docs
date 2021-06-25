@@ -3,7 +3,7 @@ title: "Tutorial: Create a JavaScript single-page app that uses the Microsoft id
 titleSuffix: Microsoft identity platform
 description: In this tutorial, you build a JavaScript single-page app (SPA) that uses the Microsoft identity platform to sign in users and get an access token to call the Microsoft Graph API on their behalf.
 services: active-directory
-author: navyasric
+author: mtillman
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,7 +11,7 @@ ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
 ms.date: 08/06/2020
-ms.author: nacanuma
+ms.author: mtillman
 ms.custom: aaddev, identityplatformtop40, devx-track-js
 ---
 
@@ -261,7 +261,7 @@ You now have a simple server to serve your SPA. The intended folder structure at
 
 Before proceeding further with authentication, register your application on **Azure Active Directory**.
 
-1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
 1. Search for and select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations** > **New registration**.

@@ -2,12 +2,12 @@
 title: Synapse workspace access control overview
 description: This article describes the mechanisms used to control access to a Synapse workspace and the resources and code artifacts it contains.
 services: synapse-analytics 
-author: billgib 
+author: RonyMSFT 
 ms.service: synapse-analytics 
 ms.topic: overview 
 ms.subservice: security 
 ms.date: 12/03/2020 
-ms.author: billgib
+ms.author: ronytho
 ms.reviewer: jrasnick
 ---
 # Synapse access control 

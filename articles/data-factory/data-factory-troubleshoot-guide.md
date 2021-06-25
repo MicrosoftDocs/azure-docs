@@ -1,13 +1,11 @@
 ---
 title: Troubleshoot Azure Data Factory | Microsoft Docs
 description: Learn how to troubleshoot external control activities in Azure Data Factory.
-services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 12/30/2020
 ms.author: abnarain
-ms.reviewer: craigg
 ---
 
 # Troubleshoot Azure Data Factory
@@ -103,6 +101,14 @@ For connector issues such as an encounter error using the copy activity, refer t
 - **Cause**: The user who generated the access token isn't allowed to access the Databricks cluster specified in the linked service.
 
 - **Recommendation**: Ensure the user has the required permissions in the workspace.
+
+<br/> 
+
+- **Message**: `Job is not fully initialized yet. Please retry later.`
+
+- **Cause**: The job has not initialized.
+
+- **Recommendation**: Wait and try again later.
 
 ### Error code: 3203
 
@@ -1016,7 +1022,7 @@ For more information, see [Getting started with Fiddler](https://docs.telerik.co
 
 ### Activity stuck issue
 
-When you observe that the activity is running much longer than your normal runs with barely no progress, it may happen to be stuck. You can try canceling it and retry to see if it helps. If it’s a copy activity, you can learn about the performance monitoring and troubleshooting from [Troubleshoot copy activity performance](copy-activity-performance-troubleshooting.md); if it’s a data flow, learn from [Mapping data flows performance](concepts-data-flow-performance.md) and tuning guide.
+When you observe that the activity is running much longer than your normal runs with barely no progress, it may happen to be stuck. You can try canceling it and retry to see if it helps. If it's a copy activity, you can learn about the performance monitoring and troubleshooting from [Troubleshoot copy activity performance](copy-activity-performance-troubleshooting.md); if it's a data flow, learn from [Mapping data flows performance](concepts-data-flow-performance.md) and tuning guide.
 
 ### Payload is too large
 

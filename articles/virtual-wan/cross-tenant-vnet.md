@@ -50,7 +50,7 @@ In order for the parent subscription with the virtual hub to modify and access t
 1. Next, add the remote tenant subscription and the parent tenant subscription to the current session of PowerShell. Run the following command. If you are signed into the parent, you only need to run the command for the remote tenant.
 
    ```azurepowershell-interactive
-   Add-AzAccount -SubscriptionId "xxxxx-b34a-4df9-9451-4402dcaecc5b"
+   Connect-AzAccount -SubscriptionId "[subscription ID]" -TenantId "[tenant ID]"
    ```
 
 1. Verify that the role assignment is successful by logging into Azure PowerShell using the parent credentials, and running the following command:
@@ -59,7 +59,7 @@ In order for the parent subscription with the virtual hub to modify and access t
    Get-AzSubscription
    ```
 
-1. If the permissions have successfully propagated to the parent and have been added to the session, the subscription owned by the remote tenant will show up in  the output of the command.
+1. If the permissions have successfully propagated to the parent and have been added to the session, the subscription owned by the parent **and** remote tenant will both show up in the output of the command.
 
 ## <a name="connect"></a>Connect VNet to hub
 
@@ -86,7 +86,7 @@ In the following steps, you will switch between the context of the two subscript
 1. Connect the VNet to the hub.
 
    ```azurepowershell-interactive
-   New-AzVirtualHubVnetConnection -ResourceGroupName "[parent resource group name]" -VirtualHubName "[virtual hub name]" -Name "[name of connection]" -RemoteVirtualNetwork $[local variable name]
+   New-AzVirtualHubVnetConnection -ResourceGroupName "[parent resource group name]" -VirtualHubName "[virtual hub name]" -Name "[name of connection]" -RemoteVirtualNetwork $remote
    ```
 
 1. You can view the new connection in either PowerShell, or the Azure portal.

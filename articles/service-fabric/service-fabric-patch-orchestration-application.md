@@ -1,34 +1,17 @@
 ---
-title: Patch the Windows operating system in your Service Fabric cluster 
-description: This article discusses how to automate operating system patching on a Service Fabric cluster by using Patch Orchestration Application.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-
-ms.assetid: de7dacf5-4038-434a-a265-5d0de80a9b1d
-ms.service: service-fabric
-ms.devlang: dotnet
-ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 2/01/2019
-ms.author: atsenthi
-
+title: Use Patch Orchestration Application 
+description: Automate operating system patching on non-Azure hosted Service Fabric clusters by using Patch Orchestration Application.
+ms.topic: how-to
+ms.date: 2/01/2019 
+ms.custom: devx-track-azurepowershell
 ---
 
-# Patch the Windows operating system in your Service Fabric cluster
+# Use Patch Orchestration Application
 
-> 
 > [!IMPORTANT]
 > As of April 30, 2019, Patch Orchestration Application version 1.2.* is no longer supported. Be sure to upgrade to the latest version.
 
-> [!NOTE]
-> Getting [automatic OS image upgrades on your virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) is the best practice for keeping your operating system patched in Azure. Virtual Machine Scale Set based automatic OS image upgrades will require silver or greater durability on a scale set.
->
-
- Patch Orchestration Application (POA) is a wrapper around the Azure Service Fabric Repair Manager service, which enables configuration-based OS patch scheduling for non-Azure hosted clusters. POA isn't required for non-Azure hosted clusters, but scheduling patch installation by update domain is required to patch Service Fabric cluster hosts without incurring downtime.
+Patch Orchestration Application (POA) is a wrapper around the Azure Service Fabric Repair Manager service, which enables configuration-based OS patch scheduling for non-Azure hosted clusters. POA isn't required for non-Azure hosted clusters, but scheduling patch installation by update domain is required to patch Service Fabric cluster hosts without incurring downtime.
 
 POA is a Service Fabric application that automates operating system patching on a Service Fabric cluster without incurring downtime.
 
@@ -162,7 +145,7 @@ You can configure POA behavior to meet your needs. Override the default values b
 | WUOperationTimeOutInMinutes | Int <br>(Default: *90*)                   | Specifies the timeout for any Windows Update operation (search or download or install). If the operation is not completed within the specified timeout, it is aborted.       |
 | WURescheduleCount     | Int <br> (Default: *5*)                  | The maximum number of times the service reschedules the Windows update if an operation fails persistently.          |
 | WURescheduleTimeInMinutes | Int <br>(Default: *30*) | The interval at which the service reschedules the Windows updates if failure persists. |
-| WUFrequency           | Comma-separated string (Default: *Weekly, Wednesday, 7:00:00*)     | The frequency for installing Windows updates. The format and possible values are: <br>- Monthly, DD, HH:MM:SS (example: *Monthly, 5, 12:22:32*). Permitted values for field _DD_ (day) are numbers from 1 through 28 and _last_. <br>- Weekly, Day, HH:MM:SS (example: *Weekly, Tuesday, 12:22:32*)  <br>- Daily, HH:MM:SS (example: *Daily, 12:22:32*)  <br>- Week, Day, HH:MM:SS (example: *2, Friday, 21:00:00* indicates 9:00 PM UTC on Friday of the 2nd week of every month) <br>- *None* indicates that Windows updates shouldn't be done.  <br><br> Times are in UTC.|
+| WUFrequency           | Comma-separated string (Default: *Weekly, Wednesday, 7:00:00*)     | The frequency for installing Windows updates. The format and possible values are: <br>- Monthly, DD, HH:MM:SS (example: *Monthly, 5, 12:22:32*). Permitted values for field _DD_ (day) are numbers from 1 through 28 and _last_. <br>- Weekly, Day, HH:MM:SS (example: *Weekly, Tuesday, 12:22:32*)  <br>- Daily, HH:MM:SS (example: *Daily, 12:22:32*)  <br>- MonthlyByWeekAndDay, Week, Day, HH:MM:SS (example: *MonthlyByWeekAndDay, 2, Friday, 21:00:00* indicates 9:00 PM UTC on Friday of the 2nd week of every month) <br>- *None* indicates that Windows updates shouldn't be done.  <br><br> Times are in UTC.|
 | AcceptWindowsUpdateEula | Boolean <br>(Default: *true*) | By setting this flag, the application accepts the End-User License Agreement for Windows Update on behalf of the owner of the machine.              |
 
 > [!TIP]

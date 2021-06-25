@@ -4,7 +4,7 @@ description: This article lists Azure Application Insights metrics with supporte
 services: azure-monitor
 ms.topic: reference
 ms.date: 07/03/2019
-ms.subservice: application-insights
+
 ---
 
 # Application Insights standard metrics
@@ -268,4 +268,4 @@ The count of trace statements logged with the TrackTrace() Application Insights 
 ## Next steps
 
 * Learn about [Log-based and pre-aggregated metrics](./pre-aggregated-metrics-log-metrics.md).
-* [Log-based metrics queries and definitions](../platform/app-insights-metrics.md).
+* [Log-based metrics queries and definitions](../essentials/app-insights-metrics.md).

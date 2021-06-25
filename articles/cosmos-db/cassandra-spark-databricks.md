@@ -8,13 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 09/24/2018
-
 ---
 
 # Access Azure Cosmos DB Cassandra API data from Azure Databricks
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
-This article details how to workwith Azure Cosmos DB Cassandra API from Spark on [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks).
+This article details how to work with Azure Cosmos DB Cassandra API from Spark on [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks).
 
 ## Prerequisites
 
@@ -44,9 +43,12 @@ This article details how to workwith Azure Cosmos DB Cassandra API from Spark on
 
 * **Cassandra Spark connector:** - To integrate Azure Cosmos DB Cassandra API with Spark, the Cassandra connector should be attached to the Azure Databricks cluster. To attach the cluster:
 
-  * Review the Databricks runtime version, the Spark version. Then find the [maven coordinates](https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector) that are compatible with the Cassandra Spark connector, and attach it to the cluster. See ["Upload a Maven package or Spark package"](https://docs.databricks.com/user-guide/libraries.html) article to attach the connector library to the cluster. For example, maven coordinate for "Databricks Runtime version 4.3",  "Spark 2.3.1", and "Scala 2.11" is `spark-cassandra-connector_2.11-2.3.1`
+  * Review the Databricks runtime version, the Spark version. Then find the [maven coordinates](https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector) that are compatible with the Cassandra Spark connector, and attach it to the cluster. See ["Upload a Maven package or Spark package"](https://docs.databricks.com/user-guide/libraries.html) article to attach the connector library to the cluster. We recommend selecting Databricks runtime version 7.5, which supports Spark 3.0. To add the Apache Spark Cassandra Connector, your cluster, select **Libraries** > **Install New** > **Maven**, and then add `com.datastax.spark:spark-cassandra-connector-assembly_2.12:3.0.0` in Maven coordinates. If using Spark 2.x, we recommend an environment with Spark version 2.4.5, using spark connector at maven coordinates `com.datastax.spark:spark-cassandra-connector_2.11:2.4.3`.
 
-* **Azure Cosmos DB Cassandra API-specific library:** - A custom connection factory is required to configure the retry policy from the Cassandra Spark connector to Azure Cosmos DB Cassandra API. Add the `com.microsoft.azure.cosmosdb:azure-cosmos-cassandra-spark-helper:1.0.0`[maven coordinates](https://search.maven.org/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper/1.0.0/jar) to attach the library to the cluster.
+* **Azure Cosmos DB Cassandra API-specific library:** - If you are using Spark 2.x, a custom connection factory is required to configure the retry policy from the Cassandra Spark connector to Azure Cosmos DB Cassandra API. Add the `com.microsoft.azure.cosmosdb:azure-cosmos-cassandra-spark-helper:1.2.0`[maven coordinates](https://search.maven.org/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper/1.2.0/jar) to attach the library to the cluster.
+
+> [!NOTE]
+> If you are using Spark 3.0 or higher, you do not need to install the Cosmos DB Cassandra API-specific library mentioned above.
 
 ## Sample notebooks
 
@@ -58,7 +60,7 @@ Spark programs to be run as automated processes on Azure Databricks are submitte
 
 The following are links to help you get started building Spark Scala programs to interact with Azure Cosmos DB Cassandra API.
 * [How to connect to Azure Cosmos DB Cassandra API from a Spark Scala program](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-api-spark-connector-sample/blob/main/src/main/scala/com/microsoft/azure/cosmosdb/cassandra/SampleCosmosDBApp.scala)
-* [How to run a Spark Scala program as an automated job on Azure Databricks](https://docs.azuredatabricks.net/user-guide/jobs.html)
+* [How to run a Spark Scala program as an automated job on Azure Databricks](/azure/databricks/jobs)
 * [Complete list of code samples for working with Cassandra API](cassandra-spark-generic.md#next-steps)
 
 ## Next steps

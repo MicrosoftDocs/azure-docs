@@ -32,7 +32,7 @@ This tutorial guides you through the process of creating an Azure Time Series In
 
 ## Prerequisites
 
-* Your Azure sign-in account also must be a member of the subscription's **Owner** role. For more information, read [Add or remove Azure role assignments using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+* Your Azure sign-in account also must be a member of the subscription's **Owner** role. For more information, read [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
 ## Review video
 

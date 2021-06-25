@@ -2,7 +2,7 @@
 title: Azure Schema Registry in Event Hubs (Preview)
 description: This article provides an overview of Schema Registry support by Azure Event Hubs (Preview).
 ms.topic: overview
-ms.date: 09/22/2020
+ms.date: 05/10/2021
 ms.custom: references_regions
 ---
 
@@ -13,7 +13,7 @@ The **Azure Schema Registry** is a feature of Event Hubs, which provides a centr
 
 > [!NOTE]
 > - The **Schema Registry** feature is currently in **preview**, and is not recommended for production workloads.
-> - The feature is available only in **standard** and **dedicated** tiers, not in the **basic** tier.
+> - The feature isn't available in the **basic** tier.
 
 With schema-driven serialization frameworks like Apache Avro, externalizing serialization metadata into shared schemas can also help with dramatically reducing the per-message overhead of type information and field names included with every data set as it's the case with tagged formats such as JSON. Having schemas stored alongside the events and inside the eventing infrastructure ensures that the metadata required for serialization/de-serialization is always in reach and schemas can't be misplaced. 
 
@@ -42,8 +42,8 @@ The following image shows the information flow of the schema registry with Event
 
 :::image type="content" source="./media/schema-registry-overview/flow-diagram.png" alt-text="Flow diagram":::
 
-## Standard vs. dedicated limits
-For limits (for example: number of schema groups in a namespace) that are the same and different for standard and dedicated tiers of Event Hubs, see [Schema Registry limits](../azure-resource-manager/management/azure-subscription-service-limits.md#schema-registry-limitations)
+## Limits
+For limits (for example: number of schema groups in a namespace) of Event Hubs, see [Event Hubs quotas and limits](event-hubs-quotas.md)
 
 ## Azure role-based access control
 When accessing the schema registry programmatically, you need to register an application in Azure Active Directory (Azure AD) and add the security principal of the application to one of the Azure role-based access control (Azure RBAC) roles:

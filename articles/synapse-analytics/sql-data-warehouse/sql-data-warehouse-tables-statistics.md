@@ -85,7 +85,7 @@ However, if your dedicated SQL pool only contains one country/region, and you br
 
 The following are recommendations updating statistics:
 
-|||
+| Statistics attribute | Recommendation|
 |-|-|
 | **Frequency of stats updates**  | Conservative: Daily </br> After loading or transforming your data |
 | **Sampling** |  Less than 1 billion rows, use default sampling (20 percent). </br> With more than 1 billion rows, use sampling of two percent. |
@@ -138,7 +138,7 @@ left join
 	ON rg.object_id = nt.object_id
 	AND rg.pdw_node_id = nt.pdw_node_id
 	AND rg.distribution_id = nt.distribution_id
-	WHERE 1 = 1
+	WWHERE rg.index_id = 1
 	GROUP BY sm.name, tb.name, tb.object_id
 ) actualRowCounts
 on objIdsWithStats.object_id = actualRowCounts.object_id

@@ -68,11 +68,14 @@ Now let's clone a Gremlin API app from GitHub, set the connection string, and ru
 5. Restore the NuGet packages in the project. This should include the Gremlin.Net driver, as well as the Newtonsoft.Json package.
 
 
-6. You can also install the Gremlin.Net driver manually using the Nuget package manager, or the [nuget command-line utility](/nuget/install-nuget-client-tools): 
+6. You can also install the Gremlin.Net@v3.4.6 driver manually using the Nuget package manager, or the [nuget command-line utility](/nuget/install-nuget-client-tools): 
 
     ```bash
-    nuget install Gremlin.Net
+    nuget install Gremlin.NET -Version 3.4.6
     ```
+    
+> [!NOTE]
+> The Gremlin API currently only [supports Gremlin.Net up to v3.4.6](gremlin-support.md#compatible-client-libraries). If you install the latest version, you'll receive errors when using the service.
 
 ## Review the code
 

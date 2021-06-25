@@ -9,7 +9,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: how-to
-ms.date: 08/31/2020
+ms.date: 05/25/2021
 ms.author: inhenkel
 ---
 
@@ -17,11 +17,11 @@ ms.author: inhenkel
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-In Media Services v3, when you submit Jobs to process your videos, you have to tell Media Services where to find the input video. The input video can be stored as a Media Service Asset, in which case you create an input asset based on a file (stored locally or in Azure Blob storage). This topic shows how to create a job input from a local file. For a full example, see this [GitHub sample](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs).
+In Media Services v3, when you submit Jobs to process your videos, you have to tell Media Services where to find the input video. The input video can be stored as a Media Service Asset, in which case you create an input asset based on a file (stored locally or in Azure Blob storage). This topic shows how to create a job input from a local file. For a full example, see this [GitHub sample](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/main/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs).
 
-## Prerequisites 
+## Prerequisites
 
-* [Create a Media Services account](./create-account-howto.md).
+* [Create a Media Services account](./account-create-how-to.md).
 
 ## .NET sample
 

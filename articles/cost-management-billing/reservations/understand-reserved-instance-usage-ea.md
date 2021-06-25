@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 01/19/2020
+ms.date: 04/20/2021
 ms.author: banders
 ---
 
@@ -90,7 +90,6 @@ In the Azure portal, navigate to [Cost management + billing](https://portal.azur
 ![Example showing where to Download the CSV usage data file in the Azure portal](./media/understand-reserved-instance-usage-ea/portal-download-csv.png)
 4. In **Download Usage + Charges** , under **Usage Details Version 2** , select **All Charges (usage and purchases)** and then click download. Repeat for **Amortized charges (usage and purchases)**.
 
-The CSV files that you download contain actual costs and amortized costs.
 
 ## Common cost and usage tasks
 
@@ -153,8 +152,7 @@ To learn more about Azure Reservations, see the following articles:
 
 - [What are Azure Reservations?](save-compute-costs-reservations.md)
 - [Prepay for Virtual Machines with Azure Reserved VM Instances](../../virtual-machines/prepay-reserved-vm-instances.md)
-- [Prepay for SQL Database compute resources with Azure SQL Database reserved capacity](../../azure-sql/database/reserved-capacity-overview.md)
-- [Manage Azure Reservations](manage-reserved-vm-instance.md)
 - [Understand how the reservation discount is applied](../manage/understand-vm-reservation-charges.md)
-- [Understand reservation usage for your Pay-As-You-Go subscription](understand-reserved-instance-usage.md)
 - [Windows software costs not included with Reservations](reserved-instance-windows-software-costs.md)
+- [Use service principal to get cost data](../manage/assign-roles-azure-service-principals.md)
+- [Use cost management exports](../costs/tutorial-export-acm-data.md)

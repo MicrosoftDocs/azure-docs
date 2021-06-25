@@ -1,21 +1,12 @@
 ---
 title: Data Management Gateway for Data Factory 
 description: Use Data Management Gateway in Azure Data Factory to move your data.
-services: data-factory
-documentationcenter: ''
 author: nabhishek
-manager: anandsub
-
-
-ms.assetid: b9084537-2e1c-4e96-b5bc-0e2044388ffd
 ms.service: data-factory
-ms.workload: data-services
-
-
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: abnarain
-
+ms.author: abnarain 
+ms.custom: devx-track-azurepowershell
 robots: noindex
 ---
 # Data Management Gateway
@@ -204,8 +195,8 @@ You can view and update HTTP proxy by using Configuration Manager tool.
 ### Configure proxy server settings
 If you select **Use system proxy** setting for the HTTP proxy, gateway uses the proxy setting in diahost.exe.config and diawp.exe.config. If no proxy is specified in diahost.exe.config and diawp.exe.config, gateway connects to cloud service directly without going through proxy. The following procedure provides instructions for updating the diahost.exe.config file.
 
-1. In File Explorer, make a safe copy of *C:\\\\Program Files\\Microsoft Data Management Gateway\\2.0\\Shared\\diahost.exe.config* to back up the original file.
-2. Launch Notepad.exe running as administrator, and open text file *C:\\\\Program Files\\Microsoft Data Management Gateway\\2.0\\Shared\\diahost.exe.config*. You find the default tag for system.net as shown in the following code:
+1. In File Explorer, make a safe copy of *C:\\Program Files\\Microsoft Integration Runtime\\5.0\\Shared\\diahost.exe.config* to back up the original file.
+2. Launch Notepad.exe running as administrator, and open text file *C:\\Program Files\\Microsoft Integration Runtime\\5.0\\Shared\\diahost.exe.config*. You find the default tag for system.net as shown in the following code:
 
     ```
     <system.net>
@@ -282,44 +273,44 @@ You can disable/enable the auto-update feature by doing the following steps:
 
 [For single node gateway]
 1. Launch Windows PowerShell on the gateway machine.
-2. Switch to the *C:\\\\Program Files\\Microsoft Integration Runtime\\3.0\\PowerShellScript\\* folder.
+2. Switch to the *C:\\\\Program Files\\Microsoft Integration Runtime\\5.0\\PowerShellScript\\* folder.
 3. Run the following command to turn the auto-update feature OFF (disable).
 
-	```powershell
-	.\IntegrationRuntimeAutoUpdateToggle.ps1 -off
+    ```powershell
+    .\IntegrationRuntimeAutoUpdateToggle.ps1 -off
     ```
 4. To turn it back on:
 
-	```powershell
-	.\IntegrationRuntimeAutoUpdateToggle.ps1 -on
+    ```powershell
+    .\IntegrationRuntimeAutoUpdateToggle.ps1 -on
     ```
    [For multi-node highly available and scalable gateway](data-factory-data-management-gateway-high-availability-scalability.md)
 1. Launch Windows PowerShell on the gateway machine.
-2. Switch to the *C:\\\\Program Files\\Microsoft Integration Runtime\\3.0\\PowerShellScript\\* folder.
+2. Switch to the *C:\\\\Program Files\\Microsoft Integration Runtime\\5.0\\PowerShellScript\\* folder.
 3. Run the following command to turn the auto-update feature OFF (disable).
 
-	For gateway with high availability feature, an extra AuthKey param is required.
-	```powershell
-	.\IntegrationRuntimeAutoUpdateToggle.ps1 -off -AuthKey <your auth key>
+    For gateway with high availability feature, an extra AuthKey param is required.
+    ```powershell
+    .\IntegrationRuntimeAutoUpdateToggle.ps1 -off -AuthKey <your auth key>
     ```
 4. To turn it back on:
 
-	```powershell
-	.\IntegrationRuntimeAutoUpdateToggle.ps1 -on -AuthKey <your auth key>
+    ```powershell
+    .\IntegrationRuntimeAutoUpdateToggle.ps1 -on -AuthKey <your auth key>
     ```
 
 ## Configuration Manager
 Once you install the gateway, you can launch Data Management Gateway Configuration Manager in one of the following ways:
 
 1. In the **Search** window, type **Data Management Gateway** to access this utility.
-2. Run the executable *ConfigManager.exe* in the folder: *C:\\\\Program Files\\Microsoft Data Management Gateway\\2.0\\Shared*.
+2. Run the executable *ConfigManager.exe* in the folder: *C:\\Program Files\\Microsoft Integration Runtime\\5.0\\Shared\\*.
 
 ### Home page
 The Home page allows you to do the following actions:
 
 * View status of the gateway (connected to the cloud service etc.).
 * **Register** using a key from the portal.
-* **Stop** and start the **Data Management Gateway Host service** on the gateway machine.
+* **Stop** and start the **Integration Runtime service** on the gateway machine.
 * **Schedule updates** at a specific time of the days.
 * View the date when the gateway was **last updated**.
 
@@ -332,7 +323,7 @@ The Settings page allows you to do the following actions:
 * View **SSL certificate** is used for TLS/SSL communication between portal and the gateway to set credentials for data sources.
 
 ### Remote access from intranet
-This functionality will be enabled in the future. In the upcoming updates (v3.4 or later) we will let you enable/ disable any remote connectivity that today happens using port 8050 (see section above) while using PowerShell or Credential Manager application for encrypting credentials.
+You can enable/ disable any remote connectivity that today happens using port 8050 (see section above) while using PowerShell or Credential Manager application for encrypting credentials.
 
 ### Diagnostics page
 The Diagnostics page allows you to do the following actions:
@@ -360,7 +351,7 @@ In the Azure portal, you can view near-real time snapshot of resource utilizatio
 
     ![CPU and memory usage of gateway](./media/data-factory-data-management-gateway/gateway-simple-monitoring.png)
 4. Enable **Advanced settings** to see more details such as network usage.
-	
+    
     ![Advanced monitoring of gateway](./media/data-factory-data-management-gateway/gateway-advanced-monitoring.png)
 
 The following table provides descriptions of columns in the **Gateway Nodes** list:
@@ -381,7 +372,7 @@ In this page, you see some settings that make more sense when there are two or m
 ### Gateway status
 The following table provides possible statuses of a **gateway node**:
 
-Status	| Comments/Scenarios
+Status    | Comments/Scenarios
 :------- | :------------------
 Online | Node connected to Data Factory service.
 Offline | Node is offline.
@@ -456,18 +447,18 @@ To encrypt credentials in the Data Factory Editor, do the following steps:
    4. Click **OK** to encrypt credentials and close the dialog box.
 8. You should see a **encryptedCredential** property in the **connectionString** now.
 
-	```JSON
-	{
-		"name": "SqlServerLinkedService",
-		"properties": {
-			"type": "OnPremisesSqlServer",
-			"description": "",
-			"typeProperties": {
-				"connectionString": "data source=myserver;initial catalog=mydatabase;Integrated Security=False;EncryptedCredential=eyJDb25uZWN0aW9uU3R",
-				"gatewayName": "adftutorialgateway"
-			}
-		}
-	}
+    ```JSON
+    {
+        "name": "SqlServerLinkedService",
+        "properties": {
+            "type": "OnPremisesSqlServer",
+            "description": "",
+            "typeProperties": {
+                "connectionString": "data source=myserver;initial catalog=mydatabase;Integrated Security=False;EncryptedCredential=eyJDb25uZWN0aW9uU3R",
+                "gatewayName": "adftutorialgateway"
+            }
+        }
+    }
     ```
    If you access the portal from a machine that is different from the gateway machine, you must make sure that the Credentials Manager application can connect to the gateway machine. If the application cannot reach the gateway machine, it does not allow you to set credentials for the data source and to test connection to the data source.
 
@@ -487,13 +478,13 @@ This section describes how to create and register a gateway using Azure PowerShe
 1. Launch **Azure PowerShell** in administrator mode.
 2. Log in to your Azure account by running the following command and entering your Azure credentials.
 
-	```powershell
+    ```powershell
     Connect-AzAccount
     ```
 3. Use the **New-AzDataFactoryGateway** cmdlet to create a logical gateway as follows:
 
-	```powershell
-	$MyDMG = New-AzDataFactoryGateway -Name <gatewayName> -DataFactoryName <dataFactoryName> -ResourceGroupName ADF –Description <desc>
+    ```powershell
+    $MyDMG = New-AzDataFactoryGateway -Name <gatewayName> -DataFactoryName <dataFactoryName> -ResourceGroupName ADF –Description <desc>
     ```
     **Example command and output**:
 
@@ -513,23 +504,23 @@ This section describes how to create and register a gateway using Azure PowerShe
     Key               : ADF#00000000-0000-4fb8-a867-947877aef6cb@fda06d87-f446-43b1-9485-78af26b8bab0@4707262b-dc25-4fe5-881c-c8a7c3c569fe@wu#nfU4aBlq/heRyYFZ2Xt/CD+7i73PEO521Sj2AFOCmiI
     ```
 
-1. In Azure PowerShell, switch to the folder: *C:\\\\Program Files\\Microsoft Integration Runtime\\3.0\\PowerShellScript\\*. Run *RegisterGateway.ps1* associated with the local variable **$Key** as shown in the following command. This script registers the client agent installed on your machine with the logical gateway you create earlier.
+1. In Azure PowerShell, switch to the folder: *C:\\\\Program Files\\Microsoft Integration Runtime\\5.0\\PowerShellScript\\*. Run *RegisterGateway.ps1* associated with the local variable **$Key** as shown in the following command. This script registers the client agent installed on your machine with the logical gateway you create earlier.
 
-	```powershell
-	PS C:\> .\RegisterGateway.ps1 $MyDMG.Key
+    ```powershell
+    PS C:\> .\RegisterGateway.ps1 $MyDMG.Key
     ```
     ```
-	Agent registration is successful!
+    Agent registration is successful!
     ```
     You can register the gateway on a remote machine by using the IsRegisterOnRemoteMachine parameter. Example:
 
-	```powershell
-	.\RegisterGateway.ps1 $MyDMG.Key -IsRegisterOnRemoteMachine true
+    ```powershell
+    .\RegisterGateway.ps1 $MyDMG.Key -IsRegisterOnRemoteMachine true
     ```
 2. You can use the **Get-AzDataFactoryGateway** cmdlet to get the list of Gateways in your data factory. When the **Status** shows **online**, it means your gateway is ready to use.
 
-	```powershell        
-	Get-AzDataFactoryGateway -DataFactoryName <dataFactoryName> -ResourceGroupName ADF
+    ```powershell        
+    Get-AzDataFactoryGateway -DataFactoryName <dataFactoryName> -ResourceGroupName ADF
     ```
    You can remove a gateway using the **Remove-AzDataFactoryGateway** cmdlet and update description for a gateway using the **Set-AzDataFactoryGateway** cmdlets. For syntax and other details about these cmdlets, see Data Factory Cmdlet Reference.  
 

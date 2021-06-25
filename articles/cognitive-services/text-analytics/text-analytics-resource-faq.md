@@ -9,12 +9,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 01/05/2021
+ms.date: 03/29/2021
 ms.author: aahi
 ---
 # Frequently Asked Questions (FAQ) about the Text Analytics API
 
  Find answers to commonly asked questions about concepts, code, and scenarios related to the Text Analytics API in Azure Cognitive Services.
+
+## What is the maximum size and number of requests I can make to the API?
+
+See the [data limits](concepts/data-limits.md) article for information on the size and number of requests you can send per minute and second.
 
 ## Can Text Analytics identify sarcasm?
 
@@ -30,7 +34,7 @@ No, the models are pretrained. The only operations available on uploaded data ar
 
 Sentiment analysis and key phrase extraction are available for a [select number of languages](./language-support.md). Natural language processing is complex and requires substantial testing before new functionality can be released. For this reason, we avoid pre-announcing support so that no one takes a dependency on functionality that needs more time to mature. 
 
-To help us prioritize which languages to work on next, vote for specific languages on [User Voice](https://cognitive.uservoice.com/forums/555922-text-analytics). 
+To help us prioritize which languages to work on next, vote for specific languages using the [feedback tool](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395749). 
 
 ## Why does key phrase extraction return some words but not others?
 
@@ -54,7 +58,7 @@ No customer configuration is necessary to enable zone-resiliency. Zone-resilienc
 
 ## Next steps
 
-Is your question about a missing feature or functionality? Consider requesting or voting for it on our [UserVoice web site](https://cognitive.uservoice.com/forums/555922-text-analytics).
+Is your question about a missing feature or functionality? Consider requesting or voting for it using the [feedback tool](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395749).
 
 ## See also
 

@@ -45,7 +45,7 @@ When vulnerabilities are found, they're grouped inside a single recommendation.
 1. To view and remediate the CIS controls that a specific host failed, select the host you want to investigate. 
 
     > [!TIP]
-    > If you started at the asset inventory page and reached this recommendation from there, selec tthe **Take action** button on the recommendation page.
+    > If you started at the asset inventory page and reached this recommendation from there, select the **Take action** button on the recommendation page.
     >
     > :::image type="content" source="./media/monitor-container-security/host-security-take-action-button.png" alt-text="Take action button to launch Log Analytics":::
 

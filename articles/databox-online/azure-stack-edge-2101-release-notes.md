@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Edge Pro with FPGA 2101 release notes | Microsoft Docs
-description: Describes critical open issues and resolutions for the Azure Stack Edge 2101 release.
+title: Azure Stack Edge Pro FPGA 2101 release notes | Microsoft Docs
+description: Describes Azure Stack Edge Pro FPGA 2101 release critical open issues and resolutions.
 services: databox
 author: v-dalc
 ms.service: databox
@@ -12,7 +12,7 @@ ms.author: alkohli
 
 # Azure Stack Edge Pro with FPGA 2101 release notes
 
-The following release notes identify the critical open issues and the resolved issues for the 2101 release of Azure Stack Edge Pro with a built-in Field Programmable Gate Array (FPGA).
+The following release notes identify the critical open issues and the resolved issues for the 2101 release of Azure Stack Edge Pro FPGA with a built-in Field Programmable Gate Array (FPGA).
 
 The release notes are continuously updated. As critical issues that require a workaround are discovered, they are added. Before you deploy your Azure Stack Edge device, carefully review the information in the release notes.  
 
@@ -37,7 +37,7 @@ This release also contains the following updates:
 
 ## Known issues in this release
 
-No new issues are release noted for this release. All the release noted issues have carried over from the previous releases. To see a list of known issues, go to [Known issues in the GA release](data-box-gateway-release-notes.md#known-issues-in-ga-release).
+No new issues are release noted for this release. All the release noted issues have carried over from the previous releases. To see a list of known issues, go to [Known issues in the GA release](../databox-gateway/data-box-gateway-release-notes.md#known-issues-in-ga-release).
 
 ## Next steps
 

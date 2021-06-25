@@ -15,6 +15,25 @@ ms.date: 11/24/2020
 
 This article describes what's new and what has changed with every new build of Azure SQL Edge.
 
+## Azure SQL Edge 1.0.4
+
+SQL engine build 15.0.2000.1558
+
+### What's new?
+
+- PREDICT support for ONNX 
+    - Improvements in handling of null data in PREDICT for ONNX
+
+## Azure SQL Edge 1.0.3
+
+SQL engine build 15.0.2000.1554
+
+### Fixes
+
+- Upgrade ONNX runtime to 1.5.3
+- Update to Microsoft.SqlServer.DACFx version 150.5084.2
+- Miscellaneous bug fixes  
+   
 ## Azure SQL Edge 1.0.2
 
 SQL engine build 15.0.2000.1554

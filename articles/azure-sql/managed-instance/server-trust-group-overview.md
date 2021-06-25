@@ -4,13 +4,13 @@ titleSuffix: Azure SQL Managed Instance
 description: Learn about Server Trust Group and how to manage trust between Azure SQL Managed Instances.
 services: sql-database
 ms.service: sql-managed-instance
-ms.subservice: operations
+ms.subservice: service-overview
 ms.custom:
 ms.devlang: 
 ms.topic: conceptual
 author: sasapopo
 ms.author: sasapopo
-ms.reviewer: sstein, bonova
+ms.reviewer: mathoma
 ms.date: 10/08/2020
 ---
 # Use Server Trust Groups to set up and manage trust between SQL Managed Instances
@@ -24,7 +24,8 @@ Server Trust Group is a concept used for managing trust between Azure SQL Manage
 
 ## Server Trust Group setup
 
-The following section describes setup of Server Trust Group.
+Server Trust Group can be setup via [Azure PowerShell](/powershell/module/az.sql/new-azsqlservertrustgroup) or [Azure CLI](/cli/azure/sql/stg). 
+The following section describes setup of Server Trust Group using Azure portal.
 
 1. Go to the [Azure portal](https://portal.azure.com/).
 

@@ -3,7 +3,7 @@ title: Deploy a Java application with Open Liberty/WebSphere Liberty on an Azure
 description: Deploy a Java application with Open Liberty/WebSphere Liberty on an Azure Red Hat OpenShift 4 cluster.
 author: jiangma
 ms.author: jiangma
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 10/30/2020
 keywords: java, jakartaee, javaee, microprofile, open-liberty, websphere-liberty, aro, openshift, red hat
@@ -26,7 +26,7 @@ Complete the following prerequisites to successfully walk through this guide.
 1. Install a Java SE implementation (for example, [AdoptOpenJDK OpenJDK 8 LTS/OpenJ9](https://adoptopenjdk.net/?variant=openjdk8&jvmVariant=openj9)).
 1. Install [Maven](https://maven.apache.org/download.cgi) 3.5.0 or higher.
 1. Install [Docker](https://docs.docker.com/get-docker/) for your OS.
-1. Install [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest) 2.0.75 or later.
+1. Install [Azure CLI](/cli/azure/install-azure-cli) 2.0.75 or later.
 1. Check and install [`envsubst`](https://command-not-found.com/envsubst) if it's not pre-installed in your operating system.
 1. Clone the code for this sample on your local system. The sample is on [GitHub](https://github.com/Azure-Samples/open-liberty-on-aro).
 1. Follow the instructions in [Create an Azure Red Hat OpenShift 4 cluster](./tutorial-create-cluster.md).
@@ -35,7 +35,7 @@ Complete the following prerequisites to successfully walk through this guide.
 
    If you plan to run memory-intensive applications on the cluster, specify the proper virtual machine size for the worker nodes using the `--worker-vm-size` parameter. For example, `Standard_E4s_v3` is the minimum virtual machine size to install the Elasticsearch Operator on a cluster. For more information, see:
 
-   * [Azure CLI to create a cluster](/cli/azure/aro?preserve-view=true&view=azure-cli-latest#az-aro-create)
+   * [Azure CLI to create a cluster](/cli/azure/aro#az_aro_create)
    * [Supported virtual machine sizes for memory optimized](./support-policies-v4.md#memory-optimized)
    * [Prerequisites to install the Elasticsearch Operator](https://docs.openshift.com/container-platform/4.3/logging/cluster-logging-deploying.html#cluster-logging-deploy-eo-cli_cluster-logging-deploying)
 

@@ -2,34 +2,31 @@
 title: Use Azure Storage inventory to manage blob data (preview)
 description: Azure Storage inventory is a tool to help get an overview of all your blob data within a storage account.
 services: storage
-author: mhopkins-msft
+author: normesta
 
 ms.service: storage
-ms.date: 12/03/2020
+ms.date: 04/01/2021
 ms.topic: conceptual
-ms.author: mhopkins
-ms.reviewer: yzheng
+ms.author: normesta
+ms.reviewer: klaasl
 ms.subservice: blobs
 ms.custom: references_regions
 ---
 
 # Use Azure Storage blob inventory to manage blob data (preview)
 
-The Azure Storage blob inventory feature provides an overview of your blob data within a storage account. Use the inventory report to understand your total data size, age, encryption status, and so on. The report provides an overview of your data for business and compliance requirements. Once enabled, an inventory report is automatically created daily.
+The Azure Storage blob inventory feature provides an overview of your blob data within a storage account. Use the inventory report to understand your total data size, age, access tiers, and so on. The report provides an overview of your data for business and compliance requirements. Once enabled, an inventory report is automatically created daily.
 
 ## Availability
 
 Blob inventory is supported for both general purpose version 2 (GPv2) and premium block blob storage accounts. This feature is supported with or without the [hierarchical namespace](data-lake-storage-namespace.md) feature enabled.
 
+> [!IMPORTANT]
+> Blob inventory is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
 ### Preview regions
 
-The blob inventory preview is available on storage accounts in the following regions:
-
-- France Central
-- Canada Central
-- Canada East
-- East US
-- East US2
+The blob inventory preview is available on storage accounts in all public regions.
 
 ### Pricing and billing
 
@@ -197,6 +194,15 @@ Sample event:
 }
 ```
 
+## Known issues
+
+This section describes limitations and known issues of the Azure Storage blob inventory feature.
+
+### Inventory job fails to complete
+
+The inventory job may not complete within 24 hours for an account with millions of blobs and hierarchical namespaces enabled. If this happens, no inventory file is created.
+
 ## Next steps
 
-[Manage the Azure Blob Storage lifecycle](storage-lifecycle-management-concepts.md)
+- [Calculate the count and total size of blobs per container](calculate-blob-count-size.md)
+- [Manage the Azure Blob Storage lifecycle](storage-lifecycle-management-concepts.md)

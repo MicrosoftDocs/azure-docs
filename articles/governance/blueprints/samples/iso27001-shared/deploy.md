@@ -1,7 +1,7 @@
 ---
 title: Deploy ISO 27001 Shared Services blueprint sample
 description: Deploy steps for the ISO 27001 Shared Services blueprint sample including blueprint artifact parameter details.
-ms.date: 02/05/2021
+ms.date: 04/30/2021
 ms.topic: sample
 ---
 # Deploy the ISO 27001 Shared Services blueprint sample
@@ -144,7 +144,7 @@ The following table provides a list of the blueprint artifact parameters:
 |Allowed resource types|Policy assignment|Allowed resource types|List of resource types allowed to be deployed. This list is composed of all the resource types deployed in Shared Services.|
 |Allowed storage account SKUs|Policy assignment|Allowed storage SKUs|List of diagnostic logs storage account SKUs allowed. Default value is _["Standard_LRS"]_.|
 |Allowed virtual machine SKUs|Policy assignment|List of virtual machine SKUs allowed to be deployed. Default value is _["Standard_DS1_v2", "Standard_DS2_v2"]_.|
-|Blueprint initiative for ISO 27001|Policy assignment|Resource types to audit diagnostic logs|List of resource types to audit if diagnostic log setting is not enabled. Acceptable values can be found at [Azure Monitor diagnostic logs schemas](../../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas).|
+|Blueprint initiative for ISO 27001|Policy assignment|Resource types to audit diagnostic logs|List of resource types to audit if diagnostic log setting is not enabled. Acceptable values can be found at [Azure Monitor diagnostic logs schemas](../../../../azure-monitor/essentials/resource-logs-schema.md#service-specific-schemas).|
 |Log Analytics resource group|Resource group|Name|**Locked** - Concatenates the **Organization name** with `-sharedsvsc-log-rg` to make the resource group unique.|
 |Log Analytics resource group|Resource group|Location|**Locked** - Uses the blueprint parameter.|
 |Log Analytics template|Resource Manager template|Service tier|Sets the tier of the Log Analytics workspace. Default value is _PerNode_.|

@@ -2,8 +2,9 @@
 title: Back up an Oracle Database 19c database on an Azure Linux VM with RMAN and Azure Storage
 description: Learn how to back up an Oracle Database 19c database to Azure cloud storage.
 author: cro27
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: oracle
+ms.collection: linux
 ms.topic: article
 ms.date: 01/28/2021
 ms.author: cholse
@@ -120,7 +121,7 @@ This article demonstrates the use of Azure Storage as a media to back up and res
 10. Set database environment variables for fast recovery area:
 
     ```bash
-    SQL>  system set db_recovery_file_dest_size=4096M scope=both;
+    SQL> alter system set db_recovery_file_dest_size=4096M scope=both;
     SQL> alter system set db_recovery_file_dest='/u02/fast_recovery_area' scope=both;
     ```
     
@@ -168,7 +169,7 @@ To back up to Azure Files, complete these steps:
 
 ### Set up Azure File Storage
 
-In this step, you will back up the Oracle database using Oracle Recovery Manager (RMAN) to Azure File storage. Azure file shares are fully managed file shares that live in the cloud. They can be accessed using either the Server Message Block (SMB) protocol or the Network File System (NFS) protocol. This step covers creating a file share that uses the SMB protocol to mount to your VM. For information about how to mount using NFS, see [Mount Blob storage by using the NFS 3.0 protocol](../../../storage/blobs/network-file-system-protocol-support-how-to.md).
+In this step, you will back up the Oracle database using Oracle Recovery Manager (RMAN) to Azure Files storage. Azure file shares are fully managed file shares that live in the cloud. They can be accessed using either the Server Message Block (SMB) protocol or the Network File System (NFS) protocol. This step covers creating a file share that uses the SMB protocol to mount to your VM. For information about how to mount using NFS, see [Mount Blob storage by using the NFS 3.0 protocol](../../../storage/blobs/network-file-system-protocol-support-how-to.md).
 
 When mounting the Azure Files, we will use the `cache=none` to disable caching of file share data. And to ensure files created in the share are owned by the oracle user set the `uid=oracle` and `gid=oinstall` options as well. 
 
@@ -363,7 +364,7 @@ While using RMAN and Azure File storage for database backup has many advantages,
     ORACLE instance shut down.
     ```
 
-2.  Remove the datafiles and backups:
+2.  Remove the database datafiles:
 
     ```bash
     cd /u02/oradata/TEST
@@ -401,4 +402,4 @@ az group delete --name rg-oracle
 
 [Tutorial: Create highly available VMs](../../linux/create-cli-complete.md)
 
-[Explore VM deployment Azure CLI samples](../../linux/cli-samples.md)
+[Explore VM deployment Azure CLI samples](https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine)

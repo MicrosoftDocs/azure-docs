@@ -4,13 +4,13 @@ description: Connect to on-premises data sources from Azure Logic Apps by creati
 services: logic-apps
 ms.suite: integration
 ms.reviewer: arthii, logicappspm
-ms.topic: article
-ms.date: 01/20/2021
+ms.topic: conceptual
+ms.date: 03/24/2021
 ---
 
 # Connect to on-premises data sources from Azure Logic Apps
 
-After you [install the *on-premises data gateway* on a local computer](../logic-apps/logic-apps-gateway-install.md) and before you can access data sources on premises from your logic apps, you have to create a gateway resource in Azure for your gateway installation. You can then select this gateway resource in the triggers and actions that you want to use for the [on-premises connectors](../connectors/apis-list.md#on-premises-connectors) available in Azure Logic Apps. Azure Logic Apps supports read and write operations through the data gateway. However, these operations have [limits on their payload size](/data-integration/gateway/service-gateway-onprem#considerations).
+After you [install the *on-premises data gateway* on a local computer](../logic-apps/logic-apps-gateway-install.md) and before you can access data sources on premises from your logic apps, you have to create a gateway resource in Azure for your gateway installation. You can then select this gateway resource in the triggers and actions that you want to use for the [on-premises connectors](../connectors/managed.md#on-premises-connectors) available in Azure Logic Apps. Azure Logic Apps supports read and write operations through the data gateway. However, these operations have [limits on their payload size](/data-integration/gateway/service-gateway-onprem#considerations).
 
 This article shows how to create your Azure gateway resource for a previously [installed gateway on your local computer](../logic-apps/logic-apps-gateway-install.md). For more information about the gateway, see [How the gateway works](../logic-apps/logic-apps-gateway-install.md#gateway-cloud-service).
 
@@ -29,7 +29,7 @@ For information about how to use the gateway with other services, see these arti
 
 ## Supported data sources
 
-In Azure Logic Apps, the on-premises data gateway supports the [on-premises connectors](../connectors/apis-list.md#on-premises-connectors) for these data sources:
+In Azure Logic Apps, the on-premises data gateway supports the [on-premises connectors](../connectors/managed.md#on-premises-connectors) for these data sources:
 
 * BizTalk Server 2016
 * File System
@@ -169,7 +169,7 @@ To create a different gateway resource, link your gateway installation to a diff
 
 * Your Azure account doesn't belong to only a single [Azure AD tenant or directory](../active-directory/fundamentals/active-directory-whatis.md#terminology). Check that you're using the same Azure AD tenant or directory that you used during gateway installation.
 
-* Your gateway resource and gateway installation don't exist in the same region. However, your logic app's location can differ from your gateway resource location.
+* Your gateway resource and gateway installation don't exist in the same region. Make sure that your gateway installation uses the same region where you want to create the gateway resource in Azure. However, your logic app's location can differ from your gateway resource location.
 
 * Your gateway installation is already associated with another gateway resource. Each gateway resource can link to only one gateway installation, which can link to only one Azure account and subscription. So, you can't select a gateway installation that's already associated with another gateway resource. These installations won't appear in the **Installation Name** list.
 

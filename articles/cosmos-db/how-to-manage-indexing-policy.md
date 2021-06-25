@@ -5,9 +5,9 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 11/02/2020
+ms.date: 05/25/2021
 ms.author: tisande
-ms.custom: devx-track-python, devx-track-js, devx-track-azurecli, devx-track-csharp
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp
 ---
 
 # Manage indexing policies in Azure Cosmos DB
@@ -43,7 +43,8 @@ Here are some examples of indexing policies shown in [their JSON format](index-p
     }
 ```
 
-This indexing policy is equivalent to the one below which manually sets ```kind```, ```dataType```, and ```precision``` to their default values. These properties are no longer necessary to explicitly set and you should omit them from your indexing policy entirely (as shown in above example).
+This indexing policy is equivalent to the one below which manually sets ```kind```, ```dataType```, and ```precision``` to their default values. These properties are no longer necessary to explicitly set and you should omit them from your indexing policy entirely (as shown in above example). If you try to set these properties, they'll be automatically removed from your indexing policy.
+
 
 ```json
     {
@@ -97,7 +98,8 @@ This indexing policy is equivalent to the one below which manually sets ```kind`
     }
 ```
 
-This indexing policy is equivalent to the one below which manually sets ```kind```, ```dataType```, and ```precision``` to their default values. These properties are no longer necessary to explicitly set and you should omit them from your indexing policy entirely (as shown in above example).
+This indexing policy is equivalent to the one below which manually sets ```kind```, ```dataType```, and ```precision``` to their default values. These properties are no longer necessary to explicitly set and you should omit them from your indexing policy entirely (as shown in above example). If you try to set these properties, they'll be automatically removed from your indexing policy.
+
 
 ```json
     {

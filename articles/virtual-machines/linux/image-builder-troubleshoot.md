@@ -6,7 +6,9 @@ ms.author: danis
 ms.date: 10/02/2020
 ms.topic: troubleshooting
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: image-builder
+ms.collection: linux 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Troubleshoot Azure Image Builder Service
@@ -321,7 +323,7 @@ Image Builder timed out waiting for the image to be added and replicated to the 
 $runOutputName=<distributionRunOutput>
 az resource show \
     --ids "/subscriptions/$subscriptionID/resourcegroups/$imageResourceGroup/providers/Microsoft.VirtualMachineImages/imageTemplates/$imageTemplateName/runOutputs/$runOutputName"  \
-    --api-version=2019-05-01-preview
+    --api-version=2020-02-14
 ```
 
 #### Solution
@@ -555,7 +557,7 @@ Write-Host / Echo “Sleep” – this will allow you to search in the log
 ```text
 2020-05-05T18:28:24.9280196Z ##[section]Starting: Azure VM Image Builder Task
 2020-05-05T18:28:24.9609966Z ==============================================================================
-2020-05-05T18:28:24.9610739Z Task         : Azure VM Image Builder Test(Preview)
+2020-05-05T18:28:24.9610739Z Task         : Azure VM Image Builder Test
 2020-05-05T18:28:24.9611277Z Description  : Build images using Azure Image Builder resource provider.
 2020-05-05T18:28:24.9611608Z Version      : 1.0.18
 2020-05-05T18:28:24.9612003Z Author       : Microsoft Corporation

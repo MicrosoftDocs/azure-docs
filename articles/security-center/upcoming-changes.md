@@ -1,16 +1,11 @@
 ---
 title: Important changes coming to Azure Security Center
 description: Upcoming changes to Azure Security Center that you might need to be aware of and for which you might need to plan 
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
 ms.service: security-center
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/25/2021
+ms.date: 06/13/2021
 ms.author: memildin
 
 ---
@@ -27,61 +22,39 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 
 ## Planned changes
 
-- [Two recommendations from "Apply system updates" security control being deprecated](#two-recommendations-from-apply-system-updates-security-control-being-deprecated)
-- [Enhancements to SQL data classification recommendation](#enhancements-to-sql-data-classification-recommendation)
-- [Deprecation of 11 Azure Defender alerts](#deprecation-of-11-azure-defender-alerts)
+| Planned change                                                                                                                                                        | Estimated date for change |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|
+| [Legacy implementation of ISO 27001 is being replaced with new ISO 27001:2013](#legacy-implementation-of-iso-27001-is-being-replaced-with-new-iso-270012013)          | June 2021                 |
+| [Enhancements to SQL data classification recommendation](#enhancements-to-sql-data-classification-recommendation)                                                     | Q3 2021                   |
+| [Enable Azure Defender security control to be included in secure score](#enable-azure-defender-security-control-to-be-included-in-secure-score)                       | Q3 2021                   |
+|                                                                                                                                                                       |                           |
 
-### Two recommendations from "Apply system updates" security control being deprecated 
 
-**Estimated date for change:** February 2021
+### Legacy implementation of ISO 27001 is being replaced with new ISO 27001:2013
 
-The following two recommendations are scheduled to be deprecated in February 2021:
+The legacy implementation of ISO 27001 will be removed from Security Center's regulatory compliance dashboard. If you're tracking your ISO 27001 compliance with Security Center, onboard the new ISO 27001:2013 standard for all relevant management groups or subscriptions, and the current legacy ISO 27001 will soon be removed from the dashboard.
 
-- **Your machines should be restarted to apply system updates**. This might result in a slight impact on your secure score.
-- **Monitoring agent should be installed on your machines**. This recommendation relates to on-premises machines only and some of its logic will be transferred to another recommendation, **Log Analytics agent health issues should be resolved on your machines**. This might result in a slight impact on your secure score.
-
-We recommend checking your continuous export and workflow automation configurations to see whether these recommendations are included in them. Also, any dashboards or other monitoring tools that might be using them should be updated accordingly.
-
-Learn more about these recommendations in the [security recommendations reference page](recommendations-reference.md).
-
+:::image type="content" source="media/upcoming-changes/removing-iso-27001-legacy-implementation.png" alt-text="Security Center's regulatory compliance dashboard showing the message about the removal of the legacy implementation of ISO 27001." lightbox="media/upcoming-changes/removing-iso-27001-legacy-implementation.png":::
 
 ### Enhancements to SQL data classification recommendation
 
-**Estimated date for change:** Q2 2021
+**Estimated date for change:** Q3 2021
 
-The recommendation **Sensitive data in your SQL databases should be classified** in the **Apply data classification** security control will be replaced with a new version that's better aligned with Microsoft's data classification strategy. As a result the recommendation's ID will also change (currently b0df6f56-862d-4730-8597-38c0fd4ebd59).
+The recommendation **Sensitive data in your SQL databases should be classified** in the **Apply data classification** security control will be replaced with a new version that's better aligned with Microsoft's data classification strategy. As a result the recommendation's ID will also change (currently, it's b0df6f56-862d-4730-8597-38c0fd4ebd59).
 
+### Enable Azure Defender security control to be included in secure score
 
-### Deprecation of 11 Azure Defender alerts
+**Estimated date for change:** Q3 2021
 
-**Estimated date for change:** March 2021
+Security Center's hardening recommendations are grouped into security controls. Each control is a logical group of related security recommendations, and reflects a vulnerable attack surface. The contribution of each security control towards the overall secure score is shown clearly on the recommendations page as well as in the list of controls in [Security controls and their recommendations](secure-score-security-controls.md#security-controls-and-their-recommendations).
 
-Next month, the eleven Azure Defender alerts listed below will be deprecated.
+Since its introduction, the **Enable Azure Defender** control has had a maximum possible score of 0 points. **With this change, the control will contribute towards your secure score**.
 
-- New alerts will replace these two alerts and provide better coverage:
+When you enable Azure Defender you'll extend the capabilities of Security Center's free mode to your workloads running in private and other public clouds, providing unified security management and threat protection across your hybrid cloud workloads. Some of the major features of Azure Defender are: integrated Microsoft Defender for Endpoint licenses for your servers, vulnerability scanning for virtual machines and container registries, security alerts based on advanced behavioral analytics and machine learning, and container security features. For a full list, see [Azure Security Center free vs Azure Defender enabled](security-center-pricing.md).
 
-    | AlertType                | AlertDisplayName                                                         |
-    |--------------------------|--------------------------------------------------------------------------|
-    | ARM_MicroBurstDomainInfo | PREVIEW - MicroBurst toolkit "Get-AzureDomainInfo" function run detected |
-    | ARM_MicroBurstRunbook    | PREVIEW - MicroBurst toolkit "Get-AzurePasswords" function run detected  |
-    |                          |                                                                          |
+With this change, there will be an impact on the secure score of any subscriptions that aren't protected by Azure Defender. We suggest you enable Azure Defender before this change occurs to ensure there is no impact on your scores. 
 
-- These nine alerts relate to an Azure Active Directory Identity Protection connector that has already been deprecated:
-
-    | AlertType           | AlertDisplayName              |
-    |---------------------|-------------------------------|
-    | UnfamiliarLocation  | Unfamiliar sign-in properties |
-    | AnonymousLogin      | Anonymous IP address          |
-    | InfectedDeviceLogin | Malware linked IP address     |
-    | ImpossibleTravel    | Atypical travel               |
-    | MaliciousIP         | Malicious IP address          |
-    | LeakedCredentials   | Leaked credentials            |
-    | PasswordSpray       | Password Spray                |
-    | LeakedCredentials   | Azure AD threat intelligence  |
-    | AADAI               | Azure AD AI                   |
-    |                     |                               |
- 
-
+Learn more in [Quickstart: Enable Azure Defender](enable-azure-defender.md).
 
 
 ## Next steps

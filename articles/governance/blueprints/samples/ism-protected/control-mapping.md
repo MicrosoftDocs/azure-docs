@@ -1,21 +1,21 @@
 ---
 title: Australian Government ISM PROTECTED blueprint sample controls
 description: Control mapping of the Australian Government ISM PROTECTED blueprint sample. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 01/21/2021
+ms.date: 04/02/2021
 ms.topic: sample
 ---
 # Control mapping of the Australian Government ISM PROTECTED blueprint sample
 
-The following article details how the Azure Blueprints Australian Government ISM PROTECTED blueprint sample maps to the
-ISM PROTECTED controls. For more information about the controls, see
+The following article details how the Azure Blueprints Australian Government ISM PROTECTED blueprint
+sample maps to the ISM PROTECTED controls. For more information about the controls, see
 [ISM PROTECTED](https://www.cyber.gov.au/ism).
 
-The following mappings are to the **ISM PROTECTED** controls. Use the navigation on the right to jump
-directly to a specific control mapping. Many of the mapped controls are implemented with an
+The following mappings are to the **ISM PROTECTED** controls. Use the navigation on the right to
+jump directly to a specific control mapping. Many of the mapped controls are implemented with an
 [Azure Policy](../../../policy/overview.md) initiative. To review the complete initiative, open
 **Policy** in the Azure portal and select the **Definitions** page. Then, find and select the
-**\[Preview\]: Audit Australian Government ISM PROTECTED controls and deploy specific VM Extensions to support audit
-requirements** built-in policy initiative.
+**\[Preview\]: Audit Australian Government ISM PROTECTED controls and deploy specific VM Extensions
+to support audit requirements** built-in policy initiative.
 
 > [!IMPORTANT]
 > Each control below is associated with one or more [Azure Policy](../../../policy/overview.md)
@@ -30,13 +30,16 @@ requirements** built-in policy initiative.
 > may change over time. To view the change history, see the
 > [GitHub Commit History](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/ism-protected/control-mapping.md).
 
-
 ## Location Constraints
 
-This blueprint helps you restrict the location for the deployment of all resources and resource groups to "Australia Central", "Australia Central2", "Australia East" and "Australia Southeast" by assigning following Azure Policy definitions:
+This blueprint helps you restrict the location for the deployment of all resources and resource
+groups to "Australia Central", "Australia Central2", "Australia East" and "Australia Southeast" by
+assigning following Azure Policy definitions:
 
-- Allowed locations (has been hard coded to "Australia Central", "Australia Central2", "Australia East" and "Australia Southeast")
-- Allowed locations for resource groups (has been hard coded to "Australia Central", "Australia Central2", "Australia East" and "Australia Southeast")
+- Allowed locations (has been hard coded to "Australia Central", "Australia Central2", "Australia
+  East" and "Australia Southeast")
+- Allowed locations for resource groups (has been hard coded to "Australia Central", "Australia
+  Central2", "Australia East" and "Australia Southeast")
 
 ## Guidelines for Personnel Security - Access to systems and their resources
 
@@ -50,31 +53,41 @@ This blueprint helps you restrict the location for the deployment of all resourc
 
 - A maximum of 3 owners should be designated for your subscription
 - There should be more than one owner assigned to your subscription
-- Show audit results from Windows VMs in which the Administrators group contains any of the specified members
-- Deploy prerequisites to audit Windows VMs in which the Administrators group contains any of the specified members
+- Show audit results from Windows VMs in which the Administrators group contains any of the
+  specified members
+- Deploy prerequisites to audit Windows VMs in which the Administrators group contains any of the
+  specified members
 
 ### 1507 Privileged access to systems, applications and data repositories is validated when first requested and revalidated on an annual or more frequent basis
 
-- Show audit results from Windows VMs in which the Administrators group contains any of the specified members
-- Deploy prerequisites to audit Windows VMs in which the Administrators group contains any of the specified members
+- Show audit results from Windows VMs in which the Administrators group contains any of the
+  specified members
+- Deploy prerequisites to audit Windows VMs in which the Administrators group contains any of the
+  specified members
 
 ### 1508 Privileged access to systems, applications and data repositories is limited to that required for personnel to undertake their duties
 
 - A maximum of 3 owners should be designated for your subscription
 - There should be more than one owner assigned to your subscription
-- Show audit results from Windows VMs in which the Administrators group contains any of the specified members
-- Deploy prerequisites to audit Windows VMs in which the Administrators group contains any of the specified members
+- Show audit results from Windows VMs in which the Administrators group contains any of the
+  specified members
+- Deploy prerequisites to audit Windows VMs in which the Administrators group contains any of the
+  specified members
 - Just-In-Time network access control should be applied on virtual machines
 
 ### 0415 The use of shared user accounts is strictly controlled, and personnel using such accounts are uniquely identifiable
 
-- Show audit results from Windows VMs in which the Administrators group contains any of the specified members
-- Deploy prerequisites to audit Windows VMs in which the Administrators group contains any of the specified members
+- Show audit results from Windows VMs in which the Administrators group contains any of the
+  specified members
+- Deploy prerequisites to audit Windows VMs in which the Administrators group contains any of the
+  specified members
 
 ### 0445 Privileged users are assigned a dedicated privileged account to be used solely for tasks requiring privileged access
 
-- Show audit results from Windows VMs in which the Administrators group contains any of the specified members
-- Deploy prerequisites to audit Windows VMs in which the Administrators group contains any of the specified members
+- Show audit results from Windows VMs in which the Administrators group contains any of the
+  specified members
+- Deploy prerequisites to audit Windows VMs in which the Administrators group contains any of the
+  specified members
 
 ### 0430 Access to systems, applications and data repositories is removed or suspended on the same day personnel no longer have a legitimate requirement for access
 
@@ -117,7 +130,8 @@ This blueprint helps you restrict the location for the deployment of all resourc
 - Audit unrestricted network access to storage accounts
 - Service Fabric clusters should only use Azure Active Directory for client authentication
 - Show audit results from Linux VMs that allow remote connections from accounts without passwords
-- Deploy prerequisites to audit Linux VMs that allow remote connections from accounts without passwords
+- Deploy prerequisites to audit Linux VMs that allow remote connections from accounts without
+  passwords
 - Show audit results from Linux VMs that have accounts without passwords
 - Deploy prerequisites to audit Linux VMs that have accounts without passwords
 
@@ -162,7 +176,8 @@ This blueprint helps you restrict the location for the deployment of all resourc
 - Vulnerabilities should be remediated by a Vulnerability Assessment solution
 - Vulnerabilities in security configuration on your machines should be remediated
 - Vulnerabilities in container security configurations should be remediated
-- Vulnerability Assessment settings for SQL server should contain an email address to receive scan reports
+- Vulnerability Assessment settings for SQL server should contain an email address to receive scan
+  reports
 
 ### 0940 Security vulnerabilities in applications and drivers assessed as high risk are patched, updated or mitigated within two weeks of the security vulnerability being identified by vendors, independent third parties, system managers or users
 
@@ -174,7 +189,8 @@ This blueprint helps you restrict the location for the deployment of all resourc
 - Vulnerabilities should be remediated by a Vulnerability Assessment solution
 - Vulnerabilities in security configuration on your machines should be remediated
 - Vulnerabilities in container security configurations should be remediated
-- Vulnerability Assessment settings for SQL server should contain an email address to receive scan reports
+- Vulnerability Assessment settings for SQL server should contain an email address to receive scan
+  reports
 
 ### 1472 Security vulnerabilities in applications and drivers assessed as moderate or low risk are patched, updated or mitigated within one month of the security vulnerability being identified by vendors, independent third parties, system managers or users
 
@@ -186,7 +202,8 @@ This blueprint helps you restrict the location for the deployment of all resourc
 - Vulnerabilities should be remediated by a Vulnerability Assessment solution
 - Vulnerabilities in security configuration on your machines should be remediated
 - Vulnerabilities in container security configurations should be remediated
-- Vulnerability Assessment settings for SQL server should contain an email address to receive scan reports
+- Vulnerability Assessment settings for SQL server should contain an email address to receive scan
+  reports
 
 ### 1494 Security vulnerabilities in operating systems and firmware assessed as extreme risk are patched, updated or mitigated within 48 hours of the security vulnerabilities being identified by vendors, independent third parties, system managers or users
 
@@ -198,7 +215,8 @@ This blueprint helps you restrict the location for the deployment of all resourc
 - Vulnerabilities should be remediated by a Vulnerability Assessment solution
 - Vulnerabilities in security configuration on your machines should be remediated
 - Vulnerabilities in container security configurations should be remediated
-- Vulnerability Assessment settings for SQL server should contain an email address to receive scan reports
+- Vulnerability Assessment settings for SQL server should contain an email address to receive scan
+  reports
 
 ### 1495 Security vulnerabilities in operating systems and firmware assessed as high risk are patched, updated or mitigated within two weeks of the security vulnerability being identified by vendors, independent third parties, system managers or users
 
@@ -210,7 +228,8 @@ This blueprint helps you restrict the location for the deployment of all resourc
 - Vulnerabilities should be remediated by a Vulnerability Assessment solution
 - Vulnerabilities in security configuration on your machines should be remediated
 - Vulnerabilities in container security configurations should be remediated
-- Vulnerability Assessment settings for SQL server should contain an email address to receive scan reports
+- Vulnerability Assessment settings for SQL server should contain an email address to receive scan
+  reports
 
 ### 1496 Security vulnerabilities in operating systems and firmware assessed as moderate or low risk are patched, updated or mitigated within one month of the security vulnerability being identified by vendors, independent third parties, system managers or users
 
@@ -222,7 +241,8 @@ This blueprint helps you restrict the location for the deployment of all resourc
 - Vulnerabilities should be remediated by a Vulnerability Assessment solution
 - Vulnerabilities in security configuration on your machines should be remediated
 - Vulnerabilities in container security configurations should be remediated
-- Vulnerability Assessment settings for SQL server should contain an email address to receive scan reports
+- Vulnerability Assessment settings for SQL server should contain an email address to receive scan
+  reports
 
 ## Guidelines for System Management - Data backup and restoration
 
@@ -274,7 +294,8 @@ This blueprint helps you restrict the location for the deployment of all resourc
 - Only secure connections to your Redis Cache should be enabled
 - Secure transfer to storage accounts should be enabled
 - Show audit results from Windows web servers that are not using secure communication protocols
-- Deploy prerequisites to audit Windows web servers that are not using secure communication protocols
+- Deploy prerequisites to audit Windows web servers that are not using secure communication
+  protocols
 
 ## Guidelines for Database Systems Management - Database management system software
 
@@ -311,7 +332,8 @@ This blueprint helps you restrict the location for the deployment of all resourc
 - Latest TLS version should be used in your API App
 - Latest TLS version should be used in your Web App
 - Latest TLS version should be used in your Function App
-- Deploy prerequisites to audit Windows web servers that are not using secure communication protocols
+- Deploy prerequisites to audit Windows web servers that are not using secure communication
+  protocols
 - Show audit results from Windows web servers that are not using secure communication protocols
 
 ## Guidelines for Data Transfers and Content Filtering - Content filtering
@@ -353,10 +375,9 @@ This blueprint helps you restrict the location for the deployment of all resourc
 
 - DDoS Protection Standard should be enabled
 
-
 > [!NOTE]
-> Availability of specific Azure Policy definitions may vary in Azure Government and other national 
-> clouds. 
+> Availability of specific Azure Policy definitions may vary in Azure Government and other national
+> clouds.
 
 ## Next steps
 

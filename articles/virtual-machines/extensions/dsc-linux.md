@@ -1,18 +1,15 @@
 ---
 title: Azure DSC extension for Linux
 description: Installs OMI and DSC packages to allow an Azure Linux VM to be configured using Desired State Configuration.
-services: virtual-machines-linux
-documentationcenter: ''
-author: mgoedtel
-editor: ''
-ms.assetid:
-ms.service: virtual-machines-linux
-ms.subservice: extensions
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
-ms.date: 06/12/2018
+ms.service: virtual-machines
+ms.subservice: extensions
+author: mgoedtel
 ms.author: magoedte
+ms.collection: linux
+ms.date: 06/12/2018 
+ms.custom: devx-track-azurepowershell
+
 ---
 
 # DSC extension for Linux (Microsoft.OSTCExtensions.DSCForLinux)
@@ -286,7 +283,7 @@ Azure VM extensions can be deployed with Azure Resource Manager templates. Templ
 
 The sample Resource Manager template is [201-dsc-linux-azure-storage-on-ubuntu](https://github.com/Azure/azure-quickstart-templates/tree/master/201-dsc-linux-azure-storage-on-ubuntu) and [201-dsc-linux-public-storage-on-ubuntu](https://github.com/Azure/azure-quickstart-templates/tree/master/201-dsc-linux-public-storage-on-ubuntu).
 
-For more information about the Azure Resource Manager template, see [Authoring Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md).
+For more information about the Azure Resource Manager template, see [Authoring Azure Resource Manager templates](../../azure-resource-manager/templates/syntax.md).
 
 ## Azure CLI deployment
 

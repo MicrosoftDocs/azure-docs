@@ -1,17 +1,24 @@
 ---
 title: SMB Multichannel performance - Azure Files
 description: Learn about SMB Multichannel performance.
-author: gunjanj
+author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/16/2020
-ms.author: gunjanj
+ms.date: 05/17/2021
+ms.author: rogarana
 ms.subservice: files
 ---
 
 # SMB Multichannel performance
 
-Azure Files SMB Multichannel (preview) enables an SMB 3.x client to establish multiple network connections to the premium file shares in a FileStorage account. The SMB 3.0 protocol introduced SMB Multichannel feature in Windows Server 2012 and Windows 8 clients. Because of this, any Azure Files SMB 3.x client that supports SMB Multichannel can take advantage of the feature for their Azure premium file shares. There is no additional cost for enabling SMB Multichannel on a storage account.
+Azure Files SMB Multichannel (preview) enables an SMB 3.x client to establish multiple network connections to the premium file shares in a FileStorage account. The SMB 3.x protocol introduced SMB Multichannel feature in Windows Server 2012 and Windows 8 clients. Because of this, any Azure Files SMB 3.x client that supports SMB Multichannel can take advantage of the feature for their Azure premium file shares. There is no additional cost for enabling SMB Multichannel on a storage account.
+
+## Applies to
+| File share type | SMB | NFS |
+|-|:-:|:-:|
+| Standard file shares (GPv2), LRS/ZRS | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Standard file shares (GPv2), GRS/GZRS | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 
 ## Benefits
 
@@ -114,7 +121,7 @@ The load was generated against a single 128 GiB file. With SMB Multichannel enab
 
 - On a single NIC with larger average IO size (> ~16k), there were significant improvements in both reads and writes.
 - For smaller IO sizes, there was a slight impact of ~10% on performance when SMB Multichannel was enabled. This could be mitigated by spreading the load over multiple files, or disabling the feature.
-- Performance is still bound by  [single file limits](storage-files-scale-targets.md#file-level-limits).
+- Performance is still bound by [single file limits](storage-files-scale-targets.md#file-scale-targets).
 
 ## Optimizing performance
 

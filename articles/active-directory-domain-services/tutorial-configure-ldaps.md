@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/06/2020
+ms.date: 03/23/2021
 ms.author: justinha
 
 #Customer intent: As an identity administrator, I want to secure access to an Azure Active Directory Domain Services managed domain using secure lightweight directory access protocol (LDAPS)
@@ -108,7 +108,7 @@ To use secure LDAP, the network traffic is encrypted using public key infrastruc
 * A **private** key is applied to the managed domain.
     * This private key is used to *decrypt* the secure LDAP traffic. The private key should only be applied to the managed domain and not widely distributed to client computers.
     * A certificate that includes the private key uses the *.PFX* file format.
-    * The encryption algorithm for the certificate must be *TripleDES-SHA1*.
+    * When exporting the certificate, you must specify the *TripleDES-SHA1* encryption algorithm. This is applicable to the .pfx file only and does not impact the algorithm used by the certificate itself. Note that the *TripleDES-SHA1* option is available only beginning with Windows Server 2016.
 * A **public** key is applied to the client computers.
     * This public key is used to *encrypt* the secure LDAP traffic. The public key can be distributed to client computers.
     * Certificates without the private key use the *.CER* file format.
@@ -149,6 +149,11 @@ Before you can use the digital certificate created in the previous step with you
 1. As this certificate is used to decrypt data, you should carefully control access. A password can be used to protect the use of the certificate. Without the correct password, the certificate can't be applied to a service.
 
     On the **Security** page, choose the option for **Password** to protect the *.PFX* certificate file. The encryption algorithm must be *TripleDES-SHA1*. Enter and confirm a password, then select **Next**. This password is used in the next section to enable secure LDAP for your managed domain.
+
+    If you export using the [PowerShell export-pfxcertificate cmdlet](/powershell/module/pki/export-pfxcertificate), you need to pass the *-CryptoAlgorithmOption* flag using TripleDES_SHA1.
+
+    ![Screenshot of how to encrypt the password](./media/tutorial-configure-ldaps/encrypt.png)
+
 1. On the **File to Export** page, specify the file name and location where you'd like to export the certificate, such as *C:\Users\accountname\azure-ad-ds.pfx*. Keep a note of the password and location of the *.PFX* file as this information would be required in next steps.
 1. On the review page, select **Finish** to export the certificate to a *.PFX* certificate file. A confirmation dialog is displayed when the certificate has been successfully exported.
 1. Leave the MMC open for use in the following section.
@@ -292,6 +297,21 @@ If you added a DNS entry to the local hosts file of your computer to test connec
 1. Browse to and open the file *C:\Windows\System32\drivers\etc\hosts*
 1. Delete the line for the record you added, such as `168.62.205.103    ldaps.aaddscontoso.com`
 
+## Troubleshooting
+
+If you see an error stating that LDAP.exe cannot connect, try working through the different aspects of getting the connection: 
+
+1. Configuring the domain controller
+1. Configuring the client
+1. Networking
+1. Establishing the TLS session
+
+For the certificate subject name match, the DC will use the Azure ADDS domain name (not the Azure AD domain name) to search its certificate store for the certificate. Spelling mistakes, for example, prevent the DC from selecting the right certificate. 
+
+The client attempts to establish the TLS connection using the name you provided. The traffic needs to get all the way through. The DC sends the public key of the server auth cert. The cert needs to have the right usage in the certificate, the name signed in the subject name must be compatible for the client to trust that the server is the DNS name which you’re connecting to (that is, a wildcard will work, with no spelling mistakes), and the client must trust the issuer. You can check for any problems in that chain in the System log in Event Viewer, and filter the events where source equals Schannel. Once those pieces are in place, they form a session key.  
+
+For more information, see [TLS Handshake](/windows/win32/secauthn/tls-handshake-protocol).
+
 ## Next steps
 
 In this tutorial, you learned how to:
@@ -314,4 +334,4 @@ In this tutorial, you learned how to:
 <!-- EXTERNAL LINKS -->
 [rsat]: /windows-server/remote/remote-server-administration-tools
 [ldap-query-basics]: /windows/desktop/ad/creating-a-query-filter
-[New-SelfSignedCertificate]: /powershell/module/pkiclient/new-selfsignedcertificate
+[New-SelfSignedCertificate]: /powershell/module/pki/new-selfsignedcertificate

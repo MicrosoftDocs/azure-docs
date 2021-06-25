@@ -1,21 +1,18 @@
 ---
 title: Incrementally copy multiple tables using PowerShell
 description: In this tutorial, you create an Azure Data Factory with a pipeline that loads delta data from multiple tables in a SQL Server database to Azure SQL Database.
-services: data-factory
 ms.author: yexu
 author: dearandyxu
-manager: anandsub
-ms.reviewer: douglasl, maghan
+ms.reviewer: douglasl, jburchel
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
-ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 06/10/2020
+ms.custom: seo-lt-2019; seo-dt-2019, devx-track-azurepowershell
+ms.date: 02/18/2021
 ---
 
 # Incrementally load data from multiple tables in SQL Server to Azure SQL Database using PowerShell
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 In this tutorial, you create an Azure Data Factory with a pipeline that loads delta data from multiple tables in a SQL Server database to Azure SQL Database.    
 
@@ -281,7 +278,7 @@ Note the following points:
 
 * For a list of Azure regions in which Data Factory is currently available, select the regions that interest you on the following page, and then expand **Analytics** to locate **Data Factory**: [Products available by region](https://azure.microsoft.com/global-infrastructure/services/). The data stores (Azure Storage, SQL Database, SQL Managed Instance, and so on) and computes (Azure HDInsight, etc.) used by the data factory can be in other regions.
 
-[!INCLUDE [data-factory-create-install-integration-runtime](../../includes/data-factory-create-install-integration-runtime.md)]
+[!INCLUDE [data-factory-create-install-integration-runtime](includes/data-factory-create-install-integration-runtime.md)]
 
 ## Create linked services
 

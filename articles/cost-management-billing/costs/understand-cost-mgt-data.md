@@ -3,7 +3,7 @@ title: Understand Azure Cost Management data
 description: This article helps you better understand data that's included in Azure Cost Management and how frequently it's processed, collected, shown, and closed.
 author: bandersmsft
 ms.author: banders
-ms.date: 01/06/2021
+ms.date: 05/24/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -26,43 +26,41 @@ The following information shows the currently supported [Microsoft Azure offers]
 | **Category**  | **Offer name** | **Quota ID** | **Offer number** | **Data available from** |
 | --- | --- | --- | --- | --- |
 | **Azure Government** | Azure Government Enterprise                                                         | EnterpriseAgreement_2014-09-01 | MS-AZR-USGOV-0017P | May 2014<sup>1</sup> |
+| **Azure Government** | Azure Government Pay-As-You-Go | PayAsYouGo_2014-09-01 | MS-AZR-USGOV-0003P | October 2, 2018 |
 | **Enterprise Agreement (EA)** | Enterprise Dev/Test                                                        | MSDNDevTest_2014-09-01 | MS-AZR-0148P | May 2014<sup>1</sup> |
 | **Enterprise Agreement (EA)** | Microsoft Azure Enterprise | EnterpriseAgreement_2014-09-01 | MS-AZR-0017P | May 2014<sup>1</sup> |
-| **Microsoft Customer Agreement** | Microsoft Azure Plan | EnterpriseAgreement_2014-09-01 | N/A | March 2019<sup>3</sup> |
-| **Microsoft Customer Agreement** | Microsoft Azure Plan for Dev/Test | MSDNDevTest_2014-09-01 | N/A | March 2019<sup>3</sup> |
+| **Microsoft Customer Agreement** | Microsoft Azure Plan | EnterpriseAgreement_2014-09-01 | N/A | March 2019<sup>2</sup> |
+| **Microsoft Customer Agreement** | Microsoft Azure Plan for Dev/Test | MSDNDevTest_2014-09-01 | N/A | March 2019<sup>2</sup> |
 | **Microsoft Customer Agreement supported by partners** | Microsoft Azure Plan | CSP_2015-05-01, CSP_MG_2017-12-01, and CSPDEVTEST_2018-05-01<br><br>The quota ID is reused for Microsoft Customer Agreement and legacy CSP subscriptions. Currently, only Microsoft Customer Agreement subscriptions are supported. | N/A | October 2019 |
-| **Microsoft Developer Network (MSDN)** | MSDN Platforms<sup>4</sup> | MSDN_2014-09-01 | MS-AZR-0062P | October 2, 2018<sup>2</sup> |
-| **Pay-As-You-Go** | Pay-As-You-Go                  | PayAsYouGo_2014-09-01 | MS-AZR-0003P | October 2, 2018<sup>2</sup> |
-| **Pay-As-You-Go** | Pay-As-You-Go Dev/Test         | MSDNDevTest_2014-09-01 | MS-AZR-0023P | October 2, 2018<sup>2</sup> |
-| **Pay-As-You-Go** | Microsoft Partner Network      | MPN_2014-09-01 | MS-AZR-0025P | October 2, 2018<sup>2</sup> |
-| **Pay-As-You-Go** | Free Trial<sup>4</sup>         | FreeTrial_2014-09-01 | MS-AZR-0044P | October 2, 2018<sup>2</sup> |
-| **Pay-As-You-Go** | Azure in Open<sup>4</sup>      | AzureInOpen_2014-09-01 | MS-AZR-0111P | October 2, 2018<sup>2</sup> |
-| **Pay-As-You-Go** | Azure Pass<sup>4</sup>                                                            | AzurePass_2014-09-01 | MS-AZR-0120P, MS-AZR-0122P - MS-AZR-0125P, MS-AZR-0128P - MS-AZR-0130P | October 2, 2018<sup>2</sup> |
-| **Visual Studio** | Visual Studio Enterprise – MPN<sup>4</sup>     | MPN_2014-09-01 | MS-AZR-0029P | October 2, 2018<sup>2</sup> |
-| **Visual Studio** | Visual Studio Professional<sup>4</sup>         | MSDN_2014-09-01 | MS-AZR-0059P | October 2, 2018<sup>2</sup> |
-| **Visual Studio** | Visual Studio Test Professional<sup>4</sup>    | MSDNDevTest_2014-09-01 | MS-AZR-0060P | October 2, 2018<sup>2</sup> |
-| **Visual Studio** | Visual Studio Enterprise<sup>4</sup>           | MSDN_2014-09-01 | MS-AZR-0063P | October 2, 2018<sup>2</sup> |
-| **Visual Studio** | Visual Studio Enterprise: BizSpark<sup>4</sup> | MSDN_2014-09-01 | MS-AZR-0064P | October 2, 2018<sup>2</sup> |
+| **Microsoft Developer Network (MSDN)** | MSDN Platforms<sup>3</sup> | MSDN_2014-09-01 | MS-AZR-0062P | October 2, 2018 |
+| **Pay-As-You-Go** | Pay-As-You-Go                  | PayAsYouGo_2014-09-01 | MS-AZR-0003P | October 2, 2018 |
+| **Pay-As-You-Go** | Pay-As-You-Go Dev/Test         | MSDNDevTest_2014-09-01 | MS-AZR-0023P | October 2, 2018 |
+| **Pay-As-You-Go** | Microsoft Partner Network      | MPN_2014-09-01 | MS-AZR-0025P | October 2, 2018 |
+| **Pay-As-You-Go** | Free Trial<sup>3</sup>         | FreeTrial_2014-09-01 | MS-AZR-0044P | October 2, 2018 |
+| **Pay-As-You-Go** | Azure in Open<sup>3</sup>      | AzureInOpen_2014-09-01 | MS-AZR-0111P | October 2, 2018 |
+| **Pay-As-You-Go** | Azure Pass<sup>3</sup>                                                            | AzurePass_2014-09-01 | MS-AZR-0120P, MS-AZR-0122P - MS-AZR-0125P, MS-AZR-0128P - MS-AZR-0130P | October 2, 2018 |
+| **Visual Studio** | Visual Studio Enterprise – MPN<sup>3</sup>     | MPN_2014-09-01 | MS-AZR-0029P | October 2, 2018 |
+| **Visual Studio** | Visual Studio Professional<sup>3</sup>         | MSDN_2014-09-01 | MS-AZR-0059P | October 2, 2018 |
+| **Visual Studio** | Visual Studio Test Professional<sup>3</sup>    | MSDNDevTest_2014-09-01 | MS-AZR-0060P | October 2, 2018 |
+| **Visual Studio** | Visual Studio Enterprise<sup>3</sup>           | MSDN_2014-09-01 | MS-AZR-0063P | October 2, 2018 |
+| **Visual Studio** | Visual Studio Enterprise: BizSpark<sup>3</sup> | MSDN_2014-09-01 | MS-AZR-0064P | October 2, 2018 |
 
 _<sup>**1**</sup> For data before May 2014, visit the [Azure Enterprise portal](https://ea.azure.com)._
 
-_<sup>**2**</sup> For data before October 2, 2018, visit the [Azure Account Center](https://account.azure.com/subscriptions)._
+_<sup>**2**</sup> Microsoft Customer Agreements started in March 2019 and don't have any historical data before this point._
 
-_<sup>**3**</sup> Microsoft Customer Agreements started in March 2019 and don't have any historical data before this point._
-
-_<sup>**4**</sup> Historical data for credit-based and pay-in-advance subscriptions might not match your invoice. See [Historical data may not match invoice](#historical-data-might-not-match-invoice) below._
+_<sup>**3**</sup> Historical data for credit-based and pay-in-advance subscriptions might not match your invoice. See [Historical data may not match invoice](#historical-data-might-not-match-invoice) below._
 
 The following offers aren't supported yet:
 
 | Category  | **Offer name** | **Quota ID** | **Offer number** |
 | --- | --- | --- | --- |
 | **Azure Germany** | Azure Germany Pay-As-You-Go | PayAsYouGo_2014-09-01 | MS-AZR-DE-0003P |
-| **Azure Government** | Azure Government Pay-As-You-Go | PayAsYouGo_2014-09-01 | MS-AZR-USGOV-0003P |
 | **Cloud Solution Provider (CSP)** | Microsoft Azure                                    | CSP_2015-05-01 | MS-AZR-0145P |
 | **Cloud Solution Provider (CSP)** | Azure Government CSP                               | CSP_2015-05-01 | MS-AZR-USGOV-0145P |
 | **Cloud Solution Provider (CSP)** | Azure Germany in CSP for Microsoft Cloud Germany   | CSP_2015-05-01 | MS-AZR-DE-0145P |
 | **Pay-As-You-Go**                 | Azure for Students Starter | DreamSpark_2015-02-01 | MS-AZR-0144P |
-| **Pay-As-You-Go** | Azure for Students<sup>4</sup> | AzureForStudents_2018-01-01 | MS-AZR-0170P |
+| **Pay-As-You-Go** | Azure for Students<sup>3</sup> | AzureForStudents_2018-01-01 | MS-AZR-0170P |
 | **Pay-As-You-Go**                 | Microsoft Azure Sponsorship | Sponsored_2016-01-01 | MS-AZR-0036P |
 | **Support Plans** | Standard support                    | Default_2014-09-01 | MS-AZR-0041P |
 | **Support Plans** | Professional Direct support         | Default_2014-09-01 | MS-AZR-0042P |
@@ -88,17 +86,17 @@ The following tables show data that's included or isn't in Cost Management. All 
 
 | **Included** | **Not included** |
 | --- | --- |
-| Azure service usage<sup>5</sup>        | Support charges - For more information, see [Invoice terms explained](../understand/understand-invoice.md). |
-| Marketplace offering usage<sup>6</sup> | Taxes - For more information, see [Invoice terms explained](../understand/understand-invoice.md). |
-| Marketplace purchases<sup>6</sup>      | Credits - For more information, see [Invoice terms explained](../understand/understand-invoice.md). |
-| Reservation purchases<sup>7</sup>      |  |
-| Amortization of reservation purchases<sup>7</sup>      |  |
+| Azure service usage<sup>4</sup>        | Support charges - For more information, see [Invoice terms explained](../understand/understand-invoice.md). |
+| Marketplace offering usage<sup>5</sup> | Taxes - For more information, see [Invoice terms explained](../understand/understand-invoice.md). |
+| Marketplace purchases<sup>5</sup>      | Credits - For more information, see [Invoice terms explained](../understand/understand-invoice.md). |
+| Reservation purchases<sup>6</sup>      |  |
+| Amortization of reservation purchases<sup>6</sup>      |  |
 
-_<sup>**5**</sup> Azure service usage is based on reservation and negotiated prices._
+_<sup>**4**</sup> Azure service usage is based on reservation and negotiated prices._
 
-_<sup>**6**</sup> Marketplace purchases aren't available for MSDN and Visual Studio offers at this time._
+_<sup>**5**</sup> Marketplace purchases aren't available for MSDN and Visual Studio offers at this time._
 
-_<sup>**7**</sup> Reservation purchases are only available for Enterprise Agreement (EA) and Microsoft Customer Agreement accounts at this time._
+_<sup>**6**</sup> Reservation purchases are only available for Enterprise Agreement (EA) and Microsoft Customer Agreement accounts at this time._
 
 ## How tags are used in cost and usage data
 
@@ -125,6 +123,7 @@ If you don't see a specific tag in Cost Management, consider the following quest
     - Data Factory
     - Databricks
     - Load balancers
+    - Machine Learning workspace Compute instances
     - Network Watcher
     - Notification Hubs
     - Service Bus
@@ -156,7 +155,7 @@ Once cost and usage data becomes available in Cost Management + Billing, it will
 
 ### Rerated data
 
-Whether you use the Cost Management APIs, Power BI, or the Azure portal to retrieve data, expect the current billing period's charges to get rerated, and as a consequence change, until the invoice is closed.
+Whether you use the Cost Management APIs, Power BI, or the Azure portal to retrieve data, expect the current billing period's charges to get rerated. Charges might change until the invoice is closed.
 
 ## Cost rounding
 
@@ -170,7 +169,7 @@ Costs shown in Cost Management are rounded. Costs returned by the Query API aren
 
 ## Historical data might not match invoice
 
-Historical data for credit-based and pay-in-advance offers might not match your invoice. Some Azure pay-as-you-go, MSDN, and Visual Studio offers can have Azure credits and advanced payments applied to the invoice. However, the historical data shown in Cost Management is based on your estimated consumption charges only. Cost Management historical data doesn't include payments and credits. So, historical data shown for the following offers may not match exactly with your invoice.
+Historical data for credit-based and pay-in-advance offers might not match your invoice. Some Azure pay-as-you-go, MSDN, and Visual Studio offers can have Azure credits and advanced payments applied to the invoice. The historical data shown in Cost Management is based on your estimated consumption charges only. Cost Management historical data doesn't include payments and credits. Historical data shown for the following offers may not match exactly with your invoice.
 
 - Azure for Students (MS-AZR-0170P)
 - Azure in Open (MS-AZR-0111P)

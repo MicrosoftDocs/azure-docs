@@ -73,7 +73,7 @@ Diagnostic settings can be used to collect metrics for certain Azure services in
 You run the following commands to create diagnostic settings for AppServiceConsoleLogs (standard output/error) and AppServiceHTTPLogs (web server logs). Replace _\<app-name>_ and _\<workspace-name>_ with your values. 
 
 > [!NOTE]
-> The first two commands, `resourceID` and `workspaceID`, are variables to be used in the `az monitor diagnostic-settings create` command. See [Create diagnostic settings using Azure CLI](../azure-monitor/platform/diagnostic-settings.md#create-using-azure-cli) for more information on this command.
+> The first two commands, `resourceID` and `workspaceID`, are variables to be used in the `az monitor diagnostic-settings create` command. See [Create diagnostic settings using Azure CLI](../azure-monitor/essentials/diagnostic-settings.md#create-using-azure-cli) for more information on this command.
 >
 
 ```bash
@@ -124,7 +124,7 @@ In the Azure portal, select your Log Analytics workspace.
 
 ### Log queries
 
-Log queries help you to fully leverage the value of the data collected in Azure Monitor Logs. You use log queries to identify the logs in both AppServiceHTTPLogs and AppServiceConsoleLogs. See the [log query overview](../azure-monitor/log-query/log-query-overview.md) for more information on log queries.
+Log queries help you to fully leverage the value of the data collected in Azure Monitor Logs. You use log queries to identify the logs in both AppServiceHTTPLogs and AppServiceConsoleLogs. See the [log query overview](../azure-monitor/logs/log-query-overview.md) for more information on log queries.
 
 ### View AppServiceHTTPLogs with log query
 
@@ -264,6 +264,6 @@ What you learned:
 > * Used log queries to identify and troubleshoot web app errors
 
 ## <a name="nextsteps"></a> Next steps
-* [Query logs with Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
+* [Query logs with Azure Monitor](../azure-monitor/logs/log-query-overview.md)
 * [Troubleshooting Azure App Service in Visual Studio](troubleshoot-dotnet-visual-studio.md)
 * [Analyze app Logs in HDInsight](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)

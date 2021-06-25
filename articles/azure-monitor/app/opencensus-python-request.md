@@ -83,7 +83,10 @@ First, instrument your Python application with latest [OpenCensus Python SDK](./
         }
     }
     ```
-
+    
+    > [!NOTE]
+    > To run Flask under uWSGI in a Docker environment, you must first add `lazy-apps = true` to the uWSGI configuration file (uwsgi.ini). For more information, see the [issue description](https://github.com/census-instrumentation/opencensus-python/issues/660). 
+    
 ## Tracking Pyramid applications
 
 1. Download and install `opencensus-ext-django` from [PyPI](https://pypi.org/project/opencensus-ext-pyramid/) and instrument your application with the `pyramid` tween. Incoming requests sent to your `pyramid` application will be tracked.
@@ -173,6 +176,6 @@ OpenCensus doesn't have an extension for FastAPI. To write your own FastAPI midd
 * [Application Map](./app-map.md)
 * [Availability](./monitor-web-app-availability.md)
 * [Search](./diagnostic-search.md)
-* [Log (Analytics) query](../log-query/log-query-overview.md)
+* [Log (Analytics) query](../logs/log-query-overview.md)
 * [Transaction diagnostics](./transaction-diagnostics.md)
 

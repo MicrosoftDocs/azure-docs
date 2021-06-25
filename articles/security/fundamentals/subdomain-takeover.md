@@ -116,7 +116,7 @@ If you're a global administrator of your organization’s tenant, elevate your a
 
 ### Run the script
 
-Learn more about the PowerShell script, **Get-DanglingDnsRecords.ps1**, and download it from GitHub: https://aka.ms/DanglingDNSDomains.
+Learn more about the PowerShell script, **Get-DanglingDnsRecords.ps1**, and download it from GitHub: https://aka.ms/Get-DanglingDnsRecords.
 
 ## Remediate dangling DNS entries 
 
@@ -212,6 +212,6 @@ To learn more about related services and Azure features you can use to defend ag
 
 - [Prevent dangling DNS records with Azure DNS](../../dns/dns-alias.md#prevent-dangling-dns-records)
 
-- [Use a domain verification ID when adding custom domains in Azure App Service](../../app-service/app-service-web-tutorial-custom-domain.md#get-a-domain-verification-id)
+- [Use a domain verification ID when adding custom domains in Azure App Service](../../app-service/app-service-web-tutorial-custom-domain.md#3-get-a-domain-verification-id)
 
 - [Quickstart: Run your first Resource Graph query using Azure PowerShell](../../governance/resource-graph/first-query-powershell.md)
