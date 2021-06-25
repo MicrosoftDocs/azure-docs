@@ -22,27 +22,27 @@ This article provides an overview of the local Azure Resource Manager that can b
 
 ## About local Azure Resource Manager
 
-The local Azure Resource Manager provides a consistent management layer for all the calls to the Azure Stack Edge device via the use of Resource Manager templates. Both the benefits are discussed in the following sections.
+The local Azure Resource Manager provides a consistent management layer for all the calls to the Azure Stack Edge device via the use of Resource Manager templates. The benefits of local Azure Resource Manager are discussed in the following sections.
 
 #### Consistent management layer
 
 The local Azure Resource Manager provides a consistent management layer to call the Azure Stack Edge device APIs and perform operations such as create, update, and delete VMs. 
 
 1. When you send a request from REST APIs or SDKs, the local Azure Resource Manager on the device receives the request. 
-1. The local Azure Resource Manager uses the Security Token Service (STS) to authenticate and authorize the request. STS is responsible for creation, validation, renewal, and cancellation of security tokens. STS creates the access token and refresh token that are used for continuous communication between the device and the clients accessing the device via the local Azure Resource Manager.
+1. The local Azure Resource Manager uses the Security Token Service (STS) to authenticate and authorize the request. STS is responsible for creation, validation, renewal, and cancellation of security tokens. STS creates both types of security tokens - the access tokens and the refresh tokens. These tokens are used for continuous communication between the device and the clients accessing the device via the local Azure Resource Manager.
 1. The Resource Manager then sends the request to the resource providers that take the requested action.   
 
     The resource providers that are pre-registered with the Azure Stack Edge are as follows:
 
-    - **Compute**: The `Microsoft.Compute` or the Compute Resource Provider lets you deploy VMs on your Azure Stack Edge. The Compute Resource Provider includes the ability to create VMs as well as VM extensions. 
+    - **Compute**: The `Microsoft.Compute` or the Compute Resource Provider lets you deploy VMs on your Azure Stack Edge. The Compute Resource Provider includes the ability to create VMs and VM extensions. 
 
     - **Networking Resource Provider**: The `Microsoft.Network` or the Networking Resource Provider lets you create resources like network interfaces and virtual networks.
 
-    - **Storage Resource Provider**: The `Microsoft.Storage` or the Storage Resource Provider delivers Azure-consistent blob storage service and Key Vault account management providing management and auditing of secrets, such as passwords and certificates. The storage resource provider also offers a storage cloud administration service to facilitate service provider administration of Azure-consistent storage services. 
+    - **Storage Resource Provider**: The `Microsoft.Storage` or the Storage Resource Provider delivers Azure-consistent blob storage service and Key Vault account management providing management and auditing of secrets, such as passwords and certificates.  
     
-    - **Disk Resource Provider**: The `Microsoft.Disks` or the Disk Resource Provider will you create managed disks that can be used to create VMs.
+    - **Disk Resource Provider**: The `Microsoft.Disks` or the Disk Resource Provider will let you create managed disks that can be used to create VMs.
 
-    Resources are manageable item that are available through Azure Stack Edge and the resource providers are responsible for providing resources. For example, virtual machines, storage accounts, and virtual networks are examples of resources. And the compute resource provider supplies the virtual machine resource.    
+    Resources are manageable items that are available through Azure Stack Edge and the resource providers are responsible for providing resources. For example, virtual machines, storage accounts, and virtual networks are examples of resources. And the compute resource provider supplies the virtual machine resource.    
 
 Because all requests are handled through the same API, you see consistent results and capabilities in all the different tools.
 
@@ -59,7 +59,7 @@ Another key benefit of Azure Resource Manager is that it lets you use Resource M
 
 To create virtual machines or shares or storage accounts on your Azure Stack Edge device, you will need to create the corresponding resources. For example, for virtual machines, you will need resources such as network interface, OS and data disks on VM, from the networking, disk, and storage resource providers. 
 
-To request the creation of any resources from the resource providers, you will need to first connect to the local Azure Resource Manager. For detailed steps, see Connect to Azure Resource Manager on your Azure Stack Edge device.
+To request the creation of any resources from the resource providers, you will need to first connect to the local Azure Resource Manager. For detailed steps, see [Connect to Azure Resource Manager on your Azure Stack Edge device](azure-stack-edge-gpu-connect-resource-manager.md).
 
 The first time you connect to Azure Resource Manager, you would also need to add reset your password. For detailed steps, see [Reset your Azure Resource Manager password](azure-stack-edge-gpu-set-azure-resource-manager-password.md).
 
