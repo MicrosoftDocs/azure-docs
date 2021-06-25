@@ -82,7 +82,7 @@ A higher signal-to-noise ratio (SNR) indicates lower noise in your audio. You ca
 
 Consider re-recording any utterances with low pronunciation scores or poor signal-to-noise ratios. If you can't re-record, consider excluding those utterances from your dataset.
 
-On the **Data details**, you can check the data details of the training set. If there is some typical issues with the data, follow the instructions in the message displayed to fix them before training.
+On the **Data details**, you can check the data details of the training set. If there are any typical issues with the data, follow the instructions in the message displayed to fix them before training.
 
 The issues are divided into three types. Referring to the following three tables to check the respective types of errors.
 
