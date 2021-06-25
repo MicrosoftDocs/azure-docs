@@ -42,7 +42,7 @@ To get started, you'll need:
 
 ## Managed Identity assignments
 
-There are two types of managed identity assignments:
+There are two types of managed identities:
 
 * A [**System-assigned**](#enable-a-system-assigned-managed-identity) managed identity is **enabled** directly on a service instance. Here, you'll enable the identity for Form Recognizer. It is not enabled by default; you have to go to your resource and update the identity setting. The system-assigned managed identity is tied to your resource throughout its lifecycle. If you delete your resource, the managed identity will be deleted as well.
 
