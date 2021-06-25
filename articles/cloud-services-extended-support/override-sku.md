@@ -1,6 +1,6 @@
 ---
-title: Override .cscfg/.csdef files for Azure Cloud Services (extended support)
-description: This article describes how to override SKU settings in .cscfg and .csdef files for Azure Cloud Services (extended support).
+title: Override SKU information over CSCFG/CSDEF for Azure Cloud Services (extended support)
+description: This article describes how to override SKU information in .cscfg and .csdef files for Azure Cloud Services (extended support).
 ms.topic: how-to
 ms.service: cloud-services-extended-support
 author: surbhijain
@@ -16,9 +16,9 @@ This article describes how to update the role size and instance count in Azure C
 
 ## Set the allowModelOverride property
 You can set the **allowModelOverride** property to `true` or `false`. 
-* When **allowModelOverride** is set to `true`, an API call will update the role size and instance count for the cloud service without validating the values via the .csdef and .cscfg files. 
+* When **allowModelOverride** is set to `true`, an API call will update the role size and instance count for the cloud service without validating the values with the .csdef and .cscfg files. 
    > [!Note]
-   > The .cscfg file will be updated  to reflect the role instance count. The .csdef file (in .cspkg) will retain the old values.
+   > The .cscfg file will be updated  to reflect the role instance count. The .csdef file (embedded within the .cspkg) will retain the old values.
 
 * When **allowModelOverride** is set to `false`, an API call throws an error if the role size and instance count values don't match the values in the .csdef and .cscfg files,   respectively.
 
