@@ -479,7 +479,7 @@ const renderVideo = async () => {
 }
 remoteVideoStream.on('isAvailableChanged', async () => {
 	if (remoteVideoStream.isAvailable) {
-		renderVideo();
+		await renderVideo();
 	} else {
 		if (view) {
 			view.dispose();
