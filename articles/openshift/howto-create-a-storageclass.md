@@ -120,7 +120,7 @@ oc new-app -template httpd-example
 #Wait for the pod to become Ready
 curl $(oc get route httpd-example -n azfiletest -o jsonpath={.spec.host})
 
-oc set volume dc/httpd-example --add --name=v1 -t pvc --claim-size=1G -m /data
+oc set volume dc/httpd-example --add --name=v1 -t pvc --claim-size=1G -m /data --claim-class='azure-file'
 
 #Wait for the new deployment to rollout
 export POD=$(oc get pods --field-selector=status.phase==Running -o jsonpath={.items[].metadata.name})
