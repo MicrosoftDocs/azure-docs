@@ -157,7 +157,7 @@ async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
 
     existing_instance = await client.get_status(instance_id)
 
-    if not existing_instance or existing_instance.runtime_status not in [df.OrchestrationRuntimeStatus.Pending, df.OrchestrationRuntimeStatus.Running, None]:
+    if existing_instance is None or existing_instance.runtime_status in [df.OrchestrationRuntimeStatus.Completed, df.OrchestrationRuntimeStatus.Failed, df.OrchestrationRuntimeStatus.Terminated]:
         event_data = req.get_body()
         instance_id = await client.start_new(function_name, instance_id, event_data)
         logging.info(f"Started orchestration with ID = '{instance_id}'.")
