@@ -817,7 +817,8 @@ Create a new function called `analyze_batch_example()` that takes the client as 
 
 ```python
 from azure.ai.textanalytics import (
-    RecognizeEntitiesAction
+    RecognizeEntitiesAction,
+    ExtractKeyPhrasesAction
 )
 
 def analyze_batch_example(client):
@@ -828,16 +829,14 @@ def analyze_batch_example(client):
         poller = client.begin_analyze_actions(
             documents,
             display_name="Sample Text Analysis",
-            actions=[RecognizeEntitiesAction()]
+            actions=[RecognizeEntitiesAction(), ExtractKeyPhrasesAction()]
         )
 
         result = poller.result()
         action_results = [action_result for action_result in list(result) if not action_result.is_error]
-
-        entities_recognition_task_result = action_results[0]
+        first_action_result = action_results[0]
         print("Results of Entities Recognition action:")
-        docs = [doc for doc in entities_recognition_task_result.document_results if not doc.is_error]
-
+        docs = [doc for doc in first_action_result.document_results if not doc.is_error]
         for idx, doc in enumerate(docs):
             print("\nDocument text: {}".format(documents[idx]))
             for entity in doc.entities:
@@ -845,6 +844,16 @@ def analyze_batch_example(client):
                 print("...Category: {}".format(entity.category))
                 print("...Confidence Score: {}".format(entity.confidence_score))
                 print("...Offset: {}".format(entity.offset))
+                print("...Length: {}".format(entity.length))
+            print("------------------------------------------")
+
+        second_action_result = action_results[1]
+        print("Results of Key Phrase Extraction action:")
+        docs = [doc for doc in second_action_result.document_results if not doc.is_error]
+
+        for idx, doc in enumerate(docs):
+            print("Document text: {}\n".format(documents[idx]))
+            print("Key Phrases: {}\n".format(doc.key_phrases))
             print("------------------------------------------")
 
 analyze_batch_example(client)
@@ -853,21 +862,29 @@ analyze_batch_example(client)
 ### Output
 
 ```console
-Results of Entities Recognition task:
+Results of Entities Recognition action:
+
 Document text: Microsoft was founded by Bill Gates and Paul Allen.
 Entity: Microsoft
 ...Category: Organization
-...Confidence Score: 0.83
+...Confidence Score: 1.0
 ...Offset: 0
+...Length: 9
 Entity: Bill Gates
 ...Category: Person
-...Confidence Score: 0.85
+...Confidence Score: 1.0
 ...Offset: 25
+...Length: 10
 Entity: Paul Allen
 ...Category: Person
-...Confidence Score: 0.9
+...Confidence Score: 1.0
 ...Offset: 40
+...Length: 10
 ------------------------------------------
+Results of Key Phrase Extraction action:
+Document text: Microsoft was founded by Bill Gates and Paul Allen.
+
+Key Phrases: ['Bill Gates', 'Paul Allen', 'Microsoft']
 ```
 
 # [Version 3.0](#tab/version-3)

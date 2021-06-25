@@ -1,16 +1,16 @@
 ### YamlMime:Landing
 
 title: Team Data Science Process Documentation
-summary: Learn how to use the Team Data Science Process, an agile, iterative data science methodology for predictive analytics solutions and intelligent applications. 
+summary: Learn how to use the Team Data Science Process, an agile, iterative data science methodology for predictive analytics solutions and intelligent applications.
 metadata:
   title: Team Data Science Process Documentation
-  description:  Learn how to use the Team Data Science Process, an agile, iterative data science methodology for predictive analytics solutions and intelligent applications. 
+  description:  Learn how to use the Team Data Science Process, an agile, iterative data science methodology for predictive analytics solutions and intelligent applications.
   ms.service: machine-learning
   ms.subservice: team-data-science-process
-  ms.topic: landing-page 
+  ms.topic: landing-page
   author: marktab
   ms.author: marktab
-  ms.date: 03/10/2020 
+  ms.date: 03/10/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
@@ -23,15 +23,15 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is the Team Data Science Process?
-            url: overview.md
+            url: /azure/architecture/data-science-process/overview
       - linkListType: concept
         links:
           - text: Process lifecycle
-            url: lifecycle.md
+            url: /azure/architecture/data-science-process/lifecycle
           - text: Business understanding
-            url: lifecycle-business-understanding.md
+            url: /azure/architecture/data-science-process/lifecycle-business-understanding
           - text: Data acquisition
-            url: lifecycle-data.md          
+            url: /azure/architecture/data-science-process/lifecycle-data
 
   # Card (optional)
   - title: Plan & develop a project
@@ -39,6 +39,6 @@ landingContent:
       - linkListType: concept
         links:
           - text: Project planning
-            url: team-data-science-process-project-templates.md
+            url: /azure/architecture/team-data-science-process-project-templates
           - text: Agile development
-            url: agile-development.md
+            url: /azure/architecture/agile-development
