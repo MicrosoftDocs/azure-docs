@@ -1,12 +1,12 @@
 ---
 title: Optimize write performance in the Azure Cosmos DB API for MongoDB
 description: This article describes how to optimize write performance in the Azure Cosmos DB API for MongoDB to get the most throughput possible for the lowest cost. 
-author: gahllevy
+author: gahl-levy
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 06/25/2021
-ms.author: gahl.levy
+ms.author: gahllevy
 
 ---
 
