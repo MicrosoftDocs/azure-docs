@@ -49,7 +49,7 @@ Azure virtual machines, virtual machine scale sets, and Azure Arc enabled server
 Azure Monitor agent is available in all public regions that supports Log Analytics. Government regions and clouds are not currently supported.
 ## Supported services and features
 
-### Supported Azure services
+
 The following table shows the current support of Azure Monitor agent for other Azure services.
 
 | Azure service | Current support |
@@ -57,14 +57,14 @@ The following table shows the current support of Azure Monitor agent for other A
 | [Azure Security Center](../security-center/security-center-introduction.md) | Private preview |
 | [Azure Sentinel]() | Private preview |
 
-### Supported Azure Monitor features
+
 The following table shows the current support of Azure Monitor agent for Azure Monitor features.
 
 | Azure Monitor feature | Current support |
 |:---|:---|
 | [VM Insights](vm/../../vm/vminsights-overview.md) | Private preview  |
 | [VM Insights guest health](vm/vminsights-health-overview.md) | Public preview |
-### Supported solutions
+
 Log Analytics solutions can be enabled using the new Azure Monitor Agent either as natively supported or by installing the additional VM extension for the solution.
 
 | Solution | Current support |
