@@ -7,7 +7,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 06/11/2021
+ms.date: 06/25/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -236,3 +236,4 @@ For production environment, we recommend you use a distributed memory cache. For
 
 * Learn more [about the code sample](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-5-B2C#about-the-code)
 * Learn how to [Enable authentication in your own web application using Azure AD B2C](enable-authentication-web-application.md)
+* [Enable authentication in your own web API](enable-authentication-web-api.md)
