@@ -50,6 +50,6 @@ To learn more about specific language version support policy timeline, visit the
 
 To learn more about how to upgrade your functions apps language versions, see the following resources:
 
-+ How to target specific language version - TODO
++ [How to target specific language version](./set-language-version.md)
 + [Currently supported language versions](./supported-languages.md#languages-by-runtime-version)
 
