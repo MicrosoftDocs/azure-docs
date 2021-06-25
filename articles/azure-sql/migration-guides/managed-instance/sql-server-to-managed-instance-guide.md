@@ -9,7 +9,7 @@ ms.topic: how-to
 author: mokabiru
 ms.author: mokabiru
 ms.reviewer: cawrites
-ms.date: 06/24/2021
+ms.date: 06/25/2021
 ---
 # Migration guide: SQL Server to Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -220,7 +220,7 @@ The following diagram provides a high-level overview of the process:
 
 ![Diagram shows SQL Server with an arrow labeled BACKUP / Upload to URL flowing to Azure Storage 
 and a second arrow labeled RESTORE from URL flowing from Azure Storage to a Managed Instance of 
-SQL.](../../database/media/migrate-to-instance-from-sql-server/migration-flow.png)
+SQL.](./media/sql-server-to-managed-instance-overview/migration-flow.png)
 
 The following table provides more information regarding the methods you can use depending on 
 source SQL Server version you are running:
