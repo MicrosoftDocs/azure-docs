@@ -9,12 +9,11 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: include
-ms.date: 06/17/2021
+ms.date: 06/25/2021
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
 ---
 > [!TIP]
-> Try executing this request in Postman! (Don't forget to replace the tokens and IDs!)
-> [![Try running this request in Postman](../media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
->
+> [![Try running this request in Postman](../media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)<br/>
+> Try executing this request and more in Postman -- don't forget to replace tokens and IDs!

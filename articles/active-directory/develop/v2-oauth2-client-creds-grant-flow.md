@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 06/17/2021
+ms.date: 06/25/2021
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
@@ -191,7 +191,7 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 | `client_assertion` | Required | An assertion (a JSON web token) that you need to create and sign with the certificate you registered as credentials for your application. Read about [certificate credentials](active-directory-certificate-credentials.md) to learn how to register your certificate and the format of the assertion.|
 | `grant_type` | Required | Must be set to `client_credentials`. |
 
-Notice that the parameters are almost the same as in the case of the request by shared secret. The only difference is that the client_secret parameter is replaced by two parameters: a client_assertion_type and client_assertion.
+The parameters for the certificate-based request differ in only one way from the shared secret-based request: the `client_secret` parameter is replaced by the `client_assertion_type` and `client_assertion` parameters.
 
 ### Successful response
 

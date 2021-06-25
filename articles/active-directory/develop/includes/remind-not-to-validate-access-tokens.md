@@ -9,11 +9,11 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: include
-ms.date: 06/17/2021
+ms.date: 06/25/2021
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
 ---
 
-> [!NOTE]
-> Don't attempt to validate tokens for APIs you don't own, including the tokens in this example.  Microsoft Graph tokens use a special format that will not validate as a JWT, and are also encrypted for consumer (Microsoft account) users.
+> [!WARNING]
+> Don't attempt to validate or read tokens for any API you don't own, including the tokens in this example, in your code.  Tokens for Microsoft services can use a special format that will not validate as a JWT, and may also encrypted for consumer (Microsoft account) users. While reading tokens is a useful debugging and learning tool, do not take dependencies on this in your code or assume specifics about tokens that aren't for an API you control.
