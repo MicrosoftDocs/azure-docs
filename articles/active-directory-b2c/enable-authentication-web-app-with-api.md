@@ -7,7 +7,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 06/11/2021
+ms.date: 06/25/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -338,3 +338,4 @@ After you successfully authenticate, you will see your display name in the  navi
 ## Next steps
 
 * Learn how to [customize and enhance the Azure AD B2C authentication experience for your web app](enable-authentication-web-application-options.md)
+* [Enable authentication in your own web API](enable-authentication-web-api.md)

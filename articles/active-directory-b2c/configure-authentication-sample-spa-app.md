@@ -7,7 +7,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 06/17/2021
+ms.date: 06/25/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -295,3 +295,4 @@ You can add and modify redirect URIs in your registered applications at any time
 * Learn more [about the code sample](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa)
 * [Enable authentication in your own SPA application](enable-authentication-spa-app.md)
 * Configure [authentication options in your SPA application](enable-authentication-spa-app-options.md)
+* [Enable authentication in your own web API](enable-authentication-web-api.md)
