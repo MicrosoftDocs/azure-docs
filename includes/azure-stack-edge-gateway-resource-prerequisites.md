@@ -2,14 +2,14 @@
 author: alkohli
 ms.service: databox  
 ms.topic: include
-ms.date: 10/15/2020
+ms.date: 06/25/2021
 ms.author: alkohli
 ---
 
 Before you begin, make sure that:
 
 * Your Microsoft Azure subscription is enabled for an Azure Stack Edge resource. Make sure that you used a supported subscription such as [Microsoft Enterprise Agreement (EA)](https://azure.microsoft.com/overview/sales-number/), [Cloud Solution Provider (CSP)](/partner-center/azure-plan-lp), or [Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/).
-* You have owner or contributor access at resource group level for the Azure Stack Edge/Azure Storage Gateway, IoT Hub, and Azure Storage resources.
+* You have owner or contributor access at resource group level for the Azure Stack Edge, IoT Hub, and Azure Storage resources.
 
   * To create any Azure Stack Edge resource, you should have permissions as a contributor (or higher) scoped at resource group level. You also need to make sure that the `Microsoft.DataBoxEdge` provider is registered. For information on how to register, go to [Register resource provider](../articles/databox-online/azure-stack-edge-gpu-manage-access-power-connectivity-mode.md#register-resource-providers).
   * To create any IoT Hub resource, make sure that Microsoft.Devices provider is registered. For information on how to register, go to [Register resource provider](../articles/databox-online/azure-stack-edge-gpu-manage-access-power-connectivity-mode.md#register-resource-providers).
