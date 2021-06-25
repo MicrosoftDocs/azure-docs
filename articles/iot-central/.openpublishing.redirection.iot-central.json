@@ -677,22 +677,22 @@
     },
     {
       "source_path_from_root": "/articles/iot-central/core/howto-view-bill-pnp.md",
-      "redirect_url": "/azure/iot-central/core/howto-view-bill/",
+      "redirect_url": "/azure/iot-central/core/howto-faq#how-do-i-move-from-a-free-to-a-standard-pricing-plan",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/howto-view-bill.md",
-      "redirect_url": "/azure/iot-central/core/howto-view-bill/",
+      "redirect_url": "/azure/iot-central/core/howto-faq#how-do-i-move-from-a-free-to-a-standard-pricing-plan",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/howto-view-bill-pnp.md",
-      "redirect_url": "/azure/iot-central/core/howto-view-bill/",
+      "redirect_url": "/azure/iot-central/core/howto-faq#how-do-i-move-from-a-free-to-a-standard-pricing-plan",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/preview/howto-view-bill.md",
-      "redirect_url": "/azure/iot-central/core/howto-view-bill/",
+      "redirect_url": "/azure/iot-central/core/howto-faq#how-do-i-move-from-a-free-to-a-standard-pricing-plan",
       "redirect_document_id": false
     },
     {
@@ -1114,6 +1114,28 @@
       "source_path_from_root": "/articles/iot-central/core/tutorial-add-edge-as-leaf-device.md",
       "redirect_url": "/learn/modules/connect-iot-edge-device-to-iot-central/",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/core/howto-get-app-info.md",
+      "redirect_url": "/azure/iot-central/core/howto-faq#how-do-i-get-information-about-my-application",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/core/how-to-move-device-to-iot.md",
+      "redirect_url": "/azure/iot-central/core/howto-faq#how-do-i-transfer-a-device-from-iot-hub-to-iot-central",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/core/howto-view-bill.md",
+      "redirect_url": "/azure/iot-central/core/howto-faq#how-do-i-move-from-a-free-to-a-standard-pricing-plan",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/core/howto-connect-sphere.md",
+      "redirect_url": "/azure-sphere/app-development/setup-iot-central",
+      "redirect_document_id": false
     }
   ]
 }
+
+

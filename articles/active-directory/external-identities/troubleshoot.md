@@ -131,7 +131,7 @@ If you accidentally deleted the `aad-extensions-app`, you have 30 days to recove
 
 You should now see the restored app in the Azure portal.
 
-## A guest user was invited succesfully but the email attribute is not populating
+## A guest user was invited successfully but the email attribute is not populating
 
 Let's say you inadvertently invite a guest user with an email address that matches a user object already in your directory. The guest user object is created, but the email address is added to the `otherMail` property instead of to the `mail` or `proxyAddresses` properties. To avoid this issue, you can search for conflicting user objects in your Azure AD directory by using these PowerShell steps:
 

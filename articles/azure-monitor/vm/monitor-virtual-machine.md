@@ -34,7 +34,7 @@ This scenario includes monitoring of the following type of machines using Azure 
 - Hybrid machines which are virtual machines running in other clouds, with a managed service provider, or on-premises. They also include physical machines running on-premises.
 
 ## Layers of monitoring
-There are fundamentally three layers to a virtual machine that require monitoring. Each layer has a distinct set of telemetry and monitoring requirements. 
+There are fundamentally four layers to a virtual machine that require monitoring. Each layer has a distinct set of telemetry and monitoring requirements. 
 
 
 | Layer | Description |
