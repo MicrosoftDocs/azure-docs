@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
-ms.date: 06/09/2021
+ms.date: 06/24/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -51,11 +51,11 @@ Follow these steps to assign Azure AD roles using the Azure portal. Your experie
 
 1. Select **Add** to assign the role.
 
-### Assign a role with PIM enabled
+### Assign a role using PIM
 
 If you have [Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) enabled, you have additional role assignment capabilities. For example, you can make a user eligible for a role or set the duration. When PIM is enabled, there are two ways that you can assign roles using the Azure portal. You can use the Roles and administrators page or the PIM experience. Either way uses the same PIM service.
 
-Follow these steps to assign roles using the Roles and administrators page. If you want to assign roles using the PIM experience, see [Assign Azure AD roles in Privileged Identity Management](../privileged-identity-management/pim-how-to-add-role-to-user.md).
+Follow these steps to assign roles using the [Roles and administrators](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators) page. If you want to assign roles using the [Privileged Identity Management](https://portal.azure.com/#blade/Microsoft_Azure_PIMCommon/CommonMenuBlade/quickStart) page, see [Assign Azure AD roles in Privileged Identity Management](../privileged-identity-management/pim-how-to-add-role-to-user.md).
 
 1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com).
 
@@ -67,15 +67,17 @@ Follow these steps to assign roles using the Roles and administrators page. If y
 
     To help you find the role you need, use **Add filters** to filter the roles.
 
+1. Select **Add assignments**.
+
 1. Select **No member selected** and then select the users you want to assign to this role.
 
     ![Add assignments page and Select a member pane with PIM enabled.](./media/manage-roles-portal/add-assignments-pim.png)
 
 1. Select **Next**.
 
-1. On the **Setting** tab, select whether you wan to make this assignment **Eligible** or **Active**.
+1. On the **Setting** tab, select whether you wan to make this role assignment **Eligible** or **Active**.
 
-    If a user is made eligible for a role, that means they must perform one or more actions to use the role. For more information about these settings, see [PIM Terminology](../privileged-identity-management/pim-configure.md#terminology).
+    An eligible role assignment means that the user must perform one or or more actions to use the role. An active role assignment means that the user doesn't have to perform any action to use the role.
 
     ![Add assignments page and Setting tab with PIM enabled.](./media/manage-roles-portal/add-assignments-pim-setting.png)
 
@@ -86,6 +88,8 @@ Follow these steps to assign roles using the Roles and administrators page. If y
 ## PowerShell
 
 Follow these steps to assign Azure AD roles using PowerShell.
+
+### Assign a role
 
 1. Open a PowerShell window and use [Import-Module](/powershell/module/microsoft.powershell.core/import-module) to import the AzureADPreview module. For more information, see [Prerequisites to use PowerShell or Graph Explorer](prerequisites.md).
 
@@ -117,8 +121,12 @@ Follow these steps to assign Azure AD roles using PowerShell.
     $roleAssignment = New-AzureADMSRoleAssignment -DirectoryScopeId '/' -RoleDefinitionId $roleDefinition.Id -PrincipalId $user.objectId
     ```
 
+### Create an eligible role assignment using PIM
+
+If you have [PIM](../privileged-identity-management/pim-configure.md) enabled, you have the additional capabilities, such as making a user eligible for a role assignment or activating a role assignment. These capabilities use a different set of PowerShell commands such as [Open-AzureADMSPrivilegedRoleAssignmentRequest](/powershell/module/azuread/open-azureadmsprivilegedroleassignmentrequest). For steps on how to create an eligible role assignment, see [PowerShell for Azure AD roles in Privileged Identity Management](../privileged-identity-management/powershell-for-azure-ad-roles.md#assign-a-role).
+
 ## Next steps
 
-* Feel free to share with us on the [Azure AD administrative roles forum](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
-* For more about roles, see [Azure AD built-in roles](permissions-reference.md).
-* For default user permissions, see a [comparison of default guest and member user permissions](../fundamentals/users-default-permissions.md).
+- [List Azure AD role assignments](view-assignments.md)
+- [Assign custom roles with resource scope using PowerShell](custom-assign-powershell.md)
+- [Azure AD built-in roles](permissions-reference.md)
