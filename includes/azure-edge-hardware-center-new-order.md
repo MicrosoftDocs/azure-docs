@@ -118,11 +118,17 @@ Because there isn't a 1-to-1 relationship between the order and a device, no dev
 
     ![Screenshot showing the status of successfully completed order in the Azure Edge Hardware Center](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-16.png)
 
-15. To view details for an order item, XXX.
+15. To view details for an order item, select the item name.
 
-    *Will add screenshot when release portal is available.*
+    The details show ... . After a device is delivered, a **Configure hardware** option is added to the details. Select that option to create a management resource for the device in Azure Stack Edge.    
 
-    After a device is delivered, a **Configure hardware** option is added to the details. Select that option to create a management resource for the device in Azure Stack Edge.
+    *Add screenshot when release portal is available.*
+
+    After the device is activated, you can open the device from the item details by *ADD INSTRUCTION*.
+
+    *Add screenshot.*
+
+
 
 <!--Artifact of "Next step: Open resource group" instruction, which I think went away. - ![Screenshot showing a summary of orders for the resource group in the Azure Edge Hardware Center](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-18.png)
 
