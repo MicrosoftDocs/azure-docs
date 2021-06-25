@@ -5,6 +5,7 @@ author: mksuni
 ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
+ms.custom:
 ms.date: 11/23/2020
 ---
 
@@ -18,12 +19,12 @@ Learn about the best practices that can be used to monitor your database operati
 
 Azure Database for MySQL provides tools and methods you can use to monitor usage easily, add, or remove resources (such as CPU, memory, or I/O), troubleshoot potential problems, and help improve the performance of a database. You can [monitor performance metrics](concepts-monitoring.md#metrics) on a regular basis to see the average, maximum, and minimum values for a variety of time ranges.
 
-You can [set up alerts](howto-alert-on-metric.md#create-an-alert-rule-on-a-metric-from-the-azure-portal) for a metric threshold, so you are informed if the server has reached those limits and take appropriate actions.  
+You can [set up alerts](howto-alert-on-metric.md#create-an-alert-rule-on-a-metric-from-the-azure-portal) for a metric threshold, so you are informed if the server has reached those limits and take appropriate actions.
 
 Monitor the database server to make sure that the resources assigned to the database can handle the application workload. If the database is hitting resource limits, consider:
 
-    * Identifying and optimizing the top resource-consuming queries. 
-    * Adding more resources by upgrading the service tier.
+* Identifying and optimizing the top resource-consuming queries.
+* Adding more resources by upgrading the service tier.
 
 ### CPU utilization
 
@@ -45,8 +46,7 @@ The [amount of storage](howto-create-manage-server-portal.md#scale-compute-and-s
 
 **Database Connections** – The number of client sessions that are connected to the Azure Database for MySQL should be aligned with the [connection limits for the selected SKU](concepts-server-parameters.md#max_connections) size.
 
-
 ## Next steps
 
-- [Best practice for performance of Azure Database for MySQL](concept-performance-best-practices.md)
-- [Best practice for server operations using Azure Database for MySQL](concept-operation-excellence-best-practices.md)
+* [Best practice for performance of Azure Database for MySQL](concept-performance-best-practices.md)
+* [Best practice for server operations using Azure Database for MySQL](concept-operation-excellence-best-practices.md)
