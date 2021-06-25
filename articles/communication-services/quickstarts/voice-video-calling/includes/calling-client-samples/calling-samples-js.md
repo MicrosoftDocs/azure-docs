@@ -29,7 +29,7 @@ The ACS Web Calling sdk must be used through https. For local development, use l
 - [Submit issues/bugs on github](https://github.com/Azure/Communication/issues)
 - [API usage examples](https://docs.microsoft.com/azure/communication-services/quickstarts/voice-video-calling/calling-client-samples?pivots=platform-web)
 - [Application samples](https://docs.microsoft.com/azure/communication-services/samples/overview)
-- [API Reference](https://docs.microsoft.com/javascript/api/azure-communication-services/@azure/communication-calling/?view=azure-communication-services-js)
+- [API Reference](https://docs.microsoft.com/javascript/api/azure-communication-services/@azure/communication-calling/?view=azure-communication-services-js&preserve-view=true)
 
 ## Object model
 
