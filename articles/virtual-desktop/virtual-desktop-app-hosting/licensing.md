@@ -16,7 +16,7 @@ This article explains the licensing requirements for using Azure Virtual Desktop
 
 ## Licensing Azure Virtual Desktop for external users
 
-There are two different ways you can use Azure Virtual Desktop. Each way has different licensing requirements
+There are two different ways you can use Azure Virtual Desktop. Each way has different licensing requirements:
 
 - For streaming RemoteApps and desktops to internal users. For example, a company named Contoso might use Azure Virtual Desktop to provide Contoso’s employees with access to virtual workstations and line-of-business apps. In this case, Contoso must purchase one of the eligible licenses listed in [Azure Virtual Desktop pricing](https://azure.microsoft.com/pricing/details/virtual-desktop/) for each of their employees that will access Azure Virtual Desktop.
 
