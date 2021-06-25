@@ -291,17 +291,7 @@ sections:
       - question: |
           Which Log Analytics solutions are supported on the new Azure Monitor Agent?
         answer: |
-          Log Analytics solutions can be enabled using the new Azure Monitor Agent either as natively supported or by installing the additional VM extension for the solution.
-          
-          | **Solution (VM extension)** | **Availability on Azure Monitor Agent (AMA)** |
-          |:---|:---|
-          | **Azure Security Center** | Private preview on AMA |
-          | **Sentinel** | Private preview on AMA |
-          | **Change Tracking** | Supported as File Integrity Monitoring (FIM) in ASC private preview on AMA |
-          | **Update Management** | You can use the Update Management v2 (private preview) that doesn’t need any agent |
-          | **VM Insights with metrics support** | Private preview on AMA |
-          | **VM Insights guest health (new)** | Public preview: [VM insights guest health (preview)](vm/vminsights-health-overview.md) |
-          | **SQL Monitoring (new)** | Public preview exclusively on AMA: [SQL insights (preview)](insights/sql-insights-overview.md) |
+          See [Supported services and features](agents/azure-monitor-agent-overview.md#supported-services-and-features)
           
           
       - question: |

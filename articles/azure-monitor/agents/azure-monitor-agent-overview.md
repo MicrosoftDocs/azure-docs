@@ -4,7 +4,7 @@ description: Overview of the Azure Monitor agent (AMA), which collects monitorin
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/16/2021
+ms.date: 06/25/2021
 ms.custom: references_regions
 ---
 
@@ -48,50 +48,29 @@ Azure virtual machines, virtual machine scale sets, and Azure Arc enabled server
 ## Supported regions
 Azure Monitor agent is available in all public regions that supports Log Analytics. Government regions and clouds are not currently supported.
 ## Supported services and features
-
-
-The following table shows the current support of Azure Monitor agent for other Azure services.
+The following table shows the current support for Azure Monitor agent with other Azure services.
 
 | Azure service | Current support |
 |:---|:---|
-| [Azure Security Center](../security-center/security-center-introduction.md) | Private preview |
-| [Azure Sentinel]() | Private preview |
+| [Azure Security Center](../../security-center/security-center-introduction.md) | Private preview |
+| [Azure Sentinel](../../sentinel/overview.md) | Private preview |
 
 
-The following table shows the current support of Azure Monitor agent for Azure Monitor features.
-
-| Azure Monitor feature | Current support |
-|:---|:---|
-| [VM Insights](vm/../../vm/vminsights-overview.md) | Private preview  |
-| [VM Insights guest health](vm/vminsights-health-overview.md) | Public preview |
-
-Log Analytics solutions can be enabled using the new Azure Monitor Agent either as natively supported or by installing the additional VM extension for the solution.
-
-| Solution | Current support |
-|:---|:---|
-| [Change Tracking](../automation/change-tracking/overview.md) | Supported as File Integrity Monitoring (FIM) in Azure Security Center private preview.  |
-| [Update Management](../automation/update-management/overview.md) | Use Update Management v2 (private preview) that doesn’t require an agent. |
-| [SQL Server](insights/sql-insights-overview.md) | Support by SQL insights which is currently in public preview. |
-
-
-### test
-The following table shows the current support of Azure Monitor agent for Azure Monitor features.
-
-| Azure service | Current support |
-|:---|:---|
-| [Azure Security Center](../security-center/security-center-introduction.md) | Private preview |
-| [Azure Sentinel]() | Private preview |
+The following table shows the current support for Azure Monitor agent with Azure Monitor features.
 
 | Azure Monitor feature | Current support |
 |:---|:---|
-| [VM Insights](vm/../../vm/vminsights-overview.md) | Private preview  |
-| [VM Insights guest health](vm/vminsights-health-overview.md) | Public preview |
+| [VM Insights](../vm/vminsights-overview.md) | Private preview  |
+| [VM Insights guest health](../vm/vminsights-health-overview.md) | Public preview |
+
+The following table shows the current support for Azure Monitor agent with Azure solutions.
 
 | Solution | Current support |
 |:---|:---|
-| [Change Tracking](../automation/change-tracking/overview.md) | Supported as File Integrity Monitoring (FIM) in Azure Security Center private preview.  |
-| [Update Management](../automation/update-management/overview.md) | Use Update Management v2 (private preview) that doesn’t require an agent. |
-| [SQL Server](insights/sql-insights-overview.md) | Support by SQL insights which is currently in public preview. |
+| [Change Tracking](../../automation/change-tracking/overview.md) | Supported as File Integrity Monitoring (FIM) in Azure Security Center private preview.  |
+| [Update Management](../../automation/update-management/overview.md) | Use Update Management v2 (private preview) that doesn’t require an agent. |
+| [SQL Server](../insights/sql-insights-overview.md) | Support by SQL insights which is currently in public preview. |
+
 
 
 ## Coexistence with other agents
