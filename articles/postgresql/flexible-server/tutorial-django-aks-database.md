@@ -27,7 +27,7 @@ In this quickstart, you deploy a Django application on Azure Kubernetes Service 
 
 ## Create a resource group
 
-An Azure resource group is a logical group in which Azure resources are deployed and managed. Let's create a resource group, *django-project* using the [az group create][az-group-create] command  in the *eastus* location.
+An Azure resource group is a logical group in which Azure resources are deployed and managed. Let's create a resource group, *django-project* using the [az-group-create](/cli/azure/group?view=azure-cli-latest#az_group_create) command  in the *eastus* location.
 
 ```azurecli-interactive
 az group create --name django-project --location eastus
@@ -108,7 +108,9 @@ The server created has the below attributes:
 ## Build your Django docker image
 
 Create a new [Django application](https://docs.djangoproject.com/en/3.1/intro/) or use your existing Django project. Make sure your code is in this folder structure. 
-	> [!NOTE] If you don't have an application you can go directly to [**Create Kubernetes manifest file**](./tutorial-django-aks-database.md#create-kubernetes-manifest-file) to use our sample image, [mksuni/django-aks-app:latest](https://hub.docker.com/r/mksuni/django-aks-app). 
+
+> [!NOTE] 
+> If you don't have an application you can go directly to [**Create Kubernetes manifest file**](./tutorial-django-aks-database.md#create-kubernetes-manifest-file) to use our sample image, [mksuni/django-aks-app:latest](https://hub.docker.com/r/mksuni/django-aks-app). 
 
 ```
 └───my-djangoapp
