@@ -288,8 +288,6 @@
           href: core/howto-migrate.md
         - name: Monitor application health
           href: core/howto-monitor-application-health.md
-        - name: About your application
-          href: core/howto-get-app-info.md
         - name: Configure and use file uploads
           href: core/howto-configure-file-uploads.md
         - name: Roll X.509 certificates

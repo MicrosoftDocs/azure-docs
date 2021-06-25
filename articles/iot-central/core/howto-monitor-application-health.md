@@ -14,7 +14,7 @@ services: iot-central
 # Monitor the overall health of an IoT Central application
 
 > [!NOTE]
-> Metrics are only available for version 3 IoT Central applications. To learn how to check your application version, see [About your application](./howto-get-app-info.md).
+> Metrics are only available for version 3 IoT Central applications. To learn how to check your application version, see [How do I get information about my application?](howto-faq.md#how-do-i-get-information-about-my-application).
 
 In this article, you learn how to use the set of metrics provided by IoT Central to assess the health of devices connected to your IoT Central application and the health of your running data exports.
 
