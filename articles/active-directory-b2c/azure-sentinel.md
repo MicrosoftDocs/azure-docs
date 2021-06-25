@@ -35,6 +35,7 @@ In this article, you learn how to transfer the logs to an Azure Log Analytics wo
 > You will require an account that has admin permissions in the Azure AD B2C tenant. As part of the deployment process, this account will be granted access to a resource group containing the log analytics workspace used by Azure Sentinel. 
 
 
+
 ## 1. Deployment overview
 
 Azure AD B2C leverages [Azure Active Directory monitoring](../active-directory/reports-monitoring/overview-monitoring.md). Because an Azure AD B2C tenant, unlike Azure AD tenants, cannot have a subscription associated with it, we need to take some additional steps to enable the integration between Azure AD B2C and Log Analytics which is where we will send the logs.  
