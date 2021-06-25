@@ -35,7 +35,7 @@ As part of the Da Vinci Plan-Net IG, you'll need to define six [new search param
 
 The rest of the search parameters needed for the Da Vinci Plan-Net IG are defined by the base specification and are already available in the Azure API for FHIR without any additional updates.
 
-## Store profiles and extensions
+## Store profiles
 
 Outside of defining search parameters, you need to load the [required profiles and extensions](https://docs.microsoft.com/azure/healthcare-apis/fhir/validation-against-profiles#storing-profiles) to pass this test. There are nine profiles used as part of the Da Vinci Plan-Net IG:
 
