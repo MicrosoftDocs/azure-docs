@@ -308,7 +308,9 @@ If your template also includes the managed identity's resource definition, you c
 
 ## Give identity access to resources
 
-Before you can use your logic app's managed identity for authentication, on the Azure resource where you plan to use the identity, you have to set up access using Azure role-based access control (Azure RBAC). To complete this task, assign the appropriate role to that identity on the Azure resource through any of the following options:
+Before you can use your logic app's managed identity for authentication, on the Azure resource where you want to use the identity, you have to set up access for your identity by using Azure role-based access control (Azure RBAC).
+
+To complete this task, assign the appropriate role to that identity on the Azure resource through any of the following options:
 
 * [Azure portal](#azure-portal-assign-access)
 * [ARM template](../role-based-access-control/role-assignments-template.md)
@@ -320,7 +322,7 @@ Before you can use your logic app's managed identity for authentication, on the 
 
 ### Assign access using the Azure portal
 
-On the Azure resource where you want to use the managed identity, give your identity a role can access the target resource. For more information, review [Assign a managed identity access to another resource by using Azure RBAC](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md).
+On the Azure resource where you want to use the managed identity, you have to set up your identity with a role that can access the target resource. For more information, review [Assign a managed identity access to another resource by using Azure RBAC](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md).
 
 1. In the [Azure portal](https://portal.azure.com), open the Azure resource where you want to use the identity.
 
