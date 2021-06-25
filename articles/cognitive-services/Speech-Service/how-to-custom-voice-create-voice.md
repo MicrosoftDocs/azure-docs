@@ -91,7 +91,7 @@ The first type of errors listed in the table below must be fixed manually, other
 | Category | Name | Description |
 | --------- | ----------- | --------------------------- |
 | Script | Invalid separator| You must separate the utterance ID and the script content with a TAB character.|
-| Script | Invalid script ID| Script line ID should be numeric.|
+| Script | Invalid script ID| Script line ID must be numeric.|
 | Script | Duplicated script|The script content should be unique for each line.|
 | Script | Script too long| The length of the script should be less than 1,000 characters.|
 | Script | No matching audio| The ID of each utterance (each line of the script file) should match with the audio ID.|
