@@ -344,7 +344,7 @@
           href: msal-net-migration.md
         - name: Migrate confidential client apps to MSAL.NET
           href: msal-net-migration-confidential-client.md
-        - name: Differences betweeen ADAL.NET and MSAL.NET
+        - name: Differences between ADAL.NET and MSAL.NET
           href: msal-net-differences-adal-net.md
       - name: Migrate Xamarin Android app using broker to MSAL.NET
         href: msal-net-migration-android-broker.md

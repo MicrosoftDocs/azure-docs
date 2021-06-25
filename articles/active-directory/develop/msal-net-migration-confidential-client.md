@@ -73,7 +73,7 @@ It doesn't have a parameter of type `UserAssertion`. If it does, then your app i
 
 #### Update the code of daemon scenarios
 
-[!INCLUDE [Common steps](includes/msal-adoption-steps-confidential-clients.md)]
+[!INCLUDE [Common steps](includes/msal-net-adoption-steps-confidential-clients.md)]
 
 In this case, we replace the call to `AuthenticationContext.AcquireTokenAsync` by a call to `IConfidentialClientApplication.AcquireTokenClient`.
 
@@ -81,16 +81,18 @@ In this case, we replace the call to `AuthenticationContext.AcquireTokenAsync` b
 
 The following table compares the ADAL.NET and MSAL.NET code for daemon scenarios.
 
-<table>
-<tr>
-<td>ADAL</td>
-<td>MSAL</td>
-</tr>
-
-<tr>
-<td valign="top">
-
-```c#
+:::row:::
+:::column span="":::
+    ADAL
+:::column-end:::
+:::column span="":::
+    MSAL
+:::column-end:::
+:::row-end:::
+:::row:::
+:::column span="":::
+      
+```csharp
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
@@ -116,22 +118,18 @@ public partial class AuthWrapper
                                   certificate);
 
 
-
   var authResult = await authContext.AcquireTokenAsync(
                                       resourceId,
                                       clientAssertionCert,
                                 );
 
-
   return authResult;
  }
 }
 ```
-
-</td>
-<td valign="top">
-
-```c#
+:::column-end:::   
+:::column span="":::
+```csharp
 using Microsoft.Identity.Client;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
@@ -166,10 +164,8 @@ public partial class AuthWrapper
  }
 }
 ```
-
-</td>
-</tr>
-</table>
+   :::column-end:::
+:::row-end:::
 
 #### Token caching
 
@@ -195,23 +191,22 @@ The ADAL code for your app uses OBO if it contains a call to `AuthenticationCont
 
 #### Update the code using OBO
 
-[!INCLUDE [Common steps](includes/msal-adoption-steps-confidential-clients.md)]
+[!INCLUDE [Common steps](includes/msal-net-adoption-steps-confidential-clients.md)]
 
 In this case, we replace the call to `AuthenticationContext.AcquireTokenAsync` by a call to `IConfidentialClientApplication.AcquireTokenOnBehalfOf`.
 
 ##### Sample OBO code
-
-<table>
-
-<tr>
-<td>ADAL.NET</td>
-<td>MSAL.NET</td>
-</tr>
-
-<tr>
-<td valign="top">
-
-```c#
+:::row:::
+   :::column span="":::
+      ADAL
+   :::column-end:::
+   :::column span="":::
+      MSAL
+   :::column-end:::
+:::row-end:::
+:::row:::
+:::column span="":::
+```csharp
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
@@ -250,11 +245,9 @@ public partial class AuthWrapper
  }
 }
 ```
-
-</td>
-<td valign="top" style="font-size:x-small;">
-
-```c#
+:::column-end:::
+:::column span="":::
+```csharp
 using Microsoft.Identity.Client;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
@@ -280,6 +273,7 @@ public partial class AuthWrapper
            .Build();
   }
 
+
   var userAssertion = new UserAssertion(tokenUsedToCallTheWebApi);
 
   var authResult = await app.AcquireTokenOnBehalfOf(
@@ -287,14 +281,13 @@ public partial class AuthWrapper
               userAssertion)
               .ExecuteAsync()
               .ConfigureAwait(false);
+  
   return authResult;
  }
 }
 ```
-
-</td>
-</tr>
-</table>
+:::column-end:::
+:::row-end:::
 
 #### Token caching
 
@@ -327,22 +320,23 @@ The ADAL code for your app uses auth code flow if it contains a call to `Authent
 
 #### Update the code using auth code flow
 
-[!INCLUDE [Common steps](includes/msal-adoption-steps-confidential-clients.md)] 
+[!INCLUDE [Common steps](includes/msal-net-adoption-steps-confidential-clients.md)] 
 
 In this case, we replace the call to `AuthenticationContext.AcquireTokenAsync` by a call to `IConfidentialClientApplication.AcquireTokenByAuthorizationCode`.
 
 ##### Sample auth code flow code
 
-<table>
-<tr>
-<td>ADAL.NET</td>
-<td>MSAL.NET</td>
-</tr>
-
-<tr>
-<td valign="top">
-
-```c#
+:::row:::
+   :::column span="":::
+      ADAL
+   :::column-end:::
+   :::column span="":::
+      MSAL
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+```csharp
 public partial class AuthWrapper
 {
  const string ClientId = "Guid (AppID)";
@@ -365,6 +359,7 @@ public partial class AuthWrapper
                                   certificate);
 
 
+
   var authResult = await ac.AcquireTokenByAuthorizationCodeAsync(
                                       authorizationCode,
                                       redirectUri,
@@ -374,12 +369,10 @@ public partial class AuthWrapper
   return authResult;
  }
 }
-```
-
-</td>
-<td valign="top">
-
-```c#
+```      
+   :::column-end:::
+   :::column span="":::
+```csharp
 public partial class AuthWrapper
 {
  const string ClientId = "Guid (Application ID)";
@@ -408,14 +401,13 @@ public partial class AuthWrapper
               authorizationCode)
               .ExecuteAsync()
               .ConfigureAwait(false);
+
   return authResult;
  }
 }
 ```
-
-</td>
-</tr>
-</table>
+   :::column-end:::
+:::row-end:::
 
 Calling `AcquireTokenByAuthorizationCode` adds a token to the token cache. To acquire extra token(s) for other resources or tenants, use `AcquireTokenSilent` in your controllers.
 
@@ -454,7 +446,7 @@ You can also acquire Proof of Possession (PoP) tokens if the web API that you wa
 
 If you don't need to share your cache with ADAL.NET, disable the legacy cache compatibility when creating the confidential client application (`.WithLegacyCacheCompatibility(false)`). This increases the performance significantly.
   
-```c#
+```csharp
 app = ConfidentialClientApplicationBuilder.Create(ClientId)
         .WithCertificate(certificate)
         .WithAuthority(authority)
@@ -466,8 +458,8 @@ app = ConfidentialClientApplicationBuilder.Create(ClientId)
 
 This troubleshooting guide makes two assumptions: 
 
-1. It assumes that your ADAL.NET code was working.
-2. It assumes that you migrated to MSAL keeping the same ClientID.
+- It assumes that your ADAL.NET code was working.
+- It assumes that you migrated to MSAL keeping the same ClientID.
 
 ### AADSTS700027 exception
 
