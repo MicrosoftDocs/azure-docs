@@ -320,7 +320,7 @@ Before you can use your logic app's managed identity for authentication, on the 
 
 ### Assign access using the Azure portal
 
-On the Azure resource where you want to use the managed identity, assign your identity a role that grants the necessary access to the target resource.
+On the Azure resource where you want to use the managed identity, give your identity a role can access the target resource. For more information, review [Assign a managed identity access to another resource by using Azure RBAC](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md).
 
 1. In the [Azure portal](https://portal.azure.com), open the Azure resource where you want to use the identity.
 
@@ -330,41 +330,23 @@ On the Azure resource where you want to use the managed identity, assign your id
    > If the **Add role assignment** option is disabled, you don't have permissions to assign roles. 
    > For more information, review [Azure AD built-in roles](../active-directory/roles/permissions-reference.md).
 
-1. On the **Roles** tab, find and select the appropriate role that grants your identity the necessary access to the target resource. For more information, review [Assign roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+1. On the **Roles** tab, select the role that gives your identity the necessary access to the target resource.
 
-   For this example, your identity requires a [role that can access blobs in an Azure Storage container](../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights). So, select the role that's named **Storage Blob Data Contributor**.
+   For this example, find and select the role that's named **Storage Blob Data Contributor**, which can access blobs in an Azure Storage container. For more information, review [Roles that can access blobs in an Azure Storage container](../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights).
 
-1. Based on your managed identity, follow the corresponding steps:
+1. On the **Members** tab, under **Assign access to**, select **Managed identity** > **Add members**.
 
-   * **System-assigned identity**
+1. Based on your managed identity's type, provide the following information:
 
-     1. Open the **Assign access to** list, and select **Logic App**. When the **Subscription** property appears, select the Azure subscription that's associated with your identity.
+   | Managed identity type | Azure service instance | Subscription | Select |
+   |-----------------------|------------------------|--------------|--------|
+   | **System-assigned** | **Logic App** | <*Azure-subscription-name*> | <*your-logic-app-name*> |
+   | **User-assigned** | Not applicable | <*Azure-subscription-name*> | <*your-user-assigned-identity-name*> |
+   |||||
 
-        ![Select access for system-assigned identity](./media/create-managed-service-identity/assign-access-system.png)
+   For more information about assigning roles, review the documentation, [Assign roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
-     1. In the **Select** box, find and select your logic app.
-
-        ![Select logic app for system-assigned identity](./media/create-managed-service-identity/add-permissions-select-logic-app.png)
-
-   * **User-assigned identity**
-
-     1. Open the **Assign access to** list, and select **User assigned managed identity**. When the **Subscription** property appears, select the Azure subscription that's associated with your identity.
-
-        ![Select access for user-assigned identity](./media/create-managed-service-identity/assign-access-user.png)
-
-     1. In the **Select** box, find and select your identity.
-
-        ![Select your user-assigned identity](./media/create-managed-service-identity/add-permissions-select-user-assigned-identity.png)
-
-1. When you're done, select **Save**.
-
-   The resource's **Role assignments** list now includes your managed identity and its role. In this example, you can use the system-assigned identity for one logic app and the user-assigned identity for a group of other logic apps.
-
-   ![Added managed identities and roles to target resource](./media/create-managed-service-identity/added-roles-for-identities.png)
-
-   For more information, review [Assign a managed identity access to a resource by using the Azure portal](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md).
-
-1. Next, to use your managed identity with a trigger or action that supports managed identities, [follow the steps to authenticate access using the identity](#authenticate-access-with-identity).
+1. Next, [follow the steps to authenticate access using the identity](#authenticate-access-with-identity) by using a trigger or action that supports managed identities.
 
 <a name="authenticate-access-with-identity"></a>
 
