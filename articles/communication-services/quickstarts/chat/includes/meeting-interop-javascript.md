@@ -15,7 +15,7 @@ Find the finalized code for this quickstart on [GitHub](https://github.com/Azure
 ## Prerequisites 
 
 * A [Teams deployment](/deployoffice/teams-install). 
-* A working [chat app](../get-started.md).
+* A working [chat app](../get-started.md). 
 
 ## Joining the meeting chat 
 
