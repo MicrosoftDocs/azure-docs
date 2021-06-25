@@ -20,7 +20,7 @@ You may need:
 - The application's ID when you're working with the REST API.
 - The application's version to complete tasks such as adding a connector.
 
-To get information about your IoT Central application: 
+To get information about your IoT Central application:
 
 1. Select the **Help** link on the top menu.
 
@@ -62,6 +62,42 @@ When a device is blocked, it can't send data to your IoT Central application. Bl
 :::image type="content" source="media/howto-faq/blocked.png" alt-text="Screenshot showing blocked device":::
 
 When an operator unblocks a device the status returns to its previous value, **Registered** or **Provisioned**.
+
+## How do I move from a free to a standard pricing plan?
+
+- Applications that use the free pricing plan are free for seven days before they expire. To avoid losing data, you can move them to a standard pricing plan at any time before they expire.
+- Applications that use a standard pricing plan are charged per device, with the first two devices free, per application.
+
+Learn more about pricing on the [Azure IoT Central pricing page](https://azure.microsoft.com/pricing/details/iot-central/).
+
+In the pricing section, you can move your application from the free to a standard pricing plan.
+
+To complete this self-service process, follow these steps:
+
+1. Go to the **Pricing** page in the **Administration** section.
+
+1. Select the **Plan**
+
+    :::image type="content" source="media/howto-faq/free-trial-billing.png" alt-text="Trial state":::
+
+1. Select the appropriate Azure Active Directory, and then the Azure subscription to use for your application that uses a paid plan.
+
+1. After you select **Save**, your application now uses a paid plan and you start getting billed.
+
+> [!Note]
+> By default, you are converted to a *Standard 2* pricing plan.
+
+## How do I change my application pricing plan
+
+Applications that use a standard pricing plan are charged per device, with the first two devices free, per application.
+
+In the pricing section, you can upgrade or downgrade your Azure IoT pricing plan at any time.
+
+1. Go to the **Pricing** page in the **Administration** section.
+
+    :::image type="content" source="media/howto-faq/pricing.png" alt-text="Upgrade pricing plan":::
+
+1. Select the **Plan** and then select **Save** to upgrade or downgrade.
 
 ## How do I approve a device?
 

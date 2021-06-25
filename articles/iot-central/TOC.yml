@@ -276,8 +276,6 @@
           href: core/howto-administer.md
         - name: Manage users and roles
           href: core/howto-manage-users-roles.md
-        - name: Manage your bill
-          href: core/howto-view-bill.md
         - name: Customize application UI
           href: core/howto-customize-ui.md
         - name: Export your application

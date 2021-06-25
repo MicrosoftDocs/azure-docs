@@ -108,8 +108,6 @@ landingContent:
             url: core/howto-administer.md
           - text: Manage users and roles
             url: core/howto-manage-users-roles.md 
-          - text: View your bill
-            url: core/howto-view-bill.md
           - text: Customize application UI
             url: core/howto-customize-ui.md  
       - linkListType: sample

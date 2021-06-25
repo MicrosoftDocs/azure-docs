@@ -22,7 +22,7 @@ Metrics are enabled by default for your IoT Central application and you access t
 
 ### Trial applications
 
-Applications that use the free trial plan don't have an associated Azure subscription and so don't support Azure Monitor metrics. You can [convert an application to a standard pricing plan](./howto-view-bill.md#move-from-free-to-standard-pricing-plan) and get access to these metrics.
+Applications that use the free trial plan don't have an associated Azure subscription and so don't support Azure Monitor metrics. You can [convert an application to a standard pricing plan](./howto-faq.md#how-do-i-move-from-a-free-to-a-standard-pricing-plan) and get access to these metrics.
 
 ## View metrics in the Azure portal
 
