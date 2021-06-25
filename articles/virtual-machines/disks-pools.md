@@ -52,12 +52,12 @@ When you deploy a disk pool, there are two main areas that will incur billing co
 - The disks inside the disk pool
 - The Azure artifacts deployed in the managed resource group that accompany the disk pool.
     - The resources in the managed resource group are:
-        - Two virtual machines.
-        - Two managed disks.
+        - One virtual machines.
+        - One managed disks.
         - One network interface.
         - One storage account for diagnostic logs and metrics.
         
-You will be billed for the resources inside this managed resource group. Other than these resources and your disks, there are no additional service charges for a disk pool. For details on the managed resource group, see the how does it work section.
+You will be billed for the resources inside this managed resource group. For example, if you have a disk pool with one P30 disk added, you will be billed for the P30 disk and the managed resource group deployed to support the disk pool. Other than these resources and your disks, there are no additional service charges for a disk pool. For details on the managed resource group, see the how does it work section.
 
 See the Azure pricing calculator for regional pricing on VMs and disks to evaluate the cost of a disk pool for you. Azure resources consumed by the disk pool can be accounted for in Azure Reservations, if you have them.
 
