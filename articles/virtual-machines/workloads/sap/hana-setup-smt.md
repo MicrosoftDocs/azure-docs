@@ -99,9 +99,9 @@ To install an SMT server for HANA Large Instances, you'll first need:
 
     ![Screenshot of creating a certificate for SMT server.](./media/hana-installation/image9_certificate_creation.PNG)
 
-13. At the end of the configuration, it might take a few minutes to run the synchronization check. After the installation and configuration of the SMT server, you should find the directory repo under the mount point /srv/www/htdocs/. There are also some subdirectories under repo. 
+    At the end of the configuration, it might take a few minutes to run the synchronization check. After the installation and configuration of the SMT server, you should find the directory repo under the mount point /srv/www/htdocs/. There are also some subdirectories under repo. 
 
-14. Restart the SMT server and its related services with these commands.
+13. Restart the SMT server and its related services with these commands.
 
     ```
     rcsmt restart
@@ -138,7 +138,7 @@ If the registration fails, see [SUSE support document](https://www.suse.com/de-d
 > [!IMPORTANT] 
 > For the server name, provide the name of the virtual machine (in this case, *smtserver*), without the fully qualified domain name. 
     
-After running these steps, run the following command on the HANA Large Instance unit:
+After running these steps, run the following command on the HANA Large Instance:
     
 ```
 SUSEConnect –cleanup
