@@ -93,7 +93,7 @@ Starting the proxy in this way assumes the following are true:
 - source and target endpoints have the same username and password
 - source and target endpoints implement SSL
 
-### Configure separate target credentials and port
+### Configure credentials and port
 
 By default, the source credentials will be passed through from your client app, and used by the proxy for making connections to the source and target clusters. As mentioned above, this assumes that source and target credentials are the same. If necessary, you can specify a different username and password for the target Cassandra endpoint separately when starting the proxy:
 
