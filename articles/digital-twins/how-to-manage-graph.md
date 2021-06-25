@@ -76,6 +76,14 @@ You can even create multiple instances of the same type of relationship between 
 
 ## List relationships
 
+### List properties of a single relationship
+
+You can always deserialize relationship data to a type of your choice. For basic access to a relationship, use the type `BasicRelationship`. The `BasicRelationship` helper class also gives you access to properties defined on the relationship, through an `IDictionary<string, object>`. To list properties, you can use:
+
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_other.cs" id="ListRelationshipProperties":::
+
+### Find outgoing relationships from a digital twin
+
 To access the list of **outgoing** relationships for a given twin in the graph, you can use the `GetRelationships()` method like this: 
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="GetRelationshipsCall":::
@@ -91,12 +99,6 @@ You can now call this custom method to see the outgoing relationships of the twi
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UseFindOutgoingRelationships":::
 
 You can use the retrieved relationships to navigate to other twins in your graph. To do this, read the `target` field from the relationship that is returned, and use it as the ID for your next call to `GetDigitalTwin()`.
-
-### Deserialize a single relationship
-
-You can always deserialize relationship data to a type of your choice. For basic access to a relationship, use the type `BasicRelationship`. The `BasicRelationship` helper class also gives you access to properties defined on the relationship, through an `IDictionary<string, object>`. To list properties, you can use:
-
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_other.cs" id="ListRelationshipProperties":::
 
 ### Find incoming relationships to a digital twin
 
