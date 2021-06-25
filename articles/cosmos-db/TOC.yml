@@ -1493,11 +1493,7 @@
             - name: Troubleshoot issues using basic queries
               href: cosmosdb-monitor-logs-basic-queries.md
             - name: Troubleshoot issues using advanced queries
-<<<<<<< HEAD
-              href: cosmos-db-advanced-queries.md
-=======
               href: cosmos-db-advanced-queries.md                      
->>>>>>> ce23e3c4a19076c59242cec23f9583fc49afa8ed
             - name: Audit control plane logs
               href: audit-control-plane-logs.md
         - name: Configure alerts
@@ -1543,8 +1539,4 @@
         - name: Common use cases
           href: use-cases.md
         - name: Social media apps
-<<<<<<< HEAD
-          href: social-media-apps.md 
-=======
           href: social-media-apps.md
->>>>>>> ce23e3c4a19076c59242cec23f9583fc49afa8ed
