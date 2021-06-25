@@ -41,7 +41,6 @@ Instead, make multiple calls on seperate processes/threads to insertMany() with 
 
 ## Next steps
 
-* Create a new [Cosmos account, database, and collection](../create-cosmosdb-resources-portal.md).
 * Learn more about [indexing in the API for MongoDB](../mongodb-indexing.md).
 * Learn more about [Azure Cosmos DB's sharding/partitioning](../partitioning-overview.md).
 * Learn more about [troubleshooting common issues](../mongodb-troubleshoot.md).
