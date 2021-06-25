@@ -88,7 +88,7 @@ Based on experience responding to high volumes of real-world attacks, key areas 
   
 - **Hunting speed and agility.** Measure how fast teams can hunt, starting from a fully formed hypothesis, to querying the data, to getting the results on each SIEM platform.
   
-- **Capacity growth friction.** Compare the level of difficulty in adding capacity as usage grows. Keep in mind that cloud services and applications tend to generate more log data than traditional on-premises workloads.|
+- **Capacity growth friction.** Compare the level of difficulty in adding capacity as usage grows. Keep in mind that cloud services and applications tend to generate more log data than traditional on-premises workloads.
 
 ### SIEM architectural models and migration phases
 
@@ -124,7 +124,7 @@ Side-by-side configuration is usually a temporary step in a migration journey to
 
 Longer-term side-by-side deployment is a potential starting point for an organization that wants to take advantage of Azure Sentinel's strengths, but isn't yet ready to move away from its existing SIEM. Moving to Azure Sentinel over time provides more opportunities to modernize your SIEM while taking advantage of the cost savings and flexibility the cloud provides. You get the full value of Azure Sentinel's correlation and investigation capabilities across all your data sources.
 
-While short-term transitional side-by-side deployment is recommended, Azure Sentinel's cloud-native nature makes it easy to run side-by-side with your traditional SIEM as long as needed. This flexibility gives you the flexibility to approach migration in a way that best fits your organization.
+While short-term transitional side-by-side deployment is recommended, Azure Sentinel's cloud-native nature makes it easy to run side-by-side with your traditional SIEM as long as needed. This flexibility lets you approach migration in a way that best fits your organization.
 
 #### Transitional side-by-side approach
 
@@ -152,14 +152,14 @@ The medium- to long-term side-by-side model uses Azure Sentinel alongside a lega
 
 **Cons:**
 
-- Separate analytics across two different databases result in greater complexity.
-- Multi-environment incidents require split case management and investigations.
-- Staff and infrastructure costs are greater.
-- SOC staff must be knowledgeable about two different SIEM solutions.
+- Increases complexity by separating analytics across different databases.
+- Splits case management and investigations for multi-environment incidents.
+- Incurs greater staff and infrastructure costs.
+- Requires SOC staff to be knowledgeable about two different SIEM solutions.
 
 ### Operate side-by-side with a legacy SIEM
 
-There are several ways to configure side-by-side operations. Some approaches are more effective than others, while some introduce significant problems.
+There are several ways to configure side-by-side operations. Some approaches are more effective than others, and some introduce significant problems.
 
 #### Send alerts from a legacy SIEM to Azure Sentinel
 
@@ -219,7 +219,7 @@ The following diagram shows full integration of all SIEM, SOAR, and case managem
 
 ![Diagram showing full integration of all SIEM, SOAR, and case management processes in a side-by-side deployment.](media/migration/side-by-side.png)
 
-## Migration phases
+## Migration tasks
 
 Migration happens in three phases:
 1. Migrate data.
