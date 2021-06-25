@@ -93,6 +93,20 @@ When building an Azure Functions project, the build tools optimize the output so
   </ItemGroup>
 ```
 
+> [!NOTE]  
+> Support for `FunctionsPreservedDependencies` was [added](https://github.com/Azure/azure-functions-host/pull/6849) in [Microsoft.Azure.WebJobs.Script.ExtensionsMetadataGenerator 1.2.1](https://github.com/Azure/azure-functions-host/releases/tag/emg-v1.2.1)
+
+This output optimization step can be completely disabled with the `FunctionsSkipCleanOutput` property.
+
+```xml
+  <PropertyGroup>
+    <FunctionsSkipCleanOutput>true</FunctionsSkipCleanOutput>
+  </PropertyGroup>
+```
+
+> [!NOTE]  
+> `FunctionsSkipCleanOutput` was called `_FunctionsSkipCleanOutput` in older version of the build tools, including Azure Functions 1.x.
+
 ## Configure the project for local development
 
 The Functions runtime uses an Azure Storage account internally. For all trigger types other than HTTP and webhooks, set the `Values.AzureWebJobsStorage` key to a valid Azure Storage account connection string. Your function app can also use the [Azure Storage Emulator](../storage/common/storage-use-emulator.md) for the `AzureWebJobsStorage` connection setting that's required by the project. To use the emulator, set the value of `AzureWebJobsStorage` to `UseDevelopmentStorage=true`. Change this setting to an actual storage account connection string before deployment.
