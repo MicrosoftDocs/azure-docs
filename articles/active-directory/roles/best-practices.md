@@ -69,7 +69,7 @@ Microsoft recommends that you keep two break glass accounts that are permanently
 
 If you have an external governance system that takes advantage of groups, then you should consider assigning roles to Azure AD groups, instead of individual users. You can also manage role-assignable groups in PIM to ensure that there are no standing owners or members in these privileged groups. For more information, see [Management capabilities for privileged access Azure AD groups](../privileged-identity-management/groups-features.md).
 
-You can assign an owner to role-assignable groups. That owner decides who is added to or removed from the group, so indirectly, decides who gets the role assignment. In this way, a Global Administrator or Privileged Role Administrator can delegate role management on a per-role basis by using groups. For more information, see [Use cloud groups to manage role assignments in Azure Active Directory](groups-concept.md).
+You can assign an owner to role-assignable groups. That owner decides who is added to or removed from the group, so indirectly, decides who gets the role assignment. In this way, a Global Administrator or Privileged Role Administrator can delegate role management on a per-role basis by using groups. For more information, see [Use Azure AD groups to manage role assignments](groups-concept.md).
 
 ## 7. Activate multiple roles at once using privileged access groups
 
