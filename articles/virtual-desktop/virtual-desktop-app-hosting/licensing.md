@@ -45,7 +45,7 @@ Each price tier has flat per-user access charges. For example, a user incurs the
 
 Azure Virtual Desktop will also charge users with separate assigned licenses that otherwise entitles them to Azure Virtual Desktop access. If you have internal users you're purchasing eligible licenses for, we recommend you give them access to Azure Virtual Desktop through a separate subscription that isn't enrolled in per-user access pricing to avoid effectively paying twice for those users.
 
-Azure Virtual Desktop will issue at most one access charge for a given user in a given billing period. So if your deployment grants user Alice access to Azure Virtual Desktop resources across two different Azure subscriptions, only the first subscription accessed by Alice will incur a usage charge.
+Azure Virtual Desktop will issue at most one access charge for a given user in a given billing period. So if your deployment grants user Alice access to Azure Virtual Desktop resources across two different Azure subscriptions in the same tenant, only the first subscription accessed by Alice will incur a usage charge.
 
 ## Comparing licensing options
 
