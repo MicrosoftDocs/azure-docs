@@ -41,7 +41,7 @@ For more information about prices, see [Azure Virtual Desktop pricing](https://a
 
 <!---I need to ask to see if this note is allowed.--->
 
-Each price tier has flat access charges. For example, a user incurs the same charge to your subscription no matter when or how many hours they used the service during that billing cycle.
+Each price tier has flat per-user access charges. For example, a user incurs the same charge to your subscription no matter when or how many hours they used the service during that billing cycle.
 
 Azure Virtual Desktop will also charge users with separate assigned licenses that otherwise entitles them to Azure Virtual Desktop access. If you have internal users you're purchasing eligible licenses for, we recommend you give them access to Azure Virtual Desktop through a separate subscription that isn't enrolled in per-user access pricing.
 
