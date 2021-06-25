@@ -1,7 +1,7 @@
 ---
 title: Encrypt registry with a customer-managed key
 description: Learn about encryption-at-rest of your Azure container registry, and how to encrypt your Premium registry with a customer-managed key stored in Azure Key Vault
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/25/2021
 ms.custom: subject-rbac-steps
 ---
