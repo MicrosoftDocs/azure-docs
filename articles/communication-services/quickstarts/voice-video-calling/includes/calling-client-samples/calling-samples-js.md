@@ -469,7 +469,7 @@ Full flow:
 ```js
 let videoStreamRenderer: VideoStreamRenderer = new VideoStreamRenderer(remoteVideoStream);
 let view: VideoStreamRendererView;
-const renderVideo = () => {
+const renderVideo = async () => {
         try {
 		view = await videoStreamRenderer.createView();
 		htmlElement.appendChild(view.target);
