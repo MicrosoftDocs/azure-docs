@@ -24,13 +24,13 @@ When there is no microphone available at the beginning of a call, and then a mic
 When this happens, your application should invoke `askDevicePermission` to obtain user consent to enumerate devices. Then user will then be able to mute/unmute the microphone.
 
 ### Stop video on page hide
-Developers are encouraged to stop video streaming when users navigate away from an active video-enabled call. Video can be stopped by calling the `call.stopVideo` API.
+When user navigate away from the calling tab then the video streaming stops. Some devices continue to stream the last frame. To avoid this issue, Developers are encouraged to stop video streaming when users navigate away from an active video-enabled call. Video can be stopped by calling the `call.stopVideo` API.
 ```JavaScript
 document.addEventListener("visibilitychange", function() {
 	if (document.visibilityState === 'visible') {
-		// TODO: Start Video if it was stopped on visibility change
+		// Start Video if it was stopped on visibility change (flag true)
 	} else {
-		// TODO: Stop Video if it's on
+		// Stop Video if it's on and set flag = true to keep track
 	}
 });
 ```
