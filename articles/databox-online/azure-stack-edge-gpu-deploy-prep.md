@@ -102,15 +102,13 @@ If you have an existing Azure Stack Edge resource to manage your physical device
 
 ### [Azure Edge Hardware Center](#tab/azure-edge-hardware-center)
 
-[!INCLUDE [Create ](../../includes/azure-edge-hardware-center-new-order.md)]
+[!INCLUDE [Create order in Azure Edge Hardware Center](../../includes/azure-edge-hardware-center-new-order.md)]
 
 #### Create a management resource for each device
 
-After an order in the Azure Edge Management Center is complete, you will create a management resource for each device that you ordered.<!--TO BE ADDED: After the device is delivered, a "Configure hardware" option is added to the order item details. It opens the "Create a management resource" option.-->
+To manage devices that are ordered through the Azure Edge Hardware Center, you'll create a management resource for each device in Azure Stack Edge. When the device is activated, the management resource is associated with an order item. You'll be able to open the order item from the management resource and open the management resource from the order item. 
 
-The person managing the physical device creates and maintains the management resource via the Azure Stack Edge portal. When the device is activated, the management resource is associated with an order item. You can open the order item from the management resource and open the management resource from the order item. 
-
-[!INCLUDE [Create ](../../includes/azure-edge-hardware-center-new-order.md)]
+After a device is delivered, a **Configure hardware** link is added to the order item detail, giving you a direct way to open a wizard for creating a management resource. You can also use the **Create management resource** option in Azure Stack Edge. 
 
 [!INCLUDE [Create management resource](../../includes/azure-edge-hardware-center-create-management-resource.md)]
 
