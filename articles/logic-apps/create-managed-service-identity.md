@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: article
-ms.date: 06/30/2021
+ms.date: 06/25/2021
 ms.custom: devx-track-azurepowershell, subject-rbac-steps
 ---
 
