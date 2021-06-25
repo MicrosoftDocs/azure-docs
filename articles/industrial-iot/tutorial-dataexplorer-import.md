@@ -13,6 +13,12 @@ ms.date: 6/16/2021
 The Azure Industrial IoT (IIoT) Platform combines edge modules and cloud microservices with Azure platform-as-a-service (PaaS) services to provide capabilities for industrial asset discovery and asset data acquisition. In an industrial setting, the de-facto standard for this task is OPC UA. This tutorial illustrates how to configure Azure for use with OPC UA, using a simple use case as an example, namely cloud-based condition monitoring.
 
 In this tutorial, you will learn how to:
+- Get an Azure account and deploy an IoT Hub.
+- Deploy IoT Edge
+- Install and configure OPC Publisher
+- Set up a time series database.
+- Create a dashboard.
+- Create a graph of incoming data.
 
 ## Requirements
 
@@ -24,7 +30,7 @@ The first thing you need to do with your Azure subscription is go to [the portal
 
 ## Deploy IoT Edge
 
-Deploy IoT Edge using the [IoT Edge Installer](https://lnkd.in/ga6Ew4X) on a Windows 10 PC or VM. This PC/VM needs to have Internet connectivity and also be able to access the machines or industrial connectivity adapter software (dataFEED, Zenon, Kepware, etc.) you want to use. You can nest (i.e. "daisy-chain") IoT Edge devices, should your facility use several network layers from your OT network (where your machines are located) to your Internet connection. You can also run IoT Edge natively on Linux using the installer [on Github](https://github.com/Azure/Industrial-IoT-Gateway-Installer/blob/master/Releases/Linux.zip).
+Deploy IoT Edge using the [IoT Edge Installer](https://lnkd.in/ga6Ew4X) on a Windows 10 PC or VM. This PC/VM needs to have Internet connectivity and also be able to access the machines or industrial connectivity adapter software (dataFEED, Zenon, Kepware, etc.) you want to use. You can nest (i.e. "daisy-chain") IoT Edge devices, should your facility use several network layers from your OT network (where your machines are located) to your Internet connection. You can also run IoT Edge natively on Linux using the installer [on GitHub](https://github.com/Azure/Industrial-IoT-Gateway-Installer/blob/master/Releases/Linux.zip).
 
 When you run the IoT Edge installer, select the **Use Docker Desktop** checkbox, keep the **Configure IoT Edge for Azure Industrial Cloud Platform (PaaS)** radio button selected and paste the *iothubowner* connection string into the text box provided. The installer automatically pre-populates the name of the PC you are running on as the Edge instance name, but you can change it if you need to. Hit **Install**. If Docker Desktop is not detected, the installer will download it automatically. Install it and make sure you configure it with Windows Subsystem for Linux V2 (WSL2) for best performance. Once installation of Docker Desktop completes, restart the IoT Edge Installer, configure it again and hit install a second time. Then go to the **IoT Edge** tab in your **IoT Hub** page in the Azure portal and wait until your newly installed IoT Edge device shows up (you may have to hit refresh a few times).
 
