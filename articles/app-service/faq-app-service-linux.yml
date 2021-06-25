@@ -35,7 +35,7 @@ sections:
           | Tomcat          | the location of a script to perform any necessary configurations (for example, `/home/site/deployments/tools/startup_script.sh`)          |
           | Node.js         | the PM2 configuration file or your script file                                |
           | .NET Core       | the compiled DLL name as `dotnet <myapp>.dll`                                 |
-          | PHP             | optional startup script
+          | PHP             | optional [custom startup](./configure-language-php.md?pivots=platform-linux#customize-start-up) |
           | Python          | optional [startup script](./configure-language-python.md#customize-startup-command) |
           | Ruby            | the Ruby script that you want to initialize your app with                        |
           
