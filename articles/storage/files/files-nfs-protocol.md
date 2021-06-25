@@ -1,17 +1,17 @@
 ---
-title: NFS file shares in Azure Files
+title: NFS file shares (preview) in Azure Files
 description: Learn about file shares hosted in Azure Files using the Network File System (NFS) protocol.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/18/2021
+ms.date: 06/25/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
 ---
 
-# NFS file shares in Azure Files
-Azure Files offers two industry-standard protocols for mounting Azure file share: the [Server Message Block (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) protocol and the [Network File System (NFS)](https://en.wikipedia.org/wiki/Network_File_System) protocol. Azure Files enables you to pick the file system protocol that is the best fit for your workload. Azure file shares don't support accessing an individual Azure file share with both the SMB and NFS protocols, although you can create SMB and NFS file shares within the same storage account. For all file shares, Azure Files offers enterprise-grade file shares that can scale up to meet your storage needs and can be accessed concurrently by thousands of clients.
+# NFS file shares in Azure Files (preview)
+Azure Files offers two industry-standard protocols for mounting Azure file share: the [Server Message Block (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) protocol and the [Network File System (NFS)](https://en.wikipedia.org/wiki/Network_File_System) protocol (preview). Azure Files enables you to pick the file system protocol that is the best fit for your workload. Azure file shares don't support accessing an individual Azure file share with both the SMB and NFS protocols, although you can create SMB and NFS file shares within the same storage account. For all file shares, Azure Files offers enterprise-grade file shares that can scale up to meet your storage needs and can be accessed concurrently by thousands of clients.
 
 This article covers NFS Azure file shares. For information about SMB Azure file shares, see [SMB file shares in Azure Files](files-smb-protocol.md).
 
@@ -48,36 +48,31 @@ For more details on the available networking options, see [Azure Files networkin
 
 The following table shows the current level of support for Azure Files features in accounts that have the NFS 4.1 feature enabled. 
 
-The status of items that appear in this tables will change over time as support continues to expand.
+The status of items that appear in this tables may change over time as support continues to expand.
 
 | Storage feature | Supported for NFS shares |
 |-----------------|---------|
 | [File management plane REST API](/rest/api/storagerp/file-shares)	| ✔️ |
 | Encryption at rest|	✔️ |
+| Encryption in transit| ⛔ |
 | [LRS or ZRS redundancy types](storage-files-planning.md#redundancy)|	✔️ ||
 | [Private endpoints](storage-files-networking-overview.md#private-endpoints) | ✔️  |
-| [Restricted public endpoints*](storage-files-networking-overview.md#storage-account-firewall-settings)|  ✔️  |
-| Premium tier | |
-| POSIX-permissions| |
-| Root squash| |
+| [Grant network access to specific Azure virtual networks](storage-files-networking-endpoints.md#restrict-access-to-the-public-endpoint-to-specific-virtual-networks)|  ✔️  |
+| Grant network access to specific IP addresses| ⛔ |
+| Premium tier |  ✔️  |
+| Standard tier| ⛔ |
+| POSIX-permissions|  ✔️  |
+| Root squash|  ✔️  |
 | [Identity-based authentication](storage-files-active-directory-overview.md) | ⛔ |
 | [Azure file share soft delete](storage-files-prevent-file-share-deletion.md) | ⛔  |
 | [Azure File Sync](../file-sync/file-sync-introduction.md)| ⛔ |
 | [Azure file share backups](../../backup/azure-file-share-backup-overview.md)| ⛔ |
 | [Azure file share snapshots](storage-snapshots-files.md)| ⛔ |
 | [File data plane REST API](storageservices/file-service-rest-api)| ⛔ |
-| Encryption in transit| ⛔ |
 | [GRS or GZRS redundancy types](storage-files-planning.md#redundancy)| ⛔ |
 | [AzCopy](../common/storage-use-azcopy-v10.md)| ⛔ |
-| Standard tier| ⛔ |
 | Azure Storage Explorer| ⛔ |
-| Grant access from an internet IP range| |
-
-
-
-## Limitations
-
-[!INCLUDE [files-nfs-limitations](../../../includes/files-nfs-limitations.md)]
+| Enable NFS on existing storage accounts| ⛔ |
 
 ## Regional availability
 

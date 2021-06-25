@@ -9,9 +9,6 @@ ms.date: 06/04/2021
 ms.author: rogarana
 ms.custom: "include file"
 ---
-NFS currently has the following limitations:
+While in preview, NFS Azure file shares have the following limitations:
 
-- AzCopy is not currently supported.
 - Only available for the premium tier.
-
-### Azure Files features not yet supported
