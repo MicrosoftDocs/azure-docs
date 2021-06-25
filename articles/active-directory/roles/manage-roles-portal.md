@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
-ms.date: 06/24/2021
+ms.date: 06/25/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -77,7 +77,7 @@ Follow these steps to assign roles using the [Roles and administrators](https://
 
 1. On the **Setting** tab, select whether you wan to make this role assignment **Eligible** or **Active**.
 
-    An eligible role assignment means that the user must perform one or or more actions to use the role. An active role assignment means that the user doesn't have to perform any action to use the role.
+    An eligible role assignment means that the user must perform one or or more actions to use the role. An active role assignment means that the user doesn't have to perform any action to use the role. For more information about what these settings mean, see [PIM terminology](../privileged-identity-management/pim-configure.md#terminology).
 
     ![Add assignments page and Setting tab with PIM enabled.](./media/manage-roles-portal/add-assignments-pim-setting.png)
 
@@ -123,7 +123,7 @@ Follow these steps to assign Azure AD roles using PowerShell.
 
 ### Create an eligible role assignment using PIM
 
-If you have [PIM](../privileged-identity-management/pim-configure.md) enabled, you have the additional capabilities, such as making a user eligible for a role assignment or activating a role assignment. These capabilities use a different set of PowerShell commands such as [Open-AzureADMSPrivilegedRoleAssignmentRequest](/powershell/module/azuread/open-azureadmsprivilegedroleassignmentrequest). For steps on how to create an eligible role assignment, see [PowerShell for Azure AD roles in Privileged Identity Management](../privileged-identity-management/powershell-for-azure-ad-roles.md#assign-a-role).
+If you have PIM enabled, you have the additional capabilities, such as making a user eligible for a role assignment or activating a role assignment. These capabilities use a different set of PowerShell commands such as [Open-AzureADMSPrivilegedRoleAssignmentRequest](/powershell/module/azuread/open-azureadmsprivilegedroleassignmentrequest). For steps on how to create an eligible role assignment, see [PowerShell for Azure AD roles in Privileged Identity Management](../privileged-identity-management/powershell-for-azure-ad-roles.md#assign-a-role).
 
 ## Next steps
 
