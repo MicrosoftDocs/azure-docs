@@ -630,6 +630,7 @@ Set the Azure Resource Manager environment and verify that your device to client
             EdgeArmUser@localhost Default Provider Subscription c0257de7-538f-415c-993a-1b87a031879d AzDBE
             PS C:\Users\Administrator>
             ```
+---
 
 If you run into issues with your Azure Resource Manager connections, see [Troubleshoot Azure Resource Manager issues](azure-stack-edge-gpu-troubleshoot-azure-resource-manager.md) for guidance. 
 
