@@ -182,6 +182,24 @@ data:
           }
 ```
 
+To specify one or more lines in host table using INLINE:
+
+```yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: coredns-custom # this is the name of the configmap you can overwrite with your changes
+  namespace: kube-system
+data:
+    test.override: | # you may select any name here, but it must end with the .override file extension
+          hosts { 
+              10.0.0.1 example1.org
+              10.0.0.2 example2.org
+              10.0.0.3 example3.org
+              fallthrough
+          }
+```
+
 ## Enable logging for DNS query debugging 
 
 To enable DNS query logging, apply the following configuration in your coredns-custom ConfigMap:

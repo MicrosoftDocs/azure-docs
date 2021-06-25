@@ -1,11 +1,12 @@
 ---
 title: Examine the  Azure Video Analyzer for Media (formerly Video Indexer) output produced by v2 API - Azure
-titleSuffix: Azure Media Services
+titleSuffix: Azure Video Analyzer for Media
 description: This topic examines the Azure Video Analyzer for Media (formerly Video Indexer) output produced by v2 API.
-services: media-services
+services: azure-video-analyzer
 author: Juliako
 manager: femila
 ms.topic: article
+ms.subservice: azure-video-analyzer-media
 ms.date: 11/16/2020
 ms.author: juliako
 ---

@@ -31,14 +31,14 @@ When you add a TLS binding, you receive the following error message:
 
 #### Cause
 
-This problem can occur if you have multiple IP-based SSL bindings for the same IP address across multiple apps. For example, app A has an IP-based SSL with an old certificate. App B has an IP-based SSL with a new certificate for the same IP address. When you update the app TLS binding with the new certificate, it fails with this error because the same IP address is being used for another app. 
+This problem can occur if you have multiple IP-based TLS/SSL bindings for the same IP address across multiple apps. For example, app A has an IP-based TLS/SSL binding with an old certificate. App B has an IP-based TLS/SSL binding with a new certificate for the same IP address. When you update the app TLS binding with the new certificate, it fails with this error because the same IP address is being used for another app. 
 
 #### Solution 
 
 To fix this problem, use one of the following methods:
 
-- Delete the IP-based SSL binding on the app that uses the old certificate. 
-- Create a new IP-based SSL binding that uses the new certificate.
+- Delete the IP-based TLS/SSL binding on the app that uses the old certificate. 
+- Create a new IP-based TLS/SSL binding that uses the new certificate.
 
 ### You can't delete a certificate 
 
