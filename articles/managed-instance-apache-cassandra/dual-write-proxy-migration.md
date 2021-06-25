@@ -79,19 +79,30 @@ It is recommended that you install the proxy on all nodes in your source Cassand
 ```bash
 java -jar target/cassandra-proxy-1.0-SNAPSHOT-fat.jar localhost <target-server> --proxy-jks-file <path to JKS file> --proxy-jks-password <keystore password>
 ```
-For SSL, you can either implement an existing keystore (for example the one used by your source cluster), or you can create self-signed certificate using keytool:
-
-```bash
-keytool -genkey -keyalg RSA -alias selfsigned -keystore keystore.jks -storepass password -validity 360 -keysize 2048
-```
-
-> [!NOTE]
-> Make sure your client application uses the same keystore and password as the one used for the dual-write proxy when building SSL connections to the database via the proxy.
 
 Starting the proxy in this way assumes the following are true:
 
 - source and target endpoints have the same username and password
 - source and target endpoints implement SSL
+
+If your source and target endpoints cannot meet these criteria, read below for further configuration options. 
+
+### Configure SSL
+
+For SSL, you can either implement an existing keystore (for example the one used by your source cluster), or you can create self-signed certificate using keytool:
+
+```bash
+keytool -genkey -keyalg RSA -alias selfsigned -keystore keystore.jks -storepass password -validity 360 -keysize 2048
+```
+You can also disable SSL for source or target endpoints if they do not implement SSL. Use the `--disable-source-tls` or `--disable-target-tls` flags:
+
+```bash
+java -jar target/cassandra-proxy-1.0-SNAPSHOT-fat.jar localhost <target-server> --source-port 9042 --target-port 10350 --proxy-jks-file <path to JKS file> --proxy-jks-password <keystore password> --target-username <username> --target-password <password> --disable-source-tls true  --disable-target-tls true 
+```
+
+> [!NOTE]
+> Make sure your client application uses the same keystore and password as the one used for the dual-write proxy when building SSL connections to the database via the proxy.
+
 
 ### Configure credentials and port
 
@@ -105,14 +116,6 @@ The default source and target ports, when not specified, will be `9042`. If eith
 
 ```bash
 java -jar target/cassandra-proxy-1.0-SNAPSHOT-fat.jar localhost <target-server> --source-port 9042 --target-port 10350 --proxy-jks-file <path to JKS file> --proxy-jks-password <keystore password> --target-username <username> --target-password <password>
-```
-
-### Configure SSL
-
-You can also disable SSL for source or target endpoints if they do not implement SSL. Use the `--disable-source-tls` or `--disable-target-tls` flags:
-
-```bash
-java -jar target/cassandra-proxy-1.0-SNAPSHOT-fat.jar localhost <target-server> --source-port 9042 --target-port 10350 --proxy-jks-file <path to JKS file> --proxy-jks-password <keystore password> --target-username <username> --target-password <password> --disable-source-tls true  --disable-target-tls true 
 ```
 
 ### Deploy proxy remotely
