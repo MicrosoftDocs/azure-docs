@@ -464,7 +464,7 @@ To render `RemoteVideoStream`, application should do the following:
 Note:
 - if stream becomes unavailable (e.g. sender stopped video, or there's a network connectivity issue) while before `createView` resolves - `createView` will be rejected with an information that stream became unavailable
 - after `VideoStreamRendererView` instance is disposed, it can not be reused, application must created new VideoStreamRendererView instance using `createView` method
-
+- both `createView` and `dispose` can throw - application must handle these scenarios accordingly
 Full flow:
 ```js
 let videoStreamRenderer: VideoStreamRenderer = new VideoStreamRenderer(remoteVideoStream);
