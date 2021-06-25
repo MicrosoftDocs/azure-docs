@@ -94,7 +94,7 @@ When building an Azure Functions project, the build tools optimize the output so
 ```
 
 > [!NOTE]  
-> Support for `FunctionsPreservedDependencies` was [added](https://github.com/Azure/azure-functions-host/pull/6849) in [Microsoft.Azure.WebJobs.Script.ExtensionsMetadataGenerator 1.2.1](https://github.com/Azure/azure-functions-host/releases/tag/emg-v1.2.1)
+> Support for `FunctionsPreservedDependencies` was [added](https://github.com/Azure/azure-functions-host/pull/6849) in [Microsoft.Azure.WebJobs.Script.ExtensionsMetadataGenerator 1.2.1](https://github.com/Azure/azure-functions-host/releases/tag/emg-v1.2.1), which was first included in Microsoft.NET.Sdk.Functions version 3.0.12.
 
 This output optimization step can be completely disabled with the `FunctionsSkipCleanOutput` property.
 
@@ -105,7 +105,7 @@ This output optimization step can be completely disabled with the `FunctionsSkip
 ```
 
 > [!NOTE]  
-> `FunctionsSkipCleanOutput` was called `_FunctionsSkipCleanOutput` in older version of the build tools, including Azure Functions 1.x.
+> `FunctionsSkipCleanOutput` was called `_FunctionsSkipCleanOutput` in older version of the build tools, including in Azure Functions v 1.x.
 
 ## Configure the project for local development
 
