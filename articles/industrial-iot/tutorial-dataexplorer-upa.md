@@ -30,7 +30,7 @@ When you run the IoT Edge installer, select the **Use Docker Desktop** checkbox,
 
 ## Install and configure OPC Publisher
 
-Next, install and configure OPC Publisher, which is used to standardize and normalize all telemetry data using OPC UA PubSub on the Edge. We will use the OPC UA JSON encoding as it can be ingested directly into cloud databases without first requiring a separate cloud service to translate the binary format back into something the cloud database can understand, reducing the management overhead and cost in the cloud. This is an important point: Lots of people will tell you that they have found a more efficient telemetry encoding but they invariably underestimate the cost and management aspect of translating telemetry into a cloud database-ready format at scale in the cloud. 
+Next, install and configure OPC Publisher, which is used to standardize and normalize all telemetry data using OPC UA PubSub on the Edge. We will use the OPC UA JSON encoding as it can be ingested directly into cloud databases without first requiring a separate cloud service to translate the binary format back into something the cloud database can understand. Using this industry-standard format reduces the management overhead and cost in the cloud. This is an important point: Lots of people will tell you that they have found a more efficient telemetry encoding but they invariably underestimate the cost and management aspect of translating telemetry into a cloud database-ready format at scale in the cloud. 
 
 Now go to the **Getting Started** page for OPC Publisher and follow the instructions. For **Container Create Options**, specify the following.
 
@@ -54,21 +54,21 @@ Now go to the **Getting Started** page for OPC Publisher and follow the instruct
 }
 ```
 
-Next, configure the OPC UA data nodes from your machines (or connectivity adapter software) that generate cloud time-series telemetry messages from. To do so, copy the template ***publishednodes.json*** file from here to ***C:\IoTEdgeMapping*** and fill it in with the OPC UA server **EndpointURL** and OPC UA node IDs of the data you want to send to the cloud. If you don't know what to send, the data node with ID ns=0;i=2258 is the current time of the server, which changes every second. As you may know, OPC UA only publishes data changes if the data has changed, but OPC Publisher also supports reading and sending data at specific intervals, even if it has not changed. 
+Next, configure the OPC UA data nodes from your machines (or connectivity adapter software) that generate cloud time-series telemetry messages from. To do so, copy the template ***publishednodes.json*** file from here to ***C:\IoTEdgeMapping*** and fill it in with the OPC UA server **EndpointURL** and OPC UA node IDs of the data you want to send to the cloud. If you don't know what to send, the data node with ID ns=0;i=2258 is the current time of the server, which changes every second. OPC UA only publishes data changes if the data has changed. However, OPC Publisher also supports reading and sending data at specific intervals, even if it has not changed.
 
 Once you are done editing the file, restart OPC Publisher using the command line command "**iotedge restart OPCPublisher**" and OPC Publisher will try to connect to all OPC UA servers you have specified and publish all nodes listed. Experience has shown that you should first use an OPC UA client like UA Expert from the PC running IoT Edge to make sure you can connect to the OPC UA servers and also try the OPC UA server's IP address in the EndpointURL instead of the hostname, in case your DNS doesn't work. Now go back to your **IoT Hub** page in the Azure portal and double check that you can see **Device to Cloud** messages being received in the **Overview** tab.
 
 ## Set up the time series database
 
-Now set up the time series database in the cloud that will receive the OPC UA telemetry. This is handled by Azure Data Explorer, which internally uses several database layers for optimal performance, comes with rich analytics and dashboard capabilities and even supports predictions, as well as anomaly detection. Deploy an instance from the Azure portal, select the dev/test workload SKU and don't forget to enable streaming ingestion under configurations.
+Now set up the time series database in the cloud that will receive the OPC UA telemetry. It's best to use Azure Data Explorer for this because it uses several database layers for optimal performance, comes with rich analytics and dashboard capabilities, and even supports predictions and anomaly detection. Deploy an instance from the Azure portal, select the dev/test workload SKU, and don't forget to enable streaming ingestion under configurations.
 
-OPC UA uniquely identifies a telemetry data tag by the OPC UA server's **DatasetWriterID** as well as the **ExpandedNodeID** (which contains both the namespace and the node ID). Furthermore, the timestamp when the data is read by the OPC UA server before making it available to a connected client is called the *SourceTimeStamp*. So to create a time series of OPC UA telemetry, we want to provide the **DatasetWriterID**, the **ExpandedNodeID**, the data value read and the **SourceTimeStamp** in a database table. This is what you will create now, using Azure Data Explorer. Note that the data value type (float, int, etc.) can also be included in OPC UA PubSub messages, this is called *reversible encoding* in the OPC UA spec.
+OPC UA uniquely identifies a telemetry data tag by the OPC UA server's **DatasetWriterID** and the **ExpandedNodeID** (which contains both the namespace and the node ID). Furthermore, the timestamp when the data is read by the OPC UA server before making it available to a connected client is called the *SourceTimeStamp*. So to create a time series of OPC UA telemetry, we want to provide the **DatasetWriterID**, the **ExpandedNodeID**, the data value read, and the **SourceTimeStamp** in a database table. This is what you will create now, using Azure Data Explorer. Note that the data value type (float, int, etc.) can also be included in OPC UA PubSub messages; this is called *reversible encoding* in the OPC UA spec.
 
 First, create a database with the default 10-year data retention period, which should be enough for this use case. Then,.configure streaming ingestion directly from your IoT Hub by hitting **Create Data Connection** and selecting **IoT Hub**, Give the connection a name and pick your IoT Hub from the dropdown. Select *iothubowner* under **Shared Access Policy** and *$Default* for the **Consumer Group**. Leave the **Table name** blank for now, but select *MULTILINE JSON* under **Data format** and enter *opcua_mapping* for the **Mapping name**. Select **Create**.
 
 ## Create the database tables
 
-Create the required tables in the new database. First create a staging table with a single column which will receive the raw OPC UA PubSub JSON telemetry messages. Azure Data Explorer uses the built-in Kusto Query language (KQL), which is documented here. Select the **Query** tab and enter the following.
+Create the required tables in the new database. First create a staging table with a single column to receive the raw OPC UA PubSub JSON telemetry messages. Azure Data Explorer uses the built-in Kusto Query language (KQL), which is documented here. Select the **Query** tab and enter the following.
 
 ```
 .create table opcua_raw(payload: dynamic)
@@ -154,7 +154,7 @@ opcua_telemetry
 
 ## Create line graph of the data
 
-Now, let's create a line graph of the data by casting it all to floating-point numbers. If the cast fails, then the data is simply ignored. Use the hosted Azure Data Explorer dashboard for this. Click on **Open in Web UI** and in the new window, click on **Dashboards**, select **Create new Dashboard**, and choose **Add tile**. Then select **Data source** and enter the name of our Azure Data Explorer instance in the form https://<YourInstanceName>.<Your RegionName>.kusto.windows.net. Select your database and hit **apply**. Then enter the following query.
+Now, let's create a line graph of the data by casting it all to floating-point numbers. If the cast fails, then the data is ignored. Use the hosted Azure Data Explorer dashboard for this. Click on **Open in Web UI** and in the new window, click on **Dashboards**, select **Create new Dashboard**, and choose **Add tile**. Then select **Data source** and enter the name of our Azure Data Explorer instance in the form https://<YourInstanceName>.<Your RegionName>.kusto.windows.net. Select your database and hit **apply**. Then enter the following query.
 
 ```
 opcua_telemetry
