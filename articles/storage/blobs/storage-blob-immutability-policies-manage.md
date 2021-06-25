@@ -29,7 +29,7 @@ All access tiers and redundancy configurations are supported. However, if the st
 
 Storage accounts with a hierarchical namespace are not supported.
 
-## Enable version-level immutability for a container
+## Enable version-level immutability for a new container
 
 To use a version-level immutability policy, you must explicitly enable support for version-level WORM on the container. You can enable support for version-level WORM either when you create the container, or when you add a version-level immutability policy to an existing container.
 
@@ -41,19 +41,51 @@ To create a container that supports version-level immutability in the Azure port
 
     :::image type="content" source="media/storage-blob-immutability-policies-manage/create-container-version-level-immutability.png" alt-text="Screenshot showing how to create a container with version-level immutability enabled":::
 
-## Apply a default immutability policy to a container
+## Migrate an existing container to support version-level immutability
+
+To configure version-level immutability policies for an existing container, you must migrate the container to support version-level immutable storage. Container migration may take some time and cannot be reversed.
+
+An existing container must be migrated regardless of whether it has a container-level time-based retention policy configured. If the container has an existing container-level legal hold, then it cannot be migrated until the legal hold is removed.
+
+To migrate a container to support version-level immutable storage in the Azure portal, follow these steps:
+
+1. Navigate to the desired container.
+1. Select the **More** button on the right, then select **Access policy**.
+1. Under **Immutable blob storage**, select **Add policy**.
+1. For the **Policy type** field, choose *Time-based retention*, and specify the retention interval.
+1. Select **Enable version-level immutability**.
+1. Select **OK** to begin the migration.
+
+    :::image type="content" source="media/storage-blob-immutability-policies-manage/migrate-existing-container.png" alt-text="Screenshot showing how to migrate an existing container to support version-level immutability":::
+
+## Configure a default version-level time-based retention policy
+
+You can specify a default version-level time-based retention policy on a container that is enabled for version-level immutability. The default policy applies to all blob versions in the container, unless you override the policy for an individual version.
 
 To apply a default version-level immutability policy to a container in the Azure portal, follow these steps:
 
 1. In the Azure portal, navigate to the **Containers** page, and locate the container to which you want to apply the policy.
 1. Select the **More** button to the right of the container name, and choose **Access policy**.
 1. In the **Access policy** dialog, under the **Immutable blob storage** section, choose **Add policy**.
-1. Select the type of policy you wish to apply to the container, either a time-based retention policy or a legal hold.
-1. 
+1. Select **Time-based retention policy** and specify the retention interval.
+1. If desired, select **Allow additional protected appends** to enable 
+1. Select **OK** to apply the default policy to the container.
 
-## Migrate a container-based policy to a version-level policy
+    :::image type="content" source="media/storage-blob-immutability-policies-manage/configure-default-retention-policy-container.png" alt-text="Screenshot showing how to configure a default version-level retention policy for a container":::
 
-To enable support for version-level immutability for an existing container that has one or more blobs???, you must migrate the container to 
+## Determine the scope of a time-based retention policy
+
+To determine the scope of a time-based retention policy in the Azure portal, follow these steps:
+
+1. Navigate to the desired container.
+1. Select the **More** button on the right, then select **Access policy**.
+1. Under **Immutable blob storage**, locate the **Scope** field. If the container is configured with a default version-level retention policy, then the scope is set to Version, as shown in the following image:
+
+    :::image type="content" source="media/storage-blob-immutability-policies-manage/version-scoped-retention-policy.png" alt-text="Screenshot showing default version-level retention policy configured for container":::
+
+1. If the container is configured with a container-level retention policy, then the scope is set to Version, as shown in the following image:
+
+    :::image type="content" source="media/storage-blob-immutability-policies-manage/container-scoped-retention-policy.png" alt-text="Screenshot showing container-level retention policy configured for container":::
 
 ## Set retention policies and legal holds
 

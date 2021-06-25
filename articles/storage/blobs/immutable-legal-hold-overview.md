@@ -61,6 +61,11 @@ The following limits apply to legal holds:
 - For a container, a maximum of 10 legal hold policy audit logs are retained for the duration of the policy.
 
 
+**Are legal hold policies only for legal proceedings or are there other use scenarios?**
+
+No, Legal Hold is just the general term used for a non-time-based retention policy. It does not need to only be used for litigation-related proceedings. Legal Hold policies are useful for disabling overwrite and deletes for protecting important enterprise WORM data, where the retention period is unknown. You may use it as an enterprise policy to protect your mission critical WORM workloads or use it as a staging policy before a custom event trigger requires the use of a time-based retention policy. 
+
+
 ## Pricing
 
 There is no additional charge for using this feature. Immutable data is priced in the same way as mutable data. For pricing details on Azure Blob storage, see the [Azure Storage pricing page](https://azure.microsoft.com/pricing/details/storage/blobs/).
