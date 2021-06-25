@@ -81,4 +81,4 @@
 * Maximum Query String size - 4,096 bytes - Specifies the maximum length of the query string, in bytes.
 * Maximum HTTP response header size from health probe URL - 4,096 bytes - Specified the maximum length of all the response headers of health probes. 
 * Maximum rules engine action header value character: 640 characters.
-* Maximum rules engine condition header value character: 256 characters
+* Maximum rules engine condition header value character: 256 characters.
