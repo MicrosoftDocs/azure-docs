@@ -98,81 +98,6 @@ Data Migration Assistant supports performing scaled assessments and consolidatio
 > [!IMPORTANT]
 >Running assessments at scale for multiple databases can also be automated using [DMA's Command Line Utility](/sql/dma/dma-commandline) which also allows the results to be uploaded to [Azure Migrate](/sql/dma/dma-assess-sql-data-estate-to-sqldb#view-target-readiness-assessment-results) for further analysis and target readiness.
 
-#### In-Memory OLTP (Memory-optimized tables)
-
-SQL Server provides In-Memory OLTP capability that allows usage of memory-optimized tables, 
-memory-optimized table types and natively compiled SQL modules to run workloads that have high 
-throughput and low latency transactional processing requirements. 
-
-> [!IMPORTANT]
-> In-Memory OLTP is only supported in the Business Critical tier in Azure SQL Managed Instance 
-(and not supported in the General Purpose tier).
-
-If you have memory-optimized tables or memory-optimized table types in your on-premises SQL 
-Server and you are looking to migrate to Azure SQL Managed Instance, you should either:
-
-- Choose Business Critical tier for your target Azure SQL Managed Instance that supports 
-In-Memory OLTP, Or
-- If you want to migrate to General Purpose tier in Azure SQL Managed Instance, remove 
-memory-optimized tables, memory-optimized table types and natively compiled SQL modules that 
-interact with memory-optimized objects before migrating your database(s). The following T-SQL 
-query can be used to identify all objects that need to be removed before migration to General 
-Purpose tier:
-
-```tsql
-SELECT * FROM sys.tables WHERE is_memory_optimized=1
-SELECT * FROM sys.table_types WHERE is_memory_optimized=1
-SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
-```
-
-To learn more about in-memory technologies, see [Optimize performance by using in-memory 
-technologies in Azure SQL Database and Azure SQL Managed Instance](../in-memory-oltp-overview.md)
-
-### Create a performance baseline
-
-If you need to compare the performance of your workload on a SQL Managed Instance with your original workload running on SQL Server, create a performance baseline to use for comparison. See [performance baseline](sql-server-to-managed-instance-performance-baseline.md) to learn more. 
-
-Performance baseline is a set of parameters such as average/max CPU usage, average/max disk IO 
-latency, throughput, IOPS, average/max page life expectancy, and average max size of tempdb. You 
-would like to have similar or even better parameters after migration, so it is important to 
-measure and record the baseline values for these parameters. In addition to system parameters, 
-you would need to select a set of the representative queries or the most important queries in 
-your workload and measure min/average/max duration and CPU usage for the selected queries. These 
-values would enable you to compare performance of workload running on the managed instance to the 
-original values on your source SQL Server instance.
-
-Some of the parameters that you would need to measure on your SQL Server instance are:
-
-- [Monitor CPU usage on your SQL Server instance](https://techcommunity.microsoft.com/t5/
-Azure-SQL-Database/Monitor-CPU-usage-on-SQL-Server/ba-p/680777#M131) and record the average and 
-peak CPU usage.
-- [Monitor memory usage on your SQL Server instance](/sql/relational-databases/
-performance-monitor/monitor-memory-usage) and determine the amount of memory used by different 
-components such as buffer pool, plan cache, column-store pool, [In-Memory OLTP](/sql/
-relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage), etc. In addition, you
-should find average and peak values of the Page Life Expectancy memory performance counter.
-- Monitor disk IO usage on the source SQL Server instance using [sys.dm_io_virtual_file_stats](/
-sql/relational-databases/system-dynamic-management-views/
-sys-dm-io-virtual-file-stats-transact-sql) view or [performance counters](/sql/
-relational-databases/performance-monitor/monitor-disk-usage).
-- Monitor workload and query performance or your SQL Server instance by examining Dynamic 
-Management Views or Query Store if you are migrating from a SQL Server 2016+ version. Identify 
-average duration and CPU usage of the most important queries in your workload to compare them 
-with the queries that are running on the managed instance.
-
-> [!Note]
-> If you notice any issue with your workload on SQL Server such as high CPU usage, constant 
-memory pressure, or tempdb or parameterization issues, you should try to resolve them on your 
-source SQL Server instance before taking the baseline and migration. Migrating known issues to 
-any new system might cause unexpected results and invalidate any performance comparison.
-
-As an outcome of this activity, you should have documented average and peak values for CPU, 
-memory, and IO usage on your source system, as well as average and max duration and CPU usage of 
-the dominant and the most critical queries in your workload. You should use these values later to
-compare performance of your workload on a managed instance with the baseline performance of the 
-workload on the source SQL Server instance.
-
-
 ### Create SQL Managed Instance 
 
 Based on the information in the discover and assess phase, create an appropriately-sized target SQL Managed Instance. You can do so by using the [Azure portal](../../managed-instance/instance-create-quickstart.md), [PowerShell](../../managed-instance/scripts/create-configure-managed-instance-powershell.md), or an [Azure Resource Manager (ARM) Template](../../managed-instance/create-template-quickstart.md).
@@ -199,7 +124,6 @@ matching memory (for example, 5.1 GB/vCore in Gen5).
 (latency greater than 5 ms) and Business Critical (latency less than 3 ms) service tiers.
 - Based on baseline throughput, pre-allocate the size of data or log files to get expected IO 
 performance.
-
 
 ## Migrate
 
@@ -250,7 +174,6 @@ To perform migrations using DMS, follow the steps below:
 For a detailed step-by-step tutorial of this migration option, see [Migrate SQL Server to an Azure SQL Managed Instance online using DMS](../../../dms/tutorial-sql-server-managed-instance-online.md). 
    
 
-
 ### Backup and restore 
 
 One of the key capabilities of Azure SQL Managed Instance to enable quick and easy database migration is the native restore of database backup (`.bak`) files stored on on [Azure Storage](https://azure.microsoft.com/services/storage/). Backup and restore is an asynchronous operation based on the size of your database. 
@@ -261,7 +184,6 @@ The following diagram provides a high-level overview of the process:
 
 > [!NOTE]
 > The time to take the backup,  upload it to Azure storage, and perform a native restore operation to Azure SQL Managed Instance is based on the size of the database. Factor a sufficient downtime to accommodate the operation for large databases. 
-
 
 To migrate using backup and restore, follow these steps: 
 
