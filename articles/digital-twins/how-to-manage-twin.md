@@ -143,15 +143,7 @@ The defined properties of the digital twin are returned as top-level properties 
   - Synchronization status for each writable property. This is most useful for devices, where it's possible that the service and the device have diverging statuses (for example, when a device is offline). Currently, this property only applies to physical devices connected to IoT Hub. With the data in the metadata section, it is possible to understand the full status of a property, as well as the last modified timestamps. For more information about sync status, see this [IoT Hub tutorial](../iot-hub/tutorial-device-twins.md) on synchronizing device state.
   - Service-specific metadata, like from IoT Hub or Azure Digital Twins. 
 
-### Serialization Helpers
-
-Serialization helpers are helper functions available within the SDK for quickly creating or deserializing twin data for access to basic information. Since the core SDK methods return twin data as JSON by default, it can be helpful to use these helper classes to break the twin data down further.
-
-The available helper classes are:
-* `BasicDigitalTwin`: Generically represents the core data of a digital twin
-* `BasicDigitalTwinComponent`: Generically represents a component in the `Contents` properties of a `BasicDigitalTwin`
-* `BasicRelationship`: Generically represents the core data of a relationship
-* `DigitalTwinsJsonPropertyName`: Contains the string constants for use in JSON serialization and deserialization for custom digital twin types
+You can read more about the serialization helper classes like `BasicDigitalTwin` in [Concepts: Azure Digital Twins APIs and SDKs](concepts-apis-sdks.md#serialization-helpers).
 
 ## View all digital twins
 

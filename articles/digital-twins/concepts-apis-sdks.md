@@ -87,6 +87,16 @@ To use the SDK, include the NuGet package **Azure.DigitalTwins.Core** with your 
 
 For a detailed walk-through of using the APIs in practice, see the [Tutorial: Code a client app](tutorial-code.md). 
 
+### Serialization Helpers
+
+Serialization helpers are helper functions available within the SDK for quickly creating or deserializing twin data for access to basic information. Since the core SDK methods return twin data as JSON by default, it can be helpful to use these helper classes to break the twin data down further.
+
+The available helper classes are:
+* `BasicDigitalTwin`: Generically represents the core data of a digital twin
+* `BasicDigitalTwinComponent`: Generically represents a component in the `Contents` properties of a `BasicDigitalTwin`
+* `BasicRelationship`: Generically represents the core data of a relationship
+* `DigitalTwinsJsonPropertyName`: Contains the string constants for use in JSON serialization and deserialization for custom digital twin types
+
 ## General API/SDK usage notes
 
 > [!NOTE]
