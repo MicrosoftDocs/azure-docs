@@ -61,7 +61,7 @@
       href: pim-resource-roles-renew-extend.md
     - name: Privileged Access groups
       href: groups-renew-extend.md
-  - name: Settings
+  - name: Set role settings
     items:
     - name: Azure AD roles
       href: pim-how-to-change-default-settings.md
@@ -69,13 +69,13 @@
       href: pim-resource-roles-configure-role-settings.md
     - name: Privileged Access groups
       href: groups-role-settings.md
-  - name: Alerts
+  - name: Set up alerts
     items:
     - name: Azure AD roles
       href: pim-how-to-configure-security-alerts.md
     - name: Azure roles
       href: pim-resource-roles-configure-alerts.md
-  - name: Audit logs
+  - name: Audit PIM activity
     items:
     - name: Azure AD roles
       href: pim-how-to-use-audit-log.md
@@ -83,7 +83,7 @@
       href: azure-pim-resource-rbac.md
     - name: Privileged Access groups
       href: groups-audit.md
-  - name: Access reviews
+  - name: Review access
     items:
     - name: Azure AD roles
       items:
