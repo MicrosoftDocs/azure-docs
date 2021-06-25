@@ -41,7 +41,7 @@ Below is a summary comparing MSAL.NET and ADAL.NET supported grants for both pub
 
 The following image summarizes some of the differences between ADAL.NET and MSAL.NET for a public client application.
 
-![Screenshot showing some of the differences between ADAL.NET and MSAL.NET for a public client application.](media/msal-compare-msaldotnet-and-adaldotnet/differences.png).
+[![Screenshot showing some of the differences between ADAL.NET and MSAL.NET for a public client application.](media/msal-compare-msaldotnet-and-adaldotnet/differences.png)](media/msal-compare-msaldotnet-and-adaldotnet/differences.png#lightbox)
 
 Here are the grants supported in ADAL.NET and MSAL.NET for Desktop and Mobile applications.
 
@@ -56,7 +56,8 @@ Device code flow                  | [Device Code flow](scenario-desktop-acquire-
 
 The following image summarizes some of the differences between ADAL.NET and MSAL.NET for a confidential client application.
  
-![Screenshot showing some of the differences between ADAL.NET and MSAL.NET for a confidential client application.](media/msal-net-migration/confidential-client-application.png)
+[![Screenshot showing some of the differences between ADAL.NET and MSAL.NET for a confidential client application.](media/msal-net-migration/confidential-client-application.png)](media/msal-net-migration/confidential-client-application.png#lightbox)
+
 
 Here are the grants supported in ADAL.NET, MSAL.NET, and Microsoft.Identity.Web for web applications, web APIs, and daemon applications.
 
