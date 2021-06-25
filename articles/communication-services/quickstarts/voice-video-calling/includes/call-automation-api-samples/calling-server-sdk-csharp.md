@@ -137,16 +137,15 @@ Use the `AddParticipantAsync` method of the `CallConnection` object to add a par
 ```csharp
 // Preparing data for request
 var operationContext = Guid.NewGuid().ToString();
-var alternartCallerid = new PhoneNumberIdentifier(ConfigurationManager.AppSettings["SourcePhone"]).ToString();
 
 if (identifierKind == CommunicationIdentifierKind.UserIdentity)
 {
-	var response = await callConnection.AddParticipantAsync(new CommunicationUserIdentifier(addedParticipant), alternartCallerid, operationContext).ConfigureAwait(false);
+	var response = await callConnection.AddParticipantAsync(new CommunicationUserIdentifier(addedParticipant), null, operationContext).ConfigureAwait(false);
 	Logger.LogMessage(Logger.MessageType.INFORMATION, $"PlayAudioAsync response --> {response}");
 }
 else if (identifierKind == CommunicationIdentifierKind.PhoneIdentity)
 {
-	var response = await callConnection.AddParticipantAsync(new PhoneNumberIdentifier(addedParticipant), alternartCallerid, operationContext).ConfigureAwait(false);
+	var response = await callConnection.AddParticipantAsync(new PhoneNumberIdentifier(addedParticipant), callConfiguration.SourcePhoneNumber, operationContext).ConfigureAwait(false);
 	Logger.LogMessage(Logger.MessageType.INFORMATION, $"PlayAudioAsync response --> {response}");
 }
 ```
