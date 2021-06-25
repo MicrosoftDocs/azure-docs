@@ -1129,6 +1129,11 @@
       "source_path_from_root": "/articles/iot-central/core/howto-view-bill.md",
       "redirect_url": "/azure/iot-central/core/howto-faq#how-do-i-move-from-a-free-to-a-standard-pricing-plan",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/core/howto-connect-sphere.md",
+      "redirect_url": "/azure-sphere/app-development/setup-iot-central",
+      "redirect_document_id": false
     }
   ]
 }
