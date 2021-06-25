@@ -481,4 +481,4 @@ GET https://{your app subdomain}.azureiotcentral.com/api/devices/temperature-con
 
 ## Next steps
 
-Now that you've learned how to control devices with the REST API, a suggested next step is to [Manage IoT Central applications with the REST API](/learn/modules/manage-iot-central-apps-with-rest-api/).
+Now that you've learned how to control devices with the REST API, a suggested next step is to learn [How to use the IoT Central REST API to create and manage jobs](howto-manage-jobs-with-rest-api.md).

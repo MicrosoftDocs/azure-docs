@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 06/03/2021
+ms.date: 06/21/2021
 ms.author: alkohli
 ---
 # Collect VM guest logs on an Azure Stack Edge Pro GPU device
