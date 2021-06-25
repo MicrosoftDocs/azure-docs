@@ -17,7 +17,6 @@ Find the finalized code for this quickstart on [GitHub](https://github.com/Azure
 
 - A working [Communication Services calling Android app](../../getting-started-with-calling.md).
 - A [Teams deployment](/deployoffice/teams-install).
-- Federation must be enabled between your Teams tenant and your Communication Services resource. See [Teams interop](../../../../concepts/teams-interop.md).
 
 ## Add the Teams UI controls
 
