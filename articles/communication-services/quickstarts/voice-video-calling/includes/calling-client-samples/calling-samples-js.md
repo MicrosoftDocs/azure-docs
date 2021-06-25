@@ -462,7 +462,7 @@ To render `RemoteVideoStream`, application should do the following:
 - once stream becomes unavailable, application should `dispose` all views associated with the VideoStreamRenderer instance used to render given stream, it may also choose to `dispose` a `VideoStreamRenderer` instance itself.
 
 Note:
-- if stream becomes unavailable while before `createView` resolves - `createView` will be rejected with an information that stream became unavailable
+- if stream becomes unavailable (e.g. sender stopped video, or there's a network connectivity issue) while before `createView` resolves - `createView` will be rejected with an information that stream became unavailable
 - after `VideoStreamRendererView` instance is disposed, it can not be reused, application must created new instance using `createView` method
 
 Full flow:
