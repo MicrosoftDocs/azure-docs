@@ -2,13 +2,19 @@
 author: v-dalc
 ms.service: databox  
 ms.topic: include
-ms.date: 06/24/2021
+ms.date: 06/25/2021
 ms.author: alkohli
 ---
 
 To create a management resource for a device ordered through the Azure Edge Hardware Center, do these steps:
 
+<!--After a device is delivered, they can use a "Configure hardware" link in the order item details to start a new management resource. Can we branch within this procedure for steps 2-4? Test and try.-->
+
 1. Use your Microsoft Azure credentials to sign in to the Azure portal at this URL: [https://portal.azure.com](https://portal.azure.com).
+
+<!--Alt step (subs for 2-4):
+- In the Azure Edge Hardware Center: After your device is delivered, open the order, display detail for the order item, and select **Configure hardware**.
+- In the Azure Stack Edge portal: Select **+ Create**. Then select **Create management resource**. You can create a management resource in this way at any time. To be linked to an order item, a management resource must have the same subscription and resource group that was used for the order.--> 
 
 1. Search for and select **Azure Stack Edge**.
 

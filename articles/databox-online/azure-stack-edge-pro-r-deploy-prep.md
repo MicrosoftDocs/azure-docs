@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 06/24/2021
+ms.date: 06/25/2021
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro R so I can use it to transfer data to Azure. 
 ---
@@ -86,9 +86,9 @@ If you have an existing Azure Stack Edge resource to manage your physical device
 
 ### [Azure Edge Hardware Center](#tab/azure-edge-hardware-center)
 
-After an order in the Azure Edge Management Center is complete, you will create a management resource for each device that you ordered.
+After an order in the Azure Edge Management Center is complete, you will create a management resource for each device that you ordered.<!--TO BE ADDED: After the device is delivered, a "Configure hardware" option is added to the order item details. It opens the "Create a management resource" option.-->
 
-The person who will manage the physical device creates and maintains the management resource from the Azure Stack Edge portal. The activation key that's assigned to the management resource will associate the management resource with the order item when the device is activated.  
+The person managing the physical device creates and maintains the management resource via the Azure Stack Edge portal. When the device is activated, the management resource is associated with an order item. You can open the order item from the management resource and open the management resource from the order item. 
 
 [!INCLUDE [Create ](../../includes/azure-edge-hardware-center-new-order.md)]
 
