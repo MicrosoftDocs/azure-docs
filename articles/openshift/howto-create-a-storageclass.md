@@ -113,7 +113,8 @@ oc patch storageclass azure-file -p '{"metadata": {"annotations":{"storageclass.
 
 Create a new application and assign storage to it.
 
-Note: To use the `httpd-example` template you need to deploy your ARO cluster with pull secret enabled, see [Get a Red Hat pull secret](tutorial-create-cluster.md#get-a-red-hat-pull-secret-optional)
+> [!NOTE]
+> To use the `httpd-example` template, you must deploy your ARO cluster with the pull secret enabled. For more information, see [Get a Red Hat pull secret](tutorial-create-cluster.md#get-a-red-hat-pull-secret-optional).
 
 ```bash
 oc new-project azfiletest
