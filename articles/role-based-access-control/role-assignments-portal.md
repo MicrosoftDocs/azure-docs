@@ -175,7 +175,7 @@ Azure RBAC has a new experience for assigning Azure roles in the Azure portal th
 
 1. To assign the selected role to one or more managed identities, select **Managed identity**.
 
-1. Click **Add members**.
+1. Click **Select members**.
 
 1. In the **Select managed identities** pane, select whether the type is [system-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md) or [user-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md).
 
