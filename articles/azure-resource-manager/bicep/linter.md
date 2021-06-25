@@ -31,9 +31,7 @@ Microsoft added support for linting of Bicep files in VS Code and at the command
 
 ## Customize Linter
 
-Using this configuration file, you can enable or disable Linter, supply rule-specific values, and set the level of rules as well. What’s more – the Bicep VS Code extension even provides intellisense for this configuration file.
-
-The minimal Linter configuration of bicepconfig.json:
+Using bicepconfig.json, you can enable or disable Linter, supply rule-specific values, and set the level of rules as well. The following json is a sample bicepconfig.json:
 
 ```json
 {
@@ -41,11 +39,34 @@ The minimal Linter configuration of bicepconfig.json:
     "core": {
       "verbose": false,
       "enabled": true,
-      "rules": {}
+      "rules": {
+        "no-hardcoded-env-urls": {
+          "level": "warning"
+        },
+        "no-unused-params": {
+          "level": "error"
+        },
+        "no-unused-vars": {
+          "level": "error"
+        },
+        "prefer-interpolation": {
+          "level": "warning"
+        },
+        "secure-parameter-default": {
+          "level": "error"
+        },
+        "simplify-interpolation": {
+          "level": "warning"
+        }
+      }
     }
   }
 }
 ```
+
+bicepconfig.json can be placed alongside your templates in the same directory. The closest configuration file found up the folder tree is used.
+
+The Bicep extension of VS Code provides intellisense for editing this configuration file:
 
 
 bicep-linter-configure-intellisense.png
@@ -64,10 +85,12 @@ The current set of linter rules are minimal and taken from [arm-ttk test cases](
 Each rule has at least one property, level. This property commands the behavior of Bicep if the case if found in the Bicep file.
 You can use several values for level:
 
-* Error, if the situation is meet, for example, if you enable the no-unused-params, for example, and you left an unused param in your file, the build command will fail. It’s useful in a CI/CD scenario.
-* Warning, in this situation, you will have a warning message, but the build process will continue, and your bicep file will be translated into its JSON counterpart
-* Info, in this situation you will get a verbose message
-* Off, the rule is disabled
+| **level**  | **Build-time behavior** | **Editor behavior** |
+|--|--|--|
+| `Error` | Violations appear as Errors in command-line build output, and cause builds to fail. | Offending code is underlined with a red squiggle and appears in Problems tab. |
+| `Warning` | Violations appear as Warnings in command-line build output, but do not cause builds to fail. | Offending code is underlined with a yellow squiggle and appears in Problems tab. |
+| `Info` | Violations do not appear in command-line build output. | Offending code is underlined with a blue squiggle and appears in Problems tab. |
+| `Off` | Suppressed completely. | Suppressed completely. |
 
 ## Next steps
 
