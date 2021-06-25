@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Da Vinci Plan Net
+title: Tutorial - Da Vinci Plan Net - Azure API for FHIR
 description: This tutorial walks through setting up the Azure API for FHIR to pass Touchstone tests for the Da Vinci Payer Data Exchange Implementation Guide.
 services: healthcare-apis
 ms.service: healthcare-apis
@@ -65,7 +65,7 @@ The second test we'll walk through is testing [error handling](https://touchston
 
 The next test we'll walk through is the [query capabilities test](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/DaVinci/FHIR4-0-1-Test/PDEX/PlanNet/03-Query&activeOnly=false&contentEntry=TEST_SCRIPTS). This test is testing conformance against the profiles you loaded in the first test. You'll need to have resources loaded that conform to the profiles. The best path would be to test against resources that you already have in your database, but we also have the [DaVinci_PlanNet_Sample_Resources.http](https://github.com/microsoft/fhir-server/blob/main/docs/rest/DaVinciPlanNet/DaVinci_PlanNet_Sample_Resources.http) file with sample resources pulled from the examples in the IG that you can use to create the resources and test against.  
 
-:::image type="content" source="media/davinci-plan-net/touchstone-query-test-exec-failed.png" alt-text="Da Vinci plan net query test failed":::
+:::image type="content" source="media/davinci-plan-net/touchstone-query-test-execution-failed.png" alt-text="Da Vinci plan net query test failed":::
 
 > [!NOTE]
 > With the sample resources provided, you should expect a 98% success rate of the query tests:
