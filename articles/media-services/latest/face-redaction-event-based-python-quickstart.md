@@ -24,7 +24,7 @@ The specific transformation that will be used is called [Face Redactor](./analyz
 
 By the end of the quickstart you will be able to redact faces in a video:
 
-[!div class="mx-imgBorder"]![Example output](./media/faceredaction-eventbased-python-quickstart/output-redacted.gif)
+:::image type="content" source="./media/faceredaction-eventbased-python-quickstart/output-redacted.gif" alt-text="Example output":::
 
 ## Solution Overview
 
