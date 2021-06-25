@@ -43,7 +43,7 @@ A pipeline contains the logical flow for an execution of a set of activities. In
 
 2. In the **Properties** settings page of the pipeline, enter **demo** for **Name**.
 
-3. Under **Synapse* in the **Activities** pane, drag **Spark job definition** onto the pipeline canvas.
+3. Under **Synapse** in the **Activities** pane, drag **Spark job definition** onto the pipeline canvas.
 
      ![drag spark job definition](media/quickstart-transform-data-using-spark-job-definition/drag-spark-job-definition.png)
 
@@ -78,7 +78,7 @@ On this panel, you can reference to the Spark job definition to run.
 
 * Expand the Spark job definition list, you can choose an existing Apache Spark job definition. You can also create a new Apache Spark job definition by selecting the **New** button to reference the Spark job definition to be run.
 
-* You can add command-line arguments by clicking the **New** button. It should be noted that adding command-lin arguments will override the command-line arguments defined by the Spark job definition. <br> *Sample: `abfss://…/path/to/shakespeare.txt` `abfss://…/path/to/result`* <br>
+* You can add command-line arguments by clicking the **New** button. It should be noted that adding command-line arguments will override the command-line arguments defined by the Spark job definition. <br> *Sample: `abfss://…/path/to/shakespeare.txt` `abfss://…/path/to/result`* <br>
 
      ![spark job definition pipline settings](media/quickstart-transform-data-using-spark-job-definition/spark-job-definition-pipline-settings.png)
 
