@@ -10,25 +10,32 @@ To create a management resource for a device ordered through the Azure Edge Hard
 
 1. Use your Microsoft Azure credentials to sign in to the Azure portal at this URL: [https://portal.azure.com](https://portal.azure.com).
 
-<!--Alt step (subs for 2-4):
-- In the Azure Edge Hardware Center: After your device is delivered, open the order, display detail for the order item, and select **Configure hardware**.
-- In the Azure Stack Edge portal: Select **+ Create**. Then select **Create management resource**. You can create a management resource in this way at any time. To be linked to an order item, a management resource must have the same subscription and resource group that was used for the order.--> 
+1. There are two ways to get started creating a new management resource:
 
-1. Search for and select **Azure Stack Edge**.
+    - From the order in the Azure Edge Hardware Center: After you receive the device, open details for the related order item, and select **Configure hardware**.
+    
+      *SCREENSHOT: Add screenshot of order item detail, with Configure hardware selected.*
+    
+    - From Azure Stack Edge: Select **+ Create**. Then select **Create management resource**.
+    
+      *SCREENSHOT: Can I get away with showing 1 screenshot showing the service name, + Create button, and "Create management resource" option?* 
 
-    ![Screenshot showing the initial display when the Azure Stack Edge preview portal is opened](media/azure-edge-hardware-center-create-management-resource/create-management-resource-01.png)
+       <!--FULL STEPS FOR ASE--
+       Search for and select **Azure Stack Edge**.
 
-1. In the Azure Stack Edge portal, select **+ Create**.
+        ![Screenshot showing the initial display when the Azure Stack Edge preview portal is opened](media/azure-edge-hardware-center-create-management-resource/create-management-resource-01.png)
 
-    ![Screenshot showing how to select the + Create button on the Overview pane in Azure Stack Edge](media/azure-edge-hardware-center-create-management-resource/create-management-resource-02.png)
+        In the Azure Stack Edge portal, select **+ Create**.
 
-1. Select **Create management resource**.
+        ![Screenshot showing how to select the + Create button on the Overview pane in Azure Stack Edge](media/azure-edge-hardware-center-create-management-resource/create-management-resource-02.png)
 
-    ![Screenshot showing the Create management resource option in Azure Stack Hub](media/azure-edge-hardware-center-create-management-resource/create-management-resource-03.png)
+        Select **Create management resource**.
+
+        ![Screenshot showing the Create management resource option in Azure Stack Hub](media/azure-edge-hardware-center-create-management-resource/create-management-resource-03.png)-->
 
     The **Create management resource** wizard opens.
 
-1. On the **Basics** tab, enter the following settings:<!--Check informational text for each field.-->
+1. On the **Basics** tab, enter the following settings:
 
     | Setting                      | Value                                                                                        |
     |------------------------------|----------------------------------------------------------------------------------------------|
