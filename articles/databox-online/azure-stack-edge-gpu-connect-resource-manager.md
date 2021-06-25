@@ -475,7 +475,7 @@ Set the Azure Resource Manager environment and verify that your device to client
             ```powershell
             $pass = ConvertTo-SecureString "<Your password>" -AsPlainText -Force;
             $cred = New-Object System.Management.Automation.PSCredential("EdgeArmUser", $pass)
-            Connect-AzureRmAccount -EnvironmentName AzASE -TenantId c0257de7-538f-415c-993a-1b87a031879d -credential $cred
+            Connect-AzAccount -EnvironmentName AzASE -TenantId c0257de7-538f-415c-993a-1b87a031879d -credential $cred
             ```
 
             Use the tenant ID c0257de7-538f-415c-993a-1b87a031879d as in this instance it is hard coded.
