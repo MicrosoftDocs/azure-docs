@@ -488,7 +488,7 @@ remoteVideoStream.on('isAvailableChanged', async () => {
 	}
 });
 if (remoteVideoStream.isAvailable) {
-	renderVideo();
+	await renderVideo();
 }
 ```
 
