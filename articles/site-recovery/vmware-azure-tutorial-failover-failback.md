@@ -1,12 +1,14 @@
 ---
-title: Fail over VMware VMs to Azure with Site Recovery 
+title: Fail over VMware VMs to Azure with Site Recovery
 description: Learn how to fail over VMware VMs to Azure in Azure Site Recovery
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 12/16/2019
+ms.date: 06/25/2021
 ms.custom: MVC
 ---
-# Fail over  VMware VMs
+# Fail over VMware VMs
+
+<new sections for preview added - from Planned failover from Azure to on-premises (preview) sections till Next steps>
 
 This article describes how to fail over an on-premises VMware virtual machine (VM) to Azure with [Azure Site Recovery](site-recovery-overview.md).
 
@@ -28,7 +30,7 @@ In this tutorial, you learn how to:
 Complete the previous tutorials:
 
 1. Make sure you've [set up Azure](tutorial-prepare-azure.md) for on-premises disaster recovery of VMware VMs, Hyper-V VMs, and physical machines to Azure.
-2. Prepare your on-premises [VMware](vmware-azure-tutorial-prepare-on-premises.md) environment for disaster recovery. 
+2. Prepare your on-premises [VMware](vmware-azure-tutorial-prepare-on-premises.md) environment for disaster recovery.
 3. Set up disaster recovery for [VMware VMs](vmware-azure-tutorial.md).
 4. Run a [disaster recovery drill](tutorial-dr-drill-azure.md) to make sure that everything's working as expected.
 
@@ -90,6 +92,68 @@ In some scenarios, failover requires additional processing that takes around 8 t
 
 >[!TIP]
 > If you encounter any connectivity issues after failover, follow the [troubleshooting guide](site-recovery-failover-to-azure-troubleshoot.md).
+
+## Planned failover from Azure to on-premises (preview)
+
+You can perform a planned failover from Azure to on-premises. Since it is a planned failover activity, the recovery point is generated after the planned failover job is triggered.
+
+>[!NOTE]
+>Before proceeding, ensure that replication health of the machine is healthy, and all prerequisites stated below are met. << we need to add a link to health monitoring of the machines >>
+
+
+When the planned failover is triggered, pending changes are copied to on-premises, a latest recovery point of the VM is generated and Azure VM is shut down. Post this, on-premises machine is turned on.
+
+After a successful planned failover, the machine will be active in your on-premises environment.
+
+> [!NOTE]
+> If protected machine has iSCSI disks, the configuration is retained in Azure upon failover. After planned failover from Azure to on-premises, the iSCSI configuration cannot be retained. So, vmdk disks are created on the on-premises machine. To remove duplicate disks, delete the iSCSI disk as the data is replaced with vmdk disks. We are working on enhancing this experience in the upcoming releases.
+
+
+### Failed over VM to Azure - requirements
+
+Ensure the following for the VM,  after it is failed over to Azure:
+
+1. The VM in Azure should always be switched on.
+2. Ensure mobility agent services *service 1* and *service 2* are running on the VM. This is to ensure mobility agent in the VM can communicate with ASR services in Azure.
+3. The URLs mentioned at [https://docs.microsoft.com/en](vmware-to-azure-architecture-latest.md#outbound-connectivity-urls) are accessible from the VM.
+
+## Cancel planned failover
+
+If your on-premises environment is not ready or in case of any challenges, you can cancel the planned failover.
+
+To cancel a planned failover:
+
+1. Navigate to the machine in recovery services vault and select **Cancel Failover**.
+2. Click **OK** << is there a prompt after step one for which user confirms and says OK?>>
+
+If there are any issues preventing ASR from successfully cancelling the failed job, follow the recommended steps provided in the job. After following the recommended action, retry the cancel job.
+
+the previous planned failover operation will be cancelled. The machine in Azure will be returned to the state just before *planned failover* was triggered.
+
+You can perform a planned failover  any time later, once your on-premises conditions turn favorable.
+
+> [!NOTE]
+> Only planned failover from Azure to on-premises can be cancelled. Failover from on-premises to Azure cannot be cancelled.
+
+### Planned failover - failure
+
+If the planned failover fails, ASR automatically initiates a job to cancel the failed job and retrieves the state of the machine that was just before to the planned failover.
+
+In case cancellation of last planned failover job fails, ASR prompts you to initiate the cancellation manually. <<reinitiate? >>
+
+This information is provided as part of failed planned failover operation and as a health issue of the replicated item.
+
+If issue persists, contact Microsoft support. **Do not** disable replication.
+
+# Re-protect the on-premises machine to Azure after successful planned failover
+
+After successful planned failover, the machine is active in your on-premises.
+
+To protect your machine  in the future, ensure that the machine is replicated to Azure (re-protected).
+
+To do this, go to the machine, and select  **Re-protect** select the appliance of your choice, replication policy and proceed.
+
+After successfully enabling replication and initial replication, recovery points will be generated to offer business continuity from unwanted disruptions.
 
 ## Next steps
 

@@ -1,48 +1,20 @@
 ---
-title: VMware disaster recovery- replication appliance requirements in Azure Site Recovery - Classic
-description: This article describes support and requirements when deploying the replication appliance for VMware disaster recovery to Azure with Azure Site Recovery - Classic
+title: Deploy ASR replication appliance - preview
+description: This article describes support and requirements when deploying the replication appliance for VMware disaster recovery to Azure with Azure Site Recovery - Preview
 ms.service: site-recovery
 ms.topic: article
 ms.date: 06/23/2021
 ---
 
-# Replication appliance requirements for VMware disaster recovery to Azure - Preview
+# Deploy ASR replication appliance - Preview
 
 >[!NOTE]
 > The information in this article applies to Azure Site Recovery - preview. For information about configuration server requirements in Classic releases ,[see this article](vmware-azure-configuration-server-requirements.md).
 
-You deploy an on-premises re;ication appliance when you use [Azure Site Recovery](site-recovery-overview.md) for disaster recovery of VMware VMs and physical servers to Azure.
+You deploy an on-premises repication appliance when you use [Azure Site Recovery](site-recovery-overview.md) for disaster recovery of VMware VMs and physical servers to Azure.
 
 - The replication appliance coordinates communications between on-premises VMware and Azure. It also manages data replication.
 - [Learn more](vmware-azure-architecture-preview.md) about the replication appliance components and processes.
-
-## Deploy replication appliance
-
-To set up a new appliance, you can follow either of the following methods:
-
-### Create appliance using pre-configured virtual machine image
-
-1. Download the OVF template to set up an appliance on your on-premises environment.
-
-  We recommend this approach as all prerequisite configurations are handled by the template.  
-
-2. The OVF template spins up a machine with the required specifications.
-3. After the deployment is complete, power on the VM to accept Microsoft Evaluation license and click **Next**.
-4. In the next screen, provide the password for the administrator user.
-5. Select **Finalize**.
-
-The system restarts and you can login with the administrator user account.
-
-### Set up appliance on a virtual machine or physical server through PowerShell
- In case of any organizational restrictions, you can manually set up the ASR replication appliance through PowerShell.  
-
-1. Ensure a machine with the required [hardware](#hardware-requirements) and [software](#software-requirements) configuration is created.
-2. [Download](https://aka.ms/V2ARcmApplianceCreationPowershellZip) the zip that contains the required installers and place this folder on the ASR replication appliance.
-3.	After successfully copying the zip folder, unzip and extract the components of the folder.
-4. Go to the path where the folder is extracted to and execute the following PowerShell script as an administrator:
-```powershell
-   DRInstaller.ps1
-```
 
 ## Hardware requirements
 
@@ -279,8 +251,39 @@ Upon Selecting on *1 appliance(s)*, you will be re-directed to Azure Site Recove
 <image(asr-replication-appliance.png)>
 
 
+## Deploy replication appliance
+
+To set up a new appliance, you can follow either of the following methods:
+
+### Create appliance using pre-configured virtual machine image
+
+1. Download the OVF template to set up an appliance on your on-premises environment.
+
+  We recommend this approach as all prerequisite configurations are handled by the template.  
+
+2. The OVF template spins up a machine with the required specifications.
+3. After the deployment is complete, power on the VM to accept Microsoft Evaluation license and click **Next**.
+4. In the next screen, provide the password for the administrator user.
+5. Select **Finalize**.
+
+The system restarts and you can login with the administrator user account.
+
+### Set up appliance on a virtual machine or physical server through PowerShell
+ In case of any organizational restrictions, you can manually set up the ASR replication appliance through PowerShell.  
+
+1. Ensure a machine with the required [hardware](#hardware-requirements) and [software](#software-requirements) configuration is created.
+2. [Download](https://aka.ms/V2ARcmApplianceCreationPowershellZip) the zip that contains the required installers and place this folder on the ASR replication appliance.
+3.	After successfully copying the zip folder, unzip and extract the components of the folder.
+4. Go to the path where the folder is extracted to and execute the following PowerShell script as an administrator:
+```powershell
+   DRInstaller.ps1
+```
 ## Sizing and capacity
-You can create and use multiple replication appliances based on your requirement.
+You can create and use multiple replication appliances in a vault.
+
+- You can perform discovery of all the machines in a vCenter server, using any of the replication appliances in the vault.
+
+- You can switch a protected machine, between different appliances in the same vault, given the selected appliance is healthy.
 
 ## Next steps
 Set up disaster recovery of [VMware VMs](vmware-azure-tutorial.md) to Azure.
