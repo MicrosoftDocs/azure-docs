@@ -29,17 +29,15 @@ These are the bare minimum requirements for an Azure Virtual Desktop deployment 
 
 However, you can also build a deployment with multiple host pools that offer different apps to different groups of users.
 
-Some customers choose to create separate Azure subscriptions to store each Azure Virtual Desktop deployment in. This practice lets you distinguish the cost of each deployment from each other based on the sub-organizations they provide resources to. Others 
-
-Some customers often choose to separate Azure Virtual Desktop deployments by Azure subscription to distinguish Azure Virtual Desktop costs by sub-organization for which they provide resources. Others choose to use Azure billing scopes to distinguish costs at a more granular level. To learn more. see [Understand and work with scopes](../cost-management-billing/costs/understand-work-scopes.md).
+Some customers choose to create separate Azure subscriptions to store each Azure Virtual Desktop deployment in. This practice lets you distinguish the cost of each deployment from each other based on the sub-organizations they provide resources to. Others choose to use Azure billing scopes to distinguish costs at a more granular level. To learn more, see [Understand and work with scopes](../cost-management-billing/costs/understand-work-scopes.md).
 
 ## Deploying Azure Virtual Desktop for users outside your organization
 
 If your Azure Virtual Desktop deployment will serve end-users outside your organization, especially users that don't typically use Windows or don't have access to your organization's internal resources, you'll need to make extra security considerations.
 
-Azure Virtual Desktop doesn't currently support external identities, including B2B or B2C users. You'll need to create and manage these identities manually and provide the credentials to your users yourself. Users will then use these identities to access resources in Azure Virtual Desktop.
+Azure Virtual Desktop doesn't currently support external identities, including business-to-business (B2B) or business-to-client (B2C) users. You'll need to create and manage these identities manually and provide the credentials to your users yourself. Users will then use these identities to access resources in Azure Virtual Desktop.
 
 These identities should be hybrid, where each real-world organization you're serving is assigned to its own Active Directory and Azure Active Directory (Azure AD) tenant. This separation means you'll have to create a separate Azure Virtual Desktop deployment for each organization that's totally isolated from the other deployments and their resources. The virtual machines that each organization uses shouldn't be able to access the resources of other companies to keep information secure. You can set up these separate deployments by using either a combination of Active Directory Domain Services (AD DS) and Azure AD Connect or Azure AD DS.
 
 >[!IMPORTANT]
->If you want to use Azure Virtual Desktop as PaaS to serve software-as-a-service (SaaS) apps to your customers, then you must limit your deployment to one Active Directory per real-world tenant to keep things secure. Adding users from different organizations to the same Azure tenant risks creating security breaches, so we recommend avoiding this scenario, if possible.
+>If you want to use Azure Virtual Desktop as a product-as-a-service (PaaS) to serve software-as-a-service (SaaS) apps to your customers, then you must limit your deployment to one Active Directory per real-world tenant to keep things secure. Adding users from different organizations to the same Azure tenant risks creating security breaches, so we recommend avoiding this scenario, if possible.

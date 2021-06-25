@@ -20,7 +20,9 @@
     href: 
   - name: Estimate streaming costs 
     href: 
-- name: Reference
+- name: Concepts
   items:
   - name: Architecture recommendations
     href: architecture-recs.md
+- name: References
+  items:
