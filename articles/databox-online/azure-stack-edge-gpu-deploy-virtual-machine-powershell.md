@@ -1035,7 +1035,6 @@ Get-AzureRmVM -ResourceGroupName <String> -Name <String>
 ---
 
 
-
 ### Turn on the VM
 
 To turn on a virtual machine that's running on your device, run the following cmdlet:
