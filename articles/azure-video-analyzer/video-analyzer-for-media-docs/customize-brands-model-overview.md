@@ -1,12 +1,13 @@
 ---
 title: Customize a Brands model in Azure Video Analyzer for Media (formerly Video Indexer) - Azure  
-titleSuffix: Azure Media Services
+titleSuffix: Azure Video Analyzer for Media
 description: This article gives an overview of what is a Brands model in Azure Video Analyzer for Media (formerly Video Indexer) and how to customize it. 
-services: media-services
+services: azure-video-analyzer
 author: Juliako
 manager: femila
 
 ms.topic: article
+ms.subservice: azure-video-analyzer-media
 ms.date: 12/15/2019
 ms.author: juliako
 ---

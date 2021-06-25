@@ -12,8 +12,8 @@ ms.custom: include file
 ms.author: mikben
 ---
 
-> [!NOTE]
-> Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/Add-chat)
+## Sample Code
+Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/Add-chat).
 
 ## Prerequisites
 
@@ -87,7 +87,6 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.jakewharton.threetenabp.AndroidThreeTen;
-import org.threeten.bp.OffsetDateTime;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -157,14 +156,11 @@ In following steps, we'll replace the placeholders with sample code using the Az
 Replace the comment `<CREATE A CHAT CLIENT>` with the following code (put the import statements at top of the file):
 
 ```java
-import com.azure.android.core.credential.AccessToken;
-import com.azure.android.core.http.policy.BearerTokenAuthenticationPolicy;
 import com.azure.android.core.http.policy.UserAgentPolicy;
 
 ChatAsyncClient chatAsyncClient = new ChatClientBuilder()
     .endpoint(endpoint)
-    .addPolicy(new BearerTokenAuthenticationPolicy((request, callback) ->
-        callback.onSuccess(new AccessToken(firstUserAccessToken, OffsetDateTime.now().plusDays(1))), "chat"))
+    .credential(new CommunicationTokenCredential(firstUserAccessToken))
     .addPolicy(new UserAgentPolicy(APPLICATION_ID, SDK_NAME, sdkVersion))
     .buildAsyncClient();
 
@@ -175,8 +171,8 @@ The following classes and interfaces handle some of the major features of the Az
 
 | Name                                   | Description                                                                                                                                                                           |
 | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ChatClient/ChatAsyncClient | This class is needed for the Chat functionality. You instantiate it with your subscription information, and use it to create, get, and delete threads. |
-| ChatThreadClient/ChatThreadAsyncClient | This class is needed for the Chat Thread functionality. You obtain an instance via the ChatClient, and use it to send/receive/update/delete messages, add/remove/get users, send typing notifications and read receipts, subscribe chat events. |
+| ChatClient/ChatAsyncClient | This class is needed for the Chat functionality. You instantiate it with your subscription information, and use it to create, get, delete threads, and subscribe to chat events. |
+| ChatThreadClient/ChatThreadAsyncClient | This class is needed for the Chat Thread functionality. You obtain an instance via the ChatClient, and use it to send/receive/update/delete messages, add/remove/get users, send typing notifications and read receipts. |
 
 ## Start a chat thread
 
@@ -217,8 +213,7 @@ Now that we've created a Chat thread we'll obtain a `ChatThreadAsyncClient` to p
 ```
 ChatThreadAsyncClient chatThreadAsyncClient = new ChatThreadClientBuilder()
     .endpoint(endpoint)
-    .addPolicy(new BearerTokenAuthenticationPolicy((request, callback) ->
-        callback.onSuccess(new AccessToken(firstUserAccessToken, OffsetDateTime.now().plusDays(1))), "chat"))
+    .credential(new CommunicationTokenCredential(firstUserAccessToken))
     .addPolicy(new UserAgentPolicy(APPLICATION_ID, SDK_NAME, sdkVersion))
     .chatThreadId(threadId)
     .buildAsyncClient();
@@ -252,15 +247,12 @@ With real-time signaling, you can subscribe to new incoming messages and update 
 Replace the comment `<RECEIVE CHAT MESSAGES>` with the following code (put the import statements at top of the file):
 
 ```java
-import com.azure.android.communication.chat.signaling.chatevents.ChatEvent;
-import com.azure.android.communication.chat.signaling.chatevents.ChatMessageReceivedEvent;
-import com.azure.android.communication.chat.signaling.properties.ChatEventId;
 
 // Start real time notification
 chatAsyncClient.startRealtimeNotifications(firstUserAccessToken, getApplicationContext());
 
 // Register a listener for chatMessageReceived event
-String listenerId = chatAsyncClient.addEventHandler(ChatEventId.chatMessageReceived, (ChatEvent payload) -> {
+chatAsyncClient.addEventHandler(ChatEventType.CHAT_MESSAGE_RECEIVED, (ChatEvent payload) -> {
     ChatMessageReceivedEvent chatMessageReceivedEvent = (ChatMessageReceivedEvent) payload;
     // You code to handle chatMessageReceived event
     
@@ -304,7 +296,6 @@ Replace the `<LIST USERS>` comment with the following code (put the import state
 
 ```java
 import com.azure.android.core.rest.util.paging.PagedAsyncStream;
-import com.azure.android.core.util.AsyncStreamHandler;
 import com.azure.android.core.util.RequestContext;
 
 // The maximum number of participants to be returned per page, optional.
@@ -318,10 +309,10 @@ ListParticipantsOptions listParticipantsOptions = new ListParticipantsOptions()
     .setMaxPageSize(maxPageSize)
     .setSkip(skip);
 
-PagedAsyncStream<ChatParticipant> participantPagedAsyncStream
-    = chatThreadAsyncClient.listParticipants(new ListParticipantsOptions(), RequestContext.NONE);
+PagedAsyncStream<ChatParticipant> participantsPagedAsyncStream =
+      chatThreadAsyncClient.listParticipants(listParticipantsOptions, RequestContext.NONE);
 
-participantPagedAsyncStream.forEach(participant -> {
+participantsPagedAsyncStream.forEach(chatParticipant -> {
     // You code to handle participant
 });
 
@@ -372,14 +363,14 @@ ListReadReceiptOptions listReadReceiptOptions = new ListReadReceiptOptions()
     .setMaxPageSize(maxPageSize)
     .setSkip(skip);
 
-PagedAsyncStream<ChatMessageReadReceipt> readReceipts =
-    chatThreadAsyncClient.listReadReceipts(listReadReceiptOptions, RequestContext.NONE);
-readReceipts.forEach(readReceipt -> {
+PagedAsyncStream<ChatMessageReadReceipt> readReceiptsPagedAsyncStream =
+      chatThreadAsyncClient.listReadReceipts(listReadReceiptOptions, RequestContext.NONE);
+
+readReceiptsPagedAsyncStream.forEach(readReceipt -> {
     // You code to handle readReceipt
 });
 
 ```
-
 
 ## Run the code
 

@@ -57,7 +57,7 @@ Several resources are defined in the template:
     - **Admin username**: provide a username, such as *azureuser*.
     - **Authentication type**: You can choose between using an SSH key or a password.
     - **Admin Password Or Key** depending on what you choose for authentication type:
-        - If you choose **password**, the password must be at least 12 characters long and meet the [defined complexity requirements](faq.md#what-are-the-password-requirements-when-creating-a-vm).
+        - If you choose **password**, the password must be at least 12 characters long and meet the [defined complexity requirements](faq.yml#what-are-the-password-requirements-when-creating-a-vm-).
         - If you choose **sshPublicKey**, paste in the contents of your public key.
     - **DNS label prefix**: enter a unique identifier to use as part of the DNS label.
     - **Ubuntu OS version**: select which version of Ubuntu you want to run on the VM.

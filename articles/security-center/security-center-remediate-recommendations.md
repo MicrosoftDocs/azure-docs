@@ -21,7 +21,7 @@ After reviewing all the recommendations, decide which one to remediate first. We
 
 1. Follow the instructions in the **Remediation steps** section. Each recommendation has its own set of instructions. The following screenshot shows remediation steps for configuring applications to only allow traffic over HTTPS.
 
-    :::image type="content" source="./media/security-center-remediate-recommendations/security-center-remediate-recommendation.png" alt-text="Manual remediation steps for a recommendation" lightbox="./media/security-center-remediate-recommendations/security-center-remediate-recommendation.png":::
+    :::image type="content" source="./media/security-center-remediate-recommendations/security-center-remediate-recommendation.png" alt-text="Manual remediation steps for a recommendation." lightbox="./media/security-center-remediate-recommendations/security-center-remediate-recommendation.png":::
 
 1. Once completed, a notification appears informing you whether the issue is resolved.
 
@@ -34,7 +34,7 @@ To simplify remediation and improve your environment's security (and increase yo
 > [!TIP]
 > The **Fix** feature is only available for specific recommendations. To find recommendations that have an available fix, use the **Response actions** filter for the list of recommendations:
 > 
-> :::image type="content" source="media/security-center-remediate-recommendations/quick-fix-filter.png" alt-text="Use the filters above the recommendations list to find recommendations that have the Fix option":::
+> :::image type="content" source="media/security-center-remediate-recommendations/quick-fix-filter.png" alt-text="Use the filters above the recommendations list to find recommendations that have the Fix option.":::
 
 To implement a **Fix**:
 
@@ -49,7 +49,7 @@ To implement a **Fix**:
 
 1. In the confirmation box, read the remediation details and implications.
 
-    ![Quick fix](./media/security-center-remediate-recommendations/security-center-quick-fix-view.png)
+    ![Quick fix.](./media/security-center-remediate-recommendations/security-center-quick-fix-view.png)
 
     > [!NOTE]
     > The implications are listed in the grey box in the **Remediate resources** window that opens after clicking **Remediate**. They list what changes happen when proceeding with the **Fix**.

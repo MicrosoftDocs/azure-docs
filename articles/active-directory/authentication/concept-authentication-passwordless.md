@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/10/2021
+ms.date: 06/11/2021
 
 ms.author: justinha
 author: justinha
@@ -107,7 +107,7 @@ The following process is used when a user signs in with a FIDO2 security key:
 
 While there are many keys that are FIDO2 certified by the FIDO Alliance, Microsoft requires some optional extensions of the FIDO2 Client-to-Authenticator Protocol (CTAP) specification to be implemented by the vendor to ensure maximum security and the best experience.
 
-A security key **must** implement the following features and extensions from the FIDO2 CTAP protocol to be Microsoft-compatible. For more information, see the [Client to Authenticator Protocol](https://fidoalliance.org/specs/fido-v2.1-rd-20210309/fido-client-to-authenticator-protocol-v2.1-rd-20210309.html).
+A security key **must** implement the following features and extensions from the FIDO2 CTAP protocol to be Microsoft-compatible. Authenticator vendor must implement both FIDO_2_0 and FIDO_2_1 version of the spec. For more information, see the [Client to Authenticator Protocol](https://fidoalliance.org/specs/fido-v2.1-rd-20210309/fido-client-to-authenticator-protocol-v2.1-rd-20210309.html).
 
 | # | Feature / Extension trust | Why is this feature or extension required? |
 | --- | --- | --- |
@@ -131,7 +131,7 @@ The following providers offer FIDO2 security keys of different form factors that
 |---------------------------|:-----------------:|:---:|:---:|:---:|:--------------:|-----------------------------------------------------------------------------------------------------|
 | AuthenTrend               | ![y]              | ![y]| ![y]| ![y]| ![n]           | https://authentrend.com/about-us/#pg-35-3                                                           |
 | Ensurity                  | ![y]              | ![y]| ![n]| ![n]| ![n]           | https://www.ensurity.com/contact                                                                    |
-| Excelsecu                 | ![n]              | ![y]| ![n]| ![n]| ![n]           | https://www.excelsecu.com/productdetail/esecufido2secu.html                                         |
+| Excelsecu                 | ![y]              | ![y]| ![y]| ![y]| ![n]           | https://www.excelsecu.com/productdetail/esecufido2secu.html                                         |
 | Feitian                   | ![y]              | ![y]| ![y]| ![y]| ![n]           | https://shop.ftsafe.us/pages/microsoft                                                                   |
 | Gemalto (Thales Group)    | ![n]              | ![y]| ![y]| ![n]| ![n]           | https://safenet.gemalto.com/access-management/authenticators/fido-devices                           |
 | GoTrustID Inc.            | ![n]              | ![y]| ![y]| ![y]| ![n]           | https://www.gotrustid.com/idem-key                                                                  |

@@ -10,8 +10,9 @@ ms.service: azure-communication-services
 
 In this quickstart, you'll learn how to start a call using the Azure Communication Services Calling SDK for iOS.
 
-> [!NOTE]
-> Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/Add%20Voice%20Calling)
+## Sample Code
+
+You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/Add%20Voice%20Calling).
 
 ## Prerequisites
 
@@ -124,7 +125,11 @@ The following classes and interfaces handle some of the major features of the Az
 
 ## Authenticate the client
 
-Initialize a `CallAgent` instance with a User Access Token which will enable us to make and receive calls. Add the following code to the `onAppear` callback in **ContentView.swift**:
+Initialize a `CallAgent` instance with a User Access Token which will enable us to make and receive calls. 
+
+In the following code, you will need to replace `<USER ACCESS TOKEN>` with a valid user access token for your resource. Refer to the [user access token](../../../access-tokens.md) documentation if you don't already have a token available.
+
+Add the following code to the `onAppear` callback in **ContentView.swift**:
 
 ```swift
 var userCredential: CommunicationTokenCredential?
@@ -150,7 +155,7 @@ self.callClient?.createCallAgent(userCredential: userCredential!) { (agent, erro
 }
 ```
 
-You need to replace `<USER ACCESS TOKEN>` with a valid user access token for your resource. Refer to the [user access token](../../../access-tokens.md) documentation if you don't already have a token available.
+
 
 ## Start a call
 
@@ -203,7 +208,3 @@ You can make an outbound VOIP call by providing a user ID in the text field and 
 
 > [!NOTE]
 > The first time you make a call, the system will prompt you for access to the microphone. In a production application, you should use the `AVAudioSession` API to [check the permission status](https://developer.apple.com/documentation/uikit/protecting_the_user_s_privacy/requesting_access_to_protected_resources) and gracefully update your application's behavior when permission is not granted.
-
-## Sample Code
-
-You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/Add%20Voice%20Calling)

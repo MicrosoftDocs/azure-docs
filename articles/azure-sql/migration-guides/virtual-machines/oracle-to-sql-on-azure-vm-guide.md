@@ -214,7 +214,7 @@ To publish your schema and migrate the data, follow these steps:
    ![Screenshot that shows a SQL Server instance in SSMA.](./media/oracle-to-sql-on-azure-vm-guide/validate-in-ssms.png)
 
 Instead of using SSMA, you could use SQL Server Integration Services (SSIS) to migrate the data. To learn more, see: 
-- The article [SQL Server Integration Services](//sql/integration-services/sql-server-integration-services).
+- The article [SQL Server Integration Services](/sql/integration-services/sql-server-integration-services).
 - The white paper [SSIS for Azure and Hybrid Data Movement](https://download.microsoft.com/download/D/2/0/D20E1C5F-72EA-4505-9F26-FEF9550EFD44/SSIS%20Hybrid%20and%20Azure.docx).
 
 

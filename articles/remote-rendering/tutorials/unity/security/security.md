@@ -173,11 +173,11 @@ AAD authentication will allow you to determine which individuals or groups are u
 
 The **RemoteRenderingCoordinator** script has a delegate named **ARRCredentialGetter**, which holds a method that returns a **SessionConfiguration** object, which is used to configure the remote session management. We can assign a different method to **ARRCredentialGetter**, allowing us to use an Azure sign in flow, generating a **SessionConfiguration** object that contains an Azure Access Token. This Access Token will be specific to the user that's signing in.
 
-1. Follow the [How To: Configure authentication - Authentication for deployed applications](../../../how-tos/authentication.md#authentication-for-deployed-applications), specifically you'll follow the instructions listed in the Azure Spatial Anchors documentation [Azure AD user authentication](../../../../spatial-anchors/concepts/authentication.md?tabs=csharp#azure-ad-user-authentication). Which involves registering a new Azure Active Directory application and configuring access to your ARR instance.
+1. Follow the [How To: Configure authentication - Authentication for deployed applications](../../../how-tos/authentication.md#authentication-for-deployed-applications), which involves registering a new Azure Active Directory application and configuring access to your ARR instance.
 1. After configuring the new AAD application, check your AAD application looks like the following images:
 
     **AAD Application -> Authentication**
-    ![App authentication](./media/app-authentication-public.png)
+    ![App authentication](./../../../how-tos/media/aad-app-setup.png)
 
     **AAD Application -> API Permissions**
     ![App APIs](./media/request-api-permissions-step-five.png)
@@ -185,7 +185,7 @@ The **RemoteRenderingCoordinator** script has a delegate named **ARRCredentialGe
 1. After configuring your Remote Rendering account, check your configuration looks like the following image:
 
     **AAR -> AccessControl (IAM)**
-    ![ARR Role](./media/azure-remote-rendering-role-assignment-complete.png)
+    ![ARR Role](./../../../how-tos/media/arr-role-assignments.png)
 
     >[!NOTE]
     > An *Owner* role is not sufficient to manage sessions via the client application. For every user you want to grant the ability to manage sessions you must provide the role **Remote Rendering Client**. For every user you want to manage sessions and convert models, you must provide the role **Remote Rendering Administrator**.
@@ -253,9 +253,9 @@ With the Azure side of things in place, we now need to modify how your code conn
         string authority => "https://login.microsoftonline.com/" + AzureTenantID;
     
         string redirect_uri = "https://login.microsoftonline.com/common/oauth2/nativeclient";
-    
-        string[] scopes => new string[] { "https://sts." + AzureRemoteRenderingAccountDomain + "/mixedreality.signin" };
-    
+
+        string[] scopes => new string[] { "https://sts.mixedreality.azure.com/mixedreality.signin" };
+
         public void OnEnable()
         {
             RemoteRenderingCoordinator.ARRCredentialGetter = GetAARCredentials;
@@ -373,9 +373,12 @@ Since the User Credentials aren't stored on the device (or in this case even ent
 
 In the Unity Editor, when AAD Auth is active, you will need to authenticate every time you launch the application. On device, the authentication step will happen the first time and only be required again when the token expires or is invalidated.
 
-1. Add the **AADAuthentication** component to the **RemoteRenderingCoordinator** GameObject.
+1. Add the **AAD Authentication** component to the **RemoteRenderingCoordinator** GameObject.
 
     ![AAD auth component](./media/azure-active-directory-auth-component.png)
+
+> [!NOTE]
+> If you are using the completed project from the [ARR samples repository](https://github.com/Azure/azure-remote-rendering), make sure to enable the **AAD Authentication** component by clicking the checkbox next to its title.
 
 1. Fill in your values for the Client ID and the Tenant ID. These values can be found in your App Registration's Overview Page:
 
@@ -388,7 +391,7 @@ In the Unity Editor, when AAD Auth is active, you will need to authenticate ever
     ![Screenshot that highlights the Application (client) ID and Directory (tenant) ID.](./media/app-overview-data.png)
 
 1. Press Play in the Unity Editor and consent to running a session.
-    Since the **AADAuthentication** component has a view controller, its automatically hooked up to display a prompt after the session authorization modal panel.
+    Since the **AAD Authentication** component has a view controller, its automatically hooked up to display a prompt after the session authorization modal panel.
 1. Follow the instructions found in the panel to the right of the **AppMenu**.
     You should see something similar to this:
     ![Illustration that shows the instruction panel that appears to the right of the AppMenu.](./media/device-flow-instructions.png)
