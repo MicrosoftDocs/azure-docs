@@ -18,6 +18,7 @@ Find the finalized code for this quickstart on [GitHub](https://github.com/Azure
 - A working [Communication Services calling Android app](../../getting-started-with-calling.md).
 - A [Teams deployment](/deployoffice/teams-install).
 
+
 ## Add the Teams UI controls
 
 Replace code in activity_main.xml with following snippet. The text box will be used to enter the Teams meeting context and the button will be used to join the specified meeting:
