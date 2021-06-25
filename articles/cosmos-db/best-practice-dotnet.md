@@ -15,7 +15,7 @@ ms.author: esarroyo
 
 This article walks through the best practices for using the Azure Cosmos DB .NET SDK. Following these practices, will help improve your latency, availability, and boost overall performance. 
 
-Watch the video below to learn more best practices when using the .NET SDK:
+Watch the video below to learn more about using the .NET SDK from one of our engineers!
 
 > [!VIDEO https://www.youtube.com/embed/McZIQhZpvew?start=118]
 
