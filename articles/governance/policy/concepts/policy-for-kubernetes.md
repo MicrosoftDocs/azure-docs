@@ -249,8 +249,8 @@ cluster service principal.
 
    |Domain |Port |
    |---|---|
-   |`gov-prod-policy-data.trafficmanager.net` |`443` |
-   |`raw.githubusercontent.com` |`443` |
+   |`data.policy.core.windows.net` |`443` |
+   |`store.policy.core.windows.net` |`443` |
    |`login.windows.net` |`443` |
    |`dc.services.visualstudio.com` |`443` |
 

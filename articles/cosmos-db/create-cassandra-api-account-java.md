@@ -37,7 +37,7 @@ This tutorial covers the following tasks:
 
 ## Create a database account 
 
-[!INCLUDE [cosmos-db-create-dbaccount-cassandra](../../includes/cosmos-db-create-dbaccount-cassandra.md)]
+[!INCLUDE [cosmos-db-create-dbaccount-cassandra](includes/cosmos-db-create-dbaccount-cassandra.md)]
 
 ## Get the connection details of your account  
 

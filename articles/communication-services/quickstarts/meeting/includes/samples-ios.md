@@ -158,151 +158,6 @@ Add other mandatory MeetingUIClientCallIdentityProviderDelegate protocol methods
 	}
 ```
 
-## Use Teams Embed SDK and Azure Communication Calling SDK in the same app
-
-Teams Embed SDK provides also Azure Communication Calling SDK (ACS) within it, which allows to use both of the SDK features in the same app. 
-Only one SDK can be initialized and used at the time. Having both SDKs initialized and used at the same time will result in unexpected behavior. 
-
-Import `TeamsAppSDK` to access Azure Communication Calling SDK from Teams Embed SDK. 
-```swift
-import TeamsAppSDK
-```
-
-Declare variables for ACS usage
-```swift
-class ViewController: UIViewController {
-
-    private var callClient: CallClient?
-    private var callAgent: CallAgent?
-    private var call: Call?
-    
-    //Rest of the UIViewController code
-}
-    
-```
-
-Initialization is done by creating new `CallClient`. Add the creation to `viewDidLoad` or to any other method.
-
-```swift
-override func viewDidLoad() {
-    super.viewDidLoad()
-    self.callClient = CallClient()
-}
-```
-Use all ACS APIs like they are described in its documentation. The API usage is not discussed in this documentation. 
-
-Dispose the ACS SDK and set `nil` to its variables after the usage is not needed anymore or the app needs to use Teams Embed SDK.
-```swift
-    public func disposeAcsSdk()
-    {
-        self.call = nil
-        self.callAgent?.dispose()
-        self.callClient?.dispose()
-        self.callAgent = nil
-        self.callClient = nil
-    }
-
-```
-
-Teams Embed SDK initialization is also done during creating `MeetingUIClient`. Add the creation to `viewDidLoad` or to any other method.
-```swift
-override func viewDidLoad() {
-    super.viewDidLoad()
-    do {
-        let communicationTokenRefreshOptions = CommunicationTokenRefreshOptions(initialToken: "<USER_ACCESS_TOKEN>", refreshProactively: true, tokenRefresher: fetchTokenAsync(completionHandler:))
-        let credential = try CommunicationTokenCredential(withOptions: communicationTokenRefreshOptions)
-        meetingUIClient = MeetingUIClient(with: credential)
-    }
-    catch {
-        print("Failed to create communication token credential")
-    }
-}
-
-private func fetchTokenAsync(completionHandler: @escaping TokenRefreshHandler) {
-    func getTokenFromServer(completionHandler: @escaping (String) -> Void) {
-        completionHandler("<USER_ACCESS_TOKEN>")
-    }
-    getTokenFromServer { newToken in
-        completionHandler(newToken, nil)
-    }
-}
-
-```
-Use the Teams Embed SDK APIs like they are described in its documentation. The API usage is not discussed in this documentation. 
-
-Dispose the Teams Embed SDK and set `nil` to its variables after the usage is not needed anymore or the app needs to use ACS SDK.
-```swift
-    private func disposeTeamsSdk() {
-        self.meetingUIClient?.dispose(completionHandler: { (error: Error?) in
-            if (error != nil) {
-                print("Dispose failed: \(error!)")
-            } else {
-                self.meetingUIClient = nil
-                self.meetingUIClientCall = nil
-            }
-        })        
-    }
-
-```
-
-Disposing Teams Embed SDK is only possible if there are no active calls. The `meetingUIClient?.dispose` will return error in its completion handler if there's an active call. 
-Hang up the active call and call `self.disposeTeamsSdk()` if there was no active call left.
-```swift
-	
-	private var shouldDispose: Bool = false
-
-	public func endMeeting() {
-        meetingUIClientCall?.hangUp(completionHandler: { (error: Error?) in
-            if (error != nil) {
-                print("End meeting failed: \(error!)")
-                // There are no active calls
-                self.disposeTeamsSdk()
-            } else {
-            	// Ending active call is in progress.
-	            self.shouldDispose = true;
-            }
-        })
-    }
-
-```
-
-Implement `MeetingUIClientCallDelegate` protocol method `meetingUIClientCall(didUpdateCallState callState: MeetingUIClientCallState)` to get status update about active call being ended and dispose the Teams Embed SDK after it.
-```swift
-    func meetingUIClientCall(didUpdateCallState callState: MeetingUIClientCallState) {
-        switch callState {
-        case .connecting:
-        case .connected:
-        case .waitingInLobby:
-        case .ended:
-        	if (self.shouldDispose) {
-            	self.disposeTeamsSdk()
-            }
-        @unknown default:
-            print("Unsupported state")
-        }
-    }
-```
-
-Add other mandatory `MeetingUIClientCallDelegate` protocol methods to the class
-
-```swift
-    func meetingUIClientCall(didUpdateRemoteParticipantCount remoteParticipantCount: UInt) {
-        print("Remote participant count has changed to: \(remoteParticipantCount)")
-    }
-
-    func onIsMutedChanged() {
-        print("Mute state changed to: \(meetingUIClientCall?.isMuted ?? false)")
-    }
-    
-    func onIsSendingVideoChanged() {
-        print("Sending video state changed to: \(meetingUIClientCall?.isSendingVideo ?? false)")
-    }
-    
-    func onIsHandRaisedChanged(_ participantIds: [Any]) {
-        print("Self participant raise hand status changed to: \(meetingUIClientCall?.isHandRaised ?? false)")
-    }
-```
-
 ## Receive information about user actions in the UI and add your own custom functionalities.
 
 The `MeetingUIClientCallUserEventDelegate` delegate methods are called upon user actions in remote participant's profile.
@@ -458,7 +313,7 @@ func provideScreenBackgroudColor() -> UIColor? {
 }
 ```
 
-## Customize on staging call screen
+### Customize on staging call screen
 
 The `MeetingUIClient` provides support to customize the staging call screen UI. Currently it supports customizing the UI using `MeetingUIClientStagingScreenDelegate` protocol methods.
 While joining the call or meeting, set the join options property `enableCallStagingScreen` to `true` to display the staging screen.
@@ -512,7 +367,7 @@ func provideStagingScreenBackgroundColor() -> UIColor? {
 }
 ```
 
-## Customize on connecting call screen
+### Customize on connecting call screen
 
 The `MeetingUIClient` provides support to customize the connecting call screen UI. Currently it supports customizing the UI using `MeetingUIClientConnectingScreenDelegate` protocol methods.
 Use the icon configuration method `set(iconConfig: Dictionary<MeetingUIClientIconType, String>)` exposed in `MeetingUIClient` to change only the icons displayed and use the functionality provided by the `MeetingUIClient`.
@@ -611,7 +466,7 @@ public func unmute(completionHandler: @escaping (Error?) -> Void)
 
 meetingUIClientCall?.unmute { [weak self] (error) in
     if error != nil {
-        print("Mute call failed: \(error!)")
+        print("Unmute call failed: \(error!)")
     }
 }
 ```
@@ -641,9 +496,154 @@ public func showCallRoster(completionHandler: @escaping (Error?) -> Void)
 public func getSupportedLayoutModes() -> [MeetingUIClientLayoutMode]
 public func changeLayout(mode: MeetingUIClientLayoutMode, completionHandler: @escaping (Error?) -> Void)
 
-// Hangs up the call or leaves the meeting.
+// Hang up the call or leave the meeting.
 public func hangUp(completionHandler: @escaping (Error?) -> Void)
 
 // Set the user role for an active call.
 public func setRoleFor(identifier: CommunicationIdentifier, userRole: MeetingUIClientUserRole, completionHandler: @escaping (Error?) -> Void)
+```
+
+## Use Teams Embed SDK and Azure Communication Calling SDK in the same app
+
+Teams Embed SDK provides also Azure Communication Calling SDK (ACS) within it, which allows to use both of the SDK features in the same app. 
+Only one SDK can be initialized and used at the time. Having both SDKs initialized and used at the same time will result in unexpected behavior. 
+
+Import `TeamsAppSDK` to access Azure Communication Calling SDK from Teams Embed SDK. 
+```swift
+import TeamsAppSDK
+```
+
+Declare variables for ACS usage
+```swift
+class ViewController: UIViewController {
+
+    private var callClient: CallClient?
+    private var callAgent: CallAgent?
+    private var call: Call?
+    
+    //Rest of the UIViewController code
+}
+    
+```
+
+Initialization is done by creating new `CallClient`. Add the creation to `viewDidLoad` or to any other method.
+
+```swift
+override func viewDidLoad() {
+    super.viewDidLoad()
+    self.callClient = CallClient()
+}
+```
+Use all ACS APIs like they are described in its documentation. The API usage is not discussed in this documentation. 
+
+Dispose the ACS SDK and set `nil` to its variables after the usage is not needed anymore or the app needs to use Teams Embed SDK.
+```swift
+    public func disposeAcsSdk()
+    {
+        self.call = nil
+        self.callAgent?.dispose()
+        self.callClient?.dispose()
+        self.callAgent = nil
+        self.callClient = nil
+    }
+
+```
+
+Teams Embed SDK initialization is also done during creating `MeetingUIClient`. Add the creation to `viewDidLoad` or to any other method.
+```swift
+override func viewDidLoad() {
+    super.viewDidLoad()
+    do {
+        let communicationTokenRefreshOptions = CommunicationTokenRefreshOptions(initialToken: "<USER_ACCESS_TOKEN>", refreshProactively: true, tokenRefresher: fetchTokenAsync(completionHandler:))
+        let credential = try CommunicationTokenCredential(withOptions: communicationTokenRefreshOptions)
+        meetingUIClient = MeetingUIClient(with: credential)
+    }
+    catch {
+        print("Failed to create communication token credential")
+    }
+}
+
+private func fetchTokenAsync(completionHandler: @escaping TokenRefreshHandler) {
+    func getTokenFromServer(completionHandler: @escaping (String) -> Void) {
+        completionHandler("<USER_ACCESS_TOKEN>")
+    }
+    getTokenFromServer { newToken in
+        completionHandler(newToken, nil)
+    }
+}
+
+```
+Use the Teams Embed SDK APIs like they are described in its documentation. The API usage is not discussed in this documentation. 
+
+Dispose the Teams Embed SDK and set `nil` to its variables after the usage is not needed anymore or the app needs to use ACS SDK.
+```swift
+    private func disposeTeamsSdk() {
+        self.meetingUIClient?.dispose(completionHandler: { (error: Error?) in
+            if (error != nil) {
+                print("Dispose failed: \(error!)")
+            } else {
+                self.meetingUIClient = nil
+                self.meetingUIClientCall = nil
+            }
+        })        
+    }
+
+```
+
+Disposing Teams Embed SDK is only possible if there are no active calls. The `meetingUIClient?.dispose` will return error in its completion handler if there's an active call. 
+Hang up the active call and call `self.disposeTeamsSdk()` if there was no active call left.
+```swift
+    
+    private var shouldDispose: Bool = false
+
+    public func endMeeting() {
+        meetingUIClientCall?.hangUp(completionHandler: { (error: Error?) in
+            if (error != nil) {
+                print("End meeting failed: \(error!)")
+                // There are no active calls
+                self.disposeTeamsSdk()
+            } else {
+                // Ending active call is in progress.
+                self.shouldDispose = true;
+            }
+        })
+    }
+
+```
+
+Implement `MeetingUIClientCallDelegate` protocol method `meetingUIClientCall(didUpdateCallState callState: MeetingUIClientCallState)` to get status update about active call being ended and dispose the Teams Embed SDK after it.
+```swift
+    func meetingUIClientCall(didUpdateCallState callState: MeetingUIClientCallState) {
+        switch callState {
+        case .connecting:
+        case .connected:
+        case .waitingInLobby:
+        case .ended:
+            if (self.shouldDispose) {
+                self.disposeTeamsSdk()
+            }
+        @unknown default:
+            print("Unsupported state")
+        }
+    }
+```
+
+Add other mandatory `MeetingUIClientCallDelegate` protocol methods to the class
+
+```swift
+    func meetingUIClientCall(didUpdateRemoteParticipantCount remoteParticipantCount: UInt) {
+        print("Remote participant count has changed to: \(remoteParticipantCount)")
+    }
+
+    func onIsMutedChanged() {
+        print("Mute state changed to: \(meetingUIClientCall?.isMuted ?? false)")
+    }
+    
+    func onIsSendingVideoChanged() {
+        print("Sending video state changed to: \(meetingUIClientCall?.isSendingVideo ?? false)")
+    }
+    
+    func onIsHandRaisedChanged(_ participantIds: [Any]) {
+        print("Self participant raise hand status changed to: \(meetingUIClientCall?.isHandRaised ?? false)")
+    }
 ```

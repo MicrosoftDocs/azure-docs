@@ -253,8 +253,6 @@ For more information about creating your own cluster, see [Create a Service Fabr
 
 You can deploy the application the Azure cluster using the Service Fabric CLI. If Service Fabric CLI is not installed on your machine, follow instructions [here](service-fabric-get-started-linux.md#set-up-the-service-fabric-cli) to install it.
 
-The certificate file (.pfx) needs to be inserted to the browser otherwise we get an Access to containertestcluster.eastus.cloudapp.azure.com was denied (HTTP ERROR 403) error message.
-
 Connect to the Service Fabric cluster in Azure. Replace the sample endpoint with your own. The endpoint must be a full URL similar to the one below.  The PEM file is the self-signed certificate that was previously created.
 
 ```bash

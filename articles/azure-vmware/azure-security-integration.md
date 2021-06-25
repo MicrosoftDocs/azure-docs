@@ -32,7 +32,7 @@ The diagram shows the integrated monitoring architecture of integrated security 
 - [Enable Azure Security Center in your subscription](../security-center/security-center-get-started.md). 
 
    >[!NOTE]
-   >Azure Security Center is a pre-configured tool that doesn't require deployment, but you'll need to enable it in the Azure portal.
+   >Azure Security Center is a pre-configured tool that doesn't require deployment, but you'll need to enable it.
 
 - [Enable Azure Defender](../security-center/enable-azure-defender.md). 
 

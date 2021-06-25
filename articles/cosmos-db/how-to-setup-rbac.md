@@ -4,7 +4,7 @@ description: Learn how to configure role-based access control with Azure Active 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 06/08/2021
+ms.date: 06/15/2021
 ms.author: thweiss
 ---
 
@@ -273,7 +273,7 @@ az cosmosdb sql role definition list --account-name $accountName --resource-grou
 
 ### Using Azure Resource Manager templates
 
-See [this page](/rest/api/cosmos-db-resource-provider/2021-04-01-preview/sqlresources2/create-update-sql-role-definition) for a reference and examples of using Azure Resource Manager templates to create role definitions.
+See [this page](/rest/api/cosmos-db-resource-provider/2021-04-15/sqlresources2/create-update-sql-role-definition) for a reference and examples of using Azure Resource Manager templates to create role definitions.
 
 ## <a id="role-assignments"></a> Create role assignments
 
@@ -328,7 +328,7 @@ az cosmosdb sql role assignment create --account-name $accountName --resource-gr
 
 ### Using Azure Resource Manager templates
 
-See [this page](/rest/api/cosmos-db-resource-provider/2021-04-01-preview/sqlresources2/create-update-sql-role-assignment) for a reference and examples of using Azure Resource Manager templates to create role assignments.
+See [this page](/rest/api/cosmos-db-resource-provider/2021-04-15/sqlresources2/create-update-sql-role-assignment) for a reference and examples of using Azure Resource Manager templates to create role assignments.
 
 ## Initialize the SDK with Azure AD
 
@@ -411,6 +411,28 @@ This additional information flows in the **DataPlaneRequests** log category and 
 - `aadPrincipalId_g` shows the principal ID of the AAD identity that was used to authenticate the request.
 - `aadAppliedRoleAssignmentId_g` shows the [role assignment](#role-assignments) that was honored when authorizing the request.
 
+## <a id="disable-local-auth"></a> Enforcing RBAC as the only authentication method
+
+In situations where you want to force clients to connect to Azure Cosmos DB through RBAC exclusively, you have the option to disable the account's primary/secondary keys. When doing so, any incoming request using either a primary/secondary key or a resource token will be actively rejected.
+
+### Using Azure Resource Manager templates
+
+When creating or updating your Azure Cosmos DB account using Azure Resource Manager templates, set the `disableLocalAuth` property to `true`:
+
+```json
+"resources": [
+    {
+        "type": " Microsoft.DocumentDB/databaseAccounts",
+        "properties": {
+            "disableLocalAuth": true,
+            // ...
+        },
+        // ...
+    },
+    // ...
+ ]
+```
+
 ## Limits
 
 - You can create up to 100 role definitions and 2,000 role assignments per Azure Cosmos DB account.
@@ -438,7 +460,7 @@ Yes.
 
 ### Is it possible to disable the usage of the account primary/secondary keys when using RBAC?
 
-Disabling the account primary/secondary keys is not currently possible.
+Yes, see [Enforcing RBAC as the only authentication method](#disable-local-auth).
 
 ## Next steps
 
