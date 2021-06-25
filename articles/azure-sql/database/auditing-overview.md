@@ -8,7 +8,7 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 06/18/2021
+ms.date: 06/24/2021
 ms.custom: azure-synapse, sqldbrb=1
 ---
 # Auditing for Azure SQL Database and Azure Synapse Analytics
@@ -287,3 +287,9 @@ You can manage Azure SQL Database auditing using [Azure Resource Manager](../../
 
 > [!NOTE]
 > The linked samples are on an external public repository and are provided 'as is', without warranty, and are not supported under any Microsoft support program/service.
+
+## See also
+
+- Data Exposed episode [What's New in Azure SQL Auditing](https://channel9.msdn.com/Shows/Data-Exposed/Whats-New-in-Azure-SQL-Auditing) on Channel 9.
+- [Auditing for SQL Managed Instance](https://docs.microsoft.com/azure/azure-sql/managed-instance/auditing-configure)
+- [Auditing for SQL Server](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine)
