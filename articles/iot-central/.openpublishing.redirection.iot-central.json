@@ -1119,6 +1119,13 @@
       "source_path_from_root": "/articles/iot-central/core/howto-get-app-info.md",
       "redirect_url": "/azure/iot-central/core/howto-faq#how-do-i-get-information-about-my-application",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/core/how-to-move-device-to-iot.md",
+      "redirect_url": "/azure/iot-central/core/howto-faq#how-do-i-transfer-a-device-from-iot-hub-to-iot-central",
+      "redirect_document_id": false
     }
   ]
 }
+
+

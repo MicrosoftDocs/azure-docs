@@ -32,6 +32,19 @@ To get information about your IoT Central application:
 
     Use the **Copy info** button to copy the information to the clipboard.
 
+## How do I transfer a device from IoT Hub to IoT Central?
+
+A device can connect to an IoT hub directly using a connection string or using the [Device Provisioning Service (DPS)](../../iot-dps/about-iot-dps.md). IoT Central always uses DPS.
+
+To connect a device that was connected to IoT Hub to IoT Central, update the device with:
+
+- The Scope ID of the IoT Central application.
+- A key derived from the application's group SAS key or X.509 certificate.
+
+To learn more, see [Get connected to Azure IoT Central](concepts-get-connected.md)
+
+To interact with IoT Central, there must be a device template that models the device capabilities. To learn more, see [What are device templates?](concepts-device-templates.md).
+
 ## How do I check for credential issues if a device isn't connecting to my IoT Central application?
 
 The [Troubleshoot why data from your devices isn't showing up in Azure IoT Central](troubleshoot-connection.md) includes steps to diagnose connectivity issues for devices.
