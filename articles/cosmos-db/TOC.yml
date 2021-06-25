@@ -1496,7 +1496,7 @@
               href: cosmos-db-advanced-queries.md                      
             - name: Audit control plane logs
               href: audit-control-plane-logs.md
-        - name: Configure alerts
+        - name: Configure alerts 
           href: create-alerts.md
         - name: Monitoring data reference
           href: monitor-cosmos-db-reference.md
