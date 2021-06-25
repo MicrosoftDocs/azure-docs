@@ -12,10 +12,12 @@ ms.service: azure-communication-services
 ---
 
 # Best practices: Azure Communication Services calling SDKs
-This article provides information about best practices related to the Azure Communication Services Calling SDKs.
+This article provides information about best practices related to the Azure Communication Services (ACS) calling SDKs.
 
-## JavaScript SDK
-This section provides information about best practices associated with the Azure Communication Services JavaScript voice and video calling SDKs.
+## ACS web JavaScript SDK best practices
+This section provides information about best practices associated with the Azure Communication Services JavaScript voice and video calling SDK.
+
+## JavaScript voice and video calling SDK
 
 ### Plug-in microphone or enable microphone from device manager when ACS call in progress
 When there is no microphone available at the beginning of a call, and then a microphone becomes available, the "noMicrophoneDevicesEnumerated" call diagnostic event will be raised.
@@ -43,3 +45,10 @@ Your application should invoke `call.hangup` when the `onbeforeunload` event is 
 When an iOS/Safari user receives a PSTN call, Azure Communication Services loses microphone access. 
 Azure Communication Services will raise the `microphoneMuteUnexpectedly` call diagnostic event, and at this point Communication Services will not be able to regain access to microphone.
 It's recommended to hang up the call ( `call.hangUp` ) when this situation occurs.
+
+## Next steps
+For more information, see the following articles:
+
+- [Add chat to your app](../quickstarts/chat/get-started.md)
+- [Add voice calling to your app](../quickstarts/voice-video-calling/getting-started-with-calling.md)
+- [Reference documentation](reference.md)
