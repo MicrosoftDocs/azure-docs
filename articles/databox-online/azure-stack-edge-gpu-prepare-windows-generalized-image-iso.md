@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 06/18/2021
+ms.date: 06/25/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to quickly deploy new Windows virtual machines on my Azure Stack Edge Pro GPU device, and I want to use an ISO image for OS installation.
 ---
@@ -148,7 +148,7 @@ To finish building your virtual machine, you need to start the virtual machine a
 
 Use the *sysprep* utility to generalize the VHD.
 
-1. If you're generalizing a Windows Server 2019 Standard VM, before you generalize the VHD, make IDE the first **BIOS** setting for the virtual machine. This change is needed to enable the VM to be booted during the `sysprep` process.
+1. If you're generalizing a Windows Server 2019 Standard VM, before you generalize the VHD, make IDE the first **BIOS** setting for the virtual machine.
 
     1. In Hyper-V Manager, select the VM, and then select **Settings**.
  
