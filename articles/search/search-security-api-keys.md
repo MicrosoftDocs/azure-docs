@@ -13,7 +13,7 @@ ms.date: 06/25/2021
 
 # Use API keys for Azure Cognitive Search authentication
 
-Cognitive Search uses API keys as its primary authentication methodology. For inbound requests to the search services, such as requests for creating or querying an index, API keys are the only authentication option you have. A few outbound request scenarios, particularly those involving indexers, can use Azure Active Directory identities and roles.
+Cognitive Search uses API keys as its primary authentication methodology. For inbound requests to the search services, such as requests that create or query an index, API keys are the only authentication option you have. A few outbound request scenarios, particularly those involving indexers, can use Azure Active Directory identities and roles.
 
 API keys are generated when the service created. There are two admin API keys, a primary and secondary, that convey write permissions on the service. Cognitive Search provides two admin keys so that you can roll one over without disruption service operations. You can also create and use up to 50 query API keys that convey read permissions on the documents collection of an index. Passing a valid API key on the request is considered proof that the request is from an authorized client. 
 

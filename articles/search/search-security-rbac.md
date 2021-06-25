@@ -1,5 +1,5 @@
 ---
-title: Azure role-based authorization
+title: Role-based authorization
 titleSuffix: Azure Cognitive Search
 description: Azure role-based access control (Azure RBAC) in the Azure portal for controlling and delegating administrative tasks for Azure Cognitive Search management.
 
@@ -15,7 +15,7 @@ ms.date: 06/21/2021
 
 Azure provides a [global role-based authorization (RBAC) model](../role-based-access-control/role-assignments-portal.md) for all services managed through the portal or Resource Manager APIs. In Azure Cognitive Search, you can use role authorization in two scenarios:
 
-+ Service administration in Azure portal and any API that calls [Azure Resource Manager](../azure-resource-manager/management/overview.md). Azure portal, the Management REST API, Azure PowerShell, and Azure CLI use the Azure authentication and authorization for various levels of admin access.
++ Service administration using any client that calls [Azure Resource Manager](../azure-resource-manager/management/overview.md) to create or modify an Azure service. Whether you're using Azure portal, the Management REST API, Azure PowerShell, or Azure CLI, your ability to perform service management tasks depends on your role assignment. 
 
 + Outbound indexer access to external Azure data sources also use role authorization, applicable when you [configure a managed identity](search-howto-managed-identities-data-sources.md) to run the search service under. For a search service that runs under a managed identity, you can assign roles on external data services, such as Azure Blob Storage, to allow read operations from the trusted search service.
 
