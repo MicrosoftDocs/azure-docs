@@ -16,7 +16,7 @@ This guide provides information on how to migrate your enterprise Java applicati
 
 ## Best practice starting with Azure Marketplace offers and quickstarts
 
-Red Hat and Microsoft have partnered to bring a set of [JBoss EAP on Azure Marketplace offer](https://aka.ms/AMP-JBoss-EAP) to provide a solid starting point for migrating to Azure. Consult the documentation for a list of offer and plans and select the one that most closely matches your existing deployment. Check out the article on [JBoss EAP on Azure Best Practices](https://docs.microsoft.com/azure/virtual-machines/workloads/redhat/jboss-eap-azure-best-practices/)
+Red Hat and Microsoft have partnered to bring a set of [JBoss EAP on Azure Marketplace offer](https://aka.ms/AMP-JBoss-EAP) to provide a solid starting point for migrating to Azure. Consult the documentation for a list of offer and plans and select the one that most closely matches your existing deployment. Check out the article on [JBoss EAP on Azure Best Practices](/azure/virtual-machines/workloads/redhat/jboss-eap-on-azure-best-practices)
 
 If none of the existing offers is a good starting point, you can manually reproduce the deployment using Azure VM and other available resources. For more information, see [What is IaaS](https://azure.microsoft.com/overview/what-is-iaas/)?
 
