@@ -11,13 +11,13 @@ ms.date: 10/20/2019
 
 # Tutorial: Deploy and walk through a smart inventory management application template
 
-
-
 This tutorial shows you how to get started by deploying an IoT Central **smart inventory management** application template. You will learn how to deploy the template, what is included out of the box, and what you might want to do next.
 
-In this tutorial, you learn how to, 
-* create smart inventory management application 
-* walk through the application 
+In this tutorial, you learn how to,
+
+> [!div class="checklist"]
+> * create smart inventory management application 
+> * walk through the application 
 
 ## Prerequisites
 
@@ -53,7 +53,7 @@ This dashboard is pre-configured to showcase the critical smart inventory manage
 The dashboard is logically divided between two different gateway device management operations, 
    * The warehouse is deployed with a fixed BLE gateway & BLE tags on pallets to track & trace inventory at a larger facility
    * Retail store is implemented with a fixed RFID gateway & RFID tags at individual an item level to track and trace the stock in a store outlet
-   * View the gateway location, status & related details 
+   * View the gateway [location](../core/howto-use-location-data.md), status & related details 
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot showing the top half of the smart inventory managementdashboard](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_dashboard1.png)
@@ -107,10 +107,8 @@ If you're not going to continue to use this application, delete the application 
 > ![Screenshot showing how to delete the application when you're done with it](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_cleanup.png)
 
 ## Next steps
-* Learn more about smart inventory management 
+
+Learn more about smart inventory management:
+
 > [!div class="nextstepaction"]
 > [Smart inventory management concept](./architecture-smart-inventory-management.md)
-* Learn more about other 
-[IoT Central retail templates](./overview-iot-central-retail.md)
-* Learn more about IoT Central refer to 
-[IoT Central overview](../core/overview-iot-central.md)

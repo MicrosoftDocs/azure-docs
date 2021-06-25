@@ -17,7 +17,7 @@ The default mode is incremental.
 In complete mode, Resource Manager **deletes** resources that exist in the resource group but aren't specified in the template.
 
 > [!NOTE]
-> Always use the [what-if operation](template-deploy-what-if.md) before deploying a template in complete mode. What-if shows you which resources will be created, deleted, or modified. Use what-if to avoid unintentionally deleting resources.
+> Always use the [what-if operation](./deploy-what-if.md) before deploying a template in complete mode. What-if shows you which resources will be created, deleted, or modified. Use what-if to avoid unintentionally deleting resources.
 
 If your template includes a resource that isn't deployed because [condition](conditional-resource-deployment.md) evaluates to false, the result depends on which REST API version you use to deploy the template. If you use a version earlier than 2019-05-10, the resource **isn't deleted**. With 2019-05-10 or later, the resource **is deleted**. The latest versions of Azure PowerShell and Azure CLI delete the resource.
 
@@ -27,9 +27,9 @@ If you deploy to [more than one resource group in a template](./deploy-to-resour
 
 There are some differences in how resource types handle complete mode deletions. Parent resources are automatically deleted when not in a template that's deployed in complete mode. Some child resources aren't automatically deleted when not in the template. However, these child resources are deleted if the parent resource is deleted.
 
-For example, if your resource group contains a DNS zone (Microsoft.Network/dnsZones resource type) and a CNAME record (Microsoft.Network/dnsZones/CNAME resource type), the DNS zone is the parent resource for the CNAME record. If you deploy with complete mode and don't include the DNS zone in your template, the DNS zone and the CNAME record are both deleted. If you include the DNS zone in your template but don't include the CNAME record, the CNAME isn't deleted.
+For example, if your resource group contains a DNS zone (`Microsoft.Network/dnsZones` resource type) and a CNAME record (`Microsoft.Network/dnsZones/CNAME` resource type), the DNS zone is the parent resource for the CNAME record. If you deploy with complete mode and don't include the DNS zone in your template, the DNS zone and the CNAME record are both deleted. If you include the DNS zone in your template but don't include the CNAME record, the CNAME isn't deleted.
 
-For a list of how resource types handle deletion, see [Deletion of Azure resources for complete mode deployments](complete-mode-deletion.md).
+For a list of how resource types handle deletion, see [Deletion of Azure resources for complete mode deployments](./deployment-complete-mode-deletion.md).
 
 If the resource group is [locked](../management/lock-resources.md), complete mode doesn't delete the resources.
 
@@ -95,11 +95,10 @@ To set the deployment mode when deploying with Azure CLI, use the `mode` paramet
 
 ```azurecli-interactive
 az deployment group create \
-  --name ExampleDeployment \
   --mode Complete \
-  --resource-group ExampleGroup \
-  --template-file storage.json \
-  --parameters storageAccountType=Standard_GRS
+  --name ExampleDeployment \
+  --resource-group ExampleResourceGroup \
+  --template-file storage.json
 ```
 
 The following example shows a linked template set to incremental deployment mode:
@@ -107,19 +106,19 @@ The following example shows a linked template set to incremental deployment mode
 ```json
 "resources": [
   {
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2017-05-10",
-      "name": "linkedTemplate",
-      "properties": {
-          "mode": "Incremental",
+    "type": "Microsoft.Resources/deployments",
+    "apiVersion": "2020-10-01",
+    "name": "linkedTemplate",
+    "properties": {
+      "mode": "Incremental",
           <nested-template-or-external-template>
-      }
+    }
   }
 ]
 ```
 
 ## Next steps
 
-* To learn about creating Resource Manager templates, see [Authoring Azure Resource Manager templates](template-syntax.md).
-* To learn about deploying resources, see [Deploy an application with Azure Resource Manager template](deploy-powershell.md).
+* To learn about creating Resource Manager templates, see [Understand the structure and syntax of ARM templates](./syntax.md).
+* To learn about deploying resources, see [Deploy resources with ARM templates and Azure PowerShell](deploy-powershell.md).
 * To view the operations for a resource provider, see [Azure REST API](/rest/api/).

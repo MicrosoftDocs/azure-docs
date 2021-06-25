@@ -6,6 +6,7 @@ documentationcenter: na
 author: MashaMSFT
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
+ms.subservice: deployment
 
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows-sql-server
@@ -24,7 +25,7 @@ This quickstart steps through creating a SQL Server virtual machine (VM) with Az
 
 > [!TIP]
 > - This quickstart provides a path for quickly provisioning and connecting to a SQL VM. For more information about other Azure PowerShell options for creating SQL VMs, see the [Provisioning guide for SQL Server VMs with Azure PowerShell](create-sql-vm-powershell.md).
-> - If you have questions about SQL Server virtual machines, see the [Frequently Asked Questions](frequently-asked-questions-faq.md).
+> - If you have questions about SQL Server virtual machines, see the [Frequently Asked Questions](frequently-asked-questions-faq.yml).
 
 ## <a id="subscription"></a> Get an Azure subscription
 

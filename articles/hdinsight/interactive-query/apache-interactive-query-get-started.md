@@ -1,9 +1,6 @@
 ---
 title: What is Interactive Query in Azure HDInsight?
 description: An introduction to Interactive Query, also called Apache Hive LLAP, In Azure HDInsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: overview
 ms.custom: hdinsightactive
@@ -15,7 +12,7 @@ ms.date: 03/03/2020
 
 Interactive Query (also called Apache Hive LLAP, or [Low Latency Analytical Processing](https://cwiki.apache.org/confluence/display/Hive/LLAP)) is an Azure HDInsight [cluster type](../hdinsight-hadoop-provision-linux-clusters.md#cluster-type). Interactive Query supports in-memory caching, which makes Apache Hive queries faster and much more interactive. Customers use Interactive Query to query data stored in Azure storage & Azure Data Lake Storage in super-fast manner. Interactive query makes it easy for developers and data scientist to work with the big data using BI tools they love the most. HDInsight Interactive Query supports several tools to access big data in easy fashion.
 
-[!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
+[!INCLUDE [hdinsight-price-change](../includes/hdinsight-enhancements.md)]
 
 An Interactive Query cluster is different from an Apache Hadoop cluster. It contains only the Hive service.
 
@@ -46,7 +43,7 @@ To find the Java Database Connectivity (JDBC) connection string:
 1. From a web browser, navigate to `https://CLUSTERNAME.azurehdinsight.net/#/main/services/HIVE/summary`, where `CLUSTERNAME` is the name of your cluster.
 1. To copy the URL, select the clipboard icon:
 
-   ![HDInsight Hadoop Interactive Query LLAP JDBC](./media/apache-interactive-query-get-started/hdinsight-hadoop-use-interactive-hive-jdbc.png)
+   :::image type="content" source="./media/apache-interactive-query-get-started/hdinsight-hadoop-use-interactive-hive-jdbc.png" alt-text="HDInsight Hadoop Interactive Query LLAP JDBC" border="true":::
 
 ## Next steps
 

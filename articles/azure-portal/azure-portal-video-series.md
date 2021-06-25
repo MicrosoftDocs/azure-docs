@@ -1,33 +1,28 @@
 ---
 title: Azure portal how-to video series
 description: Find video demos for how to work with Azure services in the portal. View and link directly to the latest how-to videos.
-services: azure-portal
 keywords: 
-author: mgblythe
-ms.author: mblythe
-ms.date: 08/17/2020
+ms.date: 03/16/2021
 ms.topic: conceptual
-
-ms.service: azure-portal
-manager: mtillman
 ---
+
 # Azure portal how-to video series
 
 The Azure portal how-to video series showcases how to work with Azure services in the Azure portal. Each week the Azure portal team adds to the video playlist. These interactive demos can help you be more efficient and productive.
 
 ## Featured video
 
-In this featured video, we show you how to create and manage an App Service domain.
+In this featured video, we show you how to build tabs and alerts in Azure workbooks.
 
-> [!VIDEO https://www.youtube.com/embed/b1kDT8-6a3g]
+> [!VIDEO https://www.youtube.com/embed/3XY3lYgrRvA]
 
-[How to create and manage an App Service domain](https://www.youtube.com/watch?v=b1kDT8-6a3g)
+[How to build tabs and alerts in Azure workbooks](https://www.youtube.com/watch?v=3XY3lYgrRvA)
 
 Catch up on these recent videos you may have missed:
 
-| [How to add and secure a custom domain on your App Service web app](https://www.youtube.com/watch?v=bXP6IvNYISw)  | [Improvements to the Linux virtual machine experience](https://www.youtube.com/watch?v=obg6Fq2T898)  | [How to use blob versioning](https://www.youtube.com/watch?v=m7e9h1gedWQ)  |
+| [How to easily manage your virtual machine](https://www.youtube.com/watch?v=vQClJHt2ulQ) | [How to use pills to filter in the Azure portal](https://www.youtube.com/watch?v=XyKh_3NxUlM)  | [How to get a visualization view of your resources](https://www.youtube.com/watch?v=wudqkkJd5E4) |
 | ------| ------ | ------ |
-| [![Image of YouTube video about how to add and secure a custom domain on your App Service web app](https://i.ytimg.com/vi/bXP6IvNYISw/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAf2gcTSuNBP-DczGeEB7rQLKc4UQ)](http://www.youtube.com/watch?v=bXP6IvNYISw) | [![Image of YouTube video about improvements to the Linux virtual machine experience](https://i.ytimg.com/vi/obg6Fq2T898/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAiBhmM0tZo_eV_u_JClkx3SXaWFw)](https://www.youtube.com/watch?obg6Fq2T898) | [![Image of YouTube video about how to use blob versioning](https://i.ytimg.com/vi/m7e9h1gedWQ/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLBUZwS_xaZIkYNakpHFvFIiD8i-Tw)](http://www.youtube.com/watch?v=m7e9h1gedWQ) |
+| [![Image of YouTube video about how to easily manage your virtual machine](https://i.ytimg.com/vi/vQClJHt2ulQ/hqdefault.jpg)](http://www.youtube.com/watch?v=vQClJHt2ulQ) | [![Image of YouTube video about how to use pills to filter in the Azure portal](https://i.ytimg.com/vi/XyKh_3NxUlM/hqdefault.jpg)](https://www.youtube.com/watch?v=XyKh_3NxUlM) | [![Image of YouTube video about how to get a visualization view of your resources](https://i.ytimg.com/vi/wudqkkJd5E4/hqdefault.jpg)](http://www.youtube.com/watch?v=wudqkkJd5E4) |
 
 ## Video playlist
 

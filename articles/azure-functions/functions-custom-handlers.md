@@ -9,14 +9,14 @@ ms.topic: article
 
 # Azure Functions custom handlers
 
-Every Functions app is executed by a language-specific handler. While Azure Functions supports many [language handlers](./supported-languages.md) by default, there are cases where you may want to use other languages or runtimes.
+Every Functions app is executed by a language-specific handler. While Azure Functions features many [language handlers](./supported-languages.md) by default, there are cases where you may want to use other languages or runtimes.
 
 Custom handlers are lightweight web servers that receive events from the Functions host. Any language that supports HTTP primitives can implement a custom handler.
 
 Custom handlers are best suited for situations where you want to:
 
-- Implement a function app in a language that's not currently supported, such as Go or Rust.
-- Implement a function app in a runtime that's not currently supported, such as Deno.
+- Implement a function app in a language that's not currently offered out-of-the box, such as Go or Rust.
+- Implement a function app in a runtime that's not currently featured by default, such as Deno.
 
 With custom handlers, you can use [triggers and input and output bindings](./functions-triggers-bindings.md) via [extension bundles](./functions-bindings-register.md).
 
@@ -116,9 +116,6 @@ For custom handlers, set `FUNCTIONS_WORKER_RUNTIME` to `Custom` in *local.settin
   }
 }
 ```
-
-> [!NOTE]
-> `Custom` may not be recognized as a valid runtime on the Linux Premium or App Service plans. If that is your deployment target, set `FUNCTIONS_WORKER_RUNTIME` to an empty string.
 
 ### Function metadata
 
@@ -402,7 +399,7 @@ By setting the `message` output equal to the order data that came in from the re
 For HTTP-triggered functions with no additional bindings or outputs, you may want your handler to work directly with the HTTP request and response instead of the custom handler [request](#request-payload) and [response](#response-payload) payloads. This behavior can be configured in *host.json* using the `enableForwardingHttpRequest` setting.
 
 > [!IMPORTANT]
-> The primary purpose of the custom handlers feature is to enable languages and runtimes that do not currently have first-class support on Azure Functions. While it may be possible to run web applications using custom handlers, Azure Functions is not a standard reverse proxy. Some features such as response streaming, HTTP/2, and WebSockets are not available. Some components of the HTTP request such as certain headers and routes may be restricted. Your application may also experience excessive [cold start](functions-scale.md#cold-start).
+> The primary purpose of the custom handlers feature is to enable languages and runtimes that do not currently have first-class support on Azure Functions. While it may be possible to run web applications using custom handlers, Azure Functions is not a standard reverse proxy. Some features such as response streaming, HTTP/2, and WebSockets are not available. Some components of the HTTP request such as certain headers and routes may be restricted. Your application may also experience excessive [cold start](event-driven-scaling.md#cold-start).
 >
 > To address these circumstances, consider running your web apps on [Azure App Service](../app-service/overview.md).
 

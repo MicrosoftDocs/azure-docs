@@ -1,18 +1,14 @@
 ---
 title: Common application management scenarios for Azure Active Directory | Microsoft Docs
 description: Centralize application management with Azure AD
-documentationcenter: ''
-author: kenwith
-manager: celestedg
-ms.assetid: 
+author: mtillman
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
 ms.date: 03/02/2019
-ms.author: kenwith
+ms.author: mtillman
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
 ---
@@ -38,7 +34,7 @@ No more managing password. Securely access all the resources you need with your 
 |Feature  | Description | Recommendation |
 |---------|---------|---------|
 |SSO|Standards-based federated SSO using trusted industry standards.|Always use [SAML / OIDC](../develop/v2-howto-app-gallery-listing.md) to enable SSO when your application supports it.|
-|My Apps|Offer your users a simple hub to discover and access all their applications. Enable them to be more productive with self-service capabilities, like requesting access to apps and groups, or managing access to resources on behalf of others.| Deploy [My Apps](./access-panel-deployment-plan.md) in your organization once you've integrated your apps with Azure AD for SSO.|
+|My Apps|Offer your users a simple hub to discover and access all their applications. Enable them to be more productive with self-service capabilities, like requesting access to apps and groups, or managing access to resources on behalf of others.| Deploy [My Apps](my-apps-deployment-plan.md) in your organization once you've integrated your apps with Azure AD for SSO.|
 
 ## Scenario 2: Automate provisioning and deprovisioning 
 
@@ -76,7 +72,7 @@ Identity can only be your control plane if it can connect everything across clou
 
 |Feature  |Description|Recommendation |
 |---------|---------|---------|
-|Application Proxy|Employees today want to be productive at any place, at any time, and from any device. They need to access SaaS apps in the cloud and corporate apps on-premises. Azure AD Application proxy enables this robust access without costly and complex virtual private networks (VPNs) or demilitarized zones (DMZs).|Setup [remote access](./application-proxy.md) for your on-prem apps. |
+|Application Proxy|Employees today want to be productive at any place, at any time, and from any device. They need to access SaaS apps in the cloud and corporate apps on-premises. Azure AD Application proxy enables this robust access without costly and complex virtual private networks (VPNs) or demilitarized zones (DMZs).|Setup [remote access](../app-proxy/application-proxy.md) for your on-prem apps. |
 |F5, Akamai, Zscaler|Using your existing networking and delivery controller, you can easily protect legacy applications that are still critical to your business processes but that you couldn't protect before with Azure AD. It's likely you already have everything you need to start protecting these applications.| Using Akamai, Citrix, F5, or Zscaler? Check out our [pre-built solutions](./secure-hybrid-access.md). | 
 
 ## Related articles

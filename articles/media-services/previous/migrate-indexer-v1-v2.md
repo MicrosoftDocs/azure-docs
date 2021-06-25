@@ -6,29 +6,27 @@ documentationcenter: ''
 author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2020
+ms.date: 3/10/2021
 ms.author: inhenkel
-
 ---
 # Migrate from Media Indexer and Media Indexer 2 to Video Indexer
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!IMPORTANT]
-> It is recommended that customers migrate from Indexer v1 and Indexer v2 to using the [Media Services v3 AudioAnalyzerPreset Basic mode](../latest/analyzing-video-audio-files-concept.md). The [Azure Media Indexer](media-services-index-content.md) media processor and [Azure Media Indexer 2 Preview](./legacy-components.md) media processors are being retired. For the retirement dates, see this [legacy components](legacy-components.md) topic.
+> It is recommended that customers migrate from Indexer v1 and Indexer v2 to using the [Media Services v3 AudioAnalyzerPreset Basic mode](../latest/analyze-video-audio-files-concept.md). The [Azure Media Indexer](media-services-index-content.md) media processor and [Azure Media Indexer 2 Preview](./legacy-components.md) media processors are being retired. For the retirement dates, see this [legacy components](legacy-components.md) topic.
 
-Azure Media Services Video Indexer is built on Azure Media Analytics, Azure Cognitive Search, Cognitive Services (such as the Face API, Microsoft Translator, the Computer Vision API, and Custom Speech Service). It enables you to extract the insights from your videos using Video Indexer video and audio models. To see what scenarios Video Indexer can be used in, what features it offers, and how to get started, see [Video Indexer video and audio models](../video-indexer/video-indexer-overview.md). 
+Azure Media Services Video Indexer is built on Azure Media Analytics, Azure Cognitive Search, Cognitive Services (such as the Face API, Microsoft Translator, the Computer Vision API, and Custom Speech Service). It enables you to extract the insights from your videos using Video Indexer video and audio models. To see what scenarios Video Indexer can be used in, what features it offers, and how to get started, see [Video Indexer video and audio models](../../azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-overview.md). 
 
-You can extract insights from your video and audio files by using the [Azure Media Services v3 analyzer presets](../latest/analyzing-video-audio-files-concept.md) or directly by using the [Video Indexer APIs](https://api-portal.videoindexer.ai/). Currently, there is an overlap between features offered by the Video Indexer APIs and the Media Services v3 APIs.
+You can extract insights from your video and audio files by using the [Azure Media Services v3 analyzer presets](../latest/analyze-video-audio-files-concept.md) or directly by using the [Video Indexer APIs](https://api-portal.videoindexer.ai/). Currently, there is an overlap between features offered by the Video Indexer APIs and the Media Services v3 APIs.
 
 > [!NOTE]
-> To understand the differences between the Video Indexer vs. Media Services analyzer presets, check out the [comparison document](../video-indexer/compare-video-indexer-with-media-services-presets.md).
+> To understand the differences between the Video Indexer vs. Media Services analyzer presets, check out the [comparison document](../../azure-video-analyzer/video-analyzer-for-media-docs/compare-video-indexer-with-media-services-presets.md).
 
 This article discusses the steps for migrating from the Azure Media Indexer and Azure Media Indexer 2 to Azure Media Services Video Indexer.  
 
@@ -41,11 +39,11 @@ This article discusses the steps for migrating from the Azure Media Indexer and 
 
 ## Getting started with Video Indexer
 
-The following section points you to relevant links: [How can I get started with Video Indexer?](../video-indexer/video-indexer-overview.md#how-can-i-get-started-with-video-indexer) 
+The following section points you to relevant links: [How can I get started with Video Indexer?](../../azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-overview.md#how-can-i-get-started-with-video-analyzer-for-media) 
 
 ## Getting started with Media Services v3 APIs
 
-Azure Media Services v3 API enables you to extract insights from your video and audio files through the [Azure Media Services v3 analyzer presets](../latest/analyzing-video-audio-files-concept.md).
+Azure Media Services v3 API enables you to extract insights from your video and audio files through the [Azure Media Services v3 analyzer presets](../latest/analyze-video-audio-files-concept.md).
 
 **AudioAnalyzerPreset** enables you to extract multiple audio insights from an audio or video file. The output includes a VTT or TTML file for the audio transcript and a JSON file (with all the additional audio insights). The audio insights include keywords, speaker indexing, and speech sentiment analysis. AudioAnalyzerPreset also supports language detection for specific languages. For detailed information, see [Transforms](/rest/api/media/transforms/createorupdate#audioanalyzerpreset).
 
@@ -53,7 +51,7 @@ Azure Media Services v3 API enables you to extract insights from your video and 
 
 To get started see:
 
-* [Tutorial](../latest/analyze-videos-tutorial-with-api.md)
+* [Tutorial](../latest/analyze-videos-tutorial.md)
 * AudioAnalyzerPreset samples: [Java SDK](https://github.com/Azure-Samples/media-services-v3-java/tree/master/AudioAnalytics/AudioAnalyzer) or [.NET SDK](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/AudioAnalytics/AudioAnalyzer)
 * VideoAnalyzerPreset samples: [Java SDK](https://github.com/Azure-Samples/media-services-v3-java/tree/master/VideoAnalytics/VideoAnalyzer) or [.NET SDK](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/VideoAnalytics/VideoAnalyzer)
 

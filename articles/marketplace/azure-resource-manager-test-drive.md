@@ -13,7 +13,7 @@ author: trkeya
 
 Use this type if you have an offer on Azure Marketplace or AppSource but want to build a test drive with only Azure resources. An Azure Resource Manager (ARM) template is a coded container of Azure resources that you design to best represent your solution. Test drive takes the provided ARM template and deploys all the resources it requires to a resource group. This is the only test drive option for virtual machine or Azure app offers.
 
-If you are unfamiliar with what an ARM template is, read [What is Azure Resource Manager?](../azure-resource-manager/management/overview.md) and [Understand the structure and syntax of ARM templates](../azure-resource-manager/templates/template-syntax.md) to better understand how to build and test your own templates.
+If you are unfamiliar with what an ARM template is, read [What is Azure Resource Manager?](../azure-resource-manager/management/overview.md) and [Understand the structure and syntax of ARM templates](../azure-resource-manager/templates/syntax.md) to better understand how to build and test your own templates.
 
 For information on a **hosted** or **logic app** test drive, see [What is a test drive?](what-is-test-drive.md)
 
@@ -70,7 +70,7 @@ You can use any valid name for your parameters; test drive recognizes parameter 
 
 | Metadata Type   | Parameter Type  | Description     | Sample Value    |
 |---|---|---|---|
-| **baseuri**     | string          | Base URI of your deployment package| `https:\//\<\..\>.blob.core.windows.net/\<\..\>` |
+| **baseuri**     | string          | Base URI of your deployment package| `https://<..>.blob.core.windows.net/<..>` |
 | **username**    | string          | New random user name.| admin68876      |
 | **password**    | secure string    | New random password | Lp!ACS\^2kh     |
 | **session id**   | string          | Unique test drive session ID (GUID)    | b8c8693e-5673-449c-badd-257a405a6dee |

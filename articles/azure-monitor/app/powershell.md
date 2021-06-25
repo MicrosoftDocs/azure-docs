@@ -2,7 +2,8 @@
 title: Automate Azure Application Insights with PowerShell | Microsoft Docs
 description: Automate creating and managing resources, alerts, and availability tests in PowerShell using an Azure Resource Manager template.
 ms.topic: conceptual
-ms.date: 05/02/2020
+ms.date: 05/02/2020 
+ms.custom: devx-track-azurepowershell
 
 ---
 
@@ -10,7 +11,7 @@ ms.date: 05/02/2020
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-This article shows you how to automate the creation and update of [Application Insights](./app-insights-overview.md) resources automatically by using Azure Resource Management. You might, for example, do so as part of a build process. Along with the basic Application Insights resource, you can create [availability web tests](./monitor-web-app-availability.md), set up [alerts](../platform/alerts-log.md), set the [pricing scheme](pricing.md), and create other Azure resources.
+This article shows you how to automate the creation and update of [Application Insights](./app-insights-overview.md) resources automatically by using Azure Resource Management. You might, for example, do so as part of a build process. Along with the basic Application Insights resource, you can create [availability web tests](./monitor-web-app-availability.md), set up [alerts](../alerts/alerts-log.md), set the [pricing scheme](pricing.md), and create other Azure resources.
 
 The key to creating these resources is JSON templates for [Azure Resource Manager](../../azure-resource-manager/management/manage-resources-powershell.md). The basic procedure is: download the JSON definitions of existing resources; parameterize certain values such as names; and then run the template whenever you want to create a new resource. You can package several resources together, to create them all in one go - for example, an app monitor with availability tests, alerts, and storage for continuous export. There are some subtleties to some of the parameterizations, which we'll explain here.
 
@@ -241,7 +242,7 @@ $Resource | Set-AzResource -Force
 
 ### Setting data retention using REST
 
-To get the current data retention for your Application Insights resource, you can use the OSS tool [ARMClient](https://github.com/projectkudu/ARMClient).  (Learn more about ARMClient from articles by [David Ebbo](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) and [Daniel Bowbyes](https://blog.bowbyes.co.nz/2016/11/02/using-armclient-to-directly-access-azure-arm-rest-apis-and-list-arm-policy-details/).)  Here's an example using `ARMClient`, to get the current retention:
+To get the current data retention for your Application Insights resource, you can use the OSS tool [ARMClient](https://github.com/projectkudu/ARMClient).  (Learn more about ARMClient from articles by [David Ebbo](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) and Daniel Bowbyes.)  Here's an example using `ARMClient`, to get the current retention:
 
 ```PS
 armclient GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/microsoft.insights/components/MyResourceName?api-version=2018-05-01-preview
@@ -400,12 +401,12 @@ This will set the daily cap to 200 GB/day, configure the daily cap reset time to
 
 ## Add a metric alert
 
-To automate the creation of metric alerts, consult the [metric alerts template article](../platform/alerts-metric-create-templates.md#template-for-a-simple-static-threshold-metric-alert)
+To automate the creation of metric alerts, consult the [metric alerts template article](../alerts/alerts-metric-create-templates.md#template-for-a-simple-static-threshold-metric-alert)
 
 
 ## Add an availability test
 
-To automate availability tests, consult the [metric alerts template article](../platform/alerts-metric-create-templates.md#template-for-an-availability-test-along-with-a-metric-alert).
+To automate availability tests, consult the [metric alerts template article](../alerts/alerts-metric-create-templates.md#template-for-an-availability-test-along-with-a-metric-alert).
 
 ## Add more resources
 
@@ -432,7 +433,7 @@ To automate the creation of any other resource of any kind, create an example ma
     `"apiVersion": "2015-05-01",`
 
 ### Parameterize the template
-Now you have to replace the specific names with parameters. To [parameterize a template](../../azure-resource-manager/templates/template-syntax.md), you write expressions using a [set of helper functions](../../azure-resource-manager/templates/template-functions.md). 
+Now you have to replace the specific names with parameters. To [parameterize a template](../../azure-resource-manager/templates/syntax.md), you write expressions using a [set of helper functions](../../azure-resource-manager/templates/template-functions.md). 
 
 You can't parameterize just part of a string, so use `concat()` to build strings.
 
@@ -465,6 +466,6 @@ Azure should set up the resources in strict order. To make sure one setup comple
 Other automation articles:
 
 * [Create an Application Insights resource](./create-new-resource.md#creating-a-resource-automatically) - quick method without using a template.
-* [Create web tests](../samples/resource-manager-alerts-metric.md#availability-test-with-metric-alert)
+* [Create web tests](../alerts/resource-manager-alerts-metric.md#availability-test-with-metric-alert)
 * [Send Azure Diagnostics to Application Insights](powershell-azure-diagnostics.md)
-* [Create release annotations](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)
+* [Create release annotations](annotations.md)

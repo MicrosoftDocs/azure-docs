@@ -6,24 +6,28 @@ author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.topic: troubleshooting
-ms.date: 10/25/2020
+ms.date: 01/13/2021
 ---
 # Troubleshoot replication latency in Azure Database for MySQL
 
 [!INCLUDE[applies-to-single-flexible-server](./includes/applies-to-single-flexible-server.md)]
 
-The [read replica](concepts-read-replicas.md) feature allows you to replicate data from an Azure Database for MySQL server to a read-only replica server. You can scale out workloads by routing read and reporting queries from the application to replica servers. This setup reduces the pressure on the source server. It also improves overall performance and latency of the application as it scales. 
+The [read replica](concepts-read-replicas.md) feature allows you to replicate data from an Azure Database for MySQL server to a read-only replica server. You can scale out workloads by routing read and reporting queries from the application to replica servers. This setup reduces the pressure on the source server. It also improves overall performance and latency of the application as it scales.
 
-Replicas are updated asynchronously by using the MySQL engine's native binary log (binlog) file position-based replication technology. For more information, see [MySQL binlog file position-based replication configuration overview](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html). 
+Replicas are updated asynchronously by using the MySQL engine's native binary log (binlog) file position-based replication technology. For more information, see [MySQL binlog file position-based replication configuration overview](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
 
-The replication lag on the secondary read replicas depends several factors. These factors include but aren't limited to: 
+The replication lag on the secondary read replicas depends several factors. These factors include but aren't limited to:
 
 - Network latency.
 - Transaction volume on the source server.
 - Compute tier of the source server and secondary read replica server.
-- Queries running on the source server and secondary server. 
+- Queries running on the source server and secondary server.
 
 In this article, you'll learn how to troubleshoot replication latency in Azure Database for MySQL. You'll also understand some common causes of increased replication latency on replica servers.
+
+> [!NOTE]
+> This article contains references to the term _slave_, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
+>
 
 ## Replication concepts
 
@@ -38,7 +42,7 @@ Azure Database for MySQL provides the metric for replication lag in seconds in [
 
 To understand the cause of increased replication latency, connect to the replica server by using [MySQL Workbench](connect-workbench.md) or [Azure Cloud Shell](https://shell.azure.com). Then run following command.
 
->[!NOTE] 
+>[!NOTE]
 > In your code, replace the example values with your replica server name and admin username. The admin username requires `@\<servername>` for Azure Database for MySQL.
 
 ```azurecli-interactive
@@ -83,7 +87,6 @@ Here's a typical output:
 >[!div class="mx-imgBorder"]
 > :::image type="content" source="./media/howto-troubleshoot-replication-latency/show-status.png" alt-text="Monitoring replication latency":::
 
-
 The output contains a lot of information. Normally, you need to focus on only the rows that the following table describes.
 
 |Metric|Description|
@@ -113,7 +116,7 @@ The following sections address scenarios in which high replication latency is co
 
 ### Network latency or high CPU consumption on the source server
 
-If you see the following values, then replication latency is likely caused by high network latency or high CPU consumption on the source server. 
+If you see the following values, then replication latency is likely caused by high network latency or high CPU consumption on the source server.
 
 ```
 Slave_IO_State: Waiting for master to send event
@@ -123,7 +126,7 @@ Relay_Master_Log_File: the file sequence is smaller than Master_Log_File, e.g. m
 
 In this case, the IO thread is running and is waiting on the source server. The source server has already written to binary log file number 20. The replica has received only up to file number 10. The primary factors for high replication latency in this scenario are network speed or high CPU utilization on the source server.  
 
-In Azure, network latency within a region can typically be measured milliseconds. Across regions, latency ranges from milliseconds to seconds. 
+In Azure, network latency within a region can typically be measured milliseconds. Across regions, latency ranges from milliseconds to seconds.
 
 In most cases, the connection delay between IO threads and the source server is caused by high CPU utilization on the source server. The IO threads are processed slowly. You can detect this problem by using Azure Monitor to check CPU utilization and the number of concurrent connections on the source server.
 
@@ -139,18 +142,17 @@ Master_Log_File: the binary file sequence is larger then Relay_Master_Log_File, 
 Relay_Master_Log_File: the file sequence is smaller then Master_Log_File, e.g. mysql-bin.00010
 ```
 
-The output shows that the replica can retrieve the binary log behind the source server. But the replica IO thread indicates that the relay log space is full already. 
+The output shows that the replica can retrieve the binary log behind the source server. But the replica IO thread indicates that the relay log space is full already.
 
-Network speed isn't causing the delay. The replica is trying to catch up. But the updated binary log size exceeds the upper limit of the relay log space. 
+Network speed isn't causing the delay. The replica is trying to catch up. But the updated binary log size exceeds the upper limit of the relay log space.
 
 To troubleshoot this issue, enable the [slow query log](concepts-server-logs.md) on the source server. Use slow query logs to identify long-running transactions on the source server. Then tune the identified queries to reduce the latency on the server. 
 
 Replication latency of this sort is commonly caused by the data load on the source server. When source servers have weekly or monthly data loads, replication latency is unfortunately unavoidable. The replica servers eventually catch up after the data load on the source server finishes.
 
-
 ### Slowness on the replica server
 
-If you observe the following values, then the problem might be on the replica server. 
+If you observe the following values, then the problem might be on the replica server.
 
 ```
 Slave_IO_State: Waiting for master to send event
@@ -163,7 +165,7 @@ Exec_Master_Log_Pos: The position of slave reads from master binary log file is 
 Seconds_Behind_Master: There is latency and the value here is greater than 0
 ```
 
-In this scenario, the output shows that both the IO thread and the SQL thread are running well. The replica reads the same binary log file that the source server writes. However, some latency on the replica server reflects the same transaction from the source server. 
+In this scenario, the output shows that both the IO thread and the SQL thread are running well. The replica reads the same binary log file that the source server writes. However, some latency on the replica server reflects the same transaction from the source server.
 
 The following sections describe common causes of this kind of latency.
 
@@ -171,13 +173,13 @@ The following sections describe common causes of this kind of latency.
 
 Azure Database for MySQL uses row-based replication. The source server writes events to the binary log, recording changes in individual table rows. The SQL thread then replicates those changes to the corresponding table rows on the replica server. When a table lacks a primary key or unique key, the SQL thread scans all rows in the target table to apply the changes. This scan can cause replication latency.
 
-In MySQL, the primary key is an associated index that ensures fast query performance because it can't include NULL values. If you use the InnoDB storage engine, the table data is physically organized to do ultra-fast lookups and sorts based on the primary key. 
+In MySQL, the primary key is an associated index that ensures fast query performance because it can't include NULL values. If you use the InnoDB storage engine, the table data is physically organized to do ultra-fast lookups and sorts based on the primary key.
 
 We recommend that you add a primary key on tables in the source server before you create the replica server. Add primary keys on the source server and then re-create read replicas to help improve replication latency.
 
 Use the following query to find out which tables are missing a primary key on the source server:
 
-```sql 
+```sql
 select tab.table_schema as database_name, tab.table_name 
 from information_schema.tables tab left join 
 information_schema.table_constraints tco 
@@ -193,19 +195,19 @@ order by tab.table_schema, tab.table_name;
 
 #### Long-running queries on the replica server
 
-The workload on the replica server can make the SQL thread lag behind the IO thread. Long-running queries on the replica server are one of the common causes of high replication latency. To troubleshoot this problem, enable the [slow query log](concepts-server-logs.md) on the replica server. 
+The workload on the replica server can make the SQL thread lag behind the IO thread. Long-running queries on the replica server are one of the common causes of high replication latency. To troubleshoot this problem, enable the [slow query log](concepts-server-logs.md) on the replica server.
 
 Slow queries can increase resource consumption or slow down the server so that the replica can't catch up with the source server. In this scenario, tune the slow queries. Faster queries prevent blockage of the SQL thread and improve replication latency significantly.
 
-
 #### DDL queries on the source server
+
 On the source server, a data definition language (DDL) command like [`ALTER TABLE`](https://dev.mysql.com/doc/refman/5.7/en/alter-table.html) can take a long time. While the DDL command is running, thousands of other queries might be running in parallel on the source server. 
 
 When the DDL is replicated, to ensure database consistency, the MySQL engine runs the DDL in a single replication thread. During this task, all other replicated queries are blocked and must wait until the DDL operation finishes on the replica server. Even online DDL operations cause this delay. DDL operations increase replication latency.
 
-If you enabled the [slow query log](concepts-server-logs.md) on the source server, you can detect this latency problem by checking for a DDL command that ran on the source server. Through index dropping, renaming, and creating, you can use the INPLACE algorithm for the ALTER TABLE. You might need to copy the table data and rebuild the table. 
+If you enabled the [slow query log](concepts-server-logs.md) on the source server, you can detect this latency problem by checking for a DDL command that ran on the source server. Through index dropping, renaming, and creating, you can use the INPLACE algorithm for the ALTER TABLE. You might need to copy the table data and rebuild the table.
 
-Typically, concurrent DML is supported for the INPLACE algorithm. But you can briefly take an exclusive metadata lock on the table when you prepare and run the operation. So for the CREATE INDEX statement, you can use the clauses ALGORITHM and LOCK to influence the method for table copying and the level of concurrency for reading and writing. You can still prevent DML operations by adding a FULLTEXT index or SPATIAL index. 
+Typically, concurrent DML is supported for the INPLACE algorithm. But you can briefly take an exclusive metadata lock on the table when you prepare and run the operation. So for the CREATE INDEX statement, you can use the clauses ALGORITHM and LOCK to influence the method for table copying and the level of concurrency for reading and writing. You can still prevent DML operations by adding a FULLTEXT index or SPATIAL index.
 
 The following example creates an index by using ALGORITHM and LOCK clauses.
 
@@ -217,24 +219,25 @@ Unfortunately, for a DDL statement that requires a lock, you can't avoid replica
 
 #### Downgraded replica server
 
-In Azure Database for MySQL, read replicas use the same server configuration as the source server. You can change the replica server configuration after it has been created. 
+In Azure Database for MySQL, read replicas use the same server configuration as the source server. You can change the replica server configuration after it has been created.
 
-If the replica server is downgraded, the workload can consume more resources, which in turn can lead to replication latency. To detect this problem, use Azure Monitor to check the CPU and memory consumption of the replica server. 
+If the replica server is downgraded, the workload can consume more resources, which in turn can lead to replication latency. To detect this problem, use Azure Monitor to check the CPU and memory consumption of the replica server.
 
 In this scenario, we recommend that you keep the replica server's configuration at values equal to or greater than the values of the source server. This configuration allows the replica to keep up with the source server.
 
 #### Improving replication latency by tuning the source server parameters
 
-In Azure Database for MySQL, by default, replication is optimized to run with parallel threads on replicas. When high-concurrency workloads on the source server cause the replica server to fall behind, you can improve the replication latency by configuring the parameter binlog_group_commit_sync_delay on the source server. 
+In Azure Database for MySQL, by default, replication is optimized to run with parallel threads on replicas. When high-concurrency workloads on the source server cause the replica server to fall behind, you can improve the replication latency by configuring the parameter binlog_group_commit_sync_delay on the source server.
 
-The binlog_group_commit_sync_delay parameter controls how many microseconds the binary log commit waits before synchronizing the binary log file. The benefit of this parameter is that instead of immediately applying every committed transaction, the source server sends the binary log updates in bulk. This delay reduces IO on the replica and helps improve performance. 
+The binlog_group_commit_sync_delay parameter controls how many microseconds the binary log commit waits before synchronizing the binary log file. The benefit of this parameter is that instead of immediately applying every committed transaction, the source server sends the binary log updates in bulk. This delay reduces IO on the replica and helps improve performance.
 
-It might be useful to set the binlog_group_commit_sync_delay parameter to 1000 or so. Then monitor the replication latency. Set this parameter cautiously, and use it only for high-concurrency workloads. 
+It might be useful to set the binlog_group_commit_sync_delay parameter to 1000 or so. Then monitor the replication latency. Set this parameter cautiously, and use it only for high-concurrency workloads.
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > In replica server, binlog_group_commit_sync_delay parameter is recommended to be 0. This is recommended because unlike source server, the replica server won't have high-concurrency and increasing the value for binlog_group_commit_sync_delay on replica server could inadvertently cause replication lag to increase.
 
-For low-concurrency workloads that include many singleton transactions, the binlog_group_commit_sync_delay setting can increase latency. Latency can increase because the IO thread waits for bulk binary log updates even if only a few transactions are committed. 
+For low-concurrency workloads that include many singleton transactions, the binlog_group_commit_sync_delay setting can increase latency. Latency can increase because the IO thread waits for bulk binary log updates even if only a few transactions are committed.
 
 ## Next steps
+
 Check out the [MySQL binlog replication overview](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).

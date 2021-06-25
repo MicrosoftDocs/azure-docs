@@ -6,6 +6,7 @@ ms.subservice: change-inventory-management
 ms.date: 10/14/2020
 ms.topic: conceptual
 ---
+
 # Enable Change Tracking and Inventory from Azure portal
 
 This article describes how you can enable [Change Tracking and Inventory](overview.md) for one or more Azure VMs in the Azure portal. To enable Azure VMs at scale, you must enable an existing VM using Change Tracking and Inventory.
@@ -18,7 +19,7 @@ The number of resource groups that you can use for managing your VMs is limited 
 ## Prerequisites
 
 * Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Automation account](../index.yml) to manage machines.
+* [Automation account](../automation-security-overview.md) to manage machines.
 * A [virtual machine](../../virtual-machines/windows/quick-create-portal.md).
 
 ## Sign in to Azure

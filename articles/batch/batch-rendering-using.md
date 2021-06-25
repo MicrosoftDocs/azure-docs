@@ -3,11 +3,14 @@ title: Using rendering capabilities
 description: How to use Azure Batch rendering capabilities. Try using the Batch Explorer application, either directly or invoked from a client application plug-in.
 author: mscurrell
 ms.author: markscu
-ms.date: 03/05/2020
+ms.date: 03/12/2020
 ms.topic: how-to
 ---
 
 # Using Azure Batch rendering
+
+> [!IMPORTANT]
+> The rendering VM images and pay-for-use licensing have been [deprecated and will be retired on February 29, 2024](https://azure.microsoft.com/updates/azure-batch-rendering-vm-images-licensing-will-be-retired-on-29-february-2024/). To use Batch for rendering, [a custom VM image and standard application licensing should be used.](batch-rendering-functionality.md#batch-pools-using-custom-vm-images-and-standard-application-licensing)
 
 There are several ways to use Azure Batch rendering:
 
@@ -27,10 +30,6 @@ The best way to try Azure Batch rendering and simplest way for end-users, who ar
 
 ## Using Batch Explorer
 
-For a step-by-step tutorial for using Batch Explorer to perform rendering see the [Blender tutorial](./tutorial-rendering-batchexplorer-blender.md).
-
-### Download and Install
-
 Batch Explorer [downloads are available](https://azure.github.io/BatchExplorer/) for Windows, OSX, and Linux.
 
 ### Using templates to create pools and run jobs
@@ -47,18 +46,7 @@ It's also possible for custom templates to be produced, from scratch or by modif
 
 The 'Data' section in Batch Explorer allows files to be copied between a local file system and Azure Storage accounts.
 
-## Client application plug-ins
-
-Plug-ins are available for some of the client applications.  The plug-ins allow pools and jobs to be created directly from the application or invoke Batch Explorer.
-
-* [Blender 2.79](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/blender)
-* [Blender 2.8+](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/blender28)
-* [Autodesk 3ds Max](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/3ds-max)
-* [Autodesk Maya](https://github.com/Azure/azure-batch-maya)
-
 ## Next steps
 
-For examples of Batch rendering try out the two tutorials:
-
-* [Rendering using the Azure CLI](./tutorial-rendering-cli.md)
-* [Rendering using Batch Explorer](./tutorial-rendering-batchexplorer-blender.md)
+* Learn about [using rendering applications with Batch](batch-rendering-applications.md).
+* Learn about [Storage and data movement options for rendering asset and output files](batch-rendering-storage-data-movement.md).

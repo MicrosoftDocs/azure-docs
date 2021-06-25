@@ -27,17 +27,15 @@ In this tutorial, you'll:
 
 To complete this tutorial, you must have the following installed:
 
-* [Java Developer Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support), version 8
-* [Apache Maven](https://maven.apache.org), version 3.0 or above
-* [Azure CLI](/cli/azure/install-azure-cli) if you prefer not to use Cloud Shell
-* [Azure Functions Core Tools](https://www.npmjs.com/package/azure-functions-core-tools) version 2.6.666 or above
+- [Java Developer Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support), version 8
+- [Apache Maven](https://maven.apache.org), version 3.0 or above
+- [Azure Functions Core Tools](https://www.npmjs.com/package/azure-functions-core-tools) version 2.6.666 or above
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 > [!IMPORTANT]
 > The `JAVA_HOME` environment variable must be set to the install location of the JDK to complete this tutorial.
 
 If you prefer to use the code for this tutorial directly, see the [java-functions-eventhub-cosmosdb](https://github.com/Azure-Samples/java-functions-eventhub-cosmosdb) sample repo.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## Create Azure resources
 
@@ -50,17 +48,13 @@ In this tutorial, you'll need these resources:
 
 The following sections show you how to create these resources using the Azure CLI.
 
-### Log in to Azure
-
-If you're not using Cloud Shell, you'll need to use the Azure CLI locally to access your account. Use the `az login` command from the Bash prompt to launch the browser-based login experience. If you have access to more than one Azure subscription, set the default with `az account set --subscription` followed by the subscription ID.
-
 ### Set environment variables
 
 Next, create some environment variables for the names and location of the resources you'll create. Use the following commands, replacing the `<value>` placeholders with values of your choosing. Values should conform to the [naming rules and restrictions for Azure resources](/azure/architecture/best-practices/resource-naming). For the `LOCATION` variable, use one of the values produced by the `az functionapp list-consumption-locations` command.
 
 # [Bash](#tab/bash)
 
-```bash
+```Bash
 RESOURCE_GROUP=<value>
 EVENT_HUB_NAMESPACE=<value>
 EVENT_HUB_NAME=<value>
@@ -347,7 +341,7 @@ If you used Cloud Shell to create your resources, then you won't be connected to
 
 # [Bash](#tab/bash)
 
-```bash
+```Bash
 RESOURCE_GROUP=<value>
 FUNCTION_APP=<value>
 ```
@@ -367,12 +361,13 @@ Use the following Maven command to create a functions project and add the requir
 
 # [Bash](#tab/bash)
 
-```bash
+```Bash
 mvn archetype:generate --batch-mode \
     -DarchetypeGroupId=com.microsoft.azure \
     -DarchetypeArtifactId=azure-functions-archetype \
     -DappName=$FUNCTION_APP \
     -DresourceGroup=$RESOURCE_GROUP \
+    -DappRegion=$LOCATION \
     -DgroupId=com.example \
     -DartifactId=telemetry-functions
 ```
@@ -385,6 +380,7 @@ mvn archetype:generate --batch-mode ^
     -DarchetypeArtifactId=azure-functions-archetype ^
     -DappName=%FUNCTION_APP% ^
     -DresourceGroup=%RESOURCE_GROUP% ^
+    -DappRegion=%LOCATION% ^
     -DgroupId=com.example ^
     -DartifactId=telemetry-functions
 ```
@@ -403,7 +399,7 @@ To avoid compilation errors, you'll need to delete the test files. Run the follo
 
 # [Bash](#tab/bash)
 
-```bash
+```Bash
 cd telemetry-functions
 rm -r src/test
 ```
@@ -423,7 +419,7 @@ For local testing, your function project will need the connection strings that y
 
 # [Bash](#tab/bash)
 
-```bash
+```Bash
 func azure functionapp fetch-app-settings $FUNCTION_APP
 ```
 
@@ -581,7 +577,7 @@ Use the following Maven commands to build and run the functions:
 
 # [Bash](#tab/bash)
 
-```bash
+```Bash
 mvn clean package
 mvn azure-functions:run
 ```
@@ -620,7 +616,7 @@ Deploy your project to Azure using the following command:
 
 # [Bash](#tab/bash)
 
-```bash
+```Bash
 mvn azure-functions:deploy
 ```
 

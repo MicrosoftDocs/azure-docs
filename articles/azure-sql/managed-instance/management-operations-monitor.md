@@ -4,8 +4,8 @@ titleSuffix: Azure SQL Managed Instance
 description: Learn about different ways for monitoring of Azure SQL Managed Instance management operations.
 services: sql-database
 ms.service: sql-managed-instance
-ms.subservice: operations
-ms.custom: 
+ms.subservice: deployment-configuration
+ms.custom: devx-track-azurepowershell
 ms.devlang: 
 ms.topic: how-to
 author: urosmil
@@ -32,7 +32,7 @@ Most management operations are [long running operations](management-operations-o
 There are several ways to monitor managed instance management operations:
 
 - [Resource group deployments](../../azure-resource-manager/templates/deployment-history.md)
-- [Activity log](../../azure-monitor/platform/activity-log.md)
+- [Activity log](../../azure-monitor/essentials/activity-log.md)
 - [Managed instance operations API](#managed-instance-operations-api)
 
 

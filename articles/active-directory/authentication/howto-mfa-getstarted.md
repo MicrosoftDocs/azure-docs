@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 11/21/2019
+ms.date: 05/03/2021
 
 ms.author: justinha
 author: justinha
@@ -36,7 +36,7 @@ Before starting a deployment of Azure AD Multi-Factor Authentication, there are 
 | --- | --- |
 | **Cloud-only** identity environment with modern authentication | **No additional prerequisite tasks** |
 | **Hybrid** identity scenarios | [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) is deployed and user identities are synchronized or federated with the on-premises Active Directory Domain Services with Azure Active Directory. |
-| On-premises legacy applications published for cloud access | Azure AD [Application Proxy](../manage-apps/application-proxy.md) is deployed. |
+| On-premises legacy applications published for cloud access | Azure AD [Application Proxy](../app-proxy/application-proxy.md) is deployed. |
 | Using Azure AD MFA with RADIUS Authentication | A [Network Policy Server (NPS)](howto-mfa-nps-extension.md) is deployed. |
 | Users have Microsoft Office 2010 or earlier, or Apple Mail for iOS 11 or earlier | Upgrade to [Microsoft Office 2013 or later](https://support.microsoft.com/help/4041439/modern-authentication-configuration-requirements-for-transition-from-o) and Apple mail for iOS 12 or later. Conditional Access is not supported by legacy authentication protocols. |
 
@@ -142,6 +142,9 @@ A text message that contains a verification code is sent to the user, the user i
 1. Click on **Save**.
 1. Close the **service settings** tab.
 
+> [!WARNING]
+> Do not disable methods for your organization if you are using [Security Defaults](../fundamentals/concept-fundamentals-security-defaults.md). Disabling methods may lead to locking yourself out of your tenant. Leave all **Methods available to users** enabled in the MFA service settings portal.
+
 ## Plan registration policy
 
 Administrators must determine how users will register their methods. Organizations should [enable the new combined registration experience](howto-registration-mfa-sspr-combined.md) for Azure AD MFA and self-service password reset (SSPR). SSPR allows users to reset their password in a secure way using the same methods they use for multi-factor authentication. We recommend this combined registration because it's a great experience for users, with the ability to register once for both services. Enabling the same methods for SSPR and Azure AD MFA will allow your users to be registered to use both features.
@@ -162,7 +165,7 @@ Using the following steps a Conditional Access policy can force users to registe
 2. Using Conditional Access, enforce multi-factor authentication for this group for access to all resources.
 3. Periodically, reevaluate the group membership, and remove users who have registered from the group.
 
-You may identify registered and non-registered Azure AD MFA users with PowerShell commands that rely on the [MSOnline PowerShell module](/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0).
+You may identify registered and non-registered Azure AD MFA users with PowerShell commands that rely on the [MSOnline PowerShell module](/powershell/azure/active-directory/install-msonlinev1).
 
 #### Identify registered users
 
@@ -261,7 +264,7 @@ Applications that authenticate directly with Azure AD and have modern authentica
 
 ### Use Azure AD MFA with Azure AD Application Proxy
 
-Applications residing on-premises can be published to your Azure AD tenant via [Azure AD Application Proxy](../manage-apps/application-proxy.md) and can take advantage of Azure AD Multi-Factor Authentication if they are configured to use Azure AD pre-authentication.
+Applications residing on-premises can be published to your Azure AD tenant via [Azure AD Application Proxy](../app-proxy/application-proxy.md) and can take advantage of Azure AD Multi-Factor Authentication if they are configured to use Azure AD pre-authentication.
 
 These applications are subject to Conditional Access policies that enforce Azure AD Multi-Factor Authentication, just like any other Azure AD-integrated application.
 
@@ -332,7 +335,7 @@ Now that you have planned your solution, you can implement by following the step
 
 1. Meet any necessary prerequisites
    1. Deploy [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) for any hybrid scenarios
-   1. Deploy [Azure AD Application Proxy](../manage-apps/application-proxy.md) for on any on-premises apps published for cloud access
+   1. Deploy [Azure AD Application Proxy](../app-proxy/application-proxy.md) for on any on-premises apps published for cloud access
    1. Deploy [NPS](/windows-server/networking/technologies/nps/nps-top) for any RADIUS authentication
    1. Ensure users have upgraded to supported versions of Microsoft Office with modern authentication enabled
 1. Configure chosen [authentication methods](#choose-verification-options)

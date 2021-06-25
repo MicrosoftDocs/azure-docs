@@ -20,7 +20,7 @@ In this article, you learn how to set up continuous deployment for your Custom C
 > [!div class = "checklist"]
 > * A Custom Commands application for development (DEV)
 > * A Custom Commands application for production (PROD)
-> * Sign up for [Azure Pipelines](/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops)
+> * Sign up for [Azure Pipelines](/azure/devops/pipelines/get-started/pipelines-sign-up)
 
 ## Export/Import/Publish
 

@@ -4,7 +4,7 @@ description: QnA Maker is a cloud-based NLP service that easily creates a natura
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: overview
-ms.date: 05/26/2020
+ms.date: 01/22/2021
 ms.custom: cog-serv-seo-aug-2020
 keywords: "qna maker, low code chat bots, multi-turn conversations"
 ---
@@ -15,16 +15,25 @@ QnA Maker is a cloud-based Natural Language Processing (NLP) service that allows
 
 QnA Maker is commonly used to build conversational client applications, which include social media applications, chat bots, and speech-enabled desktop applications.
 
+QnA Maker doesn't store customer data. All customer data (question answers and chat logs) is stored in the region the customer deploys the dependent service instances in. For more details on dependent services see [here](../concepts/plan.md?tabs=v1).
+
+This documentation contains the following article types:
+
+* The [quickstarts](../quickstarts/create-publish-knowledge-base.md) are step-by-step instructions that let you make calls to the service and get results in a short period of time. 
+* The [how-to guides](../how-to/set-up-qnamaker-service-azure.md) contain instructions for using the service in more specific or customized ways.
+* The [conceptual articles](../concepts/plan.md) provide in-depth explanations of the service's functionality and features.
+* [**Tutorials**](../tutorials/create-faq-bot-with-azure-bot-service.md) are longer guides that show you how to use the service as a component in broader business solutions.
+
 ## When to use QnA Maker
 
-* **When you have static information** - Use QnA Maker when you have static information in your knowledge base of answers. This knowledge base is custom to your needs, which you've built with documents such as [PDFs and URLs](../index.yml).
+* **When you have static information** - Use QnA Maker when you have static information in your knowledge base of answers. This knowledge base is custom to your needs, which you've built with documents such as [PDFs and URLs](../Concepts/data-sources-and-content.md).
 * **When you want to provide the same answer to a request, question, or command** - when different users submit the same question, the same answer is returned.
 * **When you want to filter static information based on meta-information** - add [metadata](../how-to/metadata-generateanswer-usage.md) tags to provide additional filtering options relevant to your client application's users and the information. Common metadata information includes [chit-chat](../how-to/chit-chat-knowledge-base.md), content type or format, content purpose, and content freshness.
 * **When you want to manage a bot conversation that includes static information** - your knowledge base takes a user's conversational text or command and answers it. If the answer is part of a pre-determined conversation flow, represented in your knowledge base with [multi-turn context](../how-to/multiturn-conversation.md), the bot can easily provide this flow.
 
 ## What is a knowledge base?
 
-QnA Maker [imports your content](../index.yml) into a knowledge base of question and answer pairs. The import process extracts information about the relationship between the parts of your structured and semi-structured content to imply relationships between the question and answer pairs. You can edit these question and answer pairs or add new pairs.
+QnA Maker [imports your content](../Concepts/plan.md) into a knowledge base of question and answer pairs. The import process extracts information about the relationship between the parts of your structured and semi-structured content to imply relationships between the question and answer pairs. You can edit these question and answer pairs or add new pairs.
 
 The content of the question and answer pair includes:
 * All the alternate forms of the question
@@ -80,8 +89,6 @@ We offer quickstarts in most popular programming languages, each designed to tea
 
 * [Get started with QnA Maker client library](../quickstarts/quickstart-sdk.md)
 * [Get started with QnA Maker portal](../quickstarts/create-publish-knowledge-base.md)
-* [Get started with QnA Maker REST APis](../quickstarts/quickstart-rest-curl.md)
-
 
 ## Next steps
 QnA Maker provides everything you need to build, manage, and deploy your custom knowledge base.

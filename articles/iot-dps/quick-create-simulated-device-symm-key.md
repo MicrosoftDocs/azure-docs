@@ -1,6 +1,6 @@
 ---
 title: Quickstart - Use symmetric key to provision devices to Azure IoT Hub using C
-description: In this quickstart you will use the C device SDK to provision a device that uses symmetric key with the Azure IoT Hub Device Provisioning Service (DPS)
+description: In this quickstart, you will use the C device SDK to provision a device that uses symmetric key with the Azure IoT Hub Device Provisioning Service (DPS)
 author: wesmc7777
 ms.author: wesmc
 ms.date: 01/14/2020
@@ -9,7 +9,7 @@ ms.service: iot-dps
 services: iot-dps 
 manager: philmea
 ms.custom: mvc
-#Customer intent: As a new IoT developer, I want connect a device to an IoT Hub using the C SDK so that I can learn how secure provisioning works with symmetric keys.
+#Customer intent: As a new IoT developer, I want to connect a device to an IoT Hub using the C SDK so that I can learn how secure provisioning works with symmetric keys.
 ---
 
 # Quickstart: Provision a device with symmetric keys
@@ -18,7 +18,7 @@ In this quickstart, you will learn how to run device provisioning code on a Wind
 
 Although this article demonstrates provisioning with an individual enrollment, you can use enrollment groups. There are some differences when using enrollment groups. For example, you must use a derived device key with a unique registration ID for the device. Although symmetric key enrollment groups are not limited to legacy devices, [How to provision legacy devices using Symmetric key attestation](how-to-legacy-device-symm-key.md) provides an enrollment group example. For more information, see [Group Enrollments for Symmetric Key Attestation](concepts-symmetric-key-attestation.md#group-enrollments).
 
-If you're unfamiliar with the process of auto-provisioning, review the [provisioning](about-iot-dps.md#provisioning-process) overview. 
+If you're unfamiliar with the process of autoprovisioning, review the [provisioning](about-iot-dps.md#provisioning-process) overview. 
 
 Also, make sure you've completed the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before continuing with this quickstart. This quickstart requires you to have already created your Device Provisioning Service instance.
 
@@ -154,7 +154,7 @@ In this section, update the sample code to send the device's boot sequence to yo
     hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
     ```
 
-6. Find the call to `prov_dev_set_symmetric_key_info()` in **prov\_dev\_client\_sample.c** which is commented out.
+6. Find the call to `prov_dev_set_symmetric_key_info()` in **prov\_dev\_client\_sample.c** that is commented out.
 
     ```c
     // Set the symmetric key if using they auth type
@@ -172,7 +172,7 @@ In this section, update the sample code to send the device's boot sequence to yo
 
 7. Right-click the **prov\_dev\_client\_sample** project and select **Set as Startup Project**. 
 
-8. On the Visual Studio menu, select **Debug** > **Start without debugging** to run the solution. In the prompt to rebuild the project, select **Yes**, to rebuild the project before running.
+8. On the Visual Studio menu, select **Debug** > **Start without debugging** to run the solution. In the rebuild the project prompt, select **Yes** to rebuild the project before running.
 
     The following output is an example of the device successfully connecting to the provisioning Service instance to be assigned to an IoT hub:
 

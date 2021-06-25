@@ -1,17 +1,9 @@
 ---
 title: Quickstart - Create an Azure CDN profile and endpoint
 description: This quickstart shows how to enable Azure CDN by creating a new CDN profile and CDN endpoint.
-services: cdn
-documentationcenter: ''
 author: asudbring
-manager: danielgi
-editor: ''
-
 ms.assetid: 4ca51224-5423-419b-98cf-89860ef516d2
 ms.service: azure-cdn
-ms.workload: media
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 04/30/2020
 ms.author: allensu
@@ -64,7 +56,7 @@ After you've created a CDN profile, you use it to create an endpoint.
     
    ![CDN endpoint](./media/cdn-create-new-endpoint/cdn-endpoint-success.png)
     
-   The time it takes for the endpoint to propagate depends on the pricing tier selected when you created the profile. **Standard Akamai** usually completes within one minute, **Standard Microsoft** in 10 minutes, and **Standard Verizon** and **Premium Verizon** in up to 90 minutes.
+   The time it takes for the endpoint to propagate depends on the pricing tier selected when you created the profile. **Standard Akamai** usually completes within one minute, **Standard Microsoft** in 10 minutes, and **Standard Verizon** and **Premium Verizon** in up to 30 minutes.
 
 ## Clean up resources
 
@@ -77,7 +69,4 @@ In the preceding steps, you created a CDN profile and an endpoint in a resource 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Use CDN to server static content from a web app](cdn-add-to-web-app.md)
-
-> [!div class="nextstepaction"]
-> [Tutorial: Add a custom domain to your Azure CDN endpoint](cdn-map-content-to-custom-domain.md)
+> [Tutorial: Use CDN to serve static content from a web app](cdn-add-to-web-app.md)

@@ -3,14 +3,14 @@ title: Administrative units troubleshooting and FAQ - Azure Active Directory | M
 description: Investigate administrative units to grant permissions with restricted scope in Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
 ms.date: 11/04/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 # Azure AD administrative units: Troubleshooting and FAQ
 
-For more granular administrative control in Azure Active Directory (Azure AD), you can assign users to an Azure AD role with a scope that's limited to one or more administrative units. For sample PowerShell scripts for common tasks, see [Work with administrative units](/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0&preserve-view=true).
+For more granular administrative control in Azure Active Directory (Azure AD), you can assign users to an Azure AD role with a scope that's limited to one or more administrative units. For sample PowerShell scripts for common tasks, see [Work with administrative units](/powershell/azure/active-directory/working-with-administrative-units).
 
 ## Frequently asked questions
 
@@ -35,7 +35,7 @@ For more granular administrative control in Azure Active Directory (Azure AD), y
 
 **A:** Sometimes, the addition or removal of one or more members of an administrative unit might take a few minutes to be reflected on the **Administrative units** pane. Alternatively, you can go directly to the associated resource's properties and see whether the action has been completed. For more information about users and groups in administrative units, see [View a list of administrative units for a user](admin-units-add-manage-users.md) and [View a list of administrative units for a group](admin-units-add-manage-groups.md).
 
-**Q: I am a delegated password administrator on an administrative unit. Why am I unable to reset a specific user's password?**
+**Q: I am a delegated Password Administrator on an administrative unit. Why am I unable to reset a specific user's password?**
 
 **A:** As an administrator of an administrative unit, you can reset passwords only for users who are assigned to your administrative unit. Make sure that the user whose password reset is failing belongs to the administrative unit to which you've been assigned. If the user belongs to the same administrative unit but you still can't reset the user's password, check the roles that are assigned to the user. 
 
@@ -65,9 +65,9 @@ Administrative units, such as organizational units in Windows Server Active Dire
 
 **Q: Are administrative units supported in PowerShell and the Graph API?**
 
-**A:** Yes. You'll find support for administrative units in [PowerShell cmdlet documentation](/powershell/module/Azuread/?view=azureadps-2.0&preserve-view=true) and [sample scripts](/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0&preserve-view=true).
+**A:** Yes. You'll find support for administrative units in [PowerShell cmdlet documentation](/powershell/module/Azuread/) and [sample scripts](/powershell/azure/active-directory/working-with-administrative-units).
 
-Find support for the [administrativeUnit resource type](/graph/api/resources/administrativeunit?view=graph-rest-1.0&preserve-view=true) in Microsoft Graph.
+Find support for the [administrativeUnit resource type](/graph/api/resources/administrativeunit) in Microsoft Graph.
 
 ## Next steps
 

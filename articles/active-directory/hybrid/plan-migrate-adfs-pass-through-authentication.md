@@ -98,7 +98,7 @@ Verify any settings that might have been customized for your federation design a
 For more information, see these articles:
 
 * [AD FS prompt=login parameter support](/windows-server/identity/ad-fs/operations/ad-fs-prompt-login)
-* [Set-MsolDomainAuthentication](/powershell/module/msonline/set-msoldomainauthentication?view=azureadps-1.0)
+* [Set-MsolDomainAuthentication](/powershell/module/msonline/set-msoldomainauthentication)
 
 > [!NOTE]
 > If **SupportsMfa** is set to **True**, you're using an on-premises multi-factor authentication solution to inject a second-factor challenge into the user authentication flow. This setup no longer works for Azure AD authentication scenarios. 
@@ -139,7 +139,7 @@ This section describes common AD FS customizations.
 
 AD FS issues the **InsideCorporateNetwork** claim if the user who is authenticating is inside the corporate network. This claim can then be passed on to Azure AD. The claim is used to bypass multi-factor authentication based on the user's network location. To learn how to determine whether this functionality currently is available in AD FS, see [Trusted IPs for federated users](../authentication/howto-mfa-adfs.md).
 
-The **InsideCorporateNetwork** claim isn't available after your domains are converted to pass-through authentication. You can use [named locations in Azure AD](../reports-monitoring/quickstart-configure-named-locations.md) to replace this functionality.
+The **InsideCorporateNetwork** claim isn't available after your domains are converted to pass-through authentication. You can use [named locations in Azure AD](../conditional-access/location-condition.md) to replace this functionality.
 
 After you configure named locations, you must update all Conditional Access policies that were configured to either include or exclude the network **All trusted locations** or **MFA Trusted IPs** values to reflect the new named locations.
 

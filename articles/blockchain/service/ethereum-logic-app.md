@@ -9,7 +9,11 @@ ms.reviewer: caleteet
 
 # Use the Ethereum Blockchain connector with Azure Logic Apps
 
-Use the [Ethereum Blockchain connector](/connectors/blockchainethereum/) with [Azure Logic Apps](../../logic-apps/index.yml) to perform smart contract actions and respond to smart contract events. This article explains how you might use the Ethereum Blockchain connector to send blockchain information to another service or call a blockchain function. For example, let's say you want to create a REST-based microservice that returns information from a blockchain ledger. By using a logic app, you can accept HTTP requests that query information stored in a blockchain ledger.
+Use the [Ethereum Blockchain connector](/connectors/blockchainethereum/) with [Azure Logic Apps](../../logic-apps/index.yml) to perform smart contract actions and respond to smart contract events.
+
+[!INCLUDE [Retirement note](./includes/retirement.md)]
+
+This article explains how you might use the Ethereum Blockchain connector to send blockchain information to another service or call a blockchain function. For example, let's say you want to create a REST-based microservice that returns information from a blockchain ledger. By using a logic app, you can accept HTTP requests that query information stored in a blockchain ledger.
 
 ## Prerequisites
 
@@ -190,7 +194,7 @@ The Azure Blockchain Service RPC endpoint address is required to connect to a bl
 You can use the Ethereum account's private key to authenticate when sending a transaction to the blockchain. Your Ethereum account's public and private keys are generated from a 12-word mnemonic. The Azure Blockchain Development Kit for Ethereum generates a mnemonic when you connect to an Azure Blockchain Service consortium member. You can get the endpoint address by using the development kit extension.
 
 1. In Visual Studio Code, open the command palette (F1).
-1. Select **Azure Blockchain: Retrieve private key**.
+1. Select **Blockchain: Retrieve private key**.
 1. Select the mnemonic you saved when connecting to the consortium member.
 
     ![Command palette with an option to select the mnemonic](./media/ethereum-logic-app/private-key.png)

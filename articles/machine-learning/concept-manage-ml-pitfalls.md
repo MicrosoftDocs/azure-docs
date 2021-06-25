@@ -79,8 +79,8 @@ In addition, automated ML runs generate the following charts automatically, whic
 Chart| Description
 ---|---
 [Confusion Matrix](how-to-understand-automated-ml.md#confusion-matrix)| Evaluates the correctly classified labels against the actual labels of the data. 
-[Precision-recall](how-to-understand-automated-ml.md#precision-recall-chart)| Evaluates the ratio of correct labels against the ratio of found label instances of the data 
-[ROC Curves](how-to-understand-automated-ml.md#roc)| Evaluates the ratio of correct labels against the ratio of false-positive labels.
+[Precision-recall](how-to-understand-automated-ml.md#precision-recall-curve)| Evaluates the ratio of correct labels against the ratio of found label instances of the data 
+[ROC Curves](how-to-understand-automated-ml.md#roc-curve)| Evaluates the ratio of correct labels against the ratio of false-positive labels.
 
 ## Handle imbalanced data 
 

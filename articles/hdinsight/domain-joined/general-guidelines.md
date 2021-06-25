@@ -1,9 +1,6 @@
 ---
 title: Enterprise security general guidelines in Azure HDInsight
 description: Some best practices that should make Enterprise Security Package deployment and management easier.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/13/2020
@@ -110,7 +107,7 @@ Use a new resource group for each cluster so that you can distinguish between cl
 [Azure Active Directory Domain Services](../../active-directory-domain-services/overview.md) (Azure AD DS) provides managed domain services such as domain join, group policy, lightweight directory access protocol (LDAP), and Kerberos / NTLM authentication that is fully compatible with Windows Server Active Directory.
 
 Azure AD DS is required for secure clusters to join a domain.
-HDInsight can't depend on on-premise domain controllers or custom domain controllers, as it introduces too many fault points, credential sharing, DNS permissions, and so on. For more information, see [Azure AD DS FAQs](../../active-directory-domain-services/faqs.md).
+HDInsight can't depend on on-premise domain controllers or custom domain controllers, as it introduces too many fault points, credential sharing, DNS permissions, and so on. For more information, see [Azure AD DS FAQs](../../active-directory-domain-services/faqs.yml).
 
 ### Azure AD DS instance
 

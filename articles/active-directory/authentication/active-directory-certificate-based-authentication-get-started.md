@@ -90,20 +90,20 @@ The schema for a certificate authority looks as follows:
     }
 ```
 
-For the configuration, you can use the [Azure Active Directory PowerShell Version 2](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0):
+For the configuration, you can use the [Azure Active Directory PowerShell Version 2](/powershell/azure/active-directory/install-adv2):
 
 1. Start Windows PowerShell with administrator privileges.
 2. Install the Azure AD module version [2.0.0.33](https://www.powershellgallery.com/packages/AzureAD/2.0.0.33) or higher.
 
-```powershell
-    Install-Module -Name AzureAD –RequiredVersion 2.0.0.33
-```
+   ```powershell
+       Install-Module -Name AzureAD –RequiredVersion 2.0.0.33
+   ```
 
 As a first configuration step, you need to establish a connection with your tenant. As soon as a connection to your tenant exists, you can review, add, delete, and modify the trusted certificate authorities that are defined in your directory.
 
 ### Connect
 
-To establish a connection with your tenant, use the [Connect-AzureAD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0) cmdlet:
+To establish a connection with your tenant, use the [Connect-AzureAD](/powershell/module/azuread/connect-azuread) cmdlet:
 
 ```azurepowershell
     Connect-AzureAD
@@ -111,7 +111,7 @@ To establish a connection with your tenant, use the [Connect-AzureAD](/powershel
 
 ### Retrieve
 
-To retrieve the trusted certificate authorities that are defined in your directory, use the [Get-AzureADTrustedCertificateAuthority](/powershell/module/azuread/get-azureadtrustedcertificateauthority?view=azureadps-2.0) cmdlet.
+To retrieve the trusted certificate authorities that are defined in your directory, use the [Get-AzureADTrustedCertificateAuthority](/powershell/module/azuread/get-azureadtrustedcertificateauthority) cmdlet.
 
 ```azurepowershell
     Get-AzureADTrustedCertificateAuthority
@@ -119,7 +119,7 @@ To retrieve the trusted certificate authorities that are defined in your directo
 
 ### Add
 
-To create a trusted certificate authority, use the [New-AzureADTrustedCertificateAuthority](/powershell/module/azuread/new-azureadtrustedcertificateauthority?view=azureadps-2.0) cmdlet and set the **crlDistributionPoint** attribute to a correct value:
+To create a trusted certificate authority, use the [New-AzureADTrustedCertificateAuthority](/powershell/module/azuread/new-azureadtrustedcertificateauthority) cmdlet and set the **crlDistributionPoint** attribute to a correct value:
 
 ```azurepowershell
     $cert=Get-Content -Encoding byte "[LOCATION OF THE CER FILE]"
@@ -132,7 +132,7 @@ To create a trusted certificate authority, use the [New-AzureADTrustedCertificat
 
 ### Remove
 
-To remove a trusted certificate authority, use the [Remove-AzureADTrustedCertificateAuthority](/powershell/module/azuread/remove-azureadtrustedcertificateauthority?view=azureadps-2.0) cmdlet:
+To remove a trusted certificate authority, use the [Remove-AzureADTrustedCertificateAuthority](/powershell/module/azuread/remove-azureadtrustedcertificateauthority) cmdlet:
 
 ```azurepowershell
     $c=Get-AzureADTrustedCertificateAuthority
@@ -141,7 +141,7 @@ To remove a trusted certificate authority, use the [Remove-AzureADTrustedCertifi
 
 ### Modify
 
-To modify a trusted certificate authority, use the [Set-AzureADTrustedCertificateAuthority](/powershell/module/azuread/set-azureadtrustedcertificateauthority?view=azureadps-2.0) cmdlet:
+To modify a trusted certificate authority, use the [Set-AzureADTrustedCertificateAuthority](/powershell/module/azuread/set-azureadtrustedcertificateauthority) cmdlet:
 
 ```azurepowershell
     $c=Get-AzureADTrustedCertificateAuthority
@@ -159,27 +159,25 @@ To ensure that the revocation persists, you must set the **Effective Date** of t
 
 The following steps outline the process for updating and invalidating the authorization token by setting the **StsRefreshTokenValidFrom** field.
 
-**To configure revocation:**
-
 1. Connect with admin credentials to the MSOL service:
 
-```powershell
-        $msolcred = get-credential
-        connect-msolservice -credential $msolcred
-```
+   ```powershell
+           $msolcred = get-credential
+            connect-msolservice -credential $msolcred
+   ```
 
 2. Retrieve the current StsRefreshTokensValidFrom value for a user:
 
-```powershell
-        $user = Get-MsolUser -UserPrincipalName test@yourdomain.com`
-        $user.StsRefreshTokensValidFrom
-```
+   ```powershell
+           $user = Get-MsolUser -UserPrincipalName test@yourdomain.com`
+           $user.StsRefreshTokensValidFrom
+   ```
 
 3. Configure a new StsRefreshTokensValidFrom value for the user equal to the current timestamp:
 
-```powershell
-        Set-MsolUser -UserPrincipalName test@yourdomain.com -StsRefreshTokensValidFrom ("03/05/2016")
-```
+   ```powershell
+           Set-MsolUser -UserPrincipalName test@yourdomain.com -StsRefreshTokensValidFrom ("03/05/2016")
+   ```
 
 The date you set must be in the future. If the date is not in the future, the **StsRefreshTokensValidFrom** property is not set. If the date is in the future, **StsRefreshTokensValidFrom** is set to the current time (not the date indicated by Set-MsolUser command).
 
@@ -196,11 +194,9 @@ If your sign-in is successful, then you know that:
 
 ### Testing Office mobile applications
 
-**To test certificate-based authentication on your mobile Office application:**
-
 1. On your test device, install an Office mobile application (for example, OneDrive).
-3. Launch the application.
-4. Enter your username, and then select the user certificate you want to use.
+1. Launch the application.
+1. Enter your username, and then select the user certificate you want to use.
 
 You should be successfully signed in.
 
@@ -217,8 +213,6 @@ The EAS profile must contain the following information:
 An EAS profile can be configured and placed on the device through the utilization of Mobile device management (MDM) such as Intune or by manually placing the certificate in the EAS profile on the device.
 
 ### Testing EAS client applications on Android
-
-**To test certificate authentication:**
 
 1. Configure an EAS profile in the application that satisfies the requirements in the prior section.
 2. Open the application, and verify that mail is synchronizing.

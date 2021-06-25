@@ -1,55 +1,55 @@
 ---
-title: Understanding Windows Virtual Desktop network connectivity
+title: Understanding Azure Virtual Desktop network connectivity
 titleSuffix: Azure
-description: Learn about Windows Virtual Desktop network connectivity
+description: Learn about Azure Virtual Desktop network connectivity
 author: gundarev
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: denisgun
 ---
 
-# Understanding Windows Virtual Desktop network connectivity
+# Understanding Azure Virtual Desktop network connectivity
 
-Windows Virtual Desktop provides the ability to host client sessions on the session hosts running on Azure. Microsoft manages portions of the services on the customer's behalf and provides secure endpoints for connecting clients and session hosts. The diagram below gives a high-level overview of the network connections used by Windows Virtual Desktop
+Azure Virtual Desktop provides the ability to host client sessions on the session hosts running on Azure. Microsoft manages portions of the services on the customer's behalf and provides secure endpoints for connecting clients and session hosts. The diagram below gives a high-level overview of the network connections used by Azure Virtual Desktop
 
-:::image type="content" source="media/windows-virtual-desktop-network-connections.svg" alt-text="Diagram of Windows Virtual Desktop Network Connections" lightbox="media/windows-virtual-desktop-network-connections.svg":::
+:::image type="content" source="media/windows-virtual-desktop-network-connections.svg" alt-text="Diagram of Azure Virtual Desktop Network Connections" lightbox="media/windows-virtual-desktop-network-connections.svg":::
 
 ## Session connectivity
 
-Windows Virtual Desktop uses Remote Desktop Protocol (RDP) to provide remote display and input capabilities over network connections. RDP has initially released with Windows NT 4.0 Terminal Server Edition and was continuously evolving with every Microsoft Windows and Windows Server release. From the beginning, RDP developed to be independent of its underlying transport stack, and today it supports multiple types of transport.
+Azure Virtual Desktop uses Remote Desktop Protocol (RDP) to provide remote display and input capabilities over network connections. RDP has initially released with Windows NT 4.0 Terminal Server Edition and was continuously evolving with every Microsoft Windows and Windows Server release. From the beginning, RDP developed to be independent of its underlying transport stack, and today it supports multiple types of transport.
 
 ## Reverse connect transport
 
-Windows Virtual Desktop is using reverse connect transport for establishing the remote session and for carrying RDP traffic. Unlike the on-premises Remote Desktop Services deployments, reverse connect transport doesn't use a TCP listener to receive incoming RDP connections. Instead, it is using outbound connectivity to the Windows Virtual Desktop infrastructure over the HTTPS connection.
+Azure Virtual Desktop is using reverse connect transport for establishing the remote session and for carrying RDP traffic. Unlike the on-premises Remote Desktop Services deployments, reverse connect transport doesn't use a TCP listener to receive incoming RDP connections. Instead, it is using outbound connectivity to the Azure Virtual Desktop infrastructure over the HTTPS connection.
 
 ## Session host communication channel
 
-Upon startup of the Windows Virtual Desktop session host, the Remote Desktop Agent Loader service establishes the Windows Virtual Desktop broker's persistent communication channel. This communication channel is layered on top of a secure Transport Layer Security (TLS) connection and serves as a bus for service message exchange between session host and Windows Virtual Desktop infrastructure.
+Upon startup of the Azure Virtual Desktop session host, the Remote Desktop Agent Loader service establishes the Azure Virtual Desktop broker's persistent communication channel. This communication channel is layered on top of a secure Transport Layer Security (TLS) connection and serves as a bus for service message exchange between session host and Azure Virtual Desktop infrastructure.
 
 ## Client connection sequence
 
 Client connection sequence described below:
 
-1. Using supported Windows Virtual Desktop client user subscribes to the Windows Virtual Desktop Workspace
+1. Using supported Azure Virtual Desktop client user subscribes to the Azure Virtual Desktop Workspace
 2. Azure Active Directory authenticates the user and returns the token used to enumerate resources available to a user
-3. Client passes token to the Windows Virtual Desktop feed subscription service
-4. Windows Virtual Desktop feed subscription service validates the token
-5. Windows Virtual Desktop feed subscription service passes the list of available desktops and RemoteApps back to the client in the form of digitally signed connection configuration
+3. Client passes token to the Azure Virtual Desktop feed subscription service
+4. Azure Virtual Desktop feed subscription service validates the token
+5. Azure Virtual Desktop feed subscription service passes the list of available desktops and RemoteApps back to the client in the form of digitally signed connection configuration
 6. Client stores the connection configuration for each available resource in a set of .rdp files
-7. When a user selects the resource to connect, the client uses the associated .rdp file and establishes the secure TLS 1.2 connection to the closest Windows Virtual Desktop gateway instance and passes the connection information
-8. Windows Virtual Desktop gateway validates the request and asks the Windows Virtual Desktop broker to orchestrate the connection
-9. Windows Virtual Desktop broker identifies the session host and uses the previously established persistent communication channel to initialize the connection
-10. Remote Desktop stack initiates the TLS 1.2 connection to the same Windows Virtual Desktop gateway instance as used by the client
+7. When a user selects the resource to connect, the client uses the associated .rdp file and establishes the secure TLS 1.2 connection to the closest Azure Virtual Desktop gateway instance and passes the connection information
+8. Azure Virtual Desktop gateway validates the request and asks the Azure Virtual Desktop broker to orchestrate the connection
+9. Azure Virtual Desktop broker identifies the session host and uses the previously established persistent communication channel to initialize the connection
+10. Remote Desktop stack initiates the TLS 1.2 connection to the same Azure Virtual Desktop gateway instance as used by the client
 11. After both client and session host connected to the gateway, the gateway starts relaying the raw data between both endpoints, this establishes the base reverse connect transport for the RDP
 12. After the base transport is set, the client starts the RDP handshake
 
 ## Connection security
 
-TLS 1.2 is used for all connections initiated from the clients and session hosts to the Windows Virtual Desktop infrastructure components.
-For reverse connect transport, both client and session host connect to the Windows Virtual Desktop gateway. After establishing the TCP connection, the client or session host validates the Windows Virtual Desktop gateway's certificate.
+TLS 1.2 is used for all connections initiated from the clients and session hosts to the Azure Virtual Desktop infrastructure components. Azure Virtual Desktop uses the same TLS 1.2 ciphers as [Azure Front Door](../frontdoor/front-door-faq.yml#what-are-the-current-cipher-suites-supported-by-azure-front-door-). It's important to make sure both client computers and session hosts can use these ciphers.
+For reverse connect transport, both client and session host connect to the Azure Virtual Desktop gateway. After establishing the TCP connection, the client or session host validates the Azure Virtual Desktop gateway's certificate.
 After establishing the base transport,  RDP establishes a nested TLS connection between client and session host using the session host's certificates. By default, the certificate used for RDP encryption is self-generated by the OS during the deployment. If desired, customers may deploy centrally managed certificates issued by the enterprise certification authority. For more information about configuring certificates, see [Windows Server documentation](/troubleshoot/windows-server/remote/remote-desktop-listener-certificate-configurations).
 
 ## Next steps
 
-* To learn about bandwidth requirements for Windows Virtual Desktop, see [Understanding Remote Desktop Protocol (RDP) Bandwidth Requirements for Windows Virtual Desktop](rdp-bandwidth.md).
-* To get started with Quality of Service (QoS) for Windows Virtual Desktop, see [Implement Quality of Service (QoS) for Windows Virtual Desktop](rdp-quality-of-service-qos.md).
+* To learn about bandwidth requirements for Azure Virtual Desktop, see [Understanding Remote Desktop Protocol (RDP) Bandwidth Requirements for Azure Virtual Desktop](rdp-bandwidth.md).
+* To get started with Quality of Service (QoS) for Azure Virtual Desktop, see [Implement Quality of Service (QoS) for Azure Virtual Desktop](rdp-quality-of-service-qos.md).

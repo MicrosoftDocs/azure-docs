@@ -1,7 +1,7 @@
 ---
 title: "Pattern: Deploy resources with a policy definition"
 description: This Azure Policy pattern provides an example of how to deploy resources with a deployIfNotExists policy definition.
-ms.date: 08/17/2020
+ms.date: 03/31/2021
 ms.topic: sample
 ---
 # Azure Policy pattern: deploy resources
@@ -56,7 +56,7 @@ three core components:
   template parameter sets the location of the new network watcher resource.
 
   :::code language="json" source="~/policy-templates/patterns/pattern-deploy-resources.json" range="30-44":::
-  
+
 - **parameters** - This property defines parameters that are provided to the **template**. The
   parameter names must match what are defined in **template**. In this example, the parameter is
   named **location** to match. The value of **location** uses the `field()` function again to get

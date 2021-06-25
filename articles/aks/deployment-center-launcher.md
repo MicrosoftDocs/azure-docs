@@ -51,7 +51,7 @@ In this tutorial, you will:
 
    ![Screenshot shows the Azure portal with an arrow pointing to the Deployment center.](media/deployment-center-launcher/settings.png)
 
-1. Choose the location of the code and select **Next**. Then, select one of the currently supported repositories: **[Azure Repos](/azure/devops/repos/index?view=azure-devops)** or **GitHub**.
+1. Choose the location of the code and select **Next**. Then, select one of the currently supported repositories: **[Azure Repos](/azure/devops/repos/index)** or **GitHub**.
 
     Azure Repos is a set of version control tools that help you manage your code. Whether your software project is large or small, using version control as early as possible is a good idea.
 
@@ -72,7 +72,7 @@ In this tutorial, you will:
 
     ![Screenshot shows the Deployment center with a message Could not find Dockerfile in the repository.](media/deployment-center-launcher/dockerfile.png)
 
-1. Select an existing container registry or create one, and then select **Finish**. The pipeline is created automatically and queues a build in [Azure Pipelines](/azure/devops/pipelines/index?view=azure-devops).
+1. Select an existing container registry or create one, and then select **Finish**. The pipeline is created automatically and queues a build in [Azure Pipelines](/azure/devops/pipelines/index).
 
     Azure Pipelines is a cloud service that you can use to automatically build and test your code project and make it available to other users. Azure Pipelines combines continuous integration and continuous delivery to constantly and consistently test and build your code and ship it to any target.
 

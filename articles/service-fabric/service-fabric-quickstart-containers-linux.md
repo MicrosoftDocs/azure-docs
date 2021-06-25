@@ -20,7 +20,7 @@ To complete this quickstart:
 
 1. Create a [free Azure account](https://azure.microsoft.com/free/) before you begin if you don't have a subscription.
 
-2. Install the [Azure CLI](/cli/azure/install-azure-cli-apt?view=azure-cli-latest)
+2. Install the [Azure CLI](/cli/azure/install-azure-cli-apt)
 
 3. Install the [Service Fabric SDK and CLI](service-fabric-get-started-linux.md#installation-methods)
 
@@ -65,7 +65,7 @@ az account set --subscription <mySubscriptionID>
 az group create --name $ResourceGroupName --location $Location 
 
 # Create secure five node Linux cluster. Creates a key vault in a resource group
-# and creates a certficate in the key vault. The certificate's subject name must match 
+# and creates a certificate in the key vault. The certificate's subject name must match 
 # the domain that you use to access the Service Fabric cluster.  The certificate is downloaded locally.
 az sf cluster create --resource-group $ResourceGroupName --location $Location --certificate-output-folder . --certificate-password $Password --certificate-subject-name $Subject --cluster-name $ClusterName --cluster-size 5 --os UbuntuServer1604 --vault-name $VaultName --vault-resource-group $ResourceGroupName --vm-password $VmPassword --vm-user-name $VmUserName
 ```
@@ -163,7 +163,7 @@ Use the uninstall script (uninstall.sh) provided in the template to delete the a
 
 The simplest way to delete the cluster and all the resources it consumes is to delete the resource group.
 
-Sign in to Azure and select the subscription ID with which you want to remove the cluster. You can find your subscription ID by logging in to the Azure portal. Delete the resource group and all the cluster resources using the [az group delete command](/cli/azure/group?view=azure-cli-latest).
+Sign in to Azure and select the subscription ID with which you want to remove the cluster. You can find your subscription ID by logging in to the Azure portal. Delete the resource group and all the cluster resources using the [az group delete command](/cli/azure/group).
 
 ```azurecli
 az login

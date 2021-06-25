@@ -1,7 +1,7 @@
 ---
 title: Create a workspace with data exfiltration protection enabled
 description: This article will explain how to create a workspace with data exfiltration protection in Azure Synapse Analytics
-author: NanditaV 
+author: nanditavalsan 
 ms.service: synapse-analytics 
 ms.topic: how-to
 ms.subservice: security 
@@ -28,7 +28,7 @@ Follow the steps listed in [Quickstart: Create a Synapse workspace](../quickstar
 1. Select “Yes” for the “Allow outbound data traffic only to approved targets” option.
 1. Choose the approved Azure AD tenants for this workspace.
 1. Review the configuration and create the workspace.
-:::image type="content" source="./media/how-to-create-a-workspace-with-data-exfiltration-protection/workspace-creation-data-exfiltration-protection.png" alt-text="Create a workspace with data exfiltration protection":::
+:::image type="content" source="./media/how-to-create-a-workspace-with-data-exfiltration-protection/workspace-creation-data-exfiltration-protection.png" alt-text="Screenshot that shows a Create Synapse workspace with 'Enable manage virtual network' selected.":::
 
 ## Manage approved Azure Active Directory tenants for the workspace
 1. From the workspace’s Azure portal, navigate to “Approved Azure AD tenants”. The list of approved Azure AD tenants for the workspace will be listed here. The workspace’s tenant is included by default and is not listed.
@@ -44,6 +44,11 @@ You can create managed private endpoints to connect to Azure resources that resi
 >[!IMPORTANT]
 >Resources in tenants other than the workspace's tenant must not have blocking firewall rules in place for the SQL pools to connect to them. Resources within the workspace’s managed virtual network, such as Spark clusters, can connect over managed private links to firewall-protected resources.
 
+## Known limitations
+Users can provide an environment configuration file to install Python packages from public repositories like PyPI. In data exfiltration protected workspaces, connections to outbound repositories are blocked. As a result, Python library installed from public repositories like PyPI are not supported. 
+
+As an alternative, users can upload workspace packages or create a private channel within their primary Azure Data Lake Storage account. For more information, visit [Package management in Azure Synapse Analytics](./spark/../../spark/apache-spark-azure-portal-add-libraries.md) 
+  
 ## Next steps
 
 Learn more about [data exfiltration protection in Synapse workspaces](./workspace-data-exfiltration-protection.md)

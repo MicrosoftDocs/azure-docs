@@ -6,12 +6,11 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 10/21/2020
-ms.custom: contperfq4, tracking-python
+ms.custom: contperf-fy20q4, tracking-python
 
 ---
 
@@ -35,7 +34,6 @@ See the other articles in this series:
 
 > [!IMPORTANT]
 > If your workspace is in a __sovereign cloud__, such as Azure Government or Azure China 21Vianet, integrated notebooks _do not_ support using storage that is in a virtual network. Instead, you can use Jupyter Notebooks from a compute instance. For more information, see the [Access data in a Compute Instance notebook](how-to-secure-training-vnet.md#access-data-in-a-compute-instance-notebook) section.
-
 
 ## Prerequisites
 
@@ -66,9 +64,16 @@ The studio supports reading data from the following datastore types in a virtual
 * Azure Data Lake Storage Gen2
 * Azure SQL Database
 
+### Firewall settings
+
+Some storage services, such as Azure Storage Account, have firewall settings that apply to the public endpoint for that specific service instance. Usually this setting allows you to allow/disallow access from specific IP addresses from the public internet. __This is not supported__ when using Azure Machine Learning studio. It is supported when using the Azure Machine Learning SDK or CLI.
+
+> [!TIP]
+> Azure Machine Learning studio is supported when using the Azure Firewall service. For more information, see [Use your workspace behind a firewall](how-to-access-azureml-behind-firewall.md).
+
 ### Configure datastores to use workspace-managed identity
 
-After you add an Azure storage account to your virtual network with a [service endpoint](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints) or [private endpoint](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints), you must configure your datastore to use [managed identity](../active-directory/managed-identities-azure-resources/overview.md) authentication. Doing so lets the studio access data in your storage account.
+After you add an Azure storage account to your virtual network with a either a [service endpoint](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints) or [private endpoint](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints), you must configure your datastore to use [managed identity](../active-directory/managed-identities-azure-resources/overview.md) authentication. Doing so lets the studio access data in your storage account.
 
 Azure Machine Learning uses [datastores](concept-data.md#datastores) to connect to storage accounts. Use the following steps to configure a datastore to use managed identity:
 
@@ -82,11 +87,13 @@ Azure Machine Learning uses [datastores](concept-data.md#datastores) to connect 
 
     ![Screenshot showing how to enable managed workspace identity](./media/how-to-enable-studio-virtual-network/enable-managed-identity.png)
 
-These steps add the workspace-managed identity as a __Reader__ to the storage service using Azure RBAC. __Reader__ access lets the workspace retrieve firewall settings to ensure that data doesn't leave the virtual network. Changes may take up to 10 minutes to take effect.
+These steps add the workspace-managed identity as a __Reader__ to the storage service using Azure RBAC. __Reader__ access allows the workspace to view the resource, but not make changes.
 
 ### Enable managed identity authentication for default storage accounts
 
-Each Azure Machine Learning workspace comes with two default storage accounts, which are defined when you create your workspace. The studio uses the default storage accounts to store experiment and model artifacts, which are critical to certain features in the studio.
+Each Azure Machine Learning workspace has two default storage accounts, a default blob storage account and a default file store account, which are defined when you create your workspace. You can also set new defaults in the **Datastore** management page.
+
+![Screenshot showing where default datastores can be found](./media/how-to-enable-studio-virtual-network/default-datastores.png)
 
 The following table describes why you must enable managed identity authentication for your workspace default storage accounts.
 
@@ -95,9 +102,12 @@ The following table describes why you must enable managed identity authenticatio
 |Workspace default blob storage| Stores model assets from the designer. You must enable managed identity authentication on this storage account to deploy models in the designer. <br> <br> You can visualize and run a designer pipeline if it uses a non-default datastore that has been configured to use managed identity. However, if you try to deploy a trained model without managed identity enabled on the default datastore, deployment will fail regardless of any other datastores in use.|
 |Workspace default file store| Stores AutoML experiment assets. You must enable managed identity authentication on this storage account to submit AutoML experiments. |
 
-
-![Screenshot showing where default datastores can be found](./media/how-to-enable-studio-virtual-network/default-datastores.png)
-
+> [!WARNING]
+> There's a known issue where the default file store does not automatically create the `azureml-filestore` folder, which is required to submit AutoML experiments. This occurs when users bring an existing filestore to set as the default filestore during workspace creation.
+> 
+> To avoid this issue, you have two options: 1) Use the default filestore which is automatically created for you doing workspace creation. 2) To bring your own filestore, make sure the filestore is outside of the VNet during workspace creation. After the workspace is created, add the storage account to the virtual network.
+>
+> To resolve this issue, remove the filestore account from the virtual network then add it back to the virtual network.
 
 ### Grant workspace managed identity __Reader__ access to storage private link
 
@@ -127,11 +137,11 @@ You can use both Azure RBAC and POSIX-style access control lists (ACLs) to contr
 
 To use Azure RBAC, add the workspace-managed identity to the [Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) role. For more information, see [Azure role-based access control](../storage/blobs/data-lake-storage-access-control-model.md#role-based-access-control).
 
-To use ACLs, the workspace-managed identity can be assigned access just like any other security principle. For more information, see [Access control lists on files and directories](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories).
+To use ACLs, the workspace-managed identity can be assigned access just like any other security principal. For more information, see [Access control lists on files and directories](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories).
 
 ### Azure Data Lake Storage Gen1 access control
 
-Azure Data Lake Storage Gen1 only supports POSIX-style access control lists. You can assign the workspace-managed identity access to resources just like any other security principle. For more information, see [Access control in Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-access-control.md).
+Azure Data Lake Storage Gen1 only supports POSIX-style access control lists. You can assign the workspace-managed identity access to resources just like any other security principal. For more information, see [Access control in Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-access-control.md).
 
 ### Azure SQL Database contained user
 
@@ -153,9 +163,11 @@ You should also [enable managed identity authentication](#configure-datastores-t
 
 ## Next steps
 
-This article is an optional part of a four-part virtual network series. See the rest of the articles to learn how to secure a virtual network:
+This article is part five of a five-part virtual network series. See the rest of the articles to learn how to secure a virtual network:
 
 * [Part 1: Virtual network overview](how-to-network-security-overview.md)
 * [Part 2: Secure the workspace resources](how-to-secure-workspace-vnet.md)
 * [Part 3: Secure the training environment](how-to-secure-training-vnet.md)
 * [Part 4: Secure the inferencing environment](how-to-secure-inferencing-vnet.md)
+
+Also see the article on using [custom DNS](how-to-custom-dns.md) for name resolution.

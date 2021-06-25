@@ -1,25 +1,14 @@
 ---
-# Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Learn about encoders recommended by Azure Media Services | Microsoft Docs 
+title: Learn about encoders recommended by Azure Media Services | Microsoft Docs
 description: This article lists on premises encoders recommended by Azure Media Services.
 services: media-services
 keywords: encoding;encoders;media
-author: dbgeorge
+author: IngridAtMicrosoft
 manager: johndeu
 ms.author: johndeu
-ms.date: 03/20/2019
+ms.date: 03/10/2021
 ms.topic: article
-# Use only one of the following. Use ms.service for services, ms.prod for on premises. Remove the # before the relevant field.
 ms.service: media-services
-# product-name-from-white-list
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.devlang:devlang-from-white-list
-# ms.suite: 
-# ms.tgt_pltfrm:
-# ms.reviewer:
-# manager: MSFT-alias-manager-or-PM-counterpart
 ---
 
 # Recommended on-premises encoders

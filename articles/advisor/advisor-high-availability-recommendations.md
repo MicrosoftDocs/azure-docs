@@ -73,7 +73,7 @@ Virtual machines that are in an availability set with disks that share either st
 ## Repair invalid log alert rules
 
 Azure Advisor detects log alert rules that have invalid queries specified in their condition section. 
-Azure Monitor log alert rules run queries at specified frequency and fire alerts based on the results. Queries can become invalid over time because of changes in the referenced resources, tables, or commands. Advisor recommends corrections for alert queries to prevent the rules from being automatically disabled and to ensure monitoring coverage. For more information, see [Troubleshooting alert rules](../azure-monitor/platform/alerts-troubleshoot-log.md#query-used-in-a-log-alert-isnt-valid)
+Azure Monitor log alert rules run queries at specified frequency and fire alerts based on the results. Queries can become invalid over time because of changes in the referenced resources, tables, or commands. Advisor recommends corrections for alert queries to prevent the rules from being automatically disabled and to ensure monitoring coverage. For more information, see [Troubleshooting alert rules](../azure-monitor/alerts/alerts-troubleshoot-log.md#query-used-in-a-log-alert-isnt-valid)
 
 ## Configure Consistent indexing mode on your Azure Cosmos DB collection
 
@@ -93,7 +93,7 @@ Azure Advisor identifies Azure Cosmos DB accounts that are using old versions of
 
 ## Upgrade your Azure Cosmos DB Spark connector to the latest version from Maven
 
-Azure Advisor identifies Azure Cosmos DB accounts that are using old versions of the Azure Cosmos DB Spark connector. It recommends that you upgrade to the latest version from Maven for the latest fixes, performance improvements, and feature capabilities. [Learn more about Azure Cosmos DB Spark connector.](../cosmos-db/spark-connector.md)
+Azure Advisor identifies Azure Cosmos DB accounts that are using old versions of the Azure Cosmos DB Spark connector. It recommends that you upgrade to the latest version from Maven for the latest fixes, performance improvements, and feature capabilities. [Learn more about Azure Cosmos DB Spark connector.](../cosmos-db/create-sql-api-spark.md)
 
 ## Consider moving to Kafka 2.1 on HDInsight 4.0
 

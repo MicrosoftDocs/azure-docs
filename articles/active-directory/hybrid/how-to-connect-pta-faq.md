@@ -45,7 +45,7 @@ No. Pass-through Authentication _does not_ automatically failover to password ha
 
 When you use Azure AD Connect to switch the sign-in method from password hash synchronization to Pass-through Authentication, Pass-through Authentication becomes the primary sign-in method for your users in managed domains. Please note that all users' password hashes which were previously synchronized by password hash synchronization remain stored on Azure AD.
 
-## Can I install an [Azure AD Application Proxy](../manage-apps/application-proxy.md) connector on the same server as a Pass-through Authentication Agent?
+## Can I install an [Azure AD Application Proxy](../app-proxy/application-proxy.md) connector on the same server as a Pass-through Authentication Agent?
 
 Yes. The rebranded versions of the Pass-through Authentication Agent, version 1.5.193.0 or later, support this configuration.
 
@@ -132,10 +132,6 @@ For most customers, two or three Authentication Agents in total are sufficient f
 
 >[!NOTE]
 >There is a system limit of 40 Authentication Agents per tenant.
-
-## Can I install the first Pass-through Authentication Agent on a server other than the one that runs Azure AD Connect?
-
-No, this scenario is _not_ supported.
 
 ## Why do I need a cloud-only Global Administrator account to enable Pass-through Authentication?
 

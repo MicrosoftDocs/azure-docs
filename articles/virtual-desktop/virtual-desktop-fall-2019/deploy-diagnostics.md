@@ -1,24 +1,19 @@
 ---
-title: Deploy the diagnostics tool for Windows Virtual Desktop (classic) - Azure
-description: How to deploy the diagnostics UX tool for Windows Virtual Desktop (classic).
+title: Deploy the diagnostics tool for Azure Virtual Desktop (classic) - Azure
+description: How to deploy the diagnostics UX tool for Azure Virtual Desktop (classic).
 author: Heidilohr
 ms.topic: how-to
-ms.date: 03/30/2020
+ms.date: 12/15/2020
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 
-# Deploy the Windows Virtual Desktop (classic) diagnostics tool
+# Deploy the Azure Virtual Desktop (classic) diagnostics tool
 
 >[!IMPORTANT]
->This content applies to Windows Virtual Desktop (classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects.
+>This content applies to Azure Virtual Desktop (classic), which doesn't support Azure Resource Manager Azure Virtual Desktop objects.
 
->[!IMPORTANT]
->As of March 16, 2020, we've temporarily disabled diagnostic queries that impacted user experience due to increased demand on the service. This will cause the tool to stop working because it relies on those queries to function. We'll update this article when diagnostic queries are available again.
->
->Until then, we highly recommend you [use Log Analytics](diagnostics-log-analytics-2019.md) for continued monitoring.
-
-Here's what the diagnostics tool for Windows Virtual Desktop can do for you:
+Here's what the diagnostics tool for Azure Virtual Desktop can do for you:
 
 - Look up diagnostic activities (management, connection, or feed) for a single user over a period of one week.
 - Gather session host information for connection activities from your Log Analytics workspace.
@@ -38,8 +33,8 @@ You need to create an Azure Active Directory App Registration and a Log Analytic
 
 You also need to install these two PowerShell modules before you get started:
 
-- [Azure PowerShell module](/powershell/azure/install-az-ps?view=azps-2.4.0/)
-- [Azure AD module](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0/)
+- [Azure PowerShell module](/powershell/azure/install-az-ps)
+- [Azure AD module](/powershell/azure/active-directory/install-adv2)
 
 Make sure you have your Subscription ID ready for when you sign in.
 
@@ -50,7 +45,7 @@ After you have everything in order, you can create the Azure AD app registration
 This section will show you how to use PowerShell to create the Azure Active Directory app with a service principal and get API permissions for it.
 
 >[!NOTE]
->The API permissions are Windows Virtual Desktop, Log Analytics and Microsoft Graph API permissions are added to the Azure Active Directory Application.
+>The API permissions are Azure Virtual Desktop, Log Analytics and Microsoft Graph API permissions are added to the Azure Active Directory Application.
 
 1. Open PowerShell as an Administrator.
 2. Sign in to Azure with an account that has Owner or Contributor permissions on the Azure subscription you would like to use for the diagnostics tool:
@@ -116,7 +111,7 @@ Here's how to manually configure the recommended performance counters:
     -   Processor Information(\*)\\Processor Time
     -   User Input Delay per Session(\*)\\Max Input Delay
 
-Learn more about the performance counters at [Windows and Linux performance data sources in Azure Monitor](../../azure-monitor/platform/data-sources-performance-counters.md).
+Learn more about the performance counters at [Windows and Linux performance data sources in Azure Monitor](../../azure-monitor/agents/data-sources-performance-counters.md).
 
 >[!NOTE]
 >Any additional counters you configure won't show up in the diagnostics tool itself. To make it appear in the diagnostics tool, you need to configure the tool's config file. Instructions for how to do this with advanced administration will be available in GitHub at a later date.
@@ -199,8 +194,8 @@ To set the Redirect URI:
 
 Before you make the diagnostics tool available to your users, make sure they have the following permissions:
 
-- Users need read access for log analytics. For more information, see [Get started with roles, permissions, and security with Azure Monitor](../../azure-monitor/platform/roles-permissions-security.md).
--  Users also need read access for the Windows Virtual Desktop tenant (RDS Reader role). For more information, see [Delegated access in Windows Virtual Desktop](delegated-access-virtual-desktop-2019.md).
+- Users need read access for log analytics. For more information, see [Get started with roles, permissions, and security with Azure Monitor](../../azure-monitor/roles-permissions-security.md).
+-  Users also need read access for the Azure Virtual Desktop tenant (RDS Reader role). For more information, see [Delegated access in Azure Virtual Desktop](delegated-access-virtual-desktop-2019.md).
 
 You also need to give your users the following information:
 

@@ -2,13 +2,9 @@
 title: Troubleshooting Linux update agent issues in Azure Automation
 description: This article tells how to troubleshoot and resolve issues with the Linux Windows update agent in Update Management.
 services: automation
-author: mgoedtel
-ms.author: magoedte
-ms.date: 12/03/2019
-ms.topic: conceptual
-ms.service: automation
+ms.date: 01/25/2021
+ms.topic: troubleshooting
 ms.subservice: update-management
-manager: carmonm
 ---
 
 # Troubleshoot Linux update agent issues
@@ -22,7 +18,7 @@ There can be many reasons why your machine isn't showing up as ready (healthy) i
 > [!NOTE]
 > There can be a slight delay between what the Azure portal shows and the current state of a machine.
 
-This article discusses how to run the troubleshooter for Azure machines from the Azure portal and non-Azure machines in the [offline scenario](#troubleshoot-offline). 
+This article discusses how to run the troubleshooter for Azure machines from the Azure portal and non-Azure machines in the [offline scenario](#troubleshoot-offline).
 
 > [!NOTE]
 > The troubleshooter script currently doesn't route traffic through a proxy server if one is configured.
@@ -61,7 +57,7 @@ The operating system check verifies if the Hybrid Runbook Worker is running one 
 
 ### Log Analytics agent
 
-This check ensures that the Log Analytics agent for Linux is installed. For instructions on how to install it, see [Install the agent for Linux](../../azure-monitor/learn/quick-collect-linux-computer.md#install-the-agent-for-linux).
+This check ensures that the Log Analytics agent for Linux is installed. For instructions on how to install it, see [Install the agent for Linux](../../azure-monitor/vm/quick-collect-linux-computer.md#install-the-agent-for-linux).
 
 ### Log Analytics agent status
 
@@ -84,7 +80,6 @@ Update Management downloads Hybrid Runbook Worker packages from the operations e
 ### Hybrid Runbook Worker status
 
 This check makes sure the Hybrid Runbook Worker is running on the machine. The processes in the example below should be present if the Hybrid Runbook Worker is running correctly.
-
 
 ```bash
 nxautom+   8567      1  0 14:45 ?        00:00:00 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/main.py /var/opt/microsoft/omsagent/state/automationworker/oms.conf rworkspace:<workspaceId> <Linux hybrid worker version>
@@ -124,7 +119,7 @@ This check verifies that your machine has access to the endpoints needed by the 
 
 ## <a name="troubleshoot-offline"></a>Troubleshoot offline
 
-You can use the troubleshooter offline on a Hybrid Runbook Worker by running the script locally. The Python script, [update_mgmt_health_check.py](https://gallery.technet.microsoft.com/scriptcenter/Troubleshooting-utility-3bcbefe6), can be found in Script Center. An example of the output of this script is shown in the following example:
+You can use the troubleshooter offline on a Hybrid Runbook Worker by running the script locally. The Python script, [UM_Linux_Troubleshooter_Offline.py](https://github.com/Azure/updatemanagement/blob/main/UM_Linux_Troubleshooter_Offline.py), can be found in GitHub. An example of the output of this script is shown in the following example:
 
 ```output
 Debug: Machine Information:   Static hostname: LinuxVM2

@@ -28,11 +28,11 @@ To learn more about how IoT Plug and Play devices work with DTDL, see [IoT Plug 
 
 - VS Code extension 1.0.0.
 
-    To learn more, see [Install and use the DTDL authoring tools](howto-use-dtdl-authoring-tools.md).
+    To learn more, see [Lifecycle and tools](concepts-modeling-guide.md#lifecycle-and-tools).
 
 - Visual Studio 2019 extension 1.0.0.
 
-    To learn more, see [Install and use the DTDL authoring tools](howto-use-dtdl-authoring-tools.md).
+    To learn more, see [Lifecycle and tools](concepts-modeling-guide.md#lifecycle-and-tools).
 
 - Azure CLI IoT extension 0.10.0.
 
@@ -72,3 +72,7 @@ For current and previous IoT Plug and Play announcements, see the following blog
 - [Prepare and certify your devices for IoT Plug and Play (Posted on August 26, 2020)](https://azure.microsoft.com/blog/prepare-and-certify-your-devices-for-iot-plug-and-play/)
 - [IoT Plug and Play is now available in preview (Posted on August 22, 2019)](https://azure.microsoft.com/blog/iot-plug-and-play-is-now-available-in-preview/)
 - [Build with Azure IoT Central and IoT Plug and Play (Posted on May 7, 2019)](https://azure.microsoft.com/blog/build-with-azure-iot-central-and-iot-plug-and-play/)
+
+## Next steps
+
+The suggested next step is to review [What is IoT Plug and Play?](overview-iot-plug-and-play.md).

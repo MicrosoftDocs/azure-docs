@@ -1,9 +1,10 @@
 ---
 title: 'Diagnose and troubleshoot a Gen2 environment - Azure Time Series Insights | Microsoft Docs'
 description: Learn how to diagnose and troubleshoot an Azure Time Series Insights Gen2 environment.
-author: deepakpalled
-ms.author: dpalled
-manager: diviso
+author: tedvilutis
+ms.author: tvilutis
+manager: cnovak
+ms.reviewer: orspodek
 ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
@@ -45,7 +46,7 @@ There are several common reasons why your data might not appear in the [Azure Ti
     - Both the policies **iothubowner** and **service** work because they have **service connect** permission.
 
   - For an event hub, you need to provide the key that has **Listen** permission.
-  
+
     [![Review event hub permissions.](media/preview-troubleshoot/verify-eh-permissions.png)](media/preview-troubleshoot/verify-eh-permissions.png#lightbox)
 
     - Both the **Read** and **Manage** policies work because they have **Listen** permission.
@@ -66,7 +67,7 @@ You might be sending data without the Time Series ID.
 - This problem might occur because your environment is being throttled.
 
     > [!NOTE]
-    > At this time, Time Series Insights supports a maximum ingestion rate of 6 Mbps.
+    > At this time, Time Series Insights supports a maximum ingestion rate of 1 Mbps.
 
 ## Problem: Data was showing, but now ingestion has stopped
 
@@ -119,14 +120,6 @@ If the Timestamp property isn't explicitly specified, an event's IoT hub or even
 This problem might occur if your environment doesn't have a Time Series Model hierarchy defined. For more information, read about how to [work with Time Series Models](./time-series-insights-overview.md).
 
   [![Unparented instances will display a warning.](media/preview-troubleshoot/unparented-instances.png)](media/preview-troubleshoot/unparented-instances.png#lightbox)
-
-## Problem: Power BI Connector shows "Unable to Connect"
-
-This problem might occur if you are not using the latest version of the Power BI Connector in Power BI Desktop.
-
-[![Screenshot shows the Unable to connect dialog box.](media/preview-troubleshoot/power-bi-unable-to-connect.png)](media/preview-troubleshoot/power-bi-unable-to-connect.png#lightbox)
-
-- Check the version of your Power BI Desktop and make sure that you're using the July 2020 Version. If not, update your Power BI Desktop and run the connector again.
 
 ## Next steps
 

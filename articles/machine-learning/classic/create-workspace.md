@@ -1,9 +1,9 @@
 ---
 title: 'ML Studio (classic): Create a workspace - Azure'
-description: To use Azure Machine Learning Studio (classic), you need to have a Machine Learning Studio (classic) workspace. This workspace contains the tools you need to create, manage, and publish experiments.
+description: To use Machine Learning Studio (classic), you need to have a Machine Learning Studio (classic) workspace. This workspace contains the tools you need to create, manage, and publish experiments.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 
 author: likebupt
@@ -14,9 +14,9 @@ ms.date: 12/07/2017
 
 # Create and share an Machine Learning Studio (classic) workspace
 
-**APPLIES TO:**  ![This is a check mark, which means that this article applies to Machine Learning Studio (classic).](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![This is an X, which means that this article applies to Azure Machine Learning.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
+**APPLIES TO:**  ![This is a check mark, which means that this article applies to Machine Learning Studio (classic).](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![This is an X, which means that this article does not apply to Azure Machine Learning.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
-To use Azure Machine Learning Studio (classic), you need to have a Machine Learning Studio (classic) workspace. This workspace contains the tools you need to create, manage, and publish experiments.
+To use Machine Learning Studio (classic), you need to have a Machine Learning Studio (classic) workspace. This workspace contains the tools you need to create, manage, and publish experiments.
 
 ## Create a Studio (classic) workspace
 
@@ -61,11 +61,11 @@ Once the workspace is deployed, you can open it in Machine Learning Studio (clas
 
     ![Open experiments](./media/create-workspace/my-experiments.png)
 
-For information about managing your Studio (classic) workspace, see [Manage an Azure Machine Learning Studio (classic) workspace](manage-workspace.md).
+For information about managing your Studio (classic) workspace, see [Manage a Machine Learning Studio (classic) workspace](manage-workspace.md).
 If you encounter a problem creating your workspace, see [Troubleshooting guide: Create and connect to a Machine Learning Studio (classic) workspace](index.yml).
 
 
-## Share an Azure Machine Learning Studio (classic) workspace
+## Share a Machine Learning Studio (classic) workspace
 Once a Machine Learning Studio (classic) workspace is created, you can invite users to your workspace to share access to your workspace and all its experiments, datasets, etc. You can add users in one of two roles:
 
 * **User** - A workspace user can create, open, modify, and delete experiments, datasets, etc. in the workspace.
@@ -122,9 +122,9 @@ After the new Machine Learning Studio (classic) workspace is created, you can si
 
    ![Delete cookies](media/troubleshooting-creating-ml-workspace/screen6.png)
 
-After the cookies are deleted, restart the browser and then go to the [Microsoft Azure Machine Learning Studio (classic)](https://studio.azureml.net) page. When you are prompted for a user name and password, enter the same Microsoft account you used to create the workspace.
+After the cookies are deleted, restart the browser and then go to the [Machine Learning Studio (classic)](https://studio.azureml.net) page. When you are prompted for a user name and password, enter the same Microsoft account you used to create the workspace.
 
 
 ## Next steps
 
-For more information on managing a workspace, see [Manage an Azure Machine Learning Studio (classic) workspace](manage-workspace.md).
+For more information on managing a workspace, see [Manage a Machine Learning Studio (classic) workspace](manage-workspace.md).

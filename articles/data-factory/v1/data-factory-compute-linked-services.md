@@ -1,14 +1,10 @@
 ---
 title: Compute environments supported by Azure Data Factory version 1
 description: Learn about compute environments that you can use in Azure Data Factory pipelines (such as Azure HDInsight) to transform or process data.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ---
@@ -44,7 +40,7 @@ Microsoft updates the list of supported HDInsight versions  with the latest Hado
 After December 15, 2017:
 
 - You can no longer create Linux-based HDInsight version 3.3 (or earlier versions) clusters by using an on-demand HDInsight linked service in Data Factory version 1. 
-- If the  [**osType** and **Version** properties](#azure-hdinsight-on-demand-linked-service) are not explicitly specified in the JSON definition for an existing Data Factory version 1 on-demand HDInsight linked service, the default value is changed from **Version=3.1, osType=Windows** to **Version=\<latest HDI default version\>(https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning), osType=Linux**.
+- If the  [**osType** and **Version** properties](#azure-hdinsight-on-demand-linked-service) are not explicitly specified in the JSON definition for an existing Data Factory version 1 on-demand HDInsight linked service, the default value is changed from **Version=3.1, osType=Windows** to **Version=\<latest HDI default version\>, osType=Linux**.
 
 After July 31, 2018:
 

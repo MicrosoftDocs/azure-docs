@@ -19,13 +19,13 @@ S1 and S2 SKU ingress rates and capacities provide flexibility when configuring 
 
 | S1 SKU capacity | Ingress rate | Maximum storage capacity
 | --- | --- | --- |
-| 1 | 1 GB (1 million events) per day | 30 GB (30 million events) per month |
-| 10 | 10 GB (10 million events) per day | 300 GB (300 million events) per month |
+| 1 | 1 GB (1 million events) per day | 30 GB (30 million events) |
+| 10 | 10 GB (10 million events) per day | 300 GB (300 million events) |
 
 | S2 SKU capacity | Ingress rate | Maximum storage capacity
 | --- | --- | --- |
-| 1 | 10 GB (10 million events) per day | 300 GB (300 million events) per month |
-| 10 | 100 GB (100 million events) per day | 3 TB (3 billion events) per month |
+| 1 | 10 GB (10 million events) per day | 300 GB (300 million events) |
+| 10 | 100 GB (100 million events) per day | 3 TB (3 billion events) |
 
 > [!NOTE]
 > Capacities scale linearly, so an S1 SKU with capacity 2 supports 2 GB (2 million) events per day ingress rate and 60 GB (60 million events) per month.

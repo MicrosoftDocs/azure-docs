@@ -1,9 +1,6 @@
 ---
 title: Query data from HDFS-compatible Azure storage - Azure HDInsight
 description: Learn how to query data from Azure storage and Azure Data Lake Storage to store results of your analysis.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
@@ -152,7 +149,7 @@ Wherever it lives, each blob you create belongs to a container in your Azure Sto
 
 The default Blob container stores cluster-specific information such as job history and logs. Don't share a default Blob container with multiple HDInsight clusters. This action  might corrupt job history. It's recommended to use a different container for each cluster. Put shared data on a linked storage account specified for all relevant clusters rather than the default storage account. For more information on configuring linked storage accounts, see [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md). However you can reuse a default storage container after the original HDInsight cluster has been deleted. For HBase clusters, you can actually keep the HBase table schema and data by creating a new HBase cluster using the default blob container that is used by a deleted HBase cluster
 
-[!INCLUDE [secure-transfer-enabled-storage-account](../../includes/hdinsight-secure-transfer.md)]
+[!INCLUDE [secure-transfer-enabled-storage-account](includes/hdinsight-secure-transfer.md)]
 
 ## Use additional storage accounts
 

@@ -36,7 +36,7 @@ Once the application server is started,
 - For ASP.NET Core SignalR, Azure SignalR Service SDK opens 5 WebSocket connections per hub to SignalR Service. 
 - For ASP.NET SignalR, Azure SignalR Service SDK opens 5 WebSocket connections per hub to SignalR Service, and one per application WebSocket connection.
 
-5 WebSocket connections is the default value that can be changed in [configuration](https://github.com/Azure/azure-signalr/blob/dev/docs/use-signalr-service.md#connectioncount).
+5 WebSocket connections is the default value that can be changed in [configuration](https://github.com/Azure/azure-signalr/blob/dev/docs/run-asp-net-core.md#connectioncount).
 
 Messages to and from clients will be multiplexed into these connections.
 
@@ -51,21 +51,21 @@ There are two steps to establish persistent connections between the client and t
 
 1. Client sends a negotiate request to the application server. With Azure SignalR Service SDK, application server returns a redirect response with SignalR Service's URL and access token.
 
-- For ASP.NET Core SignalR, a typical redirect response looks like:
-    ```
-    {
-        "url":"https://test.service.signalr.net/client/?hub=chat&...",
-        "accessToken":"<a typical JWT token>"
-    }
-    ```
-- For ASP.NET SignalR, a typical redirect response looks like:
-    ```
-    {
-        "ProtocolVersion":"2.0",
-        "RedirectUrl":"https://test.service.signalr.net/aspnetclient",
-        "AccessToken":"<a typical JWT token>"
-    }
-    ```
+    - For ASP.NET Core SignalR, a typical redirect response looks like:
+        ```
+        {
+            "url":"https://test.service.signalr.net/client/?hub=chat&...",
+            "accessToken":"<a typical JWT token>"
+        }
+        ```
+    - For ASP.NET SignalR, a typical redirect response looks like:
+        ```
+        {
+            "ProtocolVersion":"2.0",
+            "RedirectUrl":"https://test.service.signalr.net/aspnetclient",
+            "AccessToken":"<a typical JWT token>"
+        }
+        ```
 
 1. After receiving the redirect response, client uses the new URL and access token to start the normal process to connect to SignalR Service.
 

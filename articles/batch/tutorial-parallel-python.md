@@ -1,5 +1,5 @@
 ---
-title: Run a parallel workload using the Python API
+title: Tutorial - Run a parallel workload using the Python API
 description: Tutorial - Process media files in parallel with ffmpeg in Azure Batch using the Batch Python client library
 ms.devlang: python
 ms.topic: tutorial
@@ -25,7 +25,7 @@ In this tutorial, you convert MP4 media files in parallel to MP3 format using th
 
 ## Prerequisites
 
-* [Python version 2.7 or 3.3 or later](https://www.python.org/downloads/)
+* [Python version 2.7 or 3.6+](https://www.python.org/downloads/)
 
 * [pip](https://pip.pypa.io/en/stable/installing/) package manager
 
@@ -263,7 +263,7 @@ When no longer needed, delete the resource group, Batch account, and storage acc
 
 ## Next steps
 
-In this tutorial, you learned about how to:
+In this tutorial, you learned how to:
 
 > [!div class="checklist"]
 > * Authenticate with Batch and Storage accounts
