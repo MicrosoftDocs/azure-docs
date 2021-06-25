@@ -4,7 +4,7 @@ description: Learn how to enable your web apps to run background tasks. Use this
 author: ggailey777
 ms.devlang: dotnet
 ms.custom: devx-track-csharp
-ms.date: 03/14/2021
+ms.date: 06/25/2021
 ms.author: glenga
 ms.topic: tutorial
 
@@ -24,7 +24,7 @@ In this tutorial, you will learn how to:
 > * Add a function
 > * Test locally
 > * Deploy to Azure
-> * Add Application Insights logging
+> * Enable Application Insights logging
 > * Add input/output bindings
 
 ## Prerequisites
@@ -163,21 +163,56 @@ Starting with version 3 of the WebJobs SDK, to connect to Azure Storage services
 
 1. Get the latest stable version of the [Microsoft.Azure.WebJobs.Extensions.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage) NuGet package, version 3.x.
 
-2. In the following command, replace `<3_X_VERSION>` with the current version  number you found in step 1. Each type of NuGet Package has a unique version number. 
+1. In the following command, replace `<3_X_VERSION>` with the current version  number you found in step 1. Each type of NuGet Package has a unique version number. 
 
     ```powershell
     Install-Package Microsoft.Azure.WebJobs.Extensions.Storage -Version <3_X_VERSION>
     ```
-3. In the **Package Manager Console**, execute the command with the current version number at the `PM>` entry point.
+1. In the **Package Manager Console**, execute the command with the current version number at the `PM>` entry point.
 
-4. Continuing in **Program.cs**, in the `ConfigureWebJobs` extension method, add the `AddAzureStorage` method on the [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder) instance (before the `Build` command) to initialize the Storage extension. At this point, the `ConfigureWebJobs` method looks like this:
+1. Continuing in **Program.cs**, in the `ConfigureWebJobs` extension method, add the `AddAzureStorage` method on the [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder) instance (before the `Build` command) to initialize the Storage extension. At this point, the `ConfigureWebJobs` method looks like this:
 
     ```cs
     builder.ConfigureWebJobs(b =>
-                    {
-                        b.AddAzureStorageCoreServices();
-                        b.AddAzureStorage();
-                    });
+    {
+        b.AddAzureStorageCoreServices();
+        b.AddAzureStorage();
+    });
+    ```
+1. Add the following code in the `Main` method after the `builder` is instantiated:
+
+    ```csharp
+    builder.UseEnvironment(EnvironmentName.Development);
+     ```
+
+    Running in [development mode](webjobs-sdk-how-to.md#host-development-settings) reduces the [queue polling exponential backoff](../azure-functions/functions-bindings-storage-queue-trigger.md?tabs=csharp#polling-algorithm)that can significantly delay the amount of time it takes for the runtime to find the message and invoke the function. You should remove this line of code when running in production. 
+
+    The `Main` method should now look like the following example:
+
+    ```csharp
+    static async Task Main()
+    {
+        var builder = new HostBuilder();
+        builder.UseEnvironment(EnvironmentName.Development);
+        builder.ConfigureWebJobs(b =>
+        {
+            b.AddAzureStorageCoreServices();
+        });
+        builder.ConfigureLogging((context, b) =>
+        {
+            b.AddConsole();
+        });
+        builder.ConfigureWebJobs(b =>
+        {
+            b.AddAzureStorageCoreServices();
+            b.AddAzureStorage();
+        });
+        var host = builder.Build();
+        using (host)
+        {
+            await host.RunAsync();
+        }
+    }
     ```
 
 ### Create a queue triggered function
@@ -208,13 +243,13 @@ The `QueueTrigger` attribute tells the runtime to call this function when a new 
 
     When a message is added to a queue named `queue`, the function executes and the `message` string is written to the logs. The queue being monitored is in the default Azure Storage account, which you create next.
    
-The `message` parameter doesn't have to be a string. You can also bind to a JSON object, a byte array, or a [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) object. [See Queue trigger usage](/azure/azure-functions/functions-bindings-storage-queue-trigger?tabs=csharp#usage). Each binding type (such as queues, blobs, or tables) has a different set of parameter types that you can bind to.
+The `message` parameter doesn't have to be a string. You can also bind to a JSON object, a byte array, or a [CloudQueueMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) object. [See Queue trigger usage](/azure/azure-functions/functions-bindings-storage-queue-trigger?tabs=csharp#usage). Each binding type (such as queues, blobs, or tables) has a different set of parameter types that you can bind to.
 
 ### Create an Azure storage account
 
 The Azure Storage Emulator that runs locally doesn't have all of the features that the WebJobs SDK needs. You'll create a storage account in Azure and configure the project to use it. 
 
-To learn how to create a general-purpose v2 storage account, see [Create an Azure Storage account](https://docs.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal).
+To learn how to create a general-purpose v2 storage account, see [Create an Azure Storage account](../storage/common/storage-account-create.md?tabs=azure-portal).
 
 ### Locate and copy your connection string
 A connection string is required to configure storage. Keep this connection string for the next steps.
@@ -281,11 +316,17 @@ It's now time to publish your WebJobs SDK project to Azure.
 
 During deployment, you create an app service instance where you'll run your functions. When you publish a .NET Core console app to App Service in Azure, it automatically runs as a WebJob. To learn more about publishing, see [Develop and deploy WebJobs using Visual Studio](webjobs-dotnet-deploy-vs.md).
 
+### Create Azure resources
+
 [!INCLUDE [webjobs-publish-net-core](../../includes/webjobs-publish-net-core.md)]
 
 ### Publish the project
 
-With the remote Azure resources created, it's time to publish the WebJobs project. Select the **Publish** button at the top right corner of the **Publish** page. When the operation completes, your WebJob is running on Azure.
+With the web app created in Azure, it's time to publish the WebJobs project. 
+
+1. In the **Publish** page under **Hosting**, select the edit button and change the **WebJob Type** to `Continuous` and select **Save**. This makes sure that the WebJob is running when messages are added to the queue. Triggered WebJobs are typically used only for HTTP triggers and webhooks. 
+
+1. Select the **Publish** button at the top right corner of the **Publish** page. When the operation completes, your WebJob is running on Azure.
 
 ### Create a storage connection app setting
 
@@ -300,6 +341,14 @@ You need to create the same storage connection string setting in Azure that you 
 1. In **Remote**, paste in the connection string from your local setting and select **OK**. 
 
 The connection string is now set in your app in Azure.
+
+### Enable Always On
+
+For a continuous WebJob, you should enable the Always on setting in the site so that your WebJobs run correctly. If you don't enable Always on, the runtime goes idle after a few minutes of inactivity. 
+
+1. In your **Publish** profile page, select the three dots above **Hosting** to show **Hosting profile section actions** and choose **Open in Azure portal**.  
+
+1. Under **Settings**, choose **Configuration** > **General settings**, set **Always on** to **On**, and then select **Save** and **Continue** to restart the site.
 
 ### Trigger the function in Azure
 
