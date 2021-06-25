@@ -9,7 +9,7 @@ ms.topic: how-to
 author: mokabiru
 ms.author: mokabiru
 ms.reviewer: cawrites
-ms.date: 06/23/2021
+ms.date: 06/24/2021
 ---
 # Migration guide: SQL Server to Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -32,7 +32,7 @@ For more migration information, see the [migration overview](sql-server-to-manag
 
 To migrate your SQL Server to Azure SQL Managed Instance, make sure you have: 
 
-- Chosen a [migration method](sql-server-to-managed-instance-overview.md#compare-migration-options) and the corresponding tools for your method.
+- Chosen a [migration method](sql-server-to-managed-instance-overview.md#compare-migration-options) and the corresponding totps for your method.
 - Installed the [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) on a machine that can connect to your source SQL Server.
 - Created a target [Azure SQL Managed Instance](../../managed-instance/instance-create-quickstart.md)
 - Configured connectivity and proper permissions to access both source and target. 
@@ -57,7 +57,13 @@ For more information about tools available to use for the Discover phase, see [S
 
 [!INCLUDE [assess-estate-with-azure-migrate](../../../../includes/azure-migrate-to-assess-sql-data-estate.md)]
 
-After data sources have been discovered, assess any on-premises SQL Server instance(s) that can be migrated to Azure SQL Managed Instance to identify migration blockers or compatibility issues. 
+After data sources have been discovered, assess any on-premises SQL Server instance(s) that can be migrated to Azure SQL Managed Instance to identify migration blockers or compatibility issues.
+
+Determine whether SQL Managed Instance is compatible with the database requirements of 
+your application. SQL Managed Instance is designed to provide easy lift and shift migration for 
+the majority of existing applications that use SQL Server. However, you may sometimes require 
+features or capabilities that are not yet supported and the cost of implementing a workaround is
+too high. 
 
 You can use the Data Migration Assistant (version 4.1 and later) to assess databases to get: 
 
@@ -80,7 +86,7 @@ To assess your environment using the Database Migration Assessment, follow these
 
 To learn more, see [Perform a SQL Server migration assessment with Data Migration Assistant](/sql/dma/dma-assesssqlonprem).
 
-If SQL Managed Instance is not a suitable target for your workload, SQL Server on Azure VMs might be a viable alternative target for your business. 
+If SQL Managed Instance is not a suitable target for your workload, SQL Server on Azure VMs might be a viable alternative target for your business.
 
 #### Scaled Assessments and Analysis
 
@@ -92,22 +98,140 @@ Data Migration Assistant supports performing scaled assessments and consolidatio
 > [!IMPORTANT]
 >Running assessments at scale for multiple databases can also be automated using [DMA's Command Line Utility](/sql/dma/dma-commandline) which also allows the results to be uploaded to [Azure Migrate](/sql/dma/dma-assess-sql-data-estate-to-sqldb#view-target-readiness-assessment-results) for further analysis and target readiness.
 
+#### In-Memory OLTP (Memory-optimized tables)
+
+SQL Server provides In-Memory OLTP capability that allows usage of memory-optimized tables, 
+memory-optimized table types and natively compiled SQL modules to run workloads that have high 
+throughput and low latency transactional processing requirements. 
+
+> [!IMPORTANT]
+> In-Memory OLTP is only supported in the Business Critical tier in Azure SQL Managed Instance 
+(and not supported in the General Purpose tier).
+
+If you have memory-optimized tables or memory-optimized table types in your on-premises SQL 
+Server and you are looking to migrate to Azure SQL Managed Instance, you should either:
+
+- Choose Business Critical tier for your target Azure SQL Managed Instance that supports 
+In-Memory OLTP, Or
+- If you want to migrate to General Purpose tier in Azure SQL Managed Instance, remove 
+memory-optimized tables, memory-optimized table types and natively compiled SQL modules that 
+interact with memory-optimized objects before migrating your database(s). The following T-SQL 
+query can be used to identify all objects that need to be removed before migration to General 
+Purpose tier:
+
+```tsql
+SELECT * FROM sys.tables WHERE is_memory_optimized=1
+SELECT * FROM sys.table_types WHERE is_memory_optimized=1
+SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
+```
+
+To learn more about in-memory technologies, see [Optimize performance by using in-memory 
+technologies in Azure SQL Database and Azure SQL Managed Instance](../in-memory-oltp-overview.md)
+
 ### Create a performance baseline
 
 If you need to compare the performance of your workload on a SQL Managed Instance with your original workload running on SQL Server, create a performance baseline to use for comparison. See [performance baseline](sql-server-to-managed-instance-performance-baseline.md) to learn more. 
 
+Performance baseline is a set of parameters such as average/max CPU usage, average/max disk IO 
+latency, throughput, IOPS, average/max page life expectancy, and average max size of tempdb. You 
+would like to have similar or even better parameters after migration, so it is important to 
+measure and record the baseline values for these parameters. In addition to system parameters, 
+you would need to select a set of the representative queries or the most important queries in 
+your workload and measure min/average/max duration and CPU usage for the selected queries. These 
+values would enable you to compare performance of workload running on the managed instance to the 
+original values on your source SQL Server instance.
+
+Some of the parameters that you would need to measure on your SQL Server instance are:
+
+- [Monitor CPU usage on your SQL Server instance](https://techcommunity.microsoft.com/t5/
+Azure-SQL-Database/Monitor-CPU-usage-on-SQL-Server/ba-p/680777#M131) and record the average and 
+peak CPU usage.
+- [Monitor memory usage on your SQL Server instance](/sql/relational-databases/
+performance-monitor/monitor-memory-usage) and determine the amount of memory used by different 
+components such as buffer pool, plan cache, column-store pool, [In-Memory OLTP](/sql/
+relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage), etc. In addition, you
+should find average and peak values of the Page Life Expectancy memory performance counter.
+- Monitor disk IO usage on the source SQL Server instance using [sys.dm_io_virtual_file_stats](/
+sql/relational-databases/system-dynamic-management-views/
+sys-dm-io-virtual-file-stats-transact-sql) view or [performance counters](/sql/
+relational-databases/performance-monitor/monitor-disk-usage).
+- Monitor workload and query performance or your SQL Server instance by examining Dynamic 
+Management Views or Query Store if you are migrating from a SQL Server 2016+ version. Identify 
+average duration and CPU usage of the most important queries in your workload to compare them 
+with the queries that are running on the managed instance.
+
+> [!Note]
+> If you notice any issue with your workload on SQL Server such as high CPU usage, constant 
+memory pressure, or tempdb or parameterization issues, you should try to resolve them on your 
+source SQL Server instance before taking the baseline and migration. Migrating known issues to 
+any new system might cause unexpected results and invalidate any performance comparison.
+
+As an outcome of this activity, you should have documented average and peak values for CPU, 
+memory, and IO usage on your source system, as well as average and max duration and CPU usage of 
+the dominant and the most critical queries in your workload. You should use these values later to
+compare performance of your workload on a managed instance with the baseline performance of the 
+workload on the source SQL Server instance.
+
+
 ### Create SQL Managed Instance 
 
-Based on the information in the discover and assess phase, create an appropriately-sized target SQL Managed Instance. You can do so by using the [Azure portal](../../managed-instance/instance-create-quickstart.md), [PowerShell](../../managed-instance/scripts/create-configure-managed-instance-powershell.md), or an [Azure Resource Manager (ARM) Template](../../managed-instance/create-template-quickstart.md). 
+Based on the information in the discover and assess phase, create an appropriately-sized target SQL Managed Instance. You can do so by using the [Azure portal](../../managed-instance/instance-create-quickstart.md), [PowerShell](../../managed-instance/scripts/create-configure-managed-instance-powershell.md), or an [Azure Resource Manager (ARM) Template](../../managed-instance/create-template-quickstart.md).
+
+Choose technical characteristics:
+- Number of vCores
+- Amount of memory
+- Performance tier (Business Critical, General Purpose) of your managed instance.
+
+Select migration method and migrate where you migrate your databases using offline migration (native backup/restore, database import/export) or online migration (Azure Data Migration Service, transactional replication). Monitor applications to ensure that you have expected performance.
+
+> [!NOTE]
+> To migrate an individual database into either a single database or an elastic pool, see [Migrate a SQL Server database to Azure SQL Database](../database/migrate-to-database-from-sql-server.md).
+
+- Based on the baseline CPU usage, you can provision a managed instance that matches the number 
+of cores that you are using on SQL Server, having in mind that CPU characteristics might need to 
+be scaled to match [VM characteristics where the managed instance is installed](resource-limits.
+md#hardware-generation-characteristics).
+- Based on the baseline memory usage, choose [the service tier that has matching memory]
+(resource-limits.md#hardware-generation-characteristics). The amount of memory cannot be directly
+chosen, so you would need to select the managed instance with the amount of vCores that has 
+matching memory (for example, 5.1 GB/vCore in Gen5).
+- Based on the baseline IO latency of the file subsystem, choose between the General Purpose 
+(latency greater than 5 ms) and Business Critical (latency less than 3 ms) service tiers.
+- Based on baseline throughput, pre-allocate the size of data or log files to get expected IO 
+performance.
 
 
 ## Migrate
 
 After you have completed tasks associated with the Pre-migration stage, you are ready to perform the schema and data migration. 
 
-Migrate your data using your chosen [migration method](sql-server-to-managed-instance-overview.md#compare-migration-options). 
+Migrate your data using your chosen [migration method](sql-server-to-managed-instance-overview.md#compare-migration-options).
 
-This guide describe the two most popular options - Azure Database Migration Service (DMS) and native backup and restore. 
+SQL Managed Instance targets user scenarios requiring mass database migration from on-premises or 
+Azure VM database implementations. They are the optimal choice when you need to lift and shift 
+the back end of the applications that regularly use instance level and/or cross-database 
+functionalities. If this is your scenario, you can move an entire instance to a corresponding 
+environment in Azure without the need to re-architect your applications.
+
+To move SQL instances, you need to plan carefully:
+
+- The migration of all databases that need to be collocated (ones running on the same instance).
+- The migration of instance-level objects that your application depends on, including logins, 
+credentials, SQL Agent jobs and operators, and server-level triggers.
+
+SQL Managed Instance is a managed service that allows you to delegate some of the regular DBA 
+activities to the platform as they are built in. Therefore, some instance-level data does not 
+need to be migrated, such as maintenance jobs for regular backups or Always On configuration, as 
+[high availability](../database/high-availability-sla.md) is built in.
+
+SQL Managed Instance supports the following database migration options (currently these are the 
+only supported migration methods):
+
+- Azure Database Migration Service - migration with near-zero downtime.
+- Native `RESTORE DATABASE FROM URL` - uses native backups from SQL Server and requires some 
+downtime.
+
+This guide describe the two most popular options - Azure Database Migration Service (DMS) and native backup and restore.
 
 ### Database Migration Service
 
@@ -164,7 +288,41 @@ To learn more about this migration option, see [Restore a database to Azure SQL 
 > [!NOTE]
 > A database restore operation is asynchronous and retryable. You might get an error in SQL Server Management Studio if the connection breaks or a time-out expires. Azure SQL Database will keep trying to restore database in the background, and you can track the progress of the restore using the [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) and [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) views.
 
+### Native RESTORE from URL
 
+RESTORE of native backups (.bak files) taken from a SQL Server instance, available on [Azure 
+Storage](https://azure.microsoft.com/services/storage/), is one of the key capabilities of SQL 
+Managed Instance that enables quick and easy offline database migration.
+
+The following diagram provides a high-level overview of the process:
+
+![Diagram shows SQL Server with an arrow labeled BACKUP / Upload to URL flowing to Azure Storage 
+and a second arrow labeled RESTORE from URL flowing from Azure Storage to a Managed Instance of 
+SQL.](./media/migrate-to-instance-from-sql-server/migration-flow.png)
+
+The following table provides more information regarding the methods you can use depending on 
+source SQL Server version you are running:
+
+|Step|SQL Engine and version|Backup/restore method|
+|---|---|---|
+|Put backup to Azure Storage|Prior to 2012 SP1 CU2|Upload .bak file directly to Azure Storage|
+||2012 SP1 CU2 - 2016|Direct backup using deprecated [WITH CREDENTIAL](/sql/t-sql/statements/
+restore-statements-transact-sql) syntax|
+||2016 and above|Direct backup using [WITH SAS CREDENTIAL](/sql/relational-databases/
+backup-restore/sql-server-backup-to-url)|
+|Restore from Azure Storage to a managed instance|[RESTORE FROM URL with SAS CREDENTIAL]
+(restore-sample-database-quickstart.md)|
+
+> [!IMPORTANT]
+>
+> - When you're migrating a database protected by [Transparent Data Encryption](../database/
+transparent-data-encryption-tde-overview.md) to a managed instance using native restore option, 
+the corresponding certificate from the on-premises or Azure VM SQL Server needs to be migrated 
+before database restore. For detailed steps, see [Migrate a TDE cert to a managed instance]
+(tde-certificate-migrate.md).
+> - Restore of system databases is not supported. To migrate instance-level objects (stored in 
+master or msdb databases), we recommend to script them out and run T-SQL scripts on the 
+destination instance.
 
 ## Data sync and cutover
 
