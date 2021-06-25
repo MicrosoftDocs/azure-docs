@@ -44,11 +44,11 @@ To get started, you'll need:
 
 There are two types of managed identities:
 
-* A [**System-assigned**](#enable-a-system-assigned-managed-identity) managed identity is **enabled** directly on a service instance. It is not enabled by default; you have to go to your resource and update the identity setting. The system-assigned managed identity is tied to your resource throughout its lifecycle. If you delete your resource, the managed identity will be deleted as well.
+* A [**system-assigned**](#enable-a-system-assigned-managed-identity) managed identity is **enabled** directly on a service instance. It is not enabled by default; you have to go to your resource and update the identity setting. The system-assigned managed identity is tied to your resource throughout its lifecycle. If you delete your resource, the managed identity will be deleted as well.
 
-* A [**User-assigned**](#create-a-user-assigned-managed-identity) managed identity is **created** as a standalone Azure resource and assigned to one or more Azure service instances. A user-assigned identity is managed separately from the resources that use it and has an independent lifecycle.
+* A [**user-assigned**](#create-a-user-assigned-managed-identity) managed identity is **created** as a standalone Azure resource and assigned to one or more Azure service instances. A user-assigned identity is managed separately from the resources that use it and has an independent lifecycle.
 
-We will assign managed identites to your Form Recognizer instance to access your Azure blob storage account.
+We will enable managed identities and grant Form Recognizer limited access your Azure blob storage account.
 
 ## Enable a system-assigned managed identity
 
