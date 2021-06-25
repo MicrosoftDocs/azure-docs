@@ -7,7 +7,7 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: terrylan
 manager: rkarlin
-ms.date: 11/10/2020
+ms.date: 06/24/2021
 ---
 
 # Platform integrity and security overview
@@ -17,6 +17,7 @@ The Azure fleet is composed of millions of servers (hosts) with thousands more a
 This series of articles describe how Microsoft ensures integrity and security of hosts through various stages in their lifecycle, from manufacturing to sunset. The articles address:
  
 - [Firmware security](firmware.md)
+- [Platform code integrity](code-integrity.md)
 - [UEFI Secure Boot](secure-boot.md)
 - [Measured boot and host attestation](measured-boot-host-attestation.md)
 - [Project Cerberus](project-cerberus.md)

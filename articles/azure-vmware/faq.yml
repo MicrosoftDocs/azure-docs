@@ -43,7 +43,7 @@ sections:
 
   - name: Configuration and setup
     questions:
-      - question: How long does it take to provision the initial three nodes in a cluster?
+      - question: How long does it take to provision the initial three hosts in a cluster?
         answer: At the moment, the provisioning can take roughly 3-4 hours.  Adding a single node in existing/same cluster takes between 30 - 45 minutes. 
 
   - name: VMware software
@@ -239,7 +239,7 @@ sections:
         answer: At launch, Azure VMware Solution won't support a single management experience across on-premises and private cloud environments. Private cloud clusters will be managed with vCenter and NSX Manager local to a private cloud.
 
       - question: If a cluster is scaled up, and then workload demand falls, can it be scaled back down? 
-        answer: Yes, as long as you have the quota allocated against your private cloud, you can scale out your clusters. When workload demand falls, you can delete nodes from the cluster to scale it down. You can do this through the Azure VMware Solution portal.
+        answer: Yes, as long as you have the quota allocated against your private cloud, you can scale out your clusters. When workload demand falls, you can delete hosts from the cluster to scale it down. You can do this through the Azure VMware Solution portal.
 
       - question: Is the underlying infrastructure shared?
         answer: No, private cloud hosts and clusters are dedicated and securely erased before and after use.
