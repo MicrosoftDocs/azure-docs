@@ -48,7 +48,7 @@ There are two types of managed identities:
 
 * A [**user-assigned**](#create-a-user-assigned-managed-identity) managed identity is **created** as a standalone Azure resource and assigned to one or more Azure service instances. A user-assigned identity is managed separately from the resources that use it and has an independent lifecycle.
 
-We will enable managed identities and grant Form Recognizer limited access your Azure blob storage account.
+In the following steps, we will enable managed identities and grant Form Recognizer limited access to your Azure blob storage account.
 
 ## Enable a system-assigned managed identity
 
