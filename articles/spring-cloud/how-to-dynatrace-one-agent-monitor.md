@@ -1,5 +1,5 @@
 ---
-title:  "Use Dynatrace Java OneAgent to monitor Azure Spring Cloud applications"
+title:  "Dynatrace Java OneAgent to monitor Azure Spring Cloud applications"
 description: How to use Dynatrace Java OneAgent to monitor Azure Spring Cloud applications
 author:  MikeDodaro
 ms.author: brendm
@@ -9,11 +9,11 @@ ms.date: 05/14/2021
 ms.custom: devx-track-java
 ---
 
-# Use Dynatrace Java OneAgent (Preview)
+# Dynatrace Spring Cloud OneAgent (Preview)
 
 Ths document explains how to use **Dynatrace OneAgent** to monitor Azure Spring Cloud applications.  With the **Dynatrace OneAgent** you can:
 
-* Consume the **Dynatrace OneAgent**.
+* Monitor apps with the **Dynatrace OneAgent**.
 * Configure the **Dynatrace OneAgent** by **Environment Variables**.
 * Check all monitoring data from **Dynatrace** dashboard.
 
