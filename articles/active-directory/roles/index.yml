@@ -33,7 +33,7 @@ landingContent:
             url: concept-understand-roles.md
           - text: Understand administrative units in Azure AD
             url: administrative-units.md
-          - text: Use cloud groups to manage role assignments
+          - text: Use groups to manage role assignments
             url: groups-concept.md
 
   # Card
@@ -75,7 +75,7 @@ landingContent:
         links:
           - text: Create role-assignable groups
             url: groups-create-eligible.md
-          - text: Assign a role to a cloud group
+          - text: Assign roles to groups
             url: groups-assign-role.md
           - text: Make a group eligible for PIM
             url: groups-pim-eligible.md
