@@ -28,9 +28,8 @@ By the end of the quickstart you will be able to redact faces in a video:
 
 ## Solution Overview
 
-![Architecture overview of solution](./media/face-redaction-event-based-python-quickstart/architecture.png)
-
-
+<img src="./media/faceredaction-eventbased-python-quickstart/architecture.png" alt="Architecture overview of solution" style="border: 1px solid #C3C3C3;" /> 
+          
 This quickstart shows how to deploy the solution that can be found in the solution overview above. It starts with a storage account (Azure Data Lake Storage Gen2), with an Event Listener connected to it (Event Grid), that triggers an Azure Function when new .mp4 files are uploaded to the storage account. The Azure Function will submit a job to a pre-configured Transform in Azure Media Services. The resulting redacted video will be stored on a Blob Storage account.
 
 ## Prerequisites
@@ -129,7 +128,7 @@ The bash script below is used for configuring the Resources after they have been
 ## Enable GitHub Actions pipeline
  The Workflow file in this repository contains the steps to execute the deployment of this solution. To start the Workflow, it needs to be enabled for your own repo. In order to enable it, go to the Actions tab in your repo and select 'I understand my workflows, go ahead and enable them'.
  
- ![Enable workflow](./media/face-redaction-event-based-python-quickstart/activate-workflow.png)
+ <img src="./media/faceredaction-eventbased-python-quickstart/activate-workflow.png" alt="Enable workflow" style="border: 1px solid #C3C3C3;" /> 
  
 After enabling the GitHub Actions, you can find the workload file here: [.github/workflows/main.yml](https://github.com/Azure-Samples/media-services-v3-python/blob/main/.github/workflows/main.yml).  Aside from the triggers, there is a build job with a couple of steps. The following steps are included:
 - **Env**: In here, multiple environment variables are defined, referring to the GitHub Secrets that we added earlier.
@@ -138,29 +137,30 @@ After enabling the GitHub Actions, you can find the workload file here: [.github
 - **Azure Login**: This step uses the GitHub Secret for logging into the Azure CLI using the Service Principal details.
 - **Deploy Azure Resources using Azure CLI script file**: runs the deployment script for provisioning the Azure Resources
 - **Deploy Azure Function code**: This step packages and deploys the Azure function in the directory './azure-function'. When the Azure Function is deployed successfully, it should be visible in the Azure portal under the name 'EventGrid_AMSJob':
-![Azure Function visible in Azure Portal](./media/face-redaction-event-based-python-quickstart/azurefunction.png)
+<img src="./media/faceredaction-eventbased-python-quickstart/azurefunction.png" alt="Azure Function visible in Azure Portal" style="border: 1px solid #C3C3C3;" /> 
+
 - **Configure Azure Resources using Azure CLI script file**:  If all correct, the last step is to configure the deployed Azure services to activate the event-listener.
 
 After enabling the workflows, select the 'Deploy Azure Media Service FaceRedaction solution' workflow and select 'Run workflow'. Now, the solution will be deployed using the variables added in the previous steps. Wait a couple of minutes and verify that it has run successfully.
 
-![Run workflow](./media/faceredaction-eventbased-python-quickstart/run-workflow.png)
+<img src="./media/faceredaction-eventbased-python-quickstart/run-workflow.png" alt="Run workflow" style="border: 1px solid #C3C3C3;" /> 
 
  ## Test your solution
  Go to the storage explorer of your ADLS Gen2 in the Azure portal. Upload a video to the Raw container. If you're looking for a test video, download one from [this website](https://www.pexels.com/search/videos/group/). See the image below for guidance on uploading a video to the ADLS Gen2 storage account:
  
- ![Uploading video](./media/face-redaction-event-based-python-quickstart/upload-test-data.png)
+ <img src="./media/faceredaction-eventbased-python-quickstart/upload-test-data.png" alt="Uploading Video" style="border: 1px solid #C3C3C3;" /> 
  
  Verify in you Azure Media Services instance that a job is created by going to your Azure Media Services account and select Transforms + Jobs from the menu. Then select the face redactor transformation.
- 
-![AMS Transform](./media/face-redaction-event-based-python-quickstart/ams-transform.png)
+
+ <img src="./media/faceredaction-eventbased-python-quickstart/ams-transform.png" alt="AMS Transform" style="border: 1px solid #C3C3C3;" /> 
 
 This page should show the job that was fired by the Azure Function. The job can either be finished or still processing.
  
-![AMS Job](./media/face-redaction-event-based-python-quickstart/ams-job.png)
+<img src="./media/faceredaction-eventbased-python-quickstart/ams-job.png" alt="AMS Job" style="border: 1px solid #C3C3C3;" />  
 
 By selecting the job, you'll see some details about the specific job. If you select the Output asset name and then use the link to the storage container that is linked to it, you can see your processed video when the job is finished.
 
-![AMS Output](./media/face-redaction-event-based-python-quickstart/ams-output.png)
+<img src="./media/faceredaction-eventbased-python-quickstart/ams-output.png" alt="AMS Output" style="border: 1px solid #C3C3C3;" />  
  
  ## Clean up Resources
  
