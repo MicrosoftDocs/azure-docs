@@ -270,6 +270,7 @@ In this step, you will update the Service Bus namespace with key vault informati
              "properties":{
                 "encryption":{
                    "keySource":"Microsoft.KeyVault",
+                   "requireInfrastructureEncryption":"true",                   
                    "keyVaultProperties":[
                       {
                          "keyName":"[parameters('keyName')]",
