@@ -1024,14 +1024,17 @@ To return a list of all the VMs that are running on your Azure Stack Edge device
 Get-AzVM -ResourceGroupName <String> -Name <String>
 ```
 
+For more information about this cmdlet, see [Get-AzVM](/powershell/module/az.compute/get-azvm?view=azps-6.1.0&preserve-view=true).
+
 ### [AzureRM](#tab/azure-rm)
 
 ```powershell
 Get-AzureRmVM -ResourceGroupName <String> -Name <String>
 ```
 
-For more information about this cmdlet, see [List VMs](/powershell/module/az.compute/get-azvm?view=azps-6.1.0).
 ---
+
+
 
 ### Turn on the VM
 
@@ -1096,6 +1099,8 @@ Add-AzureRmVMDataDisk -VM $VirtualMachine -Name "disk1" -VhdUri "https://contoso
 Update-AzureRmVM -ResourceGroupName "<Resource Group Name string>" -VM $VirtualMachine
 ```
 ---
+
+
 
 ### Delete the VM
 
