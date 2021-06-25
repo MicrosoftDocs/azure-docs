@@ -8,7 +8,7 @@ manager: nitinme
 keywords: cognitive services, cognitive intelligence, cognitive solutions, ai services
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 03/15/2021
+ms.date: 06/04/2021
 ms.author: aahi
 ---
 
@@ -37,7 +37,7 @@ At this time, the multi-service resource enables access to the following Cogniti
 * **Vision** - Computer Vision, Custom Vision, Form Recognizer, Face
 * **Speech** - Speech
 * **Language** - Language Understanding (LUIS), Text Analytics, Translator
-* **Decision** - Personalizer, Content Moderator
+* **Decision** - Content Moderator
 
 ### [Single-service resource](#tab/singleservice)
 
@@ -109,6 +109,8 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 1. In the Azure portal, expand the menu on the left side to open the menu of services, and choose **Resource Groups** to display the list of your resource groups.
 2. Locate the resource group containing the resource to be deleted
 3. Right-click on the resource group listing. Select **Delete resource group**, and confirm.
+
+If you need to recover a deleted resource, see [Recover deleted Cognitive Services resources](manage-resources.md).
 
 ## See also
 

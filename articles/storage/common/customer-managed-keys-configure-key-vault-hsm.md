@@ -30,7 +30,7 @@ This article shows how to configure encryption with customer-managed keys stored
 
 First, assign a system-assigned managed identity to the storage account. You'll use this managed identity to grant the storage account permissions to access the managed HSM. For more information about system-assigned managed identities, see [What are managed identities for Azure resources?](../../active-directory/managed-identities-azure-resources/overview.md).
 
-To assign a managed identity using Azure CLI, call [az storage account update](/cli/azure/storage/account#az-storage-account-update). Remember to replace the placeholder values in brackets with your own values:
+To assign a managed identity using Azure CLI, call [az storage account update](/cli/azure/storage/account#az_storage_account_update). Remember to replace the placeholder values in brackets with your own values:
 
 ```azurecli
 az storage account update \
@@ -41,7 +41,7 @@ az storage account update \
 
 ## Assign a role to the storage account for access to the managed HSM
 
-Next, assign the **Managed HSM Crypto Service Encryption** role to the storage account's managed identity so that the storage account has permissions to the managed HSM. Microsoft recommends that you scope the role assignment to the level of the individual key in order to grant the fewest possible privileges to the managed identity.
+Next, assign the **Managed HSM Crypto Service Encryption User** role to the storage account's managed identity so that the storage account has permissions to the managed HSM. Microsoft recommends that you scope the role assignment to the level of the individual key in order to grant the fewest possible privileges to the managed identity.
 
 To create the role assignment for storage account, call [az key vault role assignment create](/cli/azure/role/assignment#az_role_assignment_create). Remember to replace the placeholder values in brackets with your own values.
   
@@ -54,7 +54,7 @@ storage_account_principal = $(az storage account show \
 
 az keyvault role assignment create \
     --hsm-name <hsm-name> \
-    --role "Managed HSM Crypto Service Encryption" \
+    --role "Managed HSM Crypto Service Encryption User" \
     --assignee $storage_account_principal \
     --scope /keys/<key-name>
 ```
@@ -93,7 +93,7 @@ az storage account update
     --encryption-key-vault $hsmurl
 ```
 
-When you manually update the key version, you'll need to update the storage account's encryption settings to use the new version. First, query for the key vault URI by calling [az keyvault show](/cli/azure/keyvault#az-keyvault-show), and for the key version by calling [az keyvault key list-versions](/cli/azure/keyvault/key#az-keyvault-key-list-versions). Then call [az storage account update](/cli/azure/storage/account#az-storage-account-update) to update the storage account's encryption settings to use the new version of the key, as shown in the previous example.
+When you manually update the key version, you'll need to update the storage account's encryption settings to use the new version. First, query for the key vault URI by calling [az keyvault show](/cli/azure/keyvault#az_keyvault_show), and for the key version by calling [az keyvault key list-versions](/cli/azure/keyvault/key#az_keyvault_key_list_versions). Then call [az storage account update](/cli/azure/storage/account#az_storage_account_update) to update the storage account's encryption settings to use the new version of the key, as shown in the previous example.
 
 ## Next steps
 

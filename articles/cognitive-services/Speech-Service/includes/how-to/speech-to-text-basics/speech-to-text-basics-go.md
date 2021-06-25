@@ -94,7 +94,7 @@ func main() {
 }
 ```
 
-Run the following commands to create a go.mod file that links to components hosted on Github.
+Run the following commands to create a go.mod file that links to components hosted on GitHub.
 
 ```cmd
 go mod init quickstart
@@ -174,7 +174,7 @@ func main() {
 }
 ```
 
-Run the following commands to create a go.mod file that links to components hosted on Github.
+Run the following commands to create a go.mod file that links to components hosted on GitHub.
 
 ```cmd
 go mod init quickstart

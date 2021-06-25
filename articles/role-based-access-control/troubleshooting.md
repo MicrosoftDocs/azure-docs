@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 04/06/2021
 ms.author: rolyon
-ms.custom: seohack1, devx-track-azurecli
+ms.custom: seohack1, devx-track-azurecli, devx-track-azurepowershell
 ---
 # Troubleshoot Azure RBAC
 
@@ -132,7 +132,7 @@ ObjectType         : Unknown
 CanDelegate        : False
 ```
 
-Similarly, if you list this role assignment using Azure CLI, you might see an empty `principalName`. For example, [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list) returns a role assignment that is similar to the following output:
+Similarly, if you list this role assignment using Azure CLI, you might see an empty `principalName`. For example, [az role assignment list](/cli/azure/role/assignment#az_role_assignment_list) returns a role assignment that is similar to the following output:
 
 ```
 {

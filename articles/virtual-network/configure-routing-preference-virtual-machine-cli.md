@@ -23,7 +23,7 @@ This article shows you how to create a virtual machine with a public IP that is 
 
 ## Create a resource group
 1. If using the Cloud Shell, skip to step 2. Open a command session and sign into Azure with `az login`.
-2. Create a resource group with the [az group create](/cli/azure/group#az-group-create) command. The following example creates a resource group in the East US Azure region:
+2. Create a resource group with the [az group create](/cli/azure/group#az_group_create) command. The following example creates a resource group in the East US Azure region:
 
     ```azurecli
     az group create --name myResourceGroup --location eastus
@@ -49,7 +49,7 @@ Before you deploy a VM, you must create supporting network resources - network s
 
 ### Create a network security group
 
-Create a network security group for the rules that will govern inbound and outbound communication in your VNet with [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create)
+Create a network security group for the rules that will govern inbound and outbound communication in your VNet with [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create)
 
 ```azurecli
 az network nsg create \
@@ -60,7 +60,7 @@ az network nsg create \
 
 ### Create a virtual network
 
-Create a virtual network with [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). The following example creates a virtual network named *myVNET* with subnets *mySubNet*:
+Create a virtual network with [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). The following example creates a virtual network named *myVNET* with subnets *mySubNet*:
 
 ```azurecli
 # Create a virtual network
@@ -80,7 +80,7 @@ az network vnet subnet create \
 
 ### Create a NIC
 
-Create a virtual NIC for the VM with [az network nic create](/cli/azure/network/nic#az-network-nic-create). The following example creates a virtual NIC, which will be attached to the VM.
+Create a virtual NIC for the VM with [az network nic create](/cli/azure/network/nic#az_network_nic_create). The following example creates a virtual NIC, which will be attached to the VM.
 
 ```azurecli-interactive
 # Create a NIC
@@ -96,7 +96,7 @@ az network nic create \
 
 ## Create a virtual machine
 
-Create a VM with [az vm create](/cli/azure/vm#az-vm-create). The following example creates a windows server 2019 VM and the required virtual network components if they do not already exist.
+Create a VM with [az vm create](/cli/azure/vm#az_vm_create). The following example creates a windows server 2019 VM and the required virtual network components if they do not already exist.
 
 ```azurecli
 az vm create \
@@ -110,7 +110,7 @@ az vm create \
 
 ## Clean up resources
 
-When no longer needed, you can use [az group delete](/cli/azure/group#az-group-delete) to remove the resource group and all of the resources it contains:
+When no longer needed, you can use [az group delete](/cli/azure/group#az_group_delete) to remove the resource group and all of the resources it contains:
 
 ```azurecli
 az group delete --name myResourceGroup --yes

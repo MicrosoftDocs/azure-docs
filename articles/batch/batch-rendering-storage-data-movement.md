@@ -121,7 +121,7 @@ Job tasks specify paths for input files and output files using the mounted file 
 
 Azure Files are supported by all the main APIs and tools that have Azure Storage support; e.g. azcopy, Azure CLI, Storage Explorer, Azure PowerShell, Batch Explorer, etc.
 
-[Azure File Sync](../storage/files/storage-sync-files-planning.md) is available to automatically synchronize files between an on-premises file system and an Azure File share.
+[Azure File Sync](../storage/file-sync/file-sync-planning.md) is available to automatically synchronize files between an on-premises file system and an Azure File share.
 
 ## Next steps
 

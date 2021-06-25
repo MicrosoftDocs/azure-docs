@@ -92,7 +92,7 @@ In this tutorial, you learn how to:
     az network front-door routing-rule update -g {rg} -f {front_door} -n {routing_rule_name} --remove rulesEngine # case sensitive word ‘rulesEngine’
     ```
 
-For more information, a full list of AFD Rules Engine commands can be found [here](/cli/azure/ext/front-door/network/front-door/rules-engine).   
+For more information, a full list of AFD Rules Engine commands can be found [here](/cli/azure/network/front-door/rules-engine).   
 
 ## Clean up resources
 

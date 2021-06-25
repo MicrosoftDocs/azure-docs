@@ -23,10 +23,12 @@ For example, configure your web application to use a service principal that prov
 
 ## When to use a service principal
 
-You should use a service principal to provide registry access in **headless scenarios**. That is, any application, service, or script that must push or pull container images in an automated or otherwise unattended manner. For example:
+You should use a service principal to provide registry access in **headless scenarios**. That is, an application, service, or script that must push or pull container images in an automated or otherwise unattended manner. For example:
 
-  * *Pull*: Deploy containers from a registry to orchestration systems including Kubernetes, DC/OS, and Docker Swarm. You can also pull from container registries to related Azure services such as [Azure Kubernetes Service (AKS)](../aks/cluster-container-registry-integration.md), [Azure Container Instances](container-registry-auth-aci.md), [App Service](../app-service/index.yml), [Batch](../batch/index.yml), [Service Fabric](../service-fabric/index.yml), and others.
+  * *Pull*: Deploy containers from a registry to orchestration systems including Kubernetes, DC/OS, and Docker Swarm. You can also pull from container registries to related Azure services such as [Azure Container Instances](container-registry-auth-aci.md), [App Service](../app-service/index.yml), [Batch](../batch/index.yml), [Service Fabric](../service-fabric/index.yml), and others.
 
+    > [!TIP]
+    > A service principal is recommended in several [Kubernetes scenarios](authenticate-kubernetes-options.md) to pull images from an Azure container registry. With Azure Kubernetes Service (AKS), you can also use an automated mechanism to authenticate with a target registry by enabling the cluster's [managed identity](../aks/cluster-container-registry-integration.md). 
   * *Push*: Build container images and push them to a registry using continuous integration and deployment solutions like Azure Pipelines or Jenkins.
 
 For individual access to a registry, such as when you manually pull a container image to your development workstation, we recommend using your own [Azure AD identity](container-registry-authentication.md#individual-login-with-azure-ad) instead for registry access (for example, with [az acr login][az-acr-login]).
@@ -50,7 +52,7 @@ Once you have a service principal that you've granted access to your container r
 Each value has the format `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`. 
 
 > [!TIP]
-> You can regenerate the password of a service principal by running the [az ad sp reset-credentials](/cli/azure/ad/sp/credential#az-ad-sp-credential-reset) command.
+> You can regenerate the password of a service principal by running the [az ad sp reset-credentials](/cli/azure/ad/sp/credential#az_ad_sp_credential_reset) command.
 >
 
 ### Use credentials with Azure services
@@ -90,6 +92,19 @@ az acr login --name myregistry
 
 The CLI uses the token created when you ran `az login` to authenticate your session with the registry.
 
+## Create service principal for cross-tenant scenarios
+
+A service principal can also be used in Azure scenarios that require pulling images from a container registry in one Azure Active Directory (tenant) to a service or app in another. For example, an organization might run an app in Tenant A that needs to pull an image from a shared container registry in Tenant B.
+
+To create a service principal that can authenticate with a container registry in a cross-tenant scenario:
+
+*  Create a [multitenant app](../active-directory/develop/single-and-multi-tenant-apps.md) (service principal) in Tenant A 
+* Provision the app in Tenant B
+* Grant the service principal permissions to pull from the registry in Tenant B
+* Update the service or app in Tenant A to authenticate using the new service principal
+
+For example steps, see [Pull images from a container registry to an AKS cluster in a different AD tenant](authenticate-aks-cross-tenant.md).
+
 ## Next steps
 
 * See the [authentication overview](container-registry-authentication.md) for other scenarios to authenticate with an Azure container registry.
@@ -101,6 +116,6 @@ The CLI uses the token created when you ran `az login` to authenticate your sess
 [acr-scripts-psh]: https://github.com/Azure/azure-docs-powershell-samples/tree/master/container-registry
 
 <!-- LINKS - Internal -->
-[az-acr-login]: /cli/azure/acr#az-acr-login
-[az-login]: /cli/azure/reference-index#az-login
-[az-ad-sp-credential-reset]: /cli/azure/ad/sp/credential#az-ad-sp-credential-reset
+[az-acr-login]: /cli/azure/acr#az_acr_login
+[az-login]: /cli/azure/reference-index#az_login
+[az-ad-sp-credential-reset]: /cli/azure/ad/sp/credential#az_ad_sp_credential_reset

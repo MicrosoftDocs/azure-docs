@@ -146,7 +146,7 @@ Once the cluster has been established, use the following steps to verify that yo
     :::image type="content" source="./media/hdinsight-linux-ambari-ssh-tunnel/hdinsight-namenode-ui.png" alt-text="Image of the Hadoop NameNode UI":::
 
     > [!NOTE]  
-    > Notice the URL for this page; it should be similar to `http://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster`. This URI is using the internal fully qualified domain name (FQDN) of the node, and is only accessible when using an SSH tunnel.
+    > Notice the URL for this page; it should be similar to `http://hn*.randomcharacters.cx.internal.cloudapp.net:8088/cluster`. This URI is using the internal fully qualified domain name (FQDN) of the node, and is only accessible when using an SSH tunnel.
 
 ## Next steps
 

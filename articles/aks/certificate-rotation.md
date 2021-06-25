@@ -75,7 +75,7 @@ kubectl get no
 ```
 
 > [!NOTE]
-> If you have any services that run on top of AKS, such as [Azure Dev Spaces][dev-spaces], you may need to [update certificates related to those services][dev-spaces-rotate] as well.
+> If you have any services that run on top of AKS, you may need to update certificates related to those services as well.
 
 ## Next steps
 
@@ -83,9 +83,7 @@ This article showed you how to automatically rotate your cluster's certificates,
 
 
 [azure-cli-install]: /cli/azure/install-azure-cli
-[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-extension-update]: /cli/azure/extension#az-extension-update
+[az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
+[az-extension-add]: /cli/azure/extension#az_extension_add
+[az-extension-update]: /cli/azure/extension#az_extension_update
 [aks-best-practices-security-upgrades]: operator-best-practices-cluster-security.md
-[dev-spaces]: ../dev-spaces/index.yml
-[dev-spaces-rotate]: ../dev-spaces/troubleshooting.md#error-using-dev-spaces-after-rotating-aks-certificates

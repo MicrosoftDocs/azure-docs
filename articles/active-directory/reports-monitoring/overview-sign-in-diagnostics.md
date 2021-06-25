@@ -15,7 +15,7 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 12/15/2020
+ms.date: 06/18/2021
 ms.author: markvi
 ms.reviewer: tspring  
 
@@ -169,6 +169,54 @@ For example, if a corporate network is defined as a named location, the user sho
 In this scenario, sign-in events weren't interrupted by conditional access or multifactor authentication.
 
 This diagnostic scenario provides details about user sign-in events that were expected to be interrupted due to conditional access policies or multifactor authentication.
+
+
+### The account is locked 
+
+In this scenario, a user signed-in with incorrect credentials too many times. 
+
+This diagnostic scenario provides details about the apps, the number of attempts, the device used, the operating system and the IP address. 
+
+### Incorrect Credentials Invalid username or password 
+
+In this scenario, a user tried to sign-in using an invalid username or password. 
+
+This diagnostic scenario provides details about the apps, the number of attempts, the device used, the operating system and the IP address. 
+
+### Enterprise apps service provider 
+
+In this scenario, a user tried to sign-in to an app, which failed due to a problem with the service provider problem. 
+
+### Enterprise apps configuration 
+
+In this scenario, a sign-in failed due to an application configuration issue. 
+
+#### Error code insights 
+
+When an event does not have a contextual analysis in the Sign-in Diagnostic an updated error code explanation and relevant content may be shown. The error code insights will contain detailed text about the scenario, how to remediate the problem and any content to read regarding the problem.  
+
+#### Legacy Authentication 
+
+This diagnostics scenario diagnosis a sign-in event which was blocked or interrupted since the client was attempting to use Basic (also known as Legacy) Authentication. 
+
+Preventing legacy authentication sign-in is recommended as a best practice for security. Legacy authentication protocols like POP, SMTP, IMAP, and MAPI cannot enforce Multi-Factor Authentication (MFA) which makes them preferred entry points for adversaries to attack your organization. 
+
+#### B2B Blocked Sign-in 
+
+This diagnostic scenario detects a blocked or interrupted sign-in due to the user being from another organization-a B2B sign-in-where a Conditional Access policy requires that the clients device is joined to the resource tenant. 
+
+#### Blocked by Risk Policy 
+
+This scenario is where Identity Protection Policy blocks a sign-in attempt due to the sign-in attempt having been identified as risky. 
+
+### Security Defaults 
+
+This scenario covers sign-in events where the user’s sign-in was interrupted due to Security Defaults settings. Security Defaults enforce best practice security for your organization and will require Multi-Factor Authentication (MFA) to be configured and used in many scenarios to prevent password sprays, replay attacks and phishing attempts from being successful. 
+
+
+
+
+
 
 ## Next steps
 

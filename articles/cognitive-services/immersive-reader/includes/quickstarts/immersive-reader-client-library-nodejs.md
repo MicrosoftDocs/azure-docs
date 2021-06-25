@@ -1,11 +1,11 @@
 ---
 title: Immersive Reader Node.js client library quickstart 
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: In this quickstart, you build a web app from scratch and add the Immersive Reader API functionality.
 services: cognitive-services
 author: nitinme
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: immersive-reader
 ms.topic: include
 ms.date: 09/14/2020
@@ -93,7 +93,7 @@ router.get('/GetTokenAndSubdomain', function(req, res) {
                 resource: 'https://cognitiveservices.azure.com/'
             }
         },
-        function(err, resp, tokenResult) {
+        function(err, res, tokenResult) {
             if (err) {
                 console.log(err);
                 return res.status(500).send('CogSvcs IssueToken error');

@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/09/2020
+ms.date: 06/17/2021
 ms.author: b-juche
 ---
 # Configure an NFS client for Azure NetApp Files
@@ -76,7 +76,26 @@ The examples in this section use the following domain name and IP address:
     
     Ensure that `default_realm` is set to the provided realm in `/etc/krb5.conf`.  If not, add it under the `[libdefaults]` section in the file as shown in the following example:
     
-    `default_realm = CONTOSO.COM`
+    ```
+    [libdefaults]
+        default_realm = CONTOSO.COM
+        default_tkt_enctypes = aes256-cts-hmac-sha1-96
+        default_tgs_enctypes = aes256-cts-hmac-sha1-96
+        permitted_enctypes = aes256-cts-hmac-sha1-96
+    [realms]
+        CONTOSO.COM = {
+            kdc = dc01.contoso.com
+            admin_server = dc01.contoso.com
+            master_kdc = dc01.contoso.com
+            default_domain = contoso.com
+        }
+    [domain_realm]
+        .contoso.com = CONTOSO.COM
+        contoso.com = CONTOSO.COM
+    [logging]
+        kdc = SYSLOG:INFO
+        admin_server = FILE=/var/kadm5.log
+    ```
 
 7. Restart all NFS services:  
  
@@ -225,7 +244,11 @@ The following steps are optional.  You need to perform the steps only if you wan
 
     `base dc=contoso,dc=com uri ldap://10.20.0.4:389/ ldap_version 3 rootbinddn cn=admin,cn=Users,dc=contoso,dc=com pam_password ad`   
 
-2. Run the following command to restart and enable the service:
+2. Ensure that your `/etc/nsswitch.conf` file has the following `ldap` entries:   
+    `passwd:    compat systemd ldap`   
+    `group:     compat systemd ldap`
+
+3. Run the following command to restart and enable the service:
 
     `sudo systemctl restart nscd && sudo systemctl enable nscd`   
 
@@ -234,9 +257,42 @@ The following example queries the AD LDAP server from Ubuntu LDAP client for an 
 `root@cbs-k8s-varun4-04:/home/cbs# getent passwd hari1`   
 `hari1:*:1237:1237:hari1:/home/hari1:/bin/bash`   
 
+## Configure two VMs with the same hostname to access NFSv4.1 volumes 
+
+This section explains how you can configure two VMs that have the same hostname to access Azure NetApp Files NFSv4.1 volumes. This procedure can be useful when you conduct a disaster recovery (DR) test and require a test system with the same hostname as the primary DR system. This procedure is only required when you have the same hostname on two VMs that are accessing the same Azure NetApp Files volumes.  
+
+NFSv4.x requires each client to identify itself to servers with a *unique* string. File open and lock state shared between one client and one server is associated with this identity. To support robust NFSv4.x state recovery and transparent state migration, this identity string must not change across client reboots.
+
+1. Display the `nfs4_unique_id` string on the VM clients by using the following command:
+    
+    `# systool -v -m nfs | grep -i nfs4_unique`     
+    `    nfs4_unique_id      = ""`
+
+    To mount the same volume on an additional VM with the same hostname, for example the DR system, create a `nfs4_unique_id` so it can uniquely identify itself to the Azure NetApp Files NFS service.  This step allows the service to distinguish between the two VMs with the same hostname and enable mounting NFSv4.1 volumes on both VMs.  
+
+    You need to perform this step on the test DR system only. For consistency, you can consider applying a unique setting on each involved virtual machine.
+
+2. On the test DR system, add the following line to the `nfsclient.conf` file, typically located in `/etc/modprobe.d/`:
+
+    `options nfs nfs4_unique_id=uniquenfs4-1`  
+
+    The string `uniquenfs4-1` can be any alphanumeric string, as long as it is unique across the VMs to be connected to the service.
+
+    Check your distribution’s documentation about how to configure NFS client settings.
+
+    Reboot the VM for the change to take effect.
+
+3. On the test DR system, verify that `nfs4_unique_id` has been set after the VM reboot:       
+
+    `# systool -v -m nfs | grep -i nfs4_unique`   
+    `   nfs4_unique_id      = "uniquenfs4-1"`   
+
+4. [Mount the NFSv4.1 volume](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md) on both VMs as normal.
+
+    Both VMs with the same hostname can now mount and access the NFSv4.1 volume.  
 
 ## Next steps  
 
 * [Create an NFS volume for Azure NetApp Files](azure-netapp-files-create-volumes.md)
 * [Create a dual-protocol volume for Azure NetApp Files](create-volumes-dual-protocol.md)
-
+* [Mount or unmount a volume for Windows or Linux virtual machines](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md) 

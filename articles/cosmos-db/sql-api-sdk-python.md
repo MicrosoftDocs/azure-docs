@@ -36,7 +36,7 @@ ms.custom: devx-track-python
 | Page| Link |
 |---|---|
 |**Download SDK**|[PyPI](https://pypi.org/project/azure-cosmos)|
-|**API documentation**|[Python API reference documentation](https://docs.microsoft.com/python/api/azure-cosmos/azure.cosmos?view=azure-python&preserve-view=true)|
+|**API documentation**|[Python API reference documentation](/python/api/azure-cosmos/azure.cosmos?preserve-view=true&view=azure-python)|
 |**SDK installation instructions**|[Python SDK installation instructions](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos)|
 |**Get started**|[Get started with the Python SDK](create-sql-api-python.md)|
 |**Current supported platform**|[Python 2.7](https://www.python.org/downloads/) and [Python 3.6+](https://www.python.org/downloads/)|
@@ -366,7 +366,7 @@ Microsoft provides notification at least **12 months** in advance of retiring an
 
 ## FAQ
 
-[!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
+[!INCLUDE [cosmos-db-sdk-faq](includes/cosmos-db-sdk-faq.md)]
 
 ## Next steps
 

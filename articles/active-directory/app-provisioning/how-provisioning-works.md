@@ -1,20 +1,19 @@
 ---
-title: Understand how Azure AD provisioning works | Microsoft Docs
-description: Understand how Azure AD provisioning works 
+title: Understand how Application Provisioning in Azure Active Directory
+description: Understand how Application Provisioning works in Azure Active Directory.
 services: active-directory
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/04/2020
+ms.date: 06/11/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.custom: contperf-fy21q2
 ---
 
-# How provisioning works
+# How Application Provisioning works in Azure Active Directory
 
 Automatic provisioning refers to creating user identities and roles in the cloud applications that users need access to. In addition to creating user identities, automatic provisioning includes the maintenance and removal of user identities as status or roles change. Before you start a deployment, you can review this article to learn how Azure AD provision works and get configuration recommendations. 
 
@@ -140,7 +139,7 @@ The provisioning service continues running back-to-back incremental cycles indef
 
 ### Errors and retries
 
-If an error in the target system prevents an individual user from being added, updated, or deleted in the target system, the operation is retried in the next sync cycle. If the user continues to fail, then the retries will begin to occur at a reduced frequency, gradually scaling back to just one attempt per day. To resolve the failure, administrators must check the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) to determine the root cause and take the appropriate action. Common failures can include:
+If an error in the target system prevents an individual user from being added, updated, or deleted in the target system, the operation is retried in the next sync cycle. The errors are continually retried, gradually scaling back the frequency of retries. To resolve the failure, administrators must check the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) to determine the root cause and take the appropriate action. Common failures can include:
 
 - Users not having an attribute populated in the source system that is required in the target system
 - Users having an attribute value in the source system for which there's a unique constraint in the target system, and the same value is present in another user record

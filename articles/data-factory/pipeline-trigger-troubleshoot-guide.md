@@ -21,7 +21,7 @@ Pipeline runs are typically instantiated by passing arguments to parameters that
 
 ### An Azure Functions app pipeline throws an error with private endpoint connectivity
  
-You have Data Factory and an Azure function app running on a private endpoint. You're trying to run a pipeline that interacts with the function app. You've tried three different methods, but one returns error "Bad Request," and the other two methods return "103 Error Forbidden."
+You have Data Factory and a function app running on a private endpoint in Azure. You're trying to run a pipeline that interacts with the function app. You've tried three different methods, but one returns error "Bad Request," and the other two methods return "103 Error Forbidden."
 
 **Cause**
 
@@ -184,8 +184,27 @@ Long queue related error messages can appear for various reasons.
 * If you receive an error message from any source or destination via connectors, which can generate a long queue, go to [Connector Troubleshooting Guide.](./connector-troubleshoot-guide.md)
 * If you receive an error message about Mapping Data Flow, which can generate a long queue, go to [Data Flows Troubleshooting Guide.](./data-flow-troubleshoot-guide.md)
 * If you receive an error message about other activities, such as Databricks, custom activities, or HDI, which can generate a long queue, go to [Activity Troubleshooting Guide.](./data-factory-troubleshoot-guide.md)
-* If you receive an error message about running SSIS packages, which can generate a long queue, go to the [Azure-SSIS Package Execution Troubleshooting Guide](./ssis-integration-runtime-ssis-activity-faq.md) and [Integration Runtime Management Troubleshooting Guide.](./ssis-integration-runtime-management-troubleshoot.md)
+* If you receive an error message about running SSIS packages, which can generate a long queue, go to the [Azure-SSIS Package Execution Troubleshooting Guide](./ssis-integration-runtime-ssis-activity-faq.yml) and [Integration Runtime Management Troubleshooting Guide.](./ssis-integration-runtime-management-troubleshoot.md)
 
+### Error message - "code":"BadRequest", "message":"null"
+
+**Cause**
+
+It is an user error because JSON payload that hits management.azure.com is corrupt. No logs will be stored because user call did not reach ADF service layer.
+
+**Resolution**
+
+Perform network tracing of your API call from ADF portal using Edge/Chrome browser **Developer tools**. You will see offending JSON payload, which could be due to a special characters(for example $), spaces and other types of user input. Once you fix the string expression, you will proceed with rest of  ADF usage calls in the browser.
+
+### Expression builder fails to load
+
+**Cause**
+
+The expression builder can fail to load due to network or cache problems with the web browser.  
+
+**Resolution**
+
+Upgrade the web browser to the latest version of a supported browser, clear cookies for the site, and refresh the page.
 
 ## Next steps
 

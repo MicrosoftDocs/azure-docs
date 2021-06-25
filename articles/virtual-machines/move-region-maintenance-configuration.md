@@ -35,7 +35,7 @@ Before you begin moving a maintenance control configuration:
 
 ## Prepare and move 
 
-1. Retrieve all of the maintenance configurations in each subscription. Run the CLI [az maintenance configuration list](/cli/azure/ext/maintenance/maintenance/configuration#ext-maintenance-az-maintenance-configuration-list) command to do this, replacing $subId with your subscription ID.
+1. Retrieve all of the maintenance configurations in each subscription. Run the CLI [az maintenance configuration list](/cli/azure/maintenance/configuration#az_maintenance_configuration_list) command to do this, replacing $subId with your subscription ID.
 
     ```
     az maintenance configuration list --subscription $subId --query "[*].{Name:name, Location:location, ResGroup:resourceGroup}" --output table

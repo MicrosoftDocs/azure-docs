@@ -2,8 +2,8 @@
 title: 'Quickstart: Create an event hub with consumer group - Azure Event Hubs'
 description: 'Quickstart: Create an Event Hubs namespace with an event hub and a consumer group using Azure Resource Manager templates'
 ms.topic: quickstart
-ms.custom: subject-armqs
-ms.date: 06/23/2020
+ms.custom: subject-armqs, devx-track-azurepowershell
+ms.date: 06/08/2021
 ---
 
 # Quickstart: Create an event hub by using an ARM template
@@ -14,7 +14,7 @@ Azure Event Hubs is a Big Data streaming platform and event ingestion service, c
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-eventhubs-create-namespace-and-eventhub%2Fazuredeploy.json)
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.eventhub%2Feventhubs-create-namespace-and-eventhub%2Fazuredeploy.json)
 
 ## Prerequisites
 
@@ -22,9 +22,9 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-eventhubs-create-namespace-and-eventhub/).
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/eventhubs-create-namespace-and-eventhub/).
 
-:::code language="json" source="~/quickstart-templates/101-eventhubs-create-namespace-and-eventhub/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.eventhub/eventhubs-create-namespace-and-eventhub/azuredeploy.json":::
 
 The resources defined in the template include:
 
@@ -43,7 +43,7 @@ To deploy the template:
    $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
    $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
    $resourceGroupName = "${projectName}rg"
-   $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-eventhubs-create-namespace-and-eventhub/azuredeploy.json"
+   $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.eventhub/eventhubs-create-namespace-and-eventhub/azuredeploy.json"
 
    New-AzResourceGroup -Name $resourceGroupName -Location $location
    New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -projectName $projectName
@@ -100,8 +100,8 @@ In this article, you created an Event Hubs namespace, and an event hub in the na
 [4]: ./media/event-hubs-quickstart-powershell/receiver1.png
 [5]: ./media/event-hubs-quickstart-powershell/metrics.png
 
-[Authoring Azure Resource Manager templates]: ../azure-resource-manager/templates/template-syntax.md
-[Azure Quickstart Templates]:  https://azure.microsoft.com/documentation/templates/?term=event+hubs
+[Authoring Azure Resource Manager templates]: ../azure-resource-manager/templates/syntax.md
+[Azure Quickstart Templates]:  https://azure.microsoft.com/resources/templates/?term=event+hubs
 [Using Azure PowerShell with Azure Resource Manager]: ../azure-resource-manager/management/manage-resources-powershell.md
 [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../azure-resource-manager/management/manage-resources-cli.md
-[Event hub and consumer group template]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-event-hubs-create-event-hub-and-consumer-group/
+[Event hub and consumer group template]: https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.eventhub/event-hubs-create-event-hub-and-consumer-group/

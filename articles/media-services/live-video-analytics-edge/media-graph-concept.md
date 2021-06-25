@@ -1,11 +1,13 @@
 ---
-title: Media graph concept - Azure
-description: A media graph lets you define where media should be captured from, how it should be processed, and where the results should be delivered. This article gives a detailed description of the media graph concept.
+title: Live Video Analytics media graph concept - Azure
+description: A media graph lets you define where media should be captured from, how it should be processed, and where the results should be delivered. This article gives a detailed description of the Live Video Analytics media graph concept.
 ms.topic: conceptual
 ms.date: 05/01/2020
 
 ---
-# Media graph
+# Live Video Analytics media graph
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 ## Suggested pre-reading
 
@@ -107,7 +109,8 @@ An asset sink node enables you to write media (video and/or audio) data to an Az
 
 The file sink node enables you to write media (video and/or audio) data to a location on the local file system of the IoT Edge device. There can only be one file sink node in a media graph, and it must be downstream of a signal gate processor node. This limits the duration of the output files to values specified in the signal gate processor node properties. To ensure that that your edge device does not run out of disk space, you can also set the maximum size that the Live Video Analytics on IoT Edge module can use to store data.  
 > [!NOTE]
-If the File Sink gets full, the Live Video Analytics on IoT Edge module will start deleting the oldest data and replace it with the new one.
+> If the File Sink gets full, the Live Video Analytics on IoT Edge module will start deleting the oldest data and replace it with the new one.
+
 #### IoT Hub message sink  
 
 An IoT Hub message sink node enables you to publish events to IoT Edge hub. The IoT Edge hub can then route the data to other modules or apps on the edge device, or to IoT Hub in the cloud (per routes specified in the deployment manifest). The IoT Hub message sink node can accept events from upstream processors such as a motion detection processor node, or from an external inference service via a HTTP extension processor node.

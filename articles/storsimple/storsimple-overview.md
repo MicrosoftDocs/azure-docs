@@ -142,7 +142,7 @@ If a disaster occurs or if you need to restore data for another reason, StorSimp
 For more information, go to [What is StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md)
 
 ## StorSimple Adapter for SharePoint
-Microsoft Azure StorSimple includes the StorSimple Adapter for SharePoint, an optional component that transparently extends StorSimple storage and data protection features to SharePoint server farms. The adapter works with a Remote Blob Storage (RBS) provider and the SQL Server RBS feature, allowing you to move BLOBs to a server backed up by the Microsoft Azure StorSimple system. Microsoft Azure StorSimple then stores the BLOB data locally or in the cloud, based on usage.
+Microsoft Azure StorSimple includes the StorSimple Adapter for SharePoint, an optional component that transparently extends StorSimple storage and data protection features to SharePoint Server farms. The adapter works with a Remote Blob Storage (RBS) provider and the SQL Server RBS feature, allowing you to move BLOBs to a server backed up by the Microsoft Azure StorSimple system. Microsoft Azure StorSimple then stores the BLOB data locally or in the cloud, based on usage.
 
 The StorSimple Adapter for SharePoint is managed from within the SharePoint Central Administration portal. So SharePoint management remains centralized, and all storage appears to be in the SharePoint farm.
 
@@ -300,7 +300,7 @@ Before deploying your Microsoft Azure StorSimple solution, we recommend that you
 | Small Computer System Interface (SCSI) |A set of standards for physically connecting computers and passing data between them. |
 | solid state drive (SSD) |A disk that contains no moving parts; for example, a flash drive. |
 | storage account |A set of access credentials linked to your storage account for a given cloud service provider. |
-| StorSimple Adapter for SharePoint |A Microsoft Azure StorSimple component that transparently extends StorSimple storage and data protection to SharePoint server farms. |
+| StorSimple Adapter for SharePoint |A Microsoft Azure StorSimple component that transparently extends StorSimple storage and data protection to SharePoint Server farms. |
 | StorSimple Device Manager service |An extension of the Azure portal that allows you to manage your Azure StorSimple on-premises and virtual devices. |
 | StorSimple Snapshot Manager |A Microsoft Management Console (MMC) snap-in for managing backup and restore operations in Microsoft Azure StorSimple. |
 | take backup |A feature that allows the user to take an interactive backup of a volume. It is an alternate way of taking a manual backup of a volume as opposed to taking an automated backup via a defined policy. |

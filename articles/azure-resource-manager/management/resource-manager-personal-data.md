@@ -36,13 +36,13 @@ To list **resource groups**, use:
 
 * [List](/rest/api/resources/resourcegroups/list)
 * [Get-AzResourceGroup](/powershell/module/az.resources/Get-AzResourceGroup)
-* [az group list](/cli/azure/group#az-group-list)
+* [az group list](/cli/azure/group#az_group_list)
 
 To delete **resource groups**, use:
 
 * [Delete](/rest/api/resources/resourcegroups/delete)
 * [Remove-AzResourceGroup](/powershell/module/az.resources/Remove-AzResourceGroup)
-* [az group delete](/cli/azure/group#az-group-delete)
+* [az group delete](/cli/azure/group#az_group_delete)
 
 ## Delete personal data in tags
 
@@ -52,13 +52,13 @@ To list **tags**, use:
 
 * [List](/rest/api/resources/tags/list)
 * [Get-AzTag](/powershell/module/az.resources/Get-AzTag)
-* [az tag list](/cli/azure/tag#az-tag-list)
+* [az tag list](/cli/azure/tag#az_tag_list)
 
 To delete **tags**, use:
 
 * [Delete](/rest/api/resources/tags/delete)
 * [Remove-AzTag](/powershell/module/az.resources/Remove-AzTag)
-* [az tag delete](/cli/azure/tag#az-tag-delete)
+* [az tag delete](/cli/azure/tag#az_tag_delete)
 
 ## Next steps
 * For an overview of Azure Resource Manager, see the [What is Resource Manager?](overview.md)

@@ -2,7 +2,7 @@
 title: Troubleshoot Event Grid issues
 description: This article provides different ways of troubleshooting Azure Event Grid issues
 ms.topic: conceptual
-ms.date: 02/11/2021
+ms.date: 06/10/2021
 ---
 
 # Troubleshoot Azure Event Grid issues
@@ -26,8 +26,13 @@ There are various reasons for client applications not able to connect to an Even
 ## Error codes
 If you receive error messages with error codes like 400, 409, and 403, see [Troubleshoot Event Grid errors](troubleshoot-errors.md). 
 
-## Distributed tracing (.NET)
+## Distributed tracing 
+
+### .NET
 The Event Grid .NET library supports distributing tracing. To adhere to the [CloudEvents specification's guidance](https://github.com/cloudevents/spec/blob/master/extensions/distributed-tracing.md) on distributing tracing, the library sets the `traceparent` and `tracestate` on the [ExtensionAttributes](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventgrid/Azure.Messaging.EventGrid/src/Customization#L126) of a `CloudEvent` when distributed tracing is enabled. To learn more about how to enable distributed tracing in your application, take a look at the Azure SDK [distributed tracing documentation](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Azure.Core/samples/Diagnostics.md#Distributed-tracing).
+
+### Java
+The Event Grid Java library supports distributing tracing out of the box. In order to adhere to the CloudEvents specification's [guidance](https://github.com/cloudevents/spec/blob/master/extensions/distributed-tracing.md) on distributing tracing, the library will set the `traceparent` and `tracestate` on the `extensionAttributes` of a `CloudEvent` when distributed tracing is enabled. To learn more about how to enable distributed tracing in your application, take a look at the Azure SDK Java [distributed tracing documentation](/azure/developer/java/sdk/tracing).
 
 ### Sample
 See the [Line Counter sample](/samples/azure/azure-sdk-for-net/line-counter/). This sample app illustrates using Storage, Event Hubs, and Event Grid clients along with ASP.NET Core integration, distributed tracing, and hosted services. It allows users to upload a file to a blob, which triggers an Event Hubs event containing the file name. The Event Hubs Processor receives the event, and then the app downloads the blob and counts the number of lines in the file. The app displays a link to a page containing the line count. When the link is clicked, a CloudEvent containing the name of the file is published using Event Grid.

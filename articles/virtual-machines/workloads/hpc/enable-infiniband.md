@@ -1,11 +1,11 @@
 ---
-title: Enable InifinBand on HPC VMs - Azure Virtual Machines | Microsoft Docs
+title: Enable InfiniBand on HPC VMs - Azure Virtual Machines | Microsoft Docs
 description: Learn how to enable InfiniBand on Azure HPC VMs. 
 author: vermagit
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
-ms.date: 03/18/2021
+ms.date: 04/28/2021
 ms.author: amverma
 ms.reviewer: cynthn
 
@@ -18,9 +18,7 @@ ms.reviewer: cynthn
 There are various ways to enable InfiniBand on the capable VM sizes.
 
 ## VM Images with InfiniBand drivers
-See [VM Images](configure.md#vm-images) for a list of supported VM Images on the Marketplace, which come pre-loaded with InfiniBand drivers (for SR-IOV or non-SR-IOV VMs) or can be configured with the appropriate drivers for [RDMA capable VMs](../../sizes-hpc.md#rdma-capable-instances).
-- The [CentOS-HPC](configure.md#centos-hpc-vm-images) VM images in the Marketplace are the easiest way to get started.
-- The [Ubuntu](configure.md#ubuntu-vm-images) VM images can be configured with the right IB drivers.
+See [VM Images](configure.md#vm-images) for a list of supported VM Images on the Marketplace, which come pre-loaded with InfiniBand drivers (for SR-IOV or non-SR-IOV VMs) or can be configured with the appropriate drivers for [RDMA capable VMs](../../sizes-hpc.md#rdma-capable-instances).  The [CentOS-HPC](configure.md#centos-hpc-vm-images) and [Ubuntu-HPC](configure.md#ubuntu-hpc-vm-images) VM images in the Marketplace are the easiest way to get started.
 
 ## InfiniBand Driver VM Extensions
 On Linux, the [InfiniBandDriverLinux VM extension](../../extensions/hpc-compute-infiniband-linux.md) can be used to install the Mellanox OFED drivers and enable InfiniBand on the SR-IOV enabled H- and N-series VMs.
@@ -63,7 +61,7 @@ sudo systemctl restart waagent
 
 ## Next steps
 
-- Learn more about installing various [supported MPI libraries](setup-mpi.md) and their optimal configuration on the VMs.
+- Learn more about installing and running various [supported MPI libraries](setup-mpi.md) on the VMs.
 - Review the [HBv3-series overview](hbv3-series-overview.md) and [HC-series overview](hc-series-overview.md).
 - Read about the latest announcements, HPC workload examples, and performance results at the [Azure Compute Tech Community Blogs](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
 - For a higher level architectural view of running HPC workloads, see [High Performance Computing (HPC) on Azure](/azure/architecture/topics/high-performance-computing/).

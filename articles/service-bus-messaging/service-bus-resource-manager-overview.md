@@ -14,7 +14,7 @@ ms.custom: devx-track-azurepowershell
 
 This article describes how to create and deploy Service Bus resources using Azure Resource Manager templates, PowerShell, and the Service Bus resource provider.
 
-Azure Resource Manager templates help you define the resources to deploy for a solution, and to specify parameters and variables that enable you to input values for different environments. The template is written in JSON and consists of expressions that you can use to construct values for your deployment. For detailed information about writing Azure Resource Manager templates, and a discussion of the template format, see [structure and syntax of Azure Resource Manager templates](../azure-resource-manager/templates/template-syntax.md).
+Azure Resource Manager templates help you define the resources to deploy for a solution, and to specify parameters and variables that enable you to input values for different environments. The template is written in JSON and consists of expressions that you can use to construct values for your deployment. For detailed information about writing Azure Resource Manager templates, and a discussion of the template format, see [structure and syntax of Azure Resource Manager templates](../azure-resource-manager/templates/syntax.md).
 
 > [!NOTE]
 > The examples in this article show how to use Azure Resource Manager to create a Service Bus namespace and messaging entity (queue). For other template examples, visit the [Azure Quickstart Templates gallery][Azure Quickstart Templates gallery] and search for **Service Bus**.
@@ -33,7 +33,7 @@ These Service Bus Azure Resource Manager templates are available for download an
 
 ## Deploy with PowerShell
 
-The following procedure describes how to use PowerShell to deploy an Azure Resource Manager template that creates a Standard tier Service Bus namespace, and a queue within that namespace. This example is based on the [Create a Service Bus namespace with queue](https://github.com/Azure/azure-quickstart-templates/tree/master/201-servicebus-create-queue) template. The approximate workflow is as follows:
+The following procedure describes how to use PowerShell to deploy an Azure Resource Manager template that creates a Standard tier Service Bus namespace, and a queue within that namespace. This example is based on the [Create a Service Bus namespace with queue](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.servicebus/servicebus-create-queue/azuredeploy.json) template. The approximate workflow is as follows:
 
 1. Install PowerShell.
 2. Create the template and (optionally) a parameter file.
@@ -51,7 +51,7 @@ Install Azure PowerShell by following the instructions in [Getting started with 
 
 ### Create a template
 
-Clone the repository or copy the [201-servicebus-create-queue](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/azuredeploy.json) template from GitHub:
+Clone the repository or copy the [servicebus-create-queue](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.servicebus/servicebus-create-queue/azuredeploy.json) template from GitHub:
 
 ```json
 {
@@ -74,7 +74,7 @@ Clone the repository or copy the [201-servicebus-create-queue](https://github.co
   "variables": {
     "defaultSASKeyName": "RootManageSharedAccessKey",
     "authRuleResourceId": "[resourceId('Microsoft.ServiceBus/namespaces/authorizationRules', parameters('serviceBusNamespaceName'), variables('defaultSASKeyName'))]",
-	"sbVersion": "2017-04-01"
+  "sbVersion": "2017-04-01"
   },
   "resources": [
     {
@@ -126,7 +126,7 @@ Clone the repository or copy the [201-servicebus-create-queue](https://github.co
 
 ### Create a parameters file (optional)
 
-To use an optional parameters file, copy the [201-servicebus-create-queue](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/azuredeploy.parameters.json) file. Replace the value of `serviceBusNamespaceName` with the name of the Service Bus namespace you want to create in this deployment, and replace the value of `serviceBusQueueName` with the name of the queue you want to create.
+To use an optional parameters file, copy the [servicebus-create-queue](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.servicebus/servicebus-create-queue/azuredeploy.parameters.json) file. Replace the value of `serviceBusNamespaceName` with the name of the Service Bus namespace you want to create in this deployment, and replace the value of `serviceBusQueueName` with the name of the queue you want to create.
 
 ```json
 {
@@ -246,9 +246,9 @@ You've now seen the basic workflow and commands for deploying an Azure Resource 
 
 * [Azure Resource Manager overview][Azure Resource Manager overview]
 * [Deploy resources with Resource Manager templates and Azure PowerShell][Deploy resources with Azure Resource Manager templates]
-* [Authoring Azure Resource Manager templates](../azure-resource-manager/templates/template-syntax.md)
+* [Authoring Azure Resource Manager templates](../azure-resource-manager/templates/syntax.md)
 * [Microsoft.ServiceBus resource types](/azure/templates/microsoft.servicebus/allversions)
 
 [Azure Resource Manager overview]: ../azure-resource-manager/management/overview.md
 [Deploy resources with Azure Resource Manager templates]: ../azure-resource-manager/templates/deploy-powershell.md
-[Azure Quickstart Templates gallery]: https://azure.microsoft.com/documentation/templates/?term=service+bus
+[Azure Quickstart Templates gallery]: https://azure.microsoft.com/resources/templates/?term=service+bus
