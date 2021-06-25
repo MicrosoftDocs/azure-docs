@@ -16,7 +16,7 @@ In this tutorial, you will learn how to:
 
 ## Requirements
 
-Before you start this tutorial you will need an Azure account. If you do not have one, you can get one for free by [clicking here](https://azure.microsoft.com/en-us/free/).
+Before you start this tutorial you will need an Azure account. If you do not have one, you can get one for free by [clicking here](https://azure.microsoft.com/free/).
 
 ## Deploy an S1 IoT Hub
 
