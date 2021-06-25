@@ -9,6 +9,7 @@ ms.subservice: monitoring
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: mahi
+ms.custom: contperf-fy21q4
 ---
 
 # Use Synapse Studio to monitor your Apache Spark applications
