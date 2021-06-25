@@ -93,7 +93,7 @@ The first type of errors listed in the table below must be fixed manually, other
 | Script | Invalid separator| You must separate the utterance ID and the script content with a TAB character.|
 | Script | Invalid script ID| Script line ID must be numeric.|
 | Script | Duplicated script|Each line of the script content must be unique.|
-| Script | Script too long| The length of the script should be less than 1,000 characters.|
+| Script | Script too long| The script must be less than 1,000 characters.|
 | Script | No matching audio| The ID of each utterance (each line of the script file) should match with the audio ID.|
 | Script | No valid script| No valid script found in this dataset. Fix the problematic script lines according to detailed issue list.|
 | Audio | No matching script| No audio files match the script ID. The name of the wav files should match with the IDs in the script file.|
