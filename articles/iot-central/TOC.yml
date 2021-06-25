@@ -272,16 +272,12 @@
           href: core/howto-manage-devices.md
         - name: Run a job
           href: core/howto-run-a-job.md
-        - name: Move devices from IoT Hub  
-          href: core/how-to-move-device-to-iot.md
     - name: Administer your solution
       items:
         - name: Change application settings
           href: core/howto-administer.md
         - name: Manage users and roles
           href: core/howto-manage-users-roles.md
-        - name: Manage your bill
-          href: core/howto-view-bill.md
         - name: Customize application UI
           href: core/howto-customize-ui.md
         - name: Export your application
@@ -290,8 +286,6 @@
           href: core/howto-migrate.md
         - name: Monitor application health
           href: core/howto-monitor-application-health.md
-        - name: About your application
-          href: core/howto-get-app-info.md
         - name: Configure and use file uploads
           href: core/howto-configure-file-uploads.md
         - name: Roll X.509 certificates
