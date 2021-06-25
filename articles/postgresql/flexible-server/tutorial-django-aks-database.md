@@ -22,16 +22,8 @@ In this quickstart, you deploy a Django application on Azure Kubernetes Service 
 ## Pre-requisites
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-- Use [Azure Cloud Shell](../../cloud-shell/quickstart.md) using the bash environment.
-
-   [![Embed launch](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)  
-- If you prefer, [install](/cli/azure/install-azure-cli) Azure CLI to run CLI reference commands.
-  - If you're using a local install, login with Azure CLI by using the [az login](/cli/azure/reference-index#az_login) command.  To finish the authentication process, follow the steps displayed in your terminal. 
-  - When you're prompted, install Azure CLI extensions on first use.  For more information about extensions, see [Use extensions with Azure CLI](/cli/azure/azure-cli-extensions-overview).
-  - Run [az version](/cli/azure/reference-index?#az_version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az_upgrade). This article requires the latest version of Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
-
-> [!NOTE]
-> If running the commands in this quickstart locally (instead of Azure Cloud Shell), ensure you run the commands as administrator.
+- Laucnh [Azure Cloud Shell](https://shell.azure.com) in new browser window. You can [install Azure CLI](/cli/azure/install-azure-cli#install) on you local machine too. If you're using a local install, login with Azure CLI by using the [az login](/cli/azure/reference-index#az_login) command.  To finish the authentication process, follow the steps displayed in your terminal. 
+- Run [az version](/cli/azure/reference-index?#az_version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az_upgrade). This article requires the latest version of Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Create a resource group
 
@@ -75,11 +67,9 @@ After a few minutes, the command completes and returns JSON-formatted informatio
 
 ## Connect to the cluster
 
-To manage a Kubernetes cluster, you use [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/), the Kubernetes command-line client. If you use Azure Cloud Shell, `kubectl` is already installed. To install `kubectl` locally, use the [az aks install-cli](/cli/azure/aks#az_aks_install_cli) command:
+To manage a Kubernetes cluster, you use [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/), the Kubernetes command-line client. If you use Azure Cloud Shell, `kubectl` is already installed. 
 
-```azurecli-interactive
-az aks install-cli
-```
+> [!NOTE] If running Azure CLI locally , please run the [az aks install-cli](/cli/azure/aks#az_aks_install_cli) command to install `kubectl`.
 
 To configure `kubectl` to connect to your Kubernetes cluster, use the [az aks get-credentials](/cli/azure/aks#az_aks_get_credentials) command. This command downloads credentials and configures the Kubernetes CLI to use them.
 
