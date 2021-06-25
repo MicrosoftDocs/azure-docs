@@ -125,6 +125,3 @@ conceptualContent:
         - url: /cli/azure/ml/
           itemType: reference
           text: V2 CLI (preview)
-
-  # footer (optional)
-  footer: "Looking for [Machine Learning Studio (classic)?](/azure/machine-learning/classic/)"
