@@ -55,13 +55,13 @@ conceptualContent:
     - title: Data sources & wrangling
       links:
         - url: how-to-data-prep-synapse-spark-pool.md
-          itemType: how-to
+          itemType: how-to-guide
           text: Data preparation with Spark
         - url: how-to-access-data.md
-          itemType: how-to
+          itemType: how-to-guide
           text: Connect to data sources
         - url: how-to-cicd-data-ingestion.md
-          itemType: how-to
+          itemType: how-to-guide
           text: DevOps for data ingestion
 
     # Card
@@ -74,23 +74,23 @@ conceptualContent:
           itemType: tutorial
           text: 'AutoML: Train a classification model'
         - url: how-to-tune-hyperparameters.md
-          itemType: how-to
+          itemType: how-to-guide
           text: Tune hyperparameters for model training
         - url: how-to-create-machine-learning-pipelines.md
-          itemType: how-to
+          itemType: how-to-guide
           text: Create & run pipelines
 
     # Card
     - title: Deploy models
       links:
         - url: how-to-deploy-and-where.md
-          itemType: how-to
+          itemType: how-to-guide
           text: How to deploy a model
         - url: how-to-deploy-managed-online-endpoints.md
-          itemType: how-to
+          itemType: how-to-guide
           text: Deploy & score with a managed endpoint (preview)
         - url: how-to-use-batch-endpoint.md
-          itemType: how-to
+          itemType: how-to-guide
           text: Batch scoring with managed endpoints
 
 # conceptualContent section (optional)
@@ -102,7 +102,7 @@ conceptualContent:
     - title: Manage the ML lifecycle
       links:
         - url: how-to-track-monitor-analyze-runs.md
-          itemType: how-to
+          itemType: how-to-guide
           text: Track, monitor, analyze training runs
         - url: concept-model-management-and-deployment.md
           itemType: concept
