@@ -82,7 +82,7 @@ For a disk to be able to be used in a disk pool, it must meet the following requ
 1. Search for and select **Disk pool**.
 1. Select **+Add** to create a new disk pool.
 1. Fill in the details requested, select the same region and availability zone as the clients that will use the disk pool.
-1. Select the subnet that has been delegated to the StoragePool resource provider, and its associated virtual network.
+1. Select the subnet that has been delegated to the **StoragePool** resource provider, and its associated virtual network.
 1. Select **Next** to add disks to your disk pool.
 
     :::image type="content" source="media/disks-pools-deploy/create-a-disk-pool.png" alt-text="Screenshot of the basic blade for create a disk pool.":::
