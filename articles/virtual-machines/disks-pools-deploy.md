@@ -20,7 +20,7 @@ This article covers how to configure and deploy a disk pool. In order for a disk
     - Add disks to your disk pool.
 
 
-## Prequisites
+## Prerequisites
 
 In order to successfully deploy a disk pool, you must have:
 
