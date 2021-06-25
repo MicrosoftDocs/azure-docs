@@ -85,14 +85,30 @@ The DNS resource records for PurviewA, when resolved in the VNet hosting the pri
 | `PurviewA.purview.azure.com` | CNAME | `PurviewA.privatelink.purview.azure.com` |
 | `PurviewA.privatelink.purview.azure.com` | A | \<private endpoint IP address\> |
 | `Web.purview.azure.com` | CNAME | \<private endpoint IP address\> |
- 
+
+<br>
+
  > [!important]
  > If you do not use DNS Forwarders and instead you manage A records directly in your on-premises DNS servers to resolve the endpoints through their private IP addresses, you may need to create additional A records in your DNS Servers:
 
 | Name | Type | Value |
 | ---------- | -------- | --------------- |
-| `PurviewA.scan.Purview.azure.com` | A | \<private endpoint IP address\> |
-| `PurviewA.catalog.Purview.azure.com` | A | \<private endpoint IP address\> |
+| `PurviewA.Purview.azure.com` | A | \<account private endpoint IP address of Azure Purview> |
+| `PurviewA.scan.Purview.azure.com` | A | \<account private endpoint IP address of Azure Purview> |
+| `PurviewA.catalog.Purview.azure.com` | A | \<account private endpoint IP address of Azure Purview\> |
+| `PurviewA.proxy.purview.azure.com` | A | \<account private endpoint IP address of Azure Purview\> |
+| `PurviewA.guardian.purview.azure.com` | A | \<account private endpoint IP address of Azure Purview\> |
+| `PurviewA.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
+| `PurviewA.manifest.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
+| `PurviewA.cdn.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
+| `PurviewA.hub.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
+| `PurviewA.catalog.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
+| `PurviewA.cseo.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
+| `PurviewA.datascan.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
+| `PurviewA.datashare.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
+| `PurviewA.datasource.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
+| `PurviewA.policy.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
+| `PurviewA.sensitivity.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
 
 <br> 
 

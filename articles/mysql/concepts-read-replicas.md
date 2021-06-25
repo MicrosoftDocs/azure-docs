@@ -5,7 +5,7 @@ author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 01/13/2021
+ms.date: 06/17/2021
 ms.custom: references_regions
 ---
 
@@ -136,11 +136,18 @@ The following server parameters are available for configuring GTID:
 |`enforce_gtid_consistency`|Enforces GTID consistency by allowing execution of only those statements that can be logged in a transactionally safe manner. This value must be set to `ON` before enabling GTID replication. |`OFF`|`OFF`: All transactions are allowed to violate GTID consistency.  <br> `ON`: No transaction is allowed to violate GTID consistency. <br> `WARN`: All transactions are allowed to violate GTID consistency, but a warning is generated. | 
 
 > [!NOTE]
-> After GTID is enabled, you cannot turn it back off. If you need to turn GTID OFF, please contact support. 
+> * After GTID is enabled, you cannot turn it back off. If you need to turn GTID OFF, please contact support. 
+>
+> * To change GTID's from one value to another can only be one step at a time in ascending order of modes. For example, if gtid_mode is currently set to OFF_PERMISSIVE, it is possible to change to ON_PERMISSIVE but not to ON.
+>
+> * To keep replication consistent, you cannot update it for a master/replica server.
+>
+> * Recommended to SET enforce_gtid_consistency to ON before you can set gtid_mode=ON
+
 
 To enable GTID and configure the consistency behavior, update the `gtid_mode` and `enforce_gtid_consistency` server parameters using the [Azure portal](howto-server-parameters.md), [Azure CLI](howto-configure-server-parameters-using-cli.md), or [PowerShell](howto-configure-server-parameters-using-powershell.md).
 
-If GTID is enabled on a source server (`gtid_mode` = ON), newly created replicas will also have GTID enabled and use GTID replication. To keep replication consistent, you can't update `gtid_mode` on the source or replica server(s).
+If GTID is enabled on a source server (`gtid_mode` = ON), newly created replicas will also have GTID enabled and use GTID replication. In order to make sure that the replication is consistent, `gtid_mode` cannot be changed once the master or replica server(s) is created with GTID enabled. 
 
 ## Considerations and limitations
 

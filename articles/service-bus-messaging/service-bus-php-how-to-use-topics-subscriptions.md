@@ -8,7 +8,7 @@ ms.date: 06/23/2020
 
 # Quickstart: How to use Service Bus topics and subscriptions with PHP
 
-[!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
+[!INCLUDE [service-bus-selector-topics](./includes/service-bus-selector-topics.md)]
 
 This article shows you how to use Service Bus topics and subscriptions. The samples are written in PHP and use the [Azure SDK for PHP](https://github.com/Azure/azure-sdk-for-php). The scenarios covered include:
 

@@ -13,7 +13,7 @@ This article describes the restore options available with the Microsoft Azure Re
 
 - Ensure that the latest version of the [MARS agent](https://aka.ms/azurebackup_agent) is installed.
 - Ensure that [network throttling](backup-windows-with-mars-agent.md#enable-network-throttling) is disabled.
-- Ensure that high-speed storage with sufficient space for the [agent cache folder](/azure/backup/backup-azure-file-folder-backup-faq.yml#manage-the-backup-cache-folder) is available.
+- Ensure that high-speed storage with sufficient space for the [agent cache folder](/azure/backup/backup-azure-file-folder-backup-faq#manage-the-backup-cache-folder) is available.
 - Monitor memory and CPU resource, and ensure that sufficient resources are available for decompressing and decrypting data.
 - While using the **Instant Restore** feature to mount a recovery point as a disk, use **robocopy** with multi-threaded copy option (/MT switch) to copy files efficiently from the mounted recovery point.
 

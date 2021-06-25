@@ -9,71 +9,72 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/16/2019
+ms.date: 06/16/2021
 ms.author: jeedes
 ---
 
 # Tutorial: Integrate Amazon Business with Azure Active Directory
 
-In this tutorial, you'll learn how to integrate Amazon Business with Azure Active Directory (Azure AD). When you integrate [Amazon Business](https://www.amazon.com/b2b/info/amazon-business?layout=landing) with Azure AD, you can:
+In this tutorial, you'll learn how to integrate Amazon Business with Azure Active Directory (Azure AD). When you integrate Amazon Business with Azure AD, you can:
 
 * Control in Azure AD who has access to Amazon Business.
 * Enable your users to be automatically signed-in to Amazon Business with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
-
 ## Prerequisites
 
 To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have a subscription, you can get one-month free trial [here](https://azure.microsoft.com/pricing/free-trial/).
+* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * An Amazon Business single sign-on (SSO) enabled subscription. Go to the [Amazon Business](https://www.amazon.com/business/register/org/landing?ref_=ab_reg_mlp) page to create an Amazon Business account.
 
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD SSO in an existing Amazon Business account.
 
-* Amazon Business supports **SP and IDP** initiated SSO
-* Amazon Business supports **Just In Time** user provisioning
+* Amazon Business supports **SP and IDP** initiated SSO.
+* Amazon Business supports **Just In Time** user provisioning.
 
-## Adding Amazon Business from the gallery
+> [!NOTE]
+> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
+
+## Add Amazon Business from the gallery
 
 To configure the integration of Amazon Business into Azure AD, you need to add Amazon Business from the gallery to your list of managed SaaS apps.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
+1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
 1. On the left navigation pane, select the **Azure Active Directory** service.
 1. Navigate to **Enterprise Applications** and then select **All Applications**.
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Amazon Business** in the search box.
 1. Select **Amazon Business** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-## Configure and test Azure AD single sign-on
+## Configure and test Azure AD SSO for Amazon Business
 
-Configure and test Azure AD SSO with Amazon Business using a test user called **B.Simon**.
+Configure and test Azure AD SSO with Amazon Business using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Amazon Business.
 
-To configure and test Azure AD SSO with Amazon Business, complete the following building steps:
+To configure and test Azure AD SSO with Amazon Business, perform the following steps:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-2. **[Configure Amazon Business SSO](#configure-amazon-business-sso)** - to configure the Single Sign-On settings on application side.
-3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
-5. **[Create Amazon Business test user](#create-amazon-business-test-user)** - to have a counterpart of B.Simon in Amazon Business that is linked to the Azure AD representation of user.
-6. **[Test SSO](#test-sso)** - to verify whether the configuration works.
+    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+1. **[Configure Amazon Business SSO](#configure-amazon-business-sso)** - to configure the single sign-on settings on application side.
+    1. **[Create Amazon Business test user](#create-amazon-business-test-user)** - to have a counterpart of B.Simon in Amazon Business that is linked to the Azure AD representation of user.
+1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-### Configure Azure AD SSO
+## Configure Azure AD SSO
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
-1. In the [Azure portal](https://portal.azure.com/), on the **Amazon Business** application integration page, find the **Manage** section and select **Single sign-on**.
+1. In the Azure portal, on the **Amazon Business** application integration page, find the **Manage** section and select **Single sign-on**.
 1. On the **Select a Single sign-on method** page, select **SAML**.
-1. On the **Set up Single Sign-On with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up Single Sign-On with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
     ![Edit Basic SAML Configuration](common/edit-urls.png)
 
 1. On the **Basic SAML Configuration** section, if you wish to configure in **IDP** initiated mode, perform the following steps:
 
-    1. In the **Identifier (Entity ID)** text box, type a URL using one of the following patterns:
+    1. In the **Identifier (Entity ID)** text box, type one of the following URLs:
 
        | URL | Region |
        |-|-|
@@ -94,21 +95,21 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. If you want to configure the application in **SP** initiated mode, you will need to add the full URL provided in the Amazon Business configuration to the **Sign-on URL** in the **Set additional URLs** section.
 
-1. The following screenshot shows the list of default attributes. Edit the attributes by clicking on the **Edit** icon in the **User Attributes & Claims** section.
+1. The following screenshot shows the list of default attributes. Edit the attributes by clicking on the **pencil** icon in the **User Attributes & Claims** section.
 
-    ![Screenshot shows User Attributes & Claims with default values such as Givenname user.givenname and Emailaddress user.mail.](media/amazon-business-tutorial/map-attribute3.png)
+    ![Screenshot shows User Attributes & Claims with default values such as Givenname user.givenname and Emailaddress user.mail.](media/amazon-business-tutorial/map-attribute.png)
 
 1. Edit Attributes and copy **Namespace** value of these attributes into the Notepad.
 
-    ![Screenshot shows User Attributes & Claims with columns for Claim name and value.](media/amazon-business-tutorial/map-attribute4.png)
+    ![Screenshot shows User Attributes & Claims with columns for Claim name and value.](media/amazon-business-tutorial/attribute.png)
 
 1. In addition to above, Amazon Business application expects few more attributes to be passed back in SAML response. In the **User Attributes & Claims** section on the **Group Claims** dialog, perform the following steps:
 
     1. Click the **pen** next to **Groups returned in claim**.
 
-        ![Screenshot shows User Attributes & Claims with the icon for Groups returned in claim selected.](./media/amazon-business-tutorial/config04.png)
+        ![Screenshot shows User Attributes & Claims with the icon for Groups returned in claim selected.](./media/amazon-business-tutorial/claim.png)
 
-        ![Screenshot shows Group Claims with values as described in this procedure.](./media/amazon-business-tutorial/config05.png)
+        ![Screenshot shows Group Claims with values as described in this procedure.](./media/amazon-business-tutorial/group-claim.png)
 
     1. Select **All Groups** from the radio list.
 
@@ -125,74 +126,6 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Set up Amazon Business** section, copy the appropriate URL(s) based on your requirement.
 
     ![Copy configuration URLs](common/copy-configuration-urls.png)
-
-### Configure Amazon Business SSO
-
-1. In a different web browser window, sign in to your Amazon Business company site as an administrator.
-
-1. Click on the **User Profile** and select **Business Settings**.
-
-    ![User Profile](media/amazon-business-tutorial/user-profile.png)
-
-1. On the **System integrations** wizard, select **Single Sign-On (SSO)**.
-
-    ![Single Sign-On (SSO)](media/amazon-business-tutorial/sso-settings.png)
-
-1. On the **Set up SSO** wizard, select the provider according to your Organizational requirements and click **Next**.
-
-    ![Screenshot shows Set up S S O, with Microsoft Azure A D and Next selected.](media/amazon-business-tutorial/default-group1.png)
-
-    > [!NOTE]
-    > Although Microsoft ADFS is a listed option, it won't work with Azure AD SSO.
-
-1. On the **New user account defaults** wizard, select the **Default Group** and then select **Default Buying Role** according to user role in your Organization and click **Next**.
-
-    ![Screenshot shows New user account defaults with Microsoft S S O, Requisitioner, and Next selected.](media/amazon-business-tutorial/dafault-group2.png)
-
-1. On the **Upload your metadata file** wizard, click **Browse** to upload the **Metadata XML** file, which you have downloaded from the Azure portal and click **Upload**.
-
-    ![Screenshot shows Upload your metadata file, which allows you to browse to an x m l file and upload it.](media/amazon-business-tutorial/connection-data1.png)
-
-1. After uploading the downloaded metadata file, the fields in the **Connection data** section will populate automatically. After that click **Next**.
-
-    ![Screenshot shows Connection data, where you can specify an Azure A D Identifier, Login U R L, and SAML Signing Certificate.](media/amazon-business-tutorial/connection-data2.png)
-
-1. On the **Upload your Attribute statement** wizard, click **Skip**.
-
-    ![Screenshot shows Upload your Attribute statement, which allows you to browse to an attribute statement, but in this case, select Skip.](media/amazon-business-tutorial/map-attribute1.png)
-
-1. On the **Attribute mapping** wizard, add the requirement fields by clicking the **+ Add a field** option. Add the attribute values including the namespace, which you have copied from the **User Attributes & Claims** section of Azure portal into the  **SAML AttributeName** field, and click **Next**.
-
-    ![Screenshot shows Attribute mapping, where you can edit your Amazon data SAML attribute names.](media/amazon-business-tutorial/map-attribute2.png)
-
-1. On the **Amazon connection data** wizard, click **Next**.
-
-    ![Screenshot shows Amazon connection data, where you can click next to continue.](media/amazon-business-tutorial/amazon-connect.png)
-
-1. Please check the **Status** of the steps which have been configured and click **Start testing**.
-
-    ![Screenshot shows S S O Connection Details with the option to Start testing.](media/amazon-business-tutorial/sso-connection1.png)
-
-1. On the **Test SSO Connection** wizard, click **Test**.
-
-    ![Screenshot shows Test S S O Connection with the Test button.](media/amazon-business-tutorial/sso-connection2.png)
-
-1. On the **IDP initiated URL** wizard, before you click **Activate**, copy the value which is assigned to **idpid** and paste into the **idpid** parameter in the **Reply URL** in the **Basic SAML Configuration** section in the Azure portal.
-
-    ![Screenshot shows I D P initiated U R L where you can get a U R L necessary for testing and then select Activate.](media/amazon-business-tutorial/sso-connection3.png)
-
-1. On the **Are you ready to switch to active  SSO?** wizard, check **I have fully tested SSO and am ready to go live** checkbox and click on **Switch to active**.
-
-    ![Screenshot shows the Are you ready to switch to active S S O confirmation where you can select Switch to active.](media/amazon-business-tutorial/sso-connection4.png)
-
-1. Finally in the **SSO Connection details** section the **Status** is shown as **Active**.
-
-    ![Screenshot shows S S O Connection Details with a status of Active.](media/amazon-business-tutorial/sso-connection5.png)
-
-    > [!NOTE]
-    > If you want to configure the application in **SP** initiated mode, complete the following step, paste the sign-on URL from the screenshot above in the **Sign-on URL** text box of the **Set additional URLs** section in the Azure portal. Use the following format:
-    >
-    > `https://www.amazon.<TLD>/bb/feature/sso/action/start?domain_hint=<uniqueid>`
 
 ### Create an Azure AD test user
 
@@ -230,13 +163,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
 1. In the applications list, select **Amazon Business**.
 1. In the app's overview page, find the **Manage** section and select **Users and groups**.
-
-    ![The "Users and groups" link](common/users-groups-blade.png)
-
 1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
-
-    ![Screenshot shows Add user button.](common/add-assign-user.png)
-
 1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
 1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
 1. In the **Add Assignment** dialog, click the **Assign** button.
@@ -249,21 +176,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 ### Assign the Azure AD Security Group in the Azure portal
 
 1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **Amazon Business**.
-
-    ![Enterprise applications blade](common/enterprise-applications.png)
-
 2. In the applications list, type and select **Amazon Business**.
-
-    ![The Amazon Business link in the Applications list](common/all-applications.png)
-
 3. In the menu on the left, select **Users and groups**.
-
-    ![The "Users and groups" link](common/users-groups-blade.png)
-
 4. Click the **Add user**.
-
-    ![The Add Assignment pane](common/add-assign-user.png)
-
 5. Search for the Security Group you want to use, then click on the group to add it to the Select members section. Click **Select**, then click **Assign**.
 
     ![Search Security Group](./media/amazon-business-tutorial/assign-group.png)
@@ -271,20 +186,94 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
     > [!NOTE]
     > Check the notifications in the menu bar to be notified that the Group was successfully assigned to the Enterprise application in the Azure portal.
 
+## Configure Amazon Business SSO
+
+1. In a different web browser window, sign in to your Amazon Business company site as an administrator.
+
+1. Click on the **User Profile** and select **Business Settings**.
+
+    ![User Profile](media/amazon-business-tutorial/user-profile.png)
+
+1. On the **System integrations** wizard, select **Single Sign-On (SSO)**.
+
+    ![Single Sign-On (SSO)](media/amazon-business-tutorial/sso-settings.png)
+
+1. On the **Set up SSO** wizard, select the provider according to your Organizational requirements and click **Next**.
+
+    ![Screenshot shows Set up S S O, with Microsoft Azure A D and Next selected.](media/amazon-business-tutorial/default-group.png)
+
+    > [!NOTE]
+    > Although Microsoft ADFS is a listed option, it won't work with Azure AD SSO.
+
+1. On the **New user account defaults** wizard, select the **Default Group** and then select **Default Buying Role** according to user role in your Organization and click **Next**.
+
+    ![Screenshot shows New user account defaults with Microsoft S S O, Requisitioner, and Next selected.](media/amazon-business-tutorial/group.png)
+
+1. On the **Upload your metadata file** wizard, click **Browse** to upload the **Metadata XML** file, which you have downloaded from the Azure portal and click **Upload**.
+
+    ![Screenshot shows Upload your metadata file, which allows you to browse to an x m l file and upload it.](media/amazon-business-tutorial/connection-data.png)
+
+1. After uploading the downloaded metadata file, the fields in the **Connection data** section will populate automatically. After that click **Next**.
+
+    ![Screenshot shows Connection data, where you can specify an Azure A D Identifier, Login U R L, and SAML Signing Certificate.](media/amazon-business-tutorial/connection.png)
+
+1. On the **Upload your Attribute statement** wizard, click **Skip**.
+
+    ![Screenshot shows Upload your Attribute statement, which allows you to browse to an attribute statement, but in this case, select Skip.](media/amazon-business-tutorial/upload-attribute.png)
+
+1. On the **Attribute mapping** wizard, add the requirement fields by clicking the **+ Add a field** option. Add the attribute values including the namespace, which you have copied from the **User Attributes & Claims** section of Azure portal into the  **SAML AttributeName** field, and click **Next**.
+
+    ![Screenshot shows Attribute mapping, where you can edit your Amazon data SAML attribute names.](media/amazon-business-tutorial/attribute-mapping.png)
+
+1. On the **Amazon connection data** wizard, click **Next**.
+
+    ![Screenshot shows Amazon connection data, where you can click next to continue.](media/amazon-business-tutorial/amazon-connect.png)
+
+1. Please check the **Status** of the steps which have been configured and click **Start testing**.
+
+    ![Screenshot shows S S O Connection Details with the option to Start testing.](media/amazon-business-tutorial/status.png)
+
+1. On the **Test SSO Connection** wizard, click **Test**.
+
+    ![Screenshot shows Test S S O Connection with the Test button.](media/amazon-business-tutorial/test.png)
+
+1. On the **IDP initiated URL** wizard, before you click **Activate**, copy the value which is assigned to **idpid** and paste into the **idpid** parameter in the **Reply URL** in the **Basic SAML Configuration** section in the Azure portal.
+
+    ![Screenshot shows I D P initiated U R L where you can get a U R L necessary for testing and then select Activate.](media/amazon-business-tutorial/activate.png)
+
+1. On the **Are you ready to switch to active  SSO?** wizard, check **I have fully tested SSO and am ready to go live** checkbox and click on **Switch to active**.
+
+    ![Screenshot shows the Are you ready to switch to active S S O confirmation where you can select Switch to active.](media/amazon-business-tutorial/switch-active.png)
+
+1. Finally in the **SSO Connection details** section the **Status** is shown as **Active**.
+
+    ![Screenshot shows S S O Connection Details with a status of Active.](media/amazon-business-tutorial/details.png)
+
+    > [!NOTE]
+    > If you want to configure the application in **SP** initiated mode, complete the following step, paste the sign-on URL from the screenshot above in the **Sign-on URL** text box of the **Set additional URLs** section in the Azure portal. Use the following format:
+    >
+    > `https://www.amazon.<TLD>/bb/feature/sso/action/start?domain_hint=<UNIQUE_ID>`
+
 ### Create Amazon Business test user
 
 In this section, a user called B.Simon is created in Amazon Business. Amazon Business supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Amazon Business, a new one is created after authentication.
 
-### Test SSO
+## Test SSO
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+In this section, you test your Azure AD single sign-on configuration with following options. 
 
-When you click the Amazon Business tile in the Access Panel, you should be automatically signed in to the Amazon Business for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+#### SP initiated:
 
-## Additional Resources
+* Click on **Test this application** in Azure portal. This will redirect to Amazon Business Sign on URL where you can initiate the login flow.  
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
+* Go to Amazon Business Sign-on URL directly and initiate the login flow from there.
 
-- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+#### IDP initiated:
 
-- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
+* Click on **Test this application** in Azure portal and you should be automatically signed in to the Amazon Business for which you set up the SSO. 
+
+You can also use Microsoft My Apps to test the application in any mode. When you click the Amazon Business tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Amazon Business for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+
+## Next steps
+
+Once you configure Amazon Business you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
