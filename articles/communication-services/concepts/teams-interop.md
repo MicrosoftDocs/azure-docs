@@ -12,19 +12,19 @@ ms.topic: overview
 ms.service: azure-communication-services
 ---
 
-# Teams federation (interoperability)
+# Teams interoperability
 
 [!INCLUDE [Public Preview](../includes/public-preview-include-document.md)]
 
 > [!NOTE]
-> Federation (interoperability) between Azure Communication Services (ACS) and Microsoft Teams enables your applications and users to participate in Teams calls, meetings, and chat. It is your responsibility to ensure that the users of your application are notified when recording or transcription are enabled in a Teams call or meeting. Microsoft will indicate to you via the Azure Communication Services API that recording or transcription has commenced and you must communicate this fact, in real time, to your users within your application’s user interface. You agree to indemnify Microsoft for all costs and damages incurred as a result of your failure to comply with this obligation.
+> Interoperability between Azure Communication Services (ACS) and Microsoft Teams enables your applications and users to participate in Teams calls, meetings, and chat. It is your responsibility to ensure that the users of your application are notified when recording or transcription are enabled in a Teams call or meeting. Microsoft will indicate to you via the Azure Communication Services API that recording or transcription has commenced and you must communicate this fact, in real time, to your users within your application’s user interface. You agree to indemnify Microsoft for all costs and damages incurred as a result of your failure to comply with this obligation.
 
 > [!NOTE]
 > VoIP and Chat usage is only billed to your Azure resource when using Azure APIs and SDKs. Teams clients interacting with Azure Communication Services applications are free.
 
 Azure Communication Services can be used to build custom meeting experiences that interact with Microsoft Teams. Users of your Communication Services solution(s) can interact with Teams participants over voice, video, chat, and screen sharing.
 
-Teams federation allows you to create custom applications that connect users to Teams meetings. Users of your custom applications don't need to have Azure Active Directory identities or Teams licenses to experience this capability. This is ideal for bringing employees (who may be familiar with Teams) and external users (using a custom application experience) together into a seamless meeting experience. For example:
+Teams interoperability allows you to create custom applications that connect users to Teams meetings. Users of your custom applications don't need to have Azure Active Directory identities or Teams licenses to experience this capability. This is ideal for bringing employees (who may be familiar with Teams) and external users (using a custom application experience) together into a seamless meeting experience. For example:
 
 1. Employees use Teams to schedule a meeting 
 1. Meeting details are shared with external users through your custom application.
@@ -34,7 +34,7 @@ Teams federation allows you to create custom applications that connect users to 
 
 The high-level architecture for this use-case looks like this: 
 
-![Architecture for Teams federation](./media/call-flows/teams-interop.png)
+![Architecture for Teams interoperability](./media/call-flows/teams-interop.png)
 
 Communication Services users can join scheduled Teams meetings as long as anonymous joins are enabled in the [meeting settings](/microsoftteams/meeting-settings-in-teams). 
 
