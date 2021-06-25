@@ -15,7 +15,7 @@ Azure Cosmos DB free tier makes it easy to get started, develop, test your appli
 
 Free tier lasts indefinitely for the lifetime of the account and it comes with all the [benefits and features](introduction.md#key-benefits) of a regular Azure Cosmos DB account. These benefits include unlimited storage and throughput (RU/s), SLAs, high availability, turnkey global distribution in all Azure regions, and more.
 
-You can have up to one free tier Azure Cosmos DB account per an Azure subscription and you must opt-in when creating the account. If you do not see the option to apply the free tier discount, this means another account in the subscription has already been enabled with free tier. When creating a new account, it’s recommended to enable the free tier discount if it’s available.
+You can have up to one free tier Azure Cosmos DB account per an Azure subscription and you must opt-in when creating the account. If you do not see the option to apply the free tier discount, this means another account in the subscription has already been enabled with free tier. If you create an account with free tier and then delete it, you can apply free tier for a new account. When creating a new account, it’s recommended to enable the free tier discount if it’s available.
 
 > [!NOTE]
 > Free tier is currently not available for serverless accounts.
