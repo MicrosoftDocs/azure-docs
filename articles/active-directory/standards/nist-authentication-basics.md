@@ -1,6 +1,6 @@
 ---
 title: NIST authentication basics and Azure Active Directory
-description: Explanations of the terminology and authentication factors for NIST.
+description: This article defines important terminology and describes trusted platform modules and authentication factors for NIST.
 services: active-directory 
 ms.service: active-directory
 ms.subservice: fundamentals
@@ -15,96 +15,102 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# NIST Authentication Basics 
+# NIST authentication basics 
 
-Understanding the NIST guidelines requires that you have a firm grounding in the terminology, and the concepts of trusted platform modules (TPMs) and authentication factors.
+To understand National Institute of Standards and Technology (NIST) guidelines, you need to know the terminology. You also need to understand Trusted Platform Module (TPM) technology and authentication factors. This article provides that information. 
 
 ## Terminology
 
-The following terminology is used throughout these NIST-related articles.
+The following terminology is used throughout these NIST articles.
 
-|Term| Definition - *Italicized* terms are defined in this table|
+|Term| Definition. *Italicized* terms are defined in this table.|
 | - | - |
-| Assertion| A statement from a *verifier* to a *relying party* containing information about the *subscriber*. May contain verified attributes. |
+| Assertion| A statement from a *verifier* to a *relying party* that contains information about the *subscriber*. An assertion might contain verified attributes. |
 |Authentication| The process of verifying the identity of a *subject*. |
-| Authentication factor| Something you know, something you have, or something you are: Every *authenticator* has one or more authentication factors. |
-| Authenticator| Something the *claimant* possesses and controls that is used to authenticate the *claimant’s* identity. |
-| Claimant| A *subject* whose identity is to be verified using one or more authentication protocols. |
+| Authentication factor| Something you know, something you have, or something you are. Every *authenticator* has one or more authentication factors. |
+| Authenticator| Something the *claimant* possesses and controls that's used to authenticate the *claimant’s* identity. |
+| Claimant| A *subject* whose identity is to be verified via one or more *authentication* protocols. |
 |Credential| An object or data structure that authoritatively binds an identity to at least one *authenticator* possessed and controlled by a *subscriber*. |
-| Credential Service Provider (CSP)| A trusted entity that issues or registers *subscriber authenticators* and issues electronic *credentials* to *subscribers*. |
-|Relying Party| An entity that relies on a *verifier’s assertion*, or a *claimant’s authenticators* and *credentials*, usually to grant access to a system. |
+| Credential service provider (CSP)| A trusted entity that issues or registers *subscriber authenticators* and issues electronic *credentials* to *subscribers*. |
+|Relying party| An entity that relies on a *verifier’s assertion* or a *claimant’s authenticators* and *credentials*, usually to grant access to a system. |
 |  Subject| A person, organization, device, hardware, network, software, or service. |
 | Subscriber| A party who has received a *credential* or *authenticator* from a *CSP*. |
-|Trusted Platform Module (TPM)  | A TPM is a tamper resistant module that performs cryptographic operations including key generation. |
+|Trusted Platform Module  | A TPM is a tamper-resistant module that does cryptographic operations, including key generation. |
 |  Verifier| An entity that verifies the *claimant’s* identity by verifying the claimant’s possession and control of *authenticators*. |
 
 
-## About Trusted Platform Modules 
+## About Trusted Platform Module technology
 
-Trusted Platform Module (TPM) technology is designed to provide hardware-based, security-related functions. A TPM chip, or hardware TPM, is a secure crypto processor that helps you with actions such as generating, storing, and limiting the use of cryptographic keys. 
+Trusted Platform Module technology is designed to provide hardware-based security-related functions. A TPM chip, or hardware TPM, is a secure cryptographic processor that helps you with actions like generating, storing, and limiting the use of cryptographic keys. 
 
-Microsoft provides significant information on how TPMs work with Microsoft Windows. For more information, see this article on the [Trusted Platform Module](https://docs.microsoft.com/windows/security/information-protection/tpm/trusted-platform-module-top-node). 
+Microsoft provides significant information on how TPMs work with Windows. For more information, see [Trusted Platform Module](/windows/security/information-protection/tpm/trusted-platform-module-top-node). 
 
-A software TPM is an emulator that mimics this functionality. 
+A software TPM is an emulator that mimics hardware TPM functionality. 
 
  ## Authentication factors and their strengths
 
-Authentication factors can be grouped into three categories. The following table presents example of the types of factors under each grouping.
+Authentication factors can be grouped into three categories:
 
-![Pictorial representation of something you know, something you have, and something you are.](media/nist-authentication-basics/nist-authentication-basics-0.png)
+![Graphic that provides examples of authentication factors, grouped by something you know, something you have, and something you are.](media/nist-authentication-basics/nist-authentication-basics-0.png)
 
-The strength of an authentication factor is determined by how sure we can be that it is something that only the subscriber knows, has, or is.
+The strength of an authentication factor is determined by how sure you can be that it's something that only the subscriber knows, has, or is.
 
-There is limited guidance in NIST about the relative strength of authentication factors. Here at Microsoft, we assess the strengths as below. 
+NIST provides limited guidance about the relative strength of authentication factors. The rest of this section describes how we assess those strengths at Microsoft. 
 
-**Something you know**: Passwords, the most common something you know, represent the greatest attack surface. The following mitigations improve confidence in the affinity to the subscriber and are effective at preventing password attacks such as brute-force attacks, eavesdropping and social engineering:
+**Something you know**. Passwords, the most common *something you know*, represent the largest attack surface. The following mitigations improve confidence in the affinity to the subscriber. They're effective at preventing password attacks like brute-force attacks, eavesdropping, and social engineering:
 
 * [Password complexity requirements](https://www.microsoft.com/research/wp-content/uploads/2016/06/Microsoft_Password_Guidance-1.pdf)
 
-* [Banned passwords](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-configure-custom-password-protection)
+* [Banned passwords](../authentication/tutorial-configure-custom-password-protection.md)
 
-* [Leaked credentials identification](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-identity-protection)
+* [Leaked credentials identification](../identity-protection/overview-identity-protection.md)
 
 * [Secure hashed storage](https://aka.ms/AADDataWhitepaper)
 
-* [Account lockout](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-smart-lockout)
+* [Account lockout](../authentication/howto-password-smart-lockout.md)
 
-**Something you have**: The strength of something you have is based on how likely the subscriber is to keep it in possession, and the difficulty in an attacker gaining access to it. For example, a personal mobile device or hardware key will have a higher affinity, and therefore be more secure, than a desktop computer in an office when trying to protect against internal threat.
+**Something you have**. The strength of *something you have* is based on how likely the subscriber is to keep it in possession and the difficulty for an attacker to gain access to it. For example, when you're trying to protect against internal threats, a personal mobile device or hardware key will have a higher affinity. So it will be more secure than a desktop computer in an office.
 
-**Something you are**: The ease with which an attacker can obtain a copy of something you are, or spoof a biometric, matters. NIST is drafting a framework for biometrics. Today, NIST will not accept biometrics as a separate authentication method. It must be a factor within multi-factor authentication. This is since biometrics are probabilistic in nature. That is, they use algorithms that determine the likelihood that it is the same person. It is not necessarily an exact match, as a password is. See this document on the [Strength of Function for Authenticators – Biometrics](https://pages.nist.gov/SOFA/SOFA.html) (SOFA-B). SOFA-B attempts to present a framework to quantity biometrics’ strength in terms of false match rate, false, fail rate, presentation attack detection error rate, and effort required to launch an attack. 
+**Something you are**. The ease with which an attacker can obtain a copy of *something you are*, or spoof a biometric, matters. NIST is drafting a framework for biometrics. NIST currently won't accept biometrics as a separate authentication method. It must be a factor within multi-factor authentication. This precaution is in place because biometrics are probabilistic in nature. That is, they use algorithms that determine the likelihood of affinity. Biometrics don't necessarily provide an exact match, as passwords do. For more information, see [Strength of Function for Authenticators – Biometrics](https://pages.nist.gov/SOFA/SOFA.html) (SOFA-B). 
+
+SOFA-B attempts to present a framework to quantify the strength of biometrics for:
+- False match rate.
+- False fail rate.
+- Presentation attack detection error rate.
+- Effort required to perform an attack. 
 
 ## ‎Single-factor authentication
 
-Single-factor authentication can be achieved by using a single-factor authenticator that constitutes something you know or something you are. While an authentication factor that is “something you are” is accepted as an authentication factor, it is not accepted as an authenticator by itself. 
+You can implement single-factor authentication by using a single-factor authenticator that verifies *something you know* or *something you are*. A *something you are* factor is accepted as an authentication factor, but it's not accepted as an authenticator by itself. 
 
-![Conceptual image of single factor authentication.](media/nist-authentication-basics/nist-authentication-basics-1.png)
+![Graphic that shows how single-factor authentication works.](media/nist-authentication-basics/nist-authentication-basics-1.png)
 
-## Multi-factor authentication
+## Multifactor authentication
 
-Multi-factor authentication can be achieved by either a multi-factor authenticator or by a combination of two single-factor authenticators. A multi-factor authenticator requires two authentication factors to execute a single authentication transaction.
+You can implement multifactor authentication either by using a multifactor authenticator or by using two single-factor authenticators. A multifactor authenticator requires two authentication factors to complete a single authentication transaction.
 
-### Multi-factor authentication using two single-factor authenticators
+### Multifactor authentication by using two single-factor authenticators
 
-Multi-factor authentication requires two different authentication factors. These can be two independent authenticators, such as 
+Multifactor authentication requires two different authentication factors. These authenticators can be independent. For example: 
 
-* Memorized secret [password] and out of band [SMS]
+* Memorized secret (password) and out of band (SMS)
 
-* Memorized secret [password] and one-time password [hardware or software]
+* Memorized secret (password) and one-time password (hardware or software)
 
-These methods perform two independent authentication transactions with Azure AD.
+These methods perform two independent authentication transactions with Azure Active Directory (Azure AD).
 
-![Conceptual image of multi-factor authentication using two separate authenticators.](media/nist-authentication-basics/nist-authentication-basics-2.png)
+![Graphic that describes multifactor authentication via two separate authenticators.](media/nist-authentication-basics/nist-authentication-basics-2.png)
 
 
-### Multi-factor authentication using a single multi-factor authenticator
+### Multifactor authentication by using a single multifactor authenticator
 
-Multi-factor factor authentication requires one authentication factor (something you know or something you are) to unlock a second authentication factor. This is typically a simpler user experience than multiple independent authenticators.
+Multifactor factor authentication requires one authentication factor (*something you know* or *something you are*) to unlock a second authentication factor. The user experience is typically easier than that of multiple independent authenticators.
 
-![Conceptual image of multi-factor authentication a single multi-factor authenticator.](media/nist-authentication-basics/nist-authentication-basics-3a.png)
+![Graphic that shows multifactor authentication by using a single multifactor authenticator.](media/nist-authentication-basics/nist-authentication-basics-3a.png)
 
-One example is the Microsoft Authenticator app used in the passwordless mode. With this method the user attempts to access a secured resource (relying party), and receives a notification on their authenticator app. The user responds to a notification by providing either a biometric (something you are) or a PIN (something you know), which then unlocks the cryptographic key on the phone (something you have) which is then validated by the verifier.
+One example is the Microsoft Authenticator app used in passwordless mode. With this method, the user attempts to access a secured resource (relying party), and receives a notification on the Authenticator app. The user responds to the notification by providing either a biometric (*something you are*) or a PIN (*something you know*). This factor unlocks the cryptographic key on the phone (*something you have*), which the verifier then validates.
 
-## Next Steps 
+## Next steps 
 
 [NIST overview](nist-overview.md)
 
@@ -114,8 +120,8 @@ One example is the Microsoft Authenticator app used in the passwordless mode. Wi
 
 [NIST authenticator types](nist-authenticator-types.md)
 
-[Achieving NIST AAL1 with Azure AD](nist-authenticator-assurance-level-1.md)
+[Achieving NIST AAL1 bu using Azure AD](nist-authenticator-assurance-level-1.md)
 
-[Achieving NIST AAL2 with Azure AD](nist-authenticator-assurance-level-2.md)
+[Achieving NIST AAL2 by using Azure AD](nist-authenticator-assurance-level-2.md)
 
-[Achieving NIST AAL3 with Azure AD](nist-authenticator-assurance-level-3.md) 
+[Achieving NIST AAL3 by using Azure AD](nist-authenticator-assurance-level-3.md)

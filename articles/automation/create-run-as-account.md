@@ -3,7 +3,7 @@ title: Create an Azure Automation Run As account
 description: This article tells how to create an Azure Automation Run As account with PowerShell or from the Azure portal.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/29/2021
+ms.date: 05/17/2021
 ms.topic: conceptual
 ---
 
@@ -41,6 +41,13 @@ The following list provides the requirements to create a Run As account in Power
 * Azure PowerShell PowerShell 6.2.4 or later. For information, see [How to install and configure Azure PowerShell](/powershell/azure/install-az-ps).
 * An Automation account, which is referenced as the value for the `AutomationAccountName` and `ApplicationDisplayName` parameters.
 * Permissions equivalent to the ones listed in [Required permissions to configure Run As accounts](automation-security-overview.md#permissions).
+
+If you are planning to use a certificate from your enterprise or third-party certificate authority (CA), Automation requires the certificate to have the following configuration:
+
+   * Specify the provider **Microsoft Enhanced RSA and AES Cryptographic Provider**
+   * Marked as exportable
+   * Configured to use the SHA256 algorithm
+   * Saved in the `*.pfx` or `*.cer` format.
 
 To get the values for `AutomationAccountName`, `SubscriptionId`, and `ResourceGroupName`, which are required parameters for the PowerShell script, complete the following steps.
 

@@ -16,11 +16,11 @@ the "Evaluation" device group for the devices that its field team uses in the op
 their geographic regions, so that they can update devices on a schedule that aligns with their regional timezones. 
 
 
-## Using device twin tag for device group creation
+## Using device or module twin tag for device group creation
 
-Device twin tags enable users to group devices. Devices need to have a ADUGroup key and a value in their device twin to allow them to be grouped.
+Tags enable users to group devices. Devices need to have a ADUGroup key and a value in their device or module twin to allow them to be grouped.
 
-### Device twin tag format
+### Device or module twin tag format
 
 ```markdown
 "tags": {
@@ -32,8 +32,8 @@ Device twin tags enable users to group devices. Devices need to have a ADUGroup 
 ## Uncategorized device group
 
 Uncategorized is a reserved word that is used to group devices that:
-- Don't have the ADUGroup device twin tag.
-- Have ADUGroup device twin tag but a group is not created with this group name.
+- Don't have the ADUGroup device or module twin tag.
+- Have ADUGroup device or module twin tag but a group is not created with this group name.
 
 For example consider the devices with their device twin tags below:
 

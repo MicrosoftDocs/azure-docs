@@ -120,14 +120,6 @@
         - name: Install software
           displayName: setup, deployment, virtual, Dell, HPE, SMB, certified, hardware, port mirroring, ESXi, DL20, EL300, R340,enterprise, SMB, corporate, NIC, second, secondary, network, interface, network interface, appliance, Nuvo 5006LP, Fitlet2, BIOS, sanity, mirroring, port, ports
           href: how-to-install-software.md
-    - name: Prepare your sensors
-      items:
-      - name: Onboard sensors
-        displayName: onboard, cloud, register, version, activate, offboard, subscription, threat intelligence, packages, connected
-        href: how-to-manage-sensors-on-the-cloud.md
-      - name: Activate and set up your sensor
-        displayName: deployment, onboard, register, activation, SSL, TLS, certificate, cloud connected, sign in, login, setup, learning mode, initial
-        href: how-to-activate-and-set-up-your-sensor.md
     - name: Prepare your on-premises management console
       items:
       - name: Manage subscriptions
@@ -142,7 +134,7 @@
     - name: Prepare your sensors
       items:
       - name: Onboard sensors
-        displayName: onboard, cloud, register, activate, offboard, subscription, subscriptions
+        displayName: onboard, cloud, register, version, activate, offboard, subscription, threat intelligence, packages, connected
         href: how-to-manage-sensors-on-the-cloud.md
       - name: Activate and set up your sensor
         displayName: deployment, onboard, register, activation, SSL, TLS, certificate, cloud connected, sign in, login, setup, learning mode, initial
@@ -150,7 +142,7 @@
     - name: Manage users and user access
       items:
       - name: Create and manage users
-        displayName: Active Directory, roles, permissions
+        displayName: Active Directory, roles, permissions, password, passwords, change, reset
         href: how-to-create-and-manage-users.md
       - name: Define global user access control
         href: how-to-define-global-user-access-control.md
@@ -187,7 +179,8 @@
       items:
       - name: Understand sensor alerts
         href: how-to-work-with-alerts-on-your-sensor.md
-      - name: Filter and manage alerts from the Alerts page 
+      - name: Filter and manage alerts from the Alerts page
+        displayName: alert, alerts, Important, pinned, recent, acknowledge, archive, archived, search, text,  
         href: how-to-view-alerts.md
       - name: About alert messages
         href: how-to-view-information-provided-in-alerts.md
@@ -346,7 +339,7 @@
       displayNAme: prototype, disable
       href: azure-rtos-security-module-api.md
     - name: Frequently asked questions- agent
-      displayName: FAQ, embedded, dependencies, data, quota, internet, 
+      displayName: FAQ, embedded, dependencies, data, quota, internet, password, change 
       href: resources-agent-frequently-asked-questions.md
     - name: Azure Roadmap
       href: https://azure.microsoft.com/roadmap/?category=security-identity

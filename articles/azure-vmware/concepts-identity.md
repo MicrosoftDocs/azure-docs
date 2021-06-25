@@ -2,7 +2,7 @@
 title: Concepts - Identity and access
 description: Learn about the identity and access concepts of Azure VMware Solution
 ms.topic: conceptual
-ms.date: 05/11/2021
+ms.date: 05/13/2021
 ---
 
 # Azure VMware Solution identity concepts
@@ -106,9 +106,9 @@ Use the *admin* account to access NSX-T Manager. It has full privileges and lets
 
 Now that you've covered Azure VMware Solution access and identity concepts, you may want to learn about:
 
-- [How to enable Azure VMware Solution resource](enable-azure-vmware-solution.md)
+- [How to enable Azure VMware Solution resource](deploy-azure-vmware-solution.md#step-1-register-the-microsoftavs-resource-provider)
 - [Details of each privilege](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-ED56F3C4-77D0-49E3-88B6-B99B8B437B62.html)
-- [How Azure VMware Solution monitors and repairs private clouds](/azure/azure-vmware/concepts-private-clouds-clusters#host-monitoring-and-remediation)
+- [How Azure VMware Solution monitors and repairs private clouds](./concepts-private-clouds-clusters.md#host-monitoring-and-remediation)
 
 
 

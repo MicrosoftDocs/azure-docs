@@ -4,7 +4,7 @@ description: This article tells how to delete your Automation account across the
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-ms.date: 04/15/2021
+ms.date: 06/04/2021
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -18,7 +18,7 @@ Removing your Automation account can be done using one of the following methods 
 * Delete the resource group containing the Automation account.
 * Delete the resource group containing the Automation account and linked Azure Monitor Log Analytics workspace, if:
 
-    * The account and workspace is dedicated to supporting Update Management, Change Tracking and Inventory, and/or Start/Stop VMs during off-hours.
+    * The account and workspace is dedicated to supporting Update Management, Change Tracking, and Inventory, and/or Start/Stop VMs during off-hours.
     * The account is dedicated to process automation and integrated with a workspace to send runbook job status and job streams.
 
 * Unlink the Log Analytics workspace from the Automation account and delete the Automation account.
@@ -26,8 +26,11 @@ Removing your Automation account can be done using one of the following methods 
 
 This article tells you how to completely remove your Automation account through the Azure portal, using Azure PowerShell, the Azure CLI, or the REST API.
 
+## Prerequisite
+Verify there aren't any [Resource Manager locks](../azure-resource-manager/management/lock-resources.md) applied at the subscription, resource group, or resource, which prevents accidental deletion or modification of critical resources. If you've deployed the Start/Stop VMs during off-hours solution, it sets the lock level to **CanNotDelete** against several dependent resources in the Automation account (specifically its runbooks and variables). Remove any locks before deleting the Automation account.
+
 > [!NOTE]
-> Before proceeding, verify there aren't any [Resource Manager locks](../azure-resource-manager/management/lock-resources.md) applied at the subscription, resource group, or resource which prevents accidental deletion or modification of critical resources. If you have deployed the Start/Stop VMs during off-hours solution, it sets the lock level to **CanNotDelete** against several dependent resources in the Automation account (specifically its runbooks and variables). Any locks need to be removed before you can delete the Automation account.
+> If you receive an error message similar to: `The link cannot be updated or deleted because it is linked to Update Management and/or ChangeTracking Solutions`, then your Automation account is linked to a Log Analytics workspace with either the Update Management and/or Change Tracking and Inventory features enabled. For more information, see [Delete a shared capability Automation account](#delete-a-shared-capability-automation-account), below.
 
 ## Delete the dedicated resource group
 
@@ -35,7 +38,7 @@ To delete your Automation account, and also the Log Analytics workspace if linke
 
 ## Delete a standalone Automation account
 
-If your Automation account is not linked to a Log Analytics workspace, perform the following steps to delete it.
+If your Automation account isn't linked to a Log Analytics workspace, perform the following steps to delete it.
 
 # [Azure portal](#tab/azure-portal)
 
@@ -101,7 +104,7 @@ To delete your Automation account linked to a Log Analytics workspace in support
 
 3. Select **Go to workspace**.
 
-4. Click **Solutions** under **General**.
+4. Select **Solutions** under **General**.
 
 5. On the Solutions page, select one of the following based on the feature(s) deployed in the account:
 

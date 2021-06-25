@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/22/2021
+ms.date: 06/04/2021
 ms.author: alkohli
 ---
 # Connect to a virtual machine console on an Azure Stack Edge Pro GPU device
@@ -127,4 +127,5 @@ Id                     : 81462e0a-decb-4cd4-96e9-057094040063
 
 ## Next steps
 
-- Troubleshoot [Azure Stack Edge Pro](azure-stack-edge-gpu-troubleshoot.md) in Azure portal.
+- Troubleshoot [VM deployments](azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning.md) in Azure portal.
+<!--Make "VM guest logs" first link when article is available.-->

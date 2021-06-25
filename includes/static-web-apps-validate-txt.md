@@ -14,4 +14,4 @@ During this step, Azure automatically verifies the TXT record with your DNS prov
 
 :::image type="content" source="../articles/static-web-apps/media/custom-domain/txt-record-ready.png" alt-text="Green indicator showing TXT record has been validated":::
 
-When the green indicator appears next to your domain in the _Custom domains_ screen, you can complete the second step, which is to add an ALIAS record.
+When the green indicator appears next to your domain in the _Custom domains_ screen, you can complete the second step, which is to add an ALIAS record if you are adding a root domain or a CNAME record if you are adding a subdomain.
