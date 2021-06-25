@@ -30,10 +30,10 @@
         href: resource-declaration.md
       - name: Conditional deployment
         href: conditional-resource-deployment.md
-      	displayName: runtime
+        displayName: runtime
       - name: Child resource name and type
         href: child-resource-name-type.md
-	      displayName: parent,parent resource
+        displayName: parent,parent resource
       - name: Extension resources
         href: scope-extension-resources.md
     - name: Parameters
