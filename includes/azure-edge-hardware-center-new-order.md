@@ -58,7 +58,7 @@ Because there isn't a 1-to-1 relationship between the order and a device, no dev
 
     ![Screenshot of the Basics tab for entering an order name, resource group, and region for an Azure Edge Hardware Center order](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-08.png)
   
-    On the **Shipping + quantity** tab, you'll add each ship to address you want to send devices to and then specify how many devices to send to each address.
+    On the **Shipping + quantity** tab, you'll add each ship to address you want to send devices to and then specify how many devices to send to each address. You can order up to 20 units (devices) per order.
 
 10. On the **Shipping + quantity** tab, add each ship to address to send devices to: 
 
@@ -78,7 +78,7 @@ Because there isn't a 1-to-1 relationship between the order and a device, no dev
 
 11. For each address, enter the **Quantity** of devices to ship on the **Shipping + quantity** tab.
 
-     When you enter a quantity of more than one, a **+1 more** label is added to the end of the order item name. <!--Select **+ 1 more** to view the individual order items for that address. - This can wait until the next step.-->
+     When you enter a quantity of more than one, a **+1 more** label is added to the end of the order item name.<!--Select **+ 1 more** to view the individual order items for that address. - This can wait until the next step.-->
 
      Each order item name includes a name prefix (the order name followed by the address alias), with an item number for each device that is shipped to that address.
 
@@ -118,8 +118,11 @@ Because there isn't a 1-to-1 relationship between the order and a device, no dev
 
     ![Screenshot showing the status of successfully completed order in the Azure Edge Hardware Center](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-16.png)
 
+15. To view details for an order item, XXX.
 
-15. To review all of the orders in the resource group, click **Next step: View orders for the resource group.** *QUESTION: What do we expect customers to do from the resource group?*
+    *Will add screenshot when release portal is available.*
 
-    ![Screenshot showing a summary of orders for the resource group in the Azure Edge Hardware Center](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-18.png)
+    After a device is delivered, a **Configure hardware** option is added to the details. Select that option to create a management resource for the device in Azure Stack Edge.
+
+<!--Artifact of "Next step: Open resource group" instruction, which I think went away. - ![Screenshot showing a summary of orders for the resource group in the Azure Edge Hardware Center](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-18.png)
 
