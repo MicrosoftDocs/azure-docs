@@ -18,3 +18,5 @@ ms.author: larryfr
 > * __Do not delete the resource group__ that contains this Cosmos DB instance, or any of the resources automatically created in this group. If you need to delete the resource group, Cosmos DB instance, etc., you must delete the Azure Machine Learning workspace that uses it. The resource group, Cosmos DB instance, and other automatically created resources are deleted when the associated workspace is deleted.
 > * The  [__Request Units__](../articles/cosmos-db/request-units.md) used by this Cosmos DB account automatically scale as needed. The __minimum__ RU is __1200__. The __maximum__ RU is __12000__.
 > * You __cannot provide your own VNet for use with the Cosmos DB instance__ that is created. You also __cannot modify the virtual network__. For example, you cannot change the IP address range that it uses.
+> 
+> To estimate the additional cost of the Azure Cosmos DB instance, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
