@@ -241,9 +241,9 @@ When the app setting has been created, Cloud Shell shows information similar to 
 
 For more information on environment variables, see [Configure environment variables](configure-custom-container.md#configure-environment-variables).
 
-### Use a custom image for MySQL SSL and other configurations
+### Use a custom image for MySQL TLS/SSL and other configurations
 
-By default, SSL is used by Azure Database for MySQL. WordPress requires additional configuration to use SSL with MySQL. The WordPress 'official image' doesn't provide the additional configuration, but a [custom image](https://github.com/Azure-Samples/multicontainerwordpress) has been prepared for your convenience. In practice, you would add desired changes to your own image.
+By default, TLS/SSL is used by Azure Database for MySQL. WordPress requires additional configuration to use TLS/SSL with MySQL. The WordPress 'official image' doesn't provide the additional configuration, but a [custom image](https://github.com/Azure-Samples/multicontainerwordpress) has been prepared for your convenience. In practice, you would add desired changes to your own image.
 
 The custom image is based on the 'official image' of [WordPress from Docker Hub](https://hub.docker.com/_/wordpress/). The following changes have been made in this custom image for Azure Database for MySQL:
 
