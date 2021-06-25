@@ -1,6 +1,7 @@
 - name: Bicep documentation
   href: index.yml
 - name: Overview
+  expanded: true
   items:
   - name: What is Bicep?
     href: overview.md
@@ -25,6 +26,7 @@
   - name: Author
     items:
     - name: Resources
+      expanded: true
       items:
       - name: Resource declaration
         href: resource-declaration.md
