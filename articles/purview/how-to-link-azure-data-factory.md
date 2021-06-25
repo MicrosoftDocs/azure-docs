@@ -45,8 +45,8 @@ Multiple Azure Data Factories can connect to a single Azure Purview Data Catalog
 
 Follow the steps below to connect an existing Data Factory accounts to your Purview Data Catalog.
 
-1. Select **Management Center** on the left navigation pane.
-2. Under **External connections**, select **Data Factory connection**.
+1. Select **Management** on the left navigation pane.
+2. Under **Lineage connections**, select **Data Factory**.
 3. On the **Data Factory connection** page, select **New**.
 
 4. Select your Data Factory account from the list and select **OK**. You can also filter by subscription name to limit your list.
