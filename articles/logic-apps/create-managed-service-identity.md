@@ -320,35 +320,35 @@ To complete this task, assign the appropriate role to that identity on the Azure
 
 <a name="azure-portal-assign-access"></a>
 
-### Assign access using the Azure portal
+### Assign managed identity role-based access in the Azure portal
 
-On the Azure resource where you want to use the managed identity, you have to set up your identity with a role that can access the target resource. For more information, review [Assign a managed identity access to another resource by using Azure RBAC](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md).
+On the Azure resource where you want to use the managed identity, you have to assign your identity to a role that can access the target resource. For more general information about this task, review [Assign a managed identity access to another resource using Azure RBAC](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md).
 
-1. In the [Azure portal](https://portal.azure.com), open the Azure resource where you want to use the identity.
+1. In the [Azure portal](https://portal.azure.com), open the resource where you want to use the identity.
 
-1. On the resource menu, select **Access control (IAM)** > **Add** > **Add role assignment**.
+1. On the resource's menu, select **Access control (IAM)** > **Add** > **Add role assignment**.
 
    > [!NOTE]
    > If the **Add role assignment** option is disabled, you don't have permissions to assign roles. 
    > For more information, review [Azure AD built-in roles](../active-directory/roles/permissions-reference.md).
 
-1. After the **Add role assignment** page opens, on the **Role** tab, select the role that gives your identity the necessary access to the target resource.
+1. Now, assign the necessary role to your managed identity. On the **Role** tab, assign a role that gives your identity the required access to the current resource.
 
-   For this example, find and select the role that's named **Storage Blob Data Contributor**, which can access blobs in an Azure Storage container. For more information, review [Roles that can access blobs in an Azure Storage container](../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights).
+   For this example, assign the role that's named **Storage Blob Data Contributor**, which includes write access for blobs in an Azure Storage container. For more information about specific storage container roles, review [Roles that can access blobs in an Azure Storage container](../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights).
 
-1. On the **Members** tab, under **Assign access to**, select **Managed identity** > **Add members** so that you can set up your managed identity with the previously selected role.
+1. Next, choose the managed identity where you want to assign the role. Under **Assign access to**, select **Managed identity** > **Add members**.
 
 1. Based on your managed identity's type, select or provide the following values:
 
-   | Managed identity type | Azure service instance | Subscription | Select |
-   |-----------------------|------------------------|--------------|--------|
+   | Type | Azure service instance | Subscription | Member |
+   |------|------------------------|--------------|--------|
    | **System-assigned** | **Logic App** | <*Azure-subscription-name*> | <*your-logic-app-name*> |
    | **User-assigned** | Not applicable | <*Azure-subscription-name*> | <*your-user-assigned-identity-name*> |
    |||||
 
    For more information about assigning roles, review the documentation, [Assign roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
-1. Next, [follow the steps to authenticate access using the identity](#authenticate-access-with-identity) by using a trigger or action that supports managed identities.
+1. After you finish setting up access for the identity, you can then use the identity to [authenticate access for triggers and actions that support managed identities](#authenticate-access-with-identity).
 
 <a name="authenticate-access-with-identity"></a>
 
