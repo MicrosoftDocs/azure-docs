@@ -105,7 +105,7 @@ Managed Identity authentication is required when your storage account is attache
 
 1. Select **Add** > **Add role assignment** to open the Add role assignment page.
 
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
     
     | Setting | Value |
     | --- | --- |
@@ -113,7 +113,7 @@ Managed Identity authentication is required when your storage account is attache
     | Assign access to | SERVICEPRINCIPAL |
     | Members | server or workspace hosting your dedicated SQL pool which you've registered with Azure Active Directory (AAD)  |
 
-    ![Add role assignment page in Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
+    ![Add role assignment page in Azure portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
 
    > [!NOTE]
@@ -142,7 +142,7 @@ Managed Identity authentication is required when your storage account is attache
 
 1. Select **Add** > **Add role assignment** to open the Add role assignment page.
 
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
     
     | Setting | Value |
     | --- | --- |
@@ -150,7 +150,7 @@ Managed Identity authentication is required when your storage account is attache
     | Assign access to | USER |
     | Members | Azure AD user |
 
-    ![Add role assignment page in Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
+    ![Add role assignment page in Azure portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
 1. 
 1. 
 1. 
