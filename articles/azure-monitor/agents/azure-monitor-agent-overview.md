@@ -41,14 +41,58 @@ Azure Monitor agent coexists with the [generally available agents for Azure Moni
 - **Current and new feature requirements.** Azure Monitor agent introduces several new capabilities such as filtering, scoping, and multi-homing, but it isn’t at parity yet with the current agents for other functionality such as custom log collection and integration with all solutions ([see solutions in preview](/azure/azure-monitor/faq#which-log-analytics-solutions-are-supported-on-the-new-azure-monitor-agent)). Most new capabilities in Azure Monitor will only be made available with Azure Monitor agent, so over time more functionality will only be available in the new agent. You should consider whether Azure Monitor agent has the features you require and if there are some features that you can temporarily do without to get other important features in the new agent. If Azure Monitor agent has all the core capabilities you require then consider transitioning to it. If there are critical features that you require then continue with the current agent until Azure Monitor agent reaches parity.
 - **Tolerance for rework.** If you're setting up a new environment with resources such as deployment scripts and onboarding templates, assess the effort involved. If it will take a significant amount of work, then consider setting up your new environment with the new agent as it is now generally available. A deprecation date published for the Log Analytics agents in August, 2021. The current agents will be supported for several years once deprecation begins.
 
-
-
 ## Supported resource types
 Azure virtual machines, virtual machine scale sets, and Azure Arc enabled servers are currently supported. Azure Kubernetes Service and other compute resource types are not currently supported.
 
 
 ## Supported regions
 Azure Monitor agent is available in all public regions that supports Log Analytics. Government regions and clouds are not currently supported.
+## Supported services and features
+
+### Supported Azure services
+The following table shows the current support of Azure Monitor agent for other Azure services.
+
+| Azure service | Current support |
+|:---|:---|
+| [Azure Security Center](../security-center/security-center-introduction.md) | Private preview |
+| [Azure Sentinel]() | Private preview |
+
+### Supported Azure Monitor features
+The following table shows the current support of Azure Monitor agent for Azure Monitor features.
+
+| Azure Monitor feature | Current support |
+|:---|:---|
+| [VM Insights](vm/../../vm/vminsights-overview.md) | Private preview  |
+| [VM Insights guest health](vm/vminsights-health-overview.md) | Public preview |
+### Supported solutions
+Log Analytics solutions can be enabled using the new Azure Monitor Agent either as natively supported or by installing the additional VM extension for the solution.
+
+| Solution | Current support |
+|:---|:---|
+| [Change Tracking](../automation/change-tracking/overview.md) | Supported as File Integrity Monitoring (FIM) in Azure Security Center private preview.  |
+| [Update Management](../automation/update-management/overview.md) | Use Update Management v2 (private preview) that doesn’t require an agent. |
+| [SQL Server](insights/sql-insights-overview.md) | Support by SQL insights which is currently in public preview. |
+
+
+### test
+The following table shows the current support of Azure Monitor agent for Azure Monitor features.
+
+| Azure service | Current support |
+|:---|:---|
+| [Azure Security Center](../security-center/security-center-introduction.md) | Private preview |
+| [Azure Sentinel]() | Private preview |
+
+| Azure Monitor feature | Current support |
+|:---|:---|
+| [VM Insights](vm/../../vm/vminsights-overview.md) | Private preview  |
+| [VM Insights guest health](vm/vminsights-health-overview.md) | Public preview |
+
+| Solution | Current support |
+|:---|:---|
+| [Change Tracking](../automation/change-tracking/overview.md) | Supported as File Integrity Monitoring (FIM) in Azure Security Center private preview.  |
+| [Update Management](../automation/update-management/overview.md) | Use Update Management v2 (private preview) that doesn’t require an agent. |
+| [SQL Server](insights/sql-insights-overview.md) | Support by SQL insights which is currently in public preview. |
+
 
 ## Coexistence with other agents
 The Azure Monitor agent can coexist with the existing agents so that you can continue to use their existing functionality during evaluation or migration. This is particularly important because of the limitations supporting existing solutions. You should be careful though in collecting duplicate data since this could skew query results and result in additional charges for data ingestion and retention. 
