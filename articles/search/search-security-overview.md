@@ -22,15 +22,15 @@ A search service is hosted on Azure and typically accessed over public network c
 
 Cognitive Search has three basic network traffic patterns:
 
-+ Inbound requests made to the search service (the predominant pattern)
++ Inbound requests made by a client to the search service (the predominant pattern)
 + Outbound requests issued by the search service to other services on Azure and elsewhere
 + Internal service-to-service requests over the secure Microsoft backbone network
 
-Inbound requests range from creating objects, loading data, and queries. For inbound access, there is a progression of security measures protecting the search service endpoint: from API keys on the request, to inbound rules in the firewall, to private endpoints that fully shield your service from the public internet.
+Inbound requests range from creating objects, loading data, and querying. For inbound access to data and operations, you can implement a progression of security measures, starting with API keys on the request (required). You can then supplement with either inbound rules in an IP firewall, or create private endpoints that fully shield your service from the public internet.
 
-Outbound requests are mostly made by indexers, and include both read and write operations. Read operations include data ingestion or document cracking when loading content from external sources. Write operations to external services are few: a search service writes to log files, and it will write to Azure Storage when creating knowledge stores, persisting cached enrichments, and persisting debug sessions. Finally, a skillset can also include custom skills that run external code, for example in Azure Functions or in a web app.
+Outbound requests can include both read and write operations. The primary agent of an outbound call is an indexer, but the service itself writes to log files if you enable diagnostic logging through Azure Monitor. For indexers, read operations include document cracking and data ingestion. An indexer can also write to Azure Storage when creating knowledge stores, persisting cached enrichments, and persisting debug sessions. Finally, a skillset can also include custom skills that run external code, for example in Azure Functions or in a web app.
 
-Internal requests include service-to-service calls, such as calls made to Cognitive Services if you are using built-in skills, or to Azure Private Link if you set up a private endpoint.
+Internal requests include service-to-service calls, such as calls made to Cognitive Services that provides the built-in skills, or to Azure Private Link if you set up a private endpoint.
 
 ## Network security
 
