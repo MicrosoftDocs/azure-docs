@@ -15,6 +15,12 @@ Once you've deployed a disk pool, there are two management actions available to 
 - Add or remove a disk to or from a disk pool
 - Disable iSCSI support on a disk
 
+## Prerequisites
+
+If you're going to use the Azure PowerShell module, install [version 6.1.0 or newer](/powershell/module/az.diskpool/?view=azps-6.1.0&preserve-view=true).
+
+If you're going to use the Azure CLI, install [the latest version](/cli/azure/disk-pool?view=azure-cli-latest).
+
 ## Add a disk to a pool
 
 Your disk must meet the following requirements in order to be added to the disk pool:
