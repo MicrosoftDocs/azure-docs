@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 04/15/2021
+ms.date: 06/18/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create and upload Azure VM images that I can use to deploy virtual machines on my Azure Stack Edge Pro GPU device.
 ---
@@ -132,7 +132,9 @@ To finish building your virtual machine, you need to start the virtual machine a
 
 After you're connected to the VM, complete the Machine setup wizard, and then sign into the VM.<!--It's not clear what they are doing here. Where does the Machine setup wizard come in?-->
 
-## Generalize the VHD  
+## Generalize the VHD
+
+Use the *sysprep* utility to generalize the VHD. 
 
 [!INCLUDE [Generalize the VHD](../../includes/azure-stack-edge-generalize-vhd.md)]
 

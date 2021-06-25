@@ -47,9 +47,9 @@
     items:
     - name: Install and run containers
       displayName: docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull
-      href: form-recognizer-container-howto.md
+      href: containers/form-recognizer-container-install-run.md
     - name: Configure containers
-      href: form-recognizer-container-configuration.md
+      href: containers/form-recognizer-container-configuration.md
       displayName: docker, container, run, billing, apikey, logging
     - name: Use container instances
       maintainContext: true
