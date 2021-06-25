@@ -177,15 +177,15 @@ The **RemoteRenderingCoordinator** script has a delegate named **ARRCredentialGe
 1. After configuring the new AAD application, check your AAD application looks like the following images:
 
     **AAD Application -> Authentication**
-    ![App authentication](./../../../how-tos/media/aad-app-setup.png)
+    :::image type="content" source="./../../../how-tos/media/azure-active-directory-app-setup.png" alt-text="App authentication":::
 
     **AAD Application -> API Permissions**
-    ![App APIs](./media/request-api-permissions-step-five.png)
+    :::image type="content" source="./media/azure-active-directory-api-permissions-granted.png" alt-text="App APIs":::    
 
 1. After configuring your Remote Rendering account, check your configuration looks like the following image:
 
     **AAR -> AccessControl (IAM)**
-    ![ARR Role](./../../../how-tos/media/arr-role-assignments.png)
+    :::image type="content" source="./../../../how-tos/media/azure-remote-rendering-role-assignments.png" alt-text="ARR Role":::       
 
     >[!NOTE]
     > An *Owner* role is not sufficient to manage sessions via the client application. For every user you want to grant the ability to manage sessions you must provide the role **Remote Rendering Client**. For every user you want to manage sessions and convert models, you must provide the role **Remote Rendering Administrator**.
@@ -388,7 +388,7 @@ In the Unity Editor, when AAD Auth is active, you will need to authenticate ever
     * **Azure Remote Rendering Account ID** is the same **Account ID** you've been using for **RemoteRenderingCoordinator**.
     * **Azure Remote Rendering Account Domain** is the same **Account Domain** you've been using in the **RemoteRenderingCoordinator**.
 
-    ![Screenshot that highlights the Application (client) ID and Directory (tenant) ID.](./media/app-overview-data.png)
+    :::image type="content" source="./media/azure-active-directory-app-overview.png" alt-text="Screenshot that highlights the Application (client) ID and Directory (tenant) ID.":::
 
 1. Press Play in the Unity Editor and consent to running a session.
     Since the **AAD Authentication** component has a view controller, its automatically hooked up to display a prompt after the session authorization modal panel.
