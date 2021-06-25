@@ -32,8 +32,8 @@ landingContent:
             url: tutorial-php-database-app.md
       - linkListType: whats-new
         links:
-          - text: Check out our blog
-            url: https://techcommunity.microsoft.com/t5/Azure-Database-for-MySQL/bg-p/ADforMySQL
+          - text: What's new in Flexible Server?
+            url: whats-new.md
 
 
 
