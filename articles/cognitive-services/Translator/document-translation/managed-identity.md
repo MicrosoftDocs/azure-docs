@@ -15,22 +15,22 @@ ms.author: lajanuar
 
 > [!IMPORTANT]
 >
-> * Managed identity for Document Translation is currently unavailable in the global region.
+> Managed identity for Document Translation is currently unavailable in the global region.
 
-Azure managed identities are service principals that create an Azure Active Directory (Azure AD) identity and specific permissions for Azure-managed resources. You can use managed identities to grant access to any resource that supports Azure AD authentication. To grant access, assign a role to a managed identity using Azure role-based access control (Azure RBAC). In this article, we will examine how to manage access to your Azure blob storage resources using managed identities.
+## What are managed identities?
 
-### Methods to manage access to your Document Translation files
+ Azure managed identities are service principals that create an Azure Active Directory (Azure AD) identity and specific permissions for Azure-managed resources. You can use managed identities to grant access to any resource that supports Azure AD authentication. To grant access, assign a role to a managed identity using Azure role-based access control (Azure RBAC).  There is no added cost to using managed identities in Azure.
 
-You can grant limited access to documents in your Azure blob storage account in two ways:
-
-1. For all operations using an Azure blob storage account available via the public Internet, you can provide a shared access signature (**SAS**) URL for your Azure blog storage container, with restricted rights for a limited period, and pass it in your POST requests. To retrieve your SAS URL, go to your storage resource in the Azure portal and select the **Storage Explorer** tab. Navigate to your container, right-click, and select **Get shared access signature**. It's important to get the SAS for your container, not for the storage account itself. Make sure the **Read**, **Write**, **Delete** and **List** permissions are checked, and click **Create**. Then copy the value in the **URL** section to a temporary location. It should have the form: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
-
-1. If you have a private Azure blob storage account or seek to avoid managing credentials, you can enable a managed identity for your Translator resource and assign it a **Storage Blob Data Contributor** role for your blob storage account. Azure managed identities are service principals that create an Azure Active Directory (Azure AD) identity and specific permissions for Azure-managed resources. You can use managed identities to grant access to any resource that supports Azure AD authentication. To grant access, you assign a role to a managed identity using Azure role-based access control (Azure RBAC). There is no added cost to using managed identities in Azure.
-
-
+Managed Identities support both private and public Azure blob storage accounts.  For storage accounts with public access, you can opt to use a shared access signature (SAS) to grant limited access.  In this article, we will examine how to manage access to translation documents in your Azure blob storage account using managed identities.
 
 > [!NOTE]
-> [**Azure Active Directory (Azure AD)**](/azure/active-directory/fundamentals/active-directory-whatis) is Microsoft's cloud-based identity and access management service that runs in Azure. It is an active directory of your organization's authorized users and groups. Users authenticate their identity as members of the directory using Single Sign-On (SSO) or multi-factor authentication.  Authenticated users have access to resources based on the Azure AD [**role-based access control (RBAC)**](/azure/role-based-access-control/overview) system.
+>
+> For all operations using an Azure blob storage account available on the public Internet, you can provide a shared access signature (**SAS**) URL for your Azure blog storage container, with restricted rights for a limited period, and pass it in your POST requests:
+>
+> * To retrieve your SAS URL, go to your storage resource in the Azure portal and select the **Storage Explorer** tab. 
+> * Navigate to your container, right-click, and select **Get shared access signature**. It's important to get the SAS for your container, not for the storage account itself. 
+> * Make sure the **Read**, **Write**, **Delete** and **List** permissions are checked, and click **Create**. 
+> *Then copy the value in the **URL** section to a temporary location. It should have the form: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 
 ## Prerequisites
 
@@ -44,15 +44,17 @@ To get started, you'll need:
 
     :::image type="content" source="../media/managed-identities/allow-trusted-services-checkbox-portal-view.png" alt-text="Screenshot: allow trusted services checkbox, portal view":::
 
-* A high-level understanding of [**Azure role-based access control (Azure RBAC)**](/azure/role-based-access-control/role-assignments-portal) using the Azure portal.
+* A brief understanding of [**Azure role-based access control (Azure RBAC)**](/azure/role-based-access-control/role-assignments-portal) using the Azure portal.
 
 ## Managed Identity assignments
 
-There are two types of managed identity assignments:
+There are two types of managed identities:
 
-* A [**System-assigned**](#enable-a-system-assigned-managed-identity-in-the-azure-portal) managed identity is **enabled** directly on a service instance. Here, you'll enable the identity for Translator. It is not enabled by default; you have to go to your resource and update the identity setting. The system-assigned managed identity is tied to your resource throughout its lifecycle. If you delete your resource, the managed identity will be deleted as well.
+* A [**system-assigned**](#enable-a-system-assigned-managed-identity-in-the-azure-portal) managed identity is **enabled** directly on a service instance. It is not enabled by default; you have to go to your resource and update the identity setting. The system-assigned managed identity is tied to your resource throughout its lifecycle. If you delete your resource, the managed identity will be deleted as well.
 
-* A [**User-assigned**](#create-a-user-assigned-managed-identity-in-the-azure-portal) managed identity is **created** as a standalone Azure resource and assigned to one or more Azure service instances. Here you'll assign the identity to your storage account. A user-assigned identity is managed separately from the resources that use it and has an independent lifecycle.
+* A [**user-assigned**](#create-a-user-assigned-managed-identity-in-the-azure-portal) managed identity is **created** as a standalone Azure resource and assigned to one or more Azure service instances. A user-assigned identity is managed separately from the resources that use it and has an independent lifecycle.
+
+In the following steps, we will enable managed identities and grant your Translator resource limited access to your Azure blob storage account.
 
 ## Enable a system-assigned managed identity in the Azure portal
 
