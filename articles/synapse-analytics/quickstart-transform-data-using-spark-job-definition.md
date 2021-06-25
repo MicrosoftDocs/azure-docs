@@ -29,7 +29,7 @@ After your Azure Synapse workspace is created, you have two ways to open Synapse
 * Open your Synapse workspace in the [Azure portal](https://ms.portal.azure.com/#home). Select **Open** on the Open Synapse Studio card under Getting started.
 * Open [Azure Synapse Analytics](https://web.azuresynapse.net/) and sign in to your workspace.
 
-In this quickstart, we use the workspace named "sample test" as an example. It will automatically navigate you to the Synapse Studio home page.
+In this quickstart, we use the workspace named "sampletest" as an example. It will automatically navigate you to the Synapse Studio home page.
 
 ![synapse studio home page](media/quickstart-transform-data-using-spark-job-definition/synapse-studio-home.png)
 
