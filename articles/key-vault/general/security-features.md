@@ -47,7 +47,7 @@ When you create a key vault in an Azure subscription, it's automatically associa
 
 In all types of access, the application authenticates with Azure AD. The application uses any [supported authentication method](../../active-directory/develop/authentication-vs-authorization.md) based on the application type. The application acquires a token for a resource in the plane to grant access. The resource is an endpoint in the management or data plane, based on the Azure environment. The application uses the token and sends a REST API request to Key Vault. To learn more, review the [whole authentication flow](../../active-directory/develop/v2-oauth2-auth-code-flow.md).
 
-For full details, see [Key Vault Authentication Fundamentals](/azure/key-vault/general/authentication.md)
+For full details, see [Key Vault Authentication Fundamentals](/azure/key-vault/general/authentication)
 
 ## Key Vault authentication options
 

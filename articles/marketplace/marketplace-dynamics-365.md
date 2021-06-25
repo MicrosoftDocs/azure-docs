@@ -26,7 +26,7 @@ These are the available licensing options for Dynamics 365 offers:
 | Contact me | Collect customer contact information by connecting your Customer Relationship Management (CRM) system. The customer will be asked for permission to share their information. These customer details, along with the offer name, ID, and marketplace source where they found your offer, will be sent to the CRM system that you've configured. For more information about configuring your CRM, see the **Customer leads** section of your offer type's **Offer setup** page. |
 | Free trial (listing) | Offer your customers a one-, three- or six-month free trial. Offer listing free trials are created, managed, and configured by your service and do not have subscriptions managed by Microsoft. |
 | Get it now (free) | List your offer to customers for free. |
-| Get it now | Enables you to manage your third-party licenses in Partner Center.<br>Currently available to the following offer type only:<ul><li>Dynamics 365 for Customer Engagement & Power Apps</li></ul><br>For more information about this option, see [Third-party app license management through Microsoft](third-party-license.md). |
+| Get it now | Enables you to manage your ISV app0 licenses in Partner Center.<br>Currently available to the following offer type only:<ul><li>Dynamics 365 for Customer Engagement & Power Apps</li></ul><br>For more information about this option, see [ISV app license management](isv-app-license.md). |
 |||
 
 ## Test drive

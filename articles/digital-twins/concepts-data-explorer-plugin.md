@@ -61,7 +61,7 @@ There are various ways to ingest IoT data into ADX. Here are two that you might 
 
 If you're ingesting time series data directly into ADX, you'll likely need to convert this raw time series data into a schema suitable for joint Azure Digital Twins/ADX queries.
 
-An [update policy](/azure/data-explorer/kusto/management/updatepolicy.md) in ADX allows you to automatically transform and append data to a target table whenever new data is inserted into a source table. 
+An [update policy](/azure/data-explorer/kusto/management/updatepolicy) in ADX allows you to automatically transform and append data to a target table whenever new data is inserted into a source table. 
 
 You can use an update policy to enrich your raw time series data with the corresponding **twin ID** from Azure Digital Twins, and persist it to a target table. Using the twin ID, the target table can then be joined against the digital twins selected by the Azure Digital Twins plugin. 
 

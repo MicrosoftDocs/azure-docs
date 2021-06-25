@@ -19,11 +19,11 @@ Security Center analyzes the security state of your resources to identify potent
 
 1. From Security Center's menu, open the **Recommendations** page to see the recommendations applicable to your environment. Recommendations are grouped into security controls.
 
-    :::image type="content" source="./media/security-center-recommendations/view-recommendations.png" alt-text="Recommendations grouped by security control" lightbox="./media/security-center-recommendations/view-recommendations.png":::
+    :::image type="content" source="./media/security-center-recommendations/view-recommendations.png" alt-text="Recommendations grouped by security control." lightbox="./media/security-center-recommendations/view-recommendations.png":::
 
 1. To find recommendations specific to the resource type, severity, environment, or other criteria that are important to you, use the optional filters above the list of recommendations.
 
-    :::image type="content" source="media/security-center-recommendations/recommendation-list-filters.png" alt-text="Filters for refining the list of Azure Security Center recommendations":::
+    :::image type="content" source="media/security-center-recommendations/recommendation-list-filters.png" alt-text="Filters for refining the list of Azure Security Center recommendations.":::
 
 1. Expand a control and select a specific recommendation to view the recommendation details page.
 
@@ -74,7 +74,7 @@ They should still be remediated wherever possible, so that when the preview peri
 
 An example of a preview recommendation:
 
-:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="Recommendation with the preview flag":::
+:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="Recommendation with the preview flag.":::
  
 ## Next steps
 

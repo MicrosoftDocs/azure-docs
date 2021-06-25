@@ -722,7 +722,7 @@ Select some of the actions and experiment with retrieving the data from the diff
 When you're finished with the sample tutorial application, you can delete the Azure resources to conserve cost and resources. All of your resources should be contained in the same resource group. You can delete them together in one operation by deleting the resource group. The instructions in this article used a resource group named *TestResources*.
 
 > [!IMPORTANT]
-> Deleting a resource group is irreversible and that the resource group and all the resources in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. If you created the resources for hosting this sample inside an existing resource group, that contains resources you want to keep, you can delete each resource individually from their respective blades.
+> Deleting a resource group is irreversible and that the resource group and all the resources in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. If you created the resources for hosting this sample inside an existing resource group, that contains resources you want to keep, you can delete each resource individually on the left.
 >
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and select **Resource groups**.
