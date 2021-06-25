@@ -13,11 +13,13 @@ ms.author: esarroyo
 # Best Practices for Azure Cosmos DB .NET SDK
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-This article walks through the best practices for using the Azure Cosmos DB .NET SDK. Following these practices, will help improve your latency, availability, and boost overall performance. Watch the video below to learn more about best practices for the .NET SDK:
+This article walks through the best practices for using the Azure Cosmos DB .NET SDK. Following these practices, will help improve your latency, availability, and boost overall performance. 
+
+Watch the video below to learn more best practices when using the .NET SDK:
 
 > [!VIDEO https://www.youtube.com/embed/McZIQhZpvew?start=118]
 
-
+## Checklist
 |Checked  | Topic  |Details/Links  |
 |---------|---------|---------|
 | <input type="checkbox" unchecked /> |    SDK Version    |   Always using the [latest version](sql-api-sdk-dotnet-standard.md) of the Cosmos DB SDK available for optimal performance.     |
