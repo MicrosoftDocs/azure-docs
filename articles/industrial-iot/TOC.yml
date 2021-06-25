@@ -26,7 +26,7 @@
     - name: Pull IIoT data into ADX
       href: tutorial-industrial-iot-azure-data-explorer.md
     - name: Using Industrial IoT to pull data into Azure Data Explorer
-      href: tutorial-dataexplorer-import.md
+      href: tutorial-data-explorer-import.md
     - name: Visualize and analyze the data using Time Series Insights
       href: tutorial-visualize-data-time-series-insights.md
 - name: Reference
