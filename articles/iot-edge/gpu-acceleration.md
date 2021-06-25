@@ -57,7 +57,7 @@ Once you register, follow the instructions on the **2. Flight** tab to get acces
 For **T4 GPUs**, Microsoft recommends installing a device mitigation driver from your GPU's vendor. While optional, installing a mitigation driver may improve the security of your deployment. For more information, see [Deploy graphics devices using direct device assignment](/windows-server/virtualization/hyper-v/deploy/deploying-graphics-devices-using-dda#optional---install-the-partitioning-driver).
 
 > [!WARNING]
-> Enabling hardware device passthrough may increase security risks. Microsoft recommends installing a device mitigation driver from your GPU's vendor.
+> Enabling hardware device passthrough may increase security risks. We recommend that you install a device mitigation driver from your GPU's vendor.
 
 ### GeForce/Quadro GPUs
 
@@ -71,6 +71,6 @@ Now you are ready to deploy and run GPU-accelerated Linux modules in your Window
 
 * [Create your deployment of Azure IoT Edge for Linux on Windows](how-to-install-iot-edge-on-windows.md)
 
-* Try our [GPU-enabled sample featuring Vision on Edge](https://aka.ms/AzEFLOW-VoE), a solution template illustrating how to build your own vision-based machine learning application.
+* Try our [GPU-enabled sample featuring Vision on Edge](https://github.com/Azure-Samples/azure-intelligent-edge-patterns/blob/master/factory-ai-vision/Tutorial/Eflow.md), a solution template illustrating how to build your own vision-based machine learning application.
 
 * Learn more about GPU passthrough technologies by visiting the [DDA documentation](/windows-server/virtualization/hyper-v/plan/plan-for-gpu-acceleration-in-windows-server#discrete-device-assignment-dda) and [GPU-PV blog post](https://devblogs.microsoft.com/directx/directx-heart-linux/#gpu-virtualization).
