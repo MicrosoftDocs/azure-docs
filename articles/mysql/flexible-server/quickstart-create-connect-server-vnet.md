@@ -37,13 +37,11 @@ Complete these steps to create a flexible server:
 
     > :::image type="content" source="./media/quickstart-create-connect-server-vnet/deployment-option.png" alt-text="Screenshot that shows the Flexible server option.":::
 
-4. On the **Basics** tab, enter the **subscription**, **resource group** , **region**, **administrator username** and **adminsitrator password**. 
+4. On the **Basics** tab, enter the **subscription**, **resource group** , **region**, **administrator username** and **adminsitrator password**.  With the default values, this will provision a MySQL server of version 5.7 with Burstable Sku using 1 vCore, 2GiB Memory and 32GiB storage. The backup retention is 7 days. You can change the configuration.
 
     > :::image type="content" source="./media/quickstart-create-connect-server-vnet/mysql-flexible-server-create-portal.png" alt-text="Screenshot that shows the Basics tab of the Flexible server page.":::
 
-With the default values, this will provision a MySQL server of version 5.7 with Burstable Sku using 1 vCore, 2GiB Memory and 32GiB storage. The backup retention is 7 days. You can change the configuration.
-
-   >![TIP]
+   > ![TIP]
    > For faster data loads during migration, it is recommended to increase the IOPS to the maximum size supported by compute size and later scale it back to save cost.
 
 5.  Go to the **Networking** tab, select **private access**.You can't change the connectivity method after you create the server. Select **Create virtual network** to create new  virtual network **vnetenvironment1**.
@@ -105,8 +103,6 @@ Since the server is in virtual network, you can only connect to the server from 
 
 11. Select **Review + Create**.
 12. Select **Create**. When the **Generate new key pair** window opens, select **Download private key and create resource**. Your key file will be download as **myKey.pem**.
-
- > :::image type="content" source="./media/quickstart-create-connect-server-vnet/vm-download-private-key.png" alt-text="Screenshot of the dialog to download the private key and create":::
 
 >[!IMPORTANT]
 > Make sure you know where the `.pem` file was downloaded, you will need the path to it in the next step.
