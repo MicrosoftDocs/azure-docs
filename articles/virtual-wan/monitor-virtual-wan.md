@@ -97,7 +97,7 @@ The following steps help you locate and view diagnostics:
 
    :::image type="content" source="./media/monitor-virtual-wan/3.png" alt-text="Screenshot that shows the 'Overview' section with an arrow pointing to the 'Copy' button.":::
 
-2. In the Monitoring section, navigate to the resource group. Select **Diagnostic settings**, then input the resource information. This is the resource information that you copied in Step 2 from the [View gateway metrics](#metrics-steps) section, earlier in this article.
+2. Navigate to **Monitor** from the search bar and in the Settings section, select **Diagnostic settings**, then input the resource group, resource type and resource information. This is the resource group information that you copied in Step 2 from the [View gateway metrics](#metrics-steps) section, earlier in this article.
 
    :::image type="content" source="./media/monitor-virtual-wan/4.png" alt-text="Screenshot that shows the 'Monitoring' section with an arrow pointing to the 'Resource' drop-down.":::
 
