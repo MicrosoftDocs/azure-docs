@@ -183,23 +183,30 @@ Start by creating a new Azure resource group and use this as a logical container
 
 ### [Az](#tab/az)
 
-```powershell
-New-AzResourceGroup -Name <Resource group name> -Location DBELocal
-```
+1. Set some parameters.
 
-Here's some example output:
+    ```powershell
+    $ResourceGroupName = "<Resource group name>" 
+    ```
+1. Create a resource group for the resources that you'll create for the VM.
+   
+    ```powershell
+    New-AzResourceGroup -Name $ResourceGroupName -Location DBELocal
+    ```
 
-```output
-PS C:\WINDOWS\system32> New-AzResourceGroup -Name myaseazrg -Location DBELocal
-
-ResourceGroupName : myaseazrg
-Location          : dbelocal
-ProvisioningState : Succeeded
-Tags              :
-ResourceId        : /subscriptions/d64617ad-6266-4b19-45af-81112d213322/resourceGroups/myaseazrg
-
-PS C:\WINDOWS\system32>
-```
+    Here's some example output:
+    
+    ```output
+    PS C:\WINDOWS\system32> New-AzResourceGroup -Name myaseazrg -Location DBELocal
+    
+    ResourceGroupName : myaseazrg
+    Location          : dbelocal
+    ProvisioningState : Succeeded
+    Tags              :
+    ResourceId        : /subscriptions/d64617ad-6266-4b19-45af-81112d213322/resourceGroups/myaseazrg
+    
+    PS C:\WINDOWS\system32>
+    ```
 
 ### [AzureRM](#tab/azure-rm)
 
