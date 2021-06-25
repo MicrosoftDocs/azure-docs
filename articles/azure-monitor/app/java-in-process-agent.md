@@ -48,7 +48,9 @@ Download [applicationinsights-agent-3.1.1.jar](https://github.com/microsoft/Appl
 
 **2. Point the JVM to the agent**
 
-Add `-javaagent:path/to/applicationinsights-agent-3.1.1.jar` to your application's JVM args. For help with configuring your application's JVM args, see [Tips for updating your JVM args](./java-standalone-arguments.md).
+Add `-javaagent:path/to/applicationinsights-agent-3.1.1.jar` to your application's JVM args. 
+
+For help with configuring your application's JVM args, see [Tips for updating your JVM args](./java-standalone-arguments.md).
 
 **3. Point the agent to your Application Insights resource**
 
