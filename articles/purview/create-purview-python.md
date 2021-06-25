@@ -116,7 +116,7 @@ EventHub namespace. For more information refer to [Create Catalog Portal](create
         time.sleep(30)      
       ```
 
-2.  Now, add the following statement to invoke the **main** method when the program is run:
+2. Now, add the following statement to invoke the **main** method when the program is run:
 
    ```python
    # Start the main method
