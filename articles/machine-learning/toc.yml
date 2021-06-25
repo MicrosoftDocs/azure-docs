@@ -278,6 +278,9 @@
               - name: Upgrade host OS
                 displayName: upgrade compute cluster, upgrade compute instance, upgrade ubuntu
                 href: how-to-compute-cluster-instance-os-upgrade.md
+              - name: Azure Arc enabled machine learning
+                displayName: Azure Arc, Kubernetes, on-premise, multi-cloud
+                href: how-to-attach-arc-kubernetes.md
               - name: Azure Kubernetes Service
                 displayName: AKS, inference
                 href: how-to-create-attach-kubernetes.md
@@ -288,28 +291,6 @@
                 displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight, low priority, managed identity
                 href: how-to-create-attach-compute-studio.md
     - name: Set up an environment
-        - name: Compute instance
-          displayName: compute target
-          href: how-to-create-manage-compute-instance.md
-        - name: Compute cluster
-          displayName: compute target, low priority, managed identity
-          href: how-to-create-attach-compute-cluster.md
-        - name: Upgrade host OS
-          displayName: upgrade compute cluster, upgrade compute instance, upgrade ubuntu
-          href: how-to-compute-cluster-instance-os-upgrade.md
-        - name: Azure Arc enabled machine learning
-          displayName: Azure Arc, Kubernetes, on-premise, multi-cloud
-          href: how-to-attach-arc-kubernetes.md
-        - name: Azure Kubernetes Service
-          displayName: AKS, inference
-          href: how-to-create-attach-kubernetes.md
-        - name: Attach your own
-          displayName: compute target, dsvm, Data Science Virtual Machine, local, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight
-          href: how-to-attach-compute-targets.md
-        - name: Use studio
-          displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight, low priority, managed identity
-          href: how-to-create-attach-compute-studio.md
-    - name: Set up your environment
       items: 
         - name: Install and set up the 2.0 CLI
           displayName: azurecli, mlops
@@ -478,35 +459,35 @@
               href: how-to-machine-learning-interpretability-automl.md
         - name: Assess and mitigate model fairness
           href: how-to-machine-learning-fairness-aml.md              
-    - name: Automated machine learning
-      displayName: automl, auto ml
-      items: 
-        - name: Use automated ML (Python)
-          displayName: SDK automl
-          href: how-to-configure-auto-train.md
-        - name: Use automated ML (interface)
-          href: how-to-use-automated-ml-for-ml-models.md
-        - name: Use automated ML with Databricks
-          displayName: automl
-          href: how-to-configure-databricks-automl-environment.md
-        - name: Auto-train a forecast model
-          displayName: time series
-          href: how-to-auto-train-forecast.md
-        - name: Data splits & cross-validation (Python)
-          displayName: automl, feature engineering, feature importance
-          href: how-to-configure-cross-validation-data-splits.md
-        - name: Featurization in automated ML (Python)
-          displayName: automl, feature engineering, feature importance, BERT
-          href: how-to-configure-auto-features.md
-        - name: Use automated ML in ML pipelines (Python)
-          displayName: machine learning automl
-          href: how-to-use-automlstep-in-pipelines.md
-        - name: Understand charts and metrics
-          href: how-to-understand-automated-ml.md
-        - name: Use ONNX model in .NET application
-          href: how-to-use-automl-onnx-model-dotnet.md
-        - name: Troubleshoot automated ML
-          href: how-to-troubleshoot-auto-ml.md
+        - name: Automated machine learning
+          displayName: automl, auto ml
+          items: 
+          - name: Use automated ML (Python)
+            displayName: SDK automl
+            href: how-to-configure-auto-train.md
+          - name: Use automated ML (interface)
+            href: how-to-use-automated-ml-for-ml-models.md
+          - name: Use automated ML with Databricks
+            displayName: automl
+            href: how-to-configure-databricks-automl-environment.md
+          - name: Auto-train a forecast model
+            displayName: time series
+            href: how-to-auto-train-forecast.md
+          - name: Data splits & cross-validation (Python)
+            displayName: automl, feature engineering, feature importance
+            href: how-to-configure-cross-validation-data-splits.md
+          - name: Featurization in automated ML (Python)
+            displayName: automl, feature engineering, feature importance, BERT
+            href: how-to-configure-auto-features.md
+          - name: Use automated ML in ML pipelines (Python)
+            displayName: machine learning automl
+            href: how-to-use-automlstep-in-pipelines.md
+          - name: Understand charts and metrics
+            href: how-to-understand-automated-ml.md
+          - name: Use ONNX model in .NET application
+            href: how-to-use-automl-onnx-model-dotnet.md
+          - name: Troubleshoot automated ML
+            href: how-to-troubleshoot-auto-ml.md
     - name: Deploy models
       items:
       - name: Where and how to deploy
@@ -615,48 +596,6 @@
       - name: Package models
         displayName: docker file download
         href: how-to-deploy-package-models.md
-    - name: Build & use ML pipelines
-      displayName: pipelines
-      items: 
-        - name: Create ML pipelines (Python)
-          href: how-to-create-machine-learning-pipelines.md
-        - name: Moving data into and between ML pipeline steps (Python)
-          href: how-to-move-data-in-out-of-pipelines.md
-        - name: Deploy ML pipelines (Python)
-          href: how-to-deploy-pipelines.md
-        - name: Use Azure Synapse Apache spark pools in an ML pipeline (Python)
-          href: how-to-use-synapsesparkstep.md
-        - name: Trigger a pipeline
-          href: how-to-trigger-published-pipeline.md
-        - name: Designer (drag-n-drop)
-          items: 
-            - name: Log metrics
-              displayName: designer, logging
-              href: how-to-track-designer-experiments.md
-            - name: Transform data
-              displayName: pipeline
-              href: how-to-designer-transform-data.md
-            - name: Use pipeline parameters
-              displayName: designer, pipeline parameters
-              href: how-to-use-pipeline-parameter.md
-            - name: Retrain using published pipelines
-              displayName: retrain, designer, published pipeline
-              href: how-to-retrain-designer.md
-            - name: Batch predictions
-              displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
-              href: how-to-run-batch-predictions-designer.md
-            - name: Execute Python code
-              displayName: feature extraction, feature engineering
-              href: how-to-designer-python.md
-    - name: Manage resource quotas
-      displayName: limits
-      href: how-to-manage-quotas.md
-    - name: Manage and optimize cost
-      displayName: cost-management,cost-optimization
-      href: how-to-manage-optimize-cost.md      
-    - name: Manage resources VS Code
-      displayName: vscode,resources
-      href: how-to-manage-resources-vscode.md  
     - name: Manage the ML lifecycle
       items: 
         - name: Automation
@@ -669,6 +608,48 @@
             - name: Create event-driven workflows
               displayName: event grid
               href: how-to-use-event-grid.md
+        - name: Build & use ML pipelines
+          displayName: pipelines
+          items: 
+          - name: Create ML pipelines (Python)
+            href: how-to-create-machine-learning-pipelines.md
+          - name: Moving data into and between ML pipeline steps (Python)
+            href: how-to-move-data-in-out-of-pipelines.md
+          - name: Deploy ML pipelines (Python)
+            href: how-to-deploy-pipelines.md
+          - name: Use Azure Synapse Apache spark pools in an ML pipeline (Python)
+            href: how-to-use-synapsesparkstep.md
+          - name: Trigger a pipeline
+            href: how-to-trigger-published-pipeline.md
+          - name: Designer (drag-n-drop)
+            items: 
+              - name: Log metrics
+                displayName: designer, logging
+                href: how-to-track-designer-experiments.md
+              - name: Transform data
+                displayName: pipeline
+                href: how-to-designer-transform-data.md
+              - name: Use pipeline parameters
+                displayName: designer, pipeline parameters
+                href: how-to-use-pipeline-parameter.md
+              - name: Retrain using published pipelines
+                displayName: retrain, designer, published pipeline
+                href: how-to-retrain-designer.md
+              - name: Batch predictions
+                displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
+                href: how-to-run-batch-predictions-designer.md
+              - name: Execute Python code
+                displayName: feature extraction, feature engineering
+                href: how-to-designer-python.md
+        - name: Manage resource quotas
+          displayName: limits
+          href: how-to-manage-quotas.md
+        - name: Manage and optimize cost
+          displayName: cost-management,cost-optimization
+          href: how-to-manage-optimize-cost.md      
+        - name: Manage resources VS Code
+          displayName: vscode,resources
+          href: how-to-manage-resources-vscode.md  
 - name: Troubleshoot & debug
   items:   
     - name: VS Code interactive debugging

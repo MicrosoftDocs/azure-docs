@@ -92,12 +92,6 @@ conceptualContent:
         - url: how-to-use-batch-endpoint.md
           itemType: how-to-guide
           text: Batch scoring with managed endpoints
-
-# conceptualContent section (optional)
-conceptualContent:
-# Supports up to 3 sections
-# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
-  items:
     # Card
     - title: Manage the ML lifecycle
       links:
