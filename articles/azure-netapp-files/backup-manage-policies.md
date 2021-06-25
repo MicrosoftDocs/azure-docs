@@ -18,7 +18,7 @@ ms.author: b-juche
 ---
 # Manage backup policies for Azure NetApp Files 
 
-A snapshot policy configuration is required for using the Azure NetApp Files [policy-based backups](backup-configure-policy-based.md) to automatically back up a volume.  After you have set up Azure NetApp Files backups using a backup policy, you can modify or suspend a backup policy as needed.  
+A snapshot policy configuration is required for Azure NetApp Files [policy-based backups](backup-configure-policy-based.md) to automatically back up a volume. After you have set up Azure NetApp Files backups using a backup policy, you can modify or suspend a backup policy as needed.  
 
 Manual backups are not affected by changes in the backup policy.
 

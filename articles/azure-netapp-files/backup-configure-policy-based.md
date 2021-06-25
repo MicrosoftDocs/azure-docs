@@ -76,7 +76,8 @@ You need to create a snapshot policy and associate the snapshot policy to the vo
 
 ## Configure a backup policy
 
-A backup policy enables a volume to be protected on a regularly scheduled interval. 
+A backup policy enables a volume to be protected on a regularly scheduled interval.  
+
 You need to create a backup policy and associate the backup policy to the volume that you want to back up. A single backup policy can be attached to multiple volumes. Backups can be temporarily suspended either by disabling the policy or by disabling backups at the volume level. Backups can also be completely disabled at the volume level, resulting in the clean-up of all the associated data in the Azure Blob storage. A backup policy cannot be deleted if it is attached to any volumes.
 
 To enable a policy-based (scheduled) backup: 
@@ -89,13 +90,14 @@ To enable a policy-based (scheduled) backup:
 
 4. Select **Backup Policies**.
 5. Select **Add**. 
-6. In the **Backup Policy** page, specify the backup policy name.  Enter the number of backups that you want to keep for daily, weekly and monthly backups. Click **Save**.
+6. In the **Backup Policy** page, specify the backup policy name.  Enter the number of backups that you want to keep for daily, weekly, and monthly backups. Click **Save**.
 
     ![Screenshot that shows the Backup Policy window.](../media/azure-netapp-files/backup-policy-window-daily.png)
 
     * If you configure and attach a backup policy to the volume without attaching a snapshot policy, the backup does not function properly. There will be only a baseline snapshot transferred to the Azure Blob storage. 
     * For each backup policy that you configure (for example, daily backups), ensure that you have a corresponding snapshot policy configuration (for example, daily snapshots).
-    * Backup policy has a dependency on snapshot policy. If you haven’t created snapshot policy yet, you can configure both policies at the same time by selecting the **Create snapshot policy** checkbox on the Backup Policy window.  
+    * Backup policy has a dependency on snapshot policy. If you haven’t created snapshot policy yet, you can configure both policies at the same time by selecting the **Create snapshot policy** checkbox on the Backup Policy window.   
+
         ![Screenshot that shows the Backup Policy window with Snapshot Policy selected.](../media/azure-netapp-files/backup-policy-snapshot-policy-option.png)
  
 ### Example of a valid configuration
