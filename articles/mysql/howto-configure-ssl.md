@@ -5,8 +5,8 @@ author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
-ms.date: 07/08/2020
 ms.custom: "devx-track-python, devx-track-csharp"
+ms.date: 07/08/2020
 ---
 # Configure SSL connectivity in your application to securely connect to Azure Database for MySQL
 
@@ -174,7 +174,6 @@ db, _ := sql.Open("mysql", connectionString)
 ```java
 # generate truststore and keystore in code
 
-[!INCLUDE[applies-to-single-server](includes/applies-to-single-server.md)]
 String importCert = " -import "+
     " -alias mysqlServerCACert "+
     " -file " + ssl_ca +
@@ -190,7 +189,6 @@ sun.security.tools.keytool.Main.main(genKey.trim().split("\\s+"));
 
 # use the generated keystore and truststore
 
-[!INCLUDE[applies-to-single-server](includes/applies-to-single-server.md)]
 System.setProperty("javax.net.ssl.keyStore","path_to_keystore_file");
 System.setProperty("javax.net.ssl.keyStorePassword","password");
 System.setProperty("javax.net.ssl.trustStore","path_to_truststore_file");
@@ -207,7 +205,6 @@ conn = DriverManager.getConnection(url, properties);
 ```java
 # generate truststore and keystore in code
 
-[!INCLUDE[applies-to-single-server](includes/applies-to-single-server.md)]
 String importCert = " -import "+
     " -alias mysqlServerCACert "+
     " -file " + ssl_ca +
@@ -223,7 +220,7 @@ sun.security.tools.keytool.Main.main(genKey.trim().split("\\s+"));
 
 # use the generated keystore and truststore
 
-[!INCLUDE[applies-to-single-server](includes/applies-to-single-server.md)]
+
 System.setProperty("javax.net.ssl.keyStore","path_to_keystore_file");
 System.setProperty("javax.net.ssl.keyStorePassword","password");
 System.setProperty("javax.net.ssl.trustStore","path_to_truststore_file");

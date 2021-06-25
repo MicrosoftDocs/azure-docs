@@ -46,12 +46,11 @@ To configure the identity in the following steps, use the [az identity show](/cl
 ```azurecli
 # Get resource ID of the user-assigned identity
 
-[!INCLUDE[applies-to-single-server](includes/applies-to-single-server.md)]
 resourceID=$(az identity show --resource-group myResourceGroup --name myManagedIdentity --query id --output tsv)
 
 # Get client ID of the user-assigned identity
 
-[!INCLUDE[applies-to-single-server](includes/applies-to-single-server.md)]
+
 clientID=$(az identity show --resource-group myResourceGroup --name myManagedIdentity --query clientId --output tsv)
 ```
 
@@ -84,9 +83,9 @@ Your application can now retrieve an access token from the Azure Instance Metada
 
 This token retrieval is done by making an HTTP request to `http://169.254.169.254/metadata/identity/oauth2/token` and passing the following parameters:
 
-* `api-version` = `2018-02-01`
-* `resource` = `https://ossrdbms-aad.database.windows.net`
-* `client_id` = `CLIENT_ID` (that you retrieved earlier)
+- `api-version` = `2018-02-01`
+- `resource` = `https://ossrdbms-aad.database.windows.net`
+- `client_id` = `CLIENT_ID` (that you retrieved earlier)
 
 You'll get back a JSON result that contains an `access_token` field - this long text value is the Managed Identity access token, that you should use as the password when connecting to the database.
 
@@ -95,12 +94,12 @@ For testing purposes, you can run the following commands in your shell. Note you
 ```bash
 # Retrieve the access token
 
-[!INCLUDE[applies-to-single-server](includes/applies-to-single-server.md)]
+
 accessToken=$(curl -s 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fossrdbms-aad.database.windows.net&client_id=CLIENT_ID' -H Metadata:true | jq -r .access_token)
 
 # Connect to the database
 
-[!INCLUDE[applies-to-single-server](includes/applies-to-single-server.md)]
+
 mysql -h SERVER --user USER@SERVER --enable-cleartext-plugin --password=$accessToken
 ```
 
@@ -212,4 +211,4 @@ MySQL version: 5.7.27
 
 ## Next steps
 
-* Review the overall concepts for [Azure Active Directory authentication with Azure Database for MySQL](concepts-azure-ad-authentication.md)
+- Review the overall concepts for [Azure Active Directory authentication with Azure Database for MySQL](concepts-azure-ad-authentication.md)

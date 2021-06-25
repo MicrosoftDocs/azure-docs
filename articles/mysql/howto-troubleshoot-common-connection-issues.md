@@ -11,8 +11,7 @@ ms.date: 3/18/2020
 
 # Troubleshoot connection issues to Azure Database for MySQL
 
-[!INCLUDE[applies-to-single-server](includes/applies-to-single-server.md)]
-[!INCLUDE[applies-to-single-server](includes/applies-to-single-server.md)]
+[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
 
 Connection problems may be caused by a variety of things, including:
 

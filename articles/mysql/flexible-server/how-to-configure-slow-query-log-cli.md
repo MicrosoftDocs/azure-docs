@@ -21,14 +21,14 @@ The article shows you how to configure [slow query logs](concepts-slow-query-log
 
 - If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 - Install or upgrade Azure CLI to the latest version. See [Install Azure CLI](/cli/azure/install-azure-cli).
--  Login to Azure account using [az login](/cli/azure/reference-index#az_login) command. Note the **id** property, which refers to **Subscription ID** for your Azure account.
+- Login to Azure account using [az login](/cli/azure/reference-index#az_login) command. Note the **id** property, which refers to **Subscription ID** for your Azure account.
 
     ```azurecli-interactive
     az login
     ````
 
 - If you have multiple subscriptions, choose the appropriate subscription in which you want to create the server using the ```az account set``` command.
-`
+
     ```azurecli
     az account set --subscription <subscription id>
     ```
@@ -41,15 +41,13 @@ The article shows you how to configure [slow query logs](concepts-slow-query-log
 
 ## Configure slow query logs
 
->[!IMPORTANT]
+> [!IMPORTANT]
 > It is recommended to only log the event types and users required for your auditing purposes to ensure your server's performance is not heavily impacted.
 
 Enable and configure slow query logs for your server.
 
 ```azurecli
 # Turn on statement level log
-
-[[!INCLUDE[applies-to-flexible-server](../includes/applies-to-flexible-server.md)]
 
 az mysql flexible-server parameter set \
 --name log_statement \
@@ -60,11 +58,7 @@ az mysql flexible-server parameter set \
 
 # Set log_min_duration_statement time to 10 sec
 
-[[!INCLUDE[applies-to-flexible-server](../includes/applies-to-flexible-server.md)]
-
 # This setting will log all queries executing for more than 10 sec. Please adjust this threshold based on your definition for slow queries
-
-[[!INCLUDE[applies-to-flexible-server](../includes/applies-to-flexible-server.md)]
 
 az mysql server configuration set \
 --name log_min_duration_statement \
@@ -74,15 +68,15 @@ az mysql server configuration set \
 
 # Enable Slow query logs
 
-[[!INCLUDE[applies-to-flexible-server](../includes/applies-to-flexible-server.md)]
+
 
 az mysql flexible-server parameter set \
 --name slow_query_log \
 --resource-group myresourcegroup \
 --server-name mydemoserver \
 --value ON
-
 ```
 
 ## Next steps
+
 - Learn about [slow query logs](concepts-slow-query-logs.md)

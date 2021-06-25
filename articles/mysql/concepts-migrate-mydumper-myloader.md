@@ -13,7 +13,8 @@ ms.date: 06/18/2021
 [!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
 
 Azure Database for MySQL is a managed service that you use to run, manage, and scale highly available MySQL databases in the cloud. To migrate MySQL databases larger than 1 TB to Azure Database for MySQL, consider using community tools such as [mydumper/myloader](https://centminmod.com/mydumper.html), which provide the following benefits:
-* Parallelism, to help reduce the migration time. 
+
+* Parallelism, to help reduce the migration time.
 * Better performance, by avoiding expensive character set conversion routines.
 * An output format, with separate files for tables, metadata etc., that makes it easy to view/parse data. Consistency, by maintaining snapshot across all threads.
 * Accurate primary and replica log positions.
@@ -27,15 +28,19 @@ This quickstart shows you how to install, back up, and restore a MySQL database 
 Before you begin migrating your MySQL database, you need to:
 
 1. Create an Azure Database for MySQL server by using the [Azure portal](./flexible-server/quickstart-create-server-portal.md).
+
 2. Create an Azure VM running Linux by using the [Azure portal](../virtual-machines/linux/quick-create-portal.md) (preferably Ubuntu).
-    >[!Note]
-    >Prior to installing the tools, consider the following points:<br>
-    >* If your source is on-premises and has a high bandwidth connection to Azure (using ExpressRoute), consider installing the tool on an Azure VM.<br> 
-    >* If you have a challenge in the bandwidth between the source and target, consider installing mydumper near the source and myloader near the target server. You can use tools **[Azcopy](../storage/common/storage-use-azcopy-v10.md)** to move the data from on-premises or other cloud solutions to Azure.
+    > [!Note]
+    > Prior to installing the tools, consider the following points:
+    >
+    > * If your source is on-premises and has a high bandwidth connection to Azure (using ExpressRoute), consider installing the tool on an Azure VM.<br> 
+    > * If you have a challenge in the bandwidth between the source and target, consider installing mydumper near the source and myloader near the target server. You can use tools **[Azcopy](../storage/common/storage-use-azcopy-v10.md)** to move the data from on-premises or other cloud solutions to Azure.
 
 3. Install mysql client, do the following steps:
+
 4. 
-     * Update the package index on the Azure VM running Linux by running the following command:
+
+    * Update the package index on the Azure VM running Linux by running the following command:
         ```bash
         $ sudo apt update
         ```
@@ -49,12 +54,16 @@ Before you begin migrating your MySQL database, you need to:
 To install mydumper/myloader, do the following steps.
 
 1. Depending on your OS distribution, download the appropriate package for mydumper/myloader, running the following command:
+2. 
     ```bash
     $ wget https://github.com/maxbube/mydumper/releases/download/v0.10.1/mydumper_0.10.1-2.$(lsb_release -cs)_amd64.deb
     ```
-    > [!Note] 
+
+    > [!Note]
     > $(lsb_release -cs) helps to identify your distribution.
-2. To install the .deb package for mydumper, run the following command:
+
+3. To install the .deb package for mydumper, run the following command:
+
     ```bash
     $ dpkg -i mydumper_0.10.1-2.$(lsb_release -cs)_amd64.deb
     ```

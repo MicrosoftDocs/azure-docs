@@ -5,8 +5,8 @@ author: mksuni
 ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
-ms.date: 01/09/2020 
 ms.custom: devx-track-azurecli
+ms.date: 01/09/2020
 ---
 
 # Create and manage Private Link for Azure Database for MySQL using CLI
@@ -31,6 +31,7 @@ az group create --name myResourceGroup --location westeurope
 ```
 
 ## Create a Virtual Network
+
 Create a Virtual Network with [az network vnet create](/cli/azure/network/vnet). This example creates a default Virtual Network named *myVirtualNetwork* with one subnet named *mySubnet*:
 
 ```azurecli-interactive
@@ -40,7 +41,8 @@ az network vnet create \
  --subnet-name mySubnet
 ```
 
-## Disable subnet private endpoint policies 
+## Disable subnet private endpoint policies
+
 Azure deploys resources to a subnet within a virtual network, so you need to create or update the subnet to disable private endpoint [network policies](../private-link/disable-private-endpoint-network-policy.md). Update a subnet configuration named *mySubnet* with [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update):
 
 ```azurecli-interactive
@@ -50,23 +52,28 @@ az network vnet subnet update \
  --vnet-name myVirtualNetwork \
  --disable-private-endpoint-network-policies true
 ```
-## Create the VM 
-Create a VM with az vm create. When prompted, provide a password to be used as the sign-in credentials for the VM. This example creates a VM named *myVm*: 
+
+## Create the VM
+
+Create a VM with az vm create. When prompted, provide a password to be used as the sign-in credentials for the VM. This example creates a VM named *myVm*:
+
 ```azurecli-interactive
 az vm create \
   --resource-group myResourceGroup \
   --name myVm \
   --image Win2019Datacenter
 ```
-Note the public IP address of the VM. You will use this address to connect to the VM from the internet in the next step.
 
-## Create an Azure Database for MySQL server 
-Create a Azure Database for MySQL with the az mysql server create command. Remember that the name of your MySQL Server must be unique across Azure, so replace the placeholder value in brackets with your own unique value: 
+> [!Note]
+> The public IP address of the VM. You use this address to connect to the VM from the internet in the next step.
+
+## Create an Azure Database for MySQL server
+
+Create a Azure Database for MySQL with the az mysql server create command. Remember that the name of your MySQL Server must be unique across Azure, so replace the placeholder value in brackets with your own unique value:
 
 ```azurecli-interactive
 # Create a server in the resource group 
 
-[!INCLUDE[applies-to-single-server](includes/applies-to-single-server.md)]
 az mysql server create \
 --name mydemoserver \
 --resource-group myResourcegroup \
@@ -78,9 +85,11 @@ az mysql server create \
 
 > [!NOTE]
 > In some cases the Azure Database for MySQL and the VNet-subnet are in different subscriptions. In these cases you must ensure the following configurations:
+>
 > - Make sure that both the subscription has the **Microsoft.DBforMySQL** resource provider registered. For more information refer [resource-manager-registration][resource-manager-portal]
 
-## Create the Private Endpoint 
+## Create the Private Endpoint
+
 Create a private endpoint for the MySQL server in your Virtual Network: 
 
 ```azurecli-interactive
@@ -94,8 +103,10 @@ az network private-endpoint create \
     --connection-name myConnection  
  ```
 
-## Configure the Private DNS Zone 
-Create a Private DNS Zone for MySQL server domain and create an association link with the Virtual Network. 
+## Configure the Private DNS Zone
+
+Create a Private DNS Zone for MySQL server domain and create an association link with the Virtual Network.
+
 ```azurecli-interactive
 az network private-dns zone create --resource-group myResourceGroup \ 
    --name  "privatelink.mysql.database.azure.com" 
@@ -105,22 +116,18 @@ az network private-dns link vnet create --resource-group myResourceGroup \
    --virtual-network myVirtualNetwork \ 
    --registration-enabled false 
 
-#Query for the network interface ID  
+# Query for the network interface ID  
 networkInterfaceId=$(az network private-endpoint show --name myPrivateEndpoint --resource-group myResourceGroup --query 'networkInterfaces[0].id' -o tsv)
- 
- 
+
 az resource show --ids $networkInterfaceId --api-version 2019-04-01 -o json 
 # Copy the content for privateIPAddress and FQDN matching the Azure database for MySQL name 
 
-[!INCLUDE[applies-to-single-server](includes/applies-to-single-server.md)]
- 
- 
-#Create DNS records 
+# Create DNS records 
 az network private-dns record-set a create --name myserver --zone-name privatelink.mysql.database.azure.com --resource-group myResourceGroup  
 az network private-dns record-set a add-record --record-set-name myserver --zone-name privatelink.mysql.database.azure.com --resource-group myResourceGroup -a <Private IP Address>
 ```
 
-> [!NOTE] 
+> [!NOTE]
 > The FQDN in the customer DNS setting does not resolve to the private IP configured. You will have to setup a DNS zone for the configured FQDN as shown [here](../dns/dns-operations-recordsets-portal.md).
 
 ## Connect to a VM from the internet
@@ -155,6 +162,7 @@ Connect to the VM *myVm* from the internet as follows:
 2. Enter  `nslookup mydemomysqlserver.privatelink.mysql.database.azure.com`. 
 
     You'll receive a message similar to this:
+
     ```azurepowershell
     Server:  UnKnown
     Address:  168.63.129.16
@@ -164,7 +172,6 @@ Connect to the VM *myVm* from the internet as follows:
     ```
 
 3. Test the private link connection for the MySQL server using any available client. In the example below I have used [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/wb-installing-windows.html) to do the operation.
-
 
 4. In **New connection**, enter or select this information:
 
@@ -184,7 +191,8 @@ Connect to the VM *myVm* from the internet as follows:
 
 8. Close the remote desktop connection to myVm.
 
-## Clean up resources 
+## Clean up resources
+
 When no longer needed, you can use az group delete to remove the resource group and all the resources it has: 
 
 ```azurecli-interactive
@@ -192,6 +200,7 @@ az group delete --name myResourceGroup --yes
 ```
 
 ## Next steps
+
 - Learn more about [What is Azure private endpoint](../private-link/private-endpoint-overview.md)
 
 <!-- Link references, to text, Within this same GitHub repo. -->
