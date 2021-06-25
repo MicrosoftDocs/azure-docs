@@ -24,7 +24,7 @@ This article covers how to configure and deploy a disk pool. In order for a disk
 
 In order to successfully deploy a disk pool, you must have:
 
-- A set of managed disks (at least two) you want to add to a disk pool.
+- A set of managed disks you want to add to a disk pool.
 - A virtual network with a subnet for your disk pool, deployed.
 
 If you're going to use the Azure PowerShell module, install [version 6.1.0 or newer](/powershell/module/az.diskpool/?view=azps-6.1.0&preserve-view=true).
