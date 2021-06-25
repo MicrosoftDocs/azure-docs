@@ -25,7 +25,9 @@ This article uses Health check in the Azure portal to monitor App Service instan
 
 > [!NOTE]
 > Health check doesn't follow 302 redirects. At most one instance will be replaced per hour, with a maximum of three instances per day per App Service Plan.
->
+> 
+> On App Service Environments, if an instance continues to fail for one hour it will not be automatically replaced with a new instance due to the limited number of extra virtual machines on the stamp.
+>  
 
 ## Enable Health Check
 
