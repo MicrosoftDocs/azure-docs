@@ -26,7 +26,7 @@ After it [acquires a token](msal-acquire-cache-tokens.md), Microsoft Authenticat
 The recommendation is:
 - In web apps and web APIs, use [token cache serializers from "Microsoft.Identity.Web"](https://github.com/AzureAD/microsoft-identity-web/wiki/token-cache-serialization). They even provide distributed database or cache system to store tokens.
   - In ASP.NET Core [web apps](scenario-web-app-call-api-overview.md) and [web API](scenario-web-api-call-api-overview.md), use Microsoft.Identity.Web as a higher-level API in ASP.NET Core.
-  - In ASP.NET classic, .NET Core, .NET framework, use MSAL.NET directly with [token cache serialization adapters for MSAL](scenario-web-api-call-api-overview.md) provided in Microsoft.Identity.Web. 
+  - In ASP.NET classic, .NET Core, .NET framework, use MSAL.NET directly with [token cache serialization adapters for MSAL](https://aka.ms/ms-id-web/token-cache-serialization-msal) provided in Microsoft.Identity.Web. 
 - In desktop applications (which can use file system to store tokens), use [Microsoft.Identity.Client.Extensions.Msal](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/wiki/Cross-platform-Token-Cache) with MSAL.Net.
 - In mobile applications (Xamarin.iOS, Xamarin.Android, Universal Windows Platform) don't do anything, as MSAL.NET handles the cache for you: these platforms have a secure storage.
 
