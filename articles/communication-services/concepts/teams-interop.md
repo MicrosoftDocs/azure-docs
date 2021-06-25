@@ -34,7 +34,7 @@ Teams interoperability allows you to create custom applications that connect use
 
 The high-level architecture for this use-case looks like this: 
 
-![Architecture for Teams interoperability](./media/call-flows/teams-interop.png)
+![Architecture for Teams interop](./media/call-flows/teams-interop.png)
 
 Communication Services users can join scheduled Teams meetings as long as anonymous joins are enabled in the [meeting settings](/microsoftteams/meeting-settings-in-teams). 
 
