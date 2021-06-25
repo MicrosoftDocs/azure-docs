@@ -1341,9 +1341,9 @@
     - name: Azure CLI
       href: ../virtual-network/create-vm-accelerated-networking-cli.md?context=/azure/virtual-machines/context/context
       items:
-      - name: Setup DPDK
+      - name: Set up DPDK
         href: ../virtual-network/setup-dpdk.md?context=/azure/virtual-machines/context/context
-  - name: TCP/IP Performance Tuning for Azure VMs
+  - name: TCP/IP performance tuning for Azure VMs
     href: ../virtual-network/virtual-network-tcpip-performance-tuning.md?context=/azure/virtual-machines/context/context
   - name: Virtual machine network throughput
     href: ../virtual-network/virtual-machine-network-throughput.md?context=/azure/virtual-machines/context/context
