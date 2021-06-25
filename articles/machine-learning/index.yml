@@ -3,6 +3,7 @@
 title: Azure Machine Learning documentation
 summary: Learn how to train and deploy models and manage the machine learning lifecycle with Azure Machine Learning. Tutorials, code examples, API references, and more show you how. 
 
+
 metadata:
   title: Azure Machine Learning documentation
   description: Learn how to train and deploy models and manage the machine learning lifecycle with Azure Machine Learning. Tutorials, code examples, API references, and more show you how. 
@@ -85,3 +86,229 @@ landingContent:
             url: classic/index.yml
           - text: Studio (classic) vs studio
             url: overview-what-is-machine-learning-studio.md
+
+### YamlMime:Hub
+
+title: Azure Machine Learning documentation
+summary: Learn how to train and deploy models and manage the machine learning lifecycle with Azure Machine Learning. Tutorials, code examples, API references, and more show you how.
+# brand: aspnet | azure | dotnet | dynamics | m365 | ms-graph | office | power-apps | power-automate | power-bi | power-platform | power-virtual-agents | sql | sql-server | vs | visual-studio | windows | xamarin
+brand: azure ## Used for color theming of icons and hero area
+
+metadata:
+  title: Azure Machine Learning documentation
+  description: Learn how to train and deploy models and manage the machine learning lifecycle with Azure Machine Learning. Tutorials, code examples, API references, and more show you how.
+  services: machine-learning
+  ms.service: machine-learning
+  ms.subservice: core
+  ms.topic: hub-page
+  ms.collection: collection
+  ms.author: sgilley
+  author: sdgilley
+  ms.date: 06/25/2021
+  ms.custom: jordan-changes; hub-option
+
+# highlightedContent section 
+highlightedContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+  items:
+    # Card
+    - title: Overview
+      itemType: overview
+      url: overview-what-is-azure-ml.md
+    # Card
+    - title: Architecture & terms
+      itemType: overview
+      url: concept-azure-machine-learning-architecture.md
+    # Card
+    - title: Set up resources
+      itemType: get-started
+      url: quickstart-create-resources.md
+    # Card
+    - title: 'Day 1: Get started with Python'
+      itemType: get-started
+      url: tutorial-1st-experiment-hello-world.md  
+    # Card
+    - title: 'Preview: Train models with v2 CLI'
+      itemType: tutorial
+      url: how-to-train-cli.md  
+    # Card
+    - title: "What's new? (TBD content)"
+      itemType: concept
+      url: azure-machine-learning-release-notes.md      
+
+conceptualContent:
+# Supports up to 3 sections
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+  items:
+    # Card
+    - title: Data sources & preparation
+      links:
+        - url: file1.md OR https://docs.microsoft.com/file1
+          itemType: itemType
+          text: linktext1
+        - url: file2.md OR https://docs.microsoft.com/file2
+          itemType: itemType
+          text: linktext2
+        - url: file3.md OR https://docs.microsoft.com/file3
+          itemType: itemType
+          text: linktext3
+
+    # Card
+    - title: cardtitle2
+      links:
+        - url: file1.md OR https://docs.microsoft.com/file1
+          itemType: itemType
+          text: linktext1
+        - url: file2.md OR https://docs.microsoft.com/file2
+          itemType: itemType
+          text: linktext2
+        - url: file3.md OR https://docs.microsoft.com/file3
+          itemType: itemType
+          text: linktext3
+
+    # Card
+    - title: cardtitle3
+      links:
+        - url: file1.md OR https://docs.microsoft.com/file1
+          itemType: itemType
+          text: linktext1
+        - url: file2.md OR https://docs.microsoft.com/file2
+          itemType: itemType
+          text: linktext2
+        - url: file3.md OR https://docs.microsoft.com/file3
+          itemType: itemType
+          text: linktext3
+      # footerLink (optional)
+      footerLink:
+        url: filefooter.md OR https://docs.microsoft.com/filefooter
+        text: See more
+
+# conceptualContent section (optional)
+conceptualContent:
+# Supports up to 3 sections
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+  title: sectiontitle # < 60 chars (optional)
+  summary: sectionsummary # < 160 chars (optional)
+  items:
+    # Card
+    - title: cardtitle1
+      links:
+        - url: file1.md OR https://docs.microsoft.com/file1
+          itemType: itemType
+          text: linktext1
+        - url: file2.md OR https://docs.microsoft.com/file2
+          itemType: itemType
+          text: linktext2
+        - url: file3.md OR https://docs.microsoft.com/file3
+          itemType: itemType
+          text: linktext3
+      # footerLink (optional)
+      footerLink:
+        url: filefooter.md OR https://docs.microsoft.com/filefooter
+        text: See more
+    # Card
+    - title: cardtitle2
+      links:
+        - url: file1.md OR https://docs.microsoft.com/file1
+          itemType: itemType
+          text: linktext1
+        - url: file2.md OR https://docs.microsoft.com/file2
+          itemType: itemType
+          text: linktext2
+        - url: file3.md OR https://docs.microsoft.com/file3
+          itemType: itemType
+          text: linktext3
+      # footerLink (optional)
+      footerLink:
+        url: filefooter.md OR https://docs.microsoft.com/filefooter
+        text: See more
+    # Card
+    - title: cardtitle3
+      links:
+        - url: file1.md OR https://docs.microsoft.com/file1
+          itemType: itemType
+          text: linktext1
+        - url: file2.md OR https://docs.microsoft.com/file2
+          itemType: itemType
+          text: linktext2
+        - url: file3.md OR https://docs.microsoft.com/file3
+          itemType: itemType
+          text: linktext3
+      # footerLink (optional)
+      footerLink:
+        url: filefooter.md OR https://docs.microsoft.com/filefooter
+        text: See more
+
+# tools section (optional)
+tools:
+  title: sectiontitle # < 60 chars (optional)
+  summary: sectionsummary # < 160 chars (optional)
+  items:
+    # Card
+    - title: cardtitle1
+      # imageSrc should be square in ratio with no whitespace
+      imageSrc: ./media/index/image1.svg OR https://docs.microsoft.com/media/logos/image1.svg
+      url: file1.md
+    # Card
+    - title: cardtitle2
+      imageSrc: ./media/index/image2.svg OR https://docs.microsoft.com/media/logos/image2.svg
+      url: file2.md
+    # Card
+    - title: cardtitle3
+      imageSrc: ./media/index/image3.svg OR https://docs.microsoft.com/media/logos/image3.svg
+      url: file3.md
+
+# additionalContent section (optional)
+# Card with summary style
+additionalContent:
+  # Supports up to 4 sections
+  sections:
+    - title: sectiontitle # < 60 chars (optional)
+      summary: sectionsummary # < 160 chars (optional)
+      items:
+        # Card
+        - title: cardtitle1
+          summary: cardsummary1
+          url: file1.md OR https://docs.microsoft.com/file1
+        # Card
+        - title: cardtitle2
+          summary: cardsummary2
+          url: file1.md OR https://docs.microsoft.com/file2
+        # Card
+        - title: cardtitle3
+          summary: cardsummary3
+          url: file1.md OR https://docs.microsoft.com/file3
+  # footer (optional)
+  footer: "footertext [linktext](https://docs.microsoft.com/footerfile)"
+
+# additionalContent section (optional)
+# Card with links style
+additionalContent:
+  # Supports up to 4 sections
+  sections:
+    - title: sectiontitle # < 60 chars (optional)
+      summary: sectionsummary # < 160 chars (optional)
+      items:
+        # Card
+        - title: cardtitle1
+          links:
+            - text: link1a
+              url: file1a.md OR https://docs.microsoft.com/file1a
+            - text: link1b
+              url: file1b.md OR https://docs.microsoft.com/file1b
+        # Card
+        - title: cardtitle2
+          links:
+            - text: link2a
+              url: file2a.md OR https://docs.microsoft.com/file2a
+            - text: link2b
+              url: file2b.md OR https://docs.microsoft.com/file2b
+        # Card
+        - title: cardtitle3
+          links:
+            - text: link3a
+              url: file3a.md OR https://docs.microsoft.com/file3a
+            - text: link3b
+              url: file3b.md OR https://docs.microsoft.com/file3b
+  # footer (optional)
+  footer: "footertext [linktext](https://docs.microsoft.com/footerfile)"
