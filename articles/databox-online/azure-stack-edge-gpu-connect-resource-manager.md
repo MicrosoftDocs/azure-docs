@@ -32,7 +32,7 @@ The following table summarizes the various endpoints exposed on your device, the
 | 2. | Security token service | https | 443 | To authenticate via access and refresh tokens |
 | 3. | Blob* | https | 443 | To connect to Blob storage via REST |
 
-\* Connection to blob storage endpoint is not required to connect to Azure Resource Manager.
+\* *Connection to blob storage endpoint is not required to connect to Azure Resource Manager.*
  
 ## Connecting to Azure Resource Manager workflow
 
