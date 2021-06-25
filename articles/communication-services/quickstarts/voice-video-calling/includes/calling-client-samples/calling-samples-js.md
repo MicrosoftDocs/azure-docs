@@ -894,7 +894,7 @@ Call diagnostics is an extended feature of the core `Call` API and allows you to
 	call.api(Features.Diagnostics).media.on('diagnosticChanged', diagnosticChangedListener);
 ```
 
-- Get the latest call diagnostic values hat were raised. If a diagnostic is undefined, that is because it was never raised.
+- Get the latest call diagnostic values that were raised. If a diagnostic is undefined, that is because it was never raised.
 ```js
 	const latestNetworkDiagnostics = call.api(Features.Diagnostics).network.getLatest();
 	
