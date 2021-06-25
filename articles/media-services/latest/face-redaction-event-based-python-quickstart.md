@@ -143,7 +143,7 @@ After enabling the GitHub Actions, you can find the workload file here: [.github
 
 After enabling the workflows, select the 'Deploy Azure Media Service FaceRedaction solution' workflow and select 'Run workflow'. Now, the solution will be deployed using the variables added in the previous steps. Wait a couple of minutes and verify that it has run successfully.
 
-![Run workflow](./media/face-redaction-event-based-python-quickstart/run-workflow.png)
+![Run workflow](./media/faceredaction-eventbased-python-quickstart/run-workflow.png)
 
  ## Test your solution
  Go to the storage explorer of your ADLS Gen2 in the Azure portal. Upload a video to the Raw container. If you're looking for a test video, download one from [this website](https://www.pexels.com/search/videos/group/). See the image below for guidance on uploading a video to the ADLS Gen2 storage account:
