@@ -22,7 +22,7 @@ Find the finalized code for this quickstart on [GitHub](https://github.com/Azure
 - [.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1) (Make sure to install version that corresponds with your visual studio instance, 32 vs 64 bit).
 - Create an Azure Communication Services resource. For details, see [Create an Azure Communication Resource](https://docs.microsoft.com/azure/communication-services/quickstarts/create-communication-resource). You'll need to record your resource **connection string** for this quickstart.
 - An Azure storage account and container, for details, see [Create a storage account](https://docs.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal). You'll need to record your storage **connection string** and **container name** for this quickstart.
-- An Azure Event grid Web hook, for details, see [Record and download calls with Event Grid](https://docs.microsoft.com/azure/communication-services/quickstarts/voice-video-calling/download-recording-file-sample).
+- An [Azure Event Grid](https://docs.microsoft.com/en-us/azure/event-grid/overview) Web hook.
 
 ## Object model
 
@@ -117,7 +117,7 @@ var resumeRecording = await callingServerClient.InitializeServerCall("<servercal
 ## Download recording File using 'DownloadStreamingAsync' server API
 
 > [!NOTE] 
-> An Azure Event grid Web hook is required to get the notification callback event when the recorded media is ready for download. For details, see [Record and download calls with Event Grid](https://docs.microsoft.com/azure/communication-services/quickstarts/voice-video-calling/download-recording-file-sample).
+> An [Azure Event Grid](https://docs.microsoft.com/en-us/azure/event-grid/overview) Web hook is required to get the notification callback event when the recorded media is ready for download.
 
 When the recording is available for download, Azure Event Grid will trigger a notification callback event to the application with the following schema.
 
