@@ -27,7 +27,6 @@ By the end of the quickstart you will be able to redact faces in a video:
 > [!div class="mx-imgBorder"]
 > ![Example output.](./media/face-redaction-event-based-python-quickstart/output-redacted.gif)
 
-<img src="./media/face-redaction-event-based-python-quickstart/output-redacted.gif" alt="Example output" style="border: 1px solid #C3C3C3;" /> 
 
 ## Solution Overview
 
