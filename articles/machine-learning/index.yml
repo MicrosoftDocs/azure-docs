@@ -27,21 +27,21 @@ highlightedContent:
       itemType: overview
       url: overview-what-is-azure-ml.md
     # Card
-    - title: Architecture & terms
-      itemType: overview
-      url: concept-azure-machine-learning-architecture.md
-    # Card
     - title: Set up resources
       itemType: get-started
       url: quickstart-create-resources.md
     # Card
-    - title: 'Day 1: Get started with Python'
-      itemType: get-started
-      url: tutorial-1st-experiment-hello-world.md  
-    # Card
     - title: 'Preview: Train models with v2 CLI'
       itemType: tutorial
-      url: how-to-train-cli.md  
+      url: how-to-train-cli.md      
+    # Card
+    - title: Architecture & terms
+      itemType: overview
+      url: concept-azure-machine-learning-architecture.md 
+    # Card
+    - title: 'Day 1: Get started with Python'
+      itemType: get-started
+      url: tutorial-1st-experiment-hello-world.md 
     # Card
     - title: "What's new? (TBD content)"
       itemType: concept

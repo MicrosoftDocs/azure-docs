@@ -166,7 +166,7 @@
       href: concept-model-management-and-deployment.md
     - name: Model portability (ONNX)
       href: concept-onnx.md
-    - name: Open source integrations
+    - name: Open-source integrations
       href: concept-open-source.md      
     - name: ML pipelines
       href: concept-ml-pipelines.md
@@ -364,7 +364,7 @@
             - name: Connect to Azure storage (Python)
               displayName: blob, get, fileshare, access, mount, download, data lake, datastore
               href: how-to-access-data.md
-            - name: Identity based data access to storage 
+            - name: Identity-based data access to storage 
               displayName: blob, access, data lake, datastore, managed identity
               href: how-to-identity-based-data-access.md
             - name: Get data from a datastore (Python)
