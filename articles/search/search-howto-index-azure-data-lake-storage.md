@@ -338,7 +338,7 @@ To run multiple indexers in parallel, scale out your search service by creating 
 
 Errors that commonly occur during indexing include unsupported content types, missing content, or oversized blobs.
 
-By default, the blob indexer stops as soon as it encounters a blob with an unsupported content type (for example, an image). You could use the `excludedFileNameExtensions` parameter to skip certain content types. However, you might want to indexing to proceed even if errors occur, and then debug individual documents later. For more information about indexer errors, see [Troubleshooting common indexer issues](search-indexer-troubleshooting.md) and [Indexer errors and warnings](cognitive-search-common-errors-warnings.md).
+By default, the blob indexer stops as soon as it encounters a blob with an unsupported content type (for example, an image). You could use the `excludedFileNameExtensions` parameter to skip certain content types. However, you might want to indexing to proceed even if errors occur, and then debug individual documents later. For more information about indexer errors, see [Indexer troubleshooting guidance](search-indexer-troubleshooting.md) and [Indexer errors and warnings](cognitive-search-common-errors-warnings.md).
 
 ### Respond to errors
 

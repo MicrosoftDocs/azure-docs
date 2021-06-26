@@ -344,6 +344,8 @@
           href: search-howto-index-cosmosdb-gremlin.md
       - name: Azure Data Lake Storage Gen2
         href: search-howto-index-azure-data-lake-storage.md
+      - name: Azure MySQL
+        href: search-howto-index-mysql.md
       - name: Azure SQL
         items:
         - name: Azure SQL Databases
