@@ -25,7 +25,7 @@ You can set up an Azure MySQL indexer by using any of these clients:
 * Azure Cognitive Search [REST API](/rest/api/searchservice/Indexer-operations)
 * Azure Cognitive Search [.NET SDK](/dotnet/api/azure.search.documents.indexes.models.searchindexer)
 
-This article uses the REST API. 
+This article uses the REST APIs. 
 
 ## Create an Azure MySQL indexer
 

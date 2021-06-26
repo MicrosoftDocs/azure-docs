@@ -24,7 +24,7 @@ This article shows you how to configure an Azure blob indexer for text-focused i
 * Azure Cognitive Search [REST API](/rest/api/searchservice/Indexer-operations)
 * Azure Cognitive Search [.NET SDK](/dotnet/api/azure.search.documents.indexes.models.searchindexer)
 
-This article uses the REST API. 
+This article uses the REST APIs. 
 
 ## Supported access tiers
 
