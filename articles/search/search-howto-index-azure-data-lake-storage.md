@@ -1,5 +1,5 @@
 ---
-title: Configure an Azure Data Lake Storage Gen2 indexer
+title: Search indexer for Azure Data Lake Storage Gen2
 titleSuffix: Azure Cognitive Search
 description: Set up an Azure Data Lake Storage Gen2 indexer to automate indexing of content and metadata for full text search in Azure Cognitive Search.
 

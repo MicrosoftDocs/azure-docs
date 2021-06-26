@@ -1,5 +1,5 @@
 ---
-title: Configure an indexer for Azure Table Storage
+title: Search indexer for Azure Table Storage
 titleSuffix: Azure Cognitive Search
 description: Set up a search indexer to index data stored in Azure Table Storage for full text search in Azure Cognitive Search.
 
@@ -16,15 +16,13 @@ ms.date: 07/11/2020
 
 This article shows you how to configure an Azure table indexer to extract content and make it searchable in Azure Cognitive Search. This workflow creates a search index on Azure Cognitive Search and loads it with existing content extracted from Azure Table Storage.
 
-## Set up Azure Table Storage indexing
-
-You can set up an Azure Table Storage indexer by using these resources:
+You can set up an Azure Table Storage indexer by using any of these clients:
 
 * [Azure portal](https://ms.portal.azure.com)
 * Azure Cognitive Search [REST API](/rest/api/searchservice/Indexer-operations)
-* Azure Cognitive Search [.NET SDK](/dotnet/api/overview/azure/search)
+* Azure Cognitive Search [.NET SDK](/dotnet/api/azure.search.documents.indexes.models.searchindexer)
 
-Here we demonstrate the flow by using the REST API. 
+This article uses the REST API. 
 
 ### Step 1: Create a datasource
 

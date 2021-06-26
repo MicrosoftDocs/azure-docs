@@ -1,5 +1,5 @@
 ---
-title: Configure an indexer for Azure SQL
+title: Search indexer for Azure SQL
 titleSuffix: Azure Cognitive Search
 description: Set up an Azure SQL indexer to automate indexing of content and metadata for full text search in Azure Cognitive Search.
 
@@ -18,13 +18,13 @@ This article shows you how to configure an Azure SQL indexer to extract content 
 
 This article covers the mechanics of using [indexers](search-indexer-overview.md), but also describes features only available with Azure SQL Database or SQL Managed Instance (for example, integrated change tracking).
 
-You can set up and configure an Azure SQL indexer using:
+You can set up an Azure SQL indexer by using any of these clients:
 
-* Import Data wizard in the [Azure portal](https://portal.azure.com)
+* [Azure portal](https://ms.portal.azure.com)
+* Azure Cognitive Search [REST API](/rest/api/searchservice/Indexer-operations)
 * Azure Cognitive Search [.NET SDK](/dotnet/api/azure.search.documents.indexes.models.searchindexer)
-* Azure Cognitive Search [REST API](/rest/api/searchservice/indexer-operations)
 
-In this article, we'll use the REST API to create indexers and data sources.
+This article uses the REST API. 
 
 ## Prerequisites
 

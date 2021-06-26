@@ -1,5 +1,5 @@
 ---
-title: Configure a Cosmos DB indexer for Gremlin API data (preview)
+title: Search indexer for Gremlin API (preview)
 titleSuffix: Azure Cognitive Search
 description: Set up an Azure Cosmos DB indexer to automate indexing of Gremlin API content for full text search in Azure Cognitive Search.
 

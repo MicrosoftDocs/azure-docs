@@ -1,5 +1,5 @@
 ---
-title: Configure a MySQL indexer (preview)
+title: Search indexer for MySQL (preview)
 titleSuffix: Azure Cognitive Search
 description: Set up a search indexer to index data stored in Azure MySQL for full text search in Azure Cognitive Search.
 
@@ -18,6 +18,14 @@ ms.date: 05/17/2021
 > MySQL support is currently in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). [Request access](https://aka.ms/azure-cognitive-search/indexer-preview) to this feature, and after access is enabled, use a [preview REST API (2020-06-30-preview or later)](search-api-preview.md) to index your content. There is currently no SDK support and no portal support.
 
 The Azure Cognitive Search indexer for MySQL will crawl your MySQL database on Azure, extract searchable data, and index it in Azure Cognitive Search. The indexer will take all changes, uploads, and deletes for your MySQL database and reflect these changes in your search index.
+
+You can set up an Azure MySQL indexer by using any of these clients:
+
+* [Azure portal](https://ms.portal.azure.com)
+* Azure Cognitive Search [REST API](/rest/api/searchservice/Indexer-operations)
+* Azure Cognitive Search [.NET SDK](/dotnet/api/azure.search.documents.indexes.models.searchindexer)
+
+This article uses the REST API. 
 
 ## Create an Azure MySQL indexer
 
