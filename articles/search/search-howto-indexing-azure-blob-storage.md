@@ -1,5 +1,5 @@
 ---
-title: Search indexer for Azure Blobs
+title: Index data from Azure Blob Storage
 titleSuffix: Azure Cognitive Search
 description: Set up an Azure Blob indexer to automate indexing of blob content for full text search operations and knowledge mining in Azure Cognitive Search.
 

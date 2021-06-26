@@ -1,5 +1,5 @@
 ---
-title: Search indexer for Azure Cosmos DB
+title: Index data from Azure Cosmos DB
 titleSuffix: Azure Cognitive Search
 description: Set up a search indexer to index data stored in Azure Cosmos DB for full text search in Azure Cognitive Search. This article explains how index data using SQL, MongoDB, or Cassandra API protocols.
 

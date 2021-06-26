@@ -1,5 +1,5 @@
 ---
-title: Search indexer for MySQL (preview)
+title: Index data from Azure MySQL (preview)
 titleSuffix: Azure Cognitive Search
 description: Set up a search indexer to index data stored in Azure MySQL for full text search in Azure Cognitive Search.
 

@@ -1,5 +1,5 @@
 ---
-title: Search indexer for Azure Table Storage
+title: Index data from Azure Table Storage
 titleSuffix: Azure Cognitive Search
 description: Set up a search indexer to index data stored in Azure Table Storage for full text search in Azure Cognitive Search.
 

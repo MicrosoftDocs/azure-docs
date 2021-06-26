@@ -1,5 +1,5 @@
 ---
-title: Search indexer for Azure SQL
+title: Index data from Azure SQL
 titleSuffix: Azure Cognitive Search
 description: Set up an Azure SQL indexer to automate indexing of content and metadata for full text search in Azure Cognitive Search.
 
