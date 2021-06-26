@@ -476,7 +476,7 @@ You can troubleshoot the exception using the steps below:
 
 If you get an exception with the following message: 
 
->AADSTS90002: Tenant 'cf61953b-e41a-46b3-b500-663d279ea744' not found. This may happen if there are no active
+> AADSTS90002: Tenant 'cf61953b-e41a-46b3-b500-663d279ea744' not found. This may happen if there are no active
 > subscriptions for the tenant. Check to make sure you have the correct tenant ID. Check with your subscription
 > administrator.
 
