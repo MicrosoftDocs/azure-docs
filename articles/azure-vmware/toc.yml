@@ -102,7 +102,9 @@
         href: /azure/backup/backup-azure-backup-server-vmware?context=/azure/azure-vmware/context/context
       - name: Restore VMware virtual machines
         href: /azure/backup/restore-azure-backup-server-vmware?context=/azure/azure-vmware/context/context
-    - name: Disaster recovery to Azure Site Recovery
+      - name: Monitor Azure Backup workloads 
+        href: /azure/backup/backup-azure-monitoring-built-in-monitor?context=/azure/azure-vmware/context/context
+    - name: Disaster recovery using Azure Site Recovery
       items:
       - name: Prepare Azure
         href: ../site-recovery/avs-tutorial-prepare-azure.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
@@ -128,6 +130,8 @@
       href: deploy-vm-content-library.md
     - name: Deploy disaster recovery using VMware HCX
       href: deploy-disaster-recovery-using-vmware-hcx.md
+    - name: Upgrade the VMware HCX appliance
+      href: https://docs.vmware.com/en/VMware-HCX/4.1/hcx-user-guide/GUID-02DB88E1-EC81-434B-9AE9-D100E427B31C.html
   - name: VMware ecosystem
     items:
     - name: Backup solutions for VMs

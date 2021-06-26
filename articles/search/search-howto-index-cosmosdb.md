@@ -16,8 +16,8 @@ ms.date: 07/11/2020
 
 > [!IMPORTANT] 
 > SQL API is generally available.
-> MongoDB API and Cassandra API support are currently in public preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).  
-> You can request access to the previews by filling out [this form](https://aka.ms/azure-cognitive-search/indexer-preview). 
+> MongoDB API and Cassandra API support are currently in public preview under [supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).  
+> You can sign up for access by filling out [this form](https://aka.ms/azure-cognitive-search/indexer-preview). 
 > [REST API preview versions](search-api-preview.md) provide these features. There is currently limited portal support, and no .NET SDK support.
 
 > [!WARNING]

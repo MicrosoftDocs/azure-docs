@@ -2,9 +2,9 @@
 title: Similarity and scoring overview
 titleSuffix: Azure Cognitive Search
 description: Explains the concepts of similarity and scoring, and what a developer can do to customize the scoring result.
-manager: nitinme
-author: luiscabrer
-ms.author: luisca
+
+author: puneet-hariharan-MSFT
+ms.author: puhariharan
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/02/2021
