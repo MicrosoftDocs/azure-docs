@@ -216,9 +216,11 @@ Kubenet networking requires organized route table rules to successfully route re
 Limitations:
 
 * Permissions must be assigned before cluster creation, ensure you are using a service principal with write permissions to your custom subnet and custom route table.
+* System-assigned managed identity do not support bringing your own subnet and route table, you must use [user-assigned managed identity][user-assigned managed identity], permissions must be assigned before cluster creation, and ensure you are using a user-assigned identity with write permissions to your custom subnet and custom route table.
 * A custom route table must be associated to the subnet before you create the AKS cluster.
 * The associated route table resource cannot be updated after cluster creation. While the route table resource cannot be updated, custom rules can be modified on the route table.
 * Each AKS cluster must use a single, unique route table for all subnets associated with the cluster. You cannot reuse a route table with multiple clusters due to the potential for overlapping pod CIDRs and conflicting routing rules.
+* If you want to use the same route table with multiple AKS clusters, you must use different pod CIDR for each AKS cluster to avoid overlapping and make sure that nodes names are different for each AKS cluster to avoid overwriting rules in route table.
 
 After you create a custom route table and associate it to your subnet in your virtual network, you can create a new AKS cluster that uses your route table.
 You need to use the subnet ID for where you plan to deploy your AKS cluster. This subnet also must be associated with your custom route table.
@@ -262,3 +264,4 @@ With an AKS cluster deployed into your existing virtual network subnet, you can 
 [express-route]: ../expressroute/expressroute-introduction.md
 [network-comparisons]: concepts-network.md#compare-network-models
 [custom-route-table]: ../virtual-network/manage-route-table.md
+[user-assigned managed identity]: ../aks/use-managed-identity.md#bring-your-own-control-plane-mi
