@@ -15,13 +15,7 @@ ms.date: 06/27/2021
 
 Occasionally, indexers run into problems and there is no error to help with diagnosis. This article covers problems and potential resolutions when indexer results are unexpected. If you have an error to investigate, see [Troubleshooting common indexer errors and warnings](cognitive-search-common-errors-warnings.md) instead.
 
-Indexers can run into a number of issues when indexing data into Azure Cognitive Search. The main categories of failure include:
-
-* [Connecting to a data source or other resources](#connection-errors)
-* [Document processing](#document-processing-errors)
-* [Missing documents](#missing-documents)
-
-## Connection controls
+## Connection errors
 
 > [!NOTE]
 > Indexers have limited support for accessing data sources and other resources that are secured by Azure network security mechanisms. Currently, indexers can only access data sources via corresponding IP address range restriction mechanisms or NSG rules when applicable. Details for accessing each supported data source can be found below.
@@ -66,7 +60,7 @@ More details for accessing data in a SQL managed instance are outlined [here](se
 
 ## SharePoint Online Conditional Access policies
 
-When creating a SharePoint Online indexer you will go through a step that requires you to sign in to your Azure AD app after providing a device code. If you receive a message that says `"Your sign-in was successful but your admin requires the device requesting access to be managed"` the indexer is likely being blocked from accessing the SharePoint Online document library due to a [Conditional Access](https://review.docs.microsoft.com/azure/active-directory/conditional-access/overview) policy.
+When creating a SharePoint Online indexer you will go through a step that requires you to sign in to your Azure AD app after providing a device code. If you receive a message that says `"Your sign-in was successful but your admin requires the device requesting access to be managed"` the indexer is likely being blocked from accessing the SharePoint Online document library due to a [Conditional Access](../active-directory/conditional-access/overview.md) policy.
 
 To update the policy to allow the indexer access to the document library, follow the below steps:
 
@@ -189,7 +183,7 @@ Azure Cognitive Search has an implicit dependency on Cosmos DB indexing. If you 
 Indexers extract documents or rows from an external [data source](/rest/api/searchservice/create-data-source) and create *search documents* which are then indexed by the search service. Occasionally, a document that exists in data source fails to appear in a search index. This unexpected result can occur due to the following reasons:
 
 * The document was updated after the indexer was run. If your indexer is on a [schedule](/rest/api/searchservice/create-indexer#indexer-schedule), it will eventually rerun and pick up the document.
-* The indexer timed out before the document could be ingested. There are [maximum processing time limits](search-limits-quotas-capacity#indexer-limits.md) after which no documents will be processed. You can check indexer status in the portal or by calling [Get Indexer Status (REST API)](/rest/api/searchservice/get-indexer-status).
+* The indexer timed out before the document could be ingested. There are [maximum processing time limits](search-limits-quotas-capacity.md#indexer-limits) after which no documents will be processed. You can check indexer status in the portal or by calling [Get Indexer Status (REST API)](/rest/api/searchservice/get-indexer-status).
 * [Field mappings](/rest/api/searchservice/create-indexer#fieldmappings) or [AI enrichment](./cognitive-search-concept-intro.md) have changed the document and its articulation in the search index is different from what you expect.
 * [Change tracking](/rest/api/searchservice/create-data-source#data-change-detection-policies) values are erroneous or prerequisites are missing. If your high watermark value is a date set to a future time, then any documents that have a date less than this will be skipped by the indexer. You can understand your indexer's change tracking state using the 'initialTrackingState' and 'finalTrackingState' fields in the [indexer status](/rest/api/searchservice/get-indexer-status#indexer-execution-result). Indexers for Azure SQL and MySQL must have an index on the high water mark column of the source table, or queries used by the indexer may time out. 
 
