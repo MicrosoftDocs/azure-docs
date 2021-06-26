@@ -69,9 +69,9 @@ If you're setting up the IoT device/IoT Edge device for [package based updates](
 ## How to provision the Device Update agent as a Module Identity
 
 This section describes how to provision the Device Update agent as a module identity on 
-1. IoT Edge enabled devices, or 
-2. Non-Edge IoT devices, or
-3. Other IoT devices. 
+* IoT Edge enabled devices, or 
+* Non-Edge IoT devices, or
+* Other IoT devices. 
  
 Follow all or any of the below sections to add the Device update agent based on the type of IoT device you are managing. 
 
@@ -116,20 +116,20 @@ Follow these instructions to provision the Device Update agent on your IoT Linux
    sudo apt-get install aziot-identity-service
 ```
         
-1. Provisioning IoT Identity service to get the IoT device information.
+2. Provisioning IoT Identity service to get the IoT device information.
     1. Create a custom copy of the configuration template so we can add the provisioning information. In a terminal, enter the below command.
       
 ```shell
    sudo cp /etc/aziot/config.toml.template /etc/aziot/config.toml 
 ```
    
-1. Next edit the configuration file to include the connection string of the device you wish to act as the provisioner for this device or machine. In a terminal, enter the below command.
+3. Next edit the configuration file to include the connection string of the device you wish to act as the provisioner for this device or machine. In a terminal, enter the below command.
 
 ```shell
    sudo nano /etc/aziot/config.toml
 ```
    
-1. You should see a message like the following example:
+4. You should see a message like the following example:
 
     :::image type="content" source="media/understand-device-update/config.png" alt-text="Diagram of IoT Identity Service config file." lightbox="media/understand-device-update/config.png":::
 
@@ -140,7 +140,7 @@ Follow these instructions to provision the Device Update agent on your IoT Linux
     1. In the window, delete the string within the quotes to the right of 'connection_string' and then add your connection string there 
     1. Save your changes to the file with 'Ctrl+X' and then 'Y' and hit the 'enter' key to save your changes. 
     
-1.	Now apply and restart the IoT Identity service with the command below. You should now see a “Done!” printout that means you have successfully configured the IoT Identity Service.
+5.	Now apply and restart the IoT Identity service with the command below. You should now see a “Done!” printout that means you have successfully configured the IoT Identity Service.
 
     > [!Note]
     > The IoT Identity service registers module identities with IoT Hub by using symmetric keys currently.
@@ -149,9 +149,9 @@ Follow these instructions to provision the Device Update agent on your IoT Linux
    sudo aziotctl config apply
 ```
     
-1.	Finally install the Device Update agent. We provide sample images in [Artifacts](https://github.com/Azure/iot-hub-device-update/releases), the swUpdate file is the base image that you can flash onto a Raspberry Pi B3+ board, and the .gz file is the update you would import through Device Update for IoT Hub. See example of [how to flash the image to your IoT Hub device](./device-update-raspberry-pi.md#flash-sd-card-with-image).
+6.	Finally install the Device Update agent. We provide sample images in [Artifacts](https://github.com/Azure/iot-hub-device-update/releases), the swUpdate file is the base image that you can flash onto a Raspberry Pi B3+ board, and the .gz file is the update you would import through Device Update for IoT Hub. See example of [how to flash the image to your IoT Hub device](./device-update-raspberry-pi.md#flash-sd-card-with-image).
 
-1.	You are now ready to start the Device Update agent on your IoT device. 
+7.	You are now ready to start the Device Update agent on your IoT device. 
 
 ### Other IoT devices
 
@@ -160,25 +160,24 @@ The Device Update agent can also be configured without the IoT Identity service 
 
 1.	We provide sample images in [Artifacts](https://github.com/Azure/iot-hub-device-update/releases), the swUpdate file is the base image that you can flash onto a Raspberry Pi B3+ board, and the .gz file is the update you would import through Device Update for IoT Hub. See example of [how to flash the image to your IoT Hub device](./device-update-raspberry-pi.md#flash-sd-card-with-image).
 
-1.	Log onto the machine or IoT Edge device/IoT device.
+2.	Log onto the machine or IoT Edge device/IoT device.
 	
-1.	Open a terminal window.
+3.	Open a terminal window.
 
-1.	Add the connection string to the [Device Update configuration file](device-update-configuration-file.md):
+4.	Add the connection string to the [Device Update configuration file](device-update-configuration-file.md):
     1. Enter the below in the terminal window:
         - [For Package updates](device-update-ubuntu-agent.md) use: sudo nano /etc/adu/adu-conf.txt
         - [For Image updates](device-update-raspberry-pi.md) use: sudo nano /adu/adu-conf.txt
        
-    1. You should see a window open with some text in it. Delete the entire string following 'connection_String=' the first-time you provision the Device Update agent on the IoT device. It is just place holder text.
+    2. You should see a window open with some text in it. Delete the entire string following 'connection_String=' the first-time you provision the Device Update agent on the IoT device. It is just place holder text.
     
-    1. In the terminal, replace "<your-connection-string>" with the connection string of the device for your instance of Device Update agent. Enter and save.
-    
-        > [!Important]
-        > Do not add quotes around the connection string.
-
-```shell
-   connection_string=<ADD CONNECTION STRING HERE>
-```       
+    3. In the terminal, replace "<your-connection-string>" with the connection string of the device for your instance of Device Update agent. Enter and save. It should look 
+	```shell
+   	connection_string=<ADD CONNECTION STRING HERE>
+	```   
+	    
+    > [!Important]
+    > Do not add quotes around the connection string.
 	
 5.	Now you are now ready to start the Device Update agent on your IoT device. 
 
