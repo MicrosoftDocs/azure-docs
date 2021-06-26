@@ -128,7 +128,5 @@ Because there isn't a 1-to-1 relationship between the order and a device, no dev
 
     *Add screenshot.*
 
-
-
 <!--Artifact of "Next step: Open resource group" instruction, which I think went away. - ![Screenshot showing a summary of orders for the resource group in the Azure Edge Hardware Center](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-18.png)
 
