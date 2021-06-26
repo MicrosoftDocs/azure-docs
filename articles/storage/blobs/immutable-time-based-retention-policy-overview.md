@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/18/2021
+ms.date: 06/25/2021
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
@@ -17,11 +17,9 @@ ms.subservice: blobs
 
 You can configure a time-based retention policy to store data in a Write-Once, Read-Many (WORM) format for a specified interval. When a time-based retention policy is set, blobs can be created and read, but not modified or deleted. After the retention interval has expired, blobs can be deleted but not overwritten.
 
+For more information about immutability policies for Blob Storage, see [Store business-critical blob data with immutable storage](immutable-storage-overview.md).
 
-
-
-
-## Retention interval
+## Retention interval for a time-based policy
 
 The minimum retention interval for a time-based retention policy is one day, and the maximum is 146,000 days (400 years).
 
@@ -39,16 +37,6 @@ After you have locked a time-based retention policy, the policy cannot be delete
 
 > [!IMPORTANT]
 > A time-based retention policy must be locked for the blob to be in a compliant immutable (write and delete protected) state for SEC 17a-4(f) and other regulatory compliance. Microsoft recommends that you lock the policy in a reasonable amount of time, typically less than 24 hours. While the unlocked state provides immutability protection, using the unlocked state for any purpose other than short-term testing is not recommended.
-
-## Container protection - verify behavior
-
-Container and storage account deletion are also not permitted if there are any blobs in a container that are protected by a legal hold or a locked time-based policy. A legal hold policy will protect against blob, container, and storage account deletion. Both unlocked and locked time-based policies will protect against blob deletion for the specified time. Both unlocked and locked time-based policies will protect against container deletion only if at least one blob exists within the container. Only a container with *locked* time-based policy will protect against storage account deletions; containers with unlocked time-based policies do not offer storage account deletion protection nor compliance.
-
-The following diagram shows how time-based retention policies and legal holds prevent write and delete operations while they are in effect.
-
-:::image type="content" source="media/storage-blob-immutable-storage/worm-diagram.png" alt-text="Diagram showing how retention policies and legal holds prevent write and delete operations":::
-
-For more information on how to set and lock time-based retention policies, see [Set and manage immutability policies for Blob storage](storage-blob-immutability-policies-manage.md).
 
 ## Audit logging
 
@@ -75,15 +63,11 @@ When versioning is enabled, then when a blob is first uploaded, that version of 
 
 To configure version-level retention policies, you must first enable version-level immutability on the parent container. Version-level immutability can be easily enabled at create time for a new container. Version-level immutability cannot be disabled after it is enabled, although locked policies can be deleted.
 
-> [!NOTE]
-> It may take up to 30 seconds after version-level immutability is enabled before you can configure version-level time-based retention policies
-
-Existing containers must be migrated to support version-level immutability. This process may take some time and is not reversible.
-
-To learn more about how to enable version-level immutability for a container, see ???.
+Existing containers must be migrated to support version-level immutability. This process may take some time and is not reversible. To learn more about how to migrate a container to support version-level immutability, see .
 
 > [!IMPORTANT]
 > Version-level time-based retention policies are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> It may take up to 30 seconds after version-level immutability is enabled before you can configure version-level time-based retention policies
 
 #### Configure a policy on the current version
 
@@ -133,27 +117,15 @@ The following limits apply to container-level retention policies:
 
 Append blobs are comprised of blocks of data and optimized for data append operations required by auditing and logging scenarios. By design, append blobs only allow the addition of new blocks to the end of the blob. Regardless of immutability, modification or deletion of existing blocks in an append blob is fundamentally not allowed. To learn more about append blobs, see [About Append Blobs](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs).
 
-Only time-based retention policies have an `allowProtectedAppendWrites` setting that allows for writing new blocks to an append blob while maintaining immutability protection and compliance. If this setting is enabled, you are allowed to create an append blob directly in the policy-protected container and continue to add new blocks of data to the end of existing append blobs using the *AppendBlock* API. Only new blocks can be added and any existing blocks cannot be modified or deleted. Time-retention immutability protection still applies, preventing deletion of the append blob until the effective retention period has elapsed. Enabling this setting does not affect the immutability behavior of block blobs or page blobs.
+Only time-based retention policies have an the **AllowProtectedAppendWrites** property setting that allows for writing new blocks to an append blob while maintaining immutability protection and compliance. If this setting is enabled, you can create an append blob directly in the policy-protected container and then continue to add new blocks of data to the end of the append blob with the Append Block operation. Only new blocks can be added; any existing blocks cannot be modified or deleted. Time-retention immutability protection still applies, preventing deletion of the append blob until the effective retention period has elapsed. Enabling this setting does not affect the immutability behavior of block blobs or page blobs.
 
 As this setting is part of a time-based retention policy, the append blobs remain in the immutable state for the duration of the *effective* retention period. Since new data can be appended beyond the initial creation of the append blob, there is a slight difference in how the retention period is determined. The effective retention is the difference between append blob's last modification time and the user-specified retention interval. Similarly, when the retention interval is extended, immutable storage uses the most recent value of the user-specified retention interval to calculate the effective retention period.
 
-For example, suppose that a user creates a time-based retention policy with `allowProtectedAppendWrites` enabled and a retention interval of 90 days. An append blob, _logblob1_, is created in the container today, new logs continue to be added to the append blob for the next 10 days; so, the effective retention period for the _logblob1_ is 100 days from today (the time of its last append + 90 days).
+For example, suppose that a user creates a time-based retention policy with the **AllowProtectedAppendWrites** property enabled and a retention interval of 90 days. An append blob, _logblob1_, is created in the container today, new logs continue to be added to the append blob for the next 10 days, so that the effective retention period for _logblob1_ is 100 days from today (the time of its last append + 90 days).
 
-Unlocked time-based retention policies allow the `allowProtectedAppendWrites` setting to be enabled and disabled at any time. Once the time-based retention policy is locked, the `allowProtectedAppendWrites` setting cannot be changed.
-
-Legal hold policies cannot enable `allowProtectedAppendWrites` and any legal holds will nullify the 'allowProtectedAppendWrites' property. If a legal hold is applied to a time-based retention policy with `allowProtectedAppendWrites` enabled, the *AppendBlock* API will fail until the legal hold is lifted.
-
-
-## Supported configurations
-
-Time-based retention policies are supported for both new and existing storage accounts. The following types of storage accounts are supported for each type of:
-
-
-
+Unlocked time-based retention policies allow the the **AllowProtectedAppendWrites** property setting to be enabled and disabled at any time. Once the time-based retention policy is locked, the **AllowProtectedAppendWrites** property setting cannot be changed.
 
 ## Next steps
 
-- [Set and manage immutability policies for Blob storage](storage-blob-immutability-policies-manage.md)
-- [Set rules to automatically tier and delete blob data with lifecycle management](storage-lifecycle-management-concepts.md)
-- [Soft delete for Azure Storage blobs](./soft-delete-blob-overview.md)
-- [Protect subscriptions, resource groups, and resources with Azure Resource Manager locks](../../azure-resource-manager/management/lock-resources.md).
+- [Store business-critical blob data with immutable storage](immutable-storage-overview.md)
+- [Legal holds for immutable blob data](immutable-legal-hold-overview.md)
