@@ -15,7 +15,7 @@ ms.date: 06/26/2021
 
 If you are setting up an Azure Cognitive Search indexer that connects to an Azure SQL managed instance, you will need to enable a public endpoint on the managed instance as a prerequisite. An indexer connects to a managed instance over a public endpoint.
 
-This article provides basic steps that include collecting information necessary for data source configuration. For more information and methodologies, see [Configure public endpoint in Azure SQL Managed Instance](../azure-sql/managed-instance/public-endpoint-configure).
+This article provides basic steps that include collecting information necessary for data source configuration. For more information and methodologies, see [Configure public endpoint in Azure SQL Managed Instance](../azure-sql/managed-instance/public-endpoint-configure.md).
 
 ## Enable a public endpoint
 
