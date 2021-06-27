@@ -115,7 +115,7 @@ Ensure the following for the VM,  after it is failed over to Azure:
 
 1. The VM in Azure should always be switched on.
 2. Ensure mobility agent services *service 1* and *service 2* are running on the VM. This is to ensure mobility agent in the VM can communicate with ASR services in Azure.
-3. The URLs mentioned [here](vmware-azure-architecture-latest.md#outbound-connectivity-urls) are accessible from the VM.
+3. The URLs mentioned [here](vmware-azure-architecture-preview.md#outbound-connectivity-urls) are accessible from the VM.
 
 ## Cancel planned failover
 
