@@ -171,7 +171,7 @@ In the following example, the claims transformation extracted the `emailAddress`
 - Output claims:
   - **extractedClaim**: someone@example.com
 
-The GetClaimFromJson claims transformation gets a single element from a JSON data. In the preceding example the emailAddress. To get the displayName create another claims transformation. For example:
+The GetClaimFromJson claims transformation gets a single element from a JSON data. In the preceding example, the emailAddress. To get the displayName, create another claims transformation. For example:
 
 ```xml
 <ClaimsTransformation Id="GetDispalyNameClaimFromJson" TransformationMethod="GetClaimFromJson">
