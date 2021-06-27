@@ -4,10 +4,11 @@ description: In this tutorial, you build the environment needed to deploy verifi
 documentationCenter: ''
 author: barclayn
 manager: daveba
+ms.custom: subject-rbac-steps
 ms.service: active-directory
 ms.topic: tutorial
 ms.subservice: verifiable-credentials
-ms.date: 05/18/2021
+ms.date: 06/24/2021
 ms.author: barclayn
 ms.reviewer: 
 
@@ -220,16 +221,17 @@ Before creating our first verifiable credential, we need to create a Blob Storag
 Before creating the credential, we need to first give the signed in user the correct role assignment so they can access the files in Storage Blob.
 
 1. Navigate to **Storage** > **Container**.
-2. Choose **Access Control (IAM)** from the menu on the left.
-3. Choose **Role Assignments**.
-4. Select **Add**.
-5. In the **Role** section, choose **Storage Blob Data Reader**.
-6. Under **Assign access to** choose **User, group, or service principle**.
-7. In **Select**: Choose the account that you are using to perform these steps.
-8. Select **Save** to complete the role assignment.
+1. Select **Access control (IAM)**.
+1. Select **Add** > **Add role assignment** to open the Add role assignment page.
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+    
+    | Setting | Value |
+    | --- | --- |
+    | Role | Storage Blob Data Reader |
+    | Assign access to | User, group, or service principle |
+    | Select | &lt;account that you are using to perform these steps&gt; |
 
-
-   ![Add a role assignment](media/enable-your-tenant-verifiable-credentials/role-assignment.png)
+    ![Add role assignment page in Azure portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
   >[!IMPORTANT]
   >By default, container creators get the **Owner** role assigned. The **Owner** role is not enough on its own. Your account needs  the **Storage Blob Data Reader** role. For more information review [Use the Azure portal to assign an Azure role for access to blob and queue data](../../storage/common/storage-auth-aad-rbac-portal.md)
