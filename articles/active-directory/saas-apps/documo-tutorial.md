@@ -74,11 +74,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, the user does not have to perform any step as the app is already pre-integrated with Azure.
+1. On the **Basic SAML Configuration** section, the user does not have to perform any step as the app is already pre-integrated with Azure. If your Documo account has a custom domain, you must also have a custom API domain for SSO to work. Replace the default values with your custom API domain, for example, `https://mycustomapidomain.com` and `https://mycustomapidomain.com/assert`.
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    In the **Sign-on URL** text box, type the URL:
+    In the **Sign-on URL** text box, type the URL:  
     `https://app.documo.com/sso`
 
 1. Click **Save**.
@@ -139,7 +139,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     d. Enter the value in the **Field Name in SAML Token containing Identity email** text box.
 
-    e. Open the downloaded **Federation Metadata XML** from the Azure portal into Notepad and paste the content into the **Signer Certificate** textbox.
+    e. Open the downloaded **Federation Metadata XML** from the Azure portal into Notepad. Find the `<X509Certificate>` tag and paste the content into the **Signer Certificate** textbox.
 
     f. Click **Submit**.
 

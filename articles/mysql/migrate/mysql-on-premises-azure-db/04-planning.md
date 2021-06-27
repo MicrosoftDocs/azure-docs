@@ -1,5 +1,5 @@
 ---
-title: "MySQL on-premises to Azure Database for MySQL migration guide Planning"
+title: "Migrate MySQL on-premises to Azure Database for MySQL: Planning"
 description: "an azure landing zone is the target environment defined as the final resting place of a cloud migration project."
 ms.service: mysql
 ms.subservice: migration-guide
@@ -8,10 +8,10 @@ author: arunkumarthiags
 ms.author: arthiaga
 ms.reviewer: maghan
 ms.custom:
-ms.date: 06/14/2021
+ms.date: 06/21/2021
 ---
 
-# MySQL on-premises to Azure Database for MySQL migration guide Planning
+# Migrate MySQL on-premises to Azure Database for MySQL: Planning
 
 ## Prerequisites
 
@@ -50,12 +50,12 @@ The migration tool location determines the network connectivity requirements. As
 
 | Migration Tool | Type | Location | Inbound Network Requirements | Outbound Network Requirements |
 |----------------|------|----------|------------------------------|-------------------------------|
-| **Database Migration Service (DMS)** | Offline | Azure | Allow 3306 from external IP | A path to connect to the Azure MySQL database instance |
-| **Import/Export (MySQL Workbench, mysqldump)** | Offline | On-premises | Allow 3306 from internal IP | A path to connect to the Azure MySQL database instance |
-| **Import/Export (MySQL Workbench, mysqldump)** | Offline | Azure VM | Allow 3306 from external IP | A path to connect to the Azure MySQL database instance |
+| **Database Migration Service (DMS)** | Offline | Azure| Allow 3306 from external IP | A path to connect to the Azure MySQL database instance |
+| **Import/Export (MySQL Workbench, mysqldump)** | Offline| On-premises | Allow 3306 from internal IP | A path to connect to the Azure MySQL database instance |
+| **Import/Export (MySQL Workbench, mysqldump)** | Offline| Azure VM | Allow 3306 from external IP | A path to connect to the Azure MySQL database instance |
 | **mydumper/myloader** | Offline | On-premises | Allow 3306 from internal IP | A path to connect to the Azure MySQL database instance |
 | **mydumper/myloader** | Offline | Azure VM | Allow 3306 from external IP | A path to connect to the Azure MySQL database instance |
-| **binlog** | Offline | On-premises | Allow 3306 from external IP or private IP via Private endpoints | A path for each replication server to the master |
+| **binlog**  | Offline | On-premises | Allow 3306 from external IP or private IP via Private endpoints | A path for each replication server to the master |
 
 Other networking considerations include:
 
@@ -88,8 +88,10 @@ WWI originally wanted to test an online migration, but the required network setu
 
 - Determine if you're going to use the online or offline data migration strategy.
 
-- Decide on the SSL certificate strategy.  
+- Decide on the SSL certificate strategy.
 
+
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Migration Methods](./05-migration-methods.md)
