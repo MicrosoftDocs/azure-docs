@@ -133,22 +133,22 @@ Follow these steps to enable replication:
   -  Managed disks
     -  By default, premium SSD managed disks are created in Azure. You can customize the type of Managed disks by Selecting on **Customize**. Choose the type of disk based on the business requirement. Ensure [appropriate disk type is chosen](https://docs.microsoft.com/azure/virtual-machines/disks-types#disk-comparison) based on the IOPS of the source machine disks. For pricing information, refer to the managed disk pricing document [here](https://azure.microsoft.com/pricing/details/managed-disks/).
 
-    >[!NOTE]
+  >[!NOTE]
     > If mobility agent is installed manually before enabling replication, you can change the type of managed disk at a disk level. Else, by default, one managed disk type can be chosen at a machine level.
 
 10. Create a new replication policy if needed.
 
    A default replication policy gets created under the vault with 72 hour recovery point retention and 4 hour app consistency frequency.  You can create a new replication policy as per your RPO requirements.
 
-      - Select **Create new**.
+    - Select **Create new**.
 
-      - Enter the name
+    - Enter the Name.
 
-      - Enter **Recovery point retention** in hours
+    - Enter **Recovery point retention** in hours
 
-      - Select **App-consistent snapshot frequency in hours** as per business requirements
+    - Select **App-consistent snapshot frequency in hours** as per business requirements
 
-      - Select **OK** to save the policy.
+    - Select **OK** to save the policy.
 
    The policy will be created and can used for protecting the chosen source machines.
 
