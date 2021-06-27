@@ -23,7 +23,8 @@ You must make a cloud service swappable with another cloud service when you depl
 
 You can swap the deployments by using an Azure Resource Manager template (ARM template), the Azure portal, or the REST API.
 
-> [!Note] Upon deployment of the second cloud service, both the cloud services have their SwappableCloudService property set to point to each other. Any subsequent update to these cloud services will need to specify this property failing which an error will be returned indicating that the SwappableCloudService property cannot be deleted or updated.
+> [!Note] 
+> Upon deployment of the second cloud service, both the cloud services have their SwappableCloudService property set to point to each other. Any subsequent update to these cloud services will need to specify this property failing which an error will be returned indicating that the SwappableCloudService property cannot be deleted or updated.
 > 
 > Once set, the SwappableCloudService property is treated as readonly. It cannot be deleted or changed to another value. Deleting one of the cloud services (of the swappable pair) will result in the SwappableCloudService  property of the remaining cloud service being cleared.
 
