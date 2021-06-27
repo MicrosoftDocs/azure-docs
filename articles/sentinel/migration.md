@@ -6,7 +6,7 @@ documentationcenter: na
 author: batamig
 ms.service: azure-sentinel
 ms.topic: conceptual
-ms.date: 06/24/2021
+ms.date: 06/27/2021
 ms.author: bagol
 ---
 
