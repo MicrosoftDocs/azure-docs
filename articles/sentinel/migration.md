@@ -176,12 +176,19 @@ Azure Sentinel uses machine learning analytics to create high-fidelity and actio
 
 1. Verify whether your detections are available as built-in templates in Azure Sentinel.
 
-    |Scenario  |Description  |
-    |---------|---------|
-    |**If the built-in rules are sufficient**     |   Use built-in rule templates to create rules for your own workspace. <br><br>In Azure Sentinel, go to the **Configuration > Analytics > Rule templates** tab, and create and update each relevant analytics rule. <br><br>For more information, see [Detect threats out-of-the-box](tutorial-detect-threats-built-in.md).     |
-    |**If you have detections that aren't covered by Azure Sentinel's built-in rules**     |  Try an online query converter, such as [Uncoder.io](https://uncoder.io/) to convert your queries to KQL. <br><br>Identify the trigger condition and rule action, and then construct and review your KQL query.       |
-    |**If neither the built-in rules nor an online rule converter is sufficient**     |   You'll need to create the rule manually. Use the following steps to start creating your rule:  <br><br>      1. Identify the data sources you want to use in your rule. You'll want to create a mapping table between data sources and data tables in Azure Sentinel to identify the tables you want to query. <br><br>2. Identify any attributes, fields, or entities in your data that you want to use in your rules.<br><br>3. Identify your rule criteria and logic. At this stage, you may want to to use rule templates as samples for how to construct your KQL queries. Consider filters, correlation rules, activelists, reference sets, watchlists, detection anomalies, aggregations, and so on. You might use references provided by your legacy SIEM to understand how to best map your query syntax.<br><br>4. Identify the trigger condition and rule action, and then construct and review your KQL query. When reviewing your query, consider KQL optimization guidance resources.    |
-    |     |         |
+    **If the built-in rules are sufficient**, use built-in rule templates to create rules for your own workspace. In Azure Sentinel, go to the **Configuration > Analytics > Rule templates** tab, and create and update each relevant analytics rule. For more information, see [Detect threats out-of-the-box](tutorial-detect-threats-built-in.md).
+
+    **If you have detections that aren't covered by Azure Sentinel's built-in rules**, try an online query converter, such as [Uncoder.io](https://uncoder.io/) to convert your queries to KQL. Identify the trigger condition and rule action, and then construct and review your KQL query.
+
+    **If neither the built-in rules nor an online rule converter is sufficient**, you'll need to create the rule manually. In such cases, use the following steps to start creating your rule:
+
+      1. Identify the data sources you want to use in your rule. You'll want to create a mapping table between data sources and data tables in Azure Sentinel to identify the tables you want to query.
+
+      1. Identify any attributes, fields, or entities in your data that you want to use in your rules.
+
+      1. Identify your rule criteria and logic. At this stage, you may want to to use rule templates as samples for how to construct your KQL queries. Consider filters, correlation rules, activelists, reference sets, watchlists, detection anomalies, aggregations, and so on. You might use references provided by your legacy SIEM to understand how to best map your query syntax.
+
+      1. Identify the trigger condition and rule action, and then construct and review your KQL query. When reviewing your query, consider KQL optimization guidance resources.
 
 1. Test the rule with each of your relevant use cases. If it doesn't provided expected results, you may want to review the KQL and test it again.
 
