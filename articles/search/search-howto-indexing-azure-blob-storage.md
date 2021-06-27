@@ -1,7 +1,7 @@
 ---
-title: Configure a Blob indexer
+title: Index data from Azure Blob Storage
 titleSuffix: Azure Cognitive Search
-description: Set up an Azure Blob indexer to automate indexing of blob content for full text search operations in Azure Cognitive Search.
+description: Set up an Azure Blob indexer to automate indexing of blob content for full text search operations and knowledge mining in Azure Cognitive Search.
 
 manager: nitinme
 author: MarkHeff
@@ -12,11 +12,19 @@ ms.date: 05/14/2021
 ms.custom: contperf-fy21q3
 ---
 
-# How to configure blob indexing in Cognitive Search
+# Index data from Azure Blob Storage
 
-A blob indexer is used for ingesting content from Azure Blob Storage into a Cognitive Search index. Blob indexers are frequently used in [AI enrichment](cognitive-search-concept-intro.md), where an attached [skillset](cognitive-search-working-with-skillsets.md) adds image and natural language processing to create searchable content. But you can also use blob indexers without AI enrichment, to ingest content from text-based documents such as PDFs, Microsoft Office documents, and file formats.
+This article shows you how to configure an Azure blob indexer to extract content and make it searchable in Azure Cognitive Search. This workflow creates a search index on Azure Cognitive Search and loads it with existing content and metadata extracted from Azure Blob Storage.
 
-This article shows you how to configure a blob indexer for either scenario. If you're unfamiliar with indexer concepts, start with [Indexers in Azure Cognitive Search](search-indexer-overview.md) and [Create a search indexer](search-howto-create-indexers.md) before diving into blob indexing.
+Blob indexers are frequently used in [AI enrichment](cognitive-search-concept-intro.md), where an attached [skillset](cognitive-search-working-with-skillsets.md) adds image and natural language processing to create searchable content out of non-searchable content types in blob containers.
+
+This article shows you how to configure an Azure blob indexer for text-focused indexing. You can set up an Azure Blob Storage indexer by using any of these clients:
+
+* [Azure portal](https://ms.portal.azure.com)
+* Azure Cognitive Search [REST API](/rest/api/searchservice/Indexer-operations)
+* Azure Cognitive Search [.NET SDK](/dotnet/api/azure.search.documents.indexes.models.searchindexer)
+
+This article uses the REST APIs. 
 
 ## Supported access tiers
 

@@ -1,9 +1,8 @@
 ---
-title: How to configure an indexer to pull content and metadata from Azure Data Lake Storage Gen2
+title: Index data from Azure Data Lake Storage Gen2
 titleSuffix: Azure Cognitive Search
-description: Learn how to index content and metadata in Azure Data Lake Storage Gen2.
+description: Set up an Azure Data Lake Storage Gen2 indexer to automate indexing of content and metadata for full text search in Azure Cognitive Search.
 
-manager: luisca
 author: markheff
 ms.author: maheff
 ms.service: cognitive-search
@@ -11,11 +10,11 @@ ms.topic: conceptual
 ms.date: 05/17/2021
 ---
 
-# How to configure an indexer to pull content and metadata from Azure Data Lake Storage Gen2
+# Index data from Azure Data Lake Storage Gen2
 
-When setting up an Azure storage account, you have the option to enable [hierarchical namespace](../storage/blobs/data-lake-storage-namespace.md). This allows the collection of content in an account to be organized into a hierarchy of directories and nested subdirectories. By enabling hierarchical namespace, you enable [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md).
+This article shows you how to configure an Azure Data Lake Storage Gen2 indexer to extract content and make it searchable in Azure Cognitive Search. This workflow creates a search index on Azure Cognitive Search and loads it with existing content extracted from Azure Data Lake Storage Gen2.
 
-This article describes how to get started with indexing documents that are in Azure Data Lake Storage Gen2.
+Azure Data Lake Storage Gen2 is available through Azure Storage. When setting up an Azure storage account, you have the option to enable [hierarchical namespace](../storage/blobs/data-lake-storage-namespace.md). This allows the collection of content in an account to be organized into a hierarchy of directories and nested subdirectories. By enabling hierarchical namespace, you enable [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md).
 
 ## Supported access tiers
 
