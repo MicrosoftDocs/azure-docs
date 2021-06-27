@@ -22,12 +22,12 @@ ms.reviewer: yuhko, saumadan, marsma
 
 The information security principle of least privilege asserts that users and applications should be granted access only to the data and operations they require to perform their jobs.
 
-Follow this guidance to help reduce your application's attack surface and the impact of a security breach (the *blast radius*) should one occur in your Microsoft identity platform-integrated application.
+Follow the guidance here to help reduce your application's attack surface and the impact of a security breach (the *blast radius*) should one occur in your Microsoft identity platform-integrated application.
 
 ## Recommendations at a glance
 
 - Prevent **overprivileged** applications by revoking *unused* and *reducible* permissions
-- Use the identity platform's **consent** framework to require that a human grant the app permission to the minimum level of access
+- Use the identity platform's **consent** framework to require that a human consents to the app's request to access protected data
 - **Build** applications with least privilege in mind during all stages of development
 - **Audit** your organization's applications periodically to identify overprivileged apps
 
@@ -43,7 +43,7 @@ Any application that's been granted an **unused** or **reducible** permission is
 
         - **Example**: An application displays a list of files stored in the signed-in user's OneDrive by calling the Microsoft Graph API and leveraging the [Files.Read](/graph/permissions-reference) permission. However, the app has also been granted the [Calendars.Read](/graph/permissions-reference#calendars-permissions) permission, yet it provides no calendar features and doesn't call the Calendars API.
 
-        - **Security risk**: Unused permissions pose risk of *horizontal privilege escalation*. An entity that exploits a security vulnerability in your application could use an unused permission to gain access to an API or operation not normally supported or allowed by the application when it's used as intended.
+        - **Security risk**: Unused permissions pose a *horizontal privilege escalation* security risk. An entity that exploits a security vulnerability in your application could use an unused permission to gain access to an API or operation not normally supported or allowed by the application when it's used as intended.
 
         - **Mitigation**: Revoke any permission not used by any API call your application makes.
    :::column-end:::
@@ -64,7 +64,9 @@ Avoid security risks posed by unused and reducible permissions by granting *just
 
 ## Use consent to control access to data
 
-Access to protected data requires [consent](application-consent-experience.md#consent-and-permissions) from the end user. Whenever an application that runs in your user's device requests access to protected data, the app should ask for the user's consent before granting access to the protected data. The end user is required to grant (or deny) consent for the requested permission before the application can progress. As an application developer, it's best to request access permission with the least privilege.
+Most applications you build will require access to protected data, and the owner of that data needs to [consent](application-consent-experience.md#consent-and-permissions) that access. Consent can be granted in several ways, including by a tenant administrator who can consent for *all* users in an Azure AD tenant, or by the application users themselves who can grant access
+
+Whenever an application that runs in your user's device requests access to protected data, the app should ask for the user's consent before granting access to the protected data. The end user is required to grant (or deny) consent for the requested permission before the application can progress.
 
 :::image type="content" source="./media/least-privilege-best-practice/api-permissions.png" alt-text="Azure portal screenshot showing an app registration's API permissions pane":::)
 
