@@ -15,9 +15,7 @@ Before you install the Defender for IoT module, you must create a module identit
 
 ## Install the package
 
-Install configure the Microsoft package repository by following 
-
-Add the appropriate Microsoft package repository. 
+**To add the appropriate Microsoft package repository**:
 
 1. Download the repository configuration that matches your device operating system.  
 
