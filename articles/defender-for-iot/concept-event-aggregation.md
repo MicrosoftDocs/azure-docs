@@ -99,38 +99,6 @@ The data collected for each event:
 
 - **Severity** - The severity check.
 
-## Configurations 
-
-After a change is made to the configurations, the collector immediately sends the current data. After the data is sent, the changes are applied. 
-
-### Event-based collectors configurations 
-
-Event-based collector configurations include Process, and Network collectors:
-
-- ***Priority*** - Can be ``high``, ``medium``, or ``low``. The default frequency in which this information is sent is ``medium``.
-
-- **Aggregation mode** - Can be ``true``, or ``false``. Indicate whether to enable event aggregation for identical events. The default is ``true``.
-
-- **Cache size** - The number of events collected in-between being sent. For example, First In First Out (cycle FIFO). The default is ``256``. 
-
-- **Collector** - ``Enable``, or ``Disable`` the collector.
-
-### Trigger based collectors configurations 
-
-Trigger based collectors configurations include System information, and Baseline collectors 
-
-- **Interval** – Can be ``high``, ``medium``, or ``low``. The default frequency in which this information is sent is ``low``.
-
-- **Collector** - ``Enable``, or ``Disable`` the collector.
-
-### Baseline collector specific configurations  
-
-The baseline collector specific configurations include:
-
-- **Group** - ``Enable``, or ``Disable`` the group.
-
-- **Check** - ``Enable``, or ``Disable`` the per check.
-
 ## Next steps
 
 Check your [Defender for IoT security alerts](concept-security-alerts.md).
