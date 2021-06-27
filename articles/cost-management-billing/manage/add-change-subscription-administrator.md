@@ -42,13 +42,13 @@ If you're not sure who the account administrator is for a subscription, use the 
 - Assign the Owner role to a user at the subscription scope.  
      For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
+## Need help? Contact support
+
+If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
+
 ## Next steps
 
 * [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md)
 * [Understand the different roles in Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 * [Associate or add an Azure subscription to your Azure Active Directory tenant](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 * [Administrator role permissions in Azure Active Directory](../../active-directory/roles/permissions-reference.md)
-
-## Need help? Contact support
-
-If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
