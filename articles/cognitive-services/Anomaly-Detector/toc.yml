@@ -64,6 +64,8 @@
       href: concepts/multivariate-architecture.md
 - name: Tutorials
   items:
+    - name: Learning Multivariate Anomaly Detection in 1 Hour
+      href: tutorials/learn-multivariate-anomaly-detection.md
     - name: Visualize anomalies as a batch using Power BI
       href: tutorials/batch-anomaly-detection-powerbi.md
 - name: Responsible use of AI
