@@ -106,7 +106,7 @@ A deployment manifest is a JSON document that describes which modules to deploy,
     > Don't select **Add** until you've specified values on the **Module Settings**, **Container Create Options**, and **Module Twin Settings** tabs as described in this procedure.
     
     > [!WARNING]
-    > Azure IoT Edge is case-sensitive when you make calls to modules. Make note of the exact string you use as the module name.`
+    > Azure IoT Edge is case-sensitive when you make calls to modules. Make note of the exact string you use as the module name.
 
 1. Open the **Environment Variables** tab.
    
@@ -172,7 +172,7 @@ A deployment manifest is a JSON document that describes which modules to deploy,
     ```
 1. Select **Next: Routes** to continue to the routes section. Specify routes.
 
-    Under NAME, enter **AVAToHub**, and under VALUE, enter **FROM /messages/modules/avaedge/outputs/ INTO $upstream***
+    Under NAME, enter **AVAToHub**, and under VALUE, enter **FROM /messages/modules/avaedge/outputs/ INTO $upstream**
 1. Select Next: **Review + create** to continue to the review section.
 1. Review your deployment information, then select **Create** to deploy the module.
 
