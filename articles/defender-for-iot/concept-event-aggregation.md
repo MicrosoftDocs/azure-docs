@@ -61,7 +61,9 @@ The default buffer for network connection events is 256. In situations where the
 
 - **Azure RTOS devices**: No new network events will be cached until the next collection cycle.  
 
-- **Linux devices**: The oldest event will be replaced by every new event. A warning to increase the cache size will be logged. 
+- **Linux devices**: The oldest event will be replaced by every new event. A warning to increase the cache size will be logged.
+
+For Linux device only IPv4 is supported.
 
 ### Data collection
 
