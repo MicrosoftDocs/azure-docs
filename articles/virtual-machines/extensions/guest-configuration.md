@@ -111,7 +111,7 @@ To deploy the extension for Linux:
   "properties": {
     "publisher": "Microsoft.GuestConfiguration",
     "type": "ConfigurationforLinux",
-    "typeHandlerVersion": "1.0"
+    "typeHandlerVersion": "1.0",
     "autoUpgradeMinorVersion": true,
     "settings": {},
     "protectedSettings": {}
@@ -133,7 +133,7 @@ To deploy the extension for Windows:
   "properties": {
     "publisher": "Microsoft.GuestConfiguration",
     "type": "ConfigurationforWindows",
-    "typeHandlerVersion": "1.0"
+    "typeHandlerVersion": "1.0",
     "autoUpgradeMinorVersion": true,
     "settings": {},
     "protectedSettings": {}
