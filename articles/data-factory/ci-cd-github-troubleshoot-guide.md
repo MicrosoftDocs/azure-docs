@@ -6,7 +6,7 @@ ms.author: susabat
 ms.reviewer: susabat
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 04/27/2021
+ms.date: 06/27/2021
 ---
 
 # Troubleshoot CI-CD, Azure DevOps, and GitHub issues in ADF 
@@ -242,13 +242,24 @@ Unselect **Include in ARM template** and deploy global parameters with PowerShel
 ### Extra  left "[" displayed in published JSON file
 
 #### Issue
-When publishing ADF with DevOps, there is one more left "[" displayed. ADF adds one more left "[" in ARMTemplate in DevOps automatically. 
+When publishing ADF with DevOps, there is one more left "[" displayed. ADF adds one more left "[" in ARMTemplate in DevOps automatically.You will see expression like "[[" in JSON file.
 
 #### Cause
 Because [ is a reserved character for ARM, an extra [ is added automatically to escape "[".
 
 #### Resolution
 This is normal behavior during ADF publishing process for CI/CD.
+ 
+### Perform **CI/CD** during  progress/queued stage of pipeline run
+
+#### Issue
+You want to perform CI/CD during progress and queuing stage of pipeline run.
+
+#### Cause
+When pipeline is in progress/queued stage, you have to monitor the pipeline and  activities at first. Then, you can decide to wait until pipeline to finish or you can cancel the pipeline run. 
+ 
+#### Resolution
+ You can monitor pipeline using Azure Monitor or ADF portal.Then, you can follow [ADF CI/CD Best Practices](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment#best-practices-for-cicd) to guide your further. 
 
 ## Next steps
 
