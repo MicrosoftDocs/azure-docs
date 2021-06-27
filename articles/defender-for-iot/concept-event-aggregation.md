@@ -1,7 +1,7 @@
 ---
 title: Event aggregation (Preview)
 description: Defender for IoT security agents collects data and system events from your local device, and sends the data to the Azure cloud for processing, and analytics.
-ms.date: 06/20/2021
+ms.date: 06/27/2021
 ms.topic: conceptual
 ---
 
@@ -17,11 +17,17 @@ To reduce the extra quota, and costs while keeping your devices protected, Defen
 
 - System information
 
+- Baseline
+
 ## How does event aggregation work? 
 
 Defender for IoT agents aggregate events for the interval period, or time window. Once the interval period has passed, the agent sends the aggregated events to the Azure cloud for further analysis. The aggregated events are stored in memory until being sent to the Azure cloud. 
 
-The agent can collect identical events to ones that are already stored in memory. This collection causes the agent to increases the hit count of this specific event to reduce the memory footprint of the agent. When the aggregation time window passes, the agent sends the hit count of each type of event that occurred. Event aggregation is simply the aggregation of the hit counts of each collected type of event. 
+The agent collects identical events to the ones that are already stored in memory. This collection causes the agent to increases the hit count of this specific event to reduce the memory footprint of the agent. When the aggregation time window passes, the agent sends the hit count of each type of event that occurred. Event aggregation is simply the aggregation of the hit counts of each collected type of event. 
+
+Event based collectors are collectors that are triggered based on corresponding activity from within the device. For example, a process was started in the device.  
+
+Triggered based collectors are collectors that are triggered in a scheduled manner based on the customer's configurations. 
 
 ## Process events (event based)
 
