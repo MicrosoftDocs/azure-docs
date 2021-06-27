@@ -107,14 +107,14 @@ The **OrchestrationStep** element can contain the following elements:
 
 ### Preconditions
 
-Orchestration steps can be conditionally executed based on preconditions defined in the orchestration step. The `Preconditions` element contains a list of preconditions that must be satisfied for the orchestration step to execute. Each precondition evaluates a single claim. When the precondition evaluation is satisfied, the associated orchestration step skips to the next orchestration step. 
+Orchestration steps can be conditionally executed based on preconditions defined in the orchestration step. The `Preconditions` element contains a list of preconditions to evaluate. When the precondition evaluation is satisfied, the associated orchestration step skips to the next orchestration step. 
 
-There are two types of preconditions:
+Each precondition evaluates a single claim. There are two types of preconditions:
  
 - **Claims exist** - Specifies that the actions should be performed if the specified claims exist in the user's current claim bag.
 - **Claim equals** - Specifies that the actions should be performed if the specified claim exists, and its value is equal to the specified value. The check performs a case-sensitive ordinal comparison. When checking Boolean claim type, use `True`, or `False`.
 
-Azure AD B2C evaluates the preconditions in list order. The oder-based preconditions allows you set the order in which the preconditions are applied. The first precondition that satisfied overrides all the subsequent preconditions. 
+Azure AD B2C evaluates the preconditions in list order. The oder-based preconditions allows you set the order in which the preconditions are applied. The first precondition that satisfied overrides all the subsequent preconditions. The orchestration step is executed only if all of the preconditions are not satisfied. 
 
 The **Preconditions** element contains the following element:
 
@@ -129,7 +129,7 @@ The **Precondition** element contains the following attributes:
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | `Type` | Yes | The type of check or query to perform for this precondition. The value can be **ClaimsExist**, which specifies that the actions should be performed if the specified claims exist in the user's current claim set, or **ClaimEquals**, which specifies that the actions should be performed if the specified claim exists and its value is equal to the specified value. |
-| `ExecuteActionsIf` | Yes | Decides if the `Action` in the precondition should be performed when the evaluation is satisfied, or not. Possible values: `true` (default), or `false`.  |
+| `ExecuteActionsIf` | Yes | Decides whether the precondition is considered satisfied. Possible values: `true` (default), or `false`. If the value is set to `true`, it's considered satisfied when the precondition evaluation is truthy.  If the value is set to `false`, it's considered satisfied when the precondition evaluation is fallsy.  |
 
 The **Precondition** elements contains the following elements:
 
