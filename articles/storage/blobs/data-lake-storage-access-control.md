@@ -153,7 +153,7 @@ The owning group can be changed by:
 
 The following pseudocode represents the access check algorithm for storage accounts.
 
-```Python
+```python
 def access_check( user, desired_perms, path ) : 
   # access_check returns true if user has the desired permissions on the path, false otherwise
   # user is the identity that wants to perform an operation on path
