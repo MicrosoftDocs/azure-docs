@@ -62,15 +62,15 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Connect with Windows Desktop
-            url: ./use-clients-access/connect-windows-7-10.md
+            url: ./user-documentation/connect-windows-7-10.md
           - text: Connect with the web client
-            url: ./use-clients-access/connect-web.md
+            url: ./user-documentation/connect-web.md
           - text: Connect with Android
-            url: ./use-clients-access/connect-android.md
+            url: ./user-documentation/connect-android.md
           - text: Connect with macOS
-            url: ./use-clients-access/connect-macos.md
+            url: ./user-documentation/connect-macos.md
           - text: Connect with iOS
-            url: ./use-clients-access/connect-ios.md
+            url: ./user-documentation/connect-ios.md
           - text: Connect with Linux or thin clients 
-            url: ./use-clients-access/linux-overview.md
+            url: ./user-documentation/linux-overview.md
 
