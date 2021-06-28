@@ -32,8 +32,6 @@ Automanage supports the following operating systems for Arc enabled servers
 
 ## Participating services
 
->[!NOTE]
-
 |Service    |Description    |Environments supported<sup>1</sup>    |Preferences supported<sup>1</sup>    |
 |-----------|---------------|----------------------|-------------------------|
 |[Machines Insights Monitoring](../azure-monitor/vm/vminsights-overview.md)    |Azure Monitor for machines monitors the performance and health of your virtual machines, including their running processes and dependencies on other resources. Learn [more](../azure-monitor/vm/vminsights-overview.md).    |Production    |No    |
