@@ -3,7 +3,7 @@ title: Geo-replicate a registry
 description: Get started creating and managing a geo-replicated Azure container registry, which enables the registry to serve multiple regions with multi-master regional replicas. Geo-replication is a feature of the Premium service tier.
 author: stevelas
 ms.topic: article
-ms.date: 06/09/2021
+ms.date: 06/28/2021
 ms.author: stevelas
 ---
 # Geo-replication in Azure Container Registry
@@ -99,6 +99,7 @@ ACR begins syncing images across the configured replicas. Once complete, the por
 
 ## Considerations for high availability
 
+* For high availability and resiliency, we recommend creating a registry in a region that supports enabling [zone redundancy](zone-reduncancy.md). Enabling zone redundancy in each replica region is also recommended.
 * If an outage occurs in the registry's home region (the region where it was created) or one of its replica regions, a geo-replicated registry remains available for data plane operations such as pushing or pulling container images. 
 * If the registry's home region becomes unavailable, you may be unable to carry out registry management operations including configuring network rules, enabling availability zones, and managing replicas.
 * To plan for high availablity of a geo-replicated registry encrypted with a [customer-managed key](container-registry-customer-managed-keys.md) stored in an Azure key vault, review the guidance for key vault [failover and redundancy](../key-vault/general/disaster-recovery-guidance.md).
