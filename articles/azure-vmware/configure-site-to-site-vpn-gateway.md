@@ -113,8 +113,6 @@ You must have a public-facing IP address terminating on an on-premises VPN devic
 
 ## Connect your VPN site to the hub
 
-[!INCLUDE [Connect VPN sites](../../includes/virtual-wan-tutorial-s2s-connect-vpn-site-include.md)]
-
 1. Select your VPN site name and then select **Connect VPN sites**. 
 
 1. In the **Pre-shared key** field, enter the key previously defined for the on-premise endpoint. 
@@ -131,6 +129,15 @@ You must have a public-facing IP address terminating on an on-premises VPN devic
 1. Select **Connect**. After a few minutes, the site shows the connection and connectivity status.
 
    :::image type="content" source="../../includes/media/virtual-wan-tutorial-connect-vpn-site-include/status.png" alt-text="Screenshot that shows a site-to-site connection and connectivity status." lightbox="../../includes/media/virtual-wan-tutorial-connect-vpn-site-include/status.png":::
+
+   **Connection Status:** This is the status of the Azure resource for the connection that connects the VPN site to the Azure hub’s VPN gateway. Once this control plane operation is successful, Azure VPN gateway and the on-premises VPN device will proceed to establish connectivity.
+
+   **Connectivity Status:** This is the actual connectivity (data path) status between Azure’s VPN gateway in the hub and VPN site. It can show any of the following states:
+
+    * **Unknown**: This state is typically seen if the backend systems are working to transition to another status.
+    * **Connecting**: Azure VPN gateway is trying to reach out to the actual on-premises VPN site.
+    * **Connected**: Connectivity is established between Azure VPN gateway and on-premises VPN site.
+    * **Disconnected**: This status is seen if, for any reason (on-premises or in Azure), the connection was disconnected.
 
 1. [Download the VPN configuration file](../virtual-wan/virtual-wan-site-to-site-portal.md#device) for the on-premises endpoint.  For information about the configuration file, see [About the VPN device configuration file](../virtual-wan/virtual-wan-site-to-site-portal.md#about-the-vpn-device-configuration-file).
 
