@@ -36,7 +36,7 @@ This article assumes that you have familiarity with the following topics:
 
 In this section, you learn how a common network scenario is set up to secure Azure Machine Learning communication with private IP addresses.
 
-The table below compares how services access different parts of an Azure Machine Learning network both with a VNet and without a VNet.
+The following table compares how services access different parts of an Azure Machine Learning network with and without a VNet:
 
 | Scenario | Workspace | Associated resources | Training compute environment | Inferencing compute environment |
 |-|-|-|-|-|-|
@@ -64,7 +64,7 @@ The next five sections show you how to secure the network scenario described abo
 Use the following steps to secure your workspace and associated resources. These steps allow your services to communicate in the virtual network.
 
 1. Create a [Private Link-enabled workspace](how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint) to enable communication between your VNet and workspace.
-1. Add the following services to the virtual network by using _either_ a __service endpoint__ or a __private endpoint__. You must also allow trusted Microsoft services to access these services:
+1. Add the following services to the virtual network by using _either_ a __service endpoint__ or a __private endpoint__. Also allow trusted Microsoft services to access these services:
     
     | Service | Endpoint information | Allow trusted information |
     | ----- | ----- | ----- |
@@ -80,7 +80,7 @@ For detailed instructions on how to complete these steps, see [Secure an Azure M
 ### Limitations
 
 Securing your workspace and associated resources within a virtual network have the following limitations:
-- Using an Azure Machine Learning workspace with private link is not available in the Azure Government or Azure China 21Vianet regions.
+- You can't use a workspace with a private endpoint in the Azure Government and Azure China 21Vianet regions.
 - All resources must be behind the same VNet. However, subnets within the same VNet are allowed.
 
 ## Secure the training environment
@@ -104,7 +104,7 @@ In this section, you learn how Azure Machine Learning securely communicates betw
 
 1. The client submits a training job to the Azure Machine Learning workspace through the private endpoint.
 
-1. Azure Batch services receives the job from the workspace and submits the training job to the compute environment through the public load balancer that's provisioned with the compute resource. 
+1. Azure Batch service receives the job from the workspace. It then submits the training job to the compute environment through the public load balancer for the compute resource. 
 
 1. The compute resource receive the job and begins training. The compute resources accesses secure storage accounts to download training files and upload output.
 
@@ -142,12 +142,12 @@ After securing the workspace with a private link, you then [Enable public access
 
 ### Limitations
 
-- If you use Azure Machine Learning studio over the public internet, some features such as the designer may fail to access your data. This problem happens when the data is stored on a service that is secured behind the VNet. For example, an Azure Storage Account.
+- If you use Azure Machine Learning studio over the public internet, some features such as the designer may fail to access your data. This happens when the data is stored on a service that is secured behind the VNet. For example, an Azure Storage Account.
 ## Optional: enable studio functionality
 
 [Secure the workspace](#secure-the-workspace-and-associated-resources) > [Secure the training environment](#secure-the-training-environment) > [Secure the inferencing environment](#secure-the-inferencing-environment) > **Enable studio functionality** > [Configure firewall settings](#configure-firewall-settings)
 
-If your storage is in a VNet, you first must perform additional configuration steps to enable full functionality in [the studio](overview-what-is-machine-learning-studio.md). By default, the following feature are disabled:
+If your storage is in a VNet, you must use extra configuration steps to enable full functionality in studio. By default, the following features are disabled:
 
 * Preview data in the studio.
 * Visualize data in the designer.
@@ -155,15 +155,18 @@ If your storage is in a VNet, you first must perform additional configuration st
 * Submit an AutoML experiment.
 * Start a labeling project.
 
-To enable full studio functionality while inside of a VNet, see [Use Azure Machine Learning studio in a virtual network](how-to-enable-studio-virtual-network.md). The studio supports storage accounts using either service endpoints or private endpoints.
+To enable full studio functionality, see [Use Azure Machine Learning studio in a virtual network](how-to-enable-studio-virtual-network.md).
 
 ### Limitations
 
-[ML-assisted data labeling](how-to-create-labeling-projects.md#use-ml-assisted-data-labeling) does not support default storage accounts secured behind a virtual network. You must use a non-default storage account for ML assisted data labeling. Note, the non-default storage account can be secured behind the virtual network. 
+[ML-assisted data labeling](how-to-create-labeling-projects.md#use-ml-assisted-data-labeling) doesn't support a default storage account behind a virtual network. Instead, use a storage account other than the default for ML assisted data labeling. 
+
+> [!TIP]
+> As long as it is not the default storage account, the account used by data labeling can be secured behind the virtual network. 
 
 ## Configure firewall settings
 
-Configure your firewall to control access to your Azure Machine Learning workspace resources and the public internet. While we recommend Azure Firewall, you should be able to use  other firewall products to secure your network. If you have questions about how to allow communication through your firewall, please consult the documentation for the firewall you are using.
+Configure your firewall to control traffic between your Azure Machine Learning workspace resources and the public internet. While we recommend Azure Firewall, you can use other firewall products. 
 
 For more information on firewall settings, see [Use workspace behind a Firewall](how-to-access-azureml-behind-firewall.md).
 

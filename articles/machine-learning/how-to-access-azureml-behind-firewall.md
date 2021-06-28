@@ -30,7 +30,7 @@ In this article, learn how to configure Azure Firewall to control access to your
 
 * For __inbound__ traffic to Azure Machine Learning compute cluster and compute instance, use [user-defined routes (UDRs)](../virtual-network/virtual-networks-udr-overview.md) to skip the firewall.
 
-* For __outbound__ traffic, create __network__ and/or __application__ rules. 
+* For __outbound__ traffic, create __network__ and __application__ rules. 
 
 These rule collections are described in more detail in [What are some Azure Firewall concepts](../firewall/firewall-faq.yml#what-are-some-azure-firewall-concepts).
 
@@ -64,7 +64,7 @@ To get a list of IP addresses of the Batch service and Azure Machine Learning se
 > [!IMPORTANT]
 > The IP addresses may change over time.
 
-When adding a UDR for the IP addresses, set the __Next hop type__ to __Internet__. The following image shows an example UDR in the Azure Portal:
+When adding a UDR for the IP addresses, set the __Next hop type__ to __Internet__. The following image shows an example UDR in the Azure portal:
 
 :::image type="content" source="./media/how-to-enable-virtual-network/user-defined-route.png" alt-text="Image of a user-defined route configuration":::
 
@@ -82,11 +82,11 @@ For information on configuring UDR, see [Route network traffic with a routing ta
     * ContainerRegistry.region
     * AzureFrontDoor.FirstParty
 
-    If you plan on using the default Docker images provided by Microsoft, and enabling user-managed dependencies, you must also add the following service tags:
+    If you plan on using the default Docker images provided by Microsoft, and enabling user-managed dependencies, add the following service tag:
 
     * MicrosoftContainerRegistry.region
 
-    For entries that contain `region`, replace with the Azure region that you are using. For example, `keyvault.westus`.
+    For entries that contain `region`, replace with the Azure region that you're using. For example, `keyvault.westus`.
 
     For the __protocol__, select `TCP`. For the source and destination __ports__, select `*`.
 
@@ -125,13 +125,13 @@ If you need to gather diagnostics information when working with Microsoft suppor
     For a list of IP addresses for the Azure Monitor hosts, see [IP addresses used by Azure Monitor](../azure-monitor/app/ip-addresses.md).
 ## Other firewalls
 
-The guidance in this section is generic, as each firewall has its own terminology and specific configurations. If you have questions about how to allow communication through your firewall, consult the documentation for the firewall you are using.
+The guidance in this section is generic, as each firewall has its own terminology and specific configurations. If you have questions, check the documentation for the firewall you are using.
 
 If not configured correctly, the firewall can cause problems using your workspace. There are various host names that are used both by the Azure Machine Learning workspace. The following sections list hosts that are required for Azure Machine Learning.
 
 ### Microsoft hosts
 
-The hosts in this section are owned by Microsoft, and provide services required for the proper functioning of your workspace. The following tables list the host names for the Azure public, Azure Government, and Azure China 21Vianet regions.
+The hosts in the following tables are owned by Microsoft, and provide services required for the proper functioning of your workspace. The tables list hosts for the Azure public, Azure Government, and Azure China 21Vianet regions.
 
 **General Azure hosts**
 
@@ -184,14 +184,14 @@ The hosts in this section are owned by Microsoft, and provide services required 
 
 Also, use the information in the [inbound configuration](#inbound-configuration) section to add IP addresses for `BatchNodeManagement` and `AzureMachineLearning`.
 
-For information on restricting access to models deployed to Azure Kubernetes Service (AKS), see [Restrict egress traffic in Azure Kubernetes Service](../aks/limit-egress-traffic.md).
+For information on restricting access to models deployed to AKS, see [Restrict egress traffic in Azure Kubernetes Service](../aks/limit-egress-traffic.md).
 
 > [!TIP]
 > If you are working with Microsoft Support to gather diagnostics information, you must allow outbound traffic to the IP addresses used by Azure Monitor hosts. For a list of IP addresses for the Azure Monitor hosts, see [IP addresses used by Azure Monitor](../azure-monitor/app/ip-addresses.md).
 
 ### Python hosts
 
-The hosts in this section are used to install Python packages. They are required during development, training, and deployment. 
+The hosts in this section are used to install Python packages, and are required during development, training, and deployment. 
 
 > [!NOTE]
 > This is not a complete list of the hosts required for all Python resources on the internet, only the most commonly used. For example, if you need access to a GitHub repository or other host, you must identify and add the required hosts for that scenario.
@@ -206,7 +206,7 @@ The hosts in this section are used to install Python packages. They are required
 
 ### R hosts
 
-The hosts in this section are used to install R packages. They are required during development, training, and deployment.
+The hosts in this section are used to install R packages, and are required during development, training, and deployment.
 
 > [!NOTE]
 > This is not a complete list of the hosts required for all R resources on the internet, only the most commonly used. For example, if you need access to a GitHub repository or other host, you must identify and add the required hosts for that scenario.
