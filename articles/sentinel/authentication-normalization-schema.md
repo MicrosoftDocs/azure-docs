@@ -1,6 +1,6 @@
 ---
-title: Azure Sentinel Process Event normalization schema reference | Microsoft Docs
-description: This article describes the Azure Sentinel Process Event normalization schema.
+title: Azure Sentinel Authentication normalization schema reference | Microsoft Docs
+description: This article describes the Azure Sentinel Authentication normalization schema.
 services: sentinel
 cloud: na
 documentationcenter: na
@@ -19,14 +19,20 @@ ms.author: bagol
 
 ---
 
-# Azure Sentinel Process Event normalization schema reference (Public preview)
+# Azure Sentinel Authentication normalization schema reference (Public preview)
 
-The Process Event normalization schema is used to describe the operating system activity of executing and terminating a process. Such events are reported by operating systems as well as by security systems such as EDR (End Point Detection and Response) systems.
+The Authentication information model is used to describe events related to user authentication, logon and logoff. Authentication events are sent by many reporting devices, usually as part of the event stream alongside other events.
+
+For example, Windows sends several authentication events alongside other OS activity events. As a result, in most cases the authentication events are stored in different Azure Sentinel tables and are normalized using a KQL function which also filters only the relevant authentication events.
+
+Moreover, sometimes the authentication information is part of a wider activity represented by the same record. For example, a VPN event would typically report a network session alongside the authentication information.
+
+Authentication events include both events from systems that focus on authentication such as VPN gateways or domain controller, and direct authentication to an end systems, such as a computer or firewall.
 
 For more information about normalization in Azure Sentinel, see [Normalization and the Azure Sentinel Information Model (ASIM)](normalization.md).
 
 > [!IMPORTANT]
-> The Process Event normalization schema is currently in public preview.
+> The Authentication normalization schema is currently in public preview.
 > This feature is provided without a service level agreement, and it's not recommended for production workloads.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -48,115 +54,185 @@ To use the source-agnostic parsers that unify all of listed parsers and ensure t
 
 Deploy the '[source-agnostic and source-specific parsers](normalization.md#parsers) from the [Azure Sentinel GitHub repository](https://aka.ms/AzSentinelProcessEvents).
 
-## Add your own normalized parsers
 
-When implementing custom parsers for the [Process Event](normalization.md#the-process-entity) information model, name your KQL functions using the following syntax: `imProcess<Type><vendor><Product>`, where `Type` is either `Create`, `Terminate`, or `Event` if the parser implements both creation and termination events.
 
-Add your KQL function to the `imProcess<Type>` and `imProcess` source-agnostic parsers to ensure that any content using the [Process Event](normalization.md#the-process-entity) model also uses your new parser.
+## Normalized content
 
-## Normalized content for process activity data
+Support for the Authentication normalization schema also includes support for the following built-in analytics rules with normalized DNS parsers:
 
-The following Azure Sentinel content works with any process activity that's normalized using the Azure Sentinel Information Model:
+- User Login from Different Countries within 3 hours (Uses Authentication Normalization)
+- Potential Password Spray Attack (Uses Authentication Normalization)
+- Brute force attack against user credentials (Uses Authentication Normalization)
 
-- **Analytics rules**:
-
-    - Probable AdFind Recon Tool Usage (Normalized Process Events)
-    - Base64 encoded Windows process command-lines (Normalized Process Events)
-    - Malware in the recycle bin (Normalized Process Events)
-    - NOBELIUM - suspicious rundll32.exe execution of vbscript (Normalized Process Events)
-    - SUNBURST suspicious SolarWinds child processes (Normalized Process Events)
-
-    For more information, see [Create custom analytics rules to detect threats](tutorial-detect-threats-custom.md).
-
--	**Hunting queries**:
-    - Cscript script daily summary breakdown (Normalized Process Events)
-    - Enumeration of users and groups (Normalized Process Events)
-    - Exchange PowerShell Snapin Added (Normalized Process Events)
-    - Host Exporting Mailbox and Removing Export (Normalized Process Events)
-    - Invoke-PowerShellTcpOneLine Usage (Normalized Process Events)
-    - Nishang Reverse TCP Shell in Base64 (Normalized Process Events)
-    - Summary of users created using uncommon/undocumented commandline switches (Normalized Process Events)
-    - Powercat Download (Normalized Process Events)
-    - PowerShell downloads (Normalized Process Events)
-    - Entropy for Processes for a given Host (Normalized Process Events)
-    - SolarWinds Inventory (Normalized Process Events)
-    - Suspicious enumeration using Adfind tool (Normalized Process Events)
-    - Uncommon processes - bottom 5% (Normalized Process Events)
-    - Windows System Shutdown/Reboot (Normalized Process Events)
-    - Certutil (LOLBins and LOLScripts, Normalized Process Events)
-    - Rundll32 (LOLBins and LOLScripts, Normalized Process Events)
-
-    For more information, see [Hunt for threats with Azure Sentinel](hunting.md).
+Normalized authentication analytic rules are unique as they detect attacks across sources. So, for example, if a user logged in to different, unrelated systems, from different countries, Azure Sentinel will now detect this activity.
 
 ## Schema details
 
-The Process Event information model is aligned is the [OSSEM Process entity schema](https://github.com/OTRF/OSSEM/blob/master/docs/cdm/entities/process.md).
+The Authentication information model is aligned is the [OSSEM logon entity schema](https://github.com/OTRF/OSSEM/blob/master/docs/cdm/entities/logon.md).
 
-### Log Analytics fields
+In the following tables, note that *Type* refers to a logical type. For more information, see [Logical types](normalization.md#logical-types).
 
-The following fields are generated by Log Analytics for each record, and can be overridden when creating a custom connector.
+### Log Analytics Fields
 
-| Field         | Type     | Discussion      |
-| ------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| <a name="timegenerated"></a>**TimeGenerated** | datetime | The time the event was generated by the reporting device.|
-| **_ResourceId**   | guid     | The Azure Resource ID of the reporting device or service, or the log forwarder resource ID for events forwarded using Syslog, CEF or WEF. |
-| | | |
+The following fields are generated by Log Analytics for each record, and you can override them when creating a custom connector.
+
+|Field  |Type  |Descriptoin  |
+|---------|---------|---------|
+|**TimeGenerated**     |  datetime       |The time the event was generated by the reporting device.         |
+|**_ResourceId**     | guid        |  The Azure Resource ID of the reporting device or service, or the log forwarder resource ID for events forwarded using Syslog, CEF, or WEF.       |
+|     |         |         |
 
 > [!NOTE]
 > Log Analytics also adds other fields that are less relevant to security use cases. For more information, see [Standard columns in Azure Monitor Logs](/azure/azure-monitor/logs/log-standard-columns).
 >
 
-## Event fields
+### Event Fields
+
+Event fields are common to all schemas, and describe the activity itself and the reporting device.
 
 Event fields are common to all schemas and describe the activity itself and the reporting device.
 
 | Field               | Class       | Type       |  Description        |
 |---------------------|-------------|------------|--------------------|
 | **EventMessage**        | Optional    | String     |     A general message or description, either included in or generated from the record.   |
-| **EventCount**          | Mandatory   | Integer    |     The number of events described by the record. <br><br>This value is used when the source supports aggregation, and a single record may represent multiple events. <br><br>For other sources, set to `1`.   |
-| **EventStartTime**      | Mandatory   | Date/time  |      If the source supports aggregation and the record represents multiple events, this field specifies the time the that first event was generated. Otherwise, this field aliases the [TimeGenerated](#timegenerated) field. |
+| **EventCount**          | Mandatory   | Integer    |     The number of events described by the record. <br><br>This value is used when the source supports aggregation, and a single record may represent multiple events. <br><br>For other sources, set to `1`. <br><br>**Note**: This field is included for the sake of consistency, but it not usually used for authentication events.  |
+| **EventStartTime**      | Mandatory   | Date/time  |      If the source supports aggregation and the record represents multiple events, this field specifies the time the that first event was generated. Otherwise, this field aliases the [TimeGenerated](#timegenerated) field.<br><br>**Note**: This field is included for the sake of consistency, but it not usually used for authentication events.  |
 | **EventEndTime**        | Mandatory   | Alias      |      Alias to the [TimeGenerated](#timegenerated) field.    |
-| **EventType**           | Mandatory   | Enumerated |    Describes the operation reported by the record. <br><br>For Process records, supported values include: <br>- `ProcessCreated` <br>- `ProcessTerminated` |
-| **EventResult**         | Mandatory   | Enumerated |  Describes the result of the event, normalized to one of the following supported values: <br><br>- `Success`<br>- `Partial`<br>- `Failure`<br>- `NA` (not applicable) <br><br>The source may provide only a value for the ***EventResultDetails** field, which must be analyzed to get the ***EventResult*** value. |
-| **EventOriginalUid**    | Optional    | String     |   A unique ID of the original record, if provided by the source.<br><br>Example: `69f37748-ddcd-4331-bf0f-b137f1ea83b`|
-| **EventProduct**        | Mandatory   | String     |             The product generating the event. <br><br>Example: `Sysmon`<br><br>**Note**: This field may not be available in the source record. In such cases, this field must be set by the parser.           |
-| **EventProductVersion** | Optional    | String     | The version of the product generating the event. <br><br>Example: `12.1`      |
+| **EventType**           | Mandatory   | Enumerated |    Describes the operation reported by the record. <br><br>For Authentication records, supported values include: <br>- `Logon` <br>- `Logoff`<br><br>**Note**: The value may be provided in the source record using different terms, which should be normalized to these values. The original value should be stored in the [EventOriginalType](#eventoriginaltype) field.|
+| <a name ="eventoriginaltype"></a>**EventOriginalType**           | Optional   | String |    The event type, or ID, as provided in the source record. <br><br>Example: `4625`|
+| **EventResult**         | Mandatory   | Enumerated |  Describes the result of the event, normalized to one of the following supported values: <br><br>- `Success`<br>- `Partial`<br>- `Failure`<br>- `NA` (not applicable) <br><br>**Note**: The value may be provided in the source record using different terms, which should be normalized to these values. The source may also provide only a value for the [EventResultDetails](#eventresultdetails) field, which must be analyzed to get the ***EventResult*** value. |
+| <a name ="eventresultdetails"></a>**EventResultDetails**         | Optional   | String |  One of the following values: -	`No such user or password` This this value also includes `no such user` <br>-	`Incorrect password`<br>-	`Account expired`<br>-	`Password expired`<br>-	`User locked`<br>-	`User disabled`<br>-	`Logon violates policy`, for example: `MFA required`, `logon outside of working hours`, `conditional access restrictions` or `too frequent attempts`<br>-	`Session expired`<br>-	`Other`<br>**Note**: The value may be provided in the source record using different terms, which should be normalized to these values.|
+| **EventSubType**    | Optional    | String     |   The sign in type. <br><br>Example: `Interactive`|
+| **EventOriginalResultDetails**    | Optional    | String     |  The value provided in the original record for [EventResultDetails]((#eventresultdetails)), if provided by the source.|
+| **EventOriginalUid**    | Optional    | String     |   A unique ID of the original record, if provided by the source.|
+| <a name ="eventproduct"></a>**EventProduct**        | Mandatory   | String     |             The product generating the event. <br><br>Example: `Windows`<br><br>**Note**: This field may not be available in the source record. In such cases, this field must be set by the parser.           |
+| **EventProductVersion** | Optional    | String     | The version of the product generating the event. <br><br>Example: `10` <br><br>**Note**: This field may not be available in the source record. In such cases, this field must be set by the parser.     |
 | **EventVendor**         | Mandatory   | String     |           The vendor of the product generating the event. <br><br>Example: `Microsoft`  <br><br>**Note**: This field may not be available in the source record. In such cases, this field must be set by the parser.  |
 | **EventSchemaVersion**  | Mandatory   | String     |    The version of the schema. The version of the schema documented here is `0.1`         |
 | **EventReportUrl**      | Optional    | String     | A URL provided in the event for a resource that provides additional information about the event.|
-| **Dvc** | Alias       | String     |               A unique identifier of the device on which the process event occurred. <br><br>Example: `ContosoDc.Contoso.Azure` <br><br>This field may alias any of [**DvcId**](#dvcid), **[DvcHostname](#dvchostname)** or **[DvcIpAddr](#dvcipaddr)** fields.           |
-| <a name ="dvcipaddr"></a>**DvcIpAddr**           | Recommended | IP Address |         The IP Address of the device on which the process event occurred.  <br><br>Example: `45.21.42.12`    |
-| <a name ="dvchostname"></a>**DvcHostname**         | Recommended | Hostname   |               The hostname of the device on which the process event occurred. <br><br>Example: `ContosoDc.Contoso.Azure`               |
-| <a name ="dvcid"></a>**DvcId**               | Optional    | String     |  The unique ID of the device on which the process event occurred. <br><br>Example: `41502da5-21b7-48ec-81c9-baeea8d7d669`   |
-| **DvcMacAddr**          | Optional    | MAC        |   The MAC  of device on which the process event occurred.  <br><br>Example: `00:1B:44:11:3A:B7`       |
-| **DvcOs**               | Optional    | String     |         The operating system running on the device on which the process event occurred.    <br><br>Example: `Windows`    |
-| **DvcOsVersion**        | Optional    | String     |   The version of the operating system on the device on which the process event occurred. <br><br>Example: `10` |
+| <a name ="dvc">**Dvc** | Mandatory       | String     |               A unique identifier of the reporting device, which would be any device identifier provided by the reporting device. <br><br>Example: `45.21.42.12` <br><br>In many cases, such as in Syslog messages, the value included in the message can be an IP address, a hostname or an FQDN. It can be stored in the ***Dvc*** without identifying its type. For cloud sources for which there is not apparent reporting device use the [EventProduct](#eventproduct) value.          |
+| <a name ="dvcipaddr"></a>**DvcIpAddr**           | Recommended | IP Address |         The IP Address of the device on which the process event occurred.  <br><br>Example: `45.21.42.12`  <br><br>**Note**: If an identifier is available but the type is not known, do not use this field. For more information, see [Dvc](#dvc).  |
+| <a name ="dvchostname"></a>**DvcHostname**         | Recommended | Hostname   |               The hostname of the device on which the process event occurred. <br><br>Example: `ContosoDc.Contoso.Azure`      <br><br>**Note**: If an identifier is available but the type is not known, do not use this field. For more information, see [Dvc](#dvc).          |
 | **AdditionalFields**    | Optional    | Dynamic    | If your source provides additional information worth preserving, either keep it with the original field names or create the dynamic ***AdditionalFields*** field, and add to it the extra information as key/value pairs.    |
 | | | | |
 
-### Process Event-specific fields
 
-The fields listed in the table below are specific to Process events, but are similar to fields in other schemas and follow similar naming conventions.
+## Authentication-specific fields
 
-The process event schema references the following entities, which are central to process creation and termination activity:
+The fields listed in the table below are specific to Authentication events, but are similar to fields in other schemas and follow similar naming conventions.
 
-- **Actor**. The user that initiated the process creation or termination.
-- **ActorProcess**. The process used by the Actor to initiate the process creation or termination.
-- **TargetProcess**. The new process.
-- **TargetUser**. The user whose credentials are used to create the new process.
-- **ParentProcess**. The process that initiated the Actor Process.
+Authentication events reference the following entities:
+
+- **Actor**
+- **ActingApp**
+- **SrcDvc**
+- **TargetUser**
+- **TargetApp**
+- **TargetDvc**
+
+The relationship between these entities are best demonstrated as follows: 
+
+An **Actor**, running an *Acting Application* (**ActingApp**) on a *Source Device* (**SrcDvc**), attempts to authenticate  a **TargetUser** to a *Target Application* (**TargetApp**) on a *Target Device* (**TargetDvc**).
 
 | Field          | Class        | Type       | Description   |
 |---------------|--------------|------------|-----------------|
-| **User**           | Alias        |            | Alias to the [TargetUsername](#targetusername). <br><br>Example: `CONTOSO\dadmin`     |
+|**LogonMethod** |Optional |String |The method used to perform authentication. <br><br>Example: `Username & Password` |
+|**LogonProtocol** |Optional |String |The protocol used to perform authentication. <br><br>Example: `NTLM` |
+| <a name="actoruserid"></a>**ActorUserId**    | Optional  | UserId     |   A machine-readable, alphanumeric, unique representation of the Actor. For more information, see [The User entity](normalization.md#the-user-entity).  <br><br>Example: `S-1-12-1-4141952679-1282074057-627758481-2916039507`    |
+| **ActorUserIdType**| Optional  | UserIdType     |  The type of the ID stored in the [ActorUserId](#actoruserid) field. For more information, see [The User entity](normalization.md#the-user-entity).         |
+| <a name="actorusername"></a>**ActorUsername**  | Optional    | Username     | The Actor’s username, including domain information when available. For more information, see [The User entity](normalization.md#the-user-entity).<br><br>Example: `AlbertE`     |
+| **ActorUsernameType**              | Optional    | UsernameType |   Specifies the type of the user name stored in the [ActorUsername](#actorusername) field. For more information, see [The User entity](normalization.md#the-user-entity). <br><br>Example: `Windows`       |
+| **ActorUserType** | Optional | String | The type of the Actor. <br><br>For example: `Guest` |
+| **ActorSessionId** | Optional     | String     |   The unique ID of the login session of the Actor.  <br><br>Example: `102pTUgC3p8RIqHvzxLCHnFlg`  |
+| **ActingAppId** | Optional | String | The ID f the application authorizing on behalf of the Actor, including a process, browser, or service. <br><br>For example: `0x12ae8` |
+| **ActiveAppName** | Optional | String | The name of the application authorizing on behalf of the Actor, including a process, browser, or service. <br><br>For example: `C:\Windows\System32\svchost.exe` |
+| **ActingAppType | Optional | Enumerated | The type of acting application. Supported values include: <br>- `Process` <br>- `Browser` <br>- `Resource` <br>- `Other` |
+| **HttpUserAgent** |	Optional	| String |	When authentication is performed over HTTP or HTTPS, this field's value is the user_agent HTTP header provided by the acting application when performing the authentication.<br><br>For example: `Mozilla/5.0 (iPhone; CPU iPhone OS 12_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0 Mobile/15E148 Safari/604.1` | 
+|<a name="targetuserid"></a> **TargetUserId**   | Optional | UserId     | A machine-readable, alphanumeric, unique representation of the target user. For more information, see [The User entity](normalization.md#the-user-entity).            <br><br> Example: `00urjk4znu3BcncfY0h7`    |
+| **TargetUserIdType**               | Optional | UserIdType     | The type of the user ID stored in the [TargetUserId](#targetuserid) field. For more information, see [The User entity](normalization.md#the-user-entity).            <br><br> Example:  `SID`  |
+| <a name="targetusername"></a>**TargetUsername** | Optional | Username     | The target user username, including domain information when available. For more information, see [The User entity](normalization.md#the-user-entity).  <br><br>Example:   `MarieC`      |
+| **TargetUsernameType**             |Optional  | UsernameType | Specifies the type of the username stored in the [TargetUsername](#targetusername) field. For more information, see [The User entity](normalization.md#the-user-entity).          |
+| **TargetUserType** | Optional | String | The type of the Target user. <br><br>For example: `Member` |
+| **TargetSessionId** | Optional | String | The sign-in session identifier of the TargetUser on the source device. |
+| **User**           | Alias        |     String       | Alias to the [TargetUsername](#targetusername) or to the [TargetUserId](#targetuserid) if [TargetUsername](#targetusername) is not defined. <br><br>Example: `CONTOSO\dadmin`     |
+|**SrcDvcId** |Optional |String |The ID of the source device as reported in the record. <br><br>For example: `ac7e9755-8eae-4ffc-8a02-50ed7a2216c3` |
+| <a name="srcdvchostname"></a>**SrcDvcHostname** |Optional | Hostname| The source device hostname, including domain information when available. For more information, see [The host entity](#MISSINGLINK). <br><br>Example: `Constoso\DESKTOP-1282V4D`|
+| **SrcDvcHostnameType**|Optional |HostnameType | |
+| | | | |
+| | | | |
+| | | | |
+| | | | |
+| | | | |
+| | | | |
+| | | | |
+| | | | |
+| | | | |
+| | | | |
+| | | | |
+| | | | |
+| | | | |
+| | | | |
+| | | | |
+| | | | |
+| | | | |
+| | | | |
+| | | | |
+| | | | |
+| | | | |
+| | | | |
+| | | | |
+
+
+
+
+
+	Optional	HostnameType		The type of SrcDvcHostname, if known. For detailed refer to the Device entity in normalization article (###).
+SrcDvcType	Optional	Enumerated	Computer	The type of the source device. Possible values are: 
+-	“Computer”
+-	“Mobile Device”
+-	“IoT Device”
+-	“Other”
+SrcDvcIpAddr	Recommended	IP Address	185.175.35.214	The IP address of the source device.
+SrcDvcOs	Optional	String	Windows 10	The OS of the source device.
+SrcIsp	Optional	String	aerioconnect	The Internet Service Provider (ISP) used by the source device to connect to the Internet.
+SrcGeoCountry	Optional	Country	Canada	For details on normalizing geographical information, refer to Logical Type in ###.
+SrcGeoCity	Optional	City	Montreal	For details on normalizing geographical information, refer to Logical Type in ###.
+SrcGeoRegion 	Optional	Region	Quebec	For details on normalizing geographical information, refer to Logical Type in ###.
+SrcGeoLongtitude	Optional	Latitude	-73.614830	For details on normalizing geographical information, refer to Logical Type in ###.
+SrcGeoLatitude	Optional	Latitude	45.505918	For details on normalizing geographical information, refer to Logical Type in ###.
+
+
+TargetAppId	Optional	String	c44b4083-3bb0-49c1-b47d-974e53cbdf3c	The ID of the application authorizing on behalf of the Actor. This can be a process, a browser, or a service.
+TargetAppName	Optional	String	Azure Portal	The name of the application authorizing on behalf of the Actor. This can be a process, a browser, or a service.
+TargetAppType	Optional	String		The type of acting application. Values can be: 
+-	“Process”
+-	“Service”
+-	“Resource”
+-	“URL”
+-	“Other”
+TargetUrl	Optional	String	https://console.aws.amazon.com/console/home?fromtb=true&hashArgs=%23&isauthcode=true&nc2=h_ct&src=header-signin&state=hashArgsFromTB_us-east-1_7596bc16c83d260b	The URL associated with the target application. 
+LogonTarget	Alias			Alias to either TargetAppName, Url or TargetDvcHostname: whichever best describes the authentication target.
+TargetDvcId	Optional	string	2739	The ID of the target device as reported in the record.
+TargetDvcHostname	Recommended	String		The target device hostname, including domain information when available. For detailed refer to the host entity in normalization article (###).
+TargetDvcHostnameType	Recommended	String		The type of TargetDvcHostname. For detailed refer to the User entity in normalization article (###).
+TargetDvcType	Optional	Enumerated	Computer	The type of the target device. Possible values are: 
+-	“Computer”
+-	“Mobile Device”
+-	“IoT Device”
+-	“Other”
+TargetDvcIpAddr	Optional	IP Address	2.2.2.2	The IP address of the target device.
+TargetDvc	Alias			A unique identifier of the target device. Select to alias the most appropriate value for the specific source: TargetDvcHostname,  TargetDvcHostname or a different ID if more appropriate.
+TargetDvcOs	Optional	String	Windows 10	The OS of the target device.
+TargetPortNumber	Optional	Integer		Port of the source
+
+
+| Field          | Class        | Type       | Description   |
+|---------------|--------------|------------|-----------------|
+|**LogonMethod** |Optional |String |The method used to perform authentication. <br><br>Example: `Username & Password` |
+|**LogonProtocol** |Optional |String |The protocol used to perform authentication. <br><br>Example: `NTLM` |
 | **Process**        | Alias        |            | Alias to the [TargetProcessName](#targetprocessname) <br><br>Example: `C:\Windows\System32\rundll32.exe`|
 | **CommandLine**    | Alias        |            |     Alias to [TargetProcessCommandLine](#targetprocesscommandline)  |
 | **Hash**           | Alias        |            |       Alias to the best available hash. |
-| <a name="actorusername"></a>**ActorUsername**  | Mandatory    | String     | The user name of the user who initiated the event. <br><br>Example: `CONTOSO\WIN-GG82ULGC9GO$`     |
-| **ActorUsernameType**              | Mandatory    | Enumerated |   Specifies the type of the user name stored in the [ActorUsername](#actorusername) field. For more information, see [The User entity](normalization.md#the-user-entity). <br><br>Example: `Windows`       |
-| <a name="actoruserid"></a>**ActorUserId**    | Recommended  | String     |   A unique ID of the Actor. The specific ID depends on the system generating the event. For more information, see [The User entity](normalization.md#the-user-entity).  <br><br>Example: `S-1-5-18`    |
-| **ActorUserIdType**| Recommended  | String     |  The type of the ID stored in the [ActorUserId](#actoruserid) field. For more information, see [The User entity](normalization.md#the-user-entity). <br><br>Example: `SID`         |
-| **ActorSessionId** | Optional     | String     |   The unique ID of the login session of the Actor.  <br><br>Example: `999`<br><br>**Note**: The type is defined as *string* to support varying systems, but on Windows this value must be numeric. <br><br>If you are using a Windows machine and used a different type, make sure to convert the values. For example, if you used a hexadecimal value, convert it to a decimal value.   |
 | **ActingProcessCommandLine**       | Optional     | String     |   The command line used to run the acting process. <br><br>Example: `"choco.exe" -v`    |
 | **ActingProcessName**              | Optional     | string     |   The file name of the acting process image file. This is usually considered the process name.  <br><br>Example: `C:\Windows\explorer.exe`  |
 | **ActingProcessCompany**       | Optional     | String     |           The company that created the acting process image file.  <br><br> Example: `Microsoft`    |
@@ -195,8 +271,6 @@ The process event schema references the following entities, which are central to
 | **ParentProcessIMPHASH**           | Optional     | String     |    The Import Hash of all the library DLLs that are used by the parent process.    |
 | **ParentProcessTokenElevation**    | Optional     | String     |A token indicating the presence or absence of User Access Control (UAC) privilege elevation applied to the parent process.     <br><br>  Example: `None` |
 | **ParentProcessCreationTime**      | Optional    | DateTime   |    The date and time when the parent process was started. |
-| <a name="targetusername"></a>**TargetUsername** | Mandatory for process create events. | String     | The username of the target user.  <br><br>Example:   `CONTOSO\WIN-GG82ULGC9GO$`      |
-| **TargetUsernameType**             | Mandatory for process create events.   | Enumerated | Specifies the type of the username stored in the [TargetUsername](#targetusername) field. For more information, see [The User entity](normalization.md#the-user-entity).          <br><br>  Example:  `Windows`        |
 |<a name="targetuserid"></a> **TargetUserId**   | Recommended | String     | A unique ID of the target user. The specific ID depends on the system generating the event. For more information, see [The User entity](normalization.md#the-user-entity).            <br><br> Example: `S-1-5-18`    |
 | **TargetUserIdType**               | Recommended | String     | The type of the user ID stored in the [TargetUserId](#targetuserid) field. For more information, see [The User entity](normalization.md#the-user-entity).            <br><br> Example:  `SID`  |
 | **TargetUserSessionId**            | Optional     | String     |The unique ID of the target user's login session. <br><br>Example: `999`          <br><br>**Note**: The type is defined as *string* to support varying systems, but on Windows this value must be numeric. <br><br>If you are using a Windows or Linux machine and used a different type, make sure to convert the values. For example, if you used a hexadecimal value, convert it to a decimal value.     |
@@ -222,6 +296,10 @@ The process event schema references the following entities, which are central to
 | **TargetProcessIntegrityLevel**    | Optional    | String     |    The integrity level of the target process. Windows assigns integrity levels to processes based on certain characteristics, such as if they were launched from an internet download. <br><br>Assigned integrity levels influence permissions to access resources. |
 | **TargetProcessTokenElevation**    | Optional    | String     |Token type indicating the presence or absence of User Access Control (UAC) privilege elevation applied to the process that was created or terminated.   <br><br>    Example:  `None`     |
 | | | | |
+
+
+
+
 
 
 
