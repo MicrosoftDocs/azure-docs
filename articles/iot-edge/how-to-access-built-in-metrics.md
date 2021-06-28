@@ -4,7 +4,7 @@ description: Remote access to built-in metrics from the IoT Edge runtime compone
 author: v-tcassi
 manager: philmea
 ms.author: v-tcassi
-ms.date: 10/05/2020
+ms.date: 06/25/2021
 ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge 
@@ -15,13 +15,15 @@ services: iot-edge
 
 [!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
-The IoT Edge runtime components, IoT Edge Hub and IoT Edge Agent, produce built-in metrics in the [Prometheus exposition format](https://prometheus.io/docs/instrumenting/exposition_formats/). Access these metrics remotely to monitor and understand the health of an IoT Edge device.
+The IoT Edge runtime components, IoT Edge hub and IoT Edge agent, produce built-in metrics in the [Prometheus exposition format](https://prometheus.io/docs/instrumenting/exposition_formats/). Access these metrics remotely to monitor and understand the health of an IoT Edge device.
+
+You can use your own solution to access these metrics. Or, you can use the [metrics-collector module](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft_iot_edge.metrics-collector) which handles collecting the built-in metrics and sending them to Azure Monitor or Azure IoT Hub. For more information, see [Collect and transport metrics](how-to-collect-and-transport-metrics.md).
 
 As of release 1.0.10, metrics are automatically exposed by default on **port 9600** of the **edgeHub** and **edgeAgent** modules (`http://edgeHub:9600/metrics` and `http://edgeAgent:9600/metrics`). They aren't port mapped to the host by default.
 
 Access metrics from the host by exposing and mapping the metrics port from the module's `createOptions`. The example below maps the default metrics port to port 9601 on the host:
 
-```
+```json
 {
   "ExposedPorts": {
     "9600/tcp": {}
@@ -111,5 +113,6 @@ The **edgeAgent** module produces the following metrics:
 
 ## Next steps
 
+* [Collect and transport metrics](how-to-collect-and-transport-metrics.md)
 * [Understand the Azure IoT Edge runtime and its architecture](iot-edge-runtime.md)
 * [Properties of the IoT Edge agent and IoT Edge hub module twins](module-edgeagent-edgehub.md)
