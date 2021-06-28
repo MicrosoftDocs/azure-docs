@@ -4,7 +4,7 @@ description: List of services that support managed identities for Azure resource
 services: active-directory
 author: barclayn
 ms.author: barclayn
-ms.date: 01/28/2021
+ms.date: 06/28/2021
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
@@ -98,7 +98,7 @@ Refer to the following document to reconfigure a managed identity if you have mo
 | Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
 | System assigned | ![Available][check] | ![Available][check] | Not available | Not available |
-| User assigned | Not available | Not available | Not available | Not available |
+| User assigned | ![Available][check] | ![Available][check] | Not available | Not available |
 
 Refer to the following documents to use managed identity with [Azure Automation](../../automation/automation-intro.md):
 
