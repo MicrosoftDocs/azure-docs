@@ -182,11 +182,11 @@ We use zip files because on batch scenarios, we expect that the size of both tra
 
 #### How does MVAD work
 
-An MVAD model takes a time segment of variables and decides whether an anomaly has occurred at the last timestamp. For example, the input segment is from `2021-01-01T00:00:00Z` to `2021-01-01T23:00:00Z` (inclusive), the MVAD model will decide whether an anomaly has occurred at `2021-01-01T23:00:00Z`. The length of input segment is computed from the `slidingWindow` parameter whose minimum value is 28 and maximum value is 2880. In the above case, `slidingWindow` is 24 if it has hourly granularity.
+An MVAD model takes a segment of variables and decides whether an anomaly has occurred at the last timestamp. For example, the input segment is from `2021-01-01T00:00:00Z` to `2021-01-01T23:59:00Z` (inclusive), the MVAD model will decide whether an anomaly has occurred at `2021-01-02T00:00:00Z`. The length of input segment is computed from the `slidingWindow` parameter whose minimum value is 28 and maximum value is 2880. In the above case, `slidingWindow` is 1440 (60 * 24) if it has minutely granularity. 
 
-Inference is performed in a streaming manner. For example, the inference data is from `2021-01-01T00:00:00Z` to `2021-01-08T00:00:00Z` with hourly granularity and `slidingWindow` is set to 24. The MVAD model takes data from `2021-01-01T00:00:00Z` to `2021-01-01T23:00:00Z` as input (length is 24) and determines whether an anomaly has occurred at `2021-01-01T23:00:00Z`. Then it takes data from `2021-01-01T01:00:00Z` to `2021-01-02T00:00:00Z`  (length is 24) and outputs the result at `2021-01-02T00:00:00Z`. It moves along in the same manner until the last timestamp.
+Inference is performed in a streaming manner. For example, the inference data is from `2021-01-01T00:00:00Z` to `2021-01-08T00:00:00Z` with minutely granularity and `slidingWindow` is set to 1440 (60 * 24). The MVAD model takes data from `2021-01-01T00:00:00Z` to `2021-01-01T23:59:00Z` as input (length is 1440) and determines whether an anomaly has occurred at `2021-01-02T00:00:00Z`. Then it takes data from `2021-01-01T00:01:00Z` to `2021-01-02T00:00:00Z`  (length is 1440) and outputs the result at `2021-01-02T00:01:00Z`. It moves forward until the last timestamp in the same manner. 
 
-MVAD training and inference are both asynchronized. You won't get the model or detection results immediately after you called the APIs. This is because training 
+MVAD is an asynchronized service which means that you won't get the model or detection results immediately after you called the APIs. This is because training and inference may take very long time so the results are deferred.
 
 #### Train an MVAD Model
 
