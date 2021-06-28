@@ -37,10 +37,10 @@ trainer = CustomVisionTrainingClient(ENDPOINT, credentials)
 ## Call the export method
 
 Call the **export_iteration** method.
-* You need to provide the project ID, iteration ID of the model you want to export. 
+* Provide the project ID, iteration ID of the model you want to export. 
 * The *platform* parameter specifies the platform to export to: allowed values are `CoreML`, `TensorFlow`, `DockerFile`, `ONNX`, `VAIDK`, and `OpenVino`. 
 * The *flavor* parameter specifies the format of the exported model: allowed values are `Linux`, `Windows`, `ONNX10`, `ONNX12`, `ARM`, `TensorFlowNormal`, and `TensorFlowLite`.
-* The *raw* parameter gives you the option to retrieve the raw JSON response as well as the object model response.
+* The *raw* parameter gives you the option to retrieve the raw JSON response along with the object model response.
 
 ```python
 project_id = "PASTE_YOUR_PROJECT_ID"
@@ -50,7 +50,7 @@ flavor = "ONNX10"
 export = trainer.export_iteration(project_id, iteration_id, platform, flavor, raw=False)
 ```
 
-See the **[export_iteration](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.operations.customvisiontrainingclientoperationsmixin?view=azure-python#export-iteration-project-id--iteration-id--platform--flavor-none--custom-headers-none--raw-false----operation-config-)** method for more information.
+For more information, see the **[export_iteration](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.operations.customvisiontrainingclientoperationsmixin?view=azure-python#export-iteration-project-id--iteration-id--platform--flavor-none--custom-headers-none--raw-false----operation-config-)** method.
 
 ## Download the exported model
 
@@ -65,7 +65,7 @@ while (export.status != "Done"):
     time.sleep(10)
 ```
 
-See the **[Export](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.models.export?view=azure-python)** class for more information.
+For more information, see the **[Export](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.models.export?view=azure-python)** class.
 
 From there, you can programmatically download exportUri to the location on the device where the Custom Vision model lives.
 
