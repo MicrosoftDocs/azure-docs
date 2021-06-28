@@ -11,12 +11,12 @@ ms.date: 06/27/2021
 Work item integration functionality allows you to easily create work items in GitHub or Azure DevOps that have relevant Application Insights data embedded in them.
 
 
-The new work item integration offers the following features over classic:
+The new work item integration offers the following features over [classic](#classic-work-item-integration):
 - Advanced fields like assignee, projects, or milestones.
 - Repo icons so you can differentiate between GitHub & Azure DevOps workbooks.
 - Multiple configurations for any number of repositories or work items.
 - Deployment through Azure Resource Manager templates.
-- Pre-Built & customizable Keyword Query Language (KQL) queries to add App Insights data to your work items.
+- Pre-built & customizable Keyword Query Language (KQL) queries to add Application Insights data to your work items.
 - Customizable workbook templates.
 
 
@@ -66,15 +66,17 @@ You can create more than one work item configuration and have a custom workbook 
 
 1. In your Application Insights resource under *Configure* select **Work Items**.
 1. Select **Switch to Classic**, fill out the fields with your information, and authorize. 
+
     :::image type="content" source="./media/work-item-integration/classic.png" alt-text=" Screenshot of how to configure classic work items." lightbox="./media/work-item-integration/classic.png":::
-1. Create a work by going to the end-to-end transaction details, select an event then select **Create work item (Classic)**. 
+
+1. Create a work item by going to the end-to-end transaction details, select an event then select **Create work item (Classic)**. 
 
 
 ### Migrate to new work item integration
 
-To migrate to the new work items, delete your classic work item configuration then [create and configure a work item template](#create-and-configure-a-work-item-template) to recreate your integration.
+To migrate, delete your classic work item configuration then [create and configure a work item template](#create-and-configure-a-work-item-template) to recreate your integration.
 
-To delete, go to in your Application Insights resource under *Configure* select **Work Items**. Then select  **Switch to Classic** and **Delete* at the top.
+To delete, go to in your Application Insights resource under *Configure* select **Work Items** then select  **Switch to Classic** and **Delete* at the top.
 
 
 ## Next steps
