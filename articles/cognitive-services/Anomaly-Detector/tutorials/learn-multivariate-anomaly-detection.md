@@ -13,18 +13,21 @@ ms.author: juaduan
 ---
 ### Learning Multivariate Anomaly Detection in one hour
 
-#### What is Multivariate Anomaly Detection (MVAD)?
+Anomaly Detector with Multivariate Anomaly Detection (MVAD) is an advanced AI tool for detecting anomalies from a group of metrics in an **unsupervised** manner.
 
-* An advanced AI platform for detecting anomalies from a group of metrics in an **unsupervised** manner.
-* Steps to use MVAD:
+In general, you could take these steps to use MVAD:
+
   1. Prepare your data.
   1. Create an Anomaly Detector resource on Azure.
   1. Train an MVAD model.
   1. Inference new data with the trained MVAD model.
-* Goal of this tutorial:
-  1. Understand how to prepare your data in a correct format.
-  1. Understand how to train and inference with MVAD.
-  1. Understand the input parameters and how to interpret the output in inference results.
+
+In this tutorial, you'll:
+
+> [!div class="checklist"]
+> * Understand how to prepare your data in a correct format.
+> * Understand how to train and inference with MVAD.
+> * Understand the input parameters and how to interpret the output in inference results.
 
 #### Data Preparation
 
@@ -566,9 +569,9 @@ Normally we recommend you use  `severity` as the filter to sift out 'anomalies' 
 
 In cases where you've found a need of more sophisticated rules than thresholds against `severity` or duration of continuous high `severity` values, you may want to use `score` to build more powerful filters.
 
-How MVAD is using `score` to determine anomalies will help you build those filters:
+Understanding how MVAD is using `score` to determine anomalies may help you build those filters:
 
-We consider whether a data point is an anomaly from both global and local perspective. If `score` at a timestamp is higher than a certain threshold, then the timestamp is marked as an anomaly. If `score` is lower than the threshold but is relatively higher in a segment, it is also marked as an anomaly.
+We consider whether a data point is anomalous from both global and local perspective. If `score` at a timestamp is higher than a certain threshold, then the timestamp is marked as an anomaly. If `score` is lower than the threshold but is relatively higher in a segment, it is also marked as an anomaly.
 
 ## Next steps
 
