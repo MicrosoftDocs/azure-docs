@@ -11,7 +11,8 @@ ms.topic: tutorial
 ms.date: 06/27/2021
 ms.author: juaduan
 ---
-### Learning Multivariate Anomaly Detection in one hour
+
+# Tutorial: Learning Multivariate Anomaly Detection in one hour
 
 Anomaly Detector with Multivariate Anomaly Detection (MVAD) is an advanced AI tool for detecting anomalies from a group of metrics in an **unsupervised** manner.
 
@@ -20,7 +21,9 @@ In general, you could take these steps to use MVAD:
   1. Prepare your data.
   1. Create an Anomaly Detector resource on Azure.
   1. Train an MVAD model.
-  1. Inference new data with the trained MVAD model.
+  1. Query the status of your model.
+  1. Detect anomalies with the trained MVAD model.
+  1. Retrieve and interpret the inference results.
 
 In this tutorial, you'll:
 
@@ -29,7 +32,7 @@ In this tutorial, you'll:
 > * Understand how to train and inference with MVAD.
 > * Understand the input parameters and how to interpret the output in inference results.
 
-#### Data Preparation
+## 1. Data Preparation
 
 The very first step before using MVAD is preparing your own data. MVAD detects anomalies from a group of metrics, and we call each metric a **variable**.
 
@@ -38,6 +41,8 @@ The very first step before using MVAD is preparing your own data. MVAD detects a
 * The name of the csv file will be used as the variable name and should be unique.
 * Variables for training and variables for inference should be consistent. For example, if you are using `series_1`, `series_2`, `series_3`, `series_4`, and `series_5` for training, you should provide exactly the same variables for inference.
 * Csv files should be compressed into a zip file and uploaded to an Azure blob container. 
+
+### Folder structure
 
 A common mistake in data preparation is extra folders in the zip file. For example, assume the name of the zip file is `series.zip`. Then after decompressing the files to a new folder `./series`, the **correct** path to csv files is `./series/series_1.csv` and a **wrong** path could be `./series/foo/bar/series_1.csv`.
 
@@ -66,17 +71,17 @@ An incorrect example of the directory tree after decompressing the zip file in W
         └── series_5.csv
 ```
 
-##### Zipping and uploading data
+### Tools for zipping and uploading data
 
 In this section, we share some sample code and tool which you could copy and edit to add into your own application logic which deals with MVAD input data.
 
-###### Compressing csv files in \*nix:
+#### Compressing csv files in \*nix:
 
 ```bash
 zip -j series.zip series/*.csv
 ```
 
-###### Compressing csv files in Windows:
+#### Compressing csv files in Windows:
 
 * Navigate *into* the folder with all the csv files
 * Select all the csv files you need
@@ -84,7 +89,7 @@ zip -j series.zip series/*.csv
 * Select `Compressed (zipped) folder` from the drop-down
 * Rename the zip file as needed
 
-###### Python code zipping & uploading data to Azure Blob Storage
+#### Python code zipping & uploading data to Azure Blob Storage
 
 You could refer to [this doc](/azure/storage/blobs/storage-quickstart-blobs-portal#upload-a-block-blob) to learn how to upload a file to Azure Blob.
 
@@ -170,25 +175,26 @@ if __name__ == "__main__":
         print(f"Failed to delete zip file. {repr(ex)}")
 ```
 
+### Data preparation FAQs
 
-##### Why only accepting zip files for training and inference?
+#### How does MVAD work?
+
+An MVAD model takes a segment of variables and decides whether an anomaly has occurred at the last timestamp. For example, the input segment is from `2021-01-01T00:00:00Z` to `2021-01-01T23:59:00Z` (inclusive), the MVAD model will decide whether an anomaly has occurred at `2021-01-02T00:00:00Z`. The length of input segment is computed from the `slidingWindow` parameter whose minimum value is 28 and maximum value is 2880. In the above case, `slidingWindow` is 1440 (60 * 24) if it has minutely granularity. 
+
+Inference is performed in a streaming manner. For example, the inference data is from `2021-01-01T00:00:00Z` to `2021-01-08T00:00:00Z` with minutely granularity and `slidingWindow` is set to 1440 (60 * 24). The MVAD model takes data from `2021-01-01T00:00:00Z` to `2021-01-01T23:59:00Z` as input (length is 1440) and determines whether an anomaly has occurred at `2021-01-02T00:00:00Z`. Then it takes data from `2021-01-01T00:01:00Z` to `2021-01-02T00:00:00Z`  (length is 1440) and outputs the result at `2021-01-02T00:01:00Z`. It moves forward in the same manner until the last timestamp. 
+
+MVAD is an asynchronized service which means that you won't get the model or detection results immediately after you called the APIs. This is because training and inference may take very long time so the results are deferred.
+
+#### Why only accepting zip files for training and inference?
 
 We use zip files because on batch scenarios, we expect that the size of both training and inference data would be very large and cannot be put in the HTTP request body. This allows users to perform batch inference on historical data either for model validation or data analysis. However, this might be somewhat inconvenient for streaming inference and for high frequency data. We have a plan to add a new API specifically designed for streaming inference that users can pass data in the request body.
 
-#### Create an Anomaly Detector resource
+## 2. Create an Anomaly Detector resource
 
 * Create an Azure subscription if you don't have one - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * Once you have your Azure subscription, [create an Anomaly Detector resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector) in the Azure portal to get your API key and API endpoint.
 
-#### How does MVAD work
-
-An MVAD model takes a segment of variables and decides whether an anomaly has occurred at the last timestamp. For example, the input segment is from `2021-01-01T00:00:00Z` to `2021-01-01T23:59:00Z` (inclusive), the MVAD model will decide whether an anomaly has occurred at `2021-01-02T00:00:00Z`. The length of input segment is computed from the `slidingWindow` parameter whose minimum value is 28 and maximum value is 2880. In the above case, `slidingWindow` is 1440 (60 * 24) if it has minutely granularity. 
-
-Inference is performed in a streaming manner. For example, the inference data is from `2021-01-01T00:00:00Z` to `2021-01-08T00:00:00Z` with minutely granularity and `slidingWindow` is set to 1440 (60 * 24). The MVAD model takes data from `2021-01-01T00:00:00Z` to `2021-01-01T23:59:00Z` as input (length is 1440) and determines whether an anomaly has occurred at `2021-01-02T00:00:00Z`. Then it takes data from `2021-01-01T00:01:00Z` to `2021-01-02T00:00:00Z`  (length is 1440) and outputs the result at `2021-01-02T00:01:00Z`. It moves forward until the last timestamp in the same manner. 
-
-MVAD is an asynchronized service which means that you won't get the model or detection results immediately after you called the APIs. This is because training and inference may take very long time so the results are deferred.
-
-#### Train an MVAD Model
+## 3. Train an MVAD Model
 
 Here is a sample request body and the sample code in Python to train an MVAD model.
 
@@ -236,7 +242,7 @@ except Exception as e:
 
 Response code `201` indicates a successful request.
 
-##### Parameters
+### Parameters
 
 There are three required parameters in the request:
 
@@ -327,11 +333,11 @@ Other parameters are optional:
 * `paddingValue` - Padding value is used to fill `nan` when `fillNAMethod` is `Fixed`. In other cases it is optional.
 * `displayName` - This is an optional parameter which is used to identify models. For example, you can use it to mark parameters, data sources, and any other meta data about the model and its input data.
 
-#### Get Model Status
+## 4. Get Model Status
 
 As the training API is asynchronized, you won't get the model immediately after calling the training API. However, you can query the status of models either by API key, which will list all the models, or by model ID, which will list information about the specific model.
 
-##### List all the models
+### List all the models
 
 You may refer to [this page](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector-v1-1-preview/operations/ListMultivariateModel) about the request URL and request headers. Notice that we only return 10 models ordered by update time, but you can visit other models by setting the `$skip` and the `$top` parameters in the request URL. For example, if your request URL is `https://{endpoint}/anomalydetector/v1.1-preview/multivariate/models?$skip=10&$top=20`, then we will skip the 10 latest models and return the next 20 models.
 
@@ -370,7 +376,7 @@ The response contains 4 fields, `models`, `currentCount`, `maxCount`, and `nextL
 * `maxCount` is the maximum number of models to be trained for this Anomaly Detector resource. 
 * `nextLink` could be used to fetch more models.
 
-##### Get models by Model ID
+### Get models by Model ID
 
 [This page](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector-v1-1-preview/operations/GetMultivariateModel) describes the request URL to query model information by model ID. A sample response looks like this
 
@@ -438,11 +444,11 @@ You will receive more detailed information about the model queried. The response
 * `variableStates`  summarizes information about each variable. It tells how many data points are used for each variable and `filledNARatio` tells how many missing points are there. Too many missing data points will deteriorate model performance. 
 * If any errors have encountered during data processing,  they will be included in the `errors` field.
 
-#### Inference with MVAD
+## 5. Inference with MVAD
 
 To perform inference on new data, simply provide the blob source to the zip file containing inferencing data, the start time, and end time. Inference is also asynchronized, so the results are not returned immediately. Notice that you need to save the link to the results in the **response header** containing the **result ID**, so that you may know where to get the results. A response code 201 indicates the success. Failures are usually caused by model issues or data issues. You cannot perform inference if the model is not ready or the data link is invalid. Make sure that the training data and inference data are consistent, which means they should be **exactly** the same time series but with different timestamps. More time series, less time series, or inference with different time series will not pass the data verification phase and errors will occur. Data verification is deferred so that you will get error message when you query the results.
 
-#### Get Inference Results
+## 6. Get Inference Results
 
 You need the result ID to get results. Result ID is obtained from the response header when you submit the inference request. [This page](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector-v1-1-preview/operations/GetDetectionResult) contains instructions to query the inference results. A sample response looks like this
 
@@ -563,7 +569,7 @@ The response contains the result status, variable information, inference paramet
         * `score` is the raw output of the model on which the model makes a decision. `severity` is a derived value from `score`. Every data point has a `score`.
         * `contributors` is a list containing the contribution score of each variable. Higher contribution scores indicate higher possibility of the root cause.
 
-##### What's the difference between `severity` and `score`?
+### What's the difference between `severity` and `score`?
 
 Normally we recommend you use  `severity` as the filter to sift out 'anomalies' that are not so important to your business. Depending on your scenario and data pattern, those anomalies that are less important often have relatively lower `severity` values or standalone (discontinuous) high `severity` values - random spikes.
 
