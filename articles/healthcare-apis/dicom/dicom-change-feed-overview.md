@@ -13,7 +13,7 @@ ms.author: aersoy
 
 The Change Feed provides logs of all the changes that occur in the DICOM Service. The Change Feed provides ordered, guaranteed, immutable, and read-only logs of these changes. The Change Feed offers the ability to go through the history of the DICOM Service and acts upon the creates and deletes in the service.
 
-Client applications can read these logs at any time, either in streaming or in batch mode. The Change Feed enables you to build efficient and scalable solutions that process change events that occur in your DICOM Services.
+Client applications can read these logs at any time, either in streaming or in batch mode. The Change Feed enables you to build efficient and scalable solutions that process change events that occur in your DICOM Service.
 
 You can process these change events asynchronously, incrementally or in-full. Any number of client applications can independently read the Change Feed, in parallel, and at their own pace.
 
@@ -117,7 +117,7 @@ includemetadata | bool | Whether or not to include the metadata (default: true)
 
 ### Example usage flow
 
-Below is the usage flow for an example application that does other processing on the instances within the DICOM Services.
+Below is the usage flow for an example application that does other processing on the instances within the DICOM Service.
 
 1. Application that wants to monitor the Change Feed starts.
 2. It determines if there's a current state that it should start with:
@@ -146,5 +146,5 @@ In this article, we reviewed the REST API design of Change Feed and potential us
 ## Next steps
 
 >[!div class="nextstepaction"]
->[Overview of DICOM Services](dicom-services-overview.md)
+>[Overview of DICOM Service](dicom-services-overview.md)
 

@@ -1,7 +1,7 @@
 ### YamlMime:FAQ
 metadata:
-  title: FAQs about the DICOM Services - Azure Healthcare APIs
-  description: Get answers to frequently asked questions about DICOM Services, such as what are the key requirements to use DICOM Services.
+  title: FAQs about the DICOM Service - Azure Healthcare APIs
+  description: Get answers to frequently asked questions about DICOM Service, such as what are the key requirements to use DICOM Service.
   services: healthcare-apis
   author: stevewohl
   ms.service: healthcare-apis
@@ -10,37 +10,37 @@ metadata:
   ms.date: 06/21/2021
   ms.author: aersoy
     
-title: Frequently asked questions about the DICOM Services
+title: Frequently asked questions about the DICOM Service
 summary: |
 
 sections:
   - name: Ignored
     questions:
-      - question: What is the DICOM Services?
-        answer: The DICOM Services is an open source DICOMweb&trade; server that is easily deployed on Azure. It allows standards-based communication with any DICOMweb&trade;  enabled systems for data exchange and introduces integration between DICOM and FHIR.  The server identifies and extracts DICOM metadata and injects it into a FHIR endpoint (such as the Azure API for FHIR or FHIR Server for Azure) to create a holistic view of patient data.
+      - question: What is the DICOM Service?
+        answer: The DICOM Service is an open source DICOMweb&trade; server that is easily deployed on Azure. It allows standards-based communication with any DICOMweb&trade;  enabled systems for data exchange and introduces integration between DICOM and FHIR.  The server identifies and extracts DICOM metadata and injects it into a FHIR endpoint (such as the Azure API for FHIR or FHIR Server for Azure) to create a holistic view of patient data.
 
-      - question: What are the key requirements to use the DICOM Services?
-        answer: The DICOM Services needs an Azure subscription to configure and run the required components. These components are, by default, created inside of an existing or new Azure Resource Group to simplify management. Additionally, an Azure Active Directory account is required.
+      - question: What are the key requirements to use the DICOM Service?
+        answer: The DICOM Service needs an Azure subscription to configure and run the required components. These components are, by default, created inside of an existing or new Azure Resource Group to simplify management. Additionally, an Azure Active Directory account is required.
 
-      - question: Where is the data persisted using the DICOM Services?
+      - question: Where is the data persisted using the DICOM Service?
         answer: |
-          The customer controls all of the data persisted by the DICOM Services. The following components are used to persist data:
+          The customer controls all of the data persisted by the DICOM Service. The following components are used to persist data:
           
           - **Blob storage**: persists all DICOM data and metadata
           - **Azure SQL**: indexes a subset of the DICOM metadata to support queries, and maintains a queryable log of changes
           - **Azure Key Vault**: stores critical security information
           
-      - question: What data formats are compatible with the DICOM Services?
+      - question: What data formats are compatible with the DICOM Service?
         answer: |
-          The DICOM Services exposes a REST API that is compatible with the [DICOMweb&trade; Standards](https://www.dicomstandard.org/dicomweb/)specified and maintained by NEMA.
+          The DICOM Service exposes a REST API that is compatible with the [DICOMweb&trade; Standards](https://www.dicomstandard.org/dicomweb/)specified and maintained by NEMA.
           
-          The server does not support DICOM DIMSE, which works primarily over a local area network and is unsuited for modern internet-based APIs. DIMSE is an incredibly popular standard used by nearly all medical imaging devices to communicate with other components of a provider’s medical imaging solution, such as PACS (Picture Archiving and Communication Systems) and medical imaging viewers. However, many modern systems, especially PACS and  viewers, have begun to also support the related (and compatible) DICOMweb&trade; Standard. For those systems which only speak DICOM DIMSE, there are adapters available which allow for seamless communication between the local DIMSE-supporting systems and the DICOM Services.
+          The server does not support DICOM DIMSE, which works primarily over a local area network and is unsuited for modern internet-based APIs. DIMSE is an incredibly popular standard used by nearly all medical imaging devices to communicate with other components of a provider’s medical imaging solution, such as PACS (Picture Archiving and Communication Systems) and medical imaging viewers. However, many modern systems, especially PACS and  viewers, have begun to also support the related (and compatible) DICOMweb&trade; Standard. For those systems which only speak DICOM DIMSE, there are adapters available which allow for seamless communication between the local DIMSE-supporting systems and the DICOM Service.
           
-      - question: What version of DICOM does the DICOM Services support?
+      - question: What version of DICOM does the DICOM Service support?
         answer: |
           The DICOM standards has been fixed at version 3.0 since 1993. However, the standard continues to add both breaking and non-breaking changes through various workgroups.
           
-          No single product, including the DICOM Services, fully supports the DICOM standard. Instead, each product includes a DICOM Conformance document that specifies exactly what is supported. (Unsupported features are traditionally not called out explicitly.) For more information, see [DICOM Conformance Statement](dicom-services-conformance-statement.md).
+          No single product, including the DICOM Service, fully supports the DICOM standard. Instead, each product includes a DICOM Conformance document that specifies exactly what is supported. (Unsupported features are traditionally not called out explicitly.) For more information, see [DICOM Conformance Statement](dicom-services-conformance-statement.md).
           
       - question: Does the DICOM Services store any PHI?
         answer: Absolutely. One of the core objectives for the DICOM Services is to support standard and innovating radiologist workflows. These workflows demand the use of PHI data.

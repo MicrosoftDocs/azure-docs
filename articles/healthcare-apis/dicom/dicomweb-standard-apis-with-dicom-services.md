@@ -28,7 +28,7 @@ To learn more about our support of the DICOM Web Standard APIs, see the [DICOM C
 
 ## Prerequisites
 
-To use the DICOMweb&trade; Standard APIs, you must have an instance of the DICOM Services deployed. If you haven't already deployed an instance of the DICOM Services, see [Deploy DICOM Services using the Azure portal](deploy-dicom-services-in-azure.md).
+To use the DICOMweb&trade; Standard APIs, you must have an instance of the DICOM Services deployed. If you haven't already deployed an instance of the DICOM Services, see [Deploy DICOM Service using the Azure portal](deploy-dicom-services-in-azure.md).
 
 ## Overview of various methods to use with DICOM Services
 
@@ -65,4 +65,4 @@ This tutorial provided an overview of the APIs supported by the DICOM Service. G
 For more information about DICOM Services, see
 
 >[!div class="nextstepaction"]
->[Overview of DICOM Services](dicom-services-overview.md)
+>[Overview of DICOM Service](dicom-services-overview.md)

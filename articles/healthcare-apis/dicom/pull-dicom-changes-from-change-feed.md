@@ -43,7 +43,7 @@ To view and access the **ChangeFeedRetrieveService.cs** code example, see [Consu
 
 ### Next Steps
 
-This how-to guide describes how to consume Change Feed. Change Feed allows you to monitor the history of the  DICOM Service. For more information about DICOM Services, see
+This how-to guide describes how to consume Change Feed. Change Feed allows you to monitor the history of the  DICOM Service. For more information about DICOM Service, see
 
 >[!div class="nextstepaction"]
->[Overview of DICOM Services](dicom-services-overview.md)
+>[Overview of DICOM Service](dicom-services-overview.md)

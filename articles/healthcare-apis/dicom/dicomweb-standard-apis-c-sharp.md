@@ -5,13 +5,13 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
-ms.date: 06/21/2021
+ms.date: 06/28/2021
 ms.author: aersoy
 ---
 
 # Using DICOMweb&trade; Standard APIs with C#
 
-This tutorial uses C# to demonstrate working with the DICOM Services.
+This tutorial uses C# to demonstrate working with the DICOM Service.
 
 In this tutorial, we'll use these [sample DICOM files](https://github.com/microsoft/dicom-server/tree/main/docs/dcms). The file name, studyUID, seriesUID, and instanceUID of the sample DICOM files is as follows:
 
@@ -26,7 +26,7 @@ In this tutorial, we'll use these [sample DICOM files](https://github.com/micros
 
 ## Prerequisites
 
-To use the DICOMweb&trade; Standard APIs, you must have an instance of the DICOM Service deployed. If you haven't already deployed an instance of the DICOM Service, see [Deploy DICOM Services using the Azure portal](deploy-dicom-services-in-azure.md).
+To use the DICOMweb&trade; Standard APIs, you must have an instance of the DICOM Service deployed. If you haven't already deployed an instance of the DICOM Service, see [Deploy DICOM Service using the Azure portal](deploy-dicom-services-in-azure.md).
 
 Once you've deployed an instance of the DICOM Service, retrieve the URL for your App Service:
 
@@ -36,7 +36,7 @@ Once you've deployed an instance of the DICOM Service, retrieve the URL for your
 
 In your application, install the following NuGet packages:
 
-*  [Dicom Client](https://microsofthealthoss.visualstudio.com/FhirServer/_packaging?_a=package&feed=Public&package=Microsoft.Health.Dicom.Client&protocolType=NuGet)
+*  [DICOM Client](https://microsofthealthoss.visualstudio.com/FhirServer/_packaging?_a=package&feed=Public&package=Microsoft.Health.Dicom.Client&protocolType=NuGet)
 
 *  [fo-dicom](https://www.nuget.org/packages/fo-dicom/)
 
@@ -359,7 +359,7 @@ This response deletes the blue-circle instance (it is the only element left in t
 
 ### Next Steps
 
-For more information about DICOM Services, see
+For more information about DICOM Service, see
 
 >[!div class="nextstepaction"]
->[Overview of DICOM Services](dicom-services-overview.md)
+>[Overview of DICOM Service](dicom-services-overview.md)

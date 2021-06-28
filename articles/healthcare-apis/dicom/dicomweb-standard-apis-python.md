@@ -5,7 +5,7 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
-ms.date: 06/21/2021
+ms.date: 06/28/2021
 ms.author: aersoy
 ---
 
@@ -26,7 +26,7 @@ In the tutorial, we'll use these [sample DICOM files](https://github.com/microso
 
 ## Prerequisites
 
-To use the DICOMWeb&trade; Standard APIs, you must have an instance of the DICOM Service deployed. If you haven't already deployed the DICOM Service, see [Deploy DICOM Services using the Azure portal](deploy-dicom-services-in-azure.md).
+To use the DICOMWeb&trade; Standard APIs, you must have an instance of the DICOM Service deployed. If you haven't already deployed the DICOM Service, see [Deploy DICOM Service using the Azure portal](deploy-dicom-services-in-azure.md).
 
 Once you've deployed an instance of the DICOM Service, retrieve the URL for your App Service:
 
@@ -553,4 +553,4 @@ response = client.delete(url)
 For more information about DICOM Services, see 
 
 >[!div class="nextstepaction"]
->[Overview of DICOM Services](dicom-services-overview.md)
+>[Overview of DICOM Service](dicom-services-overview.md)
