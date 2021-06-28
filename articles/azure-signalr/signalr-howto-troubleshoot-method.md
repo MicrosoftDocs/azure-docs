@@ -30,6 +30,8 @@ Second, you need to capture service traces to troubleshoot. For how to capture t
 
 To simplify troubleshooting process, Azure SignalR service provides **live trace tool** to expose service traces on **connectivity** and **messaging** categories. The traces includes but not limited to connection connected/disconnected events, message received/left events. With **live trace tool**, you can capture, view, sort, filter and export live traces. For more details, refer to [How to use live trace tool](./signlar-howto-troubleshoot-livetrace.md).
 
+[Having issues or feedback about the troubleshooting? Let us know.](https://aka.ms/asrs/survey/troubleshooting)
+
 <a name="default_mode_tsg"></a>
 
 ## Default mode troubleshooting
