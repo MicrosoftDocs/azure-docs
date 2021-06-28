@@ -1,20 +1,17 @@
 ---
-title: 
-description: 
-author: 
+title: Use Kafka Connect for Azure Cosmos DB to read and write data.
+description: Kafka Connect for Azure Cosmos DB is a connector to read from and write data to Azure Cosmos DB. Kafka Connect is a tool for scalable and reliably streaming data between Apache Kafka and other systems
+author: kushagrathapar
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.topic: 
-ms.date: 
-ms.author: 
-
+ms.topic: conceptual
+ms.date: 06/28/2021
+ms.author: kuthapar
 ---
 
-# Kafka connect for Azure Cosmos DB
+# Kafka Connect for Azure Cosmos DB
 
-Kafka Connect is a tool for scalable and reliably streaming data between Apache Kafka and other systems
-
-This project provides connectors for [Kafka Connect](http://kafka.apache.org/documentation.html#connect) to read from and write data to [Azure Cosmos DB](https://azure.microsoft.com/en-us/services/cosmos-db/).
+[Kafka Connect](http://kafka.apache.org/documentation.html#connect) is a tool for scalable and reliably streaming data between Apache Kafka and other systems. Using Kafka Connect you can define connectors that move large data sets into and out of Kafka. Kafka Connect for Azure Cosmos DB is a connector to read from and write data to Azure Cosmos DB.
 
 ## Source & sink connectors semantics
 
@@ -36,7 +33,7 @@ The key and value settings, including the format and serialization can be indepe
 
 ## Converter configuration examples
 
-### Plain JSON
+### <a id="json-plain"></a>Plain JSON
 
 If you need to use JSON without schema registry for connect data, use the `JsonConverter` supported with Kafka. The following example shows the `JsonConverter` key and value properties that are added to the configuration:
 
@@ -47,7 +44,7 @@ If you need to use JSON without schema registry for connect data, use the `JsonC
   value.converter.schemas.enable=false
   ```
 
-### JSON with schema
+### <a id="json-with-schema"></a>JSON with schema
 
 Set the properties `key.converter.schemas.enable` and `value.converter.schemas.enable` to true so that the key or value is treated as a composite JSON object that contains both an internal schema and the data. Without these properties, the key or value is treated as plain JSON. 
 
@@ -89,9 +86,9 @@ The resulting message to Kafka would look like the example below, with schema an
 > [!NOTE]
 > The message written to Azure Cosmos DB is made up of the schema and payload. Notice the size of the message, as well as the proportion of it that is made up of the payload vs. the schema. The schema is repeated in every message you write to Kafka. In scenarios like this, you may want to use a serialization format like JSON Schema or AVRO, where the schema is stored separately, and the message holds just the payload.
 
-### AVRO
+### <a id="avro"></a>AVRO
 
-The Kafka connector supports AVRO data format. To use AVRO format, configure a `AvroConverter` so that Kafka Connect knows how to work with AVRO data. Azure Cosmos DB Kafka connect has been tested with the [AvroConverter](https://www.confluent.io/hub/confluentinc/kafka-connect-avro-converter) supplied by Confluent, under Apache 2.0 license. You can also use a different custom converter if you prefer.
+The Kafka Connector supports AVRO data format. To use AVRO format, configure a `AvroConverter` so that Kafka Connect knows how to work with AVRO data. Azure Cosmos DB Kafka Connect has been tested with the [AvroConverter](https://www.confluent.io/hub/confluentinc/kafka-connect-avro-converter) supplied by Confluent, under Apache 2.0 license. You can also use a different custom converter if you prefer.
 
 Kafka deals with keys and values independently. Specify the `key.converter` and `value.converter` properties as required in the worker configuration. When using `AvroConverter`, add an additional converter property that provides the URL for the schema registry. The following example shows the AvroConverter key and value properties that are added to the configuration:
 
@@ -162,3 +159,6 @@ Refer to the [Performance environment setup](https://github.com/microsoft/kafka-
 * [Kafka Connect Deep Dive – Converters and Serialization Explained](https://www.confluent.io/blog/kafka-connect-deep-dive-converters-serialization-explained/)
 
 ## Next steps
+
+* Kafka Connect for Azure Cosmos DB [source connector]()
+* Kafka Connect for Azure Cosmos DB [sink connector]()

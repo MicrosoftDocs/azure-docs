@@ -644,6 +644,10 @@
               href: secure-access-to-data.md
             - name: Advanced threat protection
               href: cosmos-db-advanced-threat-protection.md
+        - name: Connectors
+          items:
+            - name: Kafka Connect
+              href: kafka-connector.md
         - name: Connectivity modes
           href: sql-sdk-connection-modes.md
     - name: How-to guides
