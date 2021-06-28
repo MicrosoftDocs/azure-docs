@@ -1,17 +1,17 @@
 ---
-title: Use a public IP address with an Azure Application Gateway
+title: Manage a public IP address with an Azure Application Gateway
 titleSuffix: Azure Virtual Network
-description: Learn about the ways a public IP address is used with an Azure Application Gateway and how to change the configuration.
+description: Learn about the ways a public IP address is used with an Azure Application Gateway and how to change and manage the configuration.
 author: asudbring
 ms.author: allensu
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to 
-ms.date: 06/23/2021
+ms.date: 06/28/2021
 ms.custom: template-how-to 
 ---
 
-# Use a public IP address with an Azure Application Gateway
+# Manage a public IP address with an Azure Application Gateway
 
 Azure Application Gateway is a web traffic load balancer that manages traffic to your web applications. Application Gateway makes routing decisions based on attributes of an HTTP request. Examples of attributes such as URI path or host headers.  The frontend of an Application Gateway is the connection point for the applications in its backend pool. 
 

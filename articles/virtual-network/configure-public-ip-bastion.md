@@ -1,5 +1,5 @@
 ---
-title: Use a public IP address with Azure Bastion
+title: Manage a public IP address with Azure Bastion
 titleSuffix: Azure Virtual Network
 description: Learn about the ways a public IP address is used with Azure Bastion and how to change the configuration.
 author: asudbring
@@ -7,11 +7,11 @@ ms.author: allensu
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to 
-ms.date: 05/17/2021
+ms.date: 06/28/2021
 ms.custom: template-how-to 
 ---
 
-# Use a public IP address with Azure Bastion
+# Manage a public IP address with Azure Bastion
 
 Public IP addresses are available in two SKUs; standard, and basic. The selection of SKU determines the features of the IP address. The SKU determines the resources that the IP address can be associated with.
 

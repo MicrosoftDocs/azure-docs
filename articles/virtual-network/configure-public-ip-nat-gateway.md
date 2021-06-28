@@ -1,5 +1,5 @@
 ---
-title: Use a public IP address with a NAT gateway
+title: Manage a public IP address with a NAT gateway
 titleSuffix: Azure Virtual Network
 description: Learn about the ways a public IP address is used with an Azure Virtual Network NAT gateway and how to change the configuration.
 author: asudbring
@@ -7,11 +7,11 @@ ms.author: allensu
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to 
-ms.date: 06/22/2021
+ms.date: 06/28/2021
 ms.custom: template-how-to 
 ---
 
-# Use a public IP address with a NAT gateway
+# Manage a public IP address with a NAT gateway
 
 Azure NAT Gateway resources enable outbound Internet connections from subnets in a virtual network. Resources deployed in the NAT gateway virtual network subnet must be the standard SKU. Deployment of a NAT gateway to a virtual network subnet with basic SKU resources is unsupported. 
 

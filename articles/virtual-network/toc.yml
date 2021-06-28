@@ -216,7 +216,7 @@
       href: deploy-container-networking.md
   - name: IP services
     items:
-    - name: Resource configuration
+    - name: Resource management
       items:
       - name: Load balancer
         href: configure-public-ip-load-balancer.md
@@ -270,7 +270,7 @@
           href: ipv6-configure-standard-load-balancer-template-json.md
       - name: Standard internal
         items:
-        - name: Standard Internal Load Balancer with IPv6 - Powershell
+        - name: Standard Internal Load Balancer with IPv6 - PowerShell
           href: ipv6-dual-stack-standard-internal-load-balancer-powershell.md
       - name: Basic public
         items:
