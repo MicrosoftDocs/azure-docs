@@ -157,6 +157,11 @@ You can protect a controller or controller methods by using the `[Authorize]` at
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
+
+## Named snippet test
+
+ :::code language="csharp" source="~/name-snippet-docsreport-test/docsreport.py":::
+
 ## Next steps
 
 The GitHub repo that contains this ASP.NET Core tutorial includes instructions and more code samples that show you how to:
