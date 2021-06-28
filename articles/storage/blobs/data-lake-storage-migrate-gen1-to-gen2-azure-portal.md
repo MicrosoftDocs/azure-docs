@@ -63,7 +63,7 @@ As you create the account, make sure to configure settings with the following va
 
 ## Verify RBAC role assignments
 
-Something here about ensuring the proper permissions on Gen1 and Gen2.
+RBAC role requirements for Gen1 and Gen2 accounts go here.
 
 ## Perform the migration
 
