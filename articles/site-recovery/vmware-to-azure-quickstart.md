@@ -21,7 +21,7 @@ This quickstart describes how to set up disaster recovery for a VMware VM by rep
 To complete this tutorial, you need an Azure subscription and a VMware VM.
 
 - If you don't have an Azure account with an active subscription, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- A VM with a minimum 1 GB of RAM is recommended. [Learn more](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal) about how to create a VM.
+- A VM with a minimum 1 GB of RAM is recommended. [Learn more](/azure/virtual-machines/windows/quick-create-portal) about how to create a VM.
 
 
 
@@ -29,7 +29,7 @@ To complete this tutorial, you need an Azure subscription and a VMware VM.
 
 - Sign in to the [Azure portal](https://portal.azure.com/).
 - To get started, navigate to [[Azure private preview portal](https://aka.ms/rcmcanary). And do the steps detailed in the following sections.
-  [Create a recovery Services vault](https://docs.microsoft.com/azure/site-recovery/quickstart-create-vault-template?tabs=CLI)
+  [Create a recovery Services vault](/azure/site-recovery/quickstart-create-vault-template?tabs=CLI)
 - [Register and deploy ASR replication appliance](deploy-vmware-azure-replication-appliance-preview.md)
 
 ## Enable replication of VMware VMs

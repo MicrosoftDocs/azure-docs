@@ -6,11 +6,11 @@ ms.topic: tutorial
 ms.date: 06/28/2021
 ms.custom: MVC
 ---
-# Fail over VMware VMs
+# Fail over VMware VMs - Preview.
 
-<new sections for preview added - from Planned failover from Azure to on-premises (preview) sections till Next steps>
+This article describes how to fail over an on-premises VMware virtual machine (VM) to Azure with [Azure Site Recovery](site-recovery-overview.md) - preview.
 
-This article describes how to fail over an on-premises VMware virtual machine (VM) to Azure with [Azure Site Recovery](site-recovery-overview.md) -preview.
+For information about fail over in Classic release, see [this article]()
 
 In this tutorial, you learn how to:
 

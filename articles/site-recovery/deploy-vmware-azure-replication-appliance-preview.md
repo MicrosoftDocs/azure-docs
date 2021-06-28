@@ -246,7 +246,7 @@ If you select **Prepare infrastructure** under Getting started, you can see that
 
 Upon Selecting on *1 appliance(s)*, you will be re-directed to Azure Site Recovery replication appliance view to see the list of appliances registered to this vault.
 
-![ASR replication](./media/vmware-azure-set-up-replication-tutorial-preview/asr-replication-appliance.png)
+![ASR replication](./media/deploy-vmware-azure-replication-appliance-preview/asr-replication-appliance.png)
 
 
 ## Deploy replication appliance

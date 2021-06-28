@@ -9,9 +9,9 @@ ms.custom: MVC
 ---
 # Set up disaster recovery to Azure for on-premises VMware VMs - Preview
 
-<yet to add relevant images>
+This article describes how to enable replication for on-premises VMware VMs, for disaster recovery to Azure using the [Azure Site Recovery](site-recovery-overview.md) service - preview.
 
-This article describes how to enable replication for on-premises VMware VMs, for disaster recovery to Azure using the [Azure Site Recovery](site-recovery-overview.md) service - preview. For information on how to set up disaster recovery in Classic releases, see [this article](vmware-azure-tutorial.md)
+For information on how to set up disaster recovery in Classic releases, see [this article](vmware-azure-tutorial.md)
 
 This is the third tutorial in a series that shows you how to set up disaster recovery to Azure for on-premises VMware VMs. In the previous tutorial, we [prepared the on-premises VMware environment](vmware-azure-tutorial-prepare-on-premises.md) for disaster recovery to Azure.
 
@@ -45,7 +45,7 @@ VMware to Azure replication includes the following procedures:
 - To get started, navigate to [[Azure private preview portal](https://aka.ms/rcmcanary). And do the steps detailed in the following sections.
 - Prepare Azure account
 - Prepare infrastructure
-- [Create a recovery Services vault](https://docs.microsoft.com/azure/site-recovery/quickstart-create-vault-template?tabs=CLI)
+- [Create a recovery Services vault](/azure/site-recovery/quickstart-create-vault-template?tabs=CLI)
 - Create ASR replication appliances
 - Enable replication
 
@@ -136,7 +136,7 @@ Follow these steps to enable replication:
 
     - By default, a new LRS v1 type storage account will be created by Azure Site Recovery for the first enable replication operation in a vault. For the next operations, same cache storage account will be re-used.
   -  Managed disks
-    -  By default, premium SSD managed disks are created in Azure. You can customize the type of Managed disks by Selecting on **Customize**. Choose the type of disk based on the business requirement. Ensure [appropriate disk type is chosen](https://docs.microsoft.com/azure/virtual-machines/disks-types#disk-comparison) based on the IOPS of the source machine disks. For pricing information, refer to the managed disk pricing document [here](https://azure.microsoft.com/pricing/details/managed-disks/).
+    -  By default, premium SSD managed disks are created in Azure. You can customize the type of Managed disks by Selecting on **Customize**. Choose the type of disk based on the business requirement. Ensure [appropriate disk type is chosen](/azure/virtual-machines/disks-types#disk-comparison) based on the IOPS of the source machine disks. For pricing information, refer to the managed disk pricing document [here](https://azure.microsoft.com/pricing/details/managed-disks/).
 
   ![Customize managed disk](./media/vmware-azure-set-up-replication-tutorial-preview/customize-managed-disk.png)
 
