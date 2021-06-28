@@ -102,7 +102,7 @@ Follow these steps to enable replication:
 
 1. Select **Enable replication** under **Getting Started** section.
 
-   <image(enable-replication.png)>
+   ![Enable replication](./media/vmware-azure-set-up-replication-tutorial-preview/enable-replication.png)
 
 2. **Choose** the machine type you want to protect through Azure Site Recovery.
 
@@ -154,7 +154,7 @@ Follow these steps to enable replication:
 
 11. After choosing the replication policy, select **Next**. Review the Source and Target properties. Select **Enable Replication** to initiate the operation.
 
-   <image(appvault-site-recovery.png)>
+    ![Site recovery](./media/vmware-azure-set-up-replication-tutorial-preview/appvault-site-recovery.png)
 
 A job is created to enable replication of the selected machines. To track the progress, navigate to Site Recovery jobs in the recovery services vault.
 

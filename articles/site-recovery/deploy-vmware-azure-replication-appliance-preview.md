@@ -106,7 +106,7 @@ You need to set up an Azure Site Recovery replication appliance on the on-premis
 
 1. Go to **Recovery Services Vault** > **Getting Started**. In VMware machines to Azure, select **1: Prepare Infrastructure**
 
-   <image(site-recovery.png)>
+   ![Site recovery](./media/vmware-azure-set-up-replication-tutorial-preview/site-recovery.png)
 
    To set up a new appliance, you can use an OVF template (recommended) or PowerShell.
 
@@ -220,9 +220,9 @@ You can create the Site Recovery appliance by using the OVF template or through 
 
   After successful registration, you can close the tab and move to configuration manager to continue the set up.
 
-  <image(register-recovery-services-vault.png)>
+  ![Register recovery service vault](./media/vmware-azure-set-up-replication-tutorial-preview/register-recovery-services-vault.png)
 
-  <image(enter-code.png)>
+  ![Enter code](./media/vmware-azure-set-up-replication-tutorial-preview/enter-code.png)
 
   > [!NOTE]
   > An authentication code expires within 5 minutes of generation. In case of inactivity for more than this duration, you will be prompted to login again to Azure.
@@ -248,7 +248,7 @@ If you select **Prepare infrastructure** under Getting started, you can see that
 
 Upon Selecting on *1 appliance(s)*, you will be re-directed to Azure Site Recovery replication appliance view to see the list of appliances registered to this vault.
 
-<image(asr-replication-appliance.png)>
+![ASR replication](./media/vmware-azure-set-up-replication-tutorial-preview/asr-replication-appliance.png)
 
 
 ## Deploy replication appliance
