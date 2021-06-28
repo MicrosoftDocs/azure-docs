@@ -89,7 +89,7 @@ See the [Known issues](network-file-system-protocol-known-issues.md) article for
 
 ## Pricing
 
-See the [Azure Blob Storage pricing](/pricing/details/storage/blobs/) page for data storage and transaction costs. 
+See the [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) page for data storage and transaction costs. 
 
 ## See also
 
