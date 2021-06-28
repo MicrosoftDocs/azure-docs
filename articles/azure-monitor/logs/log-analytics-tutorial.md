@@ -4,7 +4,7 @@ description: Learn from this tutorial how to use features of Log Analytics in Az
 ms.topic: tutorial
 author: bwren
 ms.author: bwren
-ms.date: 10/07/2020
+ms.date: 06/28/2021
 
 ---
 
@@ -37,7 +37,7 @@ You can view the scope in the top left corner of the screen. If you're using you
 ## Table schema
 The left side of the screen includes the **Tables** tab which allows you to inspect the tables that are available in the current scope. These are grouped by **Solution** by default, but you change their grouping or filter them. 
 
-Expand the **Log Management** solution and locate the **AzureActivity** table. You can expand the table to view its schema, or hover over its name to show additional information about it. 
+Expand the **Log Management** solution and locate the **AppRequests** table. You can expand the table to view its schema, or hover over its name to show additional information about it. 
 
 :::image type="content" source="media/log-analytics-tutorial/table-details.png" alt-text="Tables view" lightbox="media/log-analytics-tutorial/table-details.png":::
 
@@ -46,7 +46,7 @@ Click **Learn more** to go to the table reference that documents each table and 
 :::image type="content" source="media/log-analytics-tutorial/sample-data.png" alt-text="Sample data" lightbox="media/log-analytics-tutorial/sample-data.png":::
 
 ## Write a query
-Let's go ahead and write a query using the **AzureActivity** table. Double-click its name to add it to the query window. You can also type directly in the window and even get intellisense that will help complete the names of tables in the current scope and KQL commands.
+Let's go ahead and write a query using the **AppRequests** table. Double-click its name to add it to the query window. You can also type directly in the window and even get intellisense that will help complete the names of tables in the current scope and KQL commands.
 
 This is the simplest query that we can write. It just returns all the records in a table. Run it by clicking the **Run** button or by pressing Shift+Enter with the cursor positioned anywhere in the query text.
 
@@ -56,7 +56,7 @@ You can see that we do have results. The number of records returned by the query
 
 ## Filter
 
-Let's add a filter to the query to reduce the number of records that are returned. Select the **Filter** tab in the left pane. This shows different columns in the query results that you can use to filter the results. The top values in those columns are displayed with the number of records with that value. Click on **Administrative** under **CategoryValue** and then **Apply & Run**. 
+Let's add a filter to the query to reduce the number of records that are returned. Select the **Filter** tab in the left pane. This shows different columns in the query results that you can use to filter the results. The top values in those columns are displayed with the number of records with that value. Click on **200** under **ResultCode** and then **Apply & Run**. 
 
 :::image type="content" source="media/log-analytics-tutorial/query-pane.png" alt-text="Query pane" lightbox="media/log-analytics-tutorial/query-pane.png":::
 
@@ -68,13 +68,13 @@ A **where** statement is added to the query with the value you selected. The res
 ## Time range
 All tables in a Log Analytics workspace have a column called **TimeGenerated** which is the time that the record was created. All queries have a time range that limits the results to records with a **TimeGenerated** value within that range. The time range can either be set in the query or with the selector at the top of the screen.
 
-By default, the query will return records form the last 24 hours. Select the **Time range** dropdown and change it to **7 days**. Click **Run** again to return the results. You can see that results are returned, but we have a message here that we're not seeing all of the results. This is because Log Analytics can return a maximum of 30,000 records, and our query returned more records than that. 
+By default, the query will return records form the last 24 hours. You should see a message here that we're not seeing all of the results. This is because Log Analytics can return a maximum of 30,000 records, and our query returned more records than that. Select the **Time range** dropdown and change it to **12 hours**. Click **Run** again to return the results. 
 
 :::image type="content" source="media/log-analytics-tutorial/query-results-max.png" alt-text="Time range" lightbox="media/log-analytics-tutorial/query-results-max.png":::
 
 
 ## Multiple query conditions
-Let's reduce our results further by adding another filter condition. A query can include any number of filters to target exactly the set of records that you want. Select **Success** under **ActivityStatusValue** and click **Apply & Run**. 
+Let's reduce our results further by adding another filter condition. A query can include any number of filters to target exactly the set of records that you want. Select **Get Home/Index** under **Name** and click **Apply & Run**. 
 
 :::image type="content" source="media/log-analytics-tutorial/query-results-filter-02.png" alt-text="Query results multiple filters" lightbox="media/log-analytics-tutorial/query-results-filter-02.png":::
 
@@ -86,7 +86,7 @@ In addition to helping you write and run queries, Log Analytics provides feature
 
 Click on the name of any column to sort the results by that column. Click on the filter icon next to it to provide a filter condition. This is similar to adding a filter condition to the query itself except that this filter is cleared if the query is run again. Use this method if you want to quickly analyze a set of records as part of interactive analysis.
 
-For example, set a filter on the **CallerIpAddress** column to limit the records to a single caller. 
+For example, set a filter on the **DurationMs** column to limit the records to those that took over **100** milliseconds. 
 
 :::image type="content" source="media/log-analytics-tutorial/query-results-filter.png" alt-text="Query results filter" lightbox="media/log-analytics-tutorial/query-results-filter.png":::
 
@@ -94,7 +94,7 @@ Instead of filtering the results, you can group records by a particular column. 
 
 :::image type="content" source="media/log-analytics-tutorial/query-results-group-columns.png" alt-text="Group column" lightbox="media/log-analytics-tutorial/query-results-group-columns.png":::
 
-Now drag the **CallerIpAddress** column into the grouping row. Results are now organized by that column, and you can collapse each group to help you with your analysis.
+Now drag the **Url** column into the grouping row. Results are now organized by that column, and you can collapse each group to help you with your analysis.
 
 :::image type="content" source="media/log-analytics-tutorial/query-results-grouped.png" alt-text="Query results grouped" lightbox="media/log-analytics-tutorial/query-results-grouped.png":::
 
@@ -103,7 +103,7 @@ Let's have a look at a query that uses numerical data that we can view in a char
 
 Click on **Queries** in the left pane. This pane includes example queries that you can add to the query window. If you're using your own workspace, you should have a variety of queries in multiple categories, but if you're using the demo environment, you may only see a single **Log Analytics workspaces** category. Expand that to view the queries in the category.
 
-Click on the query called **Request Count by ResponseCode**. This will add the query to the query window. Notice that the new query is separated from the other by a blank line. A query in KQL ends when it encounters a blank line, so these are seen as separate queries. 
+Click on the query called **Function Error rate** in the **Applications** category. This will add the query to the query window. Notice that the new query is separated from the other by a blank line. A query in KQL ends when it encounters a blank line, so these are seen as separate queries. 
 
 :::image type="content" source="media/log-analytics-tutorial/example-query.png" alt-text="New query" lightbox="media/log-analytics-tutorial/example-query.png":::
 
@@ -111,9 +111,8 @@ The current query is the one that the cursor is positioned on. You can see that 
 
 :::image type="content" source="media/log-analytics-tutorial/example-query-output-table.png" alt-text="Query results table" lightbox="media/log-analytics-tutorial/example-query-output-table.png":::
 
-Notice that this output is a chart instead of a table like the last query. That's because the example query uses a [render](/azure/data-explorer/kusto/query/renderoperator?pivots=azuremonitor) command at the end. Notice that there are various options for working with the chart such as changing it to another type.
+To view the results in a graph, select **Chart** in the results pane.  Notice that there are various options for working with the chart such as changing it to another type.
 
-Try selecting **Results** to view the output of the query as a table. 
 
 :::image type="content" source="media/log-analytics-tutorial/example-query-output-chart.png" alt-text="Query results chart" lightbox="media/log-analytics-tutorial/example-query-output-chart.png":::
 
