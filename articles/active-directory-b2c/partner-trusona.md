@@ -146,13 +146,15 @@ You should now see Trusona as a **new OpenID Connect Identity Provider** listed 
 
 1. Select your newly created policy.
 
-2. Select **Run user flow**.
+2. Select **Run user flow** and select the settings:
 
-3. In the form, enter the Replying URL.
+   a. Application: select the registered app
+ 
+   b. Reply URL: select the redirect URL
+   
+3. Select **Run user flow**. You should be redirected to the Trusona OIDC gateway. On the Trusona gateway, scan the displayed Secure QR code with the Trusona app or with a custom app using the Trusona mobile SDK.
 
-4. Select **Run user flow**. You should be redirected to the Trusona OIDC gateway. On the Trusona gateway, scan the displayed Secure QR code with the Trusona app or with a custom app using the Trusona mobile SDK.
-
-5. After scanning the Secure QR code, you should be redirected to the Reply URL you defined in step 3.
+4. After scanning the Secure QR code, you should be redirected to the Reply URL you defined in step 3.
 
 ## Next steps  
 
