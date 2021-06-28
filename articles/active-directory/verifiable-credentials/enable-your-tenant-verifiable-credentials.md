@@ -18,7 +18,7 @@ ms.reviewer:
 
 # Tutorial - Configure Azure Active Directory to issue verifiable credentials (preview)
 
-In this tutorial, you'll build on the work done as part of the [Get started](get-started-verifiable-credentials.md) article and set up Azure Active Directory (Azure AD) with its own [decentralized identifier](https://www.microsoft.com/security/business/identity-access-management/decentralized-identity-blockchain?rtc=1#:~:text=Decentralized%20identity%20is%20a%20trust,protect%20privacy%20and%20secure%20transactions.) (DID). You'll use the DID to issue a verifiable credential by using the sample app and your issuer. In this tutorial, you'll still use the sample Azure B2C tenant for authentication. In the next tutorial, you'll take steps to get the app configured to work with your Azure AD.
+In this tutorial, you'll build on the work done as part of the [Get started](get-started-verifiable-credentials.md) article and set up Azure Active Directory (Azure AD) with its own [decentralized identifier](https://www.microsoft.com/security/business/identity-access-management/decentralized-identity-blockchain?rtc=1#:~:text=Decentralized%20identity%20is%20a%20trust,protect%20privacy%20and%20secure%20transactions.) (DID). You'll use the DID to issue a verifiable credential by using the sample app and your issuer. In this tutorial, you'll still use the sample Azure B2C tenant for authentication. In the next tutorial, you'll take steps to get the app configured to work with Azure AD.
 
 > [!IMPORTANT]
 > Azure Active Directory Verifiable Credentials is currently in public preview.
@@ -28,7 +28,7 @@ In this tutorial, you'll build on the work done as part of the [Get started](get
 In this article, you:
 
 > [!div class="checklist"]
-> * Create the necessary services to onboard your Azure AD for verifiable credentials.
+> * Create the necessary services to onboard Azure AD for verifiable credentials.
 > * Create your DID.
 > * Customize the rules and display files.
 > * Configure verifiable credentials in Azure AD.
@@ -342,7 +342,7 @@ Now you'll make modifications to the sample app's issuer code to update it with 
 
    You're now issued a verifiable credential by using our tenant to generate a verifiable credential while still using the sample Azure B2C tenant for authentication.
 
-     ![Screenshot that shows a verifiable credential issued by your Azure AD and authenticated by the sample Azure B2C tenant.](media/enable-your-tenant-verifiable-credentials/my-vc-b2c.png)
+     ![Screenshot that shows a verifiable credential issued by Azure AD and authenticated by the sample Azure B2C tenant.](media/enable-your-tenant-verifiable-credentials/my-vc-b2c.png)
 
 ## Verify the verifiable credential by using the sample app
 
