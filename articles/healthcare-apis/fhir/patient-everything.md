@@ -12,7 +12,7 @@ ms.author: cavoeg
 
 # Patient-everything in FHIR
 
-The [$patient-everything](https://www.hl7.org/fhir/patient-operation-everything.html) operation was created to provide a patient with access to their entire record or for a provider or other user to perform a bulk data download. This operation is used to return all the information related to one or more patients described in the resource or context on which this operation is invoked.  
+The [$patient-everything](https://www.hl7.org/fhir/patient-operation-everything.html) operation is used to provide a patient with access to their entire record or for a provider or other user to perform a bulk data download. This operation is used to return all the information related to one or more patients described in the resource or context on which this operation is invoked.  
 
 ## Use patient-everything
 To call patient-everything, use the following command:
@@ -23,12 +23,12 @@ GET {FHIRURL}/Patient/{ID}/$everything
 The Azure API for FHIR validates that it can find the patient matching the provided patient ID. If a result is found, the response will be a bundle of type “searchset” with the following information: 
 * [Patient resource](https://www.hl7.org/fhir/patient.html) 
 *  Resources that are directly referenced by the Patient resource (except link) 
-*  Resources in the Patient's [compartment](https://www.hl7.org/fhir/compartmentdefinition-patient.html)
-*  [Device resources](https://www.hl7.org/fhir/device.html) that reference the Patient resource. Note that this is limited to 100 devices. If the patient has more than 100 devices linked to them, only 100 will be returned. 
+*  Resources in the [Patient Compartment](https://www.hl7.org/fhir/compartmentdefinition-patient.html)
+*  [Device resources](https://www.hl7.org/fhir/device.html) that reference the Patient resource. This is limited to 100 devices. If the patient has more than 100 devices linked to them, only 100 will be returned. 
 
  
 > [!Note]
-> $patient-everything is available in the Open Source FHIR Server backed by Cosmos DB now and will be available in Azure API for FHIR before July 1st. The capability statement for the FHIR Server is missing support for $patient-everything, which is tracked here: Issue [1989](https://github.com/microsoft/fhir-server/issues/1989). 
+> The capability statement for the FHIR Server is missing support for $patient-everything, which is tracked here: Issue [1989](https://github.com/microsoft/fhir-server/issues/1989). 
 
 
 ## Patient-everything parameters
@@ -38,8 +38,8 @@ The Azure API for FHIR supports the following query parameters. All of these par
 |-----------------------|------------|
 | \_type | Allows you to specify which types of resources will be included in the response. For example, \_type=Encounter would return only `Encounter` resources associated with the patient. |
 | \_since | Will return only resources that have been modified since the time provided. |
-| start | Specifying the start date will pull in resources where there clinical date is after the specified start date. If no start date is provided, all records prior to the end date are in scope. |
-| end | Specifying the end date will pull in resources where there clinical date is before the specified end date. If no end date is provided, all records after the start date are in scope. |
+| start | Specifying the start date will pull in resources where their clinical date is after the specified start date. If no start date is provided, all records before the end date are in scope. |
+| end | Specifying the end date will pull in resources where their clinical date is before the specified end date. If no end date is provided, all records after the start date are in scope. |
 
 > [!Note]
 > You must specify an ID for a specific patient. If you need all data for all patients, see [$export](export-data.md). 
@@ -47,7 +47,7 @@ The Azure API for FHIR supports the following query parameters. All of these par
 
 ## Examples of $patient-everything 
 
-Below are some additional examples of using the $patient-everything operation. 
+Below are some examples of using the $patient-everything operation. 
 
 To use $patient-everything to query a patient’s “everything” between 2010 and 2020, use the following call: 
 

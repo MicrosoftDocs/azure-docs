@@ -104,7 +104,7 @@ To configure the recommendations, install the  **Azure Policy add-on for Kuberne
     1. Select the default policy for the scope you're updating.
     1. Open the **Parameters** tab and modify the values as required.
 
-        :::image type="content" source="media/kubernetes-workload-protections/containers-parameter-requires-configuration.png" alt-text="Modifying the parameters for one of the recommendations in the Kubernetes workload protection bundle":::
+        :::image type="content" source="media/kubernetes-workload-protections/containers-parameter-requires-configuration.png" alt-text="Modifying the parameters for one of the recommendations in the Kubernetes workload protection bundle.":::
 
     1. Select **Review + save**.
     1. Select **Save**.
@@ -114,7 +114,7 @@ To configure the recommendations, install the  **Azure Policy add-on for Kuberne
 
     1. Open the recommendation details page and select **Deny**:
 
-        :::image type="content" source="./media/defender-for-kubernetes-usage/enforce-workload-protection-example.png" alt-text="Deny option for Azure Policy parameter":::
+        :::image type="content" source="./media/defender-for-kubernetes-usage/enforce-workload-protection-example.png" alt-text="Deny option for Azure Policy parameter.":::
 
         This will open the pane where you set the scope. 
 
@@ -128,7 +128,7 @@ To configure the recommendations, install the  **Azure Policy add-on for Kuberne
 
 1. When viewing a recommendation from the workload protection set, you'll see the number of affected pods ("Kubernetes components") listed alongside the cluster. For a list of the specific pods, select the cluster and then select **Take action**.
 
-    :::image type="content" source="./media/defender-for-kubernetes-usage/view-affected-pods-for-recommendation.gif" alt-text="Viewing the affected pods for a K8s recommendation"::: 
+    :::image type="content" source="./media/defender-for-kubernetes-usage/view-affected-pods-for-recommendation.gif" alt-text="Viewing the affected pods for a K8s recommendation."::: 
 
 1. To test the enforcement, use the two Kubernetes deployments below:
 

@@ -116,7 +116,7 @@ You can use the connector with [Azure Databricks](https://azure.microsoft.com/se
 * Improves connection management and connection pooling to reduce the number of metadata calls.
 
 ## FAQ
-[!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
+[!INCLUDE [cosmos-db-sdk-faq](includes/cosmos-db-sdk-faq.md)]
 
 ## Next steps
 

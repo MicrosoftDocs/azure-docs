@@ -38,7 +38,7 @@ To view the built-in policy definitions related to monitoring, perform the follo
 
   ![Screenshot of the Azure Policy Definitions page in Azure portal showing a list of policy definitions for the Monitoring category and Built-in Type.](media/deploy-scale/builtin-policies.png)
 
-## Azure Monitor Agent (preview)
+## Azure Monitor Agent
 The [Azure Monitor agent](agents/azure-monitor-agent-overview.md) collects monitoring data from the guest operating system of Azure virtual machines and delivers it to Azure Monitor. It uses [Data Collection Rules](agents/data-collection-rule-overview.md) to configure data to collect from each agent, that enable manageability of collection settings at scale while still enabling unique, scoped configurations for subsets of machines.  
 Use the policies and policy initiatives below to automatically install the agent and associate it to a data collection rule, every time you create a virtual machine.
 

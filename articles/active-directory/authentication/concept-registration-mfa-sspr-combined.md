@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/27/2021
+ms.date: 06/16/2021
 
 ms.author: justinha
 author: justinha
@@ -136,6 +136,10 @@ A user who has previously set up at least one method navigates to [https://aka.m
 ### Change the default method from My Account
 
 A user who has previously set up at least one method that can be used for Multi-Factor Authentication navigates to [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo). The user changes the current default method to a different default method. When finished, the user sees the new default method on the Security info page.
+
+An external identity such as a B2B user may need to switch the directory to change the security registration information for a third-party tenant. In the Azure portal, click the user account name in the upper right corner and click **SWitch directory**.
+
+![External users can switch directory.](media/concept-registration-mfa-sspr-combined/switch-directory.png)
 
 ## Next steps
 
