@@ -112,7 +112,7 @@ Perform the following steps, as preparation for using Azure NetApp Files.
 4. Azure NetApp Files resources must reside in delegated subnet. Follow the instructions in [Delegate a subnet to Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-delegate-subnet.md) to create delegated subnet.  
 
    > [!IMPORTANT]
-   > You need to create Active Directory connections before creating an SMB volume. Review the [requirements for Active Directory connections](../../../azure-netapp-files/create-active-directory-connections.md#requirements-for-active-directory-connections).
+   > You need to create Active Directory connections before creating an SMB volume. Review the [requirements for Active Directory connections](../../../azure-netapp-files/create-active-directory-connections.md#requirements-for-active-directory-connections).  
    >   
    > When creating the Active Directory connection, make sure to enter SMB Server (Computer Account) Prefix no longer than 8 characters (a suffix is automatically added to the SMB Computer Account name) to avoid running into the 13 characters hostname limitation for SAP Applications.   
    > The hostname limitations for SAP applications are described in [2718300 - Physical and Virtual hostname length limitations](https://launchpad.support.sap.com/#/notes/2718300) and [611361 - Hostnames of SAP ABAP Platform servers](https://launchpad.support.sap.com/#/notes/611361).  
