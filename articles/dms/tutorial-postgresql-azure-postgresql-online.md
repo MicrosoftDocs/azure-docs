@@ -121,6 +121,7 @@ To complete all the database objects like table schemas, indexes and stored proc
        ```
 
    * When prompted, open a web browser and enter a code to authenticate your device. Follow the instructions as listed.
+
    * PostgreSQL online migration is now available within the regular CLI package (version 2.18.0 and above) without the need for the `dms-preview` extension. If you have installed the extension in the past, you can remove it using the following steps :
         * To check if you have `dms-preview` extension already installed, run the following command:
         
@@ -304,7 +305,7 @@ To complete all the database objects like table schemas, indexes and stored proc
                 schemaname NOT IN ('pg_catalog', 'information_schema');
             ```
 
-        * Create the database options json file with one entry for each database with the source and target database names and the list of selected tables to be migrated. You can use the output of the SQL query above to populate the *"selectedTables"* array. **Please note that if the selected tables list is empty, then no tables will be migrated**.
+        * Create the database options json file with one entry for each database with the source and target database names and the list of selected tables to be migrated. You can use the output of the SQL query above to populate the *"selectedTables"* array. **Please note that if the selected tables list is empty, then the service will include all the tables for migration which have matching schema and table names.**.
         
             ```json
             [
