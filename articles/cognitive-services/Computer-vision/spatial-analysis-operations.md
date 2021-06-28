@@ -100,7 +100,7 @@ This is an example of the DETECTOR_NODE_CONFIG parameters for all Spatial Analys
 | `enable_orientation` | bool | Indicates whether you want to compute the orientation for the detected people or not. `enable_orientation` is set by default to False. |
 
 
-### Camera Calibration Output
+### Camera calibration output
 This is an example of the output from camera calibration if enabled. Ellipses indicate more of the same type of objects in a list.
 ```
 {
@@ -187,7 +187,7 @@ See [Spatial analysis operation output](#spatial-analysis-operation-output) for 
 | `personBoundingBoxGroundPoints` | list | A list of coordinates on the floor plane relative to the camera. Each coordinate corresponds to the bottom right of the bounding box in `uniformlySpacedPersonBoundingBoxes` with the same index. <br/> See the `centerGroundPoint` field under the [JSON format for cognitiveservices.vision.spatialanalysis-persondistance AI Insights](#json-format-for-cognitiveservicesvisionspatialanalysis-persondistance-ai-insights) section for more details on how coordinates on the floor plane are calculated. |
 
 Example of the zone placement info output visualized on a video frame:
-![Zone placement info visualization](./media/spatial-analysis/ZonePlacementInfoVisualization.png)
+![Zone placement info visualization](./media/spatial-analysis/zone-placement-info-visualization.png)
 
 The zone placement info provides suggestions for your configurations, but the guidelines in [Camera configration](#camera-configuration) must still be followed for best results.
 
