@@ -2,7 +2,7 @@
 title: Discover Bicep in Microsoft Learn
 description: Provides an overview of the units that are available in Microsoft Learn for Bicep.
 ms.topic: conceptual
-ms.date: 06/11/2021
+ms.date: 06/28/2021
 ---
 # Bicep in Microsoft Learn
 
@@ -23,6 +23,7 @@ This path contains the following modules.
 | [Deploy child and extension resources by using Bicep](/learn/modules/child-extension-bicep-templates/) | This module shows how to deploy various Azure resources in your Bicep code. Learn about child and extension resources, and how they can be defined and used within Bicep. Use Bicep to work with resources that you created outside a Bicep template or module. |
 | [Deploy resources to subscriptions, management groups, and tenants by using Bicep](/learn/modules/deploy-resources-scopes-bicep/) | Deploy Azure resources at the subscription, management group, and tenant scope. Learn what these resources are, why you would use them, and how you create Bicep code to deploy them. Also learn how to create a single set of Bicep files that you can deploy across multiple scopes in one operation. |
 | [Extend templates by using deployment scripts](/learn/modules/extend-resource-manager-template-deployment-scripts/) | Learn how to add custom steps to your Bicep file or Azure Resource Manager template (ARM template) by using deployment scripts. |
+| [Publish libraries of reusable infrastructure code by using template specs](/learn/modules/arm-template-specs/) | Learn how to create and publish template specs, and how to deploy them.|
 
 ## Other modules
 

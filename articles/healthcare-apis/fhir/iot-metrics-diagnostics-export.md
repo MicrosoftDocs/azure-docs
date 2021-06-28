@@ -53,6 +53,6 @@ Having access to Metrics logs is essential for monitoring and troubleshooting.  
 Check out frequently asked questions about the Azure IoT Connector for FHIR.
 
 >[!div class="nextstepaction"]
->[Azure IoT Connector for FHIR FAQs](fhir-faq.md)
+>[Azure IoT Connector for FHIR FAQs](fhir-faq.yml)
 
 *In the Azure portal, Azure IoT Connector for FHIR is referred to as IoT Connector (preview). FHIR is a registered trademark of HL7 and is used with the permission of HL7.

@@ -12,9 +12,9 @@ The following table describes the maximum limits for Azure VMware Solution.
 | **Resource** | **Limit** |
 | :-- | :-- |
 | Clusters per private cloud | 12 |
-| Minimum number of nodes per cluster | 3 |
-| Maximum number of nodes per cluster | 16 |
-| Nodes per private cloud | 96 |
+| Minimum number of hosts per cluster | 3 |
+| Maximum number of hosts per cluster | 16 |
+| hosts per private cloud | 96 |
 | vCenter per private cloud | 1  |
 | HCX site pairings | 3 with Advanced edition, 10 with Enterprise edition |
 | AVS ExpressRoute max linked private clouds | 4<br />The virtual network gateway used determines the actual max linked private clouds.  For more details, see [About ExpressRoute virtual network gateways](../../expressroute/expressroute-about-virtual-network-gateways.md) | 

@@ -158,7 +158,7 @@ To use BYOS for RHEL OS, you need to have a valid Red Hat subscription with enti
 
    1. Enable new products for Cloud Access on Microsoft Azure.
     
-   1. Activate Red Hat Gold Images for your Azure subscription. For more information, see [Red Hat Gold Images on Microsoft Azure](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/cloud-access-gold-images_cloud-access#proc_using-gold-images-azure_cloud-access).
+   1. Activate Red Hat Gold Images for your Azure subscription. For more information, see [Red Hat Gold Images on Microsoft Azure](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/understanding-gold-images_cloud-access#proc_using-gold-images-azure_cloud-access#proc_using-gold-images-azure_cloud-access).
 
    1. Wait for Red Hat Gold Images to be available in your Azure subscription. These images are typically available within three hours of submission.
     

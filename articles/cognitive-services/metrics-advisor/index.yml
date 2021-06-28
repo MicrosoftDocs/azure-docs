@@ -31,6 +31,12 @@ landingContent:
           url: quickstarts/web-portal.md
         - text: Use the REST API or client libraries
           url: quickstarts/rest-api-and-client-library.md
+    - linkListType: video
+      links:
+        - text: Introducing Metrics Advisor
+          url: https://www.youtube.com/watch?v=0Y26cJqZMIM
+        - text: New to Cognitive Services
+          url: https://www.youtube.com/watch?v=7tCLJHdBZgM
 - title: How-to articles
   linkLists:
     - linkListType: how-to-guide

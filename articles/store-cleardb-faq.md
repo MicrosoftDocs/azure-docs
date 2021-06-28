@@ -26,7 +26,7 @@ See [ClearDB](https://w2.cleardb.net/) for the latest information on that servic
 
 You have several other options for hosting MySQL in Azure:
 * [Azure Database for MySQL](https://azure.microsoft.com/services/mysql/)
-* [MySQL cluster running on an Azure VM](https://github.com/azure/azure-quickstart-templates/tree/master/mysql-replication)
+* [MySQL cluster running on an Azure VM](https://github.com/azure/azure-quickstart-templates/tree/master/application-workloads/mysql/mysql-replication)
 * [Single instance of MySQL running on an Azure VM](/previous-versions/azure/virtual-machines/windows/classic/mysql-2008r2?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 
@@ -39,7 +39,7 @@ This depends on the type of subscription you are using. Here are some commonly u
 * [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/): EA customers are billed against their EA each quarter for all of their Azure Marketplace (third-party) purchases on a separate, consolidated invoice. You are billed outside the Azure Prepayment (previously called monetary commitment) for any marketplace purchases. Please note that, at this time, Azure Store is not available to customers enrolled in Azerbaijan, Croatia, Norway and Puerto Rico. 
 
 ## Why was I charged $3.50 for a Web app + MySQL from the Azure Marketplace?
-The default database option is Titan, which is $3.50. We don’t show the cost during database creation, and you may mistakenly purchase a database you didn’t intend to. We are trying to find a way to improve the experience but until then you must check all your selected pricing tiers for web app and database before clicking **Create** and starting the deployment of the resources.
+The default database option is Titan, which is $3.50. We don't show the cost during database creation, and you may mistakenly purchase a database you didn't intend to. We are trying to find a way to improve the experience but until then you must check all your selected pricing tiers for web app and database before clicking **Create** and starting the deployment of the resources.
 
 ## I am running MySQL on my own Azure virtual machine. Can I connect my Azure web app to my database?
 Yes. You can connect your web app to your database as long as your Azure VM has given remote access to your web app. For more information, see [Install MySQL on a virtual machine](/previous-versions/azure/virtual-machines/windows/classic/mysql-2008r2?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
@@ -62,7 +62,7 @@ Use Basic or a higher pricing tier for Web Apps. For ClearDB, we recommend eithe
 ## How do I upgrade my ClearDB database from one plan to another?
 In the [Azure portal](https://portal.azure.com), you can scale up a ClearDB shared hosting database. Read this [article](https://blogs.msdn.microsoft.com/appserviceteam/2016/10/06/upgrade-your-cleardb-mysql-database-in-azure-portal/) to learn more. We currently don't support upgrade for ClearDB Premium clusters in the Azure portal.
 
-## I can’t see my ClearDB database in Azure portal?
+## I can't see my ClearDB database in Azure portal?
 If you created a ClearDB database in classic, you will not be able to see your database in the [Azure portal](https://portal.azure.com). There is no work-around for this scenario.
 
 ## Who do I contact for support when my database is down?
