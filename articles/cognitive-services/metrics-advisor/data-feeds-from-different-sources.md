@@ -79,7 +79,7 @@ The following sections specify the parameters required for all authentication ty
     Sample query:
 
     ``` Kusto
-    [TableName] | where [TimestampColumn] >= @IntervalStart and [TimestampColumn] < @IntervalEnd;
+    [TableName] | where [TimestampColumn] >= datetime(@IntervalStart) and [TimestampColumn] < datetime(@IntervalEnd);
     ```
     You can also refer to the [Tutorial: Write a valid query](tutorials/write-a-valid-query.md) for more specific examples.
   
@@ -320,9 +320,9 @@ There are three authentication types for Azure Log Analytics, they are **Basic**
 
     Sample query:
 
-    ```
+    ``` Kusto
     [TableName]
-    | where [TimestampColumn] >= @IntervalStart and [TimestampColumn] < @IntervalEnd
+    | where [TimestampColumn] >= datetime(@IntervalStart) and [TimestampColumn] < datetime(@IntervalEnd)
     | summarize [count_per_dimension]=count() by [Dimension]
     ```
 
