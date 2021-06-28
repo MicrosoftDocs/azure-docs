@@ -2,7 +2,7 @@
 title: Deprovision an Azure disk pool (preview)
 description: Learn how to deprovision, stop, and delete and Azure disk pool.
 author: roygara
-ms.date: 06/24/2021
+ms.date: 06/28/2021
 ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines
@@ -39,7 +39,7 @@ When you delete a disk pool, all the resources in the managed resource group are
 
 # [Portal](#tab/azure-portal)
 
-1. Sign in to the Azure portal.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Search for **Disk pool** and select it, then select the disk pool you want to delete.
 1. Select **Delete** at the top of the blade.
 

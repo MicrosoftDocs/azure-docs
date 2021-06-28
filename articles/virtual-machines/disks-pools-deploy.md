@@ -65,7 +65,7 @@ For a disk to be able to be used in a disk pool, it must meet the following requ
     - For ultra disks, it must have a disk sector size of 512 bytes.
 - Must be a shared disk with a maxShares value of two or greater.
 
-1. Sign in to the Azure portal.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Search for and select either the resource group that contains the disks or each disk themselves.
 1. Select **Access control (IAM)**.
 1. Select **Add role assignment (Preview)**, and select **Disk Pool Operator** in the Role list.

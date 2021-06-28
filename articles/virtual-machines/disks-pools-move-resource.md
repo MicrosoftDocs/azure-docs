@@ -24,7 +24,7 @@ To make the redeployment process simpler, export the template from your existing
 
 ## Delete the old disk pool
 
-Now that you've exported the template, delete the old disk pool. Deleting the disk pool removes the disk pool resource and its managed resource group. See this article for guidance on how to delete a disk pool.
+Now that you've exported the template, delete the old disk pool. Deleting the disk pool removes the disk pool resource and its managed resource group. See [this article](disks-pools-deprovision.md) for guidance on how to delete a disk pool.
 
 ## Move your disks and virtual network
 

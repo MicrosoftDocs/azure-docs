@@ -17,7 +17,7 @@ Once you've deployed a disk pool (preview), there are two management actions ava
 
 ## Prerequisites
 
-If you're going to use the Azure PowerShell module, install [version 6.1.0 or newer](/powershell/module/az.diskpool/?view=azps-6.1.0&preserve-view=true).
+Install [version 6.1.0 or newer](/powershell/module/az.diskpool/?view=azps-6.1.0&preserve-view=true) of the Azure PowerShell module.
 
 ## Add a disk to a pool
 
@@ -115,5 +115,4 @@ Update-AzDiskPool -ResourceGroupName $resourceGroupName -Name $diskPoolName -Dis
 ## Next steps
 
 - To learn how to move a disk pool to another subscription, see [Move a disk pool to a different subscription](disks-pools-move-resource.md).
-- 
 - To learn how to deprovision a disk pool, see [Deprovision an Azure disk pool](disks-pools-deprovision.md).
