@@ -80,7 +80,7 @@ Edge Secured-core is an incremental certification in the Azure Certified Device 
 |Applies To|Any device|
 |OS|Agnostic|
 |Validation Type|Manual/Tools|
-|Validation|Partner confirmation that they were able to send an update to the device through Microsoft update, [Device Update for IoT Hub (ADU)](../iot-hub-device-update/understand-device-update). For Linux devices using Device Update for IoT Hub, certification will require providing a .swu update file during the Secured Core test process and device specific information for Certification Service to generate a [update manifest](../iot-hub-device-update/update-manifest) file.|
+|Validation|Partner confirmation that they were able to send an update to the device through Microsoft update, [Device Update for IoT Hub (ADU)](../iot-hub-device-update/understand-device-update.md). For Linux devices using Device Update for IoT Hub, certification will require providing a .swu update file during the Secured Core test process and device specific information for Certification Service to generate a [update manifest](../iot-hub-device-update/update-manifest.md) file.|
 |Resources|[Device Update for IoT Hub](../iot-hub-device-update/index.yml)|
 
 ---
