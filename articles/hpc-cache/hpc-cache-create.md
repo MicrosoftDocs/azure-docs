@@ -47,7 +47,7 @@ Cache capacity is a combination of two values:
 
 ![Screenshot of cache sizing page in the Azure portal.](media/hpc-cache-create-capacity.png)
 
-### Understand the relationship between throughput and cache size
+### Understand throughput and cache size
 
 Several factors can affect your HPC Cache's efficiency, but choosing an appropriate throughput value and cache storage size is one of the most important.
 

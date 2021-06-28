@@ -45,6 +45,8 @@ items:
           href: hpc-cache-ingest-manual.md
     - name: Edit storage targets
       href: hpc-cache-edit-storage.md
+    - name: Manage storage targets
+      href: manage-storage-targets.md
   - name: Connect to the cache
     href: hpc-cache-mount.md
   - name: Manage the cache

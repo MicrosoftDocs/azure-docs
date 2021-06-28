@@ -4,7 +4,7 @@ description: How to edit Azure HPC Cache storage targets
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 06/24/2021
+ms.date: 06/28/2021
 ms.author: v-erkel
 ---
 
@@ -32,19 +32,22 @@ You can't edit a storage target's name, type, or back-end storage system. If you
 > [!TIP]
 > The [Managing Azure HPC Cache video](https://azure.microsoft.com/resources/videos/managing-hpc-cache/) shows how to edit a storage target in the Azure portal.
 
-## Change a blob storage target's namespace path
+## Change a blob storage target's namespace path or access policy
 
 Namespace paths are the paths that clients use to mount this storage target. (To learn more, read [Plan the aggregated namespace](hpc-cache-namespace.md) and [Set up the aggregated namespace](add-namespace-paths.md)).
 
-The namespace path is the only update you can make on an Azure Blob storage target. Use the Azure portal or the Azure CLI to change it.
+Use the Azure portal or the Azure CLI to change the namespace path or access policy.
 
 ### [Portal](#tab/azure-portal)
 
-Use the **Namespace** page for your Azure HPC Cache. The namespace page is described in more detail in the article [Set up the aggregated namespace](add-namespace-paths.md).
+Use the **Namespace** page for your Azure HPC Cache to update the namespace path or client access policy. The namespace page is described in more detail in the article [Set up the aggregated namespace](add-namespace-paths.md).
 
-Click the name of the path that you want to change, and create the new path in the edit window that appears.
+1. Click the path that you want to change.
+   ![Screenshot of the Namespace page with the cursor over an item in the Namespace path column (first column to the left). The name is formatted as a hyperlink and the cursor indicates that it can be clicked.](media/edit-select-namespace.png)
 
-![Screenshot of the namespace page after clicking on a Blob namespace path - the edit fields appear on a pane to the right](media/update-namespace-blob.png)
+1. Use the edit window to type in new virtual path or update the access policy.
+
+![Screenshot of the namespace page after clicking on a Blob namespace path - the edit fields appear on a pane to the right.](media/update-namespace-blob.png)
 
 After making changes, click **OK** to update the storage target, or click **Cancel** to discard changes.
 
@@ -65,23 +68,22 @@ To change a blob storage target's namespace with the Azure CLI, use the command 
 
 For NFS storage targets, you can change or add virtual namespace paths, change the NFS export or subdirectory values that a namespace path points to, and change the usage model.
 
-Storage targets in caches with some types of custom DNS settings also have a control for refreshing their IP addresses. (This kind of configuration is rare.)
+Storage targets in caches with some types of custom DNS settings also have a control for refreshing their IP addresses. (This kind of configuration is rare.) Learn how to refresh the DNS settings in [Manage storage targets](manage-storage-targets.md##update-ip-address-custom-dns-configurations-only).
 
 Details are below:
 
 * [Change aggregated namespace values](#change-aggregated-namespace-values) (virtual namespace path, access policy, export, and export subdirectory)
 * [Change the usage model](#change-the-usage-model)
-* [Refresh DNS](#update-ip-address-custom-dns-configurations-only)
 
 ### Change aggregated namespace values
 
-You can use the Azure portal or the Azure CLI to change the client-facing namespace path, the storage export, and the export subdirectory (if used).
+You can use the Azure portal or the Azure CLI to change the client-facing namespace path, the storage export, and the export subdirectory (if used). If you need to change the access policy, use the Azure portal.
 
 Read the guidelines in [Add NFS namespace paths](add-namespace-paths.md#nfs-namespace-paths) if you need a reminder about how to create multiple valid paths on one storage target.
 
 ### [Portal](#tab/azure-portal)
 
-Use the **Namespace** page for your Azure HPC Cache to update namespace values. This page is described in more detail in the article [Set up the aggregated namespace](add-namespace-paths.md).
+Use the **Namespace** page for your Azure HPC Cache to update namespace values, including the client access policy. This page is described in more detail in the article [Set up the aggregated namespace](add-namespace-paths.md).
 
 ![screenshot of the portal namespace page with the NFS update page open at the right](media/update-namespace-nfs.png)
 
@@ -128,7 +130,7 @@ To change the usage model for an NFS storage target, use one of these methods.
 
 ### [Portal](#tab/azure-portal)
 
-Change the usage model from the **Storage targets** page in the Azure portal. Click the name of the storage target to change.
+Open the **Storage targets** page in the Azure portal. Click the name of a storage target in the list to open its edit page.
 
 ![screenshot of the edit page for an NFS storage target](media/edit-storage-nfs.png)
 
@@ -151,18 +153,6 @@ If you want to verify the names of the usage models, use the command [az hpc-cac
 If the cache is stopped or not in a healthy state, the update will apply after the cache is healthy.
 
 ---
-
-### Update IP address (custom DNS configurations only)
-
-If your cache uses a non-default DNS configuration, it's possible for your NFS storage target's IP address to change because of back-end DNS changes. If your DNS server changes the back-end storage system's IP address, Azure HPC Cache can lose access to the storage system.
-
-Ideally, you should work with the manager of your cache's custom DNS system to plan for any updates, because these changes make storage unavailable.
-
-If you need to update a storage target's DNS-provided IP address, there is a button on the Storage targets list. Click **Refresh DNS** to query the custom DNS server for a new IP address.
-
-![Screenshot of storage target list. For one storage target, the "..." menu in the far right column is open and two options appear: Delete, and Refresh DNS.](media/refresh-dns.png)
-
-If successful, the update should take less than two minutes. You can only refresh one storage target at a time; wait for the previous operation to complete before trying another.
 
 ## Update an ADLS-NFS storage target (PREVIEW)
 

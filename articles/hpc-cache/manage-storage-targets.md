@@ -26,6 +26,8 @@ These options are available:
 * **Force remove** - Delete a storage target, skipping some usual steps
 * **Delete** - Permanently remove a storage target
 
+Some storage targets also have a **Refresh DNS** option on this menu, which updates the storage target IP address from a custom DNS server. This configuration is uncommon.
+
 Read the rest of this article for more detail about these options.
 
 ## Write cached files to the storage target
@@ -64,7 +66,7 @@ Usually, force remove is used only when a storage target has become unresponsive
 
 ## Delete a storage target
 
-You can use the Azure portal or the AZ CLI to delete a storage target. 
+You can use the Azure portal or the AZ CLI to delete a storage target.
 
 The regular delete option permanently removes the storage target from the HPC Cache, but first it synchronizes the cache contents with the back-end storage system. It's different from the force delete option, which does not synchronize data.
 
@@ -94,6 +96,18 @@ $ az hpc-cache storage-target remove --resource-group cache-rg --cache-name doc-
 ```
 
 ---
+
+## Update IP address (custom DNS configurations only)
+
+If your cache uses a non-default DNS configuration, it's possible for your NFS storage target's IP address to change because of back-end DNS changes. If your DNS server changes the back-end storage system's IP address, Azure HPC Cache can lose access to the storage system.
+
+Ideally, you should work with the manager of your cache's custom DNS system to plan for any updates, because these changes make storage unavailable.
+
+If you need to update a storage target's DNS-provided IP address, use the **Storage targets** page. Click the **...** symbol in the right column to open the context menu. Choose **Refresh DNS** to query the custom DNS server for a new IP address.
+
+![Screenshot of storage target list. For one storage target, the "..." menu in the far right column is open and two options appear: Delete, and Refresh DNS.](media/refresh-dns.png) <!-- update screenshot if possible -->
+
+If successful, the update should take less than two minutes. You can only refresh one storage target at a time; wait for the previous operation to complete before trying another.
 
 ## Next steps
 
