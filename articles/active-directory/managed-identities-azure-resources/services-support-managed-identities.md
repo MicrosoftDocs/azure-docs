@@ -286,7 +286,7 @@ For more information, see [Use managed identities with Azure Machine Learning](.
 Refer to the following list to configure managed identity for Azure Media Services (in regions where available):
 
 - [Azure CLI Tutorial](../../media-services/latest/security-access-storage-managed-identity-cli-tutorial.md)
--
+
 ### Azure Policy
 
 |Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
