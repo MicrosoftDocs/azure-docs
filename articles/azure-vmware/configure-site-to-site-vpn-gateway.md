@@ -89,7 +89,7 @@ You must have a public-facing IP address terminating on an on-premises VPN devic
 
    :::image type="content" source="../virtual-wan/media/virtual-wan-custom-ipsec-portal/locate.png" alt-text="Screenshot showing the existing VPN sites to set up customer IPsec policies." lightbox="../virtual-wan/media/virtual-wan-custom-ipsec-portal/locate.png":::
 
-3. Select **More** (...) at the far right, and then select **Edit VPN Connection**.
+3. Select your VPN site name, select **More** (...) at the far right, and then select **Edit VPN Connection**.
 
    :::image type="content" source="../virtual-wan/media/virtual-wan-custom-ipsec-portal/contextmenu.png" alt-text="Screenshot showing the context menu for an existing VPN site." lightbox="../virtual-wan/media/virtual-wan-custom-ipsec-portal/contextmenu.png":::
 
@@ -103,28 +103,6 @@ You must have a public-facing IP address terminating on an on-premises VPN devic
 
    :::image type="content" source="../virtual-wan/media/virtual-wan-custom-ipsec-portal/edit.png" alt-text="Screenshot showing the existing VPN sites." lightbox="../virtual-wan/media/virtual-wan-custom-ipsec-portal/edit.png":::
 
-   Your traffic selectors or subnets that are part of the policy-based encryption domain should be:
-    
-   - Virtual WAN hub `/24`
-
-   - Azure VMware Solution private cloud `/22`
-
-   - Connected Azure virtual network (if present)
-
-2. Select your VPN site name, the ellipsis (...) at the far right, and then **edit VPN connection to this hub**.
- 
-   :::image type="content" source="../virtual-wan/media/virtual-wan-custom-ipsec-portal/contextmenu.png" alt-text="Screenshot of the page in Azure for the Virtual WAN hub site showing an ellipsis selected to access Edit VPN connection to this hub." lightbox="../virtual-wan/media/virtual-wan-custom-ipsec-portal/contextmenu.png":::
-
-3. Edit the connection between the VPN site and the hub, and then select **Save**.
-
-   - Internet Protocol Security (IPSec), select **Custom**.
-
-   - Use policy-based traffic selector, select **Enable**
-
-   - Specify the details for **IKE Phase 1** and **IKE Phase 2(ipsec)**. 
- 
-   :::image type="content" source="media/create-ipsec-tunnel/edit-vpn-connection.png" alt-text="Screenshot of Edit VPN connection page."::: 
- 
    Your traffic selectors or subnets that are part of the policy-based encryption domain should be:
     
    - Virtual WAN hub `/24`
