@@ -30,7 +30,7 @@ This article provides background information and steps to configure a customer-m
 >
 > - Once a workspace was onboarded to Azure Sentinel as a non-CMK workspace, linking it to a CMK Log Analytics cluster, or setting the Log Analytic cluster its currently linked to, as a CMK cluster, is not supported, and will lead to its Azure Sentinel data being encrypted by a Microsoft Managed Key instead of the Customer Managed Key.
 >
-> - Currently, only System Assigned Identities are supported with Azure Sentinel CMK. Therefore, the dedicated Log Analytics cluster's identity should be of System Assigned type. It is recommended that it will be the identity automatically assigned to the Log Analytics cluster upon its creation.
+> - Azure Sentinel supports System Assigned Identities in CMK configuration. Therefore, the dedicated Log Analytics cluster's identity should be of System Assigned type. It is recommended that it will be the identity automatically assigned to the Log Analytics cluster upon its creation.
 >
 > - Changing the Customer Managed Key to another key (with another Uri) is currently not supported. Changing the key should be done by rotating it.
 >
@@ -108,7 +108,7 @@ The only operation possible after the encryption key is revoked or deleted is ac
 
 If access is restored after revocation, Azure Sentinel will restore access to the data within an hour.
 
-The way to revoke access is by disabling the customer managed key in the key vault, or deleting the access policy to the key, for both the dedicated Log Analytics cluster and Cosmos DB. Revoking access by removing the key from the dedicated Log Analytics cluster, or by removing the identity associated with the dedicated Log Analytics cluster is not supported.
+Access to the data can be revoked by disabling the customer managed key in the key vault, or deleting the access policy to the key, for both the dedicated Log Analytics cluster and Cosmos DB. Revoking access by removing the key from the dedicated Log Analytics cluster, or by removing the identity associated with the dedicated Log Analytics cluster is not supported.
 
 To understand more about how this works in Azure Monitor, see [Azure Monitor CMK revocation](../azure-monitor/logs/customer-managed-keys.md#key-revocation).
 
