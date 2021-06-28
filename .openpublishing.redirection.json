@@ -15408,6 +15408,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/data-explorer/spark-integration.md",
+      "redirect_url": "/azure/data-explorer/",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-monitor/log-query/log-search-transition.md",
       "redirect_url": "/azure/data-explorer/kusto/query/",
       "redirect_document_id": false
