@@ -86,3 +86,5 @@ az disk-pool iscsi-target delete --disk-pool-name "myDiskPool" --name "myIscsiTa
 ---
 
 ## Next steps
+
+Learn about [Azure managed disks](managed-disks-overview.md).

@@ -236,4 +236,4 @@ az disk-pool iscsi-target update --name $targetName \
 
 ## Next steps
 
-[Manage a disk pool](disks-pools-manage.md)
+[Manage a disk pool](disks-pools-manage.md).
