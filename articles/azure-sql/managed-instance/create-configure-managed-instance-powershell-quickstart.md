@@ -91,8 +91,6 @@ $virtualNetwork = New-AzVirtualNetwork `
                       -AddressPrefix $miSubnetAddressPrefix |
                   Set-AzVirtualNetwork
                   
-$miSubnetConfigId = Get-AzVirtualNetworkSubnetConfig -Name $miSubnetName -VirtualNetwork $virtualNetwork
-
 $scriptUrlBase = 'https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/manage/azure-sql-db-managed-instance/delegate-subnet'
 
 $parameters = @{
@@ -103,6 +101,9 @@ $parameters = @{
     }
 
 Invoke-Command -ScriptBlock ([Scriptblock]::Create((iwr ($scriptUrlBase+'/delegateSubnet.ps1?t='+ [DateTime]::Now.Ticks)).Content)) -ArgumentList $parameters
+
+$miSubnet = Get-AzVirtualNetworkSubnetConfig -Name $miSubnetName -VirtualNetwork $virtualNetwork
+$miSubnetConfigId = $miSubnet.Id
 ```
 
 ## Create managed instance 
