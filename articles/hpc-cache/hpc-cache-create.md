@@ -238,14 +238,14 @@ The message includes some useful information, including these items:
 > [!CAUTION]
 > The Az.HPCCache PowerShell module is currently in public preview. This preview version is provided
 > without a service level agreement. It's not recommended for production workloads. Some features
-> might not be supported or might have constrained capabilities. for more infomation, see
+> might not be supported or might have constrained capabilities. For more information, see
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Requirements
 
 If you choose to use PowerShell locally, this article requires that you install the Az PowerShell
 module and connect to your Azure account using the
-[Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet. for more infomation
+[Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet. For more information
 about installing the Az PowerShell module, see
 [Install Azure PowerShell](/powershell/azure/install-az-ps). If you choose to use Cloud Shell, see
 [Overview of Azure Cloud Shell](../cloud-shell/overview.md) for

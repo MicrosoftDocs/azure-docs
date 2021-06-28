@@ -15,7 +15,7 @@ ms.author: v-erkel
 
 You can define 10 different storage targets for any cache, and larger caches can [support up to 20 storage targets](#size-your-cache-correctly-to-support-your-storage-targets).
 
-The cache presents all of the storage targets in one aggregated namespace. The namespace paths are configured separately after you add the storage targets.
+The cache presents all of the storage targets in one [aggregated namespace](hpc-cache-namespace.md). The namespace paths are configured separately after you add the storage targets.
 
 Remember that the storage exports must be accessible from your cache's virtual network. For on-premises hardware storage, you might need to set up a DNS server that can resolve hostnames for NFS storage access. Read more in [DNS access](hpc-cache-prerequisites.md#dns-access).
 
@@ -35,7 +35,10 @@ Click the image below to watch a [video demonstration](https://azure.microsoft.c
 
 The number of supported storage targets depends on the cache size, which is set when you create the cache. The cache capacity is a combination of throughput capacity (in GB/s) and storage capacity (in TB).
 
-* Up to 10 storage targets - If you choose a standard cache, and select the smallest or medium cache storage value for your selected throughput, your cache can have a maximum of 10 storage targets.
+* Up to 10 storage targets - A standard cache with the smallest or medium cache storage value for your selected throughput can have a maximum of 10 storage targets.
+
+  For example, if you choose 2GB/second throughput and do not choose the highest cache storage size, your cache supports a maximum of 10 storage targets.
+
 * Up to 20 storage targets -
 
   * All high-throughput caches (which have preconfigured cache storage sizes) can support up to 20 storage targets.
@@ -184,7 +187,7 @@ az hpc-cache blob-storage-target add --resource-group "hpc-cache-group" \
 
 ## Add a new NFS storage target
 
-An NFS storage target has different settings from a Blob storage target, including a usage model setting, which tells the cache how to store data from this storage system.
+An NFS storage target has different settings from a Blob storage target, including a usage model setting that tells the cache how to store data from this storage system.
 
 ![Screenshot of add storage target page with NFS target defined](media/add-nfs-target.png)
 
@@ -197,7 +200,7 @@ When you create a storage target that uses NFS to reach its storage system, you 
 
 Read [Understand usage models](cache-usage-models.md) for more details about all of these settings.
 
-The built-in usage models let you choose how to balance fast response with the risk of getting stale data. If you want to optimize speed for reading files, you might not care whether the files in the cache are checked against the back-end files. On the other hand, if you want to make sure your files are always up to date with the remote storage, choose a model that checks frequently.
+HPC Cache's built-in usage models let you choose how to balance fast response with the risk of getting stale data. If you want to optimize speed for reading files, you might not care whether the files in the cache are checked against the back-end files. On the other hand, if you want to make sure your files are always up to date with the remote storage, choose a model that checks frequently.
 
 > [!NOTE]
 > [High-throughput style caches](hpc-cache-create.md#choose-the-cache-type-for-your-needs) support read caching only.
