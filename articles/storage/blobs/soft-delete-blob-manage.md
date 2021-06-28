@@ -283,7 +283,7 @@ To restore a soft-deleted blob or directory in the Azure portal, first display t
    <dependency>
      <groupId>com.azure</groupId>
      <artifactId>azure-storage-file-datalake</artifactId>
-     <version>Put version here</version>
+     <version>12.6.0</version>
    </dependency>
    ```
 
@@ -326,7 +326,7 @@ To restore a soft-deleted blob or directory in the Azure portal, first display t
 >[!IMPORTANT]
 > This section section applies only to accounts that have a hierarchical namespace.
 
-1. Install the Azure Data Lake Storage client library for Python by using [pip](https://pypi.org/project/pip/).
+1. Install the at least version `12.4.0` of the Azure Data Lake Storage client library for Python by using [pip](https://pypi.org/project/pip/). This command installs the latest version of the Azure Data Lake Storage client library for Python.
 
    ```
    pip install azure-storage-file-datalake
