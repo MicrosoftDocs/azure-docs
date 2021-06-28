@@ -22,7 +22,7 @@ If none of the existing offers is a good starting point, you can manually reprod
 
 ### Azure Marketplace offers
 
-Red Hat in partnership with Microsoft has published the following offerings in Azure Marketplace. You can access these offers from the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/) or from the [Azure Portal](https://azure.microsoft.com/features/azure-portal/). Check out the article on how to [Deploy Red Hat JBoss EAP on Azure VM and VM Scale Sets Using the Azure Marketplace Offer](/azure/virtual-machines/workloads/redhat/jboss-eap-marketplace-image) for more details.
+Red Hat in partnership with Microsoft has published the following offerings in Azure Marketplace. You can access these offers from the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/) or from the [Azure portal](https://azure.microsoft.com/features/azure-portal/). Check out the article on how to [Deploy Red Hat JBoss EAP on Azure VM and VM scale sets Using the Azure Marketplace Offer](/azure/virtual-machines/workloads/redhat/jboss-eap-marketplace-image) for more details.
 
 This Marketplace offer includes various combinations of JBoss EAP and RHEL versions with flexible support subscription models. JBoss EAP is available as Bring-Your-Own-Subscription (BYOS) but for RHEL you can choose between BYOS or Pay-As-You-Go (PAYG). 
 The Azure Marketplace offer includes plan options for JBoss EAP on RHEL as stand-alone VMs, clustered VMs, and clustered virtual machine scale sets. The 6 plans include:
@@ -58,7 +58,7 @@ To quickly get started, select one of the Quickstart template that closely match
 
 - **[Java application based on JBoss EAP 7.2](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.2/html-single/development_guide/index#become_familiar_with_java_enterprise_edition_8)** or **[Java application based on JBoss EAP 7.3](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.3/html-single/development_guide/index#get_started_developing_applications)**.
 
-**RHEL options** - Choose between PAYG or BYOS. For BYOS, you will need to activate your [Red Hat Cloud Access](https://access.redhat.com/documentation/red_hat_subscription_management/1/html-single/red_hat_cloud_access_reference_guide/index) RHEL Gold Image for you use the Azure Marketplace offer. BYOS offers will appear in the Private Offer section in the Azure Portal. 
+**RHEL options** - Choose between PAYG or BYOS. For BYOS, you will need to activate your [Red Hat Cloud Access](https://access.redhat.com/documentation/red_hat_subscription_management/1/html-single/red_hat_cloud_access_reference_guide/index) RHEL Gold Image for you use the Azure Marketplace offer. BYOS offers will appear in the Private Offer section in the Azure portal. 
 
 **Product versions**
 
