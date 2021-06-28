@@ -806,6 +806,8 @@
     "articles/service-bus-messaging/.openpublishing.redirection.service-bus-messaging.json",
     "articles/iot-central/.openpublishing.redirection.iot-central.json",
     "articles/iot-pnp/.openpublishing.redirection.iot-pnp.json",
-    "articles/cost-management-billing/.openpublishing.redirection.cost-management-billing.json"
+    "articles/cost-management-billing/.openpublishing.redirection.cost-management-billing.json",
+    "articles/purview/.openpublishing.redirection.purview.json",
+    "articles/data-catalog/.openpublishing.redirection.data-catalog.json"
   ]
 }
