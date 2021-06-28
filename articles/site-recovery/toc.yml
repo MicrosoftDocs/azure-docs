@@ -50,8 +50,12 @@
       href: vmware-azure-set-up-replication-tutorial-preview.md
     - name: Run a disaster recovery drill
       href: tutorial-dr-drill-azure.md
-    - name: Fail over to Azure
+  - name: Run failover to Azure
+    items:
+    - name: Classic
       href: vmware-azure-tutorial-failover-failback.md
+    - name: Preview
+      href: vmware-azure-tutorial-failover-failback-preview.md
   - name: Azure VMware Solution disaster recovery to Azure
     items:
     - name: Prepare Azure

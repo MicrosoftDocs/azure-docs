@@ -257,12 +257,13 @@ To set up a new appliance, you can follow either of the following methods:
 
 1. Download the OVF template to set up an appliance on your on-premises environment.
 
-  We recommend this approach as all prerequisite configurations are handled by the template.  
+We recommend this approach as all prerequisite configurations are handled by the template.  
 
-2. The OVF template spins up a machine with the required specifications.
-3. After the deployment is complete, power on the VM to accept Microsoft Evaluation license and click **Next**.
-4. In the next screen, provide the password for the administrator user.
-5. Select **Finalize**.
+The OVF template spins up a machine with the required specifications.
+
+2. After the deployment is complete, power on the VM to accept Microsoft Evaluation license and click **Next**.
+3. In the next screen, provide the password for the administrator user.
+4. Select **Finalize**.
 
 The system restarts and you can login with the administrator user account.
 

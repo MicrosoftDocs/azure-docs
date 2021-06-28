@@ -104,20 +104,25 @@ Follow these steps to enable replication:
 
    ![Enable replication](./media/vmware-azure-set-up-replication-tutorial-preview/enable-replication.png)
 
-2. Select the machine type you want to protect through Azure Site Recovery.
+2. **Choose** the machine type you want to protect through Azure Site Recovery.
 
+   ![Select machine type](./media/vmware-azure-set-up-replication-tutorial-preview/select-machine-type.png)
    > [!NOTE]
    > In Preview, the support is limited to virtual machines.
 
-3. After selecting the virtual machines, select the vCenter server added to Azure Site Recovery replication appliances, registered in this vault.
+3. After choosing Virtual machines, you need to choose the vCenter server added to Azure Site Recovery replication appliances, registered in this vault.
 
 4. Later, search the source VM name to protect the machines of your choice. To review the selected VMs, select **Selected resources**.
+
+  ![Select sources](./media/vmware-azure-set-up-replication-tutorial-preview/select-sources.png)
 
 5. After you choose the list of VMs, select **Next** to proceed to source settings. Here, select the replication appliance and VM credentials. These credentials will be used to push mobility agent on the VM by configuration server to complete enabling Azure Site Recovery. Ensure accurate credentials are chosen.
 
 6. Select **Next** to provide target region properties. By default, Vault subscription and Vault resource group are selected. You can choose a subscription and resource group of your choice. Your source machines will be deployed in this subscription and resource group when you failover in the future.
 
 7. Later, you can choose an Azure network or create a new target network to be used during Failover. If you select **Create new**, you will be redirected to create virtual network context blade and asked to provide address space and subnet details. This network will be created in the target subscription and target resource group selected in the previous step.
+
+![Create Virtual Network](./media/vmware-azure-set-up-replication-tutorial-preview/create-virtual-network.png)
 
 8. Then, provide test failover network details.
 
@@ -132,6 +137,8 @@ Follow these steps to enable replication:
     - By default, a new LRS v1 type storage account will be created by Azure Site Recovery for the first enable replication operation in a vault. For the next operations, same cache storage account will be re-used.
   -  Managed disks
     -  By default, premium SSD managed disks are created in Azure. You can customize the type of Managed disks by Selecting on **Customize**. Choose the type of disk based on the business requirement. Ensure [appropriate disk type is chosen](https://docs.microsoft.com/azure/virtual-machines/disks-types#disk-comparison) based on the IOPS of the source machine disks. For pricing information, refer to the managed disk pricing document [here](https://azure.microsoft.com/pricing/details/managed-disks/).
+
+  ![Customize managed disk](./media/vmware-azure-set-up-replication-tutorial-preview/customize-managed-disk.png)
 
   >[!NOTE]
   > If mobility agent is installed manually before enabling replication, you can change the type of managed disk at a disk level. Else, by default, one managed disk type can be chosen at a machine level.
