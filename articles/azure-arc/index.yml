@@ -12,7 +12,7 @@ metadata:
   ms.topic: hub-page
   author: MGoedtel
   ms.author: magoedte
-  ms.date: 06/21/2021
+  ms.date: 06/28/2021
   ms.custom: e2e-hybrid
 
 # highlightedContent section (optional)
@@ -81,6 +81,8 @@ conceptualContent:
         - url: ./kubernetes/use-azure-policy.md
           itemType: how-to-guide
           text: Enforce GitOps using Azure Policy
+        - url: ./kubernetes/tutorial-arc-enabled-open-service-mesh.md
+          itemType: tutorial
           text: Azure Arc-enabled Open Service Mesh (Preview)
       # footerLink (optional)
       footerLink:
