@@ -54,7 +54,7 @@ When you use VNet Integration with VNets in the same region, you can use the fol
 * **Network security groups (NSGs)**: You can block outbound traffic with an NSG that's placed on your integration subnet. The inbound rules don't apply because you can't use VNet Integration to provide inbound access to your app.
 * **Route tables (UDRs)**: You can place a route table on the integration subnet to send outbound traffic where you want.
 
-The feature is fully supported for both Windows and Linux apps, including [custom containers](../articles/app-service/quickstart-custom-container.md). All of the behaviors act the same between Windows apps and Linux apps.
+The feature is fully supported for both Windows and Linux apps, including [custom containers](./quickstart-custom-container.md). All of the behaviors act the same between Windows apps and Linux apps.
 
 ### How regional VNet Integration works
 
@@ -112,7 +112,7 @@ REPLACE WITH UX FROM VNET INTEGRATION BLADE
 1. Go to the **Configuration** UI in your app portal. Select **New application setting**.
 1. Enter `WEBSITE_VNET_ROUTE_ALL` in the **Name** box, and enter `1` in the **Value** box.
 
-    :::image type="content" source="../../include/media/web-sites-integrate-with-vnet/vnetint-appsetting.png" alt-text="Provide application setting":::
+    REPLACE WITH UX FROM VNET INTEGRATION BLADE
 
 1. Select **OK**.
 1. Select **Save**.
@@ -125,7 +125,7 @@ az webapp config set --resource-group myRG --name myWebApp --vnet-route-all-enab
 
 #### Network routing
 
-You can use route tables to route outbound traffic from your app to wherever you want. Route tables affect your destination traffic. Without route all enabled in [application routing](#applicaiton-routing), only private traffic (RFC1918) is affected by your route tables. Common destinations can include firewall devices or gateways. Routes that are set on your integration subnet won't affect replies to inbound app requests. 
+You can use route tables to route outbound traffic from your app to wherever you want. Route tables affect your destination traffic. Without route all enabled in [application routing](#application-routing), only private traffic (RFC1918) is affected by your route tables. Common destinations can include firewall devices or gateways. Routes that are set on your integration subnet won't affect replies to inbound app requests. 
 
 If you want to route all outbound traffic on-premises, you can use a route table to send all outbound traffic to your ExpressRoute gateway. If you do route traffic to a gateway, be sure to set routes in the external network to send any replies back.
 
