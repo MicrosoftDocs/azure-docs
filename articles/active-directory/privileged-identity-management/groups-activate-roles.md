@@ -55,8 +55,6 @@ When you need to take on an privileged access group role, you can request activa
 
     If the [role requires approval](pim-resource-roles-approval-workflow.md) to activate, a notification will appear in the upper right corner of your browser informing you the request is pending approval.
 
-    ![Activation request is pending approval notification](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate-notification.png)
-
 ## View the status of your requests
 
 You can view the status of your pending requests to activate.
