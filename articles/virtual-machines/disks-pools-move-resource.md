@@ -1,10 +1,10 @@
 ---
-title: Move an Azure disk pool
-description: Learn how to manage an Azure disk pool.
+title: Move an Azure disk pool to a different subscription
+description: Learn how to move an Azure disk pool to a different subscription.
 author: roygara
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.date: 06/23/2021
+ms.date: 06/28/2021
 ms.author: rogarana
 ms.subservice: disks
 ---
