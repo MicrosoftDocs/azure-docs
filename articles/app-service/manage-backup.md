@@ -159,6 +159,24 @@ The database backup for the app is stored in the root of the .zip file. For SQL 
 > [!WARNING]
 > Altering any of the files in your **websitebackups** container can cause the backup to become invalid and therefore non-restorable.
 
+## Troubleshooting
+
+The **Backups** page shows you the status of each backup. If you click on a failed backup, you can get log details regarding the failure. Use the following table to help you troubleshoot your backup. If the failure isn't documented in the table, open a support ticket.
+
+| Error | Fix |
+| - | - |
+| Storage access failed. | Delete backup schedule and reconfigure it. Or, reconfigure the backup storage. |
+| The website + database size exceeds the {0} GB limit for backups. Your content size is {1} GB. | [Exclude some files](#configure-partial-backups) from the backup, or remove the database portion of the backup and use externally offered backups instead. |
+| Error occurred while connecting to the database {0} on server {1}: Authentication to host '{1}' for user '\<username>' using method 'mysql_native_password' failed with message: Unknown database '\<db-name>' | Update database connection string. |
+| Cannot resolve {0}. {1} (CannotResolveStorageAccount) | Delete the backup schedule and reconfigure it. |
+| Login failed for user '{0}'. | Update the database connection string. |
+| Create Database copy of {0} ({1}) threw an exception. Could not create Database copy. | Use an administrative user in the connection string. |
+| The server principal "\<name>" is not able to access the database "master" under the current security context. Cannot open database "master" requested by the login. The login failed. Login failed for user '\<name>'. | Use an administrative user in the connection string. |
+| A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server). | Check that the connection string is valid. Allow the app's [outbound IPs](overview-inbound-outbound-ips.md) in the database server settings. |
+| Cannot open server "\<name>" requested by the login. The login failed. | Check that the connection string is valid. |
+| Missing mandatory parameters for valid Shared Access Signature. | Delete the backup schedule and reconfigure it. |
+| SSL connection is required. Please specify SSL options and retry. when trying to connect. | Use the built-in backup feature in Azure MySQL or Azure Postgressql instead. |
+
 ## Automate with scripts
 
 You can automate backup management with scripts, using the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/).
