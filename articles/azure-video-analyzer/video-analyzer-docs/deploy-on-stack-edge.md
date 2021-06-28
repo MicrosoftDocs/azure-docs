@@ -324,7 +324,8 @@ Follow these instructions to connect to your IoT hub by using the Azure IoT Tool
     Use [kubectl top](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#top)  to see pod and node metrics.
     <br/>`kubectl top pods -n iotedge` 
 * **Module Networking**   
-For Module discovery on Azure Stack Edge it is required that the module have the host port binding in createOptions. The module will then be addressable over `moduleName:hostport`.
+
+    For Module discovery on Azure Stack Edge it is required that the module have the host port binding in createOptions. The module will then be addressable over `moduleName:hostport`.
     
     ```json
     "createOptions": {
@@ -369,9 +370,9 @@ For Module discovery on Azure Stack Edge it is required that the module have the
     Currently NodeSelector custom configuration does not appear to be an option as the users do not have access to set labels on the Nodes. However depending on the customer's topology and naming conventions they might be able to use [built-in node labels](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#built-in-node-labels). A nodeAffinity section referencing Azure Stack Edge resources with Video Analyzer can be added to the inference pod manifest to achieve co-location.
     * **Option 2** - Use Pod Affinity for co-location (recommended).
 
-    Kubernetes has support for [Pod Affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#inter-pod-affinity-and-anti-affinity) which can schedule pods on the same node. A podAffinity section referencing the Video Analyzer module can be added to the inference pod manifest to achieve co-location.
-    
-        ```json   
+        Kubernetes has support for [Pod Affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#inter-pod-affinity-and-anti-affinity) which can schedule pods on the same node. A podAffinity section referencing the Video Analyzer module can be added to the inference pod manifest to achieve co-location.
+
+         ```json   
         // Example Video Analyzer module deployment match labels
         selector:
           matchLabels:
