@@ -28,22 +28,7 @@ Use this article to find the settings and requirements for connecting different 
 | **Service principal**| Store your [Service Principal](../../active-directory/develop/app-objects-and-service-principals.md) as a **credential entity** in Metrics Advisor and use it directly each time when onboarding metrics data. Only admins of Credential entity can view the credentials, but enables authorized viewers to create data feed without needing to know the credential details.|
 | **Service principal from key vault**|Store your [Service Principal in a Key Vault](/azure/azure-stack/user/azure-stack-key-vault-store-credentials) as a **credential entity** in Metrics Advisor and use it directly each time when onboarding metrics data. Only admins of a **credential entity** can view the credentials, but also leave viewers able to create data feed without needing to know detailed credentials. |
 
-## <span id ='jump1'>Create a credential entity to manage your credential in secure</span>
 
-You can create a **credential entity** to store credential-related information, and use it for authenticating to your data sources. You can share the credential entity to others and enable them to connect to your data sources without sharing the real credentials. It can be created in 'Adding data feed' tab or 'Credential entity' tab. After creating a credential entity for a specific authentication type, you can just choose one credential entity you created when adding new data feed, this will be helpful when creating multiple data feeds. The procedure of creating and using a credential entity is shown below:
-
-1. Select '+' to create a new credential entity in 'Adding data feed' tab (you can also create one in 'Credential entity feed' tab).
-
-   ![create credential entity](media/create-credential-entity.png)
- 
-2. Set the credential entity name, description (if needed), and credential type (equals to *authentication types*).
-
-   ![set credential entity](media/set-credential-entity.png)
- 
-3. After creating a credential entity, you can choose it when specifying authentication type.
-
-   ![choose credential entity](media/choose-credential-entity.png)
- 
 ## Data sources supported and corresponding authentication types
 
 | Data sources | Authentication Types |
@@ -94,7 +79,7 @@ The following sections specify the parameters required for all authentication ty
     Sample query:
 
     ``` Kusto
-    [TableName] | where [TimestampColumn] >= @IntervalStart and [TimestampColumn] < @IntervalEnd;
+    [TableName] | where [TimestampColumn] >= datetime(@IntervalStart) and [TimestampColumn] < datetime(@IntervalEnd);
     ```
     You can also refer to the [Tutorial: Write a valid query](tutorials/write-a-valid-query.md) for more specific examples.
   
@@ -182,7 +167,7 @@ The following sections specify the parameters required for all authentication ty
 
         **2. Manage Azure Data Explorer database permissions.** See [Manage Azure Data Explorer database permissions](/azure/data-explorer/manage-database-permissions) to know about Service Principal and manage permissions. 
 
-        **3. Create a credential entity in Metrics Advisor.** See how to [create a credential entity](#jump1) in Metrics Advisor, so that you can choose that entity when adding data feed for Service Principal authentication type. 
+        **3. Create a credential entity in Metrics Advisor.** See how to [create a credential entity](how-tos/credential-entity.md) in Metrics Advisor, so that you can choose that entity when adding data feed for Service Principal authentication type. 
         
         Here's an example of connection string:
         
@@ -190,7 +175,7 @@ The following sections specify the parameters required for all authentication ty
         Data Source=<URI Server>;Initial Catalog=<Database>
         ```
 
-    * **Service Principal From Key Vault**: Key Vault helps to safeguard cryptographic keys and secret values that cloud apps and services use. By using Key Vault, you can encrypt keys and secret values. You should create a service principal first, and then store the service principal inside Key Vault.  You can go through [Store service principal credentials in Azure Stack Hub Key Vault](/azure-stack/user/azure-stack-key-vault-store-credentials) to follow detailed procedure to set service principal from key vault. 
+    * **Service Principal From Key Vault**: Key Vault helps to safeguard cryptographic keys and secret values that cloud apps and services use. By using Key Vault, you can encrypt keys and secret values. You should create a service principal first, and then store the service principal inside Key Vault.  You can go through [Create a credential entity for Service Principal from Key Vault](how-tos/credential-entity.md#sp-from-kv) to follow detailed procedure to set service principal from key vault. 
         Here's an example of connection string: 
         ```
         Data Source=<URI Server>;Initial Catalog=<Database>
@@ -225,7 +210,7 @@ The following sections specify the parameters required for all authentication ty
     
     * **Basic**: The **Account Name** of your Azure Data Lake Storage Gen2. This can be found in your Azure Storage Account (Azure Data Lake Storage Gen2) resource in **Access keys**. 
 
-    * **Azure Data Lake Storage Gen2 Shared Key**: First, you should specify the account key to access your Azure Data Lake Storage Gen2 （the same as Account Key in *Basic* authentication type）. This could be found in Azure Storage Account (Azure Data Lake Storage Gen2) resource in **Access keys** setting. Then you should [create a credential entity](#jump1) for *Azure Data Lake Storage Gen2 Shared Key* type and fill in the account key. 
+    * **Azure Data Lake Storage Gen2 Shared Key**: First, you should specify the account key to access your Azure Data Lake Storage Gen2 （the same as Account Key in *Basic* authentication type）. This could be found in Azure Storage Account (Azure Data Lake Storage Gen2) resource in **Access keys** setting. Then you should [create a credential entity](how-tos/credential-entity.md) for *Azure Data Lake Storage Gen2 Shared Key* type and fill in the account key. 
 
         The account name is the same as *Basic* authentication type.
     
@@ -247,10 +232,10 @@ The following sections specify the parameters required for all authentication ty
         5. Set the **Select** field to the Azure AD application name and set role to **Storage Blob Data Contributor**. Click **Save**.
         ![lake-service-principals](media/datafeeds/adls-gen2-app-reg-assign-roles.png)
 
-        **Step 3:** [Create a credential entity](#jump1) in Metrics Advisor, so that you can choose that entity when adding data feed for Service Principal authentication type. 
+        **Step 3:** [Create a credential entity](how-tos/credential-entity.md) in Metrics Advisor, so that you can choose that entity when adding data feed for Service Principal authentication type. 
         
     
-    * **Service Principal From Key Vault** authentication type: Key Vault helps to safeguard cryptographic keys and secret values that cloud apps and services use. By using Key Vault, you can encrypt keys and secret values. You should create a service principal first, and then store the service principal inside Key Vault.  You can go through [Store service principal credentials in Azure Stack Hub Key Vault](/azure-stack/user/azure-stack-key-vault-store-credentials) to follow detailed procedure to set service principal from key vault. 
+    * **Service Principal From Key Vault** authentication type: Key Vault helps to safeguard cryptographic keys and secret values that cloud apps and services use. By using Key Vault, you can encrypt keys and secret values. You should create a service principal first, and then store the service principal inside Key Vault.  You can go through [Create a credential entity for Service Principal from Key Vault](how-tos/credential-entity.md#sp-from-kv) to follow detailed procedure to set service principal from key vault. 
     The account name is the same as *Basic* authentication type.
    
 
@@ -327,17 +312,17 @@ There are three authentication types for Azure Log Analytics, they are **Basic**
         ![lake-service-principals](media/datafeeds/adls-gen2-app-reg-assign-roles.png)
 
     
-    **Step 3:** [Create a credential entity](#jump1) in Metrics Advisor, so that you can choose that entity when adding data feed for Service Principal authentication type. 
+    **Step 3:** [Create a credential entity](how-tos/credential-entity.md) in Metrics Advisor, so that you can choose that entity when adding data feed for Service Principal authentication type. 
         
-* **Service Principal From Key Vault** authentication type: Key Vault helps to safeguard cryptographic keys and secret values that cloud apps and services use. By using Key Vault, you can encrypt keys and secret values. You should create a service principal first, and then store the service principal inside Key Vault.  You can go through [Store service principal credentials in Azure Stack Hub Key Vault](/azure-stack/user/azure-stack-key-vault-store-credentials) to follow detailed procedure to set service principal from key vault. 
+* **Service Principal From Key Vault** authentication type: Key Vault helps to safeguard cryptographic keys and secret values that cloud apps and services use. By using Key Vault, you can encrypt keys and secret values. You should create a service principal first, and then store the service principal inside Key Vault.  You can go through [Create a credential entity for Service Principal from Key Vault](how-tos/credential-entity.md#sp-from-kv) to follow detailed procedure to set service principal from key vault. 
 
 * **Query**: Specify the query of Log Analytics. For more information, see [Log queries in Azure Monitor](../../azure-monitor/logs/log-query-overview.md)
 
     Sample query:
 
-    ```
+    ``` Kusto
     [TableName]
-    | where [TimestampColumn] >= @IntervalStart and [TimestampColumn] < @IntervalEnd
+    | where [TimestampColumn] >= datetime(@IntervalStart) and [TimestampColumn] < datetime(@IntervalEnd)
     | summarize [count_per_dimension]=count() by [Dimension]
     ```
 
@@ -355,20 +340,24 @@ There are three authentication types for Azure Log Analytics, they are **Basic**
         ```
     
     * <span id='jump'>**Managed Identity**</span>: Managed identity for Azure resources can authorize access to blob and queue data using Azure AD credentials from applications running in Azure virtual machines (VMs), function apps, virtual machine scale sets, and other services. By using managed identity for Azure resources together with Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud. To [enable your managed entity](../../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-sql.md), you can refer to following steps:
-    1. Enabling a system-assigned managed identity is a one-click experience. In Azure portal for your Metrics Advisor workspace, set the status as `on` in **Settings > Identity > System assigned**.
+    1. **Enabling a system-assigned managed identity is a one-click experience.** In Azure portal for your Metrics Advisor workspace, set the status as `on` in **Settings > Identity > System assigned**.
     
         ![set status as on](media/datafeeds/set-identity-status.png)
 
-    1. Enable Azure AD authentication. In the Azure portal for your data source, click **Set admin** in **Settings > Active Directory admin**, select an **Azure AD user account** to be made an administrator of the server, and click **Select**.
+    1. **Enable Azure AD authentication.** In the Azure portal for your data source, click **Set admin** in **Settings > Active Directory admin**, select an **Azure AD user account** to be made an administrator of the server, and click **Select**.
     
         ![set admin](media/datafeeds/set-admin.png)
 
-    1. In your database management tool, select **Active Directory - Universal with MFA support** in the authentication field. In the User name field, enter the name of the Azure AD account that you set as the server administrator in step 2, for example, test@contoso.com
+    1. **Enable managed identity(MI) in Metrics Advisor.** There are 2 ways to choose: edit query in a **database management tool** or **Azure portal**.
+    
+        **Management tool**: In your database management tool, select **Active Directory - Universal with MFA support** in the authentication field. In the User name field, enter the name of the Azure AD account that you set as the server administrator in step 2, for example, test@contoso.com
     
         ![set connection detail](media/datafeeds/connection-details.png)
+        
+        **Azure portal**: Select Query editor in your SQL database, sign in admin account.
+        ![edit query in Azure Portal](media/datafeeds/query-editor-MI.png)
 
-
-    1. The last step is to enable managed identity(MI) in Metrics Advisor. In the **Object Explorer**, expand the **Databases** folder. Right-click on a user database and click **New query**. In the query window, you should enter the following line, and click Execute in the toolbar:
+        Then in the query window, you should execute the following lines (same for management tool method):
     
         ```
         CREATE USER [MI Name] FROM EXTERNAL PROVIDER
@@ -400,7 +389,7 @@ There are three authentication types for Azure Log Analytics, they are **Basic**
 
         **Step 2:** Follow the same steps with [managed identity in SQL Server](#jump), which is mentioned above. 
 
-        **Step 3:** [Create a credential entity](#jump1) in Metrics Advisor, so that you can choose that entity when adding data feed for Service Principal authentication type. 
+        **Step 3:** [Create a credential entity](how-tos/credential-entity.md) in Metrics Advisor, so that you can choose that entity when adding data feed for Service Principal authentication type. 
 
         Here's an example of connection string: 
         
@@ -408,7 +397,7 @@ There are three authentication types for Azure Log Analytics, they are **Basic**
         Data Source=<Server>;Initial Catalog=<Database>
         ```
   
-    * **Service Principal From Key Vault**: Key Vault helps to safeguard cryptographic keys and secret values that cloud apps and services use. By using Key Vault, you can encrypt keys and secret values. You should create a service principal first, and then store the service principal inside Key Vault.  You can go through [Store service principal credentials in Azure Stack Hub Key Vault](/azure-stack/user/azure-stack-key-vault-store-credentials) to follow detailed procedure to set service principal from key vault. Also, your connection string could be found in Azure SQL Server resource in **Settings > Connection strings** section.
+    * **Service Principal From Key Vault**: Key Vault helps to safeguard cryptographic keys and secret values that cloud apps and services use. By using Key Vault, you can encrypt keys and secret values. You should create a service principal first, and then store the service principal inside Key Vault.  You can go through [Create a credential entity for Service Principal from Key Vault](how-tos/credential-entity.md#sp-from-kv) to follow detailed procedure to set service principal from key vault. Also, your connection string could be found in Azure SQL Server resource in **Settings > Connection strings** section.
         
         Here's an example of connection string: 
         
@@ -443,18 +432,20 @@ There are three authentication types for Azure Log Analytics, they are **Basic**
 
     For more information, refer to the [tutorial on writing a valid query](tutorials/write-a-valid-query.md) for more specific examples.
 
+<!--
 ## <span id="es">Elasticsearch</span>
 
 * **Host**: Specify the master host of Elasticsearch Cluster.
 * **Port**: Specify the master port of Elasticsearch Cluster.
 * **Authorization Header**: Specify the authorization header value of Elasticsearch Cluster.
-* **Query**: Specify the query to get data. Placeholder `@StartTime` is supported. For example, when data of `2020-06-21T00:00:00Z` is ingested, `@StartTime = 2020-06-21T00:00:00`.
+* **Query**: Specify the query to get data. Placeholder `@IntervalStart` is supported. For example, when data of `2020-06-21T00:00:00Z` is ingested, `@IntervalStart = 2020-06-21T00:00:00`.
 
 
 * **Request URL**: An HTTP url that can return a JSON. The placeholders %Y,%m,%d,%h,%M are supported: %Y=year in format yyyy, %m=month in format MM, %d=day in format dd, %h=hour in format HH, %M=minute in format mm. For example: `http://microsoft.com/ProjectA/%Y/%m/X_%Y-%m-%d-%h-%M`.
 * **Request HTTP method**: Use GET or POST.
 * **Request header**: Could add basic authentication. 
-* **Request payload**: Only JSON payload is supported. Placeholder @StartTime is supported in the payload. The response should be in the following JSON format: `[{"timestamp": "2018-01-01T00:00:00Z", "market":"en-us", "count":11, "revenue":1.23}, {"timestamp": "2018-01-01T00:00:00Z", "market":"zh-cn", "count":22, "revenue":4.56}]`. For example, when data of `2020-06-21T00:00:00Z` is ingested, `@StartTime = 2020-06-21T00:00:00.0000000+00:00)`.
+* **Request payload**: Only JSON payload is supported. Placeholder @IntervalStart is supported in the payload. The response should be in the following JSON format: `[{"timestamp": "2018-01-01T00:00:00Z", "market":"en-us", "count":11, "revenue":1.23}, {"timestamp": "2018-01-01T00:00:00Z", "market":"zh-cn", "count":22, "revenue":4.56}]`. For example, when data of `2020-06-21T00:00:00Z` is ingested, `@IntervalStart = 2020-06-21T00:00:00.0000000+00:00)`.
+-->
 
 ## <span id="influxdb">InfluxDB (InfluxQL)</span>
 
