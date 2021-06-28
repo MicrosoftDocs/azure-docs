@@ -84,6 +84,17 @@ To run the app in development mode, use the `npm start` built-in command.  The l
 >[!IMPORTANT]
 >Instructors must use the template VM or another lab VM to access a student's website.
 
+### Update firewall settings
+
+Official Ubuntu builds have [iptables](https://help.ubuntu.com/community/IptablesHowTo) installed and will allow all incoming traffic by default.  However, if you're using a VM that has a more restrictive firewall, add an inbound rule to allow traffic to the NodeJS server.  The example below uses [iptables](https://help.ubuntu.com/community/IptablesHowTo) to allow traffic to port 3000.
+
+```bash
+sudo iptables -I INPUT -p tcp -m tcp --dport 3000 -j ACCEPT
+```
+
+>[!IMPORTANT]
+>Instructors must use the template VM or another lab VM to access a student's website.
+
 ## Cost
 
 Let’s cover an example cost estimate for this class.  Suppose you have a class of 25 students. Each student has 20 hours of scheduled class time.  Another 10 quota hours for homework or assignments outside of scheduled class time is given to each student.  The virtual machine size we chose was **Small**, which is 20 lab units.
