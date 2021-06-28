@@ -185,7 +185,7 @@ Starting with version 3 of the WebJobs SDK, to connect to Azure Storage services
     builder.UseEnvironment(EnvironmentName.Development);
      ```
 
-    Running in [development mode](webjobs-sdk-how-to.md#host-development-settings) reduces the [queue polling exponential backoff](../azure-functions/functions-bindings-storage-queue-trigger.md?tabs=csharp#polling-algorithm)that can significantly delay the amount of time it takes for the runtime to find the message and invoke the function. You should remove this line of code when running in production. 
+    Running in [development mode](webjobs-sdk-how-to.md#host-development-settings) reduces the [queue polling exponential backoff](../azure-functions/functions-bindings-storage-queue-trigger.md?tabs=csharp#polling-algorithm) that can significantly delay the amount of time it takes for the runtime to find the message and invoke the function. You should remove this line of code or switch to `Production` when you're done with development and testing. 
 
     The `Main` method should now look like the following example:
 

@@ -901,7 +901,7 @@ config.LoggerFactory = new LoggerFactory()
 
 ### Custom telemetry for Application Insights
 
-The process for implementing custom telemetry for [Application Insights](../azure-monitor/app/app-insights-overview.md) depends on the SDK version. To learn how to configure Application Insights, see [Add Application Insights logging](webjobs-sdk-get-started.md#add-application-insights-logging).
+The process for implementing custom telemetry for [Application Insights](../azure-monitor/app/app-insights-overview.md) depends on the SDK version. To learn how to configure Application Insights, see [Add Application Insights logging](webjobs-sdk-get-started.md#enable-application-insights-logging).
 
 #### Version 3.*x*
 
