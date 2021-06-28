@@ -76,7 +76,7 @@ By default, the query will return records form the last 24 hours. Select the **T
 ## Multiple query conditions
 Let's reduce our results further by adding another filter condition. A query can include any number of filters to target exactly the set of records that you want. Select **Success** under **ActivityStatusValue** and click **Apply & Run**. 
 
-:::image type="content" source=media/log-analytics-tutorial/query-results-filter-02.png" alt-text="Query results multiple filters" lightbox="media/log-analytics-tutorial/query-results-filter-02.png":::
+:::image type="content" source="media/log-analytics-tutorial/query-results-filter-02.png" alt-text="Query results multiple filters" lightbox="media/log-analytics-tutorial/query-results-filter-02.png":::
 
 
 ## Analyze results
