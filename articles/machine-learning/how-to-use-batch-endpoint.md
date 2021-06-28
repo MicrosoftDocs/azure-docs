@@ -182,7 +182,6 @@ Some settings can be overwritten when you start a batch scoring job to make best
 az ml endpoint invoke --name mybatchedp --type batch --input-path https://pipelinedata.blob.core.windows.net/sampledata/nytaxi/taxi-tip-data.csv --set retry_settings.max_retries=1
 ```
 :::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="start_batch_scoring_job_with_new_settings" :::
-{>> TODO: Check tips vs mnist <<}
 
 ## Check batch scoring job execution progress
 
