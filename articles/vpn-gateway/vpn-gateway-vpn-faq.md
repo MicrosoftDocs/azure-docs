@@ -6,7 +6,7 @@ author: yushwang
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 06/07/2021
+ms.date: 06/23/2021
 ms.author: yushwang
 ---
 # VPN Gateway FAQ
@@ -240,6 +240,10 @@ Yes, this is supported. For more information, see [Configure ExpressRoute and Si
 ### Can I configure forced tunneling?
 
 Yes. See [Configure forced tunneling](vpn-gateway-about-forced-tunneling.md).
+
+## <a name="nat"></a>NAT
+
+[!INCLUDE [vpn-gateway-faq-nat-include](../../includes/vpn-gateway-faq-nat-include.md)]
 
 ## <a name="vms"></a>Cross-premises connectivity and VMs
 

@@ -916,6 +916,8 @@
         href: idid-manager-tutorial.md
       - name: IDrive
         href: idrive-tutorial.md
+      - name: IDrive360
+        href: idrive360-tutorial.md  
       - name: Igloo Software
         href: igloo-software-tutorial.md
       - name: iHASCO Training
@@ -1170,6 +1172,8 @@
         href: logmein-tutorial.md
       - name: Logz.io - Azure AD Integration
         href: logzio-cloud-observability-for-engineers-tutorial.md
+      - name: Loop Flow CRM
+        href: loop-flow-crm-tutorial.md  
       - name: Lucidchart
         href: lucidchart-tutorial.md
       - name: Luum
@@ -2092,6 +2096,8 @@
         href: waywedo-tutorial.md
       - name: Wdesk
         href: wdesk-tutorial.md
+      - name: Webcargo
+        href: webcargo-tutorial.md  
       - name: webMethods Integration Suite
         href: webmethods-integration-cloud-tutorial.md
       - name: Wedo
@@ -2271,6 +2277,8 @@
         href: browserstack-single-sign-on-provisioning-tutorial.md
       - name: Cerner Central
         href: cernercentral-provisioning-tutorial.md
+      - name: CheckProof
+        href: checkproof-provisioning-tutorial.md
       - name: Cisco Umbrella User Management
         href: cisco-umbrella-user-management-provisioning-tutorial.md
       - name: Cisco Webex
@@ -2335,6 +2343,8 @@
         href: github-enterprise-managed-user-provisioning-tutorial.md
       - name: GoToMeeting
         href: citrixgotomeeting-provisioning-tutorial.md
+      - name: GoLinks
+        href: golinks-provisioning-tutorial.md
       - name: Grammarly
         href: grammarly-provisioning-tutorial.md        
       - name: GroupTalk
@@ -2351,6 +2361,8 @@
         href: hootsuite-provisioning-tutorial.md
       - name: Hoxhunt
         href: hoxhunt-provisioning-tutorial.md
+      - name: H5mag
+        href: h5mag-provisioning-tutorial.md
       - name: Ideo
         href: ideo-provisioning-tutorial.md        
       - name: Infor CloudSuite
@@ -2389,6 +2401,8 @@
         href: logicgate-provisioning-tutorial.md
       - name: Looop
         href: looop-provisioning-tutorial.md
+      - name: LogMeIn
+        href: logmein-provisioning-tutorial.md
       - name: MediusFlow
         href: mediusflow-provisioning-tutorial.md
       - name: Merchlogix
@@ -2489,6 +2503,8 @@
         href: snowflake-provisioning-tutorial.md
       - name: Smartsheet
         href: smartsheet-provisioning-tutorial.md
+      - name: Smallstep SSH
+        href: smallstep-ssh-provisioning-tutorial.md
       - name: Soloinsight-CloudGate SSO
         href: soloinsight-cloudgate-sso-provisioning-tutorial.md
       - name: Symantec Web Security Service (WSS)
@@ -2523,6 +2539,8 @@
         href: theorgwiki-provisioning-tutorial.md
       - name: TravelPerk
         href: travelperk-provisioning-tutorial.md
+      - name: Tribeloo
+        href: tribeloo-provisioning-tutorial.md
       - name: Twingate
         href: twingate-provisioning-tutorial.md
       - name: UNIFI
