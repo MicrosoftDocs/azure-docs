@@ -93,7 +93,7 @@ To set up port mirroring in the Azure VMware Solution console, you'll:
    >[!NOTE]
    >Before creating a port mirroring profile, make sure you have both the source and destination VM groups created.
 
-1. Select **Port mirroring** **Port mirroring** > **Add** and then provide:
+1. Select **Port mirroring** > **Add** and then provide:
 
    :::image type="content" source="media/configure-nsx-network-components-azure-portal/add-port-mirroring-profile.png" alt-text="Screenshot showing the information required for the port mirroring profile.":::
 
