@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 06/16/2021
+ms.date: 06/28/2021
 ms.author: cherylmc
 
 ---
@@ -49,7 +49,7 @@ You can configure this setting using the following methods:
 
 | Method | Value | Link |
 | --- | --- | --- |
-| Azure portal |Instance count  | [Configuration article](https://portal.azure.com)|new-azbastion#parameters)|
+| Azure portal |Instance count  | [Configuration article](https://portal.azure.com)|
 ## <a name="subnet"></a>Azure Bastion subnet
 
 Azure Bastion requires a dedicated subnet:**AzureBastionSubnet**. This subnet needs to be created in the same Virtual Network that Azure Bastion is deployed to. The subnet must have the following configuration:
