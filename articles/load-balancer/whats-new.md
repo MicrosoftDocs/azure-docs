@@ -42,4 +42,4 @@ The product group is actively working on resolutions for the following known iss
 
 ## Next steps
 
-For more information about Azure Load Balancer, see [What is Azure Load Balancer?](load-balancer-overview.md) and [frequently asked questions](load-balancer-faqs.md).
+For more information about Azure Load Balancer, see [What is Azure Load Balancer?](load-balancer-overview.md) and [frequently asked questions](load-balancer-faqs.yml).
