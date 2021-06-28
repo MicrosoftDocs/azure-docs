@@ -1134,6 +1134,11 @@
       "source_path_from_root": "/articles/iot-central/core/howto-connect-sphere.md",
       "redirect_url": "/azure-sphere/app-development/setup-iot-central",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/core/how-to-roll-x509-certificates.md",
+      "redirect_url": "/azure/iot-central/core/how-to-connect-devices-x509",
+      "redirect_document_id": false
     }
   ]
 }
