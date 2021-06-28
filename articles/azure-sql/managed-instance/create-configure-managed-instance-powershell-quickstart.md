@@ -37,8 +37,6 @@ $location = "eastus2"
 # Set the networking values for your managed instance
 $vNetName = "myVnet-$(Get-Random)"
 $vNetAddressPrefix = "10.0.0.0/16"
-$defaultSubnetName = "myDefaultSubnet-$(Get-Random)"
-$defaultSubnetAddressPrefix = "10.0.0.0/24"
 $miSubnetName = "myMISubnet-$(Get-Random)"
 $miSubnetAddressPrefix = "10.0.0.0/24"
 #Set the managed instance name for the new managed instance
@@ -48,8 +46,8 @@ $miAdminSqlLogin = "SqlAdmin"
 $miAdminSqlPassword = "ChangeYourAdminPassword1"
 # Set the managed instance service tier, compute level, and license mode
 $edition = "General Purpose"
-$vCores = 8
-$maxStorage = 256
+$vCores = 4
+$maxStorage = 128
 $computeGeneration = "Gen5"
 $license = "LicenseIncluded" #"BasePrice" or LicenseIncluded if you have don't have SQL Server licence that can be used for AHB discount
 ```
@@ -81,16 +79,6 @@ To do so, execute this PowerShell script:
 ```azurepowershell-interactive
 
 # Configure virtual network, subnets, network security group, and routing table
-$networkSecurityGroupMiManagementService = New-AzNetworkSecurityGroup `
-                      -Name 'myNetworkSecurityGroupMiManagementService' `
-                      -ResourceGroupName $resourceGroupName `
-                      -location $location
-
-$routeTableMiManagementService = New-AzRouteTable `
-                      -Name 'myRouteTableMiManagementService' `
-                      -ResourceGroupName $resourceGroupName `
-                      -location $location
-
 $virtualNetwork = New-AzVirtualNetwork `
                       -ResourceGroupName $resourceGroupName `
                       -Location $location `
@@ -100,74 +88,21 @@ $virtualNetwork = New-AzVirtualNetwork `
                   Add-AzVirtualNetworkSubnetConfig `
                       -Name $miSubnetName `
                       -VirtualNetwork $virtualNetwork `
-                      -AddressPrefix $miSubnetAddressPrefix `
-                      -NetworkSecurityGroup $networkSecurityGroupMiManagementService `
-                      -RouteTable $routeTableMiManagementService |
+                      -AddressPrefix $miSubnetAddressPrefix |
                   Set-AzVirtualNetwork
+                  
+$miSubnetConfigId = Get-AzVirtualNetworkSubnetConfig -Name $miSubnetAddressPrefix -VirtualNetwork $virtualNetwork
 
-$virtualNetwork = Get-AzVirtualNetwork -Name $vNetName -ResourceGroupName $resourceGroupName
+$scriptUrlBase = 'https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/manage/azure-sql-db-managed-instance/delegate-subnet'
 
-$subnet= $virtualNetwork.Subnets[0]
+$parameters = @{
+    subscriptionId = $SubscriptionId
+    resourceGroupName = $resourceGroupName
+    virtualNetworkName = $vNetName
+    subnetName = $miSubnetName
+    }
 
-# Create a delegation
-$subnet.Delegations = New-Object "$NScollections.List``1[$NSnetworkModels.PSDelegation]"
-$delegationName = "dgManagedInstance" + (Get-Random -Maximum 1000)
-$delegation = New-AzDelegation -Name $delegationName -ServiceName "Microsoft.Sql/managedInstances"
-$subnet.Delegations.Add($delegation)
-
-Set-AzVirtualNetwork -VirtualNetwork $virtualNetwork
-
-$miSubnetConfigId = $subnet.Id
-
-$allowParameters = @{
-    Access = 'Allow'
-    Protocol = 'Tcp'
-    Direction= 'Inbound'
-    SourcePortRange = '*'
-    SourceAddressPrefix = 'VirtualNetwork'
-    DestinationAddressPrefix = '*'
-}
-$denyInParameters = @{
-    Access = 'Deny'
-    Protocol = '*'
-    Direction = 'Inbound'
-    SourcePortRange = '*'
-    SourceAddressPrefix = '*'
-    DestinationPortRange = '*'
-    DestinationAddressPrefix = '*'
-}
-$denyOutParameters = @{
-    Access = 'Deny'
-    Protocol = '*'
-    Direction = 'Outbound'
-    SourcePortRange = '*'
-    SourceAddressPrefix = '*'
-    DestinationPortRange = '*'
-    DestinationAddressPrefix = '*'
-}
-
-Get-AzNetworkSecurityGroup `
-        -ResourceGroupName $resourceGroupName `
-        -Name "myNetworkSecurityGroupMiManagementService" |
-    Add-AzNetworkSecurityRuleConfig `
-        @allowParameters `
-        -Priority 1000 `
-        -Name "allow_tds_inbound" `
-        -DestinationPortRange 1433 |
-    Add-AzNetworkSecurityRuleConfig `
-        @allowParameters `
-        -Priority 1100 `
-        -Name "allow_redirect_inbound" `
-        -DestinationPortRange 11000-11999 |
-    Add-AzNetworkSecurityRuleConfig `
-        @denyInParameters `
-        -Priority 4096 `
-        -Name "deny_all_inbound" |
-    Add-AzNetworkSecurityRuleConfig `
-        @denyOutParameters `
-        -Priority 4096 `
-        -Name "deny_all_outbound" |
-    Set-AzNetworkSecurityGroup
+Invoke-Command -ScriptBlock ([Scriptblock]::Create((iwr ($scriptUrlBase+'/delegateSubnet.ps1?t='+ [DateTime]::Now.Ticks)).Content)) -ArgumentList $parameters
 ```
 
 ## Create managed instance 
