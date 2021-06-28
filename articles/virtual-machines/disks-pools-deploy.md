@@ -1,5 +1,5 @@
 ---
-title: Deploy an Azure disk pool
+title: Deploy an Azure disk pool (preview)
 description: Learn how to deploy an Azure disk pool.
 author: roygara
 ms.service: virtual-machines
@@ -8,9 +8,9 @@ ms.date: 06/28/2021
 ms.author: rogarana
 ms.subservice: disks
 ---
-# Deploy a disk pool
+# Deploy a disk pool (preview)
 
-This article covers how to deploy and configure a disk pool. Before deploying a disk pool, read the [conceptual](disks-pools.md) and [planning](disks-pools-planning.md) articles.
+This article covers how to deploy and configure a disk pool (preview). Before deploying a disk pool, read the [conceptual](disks-pools.md) and [planning](disks-pools-planning.md) articles.
 
 In order for a disk pool to work correctly, you must complete the following steps:
 - Register your subscription for the preview.
@@ -116,9 +116,9 @@ If your disk meets these requirements, you can add it to a disk pool by selectin
 
 The provided script performs the following:
 - Installs the necessary module for creating and using disk pools.
-- Create a disk and assigns RBAC permissions to it. If you already did this, you can comment out these sections of the script.
-- Create a disk pool and adds the disk to it.
-- Create and enable an iSCSI target.
+- Creates a disk and assigns RBAC permissions to it. If you already did this, you can comment out these sections of the script.
+- Creates a disk pool and adds the disk to it.
+- Creates and enable an iSCSI target.
 
 Replace the variables in this script with your own variables before running the script. You'll also need to modify it to use an existing ultra disk if you've filled out the ultra disk form.
 
@@ -168,9 +168,9 @@ Get-AzDiskPoolIscsiTarget -name $iscsiTargetName -DiskPoolName $diskPoolName -Re
 
 The provided script performs the following:
 - Installs the necessary extension for creating and using disk pools.
-- Create a disk and assigns RBAC permissions to it. If you already did this, you can comment out these sections of the script.
-- Create a disk pool and adds the disk to it.
-- Create and enable an iSCSI target.
+- Creates a disk and assigns RBAC permissions to it. If you already did this, you can comment out these sections of the script.
+- Creates a disk pool and adds the disk to it.
+- Creates and enable an iSCSI target.
 
 Replace the variables in this script with your own variables before running the script. You'll also need to modify it to use an existing ultra disk if you've filled out the ultra disk form.
 
@@ -181,7 +181,7 @@ az extension add -n diskpool
 #az extension add -s https://zuhdefault.blob.core.windows.net/cliext/diskpool-0.1.1-py3-none-any.whl
 
 #Select subscription
-az account set --subscription "Azure Dedicated Tahoma Share"
+az account set --subscription "<yourSubscription>"
 
 #Add disk-pool CLI extension
 az extension add -n diskpool

@@ -1,6 +1,6 @@
 ---
-title: Planning for Azure disk pools
-description: Learn how to approach an Azure disk pool.
+title: Optimize your Azure disk pools (preview) performance
+description: Learn how to get the most performance out of an Azure disk pool.
 author: roygara
 ms.service: virtual-machines
 ms.topic: conceptual
@@ -9,7 +9,7 @@ ms.author: rogarana
 ms.subservice: disks
 ---
 
-# Disk pools planning guide
+# Disk pools (preview) planning guide
 
 It's important to understand the performance requirements of your workload before you deploy a disk pool. Determining your requirements in advance allows you to get the most performance out of your disk pool. The performance of a disk pool is determined by three main factors: The disk pool's scalability target, the scalability targets of individual disks contained in the disk pool, and the networking connection between the client machines to the disk pool. Adjusting these three factors will tweak the performance you get from a disk pool.
 

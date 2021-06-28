@@ -1,5 +1,5 @@
 ---
-title: Move an Azure disk pool to a different subscription
+title: Move an Azure disk pool (preview) to a different subscription
 description: Learn how to move an Azure disk pool to a different subscription.
 author: roygara
 ms.service: virtual-machines
@@ -9,9 +9,9 @@ ms.author: rogarana
 ms.subservice: disks
 ---
 
-# Move a disk pool to a different subscription
+# Move a disk pool (preview) to a different subscription
 
-Moving a disk pool involves moving the disk pool itself, the disks contained in the disk pool, the disk pool's managed resource group, and all the resources contained in the managed resource group. Currently, Azure doesn't support moving multiple resource groups to another subscription at once. 
+Moving a disk pool (preview) involves moving the disk pool itself, the disks contained in the disk pool, the disk pool's managed resource group, and all the resources contained in the managed resource group. Currently, Azure doesn't support moving multiple resource groups to another subscription at once. 
 
 - Export the template of your existing disk pool.
 - Delete the old disk pool.
@@ -33,3 +33,7 @@ Now that the disk pool is deleted, you can move the virtual network and your dis
 ## Redeploy your disk pool
 
 Once you've moved your other resources into the subscription, update the template of your old disk pool so that all the references to your disks, virtual network, subnet, and clients, all now point to their new resource URIs. Once you've done that, redeploy the template to the new subscription. To learn how to edit and deploy a template, see [this article](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md#edit-and-deploy-the-template).
+
+## Next steps
+
+To learn how to manage your disk pool, see [Manage a disk pool](disks-pools-manage.md).

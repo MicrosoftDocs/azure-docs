@@ -1,5 +1,5 @@
 ---
-title: Manage an Azure disk pool
+title: Manage an Azure disk pool (preview)
 description: Learn how to manage an Azure disk pool.
 author: roygara
 ms.service: virtual-machines
@@ -9,9 +9,9 @@ ms.author: rogarana
 ms.subservice: disks
 ---
 
-# Manage a disk pool
+# Manage a disk pool (preview)
 
-Once you've deployed a disk pool, there are two management actions available to you. You can:
+Once you've deployed a disk pool (preview), there are two management actions available to you. You can:
 - Add a disk to a disk pool
 - Disable iSCSI support on a disk
 
@@ -111,3 +111,9 @@ $diskIds += ($Id)
 
 Update-AzDiskPool -ResourceGroupName $resourceGroupName -Name $diskPoolName -DiskId $diskIds
 ```
+
+## Next steps
+
+- To learn how to move a disk pool to another subscription, see [Move a disk pool to a different subscription](disks-pools-move-resource.md).
+- 
+- To learn how to deprovision a disk pool, see [Deprovision an Azure disk pool](disks-pools-deprovision.md).

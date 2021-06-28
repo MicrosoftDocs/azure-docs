@@ -1,5 +1,5 @@
 ---
-title: Deprovision an Azure disk pool
+title: Deprovision an Azure disk pool (preview)
 description: Learn how to deprovision, stop, and delete and Azure disk pool.
 author: roygara
 ms.date: 06/24/2021
@@ -9,9 +9,9 @@ ms.service: virtual-machines
 ms.subservice: disks
 ---
 
-# Deprovision an Azure disk pool
+# Deprovision an Azure disk pool (preview)
 
-This article covers the deletion process for a disk pool and how to disable iSCSI support.
+This article covers the deletion process for a disk pool (preview) and how to disable iSCSI support.
 
 ## Stop a disk pool
 
