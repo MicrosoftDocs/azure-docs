@@ -640,12 +640,6 @@
       "branch_mapping": {}
     },
     {
-      "path_to_root": "name-snippet-docsreport-test",
-      "url": "https://github.com/mmacy/docsreport",
-      "branch": "master",
-      "branch_mapping": {}
-    },
-    {
       "path_to_root": "cognitive-services-content-moderator-samples",
       "url": "https://github.com/Azure-Samples/cognitive-services-content-moderator-samples",
       "branch": "master",
