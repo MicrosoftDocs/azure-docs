@@ -11,7 +11,7 @@ manager: femila
 
 MSIX app attach is an application layering solution that allows you to dynamically attach apps from an MSIX package to a user session. The MSIX package system separates apps from the operating system, making it easier to build images for virtual machines. MSIX packages also give you greater control over which apps your users can access in their virtual machines. You can even separate apps from the master image and give them to users later.
 
-Instructions on how to convert a desktop installer (MSI,EXE,ClickOnce,App-V,Script) to MSIX are available in [Create an MSIX package from any desktop installer (MSI, EXE, ClickOnce, or App-V)](/windows/msix/packaging-tool/create-app-package).
+Instructions on how to convert a desktop installer (such as MSI, EXE, ClickOnce, App-V, or Script) to MSIX are available in [Create an MSIX package from any desktop installer (MSI, EXE, ClickOnce, or App-V)](/windows/msix/packaging-tool/create-app-package).
 
 ## Create a VHD or VHDX package for MSIX
 
