@@ -26,9 +26,9 @@ This article elaborates on the data lineage aspects of SQL Server Integration Se
 
 ### Step 2. Trigger SSIS activity execution in Azure Data Factory
 
-You can [run SSIS package with Execute SSIS Package activity](../data-factory/how-to-invoke-ssis-package-ssis-activity) or [run SSIS package with Transact-SQL in ADF SSIS Integration Runtime](../data-factory/how-to-invoke-ssis-package-stored-procedure-activity).  
+You can [run SSIS package with Execute SSIS Package activity](../data-factory/how-to-invoke-ssis-package-ssis-activity.md) or [run SSIS package with Transact-SQL in ADF SSIS Integration Runtime](../data-factory/how-to-invoke-ssis-package-stored-procedure-activity.md).  
 
-Once Execute SSIS Package activity finishes the execution, you can check lineage report status from the activity output in [Data Factory activity monitor](../data-factory/monitor-visually#monitor-activity-runs).
+Once Execute SSIS Package activity finishes the execution, you can check lineage report status from the activity output in [Data Factory activity monitor](../data-factory/monitor-visually.md#monitor-activity-runs).
 :::image type="content" source="media/how-to-lineage-sql-server-integration-services/ssis-activity-report-lineage-status.png" alt-text="ssis-status":::
 
 ### Step 3. Browse lineage Information in your Azure Purview account
@@ -41,9 +41,9 @@ Once Execute SSIS Package activity finishes the execution, you can check lineage
 - You can also search the Data Catalog using keywords.
 :::image type="content" source="media/how-to-lineage-sql-server-integration-services/search-assets-ssis.png" alt-text="search-ssis":::
 - You can view lineage information for an SSIS Execute Package activity and open in Data Factory to view/edit the activity settings.
-:::image type="content" source="media/how-to-lineage-sql-server-integration-services/ssis-lineage.png" alt-text="ssis-lineage":::
+:::image type="content" source="media/how-to-lineage-sql-server-integration-services/ssis-lineage.png" alt-text="show-ssis-lineage":::
 - You can choose one data source to drill into how the columns in the source are mapped to the columns in the destination.
-:::image type="content" source="media/how-to-lineage-sql-server-integration-services/ssis-lineage-drill-in.png" alt-text="ssis-lineage-drill-in":::
+:::image type="content" source="media/how-to-lineage-sql-server-integration-services/ssis-lineage-drill-in.png" alt-text="show-ssis-lineage-drill-in":::
 
 ## Next steps
 
