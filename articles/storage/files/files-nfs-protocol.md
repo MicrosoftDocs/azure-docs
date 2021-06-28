@@ -4,7 +4,7 @@ description: Learn about file shares hosted in Azure Files using the Network Fil
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/25/2021
+ms.date: 06/28/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
@@ -72,7 +72,9 @@ The status of items that appear in this tables may change over time as support c
 | [GRS or GZRS redundancy types](storage-files-planning.md#redundancy)| ⛔ |
 | [AzCopy](../common/storage-use-azcopy-v10.md)| ⛔ |
 | Azure Storage Explorer| ⛔ |
-| Enable NFS on existing storage accounts| ⛔ |
+| Enable NFS on existing storage accounts*| ⛔ |
+
+\* If a storage account was created prior to registering for NFS, you cannot use it for NFS. Only storage accounts created after registering for NFS can be used.
 
 ## Regional availability
 
