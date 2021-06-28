@@ -9,7 +9,7 @@ ms.date: 06/28/2021
 
 A content library stores and manages content in the form of library items. A single library item consists of one or more files you use to deploy virtual machines (VMs). 
 
-In this article, you'll create a content library and then deploy a VM using an ISO image from the content library.
+In this article, you'll create a content library in the vSphere Client and then deploy a VM using an ISO image from the content library.
 
 ## Prerequisites
 
