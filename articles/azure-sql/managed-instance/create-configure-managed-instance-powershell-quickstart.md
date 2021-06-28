@@ -91,7 +91,7 @@ $virtualNetwork = New-AzVirtualNetwork `
                       -AddressPrefix $miSubnetAddressPrefix |
                   Set-AzVirtualNetwork
                   
-$miSubnetConfigId = Get-AzVirtualNetworkSubnetConfig -Name $miSubnetAddressPrefix -VirtualNetwork $virtualNetwork
+$miSubnetConfigId = Get-AzVirtualNetworkSubnetConfig -Name $miSubnetName -VirtualNetwork $virtualNetwork
 
 $scriptUrlBase = 'https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/manage/azure-sql-db-managed-instance/delegate-subnet'
 
