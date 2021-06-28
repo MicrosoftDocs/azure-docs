@@ -6,7 +6,7 @@ ms.author: susabat
 ms.reviewer: susabat
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 04/27/2021
+ms.date: 06/27/2021
 ---
 
 # Troubleshoot CI-CD, Azure DevOps, and GitHub issues in ADF 
@@ -152,17 +152,17 @@ Until recently, only way to publish ADF pipeline for deployments was using ADF P
 
 #### Resolution
 
-CI/CD process has been enhanced. The **Automated** publish feature takes, validates, and exports all ARM template features from the ADF UX. It makes the logic consumable via a publicly available npm package [@microsoft/azure-data-factory-utilities](https://www.npmjs.com/package/@microsoft/azure-data-factory-utilities). This method allows you to programmatically trigger these actions instead of having to go to the ADF UI and do a button click. This method gives  your CI/CD pipelines a **true** continuous integration experience. Please follow [ADF CI/CD Publishing Improvements](./continuous-integration-deployment-improvements.md) for details. 
+CI/CD process has been enhanced. The **Automated** publish feature takes, validates, and exports all ARM template features from the ADF UX. It makes the logic consumable via a publicly available npm package [@microsoft/azure-data-factory-utilities](https://www.npmjs.com/package/@microsoft/azure-data-factory-utilities). This method allows you to programmatically trigger these actions instead of having to go to the ADF UI and do a button click. This method gives  your CI/CD pipelines a **true** continuous integration experience. Follow [ADF CI/CD Publishing Improvements](./continuous-integration-deployment-improvements.md) for details. 
 
-###  Cannot publish because of 4 MB ARM template limit  
+###  Cannot publish because of 4-MB ARM template limit  
 
 #### Issue
 
-You cannot deploy because you hit Azure Resource Manager limit of 4 MB total template size. You need a solution to deploy after crossing the limit. 
+You cannot deploy because you hit Azure Resource Manager limit of 4-MB total template size. You need a solution to deploy after crossing the limit. 
 
 #### Cause
 
-Azure Resource Manager restricts template size to be 4 MB. Limit the size of your template to 4 MB, and each parameter file to 64 KB. The 4 MB limit applies to the final state of the template after it has been expanded with iterative resource definitions, and values for variables and parameters. But, you have crossed the limit. 
+Azure Resource Manager restricts template size to be 4-MB. Limit the size of your template to 4-MB, and each parameter file to 64 KB. The 4-MB limit applies to the final state of the template after it has been expanded with iterative resource definitions, and values for variables and parameters. But, you have crossed the limit. 
 
 #### Resolution
 
@@ -242,13 +242,24 @@ Unselect **Include in ARM template** and deploy global parameters with PowerShel
 ### Extra  left "[" displayed in published JSON file
 
 #### Issue
-When publishing ADF with DevOps, there is one more left "[" displayed. ADF adds one more left "[" in ARMTemplate in DevOps automatically. 
+When publishing ADF with DevOps, there is one more left "[" displayed. ADF adds one more left "[" in ARMTemplate in DevOps automatically. You will see expression like "[[" in JSON file.
 
 #### Cause
 Because [ is a reserved character for ARM, an extra [ is added automatically to escape "[".
 
 #### Resolution
 This is normal behavior during ADF publishing process for CI/CD.
+ 
+### Perform **CI/CD** during  progress/queued stage of pipeline run
+
+#### Issue
+You want to perform CI/CD during progress and queuing stage of pipeline run.
+
+#### Cause
+When pipeline is in progress/queued stage, you have to monitor the pipeline and  activities at first. Then, you can decide to wait until pipeline to finish or you can cancel the pipeline run. 
+ 
+#### Resolution
+You can monitor the pipeline using **SDK**, **Azure Monitor** or [ADF Monitor](https://docs.microsoft.com/azure/data-factory/monitor-visually). Then, you can follow [ADF CI/CD Best Practices](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment#best-practices-for-cicd) to guide you further. 
 
 ## Next steps
 
