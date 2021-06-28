@@ -104,12 +104,12 @@ Follow these steps to enable replication:
 
    ![Enable replication](./media/vmware-azure-set-up-replication-tutorial-preview/enable-replication.png)
 
-2. **Choose** the machine type you want to protect through Azure Site Recovery.
+2. Select the machine type you want to protect through Azure Site Recovery.
 
    > [!NOTE]
    > In Preview, the support is limited to virtual machines.
 
-3. After choosing Virtual machines, you need to choose the vCenter server added to Azure Site Recovery replication appliances, registered in this vault.
+3. After selecting the virtual machines, select the vCenter server added to Azure Site Recovery replication appliances, registered in this vault.
 
 4. Later, search the source VM name to protect the machines of your choice. To review the selected VMs, select **Selected resources**.
 

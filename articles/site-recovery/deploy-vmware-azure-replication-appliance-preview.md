@@ -9,9 +9,9 @@ ms.date: 06/23/2021
 # Deploy ASR replication appliance - Preview
 
 >[!NOTE]
-> The information in this article applies to Azure Site Recovery - preview. For information about configuration server requirements in Classic releases ,[see this article](vmware-azure-configuration-server-requirements.md).
+> The information in this article applies to Azure Site Recovery - preview. For information about configuration server requirements in Classic releases, [see this article](vmware-azure-configuration-server-requirements.md).
 
-You deploy an on-premises repication appliance when you use [Azure Site Recovery](site-recovery-overview.md) for disaster recovery of VMware VMs and physical servers to Azure.
+You deploy an on-premises replication appliance when you use [Azure Site Recovery](site-recovery-overview.md) for disaster recovery of VMware VMs and physical servers to Azure.
 
 - The replication appliance coordinates communications between on-premises VMware and Azure. It also manages data replication.
 - [Learn more](vmware-azure-architecture-preview.md) about the replication appliance components and processes.
@@ -23,7 +23,7 @@ You deploy an on-premises repication appliance when you use [Azure Site Recovery
 CPU cores | 8
 RAM | 32 GB
 Number of disks | 3, including the OS disk - 80 GB, data disk 1 - 620 GB, data disk 2 - 620 GB
- |
+
 
 ## Software requirements
 
@@ -47,7 +47,6 @@ FIPS (Federal Information Processing Standards) | Do not enable FIPS mode
 IP address type | Static
 Ports | 443 (Control channel orchestration)<br>9443 (Data transport)
 NIC type | VMXNET3 (if the configuration server is a VMware VM)
- |
 **Internet access**  (the server needs access to the following URLs, directly or via proxy):|
 \*.backup.windowsazure.com | Used for replicated data transfer and coordination
 \*.blob.core.windows.net | Used to access storage account that stores replicated data. You can provide the specific URL of your cache storage account.
@@ -55,9 +54,8 @@ NIC type | VMXNET3 (if the configuration server is a VMware VM)
 https:\//login.microsoftonline.com | Used for replication management operations and coordination
 time.nist.gov | Used to check time synchronization between system and global time
 time.windows.com | Used to check time synchronization between system and global time
-| <ul> <li> https:\//management.azure.com </li><li> https:\//secure.aadcdn.microsoftonline-p.com </li><li> https:\//login.live.com </li><li> https:\//graph.windows.net </li><li> https:\//login.windows.net </li><li> *.services.visualstudio.com (Optional) </li><li> https:\//www.live.com </li><li> https:\//www.microsoft.com </li></ul> | OVF setup needs access to these additional URLs. They're used for access control and identity management by Azure Active Directory.
+https:\//management.azure.com </li><li> https:\//secure.aadcdn.microsoftonline-p.com </li><li> https:\//login.live.com </li><li> https:\//graph.windows.net </li><li> https:\//login.windows.net </li><li> *.services.visualstudio.com (Optional) </li><li> https:\//www.live.com </li><li> https:\//www.microsoft.com </li></ul> | OVF setup needs access to these additional URLs. They're used for access control and identity management by Azure Active Directory.
 https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi  | To complete MySQL download. </br> In a few regions, the download might be redirected to the CDN URL. Ensure that the CDN URL is also approved, if necessary.
-|
 
 > [!NOTE]
 > If you have [private links connectivity](hybrid-how-to-enable-replication-private-endpoints.md) to Site Recovery vault, you do not need any additional internet access for the Configuration Server. An exception to this is while setting up the CS machine using OVA template, you will need access to following URLs over and above private link access - https://management.azure.com, https://www.live.com and https://www.microsoft.com. If you do not wish to allow access to these URLs, please set up the CS using Unified Installer.
