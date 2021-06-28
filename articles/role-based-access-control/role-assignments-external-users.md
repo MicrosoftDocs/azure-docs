@@ -85,7 +85,7 @@ In Azure RBAC, to grant access, you assign a role. To assign a role to a guest u
 
     ![Screenshot of Add > Add role assignment menu for preview experience.](./media/shared/add-role-assignment-menu-preview.png)
 
-    The Assign a role page opens.
+    The Add role assignment page opens.
 
 1. On the **Roles** tab, select a role such as **Virtual Machine Contributor**.
 
@@ -97,7 +97,7 @@ In Azure RBAC, to grant access, you assign a role. To assign a role to a guest u
 
 1. Click **Select members**.
 
-1. Find and select the guest user. If you don't see the user in the list, you can type in the **Select** box to search the directory for display names, email addresses, and object identifiers.
+1. Find and select the guest user. If you don't see the user in the list, you can type in the **Select** box to search the directory for display name or email address.
 
     You can type in the **Select** box to search the directory for display name or email address.
 
@@ -131,7 +131,7 @@ If the guest user is not yet in your directory, you can invite the user directly
 
     ![Screenshot of Add > Add role assignment menu for preview experience.](./media/shared/add-role-assignment-menu-preview.png)
 
-    The Assign a role page opens.
+    The Add role assignment page opens.
 
 1. On the **Roles** tab, select a role such as **Virtual Machine Contributor**.
 
