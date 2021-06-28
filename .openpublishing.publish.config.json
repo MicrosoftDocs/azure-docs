@@ -793,6 +793,7 @@
   },
   "redirection_files": [
     ".openpublishing.redirection.json",
+    ".openpublishing.redirection.defender-for-iot.json",
     ".openpublishing.redirection.healthcare-apis.json",
     ".openpublishing.redirection.security-benchmark.json",
     ".openpublishing.redirection.media-services.json",
