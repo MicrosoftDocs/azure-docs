@@ -28,6 +28,7 @@
 | Web application firewall POST body parameter name length | 256 |
 | Web application firewall HTTP header name length | 256 |
 | Web application firewall cookie name length | 256 |
+| Web application firewall exclusion limit | 100 |
 | Web application firewall HTTP request body size inspected | 128 KB |
 | Web application firewall custom response body length | 2 KB |
 
