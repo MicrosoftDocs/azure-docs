@@ -648,6 +648,10 @@
           items:
             - name: Kafka Connect
               href: kafka-connector.md
+            - name: Kafka Connect - Source
+              href: .md
+            - name: Kafka Connect - sink
+              href: .md
         - name: Connectivity modes
           href: sql-sdk-connection-modes.md
     - name: How-to guides
