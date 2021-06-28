@@ -393,21 +393,21 @@ When infrastructure encryption is enabled, data in the Event Hubs namespace acco
 You can enable infrastructure encryption by updating the ARM template with `requireInfrastructureEncryption` property in the above **CreateEventHubClusterAndNamespace.json** as shown below. 
 
 ```json
-   "properties":{
-      "isAutoInflateEnabled":false,
-      "maximumThroughputUnits":0,
-      "clusterArmId":"[resourceId('Microsoft.EventHub/clusters', parameters('clusterName'))]",
-      "encryption":{
-         "keySource":"Microsoft.KeyVault",
-         "keyVaultProperties":[
-            {
-               "keyName":"[parameters('keyName')]",
-               "requireInfrastructureEncryption":true,
-               "keyVaultUri":"[parameters('keyVaultUri')]"
-            }
-         ]
-      }
+"properties":{
+   "isAutoInflateEnabled":false,
+   "maximumThroughputUnits":0,
+   "clusterArmId":"[resourceId('Microsoft.EventHub/clusters', parameters('clusterName'))]",
+   "encryption":{
+      "keySource":"Microsoft.KeyVault",
+      "requireInfrastructureEncryption":true,
+      "keyVaultProperties":[
+         {
+            "keyName":"[parameters('keyName')]",
+            "keyVaultUri":"[parameters('keyVaultUri')]"
+         }
+      ]
    }
+}
 ```
 
 ## Troubleshoot
