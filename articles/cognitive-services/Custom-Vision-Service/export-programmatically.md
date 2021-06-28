@@ -57,17 +57,29 @@ For more information, see the **[export_iteration](https://docs.microsoft.com/py
 Next, you'll call the **get_exports** method to check the status of the export operation. The operation runs asynchronously, so you should poll this method until the operation completes. When it completes, you can retrieve the URI where you can download the model iteration to your device.
 
 ```python
-exportUri = export.download_uri
-while (export.status != "Done"):
-    exportUri = export.download_uri
-    print ("Export status: " + export.status)
+while (export.status == "Exporting"):
     print ("Waiting 10 seconds...")
     time.sleep(10)
+    exports = trainer.get_exports(project_id, iteration_id)
+    # Locate the export for this iteration and check its status  
+    for e in exports:
+        if e.platform == export.platform and e.flavor == export.flavor:
+            export = e
+            break
+    print("Export status is: ", export.status)
 ```
 
-For more information, see the **[Export](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.models.export?view=azure-python)** class.
+For more information, see the **[get_exports](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.operations.customvisiontrainingclientoperationsmixin?view=azure-python#get-exports-project-id--iteration-id--custom-headers-none--raw-false----operation-config-)** class.
 
-From there, you can programmatically download exportUri to the location on the device where the Custom Vision model lives.
+Then you can programmatically download the exported model to a location on your device.
+
+```python
+if export.status == "Done":
+    # Success, now we can download it
+    export_file = requests.get(export.download_uri)
+    with open("export.zip", "wb") as file:
+        file.write(export_file.content)
+```
 
 ## Next steps
 
