@@ -1,7 +1,7 @@
 ---
 title: How to use live trace tool
 description: Learn how to use live trace tool
-author: wanl
+author: wanlwanl
 ms.author: wanl
 ms.service: signalr
 ms.topic: conceptual 
