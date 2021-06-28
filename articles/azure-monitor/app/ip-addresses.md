@@ -63,10 +63,25 @@ If you are using Azure Network Security Groups, simply add an **inbound port rul
 
 Open ports 80 (http) and 443 (https) for incoming traffic from these addresses (IP addresses are grouped by location):
 
-### Addresses grouped by location
+### IP Addresses
+
+If you're looking for the actual IP addresses so you can add them to the list of allowed IP's in your firewall, please download the JSON file describing Azure IP Ranges. These files contain the most up-to-date information. For Azure public cloud, you may also look up the IP address ranges by location using the table below.
+
+After downloading the appropriate file, open it using your favorite text editor and search for "ApplicationInsightsAvailability" to go straight to the section of the file describing the service tag for availability tests.
 
 > [!NOTE]
 > These addresses are listed using Classless Inter-Domain Routing (CIDR) notation. This means that an entry like `51.144.56.112/28` is equivalent to 16 IPs starting at `51.144.56.112` and ending at `51.144.56.127`.
+
+#### Azure Public Cloud
+Download [Public Cloud IP addresses](https://www.microsoft.com/download/details.aspx?id=56519).
+
+#### Azure US Government Cloud
+Download [Government Cloud IP addresses](https://www.microsoft.com/download/details.aspx?id=57063).
+
+#### Azure China Cloud
+Download [China Cloud IP addresses](https://www.microsoft.com/download/details.aspx?id=57062).
+
+#### Addresses grouped by location (Azure Public Cloud)
 
 ```
 Australia East
@@ -174,33 +189,10 @@ East US
 20.42.35.112/28
 20.42.35.128/28
 
-```  
-
-#### Azure Government
-
-Not needed if you are an Azure Public cloud customer.
-
 ```
-USGov Virginia
-52.227.229.80/31
 
-
-USGov Arizona
-52.244.35.112/31
-
-
-USGov Texas
-52.243.157.80/31
-
-
-USDoD Central
-52.182.23.96/31
-
-
-USDoD East
-52.181.33.96/31
-
-```
+### Discovery API
+You may also want to [programmatically retrieve](../../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) the current list of service tags together with IP address range details.
 
 ## Application Insights & Log Analytics APIs
 

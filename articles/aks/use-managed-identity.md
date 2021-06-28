@@ -207,7 +207,6 @@ A Kubelet identity enables access to be granted to the existing identity prior t
 ### Limitations
 
 - Only works with a User-Assigned Managed cluster.
-- Azure Government isn't currently supported.
 - Azure China 21Vianet isn't currently supported.
 
 First, register the feature flag for Kubelet identity:
@@ -297,7 +296,7 @@ az aks create \
     --service-cidr 10.2.0.0/24 \
     --enable-managed-identity \
     --assign-identity <identity-id> \
-    --assign-kubelet-identity <kubelet-identity-id> \
+    --assign-kubelet-identity <kubelet-identity-id>
 ```
 
 A successful cluster creation using your own kubelet managed identity contains the following output:

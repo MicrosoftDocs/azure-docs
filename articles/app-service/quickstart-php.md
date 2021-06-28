@@ -3,7 +3,7 @@ title: 'Quickstart: Create a PHP web app'
 description: Deploy your first PHP Hello World to Azure App Service in minutes. You deploy using Git, which is one of many ways to deploy to App Service.
 ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
 ms.topic: quickstart
-ms.date: 08/01/2020
+ms.date: 05/02/2021
 zone_pivot_groups: app-service-platform-windows-linux
 ---
 
@@ -69,7 +69,7 @@ In your terminal window, press **Ctrl+C** to exit the web server.
 [!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group-linux.md)]
 ::: zone-end
 
-[!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan.md)]
+[!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan-linux-no-h.md)]
 
 ## Create a web app
 

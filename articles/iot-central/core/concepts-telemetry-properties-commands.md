@@ -475,7 +475,7 @@ A device client should send a JSON payload that looks like the following example
 { "BooleanProperty": false }
 ```
 
-The following snippet from a device model shows the definition of a `boolean` property type:
+The following snippet from a device model shows the definition of a `long` property type:
 
 ```json
 {

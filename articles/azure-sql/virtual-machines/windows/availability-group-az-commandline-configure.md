@@ -14,7 +14,7 @@ ms.workload: iaas-sql-server
 ms.date: 08/20/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.custom: "seo-lt-2019, devx-track-azurecli"
+ms.custom: "seo-lt-2019, devx-track-azurecli, devx-track-azurepowershell"
 
 ---
 # Use PowerShell or Az CLI to configure an availability group for SQL Server on Azure VM 
@@ -185,6 +185,12 @@ Update-AzSqlVM -ResourceId $sqlvm2.ResourceId -SqlVM $sqlvmconfig2
 ```
 
 ---
+
+## Configure quorum
+
+Although the disk witness is the most resilient quorum option, it requires an Azure shared disk which imposes some limitations to the availability group. As such, the cloud witness is the recommended quorum solution for clusters hosting availability groups for SQL Server on Azure VMs. 
+
+If you have an even number of votes in the cluster, configure the [quorum solution](hadr-cluster-quorum-configure-how-to.md) that best suits your business needs. For more information, see [Quorum with SQL Server VMs](hadr-windows-server-failover-cluster-overview.md#quorum). 
 
 
 ## Validate cluster 
@@ -512,15 +518,11 @@ Remove-AzSqlVMGroup -ResourceGroupName "<resource group name>" -Name "<cluster n
 
 ## Next steps
 
-For more information, see the following articles: 
+Once the availability group is deployed, consider optimizing the [HADR settings for SQL Server on Azure VMs](hadr-cluster-best-practices.md). 
 
-* [Overview of SQL Server VMs](sql-server-on-azure-vm-iaas-what-is-overview.md)
-* [FAQ for SQL Server VMs](frequently-asked-questions-faq.md)
-* [Release notes for SQL Server VMs](../../database/doc-changes-updates-release-notes.md)
-* [Switching licensing models for a SQL Server VM](licensing-model-azure-hybrid-benefit-ahb-change.md)
-* [Overview of Always On availability groups &#40;SQL Server&#41;](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)   
-* [Configuration of a server instance for Always On availability groups &#40;SQL Server&#41;](/sql/database-engine/availability-groups/windows/configuration-of-a-server-instance-for-always-on-availability-groups-sql-server)   
-* [Administration of an availability group &#40;SQL Server&#41;](/sql/database-engine/availability-groups/windows/administration-of-an-availability-group-sql-server)   
-* [Monitoring of availability groups &#40;SQL Server&#41;](/sql/database-engine/availability-groups/windows/monitoring-of-availability-groups-sql-server)
-* [Overview of Transact-SQL statements for Always On availability groups &#40;SQL Server&#41;](/sql/database-engine/availability-groups/windows/transact-sql-statements-for-always-on-availability-groups)   
-* [Overview of PowerShell cmdlets for Always On availability groups &#40;SQL Server&#41;](/sql/database-engine/availability-groups/windows/overview-of-powershell-cmdlets-for-always-on-availability-groups-sql-server)
+
+To learn more, see:
+
+- [Windows Server Failover Cluster with SQL Server on Azure VMs](hadr-windows-server-failover-cluster-overview.md)
+- [Always On availability groups with SQL Server on Azure VMs](availability-group-overview.md)
+- [Always On availability groups overview](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)

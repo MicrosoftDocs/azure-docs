@@ -93,9 +93,19 @@ Azure Defender for IoT uses SSL/TLS certificates to:
 
 - Allow validation between the management console and connected sensors, and between a management console and a High Availability management console. Validations is evaluated against a Certificate Revocation List, and the certificate expiration date. *If validation fails, communication between the management console and the sensor is halted and a validation error is presented in the console*. This option is enabled by default after installation.
 
- Third party Forwarding rules, for example alert information sent to SYSLOG, Splunk or ServiceNow; or communications with Active Directory are not validated.
+- Third party Forwarding rules, for example alert information sent to SYSLOG, Splunk or ServiceNow; or communications with Active Directory are not validated.
 
-#### SSL certificates
+### About CRL servers
+
+When validation is on, the appliance should be able to establish connection to the CRL server defined by the certificate. By default, the certificate will reference the CRL URL on HTTP port 80. Some organizational security policies may block access to this port. If your organization does not have access to port 80, you can:
+1. Define another URL and a specific port in the certificate. 
+- The URL should be defined as http://<URL>:<Port> instead of http://<URL>.
+- Verify that the destination CRL server can listen on the port you defined. 
+1. Use a proxy server that will access the CRL on port 80.
+1. Not carry out CRL validation. In this case, remove the CRL URL reference in the certificate.
+
+
+### About SSL certificates
 
 The Defender for IoT sensor, and on-premises management console use SSL, and TLS certificates for the following functions: 
 
@@ -105,7 +115,7 @@ The Defender for IoT sensor, and on-premises management console use SSL, and TLS
  
  - Secure communications between the sensors and an on-premises management console. 
 
-Once installed, the appliance generates a local self-signed certificate to allow preliminary access to the web console. Enterprise SSL, and TLS certificates may be installed using the [`cyberx-xsense-certificate-import`](#cli-commands) command line tool.
+Once installed, the appliance generates a local self-signed certificate to allow preliminary access to the web console. Enterprise SSL, and TLS certificates may be installed using the [`cyberx-xsense-certificate-import`](#cli-commands) command-line tool.
 
  > [!NOTE]
  > For integrations and forwarding rules where the appliance is the client and initiator of the session, specific certificates are used and are not related to the system certificates.  
@@ -116,7 +126,7 @@ Appliances may use unique certificate files. If you need to replace a certificat
 
 - From version 10.0, the certificate can be replaced from the System Settings menu.
 
-- For versions previous to 10.0, the SSL certificate can be replaced using the command line tool.
+- For versions previous to 10.0, the SSL certificate can be replaced using the command-line tool.
 
 ### Update certificates
 
@@ -218,7 +228,7 @@ A `.pem`, or `.der` formatted file with a different extension. The file is recog
 
 A key file is in the same format as a PEM file, but it has a different extension.
 
-#### Additional commonly available key artifacts
+#### Other commonly available key artifacts
 
 **.csr - certificate signing request**.  
 
@@ -431,9 +441,9 @@ You can automatically transfer this file to the internal network.
 
 When you control a sensor by using the on-premises management console, you can use the sensor's backup schedule to collect these backups and store them on the management console or on an external backup server.
 
-**What is backed up:** Configurations and data.
+**What is backed up**: Configurations and data.
 
-**What is not backed up:** PCAP files and logs. You can manually back up and restore PCAPs and logs.
+**What is not backed up**: PCAP files and logs. You can manually back up and restore PCAPs and logs.
 
 Sensor backup files are automatically named through the following format: `<sensor name>-backup-version-<version>-<date>.tar`. An example is `Sensor_1-backup-version-2.6.0.102-2019-06-24_09:24:55.tar`.
 
