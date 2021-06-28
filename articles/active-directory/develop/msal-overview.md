@@ -43,6 +43,8 @@ MSAL can be used in many application scenarios, including the following:
 * [Mobile application calling a web API on behalf of the user who's signed-in interactively](scenario-mobile-overview.md).
 * [Desktop/service daemon application calling web API on behalf of itself](scenario-daemon-overview.md)
 
+> [!VIDEO https://www.youtube.com/embed/zufQ0QRUHUk]
+
 ## Languages and frameworks
 
 | Library | Supported platforms and frameworks|
