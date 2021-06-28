@@ -288,6 +288,14 @@ As explained in [Planning your Private Link setup](#planning-your-private-link-s
     - Set up an AMPLS and a Private Endpoint, and choose **not** to auto-integrate with private DNS 
     - Configure the above A records on a machine that runs the app in the hosts file
 
+## Configure data collection endpoints
+Go to the Azure portal. In your Azure Monitor Data collection endpoint resource, is a menu item Network Isolation on the left-hand side. You can control two different states from this menu.
+
+First, you can click **Add** to add this endpoint resource to Azure Monitor Private Link scopes that you have access to. After selecting the scope, click **Apply** to connect it. All connected scopes then show up in this screen. Making this connection allows network traffic in the connected virtual networks to reach this component, and has the same effect as connecting it from the scope as we did in Connecting Azure Monitor resources.
+
+Then, you can control how this resource can be reached from outside of the private link scopes (AMPLS) listed previously. If you set **Allow public network access for ingestion** to **No**, then machines associated with this endpoint cannot communicate via public internet, and can only ingest data to destinations (e.g. Log Analytics workspaces) that are added to the same scope.
+
+[![Data collection endpoint network isolation](media/private-link-security/ampls-data-collection-endpoint-network-isolation.png)
 
 ## Use APIs and command line
 
