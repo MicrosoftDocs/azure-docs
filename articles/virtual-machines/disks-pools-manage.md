@@ -25,7 +25,7 @@ Your disk must meet the following requirements in order to be added to the disk 
 - Must be either a premium SSD or an ultra disk in the same region and availability zone as the disk pool, or use ZRS.
     - Ultra disks must have a disk sector size of 512 bytes.
 - Must be a shared disk, with a maxShares value of two or greater.
-- You must [provide StoragePool resource provider RBAC permissions to the disks that will be added to the disk pool.](disks-pools-deploy.md#provide-storagepool-resource-provider-permission-to-the-disks-that-will-be-added-to-the-disk-pool).
+- You must [provide the StoragePool resource provider RBAC permissions to the disks that will be added to the disk pool.](disks-pools-deploy.md#provide-storagepool-resource-provider-permission-to-the-disks-that-will-be-added-to-the-disk-pool).
 
 The following script adds an additional disk to the disk pool and exposes it over iSCSI. It keeps the existing disks in the disk pool without any change.
 
