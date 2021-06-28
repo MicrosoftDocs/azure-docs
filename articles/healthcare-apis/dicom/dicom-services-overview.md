@@ -56,7 +56,7 @@ This conceptual article provided you with an overview of DICOM, Medical Imaging,
 To get started using the DICOM Service, see:
 
 >[!div class="nextstepaction"]
->[Deploy DICOM Service to Azure](deploy-dicom-service-in-azure.md)
+>[Deploy DICOM Service to Azure](deploy-dicom-services-in-azure.md)
 
 >[!div class="nextstepaction"]
->[Using DICOMweb&trade;Standard APIs with DICOM Service](dicomweb-standard-apis-with-dicom-service.md)
+>[Using DICOMweb&trade;Standard APIs with DICOM Service](dicomweb-standard-apis-with-dicom-services.md)
