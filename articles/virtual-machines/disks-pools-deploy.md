@@ -4,7 +4,7 @@ description: Learn how to deploy an Azure disk pool.
 author: roygara
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.date: 06/25/2021
+ms.date: 06/28/2021
 ms.author: rogarana
 ms.subservice: disks
 ---
@@ -35,7 +35,7 @@ If you're going to use the Azure CLI, install [the latest version](/cli/azure/di
 
 Register your subscription to the **Microsoft.StoragePool** provider, to be able to create and use disk pools.
 
-1. Sign in to the Azure portal
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. On the Azure portal menu, search for and select **Subscriptions**.
 1. Select the subscription you want to use for disk pools.
 1. On the left menu, under **Settings**, select **Resource providers**.
@@ -95,7 +95,7 @@ To add a disk, it must meet the following requirements:
     - Currently, you can only add premium SSDs in the portal. Ultra disks must be added with either the Azure PowerShell module or the Azure CLI.
     - For ultra disks, it must have a disk sector size of 512 bytes.
 - Must be a shared disk with a maxShares value of two or greater.
-- You must grant RBAC permissions to the resource provide of disk pool to manage the disk you plan to add .
+- You must grant RBAC permissions to the resource provide of disk pool to manage the disk you plan to add.
 
 If your disk meets these requirements, you can add it to a disk pool by selecting **+Add disk** in the disk pool blade.
 
@@ -114,10 +114,10 @@ If your disk meets these requirements, you can add it to a disk pool by selectin
 
 # [PowerShell](#tab/azure-powershell)
 
-The provided script will perform the following:
-- Install the necessary module for creating and using disk pools.
-- Create a disk and assign RBAC permissions to it. You can skip this step if you have the disk prepared.
-- Create a disk pool and add the disk to it.
+The provided script performs the following:
+- Installs the necessary module for creating and using disk pools.
+- Create a disk and assigns RBAC permissions to it. If you already did this, you can comment out these sections of the script.
+- Create a disk pool and adds the disk to it.
 - Create and enable an iSCSI target.
 
 Replace the variables in this script with your own variables before running the script. You'll also need to modify it to use an existing ultra disk if you've filled out the ultra disk form.
@@ -174,10 +174,10 @@ Get-AzDiskPoolIscsiTarget -name $iscsiTargetName -DiskPoolName $diskPoolName -Re
 
 # [Azure CLI](#tab/azure-cli)
 
-The provided script will perform the following:
-- Install the necessary extension for creating and using disk pools.
-- Create a disk and assign RBAC permissions to it.
-- Create a disk pool and add the disk to it.
+The provided script performs the following:
+- Installs the necessary extension for creating and using disk pools.
+- Create a disk and assigns RBAC permissions to it. If you already did this, you can comment out these sections of the script.
+- Create a disk pool and adds the disk to it.
 - Create and enable an iSCSI target.
 
 Replace the variables in this script with your own variables before running the script. You'll also need to modify it to use an existing ultra disk if you've filled out the ultra disk form.
