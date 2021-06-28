@@ -56,9 +56,9 @@ For more information about tools available to use for the Discover phase, see [S
 After data sources have been discovered, assess any on-premises SQL Server instance(s) that can be migrated to Azure SQL Managed Instance to identify migration blockers or compatibility issues.
 Proceed to the following steps to assess and migrate databases to Azure SQL Managed Instance:
 
-:::image type="content" source="media/sql-server-to-managed-instance-overview/migration-process-sqlmi-steps.png" alt-text="Migration process flow":::
+:::image type="content" source="media/sql-server-to-managed-instance-overview/migration-process-sqlmi-steps.png" alt-text="Steps for migration to Azure SQL Managed Instance":::
 
-- [Assess SQL Managed Instance compatibility](#Assess) where you should ensure that there are no blocking issues that can prevent your migrations.
+- [Assess SQL Managed Instance compatibility](#assess) where you should ensure that there are no blocking issues that can prevent your migrations.
   This step also includes creation of a [performance baseline](sql-server-to-managed-instance-performance-baseline.md#create-a-baseline) to determine resource usage on your source SQL Server instance. This step is needed if you want to deploy a properly sized managed instance and verify that performance after migration is not affected.
 - [Choose app connectivity options](../../managed-instance/connect-application-instance.md).
 - [Deploy to an optimally sized managed instance](#deploy-to-an-optimally-sized-managed-instance) where you will choose technical characteristics (number of vCores, amount of memory) and performance tier (Business Critical, General Purpose) of your managed instance.
@@ -194,9 +194,9 @@ source SQL Server version you are running:
 |Step|SQL Engine and version|Backup/restore method|
 |---|---|---|
 |Put backup to Azure Storage|Prior to 2012 SP1 CU2|Upload .bak file directly to Azure Storage|
-||2012 SP1 CU2 - 2016|Direct backup using deprecated [WITH CREDENTIAL](../../../sql/t-sql/statements/restore-statements-transact-sql) syntax|
-||2016 and above|Direct backup using [WITH SAS CREDENTIAL](../../../sql/relational-databases/backup-restore/sql-server-backup-to-url)|
-|Restore from Azure Storage to a managed instance|[RESTORE FROM URL with SAS CREDENTIAL](../../managed-instance/restore-sample-database-quickstart.md)|
+| |2012 SP1 CU2 - 2016|Direct backup using deprecated [WITH CREDENTIAL](../../../sql/t-sql/statements/restore-statements-transact-sql.md) syntax|
+| |2016 and above|Direct backup using [WITH SAS CREDENTIAL](../../../sql/relational-databases/backup-restore/sql-server-backup-to-url.md)|
+|Restore from Azure Storage to a managed instance| |[RESTORE FROM URL with SAS CREDENTIAL](../../managed-instance/restore-sample-database-quickstart.md)|
 
 > [!IMPORTANT]
 >
@@ -253,7 +253,7 @@ The post-migration phase is crucial for reconciling any data accuracy issues and
 ### Monitor and remediate applications 
 Once you have completed the migration to a managed instance, you should track the application behavior and performance of your workload. This process includes the following activities:
 
-- [Compare performance of the workload running on the managed instance](sql-server-to-managed-instance-performance-baseline.md#compare-performance-with-the-baseline) with the [performance baseline that you created on the source SQL Server instance](sql-server-to-managed-instance-performance-baseline.md#create-a-performance-baseline).
+- [Compare performance of the workload running on the managed instance](sql-server-to-managed-instance-performance-baseline.md#compare-performance) with the [performance baseline that you created on the source SQL Server instance](sql-server-to-managed-instance-performance-baseline.md#create-a-baseline).
 - Continuously [monitor performance of your workload](sql-server-to-managed-instance-performance-baseline.md#monitor-performance) to identify potential issues and improvement.
 
 ### Perform tests
