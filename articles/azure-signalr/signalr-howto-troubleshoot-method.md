@@ -22,7 +22,7 @@ First, you need to check from the Azure portal which [ServiceMode](./concept-ser
 
 * For `Classic` mode, refer to [classic mode troubleshooting](#classic_mode_tsg)
 
-Second, you need to capture service traces to troubleshoot. For how to capture traces, refer to [How to capture service traces](#how-to-capture-service-traces)
+Second, you need to capture service traces to troubleshoot. For how to capture traces, refer to [How to capture service traces](#how-to-capture-service-traces).
 
 [Having issues or feedback about the troubleshooting? Let us know.](https://aka.ms/asrs/survey/troubleshooting)
 
