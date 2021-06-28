@@ -131,8 +131,7 @@ const call = callAgent.startCall(['acsUserId'], placeCallOptions);
 ```
 
 - When your call connects, it automatically starts sending a video stream from the selected camera to the other participant. This also applies to the `Call.Accept()` video options and `CallAgent.join()` video options.
-- When starting/joining/accepting a call with video on, if the specified video camera device is being used by another process or if its disabled in the system, the call will start with video off, and a cameraStartFailed: true UFD will be raised. (See Call Diagnostics section to see how to handle this call diagnostic).
-- While in a call, if your video is off and you start video using the call.startVideo() api, this API will throw with a SourceUnavailableError if the specified video device is being used by another process or if the video 
+- When starting/joining/accepting a call with video on, if the specified video camera device is being used by another process or if its disabled in the system, the call will start with video off, and a cameraStartFailed: true call diagnostic will be raised. (See Call Diagnostics section to see how to handle this call diagnostic).
 
 ### Join a group call
 
@@ -345,6 +344,7 @@ const camera = cameras[1];
 localVideoStream.switchSource(camera);
 ```
 
+While in a call, if your video is off and you start video using the call.startVideo() api, this API will throw with a SourceUnavailableError if the specified video device is being used by another process or if the video 
 ## Manage remote participants
 
 All remote participants are represented by `RemoteParticipant` type and available through `remoteParticipants` collection on a call instance.
