@@ -27,7 +27,7 @@ Your disk must meet the following requirements in order to be added to the disk 
 - Must be either a premium SSD or an ultra disk in the same region and availability zone as the disk pool, or use ZRS.
     - Ultra disks must have a disk sector size of 512 bytes.
 - Must be a shared disk, with a maxShares value of two or greater.
-- Your disk pool resource provider must have the necessary RBAC permissions.
+- You must grant RBAC permissions to the resource provide of disk pool to manage the disk you plan to add .
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -60,4 +60,4 @@ az disk-pool iscsi-target update --name $targetName \
 
 ## Disable iSCSI on a disk and remove it from the pool
 
-iSCSI support can be disabled on a disk to remove it from a disk pool. Before you disable iSCSI support on a disk, confirm there is no outstanding iSCSI connection to the iSCSI lun the disk is exposed as. When the disk is removed from the disk pool, it isn't deleted to ensure there is no data loss. You must manually delete the disk if you don't want to incur further charges for having the disk.
+iSCSI support can be disabled on a disk to remove it from a disk pool. Before you disable iSCSI support on a disk, confirm there is no outstanding iSCSI connection to the iSCSI LUN the disk is exposed as. When the disk is removed from the disk pool, it isn't deleted, hence there will not be any data loss. You can manually delete the disk if you don't want to incur further charges for having the disk and the data stored in the disk will be deleted.

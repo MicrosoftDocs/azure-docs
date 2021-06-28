@@ -12,10 +12,10 @@ ms.subservice: disks
 
 This article covers how to deploy and configure a disk pool. Before deploying a disk pool, read the [conceptual](disks-pools.md) and [planning](disks-pools-planning.md) articles.
 
-This article covers how to configure and deploy a disk pool. In order for a disk pool to work correctly, you must complete the following steps:
+In order for a disk pool to work correctly, you must complete the following steps:
 - Register your subscription for the preview.
 - Delegate a subnet to your disk pool.
-- Assign disk pool service provider role-based access control (RBAC) permissions for management of your resources.
+- Assign the resource provider of disk pool role-based access control (RBAC) permissions for managing your disk resources.
 - Create the disk pool.
     - Add disks to your disk pool.
 
@@ -25,7 +25,7 @@ This article covers how to configure and deploy a disk pool. In order for a disk
 In order to successfully deploy a disk pool, you must have:
 
 - A set of managed disks you want to add to a disk pool.
-- A virtual network with a subnet for your disk pool, deployed.
+- A virtual network with a dedicated subnet deployed for your disk pool.
 
 If you're going to use the Azure PowerShell module, install [version 6.1.0 or newer](/powershell/module/az.diskpool/?view=azps-6.1.0&preserve-view=true).
 
@@ -56,7 +56,7 @@ In order for your disk pool to work with your client machines, you must delegate
 
 For more information on subnet delegation, see [Add or remove a subnet delegation](../virtual-network/manage-subnet-delegation.md)
 
-### Provide StoragePool resource provider permission to the disks that will be in the disk pool.
+### Provide StoragePool resource provider permission to the disks that will be added to the disk pool.
 
 For a disk to be able to be used in a disk pool, it must meet the following requirements:
 
@@ -68,14 +68,12 @@ For a disk to be able to be used in a disk pool, it must meet the following requ
 1. Sign in to the Azure portal.
 1. Search for and select either the resource group that contains the disks or each disk themselves.
 1. Select **Access control (IAM)**.
-1. Select **Add role assignment (Preview)**, and select **Azure Disk Contributor** in the Role list.
+1. Select **Add role assignment (Preview)**, and select **Disk Pool Operator** in the Role list.
 1. Select User, group, or service principal in the Assign access to list.
 1. In the Select section, search for **StoragePool Resource Provider**, select it, and save.
 
 ### Create a disk pool
 
-> [!IMPORTANT]
-> To use ultra disks instead of premium SSDs in your disk pool, fill out this form.
 
 # [Portal](#tab/azure-portal)
 
@@ -97,7 +95,7 @@ To add a disk, it must meet the following requirements:
     - Currently, you can only add premium SSDs in the portal. Ultra disks must be added with either the Azure PowerShell module or the Azure CLI.
     - For ultra disks, it must have a disk sector size of 512 bytes.
 - Must be a shared disk with a maxShares value of two or greater.
-- You must have granted RBAC permissions for the disk to your disk pool resource provider.
+- You must grant RBAC permissions to the resource provide of disk pool to manage the disk you plan to add .
 
 If your disk meets these requirements, you can add it to a disk pool by selecting **+Add disk** in the disk pool blade.
 
@@ -118,7 +116,7 @@ If your disk meets these requirements, you can add it to a disk pool by selectin
 
 The provided script will perform the following:
 - Install the necessary module for creating and using disk pools.
-- Create a disk and assign RBAC permissions to it.
+- Create a disk and assign RBAC permissions to it. You can skip this step if you have the disk prepared.
 - Create a disk pool and add the disk to it.
 - Create and enable an iSCSI target.
 
@@ -213,7 +211,6 @@ az disk create --name $diskName --resource-group $resourceGroupName --zone $zone
 #You can deploy all your disks into one resource group and assign StoragePool Resource Provider permission to the group
 storagePoolObjectId=$(az ad sp list --filter "displayName eq 'StoragePool Resource Provider'" --query "[0].objectId" -o json)
 storagePoolObjectId="${storagePoolObjectId%\"}"
-storagePoolObjectId="${storagePoolObjectId#\"}"
 
 az role assignment create --assignee-object-id $storagePoolObjectId --role "Virtual Machine Contributor" --resource-group $resourceGroupName
 
@@ -234,7 +231,6 @@ az disk-pool iscsi-target create --name $targetName \
 #Add the disk to disk pool
 diskId=$(az disk show --name $diskName --resource-group $resourceGroupName --query "id" -o json)
 diskId="${diskId%\"}"
-diskId="${diskId#\"}"
 
 az disk-pool update --name $diskPoolName --resource-group $resourceGroupName --disks $diskId
 
