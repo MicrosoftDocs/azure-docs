@@ -68,7 +68,7 @@ To change a blob storage target's namespace with the Azure CLI, use the command 
 
 For NFS storage targets, you can change or add virtual namespace paths, change the NFS export or subdirectory values that a namespace path points to, and change the usage model.
 
-Storage targets in caches with some types of custom DNS settings also have a control for refreshing their IP addresses. (This kind of configuration is rare.) Learn how to refresh the DNS settings in [Manage storage targets](manage-storage-targets.md##update-ip-address-custom-dns-configurations-only).
+Storage targets in caches with some types of custom DNS settings also have a control for refreshing their IP addresses. (This kind of configuration is rare.) Learn how to refresh the DNS settings in [Manage storage targets](manage-storage-targets.md#update-ip-address-custom-dns-configurations-only).
 
 Details are below:
 
