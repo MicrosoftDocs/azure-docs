@@ -53,11 +53,22 @@ Alternatively, use the [Microsoft Assessment and Planning Toolkit (the "MAP 
 
 For more information about tools available to use for the Discover phase, see [Services and tools available for data migration scenarios](../../../dms/dms-tools-matrix.md). 
 
+After data sources have been discovered, assess any on-premises SQL Server instance(s) that can be migrated to Azure SQL Managed Instance to identify migration blockers or compatibility issues.
+Proceed to the following steps to assess and migrate databases to Azure SQL Managed Instance:
+
+:::image type="content" source="media/sql-server-to-managed-instance-overview/migration-process-sqlmi-steps.png" alt-text="Migration process flow":::
+
+- [Assess SQL Managed Instance compatibility](#Assess) where you should ensure that there are no blocking issues that can prevent your migrations.
+  This step also includes creation of a [performance baseline](sql-server-to-managed-instance-performance-baseline.md#create-a-baseline) to determine resource usage on your source SQL Server instance. This step is needed if you want to deploy a properly sized managed instance and verify that performance after migration is not affected.
+- [Choose app connectivity options](../../managed-instance/connect-application-instance.md).
+- [Deploy to an optimally sized managed instance](#deploy-to-an-optimally-sized-managed-instance) where you will choose technical characteristics (number of vCores, amount of memory) and performance tier (Business Critical, General Purpose) of your managed instance.
+- [Select migration method and migrate](sql-server-to-managed-instance-overview.md#compare-migration-options) where you migrate your databases using offline migration or online migration options.
+- [Monitor and remediate applications](#monitor-and-remediate-applications) to ensure that you have expected performance.
+
+
 ### Assess 
 
 [!INCLUDE [assess-estate-with-azure-migrate](../../../../includes/azure-migrate-to-assess-sql-data-estate.md)]
-
-After data sources have been discovered, assess any on-premises SQL Server instance(s) that can be migrated to Azure SQL Managed Instance to identify migration blockers or compatibility issues.
 
 Determine whether SQL Managed Instance is compatible with the database requirements of 
 your application. SQL Managed Instance is designed to provide easy lift and shift migration for 
@@ -98,32 +109,25 @@ Data Migration Assistant supports performing scaled assessments and consolidatio
 > [!IMPORTANT]
 >Running assessments at scale for multiple databases can also be automated using [DMA's Command Line Utility](/sql/dma/dma-commandline) which also allows the results to be uploaded to [Azure Migrate](/sql/dma/dma-assess-sql-data-estate-to-sqldb#view-target-readiness-assessment-results) for further analysis and target readiness.
 
-### Create SQL Managed Instance 
+### Deploy to an optimally sized managed instance
 
 Based on the information in the discover and assess phase, create an appropriately-sized target SQL Managed Instance. You can do so by using the [Azure portal](../../managed-instance/instance-create-quickstart.md), [PowerShell](../../managed-instance/scripts/create-configure-managed-instance-powershell.md), or an [Azure Resource Manager (ARM) Template](../../managed-instance/create-template-quickstart.md).
 
-Choose technical characteristics:
-- Number of vCores
-- Amount of memory
-- Performance tier (Business Critical, General Purpose) of your managed instance.
+SQL Managed Instance is tailored for on-premises workloads that are planning to move to the cloud. It introduces a [purchasing model](../../database/service-tiers-vcore.md) that provides greater flexibility in selecting the right level of resources for your workloads. In the on-premises world, you are probably accustomed to sizing these workloads by using physical cores and IO bandwidth. The purchasing model for managed instance is based upon virtual cores, or "vCores," with additional storage and IO available separately. The vCore model is a simpler way to understand your compute requirements in the cloud versus what you use on-premises today. This purchasing model enables you to right-size your destination environment in the cloud. Some general guidelines that might help you to choose the right service tier and characteristics are described here:
 
-Select migration method and migrate where you migrate your databases using offline migration (native backup/restore, database import/export) or online migration (Azure Data Migration Service, transactional replication). Monitor applications to ensure that you have expected performance.
+- Based on the baseline CPU usage, you can provision a managed instance that matches the number of cores that you are using on SQL Server, having in mind that CPU characteristics might need to be scaled to match [VM characteristics where the managed instance is installed](../../managed-instance/resource-limits.md#hardware-generation-characteristics).
+- Based on the baseline memory usage, choose [the service tier that has matching memory](../../managed-instance/resource-limits.md#hardware-generation-characteristics). The amount of memory cannot be directly chosen, so you would need to select the managed instance with the amount of vCores that has matching memory (for example, 5.1 GB/vCore in Gen5).
+- Based on the baseline IO latency of the file subsystem, choose between the General Purpose (latency greater than 5 ms) and Business Critical (latency less than 3 ms) service tiers.
+- Based on baseline throughput, pre-allocate the size of data or log files to get expected IO performance.
 
-> [!NOTE]
-> To migrate an individual database into either a single database or an elastic pool, see [Migrate a SQL Server database to Azure SQL Database](../../database/migrate-to-database-from-sql-server.md).
+You can choose compute and storage resources at deployment time and then change it afterward without introducing downtime for your application using the [Azure portal](../../database/scale-resources.md):
 
-- Based on the baseline CPU usage, you can provision a managed instance that matches the number 
-of cores that you are using on SQL Server, having in mind that CPU characteristics might need to 
-be scaled to match [VM characteristics where the managed instance is installed](resource-limits.
-md#hardware-generation-characteristics).
-- Based on the baseline memory usage, choose [the service tier that has matching memory]
-(resource-limits.md#hardware-generation-characteristics). The amount of memory cannot be directly
-chosen, so you would need to select the managed instance with the amount of vCores that has 
-matching memory (for example, 5.1 GB/vCore in Gen5).
-- Based on the baseline IO latency of the file subsystem, choose between the General Purpose 
-(latency greater than 5 ms) and Business Critical (latency less than 3 ms) service tiers.
-- Based on baseline throughput, pre-allocate the size of data or log files to get expected IO 
-performance.
+:::image type="content" source="media/sql-server-to-managed-instance-overview/managed-instance-sizing.png" alt-text="Managed Instance Sizing":::
+
+To learn how to create the VNet infrastructure and a managed instance, see [Create a managed instance](../../managed-instance/instance-create-quickstart.md).
+
+> [!IMPORTANT]
+> It is important to keep your destination VNet and subnet in accordance with [managed instance VNet requirements](../../managed-instance/connectivity-architecture-overview.md#network-requirements). Any incompatibility can prevent you from creating new instances or using those that you already created. Learn more about [creating new](../../managed-instance/virtual-network-subnet-create-arm-template.md) and [configuring existing](../../managed-instance/vnet-existing-add-subnet.md) networks.
 
 ## Migrate
 
@@ -185,6 +189,24 @@ The following diagram provides a high-level overview of the process:
 > [!NOTE]
 > The time to take the backup,  upload it to Azure storage, and perform a native restore operation to Azure SQL Managed Instance is based on the size of the database. Factor a sufficient downtime to accommodate the operation for large databases. 
 
+The following table provides more information regarding the methods you can use depending on 
+source SQL Server version you are running:
+|Step|SQL Engine and version|Backup/restore method|
+|---|---|---|
+|Put backup to Azure Storage|Prior to 2012 SP1 CU2|Upload .bak file directly to Azure Storage|
+||2012 SP1 CU2 - 2016|Direct backup using deprecated [WITH CREDENTIAL](../../../sql/t-sql/statements/restore-statements-transact-sql) syntax|
+||2016 and above|Direct backup using [WITH SAS CREDENTIAL](../../../sql/relational-databases/backup-restore/sql-server-backup-to-url)|
+|Restore from Azure Storage to a managed instance|[RESTORE FROM URL with SAS CREDENTIAL](../../managed-instance/restore-sample-database-quickstart.md)|
+
+> [!IMPORTANT]
+>
+> - When you're migrating a database protected by [Transparent Data Encryption](../../database/transparent-data-encryption-tde-overview.md) to a managed instance using native restore option, 
+the corresponding certificate from the on-premises or Azure VM SQL Server needs to be migrated 
+before database restore. For detailed steps, see [Migrate a TDE cert to a managed instance](../../managed-instance/tde-certificate-migrate.md).
+> - Restore of system databases is not supported. To migrate instance-level objects (stored in 
+master or msdb databases), we recommend to script them out and run T-SQL scripts on the 
+destination instance.
+
 To migrate using backup and restore, follow these steps: 
 
 1. Back up your database to Azure blob storage. For example, use [backup to url](/sql/relational-databases/backup-restore/sql-server-backup-to-url) in [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms). Use the [Microsoft Azure Tool](https://go.microsoft.com/fwlink/?LinkID=324399) to support databases earlier than SQL Server 2012 SP1 CU2. 
@@ -206,45 +228,11 @@ To migrate using backup and restore, follow these steps:
 1. Once restore completes, view the database in **Object Explorer** within SQL Server Management Studio. 
 
 To learn more about this migration option, see [Restore a database to Azure SQL Managed Instance with SSMS](../../managed-instance/restore-sample-database-quickstart.md).
+> [!VIDEO https://www.youtube.com/embed/RxWYojo_Y3Q]
 
 > [!NOTE]
 > A database restore operation is asynchronous and retryable. You might get an error in SQL Server Management Studio if the connection breaks or a time-out expires. Azure SQL Database will keep trying to restore database in the background, and you can track the progress of the restore using the [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) and [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) views.
 
-### Native RESTORE from URL
-
-RESTORE of native backups (.bak files) taken from a SQL Server instance, available on [Azure 
-Storage](https://azure.microsoft.com/services/storage/), is one of the key capabilities of SQL 
-Managed Instance that enables quick and easy offline database migration.
-
-The following diagram provides a high-level overview of the process:
-
-![Diagram shows SQL Server with an arrow labeled BACKUP / Upload to URL flowing to Azure Storage 
-and a second arrow labeled RESTORE from URL flowing from Azure Storage to a Managed Instance of 
-SQL.](./media/sql-server-to-managed-instance-overview/migration-flow.png)
-
-The following table provides more information regarding the methods you can use depending on 
-source SQL Server version you are running:
-
-|Step|SQL Engine and version|Backup/restore method|
-|---|---|---|
-|Put backup to Azure Storage|Prior to 2012 SP1 CU2|Upload .bak file directly to Azure Storage|
-||2012 SP1 CU2 - 2016|Direct backup using deprecated [WITH CREDENTIAL](/sql/t-sql/statements/
-restore-statements-transact-sql) syntax|
-||2016 and above|Direct backup using [WITH SAS CREDENTIAL](/sql/relational-databases/
-backup-restore/sql-server-backup-to-url)|
-|Restore from Azure Storage to a managed instance|[RESTORE FROM URL with SAS CREDENTIAL]
-(restore-sample-database-quickstart.md)|
-
-> [!IMPORTANT]
->
-> - When you're migrating a database protected by [Transparent Data Encryption](../database/
-transparent-data-encryption-tde-overview.md) to a managed instance using native restore option, 
-the corresponding certificate from the on-premises or Azure VM SQL Server needs to be migrated 
-before database restore. For detailed steps, see [Migrate a TDE cert to a managed instance]
-(tde-certificate-migrate.md).
-> - Restore of system databases is not supported. To migrate instance-level objects (stored in 
-master or msdb databases), we recommend to script them out and run T-SQL scripts on the 
-destination instance.
 
 ## Data sync and cutover
 
@@ -262,9 +250,11 @@ After you have successfully completed the migration stage, go through a seri
 
 The post-migration phase is crucial for reconciling any data accuracy issues and verifying completeness, as well as addressing performance issues with the workload. 
 
-### Remediate applications 
+### Monitor and remediate applications 
+Once you have completed the migration to a managed instance, you should track the application behavior and performance of your workload. This process includes the following activities:
 
-After the data is migrated to the target environment, all the applications that formerly consumed the source need to start consuming the target. Accomplishing this will, in some cases, require changes to the applications.
+- [Compare performance of the workload running on the managed instance](sql-server-to-managed-instance-performance-baseline.md#compare-performance-with-the-baseline) with the [performance baseline that you created on the source SQL Server instance](sql-server-to-managed-instance-performance-baseline.md#create-a-performance-baseline).
+- Continuously [monitor performance of your workload](sql-server-to-managed-instance-performance-baseline.md#monitor-performance) to identify potential issues and improvement.
 
 ### Perform tests
 
