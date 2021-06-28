@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Install Defender for IoT micro agent (Preview)'
 description: In this quickstart, learn how to install, and authenticate the Defender Micro Agent.
-ms.date: 06/07/2021
+ms.date: 06/27/2021
 ms.topic: quickstart
 ---
 
@@ -15,19 +15,39 @@ Before you install the Defender for IoT module, you must create a module identit
 
 ## Install the package
 
-Install, and configure the Microsoft package repository by following [these instructions](/windows-server/administration/linux-package-repository-for-microsoft-software). 
+**To add the appropriate Microsoft package repository**:
 
-For Debian 9, the instructions do not include the repository that needs to be added, use the following commands to add the repository: 
+1. Download the repository configuration that matches your device operating system.  
 
-```bash
-curl -sSL https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add - 
+    - For Ubuntu 18.04
 
-sudo apt-get install software-properties-common
+        ```bash
+        curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ./microsoft-prod.list
+        ```
 
-sudo apt-add-repository https://packages.microsoft.com/debian/9/multiarch/prod
+    - For Ubuntu 20.04
 
-sudo apt-get update
-```
+        ```bash
+            curl https://packages.microsoft.com/config/ubuntu/20.04/prod.list > ./microsoft-prod.list
+        ```
+
+    - For Debian 9 (both AMD64 and ARM64)
+
+        ```bash
+        curl https://packages.microsoft.com/config/debian/stretch/multiarch/prod.list > ./microsoft-prod.list
+        ```
+
+1. Copy the repository configuration to the `sources.list.d` directory.
+
+    ```bash
+    sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
+    ```
+
+1. Update the list of packages from the repository that you added with the following command:
+
+    ```bash
+    sudo apt-get update
+    ```
 
 To install the Defender micro agent package on Debian, and Ubuntu based Linux distributions, use the following command:
 
