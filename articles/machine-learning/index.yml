@@ -23,7 +23,7 @@ highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
   items:
     # Card
-    - title: Overview
+    - title: What is Azure Machine Learning?
       itemType: overview
       url: overview-what-is-azure-ml.md
     # Card
