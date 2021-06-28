@@ -3,7 +3,7 @@ title: How to build an adapter for the IoT Plug and Play bridge | Microsoft Docs
 description: Identify the IoT Plug and Play bridge adapter components. Learn how to extend the bridge by writing your own adapter.
 author: usivagna
 ms.author: ugans
-ms.date: 1/20/2021
+ms.date: 06/24/2021
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
@@ -11,22 +11,21 @@ services: iot-pnp
 #Customer intent: As a device builder, I want to understand the IoT Plug and Play bridge, learn how to build and IoT Plug and Play bridge adapter.
 ---
 # Extend the IoT Plug and Play bridge
-The [IoT Plug and Play bridge](concepts-iot-pnp-bridge.md#iot-plug-and-play-bridge-architecture) lets you connect the existing devices attached to a gateway to your IoT hub. You use the bridge to map IoT Plug and Play interfaces to the attached devices. An IoT Plug and Play interface defines the telemetry that a device sends, the properties synchronized between the device and the cloud, and the commands that the device responds to. You can install and configure the open-source bridge application on Windows or Linux gateways. Additionally, the bridge can be run as an Azure IoT Edge runtime module.
+
+The [IoT Plug and Play bridge](concepts-iot-pnp-bridge.md#iot-plug-and-play-bridge-architecture) lets you connect the existing devices attached to a gateway to your IoT hub. You use the bridge to map IoT Plug and Play interfaces to the attached devices. An IoT Plug and Play interface defines the telemetry that a device sends, the properties it synchronizes with the cloud, and the commands that it responds to. You can install and configure the open-source bridge application on Windows or Linux gateways. Additionally, the bridge can be run as an Azure IoT Edge runtime module.
 
 This article explains in detail how to:
 
 - Extend the IoT Plug and Play bridge with an adapter.
 - Implement common callbacks for a bridge adapter.
 
-For a simple example that shows how to use the bridge, see [How to connect the IoT Plug and Play bridge sample that runs on Linux or Windows to IoT Hub](howto-use-iot-pnp-bridge.md).
+For an example that shows how to get started with the bridge, see [How to connect the IoT Plug and Play bridge sample that runs on Linux or Windows to IoT Hub](howto-use-iot-pnp-bridge.md).
 
 The guidance and samples in this article assume basic familiarity with [Azure Digital Twins](../digital-twins/overview.md) and [IoT Plug and Play](overview-iot-plug-and-play.md). Additionally, this article assumes familiarity with how to [Build, and deploy the IoT Plug and Play bridge](howto-build-deploy-extend-pnp-bridge.md).
 
-## Design Guide to extend the IoT Plug and Play bridge with an adapter
+## Overview
 
-To extend the capabilities of the bridge, you can author your own bridge adapters.
-
-The bridge uses adapters to:
+To extend the capabilities of the bridge, you can author your own bridge adapters. The bridge uses adapters to:
 
 - Establish a connection between a device and the cloud.
 - Enable data flow between a device and the cloud.
@@ -38,13 +37,13 @@ Every bridge adapter must:
 - Use the interface to bind device-side functionality to cloud-based capabilities such as telemetry, properties, and commands.
 - Establish control and data communication with the device hardware or firmware.
 
-Each bridge adapter interacts with a specific type of device based on how the adapter connects to and interacts with the device. Even if communication with a device uses a handshaking protocol, a bridge adapter may have multiple ways to interpret the data from the device. In this scenario, the bridge adapter uses information for the adapter in the configuration file to determine the *interface configuration* the adapter should use to parse the data.
+Each bridge adapter interacts with a specific type of device based on how the adapter connects to and interacts with the device. Even if communication with a device uses a handshaking protocol, a bridge adapter may have several ways to interpret the data from the device. In this scenario, the bridge adapter uses adapter information in the configuration file to determine the *interface configuration* it should use to parse the data.
 
 To interact with the device, a bridge adapter uses a communication protocol supported by the device and APIs provided either by the underlying operating system, or the device vendor.
 
-To interact with the cloud, a bridge adapter uses APIs provided by the Azure IoT Device C SDK to send telemetry, create digital twin interfaces, send property updates, and create callback functions for property updates and commands.
+To interact with the cloud, a bridge adapter uses APIs provided by the Azure IoT Device C SDK. The adapter uses these APIs to send telemetry, create digital twin interfaces, send property updates, and create callback functions for property updates and commands.
 
-### Create a bridge adapter
+## Create an adapter
 
 The bridge expects a bridge adapter to implement the APIs defined in the [_PNP_ADAPTER](https://github.com/Azure/iot-plug-and-play-bridge/blob/9964f7f9f77ecbf4db3b60960b69af57fd83a871/pnpbridge/src/pnpbridge/inc/pnpadapter_api.h#L296) interface:
 
@@ -68,10 +67,10 @@ In this interface:
 - `PNPBRIDGE_COMPONENT_CREATE` creates the digital twin client interfaces and binds the callback functions. The adapter initiates the communication channel to the device. The adapter may set up the resources to enable the telemetry flow but doesn't start reporting telemetry until `PNPBRIDGE_COMPONENT_START` is called. This function is called once for each interface component in the configuration file.
 - `PNPBRIDGE_COMPONENT_START` is called to let the bridge adapter start forwarding telemetry from the device to the digital twin client. This function is called once for each interface component in the configuration file.
 - `PNPBRIDGE_COMPONENT_STOP` stops the telemetry flow.
-- `PNPBRIDGE_COMPONENT_DESTROY` destroys the digital twin client and associated interface resources. This function is called once for each interface component in the configuration file when the bridge is torn down or when a fatal error occurs.
+- `PNPBRIDGE_COMPONENT_DESTROY` destroys the digital twin client and associated interface resources. When the bridge is torn down or when a fatal error occurs, the bridge calls this function once for each interface component in the configuration file.
 - `PNPBRIDGE_ADAPTER_DESTROY` cleans up the bridge adapter resources.
 
-### Bridge core interaction with bridge adapters
+## Bridge core interaction with adapters
 
 The following list outlines what happens when the bridge starts:
 
@@ -82,7 +81,7 @@ The following list outlines what happens when the bridge starts:
 1. After the bridge adapter manger creates all the interface components specified in the configuration file, it registers all the interfaces with Azure IoT Hub. Registration is a blocking, asynchronous call. When the call completes, it triggers a callback in the bridge adapter that can then start handling property and command callbacks from the cloud.
 1. The bridge adapter manager then calls `PNPBRIDGE_INTERFACE_START` on each component and the bridge adapter starts reporting telemetry to the digital twin client.
 
-### Design guidelines
+## Design guidelines
 
 Follow these guidelines when you develop a new bridge adapter:
 
@@ -93,17 +92,17 @@ Follow these guidelines when you develop a new bridge adapter:
 - Implement the bridge adapter interface described previously.
 - Add the new adapter to the adapter manifest and build the bridge.
 
-### Enable a new bridge adapter
+## Enable a new bridge adapter
 
 You enable adapters in the bridge by adding a reference in [adapter_manifest.c](https://github.com/Azure/iot-plug-and-play-bridge/blob/master/pnpbridge/src/adapters/src/shared/adapter_manifest.c):
 
 ```c
-  extern PNP_ADAPTER MyPnpAdapter;
-  PPNP_ADAPTER PNP_ADAPTER_MANIFEST[] = {
-    .
-    .
-    &MyPnpAdapter
-  }
+extern PNP_ADAPTER MyPnpAdapter;
+PPNP_ADAPTER PNP_ADAPTER_MANIFEST[] = {
+  .
+  .
+  &MyPnpAdapter
+}
 ```
 
 > [!IMPORTANT]
@@ -113,23 +112,26 @@ You enable adapters in the bridge by adding a reference in [adapter_manifest.c](
 
 The [Camera adapter readme](https://github.com/Azure/iot-plug-and-play-bridge/blob/master/pnpbridge/src/adapters/src/Camera/readme.md) describes a sample camera adapter that you can enable.
 
-## Code examples for common adapter scenarios/callbacks
+## Code samples for common adapter scenarios
 
-The following section will provide details on how an adapter for the bridge would implement callbacks for a number of common scenarios and usages This section covers the following callbacks:
+The following section details how an adapter for the bridge implements callbacks for some common scenarios and usages. This section covers the following callbacks:
+
 - [Receive property update (cloud to device)](#receive-property-update-cloud-to-device)
 - [Report a property update (device to cloud)](#report-a-property-update-device-to-cloud)
 - [Send telemetry (device to cloud)](#send-telemetry-device-to-cloud)
-- [Receive command update callback from the cloud and process it on the device side (cloud to device)](#receive-command-update-callback-from-the-cloud-and-process-it-on-the-device-side-cloud-to-device)
-- [Respond to command update on the device side (device to cloud)](#respond-to-command-update-on-the-device-side-device-to-cloud)
+- [Receive command update callback from the cloud and process it on the device (cloud to device)](#receive-a-command-update-callback-from-the-cloud-and-process-it-on-the-device-cloud-to-device)
+- [Respond to command update on the device (device to cloud)](#respond-to-command-update-on-the-device-device-to-cloud)
 
-The examples below are based on the [environmental sensor sample adapter](https://github.com/Azure/iot-plug-and-play-bridge/tree/master/pnpbridge/src/adapters/samples/environmental_sensor).
+The following examples are based on the [environmental sensor sample adapter](https://github.com/Azure/iot-plug-and-play-bridge/tree/master/pnpbridge/src/adapters/samples/environmental_sensor).
 
 ### Receive property update (cloud to device)
+
 The first step is to register a callback function:
 
 ```c
 PnpComponentHandleSetPropertyUpdateCallback(BridgeComponentHandle, EnvironmentSensor_ProcessPropertyUpdate);
 ```
+
 The next step is to implement the callback function to read the property update on the device:
 
 ```c
@@ -223,13 +225,14 @@ static void SampleEnvironmentalSensor_BrightnessCallback(
         }
     }
 }
-
 ```
 
 ### Report a property update (device to cloud)
-At any point after your component is created, your device can report properties to the cloud with status: 
+
+At any point after your component is created, your device can report properties to the cloud with status:
+
 ```c
-// Environmental sensor's read-only property, device state indiciating whether its online or not
+// Environmental sensor's read-only property, device state indicating whether its online or not
 //
 static const char sampleDeviceStateProperty[] = "state";
 static const unsigned char sampleDeviceStateData[] = "true";
@@ -301,10 +304,10 @@ IOTHUB_CLIENT_RESULT SampleEnvironmentalSensor_RouteReportedState(
 exit:
     return iothubClientResult;
 }
-
 ```
 
 ### Send telemetry (device to cloud)
+
 ```c
 //
 // SampleEnvironmentalSensor_SendTelemetryMessagesAsync is periodically invoked by the caller to
@@ -366,7 +369,9 @@ exit:
 }
 
 ```
-### Receive command update callback from the cloud and process it on the device side (cloud to device)
+
+### Receive a command update callback from the cloud and process it on the device (cloud to device)
+
 ```c
 // SampleEnvironmentalSensor_ProcessCommandUpdate receives commands from the server.  This implementation acts as a simple dispatcher
 // to the functions to perform the actual processing.
@@ -431,63 +436,64 @@ static int SampleEnvironmentalSensor_BlinkCallback(
 }
 
 ```
-### Respond to command update on the device side (device to cloud)
+
+### Respond to command update on the device (device to cloud)
 
 ```c
-	static int SampleEnvironmentalSensor_BlinkCallback(
-	    PENVIRONMENT_SENSOR EnvironmentalSensor,
-	    JSON_Value* CommandValue,
-	    unsigned char** CommandResponse,
-	    size_t* CommandResponseSize)
-	{
-	    int result = PNP_STATUS_SUCCESS;
-	    int BlinkInterval = 0;
-	
-	    LogInfo("Environmental Sensor Adapter:: Blink command invoked. It has been invoked %d times previously", EnvironmentalSensor->SensorState->numTimesBlinkCommandCalled);
-	
-	    if (json_value_get_type(CommandValue) != JSONNumber)
-	    {
-	        LogError("Cannot retrieve blink interval for blink command");
-	        result = PNP_STATUS_BAD_FORMAT;
-	    }
-	    else
-	    {
-	        BlinkInterval = (int)json_value_get_number(CommandValue);
-	        LogInfo("Environmental Sensor Adapter:: Blinking with interval=%d second(s)", BlinkInterval);
-	        EnvironmentalSensor->SensorState->numTimesBlinkCommandCalled++;
-	        EnvironmentalSensor->SensorState->blinkInterval = BlinkInterval;
-	
-	        result = SampleEnvironmentalSensor_SetCommandResponse(CommandResponse, CommandResponseSize, sampleEnviromentalSensor_BlinkResponse);
-	    }
-	
-	    return result;
-	}
-	
-	// SampleEnvironmentalSensor_SetCommandResponse is a helper that fills out a command response
-	static int SampleEnvironmentalSensor_SetCommandResponse(
-	    unsigned char** CommandResponse,
-	    size_t* CommandResponseSize,
-	    const unsigned char* ResponseData)
-	{
-	    int result = PNP_STATUS_SUCCESS;
-	    if (ResponseData == NULL)
-	    {
-	        LogError("Environmental Sensor Adapter:: Response Data is empty");
-	        *CommandResponseSize = 0;
-	        return PNP_STATUS_INTERNAL_ERROR;
-	    }
-	
-	    *CommandResponseSize = strlen((char*)ResponseData);
-	    memset(CommandResponse, 0, sizeof(*CommandResponse));
-	
-	    // Allocate a copy of the response data to return to the invoker. Caller will free this.
-	    if (mallocAndStrcpy_s((char**)CommandResponse, (char*)ResponseData) != 0)
-	    {
-	        LogError("Environmental Sensor Adapter:: Unable to allocate response data");
-	        result = PNP_STATUS_INTERNAL_ERROR;
-	    }
-	
-	    return result;
+static int SampleEnvironmentalSensor_BlinkCallback(
+    PENVIRONMENT_SENSOR EnvironmentalSensor,
+    JSON_Value* CommandValue,
+    unsigned char** CommandResponse,
+    size_t* CommandResponseSize)
+{
+    int result = PNP_STATUS_SUCCESS;
+    int BlinkInterval = 0;
+
+    LogInfo("Environmental Sensor Adapter:: Blink command invoked. It has been invoked %d times previously", EnvironmentalSensor->SensorState->numTimesBlinkCommandCalled);
+
+    if (json_value_get_type(CommandValue) != JSONNumber)
+    {
+        LogError("Cannot retrieve blink interval for blink command");
+        result = PNP_STATUS_BAD_FORMAT;
+    }
+    else
+    {
+        BlinkInterval = (int)json_value_get_number(CommandValue);
+        LogInfo("Environmental Sensor Adapter:: Blinking with interval=%d second(s)", BlinkInterval);
+        EnvironmentalSensor->SensorState->numTimesBlinkCommandCalled++;
+        EnvironmentalSensor->SensorState->blinkInterval = BlinkInterval;
+
+        result = SampleEnvironmentalSensor_SetCommandResponse(CommandResponse, CommandResponseSize, sampleEnviromentalSensor_BlinkResponse);
+    }
+
+    return result;
+}
+
+// SampleEnvironmentalSensor_SetCommandResponse is a helper that fills out a command response
+static int SampleEnvironmentalSensor_SetCommandResponse(
+    unsigned char** CommandResponse,
+    size_t* CommandResponseSize,
+    const unsigned char* ResponseData)
+{
+    int result = PNP_STATUS_SUCCESS;
+    if (ResponseData == NULL)
+    {
+        LogError("Environmental Sensor Adapter:: Response Data is empty");
+        *CommandResponseSize = 0;
+        return PNP_STATUS_INTERNAL_ERROR;
+    }
+
+    *CommandResponseSize = strlen((char*)ResponseData);
+    memset(CommandResponse, 0, sizeof(*CommandResponse));
+
+    // Allocate a copy of the response data to return to the invoker. Caller will free this.
+    if (mallocAndStrcpy_s((char**)CommandResponse, (char*)ResponseData) != 0)
+    {
+        LogError("Environmental Sensor Adapter:: Unable to allocate response data");
+        result = PNP_STATUS_INTERNAL_ERROR;
+    }
+
+    return result;
 }
 ```
 

@@ -7,7 +7,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 06/11/2021
+ms.date: 06/25/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -229,10 +229,11 @@ You can add and modify redirect URIs in your registered applications at any time
 
 The web app sample uses in memory token cache serialization. This implementation is great in samples. It's also good in production applications provided you don't mind if the token cache is lost when the web app is restarted. 
 
-For production environment, we recommend you use a distributed memory cache. For example, Redis cache, NCache, or a SQL Server cache. For details about the distributed memory cache implementations, see [Token cache for a web app](../active-directory/develop/msal-net-token-cache-serialization.md#token-cache-for-a-web-app-confidential-client-application).
+For production environment, we recommend you use a distributed memory cache. For example, Redis cache, NCache, or a SQL Server cache. For details about the distributed memory cache implementations, see [Token cache serialization](../active-directory/develop/msal-net-token-cache-serialization.md).
 
 
 ## Next steps
 
 * Learn more [about the code sample](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-5-B2C#about-the-code)
 * Learn how to [Enable authentication in your own web application using Azure AD B2C](enable-authentication-web-application.md)
+* [Enable authentication in your own web API](enable-authentication-web-api.md)
