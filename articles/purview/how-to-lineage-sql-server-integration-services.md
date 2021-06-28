@@ -26,17 +26,17 @@ This article elaborates on the data lineage aspects of SQL Server Integration Se
 
 ### Step 2. Trigger SSIS activity execution in Azure Data Factory
 
-You can [run SSIS package with Execute SSIS Package activity](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity) or [run SSIS package with Transact-SQL in ADF SSIS Integration Runtime](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-run-packages#sproc_activity).  
+You can [run SSIS package with Execute SSIS Package activity](../data-factory/how-to-invoke-ssis-package-ssis-activity) or [run SSIS package with Transact-SQL in ADF SSIS Integration Runtime](../data-factory/how-to-invoke-ssis-package-stored-procedure-activity).  
 
-Once Execute SSIS Package activity finishes the execution, you can check lineage report status from the activity output in [Data Factory activity monitor](https://docs.microsoft.com/azure/data-factory/monitor-visually#monitor-activity-runs).
+Once Execute SSIS Package activity finishes the execution, you can check lineage report status from the activity output in [Data Factory activity monitor](../data-factory/monitor-visually#monitor-activity-runs).
 :::image type="content" source="media/how-to-lineage-sql-server-integration-services/ssis-activity-report-lineage-status.png" alt-text="ssis-status":::
 
 ### Step 3. Browse lineage Information in your Azure Purview account
 
 - You can browse the Data Catalog by choosing asset type “SQL Server Integration Services”.
-:::image type="content" source="media/how-to-lineage-sql-server-integration-services/browse-assets-ssis-1.png" alt-text="browse-ssis":::
-:::image type="content" source="media/how-to-lineage-sql-server-integration-services/browse-assets-ssis-2.png" alt-text="browser-ssis-2":::
-:::image type="content" source="media/how-to-lineage-sql-server-integration-services/browse-assets-ssis-3.png" alt-text="browse-ssis-3":::
+:::image type="content" source="media/how-to-lineage-sql-server-integration-services/browse-assets-ssis-1.png" alt-text="browse-assets":::
+:::image type="content" source="media/how-to-lineage-sql-server-integration-services/browse-assets-ssis-2.png" alt-text="browser-assets-ssis":::
+:::image type="content" source="media/how-to-lineage-sql-server-integration-services/browse-assets-ssis-3.png" alt-text="browse-assets-ssis-package":::
 
 - You can also search the Data Catalog using keywords.
 :::image type="content" source="media/how-to-lineage-sql-server-integration-services/search-assets-ssis.png" alt-text="search-ssis":::
