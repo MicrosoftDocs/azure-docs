@@ -37,7 +37,7 @@ The tools on these sites measure DNS latencies and display the resolved IP addre
 
 ## Sample tools to measure DNS performance
 
-* [SolveDNS](https://www.solvedns.com/dns-comparison/)
+* SolveDNS
 
     SolveDNS offers many performance tools. The DNS Comparison tool can show you how long it takes to resolve your DNS name and how that compares to other DNS service providers.
 
