@@ -106,7 +106,7 @@ You need to set up an Azure Site Recovery replication appliance on the on-premis
 
 1. Go to **Recovery Services Vault** > **Getting Started**. In VMware machines to Azure, select **1: Prepare Infrastructure**
 
-   ![Site recovery](./media/vmware-azure-set-up-replication-tutorial-preview/site-recovery.png)
+   ![Site recovery](./media/deploy-vmware-azure-replication-appliance-preview/site-recovery.png)
 
    To set up a new appliance, you can use an OVF template (recommended) or PowerShell.
 
@@ -202,7 +202,7 @@ You can create the Site Recovery appliance by using the OVF template or through 
     - In User settings, verify that Azure AD users can register applications (set to Yes by default)
     - In case the 'App registrations' setting is set to 'No', request the tenant/global admin to assign the required permission. Alternately, the tenant/global admin can assign the
 
-    Application Developer role to an account to allow the registration of AAD App. [Learn more](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
+    Application Developer role to an account to allow the registration of AAD App. [Learn more](/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
 
  - Owner or Contributor plus User Access Administrator permissions on the Azure subscription to create a Key Vault. The key vault is used to store certifications generated
 
@@ -220,9 +220,9 @@ You can create the Site Recovery appliance by using the OVF template or through 
 
   After successful registration, you can close the tab and move to configuration manager to continue the set up.
 
-  ![Register recovery service vault](./media/vmware-azure-set-up-replication-tutorial-preview/register-recovery-services-vault.png)
+  ![Register recovery service vault](./media/deploy-vmware-azure-replication-appliance-preview/register-recovery-services-vault.png)
 
-  ![Enter code](./media/vmware-azure-set-up-replication-tutorial-preview/enter-code.png)
+  ![Enter code](./media/deploy-vmware-azure-replication-appliance-preview/enter-code.png)
 
   > [!NOTE]
   > An authentication code expires within 5 minutes of generation. In case of inactivity for more than this duration, you will be prompted to login again to Azure.

@@ -47,7 +47,7 @@
     - name: Set up replication
       href: vmware-azure-tutorial.md
     - name: Set up replication
-      href: vmware-azure-set-up-replication-tutorial-preview
+      href: vmware-azure-set-up-replication-tutorial-preview.md
     - name: Run a disaster recovery drill
       href: tutorial-dr-drill-azure.md
     - name: Fail over to Azure
