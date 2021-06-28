@@ -11,11 +11,11 @@ ms.subservice: disks
 
 # Deprovision an Azure disk pool
 
-This article covers the deletion process for a disk pool, as well as how to disable iSCSI support.
+This article covers the deletion process for a disk pool and how to disable iSCSI support.
 
 ## Stop a disk pool
 
-You can stop a disk pool to save costs and preserve all configurations. When a disk pool is stopped, you can no longer connect to it over iSCSI. The managed resources deployed to support the disk pool will not be deleted. You must disconnect all clients with iSCSI connections to the disk pool first before stopping a disk pool. You can start a disk pool at anytime. This will reactivate the iSCSI target exposed on this disk pool.
+You can stop a disk pool to save costs and preserve all configurations. When a disk pool is stopped, you can no longer connect to it over iSCSI. The managed resources deployed to support the disk pool will not be deleted. You must disconnect all clients with iSCSI connections to the disk pool first before stopping a disk pool. You can start a disk pool at any time. This will reactivate the iSCSI target exposed on this disk pool.
 # [Portal](#tab/azure-portal)
 
 Not currently supported in the Azure portal.
