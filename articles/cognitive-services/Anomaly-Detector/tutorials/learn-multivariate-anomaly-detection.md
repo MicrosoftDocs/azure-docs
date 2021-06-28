@@ -274,54 +274,54 @@ Other parameters are optional:
 
   Let's see what happens if they're not pre-processed. If we set `alignMode` to be `Outer` (which means union of two sets), the merged table will be
 
-    | timestamp | series 1 | series 2 |
-    | --------- | -------- | -------- |
-    | 12:00:01  | 1.0      | `nan`    |
-    | 12:00:03  | `nan`    | 2.2      |
-    | 12:00:35  | 1.5      | `nan`    |
-    | 12:00:37  | `nan`    | 2.6      |
-    | 12:01:02  | 0.9      | `nan`    |
-    | 12:01:09  | `nan`    | 1.4      |
-    | 12:01:31  | 2.2      | `nan`    |
-    | 12:01:34  | `nan`    | 1.7      |
-    | 12:02:04  | `nan`    | 2.0      |
-    | 12:02:08  | 1.3      | `nan`    |
+  | timestamp | series 1 | series 2 |
+  | --------- | -------- | -------- |
+  | 12:00:01  | 1.0      | `nan`    |
+  | 12:00:03  | `nan`    | 2.2      |
+  | 12:00:35  | 1.5      | `nan`    |
+  | 12:00:37  | `nan`    | 2.6      |
+  | 12:01:02  | 0.9      | `nan`    |
+  | 12:01:09  | `nan`    | 1.4      |
+  | 12:01:31  | 2.2      | `nan`    |
+  | 12:01:34  | `nan`    | 1.7      |
+  | 12:02:04  | `nan`    | 2.0      |
+  | 12:02:08  | 1.3      | `nan`    |
 
-    `nan` means missing values. Obviously, the merged table is not the same as expected because series 1 and series 2 interleaves and the MVAD model cannot extract information about correlations of multiple series. If we set `alignMode` to `Inner`, the merged table will be empty as there is no common timestamp in series 1 and series 2.
+  `nan` means missing values. Obviously, the merged table is not the same as expected because series 1 and series 2 interleaves and the MVAD model cannot extract information about correlations of multiple series. If we set `alignMode` to `Inner`, the merged table will be empty as there is no common timestamp in series 1 and series 2.
 
- Therefore, the timestamps of series 1 and series 2 should be pre-processed (rounded to the nearest 30-second timestamps) and the new series are
+  Therefore, the timestamps of series 1 and series 2 should be pre-processed (rounded to the nearest 30-second timestamps) and the new series are
 
-Series 1
+  Series 1
 
-| timestamp | value |
-| --------- | ----- |
-| 12:00:00  | 1.0   |
-| 12:00:30  | 1.5   |
-| 12:01:00  | 0.9   |
-| 12:01:30  | 2.2   |
-| 12:02:00  | 1.3   |
+  | timestamp | value |
+  | --------- | ----- |
+  | 12:00:00  | 1.0   |
+  | 12:00:30  | 1.5   |
+  | 12:01:00  | 0.9   |
+  | 12:01:30  | 2.2   |
+  | 12:02:00  | 1.3   |
 
-Series 2
+  Series 2
 
-| timestamp | value |
-| --------- | ----- |
-| 12:00:00  | 2.2   |
-| 12:00:30  | 2.6   |
-| 12:01:00  | 1.4   |
-| 12:01:30  | 1.7   |
-| 12:02:00  | 2.0   |
+  | timestamp | value |
+  | --------- | ----- |
+  | 12:00:00  | 2.2   |
+  | 12:00:30  | 2.6   |
+  | 12:01:00  | 1.4   |
+  | 12:01:30  | 1.7   |
+  | 12:02:00  | 2.0   |
 
-Now the merged table is more reasonable.
+  Now the merged table is more reasonable.
 
-| timestamp | series 1 | series 2 |
-| --------- | -------- | -------- |
-| 12:00:00  | 1.0      | 2.2      |
-| 12:00:30  | 1.5      | 2.6      |
-| 12:01:00  | 0.9      | 1.4      |
-| 12:01:30  | 2.2      | 1.7      |
-| 12:02:00  | 1.3      | 2.0      |
+  | timestamp | series 1 | series 2 |
+  | --------- | -------- | -------- |
+  | 12:00:00  | 1.0      | 2.2      |
+  | 12:00:30  | 1.5      | 2.6      |
+  | 12:01:00  | 0.9      | 1.4      |
+  | 12:01:30  | 2.2      | 1.7      |
+  | 12:02:00  | 1.3      | 2.0      |
 
-Signal values of close timestamps are well aligned and the MVAD model can now extract correlation information.
+  Signal values of close timestamps are well aligned and the MVAD model can now extract correlation information.
 
 * `fillNAMethod` - How to fill `nan` in the merged table. There might be still missing values in the merged table and they should be properly handled. We provide several methods to fill up them.
 * `paddingValue` - Padding value is used to fill `nan` when `fillNAMethod` is `Fixed`. In other cases it is optional.
@@ -567,9 +567,7 @@ The response contains the result status, variable information, inference paramet
 
 Normally we recommend you use  `severity` as the filter to sift out 'anomalies' that are not so important to your business. Depending on your scenario and data pattern, those anomalies that are less important often have relatively lower `severity` values or standalone (discontinuous) high `severity` values - random spikes.
 
-In cases where you've found a need of more sophisticated rules than thresholds against `severity` or duration of continuous high `severity` values, you may want to use `score` to build more powerful filters.
-
-Understanding how MVAD is using `score` to determine anomalies may help you build those filters:
+In cases where you've found a need of more sophisticated rules than thresholds against `severity` or duration of continuous high `severity` values, you may want to use `score` to build more powerful filters. Understanding how MVAD is using `score` to determine anomalies may help:
 
 We consider whether a data point is anomalous from both global and local perspective. If `score` at a timestamp is higher than a certain threshold, then the timestamp is marked as an anomaly. If `score` is lower than the threshold but is relatively higher in a segment, it is also marked as an anomaly.
 
