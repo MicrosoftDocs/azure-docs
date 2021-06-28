@@ -81,7 +81,7 @@ This procedure describes how to create an Azure ML workspace from Azure Sentinel
 
 1. On the **Review + create** tab, review the information to verify that it's correct, and then select **Create** to start deploying your workspace. For example:
 
-    :::image type="content" source="media/notebooks/sentinel-notebook-aml-create-laststep.png" alt-text="Review + create your Machine Learning workspace from Azure Sentinel.":::
+    :::image type="content" source="media/notebooks/machine-learning-create-last-step.png" alt-text="Review + create your Machine Learning workspace from Azure Sentinel.":::
 
     It can take several minutes to create your workspace in the cloud. During this time, the workspace **Overview** page shows the current deployment status, and updates when the deployment is complete.
 
@@ -89,7 +89,7 @@ This procedure describes how to create an Azure ML workspace from Azure Sentinel
 
     If you have multiple notebooks, make sure to select a default AML workspace to use when launching your notebooks. For example:
 
-    :::image type="content" source="media/notebooks/sentinel-notebooks-default-aml.png" alt-text="Select a default AML workspace for your notebooks.":::
+    :::image type="content" source="media/notebooks/default-machine-learning.png" alt-text="Select a default AML workspace for your notebooks.":::
 
 
 ## Launch a notebook in your Azure ML workspace
@@ -115,7 +115,7 @@ After you've created an AML workspace, start launching your notebooks in your Az
 
     For example:
 
-    :::image type="content" source="media/notebooks/sentinel-notebooks-on-aml.png" alt-text="Launch your notebook in your AML workspace.":::
+    :::image type="content" source="media/notebooks/sentinel-notebooks-on-machine-learning.png" alt-text="Launch your notebook in your AML workspace.":::
 
 1. At the top of the page, select a **Compute** instance to use for your notebook server.
 
