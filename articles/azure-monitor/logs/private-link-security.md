@@ -93,7 +93,7 @@ Network peering is used in various topologies, other than hub-spoke. Such networ
 If your networks aren't peered, **you must also separate their DNS in order to use Private Links**. Once that's done, you can create a Private Link for one (or many) network, without affecting traffic of other networks. That means creating a separate Private Endpoint for each network, and a separate AMPLS object. Your AMPLS objects can link to the same workspaces/components, or to different ones.
 
 
-### Local bypass: Use Private Link connections only from select machines 
+### Test with a local bypass: Edit your machine's hosts file instead of the DNS 
 As a local bypass to the All or Nothing behavior, you can select not to update your DNS with the Private Link records, and instead edit the hosts files on select machines so only these machines would send requests to the Private Link endpoints.
 * Set up a Private Link as show below, but when [connecting to a Private Endpoint](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/private-link-security#connect-to-a-private-endpoint) choose **not** to auto-integrate with the DNS (step 5b).
 * Configure the relevant endpoints on your machines' hosts files. To review the Azure Monitor endpoints that need mapping, see [Reviewing your Endpoint's DNS settings](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/private-link-security#reviewing-your-endpoints-dns-settings).
@@ -120,6 +120,7 @@ In the below diagram:
 
 ### Application Insights considerations
 * You’ll need to add resources hosting the monitored workloads to a private link. For example, see [Using Private Endpoints for Azure Web App](../../app-service/networking/private-endpoint.md).
+* Non-portal consumption experiences must also run on the private-linked VNET that includes the monitored workloads.
 * In order to support Private Links for Profiler and Debugger, you'll need to [provide your own storage account](../app/profiler-bring-your-own-storage.md) 
 
 > [!NOTE]
@@ -293,28 +294,6 @@ Logs and metrics uploaded to a workspace via [Diagnostic Settings](../essentials
 Restricting access as explained above applies to data in the resource. However, configuration changes, including turning these access settings on or off, are managed by Azure Resource Manager. To control these settings, you should restrict access to this resources using the appropriate roles, permissions, network controls, and auditing. For more information, see [Azure Monitor Roles, Permissions, and Security](../roles-permissions-security.md)
 
 Additionally, specific experiences (such as the LogicApp connector) query data through Azure Resource Manager and therefore won't be able to query data unless Private Link settings are applied to the Resource Manager as well (feature coming up soon).
-
-## Configure Application Insights
-
-Go to the Azure portal. In your Azure Monitor Application Insights component resource, is a menu item **Network Isolation** on the left-hand side. You can control two different states from this menu.
-
-![AI Network Isolation](./media/private-link-security/ampls-application-insights-lan-network-isolation-6.png)
-
-First, you can connect this Application Insights resource to Azure Monitor Private Link scopes that you have access to. Select **Add** and select the **Azure Monitor Private Link Scope**. Select Apply to connect it. All connected scopes show up in this screen. Making this connection allows network traffic in the connected virtual networks to reach this component, and has the same effect as connecting it from the scope as we did in [Connecting Azure Monitor resources](#connect-azure-monitor-resources). 
-
-Then, you can control how this resource can be reached from outside of the private link scopes (AMPLS) listed previously. If you set **Allow public network access for ingestion** to **No**, then machines or SDKs outside of the connected scopes can't upload data to this component. If you set **Allow public network access for queries** to **No**, then machines outside of the scopes can't access data in this Application Insights resource. That data includes access to APM logs, metrics, and the live metrics stream, as well as experiences built on top such as workbooks, dashboards, query API-based client experiences, insights in the Azure portal, and more. 
-
-> [!NOTE]
-> Non-portal consumption experiences must also run on the private-linked VNET that includes the monitored workloads.
-
-You’ll need to add resources hosting the monitored workloads to the private link. For example, see [Using Private Endpoints for Azure Web App](../../app-service/networking/private-endpoint.md).
-
-Restricting access in this manner only applies to data in the Application Insights resource. However, configuration changes, including turning these access settings on or off, are managed by Azure Resource Manager. So, you should restrict access to Resource Manager using the appropriate roles, permissions, network controls, and auditing. For more information, see [Azure Monitor Roles, Permissions, and Security](../roles-permissions-security.md).
-
-> [!NOTE]
-> To fully secure workspace-based Application Insights, you need to lock down both access to Application Insights resource as well as the underlying Log Analytics workspace.
->
-> Code-level diagnostics (profiler/debugger) need you to [provide your own storage account](../app/profiler-bring-your-own-storage.md) to support private link.
 
 
 ## Use APIs and command line
