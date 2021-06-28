@@ -188,6 +188,13 @@ In the following tables, the term alphanumeric refers to:
 > | --- | --- | --- | --- |
 > | communicationServices | global | 1-63 | Alphanumerics, hyphens, and underscores. |
 
+## Microsoft.Consumption
+
+> [!div class="mx-tableFixed"]
+> | Entity | Scope | Length | Valid Characters |
+> | --- | --- | --- | --- |
+> | budgets | subscription or resource group | 1-63 | Alphanumerics, hyphens, and underscores. |
+
 ## Microsoft.ContainerInstance
 
 > [!div class="mx-tableFixed"]
