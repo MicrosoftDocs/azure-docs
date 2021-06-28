@@ -15408,26 +15408,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/data-catalog/data-catalog-prerequisites.md",
-      "redirect_url": "/azure/data-catalog/data-catalog-get-started",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/data-catalog/data-catalog-release-notes.md",
-      "redirect_url": "/azure/data-catalog/data-catalog-get-started",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/data-catalog/data-catalog-whats-new.md",
-      "redirect_url": "/azure/data-catalog/data-catalog-get-started",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/data-catalog/data-catalog-what-is-data-catalog.md",
-      "redirect_url": "/azure/data-catalog/overview",
-      "redirect_document_id": true
-    },
-    {
       "source_path_from_root": "/articles/data-explorer/spark-integration.md",
       "redirect_url": "/azure/data-explorer/",
       "redirect_document_id": false
@@ -27471,16 +27451,6 @@
       "source_path_from_root": "/articles/private-link/create-private-endpoint-webapp-portal.md",
       "redirect_url": "/azure/private-link/tutorial-private-endpoint-webapp-portal",
       "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/purview/scan-sqlresource-firewall.md",
-      "redirect_url": "/azure/purview/register-scan-azure-sql-database",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/purview/powershell-register-scan-power-bi.md",
-      "redirect_url": "/azure/purview/register-scan-power-bi-tenant",
-      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/azure-functions/tutorial-vs-code-serverless-python.md",
@@ -61585,6 +61555,7 @@
     {
       "source_path": "articles/media-services/video-indexer/video-indexer-view-edit.md",
       "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-view-edit",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/virtual-desktop/rd-gateway-role.md",
