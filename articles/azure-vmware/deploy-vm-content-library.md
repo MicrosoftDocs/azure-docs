@@ -19,27 +19,27 @@ An NSX-T segment (logical switch) and a managed DHCP service are required to com
 
 1. From the on-premises vSphere Client, select **Menu > Content Libraries**.
 
-   ![Select Menu -> Content Libraries](./media/content-library/vsphere-menu-content-libraries.png)
+   :::image type="content" source="media/content-library/vsphere-menu-content-libraries.png" alt-text="Screenshot showing the Content Libraries menu option in the vSphere Client.":::
 
 1. Select the **Add** button to create a new content library.
 
-   ![Select the Add button to create a new content library.](./media/content-library/create-new-content-library.png)
+   :::image type="content" source="media/content-library/create-new-content-library.png" alt-text="Screenshot showing how to create a new content library in vSphere.":::
 
 1. Specify a name and confirm the IP address of the vCenter server and select **Next**.
 
-   ![Specify a name and notes of your choosing, and then select Next.](./media/content-library/new-content-library-step1.png)
+   :::image type="content" source="media/content-library/new-content-library-step-1.png" alt-text="Screenshot showing the name and vCenter Server IP for the new content library.":::
 
 1. Select the **Local content library** and select **Next**.
 
-   ![For this example, we are going to create a local content library, select Next.](./media/content-library/new-content-library-step2.png)
+   :::image type="content" source="media/content-library/new-content-library-step-2.png" alt-text="Screenshot showing the Local content library option selected for the new content library.":::
 
 1. Select the datastore that will store your content library, and then select **Next**.
 
-   ![Select the datastore you would like to host your content library, select next.](./media/content-library/new-content-library-step3.png)
+   :::image type="content" source="media/content-library/new-content-library-step-3.png" alt-text="Screenshot showing the vsanDatastore storage location selected.":::
 
 1. Review and verify the content library settings, and then select **Finish**.
 
-   ![Verify your Settings, select Finish.](./media/content-library/new-content-library-step4.png)
+   :::image type="content" source="media/content-library/new-content-library-step-4.png" alt-text="Screenshot showing the settings for the new content library.":::
 
 ## Upload an ISO image to the content library
 
