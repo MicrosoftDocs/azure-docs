@@ -231,7 +231,7 @@ SELECT c.id, c.userId, tag, c._ts FROM c JOIN tag IN c.tags WHERE c._ts >= @High
 
 #### DISTINCT and GROUP BY
 
-Queries using the [DISTINCT keyword](https://docs.microsoft.com/azure/cosmos-db/sql-query-keywords#distinct) or [GROUP BY clause](https://docs.microsoft.com/azure/cosmos-db/sql-query-group-by) are not supported. Azure Cognitive Search relies on [pagination](https://docs.microsoft.com/azure/cosmos-db/sql-query-pagination) to fully enumerate the results of the query. DISTINCT is [not fully compatible with pagination in Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/sql-query-pagination#continuation-tokens). GROUP BY is [not compatible with pagination in Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/sql-query-pagination#continuation-tokens).
+Queries using the [DISTINCT keyword](https://docs.microsoft.com/azure/cosmos-db/sql-query-keywords#distinct) or [GROUP BY clause](https://docs.microsoft.com/azure/cosmos-db/sql-query-group-by) are not supported. Azure Cognitive Search relies on [SQL query pagination](https://docs.microsoft.com/azure/cosmos-db/sql-query-pagination) to fully enumerate the results of the query. Neither the DISTINCT keyword or GROUP BY clause are compatible with the [continuation tokens](https://docs.microsoft.com/azure/cosmos-db/sql-query-pagination#continuation-tokens) used to paginate results.
 
 Examples of unsupported queries:
 ```sql
