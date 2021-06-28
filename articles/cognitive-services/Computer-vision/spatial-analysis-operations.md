@@ -189,7 +189,7 @@ See [Spatial analysis operation output](#spatial-analysis-operation-output) for 
 Example of the zone placement info output visualized on a video frame:
 ![Zone placement info visualization](./media/spatial-analysis/zone-placement-info-visualization.png)
 
-The zone placement info provides suggestions for your configurations, but the guidelines in [Camera configration](#camera-configuration) must still be followed for best results.
+The zone placement info provides suggestions for your configurations, but the guidelines in [Camera configuration](#camera-configuration) must still be followed for best results.
 
 ### Speed Parameter Settings
 You can configure the speed computation through the tracker node parameter settings.
