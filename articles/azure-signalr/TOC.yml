@@ -132,7 +132,7 @@
     - name: Troubleshooting methods
       href: signalr-howto-troubleshoot-method.md
     - name: Troubleshooting with live trace tool
-      href: signlar-howto-troubleshoot-livetrace.md.md
+      href: signlar-howto-troubleshoot-livetrace.md
 
 - name: References
   items:
