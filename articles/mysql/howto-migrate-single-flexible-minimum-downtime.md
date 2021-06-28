@@ -114,7 +114,7 @@ In this command, **./backup** refers to the output directory used in the command
 
 The results should appear as shown in the following image:
 
-   :::image type="content" source="./media/howto-migrate-single-flexible-minimum-downtime/metadata.png" alt-text="Continuous sync with the Azure Database Migration Service":::        
+:::image type="content" source="./media/howto-migrate-single-flexible-minimum-downtime/metadata.png" alt-text="Continuous sync with the Azure Database Migration Service":::        
 
 Make sure to note the binary file name for use in later steps.
 
