@@ -12,9 +12,9 @@ ms.author: JenCook
 
 # Quickstart: Deploy an Azure Confidential Computing VM in the Marketplace
 
-Get started with Azure confidential computing by using the Azure portal to create a virtual machine (VM) backed by Intel SGX. Optionally you can test an enclave aplication built with the Open Enclave Software (SDK) . 
+Get started with Azure confidential computing by using the Azure portal to create a virtual machine (VM) backed by Intel SGX. Optionally you can test an enclave application built with the Open Enclave Software (SDK) . 
 
-This tutorial is recommended for you if you're interested in deploying a confidential compute virtual machine with a template configuration. Otherwise, we recommend following standard Azure Virtual Machine deploment flow [using portal or CLI.](quick-create-portal.md)
+This tutorial is recommended for you if you're interested in deploying a confidential compute virtual machine with a template configuration. Otherwise, we recommend following standard Azure Virtual Machine deployment flow [using portal or CLI.](quick-create-portal.md)
 
 ## Prerequisites
 
