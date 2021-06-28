@@ -325,7 +325,7 @@ Your signing certificates are now trusted on the Windows-based device and the fu
     | **Attestation Type** | Select **Certificate** |
     | **IoT Edge device** | Select **False** |
     | **Certificate Type** | Select **Intermediate Certificate** |
-    | **Primary certificate .pem or .cer file** | Navigate to the intermediate you created earlier (*./certs/azure-iot-test-only.intermediate.cert.pem*) |
+    | **Primary certificate .pem or .cer file** | Navigate to the intermediate you created earlier (*./certs/azure-iot-test-only.intermediate.cert.pem*). This intermediate certificate is signed by the root certificate that you already uploaded and verified. DPS trusts that root once it is verified. DPS can verify the intermediate provided with this enrollment group is truly signed by the trusted root. DPS will trust each intermediate truly signed by that root certificate, and therefore be able to verify and trust leaf certificates signed by the intermediate.  |
 
 
 ## Configure the provisioning device code

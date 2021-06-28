@@ -2096,6 +2096,8 @@
         href: waywedo-tutorial.md
       - name: Wdesk
         href: wdesk-tutorial.md
+      - name: Webcargo
+        href: webcargo-tutorial.md  
       - name: webMethods Integration Suite
         href: webmethods-integration-cloud-tutorial.md
       - name: Wedo
@@ -2275,6 +2277,8 @@
         href: browserstack-single-sign-on-provisioning-tutorial.md
       - name: Cerner Central
         href: cernercentral-provisioning-tutorial.md
+      - name: CheckProof
+        href: checkproof-provisioning-tutorial.md
       - name: Cisco Umbrella User Management
         href: cisco-umbrella-user-management-provisioning-tutorial.md
       - name: Cisco Webex
@@ -2357,6 +2361,8 @@
         href: hootsuite-provisioning-tutorial.md
       - name: Hoxhunt
         href: hoxhunt-provisioning-tutorial.md
+      - name: H5mag
+        href: h5mag-provisioning-tutorial.md
       - name: Ideo
         href: ideo-provisioning-tutorial.md        
       - name: Infor CloudSuite

@@ -4,10 +4,11 @@ description: In this tutorial, you build the environment needed to deploy verifi
 documentationCenter: ''
 author: barclayn
 manager: daveba
+ms.custom: subject-rbac-steps
 ms.service: active-directory
 ms.topic: tutorial
 ms.subservice: verifiable-credentials
-ms.date: 05/18/2021
+ms.date: 06/24/2021
 ms.author: barclayn
 ms.reviewer: 
 
@@ -222,18 +223,17 @@ Before you create your first verifiable credential, create an Azure Blob Storage
 Before you create the credential, you need to first give the signed-in user the correct role assignment so they can access the files in Storage Blob.
 
 1. Go to **Storage** > **Container**.
-1. On the menu on the left, select **Access Control (IAM)**.
-1. Select **Role Assignments**.
-1. Select **Add**.
-1. On the **Add role assignment** screen, provide the following information:
+1. Select **Access control (IAM)**.
+1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+    
+    | Setting | Value |
+    | --- | --- |
+    | Role | Storage Blob Data Reader |
+    | Assign access to | User, group, or service principal |
+    | Select | &lt;account that you're using to perform these steps&gt; |
 
-   1. **Role**: Select **Storage Blob Data Reader**.
-   1. **Assign access to**: Select **User, group, or service principal**.
-   1. **Select**: Select the account that you're using to perform these steps.
-  
-   Select **Save** to complete the role assignment.
-
-   ![Screenshot that shows the Add role assignment screen.](media/enable-your-tenant-verifiable-credentials/role-assignment.png)
+    ![Screenshot that shows the Add role assignment page in the Azure portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
   >[!IMPORTANT]
   >By default, container creators get the Owner role assigned. The Owner role isn't enough on its own. Your account needs the Storage Blob Data Reader role. For more information, see [Use the Azure portal to assign an Azure role for access to blob and queue data](../../storage/common/storage-auth-aad-rbac-portal.md).
