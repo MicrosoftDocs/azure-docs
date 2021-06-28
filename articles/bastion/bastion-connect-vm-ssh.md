@@ -36,6 +36,7 @@ In order to make a connection, the following roles are required:
 * Reader role on the virtual machine
 * Reader role on the NIC with private IP of the virtual machine
 * Reader role on the Azure Bastion resource
+* Reader Role on the Virtual Network (Not needed if there is no peered virtual network).
 
 ### Ports
 
