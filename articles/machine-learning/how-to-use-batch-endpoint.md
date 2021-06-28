@@ -82,8 +82,7 @@ az ml compute create --name cpu-cluster --type AmlCompute --min-instances 0 --ma
 
 If you're using an MLflow model, you can use no-code batch endpoint creation. That is, you don't need to prepare a scoring script and environment, both can be auto generated. For more, see [Train and track ML models with MLflow and Azure Machine Learning (preview)](how-to-use-mlflow.md).
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" id="create_batch_endpoint" :::
-
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="create_batch_endpoint" :::
 
 Below is the YAML file defining the MLFlow batch endpoint:
 
@@ -236,7 +235,6 @@ Use the following command to add a new deployment to an existing batch endpoint.
 ```azurecli
 az ml endpoint update --name mybatchedp --type batch --deployment-file cli/endpoints/batch/add-deployment.yml
 ```
-:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="add_deployment" :::
 
 This sample uses a non-MLflow model. When using non-MLflow, you'll need to specify the environment and a scoring script in the YAML file:
 
