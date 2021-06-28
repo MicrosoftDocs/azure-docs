@@ -133,29 +133,22 @@ $resourceGroupName= "<yourResourceGroupName>"
 $location = "<desiredRegion>"
 $diskName = "<desiredDiskName>"
 $availabilityZone = "<desiredAvailabilityZone>"
-
 $subnetId='<yourSubnetID>'
-
 $diskPoolName = "<desiredDiskPoolName>"
-$iscsiTargetName = "<desirediSCSITargetName>"# this will be used to generate the iSCSI target IQN name, Constraint?
+$iscsiTargetName = "<desirediSCSITargetName>" # This will be used to generate the iSCSI target IQN name
 $lunName = "<desiredLunName>"
 
 # You can skip this step if you have already created the disk and assigned proper RBAC permission to the resource group the disk is deployed to
 $diskconfig = New-AzDiskConfig -Location $location -DiskSizeGB 1024 -AccountType Premium_LRS -CreateOption Empty -zone $availabilityZone -MaxSharesCount 2
-
 $disk = New-AzDisk -ResourceGroupName $resourceGroupName -DiskName $diskName -Disk $diskconfig
 $diskId = $disk.Id
-
 $scopeDef = "/subscriptions/" + $subscriptionId + "/resourceGroups/" + $resourceGroupName
-
 $rpId = (Get-AzADServicePrincipal -SearchString "StoragePool Resource Provider").id
 
 New-AzRoleAssignment -ObjectId $rpId -RoleDefinitionName "Contributor"  -Scope $scopeDef
 
 # Create a Disk Pool
-
 New-AzDiskPool -Name $diskPoolName -ResourceGroupName $resourceGroupName -Location $location -SubnetId $subnetId -AvailabilityZone $availabilityZone -SkuName Standard
-
 $diskpool = Get-AzDiskPool -ResourceGroupName $resourceGroupName -Name $DiskPoolName
 
 # Add disks to the Disk Pool
@@ -163,7 +156,6 @@ Update-AzDiskPool -ResourceGroupName $resourceGroupName -Name $diskPoolName -Dis
 $lun = New-AzDiskPoolIscsiLunObject -ManagedDiskAzureResourceId $diskId -Name $lunNames
 
 # Create an iSCSI Target and expose the disks as iSCSI LUNs
-
 New-AzDiskPoolIscsiTarget -DiskPoolName $diskPoolName -Name $iscsiTargetName -ResourceGroupName $resourceGroupName -Lun $lun -AclMode Dynamic
 
 Write-Output "Print details of the iSCSI target exposed on Disk Pool"
