@@ -14,25 +14,34 @@ ms.subservice: B2C
 ms.date: 06/08/2021
 ---
 
-# Secure Azure AD B2C with Azure Sentinel
+# Tutorial: How to perform Security Analytics for Azure AD B2C with Sentinel
 
-You can further secure your Azure AD B2C environment by routing logs and audit information to Azure Sentinel. Azure Sentinel is a cloud-native *security information event management (SIEM)* and *security orchestration automated response (SOAR)* solution. Azure Sentinel provides alert detection, threat visibility, proactive hunting, and threat response for Azure AD B2C.
-
+You can further secure your Azure AD B2C environment by routing logs and audit information to Azure Sentinel. Azure Sentinel is a cloud-native **Security Information Event Management (SIEM) and Security Orchestration Automated Response (SOAR)** solution. Azure Sentinel provides alert detection, threat visibility, proactive hunting, and threat response for **Azure AD B2C**.
 
 By utilizing Azure Sentinel in conjunction with Azure AD B2C, you can:
+1. Detect previously undetected threats, and minimize false positives using Microsoft's analytics and unparalleled threat intelligence.
+1. Investigate threats with artificial intelligence, and hunt for suspicious activities at scale, tapping into years of cyber security work at Microsoft.
+1. Respond to incidents rapidly with built-in orchestration and automation of common tasks.
+1. Meet security and compliance requirements for your organization.
 
+In this tutorial, you’ll learn:
+1. How to transfer the B2C logs to Azure Monitor so they land in a Log Analytics workspace.
+1. Enable Azure Sentinel the LA workspace.
+1. Create a sample rule that will trigger an incident.
+1. 9And lastly, configure some automated response.
 
-* Detect previously undetected threats, and minimize false positives using Microsoft's analytics and unparalleled threat intelligence. 
-* Investigate threats with artificial intelligence, and hunt for suspicious activities at scale, tapping into years of cyber security work at Microsoft.
-* Respond to incidents rapidly with built-in orchestration and automation of common tasks.
-* Meet security and compliance requirements for your organization. 
+## Deployment overview
 
-![Azure Sentinel](./media/azure-sentinel/azure-sentinel-flow2.png)
+### Configure AAD B2C with Azure Monitor
 
-In this article, you learn how to transfer the logs to an Azure Log Analytics workspace, configure an Azure Sentinel (instance?) and lastly **<do sentinel things?>**.
+Follow steps 1 to 5 of the [Monitor Azure AD B2C with Azure monitor](./azure-monitor.md) to configure Azure AD B2C to send logs to Azure Monitor. 
+
+1. ### Deploy an Azure Sentinel instance
 
 > [!IMPORTANT]
-> You will require an account that has admin permissions in the Azure AD B2C tenant. As part of the deployment process, this account will be granted access to a resource group containing the log analytics workspace used by Azure Sentinel. 
+> To enable Azure Sentinel, you need contributor permissions to the subscription in which the Azure Sentinel workspace resides. To use Azure Sentinel, you need either contributor or reader permissions on the resource group that the workspace belongs to.
+
+Once you've configured your Azure AD B2C instance to send logs to Azure Monitor, you need to enable an Azure Sentinel instance. 
 
 
 
