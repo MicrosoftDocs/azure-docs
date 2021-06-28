@@ -470,19 +470,18 @@ The following environment variables are related to [App Service authentication](
 | Setting name| Description|
 |-|-|
 | `WEBSITE_AUTH_DISABLE_IDENTITY_FLOW`  | When set to `true`, disables assigning the thread principal identity in ASP.NET-based web applications (including v1 Function Apps). This is designed to allow developers to protect access to their site with auth, but still have it use a separate login mechanism within their app logic. The default is `false`. |
-| `WEBSITE_AUTH_HIDE_DEPRECATED_SID` | `true` or `false`  |
-| `WEBSITE_AUTH_NONCE_DURATION`||
+| `WEBSITE_AUTH_HIDE_DEPRECATED_SID` | `true` or `false`. The default value is `false`. This is a setting for the legacy Azure Mobile Apps integration for Azure App Service. Setting this to `true` resolves an issue where the SID (security ID) generated for authenticated users might change if the user changes their profile information. Changing this value may result in existing Azure Mobile Apps user IDs changing. Most apps do not need to use this setting. |
+| `WEBSITE_AUTH_NONCE_DURATION`| A _timespan_ value in the form `_hours_:_minutes_:_seconds_`. The default value is `00:05:00`, or 5 minutes. This setting controls the lifetime of the [cryptographic nonce](https://en.wikipedia.org/wiki/Cryptographic_nonce) generated for all browser-driven logins. If a login fails to complete in the specified time, the login flow will be retried automatically. This application setting is intend for use with the V1 (classic) configuration experience. If using the V2 authentication configuration schema, you should instead use the `login.nonce.nonceExpirationInterval` configuration value. |
 | `WEBSITE_AUTH_PRESERVE_URL_FRAGMENT` | When set to `true` and users click on app links that contain URL fragments, the login process will ensure that the URL fragment part of your URL does not get lost in the login redirect process. For more information, see [Customize sign-in and sign-out in Azure App Service authentication](configure-authentication-customize-sign-in-out.md#preserve-url-fragments). |
 | `WEBSITE_AUTH_USE_LEGACY_CLAIMS` | To maintain backward compatibility across upgrades, the authentication module uses the legacy claims mapping of short to long names in the `/.auth/me` API, so certain mappings are excluded (e.g. "roles"). To get the more modern version of the claims mappings, set this variable to `False`. In the "roles" example, it would be mapped to the long claim name "http://schemas.microsoft.com/ws/2008/06/identity/claims/role". |
-| `WEBSITE_AUTH_CONFIG_DIR` | TODO |
-| `WEBSITE_AUTH_DISABLE_WWWAUTHENTICATE` | TODO |
-| `WEBSITE_AUTH_STATE_DIRECTORY`  | TODO |
+| `WEBSITE_AUTH_DISABLE_WWWAUTHENTICATE` | `true` or `false`. The default value is `false`. When set to `true`, removes the [`WWW-Authenticate`](https://developer.mozilla.org/docs/Web/HTTP/Headers/WWW-Authenticate) HTTP response header from module-generated HTTP 401 responses. This application setting is intend for use with the V1 (classic) configuration experience. If using the V2 authentication configuration schema, you should instead use the `identityProviders.azureActiveDirectory.login.disableWwwAuthenticate` configuration value. |
+| `WEBSITE_AUTH_STATE_DIRECTORY`  | A local file system directory path where tokens are stored when the file-based token store is enabled. The default value is `%HOME%\Data\.auth`. This application setting is intend for use with the V1 (classic) configuration experience. If using the V2 authentication configuration schema, you should instead use the `login.tokenStore.fileSystem.directory` configuration value. |
 | `WEBSITE_AUTH_TOKEN_CONTAINER_SASURL` | A fully qualified blob container URL. Instructs the auth module to store and load all encrypted tokens to the specified blob storage container instead of using the default local file system.  |
-| `WEBSITE_AUTH_TOKEN_REFRESH_HOURS` | Any positive decimal number |
-| `WEBSITE_AUTH_TRACE_LEVEL`||
-| `WEBSITE_AUTH_VALIDATE_NONCE`| `true` or `false`  |
-| `WEBSITE_AUTH_V2_CONFIG_JSON` | In Authentication V2, you can deploy an auth settings file with the configuration. TODO |
-| `WEBSITE_AUTH_ENABLED` | Read-only. Injected into a Windows or Linux to indicate whether App Service authentication is enabled. |
+| `WEBSITE_AUTH_TOKEN_REFRESH_HOURS` | Any positive decimal number. The default value is `72` (hours). This setting controls the amount of time after a session token expires that the `/.auth/refresh` API can be used to refresh it. It is intended primarily for use with Azure Mobile Apps, which rely on session tokens. Refresh attempts after this period will fail and end-users will be required to sign-in again. This application setting is intend for use with the V1 (classic) configuration experience. If using the V2 authentication configuration schema, you should instead use the `login.tokenStore.tokenRefreshExtensionHours` configuration value. |
+| `WEBSITE_AUTH_TRACE_LEVEL`| Controls the verbosity of authentication traces written to [Application Logging](troubleshoot-diagnostic-logs.md#enable-application-logging-windows). Valid values are `Off`, `Error`, `Warning`, `Information`, and `Verbose`. The default value is `Verbose`. |
+| `WEBSITE_AUTH_VALIDATE_NONCE`| `true` or `false`. The default value is `true`. This value should never be set to `false` except when temporarily debugging [cryptographic nonce](https://en.wikipedia.org/wiki/Cryptographic_nonce) validation failures that occur during interactive logins. This application setting is intend for use with the V1 (classic) configuration experience. If using the V2 authentication configuration schema, you should instead use the `login.nonce.validateNonce` configuration value. |
+| `WEBSITE_AUTH_V2_CONFIG_JSON` | This environment variable is populated automatically by the Azure App Service platform and is used to configure the integrated authentication module. The value of this environment variable corresponds to the V2 (non-classic) authentication configuration for the current app in Azure Resource Manager. It's not intended to be configured explicitly. |
+| `WEBSITE_AUTH_ENABLED` | Read-only. Injected into a Windows or Linux app to indicate whether App Service authentication is enabled. |
 
 <!-- System settings
 WEBSITE_AUTH_RUNTIME_VERSION
@@ -531,6 +530,7 @@ WEBSITE_AUTH_MSA_CLIENT_SECRET_SETTING_NAME
 WEBSITE_AUTH_MSA_SCOPE
 WEBSITE_AUTH_FROM_FILE
 WEBSITE_AUTH_FILE_PATH
+| `WEBSITE_AUTH_CONFIG_DIR` | (Used for the deprecated "routes" feature) |
 | `WEBSITE_AUTH_ZUMO_USE_TOKEN_STORE_CLAIMS` | (looks like only a tactical fix) ||
  -->
 
