@@ -1,6 +1,6 @@
 ---
 title: Deprovision an Azure disk pool
-description: Azure Storage protects your data by encrypting it at rest before persisting it to Storage clusters. You can use customer-managed keys to manage encryption with your own keys, or you can rely on Microsoft-managed keys for the encryption of your managed disks.
+description: Learn how to deprovision, stop, and delete and Azure disk pool.
 author: roygara
 ms.date: 06/24/2021
 ms.topic: conceptual
