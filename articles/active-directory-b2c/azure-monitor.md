@@ -34,15 +34,23 @@ In this article, you learn how to transfer the logs to an Azure Log Analytics wo
 
 ## Deployment overview
 
-Azure AD B2C leverages [Azure Active Directory monitoring](../active-directory/reports-monitoring/overview-monitoring.md). To enable *Diagnostic settings* in Azure Active Directory within your Azure AD B2C tenant, you use [Azure Lighthouse](../lighthouse/overview.md) to [delegate a resource](../lighthouse/concepts/architecture.md), which allows your Azure AD B2C (the **Service Provider**) to manage an Azure AD (the **Customer**) resource. After you complete the steps in this article, you'll have access to the *azure-ad-b2c-monitor* resource group that contains the [Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md) in your **Azure AD B2C** portal. You'll also be able to transfer the logs from Azure AD B2C to your Log Analytics workspace.
+Azure AD B2C leverages [Azure Active Directory monitoring](../active-directory/reports-monitoring/overview-monitoring.md). Because an Azure AD B2C tenant, unlike Azure AD tenants, cannot have a subscription associated with it, we need to take some additional steps to enable the integration between Azure AD B2C and Log Analytics which is where we will send the logs.
+To enable *Diagnostic settings* in Azure Active Directory within your Azure AD B2C tenant, you use [Azure Lighthouse](../lighthouse/overview.md) to [delegate a resource](../lighthouse/concepts/architecture.md), which allows your Azure AD B2C (the **Service Provider**) to manage an Azure AD (the **Customer**) resource. 
 
-During this deployment, you'll authorize a user or group in your Azure AD B2C directory to configure the Log Analytics workspace instance within the tenant that contains your Azure subscription. To create the authorization, you deploy an [Azure Resource Manager](../azure-resource-manager/index.yml) template to your Azure AD tenant containing the subscription.
+>[!TIP]
+> Azure Lighthouse is typically used to manage resources for multiple customers. However, it can also be used to manage resources **within an enterprise which has multiple Azure AD tenants of its own**, which is what we are doing here, except that we are only delegating the management of single resource group.
+
+After you complete the steps in this article, you'll have created a new resource group (here called *azure-ad-b2c-monitor*) and have access to that same resource group that contains the [Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md) in your **Azure AD B2C** portal. You'll also be able to transfer the logs from Azure AD B2C to your Log Analytics workspace.
+
+During this deployment, you'll authorize a user or group in your Azure AD B2C directory to configure the Log Analytics workspace instance within the tenant that contains your Azure subscription. To create the authorization, you deploy an [Azure Resource Manager](../azure-resource-manager/index.yml) template to the subscription containing the Log Analytics workspace.
 
 The following diagram depicts the components you'll configure in your Azure AD and Azure AD B2C tenants.
 
 ![Resource group projection](./media/azure-monitor/resource-group-projection.png)
 
-During this deployment, you'll configure both your Azure AD B2C tenant and Azure AD tenant where the Log Analytics workspace will be hosted. The Azure AD B2C  account should be assigned the [Global Administrator](../active-directory/roles/permissions-reference.md#global-administrator) role on the Azure AD B2C tenant. The Azure AD account used to run the deployment must be assigned the [Owner](../role-based-access-control/built-in-roles.md#owner) role in the Azure AD subscription.It's also important to make sure you're signed in to the correct directory as you complete each step as described.
+During this deployment, you'll configure both your Azure AD B2C tenant and Azure AD tenant where the Log Analytics workspace will be hosted. The Azure AD B2C account used (such as your admin account) should be assigned the [Global Administrator](../active-directory/roles/permissions-reference.md#global-administrator) role on the Azure AD B2C tenant. The Azure AD account used to run the deployment must be assigned the [Owner](../role-based-access-control/built-in-roles.md#owner) role in the Azure AD subscription.It's also important to make sure you're signed in to the correct directory as you complete each step as described.
+
+In summary, you will use Azure Lighthouse to allow a user or group in your Azure AD B2C tenant to manage a resource group in a subscription associated with a different tenant (the Azure AD tenant). After this authorization is completed, the subscription and log analytics workspace can be selected as a target in the Diagnostic settings in Azure AD B2C. 
 
 ## 1. Create or choose resource group
 
@@ -87,7 +95,7 @@ To make management easier, we recommend using Azure AD user *groups* for each ro
 
 ### 3.3 Create an Azure Resource Manager template
 
-Next, you'll create an Azure Resource Manager template that grants Azure AD B2C access to the Azure AD resource group you created earlier (for example, *azure-ad-b2c-monitor*). Deploy the template from the GitHub sample by using the **Deploy to Azure** button, which opens the Azure portal and lets you configure and deploy the template directly in the portal. For these steps, make sure you're signed in to your Azure AD tenant (not the Azure AD B2C tenant).
+To create the custom authorization and delegation in Azure Lighthouse, we use an Azure Resource Manager template that grants Azure AD B2C access to the Azure AD resource group you created earlier (for example, *azure-ad-b2c-monitor*). Deploy the template from the GitHub sample by using the **Deploy to Azure** button, which opens the Azure portal and lets you configure and deploy the template directly in the portal. For these steps, make sure you're signed in to your Azure AD tenant (not the Azure AD B2C tenant).
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select the **Directory + Subscription** icon in the portal toolbar, and then select the directory that contains your **Azure AD** tenant.
@@ -101,7 +109,7 @@ Next, you'll create an Azure Resource Manager template that grants Azure AD B2C 
    |---------|------------|
    | Subscription |  Select the directory that contains the Azure subscription where the *azure-ad-b2c-monitor* resource group was created. |
    | Region| Select the region where the resource will be deployed.  | 
-   | Msp Offer Name| A name describing this definition. For example, *Azure AD B2C Monitoring*.  |
+   | Msp Offer Name| A name describing this definition. For example, *Azure AD B2C Monitoring*. This is name that will be displayed in Azure Lighthouse.  |
    | Msp Offer Description| A brief description of your offer. For example, *Enables Azure Monitor in Azure AD B2C*.|
    | Managed By Tenant Id| The **Tenant ID** of your Azure AD B2C tenant (also known as the directory ID). |
    |Authorizations|Specify a JSON array of objects that include the Azure AD `principalId`, `principalIdDisplayName`, and Azure `roleDefinitionId`. The `principalId` is the **Object ID** of the B2C group or user that will have access to resources in this Azure subscription. For this walkthrough, specify the group's Object ID that you recorded earlier. For the `roleDefinitionId`, use the [built-in role](../role-based-access-control/built-in-roles.md) value for the *Contributor role*, `b24988ac-6180-42a0-ab88-20f7382dd24c`.|
