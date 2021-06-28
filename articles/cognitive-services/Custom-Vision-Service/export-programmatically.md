@@ -34,7 +34,6 @@ trainer = CustomVisionTrainingClient(ENDPOINT, credentials)
 > [!IMPORTANT]
 > Remember to remove the keys from your code when youre done, and never post them publicly. For production, consider using a secure way of storing and accessing your credentials. For more information, see the Cognitive Services [security](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security) article.
 
-
 ## Call the export method
 
 Call the **export_iteration** method.
@@ -51,6 +50,8 @@ flavor = "ONNX10"
 export = trainer.export_iteration(project_id, iteration_id, platform, flavor, raw=False)
 ```
 
+See the **[export_iteration](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.operations.customvisiontrainingclientoperationsmixin?view=azure-python#export-iteration-project-id--iteration-id--platform--flavor-none--custom-headers-none--raw-false----operation-config-)** method for more information.
+
 ## Download the exported model
 
 Next, you'll call the **get_exports** method to check the status of the export operation. The operation runs asynchronously, so you should poll this method until the operation completes. When it completes, you can retrieve the URI where you can download the model iteration to your device.
@@ -63,6 +64,8 @@ while (export.status != "Done"):
     print ("Waiting 10 seconds...")
     time.sleep(10)
 ```
+
+See the **[Export](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.models.export?view=azure-python)** class for more information.
 
 From there, you can programmatically download exportUri to the location on the device where the Custom Vision model lives.
 
