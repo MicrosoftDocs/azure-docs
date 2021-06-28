@@ -224,10 +224,10 @@ The resulting JSON response body would be similar to the following example: (Not
 
 Once the available metric definitions are known, there may be some metrics that have dimensions. Before querying for the metric you may want to discover what the range of values a dimension has. Based on these dimension values you can then choose to filter or segment the metrics based on dimension values while querying for metrics.  Use the [Azure Monitor Metrics REST API](/rest/api/monitor/metrics) to achieve this.
 
-Use the metric’s name ‘value’ (not the ‘localizedValue’) for any filtering requests . If no filters are specified, the default metric is returned. The usage of this API only allows one dimension to have a wildcard filter.
+Use the metric’s name ‘value’ (not the ‘localizedValue’) for any filtering requests . If no filters are specified, the default metric is returned. The usage of this API only allows one dimension to have a wildcard filter. The key difference between a dimension values request and a metric data request is specifying the "resultType=metadata" query parameter.
 
 > [!NOTE]
-> To retrieve dimension values using the Azure Monitor REST API, use "2018-01-01" as the API version.
+> To retrieve dimension values using the Azure Monitor REST API, use "2019-07-01" as the API version.
 >
 >
 
@@ -239,7 +239,7 @@ For example, to retrieve the list of dimension values that were emitted for the 
 
 ```powershell
 $filter = "APIName eq '*' and GeoType eq 'Primary'"
-$request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage/providers/microsoft.insights/metrics?metricnames=Transactions&timespan=2018-03-01T00:00:00Z/2018-03-02T00:00:00Z&resultType=metadata&`$filter=${filter}&api-version=2018-01-01"
+$request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage/providers/microsoft.insights/metrics?metricnames=Transactions&timespan=2018-03-01T00:00:00Z/2018-03-02T00:00:00Z&resultType=metadata&`$filter=GeoType eq 'Primary' and ApiName eq '*'&api-version=2019-07-01"
 Invoke-RestMethod -Uri $request `
     -Headers $authHeader `
     -Method Get `
@@ -300,7 +300,7 @@ Once the available metric definitions and possible dimension values are known, i
 Use the metric’s name ‘value’ (not the ‘localizedValue’) for any filtering requests. If no dimension filters are specified, the rolled up aggregated metric is returned. If a metric query returns multiple timeseries, then you can use the 'Top' and 'OrderBy' query parameters to return an limited ordered list of timeseries.
 
 > [!NOTE]
-> To retrieve multi-dimensional metric values using the Azure Monitor REST API, use "2018-01-01" as the API version.
+> To retrieve multi-dimensional metric values using the Azure Monitor REST API, use "2019-07-01" as the API version.
 >
 >
 
@@ -312,7 +312,7 @@ For example, to retrieve the top 3 APIs, in descending value, by the number of '
 
 ```powershell
 $filter = "APIName eq '*' and GeoType eq 'Primary'"
-$request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage/providers/microsoft.insights/metrics?metricnames=Transactions&timespan=2018-03-01T02:00:00Z/2018-03-01T02:05:00Z&`$filter=${filter}&interval=PT1M&aggregation=Total&top=3&orderby=Total desc&api-version=2018-01-01"
+$request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage/providers/microsoft.insights/metrics?metricnames=Transactions&timespan=2018-03-01T02:00:00Z/2018-03-01T02:05:00Z&`$filter=apiname eq 'GetBlobProperties'&interval=PT1M&aggregation=Total&top=3&orderby=Total desc&api-version=2019-07-01"
 Invoke-RestMethod -Uri $request `
     -Headers $authHeader `
     -Method Get `
@@ -379,9 +379,17 @@ The resulting JSON response body would be similar to the following example:
 }
 ```
 
-## Retrieve metric definitions
+## Retrieve metric definitions (Legacy API with no dimensions)
 
 Use the [Azure Monitor Metric definitions REST API](/rest/api/monitor/metricdefinitions) to access the list of metrics that are available for a service.
+
+> [!NOTE]
+> It is recommended to use the newer multi dimensional version ("2018-01-01") of this API as described above
+>
+
+> [!NOTE]
+> To retrieve metric definitions without dimensions using the Azure Monitor REST API, use "2016-03-01" as the API version.
+>
 
 **Method**: GET
 
@@ -398,11 +406,6 @@ Invoke-RestMethod -Uri $request `
                   -OutFile ".\contosotweets-metricdef-results.json" `
                   -Verbose
 ```
-
-> [!NOTE]
-> To retrieve metric definitions without dimensions using the Azure Monitor REST API, use "2016-03-01" as the API version.
->
->
 
 The resulting JSON response body would be similar to the following example:
 
@@ -447,13 +450,16 @@ The resulting JSON response body would be similar to the following example:
 
 For more information, see the [List the metric definitions for a resource in Azure Monitor REST API](/rest/api/monitor/metricdefinitions) documentation.
 
-## Retrieve metric values
+## Retrieve metric values (Legacy API with no dimensions)
 
 Once the available metric definitions are known, it is then possible to retrieve the related metric values. Use the metric’s name ‘value’ (not the ‘localizedValue’) for any filtering requests (for example, retrieve the ‘CpuTime’ and ‘Requests’ metric data points). If no filters are specified, the default metric is returned.
 
 > [!NOTE]
-> To retrieve metric values using the Azure Monitor REST API, use "2016-09-01" as the API version.
+> It is recommended to use the newer multi dimensional version ("2019-07-01") of this API as described above
 >
+
+> [!NOTE]
+> To retrieve metric values without dimensions using the Azure Monitor REST API, use "2016-09-01" as the API version.
 >
 
 **Method**: `GET`
