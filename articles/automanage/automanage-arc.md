@@ -18,7 +18,7 @@ These Azure services are automatically onboarded for you when you use Automanage
 
 For all of these services, we will auto-onboard, auto-configure, monitor for drift, and remediate if drift is detected. To learn more about this process, see [Azure Automanage for virtual machines](automanage-virtual-machines.md).
 
-## Supported Operating Systems
+## Supported operating systems
 
 Automanage supports the following operating systems for Arc enabled servers
 
@@ -34,7 +34,7 @@ Automanage supports the following operating systems for Arc enabled servers
 
 >[!NOTE]
 
-|Service    |Description    |Environments Supported<sup>1</sup>    |Preferences supported<sup>1</sup>    |
+|Service    |Description    |Environments supported<sup>1</sup>    |Preferences supported<sup>1</sup>    |
 |-----------|---------------|----------------------|-------------------------|
 |[Machines Insights Monitoring](../azure-monitor/vm/vminsights-overview.md)    |Azure Monitor for machines monitors the performance and health of your virtual machines, including their running processes and dependencies on other resources. Learn [more](../azure-monitor/vm/vminsights-overview.md).    |Production    |No    |
 |[Azure Security Center](../security-center/security-center-introduction.md)    |Azure Security Center is a unified infrastructure security management system that strengthens the security posture of your data centers, and provides advanced threat protection across your hybrid workloads in the cloud. Learn [more](../security-center/security-center-introduction.md).  Automanage will configure the subscription where your VM resides to the free-tier offering of Azure Security Center. If your subscription is already onboarded to Azure Security Center, then Automanage will not reconfigure it.    |Production, Dev/Test    |No    |
