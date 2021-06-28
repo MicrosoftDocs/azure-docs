@@ -66,7 +66,7 @@ landingContent:
 
     - linkListType: tutorial
       links:
-        - text: Learning Multivariate Anomaly Detection in 1 Hour
+        - text: Learning Multivariate Anomaly Detection in one hour
           url: tutorials/learn-multivariate-anomaly-detection.md
         - text: Visualize (univariate) anomalies using batch detection and Power BI
           url: tutorials/batch-anomaly-detection-powerbi.md

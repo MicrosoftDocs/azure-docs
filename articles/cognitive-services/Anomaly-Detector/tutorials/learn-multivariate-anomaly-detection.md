@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Learning Multivariate Anomaly Detection in 1 Hour"
+title: "Tutorial: Learning Multivariate Anomaly Detection in one hour"
 titleSuffix: Azure Cognitive Services
 description: An end-to-end tutorial of multivariate anomaly detection.
 services: cognitive-services
@@ -11,7 +11,7 @@ ms.topic: tutorial
 ms.date: 06/27/2021
 ms.author: juaduan
 ---
-### Learning Multivariate Anomaly Detection in 1 Hour
+### Learning Multivariate Anomaly Detection in one hour
 
 #### What is Multivariate Anomaly Detection (MVAD)?
 
@@ -28,11 +28,15 @@ ms.author: juaduan
 
 #### Data Preparation
 
-The very first step before using MVAD is preparing your own data. MVAD detects anomalies from a group of metrics and we call each metric a **variable**. Each variable must have two fields, `timestamp` and `value`, and should be stored in a comma-separated values (csv) file whose column names are `timestamp` and `value` respectively. The column names are **case-sensitive** and should all be **lowercase**. The csv file name will be used as the variable name and should be unique.
+The very first step before using MVAD is preparing your own data. MVAD detects anomalies from a group of metrics, and we call each metric a **variable**.
 
-Variables for training and variables for inference should be consistent. For example, if you are using `series_1`, `series_2`, `series_3`, `series_4`, and `series_5` for training, you should provide exactly the same variables for inference.
+* Each variable must have two fields, `timestamp` and `value`, and should be stored in a comma-separated values (csv) file.
+* The column names of the CSV file should be precisely `timestamp` and `value`, case-sensitive. 
+* The name of the csv file will be used as the variable name and should be unique.
+* Variables for training and variables for inference should be consistent. For example, if you are using `series_1`, `series_2`, `series_3`, `series_4`, and `series_5` for training, you should provide exactly the same variables for inference.
+* Csv files should be compressed into a zip file and uploaded to an Azure blob container. 
 
-Csv files should be compressed into a zip file and uploaded to an Azure blob. A common mistake in data preparation is extra folders in the zip file. For example, assume the name of the zip file is `series.zip`. Then after decompressing the files to a new folder `./series`, the **correct** path to csv files is `./series/series_1.csv` and a **wrong** path is `./series/foo/bar/series_1.csv`.
+A common mistake in data preparation is extra folders in the zip file. For example, assume the name of the zip file is `series.zip`. Then after decompressing the files to a new folder `./series`, the **correct** path to csv files is `./series/series_1.csv` and a **wrong** path could be `./series/foo/bar/series_1.csv`.
 
 The correct example of the directory tree after decompressing the zip file in Windows
 
@@ -59,13 +63,17 @@ An incorrect example of the directory tree after decompressing the zip file in W
         └── series_5.csv
 ```
 
-How to compress csv files in *nix:
+##### Zipping and uploading data
+
+In this section, we share some sample code and tool which you could copy and edit to add into your own application logic which deals with MVAD input data.
+
+###### Compressing csv files in \*nix:
 
 ```bash
 zip -j series.zip series/*.csv
 ```
 
-How to compress csv files in Windows:
+###### Compressing csv files in Windows:
 
 * Navigate *into* the folder with all the csv files
 * Select all the csv files you need
@@ -73,24 +81,109 @@ How to compress csv files in Windows:
 * Select `Compressed (zipped) folder` from the drop-down
 * Rename the zip file as needed
 
-To upload the compressed file to Azure blob, please refer to [this doc](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-portal#upload-a-block-blob).
+###### Python code zipping & uploading data to Azure Blob Storage
 
-##### Why we only accept zip files for training and inference?
+You could refer to [this doc](/azure/storage/blobs/storage-quickstart-blobs-portal#upload-a-block-blob) to learn how to upload a file to Azure Blob.
+
+Or, you could refer to the sample code below that can do the zipping and uploading for you. You could copy and save the Python code in this section as a .py file (for example, `zipAndUpload.py`) and run it using command lines like these:
+
+* `python zipAndUpload.py -s "foo\bar" -z test123.zip -c {azure blob connection string} -n container_xxx` This command will compress all the csv files in `foo\bar` into a single zipfile named `test123.zip`. It will upload `test123.zip` to the container `container_xxx` in your blob.
+* `python zipAndUpload.py -s "foo\bar" -z test123.zip -c {azure blob connection string} -n container_xxx -r` This command will do the same thing as the above, but it will delete the zipfile `test123.zip` after uploading successfully. 
+
+Arguments:
+
+* `--source-folder`, `-s` path to the source folder containing csv files
+* `--zipfile-name`, `-z` name of the zip file
+* `--connection-string`, `-c` connection string to your blob
+* `--container-name`, `-n`, name of the container
+* `--remove-zipfile`, `-r`, if on, remove the zip file
+
+
+```python
+import os
+import argparse
+import shutil
+import sys
+
+from azure.storage.blob import BlobClient
+import zipfile
+
+
+class ZipError(Exception):
+    pass
+
+
+class UploadError(Exception):
+    pass
+
+
+def zip_file(root, name):
+    try:
+        z = zipfile.ZipFile(name, "w", zipfile.ZIP_DEFLATED)
+        for f in os.listdir(root):
+            if f.endswith("csv"):
+                z.write(os.path.join(root, f), f)
+        z.close()
+        print("Compress files success!")
+    except Exception as ex:
+        raise ZipError(repr(ex))
+
+
+def upload_to_blob(file, conn_str, cont_name, blob_name):
+    try:
+        blob_client = BlobClient.from_connection_string(conn_str, container_name=cont_name, blob_name=blob_name)
+        with open(file, "rb") as f:
+            blob_client.upload_blob(f, overwrite=True)
+        print("Upload Success!")
+    except Exception as ex:
+        raise UploadError(repr(ex))
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--source-folder", "-s", type=str, required=True, help="path to source folder")
+    parser.add_argument("--zipfile-name", "-z", type=str, required=True, help="name of the zip file")
+    parser.add_argument("--connection-string", "-c", type=str, help="connection string")
+    parser.add_argument("--container-name", "-n", type=str, help="container name")
+    parser.add_argument("--remove-zipfile", "-r", action="store_true", help="whether delete the zip file after uploading")
+    args = parser.parse_args()
+
+    try:
+        zip_file(args.source_folder, args.zipfile_name)
+        upload_to_blob(args.zipfile_name, args.connection_string, args.container_name, args.zipfile_name)
+    except ZipError as ex:
+        print(f"Failed to compress files. {repr(ex)}")
+        sys.exit(-1)
+    except UploadError as ex:
+        print(f"Failed to upload files. {repr(ex)}")
+        sys.exit(-1)
+    except Exception as ex:
+        print(f"Exception encountered. {repr(ex)}")
+
+    try:
+        if args.remove_zipfile:
+            os.remove(args.zipfile_name)
+    except Exception as ex:
+        print(f"Failed to delete zip file. {repr(ex)}")
+```
+
+
+##### Why only accepting zip files for training and inference?
 
 We use zip files because on batch scenarios, we expect that the size of both training and inference data would be very large and cannot be put in the HTTP request body. This allows users to perform batch inference on historical data either for model validation or data analysis. However, this might be somewhat inconvenient for streaming inference and for high frequency data. We have a plan to add a new API specifically designed for streaming inference that users can pass data in the request body.
 
 #### Create an Anomaly Detector resource
 
 * Create an Azure subscription if you don't have one - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
-* Once you have your Azure subscription, [create an Anomaly Detector resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector) in the Azure portal to get your key and endpoint.
+* Once you have your Azure subscription, [create an Anomaly Detector resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector) in the Azure portal to get your API key and API endpoint.
 
 #### How does MVAD work
 
-An MVAD model takes a time segment of variables and decides whether an anomaly has occurred at the last timestamp. For example, the input segment is from `2021-01-01T00:00:00Z` to `2021-01-01T23:00:00Z` (inclusive), the MVAD model will decide whether an anomaly has occurred at `2021-01-01T23:00:00Z`. The length of input segment is computed from the `slidingWindow` parameter whose minimum value is 28 and maximum value is 2880. In the above case, `slidingWindow` is 24 if it has hourly granularity. 
+An MVAD model takes a time segment of variables and decides whether an anomaly has occurred at the last timestamp. For example, the input segment is from `2021-01-01T00:00:00Z` to `2021-01-01T23:00:00Z` (inclusive), the MVAD model will decide whether an anomaly has occurred at `2021-01-01T23:00:00Z`. The length of input segment is computed from the `slidingWindow` parameter whose minimum value is 28 and maximum value is 2880. In the above case, `slidingWindow` is 24 if it has hourly granularity.
 
-Inference is performed in a streaming manner. For example, the inference data is from `2021-01-01T00:00:00Z` to `2021-01-08T00:00:00Z` with hourly granularity and `slidingWindow` is set to 24. The MVAD model takes data from `2021-01-01T00:00:00Z` to `2021-01-01T23:00:00Z` as input (length is 24) and determines whether an anomaly has occurred at `2021-01-01T23:00:00Z`. Then it takes data from `2021-01-01T01:00:00Z` to `2021-01-02T00:00:00Z`  (length is 24) and outputs the result at `2021-01-02T00:00:00Z`. It moves forward until the last timestamp in the same manner. 
+Inference is performed in a streaming manner. For example, the inference data is from `2021-01-01T00:00:00Z` to `2021-01-08T00:00:00Z` with hourly granularity and `slidingWindow` is set to 24. The MVAD model takes data from `2021-01-01T00:00:00Z` to `2021-01-01T23:00:00Z` as input (length is 24) and determines whether an anomaly has occurred at `2021-01-01T23:00:00Z`. Then it takes data from `2021-01-01T01:00:00Z` to `2021-01-02T00:00:00Z`  (length is 24) and outputs the result at `2021-01-02T00:00:00Z`. It moves along in the same manner until the last timestamp.
 
-MVAD is an asynchronized service which means that you won't get the model or detection results immediately after you called the APIs. This is because training 
+MVAD training and inference are both asynchronized. You won't get the model or detection results immediately after you called the APIs. This is because training 
 
 #### Train an MVAD Model
 
@@ -108,7 +201,7 @@ Here is a sample request body and the sample code in Python to train an MVAD mod
     "source": "YOUR_SAMPLE_ZIP_FILE_LOCATED_IN_AZURE_BLOB_STORAGE_WITH_SAS",
     "startTime": "2021-01-01T00:00:00Z", 
     "endTime": "2021-01-02T12:00:00Z", 
-    "displayName": "SampleRequest"
+    "displayName": "ContosoModel"
 }
 ```
 
@@ -120,7 +213,7 @@ import http.client, urllib.request, urllib.parse, urllib.error, base64
 headers = {
     # Request headers
     'Content-Type': 'application/json',
-    'Ocp-Apim-Subscription-Key': '{subscription key}',
+    'Ocp-Apim-Subscription-Key': '{API key}',
 }
 
 params = urllib.parse.urlencode({})
@@ -138,23 +231,21 @@ except Exception as e:
 ####################################
 ```
 
-Response code `201` indicates a successful submission.
+Response code `201` indicates a successful request.
 
 ##### Parameters
 
-There are three required parameters in the request: `source`, `startTime`, and `endTime`.
+There are three required parameters in the request:
 
-* `source` - This is the link to your zip file located in the Azure Blob Storage with Shared Access Signatures (SAS). It can be generated from the Azure portal.
-* `startTime` - The start time of data used to train an MVAD model. 
-* `endTime` - The end time of data used to train an MVAD model.
+* `source` - This is the link to your zip file located in the Azure Blob Storage with Shared Access Signatures (SAS). It can be generated from Azure portal.
+* `startTime` - The start time of data used to train an MVAD model. If it's earlier than the actual earliest timestamp in the data, the actual earliest timestamp will be used as the starting point.
+* `endTime` - The end time of data used to train an MVAD model which must be later than or equal to `startTime`. If `endTime` is later than the actual latest timestamp in the data, the actual latest timestamp will be used as the end point.
 
-Note that `startTime` and `endTime` are not necessarily within the actual range of data. `startTime` can be earlier than the earliest timestamp in the training data and `endTime` can be later than the latest timestamp. However, `endTime` must be later than `starTime`, otherwise the training data is empty and thus impossible to train an MVAD model. 
+Other parameters are optional:
 
-Other parameters are optional, including
+* `slidingWindow` - How many data points are used to determine anomalies. If `slidingWindow` is `k`, then at least `k` points should be provided during inference to get valid results. If there are more than `k` points provided, we will compute results for every point starting from the `k`th data point (inclusive). *The default value is 300*.
 
-* `slidingWindow` - How many data are used to determine anomalies. If `slidingWindow` is `k`, then at least `k` points should be provided during inference to get valid results. If there are more than `k` points provided, we will compute results for every point starting from the `k`th data point (inclusive). *The default value is 300*. 
-
-* `alignMode` - How to align data points. Because each variable may be collected from independent source, the timestamps of different variables may be inconsistent with each other. All the variables must be properly aligned in order to be consumed. Here is a simple example showing why align is necessary and how align works.
+* `alignMode` - How to align data points. Because each variable may be collected from independent source, the timestamps of different variables may be inconsistent with each other. All the variables must be properly aligned in order to be consumed by MVAD. Here is a simple example showing why alignment is necessary and how aligning works.
 
   Series 1
 
@@ -176,24 +267,26 @@ Other parameters are optional, including
   | 12:01:34  | 1.7   |
   | 12:02:04  | 2.0   |
 
-  We have two series which are collected from two sensors which send a data point every 30 seconds. However, the sensors are not sending data points at a strict frequency, but sometimes earlier and sometimes later. Because an MVAD will take correlations among different values in to consideration, timestamps must be properly aligned so that the metrics can correctly reflect the condition of the system. In this example, timestamps of series 1 and series 2 must be properly processed before alignment. If we set `alignMode` to be `Outer` (which means union of two sets), the merged table will be
+  We have two series collected from two sensors which send one data point every 30 seconds. However, the sensors are not sending data points at a strict frequency, but sometimes earlier and sometimes later. Because MVAD will take into consideration correlations among different values, timestamps must be properly aligned so that the metrics can correctly reflect the condition of the system. In this example, timestamps of series 1 and series 2 must be properly 'rounded' before alignment.
 
-| timestamp | series 1 | series 2 |
-| --------- | -------- | -------- |
-| 12:00:01  | 1.0      | `nan`    |
-| 12:00:03  | `nan`    | 2.2      |
-| 12:00:35  | 1.5      | `nan`    |
-| 12:00:37  | `nan`    | 2.6      |
-| 12:01:02  | 0.9      | `nan`    |
-| 12:01:09  | `nan`    | 1.4      |
-| 12:01:31  | 2.2      | `nan`    |
-| 12:01:34  | `nan`    | 1.7      |
-| 12:02:04  | `nan`    | 2.0      |
-| 12:02:08  | 1.3      | `nan`    |
+  Let's see what happens if they're not pre-processed. If we set `alignMode` to be `Outer` (which means union of two sets), the merged table will be
 
-`nan` means missing values. Obviously, the merged table is not as expected because series 1 and series 2 interleaves and the MVAD model cannot extract information about correlations of multiple series. If we set `alignMode` to `Inner`, the merged table will be empty as there is no common timestamp in series 1 and series 2.
+    | timestamp | series 1 | series 2 |
+    | --------- | -------- | -------- |
+    | 12:00:01  | 1.0      | `nan`    |
+    | 12:00:03  | `nan`    | 2.2      |
+    | 12:00:35  | 1.5      | `nan`    |
+    | 12:00:37  | `nan`    | 2.6      |
+    | 12:01:02  | 0.9      | `nan`    |
+    | 12:01:09  | `nan`    | 1.4      |
+    | 12:01:31  | 2.2      | `nan`    |
+    | 12:01:34  | `nan`    | 1.7      |
+    | 12:02:04  | `nan`    | 2.0      |
+    | 12:02:08  | 1.3      | `nan`    |
 
- Therefore, the timestamps of series 1 and series 2 should be processed and the new series are
+    `nan` means missing values. Obviously, the merged table is not the same as expected because series 1 and series 2 interleaves and the MVAD model cannot extract information about correlations of multiple series. If we set `alignMode` to `Inner`, the merged table will be empty as there is no common timestamp in series 1 and series 2.
+
+ Therefore, the timestamps of series 1 and series 2 should be pre-processed (rounded to the nearest 30-second timestamps) and the new series are
 
 Series 1
 
@@ -225,19 +318,19 @@ Now the merged table is more reasonable.
 | 12:01:30  | 2.2      | 1.7      |
 | 12:02:00  | 1.3      | 2.0      |
 
-We can see that signal values of close timestamps are well aligned and the MVAD model can now extract correlation information.
+Signal values of close timestamps are well aligned and the MVAD model can now extract correlation information.
 
-* `fillNAMethod` - How to fill `nan` in the merged table. There might be missing values in the merged table and they should be properly handled. We provide several methods to fill up them.
+* `fillNAMethod` - How to fill `nan` in the merged table. There might be still missing values in the merged table and they should be properly handled. We provide several methods to fill up them.
 * `paddingValue` - Padding value is used to fill `nan` when `fillNAMethod` is `Fixed`. In other cases it is optional.
 * `displayName` - This is an optional parameter which is used to identify models. For example, you can use it to mark parameters, data sources, and any other meta data about the model and its input data.
 
 #### Get Model Status
 
-As the training API is asynchronized, you won't get the model immediately after calling the training API. However, you can query the status of models either by user ID, which will list all the models, or by model ID, which will list information about the specific model.
+As the training API is asynchronized, you won't get the model immediately after calling the training API. However, you can query the status of models either by API key, which will list all the models, or by model ID, which will list information about the specific model.
 
 ##### List all the models
 
-You may refer to [this page](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector-v1-1-preview/operations/ListMultivariateModel) about the request URL and request headers. Notice that we only return 10 models ordered by update time, but you can visit other models by setting the `$skip` and the `$top` parameters in the request URL. For example, if your request URL is `https://{endpoint}/anomalydetector/v1.1-preview/multivariate/models?$skip=10&$top=20`, then we will skip the 10 latest models and return details about the next 20 models.
+You may refer to [this page](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector-v1-1-preview/operations/ListMultivariateModel) about the request URL and request headers. Notice that we only return 10 models ordered by update time, but you can visit other models by setting the `$skip` and the `$top` parameters in the request URL. For example, if your request URL is `https://{endpoint}/anomalydetector/v1.1-preview/multivariate/models?$skip=10&$top=20`, then we will skip the 10 latest models and return the next 20 models.
 
 A sample response is 
 
@@ -267,7 +360,12 @@ A sample response is
 }
 ```
 
-The response contains 4 fields, `models`, `currentCount`, `maxCount`, and `nextLink`. `models` contains the created time, last updated time, model ID, display name, variable counts, and the status of each model. `current count ` contains the number of trained multivariate models and `maxCount` is the maximum number of models to be trained for this subscription. You may use `nextLink` to fetch more models.
+The response contains 4 fields, `models`, `currentCount`, `maxCount`, and `nextLink`. 
+
+* `models` contains the created time, last updated time, model ID, display name, variable counts, and the status of each model. 
+* `current count ` contains the number of trained multivariate models.
+* `maxCount` is the maximum number of models to be trained for this Anomaly Detector resource. 
+* `nextLink` could be used to fetch more models.
 
 ##### Get models by Model ID
 
@@ -329,15 +427,21 @@ The response contains 4 fields, `models`, `currentCount`, `maxCount`, and `nextL
       }
 ```
 
-You will receive more detailed information about the model queried. The response contains meta information about the model, its training parameters, and diagnostic information. Diagnostic Information is useful for debugging and tracing training progress. `epochIds` indicates how many epochs the model has been trained. For example, if the model is still in the training status, `epochId` might be `[10, 20, 30, 40, 50]` which means that it has completed its 50th training epoch, so there are half way to go. `trainLosses` and `validationLosses` are used to check whether the optimization progress converges. `latenciesInSeconds` contains the time cost for each epoch and is recorded every 10 epochs. In this example, the 10th epoch takes approximately 0.34 seconds to finish. This would be helpful to estimate the completion time of training. `variableStates`  summarizes information about each variable. It tells how many data points are used for each variable and `filledNARatio` tells how many missing points are there. Too many missing data points will deteriorate model performance. If any errors have encountered during data processing,  they will be included in the `errors` field.
+You will receive more detailed information about the model queried. The response contains meta information about the model, its training parameters, and diagnostic information. Diagnostic Information is useful for debugging and tracing training progress. 
+
+* `epochIds` indicates how many epochs the model has been trained out of in total total 100 epochs. For example, if the model is still in the training status, `epochId` might be `[10, 20, 30, 40, 50]` which means that it has completed its 50th training epoch, so there are half way to go.
+* `trainLosses` and `validationLosses` are used to check whether the optimization progress converges.
+* `latenciesInSeconds` contains the time cost for each epoch and is recorded every 10 epochs. In this example, the 10th epoch takes approximately 0.34 seconds to finish. This would be helpful to estimate the completion time of training.
+* `variableStates`  summarizes information about each variable. It tells how many data points are used for each variable and `filledNARatio` tells how many missing points are there. Too many missing data points will deteriorate model performance. 
+* If any errors have encountered during data processing,  they will be included in the `errors` field.
 
 #### Inference with MVAD
 
-To perform inference on new data, simply provide the blob source to the data and the start time and end time. Inference is also asynchronized, so the results are not returned immediately. Notice that you need to save the link to the results in the **response header** containing the **result ID**, so that you may know where to get the results. A response code 201 indicates the success. Failures are usually caused by model issues or data issues. You cannot perform inference if the model is not ready or the data link is invalid. Make sure that the training data and inference data are consistent, which means they should be **exactly** the same time series but with different timestamps. More time series. less time series, or inference with other time series will not pass the data verification phase and errors will occur. Data verification is deferred so that you will get error message when you query the results. 
+To perform inference on new data, simply provide the blob source to the zip file containing inferencing data, the start time, and end time. Inference is also asynchronized, so the results are not returned immediately. Notice that you need to save the link to the results in the **response header** containing the **result ID**, so that you may know where to get the results. A response code 201 indicates the success. Failures are usually caused by model issues or data issues. You cannot perform inference if the model is not ready or the data link is invalid. Make sure that the training data and inference data are consistent, which means they should be **exactly** the same time series but with different timestamps. More time series, less time series, or inference with different time series will not pass the data verification phase and errors will occur. Data verification is deferred so that you will get error message when you query the results.
 
 #### Get Inference Results
 
-You need the result ID to get results. Result ID is obtained from the response header when you submit the inference request. [This page](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector-v1-1-preview/operations/GetDetectionResult) contains instructions to query the inference results. A sample response is listed here
+You need the result ID to get results. Result ID is obtained from the response header when you submit the inference request. [This page](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector-v1-1-preview/operations/GetDetectionResult) contains instructions to query the inference results. A sample response looks like this
 
 ```json
  {
@@ -442,14 +546,31 @@ You need the result ID to get results. Result ID is obtained from the response h
       }
 ```
 
-The response contains the result status, variable information, inference parameters, and inference results. `variableStates` lists the information of each variable in the inference request. `setupInfo` is the request body submitted for this inference. `results` contains the detection results. Here we list three types of typical detection results. The first is with an error code `InsufficientHistoricalData`. This usually happens for the first a few timestamps because our model inferences data in a window-based manner and it needs a few historical data to make a decision. Therefore, for the first a few timestamps there is insufficient historical data, so inference cannot be performed on them. In this case, the error message can be ignored without concern. The second type is normal data. `isAnomaly` indicates whether current timestamp is an anomaly and in this case it must be `true`. `severity ` is indicates the relative severity of the anomaly and for normal data it is 0. `score` is the raw output of the model on which model makes a decision. The third type is abnormal data. Beside `isAnomaly`, `severity`, and `score`, there is a list `contributors` containing the contribution score of each variable. Higher contribution scores indicate higher possibility of the root cause.
+The response contains the result status, variable information, inference parameters, and inference results.
 
-##### Interpretation of the results
+* `variableStates` lists the information of each variable in the inference request.
+* `setupInfo` is the request body submitted for this inference.
+* `results` contains the detection results. There're three typical types of detection results.
+    1. Error code `InsufficientHistoricalData`. This usually happens with the first few timestamps because the model inferences data in a window-based manner and it needs historical data to make a decision. For the first few timestamps, there is insufficient historical data, so inference cannot be performed on them. In this case, the error message can be ignored.
+    1. `"isAnomaly": false` indicates the current timestamp is not an anomaly.
+        * `severity ` indicates the relative severity of the anomaly and for normal data it is always 0.
+        * `score` is the raw output of the model on which the model makes a decision which could be non-zero even for normal data points.
+    1. `"isAnomaly": true` indicates an anomaly at the current timestamp.
+        * `severity ` indicates the relative severity of the anomaly and for abnormal data it is always greater than 0.
+        * `score` is the raw output of the model on which the model makes a decision. `severity` is a derived value from `score`. Every data point has a `score`.
+        * `contributors` is a list containing the contribution score of each variable. Higher contribution scores indicate higher possibility of the root cause.
 
-A common question may be asked is what's the difference between `severity` and `score`. `score` is the raw output of the model and `severity` is a derived value from `score`. Only anomalies have positive `severity` but every data point has a `score`. `severity` can be used to filter out anomalies with lower values. We consider whether a data point is an anomaly from both global and local perspective. If `score` at a timestamp is higher than a certain threshold,  then the timestamp is marked as an anomaly. If `score` is lower than the threshold but is relatively higher in a segment, it is also marked as an anomaly. Real scenarios may be complex and you may apply your own rule on `score`. 
+##### What's the difference between `severity` and `score`?
 
+Normally we recommend you use  `severity` as the filter to sift out 'anomalies' that are not so important to your business. Depending on your scenario and data pattern, those anomalies that are less important often have relatively lower `severity` values or standalone (discontinuous) high `severity` values - random spikes.
+
+In cases where you've found a need of more sophisticated rules than thresholds against `severity` or duration of continuous high `severity` values, you may want to use `score` to build more powerful filters.
+
+How MVAD is using `score` to determine anomalies will help you build those filters:
+
+We consider whether a data point is an anomaly from both global and local perspective. If `score` at a timestamp is higher than a certain threshold, then the timestamp is marked as an anomaly. If `score` is lower than the threshold but is relatively higher in a segment, it is also marked as an anomaly.
 
 ## Next steps
 
-- [Best practices](../concepts/best-practices-multivariate.md).
-- [Quickstarts](../quickstarts/client-libraries-multivariate.md).
+* [Best practices](../concepts/best-practices-multivariate.md).
+* [Quickstarts](../quickstarts/client-libraries-multivariate.md).
