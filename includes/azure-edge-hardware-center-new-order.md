@@ -2,13 +2,13 @@
 author: v-dalc
 ms.service: databox  
 ms.topic: include
-ms.date: 06/23/2021
+ms.date: 06/28/2021
 ms.author: alkohli
 ---
 
 When you place an order through the Azure Edge Hardware Center, you can order multiple devices, to be shipped to more than one address, and you can reuse ship to addresses from other orders. 
 
-There isn't a 1-to-1 relationship between the order and a device, and no resources are created for the devices when the order is processed. Instead, you'll create a management resource for each device after your order is completed.
+Ordering through the Azure Edge Hardware Center doesn't "create a resource" in the same sense that an order through Azure Stack Edge does.  There isn't a 1-to-1 relationship between the order and a device, and no resources are created for the devices when the order is processed. You'll create a management resource for each device after your order is completed.
 
 1. Use your Microsoft Azure credentials to sign in to the Azure portal at this URL: [https://portal.azure.com](https://portal.azure.com).
 
