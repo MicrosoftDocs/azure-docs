@@ -44,9 +44,7 @@ Refer to the [Networking planning checklist for Azure VMware Solution](../azure-
 |Maximum MBps per disk pool|384|
 |Maximum number of iSCSI initiators|16|
 
-### Scale targets example
-
-The following example should give you an idea how all the different performance factors work together:
+The following example should give you an idea of how the different performance factors work together:
 
 As an example, if we added two 1-TiB premium SSDs (P30, with a provisioned target of 5000 IOPS and 200 Mbps) into a disk pool, we could achieve 2 x 5000  = 10,000 IOPS but our throughput would be capped at 384 MBps by the disk pool. To exceed this 384-MBps limit, we can deploy more disk pools to scale out for extra throughput.
 
