@@ -125,7 +125,7 @@ Besides being used to import threat indicators, threat intelligence feeds can al
 
 ### ReversingLabs TitaniumCloud
 
-- Find and enable incident enrichment playbooks for [ReversingLabs](https://www.reversinglabs.com/products/file-reputation-service) in the Azure Sentinel [GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Enrich-SentinelIncident-ReversingLabs-File-Information).
+- Find and enable incident enrichment playbooks for [ReversingLabs](https://www.reversinglabs.com/products/file-reputation-service) in the Azure Sentinel [GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/ReversingLabs/Playbooks/Enrich-SentinelIncident-ReversingLabs-File-Information).
 - See the ReversingLabs Intelligence Logic App [connector documentation](/connectors/reversinglabsintelligence/).
 
 ### RiskIQ Passive Total

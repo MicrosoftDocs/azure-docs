@@ -10,6 +10,9 @@ ms.date: 6/19/2021
 ---
 # Azure Database for MySQL - Flexible Server (Preview)
 
+[[!INCLUDE[applies-to-flexible-server](../includes/applies-to-flexible-server.md)]
+
+
 Azure Database for MySQL powered by the MySQL community edition is available in two deployment modes:
 
 - Single Server
@@ -120,7 +123,8 @@ For more information, see [Monitoring concepts](concepts-monitoring.md).
 
 The service runs the community version of MySQL. This allows full application compatibility and requires minimal refactoring cost to migrate existing applications developed on MySQL engine to Flexible Server. Migration to Flexible Server can be performed using the following option:
 
-- **Dump and Restore** – For offline migrations, where users can afford some downtime, dump and restore using community tools like mysqldump/mydumper can provide fastest way to migrate. See [Migrate using dump and restore](/concepts-migrate-dump-restore.md) for details.
+- **Dump and Restore** – For offline migrations, where users can afford some downtime, dump and restore using community tools like mysqldump/mydumper can provide fastest way to migrate. See Migrate using dump and restore for details. 
+- **Azure Database Migration Service** – For seamless and simplified offline migrations to single server with high speed data migration, [Azure Database Migration Service](../../dms/tutorial-mysql-azure-mysql-offline-portal.md) can be leveraged. 
 
 ## Azure regions
 

@@ -140,6 +140,8 @@ items:
     href: concepts/logging-and-diagnostics.md
   - name: Metrics
     href: concepts/metrics.md
+  - name: Best Practices
+    href: concepts/best-practices.md
   - name: Troubleshooting
     href: concepts/troubleshooting-info.md
 - name: Samples
