@@ -232,8 +232,8 @@ The `BlobInventoryPolicyCompleted` event is generated when the inventory run com
     "ruleName": "Rule_1", 
     "policyRunStatus": "Succeeded", 
     "policyRunStatusMessage": "Inventory run succeeded, refer manifest file for inventory details.", 
-    "policyRunId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" 
-"manifestBlobUrl": "https://testaccount.blob.core.windows.net/inventory-destination-container/2021/05/26/13-25-36/Rule_1/Rule_1.csv" 
+    "policyRunId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "manifestBlobUrl": "https://testaccount.blob.core.windows.net/inventory-destination-container/2021/05/26/13-25-36/Rule_1/Rule_1.csv" 
   }, 
   "dataVersion": "1.0", 
   "metadataVersion": "1", 
