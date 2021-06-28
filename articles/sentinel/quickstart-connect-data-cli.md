@@ -1,18 +1,18 @@
 ---
 title: 'Quickstart: Use Azure CLI with Sentinel'
-description: In this quickstart, learn how to use the Azure CLI to setup basic Sentinel services.
+description: In this quickstart, learn how to use the Azure CLI to set up basic Sentinel services.
 services: sentinel
 author: yelevin
 ms.author: yelevin
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: quickstart
-ms.date: 6/23/2021
+ms.date: 6/25/2021
 ms.custom: references_regions
 ---
 # Quickstart: Use Azure CLI with Sentinel
 
-In this quickstart, learn how to use Azure CLI to setup basic Sentinel services.
+In this quickstart, learn how to use Azure CLI to set up basic Sentinel services.
 
 1. Collect data
 
@@ -22,22 +22,40 @@ In this quickstart, learn how to use Azure CLI to setup basic Sentinel services.
 
     - For Firewalls and proxies, Azure Sentinel installs the Log Analytics agent on a Linux Syslog server, from which the agent collects the log files and forwards them to Azure Sentinel. 
 
-    Azure Sentinel comes with a number of connectors for Microsoft solutions, available out of the box and providing real-time integration, including:
+    Azure Sentinel comes with a number of connectors for Microsoft solutions, which are available out of the box and provide real-time integration. These data connectors let you connect to:
+
+    - Amazon Web Services (AWS) CloudTrail.
+    - Azure Active Directory (Azure AD).
+    - Azure Defender alerts from Azure Security Center (ASC).
+    - Microsoft Cloud App Security (MCAS).
+    - Microsoft Defender for Endpoint (formerly Microsoft Defender Advanced Threat Protection, or MDATP).
+    - Microsoft Defender for Identity (formerly Azure Advanced Threat Protection, or AATP).
+    - Office.
+    - Threat intelligence (TI).
+
+    For most of these data connectors, you need to provide the following arguments:
+
+    |Argument|Description|
+    |-|-|
+    |*tenant-id*|The tenant ID (a GUID) of the Azure subscription that you want to connect to and get data from.|
+    |*state*|Whether the data type connection is enabled. Specify `Enabled` or `Disabled`.|
+    |*kind*|The kind of data connector. See the next table for the string value to use for each data connector type.|
+    |*etag*|The entity tag (ETag) of the Azure resource. An ETag helps verify that the data connector that you're trying to access is the current version.|
 
     |Parameter name|Data connection type|Differences|Kind|
     |-|-|-|-|
-    |*aad-data-connector*|Azure Active Directory (Azure AD) data connector|No differences.|*SigninLogs*, *AuditLogs*, *AADNonInteractiveUserSignInLogs*, *AADServicePrincipalSignInLogs*, *AADManagedIdentitySignInLogs*, or *AADProvisioningLogs*|
-    |*aatp-data-connector*|Microsoft Defender for Identity (formerly Azure Advanced Threat Protection, or AATP) data connector|No differences.|*SecurityAlert*|
-    |*asc-data-connector*|Azure Defender alerts from Azure Security Center (ASC) data connector|Uses the Azure *subscription-id* instead of *tenant-id*.|*SecurityAlert*|
-    |*aws-cloud-trail-data-connector*|Amazon Web Services (AWS) CloudTrail data connector|Uses *aws-role-arn* instead of *tenant-id*. *aws-role-arn* is the [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the role that's used to access the AWS account.|*AWSCloudTrail*|
-    |*mcas-data-connector*|Microsoft Cloud App Security (MCAS) data connector|Instead of *state*, uses *state-data-types-alerts-state* and *state-data-types-discovery-logs-state*.|*SecurityAlert* or *McasShadowItReporting*|
-    |*mdatp-data-connector*|Microsoft Defender for Endpoint (formerly Microsoft Defender Advanced Threat Protection, or MDATP) data connector|No differences.|*SecurityAlert*|
-    |*office-data-connector*|Office data connector|Instead of *state*, uses *state-data-types-share-point-state* and *state-data-types-exchange-state*.|*SharePoint*, *OneDrive*, *Exchange*, or *MicrosoftTeams*|
-    |*ti-data-connector*|Threat intelligence (TI) data connector|No differences.|*ThreatIntelligenceIndicator*|
+    |*aad-data-connector*|Azure Active Directory (Azure AD) data connector|No differences.|`AzureActiveDirectory`|
+    |*aatp-data-connector*|Microsoft Defender for Identity (formerly Azure Advanced Threat Protection, or AATP) data connector|No differences.|`AzureAdvancedThreatProtection`|
+    |*asc-data-connector*|Azure Defender alerts from Azure Security Center (ASC) data connector|Uses the Azure *subscription-id* instead of *tenant-id*.|`AzureSecurityCenter`|
+    |*aws-cloud-trail-data-connector*|Amazon Web Services (AWS) CloudTrail data connector|Uses *aws-role-arn* instead of *tenant-id*. *aws-role-arn* is the [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the role that's used to access the AWS account.|`AmazonWebServicesCloudTrail`|
+    |*mcas-data-connector*|Microsoft Cloud App Security (MCAS) data connector|Instead of *state*, uses separate state arguments for alerts and discovery logs (*state-data-types-alerts-state* and *state-data-types-discovery-logs-state*). Specify `Enabled` or `Disabled` for each of those state arguments.|`MicrosoftCloudAppSecurity`|
+    |*mdatp-data-connector*|Microsoft Defender for Endpoint (formerly Microsoft Defender Advanced Threat Protection, or MDATP) data connector|No differences.|`MicrosoftDefenderAdvancedThreatProtection`|
+    |*office-data-connector*|Office data connector|Instead of *state*, uses separate state arguments for Exchange and SharePoint (*state-data-types-exchange-state* and *state-data-types-share-point-state*). Specify `Enabled` or `Disabled` for each of those state arguments.|`Office365`|
+    |*ti-data-connector*|Threat intelligence (TI) data connector|No differences.|`ThreatIntelligence`|
 
   For more information, see [Connect data sources](connect-data-sources.md)
 
-  After you connect your data sources, either setup Sentinel yourself, or choose from a gallery of expertly created workbooks that surface insights based on your data. These workbooks can be easily customized to your needs.
+  After you connect your data sources, either set up Sentinel yourself, or choose from a gallery of expertly created workbooks that surface insights based on your data. These workbooks can be easily customized to your needs.
 
   After your data sources are connected, your data starts streaming into Azure Sentinel and is ready for you to start working with. You can view the logs in the [built-in workbooks](quickstart-get-visibility.md) and start building queries in Log Analytics to [investigate the data](tutorial-investigate-cases.md).
 
@@ -60,7 +78,7 @@ In this quickstart, learn how to use Azure CLI to setup basic Sentinel services.
 - Additional permissions may be needed to connect specific data sources.
 - Azure Sentinel is a paid service. For pricing information see [About Azure Sentinel](https://go.microsoft.com/fwlink/?linkid=2104058).
 
-## Enable Azure Sentinel <a name="enable"></a>
+## Enable Azure Sentinel
 
 To on-board Azure Sentinel, you first need to enable Azure Sentinel, and then connect your data sources. 
 
@@ -109,7 +127,7 @@ az monitor log-analytics workspace create --workspace-name "$logAnalyticsWorkspa
 az sentinel data-connector create --data-connector-id "$dataConnectorId" \
     --workspace-name "$logAnalyticsWorkspaceName" \
     --resource-group "$resourceGroupName" \
-    --aad-data-connector tenant-id="$myTenantId" state= kind= etag=
+    --aad-data-connector tenant-id="$myTenantId" state=Enabled kind=AzureActiveDirectory etag=*
 ```
 
 ## Next steps
@@ -119,3 +137,4 @@ In this document, you learned about onboarding and connecting data sources to Az
 - [Hunt for threats with Azure Sentinel](hunting.md).
 - Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
 - [Automatically create incidents from Microsoft security alerts](create-incidents-from-alerts.md).
+- [Data Connectors - Create Or Update](/rest/api/securityinsights/data-connectors/create-or-update)
