@@ -176,15 +176,14 @@ A deployment manifest is a JSON document that describes which modules to deploy,
 1. Select Next: **Review + create** to continue to the review section.
 1. Review your deployment information, then select **Create** to deploy the module.
 
-> [!TIP]
-> Follow these steps to generate the provisioning token:
+    > [!TIP]
+    > Follow these steps to generate the provisioning token:
 1. Open Azure portal and go to the Video Analyzer
 1. In the left navigation pane, click on **Edge modules**.
 1. Select the edge module and click on the **Generate token** button:
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/deploy-on-stack-edge/generate-provisioning-token.png" alt-text="Generate token":::
-
+    > :::image type="content" source="./media/deploy-on-stack-edge/generate-provisioning-token.png" alt-text="Generate token" lightbox="./media/deploy-on-stack-edge/generate-provisioning-token.png":::
 1. Copy the provisioning token:
 
     > [!div class="mx-imgBorder"]
@@ -207,9 +206,8 @@ These steps cover creating a Gateway user and setting up file shares to view the
     1. Click ion **+ Add User** to the set the username and password. (Recommended: `avauser`).
     1. Click on **Add**.
 
-    > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/deploy-on-stack-edge/add-user.png" alt-text="Add user":::
-    
+        > [!div class="mx-imgBorder"]
+        > :::image type="content" source="./media/deploy-on-stack-edge/add-user.png" alt-text="Add user":::
 1. Create a **Local Share** for Video Analyzer persistence.
 
     1. Click on **Cloud storage gateway->Shares**.
@@ -220,13 +218,12 @@ These steps cover creating a Gateway user and setting up file shares to view the
     1. Ensure **Configure as Edge local share** is checked.
     1. In User Details, give access to the share to the recently created user.
     1. Click on **Create**.
-        
-    > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/deploy-on-stack-edge/local-share.png" alt-text="Local share":::  
-
-    > [!TIP]
-    > Using your Windows client connected to your Azure Stack Edge, connect to the SMB shares following the steps [mentioned in this document](../../databox-online/azure-stack-edge-deploy-add-shares.md#connect-to-an-smb-share).    
-
+            
+        > [!div class="mx-imgBorder"]
+        > :::image type="content" source="./media/deploy-on-stack-edge/local-share.png" alt-text="Local share":::  
+    
+        > [!TIP]
+        > Using your Windows client connected to your Azure Stack Edge, connect to the SMB shares following the steps [mentioned in this document](../../databox-online/azure-stack-edge-deploy-add-shares.md#connect-to-an-smb-share).    
 1. Create a Remote Share for file sync storage.
 
     1. First create a blob storage account in the same region by clicking on **Cloud storage gateway->Storage accounts**.
@@ -241,20 +238,23 @@ These steps cover creating a Gateway user and setting up file shares to view the
     1. Set a container name.
     1. In User Details, give access to the share to the recently created user.
     1. Click on **Create**.    
-    
-    > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/deploy-on-stack-edge/remote-share.png" alt-text="Remote share":::
-    
+        
+        > [!div class="mx-imgBorder"]
+        > :::image type="content" source="./media/deploy-on-stack-edge/remote-share.png" alt-text="Remote share":::
 1. Update the RTSP Simulator module's Container Create Options to use Volume Mounts:
     1. Click on the **Set modules** button:
+
         > [!div class="mx-imgBorder"]
-        > :::image type="content" source="./media/deploy-on-stack-edge/set-modules.png" alt-text="Set modules":::
+        > :::image type="content" source="./media/deploy-on-stack-edge/set-modules.png" alt-text="Set modules" lightbox="./media/deploy-on-stack-edge/set-modules.png":::
     1. Click on the **rtspsim** module:
+
         > [!div class="mx-imgBorder"]
         > :::image type="content" source="./media/deploy-on-stack-edge/select-module.png" alt-text="Select module":::
     1. Select the **Container Create Options** tab and add the Mounts as shown below:
+    
         > [!div class="mx-imgBorder"]
         > :::image type="content" source="./media/deploy-on-stack-edge/update-module.png" alt-text="Update module":::
+
         ```json
             "createOptions": 
             {
@@ -291,7 +291,7 @@ To verify that the module is running, do the following:
 1. Select the Modules tile. This takes you to the Modules blade. In the list of modules, identify the module you deployed. The runtime status of the module you added should be running.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/deploy-on-stack-edge/running-module.png" alt-text="Custom module":::
+    > :::image type="content" source="./media/deploy-on-stack-edge/running-module.png" alt-text="Custom module" lightbox="./media/deploy-on-stack-edge/running-module.png":::
 
 ### Configure the Azure IoT Tools extension
 
@@ -316,16 +316,13 @@ Follow these instructions to connect to your IoT hub by using the Azure IoT Tool
 
     * Follow the documentation to configure your machine for [access to the Kubernetes cluster](../../databox-online/azure-stack-edge-gpu-create-kubernetes-cluster.md).
     * All deployed IoT Edge modules use the `iotedge` namespace. Make sure to include that when using kubectl.  
-
 * **Module Logs**
 
     The `iotedge` tool is not accessible to obtain logs. You must use [kubectl logs](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs)  to view the logs or pipe to a file. Example: <br/>  `kubectl logs deployments/mediaedge -n iotedge --all-containers`  
-
 * **Pod and Node Metrics**
 
     Use [kubectl top](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#top)  to see pod and node metrics.
     <br/>`kubectl top pods -n iotedge` 
-
 * **Module Networking**   
 For Module discovery on Azure Stack Edge it is required that the module have the host port binding in createOptions. The module will then be addressable over `moduleName:hostport`.
     
@@ -342,7 +339,6 @@ For Module discovery on Azure Stack Edge it is required that the module have the
 * **Volume Mounting**
 
     A module will fail to start if the container is trying to mount a volume to an existing and non-empty directory.
-
 * **Shared Memory when using gRPC**
 
     Shared memory on Azure Stack Edge resources is supported across pods in any namespace by using Host IPC.
@@ -364,7 +360,6 @@ For Module discovery on Azure Stack Edge it is required that the module have the
             hostIPC: true
         ...
     ```
-    
 * **(Advanced) Pod Co-location**
 
     When using K8s to deploy custom inference solutions that communicate with Video Analyzer via gRPC, you need to ensure the pods are deployed on the same nodes as Video Analyzer modules.
@@ -373,30 +368,32 @@ For Module discovery on Azure Stack Edge it is required that the module have the
 
     Currently NodeSelector custom configuration does not appear to be an option as the users do not have access to set labels on the Nodes. However depending on the customer's topology and naming conventions they might be able to use [built-in node labels](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#built-in-node-labels). A nodeAffinity section referencing Azure Stack Edge resources with Video Analyzer can be added to the inference pod manifest to achieve co-location.
     * **Option 2** - Use Pod Affinity for co-location (recommended).
-Kubernetes has support for [Pod Affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#inter-pod-affinity-and-anti-affinity) which can schedule pods on the same node. A podAffinity section referencing the Video Analyzer module can be added to the inference pod manifest to achieve co-location.
 
-    ```json   
-    // Example Video Analyzer module deployment match labels
-    selector:
-      matchLabels:
-        net.azure-devices.edge.deviceid: dev-ase-1-edge
-        net.azure-devices.edge.module: mediaedge
+    Kubernetes has support for [Pod Affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#inter-pod-affinity-and-anti-affinity) which can schedule pods on the same node. A podAffinity section referencing the Video Analyzer module can be added to the inference pod manifest to achieve co-location.
     
-    // Example Inference deployment manifest pod affinity
-    spec:
-      affinity:
-        podAntiAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-          - labelSelector:
-              matchExpressions:
-              - key: net.azure-devices.edge.module
-                operator: In
-                values:
-                - mediaedge
-            topologyKey: "kubernetes.io/hostname"
-    ```
+        ```json   
+        // Example Video Analyzer module deployment match labels
+        selector:
+          matchLabels:
+            net.azure-devices.edge.deviceid: dev-ase-1-edge
+            net.azure-devices.edge.module: mediaedge
+        
+        // Example Inference deployment manifest pod affinity
+        spec:
+          affinity:
+            podAntiAffinity:
+              requiredDuringSchedulingIgnoredDuringExecution:
+              - labelSelector:
+                  matchExpressions:
+                  - key: net.azure-devices.edge.module
+                    operator: In
+                    values:
+                    - mediaedge
+                topologyKey: "kubernetes.io/hostname"
+        ```
 * **404 error code when using `rtspsim` module**  
-The container will read videos from exactly one folder within the container. If you map/bind an external folder into the one, which already exists within the container image, docker will hide the files present in the container image.  
+    
+    The container will read videos from exactly one folder within the container. If you map/bind an external folder into the one, which already exists within the container image, docker will hide the files present in the container image.  
  
     For example, with no bindings the container may have these files:  
     ```
