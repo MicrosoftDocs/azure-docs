@@ -4,7 +4,7 @@ description: Overview of SQL insights in Azure Monitor
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.reviewer: wiassaf
+ms.reviewer: mathoma
 ms.date: 06/08/2021
 ---
 
@@ -74,7 +74,8 @@ The tables below have the following columns:
 
 ### Data for Azure SQL Database 
 
-For more information on Azure SQL Database monitoring with SQL insights, see [Monitoring Azure SQL Database with Azure Monitor SQL insights](../../azure-sql/database/monitoring-sql-database-azure-monitor.md).
+> [!NOTE]
+> For more information on Azure SQL Database monitoring with SQL insights, see [Monitoring Azure SQL Database with Azure Monitor SQL insights](../../azure-sql/database/monitoring-sql-database-azure-monitor.md).
 
 | Friendly Name | Configuration Name | Namespace | DMVs | Enabled by Default | Default Collection Frequency |
 |:---|:---|:---|:---|:---|:---|

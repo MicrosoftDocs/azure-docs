@@ -10,7 +10,7 @@ ms.devlang:
 ms.topic: how-to
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviewer: sstein
+ms.reviewer: mathoma
 ms.date: 03/15/2021
 ---
 # Monitoring Microsoft Azure SQL Database and Azure SQL Managed Instance performance using dynamic management views

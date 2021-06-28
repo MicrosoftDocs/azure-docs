@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: wiassaf, sstein
+ms.reviewer: mathoma, wiassaf
 ms.date: 03/17/2021
 ---
 # Monitoring and performance tuning in Azure SQL Database and Azure SQL Managed Instance
@@ -77,7 +77,7 @@ Affected elastic pool metrics:
 
 ## Generate intelligent assessments of performance issues
 
-[Intelligent Insights](intelligent-insights-overview.md) for Azure SQL Database and Azure SQL Managed Instance uses built-in intelligence to continuously monitor database usage through artificial intelligence and detect disruptive events that cause poor performance. Intelligent Insights automatically detects performance issues with databases based on query execution wait times, errors, or time-outs. Once detected, a detailed analysis is performed that generates a resource log (called SQLInsights) with an [intelligent assessment of the issues](intelligent-insights-troubleshoot-performance.md). This assessment consists of a root cause analysis of the database performance issue and, where possible, recommendations for performance improvements.
+[Intelligent Insights](intelligent-insights-overview.md) for Azure SQL Database and Azure SQL Managed Instance uses built-in intelligence to continuously monitor database usage through artificial intelligence and detect disruptive events that cause poor performance. Intelligent Insights automatically detects performance issues with databases based on query execution wait times, errors, or time-outs. Once detected, a detailed analysis is performed that generates a resource log (formerly called SQLInsights <!-- TODO -->) with an [intelligent assessment of the issues](intelligent-insights-troubleshoot-performance.md). This assessment consists of a root cause analysis of the database performance issue and, where possible, recommendations for performance improvements.
 
 Intelligent Insights is a unique capability of Azure built-in intelligence that provides the following value:
 

@@ -3,6 +3,7 @@ title: Monitoring Azure SQL Database with Azure Monitor
 description: Start here to learn how to monitor Azure SQL Database with Azure Monitor
 author: WilliamDAssafMSFT
 ms.author: wiassaf
+ms.reviewer: mathoma
 ms.service: sql-db-mi
 ms.subservice: performance
 ms.custom: subject-monitoring
@@ -60,8 +61,6 @@ You can analyze metrics for Azure SQL Database with metrics from other Azure ser
 For a list of the platform metrics collected for Azure SQL Database, see [Monitoring Azure SQL Database data reference metrics](monitoring-sql-database-azure-monitor-reference.md#metrics)  
 
 For reference, you can see a list of [all resource metrics supported in Azure Monitor](../../azure-monitor/essentials/metrics-supported.md).
-
-<!--  Optional: Call out additional information to help your customers. For example, you can include additional information here about how to use metrics explorer specifically for your service. Remember that the UI is subject to change quite often so you will need to maintain these screenshots yourself if you add them in. -->
 
 ## Analyzing logs
 
