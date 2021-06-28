@@ -55,14 +55,14 @@ Before you back up VMs, make sure that:
     Here is an example output:
 
     ```powershell
-    PS C:\Users\alkohli> Get-AzVM
+    PS C:\Users\user> Get-AzVM
     
     ResourceGroupName            Name Location         VmSize OsType                NIC
     -----------------            ---- --------         ------ ------                ---
     MYASEAZRG                  myazvm dbelocal Standard_D1_v2  Linux           myaznic1
     MYASERG           myasewindowsvm2 dbelocal Standard_D1_v2  Linux myasewindowsvm2nic
     
-    PS C:\Users\alkohli> 
+    PS C:\Users\user> 
     ```
 
 1. Set some parameters.
@@ -80,7 +80,7 @@ Before you back up VMs, make sure that:
     Here is an example output:
 
     ```powershell
-    PS C:\Users\alkohli> Stop-AzVM -ResourceGroupName myaserg -Name myasewindowsvm2      
+    PS C:\Users\user> Stop-AzVM -ResourceGroupName myaserg -Name myasewindowsvm2      
     Virtual machine stopping operation
     This cmdlet will stop the specified virtual machine. Do you want to continue?
     [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
@@ -91,7 +91,7 @@ Before you back up VMs, make sure that:
     EndTime     : 6/28/2021 11:51:50 AM
     Error       :
     
-    PS C:\Users\alkohli>
+    PS C:\Users\user>
     ```
 
     You can also stop the VM from the Azure portal.
@@ -108,12 +108,12 @@ Before you back up VMs, make sure that:
         Here is an example output:
 
         ```output
-        PS C:\Users\alkohli> $Disk = Get-AzDisk -ResourceGroupName myaserg
-        PS C:\Users\alkohli> $Disk.Name
+        PS C:\Users\user> $Disk = Get-AzDisk -ResourceGroupName myaserg
+        PS C:\Users\user> $Disk.Name
         myasewindowsvm2_disk1_2a066432056446669368969835d5e3b3
         myazdisk1
         myvmdisk2
-        PS C:\Users\alkohli>
+        PS C:\Users\user>
         ```
    1. Create a local resource group to serve as the destination for the VM snapshot. Location is set as `dbelocal`.
 
@@ -122,7 +122,7 @@ Before you back up VMs, make sure that:
         ``` 
 
         ```output
-        PS C:\Users\alkohli> New-AzResourceGroup -ResourceGroupName myaseazrg1 -Location dbelocal
+        PS C:\Users\user> New-AzResourceGroup -ResourceGroupName myaseazrg1 -Location dbelocal
         
         ResourceGroupName : myaseazrg1
         Location          : dbelocal
@@ -130,7 +130,7 @@ Before you back up VMs, make sure that:
         Tags              :
         ResourceId        : /subscriptions/d64617ad-6266-4b19-45af-81112d213322/resourceGroups/myaseazrg1
         
-        PS C:\Users\alkohli>
+        PS C:\Users\user>
         ```
 
    1. Set some parameters.
@@ -157,14 +157,14 @@ Before you back up VMs, make sure that:
         Here is an example output:
 
         ```output
-        PS C:\Users\alkohli> $DiskResourceGroup = "myaserg"
-        PS C:\Users\alkohli> $DiskName = "myazdisk1"
-        PS C:\Users\alkohli> $SnapshotName = "myasdisk1ss"
-        PS C:\Users\alkohli> $DestinationRG = "myaseazrg1"
+        PS C:\Users\user> $DiskResourceGroup = "myaserg"
+        PS C:\Users\user> $DiskName = "myazdisk1"
+        PS C:\Users\user> $SnapshotName = "myasdisk1ss"
+        PS C:\Users\user> $DestinationRG = "myaseazrg1"
         PS C:\Users\user> $Disk = Get-AzDisk -ResourceGroupName $DiskResourceGroup -DiskName $DiskName
         PS C:\Users\user> $SnapshotConfig = New-AzSnapshotConfig -SourceUri $Disk.Id -CreateOption Copy -Location 'dbelocal'
         PS C:\Users\user> $Snapshot=New-AzSnapshot -Snapshot $SnapshotConfig -SnapshotName $SnapshotName -ResourceGroupName $DestinationRG
-        PS C:\Users\alkohli> Get-AzSnapshot -ResourceGroupName $DestinationRG
+        PS C:\Users\user> Get-AzSnapshot -ResourceGroupName $DestinationRG
                 
         ResourceGroupName            : myaseazrg1
         ManagedBy                    :
@@ -189,7 +189,7 @@ Before you back up VMs, make sure that:
         Location                     : DBELocal
         Tags                         : {}
                 
-        PS C:\Users\alkohli>
+        PS C:\Users\user>
         ```
 
 ### [AzureRM](#tab/azurerm)
@@ -347,12 +347,12 @@ Copy the snapshots to a local storage account on your device.
     Here is an example output: 
 
     ```output
-    PS C:\WINDOWS\system32> New-AzStorageAccount -Name  $StorageAccountName -ResourceGroupName $StorageAccountRG -Location DBELocal -SkuName Standard_LRS
+    PS C:\Users\user> New-AzStorageAccount -Name  $StorageAccountName -ResourceGroupName $StorageAccountRG -Location DBELocal -SkuName Standard_LRS
     
     StorageAccountName ResourceGroupName PrimaryLocation SkuName      Kind    AccessTier
     ------------------ ----------------- --------------- -------      ----    ----------
     myaseazsa1         myaseazrg2        DBELocal        Standard_LRS Storage
-    PS C:\WINDOWS\system32>
+    PS C:\Users\user>
     ```
 
 1. Create a container in the local storage account that you created. 
@@ -366,16 +366,16 @@ Copy the snapshots to a local storage account on your device.
     Here is an example output:
 
     ```output
-    PS C:\WINDOWS\system32> $StorageAccountRG = "myaseazrg2"
-    PS C:\WINDOWS\system32> $StorageAccountName = "myaseazsa1"
-    PS C:\WINDOWS\system32> $StorageEndpointSuffix = "myasegpu.wdshcsso.com"
-    PS C:\WINDOWS\system32> $DestStorageContainer = "testcont1"
-    PS C:\WINDOWS\system32> $DestFileName = "testfile1"
+    PS C:\Users\user> $StorageAccountRG = "myaseazrg2"
+    PS C:\Users\user> $StorageAccountName = "myaseazsa1"
+    PS C:\Users\user> $StorageEndpointSuffix = "myasegpu.wdshcsso.com"
+    PS C:\Users\user> $DestStorageContainer = "testcont1"
+    PS C:\Users\user> $DestFileName = "testfile1"
 
     PS C:\Users\user> $keys = Get-AzStorageAccountKey -ResourceGroupName $StorageAccountRG -Name $StorageAccountName
     PS C:\Users\user> $keyValue = $keys[0].Value
     PS C:\Users\user> $storageContext = New-AzStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $keyValue -Protocol Http -Endpoint $StorageEndpointSuffix;                                                                                   
-    PS C:\WINDOWS\system32> $storagecontext
+    PS C:\Users\user> $storagecontext
     
     StorageAccountName  : myaseazsa1
     BlobEndPoint        : http://myaseazsa1.blob.myasegpu.wdshcsso.com/
@@ -407,7 +407,7 @@ Copy the snapshots to a local storage account on your device.
     
     
     
-    PS C:\WINDOWS\system32> $container = New-AzStorageContainer -Name $DestStorageContainer -Context $storageContext -Permission Container -ErrorAction Ignore;
+    PS C:\Users\user> $container = New-AzStorageContainer -Name $DestStorageContainer -Context $storageContext -Permission Container -ErrorAction Ignore;
     PS C:\Users\user> $container
     Blob End Point: http://myaseazsa1.blob.myasegpu.wdshcsso.com/
     
@@ -433,14 +433,14 @@ Copy the snapshots to a local storage account on your device.
     Here is an example output:
 
     ```output
-    PS C:\WINDOWS\system32> $sassnapshot
+    PS C:\Users\user> $sassnapshot
     
     AccessSAS : https://md-2.blob.myasegpu.wdshcsso.com/22615edc48654bb8b77e383d3a7649ac
     /abcd.vhd?sv=2017-04-17&sr=b&si=43ca8395-6942-496b-92d7-f0d6dc68ab63&sk=system-1&sig
     =K%2Bc34uq7%2BLcTetG%2Bj9loOH440e03vDkD24Ug0Gf%2Bex8%3D
        
-    PS C:\WINDOWS\system32> $destContext = New-AzStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $keyValue
-    PS C:\WINDOWS\system32> $destContext
+    PS C:\Users\user> $destContext = New-AzStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $keyValue
+    PS C:\Users\user> $destContext
     
     
     StorageAccountName  : myaseazsa1
@@ -471,7 +471,7 @@ Copy the snapshots to a local storage account on your device.
                           t05ZIWAxP/T22gwEXb5l0sKjI833Hqpc0MsBiSH2rM6NuuwnJyEO1Q==
     ExtendedProperties  : {}
             
-    PS C:\WINDOWS\system32> Start-AzStorageBlobCopy -AbsoluteUri $sassnapshot.AccessSAS -DestContainer $DestStorageContainer -DestContext $destContext -DestBlob $DestFileName    
+    PS C:\Users\user> Start-AzStorageBlobCopy -AbsoluteUri $sassnapshot.AccessSAS -DestContainer $DestStorageContainer -DestContext $destContext -DestBlob $DestFileName    
     
        AccountName: myaseazsa1, ContainerName: testcont1
     
@@ -480,7 +480,7 @@ Copy the snapshots to a local storage account on your device.
     ----                 --------  ------          -----------                    ------
     testfile1            BlockBlob -1                                             202...
        
-    PS C:\WINDOWS\system32>
+    PS C:\Users\user>
     ```
 
     You can also use Storage Explorer to verify that the snapshot was copied correctly to the storage account.
