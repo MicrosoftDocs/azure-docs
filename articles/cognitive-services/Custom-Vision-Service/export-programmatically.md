@@ -69,9 +69,9 @@ while (export.status == "Exporting"):
     print("Export status is: ", export.status)
 ```
 
-For more information, see the **[get_exports](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.operations.customvisiontrainingclientoperationsmixin?view=azure-python#get-exports-project-id--iteration-id--custom-headers-none--raw-false----operation-config-)** class.
+For more information, see the **[get_exports](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.operations.customvisiontrainingclientoperationsmixin?view=azure-python#get-exports-project-id--iteration-id--custom-headers-none--raw-false----operation-config-)** method.
 
-Then you can programmatically download the exported model to a location on your device.
+Then, you can programmatically download the exported model to a location on your device.
 
 ```python
 if export.status == "Done":
