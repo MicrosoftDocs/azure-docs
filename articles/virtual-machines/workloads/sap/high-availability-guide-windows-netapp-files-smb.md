@@ -13,7 +13,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/18/2021
+ms.date: 06/28/2021
 ms.author: radeltch
 
 ---
@@ -113,6 +113,7 @@ Perform the following steps, as preparation for using Azure NetApp Files.
 
    > [!IMPORTANT]
    > You need to create Active Directory connections before creating an SMB volume. Review the [requirements for Active Directory connections](../../../azure-netapp-files/create-active-directory-connections.md#requirements-for-active-directory-connections).  
+   > When creating the Active Directory connection, make sure to enter SMB Server (Computer Account) Prefix no longer than 8 characters to avoid running into 13 characters hostname limitation for SAP . For details see [SAP note 2718300 - Physical and Virtual hostname length limitations](https://launchpad.support.sap.com/#/notes/2718300) and [SAP note #611361 - Hostnames of SAP ABAP Platform servers](https://launchpad.support.sap.com/#/notes/611361).  
 
 5. Create Active Directory connection, as described in [Create an Active Directory connection](../../../azure-netapp-files/create-active-directory-connections.md#create-an-active-directory-connection)  
 6. Create SMB Azure NetApp Files SMB volume, following the instructions in [Add an SMB volume](../../../azure-netapp-files/azure-netapp-files-create-volumes-smb.md#add-an-smb-volume)  
