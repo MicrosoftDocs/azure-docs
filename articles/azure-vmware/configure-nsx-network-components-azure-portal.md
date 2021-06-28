@@ -40,7 +40,7 @@ You can create and configure an NSX-T segment from the Azure VMware Solution con
 
 2. Provide the details for the new logical segment and select **OK**.
 
-   :::image type="content" source="media/configure-nsx-network-components-azure-portal/add-new-nsxt-segment.png" alt-text="Screenshot showing how to add a new segment.":::
+   :::image type="content" source="media/configure-nsx-network-components-azure-portal/add-new-nsxt-segment.png" alt-text="Screenshot showing how to add a new NSX-T segment in the Azure portal.":::
 
    - **Segment name** - Name of the logical switch that is visible in vCenter.
 
