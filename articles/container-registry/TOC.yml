@@ -157,6 +157,8 @@
           href: monitor-service.md  
         - name: Audit compliance using Azure Policy
           href: container-registry-azure-policy.md 
+        - name: Scan container images using GitHub Actions
+          href: github-action-scan.md
     - name: Troubleshoot
       expanded: false
       items:
