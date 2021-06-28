@@ -11,9 +11,9 @@ ms.date: 06/2/2021
 
 # Plan capacity and scaling for VMware disaster recovery to Azure
 
-Use this article to plan for capacity and scaling when you replicate on-premises VMware VMs and physical servers to Azure by using [Azure Site Recovery](site-recovery-overview.md).Applicable to Classic releases.
+Use this article to plan for capacity and scaling when you replicate on-premises VMware VMs and physical servers to Azure by using [Azure Site Recovery](site-recovery-overview.md) - Classic.
 
-In preview, you need to [use multiple ASR replication appliances](link to applicable section) to plan capacity.
+In preview, you need to [create and use ASR replication appliance/multiple appliances](deploy-vmware-azure-replication-appliance-preview.md) to plan capacity.
 
 ## How do I start capacity planning?
 
