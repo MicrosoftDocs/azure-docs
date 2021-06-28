@@ -343,8 +343,6 @@
     href: ./policy-reference.md
 - name: Resources
   items:
-  - name: FAQ
-    href: faq.md
   - name: Build your skills with Microsoft Learn
     href: /learn/browse/?products=azure-event-grid
   - name: Azure Roadmap
