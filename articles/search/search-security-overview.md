@@ -16,9 +16,9 @@ ms.custom: references_regions
 
 This article describes the security features in Azure Cognitive Search that protect data and operations.
 
-## Network access
+## Network traffic patterns
 
-A search service is hosted on Azure and typically accessed over public network connections. Understanding the service's access patterns can help you determine the appropriate controls for preventing unauthorized access.
+A search service is hosted on Azure and typically accessed over public network connections. Understanding the service's access patterns can help you design a security strategy that effectively deters unauthorized access to searchable content.
 
 Cognitive Search has three basic network traffic patterns:
 
