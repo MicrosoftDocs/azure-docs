@@ -60,7 +60,7 @@
       - name: Create a gateway device template
         href: core/tutorial-define-gateway-device-type.md
       - name: Connect an IoT Edge device
-        href: core/tutorial-add-edge-as-leaf-device.md
+        href: /learn/modules/connect-iot-edge-device-to-iot-central
     - name: Build integrated solutions
       items:
       - name: Create a device group
@@ -219,7 +219,7 @@
         - name: Connect devices through an IoT Edge transparent gateway
           href: core/how-to-connect-iot-edge-transparent-gateway.md
         - name: Prepare and connect an Azure Sphere DevKit
-          href: core/howto-connect-sphere.md
+          href: /azure-sphere/app-development/setup-iot-central
         - name: Prepare and connect a RuuviTag device
           href: core/howto-connect-ruuvi.md
         - name: Prepare and connect a Rigado Cascade 500
@@ -228,6 +228,8 @@
       items:
         - name: Add tiles to your dashboard
           href: core/howto-add-tiles-to-your-dashboard.md
+        - name: Use location data
+          href: core/howto-use-location-data.md
         - name: Configure rules
           href: core/howto-configure-rules.md
         - name: Create webhooks on rules
@@ -270,16 +272,12 @@
           href: core/howto-manage-devices.md
         - name: Run a job
           href: core/howto-run-a-job.md
-        - name: Move devices from IoT Hub  
-          href: core/how-to-move-device-to-iot.md
     - name: Administer your solution
       items:
         - name: Change application settings
           href: core/howto-administer.md
         - name: Manage users and roles
           href: core/howto-manage-users-roles.md
-        - name: Manage your bill
-          href: core/howto-view-bill.md
         - name: Customize application UI
           href: core/howto-customize-ui.md
         - name: Export your application
@@ -288,8 +286,6 @@
           href: core/howto-migrate.md
         - name: Monitor application health
           href: core/howto-monitor-application-health.md
-        - name: About your application
-          href: core/howto-get-app-info.md
         - name: Configure and use file uploads
           href: core/howto-configure-file-uploads.md
         - name: Roll X.509 certificates
