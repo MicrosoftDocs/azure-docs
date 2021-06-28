@@ -88,7 +88,7 @@ Brazil | Brazil South
 Canada | Canada Central or Canada East
 Europe | North Europe or West Europe
 France | France Central
-Germany | West Germany or Central Germany
+Germany | Germany West Central
 India | Central India or South India
 Japan |  Japan East or Japan West
 Korea | Korea Central or Korea South
