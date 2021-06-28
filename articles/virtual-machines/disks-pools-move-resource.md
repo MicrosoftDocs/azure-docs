@@ -32,4 +32,4 @@ Now that the disk pool is deleted, you can move the virtual network and your dis
 
 ## Redeploy your disk pool
 
-Once you've moved your other resources into the subscription, update the template of your old disk pool so that all the references to your disks, virtual network, subnet, and client, all now point to their new resource URIs. Once you've done that, redeploy the template to the new subscription. To learn how to edit and deploy a template, see [this article](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md#edit-and-deploy-the-template).
+Once you've moved your other resources into the subscription, update the template of your old disk pool so that all the references to your disks, virtual network, subnet, and clients, all now point to their new resource URIs. Once you've done that, redeploy the template to the new subscription. To learn how to edit and deploy a template, see [this article](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md#edit-and-deploy-the-template).
