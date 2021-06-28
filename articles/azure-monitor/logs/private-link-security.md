@@ -44,7 +44,7 @@ Most importantly, traffic to the below global endpoints will be sent through the
 * All Application Insights endpoints - endpoints handling ingestion, live metrics, profiler, debugger etc. to Application Insights endpoints are global.
 * The Query endpoint - the endpoint handling queries to both Application Insights and Log Analytics resources is global.
 
-That effectively means that all Application Insights traffic will be sent to the Private Link, and that all queryies - to both Application Insights and Log Analytics resources, will be sent to the Private Link.
+That effectively means that all Application Insights traffic will be sent to the Private Link, and that all queries - to both Application Insights and Log Analytics resources - will be sent to the Private Link.
 
 Traffic to Application Insights resource not added to your AMPLS will not pass the Private Link validation, and will fail.
 
@@ -53,8 +53,8 @@ Traffic to Application Insights resource not added to your AMPLS will not pass t
 #### Resource-specific endpoints
 All Log Analytics endpoints except the Query endpoint, are workspace-specific. So, creating a Private Link to a specific Log Analytics workspace won't affect ingestion (or other) traffic to other workspaces, which will continue to use the public Log Analytics endpoints. All queries, however, will be sent through the Private Link.
 
-### Azure Monitor Private Link applies to your entire network
-Some networks are composed of multiple VNets or other connected networks. If these networks share the same DNS, setting up a Private Link on any of them would update the DNS and affect traffic across all networks. That's extremely important to note due to the "All or Nothing" behavior described above.
+### Azure Monitor Private Link applies to all networks that share the same DNS
+Some networks are composed of multiple VNets or other connected networks. If these networks share the same DNS, setting up a Private Link on any of them would update the DNS and affect traffic across all networks. That's especially important to note due to the "All or Nothing" behavior described above.
 
 ![Diagram of DNS overrides in multiple VNets](./media/private-link-security/dns-overrides-multiple-vnets.png)
 
@@ -65,7 +65,7 @@ In the above diagram, VNet 10.0.1.x first connects to AMPLS1 and maps the Azure 
 
 Before setting up your Azure Monitor Private Link setup, consider your network topology, and specifically your DNS routing topology.
 
-As discussed above, setting up a Private Link affects - in many ways - traffic to all Azure Monitor resources. That's espcially true for Application Insights resources. Additionally, it affects not only the network connected to the Private Endpoint (and through it to the AMPLS resources) but also all other networks the share the same DNS.
+As discussed above, setting up a Private Link affects - in many ways - traffic to all Azure Monitor resources. That's especially true for Application Insights resources. Additionally, it affects not only the network connected to the Private Endpoint (and through it to the AMPLS resources) but also all other networks the share the same DNS.
 
 > [!NOTE]
 > Given all that, the simplest and most secure approach would be:
@@ -73,7 +73,7 @@ As discussed above, setting up a Private Link affects - in many ways - traffic t
 > 2. Add *all* Azure Monitor resources (Application Insights components and Log Analytics workspaces) to that AMPLS.
 > 3. Block network egress traffic as much as possible.
 
-If for some reason you can't use a single Private Link and a single AMPLS, the next best thing would be to create completely isolated Private Link connections for isolation networks. If you are (or can align with) using spoke vnets, follow the guidance in [Hub-spoke network topology in Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke). Then, setup separate private link settings in the relevant spoke VNets. **Make sure to separate DNS zones as well**, since sharing DNS zones with other spoke networks will cause DNS overrides.
+If for some reason you can't use a single Private Link and a single AMPLS, the next best thing would be to create isolated Private Link connections for isolation networks. If you are (or can align with) using spoke vnets, follow the guidance in [Hub-spoke network topology in Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke). Then, setup separate private link settings in the relevant spoke VNets. **Make sure to separate DNS zones as well**, since sharing DNS zones with other spoke networks will cause DNS overrides.
 
 
 ### Hub-spoke networks
@@ -86,7 +86,7 @@ Hub-spoke topologies can avoid the issue of DNS overrides by setting the Private
 
 
 ### Peered networks
-Network peering is used in various topologies, other than hub-spoke. Such networks can share reach each others' IP addresses, and most likely share the same DNS. In such cases our recommendation is similar to Hub-spoke - select a single network that is reached by all other (relevant) networks and set the Private Link connection on that network. Avoid creating multiple Private Endpoints and AMPLS objects, since ultimately only the last one set in the DNS will apply.
+Network peering is used in various topologies, other than hub-spoke. Such networks can share reach each others' IP addresses, and most likely share the same DNS. In such cases, our recommendation is similar to Hub-spoke - select a single network that is reached by all other (relevant) networks and set the Private Link connection on that network. Avoid creating multiple Private Endpoints and AMPLS objects, since ultimately only the last one set in the DNS will apply.
 
 
 ### Isolated networks
@@ -94,7 +94,7 @@ If your networks aren't peered, **you must also separate their DNS in order to u
 
 
 ### Local bypass: Use Private Link connections only from select machines 
-As a local bypass to the All or Nothing behavior, you can chose not to update your DNS with the Private Link records, and instead edit the hosts files on select machines so only these machines would send requests to the Private Link endpoints.
+As a local bypass to the All or Nothing behavior, you can select not to update your DNS with the Private Link records, and instead edit the hosts files on select machines so only these machines would send requests to the Private Link endpoints.
 * Set up a Private Link as show below, but when [connecting to a Private Endpoint](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/private-link-security#connect-to-a-private-endpoint) choose **not** to auto-integrate with the DNS (step 5b).
 * Configure the relevant endpoints on your machines' hosts files. To review the Azure Monitor endpoints that need mapping, see [Reviewing your Endpoint's DNS settings](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/private-link-security#reviewing-your-endpoints-dns-settings).
 
@@ -103,16 +103,16 @@ That approach isn't recommended for production environments.
 
 ### Consider limits
 
-The AMPLS object has a number of limits:
-* A VNet can only connect to 1 AMPLS object. That means the AMPLS object must provide access to all the Azure Monitor resources the VNet should have access to.
+The AMPLS object has the following limits:
+* A VNet can only connect to **one** AMPLS object. That means the AMPLS object must provide access to all the Azure Monitor resources the VNet should have access to.
 * An AMPLS object can connect to 50 Azure Monitor resources at most.
 * An Azure Monitor resource (Workspace or Application Insights component) can connect to 5 AMPLSs at most.
 * An AMPLS object can connect to 10 Private Endpoints at most.
 
 In the below diagram:
-* Each VNet connects to only **1** AMPLS object.
+* Each VNet connects to only **one** AMPLS object.
 * AMPLS A connects to two workspaces and one Application Insight component, using 3 of the 50 possible Azure Monitor resources connections.
-* Workspace2 connects to AMPLS A and AMPLS B, using 2 of the 5 possible AMPLS connections.
+* Workspace2 connects to AMPLS A and AMPLS B, using  of the 5 possible AMPLS connections.
 * AMPLS B is connected to Private Endpoints of two VNets (VNet2 and VNet3), using 2 of the 10 possible Private Endpoint connections.
 
 ![Diagram of AMPLS limits](./media/private-link-security/ampls-limits.png)
@@ -120,19 +120,19 @@ In the below diagram:
 
 ### Application Insights considerations
 * You’ll need to add resources hosting the monitored workloads to a private link. For example, see [Using Private Endpoints for Azure Web App](../../app-service/networking/private-endpoint.md).
-* In order to support Private Link for Profiler and Debugger you'll need to [provide your own storage account](../app/profiler-bring-your-own-storage.md) 
+* In order to support Private Links for Profiler and Debugger, you'll need to [provide your own storage account](../app/profiler-bring-your-own-storage.md) 
 
 > [!NOTE]
 > To fully secure workspace-based Application Insights, you need to lock down both access to Application Insights resource as well as the underlying Log Analytics workspace.
 
 ### Log Analytics considerations
 #### Automation
-If you use Log Analytics solutions that require an Automation account, such as Update Management, Change Tracking or Inventory, you should also setup a separare Private Link for your Automation account. For more information, see [Use Azure Private Link to securely connect networks to Azure Automation](../../automation/how-to/private-link-security.md).
+If you use Log Analytics solutions that require an Automation account, such as Update Management, Change Tracking, or Inventory, you should also set up a separate Private Link for your Automation account. For more information, see [Use Azure Private Link to securely connect networks to Azure Automation](../../automation/how-to/private-link-security.md).
 
 #### Log Analytics solution packs download
-Log Analytics agents need to access a global storage account to download solution packs. Private Link setups created at or after April 19, 2021 (or starting June, 2021 on Azure Sovereign clouds) can reach the agents' solution packs storage over the private link. This is made possible through the new DNS zone created for [blob.core.windows.net](#privatelink-blob-core-windows-net).
+Log Analytics agents need to access a global storage account to download solution packs. Private Link setups created at or after April 19, 2021 (or starting June 2021 on Azure Sovereign clouds) can reach the agents' solution packs storage over the private link. This capability is made possible through the new DNS zone created for [blob.core.windows.net](#privatelink-blob-core-windows-net).
 
-If your Private Link setup was created before April 19, 2021, it won't reach the solution packs storage over a private link. To handle that you can do one of the following:
+If your Private Link setup was created before April 19, 2021, it won't reach the solution packs storage over a private link. To handle that you can either:
 * Re-create your AMPLS and the Private Endpoint connected to it
 * Allow your agents to reach the storage account through its public endpoint, by adding the following rules to your firewall allowlist:
 
@@ -269,19 +269,19 @@ This zone configures connectivity to the global agents' solution packs storage a
 ## Configure access to your resources
 So far we covered the configuration of your network, but you should also consider how you want to configure network access to your monitored resources - Log Analytics workspaces and Application Insights components.
 
-Go to the Azure portal. In your resource's menu there's a menu item called **Network Isolation** on the left-hand side. This page contorls both which networks can reach the resource through a Private Link, and whether other networks can reach it or not.
+Go to the Azure portal. In your resource's menu, there's a menu item called **Network Isolation** on the left-hand side. This page controls both which networks can reach the resource through a Private Link, and whether other networks can reach it or not.
 
 ![LA Network Isolation](./media/private-link-security/ampls-log-analytics-lan-network-isolation-6.png)
 
 ### Connected Azure Monitor Private Link scopes
-Here you can review and configure the resource's connections to Azure Monitor Private Links scopes. Connecting to scopes (AMPLSs) allows traffic from the virtual network connected to each AMPLS to reach this resource, and has the same effect as connecting it from the scope as we did in [Connecting Azure Monitor resources](#connect-azure-monitor-resources). To add a new connection, select **Add** and select the Azure Monitor Private Link Scope. Select **Apply** to connect it. Note that your resource can connect to 5 AMPLS objects, as mentioned in [Restrictions and limitations](#restrictions-and-limitations).
+Here you can review and configure the resource's connections to Azure Monitor Private Links scopes. Connecting to scopes (AMPLSs) allows traffic from the virtual network connected to each AMPLS to reach this resource, and has the same effect as connecting it from the scope as we did in [Connecting Azure Monitor resources](#connect-azure-monitor-resources). To add a new connection, select **Add** and select the Azure Monitor Private Link Scope. Select **Apply** to connect it. Your resource can connect to 5 AMPLS objects, as mentioned in [Restrictions and limitations](#restrictions-and-limitations).
 
 ### Virtual networks access configuration - Managing access from outside of private links scopes
 The settings on the bottom part of this page control access from public networks, meaning networks not connected to the listed scopes (AMPLSs).
 
 If you set **Allow public network access for ingestion** to **No**, then clients (machines, SDKs, etc.) outside of the connected scopes can't upload data or send logs to this resource.
 
-If you set **Allow public network access for queries** to **No**, then clients (machinces, SDKs etc.) outside of the connected scopes can't query data in this resource. That data includes access to logs, metrics, and the live metrics stream, as well as experiences built on top such as workbooks, dashboards, query API-based client experiences, insights in the Azure portal, and more. Experiences running outside the Azure portal and that query Log Analytics data also have to be running within the private-linked VNET.
+If you set **Allow public network access for queries** to **No**, then clients (machines, SDKs etc.) outside of the connected scopes can't query data in this resource. That data includes access to logs, metrics, and the live metrics stream, as well as experiences built on top such as workbooks, dashboards, query API-based client experiences, insights in the Azure portal, and more. Experiences running outside the Azure portal and that query Log Analytics data also have to be running within the private-linked VNET.
 
 
 ### Exceptions
@@ -290,7 +290,7 @@ If you set **Allow public network access for queries** to **No**, then clients (
 Logs and metrics uploaded to a workspace via [Diagnostic Settings](../essentials/diagnostic-settings.md) go over a secure private Microsoft channel, and are not controlled by these settings.
 
 #### Azure Resource Manager
-Restricting access as explained above applies applies to data in the resource. However, configuration changes, including turning these access settings on or off, are managed by Azure Resource Manager. So, you should restrict access to Resource Manager using the appropriate roles, permissions, network controls, and auditing. For more information, see [Azure Monitor Roles, Permissions, and Security](../roles-permissions-security.md)
+Restricting access as explained above applies to data in the resource. However, configuration changes, including turning these access settings on or off, are managed by Azure Resource Manager. So, you should restrict access to Resource Manager using the appropriate roles, permissions, network controls, and auditing. For more information, see [Azure Monitor Roles, Permissions, and Security](../roles-permissions-security.md)
 
 Additionally, specific experiences (such as the LogicApp connector) query data through Azure Resource Manager and therefore won't be able to query data unless Private Link settings are applied to the Resource Manager as well (feature coming up soon).
 
@@ -325,8 +325,8 @@ To create and manage private link scopes, use the [REST API](/rest/api/monitor/p
 
 To manage the network access flag on your workspace or component, use the flags `[--ingestion-access {Disabled, Enabled}]` and `[--query-access {Disabled, Enabled}]`on [Log Analytics workspaces](/cli/azure/monitor/log-analytics/workspace) or [Application Insights components](/cli/azure/ext/application-insights/monitor/app-insights/component).
 
-### Example ARM template
-The below ARM template creates:
+### Example Azure Resource Manager (ARM) template
+The below Azure Resource Manager template creates:
 * A private link scope (AMPLS) named "my-scope"
 * A Log Analytics workspace named "my-workspace"
 * Add a scoped resource to the "my-scope" AMPLS, named "my-workspace-connection"
