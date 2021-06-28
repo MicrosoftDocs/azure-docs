@@ -333,6 +333,7 @@ In this step, you will update the Event Hubs namespace with key vault informatio
                 "clusterArmId":"[resourceId('Microsoft.EventHub/clusters', parameters('clusterName'))]",
                 "encryption":{
                    "keySource":"Microsoft.KeyVault",
+                   "requireInfrastructureEncryption":"boolean",
                    "keyVaultProperties":[
                       {
                          "keyName":"[parameters('keyName')]",
