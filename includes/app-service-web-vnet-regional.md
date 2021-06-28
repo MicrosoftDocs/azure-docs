@@ -40,11 +40,11 @@ The feature is fully supported for both Windows and Linux apps, including [custo
 
 ### Routes
 
-There are two types of routing to consider when configuring regional VNet Integration. Application routing is what traffic is routed from your application and into the VNet. Network routing is the ability to control how traffic is routed from your VNet and out.
+There are two types of routing to consider when configuring regional VNet Integration. Application routing defines what traffic is routed from your application and into the VNet. Network routing is the ability to control how traffic is routed from your VNet and out.
 
 #### Application routing
 
-You can configure the routing scope applied to your regional VNet integration by enabling routing of all traffic. If all traffic routing is not enabled, your app routes only [RFC1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3) traffic into your VNet. If you want to route all of your outbound traffic into your VNet, make sure that all traffic routing is enabled.
+When configuring application routing, you can either route all traffic or only private traffic (also known as [RFC1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3) traffic) into your VNet. If all traffic routing is not enabled, your app routes only routes private traffic into your VNet. If you want to route all of your outbound traffic into your VNet, make sure that all traffic routing is enabled.
 
 > [!NOTE]
 > When you route all of your outbound traffic into your VNet, all traffic is subject to the NSGs and UDRs that are applied to your integration subnet. When all traffic routing is enabled, outbound traffic is still sent from the addresses that are listed in your app properties, unless you provide routes that direct the traffic elsewhere.
@@ -71,7 +71,7 @@ az webapp config set --resource-group myRG --name myWebApp --vnet-route-all-enab
 
 #### Network routing
 
-You can use route tables to route outbound traffic from your app to wherever you want. Route tables affect your destination traffic. Without route all enabled, only private traffic (RFC1918) is affected by your route tables. Common destinations can include firewall devices or gateways. Routes that are set on your integration subnet won't affect replies to inbound app requests. 
+You can use route tables to route outbound traffic from your app to wherever you want. Route tables affect your destination traffic. Without route all enabled in [application routing](#applicaiton-routing), only private traffic (RFC1918) is affected by your route tables. Common destinations can include firewall devices or gateways. Routes that are set on your integration subnet won't affect replies to inbound app requests. 
 
 If you want to route all outbound traffic on-premises, you can use a route table to send all outbound traffic to your ExpressRoute gateway. If you do route traffic to a gateway, be sure to set routes in the external network to send any replies back.
 
@@ -121,7 +121,7 @@ There are some limitations with using VNet Integration with VNets in the same re
 * You can't delete a VNet with an integrated app. Remove the integration before you delete the VNet.
 * You can have only one regional VNet Integration per App Service plan. Multiple apps in the same App Service plan can use the same VNet.
 * You can't change the subscription of an app or a plan while there's an app that's using regional VNet Integration.
-* Your app can't resolve addresses in Azure DNS Private Zones o Linux plans without configuration changes.
+* Your app can't resolve addresses in Azure DNS Private Zones on Linux plans without configuration changes.
 
 <!--Image references-->
 [4]: ../includes/media/web-sites-integrate-with-vnet/vnetint-appsetting.png
