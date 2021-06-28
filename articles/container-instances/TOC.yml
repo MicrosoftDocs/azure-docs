@@ -132,8 +132,6 @@
       href: container-instances-log-analytics.md
     - name: View an instance's state
       href: container-state.md
-    - name: Scan images using Azure Container Scan action
-      href: container-instances-github-action-scan.md  
   - name: Troubleshoot
     items:
     - name: Troubleshoot common issues
