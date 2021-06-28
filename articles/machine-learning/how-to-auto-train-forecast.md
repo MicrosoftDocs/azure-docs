@@ -112,6 +112,9 @@ automl_config = AutoMLConfig(task='forecasting',
 
 Learn more about how AutoML applies cross validation to [prevent over-fitting models](concept-manage-ml-pitfalls.md#prevent-over-fitting).
 
+> [!NOTE]
+> The 'validation_data' parameter is not supported in forecasting scenarios.
+
 ## Configure experiment
 
 The [`AutoMLConfig`](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) object defines the settings and data necessary for an automated machine learning task. Configuration for a forecasting model is similar to the setup of a standard regression model, but certain models, configuration options, and featurization steps exist specifically for time-series data. 
