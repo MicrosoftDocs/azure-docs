@@ -28,7 +28,7 @@ When you want to update the credentials for an AKS cluster, you can choose to ei
 * Create a new service principal and update the cluster to use these new credentials. 
 
 > [!WARNING]
-> If you choose to create a *new* service principal, updating a large AKS cluster to use these credentials may take a long time to complete.
+> If you choose to create a *new* service principal, wait around 30 minutes for the service principal permission to propagate across all regions. Updating a large AKS cluster to use these credentials may take a long time to complete.
 
 ### Check the expiration date of your service principal
 
@@ -106,7 +106,7 @@ az aks update-credentials \
     --client-secret $SP_SECRET
 ```
 
-For small and medium size clusters, it takes a few moments for the service principal credentials to be updated in the AKS.
+For small and midsize clusters, it takes a few moments for the service principal credentials to be updated in the AKS.
 
 ## Update AKS Cluster with new AAD Application credentials
 
@@ -129,12 +129,12 @@ In this article, the service principal for the AKS cluster itself and the AAD In
 
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli
-[az-aks-show]: /cli/azure/aks#az-aks-show
-[az-aks-update-credentials]: /cli/azure/aks#az-aks-update-credentials
+[az-aks-show]: /cli/azure/aks#az_aks_show
+[az-aks-update-credentials]: /cli/azure/aks#az_aks_update_credentials
 [best-practices-identity]: operator-best-practices-identity.md
 [aad-integration]: ./azure-ad-integration-cli.md
 [create-aad-app]: ./azure-ad-integration-cli.md#create-azure-ad-server-component
-[az-ad-sp-create]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
-[az-ad-sp-credential-list]: /cli/azure/ad/sp/credential#az-ad-sp-credential-list
-[az-ad-sp-credential-reset]: /cli/azure/ad/sp/credential#az-ad-sp-credential-reset
+[az-ad-sp-create]: /cli/azure/ad/sp#az_ad_sp_create_for_rbac
+[az-ad-sp-credential-list]: /cli/azure/ad/sp/credential#az_ad_sp_credential_list
+[az-ad-sp-credential-reset]: /cli/azure/ad/sp/credential#az_ad_sp_credential_reset
 [node-image-upgrade]: ./node-image-upgrade.md

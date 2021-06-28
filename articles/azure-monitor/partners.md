@@ -1,9 +1,10 @@
 ---
 title: Partners who integrate with Azure Monitor
 description: Learn about Azure Monitor's partners and how you can access documentation for integrating with them.
+author: rboucher
+ms.author: robb
 ms.topic: conceptual
-ms.date: 02/19/2021
-
+ms.date: 04/14/2021
 ---
 
 # Azure Monitor partner integrations
@@ -96,8 +97,6 @@ Through this unified experience, you will be able to:
 -	Streamline single-sign on (SSO) to Datadog—a separate sign-on from the Datadog portal is no longer required. 
 -	Get unified billing for the Datadog service through Azure subscription invoicing.
 
-Sign up for the [Public Preview](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4z3T2aGXUZPslUNJ3YpcapURFBHSUJIMVJTWDM5VUFPMVkyTVhMVlYzMS4u) of the new Datadog integration with Azure.  Public preview will be available on Azure Marketplace starting October 2020.
-
 Subscribe to the preview of "Datadog integration with Azure" available in the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/datadog1591740804488.dd_liftr_v2?tab=Overview)
 
 If you are still using the previous manually configured integration, see the [documentation on the DataDog website](https://docs.datadoghq.com/integrations/azure/).
@@ -106,9 +105,18 @@ If you are still using the previous manually configured integration, see the [do
 
 ![DynaTrace Logo](./media/partners/dynatrace.png)
 
-The Dynatrace OneAgent integrates with Azure VMs and App Services via the Azure extension mechanism. This way Dynatrace OneAgent can gather performance metrics about hosts, network, and services. Besides just displaying metrics, Dynatrace visualizes environments end-to-end. It shows transactions from the client side to the database layer. Dynatrace provides AI-based correlation of problems and fully integrated root-cause-analysis to give method level insights into code and database. This insight makes troubleshooting and performance optimizations much easier.
+Dynatrace simplifies cloud complexity and is a single source of truth for your cloud platforms, allowing you to monitor the health of your entire Azure applications and infrastructure.  Dynatrace integrates with Azure Monitor/App Insights by enriching the data and extending observability into the platform with additional metrics for cloud infrastructure, load balancers, API Management Services, and more. Dynatrace supports over 80 Azure Monitor services that span application and microservices workloads, as well as infrastructure-related services. 
 
-[Dynatrack documentation](https://help.dynatrace.com/infrastructure-monitoring/paas/how-do-i-monitor-microsoft-azure-web-apps/)
+Get automated, AI-assisted observability across Azure environments:
+
+- Full stack observability in minutes, everything in context including metrics, logs, and traces.
+- Auto-discovery, continuous dependency mapping and instant answers to automate monitoring of Azure cloud services including App Service, Database Performance, AKS, HDInsight, and many more.
+- Davis, Dynatrace’s AI, continuously analyzes billions of dependencies to provide precise root cause.
+- Single source of truth for teams to collaborate and innovate, wherever they may reside.
+- Accelerate Azure cloud migrations.
+
+
+[Dynatrace documentation](https://www.dynatrace.com/support/help/technology-support/cloud-platforms/microsoft-azure-services/)
 
 
 ## Elastic
@@ -155,7 +163,7 @@ LogRhythm, a leader in NextGen SIEM, empowers organizations on six continents to
 
 Microfocus **ArcSight** has a smart connector for Azure Monitor event hubs.
 
-[See the ArcSight documentation](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852)
+[See the ArcSight documentation](https://community.microfocus.com/cyberres/arcsight/f/arcsight-product-announcements/163662/announcing-general-availability-of-arcsight-smart-connectors-7-10-0-8114-0)
 
 Microfocus **Operations Bridge** automatically monitors all Hybrid IT resources – any device, operating system, database, application, or service, regardless of where it runs and applies AIOps to all data types – events, metrics, logs, and dependencies. It provides a unique combination of quality-of-service monitoring, coupled with deep application health analytics, and includes comprehensive performance and availability monitoring of Microsoft Azure services. Operations Bridge enables customers to provide a single pane of glass, available on any device with a browser, in ways both business and IT stakeholders can understand.
 
@@ -186,7 +194,7 @@ Moogsoft runs in your Azure real-estate with integration to monitoring and autom
 
 ![NewRelic Logo](./media/partners/newrelic.png)
 
-[Newrelic documentation](https://newrelic.com/azure)
+[Newrelic documentation](https://newrelic.com/solutions/partners/azure)
 
 ## OpsGenie
 
@@ -294,6 +302,14 @@ With Site24x7 Azure Monitoring, you will be able to:
 
 [SolarWinds documentation](https://www.solarwinds.com/topics/azure-monitoring)
 
+## SpearTip
+
+![SpearTip logo](./media/partners/speartip.png)
+
+SpearTip’s 24/7 security operations center continuously monitors Azure environments for cyber threats. Utilizing the ShadowSpear integration with Azure Monitor, security events are collected and analyzed for advanced threats, while SpearTip engineers investigate and respond to stop threat actors in their tracks. The integration is seamless and provides instant value once the integration is deployed.
+
+[SpearTip documentation](https://www.speartip.com/identify/)
+
 ## Splunk
 
 ![Splunk Logo](./media/partners/splunk.png)
@@ -335,7 +351,7 @@ Using Azure Monitor to route monitoring data to an Azure Event Hub  allows you t
 |  IBM QRadar | No | The Microsoft Azure DSM and Microsoft Azure Event Hub Protocol are available for download from [the IBM support website](https://www.ibm.com/support). You can learn more about the integration with Azure at [QRadar DSM configuration](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0). |
 | Splunk | No | [Microsoft Azure Add-On for Splunk](https://splunkbase.splunk.com/app/3757/) is an open source project available in Splunkbase. <br><br> If you cannot install an add-on in your Splunk instance, if for example you're using a proxy or running on Splunk Cloud, you can forward these events to the Splunk HTTP Event Collector using [Azure Function For Splunk](https://github.com/Microsoft/AzureFunctionforSplunkVS), which is triggered by new messages in the event hub. |
 | SumoLogic | No | Instructions for setting up SumoLogic to consume data from an event hub are available at [Collect Logs for the Azure Audit App from Event Hub](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub). |
-| ArcSight | No | The ArcSight Azure Event Hub smart connector is available as part of [the ArcSight smart connector collection](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852). |
+| ArcSight | No | The ArcSight Azure Event Hub smart connector is available as part of [the ArcSight smart connector collection](https://community.microfocus.com/cyberres/arcsight/f/arcsight-product-announcements/163662/announcing-general-availability-of-arcsight-smart-connectors-7-10-0-8114-0). |
 | Syslog server | No | If you want to stream Azure Monitor data directly to a syslog server, you can use a [solution based on an Azure function](https://github.com/miguelangelopereira/azuremonitor2syslog/).
 | LogRhythm | No| Instructions to set up LogRhythm to collect logs from an event hub are available [here](https://logrhythm.com/six-tips-for-securing-your-azure-cloud-environment/). 
 |Logz.io | Yes | For more information, see [Getting started with monitoring and logging using Logz.io for Java apps running on Azure](/azure/developer/java/fundamentals/java-get-started-with-logzio)

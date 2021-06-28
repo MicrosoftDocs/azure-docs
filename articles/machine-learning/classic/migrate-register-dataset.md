@@ -3,7 +3,7 @@ title: 'ML Studio (classic): Migrate to Azure Machine Learning - Rebuild dataset
 description: Rebuild Studio (classic) datasets in Azure Machine Learning designer
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 
 author: xiaoharper
@@ -13,7 +13,7 @@ ms.date: 02/04/2021
 
 # Migrate a Studio (classic) dataset to Azure Machine Learning
 
-In this article, you learn how to migrate a Studio (classic) dataset to Azure Machine Learning. For more information on migrating from Studio (classic), see [the migration overview article](migrate-overview.md).
+In this article, you learn how to migrate a Studio (classic) dataset to [Azure Machine Learning](../index.yml). For more information on migrating from Studio (classic), see [the migration overview article](migrate-overview.md).
 
 You have three options to migrate a dataset to Azure Machine Learning. Read each section to determine which option is best for your scenario.
 

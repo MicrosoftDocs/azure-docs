@@ -86,6 +86,8 @@
     href: samples.md
   - name: PowerShell
     href: samples-powershell.md
+  - name: UWP React Native sample overview
+    href: uwp-react.md
 - name: Concepts
   items: 
   - name: Transport Layer Security (TLS)
@@ -158,7 +160,7 @@
   - name: .NET
     href: /dotnet/api/microsoft.azure.notificationhubs
   - name: Azure CLI
-    href: /cli/azure/ext/notification-hub/notification-hub
+    href: /cli/azure/notification-hub
   - name: PowerShell
     href: /powershell/module/az.notificationhubs
   - name: REST
@@ -168,7 +170,7 @@
 - name: Resources
   items:
   - name: FAQ
-    href: notification-hubs-push-notification-faq.md
+    href: notification-hubs-push-notification-faq.yml
   - name: Google GCM to FCM Migration
     href: notification-hubs-gcm-to-fcm.md
   - name: SDKs

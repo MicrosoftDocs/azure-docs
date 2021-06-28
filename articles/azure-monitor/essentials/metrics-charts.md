@@ -67,13 +67,34 @@ To view multiple metrics on the same chart, first [create a new chart](./metrics
 > [!NOTE]
 > Typically, your charts shouldn't mix metrics that use different units of measure. For example, avoid mixing one metric that uses milliseconds with another that uses kilobytes. Also avoid mixing metrics whose scales differ significantly. 
 >
-> In these cases, consider using multiple charts instead. In the metrics explorer, select **Add chart** to create a new chart.
+> In these cases, consider using multiple charts instead. In the metrics explorer, select **New chart** to create a new chart.
+
+![Screenshot showing multiple metrics.](./media/metrics-charts/multiple-metrics-chart.png)
 
 ### Multiple charts
 
-To create another chart that uses a different metric, select **Add chart**.
+To create another chart that uses a different metric, select **New chart**.
 
 To reorder or delete multiple charts, select the ellipsis (**...**) button to open the chart menu. Then choose **Move up**, **Move down**, or **Delete**.
+
+![Screenshot showing multiple charts.](./media/metrics-charts/multiple-charts.png)
+
+## Time range controls
+
+In addition to changing the time range using the [time picker panel](metrics-getting-started.md#select-a-time-range), you can also pan and zoom using the controls in the chart area.
+### Pan
+
+To pan, click on the left and right arrows at the edge of the chart.  This will move the selected time range back and forward by one half the chart's time span.  For example, if you're viewing the past 24 hours, clicking on the left arrow will cause the time range to shift to span a day and a half to 12 hours ago.
+
+Most metrics support 93 days of retention but only let you view 30 days at a time.  Using the pan controls, you look at the past 30 days and then easily walk back 15 days at a time to view the rest of the retention period.
+
+![Animated gif showing the left and right pan controls.](./media/metrics-charts/metrics-pan-controls.gif)
+
+### Zoom
+
+You can click and drag on the chart to zoom into a section of a chart.  Zooming will update the chart's time range to span your selection and will select a smaller time grain if the time grain is set to "Automatic".  The new time range will apply to all charts in Metrics.
+
+![Animated gif showing the metrics zoom feature.](./media/metrics-charts/metrics-zoom-control.gif)
 
 ## Aggregation
 

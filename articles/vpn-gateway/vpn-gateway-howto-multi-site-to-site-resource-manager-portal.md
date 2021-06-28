@@ -1,13 +1,13 @@
 ---
-title: 'Add multiple VPN gateway Site-to-Site connections to a VNet: Azure portal'
-description: Add multi-site S2S connections to a VPN gateway that has an existing connection
+title: 'Add multiple VPN Gateway Site-to-Site connections to a VNet: Azure portal'
+description: Learn how to add additional Site-to-Site connections to a VPN gateway.
 services: vpn-gateway
 titleSuffix: Azure VPN Gateway
 author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 10/27/2020
+ms.date: 04/29/2021
 ms.author: cherylmc
 
 ---

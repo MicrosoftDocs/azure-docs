@@ -1,22 +1,21 @@
 ---
-title: How to import a new update | Microsoft Docs
-description: How-To guide for importing a new update into IoT Hub Device Update for IoT Hub.
+title: How to add a new update | Microsoft Docs
+description: How-To guide for adding a new update into Device Update for IoT Hub.
 author: andrewbrownmsft
 ms.author: andbrown
-ms.date: 2/11/2021
+ms.date: 4/19/2021
 ms.topic: how-to
 ms.service: iot-hub-device-update
 ---
 
-# Import New Update
-Learn how to import a new update into Device Update for IoT Hub. If you haven't already done so, be sure to familiarize yourself with the basic [import concepts](import-concepts.md).
+# Add an update to Device Update for IoT Hub
+Learn how to add a new update into Device Update for IoT Hub.
 
 ## Prerequisites
 
-* [Access to an IoT Hub with Device Update for IoT Hub enabled](create-device-update-account.md). It is recommended that you use a S1 (Standard) tier or above for your IoT Hub. 
-* An IoT device (or simulator) provisioned for Device Update within IoT Hub.
-   * If using a real device, you’ll need an update image file for image update, or [APT Manifest file](device-update-apt-manifest.md) for package update.
-* [PowerShell 5](https://docs.microsoft.com/powershell/scripting/install/installing-powershell) or later.
+* [Access to an IoT Hub with Device Update for IoT Hub enabled](create-device-update-account.md). 
+* An IoT device (or simulator) [provisioned for Device Update](device-update-agent-provisioning.md) within IoT Hub.
+* [PowerShell 5](/powershell/scripting/install/installing-powershell) or later (includes Linux, macOS and Windows installs)
 * Supported browsers:
   * [Microsoft Edge](https://www.microsoft.com/edge)
   * Google Chrome
@@ -24,13 +23,23 @@ Learn how to import a new update into Device Update for IoT Hub. If you haven't 
 > [!NOTE]
 > Some data submitted to this service might be processed in a region outside the region this instance was created in.
 
-## Create Device Update Import Manifest
+## Obtain an update for your devices
 
-1. Ensure that your update image file or APT Manifest file is located in a directory accessible from PowerShell.
+Now that you've set up Device Update and provisioned your devices, you will need the update file(s) that you will be deploying to those devices.
+
+If you’ve purchased devices from an OEM or solution integrator, that organization will most likely provide update files for you, without you needing to create the updates. Contact the OEM or solution integrator to find out how they make updates available.
+
+If your organization already creates software for the devices you use, that same group will be the ones to create the updates for that software. When creating an update to be deployed using Device Update for IoT Hub, start with either the [image-based or package-based approach](understand-device-update.md#support-for-a-wide-range-of-update-artifacts) depending on your scenario. Note: if you want to create your own updates but are just starting out, GitHub is an excellent option to manage your development. You can store and manage your source code, and do Continuous Integration (CI) and Continuous Deployment (CD) using [GitHub Actions](https://docs.github.com/en/actions/guides/about-continuous-integration).
+
+## Create a Device Update import manifest
+
+If you haven't already done so, be sure to familiarize yourself with the basic [import concepts](import-concepts.md).
+
+1. Ensure that your update file(s) are located in a directory accessible from PowerShell.
 
 2. Create a text file named **AduUpdate.psm1** in the directory where your update image file or APT Manifest file is located. Then open the [AduUpdate.psm1](https://github.com/Azure/iot-hub-device-update/tree/main/tools/AduCmdlets) PowerShell cmdlet, copy the contents to your text file, and then save the text file.
 
-3. In PowerShell, navigate to the directory where you created your PowerShell cmdlet from step 2. Then run:
+3. In PowerShell, navigate to the directory where you created your PowerShell cmdlet from step 2. Use the Copy option below and then paste into PowerShell to run the commands:
 
     ```powershell
     Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
@@ -48,21 +57,21 @@ Learn how to import a new update into Device Update for IoT Hub. If you haven't 
     $importManifest | Out-File '.\importManifest.json' -Encoding UTF8
     ```
 
-    For quick reference, here are some example values for the above parameters. You can also view the complete [import manifest schema](import-schema.md) for more details.
+    The following table is a quick reference for how to populate the above parameters. If you need more information, you can also view the complete [import manifest schema](import-schema.md).
 
     | Parameter | Description |
     | --------- | ----------- |
-    | deviceManufacturer | Manufacturer of the device the update is compatible with, for example, Contoso. Must match _manufacturer_ [device property](https://docs.microsoft.com/azure/iot-hub-device-update/device-update-plug-and-play#device-properties).
-    | deviceModel | Model of the device the update is compatible with, for example, Toaster. Must match _model_ [device property](https://docs.microsoft.com/azure/iot-hub-device-update/device-update-plug-and-play#device-properties).
+    | deviceManufacturer | Manufacturer of the device the update is compatible with, for example, Contoso. Must match _manufacturer_ [device property](./device-update-plug-and-play.md#device-properties).
+    | deviceModel | Model of the device the update is compatible with, for example, Toaster. Must match _model_ [device property](./device-update-plug-and-play.md#device-properties).
     | updateProvider | Entity who is creating or directly responsible for the update. It will often be a company name.
     | updateName | Identifier for a class of updates. The class can be anything you choose. It will often be a device or model name.
     | updateVersion | Version number distinguishing this update from others that have the same Provider and Name. Does not have match a version of an individual software component on the device (but can if you choose).
     | updateType | <ul><li>Specify `microsoft/swupdate:1` for image update</li><li>Specify `microsoft/apt:1` for package update</li></ul>
-    | installedCriteria | <ul><li>Specify value of SWVersion for `microsoft/swupdate:1` update type</li><li>Specify recommended value for `microsoft/apt:1` update type.
-    | updateFilePath(s) | Path to the update file(s) on your computer
+    | installedCriteria | Used during deployment to compare the version already on the device with the version of the update. Deploying the update to the device will return a “failed” result if the installedCriteria value doesn't match the version that is on the device.<ul><li>For `microsoft/swupdate:1` update type, specify value of SWVersion </li><li>For `microsoft/apt:1` update type, specify **name-version**, where _name_ is the name of the APT Manifest and _version_ is the version of the APT Manifest. For example, contoso-iot-edge-1.0.0.0.
+    | updateFilePath(s) | Path to the update file(s) on your computer.
 
 
-## Review Generated Import Manifest
+## Review the generated import manifest
 
 Example:
 ```json
@@ -105,10 +114,10 @@ Example:
 }
 ```
 
-## Import update
+## Import an update
 
-[!NOTE]
-The instructions below show how to import an update via the Azure portal UI. You can also use the [Device Update for IoT Hub APIs](https://github.com/Azure/iot-hub-device-update/tree/main/docs/publish-api-reference) to import an update. 
+> [!NOTE]
+> The instructions below show how to import an update via the Azure portal UI. You can also use the [Device Update for IoT Hub APIs](#if-youre-importing-via-apis-instead) to import an update instead.
 
 1. Log in to the [Azure portal](https://portal.azure.com) and navigate to your IoT Hub with Device Update.
 
@@ -124,7 +133,7 @@ The instructions below show how to import an update via the Azure portal UI. You
 
    :::image type="content" source="media/import-update/import-new-update-2.png" alt-text="Import New Update" lightbox="media/import-update/import-new-update-2.png":::
 
-5. Select the folder icon or text box under "Select an Import Manifest File". You will see a file picker dialog. Select the Import Manifest you created previously using the PowerShell cmdlet. Next, select the folder icon or text box under "Select one or more update files". You will see a file picker dialog. Select your update file(s).
+5. Select the folder icon or text box under "Select an Import Manifest File". You will see a file picker dialog. Select the Import Manifest you created previously using the PowerShell cmdlet. Next, select the folder icon or text box under "Select one or more update files". You will see a file picker dialog. Select the same update file(s) that you included when you created your import manifest.
 
    :::image type="content" source="media/import-update/select-update-files.png" alt-text="Select Update Files" lightbox="media/import-update/select-update-files.png":::
 
@@ -147,6 +156,15 @@ The instructions below show how to import an update via the Azure portal UI. You
 10. When the Status column indicates the import has succeeded, select the "Ready to Deploy" header. You should see your imported update in the list now.
 
    :::image type="content" source="media/import-update/update-ready.png" alt-text="Job Status" lightbox="media/import-update/update-ready.png":::
+
+## If you're importing via APIs instead
+
+If you've just finished using the steps above to import via the Azure portal, skip to Next Steps below.
+
+If you want to use the [Device Update for IoT Hub Update APIs](/rest/api/deviceupdate/updates) to import an update instead of importing via the Azure portal, note the following:
+  - You will need to upload your update file(s) to an Azure Blob Storage location before you call the Update APIs.
+  - You can reference this [sample API call](import-schema.md#example-import-request-body) which uses the import manifest you created above.
+
 
 ## Next Steps
 

@@ -33,7 +33,7 @@ In this article, the Visual Studio Code is used to develop the sample app.
    - Apache Maven
    - Java Extension Pack
 - Make sure to set `JAVA_HOME` and `PATH` environment variables.
-- [Create a Media Services account](./create-account-howto.md). Be sure to remember the resource group name and the Media Services account name.
+- [Create a Media Services account](./account-create-how-to.md). Be sure to remember the resource group name and the Media Services account name.
 - Follow the steps in the [Access APIs](./access-api-howto.md) topic. Record the subscription ID, application ID (client ID), the authentication key (secret), and the tenant ID that you need in a later step.
 
 Also review:

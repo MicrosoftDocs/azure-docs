@@ -9,8 +9,8 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 10/12/2020
-ms.topic: conceptual
-ms.custom: "how-to, devx-track-python, devx-track-csharp"
+ms.topic: how-to
+ms.custom: "devx-track-python,devx-track-csharp"
 
 
 #Customer intent: As a developer, I need to understand how to create a client application that consumes the web service of a deployed ML model.
@@ -75,7 +75,7 @@ There are a several ways to retrieve this information for deployed web services:
 
 # [Azure CLI](#tab/azure-cli)
 
-If you know the name of the deployed service, use the [az ml service show](/cli/azure/ext/azure-cli-ml/ml/service#ext_azure_cli_ml_az_ml_service_show) command:
+If you know the name of the deployed service, use the [az ml service show](/cli/azure/ml(v1)/service#az_ml_service_show) command:
 
 ```azurecli
 az ml service show -n <service-name>

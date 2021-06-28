@@ -1,15 +1,15 @@
 ---
 title: Custom models - Form Recognizer
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: Learn concepts related to Form Recognizer API custom models- usage and limits.
 services: cognitive-services
 author: laujan
 manager: nitinme
 
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 03/15/2021
+ms.date: 03/25/2021
 ms.author: lajanuar
 ---
 
@@ -30,34 +30,34 @@ With Form Recognizer, you can train a model that will extract information from f
 At a high level, the steps for building, training, and using your custom model are as follows:
 
 > [!div class="nextstepaction"]
-> [1. Assemble your training dataset](build-training-data-set.md#custom-model-input-requirements)
+>[&#120783;. Assemble your training dataset](build-training-data-set.md#custom-model-input-requirements)
 
 Building a custom model begins with establishing your training dataset. You'll need a minimum of five completed forms of the same type for your sample dataset. They can be of different file types and contain both text and handwriting. Your forms must be of the same type of document and follow the [input requirements](build-training-data-set.md#custom-model-input-requirements) for Form Recognizer.  
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#129155;
 
 > [!div class="nextstepaction"]
-> [2. Upload your training dataset](build-training-data-set.md#upload-your-training-data)
+> [&#120784;. Upload your training dataset](build-training-data-set.md#upload-your-training-data)
 
 You'll need to upload your training data to an Azure blob storage container. If you don't know how to create an Azure storage account with a container, *see* [Azure Storage quickstart for Azure portal](../../storage/blobs/storage-quickstart-blobs-portal.md). Use the free pricing tier (F0) to try the service, and upgrade later to a paid tier for production.  
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#129155;
-> [!div class="nextstepaction"]
-> [3. Train your custom model](quickstarts/client-library.md#train-a-custom-model)
 
-You can train your model [without](quickstarts/client-library.md#train-a-model-without-labels) or [with](quickstarts/client-library.md#train-a-model-with-labels) labeled data sets. Unlabeled datasets rely solely on the Layout API to detect and identify key information without added human input. Labeled datasets also rely on the Layout API, but supplementary human input is included such as your specific labels and field locations. To use both labeled and unlabeled data, start with at least five completed forms of the same type for the labeled training data and then add unlabeled data to the required data set.  
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#129155;  
+> [!div class="nextstepaction"]
+>[&#120785;. Train your custom model](quickstarts/client-library.md#train-a-custom-model)
+
+You can [train your model](quickstarts/client-library.md#train-a-custom-model)  with or without labeled data sets. Unlabeled datasets rely solely on the Layout API to detect and identify key information without added human input. Labeled datasets also rely on the Layout API, but supplementary human input is included such as your specific labels and field locations. To use both labeled and unlabeled data, start with at least five completed forms of the same type for the labeled training data and then add unlabeled data to the required data set.  
 
 >[!div class="nextstepaction"]
-> [4. Analyze documents with your custom model](quickstarts/client-library.md#analyze-forms-with-a-custom-model)
+>[&#120786;. Analyze documents with your custom model](quickstarts/client-library.md#analyze-forms-with-a-custom-model)
 
 Test your newly trained model by using a form that wasn't part of the training dataset. You can continue to do further training to improve the performance of your custom model.  
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#129155;
 
 > [!div class="nextstepaction"]
-> [5. Manage your custom models](quickstarts/client-library.md#manage-custom-models)
+>[&#120787;. Manage your custom models](quickstarts/client-library.md#manage-custom-models)
 
 At any time, you can view a list of all the custom models under your subscription, retrieve information about a specific custom model, or delete a custom model from your account.
 
 ## Next steps
 
-View **[Form Recognizer API reference](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/5ed8c9843c2794cbb1a96291)** documentation to learn more.
+Learn more about the Form Recognizer client library by exploring our API reference documentation.
+
+> [!div class="nextstepaction"]
+> [Form Recognizer API reference](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm)
 >

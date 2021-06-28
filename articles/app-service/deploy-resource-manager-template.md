@@ -1,4 +1,4 @@
-﻿---
+---
 title: Deploy apps with templates
 description: Find guidance on creating Azure Resource Manager templates to provision and deploy App Service apps.
 author: tfitzmac
@@ -6,7 +6,7 @@ author: tfitzmac
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: tomfitz
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurepowershell
 
 ---
 # Guidance on deploying web apps by using Azure Resource Manager templates
@@ -49,7 +49,7 @@ You deploy resources in the following order:
 
 Typically, your solution includes only some of these resources and tiers. For missing tiers, map lower resources to the next-higher tier.
 
-The following example shows part of a template. The value of the connection string configuration depends on the MSDeploy extension. The MSDeploy extension depends on the web app and database. 
+The following example shows part of a template. The value of the connection string configuration depends on the MSDeploy extension. The MSDeploy extension depends on the web app and database.
 
 ```json
 {
@@ -78,7 +78,7 @@ The following example shows part of a template. The value of the connection stri
 }
 ```
 
-For a ready-to-run sample that uses the code above, see [Template: Build a simple Umbraco Web App](https://github.com/Azure/azure-quickstart-templates/tree/master/umbraco-webapp-simple).
+For a ready-to-run sample that uses the code above, see [Template: Build a simple Umbraco Web App](https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/umbraco/umbraco-webapp-simple).
 
 ## Find information about MSDeploy errors
 
@@ -125,7 +125,7 @@ In your Key Vault, select **Certificates** and **Generate/Import** to upload the
 
 In your template, provide the name of the certificate for the `keyVaultSecretName`.
 
-For an example template, see [Deploy a Web App certificate from Key Vault secret and use it for creating SSL binding](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-certificate-from-key-vault).
+For an example template, see [Deploy a Web App certificate from Key Vault secret and use it for creating SSL binding](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/web-app-certificate-from-key-vault).
 
 ## Next steps
 

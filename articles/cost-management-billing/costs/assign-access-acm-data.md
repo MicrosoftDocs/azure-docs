@@ -3,7 +3,7 @@ title: Assign access to Azure Cost Management data
 description: This article walks you though assigning permission to Azure Cost Management data for various access scopes.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/24/2020
+ms.date: 06/27/2021
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -34,9 +34,9 @@ To view cost data for Azure EA subscriptions, a user must have at least read acc
 | Billing account<sup>1</sup> | [https://ea.azure.com](https://ea.azure.com/) | Enterprise Admin | None | All subscriptions from the enterprise agreement |
 | Department | [https://ea.azure.com](https://ea.azure.com/) | Department Admin | **DA view charges** enabled | All subscriptions belonging to an enrollment account that is linked to the department |
 | Enrollment account<sup>2</sup> | [https://ea.azure.com](https://ea.azure.com/) | Account Owner | **AO view charges** enabled | All subscriptions from the enrollment account |
-| Management group | [https://portal.azure.com](https://portal.azure.com/) | Cost Management Reader (or Reader) | **AO view charges** enabled | All subscriptions below the management group |
-| Subscription | [https://portal.azure.com](https://portal.azure.com/) | Cost Management Reader (or Reader) | **AO view charges** enabled | All resources/resource groups in the subscription |
-| Resource group | [https://portal.azure.com](https://portal.azure.com/) | Cost Management Reader (or Reader) | **AO view charges** enabled | All resources in the resource group |
+| Management group | [https://portal.azure.com](https://portal.azure.com/) | Cost Management Reader (or Contributor) | **AO view charges** enabled | All subscriptions below the management group |
+| Subscription | [https://portal.azure.com](https://portal.azure.com/) | Cost Management Reader (or Contributor) | **AO view charges** enabled | All resources/resource groups in the subscription |
+| Resource group | [https://portal.azure.com](https://portal.azure.com/) | Cost Management Reader (or Contributor) | **AO view charges** enabled | All resources in the resource group |
 
 <sup>1</sup> The billing account is also referred to as the Enterprise Agreement or Enrollment.
 
@@ -47,8 +47,8 @@ To view cost data for Azure EA subscriptions, a user must have at least read acc
 
 To view cost data for other Azure subscriptions, a user must have at least read access to one or more of the following scopes:
 
-- Azure account
 - Management group
+- Subscription
 - Resource group
 
 Various scopes are available after partners onboard customers to a Microsoft Customer Agreement. CSP customers can then use Cost Management features when enabled by their CSP partner. For more information, see [Get started with Azure Cost Management for partners](get-started-partners.md).
@@ -135,45 +135,24 @@ After completing the steps above, the user account becomes an enrollment account
 
 Access to view the management group scope requires at least the Cost Management Reader (or Reader) permission. You can configure permissions for a management group in the Azure portal. You must have at least the User Access Administrator (or Owner) permission for the management group to enable access for others. And for Azure EA accounts, you must also have enabled the **AO view charges** setting in the EA portal.
 
-1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
-2. Select **All Services** in the sidebar, search for _management groups_, then select **management groups**.
-3. Select the management group in the hierarchy.
-4. Next to the name of your management group, select **Details**.
-5. Select **Access Control (IAM)** from the left pane.
-6. Select **Add**.
-7. Under **Role**, select **Cost Management Reader**.
-8. Under **Assign access to**, select **Azure AD user, group, or application**.
-9. To assign access, search for and then select the user.
-10. Select **Save**.  
-    ![example information in the Add permissions box for a management group](./media/assign-access-acm-data/add-permissions.png)
+
+- Assign the Cost Management Reader (or reader) role to a user at the management group scope.  
+     For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 ## Assign subscription scope access
 
 Access to a subscription requires at least the Cost Management Reader (or Reader) permission. You can configure permissions to a subscription in the Azure portal. You must have at least the User Access Administrator (or Owner) permission for the subscription to enable access for others. And for Azure EA accounts, you must also have enabled the **AO view charges** setting in the EA portal.
 
-1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
-2. Select **All Services** in the sidebar, search for _subscriptions_, then select **Subscriptions**.
-3. Select your subscription.
-4. Select **Access Control (IAM)** from the left pane.
-5. Select **Add**.
-6. Under **Role**, select **Cost Management Reader**.
-7. Under **Assign access to**, select **Azure AD user, group, or application**.
-8. To assign access, search for and then select the user.
-9. Select **Save**.
+- Assign the Cost Management Reader (or reader) role to a user at the subscription scope.  
+     For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 ## Assign resource group scope access
 
 Access to a resource group requires at least the Cost Management Reader (or Reader) permission. You can configure permissions to a resource group in the Azure portal. You must have at least the User Access Administrator (or Owner) permission for the resource group to enable access for others. And for Azure EA accounts, you must also have enabled the **AO view charges** setting in the EA portal.
 
-1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
-2. Select **All Services** in the sidebar, search for _resource groups_, then select **Resource groups**.
-3. Select your resource group.
-4. Select **Access Control (IAM)** from the left pane.
-5. Select **Add**.
-6. Under **Role**, select **Cost Management Reader**.
-7. Under **Assign access to**, select **Azure AD user, group, or application**.
-8. To assign access, search for and then select the user.
-9. Select **Save**.
+
+- Assign the Cost Management Reader (or reader) role to a user at the resource group scope.  
+     For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 ## Cross-tenant authentication issues
 

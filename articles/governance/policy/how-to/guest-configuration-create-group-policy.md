@@ -1,7 +1,7 @@
 ---
 title: How to create Guest Configuration policy definitions from Group Policy baseline for Windows
-description: Learn how to convert Group Policy from the Windows Server 2019 Security Baseline into a policy definition. 
-ms.date: 08/17/2020
+description: Learn how to convert Group Policy from the Windows Server 2019 Security Baseline into a policy definition.
+ms.date: 03/31/2021
 ms.topic: how-to
 ---
 # How to create Guest Configuration policy definitions from Group Policy baseline for Windows
@@ -26,7 +26,7 @@ machines.
 > deploy the extension at scale across all Windows machines, assign the following policy
 > definitions:
 > - [Deploy prerequisites to enable Guest Configuration Policy on Windows VMs.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0ecd903d-91e7-4726-83d3-a229d7f2e293)
-> 
+>
 > Don't use secrets or confidential information in custom content packages.
 
 The DSC community has published the
@@ -38,7 +38,7 @@ Policy content. For details about using the BaselineManagement module, see the a
 
 In this guide, we walk through the process to create an Azure Policy Guest Configuration package
 from a Group Policy Object (GPO). While the walkthrough outlines conversion of the Windows Server
-2019 Security Baseline, the same process can be applied to other GPOs.  
+2019 Security Baseline, the same process can be applied to other GPOs.
 
 ## Download Windows Server 2019 Security Baseline and install related PowerShell modules
 
@@ -103,8 +103,8 @@ Guest Configuration and Baseline Management modules.
 
 ## Create Azure Policy Guest Configuration
 
-1. The next step is to publish the file to Azure Blob Storage. The command `Publish-GuestConfigurationPackage` requires the `Az.Storage`
-module.
+1. The next step is to publish the file to Azure Blob Storage. The command
+   `Publish-GuestConfigurationPackage` requires the `Az.Storage` module.
 
    ```azurepowershell-interactive
    Publish-GuestConfigurationPackage -Path ./AuditBitlocker.zip -ResourceGroupName  myResourceGroupName -StorageAccountName myStorageAccountName
@@ -115,16 +115,16 @@ module.
    Guest Configuration.
 
    ```azurepowershell-interactive
-    $NewGuestConfigurationPolicySplat = @{
-        ContentUri = $Uri 
-        DisplayName = 'Server 2019 Configuration Baseline' 
-        Description 'Validation of using a completely custom baseline configuration for Windows VMs' 
+   $NewGuestConfigurationPolicySplat = @{
+        ContentUri = $Uri
+        DisplayName = 'Server 2019 Configuration Baseline'
+        Description 'Validation of using a completely custom baseline configuration for Windows VMs'
         Path = 'C:\git\policyfiles\policy'  
-        Platform = Windows 
-        }
+        Platform = Windows
+   }
    New-GuestConfigurationPolicy @NewGuestConfigurationPolicySplat
    ```
-	
+
 1. Publish the policy definitions using the `Publish-GuestConfigurationPolicy` cmdlet. The cmdlet
    only has the **Path** parameter that points to the location of the JSON files created by
    `New-GuestConfigurationPolicy`. To run the Publish command, you need access to create policy
@@ -150,7 +150,7 @@ initiative with [Portal](../assign-policy-portal.md), [Azure CLI](../assign-poli
 
 Assigning a policy definition with _DeployIfNotExists_ effect requires an additional level of
 access. To grant the least privilege, you can create a custom role definition that extends
-**Resource Policy Contributor**. The example below creates a role named **Resource Policy
+**Resource Policy Contributor**. The following example creates a role named **Resource Policy
 Contributor DINE** with the additional permission _Microsoft.Authorization/roleAssignments/write_.
 
    ```azurepowershell-interactive

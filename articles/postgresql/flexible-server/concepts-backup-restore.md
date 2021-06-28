@@ -64,9 +64,9 @@ The physical database files are first restored from the snapshot backups to the 
 
 Point-in-time restore is useful in multiple scenarios. For example, when a user accidentally deletes data, drops an important table or database, or if an application accidentally overwrites good data with bad data due to an application defect. You will be able to restore to the last transaction due to continuous backup of transaction logs.
 
-You can choose between an earliest restore point and a custom restore point.
+You can choose between a latest restore point and a custom restore point.
 
--   **Earliest restore point**: Depending on your retention period, it will be the earliest time that you can restore. The oldest backup time will be auto-selected and is displayed on the portal. This is useful if you want to investigate or do some testing starting that point in time.
+-   **Latest restore point (now)**: This is the default option which allows you to restore the server to the latest point-in-time. 
 
 -   **Custom restore point**: This option allows you to choose any point-in-time within the retention period defined for this flexible server. By default, the latest time in UTC is auto-selected, and useful if you want to restore to the last committed transaction for your test purposes. You can optionally choose other days and time. 
 

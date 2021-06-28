@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Configure Azure Bastion and connect to a VM via private IP address and a browser'
 titleSuffix: Azure Bastion
-description: In this quickstart article, learn how to create an Azure Bastion host from a virtual machine and connect to the VM securely through your browser via private IP address.
+description: Learn how to create an Azure Bastion host from a virtual machine and connect to the VM securely through your browser via private IP address.
 services: bastion
 author: cherylmc
 
@@ -34,6 +34,10 @@ You can connect to a virtual machine (VM) through your browser using the Azure p
   
 * Required VM ports:
   * Inbound ports: RDP (3389)
+
+ >[!NOTE]
+ >The use of Azure Bastion with Azure Private DNS Zones is not supported at this time. Before you begin, please make sure that the virtual network where you plan to deploy your Bastion resource is not linked to a private DNS zone.
+ >
 
 ### <a name="values"></a>Example values
 

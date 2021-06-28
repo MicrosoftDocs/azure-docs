@@ -7,7 +7,7 @@ author: duongau
 ms.service: frontdoor
 ms.topic: how-to
 ms.date: 02/18/2021
-ms.author: tyao
+ms.author: duau
 ---
 
 # Connect Azure Front Door Premium to a Web App origin with Private Link

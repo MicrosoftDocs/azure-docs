@@ -1,65 +1,77 @@
 ---
-title: "Azure Monitor docs: What's new for February 1, 2021 - February 28, 2021"
-description: "What's new in the Azure Monitor docs for February 1, 2021 - February 28, 2021."
+title: "Azure Monitor docs: What's new for May, 2021"
+description: "What's new in the Azure Monitor docs for May, 2021."
 ms.topic: conceptual
-ms.date: 03/04/2021
+ms.date: 06/03/2021
 ---
 
-# Azure Monitor docs: What's new for February 1, 2021 - February 28, 2021
+# Azure Monitor docs: What's new for May, 2021
 
-Welcome to what's new in the Azure Monitor docs from February 1, 2021 through February 28, 2021. This article lists some of the significant changes to docs during this period.
+Welcome to what's new in the Azure Monitor docs from May, 2021. This article lists some of the major changes to docs during this period.
+
+## General
+
+**Updated articles**
+
+- [Azure Monitor Frequently Asked Questions](faq.yml)
+- [Azure Monitor partner integrations](partners.md)
 
 ## Alerts
 
 **Updated articles**
 
-- [Create an action group with a Resource Manager template](./alerts/action-groups-create-resource-manager-template.md)
-- [How to trigger complex actions with Azure Monitor alerts](./alerts/action-groups-logic-app.md)
+- [Log alerts in Azure Monitor](alerts/alerts-unified-log.md)
 
 ## Application Insights
 
 **New articles**
 
-- [Downtime, SLA, and outages workbook](./app/sla-report.md)
-- [Work Item Integration (preview)](./app/work-item-integration.md)
+- [Private testing](app/availability-private-test.md)
 
 **Updated articles**
 
-- [Export telemetry from Application Insights](./app/export-telemetry.md)
-- [Telemetry processor examples - Azure Monitor Application Insights for Java](./app/java-standalone-telemetry-processors-examples.md)
-- [Telemetry processors (preview) - Azure Monitor Application Insights for Java](./app/java-standalone-telemetry-processors.md)
-- [What is auto-instrumentation or codeless attach - Azure Monitor Application Insights?](./app/codeless-overview.md)
-- [Deploy the Azure Monitor Application Insights Agent on Azure virtual machines and Azure virtual machine scale sets](./app/azure-vm-vmss-apps.md)
-- [Application Map: Triage Distributed Applications](./app/app-map.md)
-
-## Change analysis
-
-**New articles**
-
-- [Troubleshoot Application Change Analysis](./app/change-analysis-troubleshoot.md)
-- [Visualizations for Application Change Analysis](./app/change-analysis-visualizations.md)
-
-**Updated articles**
-
-- [Use Application Change Analysis (preview) in Azure Monitor](./app/change-analysis.md)
+- [Release annotations for Application Insights](app/annotations.md)
+- [Application Insights logging with .NET](app/ilogger.md)
+- [Diagnose exceptions in web apps with Application Insights](app/asp-net-exceptions.md)
+- [Application Monitoring for Azure App Service](app/azure-web-apps.md)
+- [What is auto-instrumentation or codeless attach - Azure Monitor Application Insights?](app/codeless-overview.md)
+- [Java codeless application monitoring Azure Monitor Application Insights](app/java-in-process-agent.md)
+- [Upgrading from Application Insights Java 2.x SDK](app/java-standalone-upgrade-from-2x.md)
+- [Quickstart: Get started with Application Insights in a Java web project](app/java-2x-get-started.md)
+- [Adding the JVM arg - Azure Monitor Application Insights for Java](app/java-standalone-arguments.md)
+- [Create and run custom availability tests using Azure Functions](app/availability-azure-functions.md)
+- [Set up Azure Monitor for your Python application](app/opencensus-python.md)
 
 ## Containers
 
-**New articles**
+**Updated articles**
 
-- [Enable AKS monitoring addon using Azure Policy](./containers/container-insights-enable-aks-policy.md)
+- [Configure agent data collection for Container insights](containers/container-insights-agent-config.md)
 
 ## Essentials
 
 **Updated articles**
 
-- [Supported metrics with Azure Monitor](./essentials/metrics-supported.md)
+- [Supported metrics with Azure Monitor](essentials/metrics-supported.md)
+- [Supported categories for Azure Resource Logs](essentials/resource-logs-categories.md)
 
-
-## Logs
+## Insights
 
 **Updated articles**
 
-- [Use Azure Private Link to securely connect networks to Azure Monitor](./logs/private-link-security.md)
+- [Monitoring your key vault service with Key Vault insights](insights/key-vault-insights-overview.md)
+- [Monitoring your storage service with Azure Monitor Storage insights](insights/storage-insights-overview.md)
 
+## Logs
+
+**New articles**
+
+- [Log Analytics Workspace Insights (preview)](logs/log-analytics-workspace-insights-overview.md)
+- [Using queries in Azure Monitor Log Analytics](logs/queries.md)
+- [Query packs in Azure Monitor Logs (preview)](logs/query-packs.md)
+- [Save a query in Azure Monitor Log Analytics (preview)](logs/save-query.md)
+
+**Updated articles**
+
+- [Log Analytics workspace data export in Azure Monitor (preview)](logs/logs-data-export.md)
 

@@ -100,6 +100,8 @@ Once you store your results, the data in the external table cannot be modified. 
 - [Specify partitions in CETAS](https://feedback.azure.com/forums/307516-azure-synapse-analytics/suggestions/19520860-polybase-partitioned-by-functionality-when-creati)
 - [Specify file sizes and counts](https://feedback.azure.com/forums/307516-azure-synapse-analytics/suggestions/42263617-cetas-specify-number-of-parquet-files-file-size)
 
+The only supported output types are Parquet and CSV. You can vote for the other types on [Azure feedback site](https://feedback.azure.com/forums/307516-azure-synapse-analytics/).
+
 ## Next steps
 
 For more information on how to query different file types, see the [Query single CSV file](query-single-csv-file.md), [Query Parquet files](query-parquet-files.md), and [Query JSON files](query-json-files.md) articles.

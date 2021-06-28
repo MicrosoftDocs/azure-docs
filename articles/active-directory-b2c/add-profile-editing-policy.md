@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/16/2020
+ms.date: 06/07/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -44,9 +44,14 @@ If you want to enable users to edit their profile in your application, you use a
 1. On the **Create a user flow** page, select the **Profile editing** user flow. 
 1. Under **Select a version**, select **Recommended**, and then select **Create**.
 1. Enter a **Name** for the user flow. For example, *profileediting1*.
-1. For **Identity providers**, select **Email sign-in**.
-1. For **User attributes**, choose the attributes that you want the customer to be able to edit in their profile. For example, select **Show more**, and then choose both attributes and claims for **Display name** and **Job title**. Click **OK**.
-1. Click **Create** to add the user flow. A prefix of *B2C_1* is automatically appended to the name.
+1. Under **Identity providers** select at least one identity provider:
+
+   * Under **Local accounts**, select one of the following: **Email signin**, **User ID signin**, **Phone signin**, **Phone/Email signin**, **User ID/Email signin**, or **None**. [Learn more](sign-in-options.md).
+   * Under **Social identity providers**, select any of the external social or enterprise identity providers you've set up. [Learn more](add-identity-provider.md).
+1. Under **Multifactor authentication**, if you want to require users to verify their identity with a second authentication method, choose the method type and when  to enforce multi-factor authentication (MFA). [Learn more](multi-factor-authentication.md).
+1. Under **Conditional access**, if you've configured Conditional Access policies for your Azure AD B2C tenant and you want to enable them for this user flow, select the **Enforce conditional access policies** check box. You don't need to specify a policy name. [Learn more](conditional-access-user-flow.md?pivots=b2c-user-flow).
+1. Under **User attributes**, choose the attributes that you want the customer to be able to edit in their profile. For the full list of values, select **Show more**, choose the values, and then select **OK**.
+1. Select **Create** to add the user flow. A prefix of *B2C_1* is automatically appended to the name.
 
 ### Test the user flow
 
@@ -61,7 +66,7 @@ If you want to enable users to edit their profile in your application, you use a
 
 ## Create a profile editing policy
 
-Custom policies are a set of XML files you upload to your Azure AD B2C tenant to define user journeys. We provide starter packs with several pre-built policies including: sign-up and sign-in, password reset, and profile editing policy. For more information, see [Get started with custom policies in Azure AD B2C](custom-policy-get-started.md).
+Custom policies are a set of XML files you upload to your Azure AD B2C tenant to define user journeys. We provide starter packs with several pre-built policies including: sign-up and sign-in, password reset, and profile editing policy. For more information, see [Get started with custom policies in Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy).
 
 ::: zone-end
 

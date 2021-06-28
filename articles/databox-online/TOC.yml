@@ -1,4 +1,4 @@
-- name: Azure Stack Edge Pro Documentation 
+- name: Azure Stack Edge Documentation 
   href: ./index.yml
   expanded: true
 - name: Azure Stack Edge Pro - GPU
@@ -227,32 +227,70 @@
         href: azure-stack-edge-gpu-set-azure-resource-manager-password.md 
       - name: Configure client TLS settings
         href: azure-stack-edge-gpu-configure-tls-settings.md 
-    - name: Deploy VMs (Preview)
+    - name: About VMs (Preview)
       items:
-      - name: Deploy VMs - Azure portal
-        href: azure-stack-edge-gpu-deploy-virtual-machine-portal.md 
-      - name: Deploy VMs - Templates
-        href: azure-stack-edge-gpu-deploy-virtual-machine-templates.md
-      - name: Deploy VMs - GPU
-        href: azure-stack-edge-gpu-deploy-gpu-virtual-machine.md  
-      - name: Deploy VMs - Azure PowerShell cmdlets
-        href: azure-stack-edge-gpu-deploy-virtual-machine-powershell.md 
-      - name: Deploy VMs - Azure PowerShell script
-        href: azure-stack-edge-gpu-deploy-virtual-machine-powershell-script.md 
-      - name: Deploy VMs - Azure CLI/Python
-        href: azure-stack-edge-gpu-deploy-virtual-machine-cli-python.md 
-      - name: Deploy Custom Script Extension on VMs
-        href: azure-stack-edge-gpu-deploy-virtual-machine-custom-script-extension.md 
+      - name: What are VMs?
+        href: azure-stack-edge-gpu-virtual-machine-overview.md
+      - name: View supported VMs
+        href: azure-stack-edge-gpu-virtual-machine-sizes.md              
+      - name: View supported API profiles
+        href: azure-stack-edge-profiles-azure-resource-manager-versions.md
       - name: Create VM image
-        href: azure-stack-edge-gpu-create-virtual-machine-image.md
-      - name: Use Windows generalized image
-        href: azure-stack-edge-gpu-prepare-windows-vhd-generalized-image.md
-      - name: Supported VM sizes, types
-        href: azure-stack-edge-gpu-virtual-machine-sizes.md 
-      - name: Connect to VM console
-        href: azure-stack-edge-gpu-connect-virtual-machine-console.md
-      - name: Manage network interfaces
-        href: azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal.md
+        items:
+        - name: Custom image from Azure VM
+          href: azure-stack-edge-gpu-create-virtual-machine-image.md
+        - name: Windows generalized image from VHD
+          href: azure-stack-edge-gpu-prepare-windows-vhd-generalized-image.md
+        - name: Generalized image from ISO
+          href: azure-stack-edge-gpu-prepare-windows-generalized-image-iso.md
+        - name: Use specialized image
+          href: azure-stack-edge-gpu-deploy-vm-specialized-image-powershell.md 
+        - name: Use Azure Marketplace image
+          href: azure-stack-edge-gpu-create-virtual-machine-marketplace-image.md 
+      - name: Deploy VMs
+        items:
+        - name: Via Azure portal
+          href: azure-stack-edge-gpu-deploy-virtual-machine-portal.md 
+        - name: Via templates
+          href: azure-stack-edge-gpu-deploy-virtual-machine-templates.md
+        - name: Using GPU
+          href: azure-stack-edge-gpu-deploy-gpu-virtual-machine.md  
+        - name: Via Azure PowerShell cmdlets
+          href: azure-stack-edge-gpu-deploy-virtual-machine-powershell.md 
+        - name: Via Azure PowerShell script
+          href: azure-stack-edge-gpu-deploy-virtual-machine-powershell-script.md 
+        - name: Via Azure CLI/Python
+          href: azure-stack-edge-gpu-deploy-virtual-machine-cli-python.md 
+      - name: How-tos
+        items: 
+        - name: Manage network interfaces
+          href: azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal.md
+        - name: Manage disks
+          href: azure-stack-edge-gpu-manage-virtual-machine-disks-portal.md
+        - name: Manage VM sizes
+          href: azure-stack-edge-gpu-manage-virtual-machine-resize-portal.md
+        - name: Manage VM tags
+          href: azure-stack-edge-gpu-manage-virtual-machine-tags-powershell.md
+        - name: Manage virtual switches
+          href: azure-stack-edge-gpu-create-virtual-switch-powershell.md
+        - name: Install custom script extension
+          href: azure-stack-edge-gpu-deploy-virtual-machine-custom-script-extension.md
+        - name: Install GPU extension
+          href: azure-stack-edge-gpu-deploy-virtual-machine-install-gpu-extension.md
+        - name: Back up VM disks 
+          href: azure-stack-edge-gpu-back-up-virtual-machine-disks.md
+        - name: Troubleshoot
+          items:
+          - name: Connect to VM console
+            href: azure-stack-edge-gpu-connect-virtual-machine-console.md
+          - name: Collect VM guest logs
+            href: azure-stack-edge-gpu-collect-virtual-machine-guest-logs.md          
+          - name: VM image upload
+            href: azure-stack-edge-gpu-troubleshoot-virtual-machine-image-upload.md
+          - name: VM deployment
+            href: azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning.md
+          - name: GPU extension issues
+            href: azure-stack-edge-gpu-troubleshoot-virtual-machine-gpu-extension-installation.md
     - name: Manage certificates
       items:
       - name: Requirements
@@ -311,17 +349,25 @@
         href: azure-stack-edge-gpu-enable-azure-monitor.md
     - name: Troubleshoot
       items:
-      - name: Device issues 
-        href: azure-stack-edge-gpu-troubleshoot.md
       - name: Ordering issues
         href: azure-stack-edge-troubleshoot-ordering.md   
       - name: Activation issues
         href: azure-stack-edge-gpu-troubleshoot-activation.md    
+      - name: Device logs and diagnostics 
+        href: azure-stack-edge-gpu-troubleshoot.md
+      - name: Azure Resource Manager issues 
+        href: azure-stack-edge-gpu-troubleshoot-azure-resource-manager.md
+      - name: Blob issues
+        href: azure-stack-edge-gpu-troubleshoot-blob-storage.md
+      - name: IoT Edge issues
+        href: azure-stack-edge-gpu-troubleshoot-iot-edge.md
       - name: Contact Microsoft Support
         href: azure-stack-edge-contact-microsoft-support.md 
   - name: Shared release notes
     items:
-    - name: 2103 - Current
+    - name: 2105 - Current
+      href: azure-stack-edge-gpu-2105-release-notes.md
+    - name: 2103 
       href: azure-stack-edge-gpu-2103-release-notes.md
     - name: 2101 
       href: azure-stack-edge-gpu-2101-release-notes.md
@@ -403,6 +449,8 @@
           href: azure-stack-edge-troubleshoot.md
         - name: Ordering issues
           href: azure-stack-edge-troubleshoot-ordering.md
+        - name: IoT Edge
+          href: azure-stack-edge-troubleshoot-iot-edge.md
         - name: Contact Microsoft Support
           href: azure-stack-edge-contact-microsoft-support.md    
     - name: Monitor
@@ -431,7 +479,12 @@
 - name: Security
   items:
   - name: Security baseline
-    href: security-baseline.md
+    href: /security/benchmark/azure/baselines/stack-edge-security-baseline?toc=/azure/databox-online/TOC.json
+
+- name: Reference
+  items:
+  - name: Azure CLI
+    href: /cli/azure/databoxedge
 
 - name: Resources
   items:

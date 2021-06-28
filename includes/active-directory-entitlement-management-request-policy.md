@@ -22,7 +22,7 @@ Follow these steps if you want to allow users in your directory to be able to re
 
 1. Select one of the following options:
 
-    |  |  |
+    |  | Description |
     | --- | --- |
     | **Specific users and groups** | Choose this option if you want only the users and groups in your directory that you specify to be able to request this access package. |
     | **All members (excluding guests)** | Choose this option if you want all member users in your directory to be able to request this access package. This option doesn't include any guest users you might have invited into your directory. |
@@ -57,7 +57,7 @@ Follow these steps if you want to allow users not in your directory to request t
 
 1. Select one of the following options:
 
-    |  |  |
+    |  | Description |
     | --- | --- |
     | **Specific connected organizations** | Choose this option if you want to select from a list of organizations that your administrator previously added. All users from the selected organizations can request this access package. |
     | **All connected organizations** | Choose this option if all users from all your connected organizations can request this access package. |
@@ -84,7 +84,7 @@ Follow these steps if you want to allow users not in your directory to request t
 
 Follow these steps if you want to bypass access requests and allow administrators to directly assign specific users to this access package. Users won't have to request the access package. You can still set lifecycle settings, but there are no request settings.
 
-1. In the **Users who can request access** section, click **None (administrator direct assignments only**.
+1. In the **Users who can request access** section, click **None (administrator direct assignments only)**.
 
     ![Access package - Requests - None administrator direct assignments only](./media/active-directory-entitlement-management-request-policy/none-admin-direct-assignments-only.png)
 
@@ -205,7 +205,7 @@ For example, if you listed Alice and Bob as the First Approver(s), list Carol an
 
 1. Click **Next**.
 
-## Add Requestor information (preview) to an access package
+## Add Requestor information to an access package
 
 1. Go to the **Requestor information** tab and click the **Questions** sub tab.
  
@@ -213,7 +213,7 @@ For example, if you listed Alice and Bob as the First Approver(s), list Carol an
 
     ![Access package - Policy- Enable Requestor information setting](./media/active-directory-entitlement-management-request-policy/add-requestor-info-question.png)
 
-1. If you would like to add your own localization options, click **add localization**.
+1. If you would like to localize question and answer options, click **add localization**.
     1. Once in the **Add localizations for question** pane, select the **language code** for the language in which you are localizing the question.
     1. In the language you configured, type the question in the **Localized Text** box.
     1. Once you have added all the localizations needed, click **Save**.
@@ -224,10 +224,13 @@ For example, if you listed Alice and Bob as the First Approver(s), list Carol an
  
     ![Access package - Policy- Select view and edit multiple choice answer format](./media/active-directory-entitlement-management-request-policy/answer-format-view-edit.png)
  
-1. If selecting multiple choice, click on the **view and edit** button to configure the answer options.
-    1. After selecting view and edit the **View/edit question** pane will open.
+1. If selecting multiple choice, click on the **edit and localize** button to configure the answer options.
+    1. After selecting edit and localize the **Edit/localize question** pane will open.
     1. Type in the response options you wish to give the requestor when answering the question in the **Answer values** boxes.
-    1. Type in as many responses as you need then click **Save**.
+    1. Type in as many responses as you need.
+    1. If you would like to add your own localization for the multiple choice options, select the **Optional language code** for the language in which you want to localize a specific option.
+    1. In the language you configured, type the option in the Localized text box.
+    1. Once you have added all of the localizations needed for each multiple choice option, click **Save**.
     
     ![Access package - Policy- Enter multiple choice options](./media/active-directory-entitlement-management-request-policy/answer-multiple-choice.png)
   

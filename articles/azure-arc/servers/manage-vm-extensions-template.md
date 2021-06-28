@@ -1,8 +1,9 @@
 ---
 title: Enable VM extension using Azure Resource Manager template
 description: This article describes how to deploy virtual machine extensions to Azure Arc enabled servers running in hybrid cloud environments using an Azure Resource Manager template.
-ms.date: 03/01/2021
-ms.topic: conceptual
+ms.date: 04/13/2021
+ms.topic: conceptual 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Enable Azure VM extensions by using ARM template
@@ -13,6 +14,9 @@ VM extensions can be added to an Azure Resource Manager template and executed wi
 
 >[!NOTE]
 >While multiple extensions can be batched together and processed, they are installed serially. Once the first extension installation is complete, installation of the next extension is attempted.
+
+> [!NOTE]
+> Azure Arc enabled servers does not support deploying and managing VM extensions to Azure virtual machines. For Azure VMs, see the following [VM extension overview](../../virtual-machines/extensions/overview.md) article.
 
 ## Deploy the Log Analytics VM extension
 
@@ -318,7 +322,6 @@ To use the Azure Monitor Dependency agent extension, the following sample is pro
       "properties": {
         "publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
         "type": "DependencyAgentLinux",
-        "typeHandlerVersion": "9.5",
         "autoUpgradeMinorVersion": true
       }
     }
@@ -356,7 +359,6 @@ To use the Azure Monitor Dependency agent extension, the following sample is pro
       "properties": {
         "publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
         "type": "DependencyAgentWindows",
-        "typeHandlerVersion": "9.5",
         "autoUpgradeMinorVersion": true
       }
     }
@@ -422,7 +424,6 @@ The following JSON shows the schema for the Key Vault VM extension (preview). Th
       "properties": {
       "publisher": "Microsoft.Azure.KeyVault",
       "type": "KeyVaultForLinux",
-      "typeHandlerVersion": "1.0",
       "autoUpgradeMinorVersion": true,
       "settings": {
           "secretsManagementSettings": {
@@ -492,7 +493,6 @@ The following JSON shows the schema for the Key Vault VM extension (preview). Th
       "properties": {
       "publisher": "Microsoft.Azure.KeyVault",
       "type": "KeyVaultForWindows",
-      "typeHandlerVersion": "1.0",
       "autoUpgradeMinorVersion": true,
       "settings": {
         "secretsManagementSettings": {

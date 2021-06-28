@@ -5,7 +5,7 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 09/28/2020
+ms.date: 05/12/2021
 ms.author: rogarana
 ms.custom: include file
 ---
@@ -25,6 +25,7 @@ The following table outlines the regions ultra disks are available in, as well a
 |East Asia     |Single VMs only (Availability sets and virtual machine scale sets are not supported)|
 |Germany West Central     |Single VMs only (Availability sets and virtual machine scale sets are not supported)|
 |Korea Central     |Single VMs only (Availability sets and virtual machine scale sets are not supported)|
+|North Central US    |Single VMs only (Availability sets and virtual machine scale sets are not supported)|
 |South Central US    |Single VMs only (Availability sets and virtual machine scale sets are not supported)|
 |US Gov Arizona     |Single VMs only (Availability sets and virtual machine scale sets are not supported)|
 |US Gov Virginia     |Single VMs only (Availability sets and virtual machine scale sets are not supported)|
@@ -55,13 +56,24 @@ The following table outlines the regions ultra disks are available in, as well a
     - [Dsv4](../articles/virtual-machines/dv4-dsv4-series.md#dsv4-series)
     - [FSv2](../articles/virtual-machines/fsv2-series.md)
     - [LSv2](../articles/virtual-machines/lsv2-series.md)
-    - [M](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md)
-    - [Mv2](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md)
+    - [M](../articles/virtual-machines/m-series.md)
+    - [Mv2](../articles/virtual-machines/mv2-series.md)
+    - [HBv2](../articles/virtual-machines/hbv2-series.md)
+    - [HB](../articles/virtual-machines/hb-series.md)
+    - [HC](../articles/virtual-machines/hc-series.md)
+    - [NDv2](../articles/virtual-machines/ndv2-series.md)
+    - [ND](../articles/virtual-machines/nd-series.md)
+    - [NC_T4_v3](../articles/virtual-machines/nct4-v3-series.md)
+    - [NCv2](../articles/virtual-machines/ncv2-series.md)
+    - [NCv3](../articles/virtual-machines/ncv3-series.md)
+    - [NVv3](../articles/virtual-machines/nvv3-series.md)
+    - [NVv4](../articles/virtual-machines/nvv4-series.md)
+    
 - Not every VM size is available in every supported region with ultra disks.
 - Are only available as data disks. 
 - Support 4k physical sector size by default. 512E sector size is available as a generally available offering (no signup required). Most applications are compatible with 4k sector sizes but, some require 512 byte sector sizes. One example would be Oracle Database, which requires release 12.2 or later in order to support the 4k native disks. For older versions of Oracle DB, 512 byte sector size is required.
 - Can only be created as empty disks.
-- Doesn't currently support disk snapshots, VM images, availability sets, Azure Dedicated Hosts, or Azure disk encryption.
+- Doesn't currently support disk snapshots, disk export, changing disk type, VM images, availability sets, Azure Dedicated Hosts, or Azure disk encryption.
 - Doesn't currently support integration with Azure Backup or Azure Site Recovery.
 - Only supports un-cached reads and un-cached writes.
 - The current maximum limit for IOPS on GA VMs is 80,000.

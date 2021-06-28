@@ -5,11 +5,11 @@ description: Use the Docker containers for the Text Analytics API to perform nat
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.custom: seodec18, cog-serv-seo-aug-2020
+ms.custom: seodec18, cog-serv-seo-aug-2020, devx-track-azurecli
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 03/02/2021
+ms.date: 06/02/2021
 ms.author: aahi
 keywords: on-premises, Docker, container, sentiment analysis, natural language processing
 ---
@@ -19,7 +19,6 @@ keywords: on-premises, Docker, container, sentiment analysis, natural language p
 > [!NOTE]
 > * The container for Sentiment Analysis and language detection are now Generally Available. The key phrase extraction container is available as an ungated public preview.
 > * Entity linking and NER are not currently available as a container.
-> * Accessing the Text Analytics for health container requires a [request form](https://aka.ms/csgate). Currently, you will not be billed for its usage.
 > * The container image locations may have recently changed. Read this article to see the updated location for this container.
 
 Containers enable you to run the Text Analytic APIs in your own environment and are great for your specific security and data governance requirements. The Text Analytics containers provide advanced natural language processing over raw text, and include three main functions: sentiment analysis, key phrase extraction, and language detection. 
@@ -27,7 +26,7 @@ Containers enable you to run the Text Analytic APIs in your own environment and 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 
 > [!IMPORTANT]
-> The free account is limited to 5,000 transactions per month and only the **Free** and **Standard** <a href="https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics" target="_blank">pricing tiers </a> are valid for containers. For more information on transaction request rates, see [Data Limits](../overview.md#data-limits).
+> The free account is limited to 5,000 transactions per month and only the **Free** and **Standard** <a href="https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics" target="_blank">pricing tiers </a> are valid for containers. For more information on transaction request rates, see [Data Limits](../concepts/data-limits.md).
 
 ## Prerequisites
 
@@ -44,6 +43,8 @@ You must meet the following prerequisites before using Text Analytics containers
 |Text Analytics resource |In order to use the container, you must have:<br><br>An Azure [Text Analytics resource](../../cognitive-services-apis-create-account.md) with the free (F0) or standard (S) [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/). You will need to get the associated API key and endpoint URI by navigating to your resource's **Key and endpoint** page in the Azure portal. <br><br>**{API_KEY}**: One of the two available resource keys. <br><br>**{ENDPOINT_URI}**: The endpoint for your resource. |
 
 [!INCLUDE [Gathering required parameters](../../containers/includes/container-gathering-required-parameters.md)]
+
+If you're using the Text Analytics for health container, the [responsible AI](/legal/cognitive-services/text-analytics/transparency-note-health)  (RAI) acknowledgment must also be present with a value of `accept`.
 
 ## The host computer
 
@@ -170,4 +171,4 @@ In this article, you learned concepts and workflow for downloading, installing, 
 ## Next steps
 
 * Review [Configure containers](../text-analytics-resource-container-config.md) for configuration settings
-* Refer to [Frequently asked questions (FAQ)](../text-analytics-resource-faq.md) to resolve issues related to functionality.
+* Refer to [Frequently asked questions (FAQ)](../text-analytics-resource-faq.yml) to resolve issues related to functionality.

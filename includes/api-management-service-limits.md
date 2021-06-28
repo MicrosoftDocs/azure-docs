@@ -8,14 +8,14 @@ author: vladvino
 ms.assetid: 1b813833-39c8-46be-8666-fd0960cfbf04
 ms.service: api-management
 ms.topic: include
-ms.date: 02/19/2021
+ms.date: 06/09/2021
 ms.author: vlvinogr
 ms.custom: include file
 ---
 
 | Resource | Limit |
 | ---------------------------------------------------------------------- | -------------------------- |
-| Maximum number of scale units | 10 per region<sup>1</sup> |
+| Maximum number of scale units | 12 per region<sup>1</sup> |
 | Cache size | 5 GiB per unit<sup>2</sup> |
 | Concurrent back-end connections<sup>3</sup> per HTTP authority | 2,048 per unit<sup>4</sup> |
 | Maximum cached response size | 2 MiB |
@@ -26,7 +26,7 @@ ms.custom: include file
 | Maximum number of subscriptions per service instance<sup>8</sup> | 500 |
 | Maximum number of client certificates per service instance<sup>8</sup> | 50 |
 | Maximum number of APIs per service instance<sup>8</sup> | 50 |
-| Maximum number of API operations per service instance<sup>8</sup> | 1,000 |
+| Maximum number of API management operations per service instance<sup>8</sup> | 1,000 |
 | Maximum total request duration<sup>8</sup> | 30 seconds |
 | Maximum buffered payload size<sup>8</sup> | 2 MiB |
 | Maximum request URL size<sup>9</sup> | 4096 bytes |

@@ -1,9 +1,9 @@
 ---
 title: Access tiers for Azure Blob Storage - hot, cool, and archive
 description: Read about hot, cool, and archive access tiers for Azure Blob Storage. Review storage accounts that support tiering.
-author: mhopkins-msft
+author: tamram
 
-ms.author: mhopkins
+ms.author: tamram
 ms.date: 03/18/2021
 ms.service: storage
 ms.subservice: blobs
@@ -82,7 +82,7 @@ Example usage scenarios for the archive access tier include:
 - Compliance and archival data that needs to be stored for a long time and is hardly ever accessed
 
 > [!NOTE]
-> The archive tier is not supported for ZRS, GZRS, or RA-GZRS accounts. Migrating from LRS to GRS is not supported if the storage account contains blobs in the archive tier.
+> The archive tier is not supported for ZRS, GZRS, or RA-GZRS accounts. Migrating from LRS to GRS is supported as long as no blobs were moved to the archive tier while the account was set to LRS. An account can be moved back to GRS if the update is done less than 30 days from the time the account became LRS, and no blobs were moved to the archive tier while the account was set to LRS.
 
 ## Account-level tiering
 

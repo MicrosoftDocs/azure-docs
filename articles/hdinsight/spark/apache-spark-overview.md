@@ -6,7 +6,7 @@ ms.custom: contperf-fy21q1
 ms.topic: overview
 ms.date: 09/21/2020
 
-#customer intent: As a developer new to Apache Spark and Apache Spark in Azure HDInsight, I want to have a basic understanding of Microsoft's implementation of Apache Spark in Azure HDInsight so I can decide if I want to use it rather than build my own cluster.
+# Customer intent: As a developer new to Apache Spark and Apache Spark in Azure HDInsight, I want to have a basic understanding of Microsoft's implementation of Apache Spark in Azure HDInsight so I can decide if I want to use it rather than build my own cluster.
 ---
 
 # What is Apache Spark in Azure HDInsight
@@ -30,7 +30,6 @@ Spark clusters in HDInsight offer a fully managed Spark service. Benefits of cre
 | REST APIs |Spark clusters in HDInsight include [Apache Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server), a REST API-based Spark job server to remotely submit and monitor jobs. See [Use Apache Spark REST API to submit remote jobs to an HDInsight Spark cluster](apache-spark-livy-rest-interface.md).|
 | Support for Azure Storage | Spark clusters in HDInsight can use Azure Data Lake Storage Gen1/Gen2 as both the primary storage or additional storage. For more information on Data Lake Storage Gen1, see [Azure Data Lake Storage Gen1](../../data-lake-store/data-lake-store-overview.md). For more information on Data Lake Storage Gen2, see [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md).|
 | Integration with Azure services |Spark cluster in HDInsight comes with a connector to Azure Event Hubs. You can build streaming applications using the Event Hubs. Including Apache Kafka, which is already available as part of Spark. |
-| Support for ML Server | Support for ML Server in HDInsight is provided as the **ML Services** cluster type. You can set up an ML Services cluster to run distributed R computations with the speeds promised with a Spark cluster. For more information, see [What is ML Services in Azure HDInsight](../r-server/r-server-overview.md). |
 | Integration with third-party IDEs | HDInsight provides several IDE plugins that are useful to create and submit applications to an HDInsight Spark cluster. For more information, see [Use Azure Toolkit for IntelliJ IDEA](apache-spark-intellij-tool-plugin.md), [Use Spark & Hive Tools for VSCode](../hdinsight-for-vscode.md), and [Use Azure Toolkit for Eclipse](apache-spark-eclipse-tool-plugin.md).|
 | Concurrent Queries |Spark clusters in HDInsight support concurrent queries. This capability enables multiple queries from one user or multiple queries from various users and applications to share the same cluster resources. |
 | Caching on SSDs |You can choose to cache data either in memory or in SSDs attached to the cluster nodes. Caching in memory provides the best query performance but could be expensive. Caching in SSDs provides a great option for improving query performance without the need to create a cluster of a size that is required to fit the entire dataset in memory. See [Improve performance of Apache Spark workloads using Azure HDInsight IO Cache](apache-spark-improve-performance-iocache.md). |

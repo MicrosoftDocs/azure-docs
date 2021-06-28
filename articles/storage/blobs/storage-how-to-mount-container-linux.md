@@ -104,7 +104,7 @@ touch ~/fuse_connection.cfg
 
 Once you've created and edited this file, make sure to restrict access so no other users can read it.
 ```bash
-chmod 600 fuse_connection.cfg
+chmod 600 ~/fuse_connection.cfg
 ```
 
 > [!NOTE]

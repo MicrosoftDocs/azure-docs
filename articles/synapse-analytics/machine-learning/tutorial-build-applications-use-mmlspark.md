@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.reviewer: 
 
 ms.date: 03/08/2021
-author: ruxu
+author: ruixinxu
 ms.author: ruxu
 ---
 
@@ -19,9 +19,9 @@ In this article, you will learn how to use Microsoft Machine Learning for Apache
 MMLSpark expands the distributed machine learning solution of Apache Spark by adding many deep learning and data science tools, such as [Azure Cognitive Services](../../cognitive-services/big-data/cognitive-services-for-big-data.md), [OpenCV](https://opencv.org/), [LightGBM](https://github.com/Microsoft/LightGBM) and more.  MMLSpark allows you to build powerful and highly scalable predictive and analytical models from various Spark data sources.
 Synapse Spark provide built-in MMLSpark libraries including:
 
-- [Vowpal Wabbit](https://github.com/VowpalWabbit/vowpal_wabbit) – Library services for Machine learning to enable Text analytics like sentiment analysis in tweets.
-- [Cognitive Services on Spark](../../cognitive-services/big-data/cognitive-services-for-big-data.md) – To combine the feature of Azure Cognitive Services in SparkML pipelines in order to derive solution design for cognitive data modeling services like anomaly detection.
-- [LightBGM](https://github.com/Azure/mmlspark/blob/master/docs/lightgbm.md) – Machine learning model to enable training the model for predictive analysis like face ID detection.
+- [Vowpal Wabbit](https://github.com/Azure/mmlspark/blob/master/docs/vw.md) – Library services for Machine learning to enable Text analytics like sentiment analysis in tweets.
+- [Cognitive Services on Spark](https://github.com/Azure/mmlspark/blob/master/docs/cogsvc.md) – To combine the feature of Azure Cognitive Services in SparkML pipelines in order to derive solution design for cognitive data modeling services like anomaly detection.
+- [LightGBM](https://github.com/Azure/mmlspark/blob/master/docs/lightgbm.md) – LightGBM is a gradient boosting framework that uses tree based learning algorithms. It is designed to be distributed and higher efficiency.
 - Conditional KNN - Scalable KNN Models with Conditional Queries.
 - [HTTP on Spark](https://github.com/Azure/mmlspark/blob/master/docs/http.md) – Enables distributed Microservices orchestration in integrating Spark and HTTP protocol-based accessibility.
 
@@ -37,12 +37,12 @@ If you don't have an Azure subscription, [create a free account before you begin
 ## Prerequisites 
 
 - [Azure Synapse Analytics workspace](../get-started-create-workspace.md) with an Azure Data Lake Storage Gen2 storage account configured as the default storage. You need to be the *Storage Blob Data Contributor* of the Data Lake Storage Gen2 file system that you work with.
-- Spark pool in your Azure Synapse Analytics workspace. For details, see [Create a Spark pool in Azure Synapse](../quickstart-create-sql-pool-studio.md).
+- Spark pool in your Azure Synapse Analytics workspace. For details, see [Create a Spark pool in Azure Synapse](../get-started-analyze-spark.md).
 - Pre-configuration steps described in the tutorial [Configure Cognitive Services in Azure Synapse](./tutorial-configure-cognitive-services-synapse.md).
 
 
 ## Get started
-To get started, import mmlspark and configurate service keys.
+To get started, import mmlspark and configurate service keys. 
 
 ```python
 import mmlspark
@@ -52,18 +52,15 @@ from mmlspark.cognitive import *
 from notebookutils import mssparkutils
 
 # A general Cognitive Services key for Text Analytics and Computer Vision (or use separate keys that belong to each service)
-service_key =  "ADD_YOUR_SUBSCRIPION_KEY" 
+cognitive_service_key = mssparkutils.credentials.getSecret("ADD_YOUR_KEY_VAULT_NAME", "ADD_YOUR_SERVICE_KEY","ADD_YOUR_KEY_VAULT_LINKED_SERVICE_NAME") 
 # A Bing Search v7 subscription key
-bing_search_key = "ADD_YOUR_SUBSCRIPION_KEY" 
+bingsearch_service_key = mssparkutils.credentials.getSecret("ADD_YOUR_KEY_VAULT_NAME", "ADD_YOUR_BING_SEARCH_KEY","ADD_YOUR_KEY_VAULT_LINKED_SERVICE_NAME")
 # An Anomaly Dectector subscription key
-anomaly_key =  "ADD_YOUR_SUBSCRIPION_KEY" 
+anomalydetector_key = mssparkutils.credentials.getSecret("ADD_YOUR_KEY_VAULT_NAME", "ADD_YOUR_ANOMALY_KEY","ADD_YOUR_KEY_VAULT_LINKED_SERVICE_NAME")
 
-
-cognitive_service_key = mssparkutils.credentials.getSecret("keyvaultForSynapse", service_key)
-bingsearch_service_key = mssparkutils.credentials.getSecret("keyvaultForSynapse", bing_search_key)
-anomalydetector_key = mssparkutils.credentials.getSecret("keyvaultForSynapse", anomaly_key)
 
 ```
+
 
 ## Text analytics sample
 
@@ -82,7 +79,7 @@ df_sentences = spark.createDataFrame([
 # Run the Text Analytics service with options
 sentiment = (TextSentiment()
     .setTextCol("text")
-    .setLocation("eastasia")
+    .setLocation("eastasia") # Set the location of your cognitive service
     .setSubscriptionKey(cognitive_service_key)
     .setOutputCol("sentiment")
     .setErrorCol("error")
@@ -115,7 +112,7 @@ df_images = spark.createDataFrame([
 
 # Run the Computer Vision service. Analyze Image extracts information from/about the images.
 analysis = (AnalyzeImage()
-    .setLocation("eastasia")
+    .setLocation("eastasia") # Set the location of your cognitive service
     .setSubscriptionKey(cognitive_service_key)
     .setVisualFeatures(["Categories","Color","Description","Faces","Objects","Tags"])
     .setOutputCol("analysis_results")
@@ -242,7 +239,40 @@ display(anamoly_detector.transform(df_timeseriesdata).select("timestamp", "value
 |1973-02-01T00:00:00Z|837.0|false|
 |1973-03-01T00:00:00Z|9000.0|true|
 
+
+## Speech-to-text sample
+
+The [Speech-to-text](../../cognitive-services/speech-service/index-text-to-speech.yml) service converts streams or files of spoken audio to text. In this sample, we transcribe one audio file to text. 
+
+```python
+# Create a dataframe with our audio URLs, tied to the column called "url"
+df = spark.createDataFrame([("https://mmlspark.blob.core.windows.net/datasets/Speech/audio2.wav",)
+                           ], ["url"])
+
+# Run the Speech-to-text service to translate the audio into text
+speech_to_text = (SpeechToTextSDK()
+    .setSubscriptionKey(service_key)
+    .setLocation("northeurope") # Set the location of your cognitive service
+    .setOutputCol("text")
+    .setAudioDataCol("url")
+    .setLanguage("en-US")
+    .setProfanity("Masked"))
+
+# Show the results of the translation
+display(speech_to_text.transform(df).select("url", "text.DisplayText"))
+```
+### Expected results
+
+|url | DisplayText |
+|--|--|
+| `https://mmlspark.blob.core.windows.net/datasets/Speech/audio2.wav` | Custom Speech provides tools that allow you to visually inspect the recognition quality of a model by comparing audio data with the corresponding recognition result from the custom speech portal. You can playback uploaded audio and determine if the provided recognition result is correct. This tool allows you to quickly inspect quality of Microsoft's baseline speech to text model or a trained custom model without having to transcribe any audio data.|
+
+## Clean up resources
+To ensure the Spark instance is shut down, end any connected sessions(notebooks). The pool shuts down when the **idle time** specified in the Apache Spark pool is reached. You can also select **stop session** from the status bar at the upper right of the notebook.
+
+![screenshot-showing-stop-session](./media/tutorial-build-applications-use-mmlspark/stop-session.png)
+
 ## Next steps
 
-* [Check out Synapse sample notebooks](https://github.com/Azure-Samples/Synapse/tree/main/Notebooks) 
+* [Check out Synapse sample notebooks](https://github.com/Azure-Samples/Synapse/tree/main/MachineLearning) 
 * [MMLSpark GitHub Repo](https://github.com/Azure/mmlspark)

@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/05/2020
+ms.date: 06/09/2021
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common 
@@ -20,114 +20,27 @@ Azure Storage encrypts all data in a storage account at rest. By default, Queue 
 
 This article describes how to create a storage account that relies on a key that is scoped to the account. When the account is first created, Microsoft uses the account key to encrypt the data in the account, and Microsoft manages the key. You can subsequently configure customer-managed keys for the account to take advantage of those benefits, including the ability to provide your own keys, update the key version, rotate the keys, and revoke access controls.
 
-## About the feature
-
-To create a storage account that relies on the account encryption key for Queue and Table storage, you must first register to use this feature with Azure. Due to limited capacity, be aware that it may take several months before requests for access are approved.
-
-You can create a storage account that relies on the account encryption key for Queue and Table storage in the following regions:
-
-- East US
-- South Central US
-- West US 2  
-
-### Register to use the account encryption key
-
-To register to use the account encryption key with Queue or Table storage, use PowerShell or Azure CLI.
-
-# [PowerShell](#tab/powershell)
-
-To register with PowerShell, call the [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) command.
-
-```powershell
-Register-AzProviderFeature -ProviderNamespace Microsoft.Storage `
-    -FeatureName AllowAccountEncryptionKeyForQueues
-Register-AzProviderFeature -ProviderNamespace Microsoft.Storage `
-    -FeatureName AllowAccountEncryptionKeyForTables
-```
-
-# [Azure CLI](#tab/azure-cli)
-
-To register with Azure CLI, call the [az feature register](/cli/azure/feature#az-feature-register) command.
-
-```azurecli
-az feature register --namespace Microsoft.Storage \
-    --name AllowAccountEncryptionKeyForQueues
-az feature register --namespace Microsoft.Storage \
-    --name AllowAccountEncryptionKeyForTables
-```
-
-# [Template](#tab/template)
-
-N/A
-
----
-
-### Check the status of your registration
-
-To check the status of your registration for Queue or Table storage, use PowerShell or Azure CLI.
-
-# [PowerShell](#tab/powershell)
-
-To check the status of your registration with PowerShell, call the [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature) command.
-
-```powershell
-Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
-    -FeatureName AllowAccountEncryptionKeyForQueues
-Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
-    -FeatureName AllowAccountEncryptionKeyForTables
-```
-
-# [Azure CLI](#tab/azure-cli)
-
-To check the status of your registration with Azure CLI, call the [az feature](/cli/azure/feature#az-feature-show) command.
-
-```azurecli
-az feature show --namespace Microsoft.Storage \
-    --name AllowAccountEncryptionKeyForQueues
-az feature show --namespace Microsoft.Storage \
-    --name AllowAccountEncryptionKeyForTables
-```
-
-# [Template](#tab/template)
-
-N/A
-
----
-
-### Re-register the Azure Storage resource provider
-
-After your registration is approved, you must re-register the Azure Storage resource provider. Use PowerShell or Azure CLI to re-register the resource provider.
-
-# [PowerShell](#tab/powershell)
-
-To re-register the resource provider with PowerShell, call the [Register-AzResourceProvider](/powershell/module/az.resources/register-azresourceprovider) command.
-
-```powershell
-Register-AzResourceProvider -ProviderNamespace 'Microsoft.Storage'
-```
-
-# [Azure CLI](#tab/azure-cli)
-
-To re-register the resource provider with Azure CLI, call the [az provider register](/cli/azure/provider#az-provider-register) command.
-
-```azurecli
-az provider register --namespace 'Microsoft.Storage'
-```
-
-# [Template](#tab/template)
-
-N/A
-
----
-
 ## Create an account that uses the account encryption key
 
 You must configure a new storage account to use the account encryption key for queues and tables at the time that you create the storage account. The scope of the encryption key cannot be changed after the account is created.
 
-The storage account must be of type general-purpose v2. You can create the storage account and configure it to rely on the account encryption key by using either Azure CLI or an Azure Resource Manager template.
+The storage account must be of type general-purpose v2. You can create the storage account and configure it to rely on the account encryption key by using the Azure portal, PowerShell, Azure CLI, or an Azure Resource Manager template.
+
+To learn more about creating a storage account, see [Create a storage account](storage-account-create.md).
 
 > [!NOTE]
 > Only Queue and Table storage can be optionally configured to encrypt data with the account encryption key when the storage account is created. Blob storage and Azure Files always use the account encryption key to encrypt data.
+
+# [Azure portal](#tab/portal)
+
+To create a storage account that relies on the account encryption key with the Azure portal, follow these steps:
+
+1. From the left portal menu, select **Storage accounts** to display a list of your storage accounts.
+1. On the **Storage accounts** page, select **New**.
+1. Fill in the fields on the **Basics** tab.
+1. On the Advanced tab, locate the **Tables and Queues** section, and select **Enable support for customer-managed keys**.
+
+    :::image type="content" source="media/account-encryption-key-create/enable-cmk-tables-queues.png" alt-text="Screenshot showing how to enable customer-managed keys for queues and tables when creating a new account":::
 
 # [PowerShell](#tab/powershell)
 
@@ -154,7 +67,7 @@ New-AzStorageAccount -ResourceGroupName <resource_group> `
 
 To use Azure CLI to create a storage account that relies on the account encryption key, make sure you have installed Azure CLI version 2.0.80 or later. For more information, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
-Next, create a general-purpose v2 storage account by calling the [az storage account create](/cli/azure/storage/account#az-storage-account-create) command, with the appropriate parameters:
+Next, create a general-purpose v2 storage account by calling the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command, with the appropriate parameters:
 
 - Include the `--encryption-key-type-for-queue` option and set its value to `Account` to use the account encryption key to encrypt data in Queue storage.
 - Include the `--encryption-key-type-for-table` option and set its value to `Account` to use the account encryption key to encrypt data in Table storage.
@@ -211,15 +124,25 @@ The following JSON example creates a general-purpose v2 storage account that is 
 
 ---
 
-After you have created an account that relies on the account encryption key, you can configure customer-managed keys that are stored in Azure Key Vault or in Key Vault Managed Hardware Security Model (HSM) (preview). To learn how to store customer-managed keys in a key vault, see [Configure encryption with customer-managed keys stored in Azure Key Vault](customer-managed-keys-configure-key-vault.md). To learn how to store customer-managed keys in a managed HSM, see [Configure encryption with customer-managed keys stored in Azure Key Vault Managed HSM (preview)](customer-managed-keys-configure-key-vault-hsm.md).
+After you have created an account that relies on the account encryption key, you can configure customer-managed keys that are stored in Azure Key Vault or in Key Vault Managed Hardware Security Model (HSM). To learn how to store customer-managed keys in a key vault, see [Configure encryption with customer-managed keys stored in Azure Key Vault](customer-managed-keys-configure-key-vault.md). To learn how to store customer-managed keys in a managed HSM, see [Configure encryption with customer-managed keys stored in Azure Key Vault Managed HSM](customer-managed-keys-configure-key-vault-hsm.md).
 
 ## Verify the account encryption key
 
-To verify that a service in a storage account is using the account encryption key, call the Azure CLI [az storage account](/cli/azure/storage/account#az-storage-account-show) command. This command returns a set of storage account properties and their values. Look for the `keyType` field for each service within the encryption property and verify that it is set to `Account`.
+After you create the account, you can verify that the storage account is using an encryption key that is scoped to the account by using the Azure portal, PowerShell, or Azure CLI.
+
+# [Azure portal](#tab/portal)
+
+To verify that a service in a storage account is using an encryption key that is scoped to the account with the Azure portal, follow these steps:
+
+1. Navigate to your new storage account in the Azure portal.
+1. In the **Security + Networking** section, select **Encryption**.
+1. If the storage account was created to rely on the account encryption key, you'll see on the **Encryption** tab that customer-managed keys can be enabled for all four Azure Storage services: blobs, files, tables, and queues.
+
+    :::image type="content" source="media/account-encryption-key-create/verify-cmk-tables-queues.png" alt-text="Screenshot showing how to verify that the storage account is relying on the account encryption key":::
 
 # [PowerShell](#tab/powershell)
 
-To verify that a service in a storage account is using the account encryption key, call the [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) command. This command returns a set of storage account properties and their values. Look for the `KeyType` field for each service within the `Encryption` property and verify that it is set to `Account`.
+To verify that a service in a storage account is using the account encryption key with PowerShell, call the [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) command. This command returns a set of storage account properties and their values. Look for the `KeyType` field for each service within the `Encryption` property and verify that it is set to `Account`.
 
 ```powershell
 $account = Get-AzStorageAccount -ResourceGroupName <resource-group> `
@@ -230,7 +153,7 @@ $account.Encryption.Services.Table
 
 # [Azure CLI](#tab/azure-cli)
 
-To verify that a service in a storage account is using the account encryption key, call the [az storage account show](/cli/azure/storage/account#az-storage-account-show) command. This command returns a set of storage account properties and their values. Look for the `keyType` field for each service within the encryption property and verify that it is set to `Account`.
+To verify that a service in a storage account is using the account encryption key with Azure CLI, call the [az storage account show](/cli/azure/storage/account#az_storage_account_show) command. This command returns a set of storage account properties and their values. Look for the `keyType` field for each service within the encryption property and verify that it is set to `Account`.
 
 ```azurecli
 az storage account show /
@@ -244,8 +167,15 @@ N/A
 
 ---
 
+After you've verified that the storage account is using an encryption key that is scoped to the account, you can enable customer-managed keys for the account. All four Azure Storage services&mdash;blobs, files, tables, and queues&mdash;will then use the customer-managed key for encryption.
+
+## Pricing and billing
+
+A storage account that is created to use an encryption key scoped to the account is billed for Table storage capacity and transactions at a different rate than an account that uses the default service-scoped key. For details, see [Azure Table Storage pricing](https://azure.microsoft.com/pricing/details/storage/tables/).
+
 ## Next steps
 
 - [Azure Storage encryption for data at rest](storage-service-encryption.md)
 - [Customer-managed keys for Azure Storage encryption](customer-managed-keys-overview.md)
-- [What is Azure Key Vault](../../key-vault/general/overview.md)?
+- [Configure encryption with customer-managed keys stored in Azure Key Vault](customer-managed-keys-configure-key-vault.md)
+- [Configure encryption with customer-managed keys stored in Azure Key Vault Managed HSM](customer-managed-keys-configure-key-vault-hsm.md)

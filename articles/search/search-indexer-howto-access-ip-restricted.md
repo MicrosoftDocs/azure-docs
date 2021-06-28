@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 10/14/2020
 ---
 
-# Configure IP firewall rules to allow indexer connections (Azure Cognitive Search)
+# Configure IP firewall rules to allow indexer connections in Azure Cognitive Search
 
 IP firewall rules on Azure resources such as storage accounts, Cosmos DB accounts, and Azure SQL Servers only permit traffic originating from specific IP ranges to access data.
 

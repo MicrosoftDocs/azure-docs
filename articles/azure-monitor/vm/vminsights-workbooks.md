@@ -19,22 +19,30 @@ Workbooks are helpful for scenarios such as:
 * Sharing the results of a resizing experiment of your VM with other members of your team. You can explain the goals for the experiment with text, then show each usage metric and analytics queries used to evaluate the experiment, along with clear call-outs for whether each metric was above- or below-target.
 * Reporting the impact of an outage on the usage of your VM, combining data, text explanation, and a discussion of next steps to prevent outages in the future.
 
-The following table summarizes the workbooks that VM insights includes to get you started.
+## VM insights workbooks
+VM insights includes the following workbooks. You can use these workbooks or use them as a start to create custom workbooks to address your particular requirements.
 
-| Workbook | Description | Scope |
-|----------|-------------|-------|
-| Performance | Provides a customizable version of our Top N List and Charts view in a single workbook that leverages all of the Log Analytics performance counters that you have enabled.| Multiple VMs |
-| Performance counters | A Top N chart view across a wide set of performance counters. | Multiple VMs |
-| Connections | Connections provides an in-depth view of the inbound and outbound connections from your monitored VMs. | Multiple VMs |
-| Active Ports | Provides a list of the processes that have bound to the ports on the monitored VMs and their activity in the chosen timeframe. | Multiple VMs |
-| Open Ports | Provides the number of ports open on your monitored VMs and the details on those open ports. | Multiple VMs |
-| Failed Connections | Display the count of failed connections on your monitored VMs, the failure trend, and if the percentage of failures is increasing over time. | Multiple VMs |
-| Security and Audit | An analysis of your TCP/IP traffic that reports on overall connections, malicious connections, where the IP endpoints reside globally.  To enable all features, you will need to enable Security Detection. | Multiple VMs |
-| TCP Traffic | A ranked report for your monitored VMs and their sent, received, and total network traffic in a grid and displayed as a trend line. | Multiple VMs |
-| Traffic Comparison | This workbooks lets you compare network traffic trends for a single machine or a group of machines. | Multiple VMs |
-| Performance | Provides a customizable version of our Performance view that leverages all of the Log Analytics performance counters that you have enabled. | Single VM | 
-| Connections | Connections provides an in-depth view of the inbound and outbound connections from your VM. | Single VM |
- 
+### Single virtual machine
+
+| Workbook | Description |
+|----------|-------------|
+| Performance | Provides a customizable version of the Performance view that leverages all of the Log Analytics performance counters that you have enabled. | 
+| Connections | Connections provides an in-depth view of the inbound and outbound connections from your VM. | 
+
+### Multiple virtual machines
+
+| Workbook | Description |
+|----------|-------------|
+| Performance | Provides a customizable version of the Top N List and Charts view in a single workbook that leverages all of the Log Analytics performance counters that you have enabled.|
+| Performance counters | A Top N chart view across a wide set of performance counters. |
+| Connections | Connections provides an in-depth view of the inbound and outbound connections from your monitored VMs. |
+| Active Ports | Provides a list of the processes that have bound to the ports on the monitored VMs and their activity in the chosen timeframe. |
+| Open Ports | Provides the number of ports open on your monitored VMs and the details on those open ports. |
+| Failed Connections | Display the count of failed connections on your monitored VMs, the failure trend, and if the percentage of failures is increasing over time. |
+| Security and Audit | An analysis of your TCP/IP traffic that reports on overall connections, malicious connections, where the IP endpoints reside globally.  To enable all features, you will need to enable Security Detection. |
+| TCP Traffic | A ranked report for your monitored VMs and their sent, received, and total network traffic in a grid and displayed as a trend line. |
+| Traffic Comparison | This workbooks lets you compare network traffic trends for a single machine or a group of machines. |
+
 ## Creating a new workbook
 
 A workbook is made up of sections consisting of independently editable charts, tables, text, and input controls. To better understand workbooks, let's start by opening a template and walk through creating a custom workbook. 
@@ -99,13 +107,13 @@ Each section has its own advanced settings, which are accessible via the setting
 
 ![Screenshot of the Advanced Settings dialog in the Virtual Machines Workbook section of Azure Monitor. The icon that opens the dialog is highlighted.](media/vminsights-workbooks/007-settings-expanded.png)
 
-|         |          |
+| Setting | Description |
 | ---------------- |:-----|
-| **Custom width**    | Makes an item an arbitrary size, so you can fit many items on a single line allowing you to better organize your charts and tables into rich interactive reports.  |
-| **Conditionally visible** | Specify to hide steps based on a parameter when in reading mode. |
-| **Export a parameter**| Allow a selected row in the grid or chart to cause later steps to change values or become visible.  |
-| **Show query when not editing** | Displays the query above the chart or table even when in reading mode.
-| **Show open in analytics button when not editing** | Adds the blue Analytics icon to the right-hand corner of the chart to allow one-click access.|
+| Custom width    | Makes an item an arbitrary size, so you can fit many items on a single line allowing you to better organize your charts and tables into rich interactive reports.  |
+| Conditionally visible | Specify to hide steps based on a parameter when in reading mode. |
+| Export a parameter| Allow a selected row in the grid or chart to cause later steps to change values or become visible.  |
+| Show query when not editing | Displays the query above the chart or table even when in reading mode.
+| Show open in analytics button when not editing | Adds the blue Analytics icon to the right-hand corner of the chart to allow one-click access.|
 
 Most of these settings are fairly intuitive, but to understand **Export a parameter** it is better to examine a workbook that makes use of this functionality.
 
@@ -148,12 +156,12 @@ Parameters are linear, starting from the top of a workbook and flowing down to l
  
 There are four different types of parameters, which are currently supported:
 
-|                  |      |
+| Parameter | Description |
 | ---------------- |:-----|
-| **Text**    | Allows the user to edit a text box, and you can optionally supply a query to fill in the default value. |
-| **Drop down** | Allows the user to choose from a set of values. |
-| **Time range picker**| Allows the user to choose from a predefined set of time range values, or pick from a custom time range.|
-| **Resource picker** | Allows the user to choose from the resources selected for the workbook.|
+| Text    | Allows the user to edit a text box, and you can optionally supply a query to fill in the default value. |
+| Drop down | Allows the user to choose from a set of values. |
+| Time range picker| Allows the user to choose from a predefined set of time range values, or pick from a custom time range.|
+| Resource picker | Allows the user to choose from the resources selected for the workbook.|
 
 ### Using a text parameter
 

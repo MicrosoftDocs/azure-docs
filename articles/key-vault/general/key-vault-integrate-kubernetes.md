@@ -161,11 +161,14 @@ The following image shows the console output for **az keyvault show --name conto
     Documentation for all required role assignments with Azure Active Directory (Azure AD) pod identity are available here: [Link](https://azure.github.io/aad-pod-identity/docs/getting-started/role-assignment/)
 
     ```azurecli
-    RESOURCE_GROUP=contosoResourceGroup
+    VAULT_RESOURCE_GROUP=contosoResourceGroup
+    NODE_RESOURCE_GROUP=contosoResourceGroup
     
-    az role assignment create --role "Managed Identity Operator" --assignee $clientId --scope /subscriptions/<SUBID>/resourcegroups/$RESOURCE_GROUP
+    az role assignment create --role "Managed Identity Operator" --assignee $clientId --scope /subscriptions/<SUBID>/resourcegroups/$VAULT_RESOURCE_GROUP
     
-    az role assignment create --role "Virtual Machine Contributor" --assignee $clientId --scope /subscriptions/<SUBID>/resourcegroups/$RESOURCE_GROUP
+    az role assignment create --role "Managed Identity Operator" --assignee $clientId --scope /subscriptions/<SUBID>/resourcegroups/$NODE_RESOURCE_GROUP
+    
+    az role assignment create --role "Virtual Machine Contributor" --assignee $clientId --scope /subscriptions/<SUBID>/resourcegroups/$NODE_RESOURCE_GROUP
     ```
 
 2. Install the Azure Active Directory (Azure AD) identity into AKS.
@@ -289,8 +292,8 @@ kubectl exec nginx-secrets-store-inline -- cat /mnt/secrets-store/secret1
 
 Verify that the contents of the secret are displayed.
 
-## Next steps
+## Resources
+- [About Azure Key Vault](overview.md)
+- [Azure Key Vault developer's guide](developers-guide.md)
+- [CSI Secrets Driver](https://azure.github.io/secrets-store-csi-driver-provider-azure/)
 
-To help ensure that your key vault is recoverable, see:
-> [!div class="nextstepaction"]
-> [Turn on soft delete](./key-vault-recovery.md)

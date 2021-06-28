@@ -20,13 +20,13 @@ ms.custom: devx-track-azurecli
 
 [!INCLUDE [media services api v3 logo](../includes/v3-hr.md)]
 
-[Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview.md) enables you to monitor metrics and diagnostic logs that help you understand how your applications are performing. For a detailed description of this feature and to understand why you should use Azure Media Services metrics and diagnostics logs, see [Monitor Media Services metrics and diagnostic logs](monitor-media-services-data-reference.md).
+[Azure Monitor](../../../azure-monitor/overview.md) enables you to monitor metrics and diagnostic logs that help you understand how your applications are performing. For a detailed description of this feature and to understand why you should use Azure Media Services metrics and diagnostics logs, see [Monitor Media Services metrics and diagnostic logs](monitor-media-services-data-reference.md).
 
 Azure Monitor provides several ways to interact with metrics, including charting them in the portal, accessing them through the REST API, or querying them using Azure CLI. This article shows how to monitor metrics with the Azure portal charts and Azure CLI.
 
 ## Prerequisites
 
-- [Create a Media Services account](../create-account-howto.md)
+- [Create a Media Services account](../account-create-how-to.md)
 - Review  [Monitor Media Services metrics and diagnostic logs](monitor-media-services-data-reference.md)
 
 ## View metrics in Azure portal
@@ -64,8 +64,8 @@ To get other metrics, substitute "Egress" for the metric name you are interested
 
 ## See also
 
-- [Azure Monitor Metrics](https://docs.microsoft.com/azure/azure-monitor/data-platform.md)
-- [Create, view, and manage metric alerts using Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/alerts/alerts-metric.md).
+- [Azure Monitor Metrics](../../../azure-monitor/data-platform.md)
+- [Create, view, and manage metric alerts using Azure Monitor](../../../azure-monitor/alerts/alerts-metric.md).
 
 ## Next steps
 
