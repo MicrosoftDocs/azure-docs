@@ -10,7 +10,7 @@ ms.author: cshoe
 ms.custom: devx-track-js
 ---
 
-# Set up local development for Azure Static Web Apps Preview
+# Set up local development for Azure Static Web Apps
 
 When published to the cloud, an Azure Static Web Apps site has many services that work together as if they're the same application. These services include:
 
@@ -31,6 +31,9 @@ To provide a similar experience as to what you get in Azure, the [Azure Static W
 - A mock authentication and authorization server
 - Local routes and configuration settings enforcement
 
+> [!NOTE]
+> Often sites built with a front-end framework require a proxy configuration setting to correctly handle requests under the `api` route. When using the Azure Static Web Apps CLI the proxy location value is `/api`, and without the CLI the value is `http://localhost:7071/api`.
+
 ## How it works
 
 The following chart shows how requests are handled locally.
@@ -38,7 +41,7 @@ The following chart shows how requests are handled locally.
 :::image type="content" source="media/local-development/cli-conceptual.png" alt-text="Azure Static Web App CLI request and response flow":::
 
 > [!IMPORTANT]
-> Navigate to [http://localhost:4280](http://localhost:4280) to access the application served by the CLI.
+> Navigate to `http://localhost:4280` to access the application served by the CLI.
 
 - **Requests** made to port `4280` are forwarded to the appropriate server depending on the type of request.
 
@@ -74,7 +77,7 @@ Open a terminal to the root folder of your existing Azure Static Web Apps site.
 
     `swa start`
 
-1. Navigate to [http://localhost:4280](http://localhost:4280) to view the app in the browser.
+1. Navigate to `http://localhost:4280` to view the app in the browser.
 
 ### Other ways to start the CLI
 
@@ -108,7 +111,7 @@ Once logged in:
 
 - You can use the `/.auth/me` endpoint, or a function endpoint to retrieve the user's [client principal](./user-information.md).
 
-- Navigating to `./auth/logout` clears the client principal and logs out the mock user.
+- Navigating to `/.auth/logout` clears the client principal and logs out the mock user.
 
 ## Debugging
 

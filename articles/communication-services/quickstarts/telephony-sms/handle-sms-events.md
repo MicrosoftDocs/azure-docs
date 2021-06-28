@@ -60,7 +60,7 @@ You can subscribe to specific events to tell Event Grid which of the SMS events 
 
 If you're prompted to provide a **System Topic Name**, feel free to provide a unique string. This field has no impact on your experience and is used for internal telemetry purposes.
 
-Check out the full list of [events supported by Azure Communication Services](https://docs.microsoft.com/azure/event-grid/event-schema-communication-services).
+Check out the full list of [events supported by Azure Communication Services](../../../event-grid/event-schema-communication-services.md).
 
 :::image type="content" source="./media/handle-sms-events/select-events-create-eventsub.png" alt-text="Screenshot showing the SMS Received and SMS Delivery Report Received event types being selected.":::
 
@@ -85,7 +85,7 @@ To view event triggers, we must generate events in the first place.
 - `SMS Received` events are generated when the Communication Services phone number receives a text message. To trigger an event, just send a message from your phone to the phone number attached to your Communication Services resource.
 - `SMS Delivery Report Received` events are generated when you send an SMS to a user using a Communication Services phone number. To trigger an event, you are required to enable `Delivery Report` in the options of the [sent SMS](../telephony-sms/send.md). Try sending a message to your phone with `Delivery Report`. Completing this action incurs a small cost of a few USD cents or less in your Azure account.
 
-Check out the full list of [events supported by Azure Communication Services](https://docs.microsoft.com/azure/event-grid/event-schema-communication-services).
+Check out the full list of [events supported by Azure Communication Services](../../../event-grid/event-schema-communication-services.md).
 
 ### Receiving SMS events
 
@@ -95,7 +95,7 @@ Once you complete either action above you will notice that `SMS Received` and `S
 
 :::image type="content" source="./media/handle-sms-events/sms-delivery-report-received.png" alt-text="Screenshot showing the Event Grid Schema for an SMS Delivery Report Event.":::
 
-Learn more about the [event schemas and other eventing concepts](https://docs.microsoft.com/azure/event-grid/event-schema-communication-services).
+Learn more about the [event schemas and other eventing concepts](../../../event-grid/event-schema-communication-services.md).
 
 ## Clean up resources
 
@@ -109,7 +109,6 @@ In this quickstart, you learned how to consume SMS events. You can receive SMS m
 > [Send SMS](../telephony-sms/send.md)
 
 You may also want to:
-
 
  - [Learn about event handling concepts](../../../event-grid/event-schema-communication-services.md)
  - [Learn about Event Grid](../../../event-grid/overview.md)

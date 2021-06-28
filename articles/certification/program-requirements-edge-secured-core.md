@@ -1,6 +1,6 @@
 ---
 title: Edge Secured-core Certification Requirements
-description: Edge Secured-core Certification program requirements
+description: Edge Secured-core Certification Requirements
 author: cbroad
 ms.author: cbroad
 ms.topic: conceptual 
@@ -9,13 +9,11 @@ ms.custom: Edge Secured-core Certification Requirements
 ms.service: certification
 ---
 
-# Azure Certified Device - Edge Secured-core (Preview) #
-
-## Edge Secured-Core Certification Requirements ##
+# Edge Secured-Core Certification Requirements (Preview) #
 
 This document outlines the device specific capabilities and requirements that will be met in order to complete certification and list a device in the Azure IoT Device catalog with the Edge Secured-core label.
 
-### Program Purpose ###
+## Program Purpose ##
 Edge Secured-core is an incremental certification in the Azure Certified Device program for IoT devices running a full operating system, such as Linux or Windows 10 IoT.This program enables device partners to differentiate their devices by meeting an additional set of security criteria. Devices meeting this criteria enable these promises:
 1. Hardware-based device identity 
 2. Capable of enforcing system integrity 
@@ -23,7 +21,7 @@ Edge Secured-core is an incremental certification in the Azure Certified Device 
 4. Provides data at-rest protection
 5. Provides data in-transit protection
 6. Built in security agent and hardening
-### Requirements ###
+## Requirements ##
 
 ---
 |Name|SecuredCore.Built-in.Security|
@@ -156,7 +154,7 @@ Edge Secured-core is an incremental certification in the Azure Certified Device 
 |OS|Agnostic|
 |Validation Type|Manual/Tools|
 Validation|Device to be validated through toolset to ensure the device supports a minimum TLS version of 1.2 and supports the following required TLS cipher suites.<ul><li>TLS_RSA_WITH_AES_128_GCM_SHA256</li><li>TLS_RSA_WITH_AES_128_CBC_SHA256</li><li>TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256</li><li>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256</li><li>TLS_DHE_RSA_WITH_AES_128_GCM_SHA256</li><li>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256</li><li>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256</li></ul>|
-|Resources| [TLS support in IoT Hub](../iot-hub/iot-hub-tls-support.md) <br /> [TLS Cipher suites in Windows 10](https://docs.microsoft.com/windows/win32/secauthn/tls-cipher-suites-in-windows-10-v1903) |
+|Resources| [TLS support in IoT Hub](../iot-hub/iot-hub-tls-support.md) <br /> [TLS Cipher suites in Windows 10](/windows/win32/secauthn/tls-cipher-suites-in-windows-10-v1903) |
 
 ---
 |Name|SecuredCore.Protection.SignedUpdates|

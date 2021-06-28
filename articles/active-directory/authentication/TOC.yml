@@ -57,7 +57,7 @@
     - name: MFA for Office 365
       href: /office365/admin/security-and-compliance/set-up-multi-factor-authentication
     - name: FAQ
-      href: multi-factor-authentication-faq.md
+      href: multi-factor-authentication-faq.yml
   - name: Password protection
     items:
     - name: Eliminate weak passwords in the cloud
@@ -151,13 +151,17 @@
     - name: Troubleshoot
       href: howto-password-ban-bad-on-premises-troubleshoot.md
     - name: FAQs
-      href: howto-password-ban-bad-on-premises-faq.md
+      href: howto-password-ban-bad-on-premises-faq.yml
     - name: Agent version history
       href: howto-password-ban-bad-on-premises-agent-versions.md
+  - name: Nudge Microsoft Authenticator setup (Preview)
+    href: how-to-nudge-authenticator-app.md
   - name: Use a Temporary Access Pass (Preview)
     href: howto-authentication-temporary-access-pass.md
   - name: Use SMS-based authentication
     href: howto-authentication-sms-signin.md
+  - name: Supported apps for SMS-based authentication
+    href: how-to-authentication-sms-supported-apps.md
   - name: Two-way SMS unsupported
     href: how-to-authentication-two-way-sms-unsupported.md
   - name: Use email address sign-in
@@ -232,9 +236,9 @@
     - name: SSPR writeback
       href: troubleshoot-sspr-writeback.md
     - name: SSPR FAQ
-      href: active-directory-passwords-faq.md
+      href: active-directory-passwords-faq.yml
     - name: MFA FAQ
-      href: multi-factor-authentication-faq.md
+      href: multi-factor-authentication-faq.yml
     - name: NPS extension
       href: howto-mfa-nps-extension-errors.md
 - name: Reference

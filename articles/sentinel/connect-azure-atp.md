@@ -24,6 +24,9 @@ ms.author: yelevin
 > This feature is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
+
 This article describes how to stream security alerts from [Microsoft Defender for Identity](/azure-advanced-threat-protection/what-is-atp) into Azure Sentinel. 
 
 To forward health alerts in addition to security alerts, integrate Microsoft Defender for Identity with a Syslog server. For more information, see the [Microsoft Defender for Identity documentation](/defender-for-identity/setting-syslog). 
@@ -31,7 +34,7 @@ To forward health alerts in addition to security alerts, integrate Microsoft Def
 ## Prerequisites
 
 - User with global administrator or security administrator permissions
-- You must be a preview customer of Microsoft Defender for Identity and enable integration between Microsoft Defender for Identity and Microsoft Cloud App Security. For more information, see [Microsoft Defender for Identity Integration](https://www.microsoft.com/microsoft-365/identity/advance-threat-protection).
+- You must be a preview customer of Microsoft Defender for Identity and enable integration between Microsoft Defender for Identity and Microsoft Cloud App Security. For more information, see [Microsoft Defender for Identity Integration](/cloud-app-security/mdi-integration).
 
 ## Connect to Microsoft Defender for Identity
 
@@ -39,7 +42,7 @@ Make sure the Microsoft Defender for Identity preview version is [enabled on you
 If Microsoft Defender for Identity is deployed and ingesting your data, the suspicious alerts can easily be streamed into Azure Sentinel. It may take up to 24 hours for the alerts to start streaming into Azure Sentinel.
 
 
-1. To connect Microsoft Defender for Identity to Azure Sentinel, you must first enable integration between Microsoft Defender for Identity and Microsoft Cloud App Security. For information on how to do this, see [Microsoft Defender for Identity integration](https://www.microsoft.com/microsoft-365/identity/advance-threat-protection).
+1. To connect Microsoft Defender for Identity to Azure Sentinel, you must first enable integration between Microsoft Defender for Identity and Microsoft Cloud App Security. For information on how to do this, see [Microsoft Defender for Identity integration](/cloud-app-security/mdi-integration).
 
 1. In Azure Sentinel, select **Data connectors** and then click the **Microsoft Defender for Identity (Preview)** tile.
 
@@ -54,5 +57,5 @@ If Microsoft Defender for Identity is deployed and ingesting your data, the susp
 
 ## Next steps
 In this document, you learned how to connect Microsoft Defender for Identity to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
-- Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
+- Learn how to [get visibility into your data and potential threats](quickstart-get-visibility.md).
 - Get started [detecting threats with Azure Sentinel](tutorial-detect-threats-built-in.md).

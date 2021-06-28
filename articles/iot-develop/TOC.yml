@@ -9,20 +9,30 @@
 - name: Quickstarts
   expanded: true
   items:
-    - name: Get started with device application development
+    - name: Device application development
       items: 
-      - name: Send telemetry to IoT Central (Python)
-        href: quickstart-send-telemetry-python.md
-      - name: Send telemetry to IoT Hub (Python)
-        href: quickstart-send-telemetry-cli-python.md
-      - name: Send telemetry to IoT Hub (Node)
-        href: quickstart-send-telemetry-cli-node.md
-    - name: Get started with embedded development
+      - name: Send telemetry to IoT Central
+        href: quickstart-send-telemetry-central.md
+      - name: Send telemetry to IoT Hub
+        href: quickstart-send-telemetry-iot-hub.md
+    - name: Embedded device development
       items:
-      - name: Embedded device development quickstarts
-        href: quickstart-device-development.md
-      - name: Connect an MXCHIP AZ3166 to IoT Central
+      - name: MXCHIP AZ3166
         href: quickstart-devkit-mxchip-az3166.md
+      - name: MXCHIP AZ3166 - IoT Hub
+        href: quickstart-devkit-mxchip-az3166-iot-hub.md
+      - name: Microchip ATSAME54-XPro
+        href: quickstart-devkit-microchip-atsame54-xpro.md
+      - name: NXP MIMXRT1050-EVKB
+        href: quickstart-devkit-nxp-mimxrt1050-evkb.md
+      - name: NXP MIMXRT1060-EVK
+        href: quickstart-devkit-nxp-mimxrt1060-evk.md
+      - name: Renesas RX65N-2MB
+        href: quickstart-devkit-renesas-rx65n-2mb.md
+      - name: Renesas RX65N Cloud Kit
+        href: quickstart-devkit-renesas-rx65n-cloud-kit.md
+      - name: ST Microelectronics B-L475E/L4S5I-IOT01A
+        href: quickstart-devkit-stm-b-l475e.md
 - name: Tutorials
   items:
     - name: Securely connect IoT devices to the cloud
@@ -33,6 +43,12 @@
     href: concepts-overview-connection-options.md
   - name: Overview of device types
     href: concepts-iot-device-types.md
+- name: How to
+  items:
+  - name: Troubleshoot
+    items:
+      - name: Troubleshoot embedded quickstarts
+        href: troubleshoot-embedded-device-quickstarts.md
 - name: Reference
   items:
     - name: Azure CLI

@@ -12,11 +12,11 @@ ms.reviewer: jrasnick
 ---
 # Serverless SQL pool in Azure Synapse Analytics 
 
-Every Azure Synapse Analytics workspace comes with serverless SQL pool endpoints that you can use to query data in the lake.
+Every Azure Synapse Analytics workspace comes with serverless SQL pool endpoints that you can use to query data in the [Azure Data Lake](query-data-storage.md) ([Parquet](query-data-storage.md#query-parquet-files), [Delta Lake](query-delta-lake-format.md), [delimited text](query-data-storage.md#query-csv-files) formats), [Cosmos DB](query-cosmos-db-analytical-store.md?toc=%2Fazure%2Fsynapse-analytics%2Ftoc.json&bc=%2Fazure%2Fsynapse-analytics%2Fbreadcrumb%2Ftoc.json&tabs=openrowset-key), or Dataverse.
 
 Serverless SQL pool is a query service over the data in your data lake. It enables you to access your data through the following functionalities:
  
-- A familiar T-SQL syntax to query data in place without the need to copy or load data into a specialized store. 
+- A familiar [T-SQL syntax](overview-features.md) to query data in place without the need to copy or load data into a specialized store. 
 - Integrated connectivity via the T-SQL interface that offers a wide range of business intelligence and ad-hoc querying tools, including the most popular drivers. 
 
 Serverless SQL pool is a distributed data processing system, built for large-scale data and computational functions. Serverless SQL pool enables you to analyze your Big Data in seconds to minutes, depending on the workload. Thanks to built-in query execution fault-tolerance, the system provides high reliability and success rates even for long-running queries involving large data sets.
@@ -32,7 +32,7 @@ If you use Apache Spark for Azure Synapse in your data pipeline, for data prepar
 If you need to explore data in the data lake, gain insights from it or optimize your existing data transformation pipeline, you can benefit from using serverless SQL pool. It is suitable for the following scenarios:
 
 - Basic discovery and exploration - Quickly reason about the data in various formats (Parquet, CSV, JSON) in your data lake, so you can plan how to extract insights from it.
-- Logical data warehouse – Provide a relational abstraction on top of raw or disparate data without relocating and transforming data, allowing always up-to-date view of your data.
+- Logical data warehouse – Provide a relational abstraction on top of raw or disparate data without relocating and transforming data, allowing always up-to-date view of your data. Learn more about [creating logical data warehouse](tutorial-logical-data-warehouse.md).
 - Data transformation - Simple, scalable, and performant way to transform data in the lake using T-SQL, so it can be fed to BI and other tools, or loaded into a relational data store (Synapse SQL databases, Azure SQL Database, etc.).
 
 Different professional roles can benefit from serverless SQL pool:
@@ -46,6 +46,8 @@ Different professional roles can benefit from serverless SQL pool:
 
 Serverless SQL pool endpoint is provided within every Azure Synapse workspace. You can create a workspace and start querying data instantly using tools you are familiar with.
 
+Make sure that you are applying [the best practices](best-practices-serverless-sql-pool.md) to get the best performance.
+
 ## Client tools
 
 Serverless SQL pool enables existing SQL ad-hoc querying and business intelligence tools to tap into the data lake. As it provides familiar T-SQL syntax, any tool capable to establish TDS connection to SQL offerings can [connect to and query Synapse SQL](connect-overview.md). You can connect with Azure Data Studio and run ad-hoc queries or connect with Power BI to gain insights in a matter of minutes.
@@ -57,7 +59,7 @@ Serverless SQL pool offers T-SQL querying surface area, which is slightly enhanc
 - Workload can be organized using familiar concepts:
 - Databases - serverless SQL pool endpoint can have multiple databases.
 - Schemas - Within a database, there can be one or many object ownership groups called schemas.
-- Views
+- Views, stored procedures, inline table value functions
 - External resources – data sources, file formats, and tables
 
 Security can be enforced using:
@@ -87,9 +89,13 @@ In order to enable smooth experience for in place querying of data residing in f
 
 [Query multiple files or folders](query-data-storage.md#query-multiple-files-or-folders)
 
-[PARQUET file format](query-data-storage.md#query-parquet-files)
+[Query PARQUET file format](query-data-storage.md#query-parquet-files)
 
-[Additional options for working with delimited text (field terminator, row terminator, escape char)](query-data-storage.md#query-csv-files)
+[Query DELTA format](query-delta-lake-format.md)
+
+[Various delimited text formats (with custom field terminator, row terminator, escape char)](query-data-storage.md#query-csv-files)
+
+[Cosmos DB analytical store](query-cosmos-db-analytical-store.md?toc=%2Fazure%2Fsynapse-analytics%2Ftoc.json&bc=%2Fazure%2Fsynapse-analytics%2Fbreadcrumb%2Ftoc.json&tabs=openrowset-key)
 
 [Read a chosen subset of columns](query-data-storage.md#read-a-chosen-subset-of-columns)
 
@@ -133,9 +139,15 @@ If Azure AD authentication is used, a user can sign in to serverless SQL pool an
 
 A user that is logged into the serverless SQL pool service must be authorized to access and query the files in Azure Storage. serverless SQL pool supports the following authorization types:
 
-- **Shared access signature (SAS)** provides delegated access to resources in storage account. With a SAS, you can grant clients access to resources in storage account, without sharing account keys. A SAS gives you granular control over the type of access you grant to clients who have the SAS: validity interval, granted permissions, acceptable IP address range, acceptable protocol (https/http).
+- **[Shared access signature (SAS)](develop-storage-files-storage-access-control.md?tabs=shared-access-signature)** provides delegated access to resources in storage account. With a SAS, you can grant clients access to resources in storage account, without sharing account keys. A SAS gives you granular control over the type of access you grant to clients who have the SAS: validity interval, granted permissions, acceptable IP address range, acceptable protocol (https/http).
 
-- **User Identity** (also known as "pass-through") is an authorization type where the identity of the Azure AD user that logged into serverless SQL pool is used to authorize  access to the data. Before accessing the data, Azure Storage administrator must grant permissions to Azure AD user for accessing the data. This authorization type uses the Azure AD user that logged into serverless SQL pool, therefore it's not supported for SQL user types.
+- **[User Identity](develop-storage-files-storage-access-control.md?tabs=user-identity)** (also known as "pass-through") is an authorization type where the identity of the Azure AD user that logged into serverless SQL pool is used to authorize  access to the data. Before accessing the data, Azure Storage administrator must grant permissions to Azure AD user for accessing the data. This authorization type uses the Azure AD user that logged into serverless SQL pool, therefore it's not supported for SQL user types.
+
+- **[Workspace Identity](develop-storage-files-storage-access-control.md?tabs=managed-identity)** is an authorization type where the identity of the Synapse workspace  is used to authorize  access to the data. Before accessing the data, Azure Storage administrator must grant permissions to workspace identity for accessing the data.
+
+### Access to Cosmos DB
+
+You need to create server-level or database-scoped credential with the Cosmos DB account read-only key to [access Cosmos DB analytical store](query-cosmos-db-analytical-store.md?toc=%2Fazure%2Fsynapse-analytics%2Ftoc.json&bc=%2Fazure%2Fsynapse-analytics%2Fbreadcrumb%2Ftoc.json&tabs=openrowset-key).
 
 ## Next steps
 Additional information on endpoint connection and querying files can be found in the following articles: 

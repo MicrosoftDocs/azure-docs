@@ -23,14 +23,10 @@
   - name: Single-page app (SPA)
     items:
     - name: Angular
-      href: quickstart-v2-angular.md
-    - name: Angular - Auth code flow
       href: quickstart-v2-javascript-auth-code-angular.md
-    - name: JavaScript - Auth code flow
+    - name: JavaScript
       href: quickstart-v2-javascript-auth-code.md
-    - name: JavaScript - Implicit flow
-      href: quickstart-v2-javascript.md
-    - name: React - Auth code flow
+    - name: React
       href: quickstart-v2-javascript-auth-code-react.md 
   - name: Web app
     items:
@@ -83,13 +79,13 @@
   - name: Single-page app (SPA)
     items:
     - name: Angular
-      href: tutorial-v2-angular.md
+      href: tutorial-v2-angular-auth-code.md
     - name: Blazor WebAssembly
       href: tutorial-blazor-webassembly.md
-    - name: JavaScript - Auth code flow
+    - name: JavaScript
       href: tutorial-v2-javascript-auth-code.md
-    - name: JavaScript - Implicit flow
-      href: tutorial-v2-javascript-spa.md
+    - name: React
+      href: tutorial-v2-react.md
   - name: Web app
     items:
     - name: ASP.NET
@@ -148,11 +144,18 @@
     href: app-objects-and-service-principals.md
   - name: Identity platform best practices
     href: identity-platform-integration-checklist.md
+  - name: App security
+    displayName: least privilege, secure app configuration, conditional access
+    items:
+    - name: Best practices for least privileged access for apps
+      href: secure-least-privileged-access.md
+    - name: Conditional access
+      href: v2-conditional-access-dev-guide.md
+    - name: Authentication context
+      href: developer-guide-conditional-access-authentication-context.md
   - name: Permissions and consent
     displayName: Scopes
     href: v2-permissions-and-consent.md
-  - name: Conditional access
-    href: v2-conditional-access-dev-guide.md
   - name: Automatic user provisioning (SCIM)
     href: ../app-provisioning/user-provisioning.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
 - name: How-to
@@ -319,6 +322,8 @@
       - name: Migrate apps from ADAL to MSAL
         href: msal-migration.md
         displayName: migration
+      - name: List all apps using ADAL
+        href: howto-get-list-of-all-active-directory-auth-library-apps.md
       - name: National clouds and MSAL
         href: msal-national-cloud.md
         displayName: china, germany, gov, 21vianet
@@ -334,7 +339,13 @@
       - name: Integrate with ADFS
         href: msal-net-adfs-support.md
       - name: Migrate to MSAL.NET
-        href: msal-net-migration.md
+        items:
+        - name: Migrate from ADAL.NET to MSAL.NET
+          href: msal-net-migration.md
+        - name: Migrate confidential client apps to MSAL.NET
+          href: msal-net-migration-confidential-client.md
+        - name: Differences between ADAL.NET and MSAL.NET
+          href: msal-net-differences-adal-net.md
       - name: Migrate Xamarin Android app using broker to MSAL.NET
         href: msal-net-migration-android-broker.md
       - name: Migrate Xamarin iOS app using broker to MSAL.NET
@@ -377,6 +388,8 @@
         href: msal-b2c-overview.md
       - name: Migrate to MSAL.js
         href: msal-compare-msal-js-and-adal-js.md
+      - name: Migrate to MSAL Node
+        href: msal-node-migration.md
       - name: Single sign-on with MSAL.js
         href: msal-js-sso.md
       - name: Considerations - IE
@@ -502,7 +515,7 @@
   - name: Accept sign-ins from multiple tenants
     items:
     - name: Modify accounts supported by an app
-      href: quickstart-modify-supported-accounts.md
+      href: ./howto-modify-supported-accounts.md
     - name: Enable multi-tenant log-ins
       href: howto-convert-app-to-be-multi-tenant.md
     - name: Configure the publisher domain
@@ -516,6 +529,16 @@
       href: howto-add-app-roles-in-azure-ad-apps.md
   - name: Use the Microsoft Graph API
     href: microsoft-graph-intro.md
+  - name: Build for resilience
+    items:
+    - name: Development Overview
+      href: ../fundamentals/resilience-app-development-overview.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
+    - name: Client applications
+      href: ../fundamentals/resilience-client-app.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json  
+    - name: Daemon applications
+      href: ../fundamentals/resilience-daemon-app.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
+    - name: OpenID Connect metadata refresh
+      href: howto-build-services-resilient-to-metadata-refresh.md
   - name: Bring an app to market
     items:
     - name: Follow the branding guidelines
@@ -550,9 +573,9 @@
     - name: Diagnose errors during authentication
       href: vs-active-directory-error.md
   - name: Remove an app registration
-    href: quickstart-remove-app.md
+    href: ./howto-remove-app.md
   - name: Restore or remove a deleted app registration
-    href: quickstart-restore-app.md
+    href: ./howto-restore-app.md
 - name: Reference
   items:
   - name: Glossary
@@ -593,6 +616,8 @@
       - name: OAuth 2.0 resource owner password credentials grant
         displayName: ROPC
         href: v2-oauth-ropc.md
+      - name: OAuth 2.0 SAML bearer assertion flow
+        href: v2-saml-bearer-assertion.md
       - name: Signing key rollover
         href: active-directory-signing-key-rollover.md
       - name: Token exchange scenarios
@@ -601,6 +626,8 @@
         href: id-tokens.md
       - name: Access tokens
         href: access-tokens.md
+      - name: Refresh tokens
+        href: refresh-tokens.md
       - name: Configure token lifetimes
         href: active-directory-configurable-token-lifetimes.md
       - name: UserInfo endpoint
@@ -633,6 +660,8 @@
     href: reference-v2-libraries.md
   - name: Identity and access APIs in Microsoft Graph
     href: /graph/api/resources/azure-ad-overview
+  - name: Claims mapping policy type
+    href: reference-claims-mapping-policy-type.md
   - name: Authentication and authorization error codes
     displayName: AADSTS
     href: reference-aadsts-error-codes.md
@@ -641,6 +670,8 @@
   - name: Mobile single sign-on (SSO)
     href: mobile-sso-support-overview.md
     displayName: android, ios
+  - name: Claims challenges and requests
+    href: claims-challenge.md
   - name: Permissions and consent
     displayName: Scopes
     items:
@@ -661,7 +692,7 @@
     - name: Common provisioning scenarios
       href: ../app-provisioning/scim-graph-scenarios.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
     - name: Automate configuration using MS Graph
-      href: /graph/application-provisioning-configure-api?bc=%2fazure%2factive-directory%2fdevelop%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fdevelop%2ftoc.json
+      href: /azure/active-directory/app-provisioning/application-provisioning-configuration-api?bc=%2fazure%2factive-directory%2fdevelop%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fdevelop%2ftoc.json
 - name: Resources
   items:
   - name: Videos

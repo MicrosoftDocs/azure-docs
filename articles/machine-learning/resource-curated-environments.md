@@ -9,7 +9,7 @@ ms.reviewer: luquinta
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-ms.date: 12/22/2020
+ms.date: 4/2/2021
 ---
 
 # Azure Machine Learning Curated Environments
@@ -17,88 +17,167 @@ ms.date: 12/22/2020
 This article lists the curated environments in Azure Machine Learning. Curated environments are provided by Azure Machine Learning and are available in your workspace by default. They are backed by cached Docker images that use the latest version of the Azure Machine Learning SDK, reducing the run preparation cost and allowing for faster deployment time. Use these environments to quickly get started with various machine learning frameworks.
 
 > [!NOTE]
-> This list is updated as of December 2020. Use the Python SDK to get the most updated list of environments and their dependencies. For more information, see the [environments article](./how-to-use-environments.md#use-a-curated-environment).
+> This list is updated as of April 2021. Use the Python [SDK](https://docs.microsoft.com/azure/machine-learning/how-to-use-environments), [CLI](https://docs.microsoft.com/cli/azure/ml/environment?view=azure-cli-latest#az_ml_environment_list), or Azure Machine Learning [studio](how-to-manage-environments-in-studio.md) to get the most updated list of environments and their dependencies. For more information, see the [environments article](how-to-use-environments.md#use-a-curated-environment). Following the release of this new set, previous curated environments will be hidden but can still be used. 
 
-## AutoML
-
-- AzureML-AutoML
-- AzureML-AutoML-DNN
-- AzureML-AutoML-DNN-GPU
-- AzureML-AutoML-DNN-Vision-GPU
-- AzureML-AutoML-GPU
-
-## Chainer
-
-- AzureML-Chainer-5.1.0-CPU
-- AzureML-Chainer-5.1.0-GPU
-
-## Dask
-
-- AzureML-Dask-CPU
-- AzureML-Dask-GPU
-
-## DeepSpeed
-
-- AzureML-DeepSpeed-0.3-GPU
-
-## Hyperdrive
-
-- AzureML-Hyperdrive-ForecastDNN
-
-## Minimal
-
-- AzureML-Minimal
-
-## PySpark
-
-- AzureML-PySpark-MmlSpark-0.15
 
 ## PyTorch
+- AzureML-pytorch-1.7-ubuntu18.04-py37-cuda11-gpu
+     - An environment for deep learning with PyTorch containing the AzureML Python SDK and additional python packages.
+     - The following Dockerfile can be customized for your personal workflows:
+      
+     ```dockerfile
+     FROM mcr.microsoft.com/azureml/openmpi4.1.0-cuda11.0.3-cudnn8-ubuntu18.04:20210615.v1
 
-- AzureML-PyTorch-1.0-CPU
-- AzureML-PyTorch-1.0-GPU
-- AzureML-PyTorch-1.1-CPU
-- AzureML-PyTorch-1.1-GPU
-- AzureML-PyTorch-1.2-CPU
-- AzureML-PyTorch-1.2-GPU
-- AzureML-PyTorch-1.3-CPU
-- AzureML-PyTorch-1.3-GPU
-- AzureML-PyTorch-1.4-CPU
-- AzureML-PyTorch-1.4-GPU
-- AzureML-PyTorch-1.5-CPU
-- AzureML-PyTorch-1.5-GPU
-- AzureML-PyTorch-1.6-CPU
-- AzureML-PyTorch-1.6-GPU
+     ENV AZUREML_CONDA_ENVIRONMENT_PATH /azureml-envs/pytorch-1.7
 
-## Scikit
+     # Create conda environment
+     RUN conda create -p $AZUREML_CONDA_ENVIRONMENT_PATH \
+         python=3.7 \
+         pip=20.2.4 \
+         pytorch=1.7.1 \
+         torchvision=0.8.2 \
+         torchaudio=0.7.2 \
+         cudatoolkit=11.0 \
+         nvidia-apex=0.1.0 \
+         -c anaconda -c pytorch -c conda-forge
 
-- AzureML-Scikit-learn-0.20.3
+     # Prepend path to AzureML conda environment
+     ENV PATH $AZUREML_CONDA_ENVIRONMENT_PATH/bin:$PATH
+
+     # Install pip dependencies
+     RUN HOROVOD_WITH_PYTORCH=1 \
+         pip install 'matplotlib>=3.3,<3.4' \
+                     'psutil>=5.8,<5.9' \
+                     'tqdm>=4.59,<4.60' \
+                     'pandas>=1.1,<1.2' \
+                     'scipy>=1.5,<1.6' \
+                     'numpy>=1.10,<1.20' \
+                     'azureml-core==1.30.0' \
+                     'azureml-defaults==1.30.0' \
+                     'azureml-mlflow==1.30.0' \
+                     'azureml-telemetry==1.30.0' \
+                     'tensorboard==2.4.0' \
+                     'tensorflow-gpu==2.4.1' \
+                     'onnxruntime-gpu>=1.7,<1.8' \
+                     'horovod[pytorch]==0.21.3' \
+                     'future==0.17.1'
+
+     # This is needed for mpi to locate libpython
+     ENV LD_LIBRARY_PATH $AZUREML_CONDA_ENVIRONMENT_PATH/lib:$LD_LIBRARY_PATH
+     ```
+
+## LightGBM
+- AzureML-lightgbm-3.2-ubuntu18.04-py37-cpu
+     - An environment for machine learning with Scikit-learn, LightGBM, XGBoost, Dask containing the AzureML Python SDK and additional packages.
+     - The following Dockerfile can be customized for your personal workflows:
+     
+     ```dockerfile
+     FROM mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:20210615.v1
+
+     ENV AZUREML_CONDA_ENVIRONMENT_PATH /azureml-envs/lightgbm
+
+     # Create conda environment
+     RUN conda create -p $AZUREML_CONDA_ENVIRONMENT_PATH \
+         python=3.7 pip=20.2.4
+
+     # Prepend path to AzureML conda environment
+     ENV PATH $AZUREML_CONDA_ENVIRONMENT_PATH/bin:$PATH
+
+     # Install pip dependencies
+     RUN HOROVOD_WITH_TENSORFLOW=1 \
+         pip install 'matplotlib>=3.3,<3.4' \
+                     'psutil>=5.8,<5.9' \
+                     'tqdm>=4.59,<4.60' \
+                     'pandas>=1.1,<1.2' \
+                     'numpy>=1.10,<1.20' \
+                     'scipy~=1.5.0' \
+                     'scikit-learn~=0.24.1' \
+                     'xgboost~=1.4.0' \
+                     'lightgbm~=3.2.0' \
+                     'dask~=2021.6.0' \
+                     'distributed~=2021.6.0' \
+                     'dask-ml~=1.9.0' \
+                     'adlfs~=0.7.0' \
+                     'azureml-core==1.30.0' \
+                     'azureml-defaults==1.30.0' \
+                     'azureml-mlflow==1.30.0' \
+                     'azureml-telemetry==1.30.0'
+
+     # This is needed for mpi to locate libpython
+     ENV LD_LIBRARY_PATH $AZUREML_CONDA_ENVIRONMENT_PATH/lib:$LD_LIBRARY_PATH
+     ```
+
+## Sklearn
+- AzureML-sklearn-0.24-ubuntu18.04-py37-cuda11-gpu
+     - An environment for tasks such as regression, clustering, and classification with Scikit-learn. Contains the AzureML Python SDK and additional python packages.
+     - The following Dockerfile can be customized for your personal workflows:
+     
+     ```dockerfile
+     FROM mcr.microsoft.com/azureml/openmpi4.1.0-cuda11.0.3-cudnn8-ubuntu18.04:20210615.v1
+
+     ENV AZUREML_CONDA_ENVIRONMENT_PATH /azureml-envs/sklearn-0.24.1
+
+     # Create conda environment
+     RUN conda create -p $AZUREML_CONDA_ENVIRONMENT_PATH \
+         python=3.7 pip=20.2.4
+
+     # Prepend path to AzureML conda environment
+     ENV PATH $AZUREML_CONDA_ENVIRONMENT_PATH/bin:$PATH
+
+     # Install pip dependencies
+     RUN pip install 'matplotlib>=3.3,<3.4' \
+                     'psutil>=5.8,<5.9' \
+                     'tqdm>=4.59,<4.60' \
+                     'pandas>=1.1,<1.2' \
+                     'scipy>=1.5,<1.6' \
+                     'numpy>=1.10,<1.20' \
+                     'azureml-core==1.30.0' \
+                     'azureml-defaults==1.30.0' \
+                     'azureml-mlflow==1.30.0' \
+                     'azureml-telemetry==1.30.0' \
+                     'scikit-learn==0.24.1'
+
+     # This is needed for mpi to locate libpython
+     ENV LD_LIBRARY_PATH $AZUREML_CONDA_ENVIRONMENT_PATH/lib:$LD_LIBRARY_PATH
+     ```
 
 ## TensorFlow
+- AzureML-tensorflow-2.4-ubuntu18.04-py37-cuda11-gpu
+     - An environment for deep learning with Tensorflow containing the AzureML Python SDK and additional python packages.
+     - The following Dockerfile can be customized for your personal workflows:
+     
+     ```dockerfile
+     FROM mcr.microsoft.com/azureml/openmpi4.1.0-cuda11.0.3-cudnn8-ubuntu18.04:20210615.v1
 
-- AzureML-TensorFlow-1.10-CPU
-- AzureML-TensorFlow-1.10-GPU
-- AzureML-TensorFlow-1.12-CPU
-- AzureML-TensorFlow-1.12-GPU
-- AzureML-TensorFlow-1.13-CPU
-- AzureML-TensorFlow-1.13-GPU
-- AzureML-TensorFlow-2.0-CPU
-- AzureML-TensorFlow-2.0-GPU
-- AzureML-TensorFlow-2.1-CPU
-- AzureML-TensorFlow-2.1-GPU
-- AzureML-TensorFlow-2.2-CPU
-- AzureML-TensorFlow-2.2-GPU
-- AzureML-TensorFlow-2.3-CPU
-- AzureML-TensorFlow-2.3-GPU
+     ENV AZUREML_CONDA_ENVIRONMENT_PATH /azureml-envs/tensorflow-2.4
 
-## Triton
+     # Create conda environment
+     RUN conda create -p $AZUREML_CONDA_ENVIRONMENT_PATH \
+         python=3.7 pip=20.2.4
 
-- AzureML-Triton
+     # Prepend path to AzureML conda environment
+     ENV PATH $AZUREML_CONDA_ENVIRONMENT_PATH/bin:$PATH
 
-## Tutorial
+     # Install pip dependencies
+     RUN HOROVOD_WITH_TENSORFLOW=1 \
+         pip install 'matplotlib>=3.3,<3.4' \
+                     'psutil>=5.8,<5.9' \
+                     'tqdm>=4.59,<4.60' \
+                     'pandas>=1.1,<1.2' \
+                     'scipy>=1.5,<1.6' \
+                     'numpy>=1.10,<1.20' \
+                     'azureml-core==1.30.0' \
+                     'azureml-defaults==1.30.0' \
+                     'azureml-mlflow==1.30.0' \
+                     'azureml-telemetry==1.30.0' \
+                     'tensorboard==2.4.0' \
+                     'tensorflow-gpu==2.4.1' \
+                     'onnxruntime-gpu>=1.7,<1.8' \
+                     'horovod[tensorflow-gpu]==0.21.3'
 
-- AzureML-Tutorial
+     # This is needed for mpi to locate libpython
+     ENV LD_LIBRARY_PATH $AZUREML_CONDA_ENVIRONMENT_PATH/lib:$LD_LIBRARY_PATH
+     ```
 
-## VowpalWabbit
-
-- AzureML-VowpalWabbit-8.8.0
+## Inference only curated environments and prebuilt docker images
+- Read about inference only curated environments and MCR path for prebuilt docker images, see [prebuilt Docker images for inference](concept-prebuilt-docker-images-inference.md#list-of-prebuilt-docker-images-for-inference).

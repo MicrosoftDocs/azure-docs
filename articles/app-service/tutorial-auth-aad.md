@@ -4,7 +4,7 @@ description: Learn how to use App Service authentication and authorization to se
 keywords: app service, azure app service, authN, authZ, secure, security, multi-tiered, azure active directory, azure ad
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 04/29/2020
+ms.date: 04/26/2021
 ms.custom: "devx-track-csharp, seodec18, devx-track-azurecli"
 zone_pivot_groups: app-service-platform-windows-linux
 ---
@@ -235,23 +235,21 @@ In **Resource groups**, find and select your resource group. In **Overview**, se
 
 :::image type="content" source="./media/tutorial-auth-aad/portal-navigate-back-end.png" alt-text="Screenshot of the Resource groups window, showing the Overview for an example resource group and a back-end app's management page selected.":::
 
-In your back-end app's left menu, select **Authentication / Authorization**, then enable App Service Authentication by selecting **On**.
+In your back-end app's left menu, select **Authentication**, and then click **Add identity provider**.
 
-In **Action to take when request is not authenticated**, select **Log in with Azure Active Directory**.
+In the **Add an identity provider** page, select **Microsoft** as the **Identity provider** to sign in Microsoft and Azure AD identities.
 
-Under **Authentication Providers**, select **Azure Active Directory**.
+For **App registration** > **App registration type**, select **Create new app registration**.
+
+For **App registration** > **Supported account types**, select **Current tenant-single tenant**.
+
+In the **App Service authentication settings** section, leave **Authentication** set to **Require authentication** and **Unauthenticated requests** set to **HTTP 302 Found redirect: recommended for websites**.
+
+At the bottom of the **Add an identity provider** page, click **Add** to enable authentication for your web app.
 
 :::image type="content" source="./media/tutorial-auth-aad/configure-auth-back-end.png" alt-text="Screenshot of the back-end app's left menu showing Authentication/Authorization selected and settings selected in the right menu.":::
 
-Select **Express**, then accept the default settings to create a new AD app and select **OK**.
-
-In the **Authentication / Authorization** page, select **Save**.
-
-Once you see the notification with the message `Successfully saved the Auth Settings for <back-end-app-name> App`, refresh the portal page.
-
-Select **Azure Active Directory** again, and then select the **Azure AD App**.
-
-Copy the **Client ID** of the Azure AD application to a notepad. You need this value later.
+The **Authentication** page opens. Copy the **Client ID** of the Azure AD application to a notepad. You need this value later.
 
 :::image type="content" source="./media/tutorial-auth-aad/get-application-id-back-end.png" alt-text="Screenshot of the Azure Active Directory Settings window showing the Azure AD App, and the Azure AD Applications window showing the Client ID to copy.":::
 
@@ -362,7 +360,7 @@ While the server code has access to request headers, client code can access `GET
 
 ### Configure CORS
 
-In the Cloud Shell, enable CORS to your client's URL by using the [`az webapp cors add`](/cli/azure/webapp/cors#az-webapp-cors-add) command. Replace the _\<back-end-app-name>_ and _\<front-end-app-name>_ placeholders.
+In the Cloud Shell, enable CORS to your client's URL by using the [`az webapp cors add`](/cli/azure/webapp/cors#az_webapp_cors_add) command. Replace the _\<back-end-app-name>_ and _\<front-end-app-name>_ placeholders.
 
 ```azurecli-interactive
 az webapp cors add --resource-group myAuthResourceGroup --name <back-end-app-name> --allowed-origins 'https://<front-end-app-name>.azurewebsites.net'
