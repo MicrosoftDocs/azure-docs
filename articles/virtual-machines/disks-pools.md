@@ -1,6 +1,6 @@
 ---
-title: Azure managed disk pools overview
-description: Learn about Azure disk pools.
+title: Azure disk pools (preview) overview
+description: Learn about Azure disk pools (preview).
 author: roygara
 ms.service: virtual-machines
 ms.topic: conceptual
@@ -11,8 +11,7 @@ ms.subservice: disks
 
 # Azure disk pools (preview)
 
-
-A disk pool is a top-level Azure resource that allow your applications and workloads to access all disks under a disk pool one single endpoint. A disk pool can expose an Internet Small Computer Systems Interface (iSCSI) target to enable data access to disks inside this pool over iSCSI. Each disk pool can have one iSCSI target and each disk can be exposed as an iSCSI LUN. You can connect disks under the disk pool to an Azure VMware Solution (AVS) host as datastores. This allows you to scale your storage independent of your AVS hosts. Once a datastore is configured, you can create volumes on it and attach them to your VMware instances through vCenter, like any other datastore in on-prem VMware environment.
+A disk pool (preview) is a top-level Azure resource that allow your applications and workloads to access all disks under a disk pool one single endpoint. A disk pool can expose an Internet Small Computer Systems Interface (iSCSI) target to enable data access to disks inside this pool over iSCSI. Each disk pool can have one iSCSI target and each disk can be exposed as an iSCSI LUN. You can connect disks under the disk pool to an Azure VMware Solution (AVS) host as datastores. This allows you to scale your storage independent of your AVS hosts. Once a datastore is configured, you can create volumes on it and attach them to your VMware instances through vCenter, like any other datastore in an on-prem VMware environment.
 
 ## How does it work?
 
