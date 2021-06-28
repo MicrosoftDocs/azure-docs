@@ -47,13 +47,13 @@ You must have a public-facing IP address terminating on an on-premises VPN devic
  
 3. On the **Basics** tab, enter the required fields. 
 
-   :::image type="content" source="../../includes/media/virtual-wan-tutorial-site-include/site-basics.png" alt-text="Screenshot shows Create VPN site page with the Basics tab open." lightbox="./media/virtual-wan-tutorial-site-include/site-basics.png":::
+   :::image type="content" source="../../includes/media/virtual-wan-tutorial-site-include/site-basics.png" alt-text="Screenshot shows Create VPN site page with the Basics tab open." lightbox="../../includes/media/virtual-wan-tutorial-site-include/site-basics.png":::
 
-   * **Region** - Previously referred to as location. This is the location you want to create this site resource in.
+   * **Region** - Previously referred to as location. It's the location you want to create this site resource in.
    
    * **Name** - The name by which you want to refer to your on-premises site.
    
-   * **Device vendor** - The name of the VPN device vendor (for example: Citrix, Cisco, Barracuda). Adding the device vendor can help the Azure Team better understand your environment in order to add additional optimization possibilities in the future, or to help you troubleshoot.
+   * **Device vendor** - The name of the VPN device vendor (for example: Citrix, Cisco, Barracuda). Adding the device vendor can help the Azure Team better understand your environment in order to add more optimization possibilities in the future, or to help you troubleshoot.
 
    * **Private address space** - The CIDR IP address space that is located on your on-premises site. Traffic destined for this address space is routed to your local site. The CIDR block is only required if you [BGP](../vpn-gateway/bgp-howto.md) isn't enabled for the site.
     
@@ -81,17 +81,17 @@ You must have a public-facing IP address terminating on an on-premises VPN devic
 >[!IMPORTANT]
 >This is an optional step and applies only to policy-based VPNs. 
 
-[Policy-based VPN setups](../virtual-wan/virtual-wan-custom-ipsec-portal.md) require on-premise and Azure VMware Solution networks to be specified, including the hub ranges.  These hub ranges specify the encryption domain of the policy-based VPN tunnel on-premise endpoint.  The Azure VMware Solution side only requires the policy-based traffic selector indicator to be enabled. 
+[Policy-based VPN setups](../virtual-wan/virtual-wan-custom-ipsec-portal.md) require on-premise and Azure VMware Solution networks to be specified, including the hub ranges.  These ranges specify the encryption domain of the policy-based VPN tunnel on-premise endpoint.  The Azure VMware Solution side only requires the policy-based traffic selector indicator to be enabled. 
 
-1. In the Azure portal, go to your Virtual WAN hub site. Under **Connectivity**, select **VPN (Site to site)**.
+1. In the Azure portal, go to your Virtual WAN hub site and, under **Connectivity**, select **VPN (Site to site)**.
 
 2. Select the VPN Site for which you want to set up a custom IPsec policy.
 
-   :::image type="content" source="../virtual-wan/media/virtual-wan-custom-ipsec-portal/locate.png" alt-text="Screenshot showing the existing VPN sites." lightbox="../virtual-wan/media/virtual-wan-custom-ipsec-portal/locate.png":::
+   :::image type="content" source="../virtual-wan/media/virtual-wan-custom-ipsec-portal/locate.png" alt-text="Screenshot showing the existing VPN sites to set up customer IPsec policies." lightbox="../virtual-wan/media/virtual-wan-custom-ipsec-portal/locate.png":::
 
 3. Select **More** (...) at the far right, and then select **Edit VPN Connection**.
 
-   :::image type="content" source="../virtual-wan/media/virtual-wan-custom-ipsec-portal/contextmenu.png" alt-text="Screenshot showing the existing VPN sites." lightbox="../virtual-wan/media/virtual-wan-custom-ipsec-portal/contextmenu.png":::
+   :::image type="content" source="../virtual-wan/media/virtual-wan-custom-ipsec-portal/contextmenu.png" alt-text="Screenshot showing the context menu for an existing VPN site." lightbox="../virtual-wan/media/virtual-wan-custom-ipsec-portal/contextmenu.png":::
 
    - Internet Protocol Security (IPSec), select **Custom**.
 
