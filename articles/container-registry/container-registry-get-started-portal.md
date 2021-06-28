@@ -1,15 +1,16 @@
 ---
 title: Quickstart - Create registry in portal
 description: Quickly learn to create a private Azure container registry using the Azure portal.
-ms.date: 08/04/2020
+ms.date: 06/23/2021
 ms.topic: quickstart
 ms.custom:
   - mvc
   - mode-portal
+  - contperf-fy21q4
 ---
 # Quickstart: Create an Azure container registry using the Azure portal
 
-An Azure container registry is a private Docker registry in Azure where you can store and manage private Docker container images and related artifacts. In this quickstart, you create a container registry with the Azure portal. Then, use Docker commands to push a container image into the registry, and finally pull and run the image from your registry.
+Azure Container Registry is a private registry service for building, storing, and managing container images and related artifacts. In this quickstart, you create an Azure container registry instance with the Azure portal. Then, use Docker commands to push a container image into the registry, and finally pull and run the image from your registry.
 
 To log in to the registry to work with container images, this quickstart requires that you are running the Azure CLI (version 2.0.55 or later recommended). Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli].
 
@@ -31,17 +32,17 @@ In the **Basics** tab, enter values for **Resource group** and **Registry name**
 
 Accept default values for the remaining settings. Then select **Review + create**. After reviewing the settings, select **Create**.
 
-In this quickstart you create a *Basic* registry, which is a cost-optimized option for developers learning about Azure Container Registry. For details on available service tiers (SKUs), see [Container registry service tiers][container-registry-skus].
+[!INCLUDE [container-registry-quickstart-sku](../../includes/container-registry-quickstart-sku.md)]
 
 When the **Deployment succeeded** message appears, select the container registry in the portal. 
 
 :::image type="content" source="media/container-registry-get-started-portal/qs-portal-05.png" alt-text="Container registry Overview in the portal":::
 
-Take note of the registry name and the value of the **Login server**. You use these values in the following steps when you push and pull images with Docker.
+Take note of the registry name and the value of the **Login server**, which is a fully qualified name ending with `azurecr.io` in the Azure cloud. You use these values in the following steps when you push and pull images with Docker.
 
 ## Log in to registry
 
-Before pushing and pulling container images, you must log in to the registry instance. [Sign into the Azure CLI][get-started-with-azure-cli] on your local machine, then run the [az acr login][az-acr-login] command. Specify only the registry name when logging in with the Azure CLI. Don't use the login server name, which includes a domain suffix like `azurecr.io`.
+Before pushing and pulling container images, you must log in to the registry instance. [Sign into the Azure CLI][get-started-with-azure-cli] on your local machine, then run the [az acr login][az-acr-login] command. Specify only the registry resource name when logging in with the Azure CLI. Don't use the fully qualified login server name.
 
 ```azurecli
 az acr login --name <registry-name>
