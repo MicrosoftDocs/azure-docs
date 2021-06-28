@@ -64,6 +64,8 @@ The following two types of errors are classified as **user errors**:
 |User Errors | No | Count | Total | The number of requests not processed because of user errors over a specified period. | Entity name<br/><br/>Operation Result|
 |Quota Exceeded Errors | No |Count | Total | The number of errors caused by exceeding quotas over a specified period. | Entity name<br/><br/>Operation Result|
 
+> [!NOTE]
+> Logic Apps creates epoch receivers and receivers may be moved from one node to another depending on the service load. During those moves, `ReceiverDisconnection` exceptions may occur. They are counted as user errors on the Event Hubs service side. Logic Apps may collect failures from Event Hubs clients so that you can view them in user logs.
 
 ## Metric dimensions
 
