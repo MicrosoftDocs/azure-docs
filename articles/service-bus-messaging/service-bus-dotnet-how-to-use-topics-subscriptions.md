@@ -1,5 +1,5 @@
 ---
-title: Send messages to Azure Service Bus topics using azure-messaging-servicebus
+title: Get started with Azure Service Bus topics and subscriptions
 description: This quickstart shows you how to send messages to Azure Service Bus topics using the azure-messaging-servicebus package. 
 ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
