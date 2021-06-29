@@ -73,7 +73,7 @@ For a disk to be able to be used in a disk pool, it must meet the following requ
 1. In the Select section, search for **StoragePool Resource Provider**, select it, and save.
 
 ### Create a disk pool
-
+For the optimal performance, we suggest you to deploy the disk pool in the same Availability Zone of your clients. If you are deploying a disk pool for AVS and need guidance on identifying the Availability Zone of your Azure VMware Solution (AVS), fill in this [form](https://aka.ms/DiskPoolCollocate).
 
 # [Portal](#tab/azure-portal)
 

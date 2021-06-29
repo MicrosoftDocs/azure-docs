@@ -48,8 +48,8 @@ When you deploy a disk pool, there are two main areas that will incur billing co
 - The disks added to the disk pool
 - The Azure resources deployed in the managed resource group that accompany the disk pool.
     - The resources in the managed resource group are:
-        - One virtual machines.
-        - One managed disks.
+        - Virtual machines.
+        - Managed disks.
         - One network interface.
         - One storage account for diagnostic logs and metrics.
         
