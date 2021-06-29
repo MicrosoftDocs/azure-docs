@@ -519,7 +519,7 @@
       - name: Move sharded data
         href: database/elastic-scale-overview-split-and-merge.md
       - name: Elastic tools FAQ
-        href: database/elastic-scale-faq.md
+        href: database/elastic-scale-faq.yml
 
   - name: How to
     href: database/how-to-content-reference-guide.md

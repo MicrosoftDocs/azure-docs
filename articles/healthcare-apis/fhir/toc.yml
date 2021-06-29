@@ -62,6 +62,8 @@
       href: davinci-drug-formulary-tutorial.md
     - name: Da Vinci PDex
       href: davinci-pdex-tutorial.md
+    - name: Da Vinci Plan Net
+      href: davinci-plan-net.md
 - name: How-to guides
   expanded: false
   items:
@@ -167,7 +169,7 @@
 - name: Resources
   items:
   - name: FAQ
-    href: fhir-faq.md
+    href: fhir-faq.yml
   - name: Supported features
     href: fhir-features-supported.md
   - name: GitHub Projects
