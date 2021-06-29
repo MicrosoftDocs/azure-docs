@@ -15,8 +15,8 @@ ms.date: 05/28/2021
 > Azure Purview is currently in preview. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta or preview or are otherwise not yet released for general availability.
 
 To scan data sources, Azure Purview requires access to them. It uses credentials to obtain this access. A *credential* is the authentication information that Azure Purview can use to authenticate to your registered data sources. There are a few ways to set up the credentials for Azure Purview, including: 
-- A managed identity assigned to the Azure Purview account.
-- A key vault. 
+- The managed identity assigned to the Azure Purview account.
+- Secrets stored in Azure Key Vault. 
 - Service principals.
 
 In this two-part tutorial series, we'll help you verify and configure required Azure role assignments and network access for various Azure data sources across your Azure subscriptions at scale. You can then register and scan your Azure data sources in Azure Purview. 
