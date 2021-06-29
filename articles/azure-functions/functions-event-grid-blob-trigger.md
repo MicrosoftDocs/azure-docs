@@ -33,19 +33,19 @@ This article demonstrates how to debug and deploy a local Event Grid Blob trigge
     # [C#](#tab/csharp)
 
     ```http
-    http://localhost:7071/runtime/webhooks/blobs?functionName={functionname}
+    http://localhost:7071/runtime/webhooks/eventgrid?functionName={functionname}
     ```
 
     # [Python](#tab/python)
 
     ```http
-    http://localhost:7071/runtime/webhooks/blobs?functionName=Host.Functions.{functionname}
+    http://localhost:7071/runtime/webhooks/eventgrid?functionName=Host.Functions.{functionname}
     ```
 
     # [Java](#tab/java)
 
     ```http
-    http://localhost:7071/runtime/webhooks/blobs?functionName=Host.Functions.{functionname}
+    http://localhost:7071/runtime/webhooks/eventgrid?functionName=Host.Functions.{functionname}
     ```
 
     ---
