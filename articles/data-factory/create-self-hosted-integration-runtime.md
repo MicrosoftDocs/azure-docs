@@ -70,7 +70,7 @@ Installation of the self-hosted integration runtime on a domain controller isn't
   - Java Runtime (JRE) version 8 from a JRE provider such as [Adopt OpenJDK](https://adoptopenjdk.net/). Ensure that the `JAVA_HOME` environment variable is set to the JRE folder (and not just the JDK folder).
 
 >[!NOTE]
->If you are running in government cloud, please review [Connect to government cloud.](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-ps)
+>If you are running in government cloud, please review [Connect to government cloud.](../azure-government/documentation-government-get-started-connect-with-ps.md)
 
 ## Setting up a self-hosted integration runtime
 

@@ -52,7 +52,7 @@ az aro update --refresh-credentials --name MyManagedCluster --resource-group MyR
 
 Manually rotate service principal credentials with user provided secret-id and client-secret with the following instructions:
 
-Retrieve the service principal clientId (`--secret-id`) and set it as `SP_ID` environment variable.
+Retrieve the service principal clientId (`--client-id`) and set it as `SP_ID` environment variable.
 ```azurecli-interactive
 # Retrieve the service principal clientId
 SP_ID=$(az aro show --name MyManagedCluster --resource-group MyResourceGroup \
@@ -66,7 +66,7 @@ SP_SECRET=$(az ad sp credential reset --name $SP_ID --query password -o tsv)
 Rotate service principal credentials using the above environment variables.
 ```azurecli-interactive
 # Rotate service principal credentials
-az aro update --secret-id $SP_ID --client-secret $SP_SECRET \
+az aro update --client-id $SP_ID --client-secret $SP_SECRET \
     --name MyManagedCluster --resource-group MyResourceGroup
 ```
 

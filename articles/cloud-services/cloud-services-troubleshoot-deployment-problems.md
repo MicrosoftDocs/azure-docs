@@ -4,8 +4,8 @@ description: There are a few common problems you may run into when deploying a c
 ms.topic: troubleshooting
 ms.service: cloud-services
 ms.date: 10/14/2020
-ms.author: tagore
-author: tanmaygore
+author: hirenshah1
+ms.author: hirshah
 ms.reviewer: mimckitt
 ms.custom: 
 ---

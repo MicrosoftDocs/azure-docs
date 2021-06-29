@@ -53,7 +53,7 @@ The smartphone app sends telemetry that includes values from the accelerometer s
     | Notes        | Your phone is face down! |
 
     > [!TIP]
-    > To receive an email notification, the email address must be a [user ID in the application](howto-administer.md), and the user must have signed in to the application at least once.
+    > To receive an email notification, the email address must be a [user ID in the application](howto-manage-users-roles.md), and the user must have signed in to the application at least once.
 
     :::image type="content" source="media/quick-configure-rules/rule-action.png" alt-text="Screenshot that shows an email action added to the rule":::
 
