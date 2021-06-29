@@ -600,5 +600,6 @@ That's it! In this article, you learned concepts and workflows for downloading, 
 
 ## Next steps
 
-* Review [Configure containers](form-recognizer-container-configuration.md) for configuration settings.
-* Use more [Cognitive Services Containers](../../cognitive-services-container-support.md).
+* [Form Recognizer container configuration settings](form-recognizer-container-configuration.md) .
+* {Form Recognizer container image tags}
+* [Cognitive Services Container support page and release notes](../../containers/container-image-tags?tabs=current#form-recognizer.md).
