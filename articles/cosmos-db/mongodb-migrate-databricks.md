@@ -18,7 +18,7 @@ This migration guide is part of series on migrating databases from MongoDB to Co
 
 ## Overview of data migration using Azure Databricks
 
-[Azure Databricks](https://azure.microsoft.com/services/databricks/) is a platform as a service (PaaS) offering for [Apache Spark](https://spark.apache.org/) that offers a way to perform offline migrations on a large scale. You can use Azure Databricks to perform an offline migration of databases from an on-premises or cloud instance of MongoDB to Azure Cosmos DB's API for MongoDB.
+[Azure Databricks](https://azure.microsoft.com/services/databricks/) is a platform as a service (PaaS) offering for [Apache Spark](https://spark.apache.org/). It offers a way to do offline migrations on a large scale. You can use Azure Databricks to do an offline migration of databases from MongoDB to Azure Cosmos DB API for MongoDB.
 
 In this tutorial, you learn how to:
 
@@ -26,7 +26,7 @@ In this tutorial, you learn how to:
 
 - Add dependencies
 
-- Create and run Scala or Python Notebook to perform the migration
+- Create and run Scala or Python Notebook
 
 - Optimize the migration performance
 
@@ -48,7 +48,7 @@ You can follow instructions to [provision an Azure Databricks cluster](https://d
 
 ## Add dependencies
 
-You need to add the MongoDB Connector for Spark library to your cluster to connect to both native MongoDB and Azure Cosmos DB API for MongoDB endpoints. In your cluster, select **Libraries** > **Install New** > **Maven**, and then add `org.mongodb.spark:mongo-spark-connector_2.12:3.0.1` in Maven coordinates.
+Add the MongoDB Connector for Spark library to your cluster to connect to both native MongoDB and Azure Cosmos DB API for MongoDB endpoints. In your cluster, select **Libraries** > **Install New** > **Maven**, and then add `org.mongodb.spark:mongo-spark-connector_2.12:3.0.1` in Maven coordinates.
 
 ![Diagram of adding databricks cluster dependencies.](./media/mongodb-migrate-databricks/databricks-cluster-dependencies.png)
 
@@ -63,7 +63,7 @@ Post that, you may create a Scala or Python notebook for migration.
 
 ## Create Scala Notebook for migration
 
-Create a Scala Notebook in Databricks. Fill in the right values for the source and target configuration variables in the following code, and then run the code:
+Create a Scala Notebook in Databricks. Enter the right values for the variables in the following code. Then run the code:
 
 
 ```scala
@@ -104,7 +104,7 @@ MongoSpark.save(customRdd, writeConfig)
 
 ## Create Python Notebook for migration
 
-Create a Python Notebook in Databricks. Fill in the right values for the source and target configuration variables in the following code, and then run the code::
+Create a Python Notebook in Databricks. Enter the right values for the variables in the following code. Then run the code:
 
 
 ```python
@@ -135,7 +135,7 @@ The migration performance can be adjusted through these configurations:
 
 - **maxBatchSize**: The `maxBatchSize` value controls the rate at which data is saved to the target Cosmos DB collection. However, if the maxBatchSize is too high for the collection throughput, it can cause [rate limiting](prevent-rate-limiting-errors.md) errors.
 
-  You would need to adjust the number of workers and maxBatchSize, depending on the number of executors in the Spark cluster, potentially the size (and therefore RU cost) of each document being written, and the target collection throughput limits.
+  You would need to adjust the number of workers and maxBatchSize, depending on the number of executors in the Spark cluster, potentially the size (and that's why RU cost) of each document being written, and the target collection throughput limits.
 
   >[!TIP]
   >maxBatchSize = Collection throughput / ( RU cost for 1
@@ -143,7 +143,7 @@ The migration performance can be adjusted through these configurations:
 
 - **MongoDB Spark partitioner and partitionKey**: The default partitioner used is MongoDefaultPartitioner and default partitionKey is _id. Partitioner can be changed by assigning value `MongoSamplePartitioner` to the input configuration property `spark.mongodb.input.partitioner`. Similarly, partitionKey can be changed by assigning the appropriate field name to the input configuration property `spark.mongodb.input.partitioner.partitionKey`. Right partitionKey can help avoid data skew (large number of records being written for the same shard key value).
 
-- **Disable indexes during data transfer:** For large amounts of data migration, consider disabling indexes, specially wildcard index on the target collection. Indexes increase the RU cost for writing each document. Freeing these additional RUs can help improve the data transfer rate. You may enable the indexes once the data has been migrated over.
+- **Disable indexes during data transfer:** For large amounts of data migration, consider disabling indexes, specially wildcard index on the target collection. Indexes increase the RU cost for writing each document. Freeing these RUs can help improve the data transfer rate. You may enable the indexes once the data has been migrated over.
 
 
 
@@ -154,14 +154,14 @@ The migration performance can be adjusted through these configurations:
 You might see a 429 error code for operations against the Cosmos DB API for MongoDB database. The following scenarios can cause rate limiting:
 
 - **Throughput allocated to the database is low**: Ensure that the target collection has sufficient throughput assigned to it.
-- **Excessive data skew with large data volume**. If you have a large amount of data to migrate into a given table but have a significant skew in the data (that is, a large number of records being written for the same shard key value), then you might still experience rate limiting even if you have several [request units](request-units) provisioned in your table. Request units are divided equally among physical partitions, and heavy data skew can cause a bottleneck of requests to a single shard.
+- **Excessive data skew with large data volume**. If you have a large amount of data to migrate into a given table but have a significant skew in the data, you might still experience rate limiting even if you have several [request units](request-units) provisioned in your table. Request units are divided equally among physical partitions, and heavy data skew can cause a bottleneck of requests to a single shard. Data skew means large number of records for the same shard key value.
 - **Enable Server-side retry**: Enable the Server Side Retry (SSR) feature and let the server retry the rate limited operations automatically.
 
 
 
 ## Post-migration optimization
 
-After you migrate the data stored in MongoDB database to Azure Cosmos DB’s API for MongoDB, you can connect to Azure Cosmos DB and manage the data. You can also perform other post-migration optimization steps such as optimizing the indexing policy, update the default consistency level, or configure global distribution for your Azure Cosmos DB account. For more information, see the [Post-migration optimization](mongodb-post-migration) article.
+After you migrate the data, you can connect to Azure Cosmos DB and manage the data. You can also follow other post-migration steps such as optimizing the indexing policy, update the default consistency level, or configure global distribution for your Azure Cosmos DB account. For more information, see the [Post-migration optimization](mongodb-post-migration) article.
 
 ## Next steps
 
