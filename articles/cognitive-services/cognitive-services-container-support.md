@@ -8,7 +8,7 @@ manager: nitinme
 ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 06/07/2021
+ms.date: 06/25/2021
 ms.author: aahi
 keywords: on-premises, Docker, container, Kubernetes
 #Customer intent: As a potential customer, I want to know more about how Cognitive Services provides and supports Docker containers for each service.

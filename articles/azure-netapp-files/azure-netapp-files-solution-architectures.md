@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/22/2021
+ms.date: 06/28/2021
 ms.author: b-juche
 ---
 # Solution architectures using Azure NetApp Files
@@ -154,6 +154,7 @@ This section provides solutions for Azure platform services.
 
 ### Azure Kubernetes Services and Kubernetes
 
+* [Astra: protect, recover, and manage your AKS workloads on Azure NetApp Files](https://cloud.netapp.com/hubfs/Astra%20Azure%20Documentation.pdf) 
 * [Integrate Azure NetApp Files with Azure Kubernetes Service](../aks/azure-netapp-files.md)
 * [Out-of-This-World Kubernetes performance on Azure with Azure NetApp Files](https://cloud.netapp.com/blog/ma-anf-blg-configure-kubernetes-openshift)
 * [Azure NetApp Files + Trident = Dynamic and Persistent Storage for Kubernetes](https://anfcommunity.com/2021/02/16/azure-netapp-files-trident-dynamic-and-persistent-storage-for-kubernetes/)
