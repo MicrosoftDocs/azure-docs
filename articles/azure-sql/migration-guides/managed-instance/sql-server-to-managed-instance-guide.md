@@ -229,7 +229,6 @@ To migrate using backup and restore, follow these steps:
 1. Once restore completes, view the database in **Object Explorer** within SQL Server Management Studio. 
 
 To learn more about this migration option, see [Restore a database to Azure SQL Managed Instance with SSMS](../../managed-instance/restore-sample-database-quickstart.md).
-> [!VIDEO https://www.youtube.com/embed/RxWYojo_Y3Q]
 
 > [!NOTE]
 > A database restore operation is asynchronous and retryable. You might get an error in SQL Server Management Studio if the connection breaks or a time-out expires. Azure SQL Database will keep trying to restore database in the background, and you can track the progress of the restore using the [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) and [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) views.
