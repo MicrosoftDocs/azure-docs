@@ -20,8 +20,6 @@ title: "Azure AD administrative units: Troubleshooting and FAQ"
 summary: |
   For more granular administrative control in Azure Active Directory (Azure AD), you can assign users to an Azure AD role with a scope that's limited to one or more administrative units. For sample PowerShell scripts for common tasks, see [Work with administrative units](/powershell/azure/active-directory/working-with-administrative-units).
   
-  ## Frequently asked questions
-
 sections:
   - name: Ignored
     questions:
