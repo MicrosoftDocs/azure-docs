@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/16/2021
+ms.date: 06/28/2021
 
 ms.author: justinha
 author: justinha
@@ -137,7 +137,17 @@ A user who has previously set up at least one method navigates to [https://aka.m
 
 A user who has previously set up at least one method that can be used for Multi-Factor Authentication navigates to [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo). The user changes the current default method to a different default method. When finished, the user sees the new default method on the Security info page.
 
-An external identity such as a B2B user may need to switch the directory to change the security registration information for a third-party tenant. In the Azure portal, click the user account name in the upper right corner and click **SWitch directory**.
+### Switch directory
+
+An external identity such as a B2B user may need to switch the directory to change the security registration information for a third-party tenant. 
+In addition, users who access a resource tenant may be confused when they change settings in their home tenant but don't see the changes reflected in the resource tenant. 
+
+For example, a user sets Microsoft Authenticator app push notification as the primary authentication to sign-in to home tenant and also has SMS/Text as another option. 
+This user is also configured with SMS/Text option on a resource tenant. 
+If this user removes SMS/Text as one of the authentication option on their home tenant, they get confused when access to the resource tenant asks them to respond to SMS/Text message. 
+
+
+To switch the directory in the Azure portal, click the user account name in the upper right corner and click **Switch directory**.
 
 ![External users can switch directory.](media/concept-registration-mfa-sspr-combined/switch-directory.png)
 
