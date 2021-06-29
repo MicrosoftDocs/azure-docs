@@ -16,20 +16,24 @@ We've also added links to some user generated content. Those items will be marke
 ## Release notes
 
 ### June 2021
+
 * Multivariate anomaly detection APIs available in more regions (West US2, West Europe, East US2, South Central US, East US, and UK South).
+* Anomaly Detector (univariate) available in Azure cloud for US Government.
+* Anomaly Detector (univariate) available in Azure China (China North 2).
 
 ### April 2021
 
 * [IoT Edge module](https://azuremarketplace.microsoft.com/marketplace/apps/azure-cognitive-service.edge-anomaly-detector) (univariate) published.
-* Anomaly Detector (univariate) available in Azure China (China East 2)
+* Anomaly Detector (univariate) available in Azure China (China East 2).
 * Multivariate anomaly detection APIs preview in selected regions (West US2, West Europe).
 
 ### September 2020
+
 * Anomaly Detector (univariate) generally available.
 
 ### March 2019
 
-* Anomaly Detector announced preview with univariate anomaly detection support
+* Anomaly Detector announced preview with univariate anomaly detection support.
 
 ## Technical articles
 
@@ -39,7 +43,6 @@ We've also added links to some user generated content. Those items will be marke
 * 6/10/2019 [Time-Series Anomaly Detection Service at Microsoft](https://arxiv.org/abs/1906.03821) - Paper on SR-CNN accepted by KDD 2019
 * 4/25/2019 **[UGC]** [Trying the Cognitive Service: Anomaly Detector API (in Japanese)](https://azure-recipe.kc-cloud.jp/2019/04/cognitive-service-anomaly-detector-api/)
 * 4/20/2019 [Introducing Azure Anomaly Detector API](https://techcommunity.microsoft.com/t5/ai-customer-engineering-team/introducing-azure-anomaly-detector-api/ba-p/490162) - Announcement blog
-
 
 ## Videos
 
@@ -51,7 +54,6 @@ We've also added links to some user generated content. Those items will be marke
 * 8/27/2019 [Anomaly Detector v1.0 Best Practices](https://channel9.msdn.com/Shows/AI-Show/Anomaly-Detector-v10-Best-Practices) - AI Show on univariate anomaly detection best practices with Qun Ying
 * 8/20/2019 [Bring Anomaly Detector on-premises with containers support](https://channel9.msdn.com/Shows/AI-Show/Bring-Anomaly-Detector-on-premise-with-containers-support) - AI Show with Qun Ying and Seth Juarez
 * 8/13/2019 [Introducing Azure Anomaly Detector](https://channel9.msdn.com/Shows/AI-Show/Introducing-Azure-Anomaly-Detector?WT.mc_id=ai-c9-niner) - AI Show with Qun Ying and Seth Juarez
-
 
 ## Open-source projects
 
