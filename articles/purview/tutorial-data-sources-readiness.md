@@ -28,8 +28,8 @@ In part 1 of this tutorial series, you'll:
 > [!div class="checklist"]
 >
 > * Locate your data sources and prepare a list of data source subscriptions.
-> * Run the readiness checklist script to find any missing RBAC or network configurations across your data sources in Azure.
-> * In the output report, review missing network configurations and role assignments required by Azure Purview MSI. 
+> * Run the readiness checklist script to find any missing role-based access control (RBAC) or network configurations across your data sources in Azure.
+> * In the output report, review missing network configurations and role assignments required by Azure Purview Managed Identity (MSI). 
 > * Share the report with data Azure subscription owners so they can take suggested actions.
 
 ## Prerequisites
@@ -41,7 +41,7 @@ In part 1 of this tutorial series, you'll:
 
 > [!NOTE]
 > The Azure Purview data sources readiness checklist is available only for Windows.
-> This readiness checklist script is currently supported for Azure Purview Managed Identity (MSI).
+> This readiness checklist script is currently supported for Azure Purview MSI.
 
 ## Prepare Azure subscriptions list for data sources
 
