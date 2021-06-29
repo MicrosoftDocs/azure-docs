@@ -33,7 +33,7 @@ When you need to take on an privileged access group role, you can request activa
 
 1. Select **Privileged access groups (Preview)** and then select the group you want to manage. You can search or filter in the list.
 
-    ![Open the Privileged access groups (Preview) experience](./media/groups-activate-roles/privileged-access-groups-select.png)
+    ![Open the Privileged access groups (Preview) experience](./media/groups-activate-roles/groups-select-group.png)
 
 1. Select **Activate** to open the Activate page.
 
@@ -43,7 +43,7 @@ When you need to take on an privileged access group role, you can request activa
 
 1. Select **Verify my identity** and follow the instructions to provide additional security verification.
 
-    ![Screen to provide security verification such as a PIN code](./media/groups-activate-roles/goups-mfa-enter-code.png)
+    ![Screen to provide security verification such as a PIN code](./media/groups-activate-roles/groups-mfa-enter-code.png)
 
 1. If you want to specify a reduced scope, select **Scope** to open the Resource filter pane.
 
