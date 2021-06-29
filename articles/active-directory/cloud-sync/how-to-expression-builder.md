@@ -35,22 +35,18 @@ In this section, you use the dropdown list to select from supported functions. T
 
 For example, by selecting **Replace** from the dropdown list, more boxes are provided. The syntax for the function is displayed in the light blue box. The boxes that are displayed correspond to the syntax of the function you selected. Replace works differently depending on the parameters provided.
 
-For this example, you'll use:
-
-- When oldValue and replacementValue are provided:
-
-    - Replaces all occurrences of oldValue in the source with replacementValue
+For this example, when **oldValue** and **replacementValue** are provided, all occurrences of **oldValue** are replaced in the source with **replacementValue**.
 
 For more information, see [Replace](reference-expressions.md#replace).
 
 The first thing you need to do is select the attribute that's the source for the replace function. In this example, the **mail** attribute is selected.
 
-Next, find the box for oldValue and enter **@fabrikam.com**. Finally, in the box for replacementValue, fill in the value **@contoso.com**.
+Next, find the box for **oldValue** and enter **@fabrikam.com**. Finally, in the box for **replacementValue**, fill in the value **@contoso.com**.
 
 The expression basically says, replace the mail attribute on user objects that have a value of @fabrikam.com with the @contoso.com value. When you select **Add expression**, you can see the syntax in the **Expression input** box.
 
 >[!NOTE]
->Be sure to place the values in the boxes that would correspond with oldValue and replacementValue based on the syntax that occurs when you've selected **Replace**.
+>Be sure to place the values in the boxes that would correspond with **oldValue** and **replacementValue** based on the syntax that occurs when you've selected **Replace**.
 
 For more information on supported expressions, see [Writing expressions for attribute mappings in Azure Active Directory](reference-expressions.md).
 
