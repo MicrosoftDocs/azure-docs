@@ -91,7 +91,7 @@ In some scenarios, failover requires additional processing that takes around 8 t
 >[!TIP]
 > If you encounter any connectivity issues after failover, follow the [troubleshooting guide](site-recovery-failover-to-azure-troubleshoot.md).
 
-## Planned failover from Azure to on-premises (preview )
+## Planned failover from Azure to on-premises 
 
 You can perform a planned failover from Azure to on-premises. Since it is a planned failover activity, the recovery point is generated after the planned failover job is triggered.
 
