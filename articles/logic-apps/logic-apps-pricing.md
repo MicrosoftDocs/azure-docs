@@ -254,7 +254,11 @@ The [on-premises data gateway](../logic-apps/logic-apps-gateway-install.md) is a
 
 ## Integration accounts
 
-An [integration account](../logic-apps/logic-apps-pricing.md#integration-accounts) is a separate resource, which you link create link to a logic app so that you can explore, build, and test B2B integration solutions that use [EDI](logic-apps-enterprise-integration-b2b.md) and [XML processing](logic-apps-enterprise-integration-xml.md) capabilities.
+An [integration account](logic-apps-enterprise-integration-create-integration-account.md) is a separate Azure resource that you create as a container to store business-to-business (B2B) artifacts that you create, for example, trading partners, agreements, schemas, maps, and so on. You can then use these artifacts and various B2B operations in workflows to explore, build, and test integration solutions that use [EDI](logic-apps-enterprise-integration-b2b.md) and [XML processing](logic-apps-enterprise-integration-xml.md) capabilities.
+
+> [!NOTE]
+> Before you can use an integration account and related artifacts in your workflow, you have to link the integration account to your logic app. 
+> For more information, review [Create and manage integration accounts](logic-apps-enterprise-integration-create-integration-account.md).
 
 Azure Logic Apps offers these integration account levels or tiers that [vary in pricing](https://azure.microsoft.com/pricing/details/logic-apps/) and [billing model](logic-apps-pricing.md#integration-accounts), based on whether your logic app runs in Azure Logic Apps (multi-tenant or single-tenant) or an ISE.
 
