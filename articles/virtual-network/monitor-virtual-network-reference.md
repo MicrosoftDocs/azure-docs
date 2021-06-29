@@ -26,13 +26,13 @@ This section lists all the automatically collected platform metrics collected fo
 
 For more information, see a list of [all platform metrics supported in Azure Monitor](../azure-monitor/essentials/metrics-supported.md).
 
-## Metric Dimensions
+## Metric dimensions
 
 For more information on what metric dimensions are, see [Multi-dimensional metrics](../azure-monitor/essentials/data-platform-metrics.md#multi-dimensional-metrics).
 
 Azure virtual network has the following dimensions associated with its metrics.
 
-### Dimensions for NAT Gateway
+### Dimensions for NAT gateway
 
 | Dimension Name | Description |
 | ------------------- | ----------------- |
@@ -50,7 +50,7 @@ For reference, see a list of [all resource logs category types supported in Azur
 | Network security group | [Microsoft.Network/networksecuritygroups](../azure-monitor/essentials/resource-logs-categories.md#microsoftnetworknetworksecuritygroups) |
 | Public IP address | [Microsoft.Network/publicIPAddresses](../azure-monitor/essentials/resource-logs-categories.md#microsoftnetworkpublicipaddresses) |
 
-## Azure Monitor Logs tables
+## Azure Monitor logs tables
 
 This section refers to all of the Azure Monitor Logs Kusto tables relevant to Azure virtual network and available for query by Log Analytics. 
 
@@ -72,13 +72,13 @@ The following table lists the operations related to Azure virtual network that m
 
 | Operation | Description |
 |:---|:---|
-| All Administrative operations | All administrative operations including create, update and delete of an Azure virtual network. |
+| All administrative operations | All administrative operations including create, update and delete of an Azure virtual network. |
 | Create or update virtual network | A virtual network was created or updated. |
 | Deletes virtual network | A virtual network was deleted.|
 
 For more information on the schema of Activity Log entries, see [Activity Log schema](../azure-monitor/essentials/activity-log-schema.md).
 
-## See Also
+## See also
 
 - See [Monitoring Azure Azure virtual network](monitor-virtual-network.md) for a description of monitoring Azure Azure virtual network.
 - See [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md) for details on monitoring Azure resources.
