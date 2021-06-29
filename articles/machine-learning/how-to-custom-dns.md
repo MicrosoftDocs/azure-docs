@@ -8,7 +8,7 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 06/25/2021
+ms.date: 06/29/2021
 ms.topic: how-to
 ms.custom: contperf-fy21q3, devx-track-azurepowershell
 ---
@@ -197,9 +197,6 @@ The following table shows example IPs from Azure US Government regions:
 ### Create A records in custom DNS server
 
 Once the list of FQDNs and corresponding IP addresses are gathered, proceed to create A records in the configured DNS Server. Refer to the documentation for your DNS server to determine how to create A records. Note it is recommended to create a unique zone for the entire FQDN, and create the A record in the root of the zone.
-
-## Hosts file
-
 
 ## Example: Custom DNS Server hosted in VNet
 
