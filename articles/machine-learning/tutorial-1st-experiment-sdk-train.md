@@ -1,7 +1,7 @@
 ---
-title: "Tutorial: Train your first machine learning model - Python"
+title: "Tutorial: Train a first Python machine learning model "
 titleSuffix: Azure Machine Learning
-description: Part 2 of the Azure Machine Learning get-started series shows how to train a machine learning model.
+description: How to train a machine learning model in Azure Machine Learning. This is part 2 of a three-part getting-started series.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,14 +10,14 @@ author: aminsaied
 ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 04/27/2021
-ms.custom: devx-track-python, contperf-fy21q3
+ms.custom: devx-track-python, contperf-fy21q3, FY21Q4-aml-seo-hack, contperf-fy21q
 ---
 
 # Tutorial: Train your first machine learning model (part 2 of 3)
 
-This tutorial shows you how to train a machine learning model in Azure Machine Learning.
+This tutorial shows you how to train a machine learning model in Azure Machine Learning.  This tutorial is *part 2 of a three-part tutorial series*.
 
-This tutorial is *part 2 of a three-part tutorial series* in which you learn the fundamentals of Azure Machine Learning and complete jobs-based machine learning tasks in Azure. This tutorial builds on the work that you completed in [Part 1: Run "Hello world!"](tutorial-1st-experiment-hello-world.md) of the series.
+ In [Part 1: Run "Hello world!"](tutorial-1st-experiment-hello-world.md) of the series, you learned how to use a control script to run a job in the cloud.  
 
 In this tutorial, you take the next step by submitting a script that trains a machine learning model. This example will help you understand how Azure Machine Learning eases consistent behavior between local debugging and remote runs.
 

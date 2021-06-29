@@ -2,14 +2,14 @@
 title: Unexpected consent prompt when signing in to an application | Microsoft Docs
 description: How to troubleshoot when a user sees a consent prompt for an application you have integrated with Azure AD that you did not expect
 services: active-directory
-author: iantheninja
+author: mtillman
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/11/2017
-ms.author: iangithinji
+ms.author: mtillman
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ---
@@ -26,9 +26,11 @@ This results in a consent prompt being shown the first time an application is us
 
 Additional prompts can be expected in various scenarios:
 
+* The application has been configured to require assignment. User consent is not currently supported for apps which require assignment. If you configure an application to require assignment, be sure to also grant tenant-wide admin consent so that assigned user can sign in.
+
 * The set of permissions required by the application has changed.
 
-* The user who originally consented to the application was not an administrator, and now a different (non-admin) User is using the application for the first time.
+* The user who originally consented to the application was not an administrator, and now a different (non-admin) user is using the application for the first time.
 
 * The user who originally consented to the application was an administrator, but they did not consent on-behalf of the entire organization.
 
@@ -37,6 +39,10 @@ Additional prompts can be expected in various scenarios:
 * Consent was revoked after being granted initially.
 
 * The developer has configured the application to require a consent prompt every time it is used (note: this is not best practice).
+
+   > [!NOTE]
+   > Following Microsoft's recommendations and best practices, many organizations have disabled or limited users' permission to grant consent to apps. If an application forces users to grant consent every time they sign in, most users will be blocked from using these applications even if an administrator grants tenant-wide admin consent. If you encounter an application which is requiring user consent even after admin consent has been granted, check with the app publisher to see if they have a setting or option to stop forcing user consent on every sign in.
+
 
 ## Next steps
 

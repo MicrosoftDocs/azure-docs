@@ -177,7 +177,8 @@ FROM OPENROWSET(
         DATA_SOURCE = 'SqlOnDemandDemo',
         FORMAT = 'CSV', PARSER_VERSION = '2.0',
         FIELDTERMINATOR =',',
-        FIRSTROW = 2
+        FIRSTROW = 2,
+        HEADER_ROW = TRUE
     )
     WITH (
         [country_code] VARCHAR (5) COLLATE Latin1_General_BIN2,
@@ -189,6 +190,8 @@ WHERE
     country_name = 'Luxembourg'
     AND year = 2017;
 ```
+
+Option `HEADER_ROW = { TRUE | FALSE }` reads first row in the CSV file as HEADER ROW and shows values as column names instead of default names (C1, C2, etc).
 
 ## Custom quote character
 

@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: Run your first Python script in the cloud'
+title: 'Tutorial: Get started with a Python script'
 titleSuffix: Azure Machine Learning
-description: Part 1 of the Azure Machine Learning get-started series shows how to run a Python script in the cloud.
+description: Get started with your first Python script in Azure Machine Learning. This is part 1 of a three-part getting-started series.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -13,7 +13,7 @@ ms.date: 04/27/2021
 ms.custom: devx-track-python, FY21Q4-aml-seo-hack, contperf-fy21q4
 ---
 
-# Tutorial: Run your first script in Azure Machine Learning (part 1 of 3)
+# Tutorial: Get started with a Python script in Azure Machine Learning (part 1 of 3)
 
 In this tutorial, you run your first Python script in the cloud with Azure Machine Learning. This tutorial is *part 1 of a three-part tutorial series*.
 

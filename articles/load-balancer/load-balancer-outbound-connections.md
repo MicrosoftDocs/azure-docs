@@ -160,6 +160,7 @@ The following <a name="snatporttable"></a>table shows the SNAT port preallocatio
   *	A UDP SNAT port is needed whether the destination port is unique or not. For every UDP connection to a destination IP, one UDP SNAT port is used.
   *	A TCP SNAT port can be used for multiple connections to the same destination IP provided the destination ports are different.
 *	SNAT exhaustion occurs when a backend instance runs out of given SNAT Ports. A load balancer can still have unused SNAT ports. If a backend instance’s used SNAT ports exceed its given SNAT ports, it will be unable to establish new outbound connections.
+*	Fragmented packets will be dropped unless outbound is through an instance level public IP on the VM's NIC.
 
 ## Next steps
 

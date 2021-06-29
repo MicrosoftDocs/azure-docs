@@ -250,7 +250,7 @@ az login
 
 This command will launch a browser window and a user can sign in using their Azure AD account. 
 
-The following example automatically resolves the appropriate IP address for the VM.
+The following [az ssh](/cli/azure/ssh?view=azure-cli-latest) example automatically resolves the appropriate IP address for the VM.
 
 ```azurecli
 az ssh vm -n myVM -g AzureADLinuxVMPreview
