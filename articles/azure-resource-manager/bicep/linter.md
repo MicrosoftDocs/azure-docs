@@ -11,6 +11,14 @@ Linter is a tool used that can analyse your source code to highlight coding and 
 
 These tools can help you perform static code analysis, check compliance against a style guide, find syntax errors, and flag potential optimizations in the code.
 
+==================
+
+The Bicep linter will inspect your code and catch a customizable set of authoring best practices. It will surface warnings, errors, or informational messages as you're typing in VS Code for immediate feedback. This means you don't have to build or deploy your code to find out that you've made a mistake. Some rules can also surface an automatic code fix through the VS Code light bulb.
+
+The linter should make it easier to enforce team coding standards by providing guidance during the development inner loop, as well as the ability to break a build (if desired) during continuous integration (CI) for violations.
+
+==================
+
 Linter requirements:
 
 * Bicep CLI: 0.4.63
@@ -64,10 +72,20 @@ Using bicepconfig.json, you can enable or disable Linter, supply rule-specific v
 }
 ```
 
+You can use several values for level:
+
+| **level**  | **Build-time behavior** | **Editor behavior** |
+|--|--|--|
+| `Error` | Violations appear as Errors in command-line build output, and cause builds to fail. | Offending code is underlined with a red squiggle and appears in Problems tab. |
+| `Warning` | Violations appear as Warnings in command-line build output, but do not cause builds to fail. | Offending code is underlined with a yellow squiggle and appears in Problems tab. |
+| `Info` | Violations do not appear in command-line build output. | Offending code is underlined with a blue squiggle and appears in Problems tab. |
+| `Off` | Suppressed completely. | Suppressed completely. |
+
 bicepconfig.json can be placed alongside your templates in the same directory. The closest configuration file found up the folder tree is used.
 
-The Bicep extension of VS Code provides intellisense for editing this configuration file:
+*** the purpose of verbose?
 
+The Bicep extension of VS Code provides intellisense for editing this configuration file:
 
 bicep-linter-configure-intellisense.png
 
@@ -83,14 +101,7 @@ The current set of linter rules are minimal and taken from [arm-ttk test cases](
 * simplify-interpolation
 
 Each rule has at least one property, level. This property commands the behavior of Bicep if the case if found in the Bicep file.
-You can use several values for level:
 
-| **level**  | **Build-time behavior** | **Editor behavior** |
-|--|--|--|
-| `Error` | Violations appear as Errors in command-line build output, and cause builds to fail. | Offending code is underlined with a red squiggle and appears in Problems tab. |
-| `Warning` | Violations appear as Warnings in command-line build output, but do not cause builds to fail. | Offending code is underlined with a yellow squiggle and appears in Problems tab. |
-| `Info` | Violations do not appear in command-line build output. | Offending code is underlined with a blue squiggle and appears in Problems tab. |
-| `Off` | Suppressed completely. | Suppressed completely. |
 
 ## Next steps
 
