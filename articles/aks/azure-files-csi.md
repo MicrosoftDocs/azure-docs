@@ -254,11 +254,11 @@ kubectl apply -f private-pvc.yaml
 
 ## NFS file shares
 
-[Azure Files now has support for NFS v4.1 protocol](../storage/files/storage-files-how-to-create-nfs-shares.md). NFS 4.1 support for Azure Files provides you with a fully managed NFS file system as a service built on a highly available and highly durable distributed resilient storage platform.
+[Azure Files supports the NFS v4.1 protocol](../storage/files/storage-files-how-to-create-nfs-shares.md). NFS 4.1 support for Azure Files provides you with a fully managed NFS file system as a service built on a highly available and highly durable distributed resilient storage platform.
 
  This option is optimized for random access workloads with in-place data updates and provides full POSIX file system support. This section shows you how to use NFS shares with the Azure File CSI driver on an AKS cluster.
 
-Make sure to check the [limitations](../storage/files/files-nfs-protocol.md#limitations) and [region availability](../storage/files/files-nfs-protocol.md#regional-availability) during the preview phase.
+Make sure to check the [Support for Azure Storage features](../storage/files/files-nfs-protocol.md#support-for-azure-storage-features) and [region availability](../storage/files/files-nfs-protocol.md#regional-availability) sections during the preview phase.
 
 ### Create NFS file share storage class
 
