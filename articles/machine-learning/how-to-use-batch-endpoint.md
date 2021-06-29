@@ -202,9 +202,6 @@ Use `job show` to check details and status of a batch scoring job.
 
 Stream the job logs using `job stream`.
 
-```azurecli
-az ml job stream --name $job_name
-```
 :::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="stream_job_logs_to_console" :::
 
 
