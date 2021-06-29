@@ -43,11 +43,17 @@ In your POM file, reference the `azure-communication-callingserver` package with
 For create the user identity, your application needs to reference the `azure-communication-identity` package:
 
 ```java
-<dependency>
-	<groupId>com.azure</groupId>
-	<artifactId>azure-communication-identity</artifactId>
-	<version>1.0.0</version>
-</dependency>
+  <dependency>
+      <groupId>com.azure</groupId>
+      <artifactId>azure-communication-identity</artifactId>
+      <version>1.1.1</version>
+      <exclusions>
+        <exclusion>
+          <groupId>com.azure</groupId>
+          <artifactId>azure-communication-common</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
 ```
 
 ## Object model
