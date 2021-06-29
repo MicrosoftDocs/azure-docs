@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 04/20/2021
+ms.date: 06/25/2021
 ---
 
 # Compare Azure Government and global Azure
@@ -23,7 +23,26 @@ Customers are responsible for designing and deploying their applications to meet
 
 ## Guidance for developers
 
-Azure Government services operate the same way as the corresponding services in global Azure, which is why most of the existing online Azure documentation applies equally well to Azure Government. However, there are some key differences that developers working on applications hosted in Azure Government must be aware of. For detailed information, see [Guidance for developers](./documentation-government-developer-guide.md). As a developer, you must know how to connect to Azure Government and once you connect you will mostly have the same experience as in global Azure. Table below lists API endpoints in Azure vs. Azure Government for accessing and managing various services.
+Azure Government services operate the same way as the corresponding services in global Azure, which is why most of the existing online Azure documentation applies equally well to Azure Government. However, there are some key differences that developers working on applications hosted in Azure Government must be aware of. For more information, see [Guidance for developers](./documentation-government-developer-guide.md). As a developer, you must know how to connect to Azure Government and once you connect you will mostly have the same experience as in global Azure. You can use AzureCLI or PowerShell to obtain Azure Government endpoints for services your provisioned:
+
+- Use **Azure CLI** to run the [az cloud show](/cli/azure/cloud#az_cloud_show) command and provide `AzureUSGovernment` as the name of the target cloud environment. For example:
+
+  ```azurecli
+  az cloud show --name AzureUSGovernment
+  ```
+
+  should get you different endpoints for Azure Government.
+
+- Use a **PowerShell** cmdlet such as [Get-AzureEnvironment](/powershell/module/servicemanagement/azure.service/get-azureenvironment) (or [Get-AzureRmEnvironment](/powershell/module/azurerm.profile/get-azurermenvironment)) to get endpoints and metadata for an instance of Azure service. For example:
+
+  ```powershell
+  Get-AzureEnvironment -Name AzureUSGovernment
+  ```
+
+  should get you properties for Azure Government. These cmdlets get environments from your subscription data file.
+
+Table below lists API endpoints in Azure vs. Azure Government for accessing and managing some of the more common services. If you provisioned a service that isn't listed in the table below, see the Azure CLI and PowerShell examples above for suggestions on how to obtain the corresponding Azure Government endpoint.
+
 
 |Service category|Service name|Azure Public|Azure Government|Notes|
 |-----------|-----------|-------|----------|----------------------|
@@ -56,7 +75,8 @@ Azure Government services operate the same way as the corresponding services in 
 ||Azure IoT Hub|\*.azure-devices.net|\*.azure-devices.us||    
 ||Azure Maps|atlas.microsoft.com|atlas.azure.us||
 ||Notification Hubs|\*.servicebus.windows.net|\*.servicebus.usgovcloudapi.net||
-|**Management and Governance**|Azure Monitor logs|mms.microsoft.com|oms.microsoft.us|Log Analytics workspace portal|
+|**Management and Governance**|API Management|management.azure.com|management.usgovcloudapi.net||
+||Azure Monitor logs|mms.microsoft.com|oms.microsoft.us|Log Analytics workspace portal|
 |||*workspaceId*.ods.opinsights.azure.com|*workspaceId*.ods.opinsights.azure.us|[Data collector API](../azure-monitor/logs/data-collector-api.md)|
 |||\*.ods.opinsights.azure.com|\*.ods.opinsights.azure.us||
 |||\*.oms.opinsights.azure.com|\*.oms.opinsights.azure.us||
@@ -236,6 +256,17 @@ The following Functions **features are not currently available** in Azure Govern
 When connecting your Functions app to Application Insights in Azure Government, make sure you use [`APPLICATIONINSIGHTS_CONNECTION_STRING`](../azure-functions/functions-app-settings.md#applicationinsights_connection_string), which lets you customize the Application Insights endpoint.
 
 
+## Containers
+
+This section outlines variations and considerations when using Container services in the Azure Government environment. For service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=openshift,app-service-linux,container-registry,container-instances,kubernetes-service&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia).
+
+### [Azure Kubernetes Service](../aks/intro-kubernetes.md)
+
+The following Azure Kubernetes Service **features are not currently available** in Azure Government:
+
+- [Customize node configuration](../aks/custom-node-configuration.md) for Azure Kubernetes Service node pools
+
+
 ## Databases
 
 This section outlines variations and considerations when using Databases services in the Azure Government environment.  For service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-api-for-fhir,data-factory,sql-server-stretch-database,redis-cache,database-migration,synapse-analytics,postgresql,mariadb,mysql,sql-database,cosmos-db&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia).
@@ -253,6 +284,13 @@ The following Azure Database for PostgreSQL **features are not currently availab
 - Hyperscale (Citus) and Flexible server deployment options
 - The following features of the Single server deployment option
    - Advanced Threat Protection
+   - Backup with long-term retention
+
+### [Azure SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md)
+
+The following Azure SQL Managed Instance **features are not currently available** in Azure Government:
+
+- Long-term retention
 
 
 ## Developer Tools
@@ -318,9 +356,43 @@ You need to open some **outgoing ports** in your server's firewall to allow the 
 |-------|---|----------|-----|
 |Telemetry|dc.applicationinsights.us|23.97.4.113|443|
 
+### [Azure Advisor](../advisor/advisor-overview.md)
+
+The following Azure Advisor recommendation **features are not currently available** in Azure Government:
+
+- High Availability
+    - Configure your VPN gateway to active-active for connection resilience
+    - Create Azure Service Health alerts to be notified when Azure issues affect you
+    - Configure Traffic Manager endpoints for resiliency
+    - Use soft delete for your Azure Storage Account
+- Performance
+    - Improve App Service performance and reliability
+    - Reduce DNS time to live on your Traffic Manager profile to fail over to healthy endpoints faster
+    - Improve Azure Synapse Analytics performance
+    - Use Premium Storage
+    - Migrate your Storage Account to Azure Resource Manager
+- Cost
+    - Buy reserved virtual machines instances to save money over pay-as-you-go costs
+    - Eliminate unprovisioned ExpressRoute circuits
+    - Delete or reconfigure idle virtual network gateways
+
+The calculation for recommending that you should right-size or shut down underutilized virtual machines in Azure Government is as follows:
+
+- Advisor monitors your virtual machine usage for 7 days and identifies low-utilization virtual machines.
+- Virtual machines are considered low utilization if their CPU utilization is 5% or less and their network utilization is less than 2%, or if the current workload can be accommodated by a smaller virtual machine size.
+
+If you want to be more aggressive at identifying underutilized virtual machines, you can adjust the CPU utilization rule on a per subscription basis.
+
+### [Azure Cost Management and Billing](../cost-management-billing/cost-management-billing-overview.md)
+
+The following Azure Cost Management + Billing **features are not currently available** in Azure Government:
+
+- Cost Management + Billing for cloud solution providers (CSPs)
+
 ### [Azure Lighthouse](../lighthouse/overview.md)
 
 The following Azure Lighthouse **features are not currently available** in Azure Government:
+
 - Managed Service offers published to Azure Marketplace
 
 ### [Azure Monitor](../azure-monitor/logs/data-platform-logs.md)
@@ -358,33 +430,6 @@ The following Azure Monitor **features behave differently** in Azure Government:
     - No. It is not possible to move data or your workspace from Azure to Azure Government.
 - Can I switch between Azure and Azure Government workspaces from the Operations Management Suite portal?
     - No. The portals for Azure and Azure Government are separate and do not share information.
-
-### [Azure Advisor](../advisor/advisor-overview.md)
-
-The following Azure Advisor recommendation **features are not currently available** in Azure Government:
-
-- High Availability
-    - Configure your VPN gateway to active-active for connection resilience
-    - Create Azure Service Health alerts to be notified when Azure issues affect you
-    - Configure Traffic Manager endpoints for resiliency
-    - Use soft delete for your Azure Storage Account
-- Performance
-    - Improve App Service performance and reliability
-    - Reduce DNS time to live on your Traffic Manager profile to fail over to healthy endpoints faster
-    - Improve Azure Synapse Analytics performance
-    - Use Premium Storage
-    - Migrate your Storage Account to Azure Resource Manager
-- Cost
-    - Buy reserved virtual machines instances to save money over pay-as-you-go costs
-    - Eliminate unprovisioned ExpressRoute circuits
-    - Delete or reconfigure idle virtual network gateways
-
-The calculation for recommending that you should right-size or shut down underutilized virtual machines in Azure Government is as follows:
-
-- Advisor monitors your virtual machine usage for 7 days and identifies low-utilization virtual machines.
-- Virtual machines are considered low utilization if their CPU utilization is 5% or less and their network utilization is less than 2%, or if the current workload can be accommodated by a smaller virtual machine size.
-
-If you want to be more aggressive at identifying underutilized virtual machines, you can adjust the CPU utilization rule on a per subscription basis.
 
 
 ## Media
@@ -436,7 +481,7 @@ Aside from ExpressRoute, customers can also use an [IPSec protected VPN](../vpn-
 
 All customers who utilize a private connectivity architecture should validate that an appropriate implementation is established and maintained for the customer connection to the Gateway Network/Internet (GN/I) edge router demarcation point for Azure Government. Similarly, your organization must establish network connectivity between your on-premises environment and Gateway Network/Customer (GN/C) edge router demarcation point for Azure Government.
 
-### BGP communities
+#### BGP communities
 
 This section provides an overview of how BGP communities are used with ExpressRoute in Azure Government. Microsoft advertises routes in the public peering and Microsoft peering paths, with routes tagged with appropriate community values. The rationale for doing so and the details on community values are described below.
 
@@ -469,6 +514,10 @@ In addition to the above, Microsoft also tags prefixes based on the service they
 >[!NOTE]
 >Microsoft does not honor any BGP community values that you set on the routes advertised to Microsoft.
 
+### [Azure Private Link](../private-link/private-link-overview.md)
+
+For Private Link services availability, see [Azure Private Link availability](../private-link/availability.md).
+
 ### [Traffic Manager](../traffic-manager/traffic-manager-overview.md)
 
 Traffic Manager health checks can originate from certain IP addresses for Azure Government. Review the [IP addresses in the JSON file](https://azuretrafficmanagerdata.blob.core.windows.net/probes/azure-gov/probe-ip-ranges.json) to ensure that incoming connections from these IP addresses are allowed at the endpoints to check its health status.
@@ -493,7 +542,7 @@ The following features have known limitations in Azure Government:
     - Hardware OATH tokens are not available in Azure Government.
     - Trusted IPs are not supported in Azure Government. Instead, use Conditional Access policies with named locations to establish when multi-factor authentication should and should not be required based off the user's current IP address.
 
-- Limitations with Azure AD Join:
+- Limitations with Azure AD join:
     - Enterprise state roaming for Windows 10 devices is not available
     
 - Limitations with Azure AD self-service password reset (SSPR):
@@ -549,6 +598,18 @@ For feature variations and limitations, see [Cloud feature availability for US G
 
 This section outlines variations and considerations when using Storage services in the Azure Government environment. For service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=hpc-cache,managed-disks,storsimple,backup,storage&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia).
 
+### [Azure Backup](../backup/backup-overview.md)
+
+The following Azure Backup **features are not currently available** in Azure Government:
+
+- Azure Disk Backup. For more information, see [Azure Disk Backup support matrix](../backup/disk-backup-support-matrix.md).
+
+### [Azure managed disks](../virtual-machines/managed-disks-overview.md)
+
+The following Azure managed disks **features are not currently available** in Azure Government:
+
+- Zone-redundant storage (ZRS)
+
 ### [Azure Storage](../storage/index.yml)
 
 For a Quickstart that will help you get started with Storage in Azure Government, see [Develop with Storage API on Azure Government](./documentation-government-get-started-connect-to-storage.md).
@@ -578,8 +639,6 @@ When you're deploying the **StorSimple** Manager service, use the [https://porta
 ### [Azure Import/Export](../import-export/storage-import-export-service.md)
 
 With Import/Export jobs for US Gov Arizona or US Gov Texas, the mailing address is for US Gov Virginia. The data is loaded into selected storage accounts from the US Gov Virginia region.
-
-For DoD IL5 data, use a DoD region storage account to ensure that data is loaded directly into the DoD regions. For more information, see [Azure Import/Export IL5 isolation guidance](./documentation-government-impact-level-5.md#azure-importexport-service).
 
 For all jobs, we recommend that you rotate your storage account keys after the job is complete to remove any access granted during the process. For more information, see [Manage storage account access keys](../storage/common/storage-account-keys-manage.md).
 
