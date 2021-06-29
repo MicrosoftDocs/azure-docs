@@ -76,7 +76,7 @@ If you don't have an Azure subscription, [create an account](https://azure.micro
 
    * **Public inbound ports**: Choose **Allow selected ports** and select **SSH (22)** and **HTTP (80)** in the **Select public inbound ports** list. If you're deploying a Windows VM, select **HTTP (80)** and **RDP (3389)**. In this quickstart, this step is necessary to connect to the VM.
    
-    >![Note]
+    >[!Note]
     > Allowing RDP/SSH ports is not recommended for production deployments.  
 
      ![Inbound ports](media/quick-create-portal/inbound-port-virtual-machine.png)
