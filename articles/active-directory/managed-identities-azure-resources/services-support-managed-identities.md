@@ -276,6 +276,17 @@ Managed identity type | All Generally Available<br>Global Azure Regions | Azure 
 
 For more information, see [Use managed identities with Azure Machine Learning](../../machine-learning/how-to-use-managed-identities.md).
 
+### Azure Media Services
+
+| Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| System assigned | ![Available][check] | ![Available][check] | Not Available | ![Available][check] |
+| User assigned | ![Available][check] | ![Available][check]  | Not Available  | ![Available][check] |
+
+Refer to the following list to configure managed identity for Azure Media Services (in regions where available):
+
+- [Azure CLI Tutorial](../../media-services/latest/security-access-storage-managed-identity-cli-tutorial.md)
+
 ### Azure Policy
 
 |Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
