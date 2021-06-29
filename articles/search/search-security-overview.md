@@ -16,9 +16,9 @@ ms.custom: references_regions
 
 This article describes the security features in Azure Cognitive Search that protect data and operations.
 
-## Network access
+## Network traffic patterns
 
-A search service is hosted on Azure and typically accessed over public network connections. Understanding the service's access patterns can help you determine the appropriate controls for preventing unauthorized access.
+A search service is hosted on Azure and typically accessed over public network connections. Understanding the service's access patterns can help you design a security strategy that effectively deters unauthorized access to searchable content.
 
 Cognitive Search has three basic network traffic patterns:
 
@@ -52,7 +52,7 @@ To further control access to your search service, you can create inbound firewal
 
 You can use the portal to [configure inbound access](service-configure-firewall.md).
 
-Alternatively, you can use the management REST APIs. Starting with API version 2020-03-13, with the [IpRule](/rest/api/searchmanagement/services/createorupdate#iprule) parameter, you can restrict access to your service by identifying IP addresses, individually or in a range, that you want to grant access to your search service.
+Alternatively, you can use the management REST APIs. Starting with API version 2020-03-13, with the [IpRule](/rest/api/deploymentmanager/services/create-or-update#iprule) parameter, you can restrict access to your service by identifying IP addresses, individually or in a range, that you want to grant access to your search service.
 
 ### Connect to a private endpoint (network isolation, no Internet traffic)
 
@@ -121,7 +121,7 @@ Workarounds for solutions that require "row-level security" include creating a f
 
 Service Management operations are authorized through [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md). Azure RBAC is an authorization system built on [Azure Resource Manager](../azure-resource-manager/management/overview.md) for provisioning of Azure resources. 
 
-In Azure Cognitive Search, Resource Manager is used to create or delete the service, manage API keys, and scale the service. As such, Azure role assignments will determine who can perform those tasks, regardless of whether they are using the [portal](search-manage.md), [PowerShell](search-manage-powershell.md), or the [Management REST APIs](/rest/api/searchmanagement/search-howto-management-rest-api).
+In Azure Cognitive Search, Resource Manager is used to create or delete the service, manage API keys, and scale the service. As such, Azure role assignments will determine who can perform those tasks, regardless of whether they are using the [portal](search-manage.md), [PowerShell](search-manage-powershell.md), or the [Management REST APIs](/rest/api/searchmanagement).
 
 [Three basic roles](search-security-rbac.md) are defined for search service administration. The role assignments can be made using any supported methodology (portal, PowerShell, and so forth) and are honored service-wide. The Owner and Contributor roles can perform a variety of administration functions. You can assign the Reader role to users who only view essential information.
 

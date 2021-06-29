@@ -16,8 +16,8 @@ This document explains the steps required for connecting an Azure Data Factory a
 
 Multiple Azure Data Factories can connect to a single Azure Purview Data Catalog to push lineage information. The current limit allows you to connect up ten Data Factory accounts at a time from the Purview management center. To show the list of Data Factory accounts connected to your Purview Data Catalog, do the following:
 
-1. Select **Management Center** on the left navigation pane.
-2. Under **External connections**, select **Data Factory connection**.
+1. Select **Management** on the left navigation pane.
+2. Under **Lineage connections**, select **Data Factory**.
 3. The Data Factory connection list appears.
 
     :::image type="content" source="./media/how-to-link-azure-data-factory/data-factory-connection.png" alt-text="Screen shot showing a data factory connection list." lightbox="./media/how-to-link-azure-data-factory/data-factory-connection.png":::
@@ -45,8 +45,8 @@ Multiple Azure Data Factories can connect to a single Azure Purview Data Catalog
 
 Follow the steps below to connect an existing Data Factory accounts to your Purview Data Catalog.
 
-1. Select **Management Center** on the left navigation pane.
-2. Under **External connections**, select **Data Factory connection**.
+1. Select **Management** on the left navigation pane.
+2. Under **Lineage connections**, select **Data Factory**.
 3. On the **Data Factory connection** page, select **New**.
 
 4. Select your Data Factory account from the list and select **OK**. You can also filter by subscription name to limit your list.
