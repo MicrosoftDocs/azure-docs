@@ -1,7 +1,7 @@
 ---
 title: Secure Azure AD B2C with Azure Sentinel
 titleSuffix: Azure AD B2C
-description: Learn how to log Azure AD B2C events with Azure Sentinel.
+description: How to perform Security Analytics for Azure AD B2C with Sentinel.
 services: active-directory-b2c
 author: wvanbesien
 manager: 
@@ -36,16 +36,25 @@ In this tutorial, you’ll learn:
 
 Follow steps 1 to 5 of the [Monitor Azure AD B2C with Azure monitor](./azure-monitor.md) to configure Azure AD B2C to send logs to Azure Monitor. 
 
-1. ### Deploy an Azure Sentinel instance
-
+### Deploy an Azure Sentinel instance
 > [!IMPORTANT]
-> To enable Azure Sentinel, you need contributor permissions to the subscription in which the Azure Sentinel workspace resides. To use Azure Sentinel, you need either contributor or reader permissions on the resource group that the workspace belongs to.
+> To enable Azure Sentinel, you need **contributor permissions** to the subscription in which the Azure Sentinel workspace resides. To use Azure Sentinel, you need either contributor or reader permissions on the resource group that the workspace belongs to.
 
-Once you've configured your Azure AD B2C instance to send logs to Azure Monitor, you need to enable an Azure Sentinel instance. 
+1.	Sign into the Azure portal. Make sure that the subscription where the LA workspace created in the previous step is selected.
 
+2.	Search for and select **Azure Sentinel**.
 
+3.	Select **Add**.
+![Azure Sentinel](./media/azure-sentinel/azure-sentinel-add.png)
 
-## Deployment overview
+4.	Select the workspace created in the previous step. 
+
+![Workspace](./media/azure-sentinel/choose-sentinel-workspace.png/)
+5. Select Add **Azure Sentinel**.
+> [!NOTE]
+> You can run Azure Sentinel on more than one workspace, but the data is isolated to a single workspace. For additional details on enabling Sentinel, please see this [QuickStart](https://docs.microsoft.com/en-us/azure/sentinel/quickstart-onboard). 
+
+# OLD DOCO from WARD Deployment overview
 
 ## 1. Configure Azure AD B2C with Azure Monitor
 
