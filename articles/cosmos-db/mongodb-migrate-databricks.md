@@ -154,17 +154,17 @@ The migration performance can be adjusted through these configurations:
 You might see a 429 error code for operations against the Cosmos DB API for MongoDB database. The following scenarios can cause rate limiting:
 
 - **Throughput allocated to the database is low**: Ensure that the target collection has sufficient throughput assigned to it.
-- **Excessive data skew with large data volume**. If you have a large amount of data to migrate into a given table but have a significant skew in the data, you might still experience rate limiting even if you have several [request units](request-units) provisioned in your table. Request units are divided equally among physical partitions, and heavy data skew can cause a bottleneck of requests to a single shard. Data skew means large number of records for the same shard key value.
+- **Excessive data skew with large data volume**. If you have a large amount of data to migrate into a given table but have a significant skew in the data, you might still experience rate limiting even if you have several [request units](request-units.md) provisioned in your table. Request units are divided equally among physical partitions, and heavy data skew can cause a bottleneck of requests to a single shard. Data skew means large number of records for the same shard key value.
 - **Enable Server-side retry**: Enable the Server Side Retry (SSR) feature and let the server retry the rate limited operations automatically.
 
 
 
 ## Post-migration optimization
 
-After you migrate the data, you can connect to Azure Cosmos DB and manage the data. You can also follow other post-migration steps such as optimizing the indexing policy, update the default consistency level, or configure global distribution for your Azure Cosmos DB account. For more information, see the [Post-migration optimization](mongodb-post-migration) article.
+After you migrate the data, you can connect to Azure Cosmos DB and manage the data. You can also follow other post-migration steps such as optimizing the indexing policy, update the default consistency level, or configure global distribution for your Azure Cosmos DB account. For more information, see the [Post-migration optimization](mongodb-post-migration.md) article.
 
 ## Next steps
 
-* [Manage indexing in Azure Cosmos DB's API for MongoDB](mongodb-indexing)
+* [Manage indexing in Azure Cosmos DB's API for MongoDB](mongodb-indexing.md)
 
-* [Find the request unit charge for operations](find-request-unit-charge-mongodb)
+* [Find the request unit charge for operations](find-request-unit-charge-mongodb.md)
