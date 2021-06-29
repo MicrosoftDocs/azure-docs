@@ -90,7 +90,7 @@ When connecting to the database in the next step, you will need to connect with 
 
 Follow the instructions [here](../azure-sql/database/authentication-aad-configure.md?tabs=azure-powershell#provision-azure-ad-admin-sql-database) to give your Azure AD account admin access to the database.
 
-### 3 - Assign the search service permissions
+### 3 - Assign permissions to the database
 
 Follow the below steps to assign the search service permission to read the database.
 
@@ -104,11 +104,11 @@ Follow the below steps to assign the search service permission to read the datab
 
 3. Execute the following commands:
 
-    Include the brackets around your search service name.
+    Include the brackets around your search service name or user-assigned managed identity name.
     
     ```
-    CREATE USER [your search service name here or user-assigned managed identity name] FROM EXTERNAL PROVIDER;
-    EXEC sp_addrolemember 'db_datareader', [your search service name here or user-assigned managed identity name];
+    CREATE USER [insert your search service name here or user-assigned managed identity name] FROM EXTERNAL PROVIDER;
+    EXEC sp_addrolemember 'db_datareader', [insert your search service name here or user-assigned managed identity name];
     ```
 
     ![New query](./media/search-managed-identities/visual-studio-new-query.png "New query")
@@ -116,11 +116,11 @@ Follow the below steps to assign the search service permission to read the datab
     ![Execute query](./media/search-managed-identities/visual-studio-execute-query.png "Execute query")
 
 >[!NOTE]
-> If the search service identity from step 1 is changed after completing this step, then you must remove the role membership and remove the user in the SQL database, then add the permissions again by completing step 3 again.
+> If the search service identity or user-assigned identity from step 1 is changed after completing this step, then you must remove the role membership and remove the user in the SQL database, then add the permissions again by completing step 3 again.
 > Removing the role membership and user can be accomplished by running the following commands:
 > ```
-> sp_droprolemember 'db_datareader', [your search service name or user-assigned managed identity name];
-> DROP USER IF EXISTS [your search service name or user-assigned managed identity name];
+> sp_droprolemember 'db_datareader', [insert your search service name or user-assigned managed identity name];
+> DROP USER IF EXISTS [insert your search service name or user-assigned managed identity name];
 > ```
 
 ### 4 - Add a role assignment
