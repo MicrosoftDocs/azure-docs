@@ -24,7 +24,7 @@ To be able to create a knowledge base in more than one language, the language se
 > If you are using the GA version, a separate QnA Maker resource would need to be created for each distinct language.
 
 > [!div class="mx-imgBorder"]
-> [ ![Screenshot of UI for Connect your QnA service to your knowledge base with add knowledge bases in multiple languages selected]( ../media/multiple-languages/add-knowledge-base.png) ]( ../media/multiple-languages/add-knowledge-base.png#lightbox)
+> [ ![Screenshot of UI for Connect your QnA service to your knowledge base with add knowledge bases in multiple languages selected]( ../media/multiple-languages/add-knowledge-bases.png) ]( ../media/multiple-languages/add-knowledge-bases.png#lightbox)
 
 In **Step 2**: Enable “Add knowledge bases in multiple languages to this service” and choose **German** as the language of the KB from “Language” drop-down list.
 Fill relevant details in Step 3 and 4 and finally select on **Create your KB**.
