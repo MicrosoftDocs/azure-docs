@@ -6,7 +6,7 @@ ms.author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 06/13/2021
+ms.date: 06/29/2021
 ---
 
 # Create rich, interactive reports of Security Center data
@@ -33,9 +33,10 @@ Within Azure Security Center, you can access the built-in reports to track your 
 
 With the integrated Azure Workbooks functionality, Azure Security Center makes it straightforward to build your own custom, interactive reports. Security Center also includes a workbook gallery with the following reports ready for your customization:
 
-- **Secure Score Over Time** - Track your subscriptions' scores and changes to recommendations for your resources
-- **System Updates** - View missing system updates by resources, OS, severity, and more
-- **Vulnerability Assessment Findings** - View the findings of vulnerability scans of your Azure resources
+- ['Secure Score Over Time' report](#use-the-secure-score-over-time-report) - Track your subscriptions' scores and changes to recommendations for your resources
+- ['System Updates' report](#use-the-system-updates-report) - View missing system updates by resources, OS, severity, and more
+- ['Vulnerability Assessment Findings' report](#use-the-vulnerability-assessment-findings-report) - View the findings of vulnerability scans of your Azure resources
+- ['Compliance Over Time' report](#use-the-compliance-over-time-report) - View 
 
 :::image type="content" source="media/custom-dashboards-azure-workbooks/workbooks-gallery-security-center.png" alt-text="Gallery of built-in workbooks in Azure Security Center.":::
 
@@ -52,7 +53,7 @@ This report uses secure score data from your Log Analytics workspace. That data 
 
 When you set up the continuous export, set the export frequency to both **streaming updates** and **snapshots**.
 
-:::image type="content" source="media/custom-dashboards-azure-workbooks/export-frequency-both.png" alt-text="For the secure score over time workbook you'll need to select both of these options from the export frequency settings in your continuous export configuration":::
+:::image type="content" source="media/custom-dashboards-azure-workbooks/export-frequency-both.png" alt-text="For the secure score over time workbook you'll need to select both of these options from the export frequency settings in your continuous export configuration.":::
 
 > [!NOTE]
 > Snapshots get exported weekly, so you'll need to wait at least one week for the first snapshot to be exported before you can view data in this report.
@@ -82,7 +83,7 @@ You can view the situation for the selected subscriptions according to:
 - The list of resources with outstanding updates
 - The list of updates missing from your resources
 
-:::image type="content" source="media/custom-dashboards-azure-workbooks/system-updates-report.png" alt-text="Security Center's system updates report based on the missing updates security recommendation":::
+:::image type="content" source="media/custom-dashboards-azure-workbooks/system-updates-report.png" alt-text="Security Center's system updates report based on the missing updates security recommendation.":::
 
 ### Use the 'Vulnerability Assessment Findings' report
 
@@ -103,8 +104,20 @@ Findings for each of these scanners are reported in separate recommendations:
 
 This report gathers these findings and organizes them by severity, resource type, and category.
 
-:::image type="content" source="media/custom-dashboards-azure-workbooks/vulnerability-assessment-findings-report.png" alt-text="Security Center's vulnerability assessment findings report":::
+:::image type="content" source="media/custom-dashboards-azure-workbooks/vulnerability-assessment-findings-report.png" alt-text="Security Center's vulnerability assessment findings report.":::
 
+
+### Use the 'Compliance Over Time' report
+
+Azure Security Center continually compares the configuration of your resources with requirements in industry standards, regulations, and benchmarks. Built-in standards include NIST SP 800-53, SWIFT CSP CSCF v2020, Canada Federal PBMM, HIPAA HITRUST, and more. You can select the specific standards relevant to your organization using the regulatory compliance dashboard. Learn more in [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md).
+
+This report lets you track your compliance status over time with the various standards you've added to your dashboard.
+
+:::image type="content" source="media/custom-dashboards-azure-workbooks/compliance-over-time-select-standards.png" alt-text="Select the standards for your compliance over time report.":::
+
+When you select a standard from the overview area of the report, the lower pane reveals a more detailed breakdown:
+
+:::image type="content" source="media/custom-dashboards-azure-workbooks/compliance-over-time-details.png" alt-text="Detailed breakdown of the changes regarding a specific standard.":::
 
 ## Import workbooks from other workbook galleries
 
