@@ -145,7 +145,7 @@
   - name: Learning path
     items:
       - name: Run VMware workloads on Azure VMware Solution
-        href: https://docs.microsoft.com/learn/paths/run-vmware-workloads-azure-vmware-solution/
+        href: /learn/paths/run-vmware-workloads-azure-vmware-solution/
   - name: Troubleshooting
     items:
     - name: Open a support request for deployment failures
