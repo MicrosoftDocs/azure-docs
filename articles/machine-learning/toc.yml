@@ -233,7 +233,7 @@
             - name: Use studio in a virtual network
               displayName: vnet
               href: how-to-enable-studio-virtual-network.md
-            - name: Use Private Link
+            - name: Use private endpoint
               displayName: private endpoint
               href: how-to-configure-private-link.md
             - name: Use custom DNS
