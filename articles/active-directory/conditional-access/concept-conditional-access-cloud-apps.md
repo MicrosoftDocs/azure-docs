@@ -67,8 +67,7 @@ Administrators can assign a Conditional Access policy to the following cloud app
 - Virtual Private Network (VPN)
 - Windows Defender ATP
 
-> [!IMPORTANT]
-> Applications that are available to Conditional Access have gone through an onboarding and validation process. This list does not include all Microsoft apps, as many are backend services and not meant to have policy directly applied to them. If you are looking for an application that is missing, you can contact the specific application team or make a request on [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=167259).
+Applications that are available to Conditional Access have gone through an onboarding and validation process. This list does not include all Microsoft apps, as many are backend services and not meant to have policy directly applied to them. If you are looking for an application that is missing, you can contact the specific application team or make a request on [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=167259).
 
 ### Office 365
 
