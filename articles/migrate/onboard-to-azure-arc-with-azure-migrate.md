@@ -18,7 +18,7 @@ Azure Arc allows you to manage your hybrid IT estate with a single pane of glass
 
 - [Review the requirements](/azure/migrate/tutorial-discover-vmware#prerequisites) to discover servers running in VMware environment with Azure Migrate: Discovery and assessment tool.  
 - Prepare [VMware vCenter](/azure/migrate/tutorial-discover-vmware#prepare-vmware) for usage and review the [VMware requirements](migrate-support-matrix-vmware.md#vmware-requirements) to perform software inventory. Software inventory must be complete to start onboarding discovered servers to Azure Arc.   
-- Review [application discovery requirements](migrate-support-matrix-vmware.md#application-discovery-requirements) before initiating software inventory on servers. Windows servers must have PowerShell version 3.0 or later installed. 
+- Review [application discovery requirements](migrate-support-matrix-vmware.md#software-inventory-requirements) before initiating software inventory on servers. Windows servers must have PowerShell version 3.0 or later installed. 
 - Verify the port access requirements to allow remote connections to the inventory of discovered servers. 
     - **Windows:** Inbound connection on WinRM port 5985 (HTTP). <br/>
     - **Linux:**  Inbound connections on port 22 (TCP). 

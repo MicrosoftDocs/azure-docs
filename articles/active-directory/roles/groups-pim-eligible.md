@@ -81,7 +81,12 @@ https://graph.microsoft.com/beta/privilegedAccess/aadroles/roleAssignmentRequest
 
 ## Next steps
 
+<<<<<<< HEAD
 - [Use cloud groups to manage role assignments](groups-concept.md)
 - [Troubleshooting roles assigned to cloud groups](groups-faq-troubleshooting.yml)
+=======
+- [Use Azure AD groups to manage role assignments](groups-concept.md)
+- [Troubleshoot Azure AD roles assigned to groups](groups-faq-troubleshooting.md)
+>>>>>>> 8779cc43cc266f34114265397aebed65f18b128f
 - [Configure Azure AD admin role settings in Privileged Identity Management](../privileged-identity-management/pim-how-to-change-default-settings.md)
 - [Assign Azure resource roles in Privileged Identity Management](../privileged-identity-management/pim-resource-roles-assign-roles.md)

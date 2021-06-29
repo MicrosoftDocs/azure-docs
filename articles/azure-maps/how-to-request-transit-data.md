@@ -3,7 +3,7 @@ title: Request transit data with Microsoft Azure Maps Mobility services (Preview
 description: Learn how to use the Azure Maps Mobility services (Preview) to request public transit data, such as metro area IDs, transit stops, routes, and route itineraries.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 12/07/2020
+ms.date: 06/23/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
@@ -14,9 +14,8 @@ ms.custom: mvc
 # Request public transit data using the Azure Maps Mobility services (Preview) 
 
 > [!IMPORTANT]
-> Azure Maps Mobility services are currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> The Azure Maps Mobility Services Preview has been retired and will no longer be available and supported after October 5, 2021. All other Azure Maps APIs and Services are unaffected by this retirement announcement.
+> For details, see [Azure Maps Mobility Preview Retirement](https://azure.microsoft.com/updates/azure-maps-mobility-services-preview-retirement/).
 
 
 This article shows you how to use Azure Maps [Mobility services](/rest/api/maps/mobility) to request public transit data. Transit data includes transit stops, route information, and travel time estimations.
@@ -41,19 +40,15 @@ In order to request detail information about transit agencies and supported tran
 
 Let's make a request to get the Metro Area for the Seattle-Tacoma metro area ID. To request ID for a metro area, complete the following steps:
 
-1. Open the Postman app, and let's create a collection to store the requests. Near the top of the Postman app, select **New**. In the **Create New** window, select **Collection**.  Name the collection and select the **Create** button.
-
-2. To create the request, select **New** again. In the **Create New** window, select **Request**. Enter a **Request name** for the request. Select the collection you created in the previous step as the location in which to save the request. Then, select **Save**.
+1. Open the Postman app. Select **New** to create the request. In the **Create New** window, select **HTTP Request**. Enter a **Request name** for the request.
   
-    ![Create a request in Postman](./media/how-to-request-transit-data/postman-new.png)
-
-3. Select the **GET** HTTP method on the builder tab and enter the following URL to create a GET request. Replace `{subscription-key}`, with your Azure Maps primary key.
+2. Select the **GET** HTTP method on the builder tab and enter the following URL to create a GET request. Replace `{subscription-key}`, with your Azure Maps primary key.
 
     ```HTTP
     https://atlas.microsoft.com/mobility/metroArea/id/json?subscription-key={subscription-key}&api-version=1.0&query=47.63096,-122.126
     ```
 
-4. After a successful request, you'll receive the following response:
+3. After a successful request, you'll receive the following response:
 
     ```JSON
     {
@@ -116,7 +111,7 @@ The Azure Maps [Get Nearby Transit](/rest/api/maps/mobility/getnearbytransitprev
 
 To make a request to the [Get Nearby Transit](/rest/api/maps/mobility/getnearbytransitpreview), follow the steps below:
 
-1. In Postman, click **New Request** | **GET request** and name it **Get Nearby stops**.
+1. Open the Postman app. Select **New** to create the request. In the **Create New** window, select **HTTP Request**. Enter a **Request name** for the request.
 
 2. On the Builder tab, select the **GET** HTTP method, enter the following request URL for your API endpoint and click **Send**.
 
@@ -225,7 +220,7 @@ To obtain the location coordinates of the Space Needle tower, we'll use the Azur
 
 To make a request to the Fuzzy search service, follow the steps below:
 
-1. In Postman, click **New Request** | **GET request** and name it **Get location coordinates**.
+1. In the Postman app, select **New** to create the request. In the **Create New** window, select **HTTP Request**. Enter a **Request name** for the request.
 
 2. On the Builder tab, select the **GET** HTTP method, enter the following request URL, and click **Send**.
 
@@ -332,7 +327,7 @@ To make a request to the Fuzzy search service, follow the steps below:
 
 To make a route request, complete the steps below:
 
-1. In Postman, click **New Request** | **GET request** and name it **Get Route info**.
+1. In the Postman app, select **New** to create the request. In the **Create New** window, select **HTTP Request**. Enter a **Request name** for the request.
 
 2. On the Builder tab, select the **GET** HTTP method, enter the following request URL for your API endpoint and click **Send**.
 
@@ -527,7 +522,7 @@ To make a route request, complete the steps below:
 
 The Azure Maps [Get Transit Itinerary](/rest/api/maps/mobility/gettransititinerarypreview) service allows you to request data for a particular route using the route's **itinerary ID** returned by the [Get Transit Routes API](/rest/api/maps/mobility/gettransitroutepreview) service. To make a request, complete the steps below:
 
-1. In Postman, click **New Request** | **GET request** and name it **Get Transit info**.
+1. In the Postman app, select **New** to create the request. In the **Create New** window, select **HTTP Request**. Enter a **Request name** for the request.
 
 2. On the Builder tab, select the **GET** HTTP method. Enter the following request URL for your API endpoint and click **Send**.
 

@@ -44,4 +44,4 @@ ps -aux | grep regionserver, and verify the version like '''/usr/lib/jvm/java-8-
 
 ## Next steps
 
-[!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]
+[!INCLUDE [troubleshooting next steps](../includes/hdinsight-troubleshooting-next-steps.md)]
