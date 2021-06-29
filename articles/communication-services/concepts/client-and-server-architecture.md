@@ -24,12 +24,7 @@ This page illustrates typical architectural components and dataflows in various 
 
 Azure Communication Services clients must present `user access tokens` to access Communication Services resources securely. `User access tokens` should be generated and managed by a trusted service due to the sensitive nature of the token and the connection string or managed identity necessary to generate them. Failure to properly manage access tokens can result in additional charges due to misuse of resources.
 
-<table style="background-color:#FFFFFF;">
-<tr>
-<td>:::image type="content" source="../media/scenarios/architecture_v2_identity.svg" alt-text="Diagram showing user access token architecture.":::</td>
-</tr>
-<tr>
-</table>
+:::image type="content" source="../media/scenarios/architecture_v2_identity.svg" alt-text="Diagram showing user access token architecture.":::
 
 ### Dataflows
 1. The user starts the client application. The design of this application and user authentication scheme is in your control.
