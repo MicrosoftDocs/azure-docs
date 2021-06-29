@@ -89,7 +89,7 @@ The following metrics are visible through Azure Monitor Metrics.
 
    As soon as a metric reaches the threshold as defined in an alert rule, the **Alerts** menu is updated and made visible.
 
-   :::image type="content" source="media/configure-alerts-for-azure-vmware-solution/threshold-alert.png" alt-text="Screenshot that shows the alert after reaching the threshold defined." lightbox="media/configure-alerts-for-azure-vmware-solution/threshold-alert.png":::     
+   :::image type="content" source="media/configure-alerts-for-azure-vmware-solution/threshold-alert.png" alt-text="Screenshot showing the alert after reaching the threshold defined in the alert rule." lightbox="media/configure-alerts-for-azure-vmware-solution/threshold-alert.png":::     
 
    Depending on the configured Action Group, you'll receive a notification through the configured medium. In our example, we've configured email.
     
