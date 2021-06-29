@@ -18,7 +18,7 @@ In this Sample quickstart, we'll learn how the sample works before we run the sa
 
 ## Download code
 
-Find the project for this sample on [GitHub](https://github.com/Azure-Samples/communication-services-web-calling-hero). A version of the sample with [Teams Interop](../../concepts/teams-interop.md) can be found on a separate [Branch](https://github.com/Azure-Samples/communication-services-web-calling-hero/tree/teams-interop).
+Find the project for this sample on [GitHub](https://github.com/Azure-Samples/communication-services-web-calling-hero). A version of the sample which includes features currently in public preview such as [Teams Interop](../../concepts/teams-interop.md) can be found on a separate [branch](https://github.com/Azure-Samples/communication-services-web-calling-hero/tree/public-preview).
 
 ## Overview
 
