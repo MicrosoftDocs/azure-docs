@@ -1,15 +1,13 @@
 ---
-title: Use Bicep Linter
-description: Learn how to use Bicep Linter.
+title: Use Bicep linter
+description: Learn how to use Bicep linter.
 ms.topic: conceptual
 ms.date: 06/29/2021
 ---
 
-# Use Bicep Linter
+# Use Bicep linter
 
-The Bicep Linter can be used to analyze Bicep files. It checks syntax errors, and catches a customizable set of authoring best practices before you build or deploy your Bicep files.
-
-The linter makes it easier to enforce coding standards by providing guidance during development, and the ability to break a build (if desired) during continuous integration (CI) for violations.
+The Bicep linter can be used to analyze Bicep files. It checks syntax errors, and catches a customizable set of authoring best practices before you build or deploy your Bicep files. The linter makes it easier to enforce coding standards by providing guidance during development.
 
 ## Install linter
 
@@ -22,7 +20,7 @@ The linter can be used with Visual Studio code and Bicep CLI. It requires:
 
 *** is there a default bicepconfig.json?  If yes, show the default bicepconfig.json.
 
-Using bicepconfig.json, you can enable or disable Linter, supply rule-specific values, and set the level of rules as well. Bicepconfig.json can be placed alongside your templates in the same directory. The closest configuration file found up the folder tree is used.
+Using bicepconfig.json, you can enable or disable linter, supply rule-specific values, and set the level of rules as well. Bicepconfig.json can be placed alongside your templates in the same directory. The closest configuration file found up the folder tree is used.
 
 The following json is a sample bicepconfig.json:
 
@@ -58,7 +56,7 @@ The following json is a sample bicepconfig.json:
 ```
 
 - **enabled**: enter **true** for enabling linter, enter **false** for disabling linter.
-- **verbose**: enter **true** to show the bicepconfig.json file used.
+- **verbose**: enter **true** to show the bicepconfig.json file used by Visual Studio Code..
 - **rules**: enter rule-specific values. Each rule has at least one property, and level. This property commands the behavior of Bicep if the case if found in the Bicep file.
 
 You can use several values for rule level:
@@ -70,7 +68,7 @@ You can use several values for rule level:
 | `Info` | Violations do not appear in command-line build output. | Offending code is underlined with a blue squiggle and appears in Problems tab. |
 | `Off` | Suppressed completely. | Suppressed completely. |
 
-The current set of linter rules is minimal and taken from [arm-ttk test cases](../templates/test-cases.md). Both VS Code extension and Bicep CLI check for all available rules by default and all rules are set at warning level. Based on the level of a rule, you see errors or warnings or informational messages within the editor.
+The current set of linter rules is minimal and taken from [arm-ttk test cases](../templates/test-cases.md). Both Visual Studio Code extension and Bicep CLI check for all available rules by default and all rules are set at warning level. Based on the level of a rule, you see errors or warnings or informational messages within the editor.
 
 - [no-hardcoded-env-urls](https://github.com/Azure/bicep/blob/main/docs/linter-rules/no-hardcoded-env-urls)
 - [no-unused-params](https://github.com/Azure/bicep/blob/main/docs/linter-rules/no-unused-params)
@@ -79,7 +77,7 @@ The current set of linter rules is minimal and taken from [arm-ttk test cases](.
 - [secure-parameter-default](https://github.com/Azure/bicep/blob/main/docs/linter-rules/secure-parameter-default)
 - [simplify-interpolation](https://github.com/Azure/bicep/blob/main/docs/linter-rules/simplify-interpolation)
 
-The Bicep extension of VS Code provides intellisense for editing Bicep configuration files:
+The Bicep extension of Visual Studio Code provides intellisense for editing Bicep configuration files:
 
 :::image type="content" source="./media/linter/bicep-linter-configure-intellisense.png" alt-text="The intellisense support in configuring bicepconfig.json.":::
 
