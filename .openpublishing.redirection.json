@@ -3613,6 +3613,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/app-service/app-service-authentication-how-to.md",
+      "redirect_url": "/azure/app-service/overview-authentication-authorization#more-resources",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/app-service/app-service-diagnostics.md",
       "redirect_url": "/azure/app-service/overview-diagnostics",
       "redirect_document_id": false
@@ -62068,6 +62073,41 @@
       "source_path": "articles/machine-learning/team-data-science-process/index.yml",
       "redirect_url": "/azure/architecture/data-science-process/overview",
       "redirect_document_id": false
-    }
+    },
+    {
+      "source_path": "articles/virtual-desktop/connect-android.md",
+      "redirect_url": "/azure/virtual-desktop/user-documentation/connect-android",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/virtual-desktop/connect-ios.md",
+      "redirect_url": "/azure/virtual-desktop/user-documentation/connect-ios",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/virtual-desktop/connect-macos.md",
+      "redirect_url": "/azure/virtual-desktop/user-documentation/connect-macos",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/virtual-desktop/connect-microsoft-store.md",
+      "redirect_url": "/azure/virtual-desktop/user-documentation/connect-microsoft-store",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/virtual-desktop/connect-web.md",
+      "redirect_url": "/azure/virtual-desktop/user-documentation/connect-web",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/virtual-desktop/connect-windows-7-10.md",
+      "redirect_url": "/azure/virtual-desktop/user-documentation/connect-windows-7-10",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/virtual-desktop/linux-overview.md",
+      "redirect_url": "/azure/virtual-desktop/user-documentation/linux-overview",
+      "redirect_document_id": true
+    },
   ]
 }
