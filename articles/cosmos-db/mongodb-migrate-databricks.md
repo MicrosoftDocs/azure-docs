@@ -28,7 +28,7 @@ In this tutorial, you learn how to:
 
 - Create and run Scala or Python Notebook to perform the migration
 
-- How to optimize the migration performance
+- Optimize the migration performance
 
 - Troubleshoot rate-limiting errors that may be observed during migration
 
@@ -36,6 +36,28 @@ In this tutorial, you learn how to:
 
 To complete this tutorial, you need to:
 
-- [Complete the pre-migration](mongodb-pre-migration.md) steps such as estimating throughput, choosing a partition key, and the indexing policy.
+- [Complete the pre-migration](mongodb-pre-migration.md) steps such as estimating throughput and choosing a partition key.
 - [Create an Azure Cosmos DB API for MongoDB account](https://ms.portal.azure.com/#create/Microsoft.DocumentDB).
+
+## Provision an Azure Databricks cluster
+
+You can follow instructions to [provision an Azure Databricks cluster](https://docs.microsoft.com/en-us/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal). We recommend selecting Databricks runtime version 7.6, which supports Spark 3.0.
+
+![Diagram of databricks new cluster creation.](./media/mongodb-migrate-databricks/databricks-cluster-creation.png)
+
+
+## Add dependencies
+
+You need to add the Mongo Spark Connector library to your cluster to connect to both native MongoDB and Azure Cosmos DB API for Mongo endpoints. In your cluster, select **Libraries** > **Install New** > **Maven**, and then add `org.mongodb.spark:mongo-spark-connector_2.12:3.0.1` in Maven coordinates.
+
+![Diagram of adding databricks cluster dependencies.](./media/mongodb-migrate-databricks/databricks-cluster-dependencies.png)
+
+
+Select **Install**, and then restart the cluster when installation is complete.
+
+> [!NOTE]
+> Make sure that you restart the Databricks cluster after the Mongo Spark Connector library has been installed.
+
+Post that, you may create a Scala or Python notebook for migration.
+
 
