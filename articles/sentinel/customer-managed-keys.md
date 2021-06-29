@@ -22,15 +22,15 @@ ms.author: yelevin
 This article provides background information and steps to configure a [customer-managed key (CMK)](../azure-monitor/logs/customer-managed-keys.md) for Azure Sentinel. CMK allows you to give all data stored in Azure Sentinel - already encrypted by Microsoft in all relevant storage resources - an extra layer of protection with an encryption key created and owned by you and stored in your [Azure Key Vault](../key-vault/general/overview.md).
 
 > [!NOTE]
+>
+> - Onboarding a CMK workspace to Sentinel is supported only via REST API and not via the Azure Portal. Azure Resource Manager (ARM) templates are currently not supported for CMK onboarding.
+>
 > - The Azure Sentinel CMK capability is provided only to **workspaces in Log Analytics dedicated clusters** that have **not already been onboarded to Azure Sentinel**.
 >
 > - The following CMK-related changes **are not supported**, as they will be ineffective (Azure Sentinel data will continue to be encrypted only by the Microsoft-managed key and not the customer-managed key):
 >    - Enabling CMK on a workspace **already onboarded** to Azure Sentinel.
 >    - Enabling CMK on a cluster containing Sentinel-onboarded workspaces.
 >    - Linking a Sentinel-onboarded non-CMK workspace to a CMK-enabled cluster.
->
-> - Onboarding a CMK workspace to Sentinel is supported only via REST API and not via the Azure Portal. Azure Resource Manager (ARM) templates are currently not supported for CMK onboarding.
->
 > - The following CMK-related changes **are also not supported**, as they may lead to undefined and undesired behavior:
 >    - Disabling CMK on a workspace already onboarded to Azure Sentinel.
 >    - Setting a Sentinel-onboarded, CMK-enabled workspace as a non-CMK workspace by de-linking it from its CMK-enabled dedicated cluster.
