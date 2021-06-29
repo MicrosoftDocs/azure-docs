@@ -39,7 +39,9 @@ To get started with Device Update you'll need to create a Device Update account,
  > [!NOTE]
  > You can go to [Azure Products-by-region page](https://azure.microsoft.com/global-infrastructure/services/?products=iot-hub) to discover the regions where Device Update for IoT Hub is available. If Device Update for IoT Hub is not available in your region you can choose to create an account in an available region closest to you. 
 
-6. Click "Next: Review + create>"
+6. Optionally, you can check the box to assign the Device Update administrator role to yourself. You can also use the steps listed in the "Configure access control roles" section to provide a combination of roles to users and applications for the right level of access.
+
+8. Click "Next: Review + create>"
 
    :::image type="content" source="media/create-device-update-account/account-review.png" alt-text="Screenshot of account details review." lightbox="media/create-device-update-account/account-review.png":::
 
@@ -100,7 +102,7 @@ To configure IoT Hub
 
 ## Configure access control roles
 
-In order for other users to have access to Device Update, users must be granted access to this resource. 
+In order for other users to have access to Device Update, users must be granted access to this resource. You can skip this step if you assigned the Device Update administrator role to yourself during account creation and don't need to provide access to additional users or applications. 
 
 1. Go to Access control (IAM) within the Device Update account
 
