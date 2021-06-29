@@ -77,6 +77,7 @@ In this section, you can find information in how to configure SSO with most of t
 In this section, you find documents about Microsoft Power BI integration into SAP data sources as well as Azure Data Factory integration into SAP BW.
 
 ## Change Log
+- June 28, 2021: Change in [HA guide for SAP ASCS/SCS with WSFC and Azure NetApp Files(SMB)](./high-availability-guide-windows-netapp-files-smb.md) to add a statement that the SMB Server (Computer Account) Prefix should be no longer than 8 characters to avoid running into SAP hostname length limitation
 - June 17, 2020: Change in [High availability of SAP HANA on Azure VMs on RHEL](./sap-hana-high-availability-rhel.md) to remove meta keyword from HANA resource creation command (RHEL 8.x)
 - June 09, 2021: Correct VM SKU names for M192---_v2 in [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md)
 - May 26, 2021: Change in [SAP HANA scale-out HSR with Pacemaker on Azure VMs on SLES](./sap-hana-high-availability-scale-out-hsr-suse.md), [HA for SAP HANA scale-up with ANF on RHEL](./sap-hana-high-availability-netapp-files-red-hat.md) and [SAP HANA scale-out HSR with Pacemaker on Azure VMs on RHEL](./sap-hana-high-availability-scale-out-hsr-rhel.md) to add configuration to prepare the OS for running HANA on ANF  
