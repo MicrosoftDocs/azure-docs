@@ -130,6 +130,9 @@ After choosing the appropriate classification, add some descriptive text in the 
 
 :::image type="content" source="media/tutorial-investigate-cases/closing-reasons-comment-apply.png" alt-text="{alt-text}":::
 
+## Best practices for investigating incidents
+
+
 ## Next steps
 In this tutorial, you learned how to get started investigating incidents using Azure Sentinel. Continue to the tutorial for [how to respond to threats using automated playbooks](tutorial-respond-threats-playbook.md).
 > [!div class="nextstepaction"]

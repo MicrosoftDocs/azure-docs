@@ -168,6 +168,8 @@ To find the support contact information for a data connector:
    
    The **Supported by** field has a support contact link you can use to access support and maintenance for the selected data connector.
 
+
+
 ## Next steps
 
 - To get started with Azure Sentinel, you need a subscription to Microsoft Azure. If you don't have a subscription, you can sign up for a [free trial](https://azure.microsoft.com/free/).
