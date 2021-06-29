@@ -14,7 +14,7 @@ ms.date: 03/08/2021
 
 # Migrate Execute R Script modules in Studio (classic)
 
-In this article, you learn how to rebuild a Studio (classic) **Execute R Script** module in Azure Machine Learning.
+In this article, you learn how to rebuild a Studio (classic) **Execute R Script** module in [Azure Machine Learning](../index.yml).
 
 For more information on migrating from Studio (classic), see the [migration overview article](migrate-overview.md).
 
@@ -108,5 +108,5 @@ See the other articles in the Studio (classic) migration series:
 1. [Migrate dataset](migrate-register-dataset.md).
 1. [Rebuild a Studio (classic) training pipeline](migrate-rebuild-experiment.md).
 1. [Rebuild a Studio (classic) web service](migrate-rebuild-web-service.md).
-1. [Integrate an Azure Machine Learning web service with client apps](migrate-rebuild-integrate-with-client-app.md).
+1. [Integrate a Machine Learning web service with client apps](migrate-rebuild-integrate-with-client-app.md).
 1. **Migrate Execute R Script modules**.

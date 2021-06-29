@@ -920,7 +920,7 @@
 - name: Resources
   items:
   - name: Service Fabric managed clusters common questions
-    href: faq-managed-cluster.md
+    href: faq-managed-cluster.yml
   - name: Common questions
     href: service-fabric-common-questions.md
   - name: Azure Roadmap

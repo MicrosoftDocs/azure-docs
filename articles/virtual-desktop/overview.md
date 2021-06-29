@@ -101,11 +101,11 @@ You can see a typical architectural setup of Azure Virtual Desktop for the enter
 
 The following Remote Desktop clients support Azure Virtual Desktop:
 
-* [Windows Desktop](connect-windows-7-10.md)
-* [Web](connect-web.md)
-* [macOS](connect-macos.md)
-* [iOS](connect-ios.md)
-* [Android](connect-android.md)
+* [Windows Desktop](./user-documentation/connect-windows-7-10.md)
+* [Web](./user-documentation/connect-web.md)
+* [macOS](./user-documentation/connect-macos.md)
+* [iOS](./user-documentation/connect-ios.md)
+* [Android](./user-documentation/connect-android.md)
 * Microsoft Store Client
 
 > [!IMPORTANT]
