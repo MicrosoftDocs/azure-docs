@@ -107,7 +107,7 @@ In order for other users to have access to Device Update, users must be granted 
 
 2. Click "Add role assignments"
 
-3. Under "Select a Role", select a Device Update role from the given options
+3. Under Role tab, select a Device Update role from the given options
      - Device Update Administrator
      - Device Update Reader
      - Device Update Content Administrator
@@ -119,9 +119,15 @@ In order for other users to have access to Device Update, users must be granted 
     
     [Learn about Role-based access control in Device Update for IoT Hub](device-update-control-access.md) 
     
-4. Assign access to a user or Azure AD group
-5. Click Save
-6. You are now ready to use the Device Update experience from within your IoT Hub
+4. Click Next
+5. Assign access to a user or Azure AD group
+6. Select members
+   
+   :::image type="content" source="media/create-device-update-account/role-assignment-2.png" alt-text="Screenshot of access Control role assignments within Device Update account." lightbox="media/create-device-update-account/role-assignment-2.png":::
+
+6. Click Review + assign
+7. Review the new role assignments and click Review + assign again
+8. You are now ready to use the Device Update experience from within your IoT Hub
 
 ## Next steps
 
