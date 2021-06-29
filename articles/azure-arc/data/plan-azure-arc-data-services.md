@@ -7,7 +7,7 @@ author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray
 ms.date: 06/27/2021
-ms.topic: conceptual
+ms.topic: how-to
 ---
 # Plan to deploy Azure Arc enabled data services
 
