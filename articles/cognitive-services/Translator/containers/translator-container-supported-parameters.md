@@ -13,7 +13,7 @@ ms.date: 05/12/2021
 ms.author: lajanuar
 ---
 
-# Container: Translator translate method
+# Container: Translator translate method (preview)
 
 Translate text.
 
