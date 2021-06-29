@@ -72,7 +72,7 @@ $resourceGroup = New-AzResourceGroup -Name $resourceGroupName -Location $locatio
 
 ## Configure networking
 
-After your resource group is created, configure the networking resources such as the virtual network, subnets, network security group, and routing table. 
+After your resource group is created, configure the networking resources such as the virtual network, subnets, network security group, and routing table. This example demonstrates the use of the **Delegate subnet for Managed Instance deployment** script, which is available on GitHub as [delegate-subnet.ps1](https://github.com/microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-managed-instance/delegate-subnet).
 
 To do so, execute this PowerShell script: 
 
@@ -150,6 +150,5 @@ After your SQL Managed Instance is created, deploy a client VM to connect to you
 > [!div class="nextstepaction"]
 > [Create client VM](connect-vm-instance-configure.md)
 > [Restore database](restore-sample-database-quickstart.md)
-
 
 
