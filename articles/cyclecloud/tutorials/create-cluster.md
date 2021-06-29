@@ -25,7 +25,7 @@ In this tutorial, you will create an HPC cluster configured with the [PBS Pro sc
 
 ::: moniker range=">=cyclecloud-8"
 :::image type="content" source="../images/version-8/new-openpbs-cluster.png" alt-text="Create New Cluster screen":::
-::: moniker-en
+::: moniker-end
 
 ## New Cluster Settings
 

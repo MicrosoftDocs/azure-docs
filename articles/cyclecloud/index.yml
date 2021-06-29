@@ -9,7 +9,7 @@ metadata:
   ms.topic: landing-page # Required
   author: adriankjohnson
   ms.author: adjohnso
-  ms.date: 03/23/2020 
+  ms.date: 06/28/2021 
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
@@ -43,7 +43,7 @@ landingContent:
         links:
           - text: CycleCloud 8.1.1 is now generally available
             url: release-notes.md
-          - text: CycleCloud 7.9.9 is now available
+          - text: CycleCloud 7.9.10 is now available
             url: release-notes-previous.md
           - text: Cloud-init is now supported
             url: how-to/cloud-init.md
