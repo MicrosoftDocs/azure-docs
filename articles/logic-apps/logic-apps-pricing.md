@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 06/21/2021
+ms.date: 06/29/2021
 ---
 
 # Pricing and billing models for Azure Logic Apps
@@ -16,12 +16,29 @@ ms.date: 06/21/2021
 
 ## Consumption pricing (multi-tenant)
 
-In multi-tenant Azure Logic Apps, logic app workflows follow the "pay-for-use" **Consumption** pricing and billing model. For example, you create such logic apps when you choose the **Logic App (Consumption)** resource type, use the **Azure Logic Apps (Consumption)** extension in Visual Studio Code, or when you create [automation tasks](create-automation-tasks-azure-resources.md). Metering and billing apply to the following components:
+In multi-tenant Azure Logic Apps, logic app workflows follow the "pay-for-use" **Consumption** pricing and billing model. For example, you create such logic apps when you choose the **Logic App (Consumption)** resource type, use the **Azure Logic Apps (Consumption)** extension in Visual Studio Code, or when you create [automation tasks](create-automation-tasks-azure-resources.md).
 
-* Required: Compute, storage, and memory
-* Optional if used: Managed connector operation, integration accounts
+The Consumption model meters the following items if included in a logic app workflow:
 
-* The number of built-in operation executions that exceed the [monthly included amount in the Consumption plan](https://azure.microsoft.com/pricing/details/logic-apps/)
+* Operation executions, which are iether Built-in operation executions that exceed the [monthly included **Actions* amount](https://azure.microsoft.com/pricing/details/logic-apps/)
+* Managed connector operations, which are billed at either the [Standard or Enterprise connector rates](https://azure.microsoft.com/pricing/details/logic-apps/)
+* Data retention and storage, based 
+
+If your workflows also use Azure managed connector operations or integration accounts, separate billing and pricing apply to these components:
+
+* [Standard billing for managed connector operations](#standard-managed-connector-billing)
+
+  > [!NOTE]
+  > [*Built-in*](../connectors/built-in.md) triggers and actions are operations that run natively in Azure Logic Apps and are 
+  > labeled as **Built-in** in the workflow designer. The Standard plan *includes built-in operation executions at no extra charge*. 
+  > Some managed connector operations are *also* available as built-in versions, which don't incur charges However, the managed 
+  > connector versions still incur charges.
+
+* [Standard billing for other related resources](#standard-related-resources-billing)
+
+For more information about logic apps that are single-tenant based versus multi-tenant or integration service environment, review [Single-tenant versus multi-tenant and integration service environment](single-tenant-overview-compare.md).
+
+* Integration accounts
 
 For more information about creating multi-tenant based logic apps, review [Single-tenant versus multi-tenant and integration service environment](single-tenant-overview-compare.md).
 
