@@ -37,8 +37,9 @@ The following classes handle some of the major features of the recording Server 
 
 ## Getting serverCallId as a requirement for call recording server APIs
 
-> [!NOTE] 
-> This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment. To use this api please use 'beta' release of ACS Calling Web SDK. End to End client sample with recording is available at [Public Preview](https://github.com/Azure-Samples/communication-services-web-calling-hero/tree/public-preview).
+> [!NOTE]
+> This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment. To use this API please use 'beta' release of ACS Calling Web SDK. A client sample with recording flows is available at [GitHub](https://github.com/Azure-Samples/communication-services-web-calling-hero/tree/public-preview).
+
 
 Call recording is an extended feature of the core Call API. You first need to obtain the recording feature API object:
 
@@ -128,10 +129,9 @@ Response<Void> response = this.callingServerClient.initializeServerCall(serverCa
 
 ## Download recording File using 'downloadToWithResponse' server API
 
-> [!NOTE] 
-> An [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview) Web hook is required to get the notification callback event when the recorded media is ready for download.
+Use an [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview) web hook or other triggered action should be used to notify your services when the recorded media is ready for download.
 
-When the recording is available for download, Azure Event Grid will trigger a notification callback event to the application with the following schema.
+Below is an example of the event schema.
 
 ```
 {
