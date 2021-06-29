@@ -65,7 +65,7 @@ workspace("WS-customer-tenant-2").AzureDiagnostics
 | project Category, ResourceGroup, TenantId
 ```
 
-For more examples of queries across multiple Log Analytics workspaces, see [Cross-resource queries](../../azure-monitor/logs/cross-workspace-query.md).
+For more examples of queries across multiple Log Analytics workspaces, see [Query across resources with Azure Monitor](../../azure-monitor/logs/cross-workspace-query.md).
 
 ## View alerts across customers
 
