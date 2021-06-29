@@ -122,12 +122,19 @@ By default, Azure Machine Learning performs data validity and credential checks 
 
 ### Use datastores
 
- Azure Data Lake Store Gen1 and Azure Data Lake Store Gen2 skip validation by default, so no further action is necessary. However, for the following services you can use similar syntax to skip datastore validation:
+The following table lists the services that you need to skip validation for:
 
-- Azure Blob storage
-- Azure fileshare
-- PostgreSQL
-- Azure SQL Database
+| Service | Skip validation required? |
+| ----- |:-----:|
+| Azure Blob storage | Yes |
+| Azure File share | Yes |
+| Azure Data Lake Store Gen1 | No |
+| Azure Data Lake Store Gen2 | No |
+| Azure SQL Database | Yes |
+| PostgreSql | Yes |
+
+> [!NOTE]
+> Azure Data Lake Store Gen1 and Azure Data Lake Store Gen2 skip validation by default, so you don't have to do anything.
 
 The following code sample creates a new Azure Blob datastore and sets `skip_validation=True`.
 
