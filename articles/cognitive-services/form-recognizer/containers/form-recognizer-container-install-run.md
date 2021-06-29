@@ -20,7 +20,7 @@ keywords: on-premises, Docker, container, identify
 
 Azure Form Recognizer is an Azure Applied AI Service that lets you build automated data processing software using machine learning technology. Form Recognizer enables you to identify and extract text, key/value pairs, selection marks, table data, and more from your form documents and output structured data that includes the relationships in the original file.
 
-In this article you'll learn how to download, install, and run Form Recognizer containers. Containers enable you to run the Form Recognizer service in your own environment. Containers are great for specific security and data governance requirements. Form Recognizer features are supported by seven Form Recognizer containers—**Layout**, **Business Card**,**ID Document**,  **Receipt**, **Invoice**, **Custom API**, and **Custom Supervised**—plus the **Read** OCR container. The **Read** container allows you to extract printed and handwritten text from images and documents with support for JPEG, PNG, BMP, PDF, and TIFF file formats. For more information, see the [Read API how-to guide](../../computer-vision/vision-api-how-to-topics/call-read-api.md).
+In this article you'll learn how to download, install, and run Form Recognizer containers. Containers enable you to run the Form Recognizer service in your own environment. Containers are great for specific security and data governance requirements. Form Recognizer features are supported by seven Form Recognizer containers—**Layout**, **Business Card**,**ID Document**,  **Receipt**, **Invoice**, **Custom API**, and **Custom Supervised** (for reciept, business cards and ID Document containers you will also need the **Read** OCR container). 
 
 ## Prerequisites
 
@@ -591,7 +591,7 @@ For more information about these options, see [Configure containers](form-recogn
 That's it! In this article, you learned concepts and workflows for downloading, installing, and running Form Recognizer containers. In summary:
 
 * Form Recognizer provides seven Linux containers for Docker.
-* Container images are downloaded from the private container registry in Azure.
+* Container images are downloaded from mcr.
 * Container images run in Docker.
 * You must specify the billing information when you instantiate a container.
 
