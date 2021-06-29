@@ -27,11 +27,12 @@ For information about the prerequisites to add role assignment conditions, see [
 
 ## Add a condition
 
-The following template shows how to assign the [Storage Blob Data Reader](built-in-roles.md#storage-blob-data-reader) role with a condition. The condition checks whether container name equals 'blobs-example-container'.
+The following template shows how to assign the [Storage Blob Data Reader](built-in-roles.md#storage-blob-data-reader) role with a condition. The condition checks whether the container name equals 'blobs-example-container'.
 
 To use the template, you must specify the following input:
 
-- The ID of a user, group, managed identity, or application to assign the role to
+- The ID of a user, group, managed identity, or application to assign the role to.
+- The type of principal, such as `User`, `Group`, or `ServicePrincipal`. For more information, see [New service principal](role-assignments-template.md#new-service-principal).
 
 ```json
 {
@@ -41,14 +42,20 @@ To use the template, you must specify the following input:
         "principalId": {
             "type": "string",
             "metadata": {
-                "description": "The principal ID to assign the role to"
+                "description": "Principal ID to assign the role to"
+            }
+        },
+        "principalType": {
+            "type": "string",
+            "metadata": {
+                "description": "Type of principal"
             }
         },
         "roleAssignmentGuid": {
             "type": "string",
             "defaultValue": "[newGuid()]",
             "metadata": {
-                "description": "A new GUID used to identify the role assignment"
+                "description": "New GUID used to identify the role assignment"
             }
         }
     },
@@ -63,6 +70,7 @@ To use the template, you must specify the following input:
             "properties": {
                 "roleDefinitionId": "[variables('StorageBlobDataReader')]",
                 "principalId": "[parameters('principalId')]",
+                "principalType": "[parameters('principalType')]",
                 "description": "Role assignment condition created with an ARM template",
                 "condition": "((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'})) OR (@Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringEquals 'blobs-example-container'))", // Role assignment condition
                 "conditionVersion": "2.0"
@@ -75,11 +83,11 @@ To use the template, you must specify the following input:
 The scope of the role assignment is determined from the level of the deployment. Here are example [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) and [az deployment group create](/cli/azure/deployment/group#az_deployment_group_create) commands for how to start the deployment at a resource group scope.
 
 ```azurepowershell
-New-AzResourceGroupDeployment -ResourceGroupName example-group -TemplateFile rbac-test.json -principalId $principalId
+New-AzResourceGroupDeployment -ResourceGroupName example-group -TemplateFile rbac-test.json -principalId $principalId -principalType "User"
 ```
 
 ```azurecli
-az deployment group create --resource-group example-group --template-file rbac-test.json --parameters principalId=$principalId
+az deployment group create --resource-group example-group --template-file rbac-test.json --parameters principalId=$principalId principalType="User"
 ```
 
 ## Next steps
