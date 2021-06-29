@@ -7,6 +7,7 @@ ms.topic: conceptual
 ms.date: 06/28/2021
 ms.author: rogarana
 ms.subservice: disks
+ms.custom: references_regions
 ---
 
 # Azure disk pools (preview)
