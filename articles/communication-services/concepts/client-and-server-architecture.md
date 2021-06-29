@@ -43,7 +43,7 @@ Azure Communication Services clients must present `user access tokens` to access
 ## Calling a user without push notifications
 The simplest voice and video calling scenarios involves a user calling another, in the foreground without push notifications.
 
-:::image type="content" source="../media/scenarios/architecture_v2_calling_without_notifications.svg" alt-text="Diagram showing Communication Services Architecture for native app communication.":::
+:::image type="content" source="../media/scenarios/architecture_v2_calling_without_notifications.svg" alt-text="Diagram showing Communication Services architecture calling without push notifications.":::
 
 ### Dataflows
 
@@ -63,7 +63,7 @@ The simplest voice and video calling scenarios involves a user calling another, 
 ## Joining a user-created group call
 You may want users to join a call without an explicit invitation. For example you may have a *social space* with an associated call, and users join that call at their leisure. In this first dataflow, we show a call that is initially created by a client.
 
-:::image type="content" source="../media/scenarios/architecture_v2_calling_join_client_driven.svg" alt-text="Diagram showing Communication Services Architecture for native app communication.":::
+:::image type="content" source="../media/scenarios/architecture_v2_calling_join_client_driven.svg" alt-text=Diagram showing Communication Services architecture calling out-of-band signalling.":::
 
 ### Dataflows
 1. Initiating user initializes their Call client and makes a group call.
@@ -76,7 +76,7 @@ You may want users to join a call without an explicit invitation. For example yo
 ## Joining a scheduled Teams call
 Azure Communication Service applications can join Teams calls. This is ideal for many business-to-consumer scenarios, where the consumer is leveraging a custom application and custom identity, while the business-side is using Teams.
 
-:::image type="content" source="../media/scenarios/architecture_v2_calling_join_teams_driven.svg" alt-text="Diagram showing Communication Services Architecture for native app communication.":::
+:::image type="content" source="../media/scenarios/architecture_v2_calling_join_teams_driven.svg" alt-text="Diagram showing Communication Services architecture for joining a Teams meeting.":::
 
 
 ### Dataflows
