@@ -8,7 +8,7 @@ ms.topic: overview
 ms.date: 06/29/2021
 ---
 
-## Overview of Azure Logic Apps designer
+# Overview of Azure Logic Apps designer
 
 When you work with Logic Apps in the Azure portal, you can choose to edit your [*workflows*](logic-apps-overview.md#workflow) programmatically or visually. After you open a [*logic app* resource](logic-apps-overview.md#logic-app) in the Azure portal, you can select between the [**Code** view](#code-view) or the **Designer** developer view in the navigation menu under **Developer**. The **Designer** view opens the Logic Apps designer, where you can build, edit, and run complete workflows. You can switch between these two views at any time.
 
