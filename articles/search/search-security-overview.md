@@ -16,21 +16,21 @@ ms.custom: references_regions
 
 This article describes the security features in Azure Cognitive Search that protect data and operations.
 
-## Network access
+## Network traffic patterns
 
-A search service is hosted on Azure and typically accessed over public network connections. Understanding the service's access patterns can help you determine the appropriate controls for preventing unauthorized access.
+A search service is hosted on Azure and typically accessed over public network connections. Understanding the service's access patterns can help you design a security strategy that effectively deters unauthorized access to searchable content.
 
 Cognitive Search has three basic network traffic patterns:
 
-+ Inbound requests made to the search service (the predominant pattern)
++ Inbound requests made by a client to the search service (the predominant pattern)
 + Outbound requests issued by the search service to other services on Azure and elsewhere
 + Internal service-to-service requests over the secure Microsoft backbone network
 
-Inbound requests range from creating objects, loading data, and queries. For inbound access, there is a progression of security measures protecting the search service endpoint: from API keys on the request, to inbound rules in the firewall, to private endpoints that fully shield your service from the public internet.
+Inbound requests range from creating objects, loading data, and querying. For inbound access to data and operations, you can implement a progression of security measures, starting with API keys on the request (required). You can then supplement with either inbound rules in an IP firewall, or create private endpoints that fully shield your service from the public internet.
 
-Outbound requests are mostly made by indexers, and include both read and write operations. Read operations include data ingestion or document cracking when loading content from external sources. Write operations to external services are few: a search service writes to log files, and it will write to Azure Storage when creating knowledge stores, persisting cached enrichments, and persisting debug sessions. Finally, a skillset can also include custom skills that run external code, for example in Azure Functions or in a web app.
+Outbound requests can include both read and write operations. The primary agent of an outbound call is an indexer, but the service itself writes to log files if you enable diagnostic logging through Azure Monitor. For indexers, read operations include document cracking and data ingestion. An indexer can also write to Azure Storage when creating knowledge stores, persisting cached enrichments, and persisting debug sessions. Finally, a skillset can also include custom skills that run external code, for example in Azure Functions or in a web app.
 
-Internal requests include service-to-service calls, such as calls made to Cognitive Services if you are using built-in skills, or to Azure Private Link if you set up a private endpoint.
+Internal requests include service-to-service calls, such as calls made to Cognitive Services that provides the built-in skills, or to Azure Private Link if you set up a private endpoint.
 
 ## Network security
 
@@ -52,7 +52,7 @@ To further control access to your search service, you can create inbound firewal
 
 You can use the portal to [configure inbound access](service-configure-firewall.md).
 
-Alternatively, you can use the management REST APIs. Starting with API version 2020-03-13, with the [IpRule](/rest/api/searchmanagement/services/createorupdate#iprule) parameter, you can restrict access to your service by identifying IP addresses, individually or in a range, that you want to grant access to your search service.
+Alternatively, you can use the management REST APIs. Starting with API version 2020-03-13, with the [IpRule](/rest/api/deploymentmanager/services/create-or-update#iprule) parameter, you can restrict access to your service by identifying IP addresses, individually or in a range, that you want to grant access to your search service.
 
 ### Connect to a private endpoint (network isolation, no Internet traffic)
 
@@ -121,7 +121,7 @@ Workarounds for solutions that require "row-level security" include creating a f
 
 Service Management operations are authorized through [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md). Azure RBAC is an authorization system built on [Azure Resource Manager](../azure-resource-manager/management/overview.md) for provisioning of Azure resources. 
 
-In Azure Cognitive Search, Resource Manager is used to create or delete the service, manage API keys, and scale the service. As such, Azure role assignments will determine who can perform those tasks, regardless of whether they are using the [portal](search-manage.md), [PowerShell](search-manage-powershell.md), or the [Management REST APIs](/rest/api/searchmanagement/search-howto-management-rest-api).
+In Azure Cognitive Search, Resource Manager is used to create or delete the service, manage API keys, and scale the service. As such, Azure role assignments will determine who can perform those tasks, regardless of whether they are using the [portal](search-manage.md), [PowerShell](search-manage-powershell.md), or the [Management REST APIs](/rest/api/searchmanagement).
 
 [Three basic roles](search-security-rbac.md) are defined for search service administration. The role assignments can be made using any supported methodology (portal, PowerShell, and so forth) and are honored service-wide. The Owner and Contributor roles can perform a variety of administration functions. You can assign the Reader role to users who only view essential information.
 
