@@ -43,11 +43,11 @@ The diagram shows the integrated monitoring architecture of integrated security 
 
 2. Under Resources, select **Servers** and then **+Add**.
 
-   :::image type="content" source="media/azure-security-integration/add-server-to-azure-arc.png" alt-text="A screenshot showing Azure Arc Servers page for adding an Azure VMware Solution VM to Azure.":::
+   :::image type="content" source="media/azure-security-integration/add-server-to-azure-arc.png" alt-text="Screenshot showing Azure Arc Servers page for adding an Azure VMware Solution VM to Azure.":::
 
 3. Select **Generate script**.
  
-   :::image type="content" source="media/azure-security-integration/add-server-using-script.png" alt-text="A screenshot of Azure Arc page showing option for adding a server using interactive script."::: 
+   :::image type="content" source="media/azure-security-integration/add-server-using-script.png" alt-text="Screenshot of Azure Arc page showing option for adding a server using interactive script."::: 
  
 4. On the **Prerequisites** tab, select **Next**.
 
@@ -107,6 +107,9 @@ Azure Sentinel is built on top of a Log Analytics workspace, so you'll just need
 
    :::image type="content" source="media/azure-security-integration/select-events-you-want-to-stream.png" alt-text="Screenshot of Security Events page in Azure Sentinel where you can select which events to stream.":::
 
+
+
+
 ## Connect Azure Sentinel with Azure Security Center  
 
 1. On the Azure Sentinel workspace page, select the configured workspace.
@@ -115,7 +118,7 @@ Azure Sentinel is built on top of a Log Analytics workspace, so you'll just need
 
 3. Select **Azure Security Center** from the list and then select **Open connector page**.
 
-    :::image type="content" source="media/azure-security-integration/connect-security-center-with-azure-sentinel.png" alt-text="Screenshot of Data connectors page in Azure Sentinel showing selection to connect Azure Security Center with Azure Sentinel.":::
+   :::image type="content" source="media/azure-security-integration/connect-security-center-with-azure-sentinel.png" alt-text="Screenshot of Data connectors page in Azure Sentinel showing selection to connect Azure Security Center with Azure Sentinel.":::
 
 4. Select **Connect** to connect the Azure Security Center with Azure Sentinel.
 
