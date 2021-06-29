@@ -11,7 +11,7 @@ ms.custom: references_regions
 
 # Manage zone redundant high availability in Azure Database for MySQL Flexible Server (Preview)
 
-[[!INCLUDE[applies-to-flexible-server](../includes/applies-to-flexible-server.md)]
+[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 This article describes how you can enable or disable zone redundant high availability configuration in your flexible server.
 
