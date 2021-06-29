@@ -63,7 +63,7 @@ Follow these steps to assign roles using the [Roles and administrators](https://
 
     ![Roles and administrators page in Azure Active Directory when PIM enabled.](./media/manage-roles-portal/roles-and-administrators.png)
 
-1. Select a role to see its eligible, active, and expired assignments.
+1. Select a role to see its eligible, active, and expired role assignments.
 
     To help you find the role you need, use **Add filters** to filter the roles.
 
@@ -77,7 +77,7 @@ Follow these steps to assign roles using the [Roles and administrators](https://
 
 1. On the **Setting** tab, select whether you wan to make this role assignment **Eligible** or **Active**.
 
-    An eligible role assignment means that the user must perform one or or more actions to use the role. An active role assignment means that the user doesn't have to perform any action to use the role. For more information about what these settings mean, see [PIM terminology](../privileged-identity-management/pim-configure.md#terminology).
+    An eligible role assignment means that the user must perform one or more actions to use the role. An active role assignment means that the user doesn't have to perform any action to use the role. For more information about what these settings mean, see [PIM terminology](../privileged-identity-management/pim-configure.md#terminology).
 
     ![Add assignments page and Setting tab with PIM enabled.](./media/manage-roles-portal/add-assignments-pim-setting.png)
 
@@ -89,7 +89,7 @@ Follow these steps to assign roles using the [Roles and administrators](https://
 
 Follow these steps to assign Azure AD roles using PowerShell.
 
-### Assign a role
+### Setup
 
 1. Open a PowerShell window and use [Import-Module](/powershell/module/microsoft.powershell.core/import-module) to import the AzureADPreview module. For more information, see [Prerequisites to use PowerShell or Graph Explorer](prerequisites.md).
 
@@ -109,6 +109,8 @@ Follow these steps to assign Azure AD roles using PowerShell.
     $user = Get-AzureADUser -Filter "userPrincipalName eq 'user@contoso.com'"
     ```
 
+### Assign a role
+
 1. Use [Get-AzureADMSRoleDefinition](/powershell/module/azuread/get-azureadmsroledefinition) to get the role you want to assign.
 
     ```powershell
@@ -123,7 +125,35 @@ Follow these steps to assign Azure AD roles using PowerShell.
 
 ### Assign a role as eligible using PIM
 
-If PIM is enabled, you have additional capabilities, such as making a user eligible for a role assignment or defining the start and end time for a role assignment. These capabilities use a different set of PowerShell commands such as [Open-AzureADMSPrivilegedRoleAssignmentRequest](/powershell/module/azuread/open-azureadmsprivilegedroleassignmentrequest). For steps on how to create an eligible role assignment, see [PowerShell for Azure AD roles in Privileged Identity Management](../privileged-identity-management/powershell-for-azure-ad-roles.md#assign-a-role).
+If PIM is enabled, you have additional capabilities, such as making a user eligible for a role assignment or defining the start and end time for a role assignment. These capabilities use a different set of PowerShell commands. For more information about using PowerShell and PIM, see [PowerShell for Azure AD roles in Privileged Identity Management](../privileged-identity-management/powershell-for-azure-ad-roles.md#assign-a-role).
+
+
+1. Use [Get-AzureADMSRoleDefinition](/powershell/module/azuread/get-azureadmsroledefinition) to get the role you want to assign.
+
+    ```powershell
+    $roleDefinition = Get-AzureADMSRoleDefinition -Filter "displayName eq 'Billing Administrator'"
+    ```
+
+1. Use [Get-AzureADMSPrivilegedResource](/powershell/module/azuread/get-azureadmsprivilegedresource) to get the privileged resource. In this case, your tenant.
+
+    ```powershell
+    $aadTenant = Get-AzureADMSPrivilegedResource -ProviderId aadRoles
+    ```
+
+1. Use [New-Object](/powershell/module/microsoft.powershell.utility/new-object) to create a new `AzureADMSPrivilegedSchedule` object to define the start and end time of the role assignment.
+
+    ```powershell
+    $schedule = New-Object Microsoft.Open.MSGraph.Model.AzureADMSPrivilegedSchedule
+    $schedule.Type = "Once"
+    $schedule.StartDateTime = (Get-Date).ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ss.fffZ")
+    $schedule.EndDateTime = "2021-07-25T20:00:00.000Z"
+    ```
+
+1. Use [Open-AzureADMSPrivilegedRoleAssignmentRequest](/powershell/module/azuread/open-azureadmsprivilegedroleassignmentrequest) to assign the role as eligible.
+
+    ```powershell
+    $roleAssignmentEligible = Open-AzureADMSPrivilegedRoleAssignmentRequest -ProviderId 'aadRoles' -ResourceId $aadTenant.Id -RoleDefinitionId $roleDefinition.Id -SubjectId $user.objectId -Type 'AdminAdd' -AssignmentState 'Eligible' -schedule $schedule -reason "Review billing info"
+    ```
 
 ## Next steps
 
