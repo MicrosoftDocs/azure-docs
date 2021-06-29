@@ -120,10 +120,10 @@ You can set up authentication for an Azure Synapse source in either of two ways:
 
 1. Select the ellipsis (**...**) next to it, and then start a new SQL script.
 
-> [!NOTE]
-> To run the commands in the following procedure, you must be an *Azure Synapse administrator* on the workspace. For more information about Azure Synapse Analytics permissions, see [Set up access control for your Azure Synapse workspace](../synapse-analytics/security/how-to-set-up-access-control.md).
+   > [!NOTE]
+   > To run the commands in the following procedure, you must be an *Azure Synapse administrator* on the workspace. For more information about Azure Synapse Analytics permissions, see [Set up access control for your Azure Synapse workspace](../synapse-analytics/security/how-to-set-up-access-control.md).
 
-1. Add the Azure Purview account MSI (represented by the account name) as **db_datareader** on the dedicated SQL database. You do so by running the following command in your SQL script:
+4. Add the Azure Purview account MSI (represented by the account name) as **db_datareader** on the dedicated SQL database. You do so by running the following command in your SQL script:
 
     ```sql
     CREATE USER [PurviewAccountName] FROM EXTERNAL PROVIDER
