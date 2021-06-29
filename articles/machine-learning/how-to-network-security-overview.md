@@ -139,7 +139,7 @@ The following network diagram shows a secured Azure Machine Learning workspace w
 
 You can secure the workspace behind a VNet using a private endpoint and still allow access over the public internet. The initial configuration is the same as [securing the workspace and associated resources](#secure-the-workspace-and-associated-resources). 
 
-After securing the workspace with a private link, you then [Enable public access](how-to-configure-private-link.md#enable-public-access). After this, you can access the workspace from both the public internet and the VNet.
+After securing the workspace with a private endpoint, you then [Enable public access](how-to-configure-private-link.md#enable-public-access). After this, you can access the workspace from both the public internet and the VNet.
 
 ### Limitations
 
