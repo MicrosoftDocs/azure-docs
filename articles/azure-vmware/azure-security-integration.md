@@ -107,6 +107,9 @@ Azure Sentinel is built on top of a Log Analytics workspace, so you'll just need
 
    :::image type="content" source="media/azure-security-integration/select-events-you-want-to-stream.png" alt-text="Screenshot of Security Events page in Azure Sentinel where you can select which events to stream.":::
 
+
+
+
 ## Connect Azure Sentinel with Azure Security Center  
 
 1. On the Azure Sentinel workspace page, select the configured workspace.
@@ -115,7 +118,7 @@ Azure Sentinel is built on top of a Log Analytics workspace, so you'll just need
 
 3. Select **Azure Security Center** from the list and then select **Open connector page**.
 
-    :::image type="content" source="media/azure-security-integration/connect-security-center-with-azure-sentinel.png" alt-text="Screenshot of Data connectors page in Azure Sentinel showing selection to connect Azure Security Center with Azure Sentinel.":::
+   :::image type="content" source="media/azure-security-integration/connect-security-center-with-azure-sentinel.png" alt-text="Screenshot of Data connectors page in Azure Sentinel showing selection to connect Azure Security Center with Azure Sentinel.":::
 
 4. Select **Connect** to connect the Azure Security Center with Azure Sentinel.
 
