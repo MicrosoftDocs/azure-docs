@@ -76,7 +76,7 @@ For information on configuring UDR, see [Route network traffic with a routing ta
 
     * AzureActiveDirectory
     * AzureMachineLearning
-    * Azure Resource Manager
+    * AzureResourceManager
     * Storage.region
     * KeyVault.region
     * ContainerRegistry.region
