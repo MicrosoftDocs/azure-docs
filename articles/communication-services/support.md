@@ -38,4 +38,4 @@ For example:
 - To give feedback on the connection experience to a notification hub, you can click on the following link  
 :::image type="content" source="./media/give-feedback-in-page.png" alt-text="Image of Give Feedback Link in the Notification Hub Blade.":::
 
-We appreciate your feedback and energy helping us improve our services. Please let us know if you are satisfied with Azure Communication Services through this [survey] (https://microsoft.qualtrics.com/jfe/form/SV_4HMWolQyyLyeX77). 
+We appreciate your feedback and energy helping us improve our services. Please let us know if you are satisfied with Azure Communication Services through this [survey](https://aka.ms/ACS_CAT_Survey). 
