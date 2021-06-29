@@ -70,9 +70,9 @@ For information on using a firewall solution, see [Use a firewall with Azure Mac
 
 ## Secure the workspace with private endpoint
 
-Azure Private Link lets you connect to your workspace using a private endpoint. The private endpoint is a set of private IP addresses within your virtual network. You can then limit access to your workspace to only occur over the private IP addresses. A private endpoint also helps reduce the risk of data exfiltration.
+Azure Private Link lets you connect to your workspace using a private endpoint. The private endpoint is a set of private IP addresses within your virtual network. You can then limit access to your workspace to only occur over the private IP addresses. A private endpoint helps reduce the risk of data exfiltration.
 
-For more information on setting up a private endpoint-enabled workspace, see [How to configure private endpoint](how-to-configure-private-link.md).
+For more information on configuring a private endpoint for your workspace, see [How to configure a private endpoint](how-to-configure-private-link.md).
 
 > [!WARNING]
 > Securing a workspace with private endpoints does not ensure end-to-end security by itself. You must follow the steps in the rest of this article, and the VNet series, to secure individual components of your solution. For example, if you use a private endpoint for the workspace, but your Azure Storage Account is not behind the VNet, traffic between the workspace and storage does not use the VNet for security.
@@ -114,6 +114,9 @@ Azure Machine Learning supports storage accounts configured to use either servic
 1. A private endpoint with a **blob** target subresource.
 1. A private endpoint with a **file** target subresource (fileshare).
 
+> [!TIP]
+> If you plan to use [ParallelRunStep](./tutorial-pipeline-batch-scoring-classification.md) in your pipeline, it is also required to configure private endpoints with a **queue** and a **table** target subresources. ParallelRunStep uses queue and table under the hood for task scheduling and dispatching.
+
 ![Screenshot showing private endpoint configuration page with blob and file options](./media/how-to-enable-studio-virtual-network/configure-storage-private-endpoint.png)
 
 To configure a private endpoint for a storage account that is **not** the default storage, select the **Target subresource** type that corresponds to the storage account you want to add.
@@ -122,7 +125,6 @@ For more information, see [Use private endpoints for Azure Storage](../storage/c
 
 > [!TIP]
 > When using a private endpoint, you can also disable public access. For more information, see [disallow public read access](../storage/blobs/anonymous-read-access-configure.md#allow-or-disallow-public-read-access-for-a-storage-account).
-
 
 ## Secure Azure Key Vault
 
@@ -194,32 +196,19 @@ To use Azure Machine Learning experimentation capabilities with Azure Key Vault 
 > When ACR is behind a VNet, you can also [disable public access](../container-registry/container-registry-access-selected-networks.md#disable-public-network-access) to it.
 
 ## Datastores and datasets
+The following table lists the services that you need to skip validation for:
 
-When using datastores and datasets, there are different requirements depending on what you are using.
+| Service | Skip validation required? |
+| ----- |:-----:|
+| Azure Blob storage | Yes |
+| Azure File share | Yes |
+| Azure Data Lake Store Gen1 | No |
+| Azure Data Lake Store Gen2 | No |
+| Azure SQL Database | Yes |
+| PostgreSql | Yes |
 
-* __SDK__ or __CLI__ - use the information in this section.
-* Azure Machine Learning __studio__ - use the information in the [Use Azure Machine Learning studio in a virtual network](how-to-enable-studio-virtual-network.md) article.
-
-> [!TIP]
-> The two sets of guidance are not mutually exclusive. If you need to use both the SDK/CLI and studio, use the information from this section and the studio article.
-
-To access data using the SDK, you must use the authentication method required by the individual service that the data is stored in. For example, if you register a datastore to access Azure Data Lake Store Gen2, you must still use a service principal as documented in [Connect to Azure storage services](how-to-access-data.md#azure-data-lake-storage-generation-2).
-
-### Disable data validation
-
-> [!IMPORTANT]
-> By default, Azure Machine Learning performs data validity and credential checks when you attempt to access data using the SDK. If the data is behind a virtual network, Azure Machine Learning can't complete these checks. To bypass this check, **create datastores and datasets that skip validation**.
->
-> Skipping validation can hide problems with data connectivity, which will show up when you try to use the data. Always verify that you can access the datastore or dataset after it has been created. 
-
-**Skip validation for datastores**
-
- Azure Data Lake Store Gen1 and Azure Data Lake Store Gen2 skip validation by default, so no further action is necessary. However, for the following services you can use similar syntax to skip datastore validation:
-
-- **Azure Blob storage**
-- **Azure fileshare**
-- **Azure SQL Database**
-- **PostgreSQL**
+> [!NOTE]
+> Azure Data Lake Store Gen1 and Azure Data Lake Store Gen2 skip validation by default, so you don't have to do anything.
 
 The following code sample creates a new Azure Blob datastore and sets `skip_validation=True`.
 
@@ -237,7 +226,7 @@ blob_datastore = Datastore.register_azure_blob_container(workspace=ws,
                                                          skip_validation=True ) // Set skip_validation to true
 ```
 
-**Skip validation for datasets**
+### Use datasets
 
 The syntax to skip dataset validation is similar for the following dataset types:
 - Delimited file
@@ -252,8 +241,22 @@ The following code creates a new JSON dataset and sets `validate=False`.
 json_ds = Dataset.Tabular.from_json_lines_files(path=datastore_paths, 
 
 validate=False) 
-
 ```
+
+## Securely connect to your workspace
+
+The following methods can be used to connect to the secure workspace:
+
+* [Azure VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) - Connects on-premises networks to the VNet over a private connection. Connection is made over the public internet. There are two types of VPN gateways that you might use:
+
+    * [Point-to-site](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md): Each client computer uses a VPN client to connect to the VNet.
+    * [Site-to-site](../vpn-gateway/tutorial-site-to-site-portal.md): A VPN device connects the VNet to your on-premises network.
+
+* [ExpressRoute](https://azure.microsoft.com/services/expressroute/) - Connects on-premises networks into the cloud over a private connection. Connection is made using a connectivity provider.
+* [Azure Bastion](../bastion/bastion-overview.md) - In this scenario, you create an Azure Virtual Machine (sometimes called a jump box) inside the VNet. You then connect to the VM using Azure Bastion. Bastion allows you to connect to the VM using either an RDP or SSH session from your local web browser. You then use the jump box as your development environment. Since it is inside the VNet, it can directly access the workspace. For an example of using a jump box, see [Tutorial: Create a secure workspace](tutorial-create-secure-workspace.md).
+
+> [!IMPORTANT]
+> When using a __VPN gateway__ or __ExpressRoute__, you will need to plan how name resolution works between your on-premises resources and those in the VNet. For more information, see [Use a custom DNS server](how-to-custom-dns.md).
 
 ## Next steps
 

@@ -17,7 +17,7 @@
   - name: Capacity limits
     href: sql-data-warehouse-service-capacity-limits.md
   - name: FAQ
-    href: sql-data-warehouse-overview-faq.md
+    href: sql-data-warehouse-overview-faq.yml
   - name: Release notes
     items:
     - name: Recent Release

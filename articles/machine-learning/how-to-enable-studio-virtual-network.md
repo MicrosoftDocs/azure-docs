@@ -7,8 +7,8 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.reviewer: larryfr
-ms.author: aashishb
-author: aashishb
+ms.author: jhirono
+author: jhirono
 ms.date: 06/11/2021
 ms.custom: contperf-fy20q4, tracking-python, security
 
