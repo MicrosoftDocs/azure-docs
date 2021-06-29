@@ -46,7 +46,7 @@ Two of our most-used connectors have been the beneficiaries of major upgrades.
 
 The upgrades are not automatic. Users of these connectors are encouraged to enable the new versions.
 
-### Export and import analytics rules
+### Export and import analytics rules (Public preview)
 
 You can now export your analytics rules to JSON-format Azure Resource Manager (ARM) template files, and import rules from these files, as part of managing and controlling your Azure Sentinel deployments as code. Any type of [analytics rule](tutorial-detect-threats-built-in.md) - not just **Scheduled** - can be exported to an ARM template. The template file includes all the rule's information, from its query to its assigned MITRE ATT&CK tactics.
 
