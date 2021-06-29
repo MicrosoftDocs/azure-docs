@@ -54,7 +54,7 @@ The following metrics are visible through Azure Monitor Metrics.
 
    In our example, only the **Threshold** and **Frequency of evaluation** have been adjusted. 
    
-   :::image type="content" source="media/configure-alerts-for-azure-vmware-solution/define-alert-logic-threshold.png" alt-text="Screenshot showing the theshold, operator, aggregation type and granularity, threshold value, and frequency of evaluation for the signal alert logic."::: 
+   :::image type="content" source="media/configure-alerts-for-azure-vmware-solution/define-alert-logic-threshold.png" alt-text="Screenshot showing the threshold, operator, aggregation type and granularity, threshold value, and frequency of evaluation for the signal alert logic."::: 
 
 1. Under **Actions**, select **Add action groups**. The action group defines *how* the notification is received and *who* receives it.   You can receive notifications by email, SMS, [Azure Mobile App Push Notification](https://azure.microsoft.com/features/azure-portal/mobile-app/) or voice message.
 
