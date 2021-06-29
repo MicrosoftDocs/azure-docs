@@ -53,7 +53,7 @@ The status of items that appear in this tables may change over time as support c
 | Storage feature | Supported for NFS shares |
 |-----------------|---------|
 | [File management plane REST API](/rest/api/storagerp/file-shares)	| ✔️ |
-| [File data plane REST API](rest/api/storageservices/file-service-rest-api)| ⛔ |
+| [File data plane REST API](/rest/api/storageservices/file-service-rest-api)| ⛔ |
 | Encryption at rest|	✔️ |
 | Encryption in transit| ⛔ |
 | [LRS or ZRS redundancy types](storage-files-planning.md#redundancy)|	✔️ |
