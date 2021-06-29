@@ -32,7 +32,7 @@ The following table describes how the Consumption model works with components wh
 
 <a name="consumption-operations"></a>
 
-### Consumption model for trigger and action operations
+### Trigger and action operations in the Consumption model
 
 The following table describes how the Consumption model works with trigger and action operations when used in a multi-tenant based logic app and its workflow:
 
@@ -43,37 +43,9 @@ The following table describes how the Consumption model works with trigger and a
 | [*Custom connector*](../connectors/apis-list.md#custom-apis-and-connectors) | These operations run separately in Azure. You can find them using the **Custom** label in the designer. | These operation executions follow the [Consumption **Standard** connector pricing](https://azure.microsoft.com/pricing/details/logic-apps/). |
 ||||
 
-## Metering and billing for operational behavior
+<a name="consumption-cost-estimation-tips"></a>
 
-| Operation | Description | Metering and billing |
-|-----------|-------------|----------------------|
-| [Loop actions](logic-apps-control-flow-loops.md) | A loop action, such as the **For each** or **Until** loop, can include other actions that run during each loop cycle. The loop structure applies special metering and billing behavior. | Except when free built-in operation executions applies, the loop execution and each action execution in the loop are metered each time the loop cycle runs. If an action processes any items in a collection, such as a list or array, the number of collection items is also used in the billing calculation. <p><p>For example, suppose you have a **For each** loop with actions that process a list. The service multiplies the number of list items against the number of actions in the loop, and adds the action that starts the loop. So, the calculation for a 10-item list is (10 * 1) + 1, which results in 11 action executions. |
-| [Retry attempts](logic-apps-exception-handling.md#retry-policies) | On supported operations, you can implement basic exception and error handling by setting up a [retry policy](logic-apps-exception-handling.md#retry-policies). | The original execution plus each retried execution are metered and billed, based on whether the operation type is built-in, Standard, or Enterprise. <p><p>For example, an action that executes with 5 retries is metered and billed as 6 executions. |
-||||
-
-## Differences between Consumption and Standard model
-
-The following list describes billing model differences between **Consumption** in the multi-tenant environment and **Standard** in the single-tenant environment:
-
-* In multi-tenant, the designer uses the **Standard** and **Enterprise** labels to identify managed connector operations. In single-tenant, the designer uses only the combined **Azure** label. However, in both environments, metering and billing use the same **Standard** and **Enterprise** connector prices as described by the Consumption plan.
-
-* When an operation executes, the number of calls is usually the same as the number of executions. For example, a Salesforce operation execution that gets records is a single call unless the operation makes retry attempts. However, when an operation has chunking or pagination enabled, that operation might have to make multiple calls per execution.
-
-  In multi-tenant, *only the single execution is metered and charged*. In single-tenant, *each call is metered and charged*. This behavior means that such an execution might cost you more when running in single-tenant versus multi-tenant.
-
-  For example, suppose you have an operation that uses chunking or pagination. During one execution, the operation has to make 10 calls before getting all the necessary data. In multi-tenant, the operation is metered and charged as a single execution. In single-tenant, the same execution is metered and charged for each call, so this execution can cost 10 times more.
-
-<a name="consumption-related-resources-billing"></a>
-
-### Consumption plan - Other related resources
-
-Multi-tenant based logic apps use other related resources, such as on-premises data gateways, integration accounts, and integration service environments (ISEs). For plan-related information about these resources, review these sections later in this topic:
-
-* [On-premises data gateways](#data-gateway)
-* [Integration accounts](#integration-accounts)
-* [ISE pricing model](#fixed-pricing)
-
-### Tips for estimating consumption costs
+### Cost estimation tips for the Consumption model
 
 To help you estimate more accurate consumption costs, review these tips:
 
@@ -85,7 +57,7 @@ To help you estimate more accurate consumption costs, review these tips:
 
 <a name="standard-pricing"></a>
 
-## Standard pricing (single-tenant)
+## Standard model (single-tenant)
 
 In single-tenant Azure Logic Apps, logic app workflows follow the **Standard** pricing and billing model. For example, you create such logic apps when you choose the **Logic App (Standard)** resource type or use the **Azure Logic Apps (Standard)** extension in Visual Studio Code. This pricing model requires that logic apps use a hosting plan and a pricing tier. Your pricing tier selection determines the rates that apply to [metering and billing compute, storage, and memory resource usage](#standard-pricing-tiers).
 
@@ -199,6 +171,20 @@ Single-tenant based logic app workflows can use other related resources, such as
 * Actions that didn't run because the workflow stopped before completion
 * [Disabled logic apps](#disabled-apps)
 
+<a name="consumption-standard-differences"></a>
+
+## Differences summary between Consumption and Standard models
+
+The following list describes billing model differences between **Consumption** in the multi-tenant environment and **Standard** in the single-tenant environment:
+
+* In multi-tenant, the designer uses the **Standard** and **Enterprise** labels to identify managed connector operations. In single-tenant, the designer uses only the combined **Azure** label. However, in both environments, metering and billing use the same **Standard** and **Enterprise** connector prices as described by the Consumption plan.
+
+* When an operation executes, the number of calls is usually the same as the number of executions. For example, a Salesforce operation execution that gets records is a single call unless the operation makes retry attempts. However, when an operation has chunking or pagination enabled, that operation might have to make multiple calls per execution.
+
+  In multi-tenant, *only the single execution is metered and charged*. In single-tenant, *each call is metered and charged*. This behavior means that such an execution might cost you more when running in single-tenant versus multi-tenant.
+
+  For example, suppose you have an operation that uses chunking or pagination. During one execution, the operation has to make 10 calls before getting all the necessary data. In multi-tenant, the operation is metered and charged as a single execution. In single-tenant, the same execution is metered and charged for each call, so this execution can cost 10 times more.
+
 <a name="integration-service-environment-pricing"></a>
 
 ## ISE pricing (dedicated)
@@ -224,6 +210,16 @@ A fixed pricing model applies to logic apps that run in the dedicated [*integrat
 |||
 
 For limits information, see [ISE limits in Azure Logic Apps](logic-apps-limits-and-config.md#integration-service-environment-ise).
+
+<a name="other-operation-behavior"></a>
+
+## Other operation behavior
+
+| Operation | Description | Metering and billing |
+|-----------|-------------|----------------------|
+| [Loop actions](logic-apps-control-flow-loops.md) | A loop action, such as the **For each** or **Until** loop, can include other actions that run during each loop cycle. The loop structure applies special metering and billing behavior. | Except when free built-in operation executions applies, the loop execution and each action execution in the loop are metered each time the loop cycle runs. If an action processes any items in a collection, such as a list or array, the number of collection items is also used in the billing calculation. <p><p>For example, suppose you have a **For each** loop with actions that process a list. The service multiplies the number of list items against the number of actions in the loop, and adds the action that starts the loop. So, the calculation for a 10-item list is (10 * 1) + 1, which results in 11 action executions. |
+| [Retry attempts](logic-apps-exception-handling.md#retry-policies) | On supported operations, you can implement basic exception and error handling by setting up a [retry policy](logic-apps-exception-handling.md#retry-policies). | The original execution plus each retried execution are metered and billed, based on whether the operation type is built-in, Standard, or Enterprise. <p><p>For example, an action that executes with 5 retries is metered and billed as 6 executions. |
+||||
 
 <a name="data-gateway"></a>
 
