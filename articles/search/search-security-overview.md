@@ -30,7 +30,7 @@ Inbound requests range from creating objects, loading data, and querying. For in
 
 Outbound requests can include both read and write operations. The primary agent of an outbound call is an indexer and constituent skillsets. For indexers, read operations include document cracking and data ingestion. An indexer can also write to Azure Storage when creating knowledge stores, persisting cached enrichments, and persisting debug sessions. Finally, a skillset can also include custom skills that run external code, for example in Azure Functions or in a web app.
 
-Internal requests include service-to-service calls, such as calls made to Azure Monitor for diagnostic logging, Azure Key Vault for encryption, Azure Active Directory for authorization, Azure Private Link if you set up a private endpoint, and Cognitive Services for built-in skills.
+Internal requests include service-to-service calls for tasks like diagnostic logging, encryption, authentication and authorization through Azure Active Directory, private endpoint connections, and requests made to Cognitive Services for built-in skills.
 
 ## Network security
 
