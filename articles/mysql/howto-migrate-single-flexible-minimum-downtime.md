@@ -43,6 +43,8 @@ To complete this tutorial, you need:
     > * Follow the article to setup data-in replication<br> 
     > * Post cutover remove the Data-in replication configuration<br>
     > * Enable HA<br>
+    >
+    > *Make sure **[GTID_Mode](./concepts-read-replicas.md#global-transaction-identifier-gtid)** has the same setting in source and target server.* 
 * To connect and create a database using MySQL Workbench. For more information, see the article [Use MySQL Workbench to connect and query data](./flexible-server/connect-workbench.md).
 * To ensure that you have an Azure VM running Linux in same region (or on the same VNet, in case of private access) that hosts your source and target databases.
 * To install mysql client or MySQL Workbench (the client tools) on your Azure VM. Ensure that you can connect to both the primary and replica server. For the purposes of this article, mysql client is installed.
