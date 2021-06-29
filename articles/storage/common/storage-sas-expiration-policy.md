@@ -1,5 +1,5 @@
 ---
-title: Create an expiration policy for SAS in Azure Storage
+title: Create an expiration policy for SAS in Azure Storage (preview)
 titleSuffix: Azure Storage
 description: Create a policy that defines the length of time that a Shared access signature (SAS) can be valid. Monitor policy violations to better secure SAS. 
 services: storage
@@ -14,9 +14,13 @@ ms.subservice: common
 
 ---
 
-# Create an expiration policy for shared access signatures (SAS) in Azure Storage
+# Create an expiration policy for shared access signatures (SAS) in Azure Storage (preview)
 
 You can better monitor, and then govern the use of a SAS by creating a SAS expiration policy. This policy specifies how long a SAS should be active. In the current release, you can set the expiration policy, and then monitor for policy violations by using Azure Monitor log queries. Use [SAS best practices](storage-sas-overview.md#best-practices-when-using-sas) to help bring your SAS into compliance with your policy.
+
+> [!IMPORTANT]
+> SAS expiration policies are currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ### Create a SAS expiry policy
 
