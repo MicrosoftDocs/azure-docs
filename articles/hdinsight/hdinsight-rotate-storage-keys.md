@@ -13,9 +13,9 @@ In this article, you will learn how to rotate Azure Storage account access keys 
 
 ## Prerequisites
 
-* We are going to use two key approach to rotate the storage account access key. **Directly rotating the access key on the storage side will make the cluster not accessible.**
+* **Directly rotating the access key on the storage side will make the cluster not accessible.** We are going to alternate between primary and secondary access key to rotate the storage account key.
 
-    Here is an example on how to use two access keys and set up rotation policies on them:
+    Here is an example on how to use primary and secondary storage access keys and set up rotation policies on them:
     1. Use access key1 on the storage account when creating HDInsight cluster.
     1. Set up rotation policy for access key2 every N days. As part of this rotation update HDInsight to use access key1 and then rotate access key2 on storage account.
     1. Set up rotation policy for access key1 every N/2 days. As part of this rotation update HDInsight to use access key2 and then rotate access key1 on storage account.
