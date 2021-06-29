@@ -52,10 +52,7 @@ The following steps use different accounts for each subscription. If you're usin
     - **Location**: *East US*
 4. In the **Search resources** box at the top of the portal, type *myVnetA*. Select **myVnetA** when it appears in the search results.
 5. Select **Access control (IAM)** from the vertical list of options on the left side.
-6. Under **myVnetA - Access control (IAM)**, select **+ Add role assignment**.
-7. Select **Network contributor** in the **Role** box.
-8. In the **Select** box, select *UserB*, or type UserB's email address to search for it.
-9. Select **Save**.
+6. Assign the **Network contributor** role to *UserB* using the procedure decribed in [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 10. Under **myVnetA - Access control (IAM)**, select **Properties** from the vertical list of options on the left side. Copy the **RESOURCE ID**, which is used in a later step. The resource ID is similar to the following example: `/subscriptions/<Subscription Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/virtualNetworks/myVnetA`.
 11. Log out of the portal as UserA, then log in as UserB.
 12. Complete steps 2-3, entering or selecting the following values in step 3:
@@ -70,7 +67,7 @@ The following steps use different accounts for each subscription. If you're usin
 
 13. In the **Search resources** box at the top of the portal, type *myVnetB*. Select **myVnetB** when it appears in the search results.
 14. Under **myVnetB**, select **Properties** from the vertical list of options on the left side. Copy the **RESOURCE ID**, which is used in a later step. The resource ID is similar to the following example: `/subscriptions/<Subscription ID>/resourceGroups/myResourceGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB`.
-15. Select **Access control (IAM)** under **myVnetB**, and then complete steps 5-10 for myVnetB, entering **UserA** in step 8.
+15. Select **Access control (IAM)** under **myVnetB**, and then assign the **Network contributor** role to *UserA* using the procedure decribed in [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 16. Log out of the portal as UserB and log in as UserA.
 17. In the **Search resources** box at the top of the portal, type *myVnetA*. Select **myVnetA** when it appears in the search results.
 18. Select **myVnetA**.
