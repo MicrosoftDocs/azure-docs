@@ -69,7 +69,7 @@ After you have a Resource Manager template, you can enable the reverse proxy wit
         ...
     }
     ```
-3. To configure TLS/SSL certificates on the port for the reverse proxy, add the certificate to the ***reverseProxyCertificate*** object in the **Microsoft.ServiceFabric/clusters** [resource](azure/templates/microsoft.servicefabric/clusters?tabs=json#clusterproperties-object) template.
+3. To configure TLS/SSL certificates on the port for the reverse proxy, add the certificate to the ***reverseProxyCertificate*** object in the **Microsoft.ServiceFabric/clusters** [resource](/azure/templates/microsoft.servicefabric/clusters?tabs=json#clusterproperties-object) template.
 
     ```json
     {
