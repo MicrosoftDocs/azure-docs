@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 06/25/2021
+ms.date: 06/29/2021
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro R so I can use it to transfer data to Azure. 
 ---
@@ -88,19 +88,14 @@ If you have an existing Azure Stack Edge resource to manage your physical device
 
 [!INCLUDE [Create order in Azure Edge Hardware Center](../../includes/azure-edge-hardware-center-new-order.md)]
 
-#### Create a management resource for each device
 
-To manage devices that are ordered through the Azure Edge Hardware Center, you'll create a management resource for each device in Azure Stack Edge. When the device is activated, the management resource is associated with an order item. You'll be able to open the order item from the management resource and open the management resource from the order item. 
+#### Create management resources for devices
 
-After a device is delivered, a **Configure hardware** link is added to the order item detail, giving you a direct way to open a wizard for creating a management resource. You can also use the **Create management resource** option in Azure Stack Edge. 
+To manage devices that you order from the Azure Edge Hardware Center, you'll create management resources in Azure Stack Edge. 
 
-[!INCLUDE [Create management resource](../../includes/azure-edge-hardware-center-create-management-resource.md)]
+When a device is activated, the management resource is associated with the order item. You'll be able to open the order item from the management resource and open the management resource from the order item. 
 
-#### Create a management resource for each device
-
-To manage devices that are ordered through the Azure Edge Hardware Center, you'll create a management resource for each device in Azure Stack Edge. When the device is activated, the management resource is associated with an order item. You'll be able to open the order item from the management resource and open the management resource from the order item. 
-
-After a device is delivered, a **Configure hardware** link is added to the order item detail, giving you a direct way to open a wizard for creating a management resource. You can also use the **Create management resource** option in Azure Stack Edge. 
+After a device is shipped, a **Configure hardware** link is added to the order item detail, giving you a direct way to open a wizard for creating a management resource. You can also use the **Create management resource** option in Azure Stack Edge.
 
 [!INCLUDE [Create management resource](../../includes/azure-edge-hardware-center-create-management-resource.md)]
 

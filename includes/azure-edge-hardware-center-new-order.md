@@ -6,21 +6,19 @@ ms.date: 06/28/2021
 ms.author: alkohli
 ---
 
-When you place an order through the Azure Edge Hardware Center, you can order multiple devices, to be shipped to more than one address, and you can reuse ship to addresses from other orders. 
+Azure Edge Hardware Center (Preview) is a new service that lets you explore and order a variety of hardware from the Azure hybrid portfolio including Azure Stack Edge Pro devices.
 
-Ordering through the Azure Edge Hardware Center doesn't "create a resource" in the same sense that an order through Azure Stack Edge does.  There isn't a 1-to-1 relationship between the order and a device, and no resources are created for the devices when the order is processed. You'll create a management resource for each device after your order is completed.
+When you place an order through the Azure Edge Hardware Center, you can order multiple devices, to be shipped to more than one address, and you can reuse ship to addresses from other orders.
+
+Ordering through Azure Edge Hardware Center will create an Azure resource that will contain all your order-related information. One resource each will be created for each of the units ordered. You will have to create an Azure Stack Edge resource after you receive the device to activate and manage it.
+
+To place your hardware order, do these steps:
 
 1. Use your Microsoft Azure credentials to sign in to the Azure portal at this URL: [https://portal.azure.com](https://portal.azure.com).
 
-2. Search for and select **Azure Edge Hardware Center**.
+2. In the left pane, select **+ Create a resource**. Search for and select **Azure Hardware Center**. Select **Create**.
 
-    ![Screenshot showing how to start a new order with the Azure Edge Hardware Center service](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-01-service-first.png)
-
-3. In the Azure Edge Hardware Center (preview) portal, select **+ Order**.<!--Click View to open the Azure Edge Hardware Center homepage. Will use that info later.-->
-
-    ![Screenshot of the option to create a resource in the Azure Edge Hardware Center](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-02-service-first.png)
-
-    <!-- Alternate Steps 2-3 (to mirror Classic path): In **Azure Services**, select **+ Create a resource**. Search for "azure edge hardware center". Select **Azure Edge Hardware Center (preview)**. Select **Create**.-->
+<!-->    ![Screenshot of the option to create a resource in the Azure Edge Hardware Center](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-02-service-first.png)-->
 
 4. Select a subscription, and then select **Next**.
 
@@ -120,9 +118,9 @@ Ordering through the Azure Edge Hardware Center doesn't "create a resource" in t
 
 15. To view details for an order item, select the item name.
 
-    The details show ... . After a device is delivered, a **Configure hardware** option is added to the details. Select that option to create a management resource for the device in Azure Stack Edge.    
+    The details show ... . After a device is shipped (the status is **Shipped**), a **Configure hardware** option is added to the details. Select that option to create a management resource for the device in Azure Stack Edge.    
 
-    *Add screenshot when release portal is available.*
+    *Anam will provide screenshot. Configure hardware button is available after the device is Shipped.*
 
     After the device is activated, you can open the device from the item details by *ADD INSTRUCTION*.
 
