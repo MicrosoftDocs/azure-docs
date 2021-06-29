@@ -9,14 +9,11 @@ ms.topic: conceptual
 author: jaszymas
 ms.author: jaszymas
 ms.reviwer: vanto
-ms.date: 01/15/2021
+ms.date: 07/14/2021
 --- 
 # Plan for Intel SGX enclaves and attestation in Azure SQL Database
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
-
-> [!NOTE]
-> Always Encrypted with secure enclaves for Azure SQL Database is currently in **public preview**.
 
 [Always Encrypted with secure enclaves](/sql/relational-databases/security/encryption/always-encrypted-enclaves) in Azure SQL Database uses [Intel Software Guard Extensions (Intel SGX)](https://itpeernetwork.intel.com/microsoft-azure-confidential-computing/) enclaves and requires [Microsoft Azure Attestation](/sql/relational-databases/security/encryption/always-encrypted-enclaves#secure-enclave-attestation).
 
@@ -32,7 +29,7 @@ Intel SGX is a hardware-based trusted execution environment technology. Intel SG
 
 ## Plan for attestation in Azure SQL Database
 
-[Microsoft Azure Attestation](../../attestation/overview.md) (preview) is a solution for attesting Trusted Execution Environments (TEEs), including Intel SGX enclaves in Azure SQL databases using the DC-series hardware generation.
+[Microsoft Azure Attestation](../../attestation/overview.md) is a solution for attesting Trusted Execution Environments (TEEs), including Intel SGX enclaves in Azure SQL databases using the DC-series hardware generation.
 
 To use Azure Attestation for attesting Intel SGX enclaves in Azure SQL Database, you need to:
 
