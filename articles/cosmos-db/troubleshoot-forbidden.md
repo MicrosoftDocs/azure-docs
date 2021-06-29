@@ -33,7 +33,9 @@ If you recently updated them, keep in mind that changes can take **up to 15 minu
 ## Non-data operations are not allowed
 This scenario happens when non-data [operations are disallowed in the account](how-to-restrict-user-data.md#disallow-the-execution-of-non-data-operations.md). On this scenario, it's common to see errors like the ones below:
 
+```
 Operation 'POST' on resource 'calls' is not allowed through Azure Cosmos DB endpoint
+```
 
 ### Solution
 Perform the operation through Azure Resource Manager, Azure portal, Azure CLI, or Azure PowerShell. Or re-allow execution of non-data operations.
