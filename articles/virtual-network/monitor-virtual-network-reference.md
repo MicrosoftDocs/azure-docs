@@ -56,9 +56,9 @@ This section refers to all of the Azure Monitor Logs Kusto tables relevant to Az
 
 |Resource Type | Notes |
 |-------|-----|
-| Virtual network | [Microsoft.Network/virtualNetworks](/azure/azure-monitor/reference/tables/tables-resourcetype.md#virtual-networks) |
-| Network interface | [Microsoft.Network/networkInterface](/azure/azure-monitor/reference/tables/tables-resourcetype.md#network-interfaces) |
-| Public IP address | [Microsoft.Network/publicIP](/azure/azure-monitor/reference/tables/tables-resourcetype.md#public-ip-addresses) |
+| Virtual network | [Microsoft.Network/virtualNetworks](/azure/azure-monitor/reference/tables/tables-resourcetype#virtual-networks) |
+| Network interface | [Microsoft.Network/networkInterface](/azure/azure-monitor/reference/tables/tables-resourcetype#network-interfaces) |
+| Public IP address | [Microsoft.Network/publicIP](/azure/azure-monitor/reference/tables/tables-resourcetype#public-ip-addresses) |
 
 ### Diagnostics tables
 
