@@ -27,6 +27,7 @@ To add an auto-verified certificate, follow these steps:
 :::image type="content" source="../iothub/media/tutorial-x509-prove-possession/skip-pop.png" alt-text="Screenshot showing where the checkbox to skip proof of possession is":::
 5. Click **Save**.
 6. Your certificate is show in the certificate tab with a status Verified.
+:::image type="content" source="media/how-to-verify-certificates/certificate-status.png" alt-text="Screenshot showing verified certificate":::
 
 ## Manual verification of intermediate or root CA
 
