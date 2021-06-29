@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: bastion
 ms.topic: quickstart
-ms.date: 02/18/2021
+ms.date: 06/29/2021
 ms.author: cherylmc
 # Customer intent: As someone with a networking background, I want to connect to a virtual machine securely via RDP/SSH using a private IP address through my browser.
 
@@ -112,6 +112,11 @@ After Bastion has been deployed to the virtual network, the screen changes to th
 1. The RDP connection to this virtual machine will open directly in the Azure portal (over HTML5) using port 443 and the Bastion service.
 
    :::image type="content" source="./media/quickstart-host-portal/connected.png" alt-text="RDP connect":::
+
+
+## <a name="remove"></a>To Remove a VM public IP address
+
+[!INCLUDE [Remove a public IP address from a VM](../../includes/bastion-remove-ip.md)]
 
 ## Clean up resources
 

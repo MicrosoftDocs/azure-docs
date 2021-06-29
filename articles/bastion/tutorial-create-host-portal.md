@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: bastion
 ms.topic: tutorial
-ms.date: 04/27/2021
+ms.date: 06/29/2021
 ms.author: cherylmc
 
 ---
