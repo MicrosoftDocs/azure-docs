@@ -21,34 +21,35 @@ ms.author: yelevin
 
 This article provides background information and steps to configure a [customer-managed key (CMK)](../azure-monitor/logs/customer-managed-keys.md) for Azure Sentinel. CMK allows you to give all data stored in Azure Sentinel - already encrypted by Microsoft in all relevant storage resources - an extra layer of protection with an encryption key created and owned by you and stored in your [Azure Key Vault](../key-vault/general/overview.md).
 
-> [!NOTE]
->
-> - Onboarding a CMK workspace to Sentinel is supported only via REST API and not via the Azure Portal. Azure Resource Manager (ARM) templates are currently not supported for CMK onboarding.
->
-> - The Azure Sentinel CMK capability is provided only to **workspaces in Log Analytics dedicated clusters** that have **not already been onboarded to Azure Sentinel**.
->
-> - The following CMK-related changes **are not supported**, as they will be ineffective (Azure Sentinel data will continue to be encrypted only by the Microsoft-managed key and not the customer-managed key):
->    - Enabling CMK on a workspace **already onboarded** to Azure Sentinel.
->    - Enabling CMK on a cluster containing Sentinel-onboarded workspaces.
->    - Linking a Sentinel-onboarded non-CMK workspace to a CMK-enabled cluster.
-> - The following CMK-related changes **are also not supported**, as they may lead to undefined and undesired behavior:
->    - Disabling CMK on a workspace already onboarded to Azure Sentinel.
->    - Setting a Sentinel-onboarded, CMK-enabled workspace as a non-CMK workspace by de-linking it from its CMK-enabled dedicated cluster.
->    - Disabling CMK on a CMK-enabled Log Analytics dedicated cluster.
->
->
-> - Azure Sentinel supports System Assigned Identities in CMK configuration. Therefore, the dedicated Log Analytics cluster's identity should be of **System Assigned** type. It is recommended to use the identity automatically assigned to the Log Analytics cluster at the time of its creation.
->
-> - Changing the customer-managed key to another key (with another URI) is currently **not supported**. Changing the key should be done by [rotating it](../azure-monitor/logs/customer-managed-keys.md#key-rotation).
->
-> - Please consult Azure Sentinel's Product Group at azuresentinelCMK@microsoft.com:
->    - Before making any CMK changes to a production workspace or a Log Analytics cluster.
->    - Upon completing the steps in this guide, and **prior to using the workspace**, for onboarding confirmation.
->
->
-> - The CMK capability requires a Log Analytics dedicated cluster with at least a 1 TB/day commitment tier. Several workspaces can be linked to the same dedicated cluster, and they will share the same customer-managed key.
->
-> - Learn more about [Log Analytics Dedicated Cluster Pricing](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/logs-dedicated-clusters#cluster-pricing-model).
+## Prerequisites
+
+- The CMK capability requires a Log Analytics dedicated cluster with at least a 1 TB/day commitment tier. Several workspaces can be linked to the same dedicated cluster, and they will share the same customer-managed key.
+- After you complete the steps in this guide and before you use the workspace, for onboarding confirmation, contact the [Azure Sentinel Product Group](mailto:azuresentinelCMK@microsoft.com).
+- Learn about [Log Analytics Dedicated Cluster Pricing](../azure-monitor/logs/logs-dedicated-clusters.md#cluster-pricing-model).
+
+## Considerations
+
+- Onboarding a CMK workspace to Sentinel is supported only via REST API, and not via the Azure portal. Azure Resource Manager templates (ARM templates) currently aren't supported for CMK onboarding.
+
+- The Azure Sentinel CMK capability is provided only to *workspaces in Log Analytics dedicated clusters* that have *not already been onboarded to Azure Sentinel*.
+
+- The following CMK-related changes *are not supported* because they will be ineffective (Azure Sentinel data will continue to be encrypted only by the Microsoft-managed key, and not by the CMK):
+
+  - Enabling CMK on a workspace that's *already onboarded* to Azure Sentinel.
+  - Enabling CMK on a cluster that contains Sentinel-onboarded workspaces.
+  - Linking a Sentinel-onboarded non-CMK workspace to a CMK-enabled cluster.
+
+- The following CMK-related changes *are not supported* because they may lead to undefined and problematic behavior:
+
+  - Disabling CMK on a workspace already onboarded to Azure Sentinel.
+  - Setting a Sentinel-onboarded, CMK-enabled workspace as a non-CMK workspace by de-linking it from its CMK-enabled dedicated cluster.
+  - Disabling CMK on a CMK-enabled Log Analytics dedicated cluster.
+
+- Azure Sentinel supports System Assigned Identities in CMK configuration. Therefore, the dedicated Log Analytics cluster's identity should be of **System Assigned** type. We recommend that you use the identity that's automatically assigned to the Log Analytics cluster when it's created.
+
+- Changing the customer-managed key to another key (with another URI) currently *isn't supported*. You should change the key by [rotating it](../azure-monitor/logs/customer-managed-keys.md#key-rotation).
+
+- Before you make any CMK changes to a production workspace or to a Log Analytics cluster, contact the [Azure Sentinel Product Group](mailto:azuresentinelCMK@microsoft.com).
 
 ## How CMK works 
 
@@ -109,7 +110,6 @@ Onboard the workspace to Azure Sentinel via the [Onboarding API](https://github.
 
 ## Key Encryption Key revocation or deletion
 
-
 In the event that a user revokes the key encryption key, either by deleting it or removing access for the dedicated cluster and Cosmos DB Resource Provider, Azure Sentinel will
 honor the change and behave as if the data is no longer available, within one hour. At this point, any operation that uses persistent storage resources such as
 data ingestion, persistent configuration changes, and incident creation, will be prevented. Previously stored data will not be deleted but will remain
@@ -123,8 +123,7 @@ Access to the data can be revoked by disabling the customer-managed key in the k
 
 To understand more about how this works in Azure Monitor, see [Azure Monitor CMK revocation](../azure-monitor/logs/customer-managed-keys.md#key-revocation).
 
-## Customer managed key rotation
-
+## Customer-managed key rotation
 
 Azure Sentinel and Log Analytics support key rotation. When a user performs key rotation in Key Vault, Azure Sentinel supports the new key within an hour.
 
