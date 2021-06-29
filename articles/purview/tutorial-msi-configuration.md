@@ -21,7 +21,7 @@ In part 2 of this tutorial series, you'll:
 > [!div class="checklist"]
 >
 > * Locate your data sources and prepare a list of data source subscriptions.
-> * Run a script to configure any missing RBAC or required network configurations across your data sources in Azure.
+> * Run a script to configure any missing role-based access control (RBAC) or required network configurations across your data sources in Azure.
 > * Review the output report.
 
 ## Prerequisites
@@ -46,7 +46,7 @@ Before you run the script, create a .csv file (for example, "C:\temp\Subscriptio
 |----|----|----|
 |`SubscriptionId`|Azure subscription IDs for your data sources.|12345678-aaaa-bbbb-cccc-1234567890ab|
 |`KeyVaultName`|Name of existing key vault that’s deployed in the data source subscription.|ContosoDevKeyVault|
-|`SecretNameSQLUserName`|Name of an existing Azure Key Vault secret that contains an Azure Active Directory (Azure AD) user name that can sign in to Azure Synapse, Azure SQL Database, or Azure SQL Managed Instance by using Azure Active Directory (Azure AD) authentication.|ContosoDevSQLAdmin|
+|`SecretNameSQLUserName`|Name of an existing Azure Key Vault secret that contains an Azure Active Directory (Azure AD) user name that can sign in to Azure Synapse, Azure SQL Database, or Azure SQL Managed Instance by using Azure AD authentication.|ContosoDevSQLAdmin|
 |`SecretNameSQLPassword`|Name of an existing Azure Key Vault secret that contains an Azure AD user password that can sign in to Azure Synapse, Azure SQL Database, or Azure SQL Managed Instance by using Azure AD authentication.|ContosoDevSQLPassword|
    
 
