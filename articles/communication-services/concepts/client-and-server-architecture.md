@@ -63,7 +63,7 @@ The simplest voice and video calling scenarios involves a user calling another, 
 ## Joining a user-created group call
 You may want users to join a call without an explicit invitation. For example you may have a *social space* with an associated call, and users join that call at their leisure. In this first dataflow, we show a call that is initially created by a client.
 
-:::image type="content" source="../media/scenarios/architecture_v2_calling_join_client_driven.svg" alt-text="Diagram showing Communication Services architecture calling out-of-band signalling.":::
+:::image type="content" source="../media/scenarios/architecture_v2_calling_join_client_driven.svg" alt-text="Diagram showing Communication Services architecture calling out-of-band signaling.":::
 
 ### Dataflows
 1. Initiating user initializes their Call client and makes a group call.
@@ -80,7 +80,7 @@ Azure Communication Service applications can join Teams calls. This is ideal for
 
 
 ### Dataflows
-1. The Call Management Service creates a group call with [Graph APIs](https://docs.microsoft.com/graph/api/resources/onlinemeeting?view=graph-rest-1.0). Another pattern involves end users creating the group call using [Bookings](https://www.microsoft.com/microsoft-365/business/scheduling-and-booking-app), Outlook, Teams, or another scheduling experience in the M365 ecosystem.
+1. The Call Management Service creates a group call with [Graph APIs](https://docs.microsoft.com/graph/api/resources/onlinemeeting?view=graph-rest-1.0). Another pattern involves end users creating the group call using [Bookings](https://www.microsoft.com/microsoft-365/business/scheduling-and-booking-app), Outlook, Teams, or another scheduling experience in the Microsoft 365 (M365) ecosystem.
 2. The Call Management Service shares the Teams call details with Azure Communication Service clients.
 3. Typically, a Teams user must join the call and allow external users to join through the lobby. However this experience is sensitive to the Teams tenant configuration and specific meeting settings.
 4. Azure Communication Service users initialize their Call client and join the Teams meeting, using the details received in Step 2.
