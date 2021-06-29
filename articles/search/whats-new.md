@@ -86,7 +86,7 @@ Learn what's new in the service. Bookmark this page to keep up to date with the 
 |February | [PII Detection skill (preview)](cognitive-search-skill-pii-detection.md)  | A cognitive skill that extracts and masks personal information. |
 |February | [Custom Entity Lookup skill (preview)](cognitive-search-skill-custom-entity-lookup.md) | A cognitive skill that finds words and phrases from a list and labels all documents with matching entities.  |
 |January | [Customer-managed key encryption](search-security-manage-encryption-keys.md) | Generally available  |
-|January | [IP rules for in-bound firewall support (preview)](service-configure-firewall.md) | New **IpRule** and **NetworkRuleSet** properties in [CreateOrUpdate API](/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service).  |
+|January | [IP rules for in-bound firewall support (preview)](service-configure-firewall.md) | New **IpRule** and **NetworkRuleSet** properties in [CreateOrUpdate API](/rest/api/searchmanagement/2020-08-01/services/create-or-update).  |
 |January | [Create a private endpoint (preview)](service-create-private-endpoint.md) | Set up a Private Link for secure connections to your search service. This preview feature has a dependency [Azure Private Link](../private-link/private-link-overview.md) and [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) as part of the solution. |
 
 ## 2019 Archive
