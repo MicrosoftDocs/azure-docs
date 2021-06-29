@@ -209,9 +209,6 @@ If you want to deploy to a remote target device instead of your local device and
 
 Once your deployment is complete, you are ready to provision your device. Select **Next: Connect** to proceed to the **3. Connect** tab, which handles Azure IoT Edge device provisioning.
 
-   >[!NOTE]
-   > If you are using EFLOW PowerShell public functions, you need to set the execution policy on the target device to AllSigned if it is not already. Ensure all the prerequistes of [PowerShell functions for IoT Edge for Linux on Windows](./reference-iot-edge-for-linux-on-windows-functions) are met.
-
 ---
 
 ## Provision your device
@@ -338,6 +335,9 @@ Verify that IoT Edge for Linux on Windows was successfully installed and configu
        ```
 
 # [Windows Admin Center](#tab/windowsadmincenter)
+
+   >[!NOTE]
+   > If you are using EFLOW PowerShell public functions, you need to set the execution policy on the target device to AllSigned if it is not already. Ensure all the prerequistes of [PowerShell functions for IoT Edge for Linux on Windows](./reference-iot-edge-for-linux-on-windows-functions) are met.
 
 1. Select your IoT Edge device from the list of connected devices in Windows Admin Center to connect to it.
 
