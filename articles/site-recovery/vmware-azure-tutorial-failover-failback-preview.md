@@ -3,14 +3,14 @@ title: Fail over VMware VMs to Azure with Site Recovery - Preview
 description: Learn how to fail over VMware VMs to Azure in Azure Site Recovery - Preview
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 06/28/2021
+ms.date: 06/29/2021
 ms.custom: MVC
 ---
-# Fail over VMware VMs - Preview.
+# Fail over VMware VMs - Preview
 
 This article describes how to fail over an on-premises VMware virtual machine (VM) to Azure with [Azure Site Recovery](site-recovery-overview.md) (ASR) - Preview.
 
-For information about fail over in Classic release, see [this article](vmware-azure-tutorial-failover-failback.md)
+For information about fail over in Classic releases, see [this article](vmware-azure-tutorial-failover-failback.md).
 
 In this tutorial, you learn how to:
 

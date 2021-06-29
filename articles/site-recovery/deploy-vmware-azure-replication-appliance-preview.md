@@ -3,18 +3,20 @@ title: Deploy ASR replication appliance - Preview
 description: This article describes support and requirements when deploying the replication appliance for VMware disaster recovery to Azure with Azure Site Recovery - Preview
 ms.service: site-recovery
 ms.topic: article
-ms.date: 06/23/2021
+ms.date: 06/29/2021
 ---
 
 # Deploy ASR replication appliance - Preview
 
 >[!NOTE]
-> The information in this article applies to Azure Site Recovery - Preview. For information about configuration server requirements in Classic releases, [see this article](vmware-azure-configuration-server-requirements.md).
+> The information in this article applies to Azure Site Recovery (ASR)- Preview. For information about configuration server requirements in Classic releases, [see this article](vmware-azure-configuration-server-requirements.md).
 
 You deploy an on-premises replication appliance when you use [Azure Site Recovery](site-recovery-overview.md) for disaster recovery of VMware VMs and physical servers to Azure.
 
 - The replication appliance coordinates communications between on-premises VMware and Azure. It also manages data replication.
-- [Learn more](vmware-azure-architecture-preview.md) about the replication appliance components and processes.
+- [Learn more](vmware-azure-architecture-preview.md) about the ASR replication appliance components and processes.
+
+<< as discussed earlier, we need to mention about the capacity for each replication appliance)
 
 ## Hardware requirements
 

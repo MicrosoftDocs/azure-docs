@@ -3,12 +3,12 @@ title: VMware disaster recovery with Azure Site Recovery
 description: This article provides an overview of disaster recovery of VMware VMs to Azure using the Azure Site Recovery service.
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 06/24/2021
+ms.date: 06/29/2021
 ---
 
 # About disaster recovery of VMware VMs to Azure
 
-This article provides an overview of disaster recovery for on-premises VMware VMs to Azure using the [Azure Site Recovery](site-recovery-overview.md) service.
+This article provides an overview of disaster recovery for on-premises VMware VMs to Azure using the [Azure Site Recovery](site-recovery-overview.md) (ASR) service.
 
 ## What is BCDR?
 
@@ -91,7 +91,7 @@ After you have your Azure and on-premises infrastructure in place, you can set u
         - The process server receives, optimizes, and sends replication data to cache storage account in Azure. It also handles automatic installation of the Mobility service on machines you want to replicate, and performs automatic discovery of VMs on VMware servers.
         - The master target server handles replication data during failback from Azure.
     - Set up includes registering the configuration server in the vault, downloading MySQL Server and VMware PowerCLI, and specifying the accounts created for automatic discovery and Mobility service installation.
-4. **ASR replication appliance** (applicable to Preview): You need to set up a replication appliance in your on-premises source environment. The replication appliance is the basic building block of the entire ASR on-premises infrastructure. For VMware disaster recovery, we recommend that [you deploy it as a VMware VM](deploy-vmware-azure-replication-appliance-preview.md#deploy-replication-appliance) that can be deployed from a downloadable OVF template.  Learn more about replication appliance [here](vmware-azure-architecture-preview.md).   
+4. **ASR replication appliance** (applicable for Preview): You need to set up a replication appliance in your on-premises source environment. The replication appliance is the basic building block of the entire ASR on-premises infrastructure. For VMware disaster recovery, we recommend that [you deploy it as a VMware VM](deploy-vmware-azure-replication-appliance-preview.md#deploy-replication-appliance) that can be deployed from a downloadable OVF template.  Learn more about replication appliance [here](vmware-azure-architecture-preview.md).   
 5. **Target environment**: You set up your target Azure environment by specifying your Azure subscription and network settings.
 6. **Replication policy**: You specify how replication should occur. Settings include how often recovery points are created and stored, and whether app-consistent snapshots should be created.
 7. **Enable replication**. You enable replication for on-premises machines. If you created an account to install the Mobility service, then it will be installed when you enable replication for a machine.
