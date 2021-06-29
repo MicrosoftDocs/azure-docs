@@ -6,6 +6,7 @@ ms.author: vimeht
 ms.date: 2/11/2021
 ms.topic: how-to
 ms.service: iot-hub-device-update
+ms.custom: subject-rbac-steps
 ---
 
 # Device Update for IoT Hub Resource Management
@@ -123,7 +124,7 @@ In order for other users to have access to Device Update, users must be granted 
 5. Assign access to a user or Azure AD group
 6. Select members
    
-   :::image type="content" source="media/create-device-update-account/role-assignment-2.PNG" alt-text="Screenshot of access Control role assignments within Device Update account." lightbox="media/create-device-update-account/role-assignment-2.PNG":::
+   :::image type="content" source="media/create-device-update-account/role-assignment-2.PNG" alt-text="Screenshot of access Control member selection within Device Update account." lightbox="media/create-device-update-account/role-assignment-2.PNG":::
 
 6. Click Review + assign
 7. Review the new role assignments and click Review + assign again
