@@ -11,11 +11,11 @@ keywords: "GitOps, Kubernetes, K8s, Azure, Helm, Arc, AKS, Azure Kubernetes Serv
 ---
 # Inner Loop Developer Experience for teams adopting GitOps
 
-This article describes how established inner loop can enhance developer productivity and help in seamless transition from inner dev loop to outer loop for teams adopting GitOps.
+This article describes how an established inner loop can enhance developer productivity and help in a seamless transition from inner dev loop to outer loop for teams adopting GitOps.
 
 ## Inner dev loop frameworks
 
-Building and deploying containers can slow down the inner dev experience and impact team productivity. Cloud-native development teams will benefit from a robust inner dev loop framework. Inner dev loop frameworks assist in the iterative process of writing code, building, and debugging.
+Building and deploying containers can slow the inner dev experience and impact team productivity. Cloud-native development teams will benefit from a robust inner dev loop framework. Inner dev loop frameworks assist in the iterative process of writing code, building, and debugging.
 
 Inner dev loop frameworks capabilities include:
 
@@ -30,10 +30,10 @@ Inner dev loop frameworks capabilities include:
 
 Different dev teams, depending on the maturity and complexity of the service might choose a completely local, complete remote, or hybrid cluster setup to speed up the inner dev loop. 
 
-Luckily, there are many frameworks out there that support the listed capabilities. Microsoft offers Bridge to Kubernetes for local tunnel debugging and similar market offerings like DevSpace, Scaffold, and Tilt, among others.
+Luckily, there are many frameworks out there that support the listed capabilities. Microsoft offers Bridge to Kubernetes for local tunnel debugging and there are similar market offerings like DevSpace, Scaffold, and Tilt, among others.
 
 > [!NOTE]
-> Don’t confuse the market offering DevSpace with Microsoft’s previously named DevSpace, which is now called Bridge to Kubernetes. 
+> Don’t confuse the market offering [DevSpace](https://github.com/loft-sh/devspace) with Microsoft’s previously named DevSpace, which is now called [Bridge to Kubernetes](https://code.visualstudio.com/docs/containers/bridge-to-kubernetes).
 
 
 ## Inner loop to outer loop transition 
