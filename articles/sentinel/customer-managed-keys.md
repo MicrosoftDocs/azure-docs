@@ -48,7 +48,7 @@ This article provides background information and steps to configure a [customer-
 >
 > - The CMK capability requires a Log Analytics dedicated cluster with at least a 1 TB/day commitment tier. Several workspaces can be linked to the same dedicated cluster, and they will share the same customer-managed key.
 >
-> - You will receive information about additional pricing when you apply to Microsoft to provision CMK on your Azure subscription. Learn more about [Log Analytics dedicated cluster](../azure-monitor/logs/manage-cost-storage.md#log-analytics-dedicated-clusters).
+> - Learn more about [Log Analytics Dedicated Cluster Pricing](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/logs-dedicated-clusters#cluster-pricing-model).
 
 ## How CMK works 
 
