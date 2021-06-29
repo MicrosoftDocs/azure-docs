@@ -3,9 +3,8 @@ title: Image Analysis cognitive skill
 titleSuffix: Azure Cognitive Search
 description: Extract semantic text through image analysis using the Image Analysis cognitive skill in an AI enrichment pipeline in Azure Cognitive Search.
 
-manager: nitinme
-author: luiscabrer
-ms.author: luisca
+author: vkurpad
+ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020

@@ -1342,8 +1342,6 @@
         - name: Find request unit charge
           displayName: request units, RUs, RU, charge, consumption
           href: find-request-unit-charge-table.md
-        - name: Table storage design guide
-          href: table-storage-design-guide.md
         - name: Manage using Resource Manager templates
           href: templates-samples-table.md
           displayName: ARM
