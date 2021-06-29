@@ -25,9 +25,7 @@ The Authentication information model is used to describe events related to user 
 
 For example, Windows sends several authentication events alongside other OS activity events. As a result, in most cases the authentication events are stored in different Azure Sentinel tables and are normalized using a KQL function, which also filters only the relevant authentication events.
 
-Moreover, sometimes the authentication information is part of a wider activity represented by the same record. For example, a VPN event would typically report a network session alongside the authentication information.
-
-Authentication events include both events from systems that focus on authentication such as VPN gateways or domain controller, and direct authentication to an end system, such as a computer or firewall.
+Authentication events include both events from systems that focus on authentication such as VPN gateways or domain controllers, and direct authentication to an end system, such as a computer or firewall.
 
 For more information about normalization in Azure Sentinel, see [Normalization and the Azure Sentinel Information Model (ASIM)](normalization.md).
 
@@ -40,31 +38,26 @@ For more information about normalization in Azure Sentinel, see [Normalization a
 
 Azure Sentinel provides the following built-in, product-specific authentication event parsers:
 
-- **Security Events process creation (Event 4688)**, collected using the Log Analytics Agent or Azure Monitor Agent
-- **Security Events process termination (Event 4689)**, collected using the Log Analytics Agent or Azure Monitor Agent
-- **Sysmon process creation (Event 1)**, collected using the Log Analytics Agent or Azure Monitor Agent
-- **Sysmon process termination (Event 5)**, collected using the Log Analytics Agent or Azure Monitor Agent
-- **Microsoft 365 Defender for Endpoints process creation**
+- **Security Events sign-ins (Events 4624 and 4625)**, collected using the Log Analytics Agent or Azure Monitor Agent
+- **Asuze Active Directory sign-ins**, collected using the Azure Active Directory connector. Seperate parsers are provided for regular, Non-Interactive, Managed Identities and Service Principles Sign-ins.
+- **AWS sign-ins**, collected using the AWS CloudTrail connector.
+- **Okta authentication**, collected using the Okta connector.
 
-To use the source-agnostic parsers that unify all of listed parsers and ensure that you analyze across all the configured sources, use the following table names in your queries:
+To use the source-agnostic parser that unify all of listed parsers and ensure that you analyze across all the configured sources, use **imAuthentication** as the table name in your query.
 
-- **imProcessCreate**, for queries that require process creation information. This is the most common case.
-- **imProcessTerminate** for queries that require process termination information.
-- **imProcessEvents** for queries that require both process creation and termination information. In such cases, the `EventType` field enables you to distinguish between the events, and is set to `ProcessCreate` or `ProcessTerminate`, respectively. Process termination events generally include a lot less information than process creation events.
-
-Deploy the '[source-agnostic and source-specific parsers](normalization.md#parsers) from the [Azure Sentinel GitHub repository](https://aka.ms/AzSentinelProcessEvents).
+Deploy the '[source-agnostic and source-specific parsers](normalization.md#parsers) from the [Azure Sentinel GitHub repository](https://aka.ms/AzSentinelAuth).
 
 
 
 ## Normalized content
 
-Support for the Authentication normalization schema also includes support for the following built-in analytics rules with normalized DNS parsers:
+Support for the Authentication normalization schema also includes support for the following built-in analytics rules with normalized authentication parsers:
 
 - User Login from Different Countries within 3 hours (Uses Authentication Normalization)
 - Potential Password Spray Attack (Uses Authentication Normalization)
 - Brute force attack against user credentials (Uses Authentication Normalization)
 
-Normalized authentication analytic rules are unique as they detect attacks across sources. So, for example, if a user logged in to different, unrelated systems, from different countries, Azure Sentinel will now detect this activity.
+Normalized authentication analytic rules are unique as they detect attacks across sources. So, for example, if a user logged in to different, unrelated systems, from different countries, Azure Sentinel will now detect this threat.
 
 ## Schema details
 
