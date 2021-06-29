@@ -21,25 +21,26 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
 ## 2021-07-06
 
 ### Azure Machine Learning SDK for Python v1.32.0
++ **Bug fixes and improvements**
   + **azureml-automl-core**
-    + Set the time allocated to dynamically search across various featurization strategies to a maximum of a one-fourth of the overall experiment timeout.
+    + Set the time allocated to dynamically search across various featurization strategies to a maximum of one-fourth of the overall experiment timeout
   + **azureml-automl-runtime**
-    + Set the time allocated to dynamically search across various featurization strategies to a maximum of a one-fourth of the overall experiment timeout.
+    + Set the time allocated to dynamically search across various featurization strategies to a maximum of a one-fourth of the overall experiment timeout
   + **azureml-core**
     + Expose diagnose workspace health in SDK/CLI
   + **azureml-defaults**
-    + Added `opencensus-ext-azure==1.0.8` dependency to azureml-defaults. The `applicationinsights` dependency will be removed by the end of July!
+    + Added `opencensus-ext-azure==1.0.8` dependency to azureml-defaults
   + **azureml-pipeline-core**
-    + Updated the AutoMLStep to use Curated Environments when the environment for job submission matches the default environment.
+    + Updated the AutoMLStep to use Curated Environments when the environment for job submission matches the default environment
   + **azureml-pipeline-steps**
-    + Updated the AutoMLStep to use Curated Environments when the environment for job submission matches the default environment.
+    + Updated the AutoMLStep to use Curated Environments when the environment for job submission matches the default environment
   + **azureml-responsibleai**
     + New error analysis client added to azureml-responsibleai package to upload, download and list error analysis reports
-    + Ensure `raiwidgets` and `responsibleai` packages are version synchronised.
+    + Ensure `raiwidgets` and `responsibleai` packages are version synchronised
   + **azureml-train-automl-client**
-    + Set the time allocated to dynamically search across various featurization strategies to a maximum of a one-fourth of the overall experiment timeout.
+    + Set the time allocated to dynamically search across various featurization strategies to a maximum of a one-fourth of the overall experiment timeout
   + **azureml-train-automl-runtime**
-    + Set the time allocated to dynamically search across various featurization strategies to a maximum of a one-fourth of the overall experiment timeout.
+    + Set the time allocated to dynamically search across various featurization strategies to a maximum of a one-fourth of the overall experiment timeout
 
 
 ## 2021-06-21
