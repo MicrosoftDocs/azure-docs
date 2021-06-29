@@ -157,10 +157,6 @@ You can protect a controller or controller methods by using the `[Authorize]` at
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
-### Named snippet ingest test
-
- :::code language="csharp" source="~/sample-active-directory-aspnetcore-webapp-openidconnect-v2/Startup.cs" id="This method gets called by the runtime. Use this method to add services to the container." :::
-
 ## Next steps
 
 The GitHub repo that contains this ASP.NET Core tutorial includes instructions and more code samples that show you how to:
