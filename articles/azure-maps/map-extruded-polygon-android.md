@@ -114,16 +114,12 @@ A choropleth map can be rendered using the polygon extrusion layer. Set the `hei
 ```java
 //Create a data source and add it to the map.
 DataSource source = new DataSource();
-map.sources.add(source);
 
 //Import the geojson data and add it to the data source.
-Utils.importData("https://azuremapscodesamples.azurewebsites.net/Common/data/geojson/US_States_Population_Density.json", this,  (String result) -> {
-    //Parse the data as a GeoJSON Feature Collection.
-    FeatureCollection fc = FeatureCollection.fromJson(result);
+source.importDataFromUrl("https://azuremapscodesamples.azurewebsites.net/Common/data/geojson/US_States_Population_Density.json");
 
-    //Add the feature collection to the data source.
-    source.add(fc);
-});
+//Add data source to the map.
+map.sources.add(source);
 
 //Create and add a polygon extrusion layer to the map below the labels so that they are still readable.
 PolygonExtrusionLayer layer = new PolygonExtrusionLayer(source,
@@ -162,18 +158,12 @@ map.layers.add(layer, "labels");
 ```kotlin
 //Create a data source and add it to the map.
 val source = DataSource()
-map.sources.add(source)
 
 //Import the geojson data and add it to the data source.
-Utils.importData("https://azuremapscodesamples.azurewebsites.net/Common/data/geojson/US_States_Population_Density.json",
-    this
-) { result: String? ->
-    //Parse the data as a GeoJSON Feature Collection.
-    val fc = FeatureCollection.fromJson(result!!)
+source.importDataFromUrl("https://azuremapscodesamples.azurewebsites.net/Common/data/geojson/US_States_Population_Density.json")
 
-    //Add the feature collection to the data source.
-    source.add(fc)
-}
+//Add data source to the map.
+map.sources.add(source)
 
 //Create and add a polygon extrusion layer to the map below the labels so that they are still readable.
 val layer = PolygonExtrusionLayer(
