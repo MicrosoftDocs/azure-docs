@@ -57,7 +57,7 @@ All Azure regions support DPDK.
 
 Accelerated networking must be enabled on a Linux virtual machine. The virtual machine should have at least two network interfaces, with one interface for management. Enabling Accelerated networking on management interface is not recommended. Learn how to [create a Linux virtual machine with accelerated networking enabled](create-vm-accelerated-networking-cli.md).
 
-## Install DPDK
+## Install DPDK via system package (recommended)
 
 ### Ubuntu 18.04
 
@@ -79,15 +79,39 @@ sudo apt-get install -y dpdk
 sudo apt-get install -y dpdk
 ```
 
-### RHEL7.5/CentOS 7.5
+## Install DPDK manually (not recommended)
+
+### Install build dependencies
+
+#### Ubuntu 18.04
+
+```bash
+sudo add-apt-repository ppa:canonical-server/server-backports -y
+sudo apt-get update
+sudo apt-get install -y build-essential librdmacm-dev libnuma-dev libmnl-dev meson
+```
+
+#### Ubuntu 20.04 and newer
+
+```bash
+sudo apt-get install -y build-essential librdmacm-dev libnuma-dev libmnl-dev meson
+```
+
+#### Debian 10 and newer
+
+```bash
+sudo apt-get install -y build-essential librdmacm-dev libnuma-dev libmnl-dev meson
+```
+
+#### RHEL7.5/CentOS 7.5
 
 ```bash
 yum -y groupinstall "Infiniband Support"
 sudo dracut --add-drivers "mlx4_en mlx4_ib mlx5_ib" -f
-yum install -y gcc kernel-devel-`uname -r` numactl-devel.x86_64 librdmacm-devel libmnl-devel
+yum install -y gcc kernel-devel-`uname -r` numactl-devel.x86_64 librdmacm-devel libmnl-devel meson
 ```
 
-### SLES 15 SP1
+#### SLES 15 SP1
 
 **Azure kernel**
 
@@ -95,7 +119,7 @@ yum install -y gcc kernel-devel-`uname -r` numactl-devel.x86_64 librdmacm-devel 
 zypper  \
   --no-gpg-checks \
   --non-interactive \
-  --gpg-auto-import-keys install kernel-azure kernel-devel-azure gcc make libnuma-devel numactl librdmacm1 rdma-core-devel
+  --gpg-auto-import-keys install kernel-azure kernel-devel-azure gcc make libnuma-devel numactl librdmacm1 rdma-core-devel meson
 ```
 
 **Default kernel**
@@ -104,16 +128,15 @@ zypper  \
 zypper \
   --no-gpg-checks \
   --non-interactive \
-  --gpg-auto-import-keys install kernel-default-devel gcc make libnuma-devel numactl librdmacm1 rdma-core-devel
+  --gpg-auto-import-keys install kernel-default-devel gcc make libnuma-devel numactl librdmacm1 rdma-core-devel meson
 ```
 
-## Set up the virtual machine environment (once)
+### Compile and install DPDK manually
 
-1. [Download the latest DPDK](https://core.dpdk.org/download). Version 18.11 LTS or 19.11 LTS is required for Azure.
-2. Build the default config with `make config T=x86_64-native-linuxapp-gcc`.
-3. Enable Mellanox PMDs in the generated config with `sed -ri 's,(MLX._PMD=)n,\1y,' build/.config`.
-4. Compile with `make`.
-5. Install with `make install DESTDIR=<output folder>`.
+1. [Download the latest DPDK](https://core.dpdk.org/download). Version 19.11 LTS or newer is required for Azure.
+2. Build the default config with `meson builddir`.
+3. Compile with `ninja -C builddir`.
+4. Install with `DESTDIR=<output folder> ninja -C builddir install`.
 
 ## Configure the runtime environment
 
