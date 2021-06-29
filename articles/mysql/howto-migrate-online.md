@@ -1,10 +1,11 @@
 ---
 title: Minimal-downtime migration - Azure Database for MySQL
-description: This article describes how to perform a minimal-downtime migration of a MySQL database to Azure Database for MySQL by using the Azure Database Migration Service.
+description: This article describes how to perform a minimal-downtime migration of a MySQL database to Azure Database for MySQL.
 author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
+ms.custom:
 ms.date: 6/19/2021
 ---
 

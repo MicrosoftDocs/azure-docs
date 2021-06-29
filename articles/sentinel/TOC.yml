@@ -73,7 +73,7 @@
       href: automate-responses-with-playbooks.md
     - name: Bring your own machine learning
       href: bring-your-own-ml.md
-- name: How-Tos
+- name: How-tos
   items:
   - name: Collect data
     items:
@@ -133,7 +133,9 @@
         href: connect-windows-security-events.md
       - name: Windows Virtual Desktop
         href: connect-windows-virtual-desktop.md
-    - name: Connect external solutions
+    - name: Partner data connectors
+      href: partner-data-connectors.md
+    - name: Connect partner data sources
       items:
       - name: Agari Phishing Defense and Brand Protection
         href: connect-agari-phishing-defense.md
@@ -325,6 +327,10 @@
       href: investigate-with-ueba.md
     - name: Collaborate in Microsoft Teams
       href: collaborate-in-microsoft-teams.md
+    - name: Authenticate playbooks to Azure Sentinel
+      href: authenticate-playbooks-to-sentinel.md
+    - name: Use triggers and actions in playbooks
+      href: playbook-triggers-actions.md
   - name: Manage Azure Sentinel
     items:
     - name: Manage workspace access
@@ -343,7 +349,7 @@
       href: customer-managed-keys.md
     - name: Manage your SOC with incident metrics
       href: manage-soc-with-incident-metrics.md
-    - name: Auditing Azure Sentinel with Azure Activity Logstash
+    - name: Auditing Azure Sentinel with Azure Activity Logs
       href: audit-sentinel-data.md
     - name: Remove Azure Sentinel from your workspaces
       href: offboard.md
@@ -361,6 +367,8 @@
       href: sap-solution-deploy-alternate.md
 - name: Reference
   items:
+  - name: Azure Sentinel REST-API
+    href: /rest/api/securityinsights/
   - name: Management references
     items:
     - name: Azure Sentinel Logic Apps connector
@@ -405,10 +413,8 @@
         href: /azure/data-explorer/kql-quick-reference
       - name: Azure Monitor log query optimizations
         href: ../azure-monitor/logs/query-optimization.md
-    - name: REST APIs
+    - name: REST APIs - samples
       items:
-      - name: Azure Sentinel REST-API
-        href: /rest/api/securityinsights/
       - name: Manage hunting queries with REST-API
         href: hunting-with-rest-api.md
       - name: Manage watchlists with REST-API
