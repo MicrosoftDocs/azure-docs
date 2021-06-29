@@ -36,7 +36,7 @@ With the integrated Azure Workbooks functionality, Azure Security Center makes i
 - ['Secure Score Over Time' report](#use-the-secure-score-over-time-report) - Track your subscriptions' scores and changes to recommendations for your resources
 - ['System Updates' report](#use-the-system-updates-report) - View missing system updates by resources, OS, severity, and more
 - ['Vulnerability Assessment Findings' report](#use-the-vulnerability-assessment-findings-report) - View the findings of vulnerability scans of your Azure resources
-- ['Compliance Over Time' report](#use-the-compliance-over-time-report) - View 
+- ['Compliance Over Time' report](#use-the-compliance-over-time-report) - View the status of a  subscription's compliance with the regulatory or industry standards you've selected 
 
 :::image type="content" source="media/custom-dashboards-azure-workbooks/workbooks-gallery-security-center.png" alt-text="Gallery of built-in workbooks in Azure Security Center.":::
 
@@ -62,7 +62,6 @@ When you set up the continuous export, set the export frequency to both **stream
 > To configure continuous export across your organization, use the supplied Azure Policy 'DeployIfNotExist' policies described in [Configure continuous export at scale](continuous-export.md?tabs=azure-policy).
 
 The secure score over time report has five graphs for the subscriptions reporting to the selected workspaces:
-
 
 |Graph  |Example  |
 |---------|---------|
