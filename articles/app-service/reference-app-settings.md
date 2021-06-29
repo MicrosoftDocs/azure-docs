@@ -452,7 +452,7 @@ The following environment variables are related to [key vault references](app-se
 | `WEBSITE_KEYVAULT_REFERENCES` | Read-only. Contains information (including statuses) for all Key Vault references that are currently configured in the app. |
 | `WEBSITE_SKIP_CONTENTSHARE_VALIDATION` | If you set the shared storage connection of your app (using `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`) to a Key Vault reference, the app cannot resolve the key vault reference at app creation or update if one of the following conditions is true: <br/>- The app accesses the key vault with a system-assigned identity.<br/>- The app accesses the key vault with a user-assigned identity, and the key vault is [locked with a VNet](../key-vault/general/overview-vnet-service-endpoints.md).<br/>To avoid errors at create or update time, set this variable to `1`. |
 | `WEBSITE_DELAY_CERT_DELETION` | This env var can be set to 1 by users in order to ensure that a certificate that a worker process is dependent upon is not deleted until it exits. |
-| `WEBSITE_ALLOW_DOUBLE_ESCAPING_URL` | TODO |
+<!-- | `WEBSITE_ALLOW_DOUBLE_ESCAPING_URL` | TODO | -->
 
 ## CORS
 
@@ -544,7 +544,7 @@ The following environment variables are related to [managed identities](overview
 | `MSI_ENDPOINT` | Deprecated. Use `IDENTITY_ENDPOINT`. |
 | `IDENTITY_HEADER` | Read-only. Value that must be added to the `X-IDENTITY-HEADER` header when making an HTTP GET request to `IDENTITY_ENDPOINT`. The value is rotated by the platform. |
 | `MSI_SECRET` | Deprecated. Use `IDENTITY_HEADER`. |
-| `WEBSITE_AUTHENTICATION_ENDPOINT_ENABLED` | Disabled by default? TODO |
+<!-- | `WEBSITE_AUTHENTICATION_ENDPOINT_ENABLED` | Disabled by default? TODO | -->
 
 ## Health check
 
@@ -621,9 +621,9 @@ The following environment variables are related to [WebJobs](webjobs-create.md).
 | `WEBSITE_USE_PLACEHOLDER` | Set to `0` to disable the placeholder functions optimization on the consumption plan. The placeholder is an optimization that [improves the cold start](../azure-functions/functions-scale.md#cold-start-behavior). |
 | `WEBSITE_PLACEHOLDER_MODE` | Read-only. Shows whether the function app is running on a placeholder host (`generalized`) or its own host (`specialized`). |
 | `WEBSITE_DISABLE_ZIP_CACHE` | When your app runs from a [ZIP package](deploy-run-package.md) ( `WEBSITE_RUN_FROM_PACKAGE=1`), the five most recently deployed ZIP packages are cached in the app's file system (D:\home\data\SitePackages). Set this variable to `1` to disable this cache. For Linux consumption apps, the ZIP package cache is disabled by default. |
+<!--
 | `FUNCTIONS_RUNTIME_SCALE_MONITORING_ENABLED` | TODO |
 | `WEBSITE_SKIP_FUNCTION_APP_WARMUP` | Apps can use appsetting to opt out of warmup. Restricted to linux only since this is primarily for static sites that use Linux dynamic function apps. Linux dynamic sites are used as placeholder sites for static sites. Function apps don't get specialized until static sites are deployed. This allows function apps used by static sites to skip warmup and using up containers before any content is deployed. TODO |
-<!--
  WEBSITE_IDLE_TIMEOUT_IN_MINUTES | removed WEBSITE_IDLE_TIMEOUT_IN_MINUTES because they aren't used in Linux Consumption.???
 | `WEBSITE_DISABLE_FUNCTIONS_STARTUPCONTEXT_CACHE`| This env var can be set to 1 by users in order to avoid using the Functions StartupContext Cache feature. |
 | `WEBSITE_CONTAINER_READY` | The env var is set to '1' to indicate to the Functions Runtime that it can proceed with initializing/specializing 
