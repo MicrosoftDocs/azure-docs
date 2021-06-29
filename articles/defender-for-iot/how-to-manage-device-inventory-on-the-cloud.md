@@ -1,7 +1,7 @@
 ---
 title: Manage the device inventory on the cloud
 description: Learn how to manage your device inventory on the cloud.
-ms.date: 06/14/2021
+ms.date: 06/29/2021
 ms.topic: how-to
 ---
 
@@ -113,9 +113,9 @@ Below is a list of filters that can be applied to the device inventory table.
 | Filter name | Filter type |
 |--|--|
 | Device name | contains |
-| Device category | contains |
+| Class | list |
 | Device type | contains |
-| Device subtype | contains |
+| Device subtype | list |
 | Device model | list |
 | Firmware vendor | contains |
 | OS distribution | list |
@@ -123,18 +123,18 @@ Below is a list of filters that can be applied to the device inventory table.
 | VLAN | contains |
 | IP address | contains |
 | MAC address | contains |
-| Site | contains |
+| Site | list |
 | Last activity | contains |
-| Vendor| contains|
+| Vendor| list |
 | OS platform| contains |
 | Importance | list |
 | Sensor | contains |
 | Zone| contains |
-|First seen | list |
+| First seen | list |
 | Program functionality | list |
 | Last update time | list |
 | Data source | list |
-|Purdue level | contains |
+| Purdue level | contains |
 | OS architecture | contains |
 
 **To filter the device inventory**:
