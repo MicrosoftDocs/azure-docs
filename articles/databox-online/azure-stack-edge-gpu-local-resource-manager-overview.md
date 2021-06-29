@@ -61,7 +61,7 @@ To create virtual machines or shares or storage accounts on your Azure Stack Edg
 
 To request the creation of any resources from the resource providers, you will need to first connect to the local Azure Resource Manager. For detailed steps, see [Connect to Azure Resource Manager on your Azure Stack Edge device](azure-stack-edge-gpu-connect-resource-manager.md).
 
-The first time you connect to Azure Resource Manager, you would also need to add reset your password. For detailed steps, see [Reset your Azure Resource Manager password](azure-stack-edge-gpu-set-azure-resource-manager-password.md).
+The first time you connect to Azure Resource Manager, you would also need to reset your password. For detailed steps, see [Reset your Azure Resource Manager password](azure-stack-edge-gpu-set-azure-resource-manager-password.md).
 
 
 ## Azure Resource Manager endpoints
