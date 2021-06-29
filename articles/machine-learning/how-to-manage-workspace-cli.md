@@ -135,7 +135,7 @@ The output of this command is similar to the following JSON:
 ### Virtual network and private endpoint
 
 > [!IMPORTANT]
-> Using an Azure Machine Learning workspace with private link is not available in the Azure Government regions.
+> Using an Azure Machine Learning workspace with private endpoint is not available in the Azure Government regions.
 
 If you want to restrict access to your workspace to a virtual network, you can use the following parameters:
 
