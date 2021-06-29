@@ -265,7 +265,11 @@ sections:
           - Create a local VHDx on fast storage or create an empty VHD on the HDD/SSD (slower).
           - Mount it to a VM.
           - Copy files to the VM's disk.-->
-          
+
+      - question: |
+          Can I leverage Data Box to import data to a storage account with Private Endpoints configured?
+        answer: |
+          Yes. You can import data to a storage account that has private endpoint connections enabled. To let Data Box service import the data, select "Allow trusted Microsoft services to access this storage account" under the Networking section of the storage account.          
           
       - question: |
           Can I use multiple storage accounts with Data Box?
