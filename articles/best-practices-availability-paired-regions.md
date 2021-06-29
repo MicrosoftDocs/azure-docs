@@ -5,7 +5,7 @@ author: martinekuan
 manager: martinekuan
 ms.service: multiple
 ms.topic: conceptual
-ms.date: 03/30/2021
+ms.date: 06/21/2021
 ms.author: martinek
 ms.custom: references_regions
 ---
@@ -63,6 +63,7 @@ No. Customers can leverage Azure services to architect a resilient service witho
 | North America |East US 2 |Central US |
 | North America |North Central US |South Central US |
 | North America |West US 2 |West Central US |
+| North America |West US 3 |East US |
 | Norway | Norway East | Norway West* |
 | South Africa | South Africa North |South Africa West* |
 | Switzerland | Switzerland North |Switzerland West* |
