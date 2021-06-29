@@ -228,7 +228,7 @@ To configure the Video Analyzer module to generate debug logs, do the following:
    > 2. Use the following command, replacing **$DEBUG_LOG_LOCATION** with the location used in the previous step:
    >    `"DebugLogsDirectory": "/var/$DEBUG_LOG_LOCATION"`
 
-   d. Select **Save**.
+1. Select **Save**.
 
 1. You can stop log collection by setting the value in **Module Identity Twin** to _null_. Go back to the **Module Identity Twin** page and update the following parameter as:
 
