@@ -159,7 +159,7 @@
   - name: Region availability
     href: https://azure.microsoft.com/global-infrastructure/services/?products=signalr-service
   - name: FAQs
-    href: signalr-resource-faq.md
+    href: signalr-resource-faq.yml
   - name: SignalR Service subscription level limits
     href: ../azure-resource-manager/management/azure-subscription-service-limits.md#azure-signalr-service-limits
   - name: Pricing
