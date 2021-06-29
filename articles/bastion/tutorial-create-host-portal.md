@@ -27,11 +27,11 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 ## Prerequisites
 
 * A virtual network.
-* A Windows virtual machine in the virtual network.
-* The following required roles:
-  * Reader role on the virtual machine.
-  * Reader role on the NIC with private IP of the virtual machine.
-  * Reader role on the Azure Bastion resource.
+* A Windows virtual machine in the virtual network. If you don't have a VM, create one using [Quickstart: Create a VM](../virtual-machines/windows/quick-create-portal.md).
+* The following required roles for your resources:
+   * Required VM roles:
+     * Reader role on the virtual machine.
+     * Reader role on the NIC with private IP of the virtual machine.
 
 * Ports: To connect to the Windows VM, you must have the following ports open on your Windows VM:
   * Inbound ports: RDP (3389)
@@ -77,7 +77,7 @@ This section helps you create the bastion object in your VNet. This is required 
 1. Review your settings. Next, at the bottom of the page, select **Create**.
 1. You will see a message letting you know that your deployment is underway. Status will display on this page as the resources are created. It takes about 5 minutes for the Bastion resource to be created and deployed.
 
-## Remove a VM public IP address
+## Remove VM public IP address
 
 [!INCLUDE [Remove a public IP address from a VM](../../includes/bastion-remove-ip.md)]
 

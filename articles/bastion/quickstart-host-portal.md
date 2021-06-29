@@ -15,7 +15,7 @@ ms.author: cherylmc
 
 # Quickstart: Connect to a VM securely through a browser via private IP address
 
-You can connect to a virtual machine (VM) through your browser using the Azure portal and Azure Bastion. This quickstart article shows you how to configure Azure Bastion based on your VM settings, and then connect to your VM through the portal. The VM doesn't need a public IP address, client software, agent, or a special configuration. Once the service is provisioned, the RDP/SSH experience is available to all of the virtual machines in the same virtual network. For more information about Azure Bastion, see [What is Azure Bastion?](bastion-overview.md).
+You can connect to a virtual machine (VM) through your browser using the Azure portal and Azure Bastion. This quickstart article shows you how to configure Azure Bastion based on your VM settings, and then connect to your VM through the portal. The VM doesn't need a public IP address, client software, agent, or a special configuration. Once the service is provisioned, the RDP/SSH experience is available to all of the virtual machines in the same virtual network. For more information about Azure Bastion, see [What is Azure Bastion?](bastion-overview.md)
 
 ## <a name="prereq"></a>Prerequisites
 
