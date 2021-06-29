@@ -43,7 +43,7 @@ landingContent:
           - text: Enable Intel SGX for your Azure SQL Database
             url: always-encrypted-enclaves-enable-sgx.md
           - text: Configure attestation for Always Encrypted using Azure Attestation 
-            url: always-encrypted-enclaves-configure-attestation.md)
+            url: always-encrypted-enclaves-configure-attestation.md
 
   # Card
   - title: Set up in a SQL Server on Azure VM
