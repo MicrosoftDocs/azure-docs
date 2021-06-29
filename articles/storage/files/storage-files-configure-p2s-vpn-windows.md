@@ -6,7 +6,8 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 10/19/2019
 ms.author: rogarana
-ms.subservice: files
+ms.subservice: files 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Configure a Point-to-Site (P2S) VPN on Windows for use with Azure Files
@@ -15,6 +16,13 @@ You can use a Point-to-Site (P2S) VPN connection to mount your Azure file shares
 We strongly recommend that you read [Networking considerations for direct Azure file share access](storage-files-networking-overview.md) before continuing with this how to article for a complete discussion of the networking options available for Azure Files.
 
 The article details the steps to configure a Point-to-Site VPN on Windows (Windows client and Windows Server) to mount Azure file shares directly on-premises. If you're looking to route Azure File Sync traffic over a VPN, please see [configuring Azure File Sync proxy and firewall settings](../file-sync/file-sync-firewall-and-proxy.md).
+
+## Applies to
+| File share type | SMB | NFS |
+|-|:-:|:-:|
+| Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 
 ## Prerequisites
 - The most recent version of the Azure PowerShell module. For more information on how to install the Azure PowerShell, see [Install the Azure PowerShell module](/powershell/azure/install-az-ps) and select your operating system. If you prefer to use the Azure CLI on Windows, you may, however the instructions below are presented for Azure PowerShell.

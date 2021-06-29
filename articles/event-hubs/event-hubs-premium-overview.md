@@ -19,6 +19,8 @@ In addition to these storage-related features and all capabilities and protocol 
 The Premium offering is billed by [Processing Units (PUs)](event-hubs-scalability.md#processing-units) which correspond to a share of isolated resources (CPU, Memory, and Storage) in the underlying infrastructure. 
 
 In comparison to Dedicated offering, since Event Hubs Premium provides isolation inside a very large multi-tenant environment that can shift resources quickly, it can scale far more elastically and quicker and PUs can be dynamically adjusted. Therefore, Event Hubs Premium will often be a more cost effective option for mid-range (<120MB/sec) throughput requirements, especially with changing loads throughout the day or week, when compared to Event Hubs Dedicated. 
+> [!NOTE]
+> Please note that Event Hubs Premium will only support TLS 1.2 or greater . 
 
 For the extra robustness gained by availability-zone support, the minimal deployment scale for Event Hubs Dedicated is 8 Capacity Units (CU), but you will have availability zone support in Event Hubs Premium from the first PU in all AZ regions. 
 
@@ -61,9 +63,9 @@ For more quotas and limits, see [Event Hubs quotas and limits](event-hubs-quotas
 
 ## FAQs
 
-[!INCLUDE [event-hubs-dedicated-clusters-faq](../../includes/event-hubs-premium-faq.md)]
+[!INCLUDE [event-hubs-dedicated-clusters-faq](./includes/event-hubs-premium-faq.md)]
 
 ## Next steps
 
-You can start using Event Hubs Premium (Preview) via [Azure portal](https://aka.ms/eventhubsclusterquickstart). Refer [Event Hubs Premium pricing](https://azure.microsoft.com/pricing/details/event-hubs/) for more details on pricing and  [Event Hubs FAQ](event-hubs-faq.yml) to find answers to some frequently asked questions about Event Hubs. 
+You can start using Event Hubs Premium (Preview) via [Azure portal](https://portal.azure.com/#create/Microsoft.EventHub). Refer [Event Hubs Premium pricing](https://azure.microsoft.com/pricing/details/event-hubs/) for more details on pricing and  [Event Hubs FAQ](event-hubs-faq.yml) to find answers to some frequently asked questions about Event Hubs. 
 

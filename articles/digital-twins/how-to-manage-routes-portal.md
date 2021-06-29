@@ -23,11 +23,11 @@ In Azure Digital Twins, you can route [event notifications](concepts-event-notif
 
 This article walks you through the process of creating endpoints and routes using the [Azure portal](https://portal.azure.com).
 
-Alternatively, you can also manage endpoints and routes with the [Event Routes APIs](/rest/api/digital-twins/dataplane/eventroutes), the [SDKs](concepts-apis-sdks.md#overview-data-plane-apis), or the [Azure Digital Twins CLI](concepts-cli.md). For a version of this article that uses these mechanisms instead of the portal, see [How-to: Manage endpoints and routes (APIs and CLI)](how-to-manage-routes-apis-cli.md).
+Alternatively, you can also manage endpoints and routes with the [Event Routes APIs](/rest/api/digital-twins/dataplane/eventroutes), the [SDKs](concepts-apis-sdks.md#overview-data-plane-apis), or the [Azure Digital Twins CLI](/cli/azure/dt?view=azure-cli-latest&preserve-view=true). For a version of this article that uses these mechanisms instead of the portal, see [How-to: Manage endpoints and routes (APIs and CLI)](how-to-manage-routes-apis-cli.md).
 
 ## Prerequisites
 
-* You'll need an **Azure account**, which [can be set up for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F))
+* You'll need an **Azure account**, which [can be set up for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * You'll need an **Azure Digital Twins instance** in your Azure subscription. If you don't have an instance already, you can create one using the steps in [How-to: Set up an instance and authentication](how-to-set-up-instance-portal.md). Have the following values from setup handy to use later in this article:
     - Instance name
     - Resource group
@@ -77,7 +77,7 @@ Once you have created the endpoint resources, you can use them for an Azure Digi
 1. Finish creating your endpoint by selecting _Save_.
 
 >[!IMPORTANT]
-> In order to successfully use identity-based authentication for your endpoint, you'll need to create a managed identity for your instance by following the steps in [How-to: Enable a managed identity for routing events (preview)](./how-to-enable-managed-identities-portal.md).
+> In order to successfully use identity-based authentication for your endpoint, you'll need to create a managed identity for your instance by following the steps in [How-to: Route events with a managed identity](how-to-route-with-managed-identity.md).
 
 After creating your endpoint, you can verify that the endpoint was successfully created by checking the notification icon in the top Azure portal bar: 
 
@@ -99,7 +99,7 @@ Now the event grid, event hub, or Service Bus topic is available as an endpoint 
 
 When an endpoint can't deliver an event within a certain time period or after trying to deliver the event a certain number of times, it can send the undelivered event to a storage account. This process is known as **dead-lettering**.
 
-In order to create an endpoint with dead-lettering enabled, you must use the [CLI commands](concepts-cli.md) or [control plane APIs](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) to create your endpoint, rather than the Azure portal.
+In order to create an endpoint with dead-lettering enabled, you must use the [CLI commands](/cli/azure/dt?view=azure-cli-latest&preserve-view=true) or [control plane APIs](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) to create your endpoint, rather than the Azure portal.
 
 For instructions on how to do this with these tools, see the [APIs and CLI](how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering) version of this article.
 

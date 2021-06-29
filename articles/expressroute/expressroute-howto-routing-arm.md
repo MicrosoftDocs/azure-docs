@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Tutorial: Configure peering for ExpressRoute circuit - Azure PowerShell'
 description: This tutorial shows you how to create and manage routing configuration for an ExpressRoute circuit in the Resource Manager deployment model using PowerShell.
 services: expressroute
@@ -6,7 +6,8 @@ author: duongau
 ms.service: expressroute
 ms.topic: tutorial
 ms.date: 10/08/2020
-ms.author: duau
+ms.author: duau 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Tutorial: Create and modify peering for an ExpressRoute circuit using PowerShell

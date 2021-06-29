@@ -163,7 +163,7 @@ If you use AD FS, see [Verify and manage single sign-on with AD FS](/previous-ve
 
 Users get SSO from Azure AD joined devices if the device has access to a domain controller. 
 
-**Recommendation:** Deploy [Azure AD App proxy](../manage-apps/application-proxy.md) to enable secure access for these applications.
+**Recommendation:** Deploy [Azure AD App proxy](../app-proxy/application-proxy.md) to enable secure access for these applications.
 
 ### On-premises network shares
 

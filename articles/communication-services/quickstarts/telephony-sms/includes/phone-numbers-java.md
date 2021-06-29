@@ -1,3 +1,6 @@
+> [!NOTE]
+> Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/PhoneNumbers)
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -21,6 +24,12 @@ You'll notice that the 'generate' task created a directory with the same name as
 Open the **pom.xml** file in your text editor. Add the following dependency elements to the group of dependencies.
 
 ```xml
+<dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-communication-common</artifactId>
+    <version>1.0.0</version>
+</dependency>
+
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-phonenumbers</artifactId>
@@ -52,6 +61,7 @@ import com.azure.core.http.rest.*;
 import com.azure.core.util.Context;
 import com.azure.core.util.polling.LongRunningOperationStatus;
 import com.azure.core.util.polling.PollResponse;
+import com.azure.core.util.polling.SyncPoller;
 import com.azure.identity.*;
 import java.io.*;
 
@@ -83,7 +93,7 @@ Alternatively, using the endpoint and access key from the communication resource
 <!-- embedme ./src/samples/java/com/azure/communication/phonenumbers/ReadmeSamples.java#L30-L41 -->
 ```java
 // You can find your connection string from your resource in the Azure portal
-String connectionString = "https://<RESOURCE_NAME>.communication.azure.com/;accesskey=<ACCESS_KEY>";
+String connectionString = "endpoint=https://<RESOURCE_NAME>.communication.azure.com/;accesskey=<ACCESS_KEY>";
 
 PhoneNumbersClient phoneNumberClient = new PhoneNumbersClientBuilder()
     .connectionString(connectionString)

@@ -55,7 +55,7 @@ For more information, see [Connect your external solution using Common Event For
 | dproc | DestinationProcessName | The name of the event’s destination process, such as `telnetd` or `sshd.` |
 | dpt | DestinationPort | Destination port. <br>Valid values: `*0` - `65535` |
 | dst | DestinationIP | The destination IpV4 address that the event refers to in an IP network. |
-| dtz | DeviceTimeZon | Timezone of the device generating the event |
+| dtz | DeviceTimeZone | Timezone of the device generating the event |
 | duid |DestinationUserId | Identifies the destination user by ID. |
 | duser | DestinationUserName |Identifies the destination user by name.|
 | dvc | DeviceAddress | The IPv4 address of the device generating the event. |

@@ -114,7 +114,7 @@ In this section, you clone the IoT Edge repo and execute the scripts.
 
 ### Set up on Linux
 
-To create demo certificates on a Windows device, you need clone the generation scripts and set them up to run locally in bash.
+To create demo certificates on a Linux device, you need to clone the generation scripts and set them up to run locally in bash.
 
 1. Clone the IoT Edge git repo, which contains scripts to generate demo certificates.
 
@@ -357,7 +357,7 @@ Your IoT device also needs a copy of its device certificates so that it can auth
 
 ### CA-signed certificates
 
-When you authenticate an IoT device with self-signed certificates, you need to upload the root CA certificate for your solution to IoT Hub.
+When you authenticate an IoT device with CA-signed certificates, you need to upload the root CA certificate for your solution to IoT Hub.
 Then, you perform a verification to prove to IoT Hub that you own the root CA certificate.
 Finally, you use the same root CA certificate to create device certificates to put on your IoT device so that it can authenticate with IoT Hub.
 

@@ -64,13 +64,13 @@ To complete this tutorial, you need to:
 
        ![Cloud Shell button in the Azure portal](media/tutorial-postgresql-to-azure-postgresql-online/cloud-shell-button.png)
 
-  * Install and run the CLI locally. CLI 2.0 is the command-line tool for managing Azure resources.
+  * Install and run the CLI locally. CLI 2.18 or above version of the command-line tool is required for managing the Azure resources needed for this migration.
 
-       To download the CLI, follow the instructions in the article [Install Azure CLI 2.0](/cli/azure/install-azure-cli). The article also lists the platforms that support CLI 2.0.
+       To download the CLI, follow the instructions in the article [Install Azure CLI](/cli/azure/install-azure-cli). The article also lists the platforms that support Azure CLI.
 
        To set up Windows Subsystem for Linux (WSL), follow the instructions in the [Windows 10 Installation Guide](/windows/wsl/install-win10)
 
-* Enable logical replication in the postgresql.config file, and set the following parameters:
+* Enable logical replication on the source server, by editing the postgresql.config file and setting the following parameters:
 
   * wal_level = **logical**
   * max_replication_slots = [number of slots], recommend setting to **five slots**
@@ -121,34 +121,28 @@ To complete all the database objects like table schemas, indexes and stored proc
        ```
 
    * When prompted, open a web browser and enter a code to authenticate your device. Follow the instructions as listed.
-   * Add the dms extension:
-       * To list the available extensions, run the following command:
 
-           ```azurecli
-           az extension list-available –otable
-           ```
+   * PostgreSQL online migration is now available within the regular CLI package (version 2.18.0 and above) without the need for the `dms-preview` extension. If you have installed the extension in the past, you can remove it using the following steps :
+        * To check if you have `dms-preview` extension already installed, run the following command:
+        
+            ```azurecli
+            az extension list -o table
+            ```
 
-       * To install the extension, run the following command:
+        * If `dms-preview` extension is installed, then to uninstall it, run the following command:
+        
+            ```azurecli
+            az extension remove --name dms-preview
+            ```
 
-           ```azurecli
-           az extension add –n dms-preview
-           ```
+        * To verify you have uninstalled `dms-preview` extension correctly, run the following command and you should not see the `dms-preview` extension in the list:
 
-   * To verify you have dms extension installed correct, run the following command:
-
-       ```azurecli
-       az extension list -otable
-       ```
-       You should see the following output:
-
-       ```output
-       ExtensionType    Name
-       ---------------  ------
-       whl              dms
-       ```
+            ```azurecli
+            az extension list -o table
+            ```
 
       > [!IMPORTANT]
-      > Make sure that your extension version is above 0.11.0.
+      > `dms-preview` extension may still be needed for other migration paths supported by Azure DMS. Please check the documentation of specific migration path to determine if the extension is needed. This documentation covers the requirement of extension, specific to PostgreSQL to Azure Database for PostgreSQL online.
 
    * At any time, view all commands supported in DMS by running:
 
@@ -165,7 +159,7 @@ To complete all the database objects like table schemas, indexes and stored proc
 2. Provision an instance of DMS by running the following command:
 
    ```azurecli
-   az dms create -l [location] -n <newServiceName> -g <yourResourceGroupName> --sku-name Premium_4vCores --subnet/subscriptions/{vnet subscription id}/resourceGroups/{vnet resource group}/providers/Microsoft.Network/virtualNetworks/{vnet name}/subnets/{subnet name} –tags tagName1=tagValue1 tagWithNoValue
+   az dms create -l <location> -n <newServiceName> -g <yourResourceGroupName> --sku-name Premium_4vCores --subnet/subscriptions/{vnet subscription id}/resourceGroups/{vnet resource group}/providers/Microsoft.Network/virtualNetworks/{vnet name}/subnets/{subnet name} –tags tagName1=tagValue1 tagWithNoValue
    ```
 
    For example the following command will create a service in:
@@ -219,12 +213,12 @@ To complete all the database objects like table schemas, indexes and stored proc
 
     For example, the following command creates a project using these parameters:
 
-   * Location: West Central US
-   * Resource Group Name: PostgresDemo
-   * Service Name: PostgresCLI
-   * Project name: PGMigration
-   * Source platform: PostgreSQL
-   * Target platform: AzureDbForPostgreSql
+    * Location: West Central US
+    * Resource Group Name: PostgresDemo
+    * Service Name: PostgresCLI
+    * Project name: PGMigration
+    * Source platform: PostgreSQL
+    * Target platform: AzureDbForPostgreSql   
 
      ```azurecli
      az dms project create -l westcentralus -n PGMigration -g PostgresDemo --service-name PostgresCLI --source-platform PostgreSQL --target-platform AzureDbForPostgreSql
@@ -234,195 +228,226 @@ To complete all the database objects like table schemas, indexes and stored proc
 
     This step includes using the source IP, UserID and password, destination IP, UserID, password, and task type to establish connectivity.
 
-   * To see a full list of options, run the command:
+    * To see a full list of options, run the command:
 
-       ```azurecli
-       az dms project task create -h
-       ```
-
-       For both source and target connection, the input parameter is referring to a json file that has the object list.
-
-       The format of the connection JSON object for PostgreSQL connections.
-        
-       ```json
-       {
-                   "userName": "user name",    // if this is missing or null, you will be prompted
-                   "password": null,           // if this is missing or null (highly recommended) you will
-               be prompted
-                   "serverName": "server name",
-                   "databaseName": "database name", // if this is missing, it will default to the 'postgres'
-               server
-                   "port": 5432                // if this is missing, it will default to 5432
-               }
-       ```
-
-   * There's also a database option json file that lists the json objects. For PostgreSQL, the format of the database options JSON object is shown below:
-
-       ```json
-       [
-           {
-               "name": "source database",
-               "target_database_name": "target database",
-           },
-           ...n
-       ]
-       ```
-
-   * Create a json file with Notepad, copy the following commands and paste them into the file, and then save the file in C:\DMS\source.json.
-
-        ```json
-       {
-                   "userName": "postgres",    
-                   "password": null,           
-               be prompted
-                   "serverName": "13.51.14.222",
-                   "databaseName": "dvdrental", 
-                   "port": 5432                
-               }
+        ```azurecli
+        az dms project task create -h
         ```
 
-   * Create another file named target.json and save as C:\DMS\target.json. Include the following commands:
+        For both source and target connection, the input parameter is referring to a json file that has the object list.
 
-       ```json
-       {
-               "userName": " dms@builddemotarget",    
-               "password": null,           
-               "serverName": " builddemotarget.postgres.database.azure.com",
-               "databaseName": "inventory", 
-               "port": 5432                
-           }
-       ```
+        The format of the connection JSON object for PostgreSQL connections.
+        
+        ```json
+        {
+            // if this is missing or null, you will be prompted
+            "userName": "user name",
+            // if this is missing or null (highly recommended) you will  be prompted  
+            "password": null,
+            "serverName": "server name",
+            // if this is missing, it will default to the 'postgres' database
+            "databaseName": "database name",
+            // if this is missing, it will default to 5432 
+            "port": 5432                
+        }
+        ```
 
-   * Create a database options json file that lists inventory as the database to migrate:
+        There's also a database option json file that lists the json objects. For PostgreSQL, the format of the database options JSON object is shown below:
 
-       ```json
-       [
-           {
-               "name": "dvdrental",
-               "target_database_name": "dvdrental",
-           }
-       ]
-       ```
+        ```json
+        [
+            {
+                "name": "source database",
+                "target_database_name": "target database",
+                "selectedTables": [
+                    "schemaName1.tableName1",
+                    ...n
+                ]
+            },
+            ...n
+        ]
+        ```
 
-   * Run the following command, which takes in the source, destination, and the DB option json files.
+    * To create the source connection json, open Notepad and copy the following json and paste it into the file. Save the file in C:\DMS\source.json after modifying it according to your source server.
 
-       ```azurecli
-       az dms project task create -g PostgresDemo --project-name PGMigration --source-platform postgresql --target-platform azuredbforpostgresql --source-connection-json c:\DMS\source.json --database-options-json C:\DMS\option.json --service-name PostgresCLI --target-connection-json c:\DMS\target.json –task-type OnlineMigration -n runnowtask    
-       ```
+        ```json
+        {
+            "userName": "postgres",    
+            "password": null,
+            "serverName": "13.51.14.222",
+            "databaseName": "dvdrental", 
+            "port": 5432                
+        }
+        ```
 
-     At this point, you've successfully submitted a migration task.
+    * To create the target connection json, open Notepad and copy the following json and paste it into the file. Save the file in C:\DMS\target.json after modifying it according to your target server.
+    
+        ```json
+        {
+            "userName": " dms@builddemotarget",    
+            "password": null,           
+            "serverName": " builddemotarget.postgres.database.azure.com",
+            "databaseName": "inventory", 
+            "port": 5432                
+        }
+        ```
+
+    * Create a database options json file that lists inventory and mapping of the databases to migrate:
+
+        * Create a list of tables to be migrated, or you can use a SQL query to generate the list from the source database. A sample query to generate the list of tables is given below just as an example. If using this query, please remember to remove the last comma at the end of the last table name to make it a valid JSON array. 
+        
+            ```sql
+            SELECT
+                FORMAT('%s,', REPLACE(FORMAT('%I.%I', schemaname, tablename), '"', '\"')) AS SelectedTables
+            FROM 
+                pg_tables
+            WHERE 
+                schemaname NOT IN ('pg_catalog', 'information_schema');
+            ```
+
+        * Create the database options json file with one entry for each database with the source and target database names and the list of selected tables to be migrated. You can use the output of the SQL query above to populate the *"selectedTables"* array. **Please note that if the selected tables list is empty, then the service will include all the tables for migration which have matching schema and table names.**.
+        
+            ```json
+            [
+                {
+                    "name": "dvdrental",
+                    "target_database_name": "dvdrental",
+                    "selectedTables": [
+                        "schemaName1.tableName1",
+                        "schemaName1.tableName2",                    
+                        ...
+                        "schemaNameN.tableNameM"
+                    ]
+                },
+                ... n
+            ]
+            ```
+
+    * Run the following command, which takes in the source connection, target connection, and the database options json files.
+
+        ```azurecli
+        az dms project task create -g PostgresDemo --project-name PGMigration --source-connection-json c:\DMS\source.json --database-options-json C:\DMS\option.json --service-name PostgresCLI --target-connection-json c:\DMS\target.json --task-type OnlineMigration -n runnowtask    
+        ```
+
+    At this point, you've successfully submitted a migration task.
 
 7. To show progress of the task, run the following command:
 
-   ```azurecli
-   az dms project task show --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask
-   ```
+    * To see the general task status in short
+        ```azurecli
+        az dms project task show --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name runnowtask
+        ```
 
-   OR
+    * To see the detailed task status including the migration progress information
 
-    ```azurecli
-   az dms project task show --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask --expand output
-    ```
+        ```azurecli
+        az dms project task show --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name runnowtask --expand output
+        ```
 
-8. You can also query for the migrationState from the expand output:
+    * You can also use [JMESPATH](https://jmespath.org/) query format to only extract the migrationState from the expand output:
 
-    ```azurecli
-    az dms project task show --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask --expand output --query 'properties.output[].migrationState | [0]' "READY_TO_COMPLETE"
-    ```
+        ```azurecli
+        az dms project task show --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name runnowtask --expand output --query 'properties.output[].migrationState'
+        ```
 
-In the output file, there are several parameters that indicate progress of migration. For example, see the output file below:
+        In the output, there are several parameters that indicate progress of different migration steps. For example, see the output below:
 
-  ```output
-    "output": [                                 // Database Level
-          {
-            "appliedChanges": 0,         // Total incremental sync applied after full load
-            "cdcDeleteCounter": 0        // Total delete operation  applied after full load
-            "cdcInsertCounter": 0,       // Total insert operation applied after full load
-            "cdcUpdateCounter": 0,       // Total update operation applied after full load
-            "databaseName": "inventory",
-            "endedOn": null,
-            "fullLoadCompletedTables": 2,   //Number of tables completed full load
-            "fullLoadErroredTables": 0,     //Number of tables that contain migration error
-            "fullLoadLoadingTables": 0,     //Number of tables that are in loading status
-            "fullLoadQueuedTables": 0,      //Number of tables that are in queued status
-            "id": "db|inventory",
-            "incomingChanges": 0,           //Number of changes after full load
-            "initializationCompleted": true,
-            "latency": 0,
-            "migrationState": "READY_TO_COMPLETE",    //Status of migration task. READY_TO_COMPLETE means the database is ready for cutover
-            "resultType": "DatabaseLevelOutput",
-            "startedOn": "2018-07-05T23:36:02.27839+00:00"
-          },
-          {
-            "databaseCount": 1,
-            "endedOn": null,
-            "id": "dd27aa3a-ed71-4bff-ab34-77db4261101c",
-            "resultType": "MigrationLevelOutput",
-            "sourceServer": "138.91.123.10",
-            "sourceVersion": "PostgreSQL",
-            "startedOn": "2018-07-05T23:36:02.27839+00:00",
-            "state": "PENDING",
-            "targetServer": "builddemotarget.postgres.database.azure.com",
-            "targetVersion": "Azure Database for PostgreSQL"
-          },
-          {                                        // Table 1
-            "cdcDeleteCounter": 0,
-            "cdcInsertCounter": 0,
-            "cdcUpdateCounter": 0,
-            "dataErrorsCount": 0,
-            "databaseName": "inventory",
-            "fullLoadEndedOn": "2018-07-05T23:36:20.740701+00:00",    //Full load completed time
-            "fullLoadEstFinishTime": "1970-01-01T00:00:00+00:00",
-            "fullLoadStartedOn": "2018-07-05T23:36:15.864552+00:00",    //Full load started time
-            "fullLoadTotalRows": 10,                     //Number of rows loaded in full load
-            "fullLoadTotalVolumeBytes": 7056,            //Volume in Bytes in full load
-            "id": "or|inventory|public|actor",
-            "lastModifiedTime": "2018-07-05T23:36:16.880174+00:00",
-            "resultType": "TableLevelOutput",
-            "state": "COMPLETED",                       //State of migration for this table
-            "tableName": "public.catalog",              //Table name
-            "totalChangesApplied": 0                    //Total sync changes that applied after full load
-          },
-          {                                            //Table 2
-            "cdcDeleteCounter": 0,
-            "cdcInsertCounter": 50,
-            "cdcUpdateCounter": 0,
-            "dataErrorsCount": 0,
-            "databaseName": "inventory",
-            "fullLoadEndedOn": "2018-07-05T23:36:23.963138+00:00",
-            "fullLoadEstFinishTime": "1970-01-01T00:00:00+00:00",
-            "fullLoadStartedOn": "2018-07-05T23:36:19.302013+00:00",
-            "fullLoadTotalRows": 112,
-            "fullLoadTotalVolumeBytes": 46592,
-            "id": "or|inventory|public|address",
-            "lastModifiedTime": "2018-07-05T23:36:20.308646+00:00",
-            "resultType": "TableLevelOutput",
-            "state": "COMPLETED",
-            "tableName": "public.orders",
-            "totalChangesApplied": 0
-          }
-        ],                                      // DMS migration task state
-        "state": "Running",    //Migration task state – Running means it is still listening to any changes that might come in
-        "taskType": null
-      },
-      "resourceGroup": "PostgresDemo",
-      "type": "Microsoft.DataMigration/services/projects/tasks"
-  ```
+        ```json
+        {
+            "output": [
+                // Database Level
+                {
+                    "appliedChanges": 0, // Total incremental sync applied after full load
+                    "cdcDeleteCounter": 0, // Total delete operation  applied after full load
+                    "cdcInsertCounter": 0, // Total insert operation applied after full load
+                    "cdcUpdateCounter": 0, // Total update operation applied after full load
+                    "databaseName": "inventory",
+                    "endedOn": null,
+                    "fullLoadCompletedTables": 2, //Number of tables completed full load
+                    "fullLoadErroredTables": 0, //Number of tables that contain migration error
+                    "fullLoadLoadingTables": 0, //Number of tables that are in loading status
+                    "fullLoadQueuedTables": 0, //Number of tables that are in queued status
+                    "id": "db|inventory",
+                    "incomingChanges": 0, //Number of changes after full load
+                    "initializationCompleted": true,
+                    "latency": 0,
+                    //Status of migration task
+                    "migrationState": "READY_TO_COMPLETE", //READY_TO_COMPLETE => the database is ready for cutover
+                    "resultType": "DatabaseLevelOutput",
+                    "startedOn": "2018-07-05T23:36:02.27839+00:00"
+                }, {
+                    "databaseCount": 1,
+                    "endedOn": null,
+                    "id": "dd27aa3a-ed71-4bff-ab34-77db4261101c",
+                    "resultType": "MigrationLevelOutput",
+                    "sourceServer": "138.91.123.10",
+                    "sourceVersion": "PostgreSQL",
+                    "startedOn": "2018-07-05T23:36:02.27839+00:00",
+                    "state": "PENDING",
+                    "targetServer": "builddemotarget.postgres.database.azure.com",
+                    "targetVersion": "Azure Database for PostgreSQL"
+                },
+                // Table 1
+                {
+                    "cdcDeleteCounter": 0,
+                    "cdcInsertCounter": 0,
+                    "cdcUpdateCounter": 0,
+                    "dataErrorsCount": 0,
+                    "databaseName": "inventory",
+                    "fullLoadEndedOn": "2018-07-05T23:36:20.740701+00:00", //Full load completed time
+                    "fullLoadEstFinishTime": "1970-01-01T00:00:00+00:00",
+                    "fullLoadStartedOn": "2018-07-05T23:36:15.864552+00:00", //Full load started time
+                    "fullLoadTotalRows": 10, //Number of rows loaded in full load
+                    "fullLoadTotalVolumeBytes": 7056, //Volume in Bytes in full load
+                    "id": "or|inventory|public|actor",
+                    "lastModifiedTime": "2018-07-05T23:36:16.880174+00:00",
+                    "resultType": "TableLevelOutput",
+                    "state": "COMPLETED", //State of migration for this table
+                    "tableName": "public.catalog", //Table name
+                    "totalChangesApplied": 0 //Total sync changes that applied after full load
+                },
+                //Table 2
+                {
+                    "cdcDeleteCounter": 0,
+                    "cdcInsertCounter": 50,
+                    "cdcUpdateCounter": 0,
+                    "dataErrorsCount": 0,
+                    "databaseName": "inventory",
+                    "fullLoadEndedOn": "2018-07-05T23:36:23.963138+00:00",
+                    "fullLoadEstFinishTime": "1970-01-01T00:00:00+00:00",
+                    "fullLoadStartedOn": "2018-07-05T23:36:19.302013+00:00",
+                    "fullLoadTotalRows": 112,
+                    "fullLoadTotalVolumeBytes": 46592,
+                    "id": "or|inventory|public|address",
+                    "lastModifiedTime": "2018-07-05T23:36:20.308646+00:00",
+                    "resultType": "TableLevelOutput",
+                    "state": "COMPLETED",
+                    "tableName": "public.orders",
+                    "totalChangesApplied": 0
+                }
+            ],
+            // DMS migration task state
+            "state": "Running", //Running => service is still listening to any changes that might come in
+            "taskType": null
+        }
+        ```
 
 ## Cutover migration task
 
 The database is ready for cutover when full load is complete. Depending on how busy the source server is with new transactions is coming in, the DMS task might be still applying changes after the full load is complete.
 
-To ensure all data is caught up, validate row counts between the source and target databases. For example, you can use the following command:
+To ensure all data is caught up, validate row counts between the source and target databases. For example, you can validate the following details from the status output:
 
 ```
-"migrationState": "READY_TO_COMPLETE", //Status of migration task. READY_TO_COMPLETE means database is ready for cutover
- "incomingChanges": 0, //continue to check for a period of 5-10 minutes to make sure no new incoming changes that need to be applied to the target server
-   "fullLoadTotalRows": 10, //full load for table 1
-    "cdcDeleteCounter": 0, //delete, insert and update counter on incremental sync after full load
-    "cdcInsertCounter": 50,
-    "cdcUpdateCounter": 0,
-     "fullLoadTotalRows": 112, //full load for table 2
+Database Level
+"migrationState": "READY_TO_COMPLETE" => Status of migration task. READY_TO_COMPLETE means database is ready for cutover
+"incomingChanges": 0 => Check for a period of 5-10 minutes to ensure no new incoming changes need to be applied to the target server
+
+Table Level (for each table)
+"fullLoadTotalRows": 10    => The row count matches the initial row count of the table
+"cdcDeleteCounter": 0      => Number of deletes after the full load
+"cdcInsertCounter": 50     => Number of inserts after the full load
+"cdcUpdateCounter": 0      => Number of updates after the full load
 ```
 
 1. Perform the cutover database migration task by using the following command:
@@ -431,16 +456,16 @@ To ensure all data is caught up, validate row counts between the source and targ
     az dms project task cutover -h
     ```
 
-    For example:
+    For example, the following command will initiate the cut-over for the 'Inventory' database:
 
     ```azurecli
-    az dms project task cutover --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask  --object-name Inventory
+    az dms project task cutover --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name runnowtask  --object-name Inventory
     ```
 
 2. To monitor the cutover progress, run the following command:
 
     ```azurecli
-    az dms project task show --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask
+    az dms project task show --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name runnowtask
     ```
 3. When the database migration status shows **Completed**, [recreate sequences](https://wiki.postgresql.org/wiki/Fixing_Sequences) (if applicable), and connect your applications to the new target instance of Azure Database for PostgreSQL.
 
@@ -456,12 +481,12 @@ If you need to cancel or delete any DMS task, project, or service, perform the c
 1. To cancel a running task, use the following command:
 
     ```azurecli
-    az dms project task cancel --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask
+    az dms project task cancel --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name runnowtask
      ```
 
 2. To delete a running task, use the following command:
     ```azurecli
-    az dms project task delete --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask
+    az dms project task delete --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name runnowtask
     ```
 
 3. To cancel a running project, use the following command:

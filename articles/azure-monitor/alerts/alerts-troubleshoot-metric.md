@@ -4,7 +4,7 @@ description: Common issues with Azure Monitor metric alerts and possible solutio
 author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
-ms.date: 04/12/2021
+ms.date: 06/03/2021
 ---
 # Troubleshooting problems in Azure Monitor metric alerts 
 
@@ -238,6 +238,7 @@ Consider the following restrictions for metric alert rule names:
 - Metric alert rule names must be unique within a resource group
 - Metric alert rule names can’t contain the following characters: * # & + : < > ? @ % { } \ / 
 - Metric alert rule names can’t end with a space or a period
+- The combined resource group name and alert rule name can’t exceed 252 characters
 
 > [!NOTE] 
 > If the alert rule name contains characters that aren't alphabetic or numeric (for example: spaces, punctuation marks or symbols), these characters may be URL-encoded when retrieved by certain clients.

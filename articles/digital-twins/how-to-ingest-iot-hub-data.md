@@ -26,8 +26,10 @@ This how-to document walks through the process for writing a function that can i
 ## Prerequisites
 
 Before continuing with this example, you'll need to set up the following resources as prerequisites:
-* **An IoT hub**. For instructions, see the *Create an IoT Hub* section of [this IoT Hub quickstart](../iot-hub/quickstart-send-telemetry-cli.md).
+* **An IoT hub**. For instructions, see the *Create an IoT Hub* section of this [IoT Hub quickstart](../iot-hub/quickstart-send-telemetry-cli.md).
 * **An Azure Digital Twins instance** that will receive your device telemetry. For instructions, see [How-to: Set up an Azure Digital Twins instance and authentication](./how-to-set-up-instance-portal.md).
+
+This article also uses **Visual Studio**. You can download the latest version from [Visual Studio Downloads](https://visualstudio.microsoft.com/downloads/).
 
 ### Example telemetry scenario
 
@@ -53,16 +55,8 @@ To create a thermostat-type twin, you'll first need to upload the thermostat [mo
 You'll then need to **create one twin using this model**. Use the following command to create a thermostat twin named thermostat67, and set 0.0 as an initial temperature value.
 
 ```azurecli-interactive
-az dt twin create --dtmi "dtmi:contosocom:DigitalTwins:Thermostat;1" --twin-id thermostat67 --properties '{"Temperature": 0.0,}' --dt-name <Digital-Twins-instance-name>
+az dt twin create  --dt-name <instance-name> --dtmi "dtmi:contosocom:DigitalTwins:Thermostat;1" --twin-id thermostat67 --properties '{"Temperature": 0.0,}'
 ```
-
-> [!Note]
-> If you are using Cloud Shell in the PowerShell environment, you may need to escape the quotation mark characters on the inline JSON fields for their values to be parsed correctly. Here is the command to create the twin with this modification:
->
-> Create twin:
-> ```azurecli-interactive
-> az dt twin create --dtmi "dtmi:contosocom:DigitalTwins:Thermostat;1" --twin-id thermostat67 --properties '{\"Temperature\": 0.0,}' --dt-name <Digital-Twins-instance-name>
-> ```
 
 When the twin is created successfully, the CLI output from the command should look something like this:
 ```json
@@ -98,7 +92,7 @@ Add the following packages to your project:
 * [Azure.Identity](https://www.nuget.org/packages/Azure.Identity/)
 * [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid/)
 
-Rename the *Function1.cs* sample function that Visual Studio has generated with the new project to *IoTHubtoTwins.cs*. Replace the code in the file with the following code:
+Rename the *Function1.cs* sample function that Visual Studio has generated to *IoTHubtoTwins.cs*. Replace the code in the file with the following code:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/IoTHubToTwins.cs":::
 
@@ -147,7 +141,7 @@ Select the _Create_ button to create the event subscription.
 
 ## Send simulated IoT data
 
-To test your new ingress function, use the device simulator from [Tutorial: Connect an end-to-end solution](./tutorial-end-to-end.md). That tutorial is driven by [this Azure Digital Twins end-to-end sample project written in C#](/samples/azure-samples/digital-twins-samples/digital-twins-samples). You'll be using the **DeviceSimulator** project in that repository.
+To test your new ingress function, use the device simulator from [Tutorial: Connect an end-to-end solution](./tutorial-end-to-end.md). That tutorial is driven by this [Azure Digital Twins end-to-end sample project written in C#](/samples/azure-samples/digital-twins-samples/digital-twins-samples). You'll be using the **DeviceSimulator** project in that repository.
 
 In the end-to-end tutorial, complete the following steps:
 1. [Register the simulated device with IoT Hub](./tutorial-end-to-end.md#register-the-simulated-device-with-iot-hub)
@@ -168,18 +162,14 @@ Your output should contain a temperature value like this:
   "result": [
     {
       "$dtId": "thermostat67",
-      "$etag": "W/\"0000000-1e83-4f7f-b448-524371f64691\"",
+      "$etag": "W/\"dbf2fea8-d3f7-42d0-8037-83730dc2afc5\"",
       "$metadata": {
         "$model": "dtmi:contosocom:DigitalTwins:Thermostat;1",
         "Temperature": {
-          "ackCode": 200,
-          "ackDescription": "Auto-Sync",
-          "ackVersion": 1,
-          "desiredValue": 69.75806974934324,
-          "desiredVersion": 1
+          "lastUpdateTime": "2021-06-03T17:05:52.0062638Z"
         }
       },
-      "Temperature": 69.75806974934324
+      "Temperature": 70.20518558807913
     }
   ]
 }

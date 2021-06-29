@@ -4,8 +4,8 @@ description: Use this tutorial to create a new application using the Express mod
 ms.topic: article
 ms.service: cloud-services
 ms.date: 10/14/2020
-ms.author: tagore
-author: tanmaygore
+author: hirenshah1
+ms.author: hirshah
 ms.reviewer: mimckitt
 ms.custom: 
 ---

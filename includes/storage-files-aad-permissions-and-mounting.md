@@ -7,7 +7,7 @@
  ms.topic: include
  ms.date: 08/26/2020
  ms.author: rogara
- ms.custom: include file, devx-track-azurecli
+ ms.custom: include file, devx-track-azurecli, devx-track-azurepowershell
 ---
 
 ## Assign access permissions to an identity
