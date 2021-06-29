@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: bastion
 ms.topic: overview
-ms.date: 06/22/2021
+ms.date: 06/29/2021
 ms.author: cherylmc
 
 ---
