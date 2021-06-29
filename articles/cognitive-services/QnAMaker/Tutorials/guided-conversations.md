@@ -42,7 +42,7 @@ Using the editor, we add a new QnA pair with a follow-up prompt by clicking on *
 A new row in **Editorial** is created where we enter the QnA pair as shown below:
 
 > [!div class="mx-imgBorder"]
-> [ ![Screenshot of UI with "add a follow-up prompt" highlighted in a red box]( ../media/guided-conversations/follow-up.png) ]( ../media/guided-conversations/follow-up.png.png#lightbox)
+> [ ![Screenshot of UI with "add a follow-up prompt" highlighted in a red box]( ../media/guided-conversations/follow-up.png) ]( ../media/guided-conversations/follow-up.png#lightbox)
 
 We then add a follow-up prompt to the newly created QnA pair by choosing **Add follow-up prompt**. Clicking on which, we fill the details for the prompt as shown:
 
@@ -74,4 +74,4 @@ For a user query **Issues with Surface Pen**, the system returns an answer and p
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Enrich your knowlege with Active Learning](enrich-knowledge-base.md)
+> [Enrich your knowlege base with active learning](active-learning.md)

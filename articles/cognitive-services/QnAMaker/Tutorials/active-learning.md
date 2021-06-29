@@ -16,10 +16,10 @@ Over time, the Microsoft team observed that customers are asking questions, whic
 These variations when added as alternate questions to the relevant QnA pair, helps optimize the knowledge base to answer real world user queries. The customer can manually add alternate questions to QnA pairs through the editor. At the same time, they can also use the Active Learning feature to generate active learning suggestions based on user queries. The active learning feature, however, requires that the knowledge base receives regular user traffic to generate suggestions.
 
 ## Enable Active Learning
-Active Learning is turned on by default for the Custom Question Answering feature. However, you need to manually update the Active Learning setting for QnA Maker GA. You can find more details here: [Turn on Active Learning](../how-to/use-active-learning#turn-on-active-learning-for-alternate-questions).
+Active Learning is turned on by default for the Custom Question Answering feature. However, you need to manually update the Active Learning setting for QnA Maker GA. You can find more details here: [Turn on Active Learning](../how-to/use-active-learning#.mdturn-on-active-learning-for-alternate-questions).
 
 To try out Active Learning suggestions, you can import the following file to the knowledge base: [SampleActiveLearning.tsv](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/knowledge-bases/SampleActiveLearning.tsv). 
-For more details on importing knowledge base, refer [Import Knowledge Base](migrate-knowledge-base.md#migrate-a-knowledge-base-from-qna-maker).
+For more details on importing knowledge base, refer [Import Knowledge Base](migrate-knowledge-base.md).
 
 ## View and add/reject Active Learning Suggestions
 Once the active learning suggestions are available, they can be viewed from **View Options** > **Show active learning suggestions**.
@@ -41,7 +41,7 @@ We can choose to filter only those QnA pairs that have alternate questions as su
 We can now either accept these suggestions or reject them using the checkmark or cross-mark. This can be either done individually navigating to each QnA pair or using the **Accept / Reject** option at the top.
 
 > [!div class="mx-imgBorder"]
-> [ ![Screenshot with view options and show active learning suggestions outlined in red boxes]( ../media/active-learning/accept-reject.png) ]( ../media/active-learning/accept-reject.png#lightbox)
+> [ ![Screenshot with option to accept or reject highlighted in red]( ../media/active-learning/accept-reject.png) ]( ../media/active-learning/accept-reject.png#lightbox)
 
 The knowledge base does not change unless we choose to add or edit the suggestions as suggested by Active Learning. Finally, click on Save and train to save the changes.
 
@@ -54,12 +54,12 @@ While active learning automatically suggests alternate questions based on the us
 Select the QnA pair where alternate question is to be added and select **Add alternative phrasing**
 
 > [!div class="mx-imgBorder"]
-> [ ![Screenshot with add alternative phrasing highlighted in red]( ../media/active-learning/add-alternate-phrasing.png) ]( ../media/active-learning/add-alternate-phrasing.png#lightbox)
+> [ ![Screenshot with add alternative phrasing highlighted in red]( ../media/active-learning/add-alternative-phrasing.png) ]( ../media/active-learning/add-alternative-phrasing.png#lightbox)
 
 Alternate questions added to the QnA pair is shown as
 
 > [!div class="mx-imgBorder"]
-> [ ![Screenshot with view options and show active learning suggestions outlined in red boxes]( ../media/active-learning/draw-with-pen.png) ]( ../media/active-learning/draw-with-pen.png#lightbox)
+> [ ![Screenshot with drawing with pen highlighted in red]( ../media/active-learning/draw-with-pen.png) ]( ../media/active-learning/draw-with-pen.png#lightbox)
 
 By adding alternate questions along with Active Learning, we further enrich the knowledge base with variations of a question that helps to provide the same response to a similar user query.
 

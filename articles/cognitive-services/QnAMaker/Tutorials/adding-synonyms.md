@@ -57,17 +57,17 @@ Let’s us add the following words and their alterations to improve the results:
 For the question and answer pair “Fix problems with Surface Pen” shown below, we compare the response for a query made using its synonym “trouble shoot”.
 
 > [!div class="mx-imgBorder"]
-> [ ![Screenshot with fix problems with Surface Pen highlighted in red]( ../media/adding-synonmyns/fix-problems.png) ]( ../media/adding-synonmyns/fix-problems.png#lightbox)
+> [ ![Screenshot with fix problems with Surface Pen highlighted in red]( ../media/adding-synonyms/fix-problems.png) ]( ../media/adding-synonyms/fix-problems.png#lightbox)
 
 ## Response before addition of synonym
 
 > [!div class="mx-imgBorder"]
-> [ ![Screenshot with confidence score of 71.82 highlighted in red]( ../media/adding-synonmyns/confidence-score.png) ]( ../media/adding-synonmyns/confidence-score.png#lightbox)
+> [ ![Screenshot with confidence score of 71.82 highlighted in red]( ../media/adding-synonyms/confidence-score.png) ]( ../media/adding-synonyms/confidence-score.png#lightbox)
 
 ## Response after addition of synonym 
 
 > [!div class="mx-imgBorder"]
-> [ ![Screenshot with a confidence score of 97 highlighted in red]( ../media/adding-synonmyns/increase-score.png) ]( ../media/adding-synonmyns/increase-score.png#lightbox)
+> [ ![Screenshot with a confidence score of 97 highlighted in red]( ../media/adding-synonyms/increase-score.png) ]( ../media/adding-synonyms/increase-score.png#lightbox)
 
 As you can see, when `trouble shoot` was not added as a synonym, we got a low confidence response to the query “How to troubleshoot your surface pen”. However, after we add `trouble shoot` as a synonym to “fix problems”, we received the correct response to the query with a higher confidence score. Once, these word alterations were added, the relevance of results improved thereby improving user experience. 
 
