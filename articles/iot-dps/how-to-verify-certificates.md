@@ -24,10 +24,10 @@ To add an auto-verified certificate, follow these steps:
 2. Click **Add** to add a new certificate.
 3. Enter a friendly display name for your certificate. Browse to the .cer or .pem file that represents the public part of your X.509 certificate. Click **Upload**.
 4. Check the box next to _Set certificate status to verified_ on upload.
-:::image type="content" source="../iothub/media/tutorial-x509-prove-possession/skip-pop.png" alt-text="Screenshot showing where the checkbox to skip proof of possession is":::
+ ![Upload certificate_with_verified](./media/how-to-verify-certificates/add-certificate-with-verified.png)
 5. Click **Save**.
 6. Your certificate is show in the certificate tab with a status Verified.
-:::image type="content" source="media/how-to-verify-certificates/certificate-status.png" alt-text="Screenshot showing verified certificate":::
+  ![Certificate_Status](./media/how-to-verify-certificates/certificate-status.png)
 
 ## Manual verification of intermediate or root CA
 
