@@ -131,6 +131,7 @@ Use `SendMessage` to send a message to a thread.
 - Use `content` to provide the content for the message, it is required.
 - Use `type` for the content type of the message such as 'Text' or 'Html'. If not specified, 'Text' will be set.
 - Use `senderDisplayName` to specify the display name of the sender. If not specified, empty string will be set.
+- [PLACEHOLDER] Use X to add metadata to the message.
 
 ```csharp
 SendChatMessageResult sendChatMessageResult = await chatThreadClient.SendMessageAsync(content:"hello world", type: ChatMessageType.Text);
