@@ -23,12 +23,12 @@ This article provides guidance on how to troubleshoot and remediate common error
 
 | Error Code                 | HTTP Error Code | Error Message                                  | Comment                                                      |
 | -------------------------- | --------------- | ---------------------------------------------- | ------------------------------------------------------------ |
-| `SubscriptionNotInHeaders` | 400             | apim-subscription-id does not found in headers | Please add your APIM subscription ID in the header. Example header: `{"apim-subscription-id": <Your Subscription ID>}` |
-| `FileNotExist`             | 400             | File <source> does not exist.                  | Please check the validity of your blob SAS. Make sure that it has not expired. |
-| `InvalidBlobURL`           | 400             |                                                | Your blob SAS is not a valid SAS.                            |
+| `SubscriptionNotInHeaders` | 400             | apim-subscription-id is not found in headers | Please add your APIM subscription ID in the header. Example header: `{"apim-subscription-id": <Your Subscription ID>}` |
+| `FileNotExist`             | 400             | File <source> does not exist.                  | Please check the validity of your blob shared access signature (SAS). Make sure that it has not expired. |
+| `InvalidBlobURL`           | 400             |                                                | Your blob shared access signature (SAS) is not a valid SAS.                            |
 | `StorageWriteError`        | 403             |                                                | This error is possibly caused by permission issues. Our service is not allowed to write the data to the blob encrypted by a Customer Managed Key (CMK). Either remove CMK or grant access to our service again. Please refer to [this page](/azure/cognitive-services/encryption/cognitive-services-encryption-keys-portal) for more details. |
 | `StorageReadError`         | 403             |                                                | Same as `StorageWriteError`.                                 |
-| `UnexpectedError`          | 500             |                                                | Please contact us with detailed error information.           |
+| `UnexpectedError`          | 500             |                                                | Please contact us with detailed error information. You could take the support options from [this document](/azure/cognitive-services/cognitive-services-support-options?context=/azure/cognitive-services/anomaly-detector/context/context) or email us at [AnomalyDetector@microsoft.com](mailto:AnomalyDetector@microsoft.com)           |
 
 #### Train a Multivariate Anomaly Detection Model
 
@@ -37,7 +37,7 @@ This article provides guidance on how to troubleshoot and remediate common error
 | `TooManyModels`          | 400             | This subscription has reached the maximum number of models.  | Each APIM subscription ID is allowed to have 300 active models. Please delete unused models before training a new model |
 | `TooManyRunningModels`   | 400             | This subscription has reached the maximum number of running models. | Each APIM subscription ID is allowed to train 5 models concurrently. Please train a new model after previous models have completed their training process. |
 | `InvalidJsonFormat`      | 400             | Invalid json format.                                         | Training request is not a valid JSON.                        |
-| `InvalidAlignMode`       | 400             | The `'alignMode'` field must be one of the following: `'Inner'` and `'Outer'` . | Please check the value of `'alignMode'` which should be either `'Inner'` or `'Outer'` (case sensitive). |
+| `InvalidAlignMode`       | 400             | The `'alignMode'` field must be one of the following: `'Inner'` or `'Outer'` . | Please check the value of `'alignMode'` which should be either `'Inner'` or `'Outer'` (case sensitive). |
 | `InvalidFillNAMethod`    | 400             | The `'fillNAMethod'` field must be one of the following:  `'Previous'`, `'Subsequent'`, `'Linear'`, `'Zero'`, `'Fixed'`, `'NotFill'` and it cannot be `'NotFill'` when `'alignMode'` is `'Outer'`. | Please check the value of `'fillNAMethod'`. You may refer to [this section](/azure/cognitive-services/anomaly-detector/concepts/best-practices-multivariate#fill-not-available-na) for more details. |
 | `RequiredPaddingValue`   | 400             | The `'paddingValue'` field is required in the request when `'fillNAMethod'` is `'Fixed'`. | You need to provide a valid padding value when `'fillNAMethod'` is `'Fixed'`. You may refer to [this section](/azure/cognitive-services/anomaly-detector/concepts/best-practices-multivariate#fill-not-available-na) for more details. |
 | `RequiredSource`         | 400             | The `'source'` field is required in the request.             | Your training request has not specified a value for the `'source'` field. Example: `{"source": <Your Blob SAS>}`. |
@@ -74,8 +74,8 @@ The following error codes do not have associated HTTP Error codes.
 | ---------------------  | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | `NoVariablesFound`     | No variables found. Please check that your files are organized as per instruction. | No csv files could be found from the data source. This is typically caused by wrong organization of files. Please refer to the sample data for the desired structure. |
 | `DuplicatedVariables`  | There are multiple variables with the same name.             | There are duplicated variable names.                         |
-| `FileNotExist`         | File <filename> does not exist.                              | This error is usually happened during inference. The variable has appeared in the training data but is missing in the inference data. |
-| `RedundantFile`        | File <filename> is redundant.                                | This error is usually happened during inference. The variable was not in the training data but appeared in the inference data. |
+| `FileNotExist`         | File <filename> does not exist.                              | This error usually happens during inference. The variable has appeared in the training data but is missing in the inference data. |
+| `RedundantFile`        | File <filename> is redundant.                                | This error usually happens during inference. The variable was not in the training data but appeared in the inference data. |
 | `FileSizeTooLarge`     | The size of file <filename> is too large.                    | The size of the single csv file <filename> exceeds the limit. Please train with less data. |
 | `ReadingFileError`     | Errors occurred when reading <filename>. <error messages>    | Failed to read the file <filename>. You may refer to <error messages> for more details or verify with `pd.read_csv(filename)` in a local environment. |
 | `FileColumnsNotExist`  | Columns timestamp or value in file <filename> do not exist.  | Each csv file must have two columns with names **timestamp** and **value** (case sensitive). |
@@ -83,7 +83,7 @@ The following error codes do not have associated HTTP Error codes.
 | `MergeDataFailed`      | Failed to merge data. Please check data format.              | Data merge failed. This is possibly due to wrong data format, organization of files, etc. Please refer to the sample data for the current file structure. |
 | `ColumnNotFound`       | Column <column> cannot be found in the merged data.          | A column is missing after merge. Please verify the data.     |
 | `NumColumnsMismatch`   | Number of columns of merged data does not match the number of variables. | Please verify the data.                                      |
-| `TooManyData`          | Too many data. Maximum number is 1000000 per variable.       | Please reduce the size of input data.                        |
+| `TooManyData`          | Too many data points. Maximum number is 1000000 per variable.       | Please reduce the size of input data.                        |
 | `NoData`               | There is no effective data                                   | There is no data to train/inference after processing. Please check the start time and end time. |
 | `DataExceedsLimit`     | The length of data whose timestamp is between `startTime` and `endTime` exceeds limit(<limit>). | The size of data after processing exceeds the limit. (Currently no limit on processed data.) |
 | `NotEnoughInput`       | Not enough data. The length of data is <data length>, but the minimum length should be larger than sliding window which is <sliding window size>. | The minimum number of data points for inference is the size of sliding window. Try to provide more data for inference. |
