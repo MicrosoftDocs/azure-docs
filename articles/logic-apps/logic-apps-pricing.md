@@ -10,43 +10,44 @@ ms.date: 06/29/2021
 
 # Pricing and billing models for Azure Logic Apps
 
-[Azure Logic Apps](../logic-apps/logic-apps-overview.md) helps you create and run automated integration workflows that can scale in the cloud. This article describes how billing and pricing models work for Azure Logic Apps and related resources. For specific pricing rates, see [Logic Apps Pricing](https://azure.microsoft.com/pricing/details/logic-apps). To learn how you can plan, manage, and monitor costs, see [Plan and manage costs for Azure Logic Apps](plan-manage-costs.md).
+[Azure Logic Apps](../logic-apps/logic-apps-overview.md) helps you create and run automated integration workflows that can scale in the cloud. This article describes how billing and pricing models work for Azure Logic Apps and related resources. For information such as specific pricing rates or cost planning, review the following content:
+
+* [Specific Azure Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps)
+* [Plan and manage costs for Azure Logic Apps](plan-manage-costs.md)
 
 <a name="consumption-pricing"></a>
 
-## Consumption pricing (multi-tenant)
+## Consumption model (multi-tenant)
 
-In multi-tenant Azure Logic Apps, logic app workflows follow the "pay-for-use" **Consumption** pricing and billing model. For example, you create such logic apps when you choose the **Logic App (Consumption)** resource type, use the **Azure Logic Apps (Consumption)** extension in Visual Studio Code, or when you create [automation tasks](create-automation-tasks-azure-resources.md).
+In multi-tenant Azure Logic Apps, a logic app and its workflow follow the [**Consumption** plan](https://azure.microsoft.com/pricing/details/logic-apps) for pricing and billing. You create such logic apps in various ways, for example, when you choose the **Logic App (Consumption)** resource type, use the **Azure Logic Apps (Consumption)** extension in Visual Studio Code, or when you create [automation tasks](create-automation-tasks-azure-resources.md).
 
-The Consumption model meters the following items if included in a logic app workflow:
+The following table describes how the Consumption model works with components when used with a multi-tenant based logic app and workflow:
 
-* Operation executions, which are iether Built-in operation executions that exceed the [monthly included **Actions* amount](https://azure.microsoft.com/pricing/details/logic-apps/)
-* Managed connector operations, which are billed at either the [Standard or Enterprise connector rates](https://azure.microsoft.com/pricing/details/logic-apps/)
-* Data retention and storage, based 
+| Component | Metering and billing |
+| ----------|----------------------|
+| Trigger and action operations | Metering and billing apply at the operation *execution* level, whether or not the workflow runs, finishes, or is even instantiated. For example, suppose your workflow starts with a polling trigger that regularly makes outbound calls to an endpoint. The outbound call is metered and billed as an execution, whether or not the trigger fires or is skipped, which affects whether a workflow instance is created. <p><p>Based on the operation type, metering and billing follow different [Consumption pricing](https://azure.microsoft.com/pricing/details/logic-apps). For more detailed information, review [Consumption model for trigger and action operations](#consumption-operations). |
+| Storage operations | Metering and billing apply to any storage operations. <p><p>For example, storage operations run when saving inputs and outputs from your workflow's run history. Storage usage and data retention are managed at the logic app level, not the workflow level. Metering and billing follow [Consumption data retention pricing](https://azure.microsoft.com/pricing/details/logic-apps/), which appears under the execution pricing table. For more detailed information, review [Storage operations](#storage-operations). |
+| Integration accounts | Metering and billing apply based on the integration account type and follow [Integration Account pricing](https://azure.microsoft.com/pricing/details/logic-apps/) unless your logic apps are hosted in an [integration service environment (ISE)](#integration-service-environment-pricing). For more detailed information, review [Integration accounts](#integration-accounts). |
+|||
 
-If your workflows also use Azure managed connector operations or integration accounts, separate billing and pricing apply to these components:
+<a name="consumption-operations"></a>
 
-* [Standard billing for managed connector operations](#standard-managed-connector-billing)
+### Consumption model for trigger and action operations
 
-  > [!NOTE]
-  > [*Built-in*](../connectors/built-in.md) triggers and actions are operations that run natively in Azure Logic Apps and are 
-  > labeled as **Built-in** in the workflow designer. The Standard plan *includes built-in operation executions at no extra charge*. 
-  > Some managed connector operations are *also* available as built-in versions, which don't incur charges However, the managed 
-  > connector versions still incur charges.
+The following table describes how the Consumption model works with trigger and action operations when used in a multi-tenant based logic app and its workflow:
 
-* [Standard billing for other related resources](#standard-related-resources-billing)
+| Operation type | Description | Metering and billing |
+|----------------|-------------|----------------------|
+| [*Built-in*](../connectors/built-in.md) | These operations run natively in Azure Logic Apps and are labeled as **Built-in** in the workflow designer. | Your workflow can run a specific number of built-in operation executions at no extra charge. Beyond this number, [additional built-in operation executions are billed at the **Actions** price](https://azure.microsoft.com/pricing/details/logic-apps/). <p><p>**Note**: Some managed connector operations are *also* available as built-in versions, which don't incur charges However, the managed connector versions still incur charges. |
+| [*Managed connector*](../connectors/managed.md) | These operations executions are [billed at either the Standard or Enterprise connector price](https://azure.microsoft.com/pricing/details/logic-apps/)
+||||
 
-For more information about logic apps that are single-tenant based versus multi-tenant or integration service environment, review [Single-tenant versus multi-tenant and integration service environment](single-tenant-overview-compare.md).
-
-* Integration accounts
-
-For more information about creating multi-tenant based logic apps, review [Single-tenant versus multi-tenant and integration service environment](single-tenant-overview-compare.md).
-
-<a name="consumption-built-in-managed-connector-billing"></a>
-
-### Consumption billing for built-in operations and managed connectors
-
-For triggers and actions in a logic app workflow, metering and billing are based on *executions* and apply whether your workflow runs successfully or is even instantiated. For example, suppose your workflow starts with a polling trigger that regularly makes outbound calls to an endpoint. The outbound call is metered and billed as an execution, regardless whether the trigger fires or is skipped, which affects whether a workflow instance is created.
+| [Built-in](../connectors/built-in.md) triggers and actions | These operations run natively as part of the Azure Logic Apps runtime and are labeled as **Built-in** in the workflow designer. For example, the HTTP trigger and Request trigger are built-in triggers, while the HTTP action and Response action are built-in actions. Data operations, batch operations, variable operations, and [workflow control actions](../connectors/built-in.md), such as loops, conditions, switch, parallel branches, and so on are also built-in actions. | The Consumption plan *includes a monthly number of built-in executions at no extra charge*. Beyond this number, executions are metered using the [**Actions** price](https://azure.microsoft.com/pricing/details/logic-apps/). <p><p>**Note**: Some managed connectors are *also* available as built-in operations. The built-in versions follow the same pricing as other built-in operations, while the managed connector versions follow their respective managed connector pricing. |
+| [Standard connector](../connectors/managed.md) triggers and actions <p><p>[Custom connector](../connectors/apis-list.md#custom-apis-and-connectors) triggers and actions | These operations are deployed, hosted, and run separately in Azure and are labeled as **Standard** in the workflow designer. | Executions are metered using the [**Standard** connector price](https://azure.microsoft.com/pricing/details/logic-apps/). |
+| [Enterprise connector](../connectors/managed.md) triggers and actions | These operations are deployed, hosted, and run separately in Azure and are labeled as **Enterprise** in the workflow designer. | Executions are metered using the [**Enterprise** connector price](https://azure.microsoft.com/pricing/details/logic-apps/). <p><p>**Note**: If an Enterprise connector is in preview, executions are metered using the [**Standard** connector price](https://azure.microsoft.com/pricing/details/logic-apps/). |
+| Actions inside [loops](logic-apps-control-flow-loops.md) | Loops such as **For each** and **Until** include actions that run during each loop cycle. | Each action execution inside the loop is metered every time that the loop cycle runs. If an action processes any items in a collection, such as a list or array, the number of collection items is also used in calculating the cost. <p><p>For example, suppose that you have a **For each** loop that includes actions that process a list. Azure Logic Apps meters each action that runs in that loop by multiplying the number of list items with the number of actions in the loop, and adds the action that starts the loop. So, the calculation for a 10-item list is (10 * 1) + 1, which results in 11 action executions. |
+| Retry attempts | To handle the most basic exceptions and errors, you can set up a [retry policy](logic-apps-exception-handling.md#retry-policies) on triggers and actions where supported. These retries along with the original request are charged at rates based on whether the trigger or action has built-in, Standard, or Enterprise type. For example, an action that executes with 2 retries is charged for 3 action executions. |
+||||
 
 The following list describes billing model differences between **Consumption** in the multi-tenant environment and **Standard** in the single-tenant environment:
 
@@ -57,30 +58,6 @@ The following list describes billing model differences between **Consumption** i
   In multi-tenant, *only the single execution is metered and charged*. In single-tenant, *each call is metered and charged*. This behavior means that such an execution might cost you more when running in single-tenant versus multi-tenant.
 
   For example, suppose you have an operation that uses chunking or pagination. During one execution, the operation has to make 10 calls before getting all the necessary data. In multi-tenant, the operation is metered and charged as a single execution. In single-tenant, the same execution is metered and charged for each call, so this execution can cost 10 times more.
-
-The following table provides more information about operation types and their billing models:
-
-| Items | Description | Billing model |
-|-------|-------------|---------------|
-| [Built-in](../connectors/built-in.md) triggers and actions | These operations run natively as part of the Azure Logic Apps runtime and are labeled as **Built-in** in the workflow designer. For example, the HTTP trigger and Request trigger are built-in triggers, while the HTTP action and Response action are built-in actions. Data operations, batch operations, variable operations, and [workflow control actions](../connectors/built-in.md), such as loops, conditions, switch, parallel branches, and so on are also built-in actions. | The Consumption plan *includes a monthly number of built-in executions at no extra charge*. Beyond this number, executions are metered using the [**Actions** price](https://azure.microsoft.com/pricing/details/logic-apps/). <p><p>**Note**: Some managed connectors are *also* available as built-in operations. The built-in versions follow the same pricing as other built-in operations, while the managed connector versions follow their respective managed connector pricing. |
-| [Standard connector](../connectors/managed.md) triggers and actions <p><p>[Custom connector](../connectors/apis-list.md#custom-apis-and-connectors) triggers and actions | These operations are deployed, hosted, and run separately in Azure and are labeled as **Standard** in the workflow designer. | Executions are metered using the [**Standard** connector price](https://azure.microsoft.com/pricing/details/logic-apps/). |
-| [Enterprise connector](../connectors/managed.md) triggers and actions | These operations are deployed, hosted, and run separately in Azure and are labeled as **Enterprise** in the workflow designer. | Executions are metered using the [**Enterprise** connector price](https://azure.microsoft.com/pricing/details/logic-apps/). <p><p>**Note**: If an Enterprise connector is in preview, executions are metered using the [**Standard** connector price](https://azure.microsoft.com/pricing/details/logic-apps/). |
-| Actions inside [loops](logic-apps-control-flow-loops.md) | Loops such as **For each** and **Until** include actions that run during each loop cycle. | Each action execution inside the loop is metered every time that the loop cycle runs. If an action processes any items in a collection, such as a list or array, the number of collection items is also used in calculating the cost. <p><p>For example, suppose that you have a **For each** loop that includes actions that process a list. Azure Logic Apps meters each action that runs in that loop by multiplying the number of list items with the number of actions in the loop, and adds the action that starts the loop. So, the calculation for a 10-item list is (10 * 1) + 1, which results in 11 action executions. |
-| Retry attempts | To handle the most basic exceptions and errors, you can set up a [retry policy](logic-apps-exception-handling.md#retry-policies) on triggers and actions where supported. These retries along with the original request are charged at rates based on whether the trigger or action has built-in, Standard, or Enterprise type. For example, an action that executes with 2 retries is charged for 3 action executions. |
-| [Data retention and storage usage](#data-retention) | These operations are metered using the [data retention price on the Azure Logic Apps pricing page](https://azure.microsoft.com/pricing/details/logic-apps/), under the **Pricing details** table. |
-||||
-
-For more information, review the following documentation:
-
-* [View metrics for executions and storage usage](plan-manage-costs.md#monitor-billing-metrics)
-* [Limits in Azure Logic Apps](logic-apps-limits-and-config.md)
-
-### Consumption plan - Not metered or billed
-
-* The monthly included number of built-in operation executions, specified by [Consumption plan pricing](https://azure.microsoft.com/pricing/details/logic-apps/)
-* Triggers that are skipped due to unmet conditions
-* Actions that didn't run because the workflow stopped before completion
-* [Disabled logic apps](#disabled-apps)
 
 <a name="consumption-related-resources-billing"></a>
 
@@ -218,7 +195,7 @@ Single-tenant based logic app workflows can use other related resources, such as
 * Actions that didn't run because the workflow stopped before completion
 * [Disabled logic apps](#disabled-apps)
 
-<a name="fixed-pricing"></a>
+<a name="integration-service-environment-pricing"></a>
 
 ## ISE pricing (dedicated)
 
@@ -293,7 +270,13 @@ For ISE hosted logic apps, usage includes a single integration account, based on
 
 ## Data retention and storage usage
 
-Azure Logic Apps uses [Azure Storage](../storage/index.yml) for any storage operations. The inputs and outputs from your workflow's run history are stored and metered, based on your logic app's [run history retention limit](logic-apps-limits-and-config.md#run-duration-retention-limits). To monitor storage usage, see [View metrics for executions and storage usage](plan-manage-costs.md#monitor-billing-metrics).
+Azure Logic Apps uses [Azure Storage](../storage/index.yml) for any storage operations. The inputs and outputs from your workflow's run history are stored and metered, based on your logic app's [run history retention limit](logic-apps-limits-and-config.md#run-duration-retention-limits).
+
+For more information, review the following documentation:
+
+* [View metrics for executions and storage usage](plan-manage-costs.md#monitor-billing-metrics)
+* [Limits in Azure Logic Apps](logic-apps-limits-and-config.md)
+
 
 | Environment | Notes |
 |-------------|-------|
@@ -301,6 +284,15 @@ Azure Logic Apps uses [Azure Storage](../storage/index.yml) for any storage oper
 | **Single-tenant** | Storage usage and retention are billed using the [Azure Storage pricing model](https://azure.microsoft.com/pricing/details/storage/). Storage costs are listed separately in your Azure billing invoice. For more information, review [Storage transactions (single-tenant)](#standard-storage-transactions-billing). |
 | **ISE** | Storage usage and retention don't incur charges. |
 |||
+
+## Not metered or billed
+These items are not metered or billed:
+
+* The monthly included number of built-in operation executions, specified by [Consumption plan pricing](https://azure.microsoft.com/pricing/details/logic-apps/)
+* Triggers that are skipped due to unmet conditions
+* Actions that didn't run because the workflow stopped before completion
+* [Disabled logic apps](#disabled-apps)
+
 
 <a name="disabled-apps"></a>
 
