@@ -21,9 +21,9 @@ This information can help decision-makers and citizens understand governmental r
 ## Datasets
 
 Modified versions of the dataset are available in CSV, JSON, JSON-Lines, and Parquet, updated daily:
-- https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/covid_policy_tracker/latest/- covid_policy_tracker.csv
-- https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/covid_policy_tracker/latest/- covid_policy_tracker.json
-- https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/covid_policy_tracker/latest/- covid_policy_tracker.jsonl
+- https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/covid_policy_tracker/latest/covid_policy_tracker.csv
+- https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/covid_policy_tracker/latest/covid_policy_tracker.json
+- https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/covid_policy_tracker/latest/covid_policy_tracker.jsonl
 - https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/covid_policy_tracker/latest/covid_policy_tracker.parquet
 
 All modified versions have iso_country codes and load times added, and use lower case column names with underscore separators.

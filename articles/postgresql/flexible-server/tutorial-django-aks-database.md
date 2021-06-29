@@ -106,11 +106,9 @@ The server created has the below attributes:
 
 
 ## Build your Django docker image
+To use the sample docker image with this tutorial, please go to [**Create Kubernetes manifest file**](./tutorial-django-aks-database.md#create-kubernetes-manifest-file) section. If using an existing [Django application](https://docs.djangoproject.com/en/3.1/intro/), follow the steps described in this section.
 
-Create a new [Django application](https://docs.djangoproject.com/en/3.1/intro/) or use your existing Django project. Make sure your code is in this folder structure. 
-
-> [!NOTE] 
-> If you don't have an application you can go directly to [**Create Kubernetes manifest file**](./tutorial-django-aks-database.md#create-kubernetes-manifest-file) to use our sample image, [mksuni/django-aks-app:latest](https://hub.docker.com/r/mksuni/django-aks-app). 
+Here is sample django project folder structure:
 
 ```
 └───my-djangoapp
@@ -210,9 +208,9 @@ Deploy your image to [Docker hub](https://docs.docker.com/get-started/part3/#cre
 
 A Kubernetes manifest file defines a desired state for the cluster, such as what container images to run. Let's create a manifest file named ```djangoapp.yaml``` and copy in the following YAML definition. 
 
->[!IMPORTANT]
-> - Replace ```[DOCKER-HUB-USER/ACR ACCOUNT]/[YOUR-IMAGE-NAME]:[TAG]``` with your actual Django docker image name and tag, for example ```docker-hub-user/myblog:latest```.  You can use the demo sample app ```mksuni/django-aks-app:latest``` in the manifest file.
-> - Update ```env``` section below with your ```SERVERNAME```, ```YOUR-DATABASE-USERNAME```, ```YOUR-DATABASE-PASSWORD``` of your postgres flexible server.
+### Update the sample manifest file 
+-  Replace ```[DOCKER-HUB-USER/ACR ACCOUNT]/[YOUR-IMAGE-NAME]:[TAG]``` with the demo sample app ```mksuni/django-aks-app:latest``` in the manifest file. You can see the code of this file [here](https://github.com/mksuni/django-aks-app).If using a different docker image for a custom application, please use provide the correct docker image name and tag. 
+- Update ```env``` section below with your ```SERVERNAME```, ```YOUR-DATABASE-USER```, ```YOUR-DATABASE-PASSWORD``` of your postgres flexible server.
 
 ```yaml
 apiVersion: apps/v1
@@ -237,8 +235,8 @@ spec:
         env:
         - name: DATABASE_HOST
           value: "SERVERNAME.postgres.database.azure.com"
-        - name: DATABASE_USERNAME
-          value: "YOUR-DATABASE-USERNAME"
+        - name: DATABASE_USER
+          value: "YOUR-DATABASE-USER"
         - name: DATABASE_PASSWORD
           value: "YOUR-DATABASE-PASSWORD"
         - name: DATABASE_NAME
@@ -289,7 +287,7 @@ When the application runs, a Kubernetes service exposes the application front en
 To monitor progress, use the [kubectl get service](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) command with the `--watch` argument.
 
 ```azurecli-interactive
-kubectl get service django-app --watch
+kubectl get service python-svc --watch
 ```
 
 Initially the *EXTERNAL-IP* for the *django-app* service is shown as *pending*.
