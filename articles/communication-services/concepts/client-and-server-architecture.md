@@ -63,7 +63,7 @@ The simplest voice and video calling scenarios involves a user calling another, 
 ## Joining a user-created group call
 You may want users to join a call without an explicit invitation. For example you may have a *social space* with an associated call, and users join that call at their leisure. In this first dataflow, we show a call that is initially created by a client.
 
-:::image type="content" source="../media/scenarios/architecture_v2_calling_join_client_driven.svg" alt-text=Diagram showing Communication Services architecture calling out-of-band signalling.":::
+:::image type="content" source="../media/scenarios/architecture_v2_calling_join_client_driven.svg" alt-text="Diagram showing Communication Services architecture calling out-of-band signalling.":::
 
 ### Dataflows
 1. Initiating user initializes their Call client and makes a group call.
