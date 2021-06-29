@@ -157,6 +157,14 @@ You can protect a controller or controller methods by using the `[Authorize]` at
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
+
+### Named snippet test
+
+This is for test only:
+
+ :::code language="csharp" source="~/sample-active-directory-aspnetcore-webapp-openidconnect-v2/Startup.cs" id="Configure_service":::
+
+
 ## Next steps
 
 The GitHub repo that contains this ASP.NET Core tutorial includes instructions and more code samples that show you how to:
