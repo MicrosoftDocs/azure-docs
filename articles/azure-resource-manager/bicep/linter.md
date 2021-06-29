@@ -2,51 +2,38 @@
 title: Use Bicep Linter
 description: Learn how to use Bicep Linter.
 ms.topic: conceptual
-ms.date: 06/24/2021
+ms.date: 06/29/2021
 ---
 
 # Use Bicep Linter
 
-Linter is a tool used that can analyse your source code to highlight coding and stylistic errors before going into production. The linter integrated with Bicep is based on some of the rules present in ARM-TTK.
+The Bicep Linter can be used to analyze your Bicep files. It checks syntax errors, and catch a customizable set of authoring best practices before you build or deploy your code.
 
-These tools can help you perform static code analysis, check compliance against a style guide, find syntax errors, and flag potential optimizations in the code.
+The linter makes it easier to enforce coding standards by providing guidance during development, as well as the ability to break a build (if desired) during continuous integration (CI) for violations.
 
-==================
+## Install linter
 
-The Bicep linter will inspect your code and catch a customizable set of authoring best practices. It will surface warnings, errors, or informational messages as you're typing in VS Code for immediate feedback. This means you don't have to build or deploy your code to find out that you've made a mistake. Some rules can also surface an automatic code fix through the VS Code light bulb.
+The linter can be used with Visual Studio code and Bicep CLI. It requires:
 
-The linter should make it easier to enforce team coding standards by providing guidance during the development inner loop, as well as the ability to break a build (if desired) during continuous integration (CI) for violations.
-
-==================
-
-Linter requirements:
-
-* Bicep CLI: 0.4.63
-* Bicep extension: 0.4.63
-
-
-
-***How to enable Linter?
-
-
-## Linter usage
-
-Microsoft added support for linting of Bicep files in VS Code and at the command line.
-
-- VS Code
-- Bicep build
-
+- Bicep CLI version 0.4 or later.
+- Bicep extension for Visual Studio Code version 0.4 or later.
 
 ## Customize Linter
 
-Using bicepconfig.json, you can enable or disable Linter, supply rule-specific values, and set the level of rules as well. The following json is a sample bicepconfig.json:
+*** is there a default bicepconfig.json?  If yes, show the default bicepconfig.json.
+
+*** reopen bicep files after editing bicepconfig.json
+
+Using bicepconfig.json, you can enable or disable Linter, supply rule-specific values, and set the level of rules as well. bicepconfig.json can be placed alongside your templates in the same directory. The closest configuration file found up the folder tree is used.
+
+The following json is a sample bicepconfig.json:
 
 ```json
 {
   "analyzers": {
     "core": {
-      "verbose": false,
       "enabled": true,
+      "verbose": true,
       "rules": {
         "no-hardcoded-env-urls": {
           "level": "warning"
@@ -72,7 +59,11 @@ Using bicepconfig.json, you can enable or disable Linter, supply rule-specific v
 }
 ```
 
-You can use several values for level:
+- **enabled**: enter **true** for enabling linter, enter **false** for disabling linter.
+- **verbose**: enter **true** to show the bicepconfig.json file used.
+- **rules**: enter rule-specific values.  *** what is the behavior if no rules are specified?
+
+You can use several values for rule level:
 
 | **level**  | **Build-time behavior** | **Editor behavior** |
 |--|--|--|
@@ -81,27 +72,48 @@ You can use several values for level:
 | `Info` | Violations do not appear in command-line build output. | Offending code is underlined with a blue squiggle and appears in Problems tab. |
 | `Off` | Suppressed completely. | Suppressed completely. |
 
-bicepconfig.json can be placed alongside your templates in the same directory. The closest configuration file found up the folder tree is used.
+The Bicep extension of VS Code provides intellisense for editing Bicep configuration files:
 
-*** the purpose of verbose?
+:::image type="content" source="./media/linter/bicep-linter-configure-intellisense.png" alt-text="The intellisense support in configuring bicepconfig.json.":::
 
-The Bicep extension of VS Code provides intellisense for editing this configuration file:
+## Use in Visual Studio code
 
-bicep-linter-configure-intellisense.png
+You need to install the Bicep extension 0.4 or later to use linter.  The following screenshot shows linter in action:
+
+:::image type="content" source="./media/linter/bicep-linter-show-errors.png" alt-text="Bicep linter usage in Visual Studio Code.":::
+
+In the **PROBLEMS** pane, there are four errors, one warning, and one info message shown in the screenshot.  The info message shows the bicep configuration file used. It only shows the message when you set **verbose** to **true** in the configuration file.
+
+Hover your mouse cursor to one of the problem areas. Linter gives the detail information about the error or warning. Click the area, it also shows a blue light bulb:
+
+:::image type="content" source="./media/linter/bicep-linter-show-quickfix.png" alt-text="Bicep linter usage in Visual Studio Code - show quickfix.":::
+
+Select either the light bulb or the **Quick fix** link to see the solution:
+
+:::image type="content" source="./media/linter/bicep-linter-show-quickfix-solution.png" alt-text="Bicep linter usage in Visual Studio Code - show quickfix solution.":::
+
+Select the solution to fix the issue automatically.
+
+## Use in Bicep CLI
+
+You need to install the Bicep CLI 0.4 or later to use linter.  The following screenshot shows linter in action. The Bicep file is the same as used in [Use in Visual Studio code](#use-in-visual-studio-code).
+
+:::image type="content" source="./media/linter/bicep-linter-command-line.png" alt-text="Bicep linter usage in command line.":::
+
+You can integrate these checks as a part of your CI/CD pipelines. You can use a GitHub action to attempt a bicep build. Errors will fail the pipelines.
 
 ## Linter rules
 
 The current set of linter rules are minimal and taken from [arm-ttk test cases](../templates/test-cases.md). Both VS Code extension and Bicep CLI check for all available rules by default and all rules are set at warning level. Based on the level of a rule, you see errors or warnings or informational messages within the editor.
 
-* no-hardcoded-env-urls
-* no-unused-params
-* no-unused-vars
-* prefer-interpolation
-* secure-parameter-default
-* simplify-interpolation
+- [no-hardcoded-env-urls](https://github.com/Azure/bicep/blob/main/docs/linter-rules/no-hardcoded-env-urls)
+- [no-unused-params](https://github.com/Azure/bicep/blob/main/docs/linter-rules/no-unused-params)
+- [no-unused-vars](https://github.com/Azure/bicep/blob/main/docs/linter-rules/no-unused-vars)
+- [prefer-interpolation](https://github.com/Azure/bicep/blob/main/docs/linter-rules/prefer-interpolation)
+- [secure-parameter-default](https://github.com/Azure/bicep/blob/main/docs/linter-rules/secure-parameter-default)
+- [simplify-interpolation](https://github.com/Azure/bicep/blob/main/docs/linter-rules/simplify-interpolation)
 
 Each rule has at least one property, level. This property commands the behavior of Bicep if the case if found in the Bicep file.
-
 
 ## Next steps
 
