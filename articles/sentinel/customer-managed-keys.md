@@ -74,7 +74,7 @@ To provision CMK, follow these steps: 
 
 4.  Add an access policy to your Azure Key Vault instance.
 
-5.  Onboard the workspace to Azure Sentinel via the onboarding API.
+5.  Onboard the workspace to Azure Sentinel via the [onboarding API](https://github.com/Azure/Azure-Sentinel/raw/master/docs/Azure%20Sentinel%20management.docx).
 
 ### STEP 1: Create an Azure Key Vault and generate or import a key
 
