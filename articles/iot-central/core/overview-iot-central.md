@@ -29,7 +29,7 @@ This article outlines, for IoT Central:
 
 The IoT Central documentation refers to four user roles that interact with an IoT Central application:
 
-- A _solution builder_ is responsible for [creating an application](quick-deploy-iot-central.md), [configuring rules and actions](quick-configure-rules.md), [defining integrations with other services](howto-export-data.md), and further customizing the application for operators and device developers.
+- A _solution builder_ is responsible for [creating an application](quick-deploy-iot-central.md), [configuring rules and actions](quick-configure-rules.md), [defining integrations with other services](quick-export-data.md), and further customizing the application for operators and device developers.
 - An _operator_ [manages the devices](howto-manage-devices.md) connected to the application.
 - An _administrator_ is responsible for administrative tasks such as managing [user roles and permissions](howto-administer.md) within the application.
 - A _device developer_ [creates the code that runs on a device](concepts-telemetry-properties-commands.md) or [IoT Edge module](concepts-iot-edge.md) connected to your application.
@@ -72,8 +72,6 @@ You have several options for creating device templates:
 - Design the device template in IoT Central and then implement its device model in your device code.
 - Create a device model using Visual Studio code and publish the model to a repository. Implement your device code from the model, and connect your device to your IoT Central application. IoT Central finds the device model from the repository and creates a simple device template for you.
 - Create a device model using Visual Studio code. Implement your device code from the model. Manually import the device model into your IoT Central application and then add any cloud properties, customizations, and dashboards your IoT Central application needs.
-
-See the [Add a simulated device](quick-create-simulated-device.md) quickstart for a walk-through of how to create and connect your first device.
 
 ### Customize the UI
 

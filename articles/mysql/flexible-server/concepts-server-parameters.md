@@ -9,6 +9,8 @@ ms.date: 11/10/2020
 ---
 # Server parameters in Azure Database for MySQL - Flexible Server
 
+[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+
 > [!IMPORTANT]
 > Azure Database for MySQL - Flexible Server is currently in public preview.
 
@@ -97,7 +99,7 @@ When connections exceed the limit, you may receive the following error:
 > ERROR 1040 (08004): Too many connections
 
 > [!IMPORTANT]
-> For best experience, we recommend that you use a connection pooler like ProxySQL to efficiently manage connections.
+>For best experience, we recommend that you use a connection pooler like ProxySQL to efficiently manage connections.
 
 Creating new client connections to MySQL takes time and once established, these connections occupy database resources, even when idle. Most applications request many short-lived connections, which compounds this situation. The result is fewer resources available for your actual workload leading to decreased performance. A connection pooler that decreases idle connections and reuses existing connections will help avoid this. To learn about setting up ProxySQL, visit our [blog post](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/load-balance-read-replicas-using-proxysql-in-azure-database-for/ba-p/880042).
 
