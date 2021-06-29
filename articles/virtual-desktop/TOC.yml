@@ -25,19 +25,19 @@
   - name: Connect to Azure Virtual Desktop resources
     items:
       - name: Connect with the Windows Desktop client
-        href: connect-windows-7-10.md
+        href: ./user-documentation/connect-windows-7-10.md
       - name: Connect with the web client
-        href: connect-web.md
+        href: ./user-documentation/connect-web.md
       - name: Connect with the Android client
-        href: connect-android.md
+        href: ./user-documentation/connect-android.md
       - name: Connect with the macOS client
-        href: connect-macos.md
+        href: ./user-documentation/connect-macos.md
       - name: Connect with the iOS client
-        href: connect-ios.md
+        href: ./user-documentation/connect-ios.md
       - name: Connect with the Microsoft Store client
-        href: connect-microsoft-store.md
+        href: ./user-documentation/connect-microsoft-store.md
       - name: Connect with thin clients
-        href: linux-overview.md
+        href: ./user-documentation/linux-overview.md
   - name: Configure device redirections
     href: configure-device-redirections.md
   - name: Set up the PowerShell module
@@ -218,8 +218,6 @@
   items:
   - name: Security best practices
     href: security-guide.md
-  - name: Linux support
-    href: linux-overview.md
   - name: Azure CLI
     href: /cli/azure/desktopvirtualization
   - name: Estimate Azure Monitor costs
