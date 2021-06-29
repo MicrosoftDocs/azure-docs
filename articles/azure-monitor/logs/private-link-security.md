@@ -295,7 +295,7 @@ First, you can click **Add** to add this endpoint resource to Azure Monitor Priv
 
 Then, you can control how this resource can be reached from outside of the private link scopes (AMPLS) listed previously. If you set **Allow public network access for ingestion** to **No**, then machines associated with this endpoint cannot communicate via public internet, and can only ingest data to destinations (e.g. Log Analytics workspaces) that are added to the same scope.
 
-[![Data collection endpoint network isolation](media/private-link-security/ampls-data-collection-endpoint-network-isolation.png)
+![Data collection endpoint network isolation](media/private-link-security/ampls-data-collection-endpoint-network-isolation.png)
 
 ## Use APIs and command line
 

@@ -1,5 +1,5 @@
 ---
-title: Data Collection Endpoints in Azure Monitor 
+title: Data Collection Endpoints in Azure Monitor (preview)
 description: Overview of data collection endpoints (DCEs) in Azure Monitor including their contents and structure and how you can create and work with them.
 ms.topic: conceptual
 author: shseth
@@ -9,7 +9,7 @@ ms.custom: references_region
 
 ---
 
-# Data collection endpoints in Azure Monitor
+# Data collection endpoints in Azure Monitor (preview)
 Data Collection Endpoints (DCE) allow you to uniquely configure imgestion settings for your machines, giving you greater control over your networking requirements. This article provides an overview of data collection endpoints including their contents and structure and how you can create and work with them.
 
 ## Components of a data collection endpoint
@@ -20,15 +20,11 @@ A data collection endpoint includes the following components.
 
 
 ## Regionality
-Data collection endpoints are ARM resources created within specific regions. As such, they can only be **associated with machines in the same region**, although you can have more than one endpoint within the same region as per your needs.
-
-The following diagram shows an example association of data collection endpoints to resources being monitored
-
-[![Diagram of DCR](media/data-collection-rule-overview/data-collection-rule-components.png)](media/data-collection-rule-overview/data-collection-rule-components.png#lightbox)
-
+Data collection endpoints are ARM resources created within specific regions. An endpoint in a given region can only be **associated with machines in the same region**, although you can have more than one endpoint within the same region as per your needs.
 
 ## Limits
-For limits that apply to each data collection rule, see [Azure Monitor service limits](../service-limits.md#data-collection-rules).
+As this feature is in preview, we do not recommend using it in production environments until generally available.
+
 
 ## Enable network isolation via private links
 Data collection endpoints when used in conjuction with the new Azure Monitor agent and data collection rules enable you to configure private links, using [AMPLS], for sending data to Azure Monitor.
@@ -40,7 +36,7 @@ Data collection endpoints when used in conjuction with the new Azure Monitor age
 - Data collection rules and associations configured for the above resources. See [Configure data collection for the Azure Monitor agent](../agents/data-collection-rule-azure-monitor-agent.md).
 - AMPLS resource(s) with other Azure Monitor features added. See [Example connection](../logs/private-link-security.md#example-connection).
 
-### Create endpoint in Azure Portal
+### Create endpoint in Azure portal
 You can use the Azure portal to create a data collection endpoint and associate virtual machines in your subscription to that rule. 
 
 > [!NOTE]
@@ -63,4 +59,4 @@ The sample data collection endpoint below is for virtual machines with Azure Mon
 ## Next steps
 
 - [Associate endpoint to machines](data-collection-rule-azure-monitor-agent.md#create-rule-and-association-in-azure-portal)
-- [Add endpoint to AMPLS resource](../logs/private-link-security.md#configure-data-collection-endpoint) 
+- [Add endpoint to AMPLS resource](../logs/private-link-security.md#configure-data-collection-endpoints) 
