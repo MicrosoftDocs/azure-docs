@@ -110,12 +110,14 @@ To place an order through the Azure Edge Hardware Center, do these steps:
 
     ![Screenshot showing the status of successfully completed order in the Azure Edge Hardware Center](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-16.png)
 
-14. To view details for an order item, select the item name.
-
-    After a device ships (Status =  **Shipped**), a **Configure hardware** option is added to the item details. Select that option to create a management resource for the device in Azure Stack Edge.    
+14. To view details for an order item, select it in the **Resource** column of the order. 
 
     ![Screenshot showing the Configure hardware option for an order item shipped from the Azure Edge Hardware Center](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-17.png)
 
+15. After a device ships (Status =  **Shipped**), a **Configure hardware** option is added to the item details. Select that option to create a management resource for the device in Azure Stack Edge.    
+
+    ![Screenshot showing the Configure hardware option for an order item shipped from the Azure Edge Hardware Center](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-18.png)
+
     After you activate the device, you can open the management resource from the item details by *ADD INSTRUCTION*.
 
-    ![Screenshot of a management resource opened from order item details in the Azure Edge Hardware Center](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-18.png)
+    ![Screenshot of a management resource opened from order item details in the Azure Edge Hardware Center](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-19.png)
