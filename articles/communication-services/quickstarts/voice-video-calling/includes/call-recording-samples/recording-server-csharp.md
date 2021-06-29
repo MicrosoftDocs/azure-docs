@@ -53,9 +53,9 @@ const isRecordingActiveChangedHandler = () => {
 callRecordingApi.on('isRecordingActiveChanged', isRecordingActiveChangedHandler);
 ```
 
-Get server call id which can be used to start/stop/pause/resume recording sessions:
+Get server call ID which can be used to start/stop/pause/resume recording sessions:
 
-Once the call is connected use the `getServerCallId` method to get the server call id.
+Once the call is connected use the `getServerCallId` method to get the server call ID.
 
 ```JavaScript
 callAgent.on('callsUpdated', (e: { added: Call[]; removed: Call[] }): void => {
@@ -83,7 +83,7 @@ CallingServerClient callingServerClient = new CallingServerClient("<Resource_Con
 
 ## Start recording session using 'StartRecordingAsync' server API
 
-Use the server call id received during initiation of a call.
+Use the server call ID received during initiation of a call.
 
 ```csharp
 var startRecordingResponse = await callingServerClient.InitializeServerCall("<servercallid>").StartRecordingAsync("<callbackuri>").ConfigureAwait(false);
@@ -92,7 +92,7 @@ The `StartRecordingAsync` API response contains the recording id of the recordin
 
 ## Stop recording session using 'StopRecordingAsync' server API
 
-Use the recording id received in response of  `StartRecordingAsync`.
+Use the recording ID received in response of  `StartRecordingAsync`.
 
 ```csharp
  var stopRecording = await callingServerClient.InitializeServerCall("<servercallid>").StopRecordingAsync("<recordingid>").ConfigureAwait(false);
@@ -100,7 +100,7 @@ Use the recording id received in response of  `StartRecordingAsync`.
 
 ## Pause recording session using 'PauseRecordingAsync' server API
 
-Use the  recording id received in response of  `StartRecordingAsync`.
+Use the  recording ID received in response of  `StartRecordingAsync`.
 
 ```csharp
 var pauseRecording = await callingServerClient.InitializeServerCall("<servercallid>").PauseRecordingAsync("<recordingid>");
@@ -108,7 +108,7 @@ var pauseRecording = await callingServerClient.InitializeServerCall("<servercall
 
 ## Resume recording session using 'ResumeRecordingAsync' server API
 
-Use the recording id received in response of  `StartRecordingAsync`.
+Use the recording ID received in response of  `StartRecordingAsync`.
 
 ```csharp
 var resumeRecording = await callingServerClient.InitializeServerCall("<servercallid>").ResumeRecordingAsync("<recordingid>");
