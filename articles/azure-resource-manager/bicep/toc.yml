@@ -80,6 +80,8 @@
       - name: Tenant
         href: deploy-to-tenant.md
         displayName: assign role
+    - name: Linter
+      href: linter.md
     - name: Best practices
       href: best-practices.md
   - name: Deploy
