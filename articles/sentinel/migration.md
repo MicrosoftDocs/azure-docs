@@ -119,17 +119,8 @@ The following table describes side-by-side configurations that are *not* recomme
 |     |         |
 
 
-## How to migrate to Azure Sentinel
 
-Use the following steps to migrate from a legacy SIEM to Azure Sentinel:
-
-1. Migrate your data
-1. Migrate detection rules
-1. Use automation to streamline processes
-
-When you're ready, continue with [retiring your legacy SIEM](#retire-your-legacy-siem).
-
-### Migrate your data
+## Migrate your data
 
 Make sure that you migrate only the data that represents your current key use cases.
 
@@ -155,7 +146,7 @@ Make sure that you migrate only the data that represents your current key use ca
 > As you migrate detections and build use cases in Azure Sentinel, stay mindful of the data you ingest, and verify its value to your key priorities. Revisit data collection conversations to ensure data depth and breadth across your use cases.
 >
 
-### Migrate analytics rules
+## Migrate analytics rules
 
 Azure Sentinel uses machine learning analytics to create high-fidelity and actionable incidents, and some of your existing detections may be redundant in Azure Sentinel. Therefore, do not migrate all of your detection and analytics rules blindly:
 
@@ -177,28 +168,47 @@ Azure Sentinel uses machine learning analytics to create high-fidelity and actio
 
     1. **Confirm that you have any required data sources connected,** and review your data connection methods.
 
-1. Verify whether your detections are available as built-in templates in Azure Sentinel.
+1. Verify whether your detections are available as built-in templates in Azure Sentinel:
 
-    |Condition  |Steps  |
-    |---------|---------|
-    |**If the built-in rules are sufficient**     |     Use built-in rule templates to create rules for your own workspace.<br><br> In Azure Sentinel, go to the **Configuration > Analytics > Rule templates** tab, and create and update each relevant analytics rule. For more information, see [Detect threats out-of-the-box](tutorial-detect-threats-built-in.md).    |
-    |**If you have detections that aren't covered by Azure Sentinel's built-in rules**     | Try an online query converter, such as [Uncoder.io](https://uncoder.io/) to convert your queries to KQL. <br><br>Identify the trigger condition and rule action, and then construct and review your KQL query.        |
-    |**If neither the built-in rules nor an online rule converter is sufficient**     |   You'll need to create the rule manually. In such cases, use the following steps to start creating your rule: <br><br>1. **Identify the data sources you want to use in your rule**. <br>You'll want to create a mapping table between data sources and data tables in Azure Sentinel to identify the tables you want to query.<br> <br>     2. **Identify any attributes, fields, or entities** in your data that you want to use in your rules.<br><br>      3. **Identify your rule criteria and logic**. <br>At this stage, you may want to to use rule templates as samples for how to construct your KQL queries. <br><br> Consider filters, correlation rules, activelists, reference sets, watchlists, detection anomalies, aggregations, and so on. You might use references provided by your legacy SIEM to understand how to best map your query syntax.<br><br>For example, see [Sample rule mapping between ArcSight/QRadar and Azure Sentinel](https://github.com/Azure/Azure-Sentinel/blob/master/Tools/RuleMigration/Rule%20Logic%20Mappings.md) and [SPL to KQL mapping samples](https://github.com/Azure/Azure-Sentinel/blob/master/Tools/RuleMigration/Rule%20Logic%20Mappings.md) <br> <br>4. **Identify the trigger condition and rule action**. <br><br>5. **Construct and review your KQL query**. <br>When reviewing your query, consider KQL optimization guidance resources.    |
-    |     |         |
+    - **If the built-in rules are sufficient**, use built-in rule templates to create rules for your own workspace.
 
+        In Azure Sentinel, go to the **Configuration > Analytics > Rule templates** tab, and create and update each relevant analytics rule.
+
+        For more information, see [Detect threats out-of-the-box](tutorial-detect-threats-built-in.md).
+
+    - **If you have detections that aren't covered by Azure Sentinel's built-in rules**, try an online query converter, such as [Uncoder.io](https://uncoder.io/) to convert your queries to KQL.
+
+        Identify the trigger condition and rule action, and then construct and review your KQL query.
+
+    - **If neither the built-in rules nor an online rule converter is sufficient**, you'll need to create the rule manually. In such cases, use the following steps to start creating your rule:
+
+        1. **Identify the data sources you want to use in your rule**. You'll want to create a mapping table between data sources and data tables in Azure Sentinel to identify the tables you want to query.
+
+        1. **Identify any attributes, fields, or entities** in your data that you want to use in your rules.
+
+        1. **Identify your rule criteria and logic**. At this stage, you may want to to use rule templates as samples for how to construct your KQL queries.
+
+            Consider filters, correlation rules, activelists, reference sets, watchlists, detection anomalies, aggregations, and so on. You might use references provided by your legacy SIEM to understand how to best map your query syntax.
+
+            For example, see:
+
+            - [Sample rule mapping between ArcSight/QRadar and Azure Sentinel](https://github.com/Azure/Azure-Sentinel/blob/master/Tools/RuleMigration/Rule%20Logic%20Mappings.md)
+            - [SPL to KQL mapping samples](https://github.com/Azure/Azure-Sentinel/blob/master/Tools/RuleMigration/Rule%20Logic%20Mappings.md) 
+
+        1. **Identify the trigger condition and rule action, and then construct and review your KQL query**. When reviewing your query, consider KQL optimization guidance resources.
 
 1. Test the rule with each of your relevant use cases. If it doesn't provided expected results, you may want to review the KQL and test it again.
 
 1. When you're satisfied, you can consider the rule migrated. Create a playbook for your rule action as needed. For more information, see [Automate threat response with playbooks in Azure Sentinel](automate-responses-with-playbooks.md).
 
-For more information, see:
+**For more information, see**:
 
-- [Create custom analytics rules to detect threats](tutorial-detect-threats-custom.md). Use [alert grouping](tutorial-detect-threats-custom.md#alert-grouping) to reduce alert fatigue by grouping alerts that occur within a given timeframe.
-- [Map data fields to entities in Azure Sentinel](map-data-fields-to-entities.md) to enable SOC engineers to define entities as part of the evidence to track during an investigation. Entity mapping also makes it possible for SOC analysts to take advantage of an intuitive [investigation graph (tutorial-investigate-cases.md#use-the-investigation-graph-to-deep-dive) that can help reduce time and effort.
-- [Investigate incidents with UEBA data](investigate-with-ueba.md), as an example of how to use evidence to surface events, alerts, and any bookmarks associated with a particular incident in the incident preview pane.
-- [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/), which you can use to send read-only requests to your [Log Analytics](/azure/azure-monitor/logs/log-analytics-tutorial) database to process data and return results. KQL is also used across other Microsoft services, such as [Microsoft Defender for Endpoint](https://www.microsoft.com/microsoft-365/security/endpoint-defender) and [Application Insights](/azure/azure-monitor/app/app-insights-overview).
+- [**Create custom analytics rules to detect threats**](tutorial-detect-threats-custom.md). Use [alert grouping](tutorial-detect-threats-custom.md#alert-grouping) to reduce alert fatigue by grouping alerts that occur within a given timeframe.
+- [**Map data fields to entities in Azure Sentinel**](map-data-fields-to-entities.md) to enable SOC engineers to define entities as part of the evidence to track during an investigation. Entity mapping also makes it possible for SOC analysts to take advantage of an intuitive [investigation graph (tutorial-investigate-cases.md#use-the-investigation-graph-to-deep-dive) that can help reduce time and effort.
+- [**Investigate incidents with UEBA data**](investigate-with-ueba.md), as an example of how to use evidence to surface events, alerts, and any bookmarks associated with a particular incident in the incident preview pane.
+- [**Kusto Query Language (KQL)**](/azure/data-explorer/kusto/query/), which you can use to send read-only requests to your [Log Analytics](/azure/azure-monitor/logs/log-analytics-tutorial) database to process data and return results. KQL is also used across other Microsoft services, such as [Microsoft Defender for Endpoint](https://www.microsoft.com/microsoft-365/security/endpoint-defender) and [Application Insights](/azure/azure-monitor/app/app-insights-overview).
 
-### Use automation in Azure Sentinel
+## Use automation to streamline processes
 
 Use automated workflows to group and prioritize alerts into a common incident, and modify its priority.
 
