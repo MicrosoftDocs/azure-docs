@@ -20,12 +20,14 @@ ms.author: yelevin
 
 > [!IMPORTANT]
 > The Threat Intelligence data connectors in Azure Sentinel are currently in public preview.
-> This feature is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> This feature is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
-Azure Sentinel lets you import the threat indicators your organization is using, which can enhance your security analysts' ability to detect and prioritize known threats. Several features from Azure Sentinel then become available or are enhanced:
+Threat intelligence is a primary set of data used by Security Operation Center (SOC) analysts, and help to detect potential threats, prioritize incidents, and provide context for possibly malicious activity.
+
+After you've imported threat indicators used in your organization, the following Azure Sentinel features become available to your or are enhanced by threat intelligence data:
 
 - **Analytics** includes a set of scheduled rule templates you can enable to generate alerts and incidents based on matches of log events from your threat indicators.
 
@@ -35,12 +37,19 @@ Azure Sentinel lets you import the threat indicators your organization is using,
 
 - **Notebooks** can use threat indicators when you investigate anomalies and hunt for malicious behaviors.
 
-You can stream threat indicators to Azure Sentinel by using one of the integrated threat intelligence platform (TIP) products listed in the next section, connecting to TAXII servers, or by using direct integration with the [Microsoft Graph Security tiIndicators API](/graph/api/resources/tiindicator).
+Stream threat indicators to Azure Sentinel by using one [integrated threat intelligence platform (TIP) products](#integrated-threat-intelligence-platform-products), [connecting to TAXII servers](#connect-azure-sentinel-to-taxii-servers), or by integrating directly  with the [Microsoft Graph Security tiIndicators API](/graph/api/resources/tiindicator). Alternately, [import custom threat intelligence data](import-threat-intelligence.md).
+
+Manage threat indicators from the Azure Sentinel **Threat Intelligence** page, or query them from the **ThreatIntelligenceIndicators** table in the **Logs**.
+
+> [!TIP]
+> If you have multiple workspaces in the same tenant, such as for Managed Service Providers (MSSPs), it may be more cost effective to connect threat indicators only to the centralized workspace.
+>
+> When you have the same set of threat indicators imported into each separate workspace, you can run cross-workspace queries to aggregate threat indicators across your workspaces. Correlate them within your MSSP incident detection, investigation, and hunting experience.Optional information to help a user be more successful
 
 ## Integrated threat intelligence platform products
 
 - [MISP Open Source Threat Intelligence Platform](https://www.misp-project.org/)
-    
+
     For a sample script that provides clients with MISP instances to migrate threat indicators to the Microsoft Graph Security API, see the [MISP to Microsoft Graph Security Script](https://github.com/microsoftgraph/security-api-solutions/tree/master/Samples/MISP).
 
 - [Anomali ThreatStream](https://www.anomali.com/products/threatstream)
@@ -78,11 +87,11 @@ You can stream threat indicators to Azure Sentinel by using one of the integrate
 3. Ask your Azure Active Directory tenant administrator to grant admin consent to the registered application for your organization. From the Azure portal: **Azure Active Directory** > **App registrations** > **\<_app name_>** > **View API Permissions** > **Grant admin consent for \<_tenant name_>**.
 
 4. Configure your TIP product or app that uses direct integration with Microsoft Graph Security tiIndicators API to send indicators to Azure Sentinel by specifying the following:
-    
+
     a. The values for the registered application's ID, secret, and tenant ID.
-    
+
     b. For the target product, specify Azure Sentinel.
-    
+
     c. For the action, specify alert.
 
 5. In the Azure portal, navigate to **Azure Sentinel** > **Data connectors** and then select the **Threat Intelligence Platforms (Preview)** connector.
