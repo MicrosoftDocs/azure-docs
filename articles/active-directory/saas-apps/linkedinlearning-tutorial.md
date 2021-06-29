@@ -144,7 +144,6 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     > [!NOTE]    
     > You may not be able to import this file into your Identity Provider. For example, Okta does not have this functionality. If this case matches your configuration requirements, continue to Working with Individual Fields.
-    For more information, see [Configuring your Identity Provider](https://docs.microsoft.com/linkedin/learning/sso-auth/sso-docs/sso-implementation#configuring-your-identity-provider).
 
 1. In the **Identity provider settings** tab, click **Load and copy information from fields** and copy the required fields and paste into the **Basic SAML Configuration** section in the Azure portal and click **Next**.
 
