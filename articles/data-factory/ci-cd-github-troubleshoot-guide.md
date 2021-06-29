@@ -267,7 +267,7 @@ You can monitor the pipeline using **SDK**, **Azure Monitor** or [ADF Monitor](h
 You want to perform unit testing during development and deployment of ADF pipelines.
 
 #### Cause
-During development and deployment cycles, you may want to unit test your pipeline before you manually or autotmtically publish your pipeline. Test automation allows you to run more tests, in less time, with guaranteed repeatability. Automatically re-testing all your ADF pipelines before deployment gives you some protection against regression faults. Automated testing is a key component of CI/CD software development approaches: inclusion of automated tests in CI/CD deployment pipelines for Azure Data Factory can significantly improve quality. In long run, tested ADF pipeline artifacts are reused saving you cost and time.  
+During development and deployment cycles, you may want to unit test your pipeline before you manually or automatically publish your pipeline. Test automation allows you to run more tests, in less time, with guaranteed repeatability. Automatically re-testing all your ADF pipelines before deployment gives you some protection against regression faults. Automated testing is a key component of CI/CD software development approaches: inclusion of automated tests in CI/CD deployment pipelines for Azure Data Factory can significantly improve quality. In long run, tested ADF pipeline artifacts are reused saving you cost and time.  
  
 #### Resolution
 Because customers may have different unit testing requirements with different skill sets, usual practice is to follow following steps:
@@ -277,7 +277,7 @@ Because customers may have different unit testing requirements with different sk
 3. Run unit tests as part of release pipeline or independently with ADF Python/PowerShell/.NET/REST SDK. 
 
 For example, you want to delete duplicates in a file and then store curated file as table in a database. To test the pipeline, you set up a CI/CD project using Azure DevOps.
-You set up a TEST pipeline stage where you deploy your developed pipeline. You configure TEST stage to run Python tests. If you do not use CI/CD, you use **Nunit** to trigger deployed pipelines with tests you want. Once you are statisfied with the results, you can finally publish the pipeline to a production data factory. 
+You set up a TEST pipeline stage where you deploy your developed pipeline. You configure TEST stage to run Python tests. If you do not use CI/CD, you use **Nunit** to trigger deployed pipelines with tests you want. Once you are satisfied with the results, you can finally publish the pipeline to a production data factory. 
 
 
 ## Next steps
