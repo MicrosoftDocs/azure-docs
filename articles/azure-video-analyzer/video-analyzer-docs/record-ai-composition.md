@@ -51,7 +51,7 @@ Edit the *operations.json* file:
 1. Under `GraphTopologyDelete`, edit the name:
    `"name" : " AIComposition"`
     
-For details, see the [interpret the results](analyze-live-video-use-your-model-grpc.md#interpret-results) section. In addition to the analytics events on the hub and the diagnostic events, the topology that you have used also creates a relevant video clip on the cloud that is triggered by the AI signal-based activation of the signal gate. This clip is also accompanied with [operational events](record-event-based-live-video.md#operational-events) on the hub for downstream workflows to take. You can [examine and play](record-event-based-live-video.md#mplaying-back-the-recording) the video clip by logging into the Azure portal.
+For details, see the [interpret the results](analyze-live-video-use-your-model-grpc.md#interpret-results) section. In addition to the analytics events on the hub and the diagnostic events, the topology that you have used also creates a relevant video clip on the cloud that is triggered by the AI signal-based activation of the signal gate. This clip is also accompanied with [operational events](record-event-based-live-video.md#operational-events) on the hub for downstream workflows to take. You can [examine and play](record-event-based-live-video.md#playing-back-the-recording) the video clip by logging into the Azure portal.
 
 ## Clean up
 
