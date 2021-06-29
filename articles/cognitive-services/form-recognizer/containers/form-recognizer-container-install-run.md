@@ -602,4 +602,4 @@ That's it! In this article, you learned concepts and workflows for downloading, 
 
 * [Form Recognizer container configuration settings](form-recognizer-container-configuration.md) .
 * [Form Recognizer container image tags](../../containers/container-image-tags.md?tabs=current#form-recognizer)
-* [Cognitive Services Container support page and release notes](../../containers/container-image-tags?tabs=current#form-recognizer.md).
+* [Cognitive Services Container support page and release notes](../../containers/container-image-tags.md?tabs=current#form-recognizer).
