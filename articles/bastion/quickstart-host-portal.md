@@ -113,8 +113,7 @@ After Bastion has been deployed to the virtual network, the screen changes to th
 
    :::image type="content" source="./media/quickstart-host-portal/connected.png" alt-text="RDP connect":::
 
-
-## <a name="remove"></a>To Remove a VM public IP address
+## <a name="remove"></a>To remove a VM public IP address
 
 [!INCLUDE [Remove a public IP address from a VM](../../includes/bastion-remove-ip.md)]
 
