@@ -36,9 +36,10 @@ The following table describes the differences between *continuous* and *triggere
 
 |Continuous  |Triggered  |
 |---------|---------|
-| Starts immediately when the WebJob is created. To keep the job from ending, the program or script typically does its work inside an endless loop. If the job does end, you can restart it. | Starts only when triggered manually or on a schedule. |
+| Starts immediately when the WebJob is created. To keep the job from ending, the program or script typically does its work inside an endless loop. If the job does end, you can restart it. Typically used with WebJobs SDK. | Starts only when triggered manually or on a schedule. |
 | Runs on all instances that the web app runs on. You can optionally restrict the WebJob to a single instance. |Runs on a single instance that Azure selects for load balancing.|
 | Supports remote debugging. | Doesn't support remote debugging.|
+| Code deploys to `\site\wwwroot\app_data\Jobs\Continuous`. | Code deploys to `\site\wwwroot\app_data\Jobs\Triggered`. |
 
 [!INCLUDE [webjobs-always-on-note](../../includes/webjobs-always-on-note.md)]
 
