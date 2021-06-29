@@ -9,7 +9,7 @@ ms.date: 06/29/2021
 
 # Update Azure storage account access keys in HDInsight cluster
 
-In this article you will learn how to rotate Azure Storage account access keys for the primary or secondary storage accounts in Azure HDInsight.
+In this article, you will learn how to rotate Azure Storage account access keys for the primary or secondary storage accounts in Azure HDInsight.
 
 ## Prerequisites
 
@@ -17,8 +17,8 @@ In this article you will learn how to rotate Azure Storage account access keys f
 
     Here is an example on how to use two access keys and set up rotation policies on them:
     1. Use access key1 on the storage account when creating HDInsight cluster.
-    1. Set-up rotation policy for access key2 every N days. As part of this rotation update HDInsight to use access key1 and then rotate access key2 on storage account.
-    1. Set-up rotation policy for access key1 every N/2 days. As part of this rotation update HDInsight to use access key2 and then rotate access key1 on storage account.
+    1. Set up rotation policy for access key2 every N days. As part of this rotation update HDInsight to use access key1 and then rotate access key2 on storage account.
+    1. Set up rotation policy for access key1 every N/2 days. As part of this rotation update HDInsight to use access key2 and then rotate access key1 on storage account.
     1. With above approach access key1 will be rotated N/2, 3N/2 etc. days and access key2 will be rotated N, 2N, 3N etc. days.
 
 * To set up periodic rotation of storage account keys see [Automate the rotation of a secret](../key-vault/secrets/tutorial-rotation-dual.md).
@@ -45,4 +45,4 @@ Use [Script Action](hdinsight-hadoop-customize-cluster-linux.md#script-action-to
 
 ## Next steps
 
-* [Add additional storage accounts](hdinsight\hdinsight-hadoop-add-storage.md)
+* [Add additional storage accounts](hdinsight-hadoop-add-storage.md)
