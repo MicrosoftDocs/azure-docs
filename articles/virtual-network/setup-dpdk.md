@@ -42,6 +42,7 @@ The following distributions from the Azure Marketplace are supported:
 | SLES 15 SP1  | 4.12.14-8.19-azure+          | 
 | RHEL 7.5     | 3.10.0-862.11.6.el7.x86_64+  | 
 | CentOS 7.5   | 3.10.0-862.11.6.el7.x86_64+  | 
+| Debian 10    | 4.19.0-1-cloud+              |
 
 The noted versions are the minimum requirements. Newer versions are supported too.
 
