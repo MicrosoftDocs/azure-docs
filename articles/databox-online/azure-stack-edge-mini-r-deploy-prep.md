@@ -96,7 +96,7 @@ Ordering through Azure Edge Hardware Center will create an Azure resource that w
 
 To manage devices that are ordered through the Azure Edge Hardware Center, you'll create a management resource for each device in Azure Stack Edge. When the device is activated, the management resource is associated with an order item. You'll be able to open the order item from the management resource and open the management resource from the order item. 
 
-After a device is delivered, a **Configure hardware** link is added to the order item detail, giving you a direct way to open a wizard for creating a management resource. You can also use the **Create management resource** option in Azure Stack Edge. 
+After a device is delivered, a **Configure hardware** link is added to the order item detail, giving you a direct way to open a wizard for creating a management resource. You can also use the **Create management resource** option in Azure Stack Edge.
 
 [!INCLUDE [Create management resource](../../includes/azure-edge-hardware-center-create-management-resource.md)]
 
