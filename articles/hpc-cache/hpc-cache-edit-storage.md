@@ -47,7 +47,7 @@ Use the **Namespace** page for your Azure HPC Cache to update the namespace path
 
 1. Use the edit window to type in new virtual path or update the access policy.
 
-![Screenshot of the namespace page after clicking on a Blob namespace path - the edit fields appear on a pane to the right.](media/update-namespace-blob.png)
+   ![Screenshot of the namespace page after clicking on a Blob namespace path - the edit fields appear on a pane to the right.](media/update-namespace-blob.png)
 
 After making changes, click **OK** to update the storage target, or click **Cancel** to discard changes.
 
