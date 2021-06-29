@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.custom: references_regions
 author: vamahtan
 ms.author: vamahtan
-ms.date: 04/29/2021
+ms.date: 06/29/2021
 ---
 
 # Set up Dynamics 365 for Customer Engagement & Power Apps offer technical configuration
