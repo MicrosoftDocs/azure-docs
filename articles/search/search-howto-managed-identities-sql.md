@@ -56,7 +56,7 @@ To assign the identity to the search service, update identity property of the se
 * **type** is the type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an identity created by the system and a set of user assigned identities. The type 'None' will remove all identities from the service.
 * **userAssignedIdentities** includes the details of the user assigned managed identity.
     * User-assigned managed identity format: 
-        * /subscriptions/**subscription ID**/resourcegroups/**resource group name**/providers/Microsoft.ManagedIdentity/userAssignedIdentities/**name of managed identity***
+        * /subscriptions/**subscription ID**/resourcegroups/**resource group name**/providers/Microsoft.ManagedIdentity/userAssignedIdentities/**name of managed identity**
 
 Example of how to assign a user-assigned managed identity to a search service:
 
@@ -194,7 +194,7 @@ The data source must have the following required properties:
 * **identity** contains the collection of user-assigned managed identities. Only one user-assigned managed identity should be provided when creating the data source.
     * **userAssignedIdentities** includes the details of the user assigned managed identity.
         * User-assigned managed identity format: 
-            * /subscriptions/**subscription ID**/resourcegroups/**resource group name**/providers/Microsoft.ManagedIdentity/userAssignedIdentities/**name of managed identity***
+            * /subscriptions/**subscription ID**/resourcegroups/**resource group name**/providers/Microsoft.ManagedIdentity/userAssignedIdentities/**name of managed identity**
 
 Example of how to create a blob data source object using the [REST API](/rest/api/searchservice/create-data-source):
 

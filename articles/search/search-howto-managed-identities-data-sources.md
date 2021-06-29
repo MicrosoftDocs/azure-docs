@@ -39,8 +39,8 @@ A [system-assigned managed identity](/azure/active-directory/managed-identities-
 
 ### User-assigned managed identity (preview)
 
-> [!IMPORTANT] 
-> User-assgined managed identity support is currently in preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> [!IMPORTANT]
+> User-assigned managed identity support is currently in preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 > 
 > The [REST API version 2020-06-30-Preview](search-api-preview.md) provides this feature.
 
