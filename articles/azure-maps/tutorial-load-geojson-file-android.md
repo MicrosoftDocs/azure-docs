@@ -148,7 +148,7 @@ popup.close()
 
 ::: zone-end
 
-9. Add the following code to attach a click event to the bubble layer. When a bubble in the bubble layer is tapped, the even will fire and retrieve some details from the properties of the selected feature, create a view using the **popup_text.xml** layout file, pass it in as content into the popup, then show the popup at the features position.
+9. Add the following code to attach a click event to the bubble layer. When a bubble in the bubble layer is tapped, the event will fire and retrieve some details from the properties of the selected feature, create a view using the **popup_text.xml** layout file, pass it in as content into the popup, then show the popup at the features position.
 
 ::: zone pivot="programming-language-java-android"
 
