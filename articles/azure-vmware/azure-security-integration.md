@@ -43,11 +43,11 @@ The diagram shows the integrated monitoring architecture of integrated security 
 
 2. Under Resources, select **Servers** and then **+Add**.
 
-   :::image type="content" source="media/azure-security-integration/add-server-to-azure-arc.png" alt-text="A screenshot showing Azure Arc Servers page for adding an Azure VMware Solution VM to Azure.":::
+   :::image type="content" source="media/azure-security-integration/add-server-to-azure-arc.png" alt-text="Screenshot showing Azure Arc Servers page for adding an Azure VMware Solution VM to Azure.":::
 
 3. Select **Generate script**.
  
-   :::image type="content" source="media/azure-security-integration/add-server-using-script.png" alt-text="A screenshot of Azure Arc page showing option for adding a server using interactive script."::: 
+   :::image type="content" source="media/azure-security-integration/add-server-using-script.png" alt-text="Screenshot of Azure Arc page showing option for adding a server using interactive script."::: 
  
 4. On the **Prerequisites** tab, select **Next**.
 

@@ -128,6 +128,8 @@ In either editions, customers are responsible for the costs of Azure resources c
 
 ## Next steps
 
+To learn more about planning a workspace for your organization's requirements, see [Organize and set up Azure Machine Learning](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-resource-organization).
+
 To get started with Azure Machine Learning, see:
 
 + [Azure Machine Learning overview](overview-what-is-azure-ml.md)
