@@ -4,7 +4,7 @@ description: In this tutorial, you create a .NET Core C# application to send mes
 ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.date: 06/29/2021
-ms.custom: devx-track-csharp
+ms.custom: contperf-fy21q3
 ---
 
 # Send messages to and receive messages from Azure Service Bus queues (.NET)
@@ -123,8 +123,7 @@ This section shows you how to create a .NET Core console application to send mes
                 }
             }
         }   
-
-    ``` 
+        ``` 
 1. Replace `<NAMESPACE CONNECTION STRING>` with the connection string to your Service Bus namespace. And, replace `<QUEUE NAME>` with the name of your queue.
 1. Build the project, and ensure that there are no errors. 
 1. Run the program and wait for the confirmation message.
