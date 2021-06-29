@@ -15,22 +15,22 @@ ms.author: lajanuar
 
 > [!IMPORTANT]
 >
-> Managed identity for Document Translation is currently unavailable in the global region.
+> Managed identity for Document Translation is currently unavailable in the global region. If you intend to use managed identities for Document Translation operations, [create your Translator resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) in a non-global Azure region.
 
 ## What are managed identities?
 
- Azure managed identities are service principals that create an Azure Active Directory (Azure AD) identity and specific permissions for Azure-managed resources. You can use managed identities to grant access to any resource that supports Azure AD authentication. To grant access, assign a role to a managed identity using Azure role-based access control (Azure RBAC).  There is no added cost to using managed identities in Azure.
+ Azure managed identities are service principals that create an Azure Active Directory (Azure AD) identity and specific permissions for Azure-managed resources. You can use managed identities to grant access to any resource that supports Azure AD authentication. To grant access, assign a role to a managed identity using Azure role-based access control (Azure RBAC).  There is no added cost to use managed identities in Azure.
 
 Managed Identities support both private and public Azure blob storage accounts.  For storage accounts with public access, you can opt to use a shared access signature (SAS) to grant limited access.  In this article, we will examine how to manage access to translation documents in your Azure blob storage account using managed identities.
 
 > [!NOTE]
 >
-> For all operations using an Azure blob storage account available on the public Internet, you can provide a shared access signature (**SAS**) URL for your Azure blog storage container, with restricted rights for a limited period, and pass it in your POST requests:
+> For all operations using an Azure blob storage account available on the public Internet, you can provide a shared access signature (**SAS**) URL with restricted rights for a limited period, and pass it in your POST requests:
 >
 > * To retrieve your SAS URL, go to your storage resource in the Azure portal and select the **Storage Explorer** tab. 
 > * Navigate to your container, right-click, and select **Get shared access signature**. It's important to get the SAS for your container, not for the storage account itself. 
 > * Make sure the **Read**, **Write**, **Delete** and **List** permissions are checked, and click **Create**. 
-> *Then copy the value in the **URL** section to a temporary location. It should have the form: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+> * Then copy the value in the **URL** section to a temporary location. It should have the form: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 
 ## Prerequisites
 
@@ -38,7 +38,7 @@ To get started, you'll need:
 
 * An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
 
-* A [**single-service Translator**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (not a multi-service Cognitive Services resource) assigned to a **non-global** region. For detailed steps, _see_ [Create a Cognitive Services resource using the Azure portal](/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Cwindows).
+* A [**single-service Translator**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (not a multi-service Cognitive Services) resource assigned to a **non-global** region. For detailed steps, _see_ [Create a Cognitive Services resource using the Azure portal](/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Cwindows).
 
 * An [**Azure blob storage account**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) in the same region as your Translator resource. You'll create containers to store and organize your blob data within your storage account. If the account has a firewall, you must have the [exception for trusted Microsoft services](/azure/storage/common/storage-network-security?tabs=azure-portal#manage-exceptions) checkbox enabled.
 
@@ -54,7 +54,7 @@ There are two types of managed identities:
 
 * A [**user-assigned**](#create-a-user-assigned-managed-identity-in-the-azure-portal) managed identity is **created** as a standalone Azure resource and assigned to one or more Azure service instances. A user-assigned identity is managed separately from the resources that use it and has an independent lifecycle.
 
-In the following steps, we will enable managed identities and grant your Translator resource limited access to your Azure blob storage account.
+In the following steps, we'll enable managed identities and grant your Translator resource limited access to your Azure blob storage account.
 
 ## Enable a system-assigned managed identity in the Azure portal
 
@@ -66,7 +66,7 @@ In the following steps, we will enable managed identities and grant your Transla
 
 1. Navigate to your **Translator** resource page in the Azure portal.
 
-1. In the left rail, Select **Identity** from the **Resource Management** list:
+1. In the left rail, select **Identity** from the **Resource Management** list:
 
     :::image type="content" source="../media/managed-identities/resource-management-identity-tab.png" alt-text="Screenshot: resource management identity tab in the Azure portal.":::
 
@@ -82,20 +82,20 @@ In the following steps, we will enable managed identities and grant your Transla
 
 >[!NOTE]
 >
-> If you are unable to assign a role in the Azure portal because the Add > Add role assignment option is disabled or you get the permissions error, "you do not have permissions to add role assignment at this scope", check that you are currently signed in as a user with an assigned a role that has Microsoft.Authorization/roleAssignments/write permissions such as Owner or User Access Administrator at the Storage scope for the storage resource.
+> If you are unable to assign a role in the Azure portal because the Add > Add role assignment option is disabled or get the permissions error, "you do not have permissions to add role assignment at this scope", check that you are currently signed in as a user with an assigned a role that has Microsoft.Authorization/roleAssignments/write permissions such as [**Owner**](/azure/role-based-access-control/built-in-roles#owner) or[**User Access Administrator**](/azure/role-based-access-control/built-in-roles#user-access-administrator) at the storage scope for the storage resource.
 
 5. In the **Add role assignment** pop-up window complete the fields as follows and select **Save**:
 
     | Field | Value|
     |------|--------|
-    |**Scope**| ***Storage***|
+    |**Scope**| ***Storage***.|
     |**Subscription**| ***The subscription associated with your storage resource***.|
-    |**Resource**| ***The name of your storage resource***|
-    |**Role** | ***Storage Blob Data Contributor***|
+    |**Resource**| ***The name of your storage resource***.|
+    |**Role** | ***Storage Blob Data Contributor***.|
 
      :::image type="content" source="../media/managed-identities/add-role-assignment-window.png" alt-text="Screenshot: add role assignments page in the Azure portal.":::
 
-You have completed the steps to enable a service-assigned managed identity. With this identity credential, you can grant specific access rights to a single Azure service. If you need to assign a managed identity to  multiple Azure services, you need to create a user-assigned managed identity.
+Great! You have completed the steps to enable a service-assigned managed identity. With this identity credential, you can grant specific access rights to a single Azure service. If you need to assign a managed identity to  multiple Azure services, you need to create a user-assigned managed identity.
 
 ## Create a user-assigned managed identity in the Azure portal
 
@@ -113,7 +113,7 @@ You have completed the steps to enable a service-assigned managed identity. With
 
     :::image type="content" source="../media/managed-identities/create-managed-identity-in-portal.png" alt-text="Screenshot: create Managed Identities page in the Azure portal.":::
 
-4. On the **Create User Assigned Managed Identity** page complete the fields as follows and select **Review &plus; create**:
+4. On the [**Create User Assigned Managed Identity**](https://ms.portal.azure.com/#create/Microsoft.ManagedIdentity) page complete the fields as follows and select **Review &plus; create**:
 
     | Field | Value|
     |------|--------|
@@ -144,10 +144,10 @@ You have completed the steps to enable a service-assigned managed identity. With
 
     | Field | Value |
     |------|--------|
-    |**Role**| ***Storage Blob Data Contributor***|
-    |**Assign access to**|***User assigned managed identity***|
-    |**Subscription**| ***The subscription associated with your storage resource***|
-    |**Select**|***Enter your preferred user-assigned identity.***|
+    |**Role**| ***Storage Blob Data Contributor***.|
+    |**Assign access to**|***User assigned managed identity***.|
+    |**Subscription**| ***The subscription associated with your storage resource***.|
+    |**Select**|***Enter your preferred user-assigned identity.***.|
 
     :::image type="content" source="../media/managed-identities/add-role-assignment-pop-up.png" alt-text="Screenshot: the add role assignment pop-up window fields.":::
 
@@ -167,10 +167,10 @@ You have completed the steps to enable a service-assigned managed identity. With
 
     | Field | Value |
     |------|--------|
-    |**Subscription** | ***The subscription associated with your storage resource*** |
-    | **User assigned managed identities** | ***Select the same user-assigned managed identity resource that was assigned the Storage Blob Data Contributor role in the [assign a role to your user-assigned managed identity](#assign-a-role-to-your-user-assigned-managed-identity).***
+    |**Subscription** | ***The subscription associated with your storage resource***. |
+    | **User assigned managed identities** | ***Select the same user-assigned managed identity resource that was assigned the Storage Blob Data Contributor role in the [assign a role to your user-assigned managed identity](#assign-a-role-to-your-user-assigned-managed-identity) step above.***
 
- That's it! You've learned how to implement system-assigned and user-assigned managed identities for your Translator and Azure storage resources.
+ That's it! You've learned how to implement system-assigned and user-assigned managed identities for your Translator to access Azure storage resources.
 
 ## Next steps
 
@@ -179,4 +179,3 @@ You have completed the steps to enable a service-assigned managed identity. With
 
 > [!div class="nextstepaction"]
 >[Use managed identities to acquire an access token](/azure/app-service/overview-managed-identity?tabs=dotnet#obtain-tokens-for-azure-resources)
-
