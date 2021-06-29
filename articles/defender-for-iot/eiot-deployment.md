@@ -231,3 +231,28 @@ You can use the following command to Remove the sensor.
 ```bash
 sudo apt purge -y adiot-sensor
 ```
+
+## Configure an Azure Instance
+
+**To configure an instance in Azure**:
+
+1. Navigate to the [Azure portal](https://ms.portal.azure.com/?enterpriseiot=true#home) located at `https://ms.portal.azure.com/?enterpriseiot=true#home`.
+
+1. Create a new IoTHub.
+
+1. Select your subscription.
+
+1. Select your region.
+
+    > [!Note]
+    > Due to GDPR regulations, EU customers must set their instances to the EU **Europe West** cloud. Any customer outside of the EU, should set their instance to US **US East** cloud.
+
+1. Enter a name for your IoTHub.
+
+1. Select the **Networking** tab.
+
+1. Select **Public endpoint (all networks)**.
+
+    :::image type="content" source="media/eiot-deployment/public-endpoint.png" alt-text="Select Public Endpoint in the Networking tab.":::
+
+1. Select **Review & create**.
