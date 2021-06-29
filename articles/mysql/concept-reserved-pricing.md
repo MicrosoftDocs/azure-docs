@@ -10,7 +10,7 @@ ms.date: 05/20/2020
 
 # Prepay for Azure Database for MySQL compute resources with reserved capacity
 
-[!INCLUDE[applies-to-single-server](includes/applies-to-single-server.md)]
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 Azure Database for MySQL now helps you save money by prepaying for compute resources compared to pay-as-you-go prices. With Azure Database for MySQL reserved capacity, you make an upfront commitment on MySQL server for a one or three year period to get a significant discount on the compute costs. To purchase Azure Database for MySQL reserved capacity, you need to specify the Azure region, deployment type, performance tier, and term. </br>
 
