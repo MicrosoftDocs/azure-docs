@@ -35,7 +35,7 @@ There are two types of managed identities. Azure Cognitive Search supports syste
 
 ### System-assigned managed identity
 
-A [system-assigned managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types) can be assigned to a single Azure service. You can assign a system-assigned managed identity to a single Azure Cognitive Search service and it is tied to the lifecycle of that search service.
+A [system-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types) can be assigned to a single Azure service. You can assign a system-assigned managed identity to a single Azure Cognitive Search service and it is tied to the lifecycle of that search service.
 
 ### User-assigned managed identity (preview)
 
@@ -44,7 +44,7 @@ A [system-assigned managed identity](https://docs.microsoft.com/azure/active-dir
 > 
 > The [REST API version 2020-06-30-Preview](search-api-preview.md) provides this feature.
 
-A [user-assigned managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types) is a standalone Azure resource that can be assigned to one or more Azure services. A single Azure Cognitive Search service can have one or more user-assigned managed identities assigned to it. A single user-assigned managed identity can be assigned to multiple search services.
+A [user-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types) is a standalone Azure resource that can be assigned to one or more Azure services. A single Azure Cognitive Search service can have one or more user-assigned managed identities assigned to it. A single user-assigned managed identity can be assigned to multiple search services.
 
 ## Limitations
 

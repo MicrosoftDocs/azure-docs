@@ -27,7 +27,7 @@ Before learning more about this feature, it is recommended that you have an unde
 
 ### 1 - Create and assign the managed identity
 
-In the first step you will either assign a system-assigned managed identity to the search service or assign a user-assigned managed identity to the search service. See [What are managed identities for Azure resources?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) for more information about the types of managed identities.
+In the first step you will either assign a system-assigned managed identity to the search service or assign a user-assigned managed identity to the search service. See [What are managed identities for Azure resources?](/azure/active-directory/managed-identities-azure-resources/overview) for more information about the types of managed identities.
 
 #### Option 1 - Turn on system-assigned managed identity
 
@@ -48,7 +48,7 @@ If you don't already have a user-assigned managed identity created, you'll need 
 1. Search for "User Assigned Managed Identity".
 1. Create the user-assigned managed identity resource.
 
-Next, assign the user-assigned managed identity to the search service. This can be done using the [2021-04-01-preview](https://docs.microsoft.com/rest/api/searchmanagement/management-api-versions) management API.
+Next, assign the user-assigned managed identity to the search service. This can be done using the [2021-04-01-preview](/rest/api/searchmanagement/management-api-versions) management API.
 
 To assign the identity to the search service, update identity property of the search service:
 
