@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/28/2020
+ms.date: 06/29/2021
 ms.author: jeedes
 ---
 
@@ -32,11 +32,10 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* LinkedIn Learning supports **SP and IDP** initiated SSO
-* LinkedIn Learning supports **Just In Time** user provisioning
+* LinkedIn Learning supports **SP and IDP** initiated SSO.
+* LinkedIn Learning supports **Just In Time** user provisioning.
 
-
-## Adding LinkedIn Learning from the gallery
+## Add LinkedIn Learning from the gallery
 
 To configure the integration of LinkedIn Learning into Azure AD, you need to add LinkedIn Learning from the gallery to your list of managed SaaS apps.
 
@@ -46,7 +45,6 @@ To configure the integration of LinkedIn Learning into Azure AD, you need to add
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **LinkedIn Learning** in the search box.
 1. Select **LinkedIn Learning** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
-
 
 ## Configure and test Azure AD SSO for LinkedIn Learning
 
@@ -71,9 +69,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
+1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
-     a. In the **Identifier** textbox, enter the **Entity ID** copied from LinkedIn Portal. 
+    a. In the **Identifier** textbox, enter the **Entity ID** copied from LinkedIn Portal. 
 
 	b. In the **Reply URL** textbox, enter the **Assertion Consumer Service (ACS) Url** copied from LinkedIn Portal.
 
@@ -81,10 +79,8 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     `https://www.linkedin.com/checkpoint/enterprise/login/<AccountId>?application=learning&applicationInstanceId=<InstanceId>`
 
-    ![LinkedIn Learning Domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
-
 	> [!NOTE]
-	> These values are not real value. You will update these values with the actual Identifier and Reply URL, which is explained later in the **Configure LinkedIn Learning SSO** section of tutorial.
+	> These values are not real. You will update these values with the actual Identifier, Reply URL and Sign on URL which is explained later in the **Configure LinkedIn Learning SSO** section of tutorial.
 
 1. LinkedIn Learning application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes, where as **nameidentifier** is mapped with **user.userprincipalname**. LinkedIn Learning application expects **nameidentifier** to be mapped with **user.mail**, so you need to edit the attribute mapping by clicking on **Edit** icon and change the attribute mapping.
 
@@ -124,29 +120,49 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure LinkedIn Learning SSO
 
-1. In a different web browser window, sign-on to your LinkedIn Learning tenant as an administrator.
+1. Log in to your LinkedIn Learning company site as an administrator.
 
-2. In **Account Center**, click **Global Settings** under **Settings**. Also, select **Learning - Default** from the dropdown list.
+1. Select **Go to Admin** > **Me** > **Authenticate**. 
 
-	![Screenshot shows the Global Settings where you can select Default.](./media/linkedinlearning-tutorial/tutorial_linkedin_admin_01.png)
+    ![Account](./media/linkedinlearning-tutorial/welcome-back-authenticate.png "Account") 
 
-3. Click **OR Click Here to load and copy individual fields from the form** and copy **Entity Id** and **Assertion Consumer Service (ACS) Url** and paste it in the **Basic SAML Configuration** section in Azure portal.
+1. Select **Configure single sign-on** under **Authenticate** and click **Add new SSO**.    
 
-	![Screenshot shows Single Sign-On where you can enter the values described.](./media/linkedinlearning-tutorial/tutorial_linkedin_admin_03.png)
+    ![Configure single sign-on](./media/linkedinlearning-tutorial/admin.png "Configure single sign-on")
 
-4. Go to **LinkedIn Admin Settings** section. Upload the XML file you downloaded from the Azure portal by clicking the **Upload XML file** option.
+1. Select **SAML** from the **Add new SSO** dropdown.
 
-	![Screenshot shows Configure the LinkedIn service provider S S O settings where you can upload an X M L file.](./media/linkedinlearning-tutorial/tutorial_linkedin_metadata_03.png)
+    ![SAML Authentication](./media/linkedinlearning-tutorial/new-method.png "SAML Authentication")
 
-5. Click **On** to enable SSO. SSO status changes from **Not Connected** to **Connected**
+1. Under **Basics** tab, enter **SAML Connection Name** and click **Next**.
 
-	![Screenshot shows Single Sign-On where you can enable Authenticate users with S S O.](./media/linkedinlearning-tutorial/tutorial_linkedin_admin_05.png)
+    ![SSO Connection](./media/linkedinlearning-tutorial/auth-users.png "SSO Connection")
+
+1. Navigate to **Identity provider settings** tab, click **Download file** to download the metadata file and save it on your computer and click **Next**.
+
+    ![Identity provider settings](./media/linkedinlearning-tutorial/download-file.png "Identity provider settings")
+
+    > [!NOTE]    
+    > You may not be able to import this file into your Identity Provider. For example, Okta does not have this functionality. If this case matches your configuration requirements, continue to Working with Individual Fields.
+    For more information, see [Configuring your Identity Provider](https://docs.microsoft.com/linkedin/learning/sso-auth/sso-docs/sso-implementation#configuring-your-identity-provider).
+
+1. In the **Identity provider settings** tab, click **Load and copy information from fields** and copy the required fields and paste into the **Basic SAML Configuration** section in the Azure portal and click **Next**.
+
+    ![Settings](./media/linkedinlearning-tutorial/fields.png "Settings")
+
+1. Navigate to **SSO settings** tab, click **Upload XML file** to upload the **Federation Metadata XML** which you have downloaded from the azure portal.
+
+    ![Certificate file](./media/linkedinlearning-tutorial/upload-file.png "Certificate file")
+
+1. Under **SSO settings**, select your SSO options as per your requirement and click **Save**.
+
+    ![SSO settings](./media/linkedinlearning-tutorial/options.png "SSO settings")
 
 ### Create LinkedIn Learning test user
 
-LinkedIn Learning Application supports Just in time user provisioning and after authentication users are created in the application automatically. On the admin settings page on the LinkedIn Learning portal flip the switch **Automatically Assign licenses** to active Just in time provisioning and this will also assign a license to the user.
+LinkedIn Learning Application supports **Just in time user provisioning** and after authentication users are created in the application automatically. On the admin settings page on the LinkedIn Learning portal flip the switch **Automatically Assign licenses** to active Just in time provisioning and this will also assign a license to the user.
 
-   ![Creating an Azure AD test user](./media/linkedinlearning-tutorial/LinkedinUserprovswitch.png)
+   ![Creating an Azure AD test user](./media/linkedinlearning-tutorial/switch.png)
 
 ## Test SSO 
 
@@ -160,10 +176,9 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### IDP initiated:
 
-* Click on **Test this application** in Azure portal and you should be automatically signed in to the LinkedIn Learning for which you set up the SSO 
+* Click on **Test this application** in Azure portal and you should be automatically signed in to the LinkedIn Learning for which you set up the SSO. 
 
 You can also use Microsoft My Apps to test the application in any mode. When you click the LinkedIn Learning tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the LinkedIn Learning for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
-
 
 ## Next steps
 
