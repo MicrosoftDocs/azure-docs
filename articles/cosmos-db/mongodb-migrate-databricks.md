@@ -1,7 +1,7 @@
 ---
 title: Migrate MongoDB offline to Azure Cosmos DB API for MongoDB, using Databricks Spark
 description: Learn how Databricks Spark can be used to migrate large datasets from MongoDB instances to Azure Cosmos DB
-author: Shweta Nayak
+author: nayakshweta
 ms.author: shwetn
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
@@ -41,7 +41,7 @@ To complete this tutorial, you need to:
 
 ## Provision an Azure Databricks cluster
 
-You can follow instructions to [provision an Azure Databricks cluster](https://docs.microsoft.com/en-us/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal). We recommend selecting Databricks runtime version 7.6, which supports Spark 3.0.
+You can follow instructions to [provision an Azure Databricks cluster](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal). We recommend selecting Databricks runtime version 7.6, which supports Spark 3.0.
 
 ![Diagram of databricks new cluster creation.](./media/mongodb-migrate-databricks/databricks-cluster-creation.png)
 
@@ -167,4 +167,4 @@ After you migrate the data, you can connect to Azure Cosmos DB and manage the da
 
 * [Manage indexing in Azure Cosmos DB's API for MongoDB](mongodb-indexing)
 
-* [Find the request unit charge for operations](https://docs.microsoft.com/en-us/azure/cosmos-db/find-request-unit-charge-mongodb)
+* [Find the request unit charge for operations](find-request-unit-charge-mongodb)
