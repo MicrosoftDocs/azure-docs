@@ -110,7 +110,7 @@ To enable blob soft delete for your storage account by using the Azure portal, f
 
 ### [PowerShell](#tab/azure-powershell)
 
-1. Install the latest **PowershellGet** module. Then, close and reopen the Powershell console.
+1. Install the latest **PowershellGet** module. Then, close and reopen the PowerShell console.
 
     ```powershell
     install-Module PowerShellGet –Repository PSGallery –Force 

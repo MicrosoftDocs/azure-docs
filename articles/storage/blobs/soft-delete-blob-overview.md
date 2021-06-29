@@ -157,9 +157,9 @@ For more information on pricing for Blob Storage, see the [Blob Storage pricing]
 
 ## Blob soft delete and virtual machine disks  
 
-Blob soft delete is available for both premium and standard unmanaged disks, which are page blobs under the covers. Soft delete can help you recover data deleted or overwritten by the **Delete Blob**, **Put Blob**, **Put Block List**, and **Copy Blob** operations only.
+Blob soft delete is available for both premium and standard unmanaged disks, which are page blobs under the covers. Soft delete can help you recover data deleted or overwritten by the [Delete Blob](/rest/api/storageservices/delete-blob), [Put Blob](/rest/api/storageservices/put-blob), [Put Block List](/rest/api/storageservices/put-block-list), and [Copy Blob](/rest/api/storageservices/copy-blob) operations only.
 
-Data that is overwritten by a call to **Put Page** is not recoverable. An Azure virtual machine writes to an unmanaged disk using calls to **Put Page**, so using soft delete to undo writes to an unmanaged disk from an Azure VM is not a supported scenario.
+Data that is overwritten by a call to [Put Page](/rest/api/storageservices/put-page) is not recoverable. An Azure virtual machine writes to an unmanaged disk using calls to [Put Page](/rest/api/storageservices/put-page), so using soft delete to undo writes to an unmanaged disk from an Azure VM is not a supported scenario.
 
 ## Next steps
 
