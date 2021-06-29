@@ -27,21 +27,23 @@ This article is for eligible members who want to activate their privileged acces
 
 When you need to take on an privileged access group role, you can request activation by using the **My roles** navigation option in Privileged Identity Management.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. [Sign in to Azure AD portal](https://aad.portal.azure.com) with Global Administrator or group Owner permissions.
 
-1. Open **Azure AD Privileged Identity Management**. For information about how to pin the Privileged Identity Management tile to your dashboard, see [Start using Privileged Identity Management](pim-getting-started.md).
+1. Open [Privileged Identity Management](https://portal.azure.com/#blade/Microsoft_Azure_PIMCommon/CommonMenuBlade/quickStart).
 
-1. Select **My roles**.
+1. Select **Privileged access groups (Preview)** and then select the group you want to manage. You can search or filter in the list.
 
-1. Select **Privileged access group roles** to see a list of your eligible privileged access group roles.
-
-1. In the **Privileged access group roles** list, find the role you want to activate.
+    ![Open the Privileged access groups (Preview) experience](./media/groups-activate-roles/privileged-access-groups-select.png)
 
 1. Select **Activate** to open the Activate page.
 
 1. If your role requires multi-factor authentication, select **Verify your identity before proceeding**. You only have to authenticate once per session.
 
+    ![Verify my identity with MFA before role activation](./media/groups-activate-roles/groups-my-roles-mfa.png)
+
 1. Select **Verify my identity** and follow the instructions to provide additional security verification.
+
+    ![Screen to provide security verification such as a PIN code](./media/groups-activate-roles/goups-mfa-enter-code.png)
 
 1. If you want to specify a reduced scope, select **Scope** to open the Resource filter pane.
 
