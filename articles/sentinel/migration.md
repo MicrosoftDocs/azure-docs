@@ -160,8 +160,11 @@ Make sure that you migrate only the data that represents your current key use ca
 Azure Sentinel uses machine learning analytics to create high-fidelity and actionable incidents, and some of your existing detections may be redundant in Azure Sentinel. Therefore, do not migrate all of your detection and analytics rules blindly:
 
 - Make sure to select use cases that justify rule migration, considering business priority and efficiency.
+
 - Review [built-in analytics rules](tutorial-detect-threats-built-in.md) that may already address your use cases. In Azure Sentinel, go to the **Configuration > Analytics > Rule templates** tab to create rules based on built-in templates.
+
 - Review any rules that haven't triggered any alerts in the past 6-12 months, and determine whether they're still relevant.
+
 - Eliminate low-level threats or alerts that you routinely ignore.
 
 **To migrate your analytics rules to Azure Sentinel**:
@@ -176,19 +179,13 @@ Azure Sentinel uses machine learning analytics to create high-fidelity and actio
 
 1. Verify whether your detections are available as built-in templates in Azure Sentinel.
 
-    **If the built-in rules are sufficient**, use built-in rule templates to create rules for your own workspace. In Azure Sentinel, go to the **Configuration > Analytics > Rule templates** tab, and create and update each relevant analytics rule. For more information, see [Detect threats out-of-the-box](tutorial-detect-threats-built-in.md).
+    |Condition  |Steps  |
+    |---------|---------|
+    |**If the built-in rules are sufficient**     |     Use built-in rule templates to create rules for your own workspace.<br><br> In Azure Sentinel, go to the **Configuration > Analytics > Rule templates** tab, and create and update each relevant analytics rule. For more information, see [Detect threats out-of-the-box](tutorial-detect-threats-built-in.md).    |
+    |**If you have detections that aren't covered by Azure Sentinel's built-in rules**     | Try an online query converter, such as [Uncoder.io](https://uncoder.io/) to convert your queries to KQL. <br><br>Identify the trigger condition and rule action, and then construct and review your KQL query.        |
+    |**If neither the built-in rules nor an online rule converter is sufficient**     |   You'll need to create the rule manually. In such cases, use the following steps to start creating your rule: <br><br>1. **Identify the data sources you want to use in your rule**. <br>You'll want to create a mapping table between data sources and data tables in Azure Sentinel to identify the tables you want to query.<br> <br>     2. **Identify any attributes, fields, or entities** in your data that you want to use in your rules.<br><br>      3. **Identify your rule criteria and logic**. <br>At this stage, you may want to to use rule templates as samples for how to construct your KQL queries. <br><br> Consider filters, correlation rules, activelists, reference sets, watchlists, detection anomalies, aggregations, and so on. You might use references provided by your legacy SIEM to understand how to best map your query syntax.<br><br>For example, see [Sample rule mapping between ArcSight/QRadar and Azure Sentinel](https://github.com/Azure/Azure-Sentinel/blob/master/Tools/RuleMigration/Rule%20Logic%20Mappings.md) and [SPL to KQL mapping samples](https://github.com/Azure/Azure-Sentinel/blob/master/Tools/RuleMigration/Rule%20Logic%20Mappings.md) <br> <br>4. **Identify the trigger condition and rule action**. <br><br>5. **Construct and review your KQL query**. <br>When reviewing your query, consider KQL optimization guidance resources.    |
+    |     |         |
 
-    **If you have detections that aren't covered by Azure Sentinel's built-in rules**, try an online query converter, such as [Uncoder.io](https://uncoder.io/) to convert your queries to KQL. Identify the trigger condition and rule action, and then construct and review your KQL query.
-
-    **If neither the built-in rules nor an online rule converter is sufficient**, you'll need to create the rule manually. In such cases, use the following steps to start creating your rule:
-
-      1. Identify the data sources you want to use in your rule. You'll want to create a mapping table between data sources and data tables in Azure Sentinel to identify the tables you want to query.
-
-      1. Identify any attributes, fields, or entities in your data that you want to use in your rules.
-
-      1. Identify your rule criteria and logic. At this stage, you may want to to use rule templates as samples for how to construct your KQL queries. Consider filters, correlation rules, activelists, reference sets, watchlists, detection anomalies, aggregations, and so on. You might use references provided by your legacy SIEM to understand how to best map your query syntax.
-
-      1. Identify the trigger condition and rule action, and then construct and review your KQL query. When reviewing your query, consider KQL optimization guidance resources.
 
 1. Test the rule with each of your relevant use cases. If it doesn't provided expected results, you may want to review the KQL and test it again.
 
@@ -215,28 +212,18 @@ For more information, see:
 
 Use the following checklist to make sure that you're fully migrated to Azure Sentinel and are ready to retire your legacy SIEM:
 
-- **Technology readiness**:
 
-  > [!div class="checklist"]
-  > * Check critical data: Make sure all sources and alerts are available in Azure Sentinel.
-  > * Archive all records: Save critical past incident and case records, raw data optional, to retain institutional history.
-
-- **Process readiness**:
-  
-  > [!div class="checklist"]
-  > * Playbooks: Update [investigation and hunting processes](tutorial-investigate-cases.md) to Azure Sentinel.
-  > * Metrics: Ensure that you can get all key metrics from Azure Sentinel.
-  > * Workbooks: Create [custom workbooks](tutorial-monitor-your-data.md) or use built-in workbook templates to quickly gain insights as soon as you [connect to data sources](connect-data-sources.md).
-  > * Cases: Make sure to transfer all current cases to the new system, including required source data.
-
-- **People readiness**
-
-  > [!div class="checklist"]
-  > * SOC analysts: Make sure everyone on your team is trained on Azure Sentinel and is comfortable leaving the legacy SIEM.
-
+|Readiness area  |Details  |
+|---------|---------|
+|**Technology readiness**     | **Check critical data**: Make sure all sources and alerts are available in Azure Sentinel. <br><br>**Archive all records**: Save critical past incident and case records, raw data optional, to retain institutional history.   |
+|**Process readiness**     |  **Playbooks**: Update [investigation and hunting processes](tutorial-investigate-cases.md) to Azure Sentinel.<br><br>**Metrics**: Ensure that you can get all key metrics from Azure Sentinel.<br><br>**Workbooks**: Create [custom workbooks](tutorial-monitor-your-data.md) or use built-in workbook templates to quickly gain insights as soon as you [connect to data sources](connect-data-sources.md).<br><br>**Cases**: Make sure to transfer all current cases to the new system, including required source data.        |
+|**People readiness**     |  **SOC analysts**: Make sure everyone on your team is trained on Azure Sentinel and is comfortable leaving the legacy SIEM.   |
+|     |         |
 ## Next steps
 
 After migration, explore Microsoft's Azure Sentinel resources to expand your skills and get the most out of Azure Sentinel.
+
+Also consider increasing your threat protection by using Azure Sentinel alongside [Microsoft 365 Defender](/azure/sentinel/microsoft-365-defender-sentinel-integration) and [Azure Defender](/azure/security-center/azure-defender) for [integrated threat protection](https://www.microsoft.com/security/business/threat-protection). Benefit from the breadth of visibility that Azure Sentinel delivers, while diving deeper into detailed threat analysis.
 
 For more information, see:
 
@@ -247,9 +234,4 @@ For more information, see:
 - [Azure Sentinel learning path](/learn/paths/security-ops-sentinel/)
 - [SC-200 Microsoft Security Operations Analyst certification](/learn/certifications/exams/sc-200)
 - [Azure Sentinel Ninja training](https://techcommunity.microsoft.com/t5/azure-sentinel/become-an-azure-sentinel-ninja-the-complete-level-400-training/ba-p/1246310)
-
-> [!TIP]
-> Consider increasing your threat protection by using Azure Sentinel alongside [Microsoft 365 Defender](/azure/sentinel/microsoft-365-defender-sentinel-integration) and [Azure Defender](/azure/security-center/azure-defender) for [integrated threat protection](https://www.microsoft.com/security/business/threat-protection). Benefit from the breadth of visibility that Azure Sentinel delivers, while diving deeper into detailed threat analysis.
->
-> For more information, see [Investigate an attack on a hybrid environment with Azure Sentinel](https://mslearn.cloudguides.com/guides/Investigate%20an%20attack%20on%20a%20hybrid%20environment%20with%20Azure%20Sentinel).
->
+- [Investigate an attack on a hybrid environment with Azure Sentinel](https://mslearn.cloudguides.com/guides/Investigate%20an%20attack%20on%20a%20hybrid%20environment%20with%20Azure%20Sentinel)
