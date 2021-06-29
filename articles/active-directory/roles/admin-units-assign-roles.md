@@ -144,10 +144,5 @@ Body
 
 ## Next steps
 
-<<<<<<< HEAD
-- [Use cloud groups to manage role assignments](groups-concept.md)
-- [Troubleshoot roles assigned to cloud groups](groups-faq-troubleshooting.yml)
-=======
 - [Use Azure AD groups to manage role assignments](groups-concept.md)
-- [Troubleshoot Azure AD roles assigned to groups](groups-faq-troubleshooting.md)
->>>>>>> 8779cc43cc266f34114265397aebed65f18b128f
+- [Troubleshoot Azure AD roles assigned to groups](groups-faq-troubleshooting.yml)
