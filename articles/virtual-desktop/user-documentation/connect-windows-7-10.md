@@ -16,7 +16,7 @@ You can access Azure Virtual Desktop resources on devices with Windows 10, Windo
 > [!IMPORTANT]
 > This does not support Window 8 or Windows 8.1.
 > 
-> This only supports Azure Resource Manager objects, to support objects without Azure Resource Manager, see [Connect with Windows Desktop (classic) client](./virtual-desktop-fall-2019/connect-windows-7-10-2019.md).
+> This only supports Azure Resource Manager objects, to support objects without Azure Resource Manager, see [Connect with Windows Desktop (classic) client](../virtual-desktop-fall-2019/connect-windows-7-10-2019.md).
 > 
 > This does not support the RemoteApp and Desktop Connections (RADC) client or the Remote Desktop Connection (MSTSC) client.
 
