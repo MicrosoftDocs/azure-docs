@@ -32,6 +32,9 @@ In this article you learn how to enable the following workspaces resources in a 
 > - Azure Key Vault
 > - Azure Container Registry
 
+> [!TIP]
+> For a tutorial on creating a secure workspace, see [Tutorial: Create a secure workspace](tutorial-create-secure-workspace.md).
+
 ## Prerequisites
 
 + Read the [Network security overview](how-to-network-security-overview.md) article to understand common virtual network scenarios and overall virtual network architecture.
