@@ -90,9 +90,9 @@ When connecting to the database in the next step, you will need to connect with 
 
 Follow the instructions [here](../azure-sql/database/authentication-aad-configure.md?tabs=azure-powershell#provision-azure-ad-admin-sql-database) to give your Azure AD account admin access to the database.
 
-### 3 - Assign permissions to the database
+### 3 - Assign permissions to read the database
 
-Follow the below steps to assign the search service permission to read the database.
+Follow the below steps to assign the search service or user-assigned managed identity permission to read the database.
 
 1. Connect to Visual Studio
 
