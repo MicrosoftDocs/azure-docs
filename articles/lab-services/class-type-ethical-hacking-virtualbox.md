@@ -48,8 +48,8 @@ Kali is a Linux distribution that includes tools for penetration testing and sec
 
 >[!Note]
 >- The VirtualBox default Ram for the Kali VM is 2 gig (2048), We recommend increasing the Ram to at least 4 gig (4096) or more depending on your needs.  This can be changed by the students on their VMs.  Changing the RAM size within VirtualBox does not change the Lab's VM size.
-- By default the Hard disk is set to an 80 gig limit, but is dynamically allocated.  Lab Service machines are limited to 128 gigs of hard drive space, so be careful not to exceed this disk size.
-- The Kali image has USB 2.0 enable which requires [Oracle VM VirtualBox Extension Pack](https://www.virtualbox.org/wiki/Downloads) or set the USB controller to 1.0 under the USB tab.
+>- By default the Hard disk is set to an 80 gig limit, but is dynamically allocated.  Lab Service machines are limited to 128 gigs of hard drive space, so be careful not to exceed this disk size.
+>- The Kali image has USB 2.0 enable which requires [Oracle VM VirtualBox Extension Pack](https://www.virtualbox.org/wiki/Downloads) or set the USB controller to 1.0 under the USB tab.
 
 ### Setup Seed lab images
 
