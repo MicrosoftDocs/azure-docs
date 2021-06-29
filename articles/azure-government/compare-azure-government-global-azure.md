@@ -15,7 +15,7 @@ ms.date: 06/25/2021
 
 # Compare Azure Government and global Azure
 
-Microsoft Azure Government uses same underlying technologies as global Azure, which includes the core components of [Infrastructure-as-a-Service (IaaS)](https://azure.microsoft.com/overview/what-is-iaas/), [Platform-as-a-Service (PaaS)](https://azure.microsoft.com/overview/what-is-paas/), and [Software-as-a-Service (SaaS)](https://azure.microsoft.com/overview/what-is-saas/). Both Azure and Azure Government have the same comprehensive security controls in place, as well as the same Microsoft commitment on the safeguarding of customer data. Whereas both cloud environments are assessed and authorized at the FedRAMP High impact level, Azure Government provides an additional layer of protection to customers through contractual commitments regarding storage of customer data in the United States and limiting potential access to systems processing customer data to [screened US persons](./documentation-government-plan-security.md#screening). These commitments may be of interest to customers using the cloud to store or process data subject to US export control regulations.
+Microsoft Azure Government uses same underlying technologies as global Azure, which includes the core components of [Infrastructure-as-a-Service (IaaS)](https://azure.microsoft.com/overview/what-is-iaas/), [Platform-as-a-Service (PaaS)](https://azure.microsoft.com/overview/what-is-paas/), and [Software-as-a-Service (SaaS)](https://azure.microsoft.com/overview/what-is-saas/). Both Azure and Azure Government have the same comprehensive security controls in place and the same Microsoft commitment on the safeguarding of customer data. Whereas both cloud environments are assessed and authorized at the FedRAMP High impact level, Azure Government provides an extra layer of protection to customers through contractual commitments regarding storage of customer data in the United States and limiting potential access to systems processing customer data to [screened US persons](./documentation-government-plan-security.md#screening). These commitments may be of interest to customers using the cloud to store or process data subject to US export control regulations.
 
 ## Export control implications
 
@@ -23,9 +23,11 @@ Customers are responsible for designing and deploying their applications to meet
 
 ## Guidance for developers
 
-Azure Government services operate the same way as the corresponding services in global Azure, which is why most of the existing online Azure documentation applies equally well to Azure Government. However, there are some key differences that developers working on applications hosted in Azure Government must be aware of. For more information, see [Guidance for developers](./documentation-government-developer-guide.md). As a developer, you must know how to connect to Azure Government and once you connect you will mostly have the same experience as in global Azure. You can use AzureCLI or PowerShell to obtain Azure Government endpoints for services your provisioned:
+Azure Government services operate the same way as the corresponding services in global Azure, which is why most of the existing online Azure documentation applies equally well to Azure Government. However, there are some key differences that developers working on applications hosted in Azure Government must be aware of. For more information, see [Guidance for developers](./documentation-government-developer-guide.md). As a developer, you must know how to connect to Azure Government and once you connect you will mostly have the same experience as in global Azure.
 
-- Use **Azure CLI** to run the [az cloud show](/cli/azure/cloud#az_cloud_show) command and provide `AzureUSGovernment` as the name of the target cloud environment. For example:
+You can use AzureCLI or PowerShell to obtain Azure Government endpoints for services you provisioned:
+
+- Use **Azure CLI** to run the [az cloud show](/cli/azure/cloud#az_cloud_show) command and provide `AzureUSGovernment` as the name of the target cloud environment. For example,
 
   ```azurecli
   az cloud show --name AzureUSGovernment
@@ -33,7 +35,7 @@ Azure Government services operate the same way as the corresponding services in 
 
   should get you different endpoints for Azure Government.
 
-- Use a **PowerShell** cmdlet such as [Get-AzureEnvironment](/powershell/module/servicemanagement/azure.service/get-azureenvironment) (or [Get-AzureRmEnvironment](/powershell/module/azurerm.profile/get-azurermenvironment)) to get endpoints and metadata for an instance of Azure service. For example:
+- Use a **PowerShell** cmdlet such as [Get-AzureEnvironment](/powershell/module/servicemanagement/azure.service/get-azureenvironment) (or [Get-AzureRmEnvironment](/powershell/module/azurerm.profile/get-azurermenvironment)) to get endpoints and metadata for an instance of Azure service. For example,
 
   ```powershell
   Get-AzureEnvironment -Name AzureUSGovernment
@@ -43,6 +45,7 @@ Azure Government services operate the same way as the corresponding services in 
 
 Table below lists API endpoints in Azure vs. Azure Government for accessing and managing some of the more common services. If you provisioned a service that isn't listed in the table below, see the Azure CLI and PowerShell examples above for suggestions on how to obtain the corresponding Azure Government endpoint.
 
+</br>
 
 |Service category|Service name|Azure Public|Azure Government|Notes|
 |-----------|-----------|-------|----------|----------------------|
@@ -109,9 +112,9 @@ Table below lists API endpoints in Azure vs. Azure Government for accessing and 
 
 ## Service availability
 
-Microsoft's goal is to enable 100% parity in service availability between Azure and Azure Government. For service availability in Azure Government, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia). Services available in Azure Government are listed by category and whether they are Generally Available or available through Preview. If a service is available in Azure Government, that fact is not reiterated in the rest of this article. Instead, customers are encouraged to review [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia) for the latest, up-to-date information on service availability.
+Microsoft's goal is for Azure Government to match service availability in Azure. For service availability in Azure Government, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia). Services available in Azure Government are listed by category and whether they are Generally Available or available through Preview. If a service is available in Azure Government, that fact is not reiterated in the rest of this article. Instead, customers are encouraged to review [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia) for the latest, up-to-date information on service availability.
 
-In general, service availability in Azure Government implies that all corresponding service features are available to customers. Variations to this approach and other applicable limitations are tracked and explained in this article based on the main service categories outlined in the [online directory of Azure services](https://azure.microsoft.com/services/). Additional considerations for service deployment and usage in Azure Government are also provided.
+In general, service availability in Azure Government implies that all corresponding service features are available to customers. Variations to this approach and other applicable limitations are tracked and explained in this article based on the main service categories outlined in the [online directory of Azure services](https://azure.microsoft.com/services/). Other considerations for service deployment and usage in Azure Government are also provided.
 
 ## AI + Machine Learning
 
@@ -167,7 +170,7 @@ The following Speech service **features are not currently available** in Azure G
 
 - Custom Voice
 
-See details of supported locales by features in [Speech service supported regions](../cognitive-services/speech-service/regions.md). For additional information including API endpoints, see [Speech service in sovereign clouds](../cognitive-services/Speech-Service/sovereign-clouds.md).
+See details of supported locales by features in [Speech service supported regions](../cognitive-services/speech-service/regions.md). For more information including API endpoints, see [Speech service in sovereign clouds](../cognitive-services/Speech-Service/sovereign-clouds.md).
 
 ### [Translator](../cognitive-services/translator/translator-info-overview.md)
 
@@ -334,11 +337,11 @@ Azure Government customers can enable Application Insights with a [codeless agen
    - Variable name: `AzureGraphApiVersion`
    - Variable value: `2014-04-01`
    
-   To create a User Environment variable go to **Control Panel > System > Advanced system settings > Advanced > Environment Variables**.
+   To create a User Environment variable, go to **Control Panel > System > Advanced system settings > Advanced > Environment Variables**.
 
 3. Make the appropriate Application Insights SDK endpoint modifications for either [ASP.NET](#web) or [ASP.NET Core](#web) depending on your project type.
 
-**Snapshot Debugger** is now available for Azure Government customers. To use Snapshot Debugger the only additional prerequisite is to ensure that you are using [Snapshot Collector version 1.3.5](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.5-pre-1906.403) or later. Then simply follow the standard [Snapshot Debugger documentation](../azure-monitor/app/snapshot-debugger.md).
+**Snapshot Debugger** is now available for Azure Government customers. To use Snapshot Debugger, the only other prerequisite is to ensure that you are using [Snapshot Collector version 1.3.5](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.5-pre-1906.403) or later. Then follow the standard [Snapshot Debugger documentation](../azure-monitor/app/snapshot-debugger.md).
 
 **SDK endpoint modifications** - In order to send data from Application Insights to the Azure Government region, you will need to modify the default endpoint addresses that are used by the Application Insights SDKs. Each SDK requires slightly different modifications, as described in [Application Insights overriding default endpoints](../azure-monitor/app/custom-endpoints.md).
 
@@ -378,7 +381,7 @@ The following Azure Advisor recommendation **features are not currently availabl
 
 The calculation for recommending that you should right-size or shut down underutilized virtual machines in Azure Government is as follows:
 
-- Advisor monitors your virtual machine usage for 7 days and identifies low-utilization virtual machines.
+- Advisor monitors your virtual machine usage for seven days and identifies low-utilization virtual machines.
 - Virtual machines are considered low utilization if their CPU utilization is 5% or less and their network utilization is less than 2%, or if the current workload can be accommodated by a smaller virtual machine size.
 
 If you want to be more aggressive at identifying underutilized virtual machines, you can adjust the CPU utilization rule on a per subscription basis.
@@ -457,7 +460,7 @@ This section outlines variations and considerations when using Migration service
 
 The following Azure Migrate **features are not currently available** in Azure Government:
 
-- Dependency visualization functionality as Azure Migrate depends on Service Map for dependency visualization which is currently unavailable in Azure Government.
+- Dependency visualization functionality as Azure Migrate depends on Service Map for dependency visualization, which is currently unavailable in Azure Government.
 - You can only create assessments for Azure Government as target regions and using Azure Government offers.
 
 
@@ -467,15 +470,15 @@ This section outlines variations and considerations when using Networking servic
 
 ### [Azure ExpressRoute](../expressroute/index.yml)
 
-Azure ExpressRoute is used to create private connections between Azure Government datacenters and customer's on-premises infrastructure or a colocation facility. ExpressRoute connections do not go over the public Internet — they offer optimized pathways (shortest hops, lowest latency, highest performance, etc.) and Azure Government geo-redundant regions.
+Azure ExpressRoute is used to create private connections between Azure Government datacenters and customer's on-premises infrastructure or a colocation facility. ExpressRoute connections do not go over the public Internet—they offer optimized pathways (shortest hops, lowest latency, highest performance, etc.) and Azure Government geo-redundant regions.
 
 - By default, all Azure Government ExpressRoute connectivity is configured active-active redundant with support for bursting, and it delivers up to 10 G circuit capacity (smallest is 50 MB).
 - Microsoft owns and operates all fiber infrastructure between Azure Government regions and Azure Government ExpressRoute Meet-Me locations.
 - Azure Government ExpressRoute provides connectivity to Microsoft Azure, Microsoft 365, and Dynamics 365 cloud services.
 
-Aside from ExpressRoute, customers can also use an [IPSec protected VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) (site-to-site for a typical organization) to connect securely from their on-premises infrastructure to Azure Government. For network services to support Azure Government customer applications and solutions, it is strongly recommended that ExpressRoute (private connectivity) is implemented to connect to Azure Government. If VPN connections are used, the following should be considered:
+Aside from ExpressRoute, customers can also use an [IPSec protected VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) (site-to-site for a typical organization) to connect securely from their on-premises infrastructure to Azure Government. For network services to support Azure Government customer applications and solutions, it is recommended that ExpressRoute (private connectivity) is implemented to connect to Azure Government. If VPN connections are used, the following recommendations should be considered:
 
-- Customers should contact their authorizing official/agency to determine whether private connectivity or other secure connection mechanism is required and to identify any additional restrictions to consider.
+- Customers should contact their authorizing official/agency to determine whether private connectivity or other secure connection mechanism is required and to identify any extra restrictions to consider.
 - Customers should decide whether to mandate that the site-to-site VPN is routed through a private connectivity zone.
 - Customers should obtain either a Multi-Protocol Label Switching (MPLS) circuit or VPN with a licensed private connectivity access provider.
 
@@ -485,11 +488,11 @@ All customers who utilize a private connectivity architecture should validate th
 
 This section provides an overview of how BGP communities are used with ExpressRoute in Azure Government. Microsoft advertises routes in the public peering and Microsoft peering paths, with routes tagged with appropriate community values. The rationale for doing so and the details on community values are described below.
 
-If you are connecting to Microsoft through ExpressRoute at any one peering location within the Azure Government region, you will have access to all Microsoft cloud services across all regions within the government boundary. For example, if you connected to Microsoft in Washington D.C. through ExpressRoute, you would have access to all Microsoft cloud services hosted in Azure Government. [ExpressRoute overview](../expressroute/expressroute-introduction.md) provides details on locations and partners, as well as a list of peering locations for Azure Government.
+If you are connecting to Microsoft through ExpressRoute at any one peering location within the Azure Government region, you will have access to all Microsoft cloud services across all regions within the government boundary. For example, if you connected to Microsoft in Washington D.C. through ExpressRoute, you would have access to all Microsoft cloud services hosted in Azure Government. [ExpressRoute overview](../expressroute/expressroute-introduction.md) provides details on locations and partners and a list of peering locations for Azure Government.
 
-You can purchase more than one ExpressRoute circuit. Having multiple connections offers you significant benefits on high availability due to geo-redundancy. In cases where you have multiple ExpressRoute circuits, you will receive the same set of prefixes advertised from Microsoft on the public peering and Microsoft peering paths. This means you will have multiple paths from your network into Microsoft. This can potentially cause sub-optimal routing decisions to be made within your network. As a result, you may experience sub-optimal connectivity experiences to different services.
+You can purchase more than one ExpressRoute circuit. Having multiple connections offers you significant benefits on high availability due to geo-redundancy. In cases where you have multiple ExpressRoute circuits, you will receive the same set of prefixes advertised from Microsoft on the public peering and Microsoft peering paths. This arrangement means you will have multiple paths from your network into Microsoft, which can potentially cause suboptimal routing decisions to be made within your network. As a result, you may experience suboptimal connectivity experiences to different services.
 
-Microsoft tags prefixes advertised through public peering and Microsoft peering with appropriate BGP community values indicating the region the prefixes are hosted in. You can rely on the community values to make appropriate routing decisions to offer optimal routing to customers. For additional details, see [Optimize ExpressRoute routing](../expressroute/expressroute-optimize-routing.md).
+Microsoft tags prefixes advertised through public peering and Microsoft peering with appropriate BGP community values indicating the region the prefixes are hosted in. You can rely on the community values to make appropriate routing decisions to offer optimal routing to customers. For more information, see [Optimize ExpressRoute routing](../expressroute/expressroute-optimize-routing.md).
 
 |Azure Government region|BGP community value|
 |-----------------------|-------------------|
@@ -532,15 +535,15 @@ This section outlines variations and considerations when using Security services
 The following features have known limitations in Azure Government:
 
 - Limitations with B2B Collaboration in supported Azure US Government tenants:
-    - B2B Collaboration is available in most Azure US Government tenants created after June, 2019. Over time, more tenants will get access to this functionality. See [How can I tell if B2B collaboration is available in my Azure US Government tenant?](../active-directory/external-identities/current-limitations.md#how-can-i-tell-if-b2b-collaboration-is-available-in-my-azure-us-government-tenant)
+    - B2B Collaboration is available in most Azure US Government tenants created after June 2019. Over time, more tenants will get access to this functionality. See [How can I tell if B2B collaboration is available in my Azure US Government tenant?](../active-directory/external-identities/current-limitations.md#how-can-i-tell-if-b2b-collaboration-is-available-in-my-azure-us-government-tenant)
     - B2B collaboration is supported between tenants that are both within Azure US Government cloud and that both support B2B collaboration. Azure US Government tenants that support B2B collaboration can also collaborate with social users using Microsoft, Google accounts, or email one-time passcode accounts. If you invite a user outside of these groups (for example, if the user is in a tenant that isn't part of the Azure US Government cloud or doesn't yet support B2B collaboration), the invitation will fail or the user will be unable to redeem the invitation.
     - B2B collaboration via Power BI is not supported. When you invite a guest user from within Power BI, the B2B flow is not used and the guest user won't appear in the tenant's user list. If a guest user is invited through other means, they'll appear in the Power BI user list, but any sharing request to the user will fail and display a 403 Forbidden error.
     - Microsoft 365 Groups are not supported for B2B users and can't be enabled.
     - Some SQL tools such as SQL Server Management Studio (SSMS) require you to set the appropriate cloud parameter. In the tool's Azure service setup options, set the cloud parameter to Azure Government.
 
-- Limitations with multi-factor authentication:
+- Limitations with multifactor authentication:
     - Hardware OATH tokens are not available in Azure Government.
-    - Trusted IPs are not supported in Azure Government. Instead, use Conditional Access policies with named locations to establish when multi-factor authentication should and should not be required based off the user's current IP address.
+    - Trusted IPs are not supported in Azure Government. Instead, use Conditional Access policies with named locations to establish when multifactor authentication should and should not be required based off the user's current IP address.
 
 - Limitations with Azure AD join:
     - Enterprise state roaming for Windows 10 devices is not available
@@ -582,13 +585,13 @@ The following Azure Security Center **features are not currently available** in 
 
 **Azure Security Center FAQ**
 
-For Azure Security Center FAQ, see [Azure Security Center frequently asked questions public documentation](../security-center/faq-general.yml). Additional FAQ for Azure Security Center in Azure Government are listed below.
+For Azure Security Center FAQ, see [Azure Security Center frequently asked questions public documentation](../security-center/faq-general.yml). Extra FAQ for Azure Security Center in Azure Government is listed below.
 
 **What will customers be charged for Azure Security Center in Azure Government?**</br>
 Azure Security Center's integrated cloud workload protection platform (CWPP), Azure Defender, brings advanced, intelligent, protection of your Azure and hybrid resources and workloads. Azure Defender is free for the first 30 days. Should you choose to continue to use public preview or generally available features of Azure Defender beyond 30 days, we automatically start to charge for the service.
 
 **Is Azure Security Center available for DoD customers?**</br>
-Azure Security Center is deployed in Azure Government regions but not in Azure Government for DoD regions. Azure resources created in DoD regions can still utilize Security Center capabilities. However, using it will result in Security Center collected data being moved out from DoD regions and stored in Azure Government regions. By default, all Security Center features which collect and store data are disabled for resources hosted in DoD regions. The type of data collected and stored varies depending on the selected feature. Customers who want to enable Azure Security Center features for DoD resources are advised to consider data separation and protection requirements before doing so.
+Azure Security Center is deployed in Azure Government regions but not in Azure Government for DoD regions. Azure resources created in DoD regions can still utilize Security Center capabilities. However, using it will result in Security Center collected data being moved out from DoD regions and stored in Azure Government regions. By default, all Security Center features that collect and store data are disabled for resources hosted in DoD regions. The type of data collected and stored varies depending on the selected feature. Customers who want to enable Azure Security Center features for DoD resources are advised to consider data separation and protection requirements before doing so.
 
 ### [Azure Sentinel](../sentinel/overview.md)
 
@@ -602,7 +605,7 @@ This section outlines variations and considerations when using Storage services 
 
 The following Azure Backup **features are not currently available** in Azure Government:
 
-- Azure Disk Backup. For more information, see [Azure Disk Backup support matrix](../backup/disk-backup-support-matrix.md).
+- Azure Disk Backup, as documented in [Azure Disk Backup support matrix](../backup/disk-backup-support-matrix.md).
 
 ### [Azure managed disks](../virtual-machines/managed-disks-overview.md)
 
