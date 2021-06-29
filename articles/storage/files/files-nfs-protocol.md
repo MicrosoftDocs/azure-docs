@@ -53,6 +53,7 @@ The status of items that appear in this tables may change over time as support c
 | Storage feature | Supported for NFS shares |
 |-----------------|---------|
 | [File management plane REST API](/rest/api/storagerp/file-shares)	| ✔️ |
+| [File data plane REST API](rest/api/storageservices/file-service-rest-api)| ⛔ |
 | Encryption at rest|	✔️ |
 | Encryption in transit| ⛔ |
 | [LRS or ZRS redundancy types](storage-files-planning.md#redundancy)|	✔️ |
@@ -68,7 +69,6 @@ The status of items that appear in this tables may change over time as support c
 | [Azure File Sync](../file-sync/file-sync-introduction.md)| ⛔ |
 | [Azure file share backups](../../backup/azure-file-share-backup-overview.md)| ⛔ |
 | [Azure file share snapshots](storage-snapshots-files.md)| ⛔ |
-| [File data plane REST API](storageservices/file-service-rest-api)| ⛔ |
 | [GRS or GZRS redundancy types](storage-files-planning.md#redundancy)| ⛔ |
 | [AzCopy](../common/storage-use-azcopy-v10.md)| ⛔ |
 | Azure Storage Explorer| ⛔ |
