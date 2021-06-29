@@ -107,7 +107,7 @@
           href: regions.md#speech-to-text-text-to-speech-and-translation
         - name: Speech-to-text FAQ
           displayName: 'FAQ,STT FAQ,SR FAQ,frequently asked questions'
-          href: faq-stt.md
+          href: faq-stt.yml
 - name: Text-to-speech
   items:
     - name: Text-to-speech documentation
