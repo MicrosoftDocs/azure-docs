@@ -1,6 +1,6 @@
 ---
-title: Monitoring Azure virtual networks data reference 
-description: Important reference material needed when you monitor Azure virtual networks 
+title: Monitoring Azure virtual network data reference 
+description: Important reference material needed when you monitor Azure virtual network 
 author: duongau
 ms.topic: reference
 ms.author: duau
@@ -11,7 +11,7 @@ ms.date: 06/30/2021
 
 # Monitoring Azure virtual network data reference
 
-See [Monitoring Azure virtual networks](monitor-virtual-network.md) for details on collecting and analyzing monitoring data for Azure virtual networks.
+See [Monitoring Azure virtual network](monitor-virtual-network.md) for details on collecting and analyzing monitoring data for Azure virtual networks.
 
 ## Metrics
 
@@ -30,7 +30,6 @@ For more information, see a list of [all platform metrics supported in Azure Mon
 
 For more information on what metric dimensions are, see [Multi-dimensional metrics](../azure-monitor/essentials/data-platform-metrics.md#multi-dimensional-metrics).
 
-
 Azure virtual network has the following dimensions associated with its metrics.
 
 ### Dimensions for virtual network
@@ -45,8 +44,8 @@ Azure virtual network has the following dimensions associated with its metrics.
 
 | Dimension Name | Description |
 | ------------------- | ----------------- |
-| **Direction (Out - In)** |  |
-| **Protocol** |  |
+| **Direction (Out - In)** | The direction of traffic flow. The supported values are In and Out. |
+| **Protocol** | The support values are TCP and UDP. |
 
 ## Resource logs
 
@@ -58,9 +57,9 @@ This section refers to all of the Azure Monitor Logs Kusto tables relevant to Az
 
 |Resource Type | Notes |
 |-------|-----|
-| Virtual network | [Microsoft.Network/virtualNetworks](../azure-monitor/reference/tables/tables-resourcetype.md#virtual-networks) |
-| Network interface | [Microsoft.Network/networkInterface](..//azure-monitor/reference/tables/tables-resourcetype.md#network-interfaces) |
-| Public IP addresses | [Microsoft.Network/publicIP](../azure-monitor/reference/tables/tables-resourcetype.md#public-ip-addresses) |
+| Virtual network | [Microsoft.Network/virtualNetworks](/azure/azure-monitor/reference/tables/tables-resourcetype.md#virtual-networks) |
+| Network interface | [Microsoft.Network/networkInterface](/azure/azure-monitor/reference/tables/tables-resourcetype.md#network-interfaces) |
+| Public IP addresses | [Microsoft.Network/publicIP](/azure/azure-monitor/reference/tables/tables-resourcetype.md#public-ip-addresses) |
 
 ### Diagnostics tables
 
@@ -76,7 +75,7 @@ The following table lists the operations related to Azure virtual network that m
 | Create or update virtual network | A virtual network was created or updated. |
 | Deletes virtual network | A virtual network was deleted.|
 
-For more information on the schema of Activity Log entries, see [Activity  Log schema](/azure/azure-monitor/essentials/activity-log-schema). 
+For more information on the schema of Activity Log entries, see [Activity Log schema](/azure/azure-monitor/essentials/activity-log-schema). 
 
 ## Schemas
 <!-- REQUIRED. Please keep heading in this order -->
