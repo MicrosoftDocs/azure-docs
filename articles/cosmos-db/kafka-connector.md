@@ -10,6 +10,7 @@ ms.author: kuthapar
 ---
 
 # Kafka Connect for Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 [Kafka Connect](http://kafka.apache.org/documentation.html#connect) is a tool for scalable and reliably streaming data between Apache Kafka and other systems. Using Kafka Connect you can define connectors that move large data sets into and out of Kafka. Kafka Connect for Azure Cosmos DB is a connector to read from and write data to Azure Cosmos DB.
 
@@ -133,9 +134,9 @@ The source and sink connectors share the following common configuration properti
 | connect.cosmos.databasename | string | The name of the Azure Cosmos database the sink writes to. | Required |
 | connect.cosmos.containers.topicmap | string | Mapping between Kafka topics and Azure Cosmos DB containers. It is formatted using CSV as `topic#container,topic2#container2` | Required |
 
-For sink connector specific configuration, please refer to the [Sink Connector Documentation]()
+For sink connector specific configuration, please refer to the [Sink Connector Documentation](kafka-connector-sink.md)
 
-For source connector specific configuration, please refer to the [Source Connector Documentation]()
+For source connector specific configuration, please refer to the [Source Connector Documentation](kafka-connector-source.md)
 
 ## Common configuration errors
 
@@ -160,5 +161,5 @@ Refer to the [Performance environment setup](https://github.com/microsoft/kafka-
 
 ## Next steps
 
-* Kafka Connect for Azure Cosmos DB [source connector]()
-* Kafka Connect for Azure Cosmos DB [sink connector]()
+* Kafka Connect for Azure Cosmos DB [source connector](kafka-connector-source.md)
+* Kafka Connect for Azure Cosmos DB [sink connector](kafka-connector-sink.md)

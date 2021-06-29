@@ -1,6 +1,6 @@
 ---
-title: 
-description: 
+title: Kafka Connect for Azure Cosmos DB - Source connector
+description: Azure Cosmos DB source connector provides the capability to read data from the Azure Cosmos DB change feed and publish this data to a Kafka topic. Kafka Connect for Azure Cosmos DB is a connector to read from and write data to Azure Cosmos DB. 
 author: kushagrathapar
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -9,9 +9,10 @@ ms.date: 06/28/2021
 ms.author: kuthapar
 ---
 
-# Kafka Connect for Azure Cosmos DB -  source connector
+# Kafka Connect for Azure Cosmos DB - Source connector
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-The Azure Cosmos DB source connector provides the capability to read data from the Azure Cosmos DB Change Feed and publish this data to a Kafka topic.
+Kafka Connect for Azure Cosmos DB is a connector to read from and write data to Azure Cosmos DB. The Azure Cosmos DB source connector provides the capability to read data from the Azure Cosmos DB change feed and publish this data to a Kafka topic.
 
 ## Prerequisites
 
@@ -23,12 +24,11 @@ The Azure Cosmos DB source connector provides the capability to read data from t
 
 ## Install the source connector
 
-If you are using the Confluent Platform setup from this repo, the Cosmos DB Source Connector is included in the installation, and you can skip this step. This is the recommended option.
+If you are using the Confluent platform setup from this repo, the Azure Cosmos DB source connector is included in the installation, and you can skip this step. This is the recommended option.
 
 Otherwise, you can use JAR file from latest [Release](https://github.com/microsoft/kafka-connect-cosmosdb/releases) and install the connector manually. To learn more, see these [instructions](https://docs.confluent.io/current/connect/managing/install.html#install-connector-manually). You can also package a new JAR file from the source code:
 
 ```bash
-
 # clone the kafka-connect-cosmosdb repo if you haven't done so already
 git clone https://github.com/microsoft/kafka-connect-cosmosdb.git
 cd kafka-connect-cosmosdb
@@ -38,23 +38,19 @@ mvn clean package
 
 # include the following JAR file in Confluent Platform installation
 ls target/*dependencies.jar
-
 ```
 
 ## Create a Kafka topic
 
-Create a Kafka topic using Confluent Control Center. For this quickstart, we will create a Kafka topic named “apparels” and write non-schema embedded JSON data to the topic. To create a topic inside the Control Center, see [create Kafka topic doc](https://docs.confluent.io/platform/current/quickstart/ce-docker-quickstart.html#step-2-create-ak-topics).
+Create a Kafka topic using Confluent Control Center. For this quickstart, we will create a Kafka topic named "apparels" and write non-schema embedded JSON data to the topic. To create a topic inside the Control Center, see [create Kafka topic doc](https://docs.confluent.io/platform/current/quickstart/ce-docker-quickstart.html#step-2-create-ak-topics).
 
 ## Create the source connector
 
-### Create the  source connector in Kafka Connect
+### Create the source connector in Kafka Connect
 
-To create the Azure Cosmos DB source connector in Kafka Connect, use the following JSON config. Make sure to  replace the placeholder values for `connect.cosmos.connection.endpoint`, `connect.cosmos.master.key`  
-properties with the values of your Azure Cosmos DB account. 
-
+To create the Azure Cosmos DB source connector in Kafka Connect, use the following JSON config. Make sure to  replace the placeholder values for `connect.cosmos.connection.endpoint`, `connect.cosmos.master.key` properties with the values of your Azure Cosmos DB account.
 
 ```json
-
 {
   "name": "cosmosdb-source-connector",
   "config": {
@@ -72,13 +68,13 @@ properties with the values of your Azure Cosmos DB account.
     "key.converter.schemas.enable": "false"
   }
 }
-
 ```
+
 See the [source properties](#source-configuration-properties) section for more information on each of the above configuration properties. Once you have all the values filled out, save the JSON file somewhere locally. You can use this file to create the connector using the REST API.
 
 #### Create connector using Control Center
 
-An easy option to create the connector is from the Control Center portal. Follow the [Confluent setup guide](https://docs.confluent.io/platform/current/quickstart/ce-docker-quickstart.html#step-3-install-a-ak-connector-and-generate-sample-data) to create a connector from Control Center. When setting up, instead of using the `DatagenConnector` option, use the `CosmosDBSourceConnector` tile instead. When configuring the sink connector, fill out the values as you have filled in the JSON file.
+An easy option to create the connector is from the Confluent Control Center portal. Follow the [Confluent setup guide](https://docs.confluent.io/platform/current/quickstart/ce-docker-quickstart.html#step-3-install-a-ak-connector-and-generate-sample-data) to create a connector from Control Center. When setting up, instead of using the `DatagenConnector` option, use the `CosmosDBSourceConnector` tile instead. When configuring the sink connector, fill out the values as you have filled in the JSON file.
 
 Alternatively, in the connectors page, you can upload the JSON file built from the previous section by using the **Upload connector config file** option.
 
@@ -89,18 +85,16 @@ Alternatively, in the connectors page, you can upload the JSON file built from t
 Create the source connector using the Connect REST API
 
 ```bash
-
 # Curl to Kafka connect service
 curl -H "Content-Type: application/json" -X POST -d @<path-to-JSON-config-file> http://localhost:8083/connectors
-
 ```
 
 ## Insert document into Azure Cosmos DB
 
 * Sign into the [Azure portal](https://portal.azure.com/learn.docs.microsoft.com) and navigate to your Azure Cosmos DB account.
 * Open the **Data Explore** tab and select **Databases**
-* Open the ”kafkaconnect” database and “kafka” container you created earlier. 
-* To create a new JSON document, in the SQL API pane, expand “kafka” container, select **Items**, then select **New Item** in the toolbar.
+* Open the "kafkaconnect" database and "kafka" container you created earlier.
+* To create a new JSON document, in the SQL API pane, expand "kafka" container, select **Items**, then select **New Item** in the toolbar.
 * Now, add a document to the container with the following structure. Paste the following sample JSON block into the Items tab, overwriting the current content:
 
   ``` json
@@ -124,13 +118,13 @@ curl -H "Content-Type: application/json" -X POST -d @<path-to-JSON-config-file> 
 
   ```
 
-- Select **Save**.
-- Confirm the document has been saved by viewing the Items on the left-hand menu.
+* Select **Save**.
+* Confirm the document has been saved by viewing the Items on the left-hand menu.
 
 ### Confirm data written to Kafka topic
 
-* Open Kafka Topic UI on <http://localhost:9000>.
-* Select the Kafka topic `apparels` you created.
+* Open Kafka Topic UI on `<http://localhost:9000>`.
+* Select the Kafka "apparels" topic you created.
 * Verify that the document you inserted into Azure Cosmos DB earlier appears in the Kafka topic.
 
 ### Cleanup
@@ -142,13 +136,11 @@ To delete the connector from the Confluent Control Center, navigate to the sourc
 Alternatively, use the connector’s REST API:
 
 ```bash
-
 # Curl to Kafka connect service
 curl -X DELETE http://localhost:8083/connectors/cosmosdb-source-connector
-
 ```
 
-To delete the created Azure Cosmos DB service and its resource group using Azure CLI, refer to these [steps]( https://github.com/microsoft/kafka-connect-cosmosdb/blob/dev/doc/CosmosDB_Setup.md#cleanup).
+To delete the created Azure Cosmos DB service and its resource group using Azure CLI, refer to these [steps](https://github.com/microsoft/kafka-connect-cosmosdb/blob/dev/doc/CosmosDB_Setup.md#cleanup).
 
 ## Source configuration properties
 
@@ -184,3 +176,4 @@ The Azure Cosmos DB source connector converts JSON document to schema and suppor
 | Object (JSON)| Struct|
 | String | String |
 
+## Next steps
