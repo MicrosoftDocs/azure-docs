@@ -38,6 +38,35 @@ To configure the Speech Resource to be usable for AAD Authentication there are t
 ### Assign Roles
 AAD Authentication requires that the correct roles be assigned to the AAD user or application, for Speech Resources, either the *Cognitive Services Speech Contributor* or *Cognitive Services Speech User* roles must be assigned.
 
-## Get an AAD token
+You can assign roles to the user or application using the [Azure Portal](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) or [Powershell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell) 
 
+## Get an AAD token
+::: zone pivot="programming-language-csharp"
+To get an AAD token in C#, use the [Azure Identy Client Library](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme).
+
+An example of using Azure.Identity to get an AAD Token from an interactive browser:
+```c#
+TokenRequestContext context = new Azure.Core.TokenRequestContext(new string[] { "https://cognitiveservices.azure.com/.default" });
+InteractiveBrowserCredential browserCredential = new InteractiveBrowserCredential();
+var browserToekn = browserCredential.GetToken(context);
+```
+
+The token context must be set to "https://cognitiveservices.azure.com/.default".
+::: zone-end
+
+::: zone pivot="programming-language-cpp"
+::: zone-end
+
+::: zone pivot="programming-language-java"
+To get an AAD token in Java, use the [Azure Identy Client Library](https://docs.microsoft.com/java/api/overview/azure/identity-readme?view=azure-java-stable).
+
+An example of using Azure.Identity to get an AAD Token from an interactive browser:
+```java
+TokenRequestContext context = new Azure.Core.TokenRequestContext(new string[] { "https://cognitiveservices.azure.com/.default" });
+InteractiveBrowserCredential browserCredential = new InteractiveBrowserCredential();
+var browserToekn = browserCredential.GetToken(context);
+```
+
+The token context must be set to "https://cognitiveservices.azure.com/.default".
+::: zone-end
 ## Call the Speech SDK
