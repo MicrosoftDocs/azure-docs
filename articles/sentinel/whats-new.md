@@ -7,7 +7,7 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 06/15/2021
+ms.date: 06/29/2021
 ---
 
 # What's new in Azure Sentinel
@@ -35,13 +35,15 @@ If you're looking for items older than six months, you'll find them in the [Arch
 The Azure Sentinel Information Model enables you to use and create source-agnostic content, simplifying your analysis of the data in your Azure Sentinel workspace.
 
 
-In this month's update, we've enhanced our normalization documentation, providing new levels of detail and a full DNS normalization schema.
+In this month's update, we've enhanced our normalization documentation, providing new levels of detail and full DNS, process event, and authentication normalization schemas.
 
 For more information, see:
 
 - [Normalization and the Azure Sentinel Information Model (ASIM)](normalization.md) (updated)
 - [Azure Sentinel data normalization schema reference](normalization-schema.md)
 - [Azure Sentinel DNS normalization schema reference (Public preview)](dns-normalization-schema.md) (new!)
+- [Azure Sentinel Process Event normalization schema reference (Public preview)](process-events-normalization-schema.md) (new!)
+- [Azure Sentinel Authentication normalization schema reference (Public preview)](authentication-normalization-schema.md) (new!)
 
 
 ## May 2021

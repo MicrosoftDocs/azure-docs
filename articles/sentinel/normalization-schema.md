@@ -192,3 +192,4 @@ For more information, see:
 - [Normalization in Azure Sentinel](normalization.md)
 - [Azure Sentinel DNS normalization schema reference](dns-normalization-schema.md)
 - [Azure Sentinel Process Event normalization schema reference](process-events-normalization-schema.md)
+- [Azure Sentinel Authentication normalization schema reference (Public preview)](authentication-normalization-schema.md)
