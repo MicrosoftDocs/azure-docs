@@ -141,8 +141,12 @@ api-key: [admin key]
 {
     "name" : "blob-datasource",
     "type" : "azureblob",
-    "credentials" : { "connectionString" : "ResourceId=/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.Storage/storageAccounts/storage-account-name/;" },
-    "container" : { "name" : "my-container", "query" : "<optional-virtual-directory-name>" }
+    "credentials" : { 
+        "connectionString" : "ResourceId=/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.Storage/storageAccounts/storage-account-name/;" 
+    },
+    "container" : { 
+        "name" : "my-container", "query" : "<optional-virtual-directory-name>" 
+    }
 }   
 ```
 
@@ -177,9 +181,16 @@ api-key: [admin key]
 {
     "name" : "blob-datasource",
     "type" : "azureblob",
-    "credentials" : { "connectionString" : "ResourceId=/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.Storage/storageAccounts/storage-account-name/;" },
-    "container" : { "name" : "my-container", "query" : "<optional-virtual-directory-name>" },
-    "identity" : { "userAssignedIdentity" : "/subscriptions/[subscription ID]/resourcegroups/[resource group name]/providers/Microsoft.ManagedIdentity/userAssignedIdentities/[name of managed identity]" }
+    "credentials" : { 
+        "connectionString" : "ResourceId=/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.Storage/storageAccounts/storage-account-name/;" 
+    },
+    "container" : { 
+        "name" : "my-container", "query" : "<optional-virtual-directory-name>" 
+    },
+    "identity" : { 
+        "@odata.type": "#Microsoft.Azure.Search.DataUserAssignedIdentity",
+        "userAssignedIdentity" : "/subscriptions/[subscription ID]/resourcegroups/[resource group name]/providers/Microsoft.ManagedIdentity/userAssignedIdentities/[name of managed identity]" 
+    }
 }   
 ```
 
