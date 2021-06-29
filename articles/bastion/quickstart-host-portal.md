@@ -97,25 +97,25 @@ There are a few different ways to configure a bastion host. In the following ste
    * **Public IP address name:** The name of the Public IP address resource.
    * **Public IP address SKU:** Pre-configured as **Standard**
    * **Assignment:** Pre-configured to **Static**. You can't use a Dynamic assignment for Azure Bastion.
-   * **Resource group**: The same resource group as the VM.
+   * **Resource group:** The same resource group as the VM.
 
    :::image type="content" source="./media/quickstart-host-portal/create-bastion.png" alt-text="Screenshot of Step 3.":::
 1. After completing the values, select **Create Azure Bastion using defaults**. Azure validates your settings, then creates the host. The host and its resources take about 5 minutes to create and deploy.
 
-## <a name="connect"></a>Connect
+## <a name="remove"></a>Remove VM public IP address
+
+[!INCLUDE [Remove a public IP address from a VM](../../includes/bastion-remove-ip.md)]
+
+## <a name="connect"></a>Connect to a VM
 
 After Bastion has been deployed to the virtual network, the screen changes to the connect page.
 
 1. Type the username and password for your virtual machine. Then, select **Connect**.
 
    :::image type="content" source="./media/quickstart-host-portal/connect.png" alt-text="Screenshot shows the Connect using Azure Bastion dialog.":::
-1. The RDP connection to this virtual machine will open directly in the Azure portal (over HTML5) using port 443 and the Bastion service.
+1. The RDP connection to this virtual machine will open directly in the Azure portal (over HTML5) using port 443 and the Bastion service.s
 
    :::image type="content" source="./media/quickstart-host-portal/connected.png" alt-text="RDP connect":::
-
-## <a name="remove"></a>To remove a VM public IP address
-
-[!INCLUDE [Remove a public IP address from a VM](../../includes/bastion-remove-ip.md)]
 
 ## Clean up resources
 
