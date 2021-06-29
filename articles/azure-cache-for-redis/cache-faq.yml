@@ -17,19 +17,19 @@ summary: |
   * [Management FAQs](cache-management-faq.md)
   * [Monitoring and troubleshooting FAQs](cache-monitor-troubleshoot-faq.md)
 
-  ## Deprecated cache services
-
 sections:
   - name: Ignored
     questions:
-      - question: Managed Cache service
+      - question: Deprecated cache services
         answer: |
+          ### Managed Cache service
+
           [Managed Cache service was retired November 30, 2016.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
           
           To view archived documentation, see [Archived Managed Cache Service Documentation](/previous-versions/azure/azure-services/dn386094(v=azure.100)).
-          
-      - question: In-Role Cache
-        answer: |
+
+          ### In-Role Cache
+
           [In-Role Cache was retired November 30, 2016.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
           
           To view archived documentation, see [Archived In-Role Cache Documentation](/previous-versions/azure/azure-services/dn386103(v=azure.100)).
