@@ -3,7 +3,7 @@ title: Request transit data with Microsoft Azure Maps Mobility services (Preview
 description: Learn how to use the Azure Maps Mobility services (Preview) to request public transit data, such as metro area IDs, transit stops, routes, and route itineraries.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 12/07/2020
+ms.date: 06/23/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
@@ -14,9 +14,8 @@ ms.custom: mvc
 # Request public transit data using the Azure Maps Mobility services (Preview) 
 
 > [!IMPORTANT]
-> Azure Maps Mobility services are currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> The Azure Maps Mobility Services Preview has been retired and will no longer be available and supported after October 5, 2021. All other Azure Maps APIs and Services are unaffected by this retirement announcement.
+> For details, see [Azure Maps Mobility Preview Retirement](https://azure.microsoft.com/updates/azure-maps-mobility-services-preview-retirement/).
 
 
 This article shows you how to use Azure Maps [Mobility services](/rest/api/maps/mobility) to request public transit data. Transit data includes transit stops, route information, and travel time estimations.

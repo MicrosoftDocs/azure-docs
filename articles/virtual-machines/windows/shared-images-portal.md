@@ -4,9 +4,10 @@ description: Learn how to use Azure portal to create and share virtual machine i
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: shared-image-gallery
+ms.collection: windows
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 11/06/2019
+ms.date: 06/21/2021
 ms.author: cynthn
 
 #Customer intent: As an IT administrator, I want to learn about how to create shared VM images to minimize the number of post-deployment configuration tasks.
