@@ -11,7 +11,7 @@ ms.custom: devx-track-java
 
 # Troubleshoot common Azure Spring Cloud issues
 
-This article provides instructions for troubleshooting Azure Spring Cloud development issues. For additional information, see [Azure Spring Cloud FAQ](spring-cloud-faq.md).
+This article provides instructions for troubleshooting Azure Spring Cloud development issues. For additional information, see [Azure Spring Cloud FAQ](./faq.md).
 
 ## Availability, performance, and application issues
 
@@ -56,7 +56,7 @@ When you're debugging application crashes, start by checking the running status 
     * A memory explosion at the very beginning.
     * The surge memory allocation for a specific logic path.
     * Gradual memory leaks.
-  For more information, see [Metrics](spring-cloud-concept-metrics.md).
+  For more information, see [Metrics](./concept-metrics.md).
   
 * If the application fails to start, verify that the application has valid jvm parameters. If jvm memory is set too high, the following error message might appear in your logs:
 
@@ -78,11 +78,11 @@ To ascertain which situation applies, do the following:
 2. Add an **App=** filter to specify which application you want to monitor.
 3. Split the metrics by **Instance**.
 
-If *all instances* are experiencing high CPU or memory usage, you need to either scale out the application or scale up the CPU or memory usage. For more information, see [Tutorial: Scale an application in Azure Spring Cloud](spring-cloud-howto-scale-manual.md).
+If *all instances* are experiencing high CPU or memory usage, you need to either scale out the application or scale up the CPU or memory usage. For more information, see [Tutorial: Scale an application in Azure Spring Cloud](./how-to-scale-manual.md).
 
 If *some instances* are experiencing high CPU or memory usage, check the instance status and its discovery status.
 
-For more information, see [Metrics for Azure Spring Cloud](spring-cloud-concept-metrics.md).
+For more information, see [Metrics for Azure Spring Cloud](./concept-metrics.md).
 
 If all instances are up and running, go to Azure Log Analytics to query your application logs and review your code logic. This will help you see whether any of them might affect scale partitioning. For more information, see [Analyze logs and metrics with diagnostics settings](diagnostic-services.md).
 
@@ -94,7 +94,7 @@ Before you onboard your application, ensure that it meets the following criteria
 
 * The application can run locally with the specified Java runtime version.
 * The environment config (CPU/RAM/Instances) meets the minimum requirement set by the application provider.
-* The configuration items have their expected values. For more information, see [Config Server](spring-cloud-howto-config-server.md).
+* The configuration items have their expected values. For more information, see [Config Server](./how-to-config-server.md).
 * The environment variables have their expected values.
 * The JVM parameters have their expected values.
 * We recommended that you disable or remove the embedded _Config Server_ and _Spring Service Registry_ services from the application package.
@@ -109,11 +109,11 @@ When you set up an Azure Spring Cloud service instance by using the Azure portal
 But if you try to set up the Azure Spring Cloud service instance by using the [Azure CLI](/cli/azure/get-started-with-azure-cli) or the [Azure Resource Manager template](../azure-resource-manager/index.yml), verify that:
 
 * The subscription is active.
-* The location is [supported](spring-cloud-faq.md) by Azure Spring Cloud.
+* The location is [supported](./faq.md) by Azure Spring Cloud.
 * The resource group for the instance is already created.
 * The resource name conforms to the naming rule. It must contain only lowercase letters, numbers, and hyphens. The first character must be a letter. The last character must be a letter or number. The value must contain from 2 to 32 characters.
 
-If you want to set up the Azure Spring Cloud service instance by using the Resource Manager template, first refer to [Understand the structure and syntax of Azure Resource Manager templates](../azure-resource-manager/templates/template-syntax.md).
+If you want to set up the Azure Spring Cloud service instance by using the Resource Manager template, first refer to [Understand the structure and syntax of Azure Resource Manager templates](../azure-resource-manager/templates/syntax.md).
 
 The name of the Azure Spring Cloud service instance will be used for requesting a subdomain name under `azureapps.io`, so the setup will fail if the name conflicts with an existing one. You might find more details in the activity logs.
 
@@ -149,7 +149,7 @@ If the polling is interrupted, you can still use the following command to fetch 
 
 `az spring-cloud app show-deploy-log -n <app-name>`
 
-However, note that one Azure Spring Cloud service instance can trigger only one build job for one source package at one time. For more information, see [Deploy an application](spring-cloud-quickstart.md) and [Set up a staging environment in Azure Spring Cloud](spring-cloud-howto-staging-environment.md).
+However, note that one Azure Spring Cloud service instance can trigger only one build job for one source package at one time. For more information, see [Deploy an application](./quickstart.md) and [Set up a staging environment in Azure Spring Cloud](./how-to-staging-environment.md).
 
 ### My application can't be registered
 
@@ -225,4 +225,4 @@ If your application logs can be archived to a storage account but not sent to Az
 
 ## Next steps
 
-* [How to self-diagnose and solve problems in Azure Spring Cloud](spring-cloud-howto-self-diagnose-solve.md)
+* [How to self-diagnose and solve problems in Azure Spring Cloud](./how-to-self-diagnose-solve.md)

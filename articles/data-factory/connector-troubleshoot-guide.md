@@ -1,11 +1,11 @@
 ---
 title: Troubleshoot Azure Data Factory connectors
 description: Learn how to troubleshoot connector issues in Azure Data Factory. 
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 04/13/2021
-ms.author: jingwang
+ms.date: 06/24/2021
+ms.author: jianleishen
 ms.custom: has-adal-ref
 ---
 
@@ -214,7 +214,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
     | :----------------------------------------------------------- | :----------------------------------------------------------- |
     | For Azure SQL, if the error message contains the string "SqlErrorNumber=47073", it means that public network access is denied in the connectivity setting. | On the Azure SQL firewall, set the **Deny public network access** option to *No*. For more information, see [Azure SQL connectivity settings](../azure-sql/database/connectivity-settings.md#deny-public-network-access). |
     | For Azure SQL, if the error message contains an SQL error code such as "SqlErrorNumber=[errorcode]", see the Azure SQL troubleshooting guide. | For a recommendation, see [Troubleshoot connectivity issues and other errors with Azure SQL Database and Azure SQL Managed Instance](../azure-sql/database/troubleshoot-common-errors-issues.md). |
-    | Check to see whether port 1433 is in the firewall allow list. | For more information, see [Ports used by SQL Server](/sql/sql-server/install/configure-the-windows-firewall-to-allow-sql-server-access#ports-used-by-). |
+    | Check to see whether port 1433 is in the firewall allowlist. | For more information, see [Ports used by SQL Server](/sql/sql-server/install/configure-the-windows-firewall-to-allow-sql-server-access#ports-used-by-). |
     | If the error message contains the string "SqlException", SQL Database the error indicates that some specific operation failed. | For more information, search by SQL error code in [Database engine errors](/sql/relational-databases/errors-events/database-engine-events-and-errors). For further help, contact Azure SQL support. |
     | If this is a transient issue (for example, an instable network connection), add retry in the activity policy to mitigate. | For more information, see [Pipelines and activities in Azure Data Factory](./concepts-pipelines-activities.md#activity-policy). |
     | If the error message contains the string "Client with IP address '...' is not allowed to access the server", and you're trying to connect to Azure SQL Database, the error is usually caused by an Azure SQL Database firewall issue. | In the Azure SQL Server firewall configuration, enable the **Allow Azure services and resources to access this server** option. For more information, see [Azure SQL Database and Azure Synapse IP firewall rules](../azure-sql/database/firewall-configure.md). |
@@ -495,7 +495,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
   | If your source is a folder, the files under the specified folder might have a different schema. | Make sure that the files in the specified folder have an identical schema. |
 
 
-## Dynamics 365, Common Data Service, and Dynamics CRM
+## Dynamics 365, Dataverse (Common Data Service), and Dynamics CRM
 
 ### Error code: DynamicsCreateServiceClientError
 
@@ -553,16 +553,28 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 - **Recommendation**:  For more details, check network connectivity or check the Dynamics server log. For further help, contact Dynamics support.
 
 
-### Error code:  DynamicsFailedToConnect 
+### Error code: DynamicsFailedToConnect 
  
  - **Message**: `Failed to connect to Dynamics: %message;` 
  
+ - **Cause**: You are seeing `ERROR REQUESTING ORGS FROM THE DISCOVERY SERVERFCB 'EnableRegionalDisco' is disabled.` 
+ or otherwise `Unable to Login to Dynamics CRM, message:ERROR REQUESTING Token FROM THE Authentication context - USER intervention required but not permitted by prompt behavior AADSTS50079: Due to a configuration change made by your administrator, or because you moved to a new location, you must enroll in multi-factor authentication to access '00000007-0000-0000-c000-000000000000'` If your use case meets **all** of the following three conditions:
+    - You are connecting to Dynamics 365, Common Data Service, or Dynamics CRM.
+    - You are using Office365 Authentication.
+    - Your tenant and user is configured in Azure Active Directory for [conditional access](../active-directory/conditional-access/overview.md) and/or Multi-Factor Authentication is required (see this [link](/powerapps/developer/data-platform/authenticate-office365-deprecation) to Dataverse doc).
+    
+    Under these circumstances, the connection used to succeed before 6/8/2021.
+    Starting 6/9/2021 connection will start to fail because of the deprecation of regional Discovery Service (see this [link](/power-platform/important-changes-coming#regional-discovery-service-is-deprecated)).
+ 
+ -  **Recommendation**:  
+    If your tenant and user is configured in Azure Active Directory for [conditional access](../active-directory/conditional-access/overview.md) and/or Multi-Factor Authentication is required, you must use ‘Azure AD service-principal’  to authenticate after 6/8/2021. Refer this [link](./connector-dynamics-crm-office-365.md#prerequisites) for detailed steps.
+
 
  - **Cause**: If you see `Office 365 auth with OAuth failed` in the error message, it means that your server might have some configurations not compatible with OAuth. 
  
  - **Recommendation**: 
     1. Contact Dynamics support team with the detailed error message for help.  
-    1. Use the service principal authentication, and you can refer to this article: [Example: Dynamics online using Azure AD service-principal and certificate authentication](https://docs.microsoft.com/azure/data-factory/connector-dynamics-crm-office-365#example-dynamics-online-using-azure-ad-service-principal-and-certificate-authentication). 
+    1. Use the service principal authentication, and you can refer to this article: [Example: Dynamics online using Azure AD service-principal and certificate authentication](./connector-dynamics-crm-office-365.md#example-dynamics-online-using-azure-ad-service-principal-and-certificate-authentication). 
  
 
  - **Cause**: If you see `Unable to retrieve authentication parameters from the serviceUri` in the error message, it means that either you input the wrong Dynamics service URL or proxy/firewall to intercept the traffic. 
@@ -599,16 +611,16 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
  - **Recommendation**:  Use [XrmToolBox](https://www.xrmtoolbox.com/) to make connection. If the error persists, contact the Dynamics support team for help. 
  
  
-### Error code:  DynamicsOperationFailed 
+### Error code: DynamicsOperationFailed 
  
 - **Message**: `Dynamics operation failed with error code: %code;, error message: %message;.` 
 
 - **Cause**: The operation failed on the server side. 
 
-- **Recommendation**:  Extract the error code of the dynamics operation from the error message: `Dynamics operation failed with error code: {code}`, and refer to the article [Web service error codes](https://docs.microsoft.com/powerapps/developer/data-platform/org-service/web-service-error-codes) for more detailed information. You can contact the Dynamics support team if necessary. 
+- **Recommendation**:  Extract the error code of the dynamics operation from the error message: `Dynamics operation failed with error code: {code}`, and refer to the article [Web service error codes](/powerapps/developer/data-platform/org-service/web-service-error-codes) for more detailed information. You can contact the Dynamics support team if necessary. 
  
  
-### Error code:  DynamicsInvalidFetchXml 
+### Error code: DynamicsInvalidFetchXml 
   
 - **Message**: `The Fetch Xml query specified is invalid.` 
 
@@ -617,7 +629,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 - **Recommendation**:  Fix the error in the fetch XML. 
  
  
-### Error code:  DynamicsMissingKeyColumns 
+### Error code: DynamicsMissingKeyColumns 
  
 - **Message**: `Input DataSet must contain keycolumn(s) in Upsert/Update scenario. Missing key column(s): %column;`
  
@@ -626,7 +638,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 - **Recommendation**:  Confirm that key columns are in the source data or map a source column to the key column on the sink entity. 
  
  
-### Error code:  DynamicsPrimaryKeyMustBeGuid 
+### Error code: DynamicsPrimaryKeyMustBeGuid 
  
 - **Message**: `The primary key attribute '%attribute;' must be of type guid.` 
  
@@ -635,7 +647,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 - **Recommendation**:  Make sure that the primary key column in the source data is of 'Guid' type. 
  
 
-### Error code:  DynamicsAlternateKeyNotFound 
+### Error code: DynamicsAlternateKeyNotFound 
  
 - **Message**: `Cannot retrieve key information of alternate key '%key;' for entity '%entity;'.` 
  
@@ -646,7 +658,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
     1. Make sure that you have sufficient permissions on the entity. 
  
  
-### Error code:  DynamicsInvalidSchemaDefinition 
+### Error code: DynamicsInvalidSchemaDefinition 
  
 - **Message**: `The valid structure information (column name and type) are required for Dynamics source.` 
  
@@ -664,6 +676,14 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 - **Cause**: An incorrect linked service type might be used for the FTP server, such as using the Secure FTP (SFTP) linked service to connect to an FTP server.
 
 - **Recommendation**:  Check the port of the target server. FTP uses port 21.
+
+### Error code: FtpFailedToReadFtpData
+
+- **Message**: `Failed to read data from ftp: The remote server returned an error: 227 Entering Passive Mode (*,*,*,*,*,*).`
+
+- **Cause**: Port range between 1024 to 65535 is not open for data transfer under passive mode that ADF supports.
+
+- **Recommendation**:  Check the firewall settings of the target server. Open port 1024-65535 or port range specified in FTP server to SHIR/Azure IR IP address.
 
 
 ## HTTP
@@ -999,9 +1019,19 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
     If you want to promote the low throughput, contact your SFTP administrator to increase the concurrent connection count limit, or you can do one of the following:
 
-    * If you're using Self-hosted IR, add the Self-hosted IR machine's IP to the allow list.
-    * If you're using Azure IR, add [Azure Integration Runtime IP addresses](./azure-integration-runtime-ip-addresses.md). If you don't want to add a range of IPs to the SFTP server allow list, use Self-hosted IR instead.
+    * If you're using Self-hosted IR, add the Self-hosted IR machine's IP to the allowlist.
+    * If you're using Azure IR, add [Azure Integration Runtime IP addresses](./azure-integration-runtime-ip-addresses.md). If you don't want to add a range of IPs to the SFTP server allowlist, use Self-hosted IR instead.
 
+
+#### Error code: SftpPermissionDenied
+
+- **Message**: `Permission denied to access '%path;'`
+
+- **Cause**: The specified user does not have read or write permission to the folder or file when operating.
+
+- **Recommendation**:  Grant the user with permission to read or write to the folder or files on SFTP server.
+ 
+ 
 ## SharePoint Online list
 
 ### Error code: SharePointOnlineAuthFailed

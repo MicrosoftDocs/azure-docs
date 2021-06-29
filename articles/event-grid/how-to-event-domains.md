@@ -3,7 +3,7 @@ title: Publish events with event domains with Azure Event Grid
 description: Shows how to manage large sets of topics in Azure Event Grid and publish events to them using event domains.
 ms.topic: conceptual
 ms.date: 07/07/2020 
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Manage topics and publish events using event domains

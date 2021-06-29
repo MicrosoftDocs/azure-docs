@@ -1,7 +1,7 @@
 ---
 title: Advanced query samples
 description: Use Azure Resource Graph to run some advanced queries, including working with columns, listing tags used, and matching resources with regular expressions.
-ms.date: 03/23/2021
+ms.date: 06/29/2021
 ms.topic: sample
 ---
 # Advanced Resource Graph query samples
@@ -25,6 +25,7 @@ We'll walk through the following advanced queries:
 - [List all extensions installed on a virtual machine](#join-vmextension)
 - [Find storage accounts with a specific tag on the resource group](#join-findstoragetag)
 - [Combine results from two queries into a single result](#unionresults)
+- [Get virtual networks and subnets of network interfaces](#parse-subnets)
 - [Summarize virtual machine by the power states extended property](#vm-powerstate)
 - [Count of non-compliant Guest Configuration assignments](#count-gcnoncompliant)
 - [Query details of Guest Configuration assignment reports](#query-gcreports)
@@ -230,8 +231,8 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.compute/virtualmachi
 
 ## <a name="mvexpand-cosmosdb"></a>List Cosmos DB with specific write locations
 
-The following query limits to Cosmos DB resources, uses `mv-expand` to expand the property bag for
-**properties.writeLocations**, then project specific fields and limit the results further to
+The following query limits to Azure Cosmos DB resources, uses `mv-expand` to expand the property bag
+for **properties.writeLocations**, then project specific fields and limit the results further to
 **properties.writeLocations.locationName** values matching either 'East US' or 'West US'.
 
 ```kusto
@@ -352,15 +353,15 @@ related to those network interfaces.
 ```kusto
 Resources
 | where type =~ 'microsoft.compute/virtualmachines'
-| extend nics=array_length(properties.networkProfile.networkInterfaces) 
-| mv-expand nic=properties.networkProfile.networkInterfaces 
-| where nics == 1 or nic.properties.primary =~ 'true' or isempty(nic) 
-| project vmId = id, vmName = name, vmSize=tostring(properties.hardwareProfile.vmSize), nicId = tostring(nic.id) 
+| extend nics=array_length(properties.networkProfile.networkInterfaces)
+| mv-expand nic=properties.networkProfile.networkInterfaces
+| where nics == 1 or nic.properties.primary =~ 'true' or isempty(nic)
+| project vmId = id, vmName = name, vmSize=tostring(properties.hardwareProfile.vmSize), nicId = tostring(nic.id)
 | join kind=leftouter (
     Resources
     | where type =~ 'microsoft.network/networkinterfaces'
-    | extend ipConfigsCount=array_length(properties.ipConfigurations) 
-    | mv-expand ipconfig=properties.ipConfigurations 
+    | extend ipConfigsCount=array_length(properties.ipConfigurations)
+    | mv-expand ipconfig=properties.ipConfigurations
     | where ipConfigsCount == 1 or ipconfig.properties.primary =~ 'true'
     | project nicId = id, publicIpId = tostring(ipconfig.properties.publicIPAddress.id))
 on nicId
@@ -420,7 +421,7 @@ Resources
 | join kind=leftouter(
     Resources
     | where type == 'microsoft.compute/virtualmachines/extensions'
-    | extend 
+    | extend
         VMId = toupper(substring(id, 0, indexof(id, '/extensions'))),
         ExtensionName = name
 ) on $left.JoinID == $right.VMId
@@ -562,11 +563,49 @@ Search-AzGraph -Query "ResourceContainers | where type=='microsoft.resources/sub
 
 ---
 
+## <a name="parse-subnets"></a>Get virtual networks and subnets of network interfaces
+
+Use a regular expression `parse` to get the virtual network and subnet names from the resource ID
+property. While `parse` enables getting data from a complex field, it's optimal to access properties
+directly if they exist instead of using `parse`.
+
+```kusto
+Resources
+| where type =~ 'microsoft.network/networkinterfaces'
+| project id, ipConfigurations = properties.ipConfigurations
+| mvexpand ipConfigurations
+| project id, subnetId = tostring(ipConfigurations.properties.subnet.id)
+| parse kind=regex subnetId with '/virtualNetworks/' virtualNetwork '/subnets/' subnet 
+| project id, virtualNetwork, subnet
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli-interactive
+az graph query -q "Resources | where type =~ 'microsoft.network/networkinterfaces' | project id, ipConfigurations = properties.ipConfigurations | mvexpand ipConfigurations | project id, subnetId = tostring(ipConfigurations.properties.subnet.id) | parse kind=regex subnetId with '/virtualNetworks/' virtualNetwork '/subnets/' subnet | project id, virtualNetwork, subnet"
+```
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+Search-AzGraph -Query "Resources | where type =~ 'microsoft.network/networkinterfaces' | project id, ipConfigurations = properties.ipConfigurations | mvexpand ipConfigurations | project id, subnetId = tostring(ipConfigurations.properties.subnet.id) | parse kind=regex subnetId with '/virtualNetworks/' virtualNetwork '/subnets/' subnet | project id, virtualNetwork, subnet"
+```
+
+# [Portal](#tab/azure-portal)
+
+:::image type="icon" source="../media/resource-graph-small.png"::: Try this query in Azure Resource Graph Explorer:
+
+- Azure portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0A%7C%20where%20type%20%3D~%20%27microsoft.network%2Fnetworkinterfaces%27%0A%7C%20project%20id%2C%20ipConfigurations%20%3D%20properties.ipConfigurations%0A%7C%20mvexpand%20ipConfigurations%0A%7C%20project%20id%2C%20subnetId%20%3D%20tostring%28ipConfigurations.properties.subnet.id%29%0A%7C%20parse%20kind%3Dregex%20subnetId%20with%20%27%2FvirtualNetworks%2F%27%20virtualNetwork%20%27%2Fsubnets%2F%27%20subnet%20%0A%7C%20project%20id%2C%20virtualNetwork%2C%20subnet" target="_blank">portal.azure.com</a>
+- Azure Government portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0A%7C%20where%20type%20%3D~%20%27microsoft.network%2Fnetworkinterfaces%27%0A%7C%20project%20id%2C%20ipConfigurations%20%3D%20properties.ipConfigurations%0A%7C%20mvexpand%20ipConfigurations%0A%7C%20project%20id%2C%20subnetId%20%3D%20tostring%28ipConfigurations.properties.subnet.id%29%0A%7C%20parse%20kind%3Dregex%20subnetId%20with%20%27%2FvirtualNetworks%2F%27%20virtualNetwork%20%27%2Fsubnets%2F%27%20subnet%20%0A%7C%20project%20id%2C%20virtualNetwork%2C%20subnet" target="_blank">portal.azure.us</a>
+- Azure China 21Vianet portal: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0A%7C%20where%20type%20%3D~%20%27microsoft.network%2Fnetworkinterfaces%27%0A%7C%20project%20id%2C%20ipConfigurations%20%3D%20properties.ipConfigurations%0A%7C%20mvexpand%20ipConfigurations%0A%7C%20project%20id%2C%20subnetId%20%3D%20tostring%28ipConfigurations.properties.subnet.id%29%0A%7C%20parse%20kind%3Dregex%20subnetId%20with%20%27%2FvirtualNetworks%2F%27%20virtualNetwork%20%27%2Fsubnets%2F%27%20subnet%20%0A%7C%20project%20id%2C%20virtualNetwork%2C%20subnet" target="_blank">portal.azure.cn</a>
+
+
+---
+
 ## <a name="vm-powerstate"></a>Summarize virtual machine by the power states extended property
 
 This query uses the [extended properties](../concepts/query-language.md#extended-properties) on
 virtual machines to summarize by power states.
-
 
 ```kusto
 Resources
@@ -598,7 +637,9 @@ Search-AzGraph -Query "Resources | where type == 'microsoft.compute/virtualmachi
 
 ## <a name="count-gcnoncompliant"></a>Count of non-compliant Guest Configuration assignments
 
-Displays a count of non-compliant machines per [Guest Configuration assignment reason](../../policy/how-to/determine-non-compliance.md#compliance-details-for-guest-configuration). Limits results to first 100 for performance.
+Displays a count of non-compliant machines per
+[Guest Configuration assignment reason](../../policy/how-to/determine-non-compliance.md#compliance-details-for-guest-configuration).
+Limits results to first 100 for performance.
 
 ```kusto
 GuestConfigurationResources

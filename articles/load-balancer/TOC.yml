@@ -104,7 +104,7 @@
   - name: Security
     items:
     - name: Security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/load-balancer-security-baseline?toc=/azure/load-balancer/TOC.json
   - name: Backend Pool management
     href: backend-pool-management.md
   - name: Standard Load Balancer and Virtual Machine Scale Sets
@@ -220,4 +220,4 @@
   - name: Product updates
     href: https://azure.microsoft.com/updates/?product=load-balancer
   - name: FAQ
-    href: load-balancer-faqs.md
+    href: load-balancer-faqs.yml

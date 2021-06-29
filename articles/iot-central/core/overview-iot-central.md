@@ -29,7 +29,7 @@ This article outlines, for IoT Central:
 
 The IoT Central documentation refers to four user roles that interact with an IoT Central application:
 
-- A _solution builder_ is responsible for [creating an application](quick-deploy-iot-central.md), [configuring rules and actions](quick-configure-rules.md), [defining integrations with other services](howto-export-data.md), and further customizing the application for operators and device developers.
+- A _solution builder_ is responsible for [creating an application](quick-deploy-iot-central.md), [configuring rules and actions](quick-configure-rules.md), [defining integrations with other services](quick-export-data.md), and further customizing the application for operators and device developers.
 - An _operator_ [manages the devices](howto-manage-devices.md) connected to the application.
 - An _administrator_ is responsible for administrative tasks such as managing [user roles and permissions](howto-administer.md) within the application.
 - A _device developer_ [creates the code that runs on a device](concepts-telemetry-properties-commands.md) or [IoT Edge module](concepts-iot-edge.md) connected to your application.
@@ -73,8 +73,6 @@ You have several options for creating device templates:
 - Create a device model using Visual Studio code and publish the model to a repository. Implement your device code from the model, and connect your device to your IoT Central application. IoT Central finds the device model from the repository and creates a simple device template for you.
 - Create a device model using Visual Studio code. Implement your device code from the model. Manually import the device model into your IoT Central application and then add any cloud properties, customizations, and dashboards your IoT Central application needs.
 
-See the [Add a simulated device](quick-create-simulated-device.md) quickstart for a walk-through of how to create and connect your first device.
-
 ### Customize the UI
 
 You can also customize the IoT Central application UI for the operators who are responsible for the day-to-day use of the application. Customizations you can make include:
@@ -93,7 +91,7 @@ As an operator, you use the IoT Central application to [manage the devices](howt
 
 You can [define custom rules and actions](howto-configure-rules.md) that operate over data streaming from connected devices. An operator can enable or disable these rules at the device level to control and automate tasks within the application.
 
-With any IoT solution designed to operate at scale, a structured approach to device management is important. It's not enough just to connect your devices to the cloud, you need to keep your devices connected and healthy. Use the following IoT Central capabilities to manage your devices throughout the application life cycle:
+As with any IoT solution designed to operate at scale, a structured approach to device management is important. It's not enough just to connect your devices to the cloud, you need to keep your devices connected and healthy. Use the following IoT Central capabilities to manage your devices throughout the application life cycle:
 
 ### Dashboards
 

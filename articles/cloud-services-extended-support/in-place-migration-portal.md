@@ -4,8 +4,8 @@ description: How to migrate to Cloud Services (extended support) using the Azure
 ms.topic: how-to
 ms.service: cloud-services-extended-support
 ms.subservice: classic-to-arm-migration
-author: tanmaygore
-ms.author: tagore
+author: hirenshah1
+ms.author: hirshah
 ms.reviewer: mimckitt
 ms.date: 2/08/2021
 ms.custom: 
@@ -33,7 +33,7 @@ If you're not able to add a co-administrator, contact a service administrator or
 
 **Sign up for Migration resource provider**
 
-1. Register with the migration resource provider `Microsoft.ClassicInfrastructureMigrate` and preview feature `Cloud Services` under Microsoft.Compute namespace using the [Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider-1).  
+1. Register with the migration resource provider `Microsoft.ClassicInfrastructureMigrate` and preview feature `Cloud Services` under Microsoft.Compute namespace using the [Azure portal](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider-1).  
 1. Wait five minutes for the registration to complete then check the status of the approval. 
 
 ## Migrate your Cloud Service resources
@@ -90,4 +90,4 @@ If you're not able to add a co-administrator, contact a service administrator or
     Type in "yes" to confirm and commit to the migration. The migration is now complete. The migrated Cloud Services (extended support) deployment is unlocked for all operations". 
 
 ## Next steps
-Review the [Post migration changes](in-place-migration-overview.md#post-migration-changes) section to see changes in deployment files, automation and other attributes of your new Cloud Services (extended support) deployment. 
+Review the [Post migration changes](in-place-migration-overview.md#post-migration-changes) section to see changes in deployment files, automation and other attributes of your new Cloud Services (extended support) deployment.

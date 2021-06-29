@@ -4,7 +4,7 @@ description: Learn how to troubleshoot external control activities in Azure Data
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 12/30/2020
+ms.date: 06/18/2021
 ms.author: abnarain
 ---
 
@@ -101,6 +101,14 @@ For connector issues such as an encounter error using the copy activity, refer t
 - **Cause**: The user who generated the access token isn't allowed to access the Databricks cluster specified in the linked service.
 
 - **Recommendation**: Ensure the user has the required permissions in the workspace.
+
+<br/> 
+
+- **Message**: `Job is not fully initialized yet. Please retry later.`
+
+- **Cause**: The job has not initialized.
+
+- **Recommendation**: Wait and try again later.
 
 ### Error code: 3203
 
@@ -394,14 +402,6 @@ The following table applies to U-SQL.
 
 - **Recommendation**: Go to the Azure portal and find your storage, then copy-and-paste the connection string into your linked service and try again.
 
-### Error code: 2108
-
-- **Message**: `Error calling the endpoint '%url;'. Response status code: '%code;'`
-
-- **Cause**: The request failed due to an underlying issue such as network connectivity, DNS failure, server certificate validation, or timeout.
-
-- **Recommendation**: Use Fiddler/Postman to validate the request.
-
 ### Error code: 2110
 
 - **Message**: `The linked service type '%linkedServiceType;' is not supported for '%executorType;' activities.`
@@ -425,14 +425,6 @@ The following table applies to U-SQL.
 - **Cause**: The cloud type is unsupported or couldn't be determined for storage from the EndpointSuffix.
 
 - **Recommendation**: Use storage in another cloud and try again.
-
-### Error code: 2128
-
-- **Message**: `No response from the endpoint. Possible causes: network connectivity, DNS failure, server certificate validation or timeout.`
-
-- **Cause**: Network connectivity, DNS failure, server certificate validation or timeout.
-
-- **Recommendation**: Validate that the endpoint you are trying to hit is responding to requests. You may use tools like Fiddler/Postman.
 
 ## Custom
 
@@ -601,7 +593,7 @@ The following table applies to Azure Batch.
 
 - **Recommendation**: This error occurs when ADF doesn't receive a response from HDInsight cluster when attempting to request the status of the running job. This issue might be on the cluster itself, or HDInsight service might have an outage.
 
-   Refer to HDInsight troubleshooting documentation at https://docs.microsoft.com/azure/hdinsight/hdinsight-troubleshoot-guide, or contact their support for further assistance.
+   Refer to [HDInsight troubleshooting documentation](../hdinsight/hdinsight-troubleshoot-guide.md), or contact Microsoft support for further assistance.
 
 ### Error code: 2302
 
@@ -751,7 +743,7 @@ The following table applies to Azure Batch.
 
 - **Recommendation**: 
     1. Verify that the credentials are correct by opening the HDInsight cluster's Ambari UI in a browser.
-    1. If the cluster is in Virtual Network (VNet) and a self-hosted IR is being used, the HDI URL must be the private URL in VNets, and should have '-int' listed after the cluster name.
+    1. If the cluster is in Virtual Network (VNet) and a self-hosted IR is being used, the HDI URL must be the private URL in VNets, and should have `-int` listed after the cluster name.
     
        For example, change `https://mycluster.azurehdinsight.net/` to `https://mycluster-int.azurehdinsight.net/`. Note the `-int` after `mycluster`, but before `.azurehdinsight.net`
     1. If the cluster is in VNet, the self-hosted IR is being used, and the private URL was used, and yet the connection still failed, then the VM where the IR is installed had problems connecting to the HDI. 
@@ -965,7 +957,7 @@ The following table applies to Azure Batch.
 
 - **Cause**: This issue is due to either Network connectivity, a DNS failure, a server certificate validation, or a timeout.
 
-- **Recommendation**: Validate that the endpoint you are trying to hit is responding to requests. You may use tools like **Fiddler/Postman**.
+- **Recommendation**: Validate that the endpoint you are trying to hit is responding to requests. You may use tools like **Fiddler/Postman/Netmon/Wireshark**.
 
 ### Error code: 2108
 
@@ -973,7 +965,7 @@ The following table applies to Azure Batch.
 
 - **Cause**: The request failed due to an underlying issue such as network connectivity, a DNS failure, a server certificate validation, or a timeout.
 
-- **Recommendation**: Use Fiddler/Postman to validate the request.
+- **Recommendation**: Use Fiddler/Postman/Netmon/Wireshark to validate the request.
 
 #### More details
 To use **Fiddler** to create an HTTP session of the monitored web application:

@@ -8,13 +8,13 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/08/2021
+ms.date: 06/07/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
 
-# Tutorial: Create user flows in Azure Active Directory B2C
+# Tutorial: Create user flows and custom policies in Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
@@ -35,20 +35,22 @@ A user flow lets you determine how users interact with your application when the
 
 ::: zone pivot="b2c-user-flow"
 > [!IMPORTANT]
-> We've changed the way we reference user flow versions. Previously, we offered V1 (production-ready) versions, and V1.1 and V2 (preview) versions. Now, we've consolidated user flows into **Recommended** (next-generation preview) and **Standard** (generally available) versions. All V1.1 and V2 legacy preview user flows are on a path to deprecation by **August 1, 2021**. For details, see [User flow versions in Azure AD B2C](user-flow-versions.md).
+> We've changed the way we reference user flow versions. Previously, we offered V1 (production-ready) versions, and V1.1 and V2 (preview) versions. Now, we've consolidated user flows into two versions: **Recommended** user flows with the latest features, and **Standard (Legacy)** user flows. In the public cloud, all legacy preview user flows (V1.1 and V2) are on a path to deprecation by **August 1, 2021**. For details, see [User flow versions in Azure AD B2C](user-flow-versions.md). *These changes apply to the Azure public cloud only. Other environments will continue to use [legacy user flow versioning](user-flow-versions-legacy.md).* 
 ::: zone-end
 
 ## Prerequisites
 
 ::: zone pivot="b2c-user-flow"
 - If you don't have one already, [create an Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
-- [Register your application](tutorial-register-applications.md) in the tenant that you created so that it can communicate with Azure AD B2C.
+- [Register a web application](tutorial-register-applications.md), and [enable ID token implicit grant](tutorial-register-applications.md#enable-id-token-implicit-grant).
 ::: zone-end
 
 ::: zone pivot="b2c-custom-policy"
+
 - If you don't have one already, [create an Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
-- [Register your application](tutorial-register-applications.md) in the tenant that you created so that it can communicate with Azure AD B2C.
-- Complete the steps in [Set up sign-up and sign-in with a Facebook account](identity-provider-facebook.md) to configure a Facebook application. Although a Facebook application is not required for using custom policies, it's used in this walkthrough to demonstrate enabling social login in a custom policy.
+- [Register a web application](tutorial-register-applications.md), and [enable ID token implicit grant](tutorial-register-applications.md#enable-id-token-implicit-grant).
+- [Create a Facebook application](identity-provider-facebook.md#create-a-facebook-application). Skip the prerequisites and the reset of the steps in the [Set up sign-up and sign-in with a Facebook account](identity-provider-facebook.md) article. Although a Facebook application is not required for using custom policies, it's used in this walkthrough to demonstrate enabling social login in a custom policy.
+
 ::: zone-end
 
 ::: zone pivot="b2c-user-flow"
@@ -321,7 +323,9 @@ As mentioned in [Prerequisites](#prerequisites), Facebook is *not* required for 
 1. Under **Custom policies**, select **B2C_1A_signup_signin**.
 1. Select **Run now** and select Facebook to sign in with Facebook and test the custom policy.
 
+
 ::: zone-end
+
 ## Next steps
 
 In this article, you learned how to:
@@ -335,3 +339,5 @@ Next, learn how to use Azure AD B2C to sign in and sign up users in an applicati
 
 > [!div class="nextstepaction"]
 > [Tutorial: Enable authentication in a web application using Azure AD B2C >](tutorial-web-app-dotnet.md)
+
+You can also learn more in the [Azure AD B2C Architecture Deep Dive Series](https://www.youtube.com/playlist?list=PLOPotgzC07IKXXCTZcrpuLWbVe3y51kfm).

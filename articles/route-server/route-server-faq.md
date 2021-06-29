@@ -5,7 +5,7 @@ services: route-server
 author: duongau
 ms.service: route-server
 ms.topic: article
-ms.date: 04/16/2021
+ms.date: 06/07/2021
 ms.author: duau
 ---
 
@@ -67,6 +67,12 @@ The following ASNs are reserved by Azure or IANA:
 
 No, Azure Route Server supports only 16-bit (2 bytes) ASNs.
 
+### Can I peer two route servers in two peered virtual networks and enable the NVAs connected to the route servers to talk to each other? 
+
+***Topology: NVA1 -> RouteServer1 -> (via VNet Peering) -> RouteServer2 -> NVA2***
+
+No, Azure Route Server doesn't forward data traffic. To enable transit connectivity through the NVA, set up a direct connection (e.g., an IPsec tunnel) between the NVAs and leverage the route servers for dynamic route propagation. 
+
 ## <a name = "limitations"></a>Route Server Limits
 
 Azure Route Server has the following limits (per deployment).
@@ -76,6 +82,7 @@ Azure Route Server has the following limits (per deployment).
 | Number of BGP peers supported | 8 |
 | Number of routes each BGP peer can advertise to Azure Route Server | 200 |
 | Number of routes that Azure Route Server can advertise to ExpressRoute or VPN gateway | 200 |
+| Number of VMs in the virtual network (including peered VNets) that Azure Route Server can support | 6000 |
 
 If your NVA advertises more routes than the limit, the BGP session will be dropped. If this happens to the gateway and Azure Route Server, you'll lose connectivity from your on-premises network to Azure. For more information, see [Diagnose an Azure virtual machine routing problem](../virtual-network/diagnose-network-routing-problem.md).
 

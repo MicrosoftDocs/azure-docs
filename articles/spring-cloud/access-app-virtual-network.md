@@ -13,7 +13,7 @@ ms.custom: devx-track-java
 
 This document explains how to access an endpoint for your application in a private network.  In order to get access, you need to create an **Azure Private DNS Zone** in your subscription to translate/resolve the private fully qualified domain name (FQDN) to its IP address.
 
-When **Assign Endpoint** for applications in an Azure Spring Cloud service instance is deployed in your virtual network, the endpoint is a private FQDN. The domain is only accessible in the private network. Apps and services use the application endpoint. They include the **Test Endpoint** described in [View apps and deployments](spring-cloud-howto-staging-environment.md#view-apps-and-deployments). **Log streaming**, described in [Stream Azure Spring Cloud app logs in real-time](spring-cloud-howto-log-streaming.md), also works only within the private network.
+When **Assign Endpoint** for applications in an Azure Spring Cloud service instance is deployed in your virtual network, the endpoint is a private FQDN. The domain is only accessible in the private network. Apps and services use the application endpoint. They include the **Test Endpoint** described in [View apps and deployments](./how-to-staging-environment.md#view-apps-and-deployments). **Log streaming**, described in [Stream Azure Spring Cloud app logs in real-time](./how-to-log-streaming.md), also works only within the private network.
 
 ## Create a private DNS zone
 
@@ -43,7 +43,7 @@ To link the private DNS zone to the virtual network, you need to create a virtua
 
 4. Enter **azure-spring-cloud-dns-link** for the **Link name**.
 
-5. For **Virtual network**, select the virtual network you created as explained in [Deploy Azure Spring Cloud in your Azure virtual network (VNet injection)](spring-cloud-tutorial-deploy-in-azure-virtual-network.md).
+5. For **Virtual network**, select the virtual network you created as explained in [Deploy Azure Spring Cloud in your Azure virtual network (VNet injection)](./how-to-deploy-in-azure-virtual-network.md).
 
     ![Add virtual network link](media/spring-cloud-access-app-vnet/add-virtual-network-link.png)
 
@@ -53,7 +53,7 @@ To link the private DNS zone to the virtual network, you need to create a virtua
 
 To use the private DNS zone to translate/resolve DNS, you must create an "A" type record in the zone.
 
-1. Select the virtual network resource you created as explained in [Deploy Azure Spring Cloud in your Azure virtual network (VNet injection)](spring-cloud-tutorial-deploy-in-azure-virtual-network.md).
+1. Select the virtual network resource you created as explained in [Deploy Azure Spring Cloud in your Azure virtual network (VNet injection)](./how-to-deploy-in-azure-virtual-network.md).
 
 2. In the **Connected devices** search box, enter *kubernetes-internal*.
 
@@ -94,7 +94,7 @@ $SERVICE_RUNTIME_RG --query "[0].privateIpAddress" -o tsv`
 
 ## Assign private FQDN for your application
 
-After following the procedure in [Build and deploy microservice applications](spring-cloud-tutorial-deploy-in-azure-virtual-network.md), you can assign private FQDN for your application.
+After following the procedure in [Build and deploy microservice applications](./how-to-deploy-in-azure-virtual-network.md), you can assign private FQDN for your application.
 
 1. Select the Azure Spring Cloud service instance deployed in your virtual network, and open the **Apps** tab in the menu on the left.
 
@@ -114,9 +114,9 @@ After the assignment, you can access the private FQDN of your application in pri
 
 ## Next steps
 
-- [Expose applications to Internet - using Application Gateway and Azure Firewall](spring-cloud-expose-apps-gateway-azure-firewall.md)
+- [Expose applications to Internet - using Application Gateway and Azure Firewall](./expose-apps-gateway-azure-firewall.md)
 
 ## See also
 
-- [Troubleshooting Azure Spring Cloud in VNET](spring-cloud-troubleshooting-vnet.md)
-- [Customer Responsibilities for Running Azure Spring Cloud in VNET](spring-cloud-vnet-customer-responsibilities.md)
+- [Troubleshooting Azure Spring Cloud in VNET](./troubleshooting-vnet.md)
+- [Customer Responsibilities for Running Azure Spring Cloud in VNET](./vnet-customer-responsibilities.md)

@@ -315,14 +315,14 @@ By default no sampling is enabled in the Java agent and SDK. Currently it only s
 ```json
 {
   "sampling": {
-    "percentage": 10 //this is just an example that shows you how to enable only only 10% of transaction 
+    "percentage": 10 //this is just an example that shows you how to enable only 10% of transaction 
   }
 }
 ```
 
-#### Configuring Java SDK
+#### Configuring Java 2.x SDK
 
-1. Download and configure your web application with the latest [Application Insights Java SDK](./java-get-started.md).
+1. Download and configure your web application with the latest [Application Insights Java SDK](./java-2x-get-started.md).
 
 2. **Enable the fixed-rate sampling module** by adding the following snippet to `ApplicationInsights.xml` file:
 

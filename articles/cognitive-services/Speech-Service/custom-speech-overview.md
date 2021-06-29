@@ -15,13 +15,13 @@ ms.custom: contperf-fy21q2; references_regions
 
 # What is Custom Speech?
 
-[Custom Speech](https://aka.ms/customspeech) is a set of UI-based tools that allow you to evaluate and improve the Microsoft speech-to-text accuracy for your applications and products. All it takes to get started is a handful of test audio files. Follow the links in this article to start creating a custom speech-to-text experience.
+Custom Speech allows you to evaluate and improve the Microsoft speech-to-text accuracy for your applications and products. Follow the links in this article to start creating a custom speech-to-text experience.
 
 ## What's in Custom Speech?
 
 Before you can do anything with Custom Speech, you'll need an Azure account and a Speech service subscription. After you have an account, you can prep your data, train and test your models, inspect recognition quality, evaluate accuracy, and ultimately deploy and use the custom speech-to-text model.
 
-This diagram highlights the pieces that make up the [Custom Speech area of the Speech Studio](https://aka.ms/customspeech). Use the links below to learn more about each step.
+This diagram highlights the pieces that make up the [Custom Speech area of the Speech Studio](https://aka.ms/speechstudio/customspeech). Use the links below to learn more about each step.
 
 ![Diagram that highlights the components that make up the Custom Speech area of the Speech Studio.](./media/custom-speech/custom-speech-overview.png)
 

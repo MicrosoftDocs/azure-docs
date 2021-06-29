@@ -1,6 +1,6 @@
 ---
 title: Expand existing host pool with new session hosts - Azure
-description: How to expand an existing host pool with new session hosts in Windows Virtual Desktop.
+description: How to expand an existing host pool with new session hosts in Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 10/09/2020
@@ -10,7 +10,7 @@ manager: femila
 # Expand an existing host pool with new session hosts
 
 >[!IMPORTANT]
->This content applies to Windows Virtual Desktop with Azure Resource Manager Windows Virtual Desktop objects. If you're using Windows Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/expand-existing-host-pool-2019.md).
+>This content applies to Azure Virtual Desktop with Azure Resource Manager Azure Virtual Desktop objects. If you're using Azure Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/expand-existing-host-pool-2019.md).
 
 As you ramp up usage within your host pool, you may need to expand your existing host pool with new session hosts to handle the new load.
 
@@ -35,7 +35,7 @@ To expand your host pool by adding virtual machines:
 
 1. Sign in to the Azure portal.
 
-2. Search for and select **Windows Virtual Desktop**.
+2. Search for and select **Azure Virtual Desktop**.
 
 3. In the menu on the left side of the screen, select **Host pools**, then select the name of the host pool you want to add virtual machines to.
 
@@ -65,10 +65,10 @@ To expand your host pool by adding virtual machines:
 
 ## Next steps
 
-Now that you've expanded your existing host pool, you can sign in to a Windows Virtual Desktop client to test them as part of a user session. You can connect to a session with any of the following clients:
+Now that you've expanded your existing host pool, you can sign in to a Azure Virtual Desktop client to test them as part of a user session. You can connect to a session with any of the following clients:
 
-- [Connect with the Windows Desktop client](./connect-windows-7-10.md)
-- [Connect with the web client](./connect-web.md)
-- [Connect with the Android client](./connect-android.md)
-- [Connect with the macOS client](./connect-macos.md)
-- [Connect with the iOS client](./connect-ios.md)
+- [Connect with the Windows Desktop client](./user-documentation/connect-windows-7-10.md)
+- [Connect with the web client](./user-documentation/connect-web.md)
+- [Connect with the Android client](./user-documentation/connect-android.md)
+- [Connect with the macOS client](./user-documentation/connect-macos.md)
+- [Connect with the iOS client](./user-documentation/connect-ios.md)
