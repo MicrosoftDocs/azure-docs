@@ -61,3 +61,68 @@ Select **Install**, and then restart the cluster when installation is complete.
 Post that, you may create a Scala or Python notebook for migration.
 
 
+## Create Scala Notebook for migration
+
+Create a Scala Notebook in Databricks. Fill in the right values for the source and target configuration variables in the following code, and then run the code:
+
+
+```scala
+import com.mongodb.spark._
+import com.mongodb.spark.config._
+import org.apache.spark._
+import org.apache.spark.sql._
+
+var sourceConnectionString = ""
+var sourceDb = ""
+var sourceCollection =  ""
+var targetConnectionString = ""
+var targetDb = ""
+var targetCollection =  ""
+
+val readConfig = ReadConfig(Map(
+  "spark.mongodb.input.uri" -> sourceConnectionString,
+  "spark.mongodb.input.database" -> sourceDb,
+  "spark.mongodb.input.collection" -> sourceCollection,
+))
+
+val writeConfig = WriteConfig(Map(
+  "spark.mongodb.output.uri" -> targetConnectionString,
+  "spark.mongodb.output.database" -> targetDb,
+  "spark.mongodb.output.collection" -> targetCollection,
+  "spark.mongodb.output.maxBatchSize" -> "8000"  
+))
+
+val sparkSession = SparkSession
+  .builder()
+  .appName("Data transfer using spark")
+  .getOrCreate()
+
+val customRdd = MongoSpark.load(sparkSession, readConfig)
+
+MongoSpark.save(customRdd, writeConfig)
+```
+
+## Create Python Notebook for migration
+
+Create a Python Notebook in Databricks. Fill in the right values for the source and target configuration variables in the following code, and then run the code::
+
+
+```python
+from pyspark.sql import SparkSession
+
+sourceConnectionString = ""
+sourceDb = ""
+sourceCollection =  ""
+targetConnectionString = ""
+targetDb = ""
+targetCollection =  ""
+
+my_spark = SparkSession \
+    .builder \
+    .appName("myApp") \
+    .getOrCreate()
+
+df = my_spark.read.format("com.mongodb.spark.sql.DefaultSource").option("uri", sourceConnectionString).option("database", sourceDb).option("collection", sourceCollection).load()
+
+df.write.format("mongo").mode("append").option("uri", targetConnectionString).option("maxBatchSize",2500).option("database", targetDb).option("collection", targetCollection).save()
+```
