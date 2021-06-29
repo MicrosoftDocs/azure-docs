@@ -2,7 +2,7 @@
 title: Enable public internet for Azure VMware Solution workloads
 description: This article explains how to use the public IP functionality in Azure Virtual WAN.
 ms.topic: how-to
-ms.date: 02/04/2021
+ms.date: 06/25/2021
 ---
 # Enable public internet for Azure VMware Solution workloads
 

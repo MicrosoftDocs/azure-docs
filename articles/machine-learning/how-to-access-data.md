@@ -1,5 +1,5 @@
 ---
-title: Connect to  storage services on Azure
+title: Connect to storage services on Azure
 titleSuffix: Azure Machine Learning
 description: Learn how to use datastores to securely connect to Azure storage services during training with Azure Machine Learning
 services: machine-learning
