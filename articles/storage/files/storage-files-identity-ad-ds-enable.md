@@ -88,6 +88,8 @@ Join-AzStorageAccountForAuth `
         -OrganizationalUnitDistinguishedName $OuDistinguishedName `
         -EncryptionType $EncryptionType
 
+# If we're going for AES 256 authentication then we have to use Computer account. AES 256 encryption type doesn't work with servicelogon account. If we use servicelogon account and run the command "Update-AzStorageAccountAuthForAES256 -ResourceGroupName $ResourceGroupName -StorageAccountName $StorageAccountName" to update the encryption type to AES 256, the domain account type automatically changes to computer account from servicelogon account. 
+
 #Run the command below if you want to enable AES 256 authentication. If you plan to use RC4, you can skip this step.
 Update-AzStorageAccountAuthForAES256 -ResourceGroupName $ResourceGroupName -StorageAccountName $StorageAccountName
 
