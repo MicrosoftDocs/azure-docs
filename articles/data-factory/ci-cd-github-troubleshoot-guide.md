@@ -277,7 +277,7 @@ Because customers may have different unit testing requirements with different sk
 3. Run unit tests as part of release pipeline or independently with ADF Python/PowerShell/.NET/REST SDK. 
 
 For example, you want to delete duplicates in a file and then store curated file as table in a database. To test the pipeline, you set up a CI/CD project using Azure DevOps.
-You set up a TEST pipeline stage where you deploy your developed pipeline. You configure TEST stage to run Python tests. If you do not use CI/CD, you use **Nunit** to trigger deployed pipelines with tests you want. Once you are satisfied with the results, you can finally publish the pipeline to a production data factory. 
+You set up a TEST pipeline stage where you deploy your developed pipeline. You configure TEST stage to run Python tests for making sure table data is what you expected. If you do not use CI/CD, you use **Nunit** to trigger deployed pipelines with tests you want. Once you are satisfied with the results, you can finally publish the pipeline to a production data factory. 
 
 
 ## Next steps
