@@ -76,7 +76,7 @@ To apply a default version-level immutability policy to a container in the Azure
 
     :::image type="content" source="media/storage-blob-immutability-policies-manage/configure-default-retention-policy-container.png" alt-text="Screenshot showing how to configure a default version-level retention policy for a container":::
 
-## Determine the scope of a time-based retention policy
+### Determine the scope of a time-based retention policy
 
 To determine the scope of a time-based retention policy in the Azure portal, follow these steps:
 
