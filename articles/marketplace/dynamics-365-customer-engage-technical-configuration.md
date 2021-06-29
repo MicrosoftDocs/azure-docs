@@ -38,7 +38,7 @@ For detailed information on how to build your package and update its structure, 
 
 ## CRM package availability
 
-Select **+ Add region** to specify the geographic regions in which your CRM package will be available to customers. Do not select any of the following sovereign regions: US Gov Cloud Sovereign, China Cloud Sovereign, Germany Sovereign, US Gov High Cloud Sovereign, Test in production Sovereign, or US DoD Cloud Sovereign
+Select **+ Add region** to specify the geographic regions in which your CRM package will be available to customers. Do not select any of the following sovereign regions: US Gov Cloud Sovereign, China Cloud Sovereign, Germany Sovereign, US Gov High Cloud Sovereign, Test in production Sovereign, or US DoD Cloud Sovereign.
 
 By default, the **Application configuration URL** you entered above will be used for each region. Leave the Application Configuration URL field blank.
 
