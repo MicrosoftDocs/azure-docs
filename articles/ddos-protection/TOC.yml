@@ -35,8 +35,10 @@
     href: ddos-response-strategy.md
   - name: Reference architectures
     href: ddos-protection-reference-architectures.md
+  - name: Business continuity
+    href: ddos-disaster-recovery-guidance.md
   - name: Security baseline
-    href: ../security/fundamentals/ddos-protection-security-baseline.md?toc=%2fazure%2fddos-protection%2ftoc.json
+    href: /security/benchmark/azure/baselines/ddos-protection-security-baseline?toc=%2fazure%2fddos-protection%2ftoc.json?toc=/azure/ddos-protection/TOC.json
 - name: How-to guides
   items:
     - name: Test through simulations
@@ -49,10 +51,12 @@
       href: ddos-protection-partner-onboarding.md
 - name: Reference
   items:
+  - name: Azure Policy built-ins
+    href: policy-reference.md
   - name: Azure CLI
-    href: /cli/azure/network/ddos-protection?view=azure-cli-latest
+    href: /cli/azure/network/ddos-protection
   - name: Azure PowerShell
-    href: /powershell/module/Az.Network/New-AzDdosProtectionPlan?view=azps-2.8.0
+    href: /powershell/module/Az.Network/New-AzDdosProtectionPlan
   - name: .NET
     href: /dotnet/api/
   - name: Java
@@ -68,7 +72,7 @@
 - name: Resources
   items:
   - name: FAQ
-    href: ddos-faq.md
+    href: ddos-faq.yml
   - name: Pricing
     href: https://azure.microsoft.com/en-us/pricing/details/ddos-protection/
   - name: Regional availability

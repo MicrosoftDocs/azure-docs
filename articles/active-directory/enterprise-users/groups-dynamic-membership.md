@@ -57,7 +57,7 @@ The following is an example of a properly constructed membership rule with a sin
 user.department -eq "Sales"
 ```
 
-Parentheses are optional for a single expression. The total length of the body of your membership rule cannot exceed 2048 characters.
+Parentheses are optional for a single expression. The total length of the body of your membership rule cannot exceed 3072 characters.
 
 ## Constructing the body of a membership rule
 
@@ -274,6 +274,14 @@ The following expression selects all users who have any service plan that is ass
 user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabilityStatus -eq "Enabled")
 ```
 
+#### Example 3
+
+The following expression selects all users who have no asigned service plan:
+
+```
+user.assignedPlans -all (assignedPlan.servicePlanId -eq "")
+```
+
 ### Using the underscore (\_) syntax
 
 The underscore (\_) syntax matches occurrences of a specific value in one of the multivalued string collection properties to add users or devices to a dynamic group. It is used with the -any or -all operators.
@@ -353,7 +361,9 @@ An example of a rule that uses a custom extension property is:
 user.extension_c272a57b722d4eb29bfe327874ae79cb_OfficeNumber -eq "123"
 ```
 
-The custom property name can be found in the directory by querying a user's property using Graph Explorer and searching for the property name. Also, you can now select **Get custom extension properties** link in the dynamic user group rule builder to enter a unique app ID and receive the full list of custom extension properties to use when creating a dynamic membership rule. This list can also be refreshed to get any new custom extension properties for that app.
+The custom property name can be found in the directory by querying a user's property using Graph Explorer and searching for the property name. Also, you can now select **Get custom extension properties** link in the dynamic user group rule builder to enter a unique app ID and receive the full list of custom extension properties to use when creating a dynamic membership rule. This list can also be refreshed to get any new custom extension properties for that app. 
+
+For more information, see [Use the attributes in dynamic groups](../hybrid/how-to-connect-sync-feature-directory-extensions.md#use-the-attributes-in-dynamic-groups) in the article [Azure AD Connect sync: Directory extensions](../hybrid/how-to-connect-sync-feature-directory-extensions.md).
 
 ## Rules for devices
 

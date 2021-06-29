@@ -63,13 +63,13 @@ landingContent:
       - linkListType: reference
         links:
           - text: .NET client library
-            url: /dotnet/api/azure.security.keyvault.certificates?view=azure-dotnet
+            url: /dotnet/api/azure.security.keyvault.certificates
           - text: Python client library
-            url: /python/api/overview/azure/keyvault-certificates-readme?view=azure-python
+            url: /python/api/overview/azure/keyvault-certificates-readme
           - text: Java client library
             url: https://apidocs.chargebee.com/docs/api?lang=java#client_library
           - text: Node.js client library
-            url: /javascript/api/@azure/keyvault-certificates/?view=azure-node-latest
+            url: /javascript/api/@azure/keyvault-certificates/
 
   # Card
   - title: More about Key Vault
@@ -80,8 +80,8 @@ landingContent:
             url: ../general/overview.md
           - text: Basic concepts
             url: ../general/basic-concepts.md
-          - text: Security overview
-            url: ../general/security-overview.md
+          - text: Security features
+            url: ../general/security-features.md
           - text: Soft-delete overview
             url: ../general/soft-delete-overview.md
   # Card

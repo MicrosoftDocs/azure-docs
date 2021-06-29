@@ -1,12 +1,12 @@
 ---
 title: Connect an Azure Purview Account  
 description: Connect an Azure Purview Account to a Synapse workspace.
-services: synapse-analytics 
-author: ArnoMicrosoft
-ms.service: synapse-analytics 
+author: Jejiang
+ms.service: synapse-analytics
+ms.subservice: purview
 ms.topic: quickstart
 ms.date: 12/16/2020
-ms.author: acomet
+ms.author: jejiang
 ms.reviewer: jrasnick
 ---
 
@@ -17,7 +17,7 @@ In this quickstart, you will register an Azure Purview Account to a Synapse work
 
 You can perform the following tasks in Synapse: 
 - Use the search box at the top to find Purview assets based on keywords 
-- Understand the data based on metadata, lineage, annotations 
+- Understand the data based on metadata, [lineage](../../purview/catalog-lineage-user-guide.md), annotations 
 - Connect those data to your workspace with linked services or integration datasets 
 - Analyze those datasets with Synapse Apache Spark, Synapse SQL, and Data Flow 
 
@@ -45,3 +45,9 @@ Go to [https://web.azuresynapse.net](https://web.azuresynapse.net) and sign 
 [Register and scan Azure Synapse assets in Azure Purview](../../purview/register-scan-azure-synapse-analytics.md)
 
 [Discover, connect and explore data in Synapse using Azure Purview](how-to-discover-connect-analyze-azure-purview.md)   
+
+[Connect Azure Data Factory and Azure Purview](../../purview/how-to-link-azure-data-factory.md)
+
+[Connect Azure Data Share and Azure Purview](../../purview/how-to-link-azure-data-share.md)
+
+[Get lineage from Power BI into Azure Purview](../../purview/how-to-lineage-powerbi.md)

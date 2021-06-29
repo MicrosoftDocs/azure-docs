@@ -240,9 +240,9 @@ Use these links to learn more about autoscaling.
 
 [Best Practices for Azure Autoscale](autoscale-best-practices.md)
 
-[Manage Autoscale using PowerShell](../samples/powershell-samples.md#create-and-manage-autoscale-settings)
+[Manage Autoscale using PowerShell](../powershell-samples.md#create-and-manage-autoscale-settings)
 
-[Manage Autoscale using CLI](../samples/cli-samples.md#autoscale)
+[Manage Autoscale using CLI](../cli-samples.md#autoscale)
 
 [Configure Webhook & Email Notifications for Autoscale](autoscale-webhook-email.md)
 

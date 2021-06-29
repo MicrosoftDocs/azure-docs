@@ -2,7 +2,7 @@
 title: Configure IP firewall rules for Azure Service Bus
 description: How to use Firewall Rules to allow connections from specific IP addresses to Azure Service Bus. 
 ms.topic: article
-ms.date: 02/12/2021
+ms.date: 03/29/2021
 ---
 
 # Allow access to Azure Service Bus namespace from specific IP addresses or ranges
@@ -10,18 +10,17 @@ By default, Service Bus namespaces are accessible from internet as long as the r
 
 This feature is helpful in scenarios in which Azure Service Bus should be only accessible from certain well-known sites. Firewall rules enable you to configure rules to accept traffic originating from specific IPv4 addresses. For example, if you use Service Bus with [Azure Express Route][express-route], you can create a **firewall rule** to allow traffic from only your on-premises infrastructure IP addresses or addresses of a corporate NAT gateway. 
 
-> [!IMPORTANT]
-> - Firewalls and Virtual Networks are supported only in the **premium** tier of Service Bus. If upgrading to the **premier** tier isn't an option, we recommend that you keep the Shared Access Signature (SAS) token secure and share with only authorized users. For information about SAS authentication, see [Authentication and authorization](service-bus-authentication-and-authorization.md#shared-access-signature).
-> - Specify at least one IP rule or virtual network rule for the namespace to allow traffic only from the specified IP addresses or subnet of a virtual network. If there are no IP and virtual network rules, the namespace can be accessed over the public internet (using the access key).  
-
 ## IP firewall rules
 The IP firewall rules are applied at the Service Bus namespace level. Therefore, the rules apply to all connections from clients using any supported protocol. Any connection attempt from an IP address that does not match an allowed IP rule on the Service Bus namespace is rejected as unauthorized. The response does not mention the IP rule. IP filter rules are applied in order, and the first rule that matches the IP address determines the accept or reject action.
 
-Implementing Firewall rules can prevent other Azure services from interacting with Service Bus. As an exception, you can allow access to Service Bus resources from certain trusted services even when IP filtering is enabled. For a list of trusted services, see [Trusted services](#trusted-microsoft-services). 
+## Important points
+- Firewalls and Virtual Networks are supported only in the **premium** tier of Service Bus. If upgrading to the **premier** tier isn't an option, we recommend that you keep the Shared Access Signature (SAS) token secure and share with only authorized users. For information about SAS authentication, see [Authentication and authorization](service-bus-authentication-and-authorization.md#shared-access-signature).
+- Specify **at least one IP firewall rule or virtual network rule** for the namespace to allow traffic only from the specified IP addresses or subnet of a virtual network. If there are no IP and virtual network rules, the namespace can be accessed over the public internet (using the access key).  
+- Implementing firewall rules can prevent other Azure services from interacting with Service Bus. As an exception, you can allow access to Service Bus resources from certain **trusted services** even when IP filtering is enabled. For a list of trusted services, see [Trusted services](#trusted-microsoft-services). 
 
-The following Microsoft services are required to be on a virtual network
-- Azure App Service
-- Azure Functions
+    The following Microsoft services are required to be on a virtual network
+    - Azure App Service
+    - Azure Functions
 
 ## Use Azure portal
 This section shows you how to use the Azure portal to create IP firewall rules for a Service Bus namespace. 
@@ -51,7 +50,7 @@ This section shows you how to use the Azure portal to create IP firewall rules f
     > [!NOTE]
     > To restrict access to specific virtual networks, see [Allow access from specific networks](service-bus-service-endpoints.md).
 
-[!INCLUDE [service-bus-trusted-services](../../includes/service-bus-trusted-services.md)]
+[!INCLUDE [service-bus-trusted-services](./includes/service-bus-trusted-services.md)]
 
 ## Use Resource Manager template
 This section has a sample Azure Resource Manager template that adds a virtual network and a firewall rule to an existing Service Bus namespace.

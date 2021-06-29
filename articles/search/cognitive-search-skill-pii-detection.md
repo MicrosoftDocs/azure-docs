@@ -14,7 +14,7 @@ ms.date: 06/17/2020
 # PII Detection cognitive skill
 
 > [!IMPORTANT] 
-> This skill is currently in public preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). There is currently no portal or .NET SDK support.
+> This skill is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [preview REST API](/rest/api/searchservice/index-preview) supports this skill.
 
 The **PII Detection** skill extracts personal information from an input text and gives you the option of masking it. This skill uses the machine learning models provided by [Text Analytics](../cognitive-services/text-analytics/overview.md) in Cognitive Services.
 
@@ -37,16 +37,17 @@ Parameters are case-sensitive and all are optional.
 
 | Parameter name     | Description |
 |--------------------|-------------|
-| `defaultLanguageCode` |    Language code of the input text. For now, only `en` is supported. |
+| `defaultLanguageCode` | (Optional) The language code to apply to documents that don't specify language explicitly.  If the default language code is not specified,  English (en) will be used as the default language code. <br/> See [Full list of supported languages](../cognitive-services/text-analytics/language-support.md). |
 | `minimumPrecision` | A value between 0.0 and 1.0. If the confidence score (in the `piiEntities` output) is lower than the set `minimumPrecision` value, the entity is not returned or masked. The default is 0.0. |
-| `maskingMode` | A parameter that provides various ways to mask the personal information detected in the input text. The following options are supported: <ul><li>`none` (default): No masking occurs and the `maskedText` output will not be returned. </li><li> `redact`: Removes the detected entities from the input text and does not replace the deleted values. In this case, the offset in the `piiEntities` output will be in relation to the original text, and not the masked text. </li><li> `replace`: Replaces the detected entities with the character given in the `maskingCharacter` parameter. The character will be repeated to the length of the detected entity so that the offsets will correctly correspond to both the input text as well as the output `maskedText`.</li></ul> |
-| `maskingCharacter` | The character used to mask the text if the `maskingMode` parameter is set to `replace`. The following options are supported: `*` (default), `#`, `X`. This parameter can only be `null` if `maskingMode` is not set to `replace`. |
+| `maskingMode` | A parameter that provides various ways to mask the personal information detected in the input text. The following options are supported: <ul><li>`none` (default): No masking occurs and the `maskedText` output will not be returned. </li><li> `replace`: Replaces the detected entities with the character given in the `maskingCharacter` parameter. The character will be repeated to the length of the detected entity so that the offsets will correctly correspond to both the input text as well as the output `maskedText`.</li></ul> <br/> During the PIIDetectionSkill preview, the `maskingMode` option `redact` was also supported, which allowed removing the detected entities entirely without replacement. The `redact` option has since been deprecated and will no longer be supported in the skill going forward. |
+| `maskingCharacter` | The character used to mask the text if the `maskingMode` parameter is set to `replace`. The following option is supported: `*` (default). This parameter can only be `null` if `maskingMode` is not set to `replace`. <br/><br/> During the PIIDetectionSkill preview, there was support for additional `maskingCharacter` options `X` and `#`. The `X` and `#` options have since been deprecated and will no longer be supported in the skill going forward. |
+| `modelVersion`   | (Optional) The version of the model to use when calling the Text Analytics service. It will default to the most recent version when not specified. We recommend you do not specify this value unless absolutely necessary. See [Model versioning in the Text Analytics API](../cognitive-services/text-analytics/concepts/model-versioning.md) for more details. |
 
 ## Skill inputs
 
 | Input name      | Description                   |
 |---------------|-------------------------------|
-| `languageCode`    | Optional. Default is `en`.  |
+| `languageCode`    | A string indicating the language of the records. If this parameter is not specified, the default language code will be used to analyze the records. <br/>See [Full list of supported languages](../cognitive-services/text-analytics/language-support.md)  |
 | `text`          | The text to analyze.          |
 
 ## Skill outputs

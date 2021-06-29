@@ -20,9 +20,6 @@ ms.author: apimpm
 
 This article describes how to debug API Management policies using the [Azure API Management Extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement). 
 
-> [!NOTE]
-> This feature is in public preview.
-
 ## Prerequisites
 
 * Create an API Management Developer-tier instance by following this [quickstart](get-started-create-service-instance.md) first.

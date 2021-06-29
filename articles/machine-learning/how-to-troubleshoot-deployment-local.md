@@ -20,15 +20,40 @@ Try a local model deployment as a first step in troubleshooting deployment to Az
 
 ## Prerequisites
 
-* An **Azure subscription**. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
+* An **Azure subscription**. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 * Option A (**Recommended**) - Debug locally on Azure Machine Learning Compute Instance
    * An Azure Machine Learning Workspace with [compute instance](how-to-deploy-local-container-notebook-vm.md) running
 * Option B - Debug locally on your compute
-   * The [Azure Machine Learning SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
-   * The [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
+   * The [Azure Machine Learning SDK](/python/api/overview/azure/ml/install).
+   * The [Azure CLI](/cli/azure/install-azure-cli).
    * The [CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md).
    * Have a working Docker installation on your local system. 
    * To verify your Docker installation, use the command `docker run hello-world` from a terminal or command prompt. For information on installing Docker, or troubleshooting Docker errors, see the [Docker Documentation](https://docs.docker.com/).
+* Option C - Enable local debugging with Azure Machine Learning inference HTTP server.
+    * The Azure Machine Learning inference HTTP server [(preview)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) is a Python package that allows you to easily validate your entry script (`score.py`) in a local development environment. If there's a problem with the scoring script, the server will return an error. It will also return the location where the error occurred.
+    * The server can also be used when creating validation gates in a continuous integration and deployment pipeline. For example, start the server with thee candidate script and run the test suite against the local endpoint.
+
+## Azure Machine learning inference HTTP server
+
+The local inference server allows you to quickly debug your entry script (`score.py`). In case the underlying score script has a bug, the server will fail to initialize or serve the model. Instead, it will throw an exception & the location where the issues occurred. [Learn more about Azure Machine Learning inference HTTP Server](how-to-inference-server-http.md)
+
+1. Install the `azureml-inference-server-http` package from the [pypi](https://pypi.org/) feed:
+
+    ```bash
+    python -m pip install azureml-inference-server-http
+    ```
+
+2. Start the server and set `score.py` as the entry script:
+
+    ```bash
+    azmlinfsrv --entry_script score.py
+    ```
+
+3. Send a scoring request to the server using `curl`:
+
+    ```bash
+    curl -p 127.0.0.1:5001/score
+    ```
 
 ## Debug locally
 
@@ -94,7 +119,7 @@ print(service.run(input_data=test_sample))
 > [!NOTE]
 > The script is reloaded from the location specified by the `InferenceConfig` object used by the service.
 
-To change the model, Conda dependencies, or deployment configuration, use [update()](/python/api/azureml-core/azureml.core.webservice%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=trueupdate--args-). The following example updates the model used by the service:
+To change the model, Conda dependencies, or deployment configuration, use [update()](/python/api/azureml-core/azureml.core.webservice%28class%29#update--args-). The following example updates the model used by the service:
 
 ```python
 service.update([different_model], inference_config, deployment_config)
@@ -102,7 +127,7 @@ service.update([different_model], inference_config, deployment_config)
 
 ### Delete the service
 
-To delete the service, use [delete()](/python/api/azureml-core/azureml.core.webservice%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truedelete--).
+To delete the service, use [delete()](/python/api/azureml-core/azureml.core.webservice%28class%29#delete--).
 
 ### <a id="dockerlog"></a> Inspect the Docker log
 
@@ -124,6 +149,7 @@ You can address the error by increasing the value of `memory_gb` in `deployment_
 Learn more about deployment:
 
 * [How to troubleshoot remote deployments](how-to-troubleshoot-deployment.md)
+* [Azure Machine Learning inference HTTP Server](how-to-inference-server-http.md)
 * [How to deploy and where](how-to-deploy-and-where.md)
 * [Tutorial: Train & deploy models](tutorial-train-models-with-aml.md)
 * [How to run and debug experiments locally](./how-to-debug-visual-studio-code.md)

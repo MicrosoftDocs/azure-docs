@@ -120,7 +120,7 @@ After setting up your resource group successfully, you may want to view the Reso
 - Automate future deployments of the solution because the template contains all the complete infrastructure.
 - Learn template syntax by looking at the JavaScript Object Notation (JSON) that represents your solution.
 
-To export all resources in a resource group, use [az group export](/cli/azure/group?view=azure-cli-latest#az_group_export&preserve-view=true) and provide the resource group name.
+To export all resources in a resource group, use [az group export](/cli/azure/group#az_group_export) and provide the resource group name.
 
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&
@@ -216,6 +216,6 @@ For more information, see [Single and multi-resource export to template in Azure
 ## Next steps
 
 - To learn Azure Resource Manager, see [Azure Resource Manager overview](overview.md).
-- To learn the Resource Manager template syntax, see [Understand the structure and syntax of Azure Resource Manager templates](../templates/template-syntax.md).
+- To learn the Resource Manager template syntax, see [Understand the structure and syntax of Azure Resource Manager templates](../templates/syntax.md).
 - To learn how to develop templates, see the [step-by-step tutorials](../index.yml).
 - To view the Azure Resource Manager template schemas, see [template reference](/azure/templates/).

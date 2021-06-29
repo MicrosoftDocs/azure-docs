@@ -12,7 +12,12 @@ services: iot-edge
 
 # Tutorial: An end-to-end solution using Azure Machine Learning and IoT Edge
 
+[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
+
 Frequently, IoT applications want to take advantage of the intelligent cloud and the intelligent edge. In this tutorial, we walk you through training a machine learning model with data collected from IoT devices in the cloud, deploying that model to IoT Edge, and maintaining and refining the model periodically.
+
+>[!NOTE]
+>The concepts in this set of tutorials apply to all versions of IoT Edge, but the sample device that you create to try out the scenario runs IoT Edge version 1.1.
 
 The primary objective of this tutorial is to introduce the processing of IoT data with machine learning, specifically on the edge. While we touch many aspects of a general machine learning workflow, this tutorial is not intended as an in-depth introduction to machine learning. As a case in point, we do not attempt to create a highly optimized model for the use case – we just do enough to illustrate the process of creating and using a viable model for IoT data processing.
 

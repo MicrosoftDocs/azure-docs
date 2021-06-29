@@ -3,7 +3,7 @@ title: Mv2-series - Azure Virtual Machines
 description: Specifications for the Mv2-series VMs.
 author: ayshakeen
 ms.service: virtual-machines
-ms.subservice: sizes
+ms.subservice: vm-sizes-memory
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: jushiman
@@ -29,8 +29,8 @@ Mv2-series VM’s feature Intel® Hyper-Threading Technology
 |---|---|---|---|---|---|---|---|---|
 | Standard_M208ms_v2<sup>1</sup> | 208 | 5700 | 4096 | 64 | 80000 / 800 (7040) | 40000 / 1000 | 8 | 16000 |
 | Standard_M208s_v2<sup>1</sup> | 208 | 2850 | 4096 | 64 | 80000 / 800 (7040) | 40000 / 1000 | 8 | 16000 |
-| Standard_M416ms_v2<sup>1</sup> | 416 | 11400 | 8192 | 64 | 250000 / 1600 (14080) | 80000 / 2000 | 8 | 32000 |
-| Standard_M416s_v2<sup>1</sup> | 416 | 5700 | 8192 | 64 | 250000 / 1600 (14080) | 80000 / 2000 | 8 | 32000 |
+| Standard_M416ms_v2<sup>1,2</sup> | 416 | 11400 | 8192 | 64 | 250000 / 1600 (14080) | 80000 / 2000 | 8 | 32000 |
+| Standard_M416s_v2<sup>1,2</sup> | 416 | 5700 | 8192 | 64 | 250000 / 1600 (14080) | 80000 / 2000 | 8 | 32000 |
 
 <sup>1</sup> Mv2-series VMs are generation 2 only and support  a subset of generation 2 supported Images. Please see below for the complete list of supported images for Mv2-series. If you're using Linux, see [Support for generation 2 VMs on Azure](./generation-2.md) for instructions on how to find and select an image. If you're using Windows, see [Support for generation 2 VMs on Azure](./generation-2.md) for instructions on how to find and select an image. 
 
@@ -39,6 +39,7 @@ Mv2-series VM’s feature Intel® Hyper-Threading Technology
 - Red Hat Enterprise Linux 7.6, 7.7, 8.1 or later 
 - Oracle Enterprise Linux 7.7 or later
 
+<sup>2</sup> [Constrained core sizes available](./constrained-vcpu.md).
 
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]

@@ -1,7 +1,6 @@
 ---
 title: Capacity and Performance solution in Azure Monitor | Microsoft Docs
 description: Use the Capacity and Performance solution in Monitor to help you understand the capacity of your Hyper-V servers.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren

@@ -3,7 +3,7 @@ title: Azure API Management Dapr integration policies | Microsoft Docs
 description: Learn about Azure API Management policies for interacting with Dapr microservices extensions.
 author: vladvino
 ms.author: vlvinogr
-ms.date: 10/23/2020
+ms.date: 02/18/2021
 ms.topic: article
 ms.service: api-management
 ---
@@ -11,9 +11,6 @@ ms.service: api-management
 # API Management Dapr integration policies
 
 This topic provides a reference for Dapr integration API Management policies. Dapr is a portable runtime for building stateless and stateful microservices-based applications with any language or framework. It codifies the common microservice patterns, like service discovery and invocation with build-in retry logic, publish-and-subscribe with at-least-once delivery semantics, or pluggable binding resources to ease composition using external services. Go to [dapr.io](https://dapr.io) for detailed information and instruction on how to get started with Dapr. For information on adding and configuring policies, see [Policies in API Management](api-management-howto-policies.md).
-
-> [!CAUTION]
-> Policies referenced in this topic are in Public Preview and are subject to [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 > [!IMPORTANT]
 > Policies referenced in this topic work only in the [self-hosted version of the API Management gateway](self-hosted-gateway-overview.md) with Dapr support enabled.
@@ -40,21 +37,21 @@ template:
 
 ## <a name="invoke"></a> Send request to a service
 
-This policy sets the target URL for the current request to `http://localhost:3500/v1.0/invoke/{app-id}/method/{method-name}` replacing template parameters with values specified in the policy statement.
+This policy sets the target URL for the current request to `http://localhost:3500/v1.0/invoke/{app-id}[.{ns-name}]/method/{method-name}` replacing template parameters with values specified in the policy statement.
 
 The policy assumes that Dapr runs in a sidecar container in the same pod as the gateway. Upon receiving the request, Dapr runtime performs service discovery and actual invocation, including possible protocol translation between HTTP and gRPC, retries, distributed tracing, and error handling.
 
 ### Policy statement
 
 ```xml
-<set-backend-service backend-id="dapr" dapr-app-id="app-id" dapr-method="method-name" />
+<set-backend-service backend-id="dapr" dapr-app-id="app-id" dapr-method="method-name" dapr-namespace="ns-name" />
 ```
 
 ### Examples
 
 #### Example
 
-The following example demonstrates invoking the method named "back" on the microservice called "echo". The `set-backend-service` policy sets the destination URL. The `forward-request` policy dispatches the request to the Dapr runtime, which delivers it to the microservice.
+The following example demonstrates invoking the method named "back" on the microservice called "echo". The `set-backend-service` policy sets the destination URL to `http://localhost:3500/v1.0/invoke/echo.echo-app/method/back`. The `forward-request` policy dispatches the request to the Dapr runtime, which delivers it to the microservice.
 
 The `forward-request` policy is shown here for clarity. The policy is typically "inherited" from the global scope via the `base` keyword.
 
@@ -62,7 +59,7 @@ The `forward-request` policy is shown here for clarity. The policy is typically 
 <policies>
     <inbound>
         <base />
-        <set-backend-service backend-id="dapr" dapr-app-id="echo" dapr-method="back" />
+        <set-backend-service backend-id="dapr" dapr-app-id="echo" dapr-method="back" dapr-namespace="echo-app" />
     </inbound>
     <backend>
         <forward-request />
@@ -87,8 +84,9 @@ The `forward-request` policy is shown here for clarity. The policy is typically 
 | Attribute        | Description                     | Required | Default |
 |------------------|---------------------------------|----------|---------|
 | backend-id       | Must be set to "dapr"           | Yes      | N/A     |
-| dapr-app-id      | Name of the target microservice. Maps to the [appId](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/service_invocation_api.md) parameter in Dapr.| Yes | N/A |
+| dapr-app-id      | Name of the target microservice. Used to form the [appId](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/service_invocation_api.md) parameter in Dapr.| Yes | N/A |
 | dapr-method      | Name of the method or a URL to invoke on the target microservice. Maps to the [method-name](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/service_invocation_api.md) parameter in Dapr.| Yes | N/A |
+| dapr-namespace   | Name of the namespace the target microservice is residing in. Used to form the [appId](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/service_invocation_api.md) parameter in Dapr.| No | N/A |
 
 ### Usage
 

@@ -55,6 +55,12 @@ The following is a list of Fabric settings that you can customize, organized by 
 |SecretEncryptionCertX509StoreName|string, recommended value is "My" (no default) |    Dynamic|    This indicates the certificate to use for encryption and decryption of creds Name of X.509 certificate store that is used for encrypting decrypting store credentials used by Backup Restore service |
 |TargetReplicaSetSize|int, default is    0|Static| The TargetReplicaSetSize for BackupRestoreService |
 
+## CentralSecretService
+
+| **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
+| --- | --- | --- | --- |
+|DeployedState |wstring, default is L"Disabled" |Static |2-stage removal of CSS. |
+
 ## ClusterManager
 
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
@@ -90,6 +96,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
 | --- | --- | --- | --- |
+|AllowCreateUpdateMultiInstancePerNodeServices |Bool, default is false |Dynamic|Allows creation of multiple stateless instances of a service per node. This feature is currently in preview. |
 |PerfMonitorInterval |Time in seconds, default is 1 |Dynamic|Specify timespan in seconds. Performance monitoring interval. Setting to 0 or negative value disables monitoring. |
 
 ## DefragmentationEmptyNodeDistributionPolicy
@@ -299,6 +306,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
 | --- | --- | --- | --- |
 |EnableApplicationTypeHealthEvaluation |Bool, default is false |Static|Cluster health evaluation policy: enable per application type health evaluation. |
+|EnableNodeTypeHealthEvaluation |Bool, default is false |Static|Cluster health evaluation policy: enable per node type health evaluation. |
 |MaxSuggestedNumberOfEntityHealthReports|Int, default is 100 |Dynamic|The maximum number of health reports that an entity can have before raising concerns about the watchdog's health reporting logic. Each health entity is supposed to have a relatively small number of health reports. If the report count goes above this number; there may be issues with the watchdog's implementation. An entity with too many reports is flagged through a Warning health report when the entity is evaluated. |
 
 ## HealthManager/ClusterHealthPolicy
@@ -344,6 +352,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |DisableContainers|bool, default is FALSE|Static|Config for disabling containers - used instead of DisableContainerServiceStartOnContainerActivatorOpen which is deprecated config |
 |DisableDockerRequestRetry|bool, default is FALSE |Dynamic| By default SF communicates with DD (docker dameon) with a timeout of 'DockerRequestTimeout' for each http request sent to it. If DD does not responds within this time period; SF resends the request if top level operation still has remaining time.  With hyperv container; DD sometimes take much more time to bring up the container or deactivate it. In such cases DD request times out from SF perspective and SF retries the operation. Sometimes this seems to adds more pressure on DD. This config allows to disable this retry and wait for DD to respond. |
 |DnsServerListTwoIps | Bool, default is FALSE | Static | This flags adds the local dns server twice to help alleviate intermittent resolve issues. |
+| DockerTerminateOnLastHandleClosed | bool, default is TRUE | Static | By default if FabricHost is managing the 'dockerd' (based on: SkipDockerProcessManagement == false) this setting configures what happens when either FabricHost or dockerd crash. When set to `true` if either process crashes all running containers will be forcibly terminated by the HCS. If set to `false` the containers will continue to keep running. Note: Previous to 8.0 this behavior was unintentionally the equivalent of `false`. The default setting of `true` here is what we expect to happen by default moving forward for our cleanup logic to be effective on restart of these processes. |
 | DoNotInjectLocalDnsServer | bool, default is FALSE | Static | Prevents the runtime to injecting the local IP as DNS server for containers. |
 |EnableActivateNoWindow| bool, default is FALSE|Dynamic| The activated process is created in the background without any console. |
 |EnableContainerServiceDebugMode|bool, default is TRUE|Static|Enable/disable logging for docker containers.  Windows only.|
@@ -476,7 +485,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
 | --- | --- | --- | --- |
-|PropertyGroup |NodeCapacityCollectionMap |Static|A collection of node capacities for different metrics. |
+|PropertyGroup |NodeCapacityCollectionMap | Dynamic |A collection of node capacities for different metrics. Dynamic as of Service Fabric 8.1, *Static* in earlier versions. |
 
 ## NodeDomainIds
 
@@ -489,7 +498,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
 | --- | --- | --- | --- |
-|PropertyGroup |NodePropertyCollectionMap |Static|A collection of string key-value pairs for node properties. |
+|PropertyGroup |NodePropertyCollectionMap | Dynamic |A collection of string key-value pairs for node properties. Dynamic as of Service Fabric 8.1, *Static* in earlier versions. |
 
 ## Paas
 
@@ -546,6 +555,8 @@ The following is a list of Fabric settings that you can customize, organized by 
 |MovementPerPartitionThrottleCountingInterval | Time in seconds, default is 600 |Static| Specify timespan in seconds. Indicate the length of the past interval for which to track replica movements for each partition (used along with MovementPerPartitionThrottleThreshold). |
 |MovementPerPartitionThrottleThreshold | Uint, default is 50 |Dynamic| No balancing-related movement will occur for a partition if the number of balancing related movements for replicas of that partition has reached or exceeded MovementPerFailoverUnitThrottleThreshold in the past interval indicated by MovementPerPartitionThrottleCountingInterval. |
 |MoveParentToFixAffinityViolation | Bool, default is false |Dynamic| Setting which determines if parent replicas can be moved to fix affinity constraints.|
+|NodeTaggingEnabled | Bool, default is false |Dynamic| If true; NodeTagging feature will be enabled. |
+|NodeTaggingConstraintPriority | Int, default is 0 |Dynamic| Configurable priority of node tagging. |
 |PartiallyPlaceServices | Bool, default is true |Dynamic| Determines if all service replicas in cluster will be placed "all or nothing" given limited suitable nodes for them.|
 |PlaceChildWithoutParent | Bool, default is true | Dynamic|Setting which determines if child service replica can be placed if no parent replica is up. |
 |PlacementConstraintPriority | Int, default is 0 | Dynamic|Determines the priority of placement constraint: 0: Hard; 1: Soft; negative: Ignore. |
@@ -566,7 +577,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |UpgradeDomainConstraintPriority | Int, default is 1| Dynamic|Determines the priority of upgrade domain constraint: 0: Hard; 1: Soft; negative: Ignore. |
 |UseMoveCostReports | Bool, default is false | Dynamic|Instructs the LB to ignore the cost element of the scoring function; resulting potentially large number of moves for better balanced placement. |
 |UseSeparateSecondaryLoad | Bool, default is true | Dynamic|Setting which determines if separate load should be used for secondary replicas. |
-|UseSeparateSecondaryMoveCost | Bool, default is false | Dynamic|Setting which determines if separate move cost should be used for secondary replicas. |
+|UseSeparateSecondaryMoveCost | Bool, default is true | Dynamic|Setting which determines if PLB should use different move cost for secondary on each node. If UseSeparateSecondaryMoveCost is turned off: - Reported move cost for secondary on one node will result in overwritting move cost for each secondary (on all other nodes) If UseSeparateSecondaryMoveCost is turned on: - Reported move cost for secondary on one node will take effect only on that secondary (no effect on secondaries on other nodes) - If replica crash happens - new replica is created with default move cost specified on service level - If PLB moves existing replica - move cost goes with it. |
 |ValidatePlacementConstraint | Bool, default is true |Dynamic| Specifies whether or not the PlacementConstraint expression for a service is validated when a service's ServiceDescription is updated. |
 |ValidatePrimaryPlacementConstraintOnPromote| Bool, default is TRUE |Dynamic|Specifies whether or not the PlacementConstraint expression for a service is evaluated for primary preference on failover. |
 |VerboseHealthReportLimit | Int, default is 20 | Dynamic|Defines the number of times a replica has to go unplaced before a health warning is reported for it (if verbose health reporting is enabled). |
@@ -761,6 +772,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |RecoverServicePartitions |string, default is "Admin" |Dynamic| Security configuration for recovering service partitions. |
 |RecoverSystemPartitions |string, default is "Admin" |Dynamic| Security configuration for recovering system service partitions. |
 |RemoveNodeDeactivations |string, default is "Admin" |Dynamic| Security configuration for reverting deactivation on multiple nodes. |
+|ReportCompletion |wstring, default is L"Admin" |Dynamic| Security configuration for reporting completion. |
 |ReportFabricUpgradeHealth |string, default is "Admin" |Dynamic| Security configuration for resuming cluster upgrades with the current upgrade progress. |
 |ReportFault |string, default is "Admin" |Dynamic| Security configuration for reporting fault. |
 |ReportHealth |string, default is "Admin" |Dynamic| Security configuration for reporting health. |

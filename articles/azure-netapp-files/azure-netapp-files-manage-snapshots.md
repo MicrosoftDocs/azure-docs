@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 02/10/2021
+ms.date: 06/14/2021
 ms.author: b-juche
 ---
 # Manage snapshots by using Azure NetApp Files
@@ -44,26 +44,6 @@ You can create volume snapshots on demand.
 ## Manage snapshot policies
 
 You can schedule for volume snapshots to be taken automatically by using snapshot policies. You can also modify a snapshot policy as needed, or delete a snapshot policy that you no longer need.  
-
-### Register the feature
-
-The **snapshot policy** feature is currently in preview. If you are using this feature for the first time, you need to register the feature first. 
-
-1. Register the feature: 
-
-    ```azurepowershell-interactive
-    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSnapshotPolicy
-    ```
-
-2. Check the status of the feature registration: 
-
-    > [!NOTE]
-    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is **Registered** before continuing.
-
-    ```azurepowershell-interactive
-    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSnapshotPolicy
-    ```
-You can also use [Azure CLI commands](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
 ### Create a snapshot policy 
 
@@ -253,6 +233,9 @@ type the name of the volume, and click **Revert**.
 ## Delete snapshots  
 
 You can delete snapshots that you no longer need to keep. 
+
+> [!IMPORTANT]
+> The snapshot deletion operation cannot be undone. A deleted snapshot cannot be recovered. 
 
 1. Go to the **Snapshots** menu of a volume. Right-click the snapshot you want to delete. Select **Delete**.
 

@@ -3,14 +3,14 @@ title: Serverless compute tier
 description: This article describes the new serverless compute tier and compares it with the existing provisioned compute tier for Azure SQL Database. 
 services: sql-database
 ms.service: sql-database
-ms.subservice: service
-ms.custom: test sqldbrb=1, devx-track-azurecli
+ms.subservice: service-overview
+ms.custom: test sqldbrb=1, devx-track-azurecli, devx-track-azurepowershell
 ms.devlang: 
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein
-ms.date: 12/8/2020
+ms.date: 4/16/2021
 ---
 # Azure SQL Database serverless
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -97,18 +97,18 @@ Note that when CPU utilization is low, active cache utilization can remain high 
 
 The SQL cache grows as data is fetched from disk in the same way and with the same speed as for provisioned databases. When the database is busy, the cache is allowed to grow unconstrained up to the max memory limit.
 
-## Auto-pause and auto-resume
+## Auto-pausing and auto-resuming
 
-### Auto-pause
+### Auto-pausing
 
-Auto-pause is triggered if all of the following conditions are true for the duration of the auto-pause delay:
+Auto-pausing is triggered if all of the following conditions are true for the duration of the auto-pause delay:
 
 - Number sessions = 0
 - CPU = 0 for user workload running in the user pool
 
 An option is provided to disable auto-pausing if desired.
 
-The following features do not support auto-pausing, but do support auto-scaling.  If any of the following features are used, then auto-pausing should be disabled and the database will remain online regardless of the duration of database inactivity:
+The following features do not support auto-pausing, but do support auto-scaling.  If any of the following features are used, then auto-pausing must be disabled and the database will remain online regardless of the duration of database inactivity:
 
 - Geo-replication (active geo-replication and auto-failover groups).
 - Long-term backup retention (LTR).
@@ -249,7 +249,7 @@ Modifying the maximum or minimum vCores, and autopause delay, is performed by us
 
 ### Use the Azure CLI
 
-Modifying the maximum or minimum vCores, and autopause delay, is performed by using the [az sql db update](/cli/azure/sql/db#az-sql-db-update) command in Azure CLI using the `capacity`, `min-capacity`, and `auto-pause-delay` arguments.
+Modifying the maximum or minimum vCores, and autopause delay, is performed by using the [az sql db update](/cli/azure/sql/db#az_sql_db_update) command in Azure CLI using the `capacity`, `min-capacity`, and `auto-pause-delay` arguments.
 
 
 ## Monitoring
@@ -260,7 +260,7 @@ The resources of a serverless database are encapsulated by app package, SQL inst
 
 #### App package
 
-The app package is the outer most resource management boundary for a database, regardless of whether the database is in a serverless or provisioned compute tier. The app package contains the SQL instance and external services that together scope all user and system resources used by a database in SQL Database. Examples of external services include R and full-text search. The SQL instance generally dominates the overall resource utilization across the app package.
+The app package is the outer most resource management boundary for a database, regardless of whether the database is in a serverless or provisioned compute tier. The app package contains the SQL instance and external services like full-text search that all together scope all user and system resources used by a database in SQL Database. The SQL instance generally dominates the overall resource utilization across the app package.
 
 #### User resource pool
 

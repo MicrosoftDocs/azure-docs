@@ -173,7 +173,7 @@ Azure Backup requires movement of data from your workload to the Recovery Servic
 
 * *SAP HANA databases on Azure VM, SQL Server databases on Azure VM* - requires connectivity to the Azure Backup service, Azure Storage, and Azure Active Directory. This can be achieved by using private endpoints or by allowing access to the required public IP addresses or FQDNs. Not allowing proper connectivity to the required Azure services may lead to failure in operations like database discovery, configuring backup, performing backups, and restoring data. For complete network guidance while using NSG tags, Azure firewall, and HTTP Proxy, refer to these [SQL](backup-sql-server-database-azure-vms.md#establish-network-connectivity) and [SAP HANA](./backup-azure-sap-hana-database.md#establish-network-connectivity) articles.
 
-* *Hybrid* - the MARS (Microsoft Azure Recovery Services) agent requires network access for all critical operations - install, configure, backup, and restore. The MARS agent can connect to the Azure Backup service over [Azure ExpressRoute](install-mars-agent.md#use-azure-expressroute) by using public peering (available for old circuits) and Microsoft peering, using [private endpoints](install-mars-agent.md#private-endpoints) or via [proxy/firewall with appropriate access controls](install-mars-agent.md#verify-internet-access).
+* *Hybrid* - the MARS (Microsoft Azure Recovery Services) agent requires network access for all critical operations - install, configure, backup, and restore. The MARS agent can connect to the Azure Backup service over [Azure ExpressRoute](install-mars-agent.md#azure-expressroute-support) by using public peering (available for old circuits) and Microsoft peering, using [private endpoints](install-mars-agent.md#private-endpoint-support) or via [proxy/firewall with appropriate access controls](install-mars-agent.md#verify-internet-access).
 
 ### Private Endpoints for Azure Backup
 
@@ -256,4 +256,4 @@ As a backup user or administrator, you should be able to monitor all backup solu
 We recommend that you read the following articles as starting points for using Azure Backup:
 
 * [Azure Backup overview](backup-overview.md)
-* [Frequently Asked Questions](backup-azure-backup-faq.md)
+* [Frequently Asked Questions](backup-azure-backup-faq.yml)

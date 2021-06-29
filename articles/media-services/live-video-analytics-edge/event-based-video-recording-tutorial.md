@@ -1,11 +1,13 @@
 ---
-title: Event-based video recording to the cloud and playback from the cloud tutorial - Azure
-description: In this tutorial, you'll learn how to use Azure Live Video Analytics on Azure IoT Edge to record an event-based video recording to the cloud and play it back from the cloud.
+title: Event-based video recording to the cloud and playback from the cloud - Azure
+description: In this tutorial, you learn how to use Azure Live Video Analytics on Azure IoT Edge to record an event-based video recording to the cloud and play it back from the cloud.
 ms.topic: tutorial
 ms.date: 05/27/2020
 
 ---
-# Tutorial: Event-based video recording to the cloud and playback from the cloud
+# Tutorial: Event-based video recording to the cloud and playback from the cloud with Live Video Analytics
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 In this tutorial, you'll learn how to use Azure Live Video Analytics on Azure IoT Edge to selectively record portions of a live video source to Azure Media Services in the cloud. This use case is referred to as [event-based video recording](event-based-video-recording-concept.md) (EVR) in this tutorial. To record portions of a live video, you'll use an object detection AI model to look for objects in the video and record video clips only when a certain type of object is detected. You'll also learn about how to play back the recorded video clips by using Media Services. This capability is useful for a variety of scenarios where there's a need to keep an archive of video clips of interest. 
 
@@ -40,7 +42,7 @@ Prerequisites for this tutorial are:
     > [!TIP]
     > You might be prompted to install Docker. Ignore this prompt.
 * [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/thank-you/sdk-3.1.201-windows-x64-installer) on your development machine.
-* Complete the [Live Video Analytics resources setup script](https://github.com/Azure/live-video-analytics/tree/master/edge/setup), and [set up the environment](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/detect-motion-emit-events-quickstart?pivots=programming-language-csharp#set-up-your-development-environment)
+* Complete the [Live Video Analytics resources setup script](https://github.com/Azure/live-video-analytics/tree/master/edge/setup), and [set up the environment](./detect-motion-emit-events-quickstart.md?pivots=programming-language-csharp#set-up-your-development-environment)
 
 At the end of these steps, you'll have relevant Azure resources deployed in your Azure subscription:
 
@@ -115,8 +117,8 @@ You'll need the files for these steps.
     AAD_TENANT_ID="<AAD Tenant ID>"  
     AAD_SERVICE_PRINCIPAL_ID="<AAD SERVICE_PRINCIPAL ID>"  
     AAD_SERVICE_PRINCIPAL_SECRET="<AAD SERVICE_PRINCIPAL ID>"  
-    VIDEO_INPUT_FOLDER_ON_DEVICE="/home/lvaadmin/samples/input"  
-    VIDEO_OUTPUT_FOLDER_ON_DEVICE="/home/lvaadmin/samples/output"  
+    VIDEO_INPUT_FOLDER_ON_DEVICE="/home/lvaedgeuser/samples/input"  
+    VIDEO_OUTPUT_FOLDER_ON_DEVICE="/var/media"  
     APPDATA_FOLDER_ON_DEVICE="/var/local/mediaservices"
     CONTAINER_REGISTRY_USERNAME_myacr="<your container registry username>"  
     CONTAINER_REGISTRY_PASSWORD_myacr="<your container registry username>"      
@@ -224,7 +226,7 @@ To see the events from the objectCounter module and from the Live Video Analytic
     Executing operation GraphTopologyList
     -----------------------  Request: GraphTopologyList  --------------------------------------------------
     {
-      "@apiVersion": "1.0"
+      "@apiVersion": "2.0"
     }
     ---------------  Response: GraphTopologyList - Status: 200  ---------------
     {
@@ -421,7 +423,7 @@ You can examine the Media Services asset that was created by the graph by loggin
 1. In the wizard that opens, accept the default options and select **Add**. For more information, see [video playback](video-playback-concept.md).
 
     > [!TIP]
-    > Make sure your [streaming endpoint is running](../latest/streaming-endpoint-concept.md).
+    > Make sure your [streaming endpoint is running](../latest/stream-streaming-endpoint-concept.md).
 1. The player should load the video. Select **Play** to view it.
 
 > [!NOTE]

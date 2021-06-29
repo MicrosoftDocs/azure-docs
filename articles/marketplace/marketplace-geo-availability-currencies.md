@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 author: keferna
 ms.author: keferna
-ms.date: 12/07/2020
+ms.date: 03/08/2021
 ---
 
 # Geographic availability and currency support for the commercial marketplace
@@ -14,6 +14,8 @@ ms.date: 12/07/2020
 ## Supported geographic locations
 
 Commercial marketplace offerings can be purchased in 141 geographies as defined by the customer's billing address, and transactions can be completed in 17 currencies. The following table lists each supported geographic location, its [ISO 3166 two-digit alpha code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes), and the assigned currency.
+
+A CSP can purchase an offer in Partner Center in their end customer's currency so they can bill them in that same currency. For additional information on this, refer to [these FAQs](https://partner.microsoft.com/resources/detail/eu-efta-change-of-partner-billing-currency-faq-pdf).
 
 |   Country/Region Name               |   ISO-2   |   Currency</br>(All offer types)  |    Currency</br>(Consulting service offers only)    |
 |-------------------------------------|-----------|--------------|---------------------------------------------|
@@ -189,14 +191,14 @@ Individual prices (which, depending on how they were set, may have been influenc
 
 For details on how to enter prices for specific offer types, refer to these articles:
 
-- [Create an Azure application offer](create-new-azure-apps-offer.md)
-- [Create an Azure container offer](./create-azure-container-offer.md)
+- [Create an Azure application offer](azure-app-offer-setup.md)
+- [Create an Azure container offer](azure-container-offer-setup.md)
 - [Create an Azure virtual machine offer](azure-vm-create.md)
 - [Create a consulting service offer](./create-consulting-service-offer.md)
-- [Create a Dynamics 365 for Customer Engagement & PowerApps offer](partner-center-portal/create-new-customer-engagement-offer.md)
-- [Create a Dynamics 365 for Operations offer](partner-center-portal/create-new-operations-offer.md)
-- [Create a Dynamics 365 Business Central offer](partner-center-portal/create-new-business-central-offer.md)
-- [Create an IoT Edge module offer](partner-center-portal/azure-iot-edge-module-creation.md)
+- [Create a Dynamics 365 for Customer Engagement & Power Apps offer](dynamics-365-customer-engage-offer-setup.md)
+- [Create a Dynamics 365 for Operations offer](dynamics-365-operations-offer-setup.md)
+- [Create a Dynamics 365 Business Central offer](dynamics-365-business-central-offer-setup.md)
+- [Create an IoT Edge module offer](iot-edge-offer-setup.md)
 - [Create a Managed Service offer](./plan-managed-service-offer.md)
-- [Create a Power BI app](partner-center-portal/create-power-bi-app-offer.md)
+- [Create a Power BI app](./power-bi-app-offer-setup.md)
 - [Create a SaaS offer](./create-new-saas-offer.md)

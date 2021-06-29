@@ -6,11 +6,10 @@ ms.author: bwren
 services: azure-monitor
 ms.topic: sample
 ms.date: 05/18/2020
-ms.subservice: alerts
 ---
 # Resource Manager template samples for metric alert rules in Azure Monitor
 
-This article provides samples of using [Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md) to configure [metric alert rules](../alerts/alerts-metric-near-real-time.md) in Azure Monitor. Each sample includes a template file and a parameters file with sample values to provide to the template.
+This article provides samples of using [Azure Resource Manager templates](../../azure-resource-manager/templates/syntax.md) to configure [metric alert rules](../alerts/alerts-metric-near-real-time.md) in Azure Monitor. Each sample includes a template file and a parameters file with sample values to provide to the template.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
@@ -3297,6 +3296,5 @@ Additional configuration of the content-match `pingText` parameter is controlled
 ## Next steps
 
 - [Get other sample templates for Azure Monitor](../resource-manager-samples.md).
-- [Learn more about alerts](../platform/alerts-overview.md).
+- [Learn more about alerts](./alerts-overview.md).
 - [Get a sample to create an action group with Resource Manager template](resource-manager-action-groups.md)
-

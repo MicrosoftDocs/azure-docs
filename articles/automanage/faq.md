@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: automanage
 ms.workload: infrastructure
 ms.topic: troubleshooting
-ms.date: 09/04/2020
+ms.date: 02/22/2021
 ms.author: deanwe
 ---
 
@@ -22,7 +22,7 @@ If your Azure issue is not addressed in this article, visit the Azure forums on 
 **What are all of the prerequisites required to enable Azure Automanage?**
 
 The following are prerequisites for enabling Azure Automanage:
-- Windows Server VMs only
+- Supported [Windows Server versions](automanage-windows-server.md#supported-windows-server-versions) and [Linux distros](automanage-linux.md#supported-linux-distributions-and-versions)
 - VMs must be in a supported region
 - User must have correct permissions
 - Non-scale set VMs only
@@ -37,12 +37,12 @@ If you are using a new Automanage Account when enabling, you must have either th
 
 **What regions are supported?**
 
-VMs in the following regions are supported: West Europe, East US, West US 2, Canada Central, West Central US, Japan East.
+The full list of supported regions is available [here](./automanage-virtual-machines.md#supported-regions).
 
 
 **Which capabilities does Azure Automanage automate?**
 
-Automanage enrolls, configures, and monitors throughout the lifecycle of the VM the services listed [here](virtual-machines-best-practices.md).
+Automanage enrolls, configures, and monitors throughout the lifecycle of the VM the services listed [here](automanage-virtual-machines.md).
 
 **Does Azure Automanage work with Azure Arc-enabled VMs?**
 
@@ -50,12 +50,12 @@ Automanage currently does not support Arc-enabled VMs.
 
 **Can I customize configurations on Azure Automanage?**
 
-Customers can customize settings for specific services, like Azure Backup retention, through configuration preferences. For the full list of settings that can be changed, see our documentation [here](virtual-machines-best-practices.md).
+Customers can customize settings for specific services, like Azure Backup retention, through configuration preferences. For the full list of settings that can be changed, see our documentation [here](automanage-virtual-machines.md#customizing-an-environment-using-preferences).
 
 
 **Does Azure Automanage work with both Linux and Windows VMs?**
 
-Currently, Automanage supports Windows Server Azure VMs.
+Yes, see the supported [Windows Server versions](automanage-windows-server.md#supported-windows-server-versions) and [Linux distros](automanage-linux.md#supported-linux-distributions-and-versions).
 
 
 **Can I selectively apply Automanage on only a set of VMs?**
@@ -75,7 +75,7 @@ Azure Automanage is available at no additional cost in public preview. Attached 
 
 **Can I apply Automanage through Azure policy?**
 
-Yes, we have a built-in policy that will automatically apply Automanage to all VMs within your defined scope. You will also specify the configuration profile (DevTest or Production) along with your Automanage account. Learn more about enabling Automanage through Azure policy [here](virtual-machines-policy-enable.md).
+Yes, we have a built-in policy that will automatically apply Automanage to all VMs within your defined scope. You will also specify the environment configuration (DevTest or Production) along with your Automanage account. Learn more about enabling Automanage through Azure policy [here](virtual-machines-policy-enable.md).
 
 
 **What is an Automanage account?**
@@ -83,23 +83,26 @@ Yes, we have a built-in policy that will automatically apply Automanage to all V
 The Automanage Account is an MSI (Managed Service Identity) that provides the security context or the identity under which the automated operations occur.
 
 
-**When enabling Automanage, does it impact any additional VMs besides the VM(s) I selected?**
+**When enabling Automanage, does it impact any additional machines besides the machine(s) I selected?**
 
-If your VM is linked to an existing Log Analytics workspace, we will reuse that workspace to apply these solutions: Change Tracking, Inventory, and Update Management. All VMs connected to that workspace will have those solutions enabled.
-
-
-**Can I change the configuration profile of my VM?**
-
-At this time, you will need to disable Automanage for that VM and then re-enable Automanage with the desired configuration profile and preferences.
+If your VM is linked to an existing Log Analytics workspace, we will reuse that workspace to apply these solutions: Change Tracking, Inventory, and Update Management. All machines connected to that workspace will have those solutions enabled.
 
 
-**If my VM is already configured for a service, like Update Management, will Automanage reconfigure it?**
+**Can I change the environment of my machine?**
+
+At this time, you will need to disable Automanage for that machine and then re-enable Automanage with the desired environment and preferences.
+
+
+**If my machine is already configured for a service, like Update Management, will Automanage reconfigure it?**
 No, Automanage will not reconfigure it. We will begin to monitor the resources associated to that service for drift.
 
 
-**Why does my VM have a Failed status in the Automanage portal?**
+**Why does my machine have a Failed status in the Automanage portal?**
 
-If you see the status as *Failed*, you can troubleshoot the deployment through the Resource Group your VM is located in. Go to **Resource groups**, select your resource group, click on **Deployments** and see the *Failed* status there along with error details.
+If you see the status as *Failed*, you can troubleshoot the deployment in a few different ways:
+* Go to **Resource groups**, select your resource group, click on **Deployments** and see the *Failed* status there along with error details.
+* Go to **Subscriptions**, select your resource group, click on **Deployments** and see the *Failed* status there along with error details.
+* You can also visit the activity log of a machine, which will contain an entry for "Create or Update Configuration Profile Assignments". This may also contain more details on your deployment.
 
 **How can I get troubleshooting support for Automanage?**
 

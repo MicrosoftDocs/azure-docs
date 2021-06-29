@@ -1,13 +1,13 @@
 ---
 title: "Cache the authentication token"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: This article will show you how to cache the authentication token.
 author: metanMSFT
 manager: guillasi
 
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: immersive-reader
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/14/2020
 ms.author: metang
 ms.custom: "devx-track-js, devx-track-csharp"

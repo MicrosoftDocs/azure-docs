@@ -20,14 +20,14 @@ The autoscale service provides you metrics and logs to understand what scale act
   
 ## Autoscale metrics
 
-Autoscale provides you with [four metrics](../platform/metrics-supported.md#microsoftinsightsautoscalesettings) to understand its operation. 
+Autoscale provides you with [four metrics](../essentials/metrics-supported.md#microsoftinsightsautoscalesettings) to understand its operation. 
 
 - **Observed Metric Value** - The value of the metric you chose to take the scale action on, as seen or computed by the autoscale engine. Because a single autoscale setting can have multiple rules and therefore multiple metric sources, you can filter using "metric source" as a dimension.
 - **Metric Threshold** - The threshold you set to take the scale action. Because a single autoscale setting can have multiple rules and therefore multiple metric sources, you can filter using "metric rule" as a dimension.
 - **Observed Capacity** - The active number of instances of the target resource as seen by Autoscale engine.
 - **Scale Actions Initiated** - The number of scale-out and scale-in actions initiated by the autoscale engine. You can filter by scale-out vs. scale in actions.
 
-You can use the [Metrics Explorer](../platform/metrics-getting-started.md) to chart the above metrics all in one place. The chart should show:
+You can use the [Metrics Explorer](../essentials/metrics-getting-started.md) to chart the above metrics all in one place. The chart should show:
 
   - the actual metric
   - the metric as seen/computed by autoscale engine
@@ -83,7 +83,7 @@ The chart on the bottom shows a few values.
  - The **Observed Capacity** (purple) shows the instance count seen by autoscale engine. 
  - The **Metric Threshold** (light green) is set to 10. 
 
-If there are multiple scale action rules, you can use splitting or the **add filter** option in the Metrics explorer chart to look at metric by a specific source or rule. For more information on splitting a metric chart, see [Advanced features of metric charts - splitting](../platform/metrics-charts.md#apply-splitting)
+If there are multiple scale action rules, you can use splitting or the **add filter** option in the Metrics explorer chart to look at metric by a specific source or rule. For more information on splitting a metric chart, see [Advanced features of metric charts - splitting](../essentials/metrics-charts.md#apply-splitting)
 
 ## Example 3 - Understanding autoscale events
 
@@ -93,13 +93,13 @@ In the autoscale setting screen, go to the **Run history** tab to see the most r
 
 ## Autoscale Resource Logs
 
-Same as any other Azure resource, the autoscale service provides [resource logs](../platform/platform-logs-overview.md). There are two categories of logs.
+Same as any other Azure resource, the autoscale service provides [resource logs](../essentials/platform-logs-overview.md). There are two categories of logs.
 
 - **Autoscale Evaluations** - The autoscale engine records log entries for every single condition evaluation every time it does a check.  The entry includes details on the observed values of the metrics, the rules evaluated, and if the evaluation resulted in a scale action or not.
 
 - **Autoscale Scale Actions** - The engine records scale action events initiated by autoscale service and the results of those scales actions (success, failure, and how much scaling occurred as seen by the autoscale service).
 
-As with any Azure Monitor supported service, you can use [Diagnostic Settings](../platform/diagnostic-settings.md) to route these logs:
+As with any Azure Monitor supported service, you can use [Diagnostic Settings](../essentials/diagnostic-settings.md) to route these logs:
 
 - to your Log Analytics workspace for detailed analytics
 - to Event Hubs and then to non-Azure tools
@@ -202,4 +202,4 @@ Create alert rules to get notified of autoscale actions or failures. You can als
 For more information, see [autoscale resource logs](autoscale-resource-log-schema.md)
 
 ## Next steps
-Read information on [autoscale best practices](autoscale-best-practices.md). 
+Read information on [autoscale best practices](autoscale-best-practices.md).

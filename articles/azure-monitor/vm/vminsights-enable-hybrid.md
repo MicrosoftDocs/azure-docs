@@ -1,7 +1,6 @@
 ---
 title: Enable Azure Monitor for a hybrid environment
-description: This article describes how you enable Azure Monitor for VMs for a hybrid cloud environment that contains one or more virtual machines.
-ms.subservice:
+description: This article describes how you enable VM insights for a hybrid cloud environment that contains one or more virtual machines.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -9,16 +8,16 @@ ms.date: 07/27/2020
 
 ---
 
-# Enable Azure Monitor for VMs for a hybrid virtual machine
-This article describes how to enable Azure Monitor for VMs for a virtual machine outside of Azure, including on-premises and other cloud environments.
+# Enable VM insights for a hybrid virtual machine
+This article describes how to enable VM insights for a virtual machine outside of Azure, including on-premises and other cloud environments.
 
 > [!IMPORTANT]
-> The recommended method of enabling hybrid VMs is first enabling [Azure Arc for servers](../../azure-arc/servers/overview.md) so that the VMs can be enabled for Azure Monitor for VMs using processes similar to Azure VMs. This article describes how to onboard hybrid VMs if you choose not to use Azure Arc.
+> The recommended method of enabling hybrid VMs is first enabling [Azure Arc for servers](../../azure-arc/servers/overview.md) so that the VMs can be enabled for VM insights using processes similar to Azure VMs. This article describes how to onboard hybrid VMs if you choose not to use Azure Arc.
 
 ## Prerequisites
 
-- [Create and configure a Log Analytics workspace](../insights/vminsights-configure-workspace.md).
-- See [Supported operating systems](../insights/vminsights-enable-overview.md#supported-operating-systems) to ensure that the operating system of the virtual machine or virtual machine scale set you're enabling is supported. 
+- [Create and configure a Log Analytics workspace](./vminsights-configure-workspace.md).
+- See [Supported operating systems](./vminsights-enable-overview.md#supported-operating-systems) to ensure that the operating system of the virtual machine or virtual machine scale set you're enabling is supported. 
 
 
 ## Overview
@@ -27,20 +26,20 @@ Virtual machines outside of Azure require the same Log Analytics agent and Depen
 See [Connect Windows computers to Azure Monitor](../agents/agent-windows.md) or [Connect Linux computers to Azure Monitor](../agents/agent-linux.md) for details on deploying the Log Analytics agent. Details for the Dependency agent are provided in this article. 
 
 ## Firewall requirements
-Firewall requirements for the Log Analytics agent are provided in [Log Analytics agent overview](../agents/log-analytics-agent.md#network-requirements). The Azure Monitor for VMs Map Dependency agent doesn't transmit any data itself, and it doesn't require any changes to firewalls or ports. The Map data is always transmitted by the Log Analytics agent to the Azure Monitor service, either directly or through the [Operations Management Suite gateway](../../azure-monitor/agents/gateway.md) if your IT security policies don't allow computers on the network to connect to the internet.
+Firewall requirements for the Log Analytics agent are provided in [Log Analytics agent overview](../agents/log-analytics-agent.md#network-requirements). The VM insights Map Dependency agent doesn't transmit any data itself, and it doesn't require any changes to firewalls or ports. The Map data is always transmitted by the Log Analytics agent to the Azure Monitor service, either directly or through the [Operations Management Suite gateway](../../azure-monitor/agents/gateway.md) if your IT security policies don't allow computers on the network to connect to the internet.
 
 
 ## Dependency agent
 
 >[!NOTE]
->The following information described in this section is also applicable to the [Service Map solution](../insights/service-map.md).  
+>The following information described in this section is also applicable to the [Service Map solution](./service-map.md).  
 
 You can download the Dependency agent from these locations:
 
 | File | OS | Version | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.10.7.12710 | CA29CC328F991D7301FD0360F4F56DF78275545BB8CDA853679899CA885E96F0  |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.10.7.12710 | 98380DBEB2E2A5848F2202BC22422C68B20B62090C1BFC1DECAB37ED5451ED8C |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.10.9.15340 | 3F34A36CF569724A5C83B1C8DFEC54263B7ABCFEAC9EB9BB40AF822A31265AF7  |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.10.9.15340 | 0B0566A11A9B218FA6E44B057E7BA93986B8D6539B928C6D36D97D13A2F8B8A6 |
 
 
 ## Install the Dependency agent on Windows
@@ -173,8 +172,8 @@ Check the C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log file (Win
 
 ## Next steps
 
-Now that monitoring is enabled for your virtual machines, this information is available for analysis with Azure Monitor for VMs.
+Now that monitoring is enabled for your virtual machines, this information is available for analysis with VM insights.
 
-- To view discovered application dependencies, see [View Azure Monitor for VMs Map](vminsights-maps.md).
+- To view discovered application dependencies, see [View VM insights Map](vminsights-maps.md).
 
 - To identify bottlenecks and overall utilization with your VM's performance, see [View Azure VM performance](vminsights-performance.md).

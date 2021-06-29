@@ -5,13 +5,12 @@ author: dkamstra
 services: azure-monitor
 
 ms.topic: conceptual
-ms.date: 02/16/2018
+ms.date: 02/19/2021
 ms.author: dukek
-ms.subservice: alerts
 ---
 
 # Create an action group with a Resource Manager template
-This article shows you how to use an [Azure Resource Manager template](../../azure-resource-manager/templates/template-syntax.md) to configure action groups. By using templates, you can automatically set up action groups that can be reused in certain types of alerts. These action groups ensure that all the correct parties are notified when an alert is triggered.
+This article shows you how to use an [Azure Resource Manager template](../../azure-resource-manager/templates/syntax.md) to configure action groups. By using templates, you can automatically set up action groups that can be reused in certain types of alerts. These action groups ensure that all the correct parties are notified when an alert is triggered.
 
 The basic steps are:
 
@@ -46,7 +45,7 @@ First template, describes how to create a Resource Manager template for an actio
   "resources": [
     {
       "type": "Microsoft.Insights/actionGroups",
-      "apiVersion": "2018-03-01",
+      "apiVersion": "2019-03-01",
       "name": "[parameters('actionGroupName')]",
       "location": "Global",
       "properties": {
@@ -67,21 +66,26 @@ First template, describes how to create a Resource Manager template for an actio
         "emailReceivers": [
           {
             "name": "contosoEmail",
-            "emailAddress": "devops@contoso.com"
+            "emailAddress": "devops@contoso.com",
+            "useCommonAlertSchema": true
+
           },
           {
             "name": "contosoEmail2",
-            "emailAddress": "devops2@contoso.com"
+            "emailAddress": "devops2@contoso.com",
+            "useCommonAlertSchema": true
           }
         ],
         "webhookReceivers": [
           {
             "name": "contosoHook",
-            "serviceUri": "http://requestb.in/1bq62iu1"
+            "serviceUri": "http://requestb.in/1bq62iu1",
+            "useCommonAlertSchema": true
           },
           {
             "name": "contosoHook2",
-            "serviceUri": "http://requestb.in/1bq62iu2"
+            "serviceUri": "http://requestb.in/1bq62iu2",
+            "useCommonAlertSchema": true
           }
         ]
       }
@@ -129,7 +133,7 @@ First template, describes how to create a Resource Manager template for an actio
   "resources": [
     {
       "type": "Microsoft.Insights/actionGroups",
-      "apiVersion": "2018-03-01",
+      "apiVersion": "2019-03-01",
       "name": "[parameters('actionGroupName')]",
       "location": "Global",
       "properties": {
@@ -142,7 +146,8 @@ First template, describes how to create a Resource Manager template for an actio
         "webhookReceivers": [
           {
             "name": "[parameters('webhookReceiverName')]",
-            "serviceUri": "[parameters('webhookServiceUri')]"
+            "serviceUri": "[parameters('webhookServiceUri')]",
+            "useCommonAlertSchema": true
           }
         ]
       }
@@ -159,7 +164,6 @@ First template, describes how to create a Resource Manager template for an actio
 
 
 ## Next steps
-* Learn more about [action groups](../platform/action-groups.md).
-* Learn more about [alerts](../platform/alerts-overview.md).
-* Learn how to add [alerts by using a Resource Manager template](../platform/alerts-activity-log.md).
-
+* Learn more about [action groups](./action-groups.md).
+* Learn more about [alerts](./alerts-overview.md).
+* Learn how to add [alerts by using a Resource Manager template](./alerts-activity-log.md).

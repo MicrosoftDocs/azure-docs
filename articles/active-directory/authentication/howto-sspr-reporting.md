@@ -169,7 +169,7 @@ The following list explains this activity in detail:
 
 ## Next steps
 
-* [SSPR and MFA usage and insights reporting](howto-authentication-methods-usage-insights.md)
+* [SSPR and MFA usage and insights reporting](./howto-authentication-methods-activity.md)
 * [How do I complete a successful rollout of SSPR?](howto-sspr-deployment.md)
 * [Reset or change your password](../user-help/active-directory-passwords-update-your-own-password.md).
 * [Register for self-service password reset](../user-help/active-directory-passwords-reset-register.md).
@@ -180,6 +180,6 @@ The following list explains this activity in detail:
 * [What is password writeback and why do I care about it?](./tutorial-enable-sspr-writeback.md)
 * [What are all of the options in SSPR and what do they mean?](concept-sspr-howitworks.md)
 * [I think something is broken. How do I troubleshoot SSPR?](./troubleshoot-sspr.md)
-* [I have a question that was not covered somewhere else](active-directory-passwords-faq.md)
+* [I have a question that was not covered somewhere else](active-directory-passwords-faq.yml)
 
 [Reporting]: ./media/howto-sspr-reporting/sspr-reporting.png "Example of SSPR activity audit logs in Azure AD"

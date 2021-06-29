@@ -1,7 +1,6 @@
 ---
 title: Optimize log queries in Azure Monitor
 description: Best practices for optimizing log queries in Azure Monitor.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -20,6 +19,10 @@ Optimized queries will:
 - Have smaller chance of being throttled or rejected.
 
 You should give particular attention to queries that are used for recurrent and bursty usage such as dashboards, alerts, Logic Apps and Power BI. The impact of an ineffective query in these cases is substantial.
+
+Here is a detailed video walkthrough on optimizing queries.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4NUH0]
 
 ## Query performance pane
 After you run a query in Log Analytics, click the down arrow above the query results to view the query performance pane that shows the results of several performance indicators for the query. These performance indicators are each described in the following section.
@@ -318,7 +321,7 @@ All logs in Azure Monitor Logs are partitioned according to the **TimeGenerated*
 
 Query with time span of more than 15 days is considered a query that consumes excessive resources. Query with time span of more than 90 days is considered an abusive query and might be throttled.
 
-The time range can be set using the time range selector in the Log Analytics screen as described in [Log query scope and time range in Azure Monitor Log Analytics](../log-query/scope.md#time-range). This is the recommended method as the selected time range is passed to the backend using the query metadata. 
+The time range can be set using the time range selector in the Log Analytics screen as described in [Log query scope and time range in Azure Monitor Log Analytics](./scope.md#time-range). This is the recommended method as the selected time range is passed to the backend using the query metadata. 
 
 An alternative method is to explicitly include a [where](/azure/kusto/query/whereoperator) condition on **TimeGenerated** in the query. You should use this method as it assures that the time span is fixed, even when the query is used from a different interface.
 You should ensure that all parts of the query have **TimeGenerated** filters. When a query has sub-queries fetching data from various tables or the same table, each has to include its own [where](/azure/kusto/query/whereoperator) condition.

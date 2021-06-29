@@ -2,7 +2,7 @@
 title: Azure Service Bus access control with Shared Access Signatures
 description: Overview of Service Bus access control using Shared Access Signatures overview, details about SAS authorization with Azure Service Bus.
 ms.topic: article
-ms.date: 01/19/2021
+ms.date: 04/27/2021
 ms.custom: devx-track-csharp
 ---
 
@@ -23,15 +23,15 @@ SAS guards access to Service Bus based on authorization rules. Those are configu
 
 Shared Access Signatures are a claims-based authorization mechanism using simple tokens. Using SAS, keys are never passed on the wire. Keys are used to cryptographically sign information that can later be verified by the service. SAS can be used similar to a username and password scheme where the client is in immediate possession of an authorization rule name and a matching key. SAS can also be used similar to a federated security model, where the client receives a time-limited and signed access token from a security token service without ever coming into possession of the signing key.
 
-SAS authentication in Service Bus is configured with named [Shared Access Authorization Rules](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) having associated access rights, and a pair of primary and secondary cryptographic keys. The keys are 256-bit values in Base64 representation. You can configure rules at the namespace level, on Service Bus [relays](../azure-relay/relay-what-is-it.md), [queues](service-bus-messaging-overview.md#queues), and [topics](service-bus-messaging-overview.md#topics).
+SAS authentication in Service Bus is configured with named [Shared Access Authorization Policies](#shared-access-authorization-policies) having associated access rights, and a pair of primary and secondary cryptographic keys. The keys are 256-bit values in Base64 representation. You can configure rules at the namespace level, on Service Bus [queues](service-bus-messaging-overview.md#queues) and [topics](service-bus-messaging-overview.md#topics).
 
-The [Shared Access Signature](/dotnet/api/microsoft.servicebus.sharedaccesssignaturetokenprovider) token contains the name of the chosen authorization rule, the URI of the resource that shall be accessed, an expiry instant, and an HMAC-SHA256 cryptographic signature computed over these fields using either the primary or the secondary cryptographic key of the chosen authorization rule.
+The Shared Access Signature token contains the name of the chosen authorization policy, the URI of the resource that shall be accessed, an expiry instant, and an HMAC-SHA256 cryptographic signature computed over these fields using either the primary or the secondary cryptographic key of the chosen authorization rule.
 
 ## Shared Access Authorization Policies
 
 Each Service Bus namespace and each Service Bus entity has a Shared Access Authorization policy made up of rules. The policy at the namespace level applies to all entities inside the namespace, irrespective of their individual policy configuration.
 
-For each authorization policy rule, you decide on three pieces of information: **name**, **scope**, and **rights**. The **name** is just that; a unique name within that scope. The scope is easy enough: it's the URI of the resource in question. For a Service Bus namespace, the scope is the fully qualified domain name (FQDN), such as `https://<yournamespace>.servicebus.windows.net/`.
+For each authorization policy rule, you decide on three pieces of information: **name**, **scope**, and **rights**. The **name** is just that; a unique name within that scope. The scope is easy enough: it's the URI of the resource in question. For a Service Bus namespace, the scope is the fully qualified namespace, such as `https://<yournamespace>.servicebus.windows.net/`.
 
 The rights conferred by the policy rule can be a combination of:
 
@@ -63,7 +63,7 @@ The following recommendations for using shared access signatures can help mitiga
 
 ## Configuration for Shared Access Signature authentication
 
-You can configure the [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) rule on Service Bus namespaces, queues, or topics. Configuring a [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) on a Service Bus subscription is currently not supported, but you can use rules configured on a namespace or topic to secure access to subscriptions. For a working sample that illustrates this procedure, see the [Using Shared Access Signature (SAS) authentication with Service Bus Subscriptions](https://code.msdn.microsoft.com/Using-Shared-Access-e605b37c) sample.
+You can configure the Shared Access Authorization Policy on Service Bus namespaces, queues, or topics. Configuring it on a Service Bus subscription is currently not supported, but you can use rules configured on a namespace or topic to secure access to subscriptions. 
 
 ![SAS](./media/service-bus-sas/service-bus-namespace.png)
 
@@ -86,22 +86,6 @@ SharedAccessSignature sig=<signature-string>&se=<expiry>&skn=<keyName>&sr=<URL-e
     urlencode(base64(hmacsha256(urlencode('https://<yournamespace>.servicebus.windows.net/') + "\n" + '<expiry instant>', '<signing key>')))
     ```
 
-Here's an example C# code for generating a SAS token:
-
-```csharp
-private static string createToken(string resourceUri, string keyName, string key)
-{
-    TimeSpan sinceEpoch = DateTime.UtcNow - new DateTime(1970, 1, 1);
-    var week = 60 * 60 * 24 * 7;
-    var expiry = Convert.ToString((int)sinceEpoch.TotalSeconds + week);
-    string stringToSign = HttpUtility.UrlEncode(resourceUri) + "\n" + expiry;
-    HMACSHA256 hmac = new HMACSHA256(Encoding.UTF8.GetBytes(key));
-    var signature = Convert.ToBase64String(hmac.ComputeHash(Encoding.UTF8.GetBytes(stringToSign)));
-    var sasToken = String.Format(CultureInfo.InvariantCulture, "SharedAccessSignature sr={0}&sig={1}&se={2}&skn={3}", HttpUtility.UrlEncode(resourceUri), HttpUtility.UrlEncode(signature), expiry, keyName);
-    return sasToken;
-}
-```
-
 > [!IMPORTANT]
 > For examples of generating a SAS token using different programming languages, see [Generate SAS token](/rest/api/eventhub/generate-sas-token). 
 
@@ -119,73 +103,27 @@ A SAS token is valid for all resources prefixed with the `<resourceURI>` used in
 
 ## Regenerating keys
 
-It is recommended that you periodically regenerate the keys used in the [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) object. The primary and secondary key slots exist so that you can rotate keys gradually. If your application generally uses the primary key, you can copy the primary key into the secondary key slot, and only then regenerate the primary key. The new primary key value can then be configured into the client applications, which have continued access using the old primary key in the secondary slot. Once all clients are updated, you can regenerate the secondary key to finally retire the old primary key.
+It is recommended that you periodically regenerate the keys used in the Shared Access Authorization Policy. The primary and secondary key slots exist so that you can rotate keys gradually. If your application generally uses the primary key, you can copy the primary key into the secondary key slot, and only then regenerate the primary key. The new primary key value can then be configured into the client applications, which have continued access using the old primary key in the secondary slot. Once all clients are updated, you can regenerate the secondary key to finally retire the old primary key.
 
-If you know or suspect that a key is compromised and you have to revoke the keys, you can regenerate both the [PrimaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) and the [SecondaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) of a [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule), replacing them with new keys. This procedure invalidates all tokens signed with the old keys.
+If you know or suspect that a key is compromised and you have to revoke the keys, you can regenerate both the primary key and the secondary key of a Shared Access Authorization Policy, replacing them with new keys. This procedure invalidates all tokens signed with the old keys.
 
 ## Shared Access Signature authentication with Service Bus
 
-The scenarios described as follows include configuration of authorization rules, generation of SAS tokens, and client authorization.
+The scenario described as follows include configuration of authorization rules, generation of SAS tokens, and client authorization.
 
-For a full working sample of a Service Bus application that illustrates the configuration and uses SAS authorization, see [Shared Access Signature authentication with Service Bus](https://code.msdn.microsoft.com/Shared-Access-Signature-0a88adf8). A related sample that illustrates the use of SAS authorization rules configured on namespaces or topics to secure Service Bus subscriptions is available here: [Using Shared Access Signature (SAS) authentication with Service Bus Subscriptions](https://code.msdn.microsoft.com/Using-Shared-Access-e605b37c).
+For a sample of a Service Bus application that illustrates the configuration and uses SAS authorization, see [Shared Access Signature authentication with Service Bus](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/ManagingEntities/SASAuthorizationRule).
 
 ## Access Shared Access Authorization rules on an entity
 
-With Service Bus .NET Framework libraries, you can access a [Microsoft.ServiceBus.Messaging.SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) object configured on a Service Bus queue or topic through the [AuthorizationRules](/dotnet/api/microsoft.servicebus.messaging.authorizationrules) collection in the corresponding [QueueDescription](/dotnet/api/microsoft.servicebus.messaging.queuedescription) or [TopicDescription](/dotnet/api/microsoft.servicebus.messaging.topicdescription).
-
-The following code shows how to add authorization rules for a queue.
-
-```csharp
-// Create an instance of NamespaceManager for the operation
-NamespaceManager nsm = NamespaceManager.CreateFromConnectionString(
-    <connectionString> );
-QueueDescription qd = new QueueDescription( <qPath> );
-
-// Create a rule with send rights with keyName as "contosoQSendKey"
-// and add it to the queue description.
-qd.Authorization.Add(new SharedAccessAuthorizationRule("contosoSendKey",
-    SharedAccessAuthorizationRule.GenerateRandomKey(),
-    new[] { AccessRights.Send }));
-
-// Create a rule with listen rights with keyName as "contosoQListenKey"
-// and add it to the queue description.
-qd.Authorization.Add(new SharedAccessAuthorizationRule("contosoQListenKey",
-    SharedAccessAuthorizationRule.GenerateRandomKey(),
-    new[] { AccessRights.Listen }));
-
-// Create a rule with manage rights with keyName as "contosoQManageKey"
-// and add it to the queue description.
-// A rule with manage rights must also have send and receive rights.
-qd.Authorization.Add(new SharedAccessAuthorizationRule("contosoQManageKey",
-    SharedAccessAuthorizationRule.GenerateRandomKey(),
-    new[] {AccessRights.Manage, AccessRights.Listen, AccessRights.Send }));
-
-// Create the queue.
-nsm.CreateQueue(qd);
-```
+Use the get/update operation on queues or topics in of the [management libraries for Service Bus](service-bus-management-libraries.md) to access/update the corresponding Shared Access Authorization Rules. You can also add the rules when creating the queues or topics using these libraries.
 
 ## Use Shared Access Signature authorization
 
-Applications using the Azure .NET SDK with the Service Bus .NET libraries can use SAS authorization through the [SharedAccessSignatureTokenProvider](/dotnet/api/microsoft.servicebus.sharedaccesssignaturetokenprovider) class. The following code illustrates the use of the token provider to send messages to a Service Bus queue. Alternative to the usage shown here, you can also pass a previously issued token to the token provider factory method.
-
-```csharp
-Uri runtimeUri = ServiceBusEnvironment.CreateServiceUri("sb",
-    <yourServiceNamespace>, string.Empty);
-MessagingFactory mf = MessagingFactory.Create(runtimeUri,
-    TokenProvider.CreateSharedAccessSignatureTokenProvider(keyName, key));
-QueueClient sendClient = mf.CreateQueueClient(qPath);
-
-//Sending hello message to queue.
-BrokeredMessage helloMessage = new BrokeredMessage("Hello, Service Bus!");
-helloMessage.MessageId = "SAS-Sample-Message";
-sendClient.Send(helloMessage);
-```
-
-You can also use the token provider directly for issuing tokens to pass to other clients.
+Applications using any of the Service Bus SDK in any of the officially supported languages like .NET, Java, JavaScript and Python can make use of SAS authorization through the connection strings passed to the client constructor.
 
 Connection strings can include a rule name (*SharedAccessKeyName*) and rule key (*SharedAccessKey*) or a previously issued token (*SharedAccessSignature*). When those are present in the connection string passed to any constructor or factory method accepting a connection string, the SAS token provider is automatically created and populated.
 
-Note that to use SAS authorization with Service Bus relays, you can use SAS keys configured on the Service Bus namespace. If you explicitly create a relay on the namespace ([NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) with a [RelayDescription](/dotnet/api/microsoft.servicebus.messaging.relaydescription)) object, you can set the SAS rules just for that relay. To use SAS authorization with Service Bus subscriptions, you can use SAS keys configured on a Service Bus namespace or on a topic.
+To use SAS authorization with Service Bus subscriptions, you can use SAS keys configured on a Service Bus namespace or on a topic.
 
 ## Use the Shared Access Signature (at HTTP level)
 
@@ -208,7 +146,7 @@ In the previous section, you saw how to use the SAS token with an HTTP POST requ
 
 Before starting to send data to Service Bus, the publisher must send the SAS token inside an AMQP message to a well-defined AMQP node named **$cbs** (you can see it as a "special" queue used by the service to acquire and validate all the SAS tokens). The publisher must specify the **ReplyTo** field inside the AMQP message; this is the node in which the service replies to the publisher with the result of the token validation (a simple request/reply pattern between publisher and service). This reply node is created "on the fly," speaking about "dynamic creation of remote node" as described by the AMQP 1.0 specification. After checking that the SAS token is valid, the publisher can go forward and start to send data to the service.
 
-The following steps show how to send the SAS token with AMQP protocol using the [AMQP.NET Lite](https://github.com/Azure/amqpnetlite) library. This is useful if you can't use the official Service Bus SDK (for example on WinRT, .NET Compact Framework, .NET Micro Framework and Mono) developing in C\#. Of course, this library is useful to help understand how claims-based security works at the AMQP level, as you saw how it works at the HTTP level (with an HTTP POST request and the SAS token sent inside the "Authorization" header). If you don't need such deep knowledge about AMQP, you can use the official Service Bus SDK with .NET Framework applications, which will do it for you.
+The following steps show how to send the SAS token with AMQP protocol using the [AMQP.NET Lite](https://github.com/Azure/amqpnetlite) library. This is useful if you can't use the official Service Bus SDK (for example on WinRT, .NET Compact Framework, .NET Micro Framework and Mono) developing in C\#. Of course, this library is useful to help understand how claims-based security works at the AMQP level, as you saw how it works at the HTTP level (with an HTTP POST request and the SAS token sent inside the "Authorization" header). If you don't need such deep knowledge about AMQP, you can use the official Service Bus SDK in any of the supported languages like .NET, Java, JavaScript, Python and Go, which will do it for you.
 
 ### C&#35;
 
@@ -299,7 +237,7 @@ The following table shows the access rights required for various operations on S
 | Deadletter a message |Listen |Any valid queue address |
 | Get the state associated with a message queue session |Listen |Any valid queue address |
 | Set the state associated with a message queue session |Listen |Any valid queue address |
-| Schedule a message for later delivery; for example, [ScheduleMessageAsync()](/dotnet/api/microsoft.azure.servicebus.queueclient.schedulemessageasync#Microsoft_Azure_ServiceBus_QueueClient_ScheduleMessageAsync_Microsoft_Azure_ServiceBus_Message_System_DateTimeOffset_) |Listen | Any valid queue address
+| Schedule a message for later delivery |Listen | Any valid queue address
 | **Topic** | | |
 | Create a topic |Manage |Any namespace address |
 | Delete a topic |Manage |Any valid topic address |

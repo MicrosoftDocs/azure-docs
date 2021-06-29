@@ -13,7 +13,7 @@ metadata:
   ms.collection: na
   author: mumian
   ms.author: jgao
-  ms.date: 11/06/2020
+  ms.date: 03/03/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -28,9 +28,9 @@ landingContent:
       - linkListType: concept
         links:
           - text: Best practices
-            url: template-best-practices.md
+            url: ./best-practices.md
           - text: Frequently asked questions
-            url: frequently-asked-questions.md
+            url: frequently-asked-questions.yml
           - text: Template specs
             url: template-specs.md
           - text: Deployment modes
@@ -47,16 +47,16 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Create templates - portal
-            url: quickstart-create-templates-use-the-portal.md
-          - text: Create templates - VS Code
+          - text: Create JSON templates - VS Code
             url: quickstart-create-templates-use-visual-studio-code.md
+          - text: Create JSON templates - portal
+            url: quickstart-create-templates-use-the-portal.md
           - text: Create & deploy template specs
             url: quickstart-create-template-specs.md
 
       - linkListType: tutorial
         links:
-          - text: Beginner tutorials
+          - text: Beginner template tutorials
             url: template-tutorial-create-first-template.md
       - linkListType: learn
         links:
@@ -76,18 +76,18 @@ landingContent:
           - text: Use functions
             url: template-functions.md
           - text: Define parameters
-            url: template-parameters.md
+            url: ./parameters.md
           - text: Define variables
-            url: template-variables.md
+            url: ./variables.md
           - text: Define resources
-            url: template-syntax.md#resources
+            url: ./syntax.md#resources
           - text: Define outputs
-            url: template-outputs.md
+            url: ./outputs.md
 
       - linkListType: reference
         links:
           - text: Template file syntax
-            url: template-syntax.md
+            url: ./syntax.md
           - text: Azure Quickstart templates
             url: https://azure.microsoft.com/resources/templates/
   # Card
@@ -112,7 +112,7 @@ landingContent:
           - text: Cloud Shell
             url: deploy-cloud-shell.md
           - text: What-if deployment
-            url: template-deploy-what-if.md
+            url: ./deploy-what-if.md
 
   # Card
   - title: Scoped deployments
@@ -131,7 +131,7 @@ landingContent:
             url: scope-extension-resources.md
           - text: Template functions across scopes
             url: scope-functions.md
-          
+
 
   # Card
   - title: Explore reference content
@@ -151,7 +151,7 @@ landingContent:
         - text: Java
           url: /java/api/com.microsoft.azure.management.resources
         - text: Python
-          url: /python/api/overview/azure/resources?view=azure-python
+          url: /python/api/overview/azure/resources
 
 
   # Card
