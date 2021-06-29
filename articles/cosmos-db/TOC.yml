@@ -659,10 +659,6 @@
               href: how-to-manage-conflicts.md
             - name: Convert session token format
               href: how-to-convert-session-token.md
-        - name: Best Practices
-          items:
-            - name: .NET
-              href: best-practice-dotnet.md
         - name: Capacity
           items:
             - name: Provisioned throughput
@@ -702,6 +698,10 @@
               href: how-to-define-unique-keys.md
             - name: Perform transactional batch operations
               href: transactional-batch.md
+        - name: Best Practices
+          items:
+            - name: .NET
+              href: best-practice-dotnet.md
         - name: Performance
           items:
             - name: Query
