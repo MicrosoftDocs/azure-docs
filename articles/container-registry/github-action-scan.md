@@ -180,4 +180,4 @@ Once the image is scanned and there are no vulnerabilities found, it's safe to p
         
 ```
 ## Next steps
-- Learn how to [Deploy to Azure Container Instances from Azure Container Registry](./container-instances-using-azure-container-registry.md).
+- Learn how to [Deploy to Azure Container Instances from Azure Container Registry](../container-instances/container-instances-using-azure-container-registry.md).
