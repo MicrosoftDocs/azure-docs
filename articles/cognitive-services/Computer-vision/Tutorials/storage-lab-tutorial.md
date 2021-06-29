@@ -423,14 +423,14 @@ You'll need to create a Computer Vision resource for your Azure account; this re
 
 1. Then go to the menu for your resource group and click the Computer Vision API subscription that you just created. Copy the URL under **Endpoint** to somewhere you can easily retrieve it in a moment. Then click **Show access keys**.
 
-    ![Azure portal page with the endpoint URL and access keys link outlined](../Images/copy-vision-endpoint.png)
+    ![Azure portal page with the endpoint URL and access keys link outlined](Images/copy-vision-endpoint.png)
     
     [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 
 1. In the next window, copy the value of **KEY 1** to the clipboard.
 
-    ![Manage keys dialog, with the copy button outlined](../Images/copy-vision-key.png)
+    ![Manage keys dialog, with the copy button outlined](Images/copy-vision-key.png)
 
 ### Add Computer Vision credentials
 
@@ -506,11 +506,11 @@ Next, you'll add the code that actually leverages the Computer Vision service to
 
 Save your changes in Visual Studio and press **Ctrl+F5** to launch the application in your browser. Use the app to upload a few images, either from the "photos" folder in the lab's resources or from your own folder. When you hover the cursor over one of the images in the view, a tooltip window should appear and display the computer-generated caption for the image.
 
-![The computer-generated caption](../Images/thumbnail-with-tooltip.png)
+![The computer-generated caption](Images/thumbnail-with-tooltip.png)
 
 To view all of the attached metadata, use the Azure Storage Explorer to view the storage container you're using for images. Right-click any of the blobs in the container and select **Properties**. In the dialog, you'll see a list of key-value pairs. The computer-generated image description is stored in the item "Caption," and the search keywords are stored in "Tag0," "Tag1," and so on. When you're finished, click **Cancel** to close the dialog.
 
-![Image properties dialog window, with metadata tags listed](../Images/blob-metadata.png)
+![Image properties dialog window, with metadata tags listed](Images/blob-metadata.png)
 
 <a name="Exercise6"></a>
 ## Add search to the app
