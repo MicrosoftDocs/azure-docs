@@ -7,7 +7,7 @@ ms.author: duau
 ms.service: virtual-network
 ms.topic: how-to
 ms.custom: subject-monitoring
-ms.date: 06/30/2021
+ms.date: 06/29/2021
 ---
 
 # Monitoring Azure virtual network
@@ -48,6 +48,8 @@ For reference, you can see a list of [all resource metrics supported in Azure Mo
 ## Analyzing logs
 
 Azure virtual network does not support resource logs.
+
+For a list of the types of resource logs collected for resources in a virtual network, see [Monitoring virtual network data reference](monitor-virtual-network-reference.md#resource-logs)   
 
 The [Activity log](../azure-monitor/essentials/activity-log.md) is a type of platform log in Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.  
 
