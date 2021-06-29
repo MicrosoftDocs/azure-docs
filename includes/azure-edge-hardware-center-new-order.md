@@ -70,13 +70,13 @@ To place an order through the Azure Edge Hardware Center, do these steps:
 
     Each order item name includes a name prefix (the order name followed by the address alias), with an item number for each device that is shipped to that address.
 
-    ![Screenshot showing the Shipping + quantity tab for an Azure Edge Hardware Center order with multiple devices shipping to two addresses](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-11.png)<!--Fuzzy. Reshoot, or reconstruct, with multiple items, as in step below.-->
+    ![Screenshot showing the Shipping + quantity tab for an order with two addresses](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-11.png)<!--Fuzzy. Reshoot, or reconstruct, with multiple items, as in step below.-->
 
 10. For each address, enter the **Quantity** of devices to ship on the **Shipping + quantity** tab.
 
     When you enter a quantity of more than one, a **+1 more** label is added to the end of the order item name.
 
-     ![Screenshot showing the Shipping + quantity tab for an Azure Edge Hardware Center order with multiple devices shipping to two addresses](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-12.png)<!--Reshoot without the Rename order item option.-->
+     ![Screenshot showing the Shipping + quantity tab with a Quantity of more than one for an address](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-12.png)<!--Reshoot without the Rename order item option.-->
 
 11. If you want to change the names of order items, select and click the order item name to open the **Rename order item** pane. If you're shipping more than one item to an address, select **+n more**.
 
@@ -116,7 +116,7 @@ To place an order through the Azure Edge Hardware Center, do these steps:
 
     After a device ships (Status =  **Shipped**), a **Configure hardware** option is added to the item details. Select that option to create a management resource for the device in Azure Stack Edge.    
 
-    ![Screenshot showing the Configure hardware option for an order item that's been shipped from the Azure Edge Hardware Center](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-17.png)
+    ![Screenshot showing the Configure hardware option for an order item shipped from the Azure Edge Hardware Center](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-17.png)
 
     After you activate the device, you can open the management resource from the item details by *ADD INSTRUCTION*.
 
