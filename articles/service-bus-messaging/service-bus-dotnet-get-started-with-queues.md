@@ -62,6 +62,10 @@ This section shows you how to create a .NET Core console application to send mes
         For more information, see code comments.
     
         ```csharp
+        using System;
+        using System.Threading.Tasks;
+        using Azure.Messaging.ServiceBus;
+        
         namespace QueueSender
         {
             class Program

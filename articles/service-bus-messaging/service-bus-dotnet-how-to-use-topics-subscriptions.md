@@ -61,7 +61,7 @@ This section shows you how to create a .NET Core console application to send mes
         using System.Threading.Tasks;
         using Azure.Messaging.ServiceBus;
         
-        namespace TopicSender3
+        namespace TopicSender
         {
             class Program
             {
