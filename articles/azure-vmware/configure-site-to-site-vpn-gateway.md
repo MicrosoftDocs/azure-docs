@@ -139,16 +139,24 @@ You must have a public-facing IP address terminating on an on-premises VPN devic
     * **Connected**: Connectivity is established between Azure VPN gateway and on-premises VPN site.
     * **Disconnected**: This status is seen if, for any reason (on-premises or in Azure), the connection was disconnected.
 
-1. [Download the VPN configuration file](../virtual-wan/virtual-wan-site-to-site-portal.md#device) for the on-premises endpoint.  For information about the configuration file, see [About the VPN device configuration file](../virtual-wan/virtual-wan-site-to-site-portal.md#about-the-vpn-device-configuration-file).
+1. Download the VPN configuration file and apply it to the on-premises endpoint.  
+   
+   1. On the VPN (Site to site) page, near the top, select **Download VPN Config**.  Azure creates a storage account in the resource group 'microsoft-network-[location]', where location is the location of the WAN. After you have applied the configuration to your VPN devices, you can delete this storage account.
 
-3. Patch the Azure VMware Solution ExpressRoute in the Virtual WAN hub. 
+   1. Once the configuration file is created, select the link to download it. 
+
+   1. Apply the configuration to your on-premises VPN device.
+
+   For more information about the configuration file, see [About the VPN device configuration file](../virtual-wan/virtual-wan-site-to-site-portal.md#about-the-vpn-device-configuration-file).
+
+1. Patch the Azure VMware Solution ExpressRoute in the Virtual WAN hub. 
 
    >[!IMPORTANT]
    >You must first have a private cloud created before you can patch the platform. 
 
    [!INCLUDE [request-authorization-key](includes/request-authorization-key.md)]
 
-4. Link Azure VMware Solution and the VPN gateway together in the Virtual WAN hub. You'll use the authorization key and ExpressRoute ID (peer circuit URI) from the previous step.
+1. Link Azure VMware Solution and the VPN gateway together in the Virtual WAN hub. You'll use the authorization key and ExpressRoute ID (peer circuit URI) from the previous step.
 
    1. Select your ExpressRoute gateway and then select **Redeem authorization key**.
 
@@ -162,9 +170,7 @@ You must have a public-facing IP address terminating on an on-premises VPN devic
 
    1. Select **Add** to establish the link. 
 
-5. Test your connection by [creating an NSX-T segment](./tutorial-nsx-t-network-segment.md) and provisioning a VM on the network. Ping both the on-premise and Azure VMware Solution endpoints.
+1. Test your connection by [creating an NSX-T segment](./tutorial-nsx-t-network-segment.md) and provisioning a VM on the network. Ping both the on-premise and Azure VMware Solution endpoints.
 
    >[!NOTE]
    >Wait approximately 5 minutes before you test connectivity from a client behind your ExpressRoute circuit, for example, a VM in the VNet that you created earlier.
-   >
-   >If you have sites connected to a Virtual WAN VPN gateway in the same hub as the ExpressRoute gateway, you can have bidirectional connectivity between VPN and ExpressRoute end points. Dynamic routing (BGP) is supported. The ASN of the gateways in the hub is fixed and cannot be edited at this time.
