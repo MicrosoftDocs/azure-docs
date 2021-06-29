@@ -27,3 +27,15 @@ If you can't find an answer to your problem by searching you can, submit a new q
 ## Post a question on Stack Overflow
 
 You can also try asking your question on Stack Overflow, which has a large community developer community and ecosystem. Azure Communication Services has a [dedicated tag](https://stackoverflow.com/questions/tagged/azure-communication-services) there too.
+
+## Provide Feedback
+
+To provide feedback on specific funtionalities Azure Communication Services provide on Azure Portal, submit your feedback via buttons or links that has this icon :::image type="content" source="./media/give-feedback-icon.png" alt-text="Image of Give Feedback Icon.":::
+
+For example:
+- To give feedback about phone numbers, you can find the “Give feedback” on the command bar of the Phone Numbers blade
+:::image type="content" source="./media/give-feedback-in-command-bar.png" alt-text="Image of Give Feedback Button in the Command Bar of Phone Numbers Blade.":::
+- To give feedback on the connection experience to a notification hub, you can click on the following link  
+:::image type="content" source="./media/give-feedback-in-page.png" alt-text="Image of Give Feedback Link in the Notification Hub Blade.":::
+
+We appreciate your feedback and energy helping us improve our services. Please let us know if you are satisfied with Azure Communication Services through this [survey] (https://microsoft.qualtrics.com/jfe/form/SV_4HMWolQyyLyeX77). 
