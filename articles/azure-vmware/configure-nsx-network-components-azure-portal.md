@@ -40,7 +40,7 @@ You can create and configure an NSX-T segment from the Azure VMware Solution con
 
 2. Provide the details for the new logical segment and select **OK**.
 
-   :::image type="content" source="media/configure-nsx-network-components-azure-portal/add-new-nsxt-segment.png" alt-text="Screenshot showing how to add a new segment.":::
+   :::image type="content" source="media/configure-nsx-network-components-azure-portal/add-new-nsxt-segment.png" alt-text="Screenshot showing how to add a new NSX-T segment in the Azure portal.":::
 
    - **Segment name** - Name of the logical switch that is visible in vCenter.
 
@@ -91,9 +91,9 @@ To set up port mirroring in the Azure VMware Solution console, you'll:
 1. Repeat these steps to create the destination VM group.
 
    >[!NOTE]
-   >Before creating a port mirroring profile, make sure you have both the source and destination VM groups created.
+   >Before creating a port mirroring profile, make sure that you've created both the source and destination VM groups.
 
-1. Select **Port mirroring** > **Add** and then provide:
+1. Select **Port mirroring** > **Port mirroring** > **Add** and then provide:
 
    :::image type="content" source="media/configure-nsx-network-components-azure-portal/add-port-mirroring-profile.png" alt-text="Screenshot showing the information required for the port mirroring profile.":::
 
@@ -126,25 +126,15 @@ When a DNS query is received, a DNS forwarder compares the domain name with the 
 
 1. In your Azure VMware Solution private cloud, under **Workload Networking**, select **DNS** > **DNS zones** > **Add**.
 
-   :::image type="content" source="media/configure-nsx-network-components-azure-portal/nsxt-workload-networking-dns-zones.png" alt-text="Screenshot showing how to add DNS zones and a DNS service.":::
+   :::image type="content" source="media/configure-nsx-network-components-azure-portal/nsxt-workload-networking-dns-zones.png" alt-text="Screenshot showing how to add DNS zones to an Azure VMware Solution private cloud.":::
 
-1. Select **Default DNS zone** and provide:
+1. Select **Default DNS zone** and provide a name and up to three DNS server IP addresses in the format of **8.8.8.8**. 
 
-   :::image type="content" source="media/configure-nsx-network-components-azure-portal/nsxt-workload-networking-configure-dns-zones.png" alt-text="Screenshot showing how to add a default DNS zone.":::
+   :::image type="content" source="media/configure-nsx-network-components-azure-portal/nsxt-workload-networking-configure-dns-zones.png" alt-text="Screenshot showing the required information needed to add a default DNS zone.":::
 
-   1. A name for the DNS zone.
+1. Select **FQDN zone** and provide a name, the FQDN zone, and up to three DNS server IP addresses in the format of **8.8.8.8**.
 
-   1. Up to three DNS server IP addresses in the format of **8.8.8.8**.
-
-1. Select **FQDN zone** and provide:
-
-   :::image type="content" source="media/configure-nsx-network-components-azure-portal/nsxt-workload-networking-configure-fqdn-zone.png" alt-text="Screenshot showing how to add an FQDN zone. ":::
-
-   1. A name for the DNS zone.
-
-   1. The FQDN domain.
-
-   1. Up to three DNS server IP addresses in the format of **8.8.8.8**.
+   :::image type="content" source="media/configure-nsx-network-components-azure-portal/nsxt-workload-networking-configure-fqdn-zone.png" alt-text="Screenshot showing showing the required information needed to add an FQDN zone.":::
 
 1. Select **OK** to finish adding the default DNS zone and DNS service.
 
@@ -158,4 +148,3 @@ When a DNS query is received, a DNS forwarder compares the domain name with the 
    The DNS service was added successfully.
 
    :::image type="content" source="media/configure-nsx-network-components-azure-portal/nsxt-workload-networking-configure-dns-service-success.png" alt-text="Screenshot showing the DNS service added successfully.":::
-
