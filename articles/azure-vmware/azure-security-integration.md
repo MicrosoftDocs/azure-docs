@@ -198,7 +198,7 @@ You can create queries or use the available pre-defined query in Azure Sentinel 
 1. On the Azure Sentinel overview page, under Threat management, select **Hunting**. A list of pre-defined queries is displayed.
 
    >[!TIP]
-   >You can also create a new query by selecting **+New Query**. 
+   >You can also create a new query by selecting **New Query**. 
    >
    >:::image type="content" source="media/azure-security-integration/create-new-query.png" alt-text="Screenshot of Azure Sentinel Hunting page with + New Query highlighted.":::
 
