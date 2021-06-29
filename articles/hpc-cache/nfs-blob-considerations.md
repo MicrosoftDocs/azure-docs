@@ -95,13 +95,7 @@ NFS-enabled blob containers do not support Network Lock Manager (NLM), which is 
 
 If your NFS workflow was originally written for hardware storage systems, your client applications might include NLM requests. To work around this limitation when moving your process to NFS-enabled blob storage, make sure that your clients disable NLM when they mount the cache.
 
-To disable NLM, use the option ``-o nolock`` in your clients' ``mount`` command. This option prevents the clients from requesting NLM locks and receiving errors in response.
-
-In a few situations, Azure HPC Cache itself acknowledges NLM requests from the client. The cache usage model named **Read heavy, infrequent writes** acknowledges NLM requests on behalf of its back-end storage. This system prevents errors on the client, but it does not actually create a lock on the ADLS-NFS container.
-
-If you switch an ADLS-NFS storage target's usage model to or from **Read heavy, infrequent writes**, you must remount all clients using the ``nolock`` option.
-
-More information about NLM, HPC Cache, and usage models is included in [Understand cache usage models](cache-usage-models.md#know-when-to-remount-clients-for-nlm).
+To disable NLM, use the option ``-o nolock`` in your clients' ``mount`` command. This option prevents the clients from requesting NLM locks and receiving errors in response. The ``nolock`` option is implemented differently in different operating systems; check your client OS documentation (man 5 nfs) for details.
 
 ## Streamline writes to NFS-enabled containers with HPC Cache
 
