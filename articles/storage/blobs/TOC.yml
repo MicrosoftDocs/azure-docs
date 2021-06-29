@@ -595,6 +595,8 @@
         href: ../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Sign in to Storage Explorer
         href: ../common/storage-explorer-sign-in.md
+      - name: Storage Explorer networking
+        href: ../common/storage-explorer-network.md
       - name: Storage Explorer release notes
         href: https://github.com/microsoft/AzureStorageExplorer/releases
       - name: Troubleshoot Storage Explorer
