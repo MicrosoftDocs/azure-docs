@@ -34,7 +34,7 @@ To get started with Device Update you'll need to create a Device Update account,
 
 5. Specify a Name and Location for your Device Update Account
 
-   :::image type="content" source="media/create-device-update-account/account-details.png" alt-text="Screenshot of account details." lightbox="media/create-device-update-account/account-details.png":::
+   :::image type="content" source="media/create-device-update-account/account-details.PNG" alt-text="Screenshot of account details." lightbox="media/create-device-update-account/account-details.PNG":::
 
  > [!NOTE]
  > You can go to [Azure Products-by-region page](https://azure.microsoft.com/global-infrastructure/services/?products=iot-hub) to discover the regions where Device Update for IoT Hub is available. If Device Update for IoT Hub is not available in your region you can choose to create an account in an available region closest to you. 
