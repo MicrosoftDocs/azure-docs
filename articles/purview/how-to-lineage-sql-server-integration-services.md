@@ -1,12 +1,12 @@
 ---
 title: Lineage from SQL Server Integration Services
 description: This article describes the data lineage extraction from SQL Server Integration Services.
-author: chanuengg
-ms.author: csugunan
+author: chugugrace
+ms.author: chugu
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 05/31/2021
+ms.date: 06/30/2021
 ---
 # How to get lineage from SQL Server Integration Services (SSIS) into Azure Purview
 
@@ -18,7 +18,25 @@ This article elaborates on the data lineage aspects of SQL Server Integration Se
 
 ## Supported scenarios
 
-[Data Factory Execute SSIS Package support](how-to-link-azure-data-factory.md#data-factory-execute-ssis-package-support)
+The current scope of support includes the lineage extraction from SSIS packages executed by Azure Data Factory SSIS integration runtime.
+
+On premises SSIS lineage extraction is not supported yet.
+
+### Supported data stores
+
+| Data store | Supported |
+| ------------------- | ------------------- |
+| Azure Blob Storage | Yes |
+| Azure Data Lake Storage Gen1 | Yes |
+| Azure Data Lake Storage Gen2 | Yes |
+| Azure File Storage | Yes |
+| Azure SQL Database \* | Yes |
+| Azure SQL Managed Instance \*| Yes |
+| Azure Synapse Analytics \* | Yes |
+| SQL Server \* | Yes |
+
+*\* Azure Purview currently doesn't support query or stored procedure for lineage or scanning. Lineage is limited to table and view sources only.*
+
 
 ## How to bring SSIS lineage into Purview
 
