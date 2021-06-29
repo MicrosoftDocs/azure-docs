@@ -19,7 +19,7 @@ In this article, learn how to enable MLflow's tracking URI and logging API, coll
 
 [MLflow](https://www.mlflow.org) is an open-source library for managing the life cycle of your machine learning experiments. MLFlow Tracking is a component of MLflow that logs and tracks your training run metrics and model artifacts. Learn more about [Azure Databricks and MLflow](/azure/databricks/applications/mlflow/). 
 
-See [Track experiment runs with MLflow and Azure Machine Learning](how-to-use-mlflow.md) for additional MLflow and Azure Machine Learning functionality integrations.
+See [MLflow and Azure Machine Learning](concept-mlflow.md) for additional MLflow and Azure Machine Learning functionality integrations.
 
 If you have an MLflow Project to train with Azure Machine Learning, see [Train ML models with MLflow Projects and Azure Machine Learning](how-to-train-mlflow-projects.md).
 
