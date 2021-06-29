@@ -19,6 +19,10 @@ To reduce the extra quota, and costs while keeping your devices protected, Defen
 
 - Baseline
 
+Event based collectors are collectors that are triggered based on corresponding activity from within the device. For example, a process was started in the device.  
+
+Triggered based collectors are collectors that are triggered in a scheduled manner based on the customer's configurations.
+
 ## How does event aggregation work? 
 
 Defender for IoT agents aggregate events for the interval period, or time window. Once the interval period has passed, the agent sends the aggregated events to the Azure cloud for further analysis. The aggregated events are stored in memory until being sent to the Azure cloud. 
@@ -102,10 +106,6 @@ The data collected for each event:
 - **Remediation** – The recommendation for remediation from CIS.
 
 - **Severity** - The severity check.
-
-Event based collectors are collectors that are triggered based on corresponding activity from within the device. For example, a process was started in the device.  
-
-Triggered based collectors are collectors that are triggered in a scheduled manner based on the customer's configurations. 
 
 ## Next steps
 
