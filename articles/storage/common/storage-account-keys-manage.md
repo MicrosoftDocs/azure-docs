@@ -162,7 +162,6 @@ The key expiration period appears in the console output.
 You might want to rotate existing keys if they've been active for longer than the expiration period. To find out when a key was created, use the  [az storage account show](/cli/azure/storage/account#az_storage_account_show) command, and then use the string `keyCreationTime` for the -query parameter.
   
 ```azurecli-interactive
-```azurecli-interactive
 az storage account show \
   -n <storage-account-name> \
   -g <resource-group-name> \
