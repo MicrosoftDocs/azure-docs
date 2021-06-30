@@ -3,7 +3,7 @@ title: Using the Azure Communication Services Teams Embed for iOS
 description: In this overview, you will learn how to use the Azure Communication Services Teams Embed library for iOS.
 author: palatter
 ms.author: palatter
-ms.date: 24/02/2021
+ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ---

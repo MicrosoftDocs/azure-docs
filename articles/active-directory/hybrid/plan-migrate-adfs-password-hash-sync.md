@@ -472,7 +472,7 @@ It's important to frequently roll over the Kerberos decryption key of the AZUREA
 
 Initiate the rollover of the seamless SSO Kerberos decryption key on the on-premises server that's running Azure AD Connect.
 
-For more information, see [How do I roll over the Kerberos decryption key of the AZUREADSSOACC computer account?](./how-to-connect-sso-faq.md).
+For more information, see [How do I roll over the Kerberos decryption key of the AZUREADSSOACC computer account?](./how-to-connect-sso-faq.yml).
 
 ## Next steps
 
