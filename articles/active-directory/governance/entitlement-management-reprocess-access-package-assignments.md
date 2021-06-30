@@ -41,7 +41,7 @@ To use Azure AD entitlement management and assign users to access packages, you 
 
 **Prerequisite role**: Global administrator, Identity Governance administrator, User administrator, Catalog owner, Access package manager or Access package assignment manager
 
-If you have a set of users whose assignments are in the "Delivered" state and you want to reassign them to resources in an access package in which they don't have access, you will likely need to reprocess some of those assignments. Follow these steps to reprocess requests for an existing access package:
+If you have users who are in the "Delivered" state but do not have access to resources that are a part of the access package, you will likely need to reprocess the assignments to reassign those users to the access package's resources. Follow these steps to reprocess assignments for an existing access package:
 
 1.	Sign in to the [Azure portal](https://portal.azure.com).
 
