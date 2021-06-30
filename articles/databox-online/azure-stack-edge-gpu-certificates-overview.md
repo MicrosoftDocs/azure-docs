@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 05/28/2021
+ms.date: 06/30/2021
 ms.author: alkohli
 ---
 # What are certificates on Azure Stack Edge Pro GPU?
@@ -131,7 +131,7 @@ There are three IoT Edge certificates that you need to install to enable this tr
 
 - The IoT Edge certificates are uploaded in `.pem` format. 
 
-For more information on IoT Edge certificates, see [Azure IoT Edge certificate details](../iot-edge/iot-edge-certs.md#iot-edge-certificates) and [Create IoT Edge production certificates](/azure/iot-edge/how-to-manage-device-certificates?view=iotedge-2020-11#create-production-certificates) .
+For more information on IoT Edge certificates, see [Azure IoT Edge certificate details](../iot-edge/iot-edge-certs.md#iot-edge-certificates) and [Create IoT Edge production certificates](/azure/iot-edge/how-to-manage-device-certificates?view=iotedge-2020-11&preserve-view=true#create-production-certificates) .
 
 ## Support session certificates
 
