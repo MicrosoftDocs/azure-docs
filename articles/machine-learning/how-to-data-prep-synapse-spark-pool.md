@@ -10,7 +10,7 @@ ms.author: nibaccam
 author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 03/02/2021
-ms.custom: devx-track-python, data4ml, synapse-azureml
+ms.custom: devx-track-python, data4ml, synapse-azureml, contperf-fy21q4
 
 
 # Customer intent: As a data scientist, I want to prepare my data at scale, and to train my machine learning models from a single notebook using Azure Machine Learning.
@@ -94,9 +94,15 @@ env.register(workspace=ws)
 
 To begin data preparation with the Apache Spark pool and your custom environment, specify the Apache Spark pool name and which environment to use during the Apache Spark session. Furthermore, you can provide your subscription ID, the machine learning workspace resource group, and the name of the machine learning workspace.
 
+>[!IMPORTANT]
+> Make sure to [Allow session level packages](../synapse-analytics/spark/apache-spark-manage-python-packages.md#session-scoped-packages-preview) is enabled in the linked Synapse workspace.
+>
+>![enable session level packages](media/how-to-data-prep-synapse-spark-pool/enable-session-level-package.png)
+
 ```python
 %synapse start -c SynapseSparkPoolAlias -e myenv -s AzureMLworkspaceSubscriptionID -r AzureMLworkspaceResourceGroupName -w AzureMLworkspaceName
 ```
+
 ## Load data from storage
 
 Once your Apache Spark session starts, read in the data that you wish to prepare. Data loading is supported for Azure Blob storage and Azure Data Lake Storage Generations 1 and 2.

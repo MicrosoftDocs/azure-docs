@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/17/2021
+ms.date: 06/10/2021
 ms.author: tamram
 ms.subservice: common
 ---
@@ -21,6 +21,9 @@ When deciding which redundancy option is best for your scenario, consider the tr
 - How your data is replicated in the primary region
 - Whether your data is replicated to a second region that is geographically distant to the primary region, to protect against regional disasters
 - Whether your application requires read access to the replicated data in the secondary region if the primary region becomes unavailable for any reason
+
+> [!NOTE]
+> The features and regional availability described in this article are also available to accounts that have a hierarchical namespace. 
 
 ## Redundancy in the primary region
 
@@ -124,7 +127,6 @@ Only general-purpose v2 storage accounts support GZRS and RA-GZRS. For more info
 GZRS and RA-GZRS are supported in the following regions:
 
 - (Africa) South Africa North
-- (Asia Pacific) East Asia
 - (Asia Pacific) Southeast Asia
 - (Asia Pacific) Australia East
 - (Asia Pacific) Central India
@@ -140,7 +142,6 @@ GZRS and RA-GZRS are supported in the following regions:
 - (US) Central US
 - (US) East US
 - (US) East US 2
-- (US) North Central US
 - (US) South Central US
 - (US) West US 2
 

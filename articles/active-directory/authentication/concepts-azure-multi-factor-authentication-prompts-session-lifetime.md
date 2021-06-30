@@ -37,7 +37,7 @@ To give your users the right balance of security and ease of use by asking them 
     * Keep the *Remain signed-in* option enabled and guide your users to accept it.
 * For mobile devices scenarios, make sure your users use the Microsoft Authenticator app. This app is used as a broker to other Azure AD federated apps, and reduces authentication prompts on the device.
 
-Our research shows that these settings are right for most tenants. Some combinations of these settings, such as *Remember MFA* and *Remain singed-in*, can result in prompts for your users to authenticate too often. Regular reauthentication prompts are bad for user productivity and can make them more vulnerable to attacks.
+Our research shows that these settings are right for most tenants. Some combinations of these settings, such as *Remember MFA* and *Remain signed-in*, can result in prompts for your users to authenticate too often. Regular reauthentication prompts are bad for user productivity and can make them more vulnerable to attacks.
 
 ## Azure AD session lifetime configuration settings
 

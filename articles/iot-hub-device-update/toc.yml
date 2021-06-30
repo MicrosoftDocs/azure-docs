@@ -84,6 +84,8 @@ items:
         href: /python/api/azure-mgmt-deviceupdate/
   - name: Data Plane SDK
     items:
+      - name: .NET
+        href: /dotnet/api/azure.iot.deviceupdate?view=azure-dotnet-preview&preserve-view=true
       - name: JavaScript
         href: /javascript/api/@azure/iot-device-update/?view=azure-node-preview&preserve-view=true
       - name: Java

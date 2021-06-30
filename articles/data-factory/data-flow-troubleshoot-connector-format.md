@@ -5,7 +5,7 @@ author: linda33wj
 ms.author: jingwang
 ms.service: data-factory
 ms.topic: troubleshooting 
-ms.date: 05/24/2021
+ms.date: 06/24/2021
 ---
 
 
@@ -14,8 +14,47 @@ ms.date: 05/24/2021
 
 This article explores troubleshooting methods related to connector and format for mapping data flows in Azure Data Factory (ADF).
 
+## Azure Blob Storage
 
-## Cosmos DB & JSON
+### Account kind of Storage (general purpose v1) doesn't support service principal and MI authentication
+
+#### Symptoms
+
+In data flows, if you use Azure Blob Storage (general purpose v1) with the service principal or MI authentication, you may encounter the following error message:
+
+`com.microsoft.dataflow.broker.InvalidOperationException: ServicePrincipal and MI auth are not supported if blob storage kind is Storage (general purpose v1)`
+
+#### Cause
+
+When you use the Azure Blob linked service in data flows, the managed identity or service principal authentication is not supported when the account kind is empty or "Storage". This situation is shown in Image 1 and Image 2 below.
+
+Image 1: The account kind in the Azure Blob Storage linked service
+
+:::image type="content" source="./media/data-flow-troubleshoot-connector-format/storage-account-kind.png" alt-text="Screenshot that shows the storage account kind in the Azure Blob Storage linked service."::: 
+
+Image 2: Storage account page
+
+:::image type="content" source="./media/data-flow-troubleshoot-connector-format/storage-account-page.png" alt-text="Screenshot that shows storage account page." lightbox="./media/data-flow-troubleshoot-connector-format/storage-account-page.png"::: 
+
+
+#### Recommendation
+
+To solve this issue, refer to the following recommendations:
+
+- If the storage account kind is **None** in the Azure Blob linked service, specify the proper account kind, and refer to Image 3 shown below to accomplish it. Furthermore, refer to Image 2 to get the storage account kind, and check and confirm the account kind is not Storage (general purpose v1).
+
+    Image 3: Specify the storage account kind in the Azure Blob Storage linked service
+
+    :::image type="content" source="./media/data-flow-troubleshoot-connector-format/specify-storage-account-kind.png" alt-text="Screenshot that shows how to specify storage account kind in Azure Blob Storage linked service."::: 
+    
+
+- If the account kind is Storage (general purpose v1), upgrade your storage account to the **general purpose v2** or choose a different authentication.
+
+    Image 4: Upgrade the storage account to general purpose v2
+
+    :::image type="content" source="./media/data-flow-troubleshoot-connector-format/upgrade-storage-account.png" alt-text="Screenshot that shows how to upgrade the storage account to general purpose v2." lightbox="./media/data-flow-troubleshoot-connector-format/upgrade-storage-account.png"::: 
+
+## Azure Cosmos DB and JSON format
 
 ### Support customized schemas in the source
 
@@ -50,6 +89,40 @@ To overwrite the default behavior and bring in additional fields, ADF provides o
 - **Option-2**: If you are familiar with the schema and DSL language of the source data, you can manually update the data flow source script to add additional/missed columns to read the data. An example is shown in the following picture: 
 
     ![Screenshot that shows the second option to customize the source schema.](./media/data-flow-troubleshoot-connector-format/customize-schema-option-2.png)
+
+### Support map type in the source
+
+#### Symptoms
+In ADF data flows, map data type cannot be directly supported in Cosmos DB or JSON source, so you cannot get the map data type under "Import projection".
+
+#### Cause
+For Cosmos DB and JSON, they are schema free connectivity and related spark connector uses sample data to infer the schema, and then that schema is used as the Cosmos DB/JSON source schema. When inferring the schema, the Cosmos DB/JSON spark connector can only infer object data as a struct rather than a map data type, and that's why map type cannot be directly supported.
+
+#### Recommendation 
+To solve this issue, refer to the following examples and steps to manually update the script (DSL) of the Cosmos DB/JSON source to get the map data type support.
+
+**Examples**:
+
+:::image type="content" source="./media/data-flow-troubleshoot-connector-format/script-example.png" alt-text="Screenshot that shows examples of updating the script (DSL) of the Cosmos DB/JSON source." lightbox="./media/data-flow-troubleshoot-connector-format/script-example.png"::: 
+    
+**Step-1**: Open the script of the data flow activity.
+
+:::image type="content" source="./media/data-flow-troubleshoot-connector-format/open-script.png" alt-text="Screenshot that shows how to open the script of the data flow activity." ::: 
+    
+**Step-2**: Update the DSL to get the map type support by referring to the examples above.
+
+:::image type="content" source="./media/data-flow-troubleshoot-connector-format/update-dsl.png" alt-text="Screenshot that shows how to update the DSL." ::: 
+
+The map type support:
+
+|Type |Is the map type supported?   |Comments|
+|-------------------------|-----------|------------|
+|Excel, CSV  |No      |Both are tabular data sources with the primitive type, so there is no need to support the map type. |
+|Orc, Avro |Yes |None.|
+|JSON|Yes |The map type cannot be directly supported, please follow the recommendation part in this section to update the script (DSL) under the source projection.|
+|Cosmos DB |Yes |The map type cannot be directly supported, please follow the recommendation part in this section to update the script (DSL) under the source projection.|
+|Parquet |Yes |Today the complex data type is not supported on the parquet dataset, so you need to use the "Import projection" under the data flow parquet source to get the map type.|
+|XML |No |None.|
 
 ### Consume JSON files generated by copy activities
 
@@ -86,7 +159,7 @@ So you will experience issues if the following criteria are met:
 
 #### Symptoms
 
-Mapping data flows in Azure Data Factory supports the use of parameters. The parameter values are set by the calling pipeline via the Execute Data Flow activity, and using parameters makes your data flows general-purpose, flexible, and reusable. You can parameterize data flow settings and expressions with these parameters: [Parameterizing mapping data flows](https://docs.microsoft.com/azure/data-factory/parameters-data-flow).
+Mapping data flows in Azure Data Factory supports the use of parameters. The parameter values are set by the calling pipeline via the Execute Data Flow activity, and using parameters makes your data flows general-purpose, flexible, and reusable. You can parameterize data flow settings and expressions with these parameters: [Parameterizing mapping data flows](./parameters-data-flow.md).
 
 After setting parameters and using them in the query of data flow source, they do not take effective.
 
@@ -96,7 +169,7 @@ You encounter this error due to your wrong configuration.
 
 #### Recommendation
 
-Use the following rules to set parameters in the query, and for more detailed information, please refer to [Build expressions in mapping data flow](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-expression-builder).
+Use the following rules to set parameters in the query, and for more detailed information, please refer to [Build expressions in mapping data flow](./concepts-data-flow-expression-builder.md).
 
 1. Apply double quotes at the beginning of the SQL statement.
 2. Use single quotes around the parameter.
@@ -106,9 +179,291 @@ For example:
 
 :::image type="content" source="./media/data-flow-troubleshoot-connector-format/set-parameter-in-query.png" alt-text="Screenshot that shows the set parameter in the query."::: 
 
-## CDM
+## Azure Data Lake Storage Gen1
 
-### Model.Json files with special characters
+### Fail to create files with service principle authentication
+
+#### Symptoms
+When you try to move or transfer data from different sources into the ADLS gen1 sink, if the linked service's authentication method is service principle authentication, your job may fail with the following error message:
+
+`org.apache.hadoop.security.AccessControlException: CREATE failed with error 0x83090aa2 (Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.). [2b5e5d92-xxxx-xxxx-xxxx-db4ce6fa0487] failed with error 0x83090aa2 (Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.)`
+
+#### Cause
+
+The RWX permission or the dataset property is not set correctly.
+
+#### Recommendation
+
+- If the target folder doesn't have correct permissions, refer to this document to assign the correct permission in Gen1: [Use service principal authentication](./connector-azure-data-lake-store.md#use-service-principal-authentication).
+
+- If the target folder has the correct permission and you use the file name property in the data flow to target to the right folder and file name, but the file path property of the dataset is not set to the target file path (usually leave not set), as the example shown in the following pictures, you will encounter this failure because the backend system tries to create files based on the file path of the dataset, and the file path of the dataset doesn't have the correct permission.
+    
+    :::image type="content" source="./media/data-flow-troubleshoot-connector-format/file-path-property.png" alt-text="Screenshot that shows the file path property."::: 
+    
+    :::image type="content" source="./media/data-flow-troubleshoot-connector-format/file-name-property.png" alt-text="Screenshot that shows the file name property."::: 
+
+    
+    There are two methods to solve this issue:
+    1. Assign the WX permission to the file path of the dataset.
+    1. Set the file path of the dataset as the folder with WX permission, and set the rest folder path and file name in data flows.
+
+## Azure Data Lake Storage Gen2
+
+### Failed with an error: "Error while reading file XXX. It is possible the underlying files have been updated"
+
+#### Symptoms
+
+When you use the ADLS Gen2 as a sink in the data flow (to preview data, debug/trigger run, etc.) and the partition setting in **Optimize** tab in the **Sink** stage is not default, you may find job fail with the following error message:
+
+`Job failed due to reason: Error while reading file abfss:REDACTED_LOCAL_PART@prod.dfs.core.windows.net/import/data/e3342084-930c-4f08-9975-558a3116a1a9/part-00000-tid-7848242374008877624-5df7454e-7b14-4253-a20b-d20b63fe9983-1-1-c000.csv. It is possible the underlying files have been updated. You can explicitly invalidate the cache in Spark by running 'REFRESH TABLE tableName' command in SQL or by recreating the Dataset/DataFrame involved.`
+
+#### Cause
+
+1. You don't assign a proper permission to your MI/SP authentication.
+1. You may have a customized job to handle files that you don't want, which will affect the data flow's middle output.
+
+#### Recommendation
+1. Check if your linked service has the R/W/E permission for Gen2. If you use the MI auth/SP authentication, at least grant the Storage Blob Data Contributor role in the Access control (IAM).
+1. Confirm if you have specific jobs that move/delete files to other place whose name does not match your rule. Because data flows will write down partition files into the target folder firstly and then do the merge and rename operations, the middle file's name might not match your rule.
+
+## Azure Database for PostgreSQL
+
+### Encounter an error: Failed with exception: handshake_failure 
+
+#### Symptoms
+You use Azure PostgreSQL as a source or sink in the data flow such as previewing data and debugging/triggering run, and you may find the job fails with following error message: 
+
+   `PSQLException: SSL error: Received fatal alert: handshake_failure `<br/>
+   `Caused by: SSLHandshakeException: Received fatal alert: handshake_failure.`
+
+#### Cause 
+If you use the flexible server or Hyperscale (Citus) for your Azure PostgreSQL server, since the system is built via Spark upon Azure Databricks cluster, there is a limitation in Azure Databricks blocks our system to connect to the Flexible server or Hyperscale (Citus). You can review the following two links as references.
+- [Handshake fails trying to connect from Azure Databricks to Azure PostgreSQL with SSL](/answers/questions/170730/handshake-fails-trying-to-connect-from-azure-datab.html)
+ 
+- [MCW-Real-time-data-with-Azure-Database-for-PostgreSQL-Hyperscale](https://github.com/microsoft/MCW-Real-time-data-with-Azure-Database-for-PostgreSQL-Hyperscale/blob/master/Hands-on%20lab/HOL%20step-by%20step%20-%20Real-time%20data%20with%20Azure%20Database%20for%20PostgreSQL%20Hyperscale.md)<br/>
+    Refer to the content in the following picture in this article：<br/>
+
+    ![Screenshots that shows the referring content in the article above.](./media/data-flow-troubleshoot-connector-format/handshake-failure-cause-2.png)
+
+#### Recommendation
+You can try to use copy activities to unblock this issue. 
+
+## Azure SQL Database
+ 
+### Unable to connect to the SQL Database
+
+#### Symptoms
+
+Your Azure SQL Database can work well in the data copy, dataset preview-data and test-connection in the linked service, but it fails when the same Azure SQL Database is used as a source or sink in the data flow with error like `Cannot connect to SQL database: 'jdbc:sqlserver://powerbasenz.database.windows.net;..., Please check the linked service configuration is correct, and make sure the SQL database firewall allows the integration runtime to access`
+
+#### Cause
+
+There are wrong firewall settings on your Azure SQL Database server, so that it cannot be connected by the data flow runtime. Currently, when you try to use the data flow to read/write Azure SQL Database, Azure Databricks is used to build spark cluster to run the job, but it does not support fixed IP ranges. For more details, please refer to [Azure Integration Runtime IP addresses](./azure-integration-runtime-ip-addresses.md).
+
+#### Recommendation
+
+Check the firewall settings of your Azure SQL Database and set it as "Allow access to Azure services" rather than set the fixed IP range.
+
+:::image type="content" source="./media/data-flow-troubleshoot-connector-format/allow-access-to-azure-service.png" alt-text="Screenshot that shows how to allow access to Azure service in firewall settings."::: 
+
+### Syntax error when using queries as input
+
+#### Symptoms
+
+When you use queries as input in the data flow source with the Azure SQL, you fail with the following error message:
+
+`at Source 'source1': shaded.msdataflow.com.microsoft.sqlserver.jdbc.SQLServerException: Incorrect syntax XXXXXXXX.`
+
+:::image type="content" source="./media/data-flow-troubleshoot-connector-format/error-detail.png" alt-text="Screenshot that shows the error details."::: 
+
+#### Cause
+
+The query used in the data flow source should be able to run as a sub query. The reason of the failure is that either the query syntax is incorrect or it can't be run as a sub query. You can run the following query in the SSMS to verify it:
+
+`SELECT top(0) * from ($yourQuery) as T_TEMP`
+
+#### Recommendation
+
+Provide a correct query and test it in the SSMS firstly.
+
+### Failed with an error: "SQLServerException: 111212; Operation cannot be performed within a transaction."
+
+#### Symptoms
+
+When you use the Azure SQL Database as a sink in the data flow to preview data, debug/trigger run and do other activities, you may find your job fails with following error message:
+
+`{"StatusCode":"DFExecutorUserError","Message":"Job failed due to reason: at Sink 'sink': shaded.msdataflow.com.microsoft.sqlserver.jdbc.SQLServerException: 111212;Operation cannot be performed within a transaction.","Details":"at Sink 'sink': shaded.msdataflow.com.microsoft.sqlserver.jdbc.SQLServerException: 111212;Operation cannot be performed within a transaction."}`
+
+#### Cause
+The error "`111212;Operation cannot be performed within a transaction.`" only occurs in the Synapse dedicated SQL pool. But you mistakenly use the Azure SQL Database as the connector instead.
+
+#### Recommendation
+Confirm if your SQL Database is a Synapse dedicated SQL pool. If so, please use Azure Synapse Analytics as a connector shown in the picture below.
+
+:::image type="content" source="./media/data-flow-troubleshoot-connector-format/synapse-analytics-connector.png" alt-text="Screenshot that shows the Azure Synapse Analytics connector."::: 
+
+### Data with the decimal type become null
+
+#### Symptoms
+
+You want to insert data into a table in the SQL database. If the data contains the decimal type and need to be inserted into a column with the decimal type in the SQL database, the data value may be changed to null.
+
+If you do the preview, in previous stages, it will show the value like the following picture:
+
+:::image type="content" source="./media/data-flow-troubleshoot-connector-format/value-in-previous-stage.png" alt-text="Screenshot that shows the value in the previous stages."::: 
+
+In the sink stage, it will become null, which is shown in the picture below.
+
+:::image type="content" source="./media/data-flow-troubleshoot-connector-format/value-in-sink-stage.png" alt-text="Screenshot that shows the value in the sink stage."::: 
+
+#### Cause
+The decimal type has scale and precision properties. If your data type doesn't match that in the sink table, the system will validate that the target decimal is wider than the original decimal, and the original value does not overflow in the target decimal. Therefore, the value will be cast to null.
+
+#### Recommendation
+Check and compare the decimal type between data and table in the SQL database, and alter the scale and precision to the same.
+
+You can use toDecimal (IDecimal, scale, precision) to figure out if the original data can be cast to the target scale and precision. If it returns null, it means that the data cannot be cast and furthered when inserting.
+
+## Azure Synapse Analytics
+
+### Serverless pool (SQL on-demand) related issues
+
+#### Symptoms
+You use the Azure Synapse Analytics and the linked service actually is a Synapse serverless pool. It's former named is SQL on-demand pool, and it can be distinguished by the server name contains `ondemand`, for example, `space-ondemand.sql.azuresynapse.net`. You may face with several unique failures as below:<br/>
+
+1. When you want to use Synapse serverless pool as a Sink, you face the following error:<br/>
+`Sink results in 0 output columns. Please ensure at least one column is mapped`
+1. When you select 'enable staging' in the Source, you face the following error:
+`shaded.msdataflow.com.microsoft.sqlserver.jdbc.SQLServerException: Incorrect syntax near 'IDENTITY'.`
+1. When you want to fetch data from an external table, you face the following error: `shaded.msdataflow.com.microsoft.sqlserver.jdbc.SQLServerException: External table 'dbo' is not accessible because location does not exist or it is used by another process.`
+1. When you want to fetch data from Cosmos DB through Serverless pool by query/from view, you face the following error: 
+ `Job failed due to reason: Connection reset.`
+1. When you want to fetch data from a view, you may face with different errors.
+
+#### Cause
+Causes of the symptoms are stated below respectively:
+1. Serverless pool cannot be used as a sink. It doesn't support write data into the database.
+1. Serverless pool doesn't support staged data loading, so 'enable staging' is not supported. 
+1. The authentication method that you use doesn't have a correct permission to the external data source where the external table referring to.
+1. There is a known limitation in Synapse serverless pool, blocking you to fetch Cosmos DB data from data flows.
+1. View is a virtual table based on an SQL statement. The root cause is inside the statement of the view.
+
+#### Recommendation
+
+You can apply the following steps to solve your issues correspondingly.
+1. You should better not use serverless pool as a sink.
+1. Do not use 'enable staging' in Source for serverless pool.
+1. Only service principal/managed identity that has the permission to the external table data can query it. You should grant 'Storage Blob Data Contributor' permission to the external data source for the authentication method that you use in the ADF.
+    >[!Note]
+    > The user-password authentication can not query external tables. You can refer to this article for more information: [Security model](../synapse-analytics/metadata/database.md#security-model).
+
+1. You can use copy activity to fetch Cosmos DB data from the serverless pool.
+1. You can provide the SQL statement which creates the view to the engineering support team, and they can help analyze if the statement hits an authentication issue or something else.
+
+
+### Load small size data to Data Warehouse without staging is slow 
+
+#### Symptoms
+When you load small data to Data Warehouse without staging, it will take a long time to finish. For example, the data size 2 MB but it takes more than 1 hour to finish. 
+
+#### Cause
+This issue is caused by the row count rather than the size. The row count has few thousand, and each insert needs to be packaged into an independent request, go to the control node, start a new transaction, get locks and go to the distribution node repeatedly. Bulk load gets the lock once, and each distribution node performs the insert by batching into memory efficiently.
+
+If 2 MB is inserted as just a few records, it would be fast. For example, it would be fast if each record is 500 kb * 4 rows. 
+
+#### Recommendation
+You need to enable staging to improve the performance.
+
+
+### Read empty string value ("") as NULL with the enable staging 
+
+#### Symptoms
+When you use Synapse as a source in the data flow such as previewing data and debugging/triggering run and enable staging to use the PolyBase, if your column value contains empty string value (`""`), it will be changed to null.
+
+#### Cause
+The data flow back end uses Parquet as the PolyBase format, and there is a known limitation in the Synapse SQL pool gen2, which will automatically change the empty string value to null.
+
+#### Recommendation
+You can try to solve this issue by the following methods:
+1. If your data size is not huge, you can disable **Enable staging** in the Source, but the performance will be affected.
+1. If you need to enable staging, you can use **iifNull()** function to manually change the specific column from null to empty string value.
+
+### Managed service identity error
+
+#### Symptoms
+When you use the Synapse as a source/sink in the data flow to preview data, debug/trigger run, etc. and enable staging to use the PolyBase, and the staging store's linked service (Blob, Gen2, etc.) is created to use the Managed Identity (MI) authentication, your job could fail with the following error shown in the picture: <br/>
+
+![Screenshots that shows the service identity error.](./media/data-flow-troubleshoot-connector-format/service-identity-error.png)
+
+#### Error message
+`shaded.msdataflow.com.microsoft.sqlserver.jdbc.SQLServerException: Managed Service Identity has not been enabled on this server. Please enable Managed Service Identity and try again.`
+
+#### Cause
+1. If the SQL pool is created from Synapse workspace, MI authentication on staging store with the PolyBase is not supported for the old SQL pool. 
+1. If the SQL pool is the old Data Warehouse (DWH) version, MI of the SQL server is not assigned to the staging store.
+
+#### Recommendation
+You need to confirm if the SQL pool is created from the Synapse workspace.
+
+- If the SQL pool is created from the Synapse workspace, you need to re-register the MI of the workspace. You can apply the following steps to work around this issue by re-registering the workspace's MI:
+    1. Go to your Synapse workspace in the Azure portal.
+    1. Go to the **managed identities** blade.
+    1. If the **Allow pipelines** option is already to be checked, you must uncheck this setting and save.
+    1. Check the **Allow pipelines** option and save.
+
+- If the SQL pool is the old DWH version, only enable MI for your SQL server and assign the permission of the staging store to the MI of your SQL Server. You can refer to the steps in this article as an example: [Use virtual network service endpoints and rules for servers in Azure SQL Database](../azure-sql/database/vnet-service-endpoint-rule-overview.md#steps).
+
+### Failed with an error: "SQLServerException: Not able to validate external location because the remote server returned an error: (403)"
+
+#### Symptoms
+
+When you use SQLDW as a sink to trigger and run data flow activities, the activity may fail with error like: `"SQLServerException: Not able to validate external location because the remote server returned an error: (403)"`
+
+#### Cause
+1. When you use the managed identity in the authentication method in the ADLS Gen2 account as staging, cx may not set the authentication configuration correctly.
+1. With the VNET integration runtime, you need to use the managed identity in the authentication method in the ADLS Gen2 account as staging. If your staging Azure Storage is configured with the VNet service endpoint, you must use managed identity authentication with "allow trusted Microsoft service" enabled on the storage account.
+1. Check whether your folder name contains the space character or other special characters, for example:
+`Space " < > # % |`.
+Currently folder names that contain certain special characters are not supported in the Data Warehouse copy command.
+
+#### Recommendation
+
+For Cause 1, you can refer to the following document: [Use virtual network service endpoints and rules for servers in Azure SQL Database-Steps](../azure-sql/database/vnet-service-endpoint-rule-overview.md#steps) to solve this issue.
+
+For Cause 2, work around it with one of the following options:
+
+- Option-1: If you use the VNET integration runtime, you need to use the managed identity in the authentication method in the ADLS GEN 2 account as staging.
+
+- Option-2: If your staging Azure Storage is configured with the VNet service endpoint, you must use managed identity authentication with "allow trusted Microsoft service" enabled on the storage account. You can refer to this doc: [Staged copy by using PolyBase](./connector-azure-sql-data-warehouse.md#staged-copy-by-using-polybase) for more information.
+
+For Cause 3, work around it with one of the following options:
+
+- Option-1: Rename the folder and avoid using special characters in the folder name.
+- Option-2: Remove the property `allowCopyCommand:true` in the data flow script, for example:
+
+    :::image type="content" source="./media/data-flow-troubleshoot-connector-format/remove-allow-copy-command-true.png" alt-text="Screenshot that shows how to remove 'allowcopycommand:true'."::: 
+
+
+### Failed with an error: "This operation is not permitted on a non-empty directory"
+
+#### Symptoms
+
+When you use Azure Synapse Analytics as a sink in the data flow to preview data, debug/trigger run or do other activities and the enable staging is set to true, your job may fail with the following error message:
+
+`DF-SYS-01 at Sink 'sink': Unable to stage data before write. Check configuration/credentials of storage.`<br/>
+`org.apache.hadoop.fs.azure.AzureException: com.microsoft.azure.storage.StorageException: This operation is not permitted on a non-empty directory.`
+
+#### Cause
+You use the Azure Blob Storage as the staging linked service to link to a storage account that has the enabled hierarchical namespace, and that account uses key authentication in the linked service.
+
+:::image type="content" source="./media/data-flow-troubleshoot-connector-format/storage-account-configuration.png" alt-text="Screenshot that shows the storage account configuration."::: 
+
+#### Recommendation
+Create an Azure Data Lake Gen2 linked service for the storage, and select the Gen2 storage as the staging linked service in data flow activities.
+
+## Common Data Model format
+
+### Model.json files with special characters
 
 #### Symptoms 
 You may encounter an issue that the final name of the model.json file contains special characters.  
@@ -130,7 +485,7 @@ When you use the manifest.json for CDM, no data is shown in the data preview 
 The manifest document describes the CDM folder, for example, what entities that you have in the folder, references of those entities and the data that corresponds to this instance. Your manifest document misses the `dataPartitions` information that indicates ADF where to read the data, and  since it is empty, it returns zero data. 
 
 #### Recommendation
-Update your manifest document to have the `dataPartitions` information, and you can refer to this example manifest document to update your document: [Common Data Model metadata: Introducing manifest-Example manifest document](https://docs.microsoft.com/common-data-model/cdm-manifest#example-manifest-document).
+Update your manifest document to have the `dataPartitions` information, and you can refer to this example manifest document to update your document: [Common Data Model metadata: Introducing manifest-Example manifest document](/common-data-model/cdm-manifest#example-manifest-document).
 
 ### JSON array attributes are inferred as separate columns
 
@@ -200,7 +555,7 @@ You use the inline dataset as the common data model with manifest as a sourc
 ![Screenshot that shows the issue of unable to read data files.](./media/data-flow-troubleshoot-connector-format/unable-read-data.png)
 
 #### Cause
-Your CDM folder is not separated into logical and physical models, and only physical models exist in the CDM folder. The following two articles describe the difference: [Logical definitions](https://docs.microsoft.com/common-data-model/sdk/logical-definitions) and [Resolving a logical entity definition](https://docs.microsoft.com/common-data-model/sdk/convert-logical-entities-resolved-entities).<br/> 
+Your CDM folder is not separated into logical and physical models, and only physical models exist in the CDM folder. The following two articles describe the difference: [Logical definitions](/common-data-model/sdk/logical-definitions) and [Resolving a logical entity definition](/common-data-model/sdk/convert-logical-entities-resolved-entities).<br/> 
 
 #### Recommendation
 For the data flow using CDM as a source, try to use a logical model as your entity reference, and use the manifest that describes the location of the physical resolved entities and the data partition locations. You can see some samples of logical entity definitions within the public CDM github repository: [CDM-schemaDocuments](https://github.com/microsoft/CDM/tree/master/schemaDocuments)<br/>
@@ -209,49 +564,7 @@ A good starting point to forming your corpus is to copy the files within the 
 
 Once the corpus is set up, you are recommended to use CDM as a sink within data flows, so that a well-formed CDM folder can be properly created. You can use your CSV dataset as a source and then sink it to your CDM model that you created.
 
-## Delta
-
-### The sink does not support the schema drift with upsert or update
-
-#### Symptoms
-You may face the issue that the delta sink in mapping data flows does not support schema drift with upsert/update. The problem is that the schema drift does not work when the delta is the target in a mapping data flow and user configure an update/upsert. 
-
-If a column is added to the source after an "initial" load to the delta, the subsequent jobs just fail with an error that it cannot find the new column, and this happens when you upsert/update with the alter row. It seems to work for inserts only.
-
-#### Error message
-`DF-SYS-01 at Sink 'SnkDeltaLake': org.apache.spark.sql.AnalysisException: cannot resolve target.BICC_RV in UPDATE clause given columns target. `
-
-#### Cause
-This is an issue for delta format because of the limitation of io delta library used in the data flow runtime. This issue is still in fixing.
-
-#### Recommendation
-To solve this problem, you need to update the schema firstly and then write the data. You can follow the steps below: <br/>
-1. Create one data flow that includes an insert-only delta sink with the merge schema option to update the schema. 
-1. After Step 1, use delete/upsert/update to modify the target sink without changing the schema. <br/>
-
-## Azure PostgreSQL
-
-### Encounter an error: Failed with exception: handshake_failure 
-
-#### Symptoms
-You use Azure PostgreSQL as a source or sink in the data flow such as previewing data and debugging/triggering run, and you may find the job fails with following error message: 
-
-   `PSQLException: SSL error: Received fatal alert: handshake_failure `<br/>
-   `Caused by: SSLHandshakeException: Received fatal alert: handshake_failure.`
-
-#### Cause 
-If you use the flexible server or Hyperscale (Citus) for your Azure PostgreSQL server, since the system is built via Spark upon Azure Databricks cluster, there is a limitation in Azure Databricks blocks our system to connect to the Flexible server or Hyperscale (Citus). You can review the following two links as references.
-- [Handshake fails trying to connect from Azure Databricks to Azure PostgreSQL with SSL](https://docs.microsoft.com/answers/questions/170730/handshake-fails-trying-to-connect-from-azure-datab.html)
- 
-- [MCW-Real-time-data-with-Azure-Database-for-PostgreSQL-Hyperscale](https://github.com/microsoft/MCW-Real-time-data-with-Azure-Database-for-PostgreSQL-Hyperscale/blob/master/Hands-on%20lab/HOL%20step-by%20step%20-%20Real-time%20data%20with%20Azure%20Database%20for%20PostgreSQL%20Hyperscale.md)<br/>
-    Refer to the content in the following picture in this article：<br/>
-
-    ![Screenshots that shows the referring content in the article above.](./media/data-flow-troubleshoot-connector-format/handshake-failure-cause-2.png)
-
-#### Recommendation
-You can try to use copy activities to unblock this issue. 
-
-## CSV and Excel
+## CSV and Excel format
 
 ### Set the quote character to 'no quote char' is not supported in the CSV
  
@@ -320,184 +633,27 @@ If you still want to transfer files such as CSV and Excel files with different s
     - **Option-1**: You need to manually merge the schema of different files to get the full schema. For example, file_1 has columns `c_1, c_2, c_3` while file_2 has columns `c_3, c_4,... c_10`, so the merged and full schema is `c_1, c_2... c_10`. Then make other files also have the same schema even though it does not have data, for example, file_x with sheet "SHEET_1" only has columns `c_1, c_2, c_3, c_4`, please add additional columns `c_5, c_6, ... c_10` in the sheet too, and then it can work.
     - **Option-2**: Use **range (for example, A1:G100) + firstRowAsHeader=false**, and then it can load data from all Excel files even though the column name and count is different.
 
-## Azure Synapse Analytics
+## Delta format
 
-### Serverless pool (SQL on-demand) related issues
-
-#### Symptoms
-You use the Azure Synapse Analytics and the linked service actually is a Synapse serverless pool. It's former named is SQL on-demand pool, and it can be distinguished by the server name contains `ondemand`, for example, `space-ondemand.sql.azuresynapse.net`. You may face with several unique failures as below:<br/>
-
-1. When you want to use Synapse serverless pool as a Sink, you face the following error:<br/>
-`Sink results in 0 output columns. Please ensure at least one column is mapped`
-1. When you select 'enable staging' in the Source, you face the following error:
-`shaded.msdataflow.com.microsoft.sqlserver.jdbc.SQLServerException: Incorrect syntax near 'IDENTITY'.`
-1. When you want to fetch data from an external table, you face the following error: `shaded.msdataflow.com.microsoft.sqlserver.jdbc.SQLServerException: External table 'dbo' is not accessible because location does not exist or it is used by another process.`
-1. When you want to fetch data from Cosmos DB through Serverless pool by query/from view, you face the following error: 
- `Job failed due to reason: Connection reset.`
-1. When you want to fetch data from a view, you may face with different errors.
-
-#### Cause
-Causes of the symptoms are stated below respectively:
-1. Serverless pool cannot be used as a sink. It doesn't support write data into the database.
-1. Serverless pool doesn't support staged data loading, so 'enable staging' is not supported. 
-1. The authentication method that you use doesn't have a correct permission to the external data source where the external table referring to.
-1. There is a known limitation in Synapse serverless pool, blocking you to fetch Cosmos DB data from data flows.
-1. View is a virtual table based on an SQL statement. The root cause is inside the statement of the view.
-
-#### Recommendation
-
-You can apply the following steps to solve your issues correspondingly.
-1. You should better not use serverless pool as a sink.
-1. Do not use 'enable staging' in Source for serverless pool.
-1. Only service principal/managed identity that has the permission to the external table data can query it. You should grant 'Storage Blob Data Contributor' permission to the external data source for the authentication method that you use in the ADF.
-    >[!Note]
-    > The user-password authentication can not query external tables. You can refer to this article for more information: [Security model](https://docs.microsoft.com/azure/synapse-analytics/metadata/database#security-model).
-
-1. You can use copy activity to fetch Cosmos DB data from the serverless pool.
-1. You can provide the SQL statement which creates the view to the engineering support team, and they can help analyze if the statement hits an authentication issue or something else.
-
-
-### Load small size data to Data Warehouse without staging is slow 
+### The sink does not support the schema drift with upsert or update
 
 #### Symptoms
-When you load small data to Data Warehouse without staging, it will take a long time to finish. For example, the data size 2 MB but it takes more than 1 hour to finish. 
+You may face the issue that the delta sink in mapping data flows does not support schema drift with upsert/update. The problem is that the schema drift does not work when the delta is the target in a mapping data flow and user configure an update/upsert. 
 
-#### Cause
-This issue is caused by the row count rather than the size. The row count has few thousand, and each insert needs to be packaged into an independent request, go to the control node, start a new transaction, get locks and go to the distribution node repeatedly. Bulk load gets the lock once, and each distribution node performs the insert by batching into memory efficiently.
-
-If 2 MB is inserted as just a few records, it would be fast. For example, it would be fast if each record is 500 kb * 4 rows. 
-
-#### Recommendation
-You need to enable staging to improve the performance.
-
-
-### Read empty string value ("") as NULL with the enable staging 
-
-#### Symptoms
-When you use Synapse as a source in the data flow such as previewing data and debugging/triggering run and enable staging to use the PolyBase, if your column value contains empty string value (`""`), it will be changed to null.
-
-#### Cause
-The data flow back end uses Parquet as the PolyBase format, and there is a known limitation in the Synapse SQL pool gen2, which will automatically change the empty string value to null.
-
-#### Recommendation
-You can try to solve this issue by the following methods:
-1. If your data size is not huge, you can disable **Enable staging** in the Source, but the performance will be affected.
-1. If you need to enable staging, you can use **iifNull()** function to manually change the specific column from null to empty string value.
-
-### Managed service identity error
-
-#### Symptoms
-When you use the Synapse as a source/sink in the data flow to preview data, debug/trigger run, etc. and enable staging to use the PolyBase, and the staging store's linked service (Blob, Gen2, etc.) is created to use the Managed Identity (MI) authentication, your job could fail with the following error shown in the picture: <br/>
-
-![Screenshots that shows the service identity error.](./media/data-flow-troubleshoot-connector-format/service-identity-error.png)
+If a column is added to the source after an "initial" load to the delta, the subsequent jobs just fail with an error that it cannot find the new column, and this happens when you upsert/update with the alter row. It seems to work for inserts only.
 
 #### Error message
-`shaded.msdataflow.com.microsoft.sqlserver.jdbc.SQLServerException: Managed Service Identity has not been enabled on this server. Please enable Managed Service Identity and try again.`
+`DF-SYS-01 at Sink 'SnkDeltaLake': org.apache.spark.sql.AnalysisException: cannot resolve target.BICC_RV in UPDATE clause given columns target. `
 
 #### Cause
-1. If the SQL pool is created from Synapse workspace, MI authentication on staging store with the PolyBase is not supported for the old SQL pool. 
-1. If the SQL pool is the old Data Warehouse (DWH) version, MI of the SQL server is not assigned to the staging store.
+This is an issue for delta format because of the limitation of io delta library used in the data flow runtime. This issue is still in fixing.
 
 #### Recommendation
-You need to confirm if the SQL pool is created from the Synapse workspace.
-
-- If the SQL pool is created from the Synapse workspace, you need to re-register the MI of the workspace. You can apply the following steps to work around this issue by re-registering the workspace's MI:
-    1. Go to your Synapse workspace in the Azure portal.
-    1. Go to the **managed identities** blade.
-    1. If the **Allow pipelines** option is already to be checked, you must uncheck this setting and save.
-    1. Check the **Allow pipelines** option and save.
-
-- If the SQL pool is the old DWH version, only enable MI for your SQL server and assign the permission of the staging store to the MI of your SQL Server. You can refer to the steps in this article as an example: [Use virtual network service endpoints and rules for servers in Azure SQL Database](https://docs.microsoft.com/azure/azure-sql/database/vnet-service-endpoint-rule-overview#steps).
-
-### Failed with an error: "SQLServerException: Not able to validate external location because the remote server returned an error: (403)"
-
-#### Symptoms
-
-When you use SQLDW as a sink to trigger and run data flow activities, the activity may fail with error like: `"SQLServerException: Not able to validate external location because the remote server returned an error: (403)"`
-
-#### Cause
-1. When you use the managed identity in the authentication method in the ADLS Gen2 account as staging, cx may not set the authentication configuration correctly.
-1. With the VNET integration runtime, you need to use the managed identity in the authentication method in the ADLS Gen2 account as staging. If your staging Azure Storage is configured with the VNet service endpoint, you must use managed identity authentication with "allow trusted Microsoft service" enabled on the storage account.
-1. Check whether your folder name contains the space character or other special characters, for example:
-`Space " < > # % |`.
-Currently folder names that contain certain special characters are not supported in the Data Warehouse copy command.
-
-#### Recommendation
-
-For Cause 1, you can refer to the following document: [Use virtual network service endpoints and rules for servers in Azure SQL Database-Steps](https://docs.microsoft.com/azure/azure-sql/database/vnet-service-endpoint-rule-overview#steps) to solve this issue.
-
-For Cause 2, work around it with one of the following options:
-
-- Option-1: If you use the VNET integration runtime, you need to use the managed identity in the authentication method in the ADLS GEN 2 account as staging.
-
-- Option-2: If your staging Azure Storage is configured with the VNet service endpoint, you must use managed identity authentication with "allow trusted Microsoft service" enabled on the storage account. You can refer to this doc: [Staged copy by using PolyBase](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse#staged-copy-by-using-polybase) for more information.
-
-For Cause 3, work around it with one of the following options:
-
-- Option-1: Rename the folder and avoid using special characters in the folder name.
-- Option-2: Remove the property `allowCopyCommand:true` in the data flow script, for example:
-
-    :::image type="content" source="./media/data-flow-troubleshoot-connector-format/remove-allow-copy-command-true.png" alt-text="Screenshot that shows how to remove 'allowcopycommand:true'."::: 
+To solve this problem, you need to update the schema firstly and then write the data. You can follow the steps below: <br/>
+1. Create one data flow that includes an insert-only delta sink with the merge schema option to update the schema. 
+1. After Step 1, use delete/upsert/update to modify the target sink without changing the schema. <br/>
 
 
-### Failed with an error: "This operation is not permitted on a non-empty directory"
-
-#### Symptoms
-
-When you use Azure Synapse Analytics as a sink in the data flow to preview data, debug/trigger run or do other activities and the enable staging is set to true, your job may fail with the following error message:
-
-`DF-SYS-01 at Sink 'sink': Unable to stage data before write. Check configuration/credentials of storage.`<br/>
-`org.apache.hadoop.fs.azure.AzureException: com.microsoft.azure.storage.StorageException: This operation is not permitted on a non-empty directory.`
-
-#### Cause
-You use the Azure Blob Storage as the staging linked service to link to a storage account that has the enabled hierarchical namespace, and that account uses key authentication in the linked service.
-
-:::image type="content" source="./media/data-flow-troubleshoot-connector-format/storage-account-configuration.png" alt-text="Screenshot that shows the storage account configuration."::: 
-
-#### Recommendation
-Create an Azure Data Lake Gen2 linked service for the storage, and select the Gen2 storage as the staging linked service in data flow activities.
-
-
-## Azure Blob Storage
-
-### Account kind of Storage (general purpose v1) doesn't support service principal and MI authentication
-
-#### Symptoms
-
-In data flows, if you use Azure Blob Storage (general purpose v1) with the service principal or MI authentication, you may encounter the following error message:
-
-`com.microsoft.dataflow.broker.InvalidOperationException: ServicePrincipal and MI auth are not supported if blob storage kind is Storage (general purpose v1)`
-
-#### Cause
-
-When you use the Azure Blob linked service in data flows, the managed identity or service principal authentication is not supported when the account kind is empty or "Storage". This situation is shown in Image 1 and Image 2 below.
-
-Image 1: The account kind in the Azure Blob Storage linked service
-
-:::image type="content" source="./media/data-flow-troubleshoot-connector-format/storage-account-kind.png" alt-text="Screenshot that shows the storage account kind in the Azure Blob Storage linked service."::: 
-
-Image 2: Storage account page
-
-:::image type="content" source="./media/data-flow-troubleshoot-connector-format/storage-account-page.png" alt-text="Screenshot that shows storage account page." lightbox="./media/data-flow-troubleshoot-connector-format/storage-account-page.png"::: 
-
-
-#### Recommendation
-
-To solve this issue, refer to the following recommendations:
-
-- If the storage account kind is **None** in the Azure Blob linked service, specify the proper account kind, and refer to Image 3 shown below to accomplish it. Furthermore, refer to Image 2 to get the storage account kind, and check and confirm the account kind is not Storage (general purpose v1).
-
-    Image 3: Specify the storage account kind in the Azure Blob Storage linked service
-
-    :::image type="content" source="./media/data-flow-troubleshoot-connector-format/specify-storage-account-kind.png" alt-text="Screenshot that shows how to specify storage account kind in Azure Blob Storage linked service."::: 
-    
-
-- If the account kind is Storage (general purpose v1), upgrade your storage account to the **general purpose v2** or choose a different authentication.
-
-    Image 4: Upgrade the storage account to general purpose v2
-
-    :::image type="content" source="./media/data-flow-troubleshoot-connector-format/upgrade-storage-account.png" alt-text="Screenshot that shows how to upgrade the storage account to general purpose v2." lightbox="./media/data-flow-troubleshoot-connector-format/upgrade-storage-account.png"::: 
-    
 
 ## Snowflake
 
@@ -513,7 +669,7 @@ You encounter the following error when you create the Snowflake linked service i
 
 #### Cause
 
-You have not applied the account name in the format that is given in the Snowflake account document (including additional segments that identify the region and cloud platform), for example, `XXXXXXXX.east-us-2.azure`. You can refer to this document: [Linked service properties](https://docs.microsoft.com/azure/data-factory/connector-snowflake#linked-service-properties) for more information.
+You have not applied the account name in the format that is given in the Snowflake account document (including additional segments that identify the region and cloud platform), for example, `XXXXXXXX.east-us-2.azure`. You can refer to this document: [Linked service properties](./connector-snowflake.md#linked-service-properties) for more information.
 
 #### Recommendation
 
@@ -546,13 +702,13 @@ When you use snowflake in Azure Data Factory, you can successfully use test-conn
 
 #### Cause
 
-The Azure Data Factory data flow does not support the use of fixed IP ranges, and you can refer to [Azure Integration Runtime IP addresses](https://docs.microsoft.com/azure/data-factory/azure-integration-runtime-ip-addresses) for more detailed information.
+The Azure Data Factory data flow does not support the use of fixed IP ranges, and you can refer to [Azure Integration Runtime IP addresses](./azure-integration-runtime-ip-addresses.md) for more detailed information.
 
 #### Recommendation
 
 To solve this issue, you can change the Snowflake account firewall settings with the following steps:
 
-1. You can get the IP range list of service tags from the "service tags IP range download link": [Discover service tags by using downloadable JSON files](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files).
+1. You can get the IP range list of service tags from the "service tags IP range download link": [Discover service tags by using downloadable JSON files](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
 
     :::image type="content" source="./media/data-flow-troubleshoot-connector-format/ip-range-list.png" alt-text="Screenshot that shows the IP range list."::: 
 
@@ -603,129 +759,6 @@ If you meet up error with the Snowflake query, check whether some identifiers (t
     - Run a query with table, for example: `select "movieId", "title" from Public."testQuotedTable2"`
     
 1. After the SQL query of Snowflake is tested and validated, you can use it in the data flow Snowflake source directly.
-
-## Azure SQL Database
- 
-### Unable to connect to the SQL Database
-
-#### Symptoms
-
-Your Azure SQL Database can work well in the data copy, dataset preview-data and test-connection in the linked service, but it fails when the same Azure SQL Database is used as a source or sink in the data flow with error like `Cannot connect to SQL database: 'jdbc:sqlserver://powerbasenz.database.windows.net;..., Please check the linked service configuration is correct, and make sure the SQL database firewall allows the integration runtime to access`
-
-#### Cause
-
-There are wrong firewall settings on your Azure SQL Database server, so that it cannot be connected by the data flow runtime. Currently, when you try to use the data flow to read/write Azure SQL Database, Azure Databricks is used to build spark cluster to run the job, but it does not support fixed IP ranges. For more details, please refer to [Azure Integration Runtime IP addresses](https://docs.microsoft.com/azure/data-factory/azure-integration-runtime-ip-addresses).
-
-#### Recommendation
-
-Check the firewall settings of your Azure SQL Database and set it as "Allow access to Azure services" rather than set the fixed IP range.
-
-:::image type="content" source="./media/data-flow-troubleshoot-connector-format/allow-access-to-azure-service.png" alt-text="Screenshot that shows how to allow access to Azure service in firewall settings."::: 
-
-### Syntax error when using queries as input
-
-#### Symptoms
-
-When you use queries as input in the data flow source with the Azure SQL, you fail with the following error message:
-
-`at Source 'source1': shaded.msdataflow.com.microsoft.sqlserver.jdbc.SQLServerException: Incorrect syntax XXXXXXXX.`
-
-:::image type="content" source="./media/data-flow-troubleshoot-connector-format/error-detail.png" alt-text="Screenshot that shows the error details."::: 
-
-#### Cause
-
-The query used in the data flow source should be able to run as a sub query. The reason of the failure is that either the query syntax is incorrect or it can't be run as a sub query. You can run the following query in the SSMS to verify it:
-
-`SELECT top(0) * from ($yourQuery) as T_TEMP`
-
-#### Recommendation
-
-Provide a correct query and test it in the SSMS firstly.
-
-### Failed with an error: "SQLServerException: 111212; Operation cannot be performed within a transaction."
-
-#### Symptoms
-
-When you use the Azure SQL Database as a sink in the data flow to preview data, debug/trigger run and do other activities, you may find your job fails with following error message:
-
-`{"StatusCode":"DFExecutorUserError","Message":"Job failed due to reason: at Sink 'sink': shaded.msdataflow.com.microsoft.sqlserver.jdbc.SQLServerException: 111212;Operation cannot be performed within a transaction.","Details":"at Sink 'sink': shaded.msdataflow.com.microsoft.sqlserver.jdbc.SQLServerException: 111212;Operation cannot be performed within a transaction."}`
-
-#### Cause
-The error "`111212;Operation cannot be performed within a transaction.`" only occurs in the Synapse dedicated SQL pool. But you mistakenly use the Azure SQL Database as the connector instead.
-
-#### Recommendation
-Confirm if your SQL Database is a Synapse dedicated SQL pool. If so, please use Azure Synapse Analytics as a connector shown in the picture below.
-
-:::image type="content" source="./media/data-flow-troubleshoot-connector-format/synapse-analytics-connector.png" alt-text="Screenshot that shows the Azure Synapse Analytics connector."::: 
-
-### Data with the decimal type become null
-
-#### Symptoms
-
-You want to insert data into a table in the SQL database. If the data contains the decimal type and need to be inserted into a column with the decimal type in the SQL database, the data value may be changed to null.
-
-If you do the preview, in previous stages, it will show the value like the following picture:
-
-:::image type="content" source="./media/data-flow-troubleshoot-connector-format/value-in-previous-stage.png" alt-text="Screenshot that shows the value in the previous stages."::: 
-
-In the sink stage, it will become null, which is shown in the picture below.
-
-:::image type="content" source="./media/data-flow-troubleshoot-connector-format/value-in-sink-stage.png" alt-text="Screenshot that shows the value in the sink stage."::: 
-
-#### Cause
-The decimal type has scale and precision properties. If your data type doesn't match that in the sink table, the system will validate that the target decimal is wider than the original decimal, and the original value does not overflow in the target decimal. Therefore, the value will be cast to null.
-
-#### Recommendation
-Check and compare the decimal type between data and table in the SQL database, and alter the scale and precision to the same.
-
-You can use toDecimal (IDecimal, scale, precision) to figure out if the original data can be cast to the target scale and precision. If it returns null, it means that the data cannot be cast and furthered when inserting.
-
-## ADLS Gen2
-
-### Failed with an error: "Error while reading file XXX. It is possible the underlying files have been updated"
-
-#### Symptoms
-
-When you use the ADLS Gen2 as a sink in the data flow (to preview data, debug/trigger run, etc.) and the partition setting in **Optimize** tab in the **Sink** stage is not default, you may find job fail with the following error message:
-
-`Job failed due to reason: Error while reading file abfss:REDACTED_LOCAL_PART@prod.dfs.core.windows.net/import/data/e3342084-930c-4f08-9975-558a3116a1a9/part-00000-tid-7848242374008877624-5df7454e-7b14-4253-a20b-d20b63fe9983-1-1-c000.csv. It is possible the underlying files have been updated. You can explicitly invalidate the cache in Spark by running 'REFRESH TABLE tableName' command in SQL or by recreating the Dataset/DataFrame involved.`
-
-#### Cause
-
-1. You don't assign a proper permission to your MI/SP authentication.
-1. You may have a customized job to handle files that you don't want, which will affect the data flow's middle output.
-
-#### Recommendation
-1. Check if your linked service has the R/W/E permission for Gen2. If you use the MI auth/SP authentication, at least grant the Storage Blob Data Contributor role in the Access control (IAM).
-1. Confirm if you have specific jobs that move/delete files to other place whose name does not match your rule. Because data flows will write down partition files into the target folder firstly and then do the merge and rename operations, the middle file's name might not match your rule.
-
-## ADLS Gen1
-
-### Fail to create files with service principle authentication
-
-#### Symptoms
-When you try to move or transfer data from different sources into the ADLS gen1 sink, if the linked service's authentication method is service principle authentication, your job may fail with the following error message:
-
-`org.apache.hadoop.security.AccessControlException: CREATE failed with error 0x83090aa2 (Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.). [2b5e5d92-xxxx-xxxx-xxxx-db4ce6fa0487] failed with error 0x83090aa2 (Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.)`
-
-#### Cause
-
-The RWX permission or the dataset property is not set correctly.
-
-#### Recommendation
-
-- If the target folder doesn't have correct permissions, refer to this document to assign the correct permission in Gen1: [Use service principal authentication](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-store#use-service-principal-authentication).
-
-- If the target folder has the correct permission and you use the file name property in the data flow to target to the right folder and file name, but the file path property of the dataset is not set to the target file path (usually leave not set), as the example shown in the following pictures, you will encounter this failure because the backend system tries to create files based on the file path of the dataset, and the file path of the dataset doesn't have the correct permission.
-    
-    :::image type="content" source="./media/data-flow-troubleshoot-connector-format/file-path-property.png" alt-text="Screenshot that shows the file path property"::: 
-    
-    :::image type="content" source="./media/data-flow-troubleshoot-connector-format/file-name-property.png" alt-text="Screenshot that shows the file name property"::: 
-
-    
-    There are two methods to solve this issue:
-    1. Assign the WX permission to the file path of the dataset.
-    1. Set the file path of the dataset as the folder with WX permission, and set the rest folder path and file name in data flows.
 
 ## Next steps
 For more help with troubleshooting, see these resources:

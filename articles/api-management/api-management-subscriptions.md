@@ -59,4 +59,4 @@ Get more information on API Management:
 
 + Learn other [concepts](api-management-terminology.md) in API Management.
 + Follow our [tutorials](import-and-publish.md) to learn more about API Management.
-+ Check our [FAQ page](api-management-faq.md) for common questions.
++ Check our [FAQ page](api-management-faq.yml) for common questions.

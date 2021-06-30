@@ -1,7 +1,7 @@
 ---
 title: Changed and deleted blobs
 titleSuffix: Azure Cognitive Search
-description: After an initial search index build that imports from Azure Blob storage, subsequent indexing can pick up just those blobs that are changed or deleted. This article explains the details.
+description: After an initial search index build that imports from Azure Blob Storage, subsequent indexing can pick up just those blobs that are changed or deleted. This article explains the details.
 
 manager: nitinme
 author: MarkHeff
@@ -13,7 +13,7 @@ ms.date: 01/29/2021
 
 # Change and deletion detection in blob indexing (Azure Cognitive Search)
 
-After an initial search index is created, you might want subsequent indexer jobs to only pick up new and changed documents. For search content that originates from Azure Blob storage or Azure Data Lake Storage Gen2, change detection occurs automatically when you use a schedule to trigger indexing. By default, the service reindexes only the changed blobs, as determined by the blob's `LastModified` timestamp. In contrast with other data sources supported by search indexers, blobs always have a timestamp, which eliminates the need to set up a change detection policy manually.
+After an initial search index is created, you might want subsequent indexer jobs to only pick up new and changed documents. For search content that originates from Azure Blob Storage or Azure Data Lake Storage Gen2, change detection occurs automatically when you use a schedule to trigger indexing. By default, the service reindexes only the changed blobs, as determined by the blob's `LastModified` timestamp. In contrast with other data sources supported by search indexers, blobs always have a timestamp, which eliminates the need to set up a change detection policy manually.
 
 Although change detection is a given, deletion detection is not. If you want to detect deleted documents, make sure to use a "soft delete" approach. If you delete the blobs outright, corresponding documents will not be removed from the search index.
 
@@ -23,11 +23,11 @@ There are two ways to implement the soft delete approach:
 + [Soft delete using custom metadata](#soft-delete-using-custom-metadata)
 
 > [!NOTE] 
-> Azure Data Lake Storage Gen2 allows directories to be renamed. When a directory is renamed the timestamps for the blobs in that directory do not get updated. As a result, the indexer will not reindex those blobs. If you need the blobs in a directory to be reindexed after a directory rename because they now have new URLs, you will need to update the `LastModified` timestamp for all the blobs in the directory so that the indexer knows to reindex them during a future run. The virtual directories in Azure blob storage cannot be changed so they do not have this issue.
+> Azure Data Lake Storage Gen2 allows directories to be renamed. When a directory is renamed the timestamps for the blobs in that directory do not get updated. As a result, the indexer will not reindex those blobs. If you need the blobs in a directory to be reindexed after a directory rename because they now have new URLs, you will need to update the `LastModified` timestamp for all the blobs in the directory so that the indexer knows to reindex them during a future run. The virtual directories in Azure Blob Storage cannot be changed so they do not have this issue.
 
 ## Native blob soft delete (preview)
 
-For this deletion detection approach, Cognitive Search depends on the [native blob soft delete](../storage/blobs/soft-delete-blob-overview.md) feature in Azure Blob storage to determine whether blobs have transitioned to a soft deleted state. When blobs are detected in this state, a search indexer uses this information to remove the corresponding document from the index.
+For this deletion detection approach, Cognitive Search depends on the [native blob soft delete](../storage/blobs/soft-delete-blob-overview.md) feature in Azure Blob Storage to determine whether blobs have transitioned to a soft deleted state. When blobs are detected in this state, a search indexer uses this information to remove the corresponding document from the index.
 
 > [!IMPORTANT]
 > Support for native blob soft delete is in preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [REST API version 2020-06-30-Preview](./search-api-preview.md) provides this feature. There is currently no portal or .NET SDK support.
@@ -35,7 +35,7 @@ For this deletion detection approach, Cognitive Search depends on the [native bl
 ### Prerequisites
 
 + [Enable soft delete for blobs](../storage/blobs/soft-delete-blob-enable.md).
-+ Blobs must be in an Azure Blob storage container. The Cognitive Search native blob soft delete policy is not supported for blobs from Azure Data Lake Storage Gen2.
++ Blobs must be in an Azure Blob Storage container. The Cognitive Search native blob soft delete policy is not supported for blobs from Azure Data Lake Storage Gen2.
 + Document keys for the documents in your index must be mapped to either be a blob property or blob metadata.
 + You must use the preview REST API (`api-version=2020-06-30-Preview`) to configure support for soft delete.
 
@@ -96,7 +96,7 @@ There are steps to follow in both Blob storage and Cognitive Search, but there a
     }
     ```
 
-1. Once the indexer has processed the blob and deleted the document from the index, you can delete the blob in Azure Blob storage.
+1. Once the indexer has processed the blob and deleted the document from the index, you can delete the blob in Azure Blob Storage.
 
 ### Reindexing undeleted blobs (using custom metadata)
 

@@ -4,7 +4,7 @@ titleSuffix: Azure Applied AI Services
 description: Learn how to use the copy model API to back up your Form Recognizer resources.
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 03/15/2021

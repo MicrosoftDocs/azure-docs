@@ -98,7 +98,7 @@ You can see how well an anomaly rule is performing by reviewing a sample of the 
 
 1. Set the **Time range** filter to **Last 24 hours**.
 
-1. Enter the following in the query window (in place of "Type your query here..."):
+1. Copy the Kusto query below and paste it in the query window (where it says "Type your query here or..."):
 
     ```kusto
     Anomalies 

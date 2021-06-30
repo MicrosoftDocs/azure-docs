@@ -58,9 +58,12 @@ Azure Front Door supports HTTP, HTTPS and HTTP/2.
 
 HTTP/2 protocol support is available to clients connecting to Azure Front Door only. The communication to backends in the backend pool is over HTTP/1.1. HTTP/2 support is enabled by default.
 
-### What resources are supported today as part of origin group?
+### What resources are supported today as part of an origin group?
 
-Origin group can be composed of Storage, Web App, Kubernetes instances, or any other custom hostname that has public connectivity. Azure Front Door requires that the origins are defined either via a public IP or a publicly resolvable DNS hostname. Members of origin group can be across zones, regions, or even outside of Azure as long as they have public connectivity.
+Origin groups can be composed of two types of origins:
+
+- Public origins include storage accounts, App Service apps, Kubernetes instances, or any other custom hostname that has public connectivity. These origins must be defined either via a public IP address or a publicly resolvable DNS hostname. Members of origin groups can be deployed across availability zones, regions, or even outside of Azure as long as they have public connectivity. Public origins are supported for Azure Front Door Standard and Premium tiers.
+- [Private Link origins](concept-private-link.md) are available when you use Azure Front Door (Premium).
 
 ### What regions is the service available in?
 
@@ -145,7 +148,9 @@ Any updates to routes or backend pools are seamless and will cause zero downtime
 
 ### Can Azure Front Door load balance or route traffic within a virtual network?
 
-Azure Front Door (AFD) requires a public IP or a publicly resolvable DNS name to route traffic. Azure Front Door can't route directly to resources in a virtual network. You can use an Application Gateway or an Azure Load Balancer with a public IP to solve this problem.
+Azure Front Door (Standard) requires a public IP or a publicly resolvable DNS name to route traffic. Azure Front Door can't route directly to resources in a virtual network. You can use an Application Gateway or an Azure Load Balancer with a public IP to solve this problem.
+
+Azure Front Door (Premium) supports routing traffic to [Private Link origins](concept-private-link.md).
 
 ### What are the various timeouts and limits for Azure Front Door?
 
@@ -245,7 +250,7 @@ For having successful HTTPS connections to your backend whether for health probe
 
 * **Certificate subject name mismatch**: For HTTPS connections, Front Door expects that your backend presents certificate from a valid CA with subject name(s) matching the backend hostname. As an example, if your backend hostname is set to `myapp-centralus.contosonews.net` and the certificate that your backend presents during the TLS handshake doesn't have `myapp-centralus.contosonews.net` or `*myapp-centralus*.contosonews.net` in the subject name. Then Front Door will refuse the connection and result in an error. 
     * **Solution**: It isn't recommended from a compliance standpoint but you can work around this error by disabling the certificate subject name check for your Front Door. You can find this option under Settings in Azure portal and under BackendPoolsSettings in the API.
-* **Backend hosting certificate from invalid CA**: Only certificates from [valid Certificate Authorities](troubleshoot-allowed-certificate-authority.md) can be used at the backend with Front Door. Certificates from internal CAs or self-signed certificates aren't allowed.
+* **Backend hosting certificate from invalid CA**: Only certificates from [valid Certificate Authorities](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT) can be used at the backend with Front Door. Certificates from internal CAs or self-signed certificates aren't allowed.
 
 ### Can I use client/mutual authentication with Azure Front Door?
 
@@ -268,6 +273,12 @@ Audit logs are available for Azure Front Door. In the portal, select **Activity 
 ### Can I set alerts with Azure Front Door?
 
 Yes, Azure Front Door does support alerts. Alerts are configured on metrics. 
+
+## Billing
+
+### Will I be billed for the Azure Front Door resources that are disabled?
+
+Azure Front Door resources, like Front Door profiles, are not billed if disabled.
 
 ## Next steps
 

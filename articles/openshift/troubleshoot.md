@@ -31,4 +31,4 @@ If creating a cluster results in an error that `No registered resource provider 
 
 - Try the [Red Hat OpenShift Help Center](https://help.openshift.com/) for more on OpenShift troubleshooting.
 
-- Find answers to [frequently asked questions about Azure Red Hat OpenShift](openshift-faq.md).
+- Find answers to [frequently asked questions about Azure Red Hat OpenShift](openshift-faq.yml).

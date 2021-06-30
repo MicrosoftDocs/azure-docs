@@ -3,13 +3,13 @@ title: How to install and run the Spatial Analysis container - Computer Vision
 titleSuffix: Azure Cognitive Services
 description: The Spatial Analysis container lets you can detect people and distances.
 services: cognitive-services
-author: aahill
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 01/12/2021
-ms.author: aahi
+ms.date: 06/08/2021
+ms.author: pafarley
 ---
 
 # Install and run the Spatial Analysis container (Preview)
@@ -21,7 +21,6 @@ The Spatial Analysis container enables you to analyze real-time streaming video 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Computer Vision resource"  target="_blank">create a Computer Vision resource </a> for the Standard S1 tier in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
     * You will need the key and endpoint from the resource you create to run the Spatial Analysis container. You'll use your key and endpoint later.
-
 
 ### Spatial Analysis container requirements
 
@@ -65,21 +64,6 @@ In our example, we will utilize an [NC series VM](../../virtual-machines/nc-seri
 |--|--|
 | Camera | The Spatial Analysis container is not tied to a specific camera brand. The camera device needs to: support Real-Time Streaming Protocol(RTSP) and H.264 encoding, be accessible to the host computer, and be capable of streaming at 15FPS and 1080p resolution. |
 | Linux OS | [Ubuntu Desktop 18.04 LTS](http://releases.ubuntu.com/18.04/) must be installed on the host computer.  |
-
-
-## Request approval to run the container
-
-Fill out and submit the [request form](https://aka.ms/csgate) to request approval to run the container.
-
-The form requests information about you, your company, and the user scenario for which you'll use the container. After you submit the form, the Azure Cognitive Services team will review it and email you with a decision.
-
-> [!IMPORTANT]
-> * On the form, you must use an email address associated with an Azure subscription ID.
-> * The Computer Vision resource you use to run the container must have been created with the approved Azure subscription ID.
-
-After you're approved, you will be able to run the container after downloading it from the Microsoft Container Registry (MCR), described later in the article.
-
-You won't be able to run the container if your Azure subscription has not been approved.
 
 ## Set up the host computer
 
@@ -328,7 +312,10 @@ An Azure Virtual Machine with a GPU can also be used to run Spatial Analysis. Th
 
 Open the [Create a Virtual Machine](https://ms.portal.azure.com/#create/Microsoft.VirtualMachine) wizard in the Azure portal.
 
-Give your VM a name and select the region to be (US) West US 2. Be sure to set `Availability Options` to "No infrastructure redundancy required". Refer to the below figure for the complete configuration and the next step for help locating the correct VM size. 
+Give your VM a name and select the region to be (US) West US 2. 
+
+> [!IMPORTANT]
+> Be sure to set `Availability Options` to "No infrastructure redundancy required". Refer to the below figure for the complete configuration and the next step for help locating the correct VM size. 
 
 :::image type="content" source="media/spatial-analysis/virtual-machine-instance-details.jpg" alt-text="Virtual machine configuration details." lightbox="media/spatial-analysis/virtual-machine-instance-details.jpg":::
 
