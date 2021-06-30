@@ -459,7 +459,7 @@ To render `RemoteVideoStream`, your application should do the following:
 - check and subscribe to the stream's `isAvailableChanged` event.
 - once the `isAvailable` property changes to `true`, a remote participant is sending data. Your application can then create a new `VideoStreamRendererView` instance by using the asynchronous `createView` method.
 - `createView` resolves after a local endpoint subscribes to the video and receives the first video frame. At this point the application can attach the `view` instance returned from `createView` to the DOM.
-- once stream becomes unavailable, application should `dispose` all views associated with the VideoStreamRenderer instance used to render given stream, it may also choose to `dispose` a `VideoStreamRenderer` instance itself.
+- once a stream becomes unavailable, your application should `dispose` all views associated with the VideoStreamRenderer instance used to render the given stream. It may also choose to `dispose` a `VideoStreamRenderer` instance itself.
 
 Note:
 - if stream becomes unavailable (e.g. sender stopped video, or there's a network connectivity issue) while before `createView` resolves - `createView` will be rejected with an information that stream became unavailable
