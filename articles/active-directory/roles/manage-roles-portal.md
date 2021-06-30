@@ -158,7 +158,7 @@ If PIM is enabled, you have additional capabilities, such as making a user eligi
 
 ## Microsoft Graph API
 In this example, a security principal with objectID `f8ca5a85-489a-49a0-b555-0a6d81e56f0d` is assigned Billing Administrator role (role definition ID `b0f54661-2d74-4c50-afa3-1ec803f12efe`) at tenant scope. If you want to see the list of immutable role template IDs of all built-in roles, see this page [Azure AD built-in roles](https://docs.microsoft.com/azure/active-directory/roles/permissions-reference)
-1. Sign in to the [Graph Explorer](http://aka.ms/ge).
+1. Sign in to the [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
 2. Select **POST** as the HTTP method from the dropdown. 
 3. Select the API version to **beta**.
 4. Add following details to the URL and Request Body and hit **Run query**.
