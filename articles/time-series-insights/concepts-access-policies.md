@@ -15,7 +15,7 @@ ms.custom: seodec18
 
 > :warning: Warning: Access Policies grant AAD Users and/or Groups Data Plane access to your Time Series Insights Environment.
 > An Azure Active Directory is tied to a Tenant. So if you decide to move your Subscription between Tenants, make sure to follow the procedure
-> from [the section below](#Preparation-and-post-moving-procedures-when-moving-Subscription-across-Tenants).
+> from [the section below(#Procedure-for-when-the-Subscription-is-moved-across-Tenants).
 
 # Grant data access to an environment
 
@@ -125,20 +125,22 @@ Follow these steps to grant guest access to an Azure Time Series Insights enviro
 
 * View [your environment in the Azure Time Series Insights Explorer](./concepts-ux-panels.md).
 
-# Preparation and post moving procedures when moving subscription across Tenants
+# Procedure for when the Subscription is moved across Tenants
 
 Time Series Insights Data Access Policies are backed by Azure Active Directory, which are tied to an Azure Tenant.
 
-If you move the Subscription to which the Time Series Insights Environment belongs to between Tenants, you must be aware that the Data Access Policies will need to be re-applied, since the existing policies point to users that do not exist in the AAD from the new Tenant.
+When you grant Data Access Policies to an Azure Active Directory Object (User, Group or App), this object belogs to the Azure Active Directory in the Subscription's Tenant.
+
+When you move a Subscription between Tenants, all the Data Access Policies in existing Time Series Insights from the moved Subscription will need to be re-applied, since the AAD Objects the Data Access Policies point to do not exist in the target Tenant.
 
 To make this process smooth, follow the steps below.
 
-## Pre-migration steps
+## Before moving a Subscription to another Tenant
 
 - Make sure you extract the current Data Access Policies assignments from the Environment while still in the source Tenant.
 - Make sure the users you still want to have access to the Environment after the Subscription is migrated exist on the target Active Directory.
 - Make sure you will have - or you're engaged with someone who will have - at least Contributor access to the Subscription after it's moved.
 
-## Post-migration steps
+## After moving a Subscription to another Tenant
 
 Having Contributor access to the Subscription in the target Tenant, you can re-grant Access Policies to the Environment.
