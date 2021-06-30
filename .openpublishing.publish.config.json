@@ -388,6 +388,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "media-services-v3-python",
+      "url": "https://github.com/Azure-Samples/media-services-v3-python",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "remote-monitoring-webui",
       "url": "https://github.com/Azure/pcs-remote-monitoring-webui.git",
       "branch": "master",
@@ -793,14 +799,21 @@
   },
   "redirection_files": [
     ".openpublishing.redirection.json",
+    ".openpublishing.redirection.defender-for-iot.json",
     ".openpublishing.redirection.healthcare-apis.json",
     ".openpublishing.redirection.security-benchmark.json",
     ".openpublishing.redirection.media-services.json",
+    ".openpublishing.redirection.data-factory.json",
     "articles/azure-relay/.openpublishing.redirection.relay.json",    
     "articles/cosmos-db/.openpublishing.redirection.cosmos-db.json",
     "articles/event-hubs/.openpublishing.redirection.event-hubs.json",
     "articles/event-grid/.openpublishing.redirection.event-grid.json",    
     "articles/hdinsight/.openpublishing.redirection.hdinsight.json",
-    "articles/service-bus-messaging/.openpublishing.redirection.service-bus-messaging.json"    
+    "articles/service-bus-messaging/.openpublishing.redirection.service-bus-messaging.json",
+    "articles/iot-central/.openpublishing.redirection.iot-central.json",
+    "articles/iot-pnp/.openpublishing.redirection.iot-pnp.json",
+    "articles/cost-management-billing/.openpublishing.redirection.cost-management-billing.json",
+    "articles/purview/.openpublishing.redirection.purview.json",
+    "articles/data-catalog/.openpublishing.redirection.data-catalog.json"
   ]
 }

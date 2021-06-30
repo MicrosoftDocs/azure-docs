@@ -366,6 +366,8 @@
         href: reservations/reservation-renew.md?toc=/azure/cost-management-billing/toc.json
   - name: Troubleshoot
     items:
+    - name: Can't view or find invoices
+      href: manage/troubleshoot-cant-find-invoice.md
     - name: EA billing issues with usage files
       href: manage/troubleshoot-ea-billing-issues-usage-file-pivot-tables.md
     - name: MCA billing issues with usage files

@@ -698,6 +698,10 @@
               href: how-to-define-unique-keys.md
             - name: Perform transactional batch operations
               href: transactional-batch.md
+        - name: Best Practices
+          items:
+            - name: .NET
+              href: best-practice-dotnet.md
         - name: Performance
           items:
             - name: Query
@@ -1016,6 +1020,8 @@
           href: /azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Troubleshoot common issues
           href: cassandra-troubleshoot.md
+        - name: Monitor using Diagnostics Logs
+          href: queries-cassandra.md
         - name: Cassandra and Spark
           items:
             - name: Introduction
@@ -1163,6 +1169,8 @@
         - name: Find request unit charge
           displayName: request units, RUs, RU, charge, consumption
           href: find-request-unit-charge-mongodb.md
+        - name: Monitor using Diagnostics Logs
+          href: queries-mongo.md
         - name: Troubleshoot query performance
           href: mongodb-troubleshoot-query.md
         - name: Troubleshoot common issues
@@ -1252,6 +1260,8 @@
           href: how-to-access-system-properties-gremlin.md
         - name: Visualize graph data
           href: graph-visualization.md
+        - name: Monitor using Diagnostics Logs
+          href: queries-gremlin.md
         - name: Store and manage Spring Data
           href: /azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Manage using Resource Manager templates
@@ -1332,8 +1342,6 @@
         - name: Find request unit charge
           displayName: request units, RUs, RU, charge, consumption
           href: find-request-unit-charge-table.md
-        - name: Table storage design guide
-          href: table-storage-design-guide.md
         - name: Manage using Resource Manager templates
           href: templates-samples-table.md
           displayName: ARM
@@ -1482,9 +1490,11 @@
               href: cosmosdb-monitor-resource-logs.md
             - name: Troubleshoot issues using basic queries
               href: cosmosdb-monitor-logs-basic-queries.md
+            - name: Troubleshoot issues using advanced queries
+              href: cosmos-db-advanced-queries.md                      
             - name: Audit control plane logs
               href: audit-control-plane-logs.md
-        - name: Configure alerts
+        - name: Configure alerts 
           href: create-alerts.md
         - name: Monitoring data reference
           href: monitor-cosmos-db-reference.md

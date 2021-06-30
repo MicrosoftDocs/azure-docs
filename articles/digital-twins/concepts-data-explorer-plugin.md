@@ -68,25 +68,25 @@ You can use an update policy to enrich your raw time series data with the corres
 For example, say you created the following table to hold the raw time series data flowing into your ADX instance. 
 
 ```kusto
-.createmerge table rawData (Timestamp:datetime, someId:string, Value:string, ValueType:string)  
+.create-merge table rawData (Timestamp:datetime, someId:string, Value:string, ValueType:string)  
 ```
 
 You could create a mapping table to relate time series IDs with twin IDs, and other optional fields. 
 
 ```kusto
-.createmerge table mappingTable (someId:string, twinId:string, otherMetadata:string) 
+.create-merge table mappingTable (someId:string, twinId:string, otherMetadata:string) 
 ```
 
 Then, create a target table to hold the enriched time series data. 
 
 ```kusto
-.createmerge table timeseriesSilver (twinId:string, Timestamp:datetime, someId:string, otherMetadata:string, ValueNumeric:real, ValueString:string)  
+.create-merge table timeseriesSilver (twinId:string, Timestamp:datetime, someId:string, otherMetadata:string, ValueNumeric:real, ValueString:string)  
 ```
 
 Next, create a function `Update_rawData` to enrich the raw data by joining it with the mapping table. This will add the twin ID to the resulting target table. 
 
 ```kusto
-.createoralter function with (folder = "Update", skipvalidation = "true") Update_rawData() { 
+.create-or-alter function with (folder = "Update", skipvalidation = "true") Update_rawData() { 
 rawData 
 | join kind=leftouter mappingTable on someId 
 | project 

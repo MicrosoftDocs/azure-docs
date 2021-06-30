@@ -96,16 +96,6 @@ By default Image Builder will use a "Standard_D1_v2" build VM, this is built fro
  
 This is optional.
 
-
-## Proxy VM Size
-The proxy VM is used to send commands between the Azure Image Builder Service and the build VM, this is only deployed when specifying an existing VNET, for more details review the networking options [documentation](image-builder-networking.md#why-deploy-a-proxy-vm).
-```json
- {
-    "proxyVmSize": "Standard A1_v2"
- },
-```
-This is optional.
-
 ## osDiskSizeGB
 
 By default, Image Builder will not change the size of the image, it will use the size from the source image. You can **only** increase the size of the OS Disk (Win and Linux), this is optional, and a value of 0 means leave the same size as the source image. You cannot reduce the OS Disk size to smaller than the size from the source image.

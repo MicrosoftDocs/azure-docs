@@ -199,7 +199,7 @@
       items:
       - name: Overview
         displayName: GPU, sizes, size, accelerated compute, compute, nvidia
-        href: sizes-gpu.md?context=/azure/virtual-machines/context/context
+        href: sizes-gpu.md
       - name: NC-series
         href: nc-series.md
       - name: NCv2-series
@@ -235,7 +235,7 @@
       items:
       - name: Overview
         displayName: FPGA, accelerated compute, compute, accelerated, gpu
-        href: sizes-field-programmable-gate-arrays.md?context=/azure/virtual-machines/context/context
+        href: sizes-field-programmable-gate-arrays.md
       - name: NP-series
         href: np-series.md
       - name: FPGA Attestation Service
@@ -278,14 +278,14 @@
     - name: Azure compute units (ACU)
       href: acu.md
     - name: Benchmark scores
+      displayName: benchmark, coremark
       items:
       - name: Linux
-        displayName: Benchmark scores, score, acu
         href: ./linux/compute-benchmark-scores.md
       - name: Windows
-        displayName: Benchmark scores, score, acu
         href: ./windows/compute-benchmark-scores.md
   - name: Dedicated hosts
+    displayName: sole-tenant, sole tenant, isolated, isolation
     items:
     - name: Overview
       displayName: Dedicated hosts, ADH
@@ -691,6 +691,8 @@
     - name: Prepare a VHD to Upload
       displayName: Windows custom images, images, windows, upload, prepare, VHD
       href: ./windows/prepare-for-upload-vhd-image.md
+    - name: Generalizing a VM
+      href: generalize.md
     - name: Upload a VHD and create a managed image
       displayName: Windows custom images, images, windows, upload, prepare, VHD, managed
       href: ./windows/upload-generalized-managed.md
@@ -788,6 +790,8 @@
         - name: Windows
           displayName: Shared Image Gallery, SIG, sig, gallery, image, create
           href: ./windows/shared-images-portal.md
+      - name: Capture a VM in the portal
+        href: capture-image-portal.md
     - name: Resource Manager Templates
       items:
       - name: Create a Shared Image Gallery
@@ -1298,19 +1302,91 @@
   items:
   - name: Overview
     displayName: Networking Overview
-    href: network-overview.md
+    href: network-overview.md?context=/azure/virtual-machines/context/context
+  - name: Optimize network throughput
+    href: ../virtual-network/virtual-network-optimize-network-bandwidth.md?context=/azure/virtual-machines/context/context
+  - name: Best practices
+    href: /virtual-network/concepts-and-best-practices.md?context=/azure/virtual-machines/context/context
   - name: Create virtual network
     href: ../virtual-network/quick-create-cli.md?context=/azure/virtual-machines/context/context
-  - name: Open ports to a VM
+  - name: Filter network traffic
     items:
+    - name: Azure portal
+      href: ../virtual-network/tutorial-filter-network-traffic.md?context=/azure/virtual-machines/context/context
+    - name: Azure PowerShell
+      href: ../virtual-network/tutorial-filter-network-traffic-powershell.md?context=/azure/virtual-machines/context/context
+    - name: Azure CLI
+      href: ../virtual-network/tutorial-filter-network-traffic-cli.md?context=/azure/virtual-machines/context/context
+  - name: Create VM - static public IP
+    items:
+    - name: Azure portal
+      href: ../virtual-network/virtual-network-deploy-static-pip-arm-portal.md?context=/azure/virtual-machines/context/context
+    - name: Azure PowerShell
+      href: ../virtual-network/virtual-network-deploy-static-pip-arm-ps.md?context=/azure/virtual-machines/context/context
+    - name: Azure CLI
+      href: ../virtual-network/virtual-network-deploy-static-pip-arm-cli.md?context=/azure/virtual-machines/context/context
+    - name: Add public IP address to existing VM
+      href: ../virtual-network/associate-public-ip-address-vm.md?context=/azure/virtual-machines/context/context
+    - name: Dissociate public IP address from a VM
+      href: ../virtual-network/remove-public-ip-address-vm.md?context=/azure/virtual-machines/context/context
+  - name: Create VM - static private IP
+    items:
+    - name: Azure portal
+      href: ../virtual-network/virtual-networks-static-private-ip-arm-pportal.md?context=/azure/virtual-machines/context/context
+    - name: Azure PowerShell
+      href: ../virtual-network/virtual-networks-static-private-ip-arm-ps.md?context=/azure/virtual-machines/context/context
+    - name: Azure CLI
+      href: ../virtual-network/virtual-networks-static-private-ip-arm-cli.md?context=/azure/virtual-machines/context/context
+  - name: Create VM - multiple IPs
+    items:
+    - name: Azure portal
+      href: ../virtual-network/virtual-network-multiple-ip-addresses-portal.md?context=/azure/virtual-machines/context/context
+    - name: Azure PowerShell
+      href: ../virtual-network/virtual-network-multiple-ip-addresses-powershell.md?context=/azure/virtual-machines/context/context
+    - name: Azure CLI
+      href: ../virtual-network/virtual-network-multiple-ip-addresses-cli.md?context=/azure/virtual-machines/context/context
+    - name: Add or remove network interfaces
+      href: ../virtual-network/virtual-network-network-interface-vm.md?context=/azure/virtual-machines/context/context
+    - name: Create VM - multiple NICs
+      items:
+      - name: Azure PowerShell
+        href: ./windows/multiple-nics.md
+      - name: Azure CLI
+        href: ./linux/multiple-nics.md
+  - name: Create VM - accelerated networking
+    items:
+    - name: Azure PowerShell
+      href: ../virtual-network/create-vm-accelerated-networking-powershell.md?context=/azure/virtual-machines/context/context
+    - name: Azure CLI
+      href: ../virtual-network/create-vm-accelerated-networking-cli.md?context=/azure/virtual-machines/context/context
+      items:
+      - name: Set up DPDK
+        href: ../virtual-network/setup-dpdk.md?context=/azure/virtual-machines/context/context
+  - name: TCP/IP performance tuning for Azure VMs
+    href: ../virtual-network/virtual-network-tcpip-performance-tuning.md?context=/azure/virtual-machines/context/context
+  - name: Virtual machine network throughput
+    href: ../virtual-network/virtual-machine-network-throughput.md?context=/azure/virtual-machines/context/context
+  - name: Create a DDOS protection plan
+    items:
+    - name: Portal
+      href: ../ddos-protection/manage-ddos-protection.md?context=/azure/virtual-machines/context/context
+    - name: PowerShell
+      href: ../ddos-protection/manage-ddos-protection-powershell.md?context=/azure/virtual-machines/context/context
     - name: CLI
-      displayName: Open ports to a VM
+      href: ../ddos-protection/manage-ddos-protection-cli.md?context=/azure/virtual-machines/context/context
+    - name: ARM template
+      displayName: Resource Manager
+      href: ../ddos-protection/manage-ddos-protection-template.md?context=/azure/virtual-machines/context/context
+  - name: Open ports to a VM
+    items: 
+    - name: CLI
+      displayName: port nsg network security group
       href: ./linux/nsg-quickstart.md
     - name: PowerShell
-      displayName: Open ports to a VM
+      displayName: nsg network security group
       href: ./windows/nsg-quickstart-powershell.md
     - name: Portal
-      displayName: Open ports to a VM
+      displayName: port nsg network security group
       href: ./windows/nsg-quickstart-portal.md
   - name: Assign public IP address
     href: ../virtual-network/virtual-network-deploy-static-pip-arm-cli.md?context=/azure/virtual-machines/context/context
@@ -1324,12 +1400,12 @@
     - name: Windows using PowerShell
       displayName: Use multipe NICs
       href: ./windows/multiple-nics.md
-  - name: Use accelerated networking
-    href: ../virtual-network/create-vm-accelerated-networking-cli.md?context=/azure/virtual-machines/context/context
-  - name: Assign public DNS name
-    href: create-fqdn.md
   - name: Find and delete unattached NICs
     href: ./linux/find-unattached-nics.md
+  - name: Assign public DNS name
+    href: create-fqdn.md
+  - name: Assign public DNS name
+    href: create-fqdn.md
   - name: DNS resolution
     href: ./linux/azure-dns.md
   - name: Use internal DNS
@@ -1544,16 +1620,25 @@
     href: ../azure-monitor/vm/monitor-vm-azure.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
   - name: Monitoring VMs
     items:
-    - name: Windows
-      displayName: Monitoring VMs
-      href: ./windows/tutorial-monitor.md
+    - name: Overview
+      href: ../azure-monitor/vm/monitor-virtual-machine.md?context=/azure/virtual-machines/context/context
+    - name: Configure monitoring
+      href: ../azure-monitor/vm/monitor-virtual-machine-configure.md?context=/azure/virtual-machines/context/context
+    - name: Analyze data
+      href: ../azure-monitor/vm/monitor-virtual-machine-analyze.md?context=/azure/virtual-machines/context/context
+    - name: Monitor security
+      href: ../azure-monitor/vm/monitor-virtual-machine-security.md?context=/azure/virtual-machines/context/context
+    - name: Create alerts
+      href: ../azure-monitor/vm/monitor-virtual-machine-alerts.md?context=/azure/virtual-machines/context/context
+    - name: Monitor workloads
+      href: ../azure-monitor/vm/monitor-virtual-machine-workloads.md?context=/azure/virtual-machines/context/context
   - name: Agents
     items:
     - name: Agents overview
       href: ../azure-monitor/agents/agents-overview.md?context=/azure/virtual-machines/context/context
     - name: FAQ
       displayName: Agents
-      href: /azure-monitor/faq.yml#agents
+      href: /azure/azure-monitor/faq#agents
     - name: Azure Diagnostics extension
       items:
       - name: Overview
@@ -1626,7 +1711,7 @@
         href: ../azure-monitor/vm/vminsights-ga-release-faq.yml?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
       - name: FAQ
         displayName: Azure monitor for VMs
-        href: ../azure-monitor/faq.yml?context=/azure/virtual-machines/context/context
+        href: /azure/azure-monitor/faq?context=/azure/virtual-machines/context/context
       - name: Enable monitoring
         items:
         - name: Enable monitoring overview
