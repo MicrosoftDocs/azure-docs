@@ -103,7 +103,7 @@ Example:
 - You plan to have three general purpose and two business critical managed instances deployed in the same subnet. All instances will have same maintenance window configured. That means you need 5 + 3 * 12 + 2 * 16 + 1 * 16 = 85 IP addresses. As IP ranges are defined in power of 2, your subnet requires minimum IP range of 128 (2^7) for this deployment. Therefore, you need to reserve the subnet with subnet mask of /25.
 
 > [!NOTE]
-> Even though it is possible to deploy managed instances in the subnet with number of IP addresses less than the subnet calculator output, always consider using bigger subnets rather than smaller to avoid issue with lack of IP addresses in the future.
+> Even though it is possible to deploy managed instances in the subnet with number of IP addresses less than the subnet calculator output, always consider using bigger subnets rather than smaller to avoid issue with lack of IP addresses in the future, including unability to create new instances in the subnet or scale existing ones.
 
 ## Next steps
 

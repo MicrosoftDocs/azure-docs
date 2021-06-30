@@ -41,7 +41,7 @@ See the other articles in this series:
 
 + A pre-existing virtual network and subnet to use.
 
-+ An existing [Azure Machine Learning workspace with Private Link enabled](how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint).
++ An existing [Azure Machine Learning workspace with private endpoint enabled](how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint).
 
 + An existing [Azure storage account added your virtual network](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints).
 
@@ -109,9 +109,9 @@ The following table describes why you must enable managed identity authenticatio
 >
 > To resolve this issue, remove the filestore account from the virtual network then add it back to the virtual network.
 
-### Grant workspace managed identity __Reader__ access to storage private link
+### Grant workspace managed identity __Reader__ access to storage private endpoint
 
-If your Azure storage account uses a private endpoint, you must grant the workspace-managed identity **Reader** access to the private link. For more information, see the [Reader](../role-based-access-control/built-in-roles.md#reader) built-in role. 
+If your Azure storage account uses a private endpoint, you must grant the workspace-managed identity **Reader** access to the private endpoint. For more information, see the [Reader](../role-based-access-control/built-in-roles.md#reader) built-in role. 
 
 If your storage account uses a service endpoint, you can skip this step.
 

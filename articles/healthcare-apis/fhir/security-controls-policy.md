@@ -4,7 +4,7 @@ description: Lists Azure Policy Regulatory Compliance controls available for Azu
 ms.date: 06/11/2021
 ms.topic: sample
 author: matjazl
-ms.author: matjazl
+ms.author: chrupa
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.custom: subject-policy-compliancecontrols
