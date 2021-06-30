@@ -3,7 +3,7 @@ title: Request host quota for Azure VMware Solution
 description: Learn how to request host quota/capacity for Azure VMware Solution. You can also request more hosts in an existing Azure VMware Solution private cloud.
 ms.topic: how-to
 ms.custom: contperf-fy21q3
-ms.date: 05/13/2021
+ms.date: 07/07/2021
 
 #Customer intent: As an Azure service admin, I want to request hosts for either a new private cloud deployment or I want to have more hosts allocated in an existing private cloud.
 
@@ -106,4 +106,3 @@ Access the Azure portal using the **Admin On Behalf Of** (AOBO) procedure from P
 ## Next steps
 
 Before you can deploy Azure VMware Solution, you must first [register the resource provider](tutorial-deploy-azure-vmware-solution.md#register-the-microsoftavs-resource-provider) with your subscription to enable the service.   
-
