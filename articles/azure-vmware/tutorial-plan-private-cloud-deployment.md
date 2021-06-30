@@ -8,7 +8,7 @@ ms.date: 07/07/2021
 
 # Plan the Azure VMware Solution deployment
 
-Planning your Azure VMware Solution deployment is critical to ensure that you're successful.  During the planning process, you'll identify and gather what's needed for your deployment. As you plan, make sure to document the information you gather for easy reference during the deployment. A successful deployment results in a production-ready environment for creating virtual machines (VMs) and migration. 
+Planning your Azure VMware Solution deployment is critical for a successful production-ready environment for creating virtual machines (VMs) and migration.  During the planning process, you'll identify and gather what's needed for your deployment. As you plan, make sure to document the information you gather for easy reference during the deployment. A successful deployment results in a production-ready environment for creating virtual machines (VMs) and migration. 
 
 In this tutorial, you learn how to:
 
