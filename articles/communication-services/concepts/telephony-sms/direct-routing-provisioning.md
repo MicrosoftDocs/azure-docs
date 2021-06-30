@@ -22,7 +22,7 @@ For information about whether ACS direct routing is the right solution for your 
 
 ### Configure using Azure portal 
 · In the left navigation, select Direct routing under Voice Calling - PSTN and then select Configure from the Session Border Controller tab.
-· Enter an FQDN and signaling port for the SBC.
+· Enter a fully qualified domain name and signaling port for the SBC.
  
 If you are using Office 365, make sure the domain part of the SBC’s FQDN is different from the domain you registered in Office 365 admin portal under Domains. 
 · For example, if contoso.com is a registered domain in O365, you cannot use sbc.contoso.com for ACS. But you can use an upper-level domain if one does not exist in O365: you can create an acs.contoso.com domain and use FQDN sbc.acs.contoso.com as an SBC name.
