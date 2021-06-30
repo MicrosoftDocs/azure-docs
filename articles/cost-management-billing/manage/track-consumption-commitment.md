@@ -274,7 +274,6 @@ The API response returns all events that affected your MACC commitment.
 | `closedBalance`  | The balance after the event.   |
 | `eventType`  | Only SettledCharges events are supported for MACC.   |
 | `invoiceNumber`  | The unique ID of the invoice whose charges decremented MACC.   |
----
 
 ## Azure Services and Marketplace Offers that are eligible for MACC
 
