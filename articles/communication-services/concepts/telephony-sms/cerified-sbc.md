@@ -11,7 +11,7 @@ ms.topic: overview
 ms.service: azure-communication-services
 ---
 # List of Session Border Controllers certified for Azure Communication Services direct routing
-This document contains a list of of Session Border Controllers certified for Azure Communication Services direct routing. It also includes known limitations.
+This document contains a list of Session Border Controllers certified for Azure Communication Services direct routing. It also includes known limitations.
 
 Microsoft partners with selected Session Border Controllers (SBC) vendors to certify that their SBCs work with ACS direct routing.
 Microsoft works with each vendor to:
@@ -22,11 +22,11 @@ Microsoft works with each vendor to:
 
 [!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
 
-At the moment of publishing Azure Communication Services does not support Media bypass. 
-Web-based client does not support early media.
+At the moment of publishing Media bypass is not supported by Azure Communication Services. 
+Early media is not supported by a web-based client.
 The table that follows list devices certified for Azure Communication Services direct routing.
 
-If you have any questions about the SBC certification program for ACS direct routing, please contact acsdrcertification@microsoft.com.
+If you have any questions about the SBC certification program for ACS direct routing, contact acsdrcertification@microsoft.com.
 
 ## Certified SBC vendors
 

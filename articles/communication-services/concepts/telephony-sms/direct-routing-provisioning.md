@@ -12,7 +12,7 @@ ms.service: azure-communication-services
 ---
 
 # Pair the Session Border Controller and configure voice routing.
-Azure Communication Services direct routing enables you to connect your existing telephony infrastructure to Azure. The article lists the high-level steps required for connecting a supported Session Border Controller (SBC) to direct routing and describes how voice routing works for the enabled Communication resource. 
+Azure Communication Services direct routing enables you to connect your existing telephony infrastructure to Azure. The article lists the high-level steps required for connecting a supported Session Border Controller (SBC) to direct routing and how voice routing works for the enabled Communication resource. 
 
 [!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
  
@@ -21,18 +21,18 @@ For information about whether ACS direct routing is the right solution for your 
 ## Connect the SBC with ACS 
 
 ### Configure using Azure portal 
-· In the left navigation, select Direct routing under Voice Calling - PSTN and then click Configure at the Session Border Controller tab.
+· In the left navigation, select Direct routing under Voice Calling - PSTN and then select Configure at the Session Border Controller tab.
 · Enter an FQDN and signaling port for the SBC.
  
-If you are using Office 365, make sure the domain part of the SBC’s FQDN is different from the domain you registered in Office 365 admin portal under Domains 
+If you are using Office 365, make sure the domain part of the SBC’s FQDN is different from the domain you registered in Office 365 admin portal under Domains. 
 · For example, if contoso.com is a registered domain in O365, you cannot use sbc.contoso.com for ACS. But you can use an upper-level domain if one does not exist in O365: you can create an acs.contoso.com domain and use FQDN sbc.acs.contoso.com as an SBC name.
 · SBC certificate must match the name; wildcard certificates are supported.
 · The *.onmicrosoft.com domain cannot be used for the FQDN of the SBC.
-For the full list of requirements refer to [Azure direct routing infrastructure requirements](./sip-interface-infrastructure.md).
+For the full list of requirements, refer to [Azure direct routing infrastructure requirements](./sip-interface-infrastructure.md).
 
 :::image type="content" source="/../media/direct-routing-provisioning/add-sbc.png" alt-text="Adding Session Border Controller.":::
 · When you are done, click Next.
-If everything set up correctly, you should see exchange of OPTIONS messages between Microsoft and your Session Border Controller, user your SBC monitoring/logs to validate this.
+If everything set up correctly, you should see exchange of OPTIONS messages between Microsoft and your Session Border Controller, user your SBC monitoring/logs to validate the connection.
 
 ## Voice routing considerations
 
@@ -48,10 +48,10 @@ The following examples display voice routing in a call flow.
 If you created one voice route with a pattern ^\+1(425|206)(\d{7})$ and added sbc1.contoso.biz and sbc2.contoso.biz to it, then when the user makes a call to +1 425 XXX XX XX or +1 206 XXX XX XX, the call is first routed to SBC sbc1.contoso.biz or sbc2.contoso.biz. If neither SBC is available, the call is dropped.
 
 ### Two routes example:
-If you created one voice route with a pattern ^\+1(425|206)(\d{7})$ and added sbc1.contoso.biz and sbc2.contoso.biz to it, and then created a second route with the same pattern with sbc3.contoso.biz and sbc4.contoso.biz. In this case, when the user makes a call to +1 425 XXX XX XX or +1 206 XXX XX XX, the call is first routed to SBC sbc1.contoso.biz or sbc2.contoso.biz. If neither sbc1 nor sbc2 is available, the route with lower priority will be tried (sbc3.contoso.biz and sbc4.contoso.biz). If none of the SBCs of the second route are available, the call is.
+If you created one voice route with a pattern ^\+1(425|206)(\d{7})$ and added sbc1.contoso.biz and sbc2.contoso.biz to it, and then created a second route with the same pattern with sbc3.contoso.biz and sbc4.contoso.biz. In this case, when the user makes a call to +1 425 XXX XX XX or +1 206 XXX XX XX, the call is first routed to SBC sbc1.contoso.biz or sbc2.contoso.biz. If both sbc1 and sbc2 are unavailable, the route with lower priority will be tried (sbc3.contoso.biz and sbc4.contoso.biz). If none of the SBCs of the second route are available, the call is.
 
 ### Three routes example:
-If you created one voice route with a pattern ^\+1(425|206)(\d{7})$ and added sbc1.contoso.biz and sbc2.contoso.biz to it, and then created a second route with the same pattern with sbc3.contoso.biz and sbc4.contoso.biz, and created a third route with ^+1(\d[10])$ with sbc5.contoso.biz. In this case, when the user makes a call to +1 425 XXX XX XX or +1 206 XXX XX XX, the call is first routed to SBC sbc1.contoso.biz or sbc2.contoso.biz. If neither sbc1 nor sbc2 is available, the route with lower priority will be tried (sbc3.contoso.biz and sbc4.contoso.biz). If none of the SBCs of a second route are available, the third route will be tried; if sbc5 is also not available, the call is dropped. Also, if a user dials +1 321 XXX XX XX, the call goes to sbc5.contoso.biz, and it is not available, the call is dropped.
+If you created one voice route with a pattern ^\+1(425|206)(\d{7})$ and added sbc1.contoso.biz and sbc2.contoso.biz to it, and then created a second route with the same pattern with sbc3.contoso.biz and sbc4.contoso.biz, and created a third route with ^+1(\d[10])$ with sbc5.contoso.biz. In this case, when the user makes a call to +1 425 XXX XX XX or +1 206 XXX XX XX, the call is first routed to SBC sbc1.contoso.biz or sbc2.contoso.biz. If both sbc1 nor sbc2 are unavailable, the route with lower priority will be tried (sbc3.contoso.biz and sbc4.contoso.biz). If none of the SBCs of a second route are available, the third route will be tried; if sbc5 is also not available, the call is dropped. Also, if a user dials +1 321 XXX XX XX, the call goes to sbc5.contoso.biz, and it is not available, the call is dropped.
 
   > [!NOTE]
   >In all examples, while the higher voice route has higher priority, the SBCs in a route are tried in random order.
@@ -68,7 +68,7 @@ If you created one voice route with a pattern ^\+1(425|206)(\d{7})$ and added sb
 Give your Voice Route a name, specify the number pattern using regular expressions, and select SBC for that pattern. 
 Read [Regular Expression Language - Quick Reference](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference) to learn more about regular expressions.
 
-You can select multiple SBCs for a single pattern. In such a case, the routing algorithm will choose them in random order. You can also specify the exact number pattern more than once. The higher row will have higher priority, and if all SBCs associated with that row are not available next row will be selected. This way, you can create complex routing scenarios.
+You can select multiple SBCs for a single pattern. In such a case, the routing algorithm will choose them in random order. You may also specify the exact number pattern more than once. The higher row will have higher priority, and if all SBCs associated with that row are not available next row will be selected. This way, you create complex routing scenarios.
 
 ## Next steps
 

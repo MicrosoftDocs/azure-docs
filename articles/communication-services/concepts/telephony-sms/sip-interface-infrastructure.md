@@ -192,6 +192,7 @@ Certification is in progress. Meanwhile, customers can use [Teams Certified Sess
 
 - [Telephony Concept](./telephony-concept.md)
 - [Phone number types in Azure Communication Services](./plan-solution.md)
+- [Pair the Session Border Controller and configure voice routing](./direct-routing-provisioning.md)
 - [Pricing](../pricing.md)
 
 ### Quickstarts
