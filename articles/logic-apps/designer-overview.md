@@ -35,20 +35,20 @@ The latest workflow designer offers a new experience with noteworthy features an
 
 - A new layout engine that supports more complicated workflows. 
 - You can create and view complicated workflows cleanly and easily, thanks to the new layout engine, a more compact canvas, and updates to the card-based layout.
-- Panels for [adding and editing steps in your workflow](#add-steps-to-workflows). This change separates your overall layout from your step configuration for clarity.
-- Keyboard navigation of your workflows to move between cards in the designer.
-    - Use **Ctrl** + **Down Arrow (&darr;)** to move to the next card.
-    - Use **Ctrl** + **Up Arrow (&uarr;)** to move to the previous card.
+- Add and edit steps using panels separate from the workflow layout. This change gives you a cleaner and clearer canvas to view your workflow layout. For more information, review [Add steps to workflows]](#add-steps-to-workflows).
+- Move between steps in your workflow on the designer using keyboard navigation.
+  - Move to the next card: **Ctrl** + **Down Arrow (&darr;)**
+  - Move to the previous card: **Ctrl** + **Up Arrow (&uarr;)**
 
 ## Add steps to workflows
 
-The Logic Apps designer provides a graphical user interface to add, edit, and delete steps in your workflow. First, add a  [*trigger*](logic-apps-overview.md#trigger) as the initial step in your workflow. Then, add one or more [*actions*](logic-apps-overview.md#action) to complete your workflow. 
+The workflow designer provides a visual way to add, edit, and delete steps in your workflow. As the first step in your workflow, always add a [*trigger*](logic-apps-overview.md#trigger). Then, complete your workflow by adding one or more [*actions*](logic-apps-overview.md#action).
 
-To add either type of step to your workflow:
+To add either the trigger or an action your workflow, follow these steps:
 
-1. Open your workflow in the Logic Apps designer.
-1. Select **Choose an operation**. A new pane opens, called either **Add a trigger** or **Add an action**. 
-1. In the pane that opens, filter the list of available operations to find the one you want. You can:
+1. Open your workflow in the designer.
+1. On the designer, select **Choose an operation**, which opens a pane named either **Add a trigger** or **Add an action**. 
+1. In the opened pane, find an operation by filtering the list in the following ways:
     1. Enter a service, connector, or category in the search bar to show related operations. For example, `Azure Cosmos DB` or `Data Operations`. 
     1. If you know the specific operation you want to use, enter the name in the search bar. For example, `Call an Azure function` or `When an HTTP request is received`.
     1. Select the **Built-in** tab to only show categories of [*built-in operations*](logic-apps-overview.md#built-in-operations). Or, select the **Azure** tab to show other categories of operations available through Azure.
