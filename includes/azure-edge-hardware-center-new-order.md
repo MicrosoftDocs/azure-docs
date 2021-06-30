@@ -2,7 +2,7 @@
 author: v-dalc
 ms.service: databox  
 ms.topic: include
-ms.date: 06/29/2021
+ms.date: 06/30/2021
 ms.author: alkohli
 ---
 
@@ -122,6 +122,4 @@ To place an order through the Azure Edge Hardware Center, do these steps:
 
     ![Screen opened by the Configure hardware option in a shipped order item](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-19.png)
 
-    After you activate the device, you can open the management resource from the item details by *ADD INSTRUCTION*.<!--Screenshot and instruction optional?-->
-
-    ![Screenshot of a management resource opened from order item details in the Azure Edge Hardware Center](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-20.png)
+    After you activate the device, you'll be able to open the management resource from the item, and open the order item from the management resource.

@@ -2,7 +2,7 @@
 author: v-dalc
 ms.service: databox  
 ms.topic: include
-ms.date: 06/29/2021
+ms.date: 06/30/2021
 ms.author: alkohli
 ---
 
@@ -12,13 +12,17 @@ To create a management resource for a device ordered through the Azure Edge Hard
 
 1. There are two ways to get started creating a new management resource:
 
-    - From the order in the Azure Edge Hardware Center: After you receive the device, open details for the related order item, and select **Configure hardware**.
+    - In the Azure Edge Hardware Center: Search for and select **Azure Edge Hardware Center**. In the Hardware Center, display **All order items**. Click the item **Name**. In the item **Overview**, select **Configure hardware**.
+    
+      The **Configure hardware** option appears after a device is shipped. 
 
-       ![Screenshot showing how to start a new management resource using Configure hardware from the Azure Edge Hardware Center order](media/azure-edge-hardware-center-create-management-resource/create-management-resource-01-a.png)
+      *Anam: Can you reproduce this view of DemoOrderASAdd1-03, so I can create the stepwise illustration? Or I can just use the order item detail screenshot from "Create a new order." Thanks!*
+    
+       ![Illustration showing how to create a management resource from an order item in the Azure Edge Hardware Center](media/azure-edge-hardware-center-create-management-resource/create-management-resource-01-a.png) 
     
     - In Azure Stack Edge: Search for an select **Azure Stack Edge**. Select **+ Create**. Then select **Create management resource**.
     
-       ![Screenshot showing how to start a new management resource from Azure Stack Edge](media/azure-edge-hardware-center-create-management-resource/create-management-resource-01-b.png) 
+       ![Illustration showing how to create a management resource from Azure Stack Edge](media/azure-edge-hardware-center-create-management-resource/create-management-resource-01-b.png) 
 
     The **Create management resource** wizard opens.
 
@@ -26,11 +30,11 @@ To create a management resource for a device ordered through the Azure Edge Hard
 
     | Setting | Value              |
     |------------------------------|----------------------------------------------------------------------------------------------|
-    | **Select a subscription**    | Select the subscription to use for the management.<!--Need not be the subscription for the order.-->|
-    | **Resource group**           | Select the resource group to use for the management resource.<!--Need not be the resource group for the order.-->                                       |
+    | **Select a subscription**    | Select the subscription to use for the management resource.                                  |
+    | **Resource group**           | Select the resource group to use for managing the management resource.                       |
     | **Name**                     | Provide a name for the management resource.                                                  |
     | **Deploy Azure resource in** | Select the country or region where the metadata for the management resource will reside. This can be different from the physical location of the device. |
-    | **Device type**              | Select the device type. This option corresponds to the configuration that's selected for the hardware product in an Azure Edge Hardware Center order.<!--Too much info?--><br>For example, for an Azure Stack Edge Pro - GPU device, the device type is either **Azure Stack Edge Pro - 1 GPU** or **Azure Stack Edge Pro - 1 GPU**.|       
+    | **Device type**              | Select the device type. This option corresponds to the configuration that's selected for the hardware product in an Azure Edge Hardware Center order.<br>For example, for an Azure Stack Edge Pro - GPU device, the device type is either **Azure Stack Edge Pro - 1 GPU** or **Azure Stack Edge Pro - 1 GPU**.|       
 
     ![Screenshot of the Basics tab in the Create management resource wizard, with example field entries](media/azure-edge-hardware-center-create-management-resource/create-management-resource-02.png)
 
