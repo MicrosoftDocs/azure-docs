@@ -147,7 +147,7 @@ An **Actor**, running an *Acting Application* (**ActingApp**) on a *Source Devic
 | **TargetSessionId** | Optional | String | The sign-in session identifier of the TargetUser on the source device. |
 | **User**           | Alias        |     String       | Alias to the [TargetUsername](#targetusername) or to the [TargetUserId](#targetuserid) if [TargetUsername](#targetusername) is not defined. <br><br>Example: `CONTOSO\dadmin`     |
 |**SrcDvcId** |Optional |String |The ID of the source device as reported in the record. <br><br>For example: `ac7e9755-8eae-4ffc-8a02-50ed7a2216c3` |
-| <a name="srcdvchostname"></a>**SrcDvcHostname** |Optional | Hostname| The source device hostname, including domain information when available. For more information, see [The Device entity](normalization.md#the-device-entity). <!--missing this content--><br><br>Example: `Constoso\DESKTOP-1282V4D`|
+| <a name="srcdvchostname"></a>**SrcDvcHostname** |Optional | Hostname| The source device hostname, including domain information when available. For more information, see [The Device entity](normalization.md#the-device-entity). <br><br>Example: `Constoso\DESKTOP-1282V4D`|
 | **SrcDvcHostnameType**|Optional |HostnameType |The type of [SrcDvcHostname](#srcdvchostname), if known. For more information, see [The Device entity](normalization.md#the-device-entity). |
 |**SrcDvcType** |Optional |Enumerated |The type of the source device. Possible values include: <br><br>- `Computer`<br>- `Mobile Device` <br>- `IOT Device` <br>- `Other` |
 |**SrcDvcIpAddr**|Recommended |IP Address |The IP address of the source device. <br><br>Example: `185.175.35.214` |
@@ -156,7 +156,7 @@ An **Actor**, running an *Acting Application* (**ActingApp**) on a *Source Devic
 | **SrcGeoCountry**|Optional |Country |Example: `Canada` <br><br>For more information, see [Logical types](normalization.md#logical-types). |
 | **SrcGeoCity**|Optional |City |Example: `Montreal` <br><br>For more information, see [Logical types](normalization.md#logical-types). |
 |**SrcGeoRegion** | Optional|Region | Example: `Quebec` <br><br>For more information, see [Logical types](normalization.md#logical-types).|
-| **SrcGeoLongtitude**|Optional |Longitude <!--this originally read "Latitude" --> | Example: `-73.614830` <br><br>For more information, see [Logical types](normalization.md#logical-types).|
+| **SrcGeoLongtitude**|Optional |Longitude  | Example: `-73.614830` <br><br>For more information, see [Logical types](normalization.md#logical-types).|
 | **SrcGeoLatitude**|Optional |Latitude |Example: `45.505918` <br><br>For more information, see [Logical types](normalization.md#logical-types). |
 |**TargetAppId** |Optional | String| The ID of the application to which the authorization is required, often assigned by the reporting device. <br><br>Example: `89162` |
 |<a name="targetappname"></a>**TargetAppName** |Optional |String |The name of the application to which the authorization is required, including a service, a URL, or a SaaS applicaton. <br><br>Example: `Saleforce` |
@@ -164,13 +164,13 @@ An **Actor**, running an *Acting Application* (**ActingApp**) on a *Source Devic
 |**TargetUrl** |Optional |String |The URL associated with the target application. <br><br>Example: `https://console.aws.amazon.com/console/home?fromtb=true&hashArgs=%23&isauthcode=true&nc2=h_ct&src=header-signin&state=hashArgsFromTB_us-east-1_7596bc16c83d260b` |
 |**LogonTarget**| Alias| |Alias to either [TargetAppName](#targetappname), *URL*, or [TargetDvcHostname](#targetdvchostname), whichever field best describes the authentication target. |
 |**TargetDvcId** |Optional | String|The ID of the target device as reported in the record. <br><br> Example: `2739` |
-|<a name="targetdvchostname"></a>**TargetDvcHostname** | Recommended| String|The target device hostname, including domain information when available. For more information, see [The Device entity](normalization.md#the-device-entity).<!--missing this content--> |
+|<a name="targetdvchostname"></a>**TargetDvcHostname** | Recommended| String|The target device hostname, including domain information when available. For more information, see [The Device entity](normalization.md#the-device-entity). |
 | **TargetDvcHostnameType**|Recommended | String|The type of [TargetDvcHostname](#targetdvchostname). For more information, see [The Device entity](normalization.md#the-device-entity). |
 |**TargetDvcType** |Optional | Enumerated|The type of the target device. Supported values include: <br><br>- `Computer`<br>- `Mobile Device` <br>- `IOT Device` <br>- `Other` |
 |<a name="targetdvcipaddr"></a>**TargetDvcIpAddr** |Optional | IP Address|The IP address of the target device. <br><br>Example: `2.2.2.2` |
-|**TargetDvc** |Alias | |	A unique identifier of the target device. <br><br>Select to alias the most appropriate value for the specific source: [TargetDvcHostname](#targetdvchostname),  [TargetDvcIpAddr](#targetdvcipaddr), <!--this originally repeated targetdvchosnmae--> or a different ID if more appropriate. |
+|**TargetDvc** |Alias | |	A unique identifier of the target device. <br><br>Select to alias the most appropriate value for the specific source: [TargetDvcHostname](#targetdvchostname),  [TargetDvcIpAddr](#targetdvcipaddr),  or a different ID if more appropriate. |
 | **TargetDvcOs**| Optional| String| The OS of the target device. <br><br>Example: `Windows 10`|
-| **TargetPortNumber**|Optional |Integer |The port of the target device.<!--this was "the port of the source device"-->|
+| **TargetPortNumber**|Optional |Integer |The port of the target device.|
 | | | | |
 
 

@@ -172,6 +172,7 @@ The following table describes the supported identifiers for processes:
 <br>
 
 For more information, see [Azure Sentinel Process Event normalization schema reference (Public preview)](process-events-normalization-schema.md).
+
 #### The Device entity
 
 The normalization schemas attempt to follow user intuition as much as possible, and therefore handle devices in various ways, depending on the scenario:
@@ -204,6 +205,8 @@ The following table describes the supported identifiers for devices:
 > [!NOTE]
 > `Domain` is a typical attribute of a device, but is not a complete identifier.
 >
+
+For more information, see [Azure Sentinel Authentication normalization schema reference (Public preview)](authentication-normalization-schema.md).
 
 #### Entity mapping example
 
