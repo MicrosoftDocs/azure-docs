@@ -44,10 +44,10 @@ These options will all take you to the job creation panel, which has a wizard fo
 
 ## Select compute resources
 
-The first step in the job creation UI is to select the compute target on which you'd like your job to run. Job creation UI supports several compute types: 
+The first step in the job creation UI is to select the compute target on which you'd like your job to run. Job creation UI supports several compute types:
 
 | Compute Type | Introduction | 
-| ___ | ____ | 
+| --- | --- | 
 | Compute instance | [What is an Azure Machine Learning compute instance](concept-compute-instance.md) | 
 | Compute cluster | [What is a compute cluster?](how-to-create-attach-compute-cluster.md#what-is-a-compute-cluster) | 
 | Attached Kubernetes cluster | [Configure Azure Arc enabled machine learning (preview)](how-to-attach-arc-kubernetes.md).) | 
