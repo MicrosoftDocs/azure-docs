@@ -198,9 +198,9 @@ NuGet package version 3.1.0-beta.4
 
 * **New methods to analyze data from identity documents**:
 
-   **[StartRecognizeIdDocumentsFromUriAsync]**
+   **StartRecognizeIdDocumentsFromUriAsync**
 
-   **[StartRecognizeIdDocumentsAsync](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient.startrecognizeiddocumentsasync?view=azure-dotnet-preview&preserve-view=true)**
+   **StartRecognizeIdDocumentsAsync**
 
    For a list of field values, _see_ [Fields extracted](concept-identification-cards.md#fields-extracted) in our Form Recognizer documentation.
 
