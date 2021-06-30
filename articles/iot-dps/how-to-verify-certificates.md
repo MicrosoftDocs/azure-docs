@@ -15,19 +15,22 @@ A verified X.509 Certificate Authority (CA) certificate is a CA certificate that
 
 Verified certificates play an important role when using enrollment groups. Verifying certificate ownership provides an additional security layer by ensuring that the uploader of the certificate is in possession of the certificate's private key. Verification prevents a malicious actor sniffing your traffic from extracting an intermediate certificate and using that certificate to create an enrollment group in their own provisioning service, effectively hijacking your devices. By proving ownership of the root or an intermediate certificate in a certificate chain, you're proving that you have permission to generate leaf certificates for the devices that will be registering as a part of that enrollment group. For this reason, the root or intermediate certificate configured in an enrollment group must either be a verified certificate or must roll up to a verified certificate in the certificate chain a device presents when it authenticates with the service. To learn more about X.509 certificate attestation, see [X.509 certificates](concepts-x509-attestation.md) and [Controlling device access to the provisioning service with X.509 certificates](concepts-x509-attestation.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
 
-## Automatic verification of intermediate or root CA through self attestation
-If you are using an intermediate or root CA that you trust and knows that you have full ownernship of the certificate, you can self attest that you have verified the certificate.
+## Automatic verification of intermediate or root CA through self-attestation
+If you are using an intermediate or root CA that you trust and know you have full ownernship of the certificate, you can self-attest that you have verified the certificate.
 
 To add an auto-verified certificate, follow these steps:
 
 1. In the Azure portal, navigate to your provisioning service and open **Certificates** from the left-hand menu. 
 2. Click **Add** to add a new certificate.
 3. Enter a friendly display name for your certificate. Browse to the .cer or .pem file that represents the public part of your X.509 certificate. Click **Upload**.
-4. Check the box next to _Set certificate status to verified_ on upload.
- ![Upload certificate_with_verified](./media/how-to-verify-certificates/add-certificate-with-verified.png)
-5. Click **Save**.
-6. Your certificate is show in the certificate tab with a status Verified.
-  ![Certificate_Status](./media/how-to-verify-certificates/certificate-status.png)
+4. Check the box next to **Set certificate status to verified on upload**.
+
+    ![Upload certificate_with_verified](./media/how-to-verify-certificates/add-certificate-with-verified.png)
+
+1. Click **Save**.
+1. Your certificate is show in the certificate tab with a status *Verified*.
+  
+    ![Certificate_Status](./media/how-to-verify-certificates/certificate-status.png)
 
 ## Manual verification of intermediate or root CA
 
