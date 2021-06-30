@@ -6,7 +6,7 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 10/27/2020
+ms.date: 06/30/2021
 ms.reviewer: sngun
 ---
 
