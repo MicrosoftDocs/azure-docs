@@ -272,7 +272,7 @@ The AADLoginForWindows extension must install successfully in order for the VM t
    - `curl https://pas.windows.net/ -D -`
 
    > [!NOTE]
-   > Replace `<TenantID>` with the Azure AD Tenant ID that is associated with the Azure subscription.<br/> `enterpriseregistration.windows.net` and `pas.windows.net` will return 404 Not Found.
+   > Replace `<TenantID>` with the Azure AD Tenant ID that is associated with the Azure subscription.<br/> `enterpriseregistration.windows.net` and `pas.windows.net` should return 404 Not Found, which is expected behavior.
             
 1. The Device State can be viewed by running `dsregcmd /status`. The goal is for Device State to show as `AzureAdJoined : YES`.
 
@@ -306,7 +306,7 @@ This Exit code translates to `DSREG_AUTOJOIN_DISC_FAILED` because the extension 
    - `curl https://pas.windows.net/ -D -`
    
    > [!NOTE]
-   > Replace `<TenantID>` with the Azure AD Tenant ID that is associated with the Azure subscription. If you need to find the tenant ID, you can hover over your account name to get the directory / tenant ID, or select **Azure Active Directory > Properties > Directory ID** in the Azure portal.<br/>`enterpriseregistration.windows.net` and `pas.windows.net` will return 404 Not Found.
+   > Replace `<TenantID>` with the Azure AD Tenant ID that is associated with the Azure subscription. If you need to find the tenant ID, you can hover over your account name to get the directory / tenant ID, or select **Azure Active Directory > Properties > Directory ID** in the Azure portal.<br/>`enterpriseregistration.windows.net` and `pas.windows.net` should return 404 Not Found, which is expected behavior.
 
 1. If any of the commands fails with "Could not resolve host `<URL>`", try running this command to determine the DNS server that is being used by the VM.
    
