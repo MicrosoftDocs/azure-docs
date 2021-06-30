@@ -27,7 +27,7 @@ The following table shows the default read-ahead values for each given `rsize` m
 | Mounted filesystem `rsize` | Blocks read-ahead |
 |-|-|
 | 64 KiB | 960 KiB |
-| 256 KiB | 3,840 KiB |
+| 256 KiB | 3840 KiB |
 | 1024 KiB | 15360 KiB |
 
 RHEL 8.3 and Ubuntu 18.04 introduced changes that might negatively impact client sequential read performance.  Unlike earlier releases, these distributions set read-ahead to a default of 128 KiB regardless of the `rsize` mount option used. Upgrading from releases with the larger read-ahead value to those with the 128 KiB default experienced decreases in sequential read performance. However, read-ahead values may be tuned upward both dynamically and persistently.  For example, testing with SAS GRID  found the 15,360-KiB read value optimal compared to 3,840 KiB, 960 KiB, and 128 KiB.  Not enough tests have been run beyond 15,360 KiB to determine positive or negative impact.
