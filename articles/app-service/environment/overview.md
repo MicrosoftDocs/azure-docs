@@ -4,7 +4,7 @@ description: Overview on the App Service Environment
 author: ccompy
 ms.assetid: 3d37f007-d6f2-4e47-8e26-b844e47ee919
 ms.topic: article
-ms.date: 06/21/2021
+ms.date: 06/30/2021
 ms.author: ccompy
 ms.custom: seodec18
 ---
