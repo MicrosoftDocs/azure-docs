@@ -146,6 +146,8 @@ static void Main(string[] args)
 
 ## Triggers
 
+WebJobs SDK supports the same set of triggers and binding used by [Azure Functions](../azure-functions/functions-triggers-bindings.md). Please note that in the WebJobs SDK, triggers are function-specific and not related to the WebJob deployment type. WebJobs with event-triggered functions created using the SDK should always be published as a _continuous_ WebJob, with _Always on_ enabled.   
+
 Functions must be public methods and must have one trigger attribute or the [`NoAutomaticTrigger`](#manual-triggers) attribute.
 
 ### Automatic triggers

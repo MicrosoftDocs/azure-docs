@@ -155,7 +155,9 @@ Now, you can add a function that is triggered by messages arriving in an Azure S
 
 ## Add a function
 
-A function is unit of code that is triggered to run on a schedule, based on events, or on demand. A trigger listens to a service event. In this section, you create a function triggered by messages in an Azure Storage queue. First, you need to add a binding extension to connect to Azure Storage.
+A function is unit of code that runs on a schedule, is triggered based on events, or is run on demand. A trigger listens to a service event. In the context of the WebJobs SDK, triggered doesn't refer to the deployment mode. Event-driven or scheduled WebJobs created using the SDK should always be deployed as continuous WebJobs with "Always on" enabled. 
+
+In this section, you create a function triggered by messages in an Azure Storage queue. First, you need to add a binding extension to connect to Azure Storage.
 
 ### Install the Storage binding extension
 
