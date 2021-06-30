@@ -6,7 +6,7 @@ author: lrtoyou1223
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/10/2021
+ms.date: 06/16/2021
 ---
 
 # Azure Private Link for Azure Data Factory
@@ -41,7 +41,7 @@ With the support of Private Link for Azure Data Factory, you can:
 
 The communications to Azure Data Factory service go through Private Link and help provide secure private connectivity. 
 
-![Diagram of Private Link for Azure Data Factory architecture.](./media/data-factory-private-link/private-link-architecture.png)
+:::image type="content" source="./media/data-factory-private-link/private-link-architecture.png" alt-text="Diagram of Private Link for Azure Data Factory architecture.":::
 
 Enabling the Private Link service for each of the preceding communication channels offers the following functionality:
 - **Supported**:

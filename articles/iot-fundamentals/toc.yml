@@ -12,6 +12,10 @@
     href: iot-support-help.md  
   - name: IoT Glossary
     href: iot-glossary.md
+- name: How-to guides
+  items:
+    - name: Use smartphone device app
+      href: iot-phone-app-how-to.md
 - name: Security
   items:
   - name: Recommendations

@@ -5,7 +5,7 @@ author: linda33wj
 ms.author: jingwang
 ms.service: data-factory
 ms.topic: troubleshooting 
-ms.date: 05/24/2021
+ms.date: 06/24/2021
 ---
 
 
@@ -14,8 +14,47 @@ ms.date: 05/24/2021
 
 This article explores troubleshooting methods related to connector and format for mapping data flows in Azure Data Factory (ADF).
 
+## Azure Blob Storage
 
-## Cosmos DB & JSON
+### Account kind of Storage (general purpose v1) doesn't support service principal and MI authentication
+
+#### Symptoms
+
+In data flows, if you use Azure Blob Storage (general purpose v1) with the service principal or MI authentication, you may encounter the following error message:
+
+`com.microsoft.dataflow.broker.InvalidOperationException: ServicePrincipal and MI auth are not supported if blob storage kind is Storage (general purpose v1)`
+
+#### Cause
+
+When you use the Azure Blob linked service in data flows, the managed identity or service principal authentication is not supported when the account kind is empty or "Storage". This situation is shown in Image 1 and Image 2 below.
+
+Image 1: The account kind in the Azure Blob Storage linked service
+
+:::image type="content" source="./media/data-flow-troubleshoot-connector-format/storage-account-kind.png" alt-text="Screenshot that shows the storage account kind in the Azure Blob Storage linked service."::: 
+
+Image 2: Storage account page
+
+:::image type="content" source="./media/data-flow-troubleshoot-connector-format/storage-account-page.png" alt-text="Screenshot that shows storage account page." lightbox="./media/data-flow-troubleshoot-connector-format/storage-account-page.png"::: 
+
+
+#### Recommendation
+
+To solve this issue, refer to the following recommendations:
+
+- If the storage account kind is **None** in the Azure Blob linked service, specify the proper account kind, and refer to Image 3 shown below to accomplish it. Furthermore, refer to Image 2 to get the storage account kind, and check and confirm the account kind is not Storage (general purpose v1).
+
+    Image 3: Specify the storage account kind in the Azure Blob Storage linked service
+
+    :::image type="content" source="./media/data-flow-troubleshoot-connector-format/specify-storage-account-kind.png" alt-text="Screenshot that shows how to specify storage account kind in Azure Blob Storage linked service."::: 
+    
+
+- If the account kind is Storage (general purpose v1), upgrade your storage account to the **general purpose v2** or choose a different authentication.
+
+    Image 4: Upgrade the storage account to general purpose v2
+
+    :::image type="content" source="./media/data-flow-troubleshoot-connector-format/upgrade-storage-account.png" alt-text="Screenshot that shows how to upgrade the storage account to general purpose v2." lightbox="./media/data-flow-troubleshoot-connector-format/upgrade-storage-account.png"::: 
+
+## Azure Cosmos DB and JSON format
 
 ### Support customized schemas in the source
 
@@ -50,6 +89,40 @@ To overwrite the default behavior and bring in additional fields, ADF provides o
 - **Option-2**: If you are familiar with the schema and DSL language of the source data, you can manually update the data flow source script to add additional/missed columns to read the data. An example is shown in the following picture: 
 
     ![Screenshot that shows the second option to customize the source schema.](./media/data-flow-troubleshoot-connector-format/customize-schema-option-2.png)
+
+### Support map type in the source
+
+#### Symptoms
+In ADF data flows, map data type cannot be directly supported in Cosmos DB or JSON source, so you cannot get the map data type under "Import projection".
+
+#### Cause
+For Cosmos DB and JSON, they are schema free connectivity and related spark connector uses sample data to infer the schema, and then that schema is used as the Cosmos DB/JSON source schema. When inferring the schema, the Cosmos DB/JSON spark connector can only infer object data as a struct rather than a map data type, and that's why map type cannot be directly supported.
+
+#### Recommendation 
+To solve this issue, refer to the following examples and steps to manually update the script (DSL) of the Cosmos DB/JSON source to get the map data type support.
+
+**Examples**:
+
+:::image type="content" source="./media/data-flow-troubleshoot-connector-format/script-example.png" alt-text="Screenshot that shows examples of updating the script (DSL) of the Cosmos DB/JSON source." lightbox="./media/data-flow-troubleshoot-connector-format/script-example.png"::: 
+    
+**Step-1**: Open the script of the data flow activity.
+
+:::image type="content" source="./media/data-flow-troubleshoot-connector-format/open-script.png" alt-text="Screenshot that shows how to open the script of the data flow activity." ::: 
+    
+**Step-2**: Update the DSL to get the map type support by referring to the examples above.
+
+:::image type="content" source="./media/data-flow-troubleshoot-connector-format/update-dsl.png" alt-text="Screenshot that shows how to update the DSL." ::: 
+
+The map type support:
+
+|Type |Is the map type supported?   |Comments|
+|-------------------------|-----------|------------|
+|Excel, CSV  |No      |Both are tabular data sources with the primitive type, so there is no need to support the map type. |
+|Orc, Avro |Yes |None.|
+|JSON|Yes |The map type cannot be directly supported, please follow the recommendation part in this section to update the script (DSL) under the source projection.|
+|Cosmos DB |Yes |The map type cannot be directly supported, please follow the recommendation part in this section to update the script (DSL) under the source projection.|
+|Parquet |Yes |Today the complex data type is not supported on the parquet dataset, so you need to use the "Import projection" under the data flow parquet source to get the map type.|
+|XML |No |None.|
 
 ### Consume JSON files generated by copy activities
 
@@ -106,130 +179,54 @@ For example:
 
 :::image type="content" source="./media/data-flow-troubleshoot-connector-format/set-parameter-in-query.png" alt-text="Screenshot that shows the set parameter in the query."::: 
 
-## CDM
+## Azure Data Lake Storage Gen1
 
-### Model.Json files with special characters
-
-#### Symptoms 
-You may encounter an issue that the final name of the model.json file contains special characters.  
-
-#### Error message  
-`at Source 'source1': java.lang.IllegalArgumentException: java.net.URISyntaxException: Relative path in absolute URI: PPDFTable1.csv@snapshot=2020-10-21T18:00:36.9469086Z. ` 
-
-#### Recommendation  
-Replace the special chars in the file name, which will work in the synapse but not in ADF.  
-
-### No data output in the data preview or after running pipelines
+### Fail to create files with service principle authentication
 
 #### Symptoms
-When you use the manifest.json for CDM, no data is shown in the data preview or shown after running a pipeline. Only headers are shown. You can see this issue in the picture below.<br/>
+When you try to move or transfer data from different sources into the ADLS gen1 sink, if the linked service's authentication method is service principle authentication, your job may fail with the following error message:
 
-![Screenshot that shows the no data output symptom.](./media/data-flow-troubleshoot-connector-format/no-data-output.png)
-
-#### Cause
-The manifest document describes the CDM folder, for example, what entities that you have in the folder, references of those entities and the data that corresponds to this instance. Your manifest document misses the `dataPartitions` information that indicates ADF where to read the data, and  since it is empty, it returns zero data. 
-
-#### Recommendation
-Update your manifest document to have the `dataPartitions` information, and you can refer to this example manifest document to update your document: [Common Data Model metadata: Introducing manifest-Example manifest document](/common-data-model/cdm-manifest#example-manifest-document).
-
-### JSON array attributes are inferred as separate columns
-
-#### Symptoms 
-You may encounter an issue where one attribute (string type) of the CDM entity has a JSON array as data. When this data is encountered, ADF infers the data as separate columns incorrectly. As you can see from the following pictures, a single attribute presented in the source (msfp_otherproperties) is inferred as a separate column in the CDM connector’s preview.<br/> 
-
-- In the CSV source data (refer to the second column): <br/>
-
-    ![Screenshot that shows the attribute in the CSV source data.](./media/data-flow-troubleshoot-connector-format/json-array-csv.png)
-
-- In the CDM source data preview: <br/>
-
-    ![Screenshot that shows the separate column in the CDM source data.](./media/data-flow-troubleshoot-connector-format/json-array-cdm.png)
-
- 
-You may also try to map drifted columns and use the data flow expression to transform this attribute as an array. But since this attribute is read as a separate column when reading, transforming to an array does not work.  
+`org.apache.hadoop.security.AccessControlException: CREATE failed with error 0x83090aa2 (Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.). [2b5e5d92-xxxx-xxxx-xxxx-db4ce6fa0487] failed with error 0x83090aa2 (Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.)`
 
 #### Cause
-This issue is likely caused by the commas within your JSON object value for that column. Since your data file is expected to be a CSV file, the comma indicates that it is the end of a column’s value. 
+
+The RWX permission or the dataset property is not set correctly.
 
 #### Recommendation
-To solve this problem, you need to double quote your JSON column and avoid any of the inner quotes with a backslash (`\`). In this way, the contents of that column’s value can be read in as a single column entirely.  
-  
->[!Note]
->The CDM doesn’t inform that the data type of the column value is JSON, yet it informs that it is a string and parsed as such.
 
-### Unable to fetch data in the data flow preview
+- If the target folder doesn't have correct permissions, refer to this document to assign the correct permission in Gen1: [Use service principal authentication](./connector-azure-data-lake-store.md#use-service-principal-authentication).
+
+- If the target folder has the correct permission and you use the file name property in the data flow to target to the right folder and file name, but the file path property of the dataset is not set to the target file path (usually leave not set), as the example shown in the following pictures, you will encounter this failure because the backend system tries to create files based on the file path of the dataset, and the file path of the dataset doesn't have the correct permission.
+    
+    :::image type="content" source="./media/data-flow-troubleshoot-connector-format/file-path-property.png" alt-text="Screenshot that shows the file path property."::: 
+    
+    :::image type="content" source="./media/data-flow-troubleshoot-connector-format/file-name-property.png" alt-text="Screenshot that shows the file name property."::: 
+
+    
+    There are two methods to solve this issue:
+    1. Assign the WX permission to the file path of the dataset.
+    1. Set the file path of the dataset as the folder with WX permission, and set the rest folder path and file name in data flows.
+
+## Azure Data Lake Storage Gen2
+
+### Failed with an error: "Error while reading file XXX. It is possible the underlying files have been updated"
 
 #### Symptoms
-You use CDM with model.json generated by Power BI. When you preview the CDM data using the data flow preview, you encounter an error: `No output data.`
+
+When you use the ADLS Gen2 as a sink in the data flow (to preview data, debug/trigger run, etc.) and the partition setting in **Optimize** tab in the **Sink** stage is not default, you may find job fail with the following error message:
+
+`Job failed due to reason: Error while reading file abfss:REDACTED_LOCAL_PART@prod.dfs.core.windows.net/import/data/e3342084-930c-4f08-9975-558a3116a1a9/part-00000-tid-7848242374008877624-5df7454e-7b14-4253-a20b-d20b63fe9983-1-1-c000.csv. It is possible the underlying files have been updated. You can explicitly invalidate the cache in Spark by running 'REFRESH TABLE tableName' command in SQL or by recreating the Dataset/DataFrame involved.`
 
 #### Cause
- The following code exists in the partitions in the model.json file generated by the Power BI data flow.
-```json
-"partitions": [  
-{  
-"name": "Part001",  
-"refreshTime": "2020-10-02T13:26:10.7624605+00:00",  
-"location": "https://datalakegen2.dfs.core.windows.net/powerbi/salesEntities/salesPerfByYear.csv @snapshot=2020-10-02T13:26:10.6681248Z"  
-}  
-```
-For this model.json file, the issue is the naming schema of the data partition file has special characters, and supporting file paths with '@' do not exist currently.  
+
+1. You don't assign a proper permission to your MI/SP authentication.
+1. You may have a customized job to handle files that you don't want, which will affect the data flow's middle output.
 
 #### Recommendation
-Please remove the `@snapshot=2020-10-02T13:26:10.6681248Z` part from the data partition file name and the model.json file, and then try again. 
+1. Check if your linked service has the R/W/E permission for Gen2. If you use the MI auth/SP authentication, at least grant the Storage Blob Data Contributor role in the Access control (IAM).
+1. Confirm if you have specific jobs that move/delete files to other place whose name does not match your rule. Because data flows will write down partition files into the target folder firstly and then do the merge and rename operations, the middle file's name might not match your rule.
 
-### The corpus path is null or empty
-
-#### Symptoms
-When you use CDM in the data flow with the model format, you cannot preview the data, and you encounter the error: `DF-CDM_005 The corpus path is null or empty`. The error is shown in the following picture:  
-
-![Screenshot that shows the corpus path error.](./media/data-flow-troubleshoot-connector-format/corpus-path-error.png)
-
-#### Cause
-Your data partition path in the model.json is pointing to a blob storage location and not your data lake. The location should have the base URL of **.dfs.core.windows.net** for the ADLS Gen2. 
-
-#### Recommendation
-To solve this issue, you can refer to this article: [ADF Adds Support for Inline Datasets and Common Data Model to Data Flows](https://techcommunity.microsoft.com/t5/azure-data-factory/adf-adds-support-for-inline-datasets-and-common-data-model-to/ba-p/1441798), and the following picture shows the way to fix the corpus path error in this article.
-
-![Screenshot that shows how to fix the corpus path error.](./media/data-flow-troubleshoot-connector-format/fix-format-issue.png)
-
-### Unable to read CSV data files
-
-#### Symptoms 
-You use the inline dataset as the common data model with manifest as a source, and you have provided the entry manifest file, root path, entity name and path. In the manifest, you have the data partitions with the CSV file location. Meanwhile, the entity schema and csv schema are identical, and all validations were successful. However, in the data preview, only the schema rather than the data gets loaded and the data is invisible, which is shown in the following picture:
-
-![Screenshot that shows the issue of unable to read data files.](./media/data-flow-troubleshoot-connector-format/unable-read-data.png)
-
-#### Cause
-Your CDM folder is not separated into logical and physical models, and only physical models exist in the CDM folder. The following two articles describe the difference: [Logical definitions](/common-data-model/sdk/logical-definitions) and [Resolving a logical entity definition](/common-data-model/sdk/convert-logical-entities-resolved-entities).<br/> 
-
-#### Recommendation
-For the data flow using CDM as a source, try to use a logical model as your entity reference, and use the manifest that describes the location of the physical resolved entities and the data partition locations. You can see some samples of logical entity definitions within the public CDM github repository: [CDM-schemaDocuments](https://github.com/microsoft/CDM/tree/master/schemaDocuments)<br/>
-
-A good starting point to forming your corpus is to copy the files within the schema documents folder (just that level inside the github repository), and put those files into a folder. Afterwards, you can use one of the predefined logical entities within the repository (as a starting or reference point) to create your logical model.<br/>
-
-Once the corpus is set up, you are recommended to use CDM as a sink within data flows, so that a well-formed CDM folder can be properly created. You can use your CSV dataset as a source and then sink it to your CDM model that you created.
-
-## Delta
-
-### The sink does not support the schema drift with upsert or update
-
-#### Symptoms
-You may face the issue that the delta sink in mapping data flows does not support schema drift with upsert/update. The problem is that the schema drift does not work when the delta is the target in a mapping data flow and user configure an update/upsert. 
-
-If a column is added to the source after an "initial" load to the delta, the subsequent jobs just fail with an error that it cannot find the new column, and this happens when you upsert/update with the alter row. It seems to work for inserts only.
-
-#### Error message
-`DF-SYS-01 at Sink 'SnkDeltaLake': org.apache.spark.sql.AnalysisException: cannot resolve target.BICC_RV in UPDATE clause given columns target. `
-
-#### Cause
-This is an issue for delta format because of the limitation of io delta library used in the data flow runtime. This issue is still in fixing.
-
-#### Recommendation
-To solve this problem, you need to update the schema firstly and then write the data. You can follow the steps below: <br/>
-1. Create one data flow that includes an insert-only delta sink with the merge schema option to update the schema. 
-1. After Step 1, use delete/upsert/update to modify the target sink without changing the schema. <br/>
-
-## Azure PostgreSQL
+## Azure Database for PostgreSQL
 
 ### Encounter an error: Failed with exception: handshake_failure 
 
@@ -251,74 +248,81 @@ If you use the flexible server or Hyperscale (Citus) for your Azure PostgreSQL s
 #### Recommendation
 You can try to use copy activities to unblock this issue. 
 
-## CSV and Excel
-
-### Set the quote character to 'no quote char' is not supported in the CSV
+## Azure SQL Database
  
-#### Symptoms
-
-There are several issues that are not supported in the CSV when the quote character is set to 'no quote char':
-
-1. When the quote character is set to 'no quote char', multi-char column delimiter can't start and end with the same letters.
-2. When the quote character is set to 'no quote char', multi-char column delimiter can't contain the escape character: `\`.
-3. When the quote character is set to 'no quote char', column value can't contain row delimiter.
-4. The quote character and the escape character cannot both be empty (no quote and no escape) if the column value contains a column delimiter.
-
-#### Cause
-
-Causes of the symptoms are stated below with examples respectively:
-1. Start and end with the same letters.<br/>
-`column delimiter: $*^$*`<br/>
-`column value: abc$*^    def`<br/>
-`csv sink: abc$*^$*^$*def ` <br/>
-`will be read as "abc" and "^&*def"`<br/>
-
-2. The multi-char delimiter contains escape characters.<br/>
-`column delimiter: \x`<br/>
-`escape char:\`<br/>
-`column value: "abc\\xdef"`<br/>
-The escape character will either escape the column delimiter or the escape the character.
-
-3. The column value contains the row delimiter. <br/>
-`We need quote character to tell if row delimiter is inside column value or not.`
-
-4. The quote character and the escape character both be empty and the column value contains column delimiters.<br/>
-`Column delimiter: \t`<br/>
-`column value: 111\t222\t33\t3`<br/>
-`It will be ambigious if it contains 3 columns 111,222,33\t3 or 4 columns 111,222,33,3.`<br/>
-
-#### Recommendation
-The first symptom and the second symptom cannot be solved currently. For the third and fourth symptoms, you can apply the following methods:
-- For Symptom 3, do not use the 'no quote char' for a multiline csv file.
-- For Symptom 4, set either the quote character or the escape character as non-empty, or you can remove all column delimiters inside your data.
-
-### Read files with different schemas error
+### Unable to connect to the SQL Database
 
 #### Symptoms
 
-When you use data flows to read files such as CSV and Excel files with different schemas, the data flow debug, sandbox or activity run will fail.
-- For CSV, the data misalignment exists when the schema of files is different. 
-
-    ![Screenshot that shows the first schema error.](./media/data-flow-troubleshoot-connector-format/schema-error-1.png)
-
-- For Excel, an error occurs when the schema of the file is different.
-
-    ![Screenshot that shows the second schema error.](./media/data-flow-troubleshoot-connector-format/schema-error-2.png)
+Your Azure SQL Database can work well in the data copy, dataset preview-data and test-connection in the linked service, but it fails when the same Azure SQL Database is used as a source or sink in the data flow with error like `Cannot connect to SQL database: 'jdbc:sqlserver://powerbasenz.database.windows.net;..., Please check the linked service configuration is correct, and make sure the SQL database firewall allows the integration runtime to access`
 
 #### Cause
 
-Reading files with different schemas in the data flow is not supported.
+There are wrong firewall settings on your Azure SQL Database server, so that it cannot be connected by the data flow runtime. Currently, when you try to use the data flow to read/write Azure SQL Database, Azure Databricks is used to build spark cluster to run the job, but it does not support fixed IP ranges. For more details, please refer to [Azure Integration Runtime IP addresses](./azure-integration-runtime-ip-addresses.md).
 
 #### Recommendation
 
-If you still want to transfer files such as CSV and Excel files with different schemas in the data flow, you can use the ways below to work around:
+Check the firewall settings of your Azure SQL Database and set it as "Allow access to Azure services" rather than set the fixed IP range.
 
-- For CSV, you need to manually merge the schema of different files to get the full schema. For example, file_1 has columns `c_1, c_2, c_3` while file_2 has columns `c_3, c_4,... c_10`, so the merged and the full schema is `c_1, c_2... c_10`. Then make other files also have the same full schema even though it does not have data, for example, file_x only has columns `c_1, c_2, c_3, c_4`, please add additional columns `c_5, c_6, ... c_10` in the file, then it can work.
+:::image type="content" source="./media/data-flow-troubleshoot-connector-format/allow-access-to-azure-service.png" alt-text="Screenshot that shows how to allow access to Azure service in firewall settings."::: 
 
-- For Excel, you can solve this issue by applying one of the following options:
+### Syntax error when using queries as input
 
-    - **Option-1**: You need to manually merge the schema of different files to get the full schema. For example, file_1 has columns `c_1, c_2, c_3` while file_2 has columns `c_3, c_4,... c_10`, so the merged and full schema is `c_1, c_2... c_10`. Then make other files also have the same schema even though it does not have data, for example, file_x with sheet "SHEET_1" only has columns `c_1, c_2, c_3, c_4`, please add additional columns `c_5, c_6, ... c_10` in the sheet too, and then it can work.
-    - **Option-2**: Use **range (for example, A1:G100) + firstRowAsHeader=false**, and then it can load data from all Excel files even though the column name and count is different.
+#### Symptoms
+
+When you use queries as input in the data flow source with the Azure SQL, you fail with the following error message:
+
+`at Source 'source1': shaded.msdataflow.com.microsoft.sqlserver.jdbc.SQLServerException: Incorrect syntax XXXXXXXX.`
+
+:::image type="content" source="./media/data-flow-troubleshoot-connector-format/error-detail.png" alt-text="Screenshot that shows the error details."::: 
+
+#### Cause
+
+The query used in the data flow source should be able to run as a sub query. The reason of the failure is that either the query syntax is incorrect or it can't be run as a sub query. You can run the following query in the SSMS to verify it:
+
+`SELECT top(0) * from ($yourQuery) as T_TEMP`
+
+#### Recommendation
+
+Provide a correct query and test it in the SSMS firstly.
+
+### Failed with an error: "SQLServerException: 111212; Operation cannot be performed within a transaction."
+
+#### Symptoms
+
+When you use the Azure SQL Database as a sink in the data flow to preview data, debug/trigger run and do other activities, you may find your job fails with following error message:
+
+`{"StatusCode":"DFExecutorUserError","Message":"Job failed due to reason: at Sink 'sink': shaded.msdataflow.com.microsoft.sqlserver.jdbc.SQLServerException: 111212;Operation cannot be performed within a transaction.","Details":"at Sink 'sink': shaded.msdataflow.com.microsoft.sqlserver.jdbc.SQLServerException: 111212;Operation cannot be performed within a transaction."}`
+
+#### Cause
+The error "`111212;Operation cannot be performed within a transaction.`" only occurs in the Synapse dedicated SQL pool. But you mistakenly use the Azure SQL Database as the connector instead.
+
+#### Recommendation
+Confirm if your SQL Database is a Synapse dedicated SQL pool. If so, please use Azure Synapse Analytics as a connector shown in the picture below.
+
+:::image type="content" source="./media/data-flow-troubleshoot-connector-format/synapse-analytics-connector.png" alt-text="Screenshot that shows the Azure Synapse Analytics connector."::: 
+
+### Data with the decimal type become null
+
+#### Symptoms
+
+You want to insert data into a table in the SQL database. If the data contains the decimal type and need to be inserted into a column with the decimal type in the SQL database, the data value may be changed to null.
+
+If you do the preview, in previous stages, it will show the value like the following picture:
+
+:::image type="content" source="./media/data-flow-troubleshoot-connector-format/value-in-previous-stage.png" alt-text="Screenshot that shows the value in the previous stages."::: 
+
+In the sink stage, it will become null, which is shown in the picture below.
+
+:::image type="content" source="./media/data-flow-troubleshoot-connector-format/value-in-sink-stage.png" alt-text="Screenshot that shows the value in the sink stage."::: 
+
+#### Cause
+The decimal type has scale and precision properties. If your data type doesn't match that in the sink table, the system will validate that the target decimal is wider than the original decimal, and the original value does not overflow in the target decimal. Therefore, the value will be cast to null.
+
+#### Recommendation
+Check and compare the decimal type between data and table in the SQL database, and alter the scale and precision to the same.
+
+You can use toDecimal (IDecimal, scale, precision) to figure out if the original data can be cast to the target scale and precision. If it returns null, it means that the data cannot be cast and furthered when inserting.
 
 ## Azure Synapse Analytics
 
@@ -457,47 +461,199 @@ You use the Azure Blob Storage as the staging linked service to link to a storag
 #### Recommendation
 Create an Azure Data Lake Gen2 linked service for the storage, and select the Gen2 storage as the staging linked service in data flow activities.
 
+## Common Data Model format
 
-## Azure Blob Storage
+### Model.json files with special characters
 
-### Account kind of Storage (general purpose v1) doesn't support service principal and MI authentication
+#### Symptoms 
+You may encounter an issue that the final name of the model.json file contains special characters.  
+
+#### Error message  
+`at Source 'source1': java.lang.IllegalArgumentException: java.net.URISyntaxException: Relative path in absolute URI: PPDFTable1.csv@snapshot=2020-10-21T18:00:36.9469086Z. ` 
+
+#### Recommendation  
+Replace the special chars in the file name, which will work in the synapse but not in ADF.  
+
+### No data output in the data preview or after running pipelines
 
 #### Symptoms
+When you use the manifest.json for CDM, no data is shown in the data preview or shown after running a pipeline. Only headers are shown. You can see this issue in the picture below.<br/>
 
-In data flows, if you use Azure Blob Storage (general purpose v1) with the service principal or MI authentication, you may encounter the following error message:
+![Screenshot that shows the no data output symptom.](./media/data-flow-troubleshoot-connector-format/no-data-output.png)
 
-`com.microsoft.dataflow.broker.InvalidOperationException: ServicePrincipal and MI auth are not supported if blob storage kind is Storage (general purpose v1)`
+#### Cause
+The manifest document describes the CDM folder, for example, what entities that you have in the folder, references of those entities and the data that corresponds to this instance. Your manifest document misses the `dataPartitions` information that indicates ADF where to read the data, and  since it is empty, it returns zero data. 
+
+#### Recommendation
+Update your manifest document to have the `dataPartitions` information, and you can refer to this example manifest document to update your document: [Common Data Model metadata: Introducing manifest-Example manifest document](/common-data-model/cdm-manifest#example-manifest-document).
+
+### JSON array attributes are inferred as separate columns
+
+#### Symptoms 
+You may encounter an issue where one attribute (string type) of the CDM entity has a JSON array as data. When this data is encountered, ADF infers the data as separate columns incorrectly. As you can see from the following pictures, a single attribute presented in the source (msfp_otherproperties) is inferred as a separate column in the CDM connector’s preview.<br/> 
+
+- In the CSV source data (refer to the second column): <br/>
+
+    ![Screenshot that shows the attribute in the CSV source data.](./media/data-flow-troubleshoot-connector-format/json-array-csv.png)
+
+- In the CDM source data preview: <br/>
+
+    ![Screenshot that shows the separate column in the CDM source data.](./media/data-flow-troubleshoot-connector-format/json-array-cdm.png)
+
+ 
+You may also try to map drifted columns and use the data flow expression to transform this attribute as an array. But since this attribute is read as a separate column when reading, transforming to an array does not work.  
+
+#### Cause
+This issue is likely caused by the commas within your JSON object value for that column. Since your data file is expected to be a CSV file, the comma indicates that it is the end of a column’s value. 
+
+#### Recommendation
+To solve this problem, you need to double quote your JSON column and avoid any of the inner quotes with a backslash (`\`). In this way, the contents of that column’s value can be read in as a single column entirely.  
+  
+>[!Note]
+>The CDM doesn’t inform that the data type of the column value is JSON, yet it informs that it is a string and parsed as such.
+
+### Unable to fetch data in the data flow preview
+
+#### Symptoms
+You use CDM with model.json generated by Power BI. When you preview the CDM data using the data flow preview, you encounter an error: `No output data.`
+
+#### Cause
+ The following code exists in the partitions in the model.json file generated by the Power BI data flow.
+```json
+"partitions": [  
+{  
+"name": "Part001",  
+"refreshTime": "2020-10-02T13:26:10.7624605+00:00",  
+"location": "https://datalakegen2.dfs.core.windows.net/powerbi/salesEntities/salesPerfByYear.csv @snapshot=2020-10-02T13:26:10.6681248Z"  
+}  
+```
+For this model.json file, the issue is the naming schema of the data partition file has special characters, and supporting file paths with '@' do not exist currently.  
+
+#### Recommendation
+Please remove the `@snapshot=2020-10-02T13:26:10.6681248Z` part from the data partition file name and the model.json file, and then try again. 
+
+### The corpus path is null or empty
+
+#### Symptoms
+When you use CDM in the data flow with the model format, you cannot preview the data, and you encounter the error: `DF-CDM_005 The corpus path is null or empty`. The error is shown in the following picture:  
+
+![Screenshot that shows the corpus path error.](./media/data-flow-troubleshoot-connector-format/corpus-path-error.png)
+
+#### Cause
+Your data partition path in the model.json is pointing to a blob storage location and not your data lake. The location should have the base URL of **.dfs.core.windows.net** for the ADLS Gen2. 
+
+#### Recommendation
+To solve this issue, you can refer to this article: [ADF Adds Support for Inline Datasets and Common Data Model to Data Flows](https://techcommunity.microsoft.com/t5/azure-data-factory/adf-adds-support-for-inline-datasets-and-common-data-model-to/ba-p/1441798), and the following picture shows the way to fix the corpus path error in this article.
+
+![Screenshot that shows how to fix the corpus path error.](./media/data-flow-troubleshoot-connector-format/fix-format-issue.png)
+
+### Unable to read CSV data files
+
+#### Symptoms 
+You use the inline dataset as the common data model with manifest as a source, and you have provided the entry manifest file, root path, entity name and path. In the manifest, you have the data partitions with the CSV file location. Meanwhile, the entity schema and csv schema are identical, and all validations were successful. However, in the data preview, only the schema rather than the data gets loaded and the data is invisible, which is shown in the following picture:
+
+![Screenshot that shows the issue of unable to read data files.](./media/data-flow-troubleshoot-connector-format/unable-read-data.png)
+
+#### Cause
+Your CDM folder is not separated into logical and physical models, and only physical models exist in the CDM folder. The following two articles describe the difference: [Logical definitions](/common-data-model/sdk/logical-definitions) and [Resolving a logical entity definition](/common-data-model/sdk/convert-logical-entities-resolved-entities).<br/> 
+
+#### Recommendation
+For the data flow using CDM as a source, try to use a logical model as your entity reference, and use the manifest that describes the location of the physical resolved entities and the data partition locations. You can see some samples of logical entity definitions within the public CDM github repository: [CDM-schemaDocuments](https://github.com/microsoft/CDM/tree/master/schemaDocuments)<br/>
+
+A good starting point to forming your corpus is to copy the files within the schema documents folder (just that level inside the github repository), and put those files into a folder. Afterwards, you can use one of the predefined logical entities within the repository (as a starting or reference point) to create your logical model.<br/>
+
+Once the corpus is set up, you are recommended to use CDM as a sink within data flows, so that a well-formed CDM folder can be properly created. You can use your CSV dataset as a source and then sink it to your CDM model that you created.
+
+## CSV and Excel format
+
+### Set the quote character to 'no quote char' is not supported in the CSV
+ 
+#### Symptoms
+
+There are several issues that are not supported in the CSV when the quote character is set to 'no quote char':
+
+1. When the quote character is set to 'no quote char', multi-char column delimiter can't start and end with the same letters.
+2. When the quote character is set to 'no quote char', multi-char column delimiter can't contain the escape character: `\`.
+3. When the quote character is set to 'no quote char', column value can't contain row delimiter.
+4. The quote character and the escape character cannot both be empty (no quote and no escape) if the column value contains a column delimiter.
 
 #### Cause
 
-When you use the Azure Blob linked service in data flows, the managed identity or service principal authentication is not supported when the account kind is empty or "Storage". This situation is shown in Image 1 and Image 2 below.
+Causes of the symptoms are stated below with examples respectively:
+1. Start and end with the same letters.<br/>
+`column delimiter: $*^$*`<br/>
+`column value: abc$*^    def`<br/>
+`csv sink: abc$*^$*^$*def ` <br/>
+`will be read as "abc" and "^&*def"`<br/>
 
-Image 1: The account kind in the Azure Blob Storage linked service
+2. The multi-char delimiter contains escape characters.<br/>
+`column delimiter: \x`<br/>
+`escape char:\`<br/>
+`column value: "abc\\xdef"`<br/>
+The escape character will either escape the column delimiter or the escape the character.
 
-:::image type="content" source="./media/data-flow-troubleshoot-connector-format/storage-account-kind.png" alt-text="Screenshot that shows the storage account kind in the Azure Blob Storage linked service."::: 
+3. The column value contains the row delimiter. <br/>
+`We need quote character to tell if row delimiter is inside column value or not.`
 
-Image 2: Storage account page
+4. The quote character and the escape character both be empty and the column value contains column delimiters.<br/>
+`Column delimiter: \t`<br/>
+`column value: 111\t222\t33\t3`<br/>
+`It will be ambigious if it contains 3 columns 111,222,33\t3 or 4 columns 111,222,33,3.`<br/>
 
-:::image type="content" source="./media/data-flow-troubleshoot-connector-format/storage-account-page.png" alt-text="Screenshot that shows storage account page." lightbox="./media/data-flow-troubleshoot-connector-format/storage-account-page.png"::: 
+#### Recommendation
+The first symptom and the second symptom cannot be solved currently. For the third and fourth symptoms, you can apply the following methods:
+- For Symptom 3, do not use the 'no quote char' for a multiline csv file.
+- For Symptom 4, set either the quote character or the escape character as non-empty, or you can remove all column delimiters inside your data.
 
+### Read files with different schemas error
+
+#### Symptoms
+
+When you use data flows to read files such as CSV and Excel files with different schemas, the data flow debug, sandbox or activity run will fail.
+- For CSV, the data misalignment exists when the schema of files is different. 
+
+    ![Screenshot that shows the first schema error.](./media/data-flow-troubleshoot-connector-format/schema-error-1.png)
+
+- For Excel, an error occurs when the schema of the file is different.
+
+    ![Screenshot that shows the second schema error.](./media/data-flow-troubleshoot-connector-format/schema-error-2.png)
+
+#### Cause
+
+Reading files with different schemas in the data flow is not supported.
 
 #### Recommendation
 
-To solve this issue, refer to the following recommendations:
+If you still want to transfer files such as CSV and Excel files with different schemas in the data flow, you can use the ways below to work around:
 
-- If the storage account kind is **None** in the Azure Blob linked service, specify the proper account kind, and refer to Image 3 shown below to accomplish it. Furthermore, refer to Image 2 to get the storage account kind, and check and confirm the account kind is not Storage (general purpose v1).
+- For CSV, you need to manually merge the schema of different files to get the full schema. For example, file_1 has columns `c_1, c_2, c_3` while file_2 has columns `c_3, c_4,... c_10`, so the merged and the full schema is `c_1, c_2... c_10`. Then make other files also have the same full schema even though it does not have data, for example, file_x only has columns `c_1, c_2, c_3, c_4`, please add additional columns `c_5, c_6, ... c_10` in the file, then it can work.
 
-    Image 3: Specify the storage account kind in the Azure Blob Storage linked service
+- For Excel, you can solve this issue by applying one of the following options:
 
-    :::image type="content" source="./media/data-flow-troubleshoot-connector-format/specify-storage-account-kind.png" alt-text="Screenshot that shows how to specify storage account kind in Azure Blob Storage linked service."::: 
-    
+    - **Option-1**: You need to manually merge the schema of different files to get the full schema. For example, file_1 has columns `c_1, c_2, c_3` while file_2 has columns `c_3, c_4,... c_10`, so the merged and full schema is `c_1, c_2... c_10`. Then make other files also have the same schema even though it does not have data, for example, file_x with sheet "SHEET_1" only has columns `c_1, c_2, c_3, c_4`, please add additional columns `c_5, c_6, ... c_10` in the sheet too, and then it can work.
+    - **Option-2**: Use **range (for example, A1:G100) + firstRowAsHeader=false**, and then it can load data from all Excel files even though the column name and count is different.
 
-- If the account kind is Storage (general purpose v1), upgrade your storage account to the **general purpose v2** or choose a different authentication.
+## Delta format
 
-    Image 4: Upgrade the storage account to general purpose v2
+### The sink does not support the schema drift with upsert or update
 
-    :::image type="content" source="./media/data-flow-troubleshoot-connector-format/upgrade-storage-account.png" alt-text="Screenshot that shows how to upgrade the storage account to general purpose v2." lightbox="./media/data-flow-troubleshoot-connector-format/upgrade-storage-account.png"::: 
-    
+#### Symptoms
+You may face the issue that the delta sink in mapping data flows does not support schema drift with upsert/update. The problem is that the schema drift does not work when the delta is the target in a mapping data flow and user configure an update/upsert. 
+
+If a column is added to the source after an "initial" load to the delta, the subsequent jobs just fail with an error that it cannot find the new column, and this happens when you upsert/update with the alter row. It seems to work for inserts only.
+
+#### Error message
+`DF-SYS-01 at Sink 'SnkDeltaLake': org.apache.spark.sql.AnalysisException: cannot resolve target.BICC_RV in UPDATE clause given columns target. `
+
+#### Cause
+This is an issue for delta format because of the limitation of io delta library used in the data flow runtime. This issue is still in fixing.
+
+#### Recommendation
+To solve this problem, you need to update the schema firstly and then write the data. You can follow the steps below: <br/>
+1. Create one data flow that includes an insert-only delta sink with the merge schema option to update the schema. 
+1. After Step 1, use delete/upsert/update to modify the target sink without changing the schema. <br/>
+
+
 
 ## Snowflake
 
@@ -603,129 +759,6 @@ If you meet up error with the Snowflake query, check whether some identifiers (t
     - Run a query with table, for example: `select "movieId", "title" from Public."testQuotedTable2"`
     
 1. After the SQL query of Snowflake is tested and validated, you can use it in the data flow Snowflake source directly.
-
-## Azure SQL Database
- 
-### Unable to connect to the SQL Database
-
-#### Symptoms
-
-Your Azure SQL Database can work well in the data copy, dataset preview-data and test-connection in the linked service, but it fails when the same Azure SQL Database is used as a source or sink in the data flow with error like `Cannot connect to SQL database: 'jdbc:sqlserver://powerbasenz.database.windows.net;..., Please check the linked service configuration is correct, and make sure the SQL database firewall allows the integration runtime to access`
-
-#### Cause
-
-There are wrong firewall settings on your Azure SQL Database server, so that it cannot be connected by the data flow runtime. Currently, when you try to use the data flow to read/write Azure SQL Database, Azure Databricks is used to build spark cluster to run the job, but it does not support fixed IP ranges. For more details, please refer to [Azure Integration Runtime IP addresses](./azure-integration-runtime-ip-addresses.md).
-
-#### Recommendation
-
-Check the firewall settings of your Azure SQL Database and set it as "Allow access to Azure services" rather than set the fixed IP range.
-
-:::image type="content" source="./media/data-flow-troubleshoot-connector-format/allow-access-to-azure-service.png" alt-text="Screenshot that shows how to allow access to Azure service in firewall settings."::: 
-
-### Syntax error when using queries as input
-
-#### Symptoms
-
-When you use queries as input in the data flow source with the Azure SQL, you fail with the following error message:
-
-`at Source 'source1': shaded.msdataflow.com.microsoft.sqlserver.jdbc.SQLServerException: Incorrect syntax XXXXXXXX.`
-
-:::image type="content" source="./media/data-flow-troubleshoot-connector-format/error-detail.png" alt-text="Screenshot that shows the error details."::: 
-
-#### Cause
-
-The query used in the data flow source should be able to run as a sub query. The reason of the failure is that either the query syntax is incorrect or it can't be run as a sub query. You can run the following query in the SSMS to verify it:
-
-`SELECT top(0) * from ($yourQuery) as T_TEMP`
-
-#### Recommendation
-
-Provide a correct query and test it in the SSMS firstly.
-
-### Failed with an error: "SQLServerException: 111212; Operation cannot be performed within a transaction."
-
-#### Symptoms
-
-When you use the Azure SQL Database as a sink in the data flow to preview data, debug/trigger run and do other activities, you may find your job fails with following error message:
-
-`{"StatusCode":"DFExecutorUserError","Message":"Job failed due to reason: at Sink 'sink': shaded.msdataflow.com.microsoft.sqlserver.jdbc.SQLServerException: 111212;Operation cannot be performed within a transaction.","Details":"at Sink 'sink': shaded.msdataflow.com.microsoft.sqlserver.jdbc.SQLServerException: 111212;Operation cannot be performed within a transaction."}`
-
-#### Cause
-The error "`111212;Operation cannot be performed within a transaction.`" only occurs in the Synapse dedicated SQL pool. But you mistakenly use the Azure SQL Database as the connector instead.
-
-#### Recommendation
-Confirm if your SQL Database is a Synapse dedicated SQL pool. If so, please use Azure Synapse Analytics as a connector shown in the picture below.
-
-:::image type="content" source="./media/data-flow-troubleshoot-connector-format/synapse-analytics-connector.png" alt-text="Screenshot that shows the Azure Synapse Analytics connector."::: 
-
-### Data with the decimal type become null
-
-#### Symptoms
-
-You want to insert data into a table in the SQL database. If the data contains the decimal type and need to be inserted into a column with the decimal type in the SQL database, the data value may be changed to null.
-
-If you do the preview, in previous stages, it will show the value like the following picture:
-
-:::image type="content" source="./media/data-flow-troubleshoot-connector-format/value-in-previous-stage.png" alt-text="Screenshot that shows the value in the previous stages."::: 
-
-In the sink stage, it will become null, which is shown in the picture below.
-
-:::image type="content" source="./media/data-flow-troubleshoot-connector-format/value-in-sink-stage.png" alt-text="Screenshot that shows the value in the sink stage."::: 
-
-#### Cause
-The decimal type has scale and precision properties. If your data type doesn't match that in the sink table, the system will validate that the target decimal is wider than the original decimal, and the original value does not overflow in the target decimal. Therefore, the value will be cast to null.
-
-#### Recommendation
-Check and compare the decimal type between data and table in the SQL database, and alter the scale and precision to the same.
-
-You can use toDecimal (IDecimal, scale, precision) to figure out if the original data can be cast to the target scale and precision. If it returns null, it means that the data cannot be cast and furthered when inserting.
-
-## ADLS Gen2
-
-### Failed with an error: "Error while reading file XXX. It is possible the underlying files have been updated"
-
-#### Symptoms
-
-When you use the ADLS Gen2 as a sink in the data flow (to preview data, debug/trigger run, etc.) and the partition setting in **Optimize** tab in the **Sink** stage is not default, you may find job fail with the following error message:
-
-`Job failed due to reason: Error while reading file abfss:REDACTED_LOCAL_PART@prod.dfs.core.windows.net/import/data/e3342084-930c-4f08-9975-558a3116a1a9/part-00000-tid-7848242374008877624-5df7454e-7b14-4253-a20b-d20b63fe9983-1-1-c000.csv. It is possible the underlying files have been updated. You can explicitly invalidate the cache in Spark by running 'REFRESH TABLE tableName' command in SQL or by recreating the Dataset/DataFrame involved.`
-
-#### Cause
-
-1. You don't assign a proper permission to your MI/SP authentication.
-1. You may have a customized job to handle files that you don't want, which will affect the data flow's middle output.
-
-#### Recommendation
-1. Check if your linked service has the R/W/E permission for Gen2. If you use the MI auth/SP authentication, at least grant the Storage Blob Data Contributor role in the Access control (IAM).
-1. Confirm if you have specific jobs that move/delete files to other place whose name does not match your rule. Because data flows will write down partition files into the target folder firstly and then do the merge and rename operations, the middle file's name might not match your rule.
-
-## ADLS Gen1
-
-### Fail to create files with service principle authentication
-
-#### Symptoms
-When you try to move or transfer data from different sources into the ADLS gen1 sink, if the linked service's authentication method is service principle authentication, your job may fail with the following error message:
-
-`org.apache.hadoop.security.AccessControlException: CREATE failed with error 0x83090aa2 (Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.). [2b5e5d92-xxxx-xxxx-xxxx-db4ce6fa0487] failed with error 0x83090aa2 (Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.)`
-
-#### Cause
-
-The RWX permission or the dataset property is not set correctly.
-
-#### Recommendation
-
-- If the target folder doesn't have correct permissions, refer to this document to assign the correct permission in Gen1: [Use service principal authentication](./connector-azure-data-lake-store.md#use-service-principal-authentication).
-
-- If the target folder has the correct permission and you use the file name property in the data flow to target to the right folder and file name, but the file path property of the dataset is not set to the target file path (usually leave not set), as the example shown in the following pictures, you will encounter this failure because the backend system tries to create files based on the file path of the dataset, and the file path of the dataset doesn't have the correct permission.
-    
-    :::image type="content" source="./media/data-flow-troubleshoot-connector-format/file-path-property.png" alt-text="Screenshot that shows the file path property"::: 
-    
-    :::image type="content" source="./media/data-flow-troubleshoot-connector-format/file-name-property.png" alt-text="Screenshot that shows the file name property"::: 
-
-    
-    There are two methods to solve this issue:
-    1. Assign the WX permission to the file path of the dataset.
-    1. Set the file path of the dataset as the folder with WX permission, and set the rest folder path and file name in data flows.
 
 ## Next steps
 For more help with troubleshooting, see these resources:
