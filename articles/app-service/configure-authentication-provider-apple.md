@@ -35,7 +35,7 @@ You'll need to create an App ID and a service ID in the Apple Developer portal.
 ![Registering a new service identifier in the Apple Developer Portal](media/configure-authentication-provider-apple/apple-register-service.jpg)
 8. On the **Register a Services ID** page, provide a description and an identifier. The description is what will be shown to the user on the consent screen. The identifier will be your client ID used in configuring the Apple provider with your app service. Then select **Configure**.
 ![Providing a description and an identifier](media/configure-authentication-provider-apple/apple-configure-service-1.jpg)
-9. On the pop-up window, set the Primary App Id to the App Id you created earlier. Specify your application's domain in the domain section. For the return URL, use the URL `<app-url>/.auth/login/apple/callback`. For example, `https://contoso.azurewebsites.net/.auth/login/apple/callback`. Then select **Add** and **Save**.
+9. On the pop-up window, set the Primary App ID to the App ID you created earlier. Specify your application's domain in the domain section. For the return URL, use the URL `<app-url>/.auth/login/apple/callback`. For example, `https://contoso.azurewebsites.net/.auth/login/apple/callback`. Then select **Add** and **Save**.
 ![Specifying the domain and return URL for the registration](media/configure-authentication-provider-apple/apple-configure-service-2.jpg)
 10. Review the service registration information and select **Save**.
 
@@ -134,7 +134,7 @@ Add the client secret as an [application setting](./configure-common.md#configur
 ## <a name="configure"> </a>Add provider information to your application
 
 > [!NOTE]
-> The required configuration is in a new API format, currently only supported by [file-based configuration (preview)](.\app-service-authentication-how-to.md#config-file). You will need to follow the below steps using such a file.
+> The required configuration is in a new API format, currently only supported by [file-based configuration (preview)](configure-authentication-file-based.md). You will need to follow the below steps using such a file.
 
 This section will walk you through updating the configuration to include your new IDP. An example configuration follows.
 
@@ -144,7 +144,7 @@ This section will walk you through updating the configuration to include your ne
     ```json
     "apple" : {
        "registration" : {
-            "clientId": "<client id>",
+            "clientId": "<client ID>",
             "clientSecretSettingName": "APP_SETTING_CONTAINING_APPLE_CLIENT_SECRET" 
         },
        "login": {

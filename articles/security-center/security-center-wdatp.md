@@ -36,7 +36,7 @@ Microsoft Defender for Endpoint is a holistic, cloud delivered endpoint security
 | Supported versions of Windows for detection:  |  • Windows Server 2019, 2016, 2012 R2, and 2008 R2 SP1<br> • [Windows Virtual Desktop (WVD)](../virtual-desktop/overview.md)<br> • [Windows 10 Enterprise multi-session](../virtual-desktop/windows-10-multisession-faq.yml) (formerly Enterprise for Virtual Desktops (EVD)|
 | Unsupported operating systems:  |  • Windows 10 (other than EVD or WVD)<br> • Linux|
 | Required roles and permissions: | To enable/disable the integration: **Security admin** or **Owner**<br>To view MDATP alerts in Security Center: **Security reader**, **Reader**, **Resource Group Contributor**, **Resource Group Owner**, **Security admin**, **Subscription owner**, or **Subscription Contributor**|
-| Clouds:                         | ![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) China Gov, Other Gov                                                        |
+| Clouds:                         | ![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) Azure China                                                        |
 |                                 |                                                                                                                                                                                                                                                                                                               |
 
 ## Microsoft Defender for Endpoint features in Security Center
