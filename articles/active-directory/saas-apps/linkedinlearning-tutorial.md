@@ -136,7 +136,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Under **Basics** tab, enter **SAML Connection Name** and click **Next**.
 
-    ![SSO Connection](./media/linkedinlearning-tutorial/auth-users.png "SSO Connection")
+    ![SSO Connection](./media/linkedinlearning-tutorial/users.png "SSO Connection")
 
 1. Navigate to **Identity provider settings** tab, click **Download file** to download the metadata file and save it on your computer and click **Next**.
 
