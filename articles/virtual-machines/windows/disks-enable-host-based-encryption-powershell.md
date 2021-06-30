@@ -345,14 +345,6 @@ foreach($vmSize in $vmSizes)
 }
 ```
 
-## Disable encryption at host
-
-1.	We can disable EncryptionAtHost for a running VM only when the VM is deallocated.
-2.	 For VMSS scenario, the encryption can be disabled on existing virtual machine scale set without deallocating any VM instances . However, only new VMs created after    
-         disabling the encryption will not get encrypted. Existing VMs must be deallocated and reallocated in order to be not encrypted.
-
-
-
 ## Next steps
 
 Now that you've created and configured these resources, you can use them to secure your managed disks. The following link contains example scripts, each with a respective scenario, that you can use to secure your managed disks.
