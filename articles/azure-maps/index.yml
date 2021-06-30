@@ -274,7 +274,7 @@ landingContent:
           - text: Weather services concepts
             url: weather-services-concepts.md
           - text: Weather services FAQ
-            url: weather-services-faq.md
+            url: weather-services-faq.yml
       - linkListType: tutorial
         links:
           - text: Analyze weather data using Azure Notebooks (Python)
