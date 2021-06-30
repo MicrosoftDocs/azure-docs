@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: conceptual
-ms.date: 06/29/2021
+ms.date: 06/30/2021
 ---
 
 # About the workflow designer in single-tenant Azure Logic Apps
@@ -35,7 +35,7 @@ The latest workflow designer offers a new experience with noteworthy features an
 
 - A new layout engine that supports more complicated workflows. 
 - You can create and view complicated workflows cleanly and easily, thanks to the new layout engine, a more compact canvas, and updates to the card-based layout.
-- Add and edit steps using panels separate from the workflow layout. This change gives you a cleaner and clearer canvas to view your workflow layout. For more information, review [Add steps to workflows]](#add-steps-to-workflows).
+- Add and edit steps using panels separate from the workflow layout. This change gives you a cleaner and clearer canvas to view your workflow layout. For more information, review [Add steps to workflows](#add-steps-to-workflows).
 - Move between steps in your workflow on the designer using keyboard navigation.
   - Move to the next card: **Ctrl** + **Down Arrow (&darr;)**
   - Move to the previous card: **Ctrl** + **Up Arrow (&uarr;)**
