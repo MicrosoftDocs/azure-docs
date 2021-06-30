@@ -7,7 +7,7 @@ ms.date: 06/28/2021
 
 # Install and activate VMware HCX in Azure VMware Solution
 
-VMware HCX Advanced Connector is no longer pre-deployed in Azure VMware Solution. You'll install it through the Azure portal as an add-on. You'll still download the VMware HCX Connector OVA and deploy the virtual appliance to your on-premises vCenter. 
+VMware HCX Advanced Connector is no longer pre-deployed in Azure VMware Solution. You'll need to install it through the Azure portal as an add-on. You'll still download the VMware HCX Connector OVA and deploy the virtual appliance to your on-premises vCenter. 
 
 VMware HCX Advanced Connector supports up to three site connections (on-premises to cloud, or cloud to cloud).  If you need more than three site connections, use [VMware HCX Enterprise](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/). Open a [support request](https://portal.azure.com/#create/Microsoft.Support) to have HCX Enterprise enabled. It's free and is subject to terms and conditions for a preview service. After the VMware HCX Enterprise service is generally available, you'll get a 30-day notice that billing will switch over. You'll also have the option to turn off or opt out of the service. Downgrading from HCX Enterprise to HCX Advanced is possible without redeploying, so you'll need to open a support ticket. If planning a downgrade, make sure no migrations are scheduled and features such as RAV, MON are not in use.
 
