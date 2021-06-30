@@ -3,7 +3,7 @@ title: 'Quickstart: Run a custom container on App Service'
 description: Get started with containers on Azure App Service by deploying your first custom container.
 author: msangapu-msft
 ms.author: msangapu
-ms.date: 10/21/2019
+ms.date: 06/30/2021
 ms.topic: quickstart
 ms.custom: devx-track-csharp
 zone_pivot_groups: app-service-containers-windows-linux
@@ -199,15 +199,15 @@ Create a container registry by following the instructions in [Quickstart: Create
 ## Sign in
 
 1. Launch Visual Studio Code. 
-1. Select the **Azure** logo in the Activity Bar, navigate to the **APP SERVICE** explorer, then select **Sign in to Azure** and follow the instructions.
+1. Select the **Azure** logo in the [Activity Bar](https://code.visualstudio.com/docs/getstarted/userinterface), navigate to the **APP SERVICE** explorer, then select **Sign in to Azure** and follow the instructions.
 
     ![sign in to Azure](./media/quickstart-docker/sign-in.png)
 
-1. In the Status Bar at the bottom, verify that your Azure account email address. In the **APP SERVICE** explorer, your subscription should be displayed.
+1. In the [Status Bar](https://code.visualstudio.com/docs/getstarted/userinterface) at the bottom, verify that your Azure account email address. In the **APP SERVICE** explorer, your subscription should be displayed.
 
 1. In the Activity Bar, select the **Docker** logo. In the **REGISTRIES** explorer, verify that the container registry you created appears.
 
-    ![Screenshot shows the Registries value with Azure expanded and a file with the dot i o filename extension.](./media/quickstart-docker/registries.png)
+    ![Screenshot shows the Registries value with Azure expanded.](./media/quickstart-docker/registries.png)
 
 ## Check prerequisites
 
@@ -275,10 +275,10 @@ FROM mcr.microsoft.com/azure-app-service/java:11-java11_stable
 ENV PORT 80
 EXPOSE 80
 
-ENTRYPOINT ["java", "-Dserver.port=80", "-jar", "/usr/local/appservice/parkingpage.jar"]
+ENTRYPOINT ["java", "-Dserver.port=80", "-jar", "/tmp/appservice/parkingpage.jar"]
 ```
 
-In this Dockerfile, the parent image is one of the built-in Java containers of App Service. You can find the source files for it [in the Azure-App-Service/java GitHub repository, under java/tree/dev/java11-alpine](https://github.com/Azure-App-Service/java/tree/dev/java11-alpine). Its [Dockerfile](https://github.com/Azure-App-Service/java/blob/dev/java11-alpine/Dockerfile) copies a simple Java app into `/usr/local/appservice/`. Your Dockerfile simply starts that app.
+In this Dockerfile, the parent image is one of the built-in Java containers of App Service. You can find the source files for it [in the Azure-App-Service/java GitHub repository, under java/tree/dev/java11-alpine](https://github.com/Azure-App-Service/java/tree/dev/java11-alpine). Its [Dockerfile](https://github.com/Azure-App-Service/java/blob/dev/java11-alpine/Dockerfile) copies a simple Java app into `/tmp/appservice`. Your Dockerfile simply starts that app.
 
 -----
 
@@ -288,6 +288,8 @@ In this Dockerfile, the parent image is one of the built-in Java containers of A
 
 4. When the image finishes building, click **Refresh** at the top of the **IMAGES** explorer and verify the image is built successfully.
 
+    ![Screenshot shows the built image with tag.](./media/quickstart-docker/built-image.png)
+
 ## Deploy to container registry
 
 1. In the Activity Bar, click the **Docker** icon. In the **IMAGES** explorer, find the image you just built.
@@ -295,9 +297,11 @@ In this Dockerfile, the parent image is one of the built-in Java containers of A
 1. Make sure the image tag begins with `<acr-name>.azurecr.io` and press **Enter**.
 1. When Visual Studio Code finishes pushing the image to your container registry, click **Refresh** at the top of the **REGISTRIES** explorer and verify the image is pushed successfully.
 
+    ![Screenshot shows the built image with tag.](./media/quickstart-docker/image-in-acr.png)
+
 ## Deploy to App Service
 
-1. In the **REGISTRIES** explorer, find the registry, image, and tag you want to deploy. Right-click the tag and click **Deploy image to Azure App Service**.
+1. In the **REGISTRIES** explorer, expand the image, right-click the tag, and click **Deploy image to Azure App Service**.
 1. Follow the prompts to choose a subscription, a globally unique app name, a resource group, and an App Service plan. Choose **B1 Basic** for the pricing tier, and a region near you.
 
 After deployment, your app is available at `http://<app-name>.azurewebsites.net`.
