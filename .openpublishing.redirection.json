@@ -1,5 +1,6 @@
 {
-  "redirections": [{
+  "redirections": [
+    {
       "source_path": "articles/virtual-machines/linux/freebsd-pf-nat.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/linux/freebsd-pf-nat",
       "redirect_document_id": false
@@ -5288,86 +5289,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/automation/how-to/remove-desired-state-configuration-package.md",
-      "redirect_url": "/azure/automation/state-configuration/remove-node-and-configuration-package",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-watchers-tutorial.md",
-      "redirect_url": "/azure/automation/automation-scenario-using-watcher-task",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-scenario-remove-resourcegroup.md",
-      "redirect_url": "/azure/automation",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-offering-get-started.md",
-      "redirect_url": "/azure/automation/",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-alert-activity-log.md",
-      "redirect_url": "/azure/automation/automation-alert-metric",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/log-analytics/log-analytics-change-tracking.md",
-      "redirect_url": "/azure/automation/automation-change-tracking",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-azure-vm-alert-integration.md",
-      "redirect_url": "/azure/automation/automation-create-alert-triggered-runbook",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-invoke-runbook-from-omsla-alert.md",
-      "redirect_url": "/azure/automation/automation-create-alert-triggered-runbook",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-update-account-powershell.md",
-      "redirect_url": "/azure/automation/automation-create-runas-account",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-remove-hrw.md",
-      "redirect_url": "/azure/automation/automation-hybrid-runbook-worker",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-tutorial-troubleshoot-changes.md",
-      "redirect_url": "/azure/automation/troubleshoot/change-tracking",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-runbook-settings.md",
-      "redirect_url": "/azure/automation/automation-runbook-execution",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-scenario-start-stop-vm-wjson-tags.md",
-      "redirect_url": "/azure/automation/automation-solution-vm-management",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-solution-startstopvm-graphical.md",
-      "redirect_url": "/azure/automation/automation-solution-vm-management",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-solution-startstopvm-psworkflow.md",
-      "redirect_url": "/azure/automation/automation-solution-vm-management",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-troubleshooting-hrw-runbook-terminates-suspended.md",
-      "redirect_url": "/azure/automation/automation-troubleshooting-hybrid-runbook-worker",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/automation/automation-change-tracking.md",
       "redirect_url": "/azure/automation/change-tracking",
       "redirect_document_id": false
@@ -5433,56 +5354,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/automation/automation-first-runbook-graphical.md",
-      "redirect_url": "/azure/automation/learn/automation-tutorial-runbook-graphical",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-first-runbook-textual.md",
-      "redirect_url": "/azure/automation/learn/automation-tutorial-runbook-textual",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-first-runbook-textual-powershell.md",
-      "redirect_url": "/azure/automation/learn/automation-tutorial-runbook-textual-powershell",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-first-runbook-textual-python2.md",
-      "redirect_url": "/azure/automation/learn/automation-tutorial-runbook-textual-python2",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-create-runas-account.md",
-      "redirect_url": "/azure/automation/manage-runas-account",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-manage-account.md",
-      "redirect_url": "/azure/automation/manage-runas-account",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-sec-configure-azure-runas-account.md",
-      "redirect_url": "/azure/automation/manage-runas-account",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-verify-runas-authentication.md",
-      "redirect_url": "/azure/automation/manage-runas-account",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-creating-importing-runbook.md",
-      "redirect_url": "/azure/automation/manage-runbooks",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-testing-runbook.md",
-      "redirect_url": "/azure/automation/manage-runbooks",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/automation/policy-samples.md",
       "redirect_url": "/azure/automation/policy-reference",
       "redirect_document_id": false
@@ -5490,86 +5361,6 @@
     {
       "source_path_from_root": "/articles/automation/automation-create-account-template.md",
       "redirect_url": "/azure/automation/quickstart-create-automation-account-template",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-pass-json-string.md",
-      "redirect_url": "/azure/automation/runbook-input-parameters",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-runbook-input-parameters.md",
-      "redirect_url": "/azure/automation/runbook-input-parameters",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-certificates.md",
-      "redirect_url": "/azure/automation/shared-resources/certificates",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-create-aduser-account.md",
-      "redirect_url": "/azure/automation/shared-resources/credentials",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-credentials.md",
-      "redirect_url": "/azure/automation/shared-resources/credentials",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-integration-modules.md",
-      "redirect_url": "/azure/automation/shared-resources/modules",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-schedules.md",
-      "redirect_url": "/azure/automation/shared-resources/schedules",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-variables.md",
-      "redirect_url": "/azure/automation/shared-resources/variables",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-scenario-source-control-integration-with-github-ent.md",
-      "redirect_url": "/azure/automation/source-control-integration",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-scenario-source-control-integration-with-VSTS.md",
-      "redirect_url": "/azure/automation/source-control-integration",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-source-control-integration.md",
-      "redirect_url": "/azure/automation/source-control-integration",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-source-control-integration-legacy.md",
-      "redirect_url": "/azure/automation/source-control-integration-legacy",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-starting-a-runbook.md",
-      "redirect_url": "/azure/automation/start-runbooks",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-troubleshooting-hybrid-runbook-worker.md",
-      "redirect_url": "/azure/automation/troubleshoot/hybrid-runbook-worker",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-onboard-troubleshoot.md",
-      "redirect_url": "/azure/automation/troubleshoot/onboarding",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-troubleshooting-automation-errors.md",
-      "redirect_url": "/azure/automation/troubleshoot/runbooks",
       "redirect_document_id": false
     },
     {
@@ -10410,11 +10201,6 @@
     {
       "source_path_from_root": "/articles/azure-resource-manager/management/move-region.md",
       "redirect_url": "/azure/azure-resource-manager/management/move-resources-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-migrate-account-subscription.md",
-      "redirect_url": "/azure/azure-resource-manager/management/move-resource-group-and-subscription",
       "redirect_document_id": false
     },
     {
@@ -36777,7 +36563,7 @@
       "redirect_url": "/azure/virtual-wan/scenario-route-between-vnets-firewall",
       "redirect_document_id": false
     },
-	 {
+    {
       "source_path_from_root": "/articles/virtual-wan/logs-metrics.md",
       "redirect_url": "/azure/virtual-wan/monitor-virtual-wan",
       "redirect_document_id": false
@@ -36892,7 +36678,7 @@
       "redirect_url": "/azure/vpn-gateway/nva-work-remotely-support",
       "redirect_document_id": false
     },
-	 {
+    {
       "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-howto-view-virtual-network-gateway-metrics.md",
       "redirect_url": "/azure/vpn-gateway/monitor-vpn-gateway",
       "redirect_document_id": false
@@ -61781,295 +61567,373 @@
       "source_path": "articles/machine-learning/team-data-science-process/context/ml-context.yml",
       "redirect_url": "/azure/architecture/data-science-process/context/ml-context",
       "redirect_document_id": false
-    }, {
+    },
+    {
       "source_path": "articles/machine-learning/team-data-science-process/agile-development.md",
       "redirect_url": "/azure/architecture/data-science-process/agile-development",
       "redirect_document_id": false
-    }, {
+    },
+    {
       "source_path": "articles/machine-learning/team-data-science-process/apps-anomaly-detection-api.md",
       "redirect_url": "/azure/architecture/data-science-process/apps-anomaly-detection-api",
       "redirect_document_id": false
-    }, {
+    },
+    {
       "source_path": "articles/machine-learning/team-data-science-process/automated-data-pipeline-cheat-sheet.md",
       "redirect_url": "/azure/architecture/data-science-process/automated-data-pipeline-cheat-sheet",
       "redirect_document_id": false
-    }, {
+    },
+    {
       "source_path": "articles/machine-learning/team-data-science-process/ci-cd-flask.md",
       "redirect_url": "/azure/architecture/data-science-process/ci-cd-flask",
       "redirect_document_id": false
-    }, {
+    },
+    {
       "source_path": "articles/machine-learning/team-data-science-process/code-test.md",
       "redirect_url": "/azure/architecture/data-science-process/code-test",
       "redirect_document_id": false
-    }, {
+    },
+    {
       "source_path": "articles/machine-learning/team-data-science-process/collaborative-coding-with-git.md",
       "redirect_url": "/azure/architecture/data-science-process/collaborative-coding-with-git",
       "redirect_document_id": false
-    }, {
+    },
+    {
       "source_path": "articles/machine-learning/team-data-science-process/create-features-hive.md",
       "redirect_url": "/azure/architecture/data-science-process/create-features-hive",
       "redirect_document_id": false
-    }, {
+    },
+    {
       "source_path": "articles/machine-learning/team-data-science-process/create-features-sql-server.md",
       "redirect_url": "/azure/architecture/data-science-process/create-features-sql-server",
       "redirect_document_id": false
-    }, {
+    },
+    {
       "source_path": "articles/machine-learning/team-data-science-process/create-features.md",
       "redirect_url": "/azure/architecture/data-science-process/create-features",
       "redirect_document_id": false
-    }, {
+    },
+    {
       "source_path": "articles/machine-learning/team-data-science-process/data-blob.md",
       "redirect_url": "/azure/architecture/data-science-process/data-blob",
       "redirect_document_id": false
-    }, {
+    },
+    {
       "source_path": "articles/machine-learning/team-data-science-process/data-lake-walkthrough.md",
       "redirect_url": "/azure/architecture/data-science-process/data-lake-walkthrough",
       "redirect_document_id": false
-    }, {
+    },
+    {
       "source_path": "articles/machine-learning/team-data-science-process/deploy-models-in-production.md",
       "redirect_url": "/azure/architecture/data-science-process/deploy-models-in-production",
       "redirect_document_id": false
-    }, {
+    },
+    {
       "source_path": "articles/machine-learning/team-data-science-process/environment-setup.md",
       "redirect_url": "/azure/architecture/data-science-process/environment-setup",
       "redirect_document_id": false
-    }, {
+    },
+    {
       "source_path": "articles/machine-learning/team-data-science-process/execute-data-science-tasks.md",
       "redirect_url": "/azure/architecture/data-science-process/execute-data-science-tasks",
       "redirect_document_id": false
-    }, {
+    },
+    {
       "source_path": "articles/machine-learning/team-data-science-process/explore-data-blob.md",
       "redirect_url": "/azure/architecture/data-science-process/explore-data-blob",
       "redirect_document_id": false
-    }, {
+    },
+    {
       "source_path": "articles/machine-learning/team-data-science-process/explore-data-hive-tables.md",
       "redirect_url": "/azure/architecture/data-science-process/explore-data-hive-tables",
       "redirect_document_id": false
-    }, {
+    },
+    {
       "source_path": "articles/machine-learning/team-data-science-process/explore-data-sql-server.md",
       "redirect_url": "/azure/architecture/data-science-process/explore-data-sql-server",
       "redirect_document_id": false
-    }, {
+    },
+    {
       "source_path": "articles/machine-learning/team-data-science-process/explore-data.md",
       "redirect_url": "/azure/architecture/data-science-process/explore-data",
       "redirect_document_id": false
-    }, {
+    },
+    {
       "source_path": "articles/machine-learning/team-data-science-process/group-manager-tasks.md",
       "redirect_url": "/azure/architecture/data-science-process/group-manager-tasks",
       "redirect_document_id": false
-    }, {
+    },
+    {
       "source_path": "articles/machine-learning/team-data-science-process/hive-criteo-walkthrough.md",
       "redirect_url": "/azure/architecture/data-science-process/hive-criteo-walkthrough",
       "redirect_document_id": false
-    }, {
+    },
+    {
       "source_path": "articles/machine-learning/team-data-science-process/hive-walkthrough.md",
       "redirect_url": "/azure/architecture/data-science-process/hive-walkthrough",
       "redirect_document_id": false
-    }, {
+    },
+    {
       "source_path": "articles/machine-learning/team-data-science-process/ingest-data.md",
       "redirect_url": "/azure/architecture/data-science-process/ingest-data",
       "redirect_document_id": false
-    }, {
+    },
+    {
       "source_path": "articles/machine-learning/team-data-science-process/lifecycle-acceptance.md",
       "redirect_url": "/azure/architecture/data-science-process/lifecycle-acceptance",
       "redirect_document_id": false
-    }, {
+    },
+    {
       "source_path": "articles/machine-learning/team-data-science-process/lifecycle-business-understanding.md",
       "redirect_url": "/azure/architecture/data-science-process/lifecycle-business-understanding",
       "redirect_document_id": false
-    }, {
+    },
+    {
       "source_path": "articles/machine-learning/team-data-science-process/lifecycle-data.md",
       "redirect_url": "/azure/architecture/data-science-process/lifecycle-data",
       "redirect_document_id": false
-    }, {
+    },
+    {
       "source_path": "articles/machine-learning/team-data-science-process/lifecycle-deployment.md",
       "redirect_url": "/azure/architecture/data-science-process/lifecycle-deployment",
       "redirect_document_id": false
-    }, {
+    },
+    {
       "source_path": "articles/machine-learning/team-data-science-process/lifecycle-modeling.md",
       "redirect_url": "/azure/architecture/data-science-process/lifecycle-modeling",
       "redirect_document_id": false
-    }, {
+    },
+    {
       "source_path": "articles/machine-learning/team-data-science-process/lifecycle.md",
       "redirect_url": "/azure/architecture/data-science-process/lifecycle",
       "redirect_document_id": false
-    }, {
+    },
+    {
       "source_path": "articles/machine-learning/team-data-science-process/move-azure-blob.md",
       "redirect_url": "/azure/architecture/data-science-process/move-azure-blob",
       "redirect_document_id": false
-    }, {
+    },
+    {
       "source_path": "articles/machine-learning/team-data-science-process/move-data-to-azure-blob-using-azure-storage-explorer.md",
       "redirect_url": "/azure/architecture/data-science-process/move-data-to-azure-blob-using-azure-storage-explorer",
       "redirect_document_id": false
-    }, {
+    },
+    {
       "source_path": "articles/machine-learning/team-data-science-process/move-data-to-azure-blob-using-ssis.md",
       "redirect_url": "/azure/architecture/data-science-process/move-data-to-azure-blob-using-ssis",
       "redirect_document_id": false
-    }, {
+    },
+    {
       "source_path": "articles/machine-learning/team-data-science-process/move-hive-tables.md",
       "redirect_url": "/azure/architecture/data-science-process/move-hive-tables",
       "redirect_document_id": false
-    }, {
+    },
+    {
       "source_path": "articles/machine-learning/team-data-science-process/move-sql-azure-adf.md",
       "redirect_url": "/azure/architecture/data-science-process/move-sql-azure-adf",
       "redirect_document_id": false
-    }, {
+    },
+    {
       "source_path": "articles/machine-learning/team-data-science-process/move-sql-azure.md",
       "redirect_url": "/azure/architecture/data-science-process/move-sql-azure",
       "redirect_document_id": false
-    }, {
+    },
+    {
       "source_path": "articles/machine-learning/team-data-science-process/move-sql-server-virtual-machine.md",
       "redirect_url": "/azure/architecture/data-science-process/move-sql-server-virtual-machine",
       "redirect_document_id": false
-    }, {
+    },
+    {
       "source_path": "articles/machine-learning/team-data-science-process/overview.md",
       "redirect_url": "/azure/architecture/data-science-process/overview",
       "redirect_document_id": false
-    }, {
+    },
+    {
       "source_path": "articles/machine-learning/team-data-science-process/parallel-load-sql-partitioned-tables.md",
       "redirect_url": "/azure/architecture/data-science-process/parallel-load-sql-partitioned-tables",
       "redirect_document_id": false
-    }, {
+    },
+    {
       "source_path": "articles/machine-learning/team-data-science-process/plan-sample-scenarios.md",
       "redirect_url": "/azure/architecture/data-science-process/plan-sample-scenarios",
       "redirect_document_id": false
-    }, {
+    },
+    {
       "source_path": "articles/machine-learning/team-data-science-process/plan-your-environment.md",
       "redirect_url": "/azure/architecture/data-science-process/plan-your-environment",
       "redirect_document_id": false
-    }, {
+    },
+    {
       "source_path": "articles/machine-learning/team-data-science-process/platforms-and-tools.md",
       "redirect_url": "/azure/architecture/data-science-process/platforms-and-tools",
       "redirect_document_id": false
-    }, {
+    },
+    {
       "source_path": "articles/machine-learning/team-data-science-process/predictive-maintenance-architecture.md",
       "redirect_url": "/azure/architecture/data-science-process/predictive-maintenance-architecture",
       "redirect_document_id": false
-    }, {
+    },
+    {
       "source_path": "articles/machine-learning/team-data-science-process/predictive-maintenance-playbook.md",
       "redirect_url": "/azure/architecture/data-science-process/predictive-maintenance-playbook",
       "redirect_document_id": false
-    }, {
+    },
+    {
       "source_path": "articles/machine-learning/team-data-science-process/predictive-maintenance-technical-guide.md",
       "redirect_url": "/azure/architecture/data-science-process/predictive-maintenance-technical-guide",
       "redirect_document_id": false
-    }, {
+    },
+    {
       "source_path": "articles/machine-learning/team-data-science-process/prepare-data.md",
       "redirect_url": "/azure/architecture/data-science-process/prepare-data",
       "redirect_document_id": false
-    }, {
+    },
+    {
       "source_path": "articles/machine-learning/team-data-science-process/project-ic-tasks.md",
       "redirect_url": "/azure/architecture/data-science-process/project-ic-tasks",
       "redirect_document_id": false
-    }, {
+    },
+    {
       "source_path": "articles/machine-learning/team-data-science-process/project-lead-tasks.md",
       "redirect_url": "/azure/architecture/data-science-process/project-lead-tasks",
       "redirect_document_id": false
-    }, {
+    },
+    {
       "source_path": "articles/machine-learning/team-data-science-process/python-data-access.md",
       "redirect_url": "/azure/architecture/data-science-process/python-data-access",
       "redirect_document_id": false
-    }, {
+    },
+    {
       "source_path": "articles/machine-learning/team-data-science-process/roles-tasks.md",
       "redirect_url": "/azure/architecture/data-science-process/roles-tasks",
       "redirect_document_id": false
-    }, {
+    },
+    {
       "source_path": "articles/machine-learning/team-data-science-process/sample-data-blob.md",
       "redirect_url": "/azure/architecture/data-science-process/sample-data-blob",
       "redirect_document_id": false
-    }, {
+    },
+    {
       "source_path": "articles/machine-learning/team-data-science-process/sample-data-hive.md",
       "redirect_url": "/azure/architecture/data-science-process/sample-data-hive",
       "redirect_document_id": false
-    }, {
+    },
+    {
       "source_path": "articles/machine-learning/team-data-science-process/sample-data-sql-server.md",
       "redirect_url": "/azure/architecture/data-science-process/sample-data-sql-server",
       "redirect_document_id": false
-    }, {
+    },
+    {
       "source_path": "articles/machine-learning/team-data-science-process/sample-data.md",
       "redirect_url": "/azure/architecture/data-science-process/sample-data",
       "redirect_document_id": false
-    }, {
+    },
+    {
       "source_path": "articles/machine-learning/team-data-science-process/scala-walkthrough.md",
       "redirect_url": "/azure/architecture/data-science-process/scala-walkthrough",
       "redirect_document_id": false
-    }, {
+    },
+    {
       "source_path": "articles/machine-learning/team-data-science-process/select-features.md",
       "redirect_url": "/azure/architecture/data-science-process/select-features",
       "redirect_document_id": false
-    }, {
+    },
+    {
       "source_path": "articles/machine-learning/team-data-science-process/spark-advanced-data-exploration-modeling.md",
       "redirect_url": "/azure/architecture/data-science-process/spark-advanced-data-exploration-modeling",
       "redirect_document_id": false
-    }, {
+    },
+    {
       "source_path": "articles/machine-learning/team-data-science-process/spark-data-exploration-modeling.md",
       "redirect_url": "/azure/architecture/data-science-process/spark-data-exploration-modeling",
       "redirect_document_id": false
-    }, {
+    },
+    {
       "source_path": "articles/machine-learning/team-data-science-process/spark-model-consumption.md",
       "redirect_url": "/azure/architecture/data-science-process/spark-model-consumption",
       "redirect_document_id": false
-    }, {
+    },
+    {
       "source_path": "articles/machine-learning/team-data-science-process/spark-overview.md",
       "redirect_url": "/azure/architecture/data-science-process/spark-overview",
       "redirect_document_id": false
-    }, {
+    },
+    {
       "source_path": "articles/machine-learning/team-data-science-process/sql-server-virtual-machine.md",
       "redirect_url": "/azure/architecture/data-science-process/sql-server-virtual-machine",
       "redirect_document_id": false
-    }, {
+    },
+    {
       "source_path": "articles/machine-learning/team-data-science-process/sql-walkthrough.md",
       "redirect_url": "/azure/architecture/data-science-process/sql-walkthrough",
       "redirect_document_id": false
-    }, {
+    },
+    {
       "source_path": "articles/machine-learning/team-data-science-process/sqldw-walkthrough.md",
       "redirect_url": "/azure/architecture/data-science-process/sqldw-walkthrough",
       "redirect_document_id": false
-    }, {
+    },
+    {
       "source_path": "articles/machine-learning/team-data-science-process/team-data-science-process-for-data-scientists.md",
       "redirect_url": "/azure/architecture/data-science-process/team-data-science-process-for-data-scientists",
       "redirect_document_id": false
-    }, {
+    },
+    {
       "source_path": "articles/machine-learning/team-data-science-process/team-data-science-process-for-devops.md",
       "redirect_url": "/azure/architecture/data-science-process/team-data-science-process-for-devops",
       "redirect_document_id": false
-    }, {
+    },
+    {
       "source_path": "articles/machine-learning/team-data-science-process/team-data-science-process-project-templates.md",
       "redirect_url": "/azure/architecture/data-science-process/team-data-science-process-project-templates",
       "redirect_document_id": false
-    }, {
+    },
+    {
       "source_path": "articles/machine-learning/team-data-science-process/team-lead-tasks.md",
       "redirect_url": "/azure/architecture/data-science-process/team-lead-tasks",
       "redirect_document_id": false
-    }, {
+    },
+    {
       "source_path": "articles/machine-learning/team-data-science-process/track-progress.md",
       "redirect_url": "/azure/architecture/data-science-process/track-progress",
       "redirect_document_id": false
-    }, {
+    },
+    {
       "source_path": "articles/machine-learning/team-data-science-process/walkthroughs-azure-data-lake.md",
       "redirect_url": "/azure/architecture/data-science-process/walkthroughs-azure-data-lake",
       "redirect_document_id": false
-    }, {
+    },
+    {
       "source_path": "articles/machine-learning/team-data-science-process/walkthroughs-hdinsight-hadoop.md",
       "redirect_url": "/azure/architecture/data-science-process/walkthroughs-hdinsight-hadoop",
       "redirect_document_id": false
-    }, {
+    },
+    {
       "source_path": "articles/machine-learning/team-data-science-process/walkthroughs-spark.md",
       "redirect_url": "/azure/architecture/data-science-process/walkthroughs-spark",
       "redirect_document_id": false
-    }, {
+    },
+    {
       "source_path": "articles/machine-learning/team-data-science-process/walkthroughs-sql-data-warehouse.md",
       "redirect_url": "/azure/architecture/data-science-process/walkthroughs-sql-data-warehouse",
       "redirect_document_id": false
-    }, {
+    },
+    {
       "source_path": "articles/machine-learning/team-data-science-process/walkthroughs-sql-server.md",
       "redirect_url": "/azure/architecture/data-science-process/walkthroughs-sql-server",
       "redirect_document_id": false
-    }, {
+    },
+    {
       "source_path": "articles/machine-learning/team-data-science-process/walkthroughs.md",
       "redirect_url": "/azure/architecture/data-science-process/walkthroughs",
       "redirect_document_id": false
-    }, {
+    }, 
+    {
+      "source_path": "articles/load-balancer/load-balancer-monitor-log.md",
+      "redirect_url": "/azure/load-balancer/monitor-load-balancer",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/team-data-science-process/index.yml",
       "redirect_url": "/azure/architecture/data-science-process/overview",
       "redirect_document_id": false
@@ -62108,6 +61972,6 @@
       "source_path": "articles/virtual-desktop/linux-overview.md",
       "redirect_url": "/azure/virtual-desktop/user-documentation/linux-overview",
       "redirect_document_id": true
-    },
+    }
   ]
 }

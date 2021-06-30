@@ -17,7 +17,7 @@ ms.custom: " devx-track-csharp"
 <!-- markdownlint-disable MD033 -->
 > [!IMPORTANT]
 >
-> * This quickstart uses SDK version **3.1.0** and targets API version **2.1**.
+> * This quickstart uses SDK version **3.1.1** and targets API version **2.1**.
 >
 >* The code in this article uses synchronous methods and un-secured credentials storage for simplicity reasons.
 
@@ -61,7 +61,7 @@ Build succeeded.
 Within the application directory, install the Form Recognizer client library for .NET with the following command:
 
 ```console
-dotnet add package Azure.AI.FormRecognizer --version 3.1.0
+dotnet add package Azure.AI.FormRecognizer --version 3.1.1
 ```
 
 From the project directory, open the *Program.cs* file in your preferred editor or IDE. Add the following `using` directives:
@@ -83,7 +83,7 @@ In the application's **Main** method, add a call to the asynchronous tasks used 
 
 ## Object model
 
-With Form Recognizer, you can create two different client types. The first, `FormRecognizerClient` is used to query the service to recognized form fields and content. The second, `FormTrainingClient` is use to create and Manage custom models that you can use to improve recognition.
+With Form Recognizer, you can create two different client types. The first, `FormRecognizerClient` is used to query the service to recognized form fields and content. The second, `FormTrainingClient` is uses to create and manage custom models to improve recognition.
 
 ### FormRecognizerClient
 
