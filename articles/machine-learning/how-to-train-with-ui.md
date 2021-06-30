@@ -37,7 +37,7 @@ There are many ways to create a training job with Azure Machine Learning. You ca
 * Or, you may enter the job creation from the left pane. Click **+New** and select **Job**. 
 [![Azure Machine Learning studio left navigation](media/how-to-train-with-ui/left-nav-entry.png)](media/how-to-train-with-ui/left-nav-entry.png)
 
-* Or, if you are in the Experiment page, you may go to the **All runs** tab and click **Create job**. 
+* Or, if you're in the Experiment page, you may go to the **All runs** tab and click **Create job**. 
 [![Experiment page entry for job creation UI](media/how-to-train-with-ui/experiment-entry.png)](media/how-to-train-with-ui/experiment-entry.png)
 
 These options will all take you to the job creation panel, which has a wizard for configuring and creating a training job. 
@@ -55,10 +55,10 @@ The first step in the job creation UI is to select the compute target on which y
 1. Select a compute type
 1. Select an existing compute resource. The dropdown shows the node information and SKU type to help your choice.
 1. For compute cluster or Kubernetes cluster, you may also specify how many nodes you want for the job in **Instance count**. The default number of instances is 1. 
-1. When you are satisfied with your choices, choose **Next**. 
+1. When you're satisfied with your choices, choose **Next**. 
  [![Select a compute cluster](media/how-to-train-with-ui/compute-cluster.png)](media/how-to-train-with-ui/compute-cluster.png)
 
-If you are using Azure Machine Learning for the first time, you'll see an empty list and a link to create a new compute. To learn how to create the various types, see [Create and manage an Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md), [Create an Azure Machine Learning compute cluster](how-to-create-attach-compute-cluster.md), or [attach an Azure Arc enabled Kubernetes cluster](how-to-attach-arc-kubernetes.md). 
+If you're using Azure Machine Learning for the first time, you'll see an empty list and a link to create a new compute. To learn how to create the various types, see [Create and manage an Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md), [Create an Azure Machine Learning compute cluster](how-to-create-attach-compute-cluster.md), or [attach an Azure Arc enabled Kubernetes cluster](how-to-attach-arc-kubernetes.md). 
 
  [![Create a new compute instance](media/how-to-train-with-ui/create-new-compute.png)](media/how-to-train-with-ui/create-new-compute.png)
 
@@ -91,7 +91,7 @@ After specifying the environment, you can configure your job with more settings.
 
 |Field| Description|
 |------| ------|
-|Job name| The job name field is used to uniquely identify your job. Its also used as the display name for your job. Setting this field is optional; Azure will generate a GUID name for the job if you don't enter anything. Note: the job name must be unique.|
+|Job name| The job name field is used to uniquely identify your job. It's also used as the display name for your job. Setting this field is optional; Azure will generate a GUID name for the job if you don't enter anything. Note: the job name must be unique.|
 |Experiment name| Tags the job for better organization in the Azure Machine Learning studio. Each job's run record will be organized under the corresponding experiment in the studio's "Experiment" tab. By default, Azure will put the job in the **Default** experiment.|
 |Code| You can upload a code file or a folder from your machine, or upload a code file from the workspace's default blob storage. Azure will show the files to be uploaded after you make the selection. |
 |Command| The command to execute. Command-line arguments can be explicitly written into the command or inferred from other sections, specifically **inputs** using curly braces notation.|
@@ -103,11 +103,11 @@ After specifying the environment, you can configure your job with more settings.
 
 #### Code
 
-The command is run from the root directory of the uploaded code folder. After you select your code file or folder, you'll be able to see the files to be uploaded. Copy the relative path to the code containing your entry point and paste it into the box labeled **Enter the command to start the job**. 
+The command is run from the root directory of the uploaded code folder. After you select your code file or folder, you can see the files to be uploaded. Copy the relative path to the code containing your entry point and paste it into the box labeled **Enter the command to start the job**. 
 
 If the code is in the root directory, you can directly refer to it in the command. For instance, `python main.py`.
 
-If the code isn't in the root directory, you should use the relative path. For example, this is the structure of the [word language model](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/train/pytorch/word-language-model):
+If the code isn't in the root directory, you should use the relative path. For example, the structure of the [word language model](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/train/pytorch/word-language-model) is:
 
 ```tree
 .
@@ -116,7 +116,7 @@ If the code isn't in the root directory, you should use the relative path. For e
 └── src
     └── main.py
 ```
-The source code is in the `src` subdirectory. In such a case, the command would be `python ./src/main.py` (plus additional command-line arguments).
+The source code is in the `src` subdirectory. In such a case, the command would be `python ./src/main.py` (plus other command-line arguments).
 
 [![Refer code in the command](media/how-to-train-with-ui/code-command.png)](media/how-to-train-with-ui/code-command.png)
 
