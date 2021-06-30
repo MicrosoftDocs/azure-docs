@@ -218,8 +218,6 @@ items:
     - name: Dedicated SQL pool 
       href: ./sql-data-warehouse/sql-data-warehouse-overview-what-is.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       displayname: overview
-    - name: Architecture
-      href: ./sql-data-warehouse/massively-parallel-processing-mpp-architecture.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Features overview
       href: sql/overview-features.md
     - name: Resource consumption models
@@ -1194,6 +1192,8 @@ items:
     items:
     - name: What is machine learning in Azure Synapse?
       href: machine-learning/what-is-machine-learning.md
+    - name: Cognitive Services in Azure Synapse Analytics
+      href: machine-learning/overview-cognitive-services.md
   - name: Quickstarts
     items:
     - name: Use a sample notebook from the gallery

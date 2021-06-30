@@ -7,7 +7,7 @@ manager: nmurav
 services: azure-communication-services
 
 ms.author: tchladek
-ms.date: 05/31/2021
+ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
 ---

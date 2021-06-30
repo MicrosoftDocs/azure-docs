@@ -13,6 +13,8 @@ ms.date: 06/21/2021
 
 # Migrate MySQL on-premises to Azure Database for MySQL: Test Plans
 
+[!INCLUDE[applies-to-mysql-single-flexible-server](../../includes/applies-to-mysql-single-flexible-server.md)]
+
 ## Prerequisites
 
 [Migration methods](05-migration-methods.md)
