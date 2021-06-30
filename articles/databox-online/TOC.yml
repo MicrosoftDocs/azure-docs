@@ -293,7 +293,7 @@
             href: azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning.md
           - name: GPU extension issues
             href: azure-stack-edge-gpu-troubleshoot-virtual-machine-gpu-extension-installation.md
-    - name: Manage certificates
+    - name: About certificates
       items:
       - name: What are certificates?
         href: azure-stack-edge-gpu-certificates-overview.md 
@@ -303,9 +303,11 @@
         items:
         - name: Via Azure Powershell
           href: azure-stack-edge-gpu-create-certificates-powershell.md 
-        - name: Create via Azure Stack Readiness Checker tool
+        - name: Via Azure Stack Readiness Checker tool
           href: azure-stack-edge-gpu-create-certificates-tool.md 
-      - name: Upload, export, import
+      - name: Prepare certificates to upload on device
+        href: azure-stack-edge-gpu-prepare-certificates-device-upload.md 
+      - name: Upload, import, view expiry
         href: azure-stack-edge-gpu-manage-certificates.md 
       - name: Troubleshoot certificate errors
         href: azure-stack-edge-gpu-certificate-troubleshooting.md 
