@@ -2,7 +2,7 @@
 title: SQL DB in Azure VM backup & restore via PowerShell
 description: Back up and restore SQL Databases in Azure VMs using Azure Backup and PowerShell.
 ms.topic: conceptual
-ms.date: 03/15/2019
+ms.date: 06/30/2019
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1 
 ms.custom: devx-track-azurepowershell
 ---
@@ -371,7 +371,7 @@ $AnotherInstanceWithFullConfig = Get-AzRecoveryServicesBackupWorkloadRecoveryCon
 ##### Alternate restore with log point-in-time
 
 ```powershell
-$AnotherInstanceWithLogConfig = Get-AzRecoveryServicesBackupWorkloadRecoveryConfig -PointInTime $PointInTime -Item $bkpItem -AlternateWorkloadRestore -VaultId $targetVault.ID
+$AnotherInstanceWithLogConfig = Get-AzRecoveryServicesBackupWorkloadRecoveryConfig -PointInTime $PointInTime -Item $bkpItem -TargetItem $TargetInstance -AlternateWorkloadRestore -VaultId $targetVault.ID
 ```
 
 ##### Restore as Files
@@ -454,6 +454,110 @@ PointInTime          : 1/1/0001 12:00:00 AM
 
 > [!IMPORTANT]
 > Make sure that the final recovery config object has all the necessary and proper values since the restore operation will be based on the config object.
+
+#### Alternate workload restore to a vault in secondary region
+
+> [!IMPORTANT]
+> Support for secondary region restores for SQL from Powershell is available from Az 4.1.0
+
+If you have enabled cross region restore, then the recovery points will be replicated to the secondary, paired region as well. Then, you can fetch those recovery points and trigger a restore to a machine, present in that paired region. As with the normal restore, the target machine should be registered to the target vault in the secondary region. The following sequence of steps should clarify the end-to-end process.
+
+* Fetch the backup items which are replicated to the secondary region
+* For such an item, fetch the recovery points (distinct and/or logs) which are replicated to the secondary region
+* Then choose a target server, registered to a vault within the secondary paired region
+* Trigger the restore to that server and track it using the JobId.
+
+#### Fetch backup items from secondary region
+
+Fetch all the SQL backup items from the secondary region with the usual command but with an extra parameter to indicate that these items should be fetched from secondary region.
+
+```powershell
+$secondaryBkpItems = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureWorkload  -WorkloadType MSSQL  -VaultId $targetVault.ID -UseSecondaryRegion
+```
+
+##### Fetch distinct recovery points from secondary region
+
+Use [Get-AzRecoveryServicesBackupRecoveryPoint](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackuprecoverypoint) to fetch distinct (Full/differential) recovery points for a backed-up SQL DB and add a parameter to indicate that these are recovery points fetched from the secondary region
+
+```powershell
+$startDate = (Get-Date).AddDays(-7).ToUniversalTime()
+$endDate = (Get-Date).ToUniversalTime()
+Get-AzRecoveryServicesBackupRecoveryPoint -Item $secondaryBkpItems[0] -VaultId $targetVault.ID -StartDate $startdate -EndDate $endDate -UseSecondaryRegion
+```
+
+The output is similar to the following example
+
+```output
+RecoveryPointId    RecoveryPointType  RecoveryPointTime      ItemName                             BackupManagemen
+                                                                                                  tType
+---------------    -----------------  -----------------      --------                             ---------------
+6660368097802      Full               3/18/2019 8:09:35 PM   MSSQLSERVER;model             AzureWorkload
+```
+
+Use the 'RecoveryPointId' filter or an array filter to fetch the relevant recovery point.
+
+```powershell
+$FullRPFromSec = Get-AzRecoveryServicesBackupRecoveryPoint -Item $secondaryBkpItems[0] -VaultId $targetVault.ID -RecoveryPointId "6660368097802" -UseSecondaryRegion
+```
+
+##### Fetch log recovery points from secondary region
+
+Use [Get-AzRecoveryServicesBackupRecoveryLogChain](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackuprecoverylogchain) PowerShell cmdlet with the parameter '*-UseSecondaryRegion*' which will return start and end times of an unbroken, continuous log chain for that SQL backup item from the secondary region. The desired point-in-time should be within this range.
+
+```powershell
+Get-AzRecoveryServicesBackupRecoveryLogChain -Item $secondaryBkpItems[0] -VaultId $targetVault.ID -UseSecondaryRegion
+```
+
+The output will be similar to the following example.
+
+```output
+ItemName                       StartTime                      EndTime
+--------                       ---------                      -------
+SQLDataBase;MSSQLSERVER;azu... 3/18/2019 8:09:35 PM           3/19/2019 12:08:32 PM
+```
+
+The above output means that you can restore to any point-in-time between the displayed start time and end time. The times are in UTC. Construct any point-in-time in PowerShell that's within the range shown above.
+
+#### Fetch target server from secondary region
+
+From the secondary region, we need a vault and a target server registered to that vault. Once we have the secondary region target container and the SQL instance, we can re-use the existing cmdlets to generate a restore workload configuration.
+
+First, we fetch the relevant vault present in the secondary region and then get the registered containers within that vault.
+
+```powershell
+$PairedRegionVault = Get-AzRecoveryServicesVault -ResourceGroupName SecondaryRG -Name PairedVault
+$seccontainer =  Get-AzRecoveryServicesBackupContainer -ContainerType AzureVMAppContainer -Status Registered  -VaultId $PairedRegionVault.ID
+```
+
+Once the registered container is chosen, then we fetch the SQL instances within the container to which the DB should be restored to.
+
+```powershell
+Get-AzRecoveryServicesBackupProtectableItem -WorkloadType MSSQL -ItemType SQLInstance -VaultId $PairedRegionVault.ID -Container $seccontainer
+```
+
+From the output, choose the SQL server name and assign the output to a variable which will be used later for restore.
+
+```powershell
+$secSQLInstance = Get-AzRecoveryServicesBackupProtectableItem -WorkloadType MSSQL -ItemType SQLInstance -VaultId $PairedRegionVault.ID -Container $seccontainer -ServerName "sqlserver-0.corp.contoso.com"
+```
+
+#### Prepare the recovery configuration
+
+As documented [above](#determine-recovery-configuration) for the normal SQL restore, the same command can be re-used to generate the relevant recovery configuration.
+
+##### For full restores from secondary region
+
+```powershell
+Get-AzRecoveryServicesBackupWorkloadRecoveryConfig -RecoveryPoint $FullRPFromSec[0] -TargetItem $secSQLInstance -AlternateWorkloadRestore -VaultId $vault.ID
+```
+
+##### For log point in time restores from secondary region
+
+```powershell
+Get-AzRecoveryServicesBackupWorkloadRecoveryConfig -PointInTime $PointInTime -Item $secondaryBkpItems[0] -TargetItem $secSQLInstance  -AlternateWorkloadRestore -VaultId $vault.ID
+```
+
+Once the relevant configuration is obtained for primary region restore or secondary region restore, the same restore command can be used to trigger restores and later tracked using the jobIDs.
 
 ### Restore with relevant configuration
 

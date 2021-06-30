@@ -147,6 +147,10 @@ To get more details about this error, run:
 az ml endpoint get-logs -n <endpoint-name> --deployment <deployment-name> --lines 100
 ```
 
+### ERR_1350: Unable to download user model, not enough space on the disk
+
+This issue happens when the size of the model is bigger than the available disk space. Please try an SKU with more disk space.
+
 ### ERR_2100: Unable to start user container
 
 To run the `score.py` provided as part of the deployment, Azure creates a container that includes all the resources that the `score.py` needs, and runs the scoring script on that container.
