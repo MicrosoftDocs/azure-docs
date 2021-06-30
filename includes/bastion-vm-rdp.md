@@ -10,7 +10,7 @@
  ms.custom: include file
 ---
 
-1. Open the [Azure portal](https://portal.azure.com). Navigate to the virtual machine that you want to connect to, then select **Connect**. Select **Bastion** from the dropdown.
+1. In the [Azure portal](https://portal.azure.com), navigate to the virtual machine that you want to connect to, then select **Connect**. Select **Bastion** from the dropdown.
 
    :::image type="content" source="./media/bastion-vm-rdp/connect-vm.png" alt-text="Select Bastion":::
 
