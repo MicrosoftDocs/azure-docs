@@ -591,8 +591,6 @@ Use a [Custom deployment in the Azure portal](https://portal.azure.com/#create/M
 }
 ```
 
-see [Provision managed instance with Azure AD-only authentication enabled](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.sql/sql-managed-instance-aad-only-auth).
-
 ---
 
 ## Limitations
