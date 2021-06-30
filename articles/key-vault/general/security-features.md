@@ -53,7 +53,7 @@ The model of a single mechanism for authentication to both planes has several be
 - If a user leaves, they instantly lose access to all key vaults in the organization.
 - Organizations can customize authentication by using the options in Azure AD, such as to enable multi-factor authentication for added security.
 
-For full details, see [Key Vault Authentication Fundamentals](/azure/key-vault/general/authentication)
+For more information, see [Key Vault authentication fundamentals](authentication.md).
 
 ## Access model overview
 
@@ -69,7 +69,7 @@ A security principal is an object that represents a user, group, service, or app
 - A **group** security principal identifies a set of users created in Azure Active Directory. Any roles or permissions assigned to the group are granted to all of the users within the group.
 - A **service principal** is a type of security principal that identifies an application or service, which is to say, a piece of code rather than a user or group. A service principal's object ID is known as its **client ID** and acts like its username. The service principal's **client secret** or **certificate** acts like its password. Many Azure Services supports assigning [Managed Identity](../../active-directory/managed-identities-azure-resources/overview.md) with automated management of **client ID** and **certificate**. Managed identity is the most secure and recommended option for authenticating within Azure.
 
-For more information about authentication to Key Vault, see [Authenticate to Azure Key Vault](authentication.md)
+For more information about authentication to Key Vault, see [Authenticate to Azure Key Vault](authentication.md).
 
 ## Privileged access
 
@@ -125,7 +125,7 @@ Azure Key Vault soft-delete and purge protection allows you to recover deleted v
 
 You should also take regular back ups of your vault on update/delete/create of objects within a Vault.  
 
-## Next Steps
+## Next steps
 
 - [Azure Key Vault security baseline](security-baseline.md)
 - [Azure Key Vault best practices](security-baseline.md)
