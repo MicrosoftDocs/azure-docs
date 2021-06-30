@@ -107,10 +107,10 @@ The following table lists common and recommended alert rules for App Service.
 | Activity Log | Create or Update Web App | When app is created or updated|
 | Activity Log | Delete Web App | When app is deleted|
 | Activity Log | Restart Web App| When app is restarted|
-| Activity Log | Stop Web App'| When app is stopped|
+| Activity Log | Stop Web App| When app is stopped|
 
 ## Next steps
 
-- See [Monitoring [service-name] data reference](monitor-app-service-reference.md) for a reference of metrics, logs, and other important values created by [service name].
-*>.
+- See [Monitoring App Service data reference](monitor-app-service-reference.md) for a reference of metrics, logs, and other important values created by [service name].
+
 - See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resource) for details on monitoring Azure resources.
