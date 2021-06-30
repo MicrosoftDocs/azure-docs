@@ -16,9 +16,6 @@ sections:
   - name: Ignored
     questions:
       - question: |
-          Common questions and answers
-        answer: |
-      - question: |
           How do I monitor the health and performance of my cache?
         answer: |
           Microsoft Azure Cache for Redis instances can be monitored in the [Azure portal](https://portal.azure.com). You can view metrics, pin metrics charts to the Startboard, customize the date and time range of monitoring charts, add and remove metrics from the charts, and set alerts when certain conditions are met. For more information, see [Monitor Azure Cache for Redis](cache-how-to-monitor.md).

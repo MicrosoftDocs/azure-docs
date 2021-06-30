@@ -17,9 +17,6 @@ sections:
   - name: Ignored
     questions:
       - question: |
-          Common questions and answers
-        answer: |
-      - question: |
           How can I get started with Azure Cache for Redis?
         answer: |
           There are several ways you can get started with Azure Cache for Redis.
