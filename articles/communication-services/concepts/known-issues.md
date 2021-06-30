@@ -6,7 +6,7 @@ manager: jken
 services: azure-communication-services
 
 ms.author: mikben
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: troubleshooting
 ms.service: azure-communication-services
 ---
@@ -26,22 +26,23 @@ This section provides information about known issues associated with the Azure C
 
 If a user is in a call and decides to refresh the page, the Communication Services media service won't remove this user immediately from the call. It will wait for the user to rejoin. The user will be removed from the call after the media service times out.
 
-It's best to build user experiences that don't require end-users to refresh the page of your application while in a call. If a user refreshes the page, reuse the same Communication Services user ID after they return back to the application.
+It's best to build user experiences that don't require end users to refresh the page of your application while in a call. If a user refreshes the page, reuse the same Communication Services user ID after they return back to the application.
 
-From the perspective of other participants in the call, the user will remain in the call for period of time (1-2 minutes). 
+From the perspective of other participants in the call, the user will remain in the call for a minute or two.
+
 If the user rejoins with the same Communication Services user ID, they'll be represented as the same, existing object in the `remoteParticipants` collection.
 
 If the user was sending video before refreshing, the `videoStreams` collection will keep the previous stream information until the service times out and removes it. In this scenario, the application may decide to observe any new streams added to the collection and render one with the highest `id`. 
 
 
 ### It's not possible to render multiple previews from multiple devices on web
-This is a known limitation. For more information, refer to the [calling SDK overview](./voice-video-calling/calling-sdk-features.md).
+This is a known limitation. For more information, see the [calling SDK overview](./voice-video-calling/calling-sdk-features.md).
 
 ### Enumerating devices isn't possible in Safari when the application runs on iOS or iPadOS
 
 Applications can't enumerate/select mic/speaker devices (like Bluetooth) on Safari iOS/iPad. This is a known operating system limitation.
 
-If you're using Safari on macOS, your app will not be able to enumerate/select speakers through the Communication Services Device Manager. In this scenario, devices must be selected via the OS. If you use Chrome on macOS, the app can enumerate/select devices through the Communication Services Device Manager.
+If you're using Safari on macOS, your app won't be able to enumerate/select speakers through the Communication Services Device Manager. In this scenario, devices must be selected via the OS. If you use Chrome on macOS, the app can enumerate/select devices through the Communication Services Device Manager.
 
 ### Audio connectivity is lost when receiving SMS messages or calls during an ongoing VoIP call
 This problem may occur due to multiple reasons:
@@ -61,7 +62,7 @@ Switching between video devices may cause your video stream to pause while the s
 Switching between devices frequently can cause performance degradation. Developers are encouraged to stop one device stream before starting another.
 
 ### Bluetooth headset microphone is not detected therefore is not audible during the call on Safari on iOS
-Bluetooth headsets aren't supported by Safari on iOS. Your Bluetooth device will not be listed in available microphone options and other participants will not be able to hear you if you try using Bluetooth over Safari.
+Bluetooth headsets aren't supported by Safari on iOS. Your Bluetooth device won't be listed in available microphone options and other participants won't be able to hear you if you try using Bluetooth over Safari.
 
 #### Possible causes
 This is a known macOS/iOS/iPadOS operating system limitation. 
