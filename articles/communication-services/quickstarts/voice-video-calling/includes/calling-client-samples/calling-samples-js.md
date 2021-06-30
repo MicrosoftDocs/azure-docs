@@ -452,7 +452,7 @@ E.g. to pick first stream of a first participant:
 const remoteVideoStream: RemoteVideoStream = call.remoteParticipants[0].videoStreams[0];
 const streamType: MediaStreamType = remoteVideoStream.mediaStreamType;
 ```
-To check what's the stream type inspect `mediaStreamType` property of a given stream. It will return 'Video' or 'ScreenSharing';
+To check the stream type, inspect the `mediaStreamType` property of a given stream. It will return 'Video' or 'ScreenSharing';
 
 To render `RemoteVideoStream`, application should do the following:
 - application can then create a new instance of `VideoStreamRenderer`, supply `RemoteVideoStream` instance as an argument
