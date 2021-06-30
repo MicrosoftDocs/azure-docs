@@ -594,8 +594,8 @@ Use a [Custom deployment in the Azure portal](https://portal.azure.com/#create/M
 
 ## Limitations
 
-- Creating a server or instance with Azure AD-only authentication enabled during provisioning isn't supported when the Azure CLI or Azure portal during this preview
-- To reset the server administrator password, Azure AD-only authentication must be disabled
+- Creating a server or instance with Azure AD-only authentication enabled during provisioning isn't supported when using the Azure CLI or Azure portal during this preview.
+- To reset the server administrator password, Azure AD-only authentication must be disabled.
 - If Azure AD-only authentication is disabled, you must create a server with a server admin and password when using all APIs.
 
 ## Next steps
