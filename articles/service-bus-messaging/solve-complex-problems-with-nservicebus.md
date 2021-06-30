@@ -1,7 +1,7 @@
 ---
 title: Solve complex problems with NServiceBus and Service Bus
 description: Learn how to solve complex problems with distributed systems on Service Bus using the NServiceBus framework.
-author: kbaley, SeanFeldman                      
+author: kbaley                      
 ms.author: spelluru                  
 ms.service: service-bus-messaging    
 ms.topic: how-to                     
@@ -328,6 +328,7 @@ For more information about using NServiceBus with Azure services, see the follow
 
 - [Azure Service Bus Send/Reply Sample](https://docs.particular.net/samples/azure-service-bus-netstandard/send-reply/)
 - [Using NServiceBus with Azure Functions](https://docs.particular.net/nservicebus/hosting/azure-functions/service-bus)
+- [Azure Service Bus transport on NServiceBus](https://docs.particular.net/transports/azure-service-bus/)
 - [NServiceBus and Azure](https://docs.particular.net/nservicebus/azure/)
 - [NServiceBus](https://particular.net/nservicebus)
 - [NServiceBus Quick Start Tutorial](https://docs.particular.net/tutorials/quickstart)
