@@ -60,7 +60,7 @@ These cache usage models include write caching:
 * **Greater than 15% writes, checking the backing server for changes every 60 seconds**
 * **Greater than 15% writes, write back to the server every 30 seconds**
 
-Only use these usage models to edit files that were created with NFS.
+Write caching usage models should be used only on files that were created with NFS.
 
 If you try to use write caching on REST-created files, your file changes could be lost. This is because the cache does not try to save file edits to the storage container immediately.
 
