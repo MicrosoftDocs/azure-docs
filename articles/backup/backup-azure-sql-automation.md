@@ -266,6 +266,9 @@ Azure Backup can restore SQL Server databases that are running on Azure VMs as f
 
 Check the prerequisites mentioned [here](restore-sql-database-azure-vm.md#restore-prerequisites) before restoring SQL DBs.
 
+> [!WARNING]
+> Due to a security issue related to RBAC, we had to introduce a breaking change in the restore commands for SQL DB via Powershell. Please upgrade to Az 6.0.0 version or above for the proper restore commands to be submitted via Powershell. The latest PS commands are provided below.
+
 First fetch the relevant backed up SQL DB using the [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem) PowerShell cmdlet.
 
 ```powershell
@@ -357,21 +360,22 @@ $OverwriteWithLogConfig = Get-AzRecoveryServicesBackupWorkloadRecoveryConfig -Po
 As outlined above, if the target SQLInstance lies within another Azure VM, make sure it's [registered to this vault](#registering-the-sql-vm) and the relevant SQLInstance appears as a protectable item.
 
 ```powershell
+$TargetContainer =  Get-AzRecoveryServicesBackupContainer -ContainerType AzureVMAppContainer -Status Registered  -VaultId $targetVault.ID
 $TargetInstance = Get-AzRecoveryServicesBackupProtectableItem -WorkloadType MSSQL -ItemType SQLInstance -Name "<SQLInstance Name>" -ServerName "<SQL VM name>" -VaultId $targetVault.ID
 ```
 
-Then just pass the relevant recovery point, target SQL instance with the right flag as shown below.
+Then just pass the relevant recovery point, target SQL instance with the right flag as shown below and the target container under which the target SQL instance exists.
 
 ##### Alternate restore with distinct Recovery point
 
 ```powershell
-$AnotherInstanceWithFullConfig = Get-AzRecoveryServicesBackupWorkloadRecoveryConfig -RecoveryPoint $FullRP -TargetItem $TargetInstance -AlternateWorkloadRestore -VaultId $targetVault.ID
+$AnotherInstanceWithFullConfig = Get-AzRecoveryServicesBackupWorkloadRecoveryConfig -RecoveryPoint $FullRP -TargetItem $TargetInstance -AlternateWorkloadRestore -VaultId $targetVault.ID -TargetContainer $TargetContainer[1]
 ```
 
 ##### Alternate restore with log point-in-time
 
 ```powershell
-$AnotherInstanceWithLogConfig = Get-AzRecoveryServicesBackupWorkloadRecoveryConfig -PointInTime $PointInTime -Item $bkpItem -TargetItem $TargetInstance -AlternateWorkloadRestore -VaultId $targetVault.ID
+$AnotherInstanceWithLogConfig = Get-AzRecoveryServicesBackupWorkloadRecoveryConfig -PointInTime $PointInTime -Item $bkpItem -TargetItem $TargetInstance -AlternateWorkloadRestore -VaultId $targetVault.ID -TargetContainer $TargetContainer[1]
 ```
 
 ##### Restore as Files
@@ -458,7 +462,7 @@ PointInTime          : 1/1/0001 12:00:00 AM
 #### Alternate workload restore to a vault in secondary region
 
 > [!IMPORTANT]
-> Support for secondary region restores for SQL from Powershell is available from Az 4.1.0
+> Support for secondary region restores for SQL from Powershell is available from Az 6.0.0
 
 If you have enabled cross region restore, then the recovery points will be replicated to the secondary, paired region as well. Then, you can fetch those recovery points and trigger a restore to a machine, present in that paired region. As with the normal restore, the target machine should be registered to the target vault in the secondary region. The following sequence of steps should clarify the end-to-end process.
 
@@ -548,13 +552,13 @@ As documented [above](#determine-recovery-configuration) for the normal SQL rest
 ##### For full restores from secondary region
 
 ```powershell
-Get-AzRecoveryServicesBackupWorkloadRecoveryConfig -RecoveryPoint $FullRPFromSec[0] -TargetItem $secSQLInstance -AlternateWorkloadRestore -VaultId $vault.ID
+Get-AzRecoveryServicesBackupWorkloadRecoveryConfig -RecoveryPoint $FullRPFromSec[0] -TargetItem $secSQLInstance -AlternateWorkloadRestore -VaultId $vault.ID -TargetContainer $seccontainer[1]
 ```
 
 ##### For log point in time restores from secondary region
 
 ```powershell
-Get-AzRecoveryServicesBackupWorkloadRecoveryConfig -PointInTime $PointInTime -Item $secondaryBkpItems[0] -TargetItem $secSQLInstance  -AlternateWorkloadRestore -VaultId $vault.ID
+Get-AzRecoveryServicesBackupWorkloadRecoveryConfig -PointInTime $PointInTime -Item $secondaryBkpItems[0] -TargetItem $secSQLInstance  -AlternateWorkloadRestore -VaultId $vault.ID -TargetContainer $seccontainer[1]
 ```
 
 Once the relevant configuration is obtained for primary region restore or secondary region restore, the same restore command can be used to trigger restores and later tracked using the jobIDs.
