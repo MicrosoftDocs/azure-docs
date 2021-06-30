@@ -25,7 +25,7 @@ Form Recognizer features are now supported by seven containers—**Layout**, **B
 
 *See* [**Install and run Docker containers for Form Recognizer**](containers/form-recognizer-container-install-run.md?branch=main&tabs=layout) and [**Configure Form Recognizer containers**](containers/form-recognizer-container-configuration.md?branch=main)
 
-### Form Recognizer 3.1.0 has been patched to version 3.1.1 for C#, Java, and Python
+### Form Recognizer SDK v3.1.0 patched to v3.1.1 for C#, Java, and Python
 
 The patch addresses invoices that do not have sub-line item fields detected such as a  `FormField` with `Text` but no `BoundingBox` or `Page` information.
 
@@ -37,7 +37,7 @@ The patch addresses invoices that do not have sub-line item fields detected such
 
  | [Reference documentation](/java/api/com.azure.ai.formrecognizer.models?view=azure-java-stable&preserve-view=true)| [Maven artifact package dependency version 3.1.1](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer/3.1.1) |
 
-### [**JavaScript**](#tab/javascipt)
+### [**JavaScript**](#tab/javascript)
 
 > [!NOTE]
 > There are no updates to JavaScript SDK v3.1.0.
@@ -46,7 +46,7 @@ The patch addresses invoices that do not have sub-line item fields detected such
 
 ### [**Python**](#tab/python)
 
-| [Reference documentation](/java/api/com.azure.ai.formrecognizer.models?view=azure-java-stable&preserve-view=true)| [PyPi azure-ai-formrecognizer 3.1.0](https://pypi.org/project/azure-ai-formrecognizer/) |
+| [Reference documentation](/java/api/com.azure.ai.formrecognizer.models?view=azure-java-stable&preserve-view=true)| [PyPi azure-ai-formrecognizer 3.1.1](https://pypi.org/project/azure-ai-formrecognizer/) |
 
 ---
 
