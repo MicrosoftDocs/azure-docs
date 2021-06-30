@@ -12,7 +12,7 @@ ms.custom: seodec18
 # Networking considerations for an App Service Environment #
 
 > [!NOTE]
-> This article is about the App Service Environment v3 which is used with Isolated v2 App Service plans
+> This article is about the App Service Environment v2 which is used with Isolated App Service plans
 > 
 
 ## Overview ##
