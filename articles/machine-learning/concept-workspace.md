@@ -72,7 +72,7 @@ Machine learning tasks read and/or write artifacts to your workspace.
 
 You can also perform the following workspace management tasks:
 
-| Workspace management task   | Portal              | Studio | Python SDK / R SDK       | CLI        | VS Code
+| Workspace management task   | Portal              | Studio | Python SDK / R SDK       | Azure CLI        | VS Code
 |---------------------------|---------|---------|------------|------------|------------|
 | Create a workspace        | **&check;**     | | **&check;** | **&check;** | **&check;** |
 | Manage workspace access    | **&check;**   || |  **&check;**    ||
@@ -127,6 +127,8 @@ Beginning December 21st, all Enterprise Edition workspaces will be automatically
 In either editions, customers are responsible for the costs of Azure resources consumed and will not need to pay any additional charges for Azure Machine Learning. Please refer to the [Azure Machine Learning pricing page](https://azure.microsoft.com/pricing/details/machine-learning/) for more details.
 
 ## Next steps
+
+To learn more about planning a workspace for your organization's requirements, see [Organize and set up Azure Machine Learning](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-resource-organization).
 
 To get started with Azure Machine Learning, see:
 

@@ -8,18 +8,26 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/06/2021
+ms.date: 06/18/2021
 ---
 
-# Estimate and manage capacity of an Azure Cognitive Search service
+# Estimate and manage capacity of a search service
 
-Before [provisioning a search service](search-create-service-portal.md) and locking in a specific pricing tier, take a few minutes to understand how capacity works and how you might adjust replicas and partitions to accommodate workload fluctuation.
+Before you [create a search service](search-create-service-portal.md) and lock in a specific [pricing tier](search-sku-tier.md), take a few minutes to understand how capacity works and how you might adjust replicas and partitions to accommodate workload fluctuation.
 
-Capacity is a function of the [service tier](search-sku-tier.md), establishing maximum storage per service, per partition, and the maximum limits on the number of objects you can create. The Basic tier is designed for apps having modest storage requirements (one partition only) but with the ability to run in a high availability configuration (3 replicas). Other tiers are designed for specific workloads or patterns, such as multitenancy. Internally, services created on those tiers benefit from hardware that helps those scenarios.
+In Azure Cognitive Search, capacity is based on *replicas* and *partitions*. Replicas are copies of the search engine.
+Partitions are units of storage. Each new search service starts with one each, but you can scale up each resource independently to accommodate fluctuating workloads. Adding either resource is [billable](search-sku-manage-costs.md#billable-events).
 
-The scalability architecture in Azure Cognitive Search is based on flexible combinations of replicas and partitions so that you can vary capacity depending on whether you need more query or indexing power. Once a service is created, you can increase or decrease the number of replicas or partitions independently. Costs will go up with each additional physical resource, but once large workloads are finished, you can reduce scale to lower your bill. Depending on the tier and the size of the adjustment, adding or reducing capacity can take anywhere from 15 minutes to several hours.
+The physical characteristics of replicas and partitions, such as processing speed and disk IO, vary by [service tier](search-sku-tier.md). If you provisioned on Standard, replicas and partitions will be faster and larger than those of Basic.
 
-When modifying the allocation of replicas and partitions, we recommend using the Azure portal. The portal enforces limits on allowable combinations that stay below maximum limits of a tier. However, if you require a script-based or code-based provisioning approach, the [Azure PowerShell](search-manage-powershell.md) or the [Management REST API](/rest/api/searchmanagement/services) are alternative solutions.
+Changing capacity is not instantaneous. It can take up to an hour to commission or decommission partitions, especially on services with large amounts of data.
+
+When scaling a search service, you can choose from the following tools and approaches:
+
++ [Azure portal](#adjust-capacity)
++ [Azure PowerShell](search-manage-powershell.md)
++ [Azure CLI](/cli/azure/search)
++ [Management REST API](/rest/api/searchmanagement/2020-08-01/services)
 
 ## Concepts: search units, replicas, partitions, shards
 
@@ -119,7 +127,7 @@ The Free tier and preview features are not covered by [service-level agreements 
 
 ## When to add capacity
 
-Initially, a service is allocated a minimal level of resources consisting of one partition and one replica. The [tier you choose](search-sku-tier.md) determines partition size and speed, and each tier is optimized around a set of characteristics that fit various scenarios. If you choose a higher-end tier, you might need fewer partitions than if you go with S1. One of the questions you'll need to answer through self-directed testing is whether a larger and more expensive partition yields better performance than two cheaper partitions on a service provisioned at a lower tier.
+Initially, a service is allocated a minimal level of resources consisting of one partition and one replica. The [tier you choose](search-sku-tier.md) determines partition size and speed, and each tier is optimized around a set of characteristics that fit various scenarios. If you choose a higher-end tier, you might [need fewer partitions](search-performance-tips.md#service-capacity) than if you go with S1. One of the questions you'll need to answer through self-directed testing is whether a larger and more expensive partition yields better performance than two cheaper partitions on a service provisioned at a lower tier.
 
 A single service must have sufficient resources to handle all workloads (indexing and queries). Neither workload runs in the background. You can schedule indexing for times when query requests are naturally less frequent, but the service will not otherwise prioritize one task over another. Additionally, a certain amount of redundancy smooths out query performance when services or nodes are updated internally.
 
@@ -150,7 +158,7 @@ Finally, larger indexes take longer to query. As such, you might find that every
 
    :::image type="content" source="media/search-capacity-planning/1-initial-values.png" alt-text="Scale page showing current values" border="true":::
 
-1. Use the slider to increase or decrease the number of partitions. The formula at the bottom indicates how many search units are being used. Select **Save**.
+1. Use the slider to increase or decrease the number of partitions. Select **Save**.
 
    This example adds a second replica and partition. Notice the search unit count; it is now four because the billing formula is replicas multiplied by partitions (2 x 2). Doubling capacity more than doubles the cost of running the service. If the search unit cost was $100, the new monthly bill would now be $400.
 
@@ -168,9 +176,31 @@ Finally, larger indexes take longer to query. As such, you might find that every
 
 > [!NOTE]
 > After a service is provisioned, it cannot be upgraded to a higher tier. You must create a search service at the new tier and reload your indexes. See [Create an Azure Cognitive Search service in the portal](search-create-service-portal.md) for help with service provisioning.
->
-> Additionally, partitions and replicas are managed exclusively and internally by the service. There is no concept of processor affinity, or assigning a workload to a specific node.
->
+
+## How scale requests are handled
+
+Upon receipt of a scale request, the search service:
+
+1. Checks whether the request is valid.
+1. Starts backing up data and system information.
+1. Checks whether the service is already in a provisioning state (currently adding or eliminating either replicas or partitions).
+1. Starts provisioning.
+
+Scaling a service can take as little as 15 minutes or well over an hour, depending on the size of the service and the scope of the request. Backup can take several minutes, depending on the amount of data and number of partitions and replicas.
+
+The above steps are not entirely consecutive. For example, the system starts provisioning when it can safely do so, which could be while backup is winding down.
+
+## Errors during scaling
+
+The error message "Service update operations are not allowed at this time because we are processing a previous request" is caused by repeating a request to scale down or up when the service is already processing a previous request.
+
+Resolve this error by checking service status to verify provisioning status:
+
+1. Use the [Management REST API](/rest/api/searchmanagement/2020-08-01/services), [Azure PowerShell](search-manage-powershell.md), or [Azure CLI](/cli/azure/search) to get service status.
+1. Call [Get Service](/rest/api/searchmanagement/2020-08-01/services/get)
+1. Check the response for ["provisioningState": "provisioning"](/rest/api/searchmanagement/2020-08-01/services/get#provisioningstate)
+
+If status is "Provisioning", then wait for the request to complete. Status should be either "Succeeded" or "Failed" before another request is attempted. There is no status for backup. Backup is an internal operation and it's unlikely to be a factor in any disruption of a scale exercise.
 
 <a id="chart"></a>
 
@@ -193,7 +223,7 @@ All Standard and Storage Optimized search services can assume the following comb
 SUs, pricing, and capacity are explained in detail on the Azure website. For more information, see [Pricing Details](https://azure.microsoft.com/pricing/details/search/).
 
 > [!NOTE]
-> The number of replicas and partitions divides evenly into 12 (specifically, 1, 2, 3, 4, 6, 12). This is because Azure Cognitive Search pre-divides each index into 12 shards so that it can be spread in equal portions across all partitions. For example, if your service has three partitions and you create an index, each partition will contain four shards of the index. How Azure Cognitive Search shards an index is an implementation detail, subject to change in future releases. Although the number is 12 today, you shouldn't expect that number to always be 12 in the future.
+> The number of replicas and partitions divides evenly into 12 (specifically, 1, 2, 3, 4, 6, 12). Azure Cognitive Search pre-divides each index into 12 shards so that it can be spread in equal portions across all partitions. For example, if your service has three partitions and you create an index, each partition will contain four shards of the index. How Azure Cognitive Search shards an index is an implementation detail, subject to change in future releases. Although the number is 12 today, you shouldn't expect that number to always be 12 in the future.
 >
 
 ## Next steps
