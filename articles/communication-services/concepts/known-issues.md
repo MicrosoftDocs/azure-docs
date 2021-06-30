@@ -28,7 +28,8 @@ If a user is in a call and decides to refresh the page, the Communication Servic
 
 It's best to build user experiences that don't require end-users to refresh the page of your application while in a call. If a user refreshes the page, reuse the same Communication Services user ID after they return back to the application.
 
-From the perspective of other participants in the call, the user will remain in the call for period of time (1-2 minutes). 
+From the perspective of other participants in the call, the user will remain in the call for a minute or two.
+ 
 If the user rejoins with the same Communication Services user ID, they'll be represented as the same, existing object in the `remoteParticipants` collection.
 
 If the user was sending video before refreshing, the `videoStreams` collection will keep the previous stream information until the service times out and removes it. In this scenario, the application may decide to observe any new streams added to the collection and render one with the highest `id`. 
