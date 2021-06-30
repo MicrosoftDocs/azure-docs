@@ -1,23 +1,25 @@
 ---
-title: Overview of Azure Logic Apps Designer
-description: The Azure Logic Apps designer is a user interface in the Azure portal to help you create new workflows visually. Learn about the benefits and features of the latest version of the designer.
+title: About single-tenant workflow designer
+description: Learn how the designer in single-tenant Azure Logic Apps helps you visually create workflows through the Azure portal. Discover the benefits and features in this latest version.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 06/29/2021
 ---
 
-# Overview of Azure Logic Apps designer
+# About the workflow designer in single-tenant Azure Logic Apps
 
-When you work with Logic Apps in the Azure portal, you can choose to edit your [*workflows*](logic-apps-overview.md#workflow) programmatically or visually. After you open a [*logic app* resource](logic-apps-overview.md#logic-app) in the Azure portal, you can select between the [**Code** view](#code-view) or the **Designer** developer view in the navigation menu under **Developer**. The **Designer** view opens the Logic Apps designer, where you can build, edit, and run complete workflows. You can switch between these two views at any time.
+When you work with Azure Logic Apps in the Azure portal, you can edit your [*workflows*](logic-apps-overview.md#workflow) visually or programmatically. After you open a [*logic app* resource](logic-apps-overview.md#logic-app) in the portal, on the resource menu under **Developer**, you can select between [**Code** view](#code-view) and **Designer** view. When you want to visually develop, edit, and run your workflow, select the designer view. You can switch between the designer view and code view at any time.
 
 > [!IMPORTANT]
-> Currently, the latest version of the Logic Apps designer is available for *Standard* logic apps resources that run in a *single-tenant* environment. For more information about different resource types and runtime environments in Logic Apps, see [Single-tenant versus multi-tenant and integration service environment for Azure Logic Apps](single-tenant-overview-compare.md).
+> Currently, the latest version of the designer is available only for *Standard* logic app resources, which run in the 
+> *single-tenant* Azure Logic Apps environment. For more information about different resource types and runtime 
+> environments in Logic Apps, review [Single-tenant versus multi-tenant and integration service environment for Azure Logic Apps](single-tenant-overview-compare.md).
 
 :::image type="content" source="./media/designer-overview/choose-developer-view.png" alt-text="Screenshot of a logic app resource page in the Azure portal, showing the sidebar options to view a workflow in Code or Designer view.":::
 
-When you select the **Design** view, your workflow opens in the Logic Apps designer. 
+When you select the **Designer** view, your workflow opens in the workflow designer.
 
 :::image type="content" source="./media/logic-apps-overview/example-enterprise-workflow.png" alt-text="Screenshot that shows the workflow designer and a sample enterprise workflow that uses switches and conditions." lightbox="./media/logic-apps-overview/example-enterprise-workflow.png":::
 
@@ -29,10 +31,10 @@ When you select the **Design** view, your workflow opens in the Logic Apps desig
 
 ## Latest version features
 
-The latest version of the Logic Apps designer offers a new experience. Some features and benefits now available in the designer include:
+The latest workflow designer offers a new experience with noteworthy features and benefits, for example:
 
 - A new layout engine that supports more complicated workflows. 
-- A more compact canvas for creating your workflows. The new card-based layout change allows you to view complex workflows cleanly and easily.
+- You can create and view complicated workflows cleanly and easily, thanks to the new layout engine, a more compact canvas, and updates to the card-based layout.
 - Panels for [adding and editing steps in your workflow](#add-steps-to-workflows). This change separates your overall layout from your step configuration for clarity.
 - Keyboard navigation of your workflows to move between cards in the designer.
     - Use **Ctrl** + **Down Arrow (&darr;)** to move to the next card.
