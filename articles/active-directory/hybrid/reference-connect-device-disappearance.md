@@ -32,7 +32,7 @@ Some customers may need to revisit [How To: Plan your hybrid Azure Active Direct
 
 ## How can I verify which devices are deleted with this update?
 
-To verify which devices are deleted, you can use the PowerShell script [below.](#export-ADSyncToolsHybridAzureADjoinCertificateReport)
+To verify which devices are deleted, you can use the PowerShell script [below.](#export-adsynctoolshybridazureadjoincertificatereport)
 
 
 This script generates a report about certificates stored in Active Directory Computer objects, specifically, certificates issued by the Hybrid Azure AD join feature.
