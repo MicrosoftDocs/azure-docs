@@ -196,7 +196,7 @@ If your Azure Files resources are protected with a private endpoint, you must cr
 * `storageAccount`: The storage account name.
 * `server`: The FQDN of the storage account's private endpoint (for example, `<storage account name>.privatelink.file.core.windows.net`).
 
-Create a file named *private-azure-file-sc.yaml*, and then paste the following example manifest in the file. Replace the valules for `<resourceGroup>` and `<storageAccountName>`.
+Create a file named *private-azure-file-sc.yaml*, and then paste the following example manifest in the file. Replace the values for `<resourceGroup>` and `<storageAccountName>`.
 
 ```yaml
 apiVersion: storage.k8s.io/v1
