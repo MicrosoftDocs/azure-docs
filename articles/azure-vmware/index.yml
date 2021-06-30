@@ -181,7 +181,7 @@ landingContent:
           - text: Deploy disaster recovery using VMware HCX
             url: deploy-disaster-recovery-using-vmware-hcx.md     
           - text: Upgrade the VMware HCX appliance
-            url: https://docs.vmware.com/en/VMware-HCX/4.1/hcx-user-guide/GUID-02DB88E1-EC81-434B-9AE9-D100E427B31C.html    
+            url: https://docs.vmware.com/en/VMware-HCX/4.1/hcx-user-guide/GUID-02DB88E1-EC81-434B-9AE9-D100E427B31C.html            
 
 # card 8
   - title: VMware ecosystem
