@@ -1,5 +1,6 @@
 ---
 title: Monitoring Load Balancer data reference
+titleSuffix: Azure Load Balancer
 description: Important reference material needed when you monitor Load Balancer 
 author: asudbring
 ms.topic: reference
@@ -9,13 +10,13 @@ ms.custom: subject-monitoring
 ms.date: 06/29/2021
 ---
 
-# Monitoring Load Balancer data reference
+# Monitoring load balancer data reference
 
 See [Monitoring Load Balancer](monitor-load-balancer.md) for details on collecting and analyzing monitoring data for Load Balancer.
 
 ## Metrics
 
-### Load Balancer Metrics 
+### Load balancer metrics 
 
 | Metric | Resource type | Description | Recommended aggregation |
 | ------ | ------------- | ----------- | ----------------------- |
@@ -81,12 +82,12 @@ The following table lists the operations related to Load Balancer that may be cr
 | Microsoft.Network/loadBalancers/networkInterfaces/read | Gets references to all the network interfaces under a load balancer |
 | Microsoft.Network/loadBalancers/outboundRules/read | Gets a load balancer outbound rule definition |
 | Microsoft.Network/loadBalancers/probes/read | Gets a load balancer probe |
-| Microsoft.Network/loadBalancers/probes/join/action | Allows using probes of a load balancer. For example, with this permission healthProbe property of VM scale set can reference the probe. Not alertable. |
+| Microsoft.Network/loadBalancers/probes/join/action | Allows using probes of a load balancer. For example, with this permission healthProbe property of virtual machine scale set can reference the probe. Not alertable. |
 | Microsoft.Network/loadBalancers/virtualMachines/read | Gets references to all the virtual machines under a load balancer |
 
 For more information on the schema of Activity Log entries, see [Activity Log schema](/azure/azure-monitor/essentials/activity-log-schema). 
 
 ## See Also
 
-- See [Monitoring Azure Load Balancer](monitor-load-balancer.md) for a description of monitoring Azure Load Balancer.
+- See [Monitoring Azure Load Balancer](./monitor-load-balancer.md) for a description of monitoring Azure Load Balancer.
 - See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resources) for details on monitoring Azure resources.
