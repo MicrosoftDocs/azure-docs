@@ -28,7 +28,7 @@ To place an order through the Azure Edge Hardware Center, do these steps:
 
 6. On the **Order hardware** page, use the **Select** button to select the hardware product to order. For example, select **Azure Stack Edge Pro - GPU**. 
 
-    ![Screen for selecting the specific hardware product within the product family selected earlier](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-05.png)
+    ![Screen for selecting the specific hardware product within the selected product family](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-05.png)
 
     After your select a hardware product, you'll select the device configuration to order. The following hardware products and device configurations are available in the  Azure Edge Hardware Center (Preview).
 
@@ -68,13 +68,13 @@ To place an order through the Azure Edge Hardware Center, do these steps:
 
     Each order item name includes a name prefix (the order name followed by the address alias), with an item number for each device that is shipped to that address.
 
-    ![Screenshot showing the Shipping + quantity tab for an order with two addresses](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-11.png)
+    ![Screenshot showing the Shipping + quantity tab for an order with two addresses](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-10.png)
 
 10. For each address, enter the **Quantity** of devices to ship on the **Shipping + quantity** tab.
 
     When you enter a quantity of more than one, a **+n more** label appears after the order item name.
 
-     ![Screenshot showing the Shipping + quantity tab with a Quantity of more than one for an address](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-12.png)
+     ![Screenshot showing the Shipping + quantity tab with a Quantity of more than one for an address](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-11.png)
 
 11. If you want to change the names of order items, select and click the order item name to open the **Rename order item** pane. If you're shipping more than one item to an address, select **+n more**.
 
@@ -86,13 +86,13 @@ To place an order through the Azure Edge Hardware Center, do these steps:
 
     When you finish, select **Done**.
 
-    ![Screenshot showing how to rename order items for an Azure Edge Hardware Center order](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-13.png)
+    ![Screenshot showing how to rename order items for an Azure Edge Hardware Center order](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-12.png#lightbox)
 
     Select **Next: Notifications >** to continue.
 
 12. If you want to receive status notifications as your order progresses, enter the address for each recipient on the **Notifications** tab. To add an email address, enter the address, and select **Add**. You can add up to 20 email addresses.
 
-    ![Screenshot of the Notifications tab for an Azure Edge Hardware Center order](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-14.png)
+    ![Screenshot of the Notifications tab for an Azure Edge Hardware Center order](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-13.png)
 
     When you finish, select **Review + create** to continue.
 
@@ -104,22 +104,22 @@ To place an order through the Azure Edge Hardware Center, do these steps:
  
     1. Select **Create**.
 
-    ![Screenshot of the Review + create tab for an Azure Edge Hardware Center order](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-15.png)
+    ![Screenshot of the Review + create tab for an Azure Edge Hardware Center order](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-14.png)
 
     During deployment, the order opens in the portal with the status of each order item displayed. After deployment completes, you may need to click the Down arrow by **Deployment details** to see the status of individual items.
 
-    ![Screenshot showing the status of successfully completed order in the Azure Edge Hardware Center](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-16.png)
+    ![Screenshot showing the status of successfully completed order in the Azure Edge Hardware Center](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-15.png)
 
 14. To view details for an order item, select it in the **Resource** column of the order. 
 
-    ![Screenshot showing the Resource names for an order, which can be selected to view item details](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-17.png)
+    ![Screenshot showing the Resource names for an order, which can be selected to view item details](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-16.png)
 
 15. After a device ships (Status =  **Shipped**), a **Configure hardware** option is added to the item details. Select that option to create a management resource for the device in Azure Stack Edge.    
 
-    ![Screenshot showing the Configure hardware option for an order item shipped from the Azure Edge Hardware Center](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-18.png)
+    ![Screenshot showing the Configure hardware option for an order item shipped from the Azure Edge Hardware Center](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-17.png)
 
     The subscription, resource group, and deployment area are filled in from the order, but you can change them.
 
-    ![Screen opened by the Configure hardware option in a shipped order item](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-19.png)
+    ![Screen opened by the Configure hardware option in a shipped order item](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-18.png)
 
     After you activate the device, you'll be able to open the management resource from the item, and open the order item from the management resource.
