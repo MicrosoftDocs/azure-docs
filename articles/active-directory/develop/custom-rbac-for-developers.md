@@ -28,11 +28,11 @@ Role-based access control (RBAC) allows certain users or groups to have specific
 
 ## What are roles?
 
-Role-based access control (RBAC) is a popular mechanism to enforce authorization in applications. When using RBAC, an administrator grants permissions to ***roles***, and not to individual users or groups. The administrator can then assign roles to different users and groups to control who has access to what content and functionality.
+Role-based access control (RBAC) is a popular mechanism to enforce authorization in applications. When using RBAC, an application developer grants permissions to ***roles***, and not to individual users or groups. An administrator can then assign roles to different users and groups to control who has access to what content and functionality.
 
 RBAC helps you as an app developer manage resources, what areas of an app users have access to and what they can do with those resources. While admins can control which users have access to an app using the ***User assignment*** required property, developers need to account for specific users within the app and what users can do within the app.
 
-As an app developer, you need to first create a role definition within the app’s registration section in the Azure AD admin center. A role definition is a collection of permissions, typically just called a role. A role definition lists the operations that can be performed, such as read, write, and delete. Azure includes several built-in roles that you can use. If the built-in roles don’t meet your specific needs, you can create your own Azure custom roles.
+As an app developer, you need to first create one or more role definitions within the app’s registration section in the Azure AD admin center. A role definition is a collection of permissions, typically just called a role. A role definition lists the operations that can be performed, such as read, write, and delete. Azure includes several built-in roles that you can use. If the built-in roles don’t meet your specific needs, you can create your own Azure custom roles.
 
 
 ## Options for adding RBAC to apps
@@ -44,7 +44,7 @@ There are several considerations that must be managed when including role-based 
 
 Once the roles are defined, the Microsoft identity platform supports several different solutions that can be used to apply, store, and retrieve role information for authenticated users. These include app roles, Azure AD groups, and the use of custom datastores for user role information.
 
-Developers have the flexibility to provide their own implementation for the how role assignments are to be interpreted as application permissions. This can involve leveraging middleware or functionality provided by their applications’ platform and/or related libraries. Apps will typically receive user role information as claims and will decide user permissions based on those claims
+Developers have the flexibility to provide their own implementation for how role assignments are to be interpreted as application permissions. This can involve leveraging middleware or other functionality provided by their applications’ platform and/or related libraries. Apps will typically receive user role information as claims and will decide user permissions based on those claims
 
 ### App roles
 
