@@ -145,15 +145,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
     > [!NOTE]    
     > You may not be able to import this file into your Identity Provider. For example, Okta does not have this functionality. If this case matches your configuration requirements, continue to Working with Individual Fields.
 
-1. In the **Identity provider settings** tab, click **Load and copy information from fields** and copy the required fields and paste into the **Basic SAML Configuration** section in the Azure portal and click **Next**.
+1. In the **Identity provider settings** tab, click **Load and copy information from fields** to copy the required fields and paste into the **Basic SAML Configuration** section from the Azure portal and click **Next**.
 
     ![Settings](./media/linkedinlearning-tutorial/fields.png "Settings")
 
-1. Navigate to **SSO settings** tab, click **Upload XML file** to upload the **Federation Metadata XML** which you have downloaded from the azure portal.
+1. Navigate to **SSO settings** tab, click **Upload XML file** to upload the **Federation Metadata XML** file which you have downloaded from the Azure Portal.
 
     ![Certificate file](./media/linkedinlearning-tutorial/upload-file.png "Certificate file")
 
-1. Fill the required values manually under **SSO settings** tab.
+1. Fill the required fields manually which you have copied from Azure Portal under **SSO settings** tab.
 
     ![Entering Values](./media/linkedinlearning-tutorial/certificate.png "Entering Values")
 
@@ -161,7 +161,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![SSO settings](./media/linkedinlearning-tutorial/options.png "SSO settings")
 
-### Enabling Single Sign-On
+#### Enabling Single Sign-On
 
 After completing your configuration, enable SSO by selecting **Active** from the SSO Status drop down.
 
