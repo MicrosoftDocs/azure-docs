@@ -32,9 +32,14 @@ The [SQL Security Manager](../../role-based-access-control/built-in-roles.md#sql
 
 ## Provision with Azure AD-only authentication enabled
 
-The following provides you with examples and scripts on how to create a SQL logical server or managed instance with an Azure AD admin set for the server or instance, and have Azure AD-only authentication enabled during server creation. For more information on the feature, see [Azure AD-only authentication](authentication-azure-ad-only-authentication.md).
+The following section provides you with examples and scripts on how to create a SQL logical server or managed instance with an Azure AD admin set for the server or instance, and have Azure AD-only authentication enabled during server creation. For more information on the feature, see [Azure AD-only authentication](authentication-azure-ad-only-authentication.md).
 
-### Azure SQL Database
+In our examples, we're enabling Azure AD-only authentication during server or managed instance creation, with a system assigned server admin and password. This will prevent server admin access when Azure AD-only authentication is enabled, and only allows the Azure AD admin to access the resource. It's optional to add parameters to the APIs to include your own server admin and password during server creation. However, the password cannot be reset until you disable Azure AD-only authentication.
+
+> [!NOTE]
+> If Azure AD-only authentication is set to false, which it is by default, a server admin and password will need to be included in all APIs during server or managed instance creation.
+
+## Azure SQL Database
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -213,7 +218,7 @@ You can also use the following template. Use a [Custom deployment in the Azure p
 
 ---
 
-### Azure SQL Managed Instance
+## Azure SQL Managed Instance
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -229,7 +234,7 @@ The Azure AD admin will be the account you set for `<AzureADAccount>`, and can b
 Replace the following values in the example:
 
 - `<managedinstancename>`: Name the managed instance you want to create
-- `<ResourceGroupName>`: Name of the resource group for your managed instance. This should also include the virtual network and subnet created
+- `<ResourceGroupName>`: Name of the resource group for your managed instance. The resource group should also include the virtual network and subnet created
 - `<Location>`: Location of the server, such as `West US`, or `Central US`
 - `<AzureADAccount>`: Can be an Azure AD user or group. For example, `DummyLogin`
 - The `SubnetId` parameter needs to be updated with the `<ResourceGroupName>`, the `Subscription ID`, `<VNetName>`, and `<SubnetName>`. Your subscription ID can be found in the Azure portal
@@ -592,9 +597,15 @@ Use a [Custom deployment in the Azure portal](https://portal.azure.com/#create/M
 
 ---
 
+### Grant Directory Readers permissions
+
+Once the deployment is complete for your managed instance, you may notice that the Managed Instance needs **Read** permissions to access Azure Active Directory. Read permissions can be granted by clicking on the displayed message in the Azure portal by a person with enough privileges. For more information, see [Directory Readers role in Azure Active Directory for Azure SQL](authentication-aad-directory-readers-role.md).
+
+:::image type="content" source="media/authentication-azure-ad-only-authentication/azure-ad-portal-read-permissions.png" alt-text="screenshot of the Active Directory admin menu in Azure portal showing Read permissions needed":::
+
 ## Limitations
 
-- Creating a server or instance with Azure AD-only authentication enabled during provisioning isn't supported when using the Azure CLI or Azure portal during this preview.
+- Creating a server or instance using the Azure CLI or Azure portal with Azure AD-only authentication enabled during provisioning is currently not supported.
 - To reset the server administrator password, Azure AD-only authentication must be disabled.
 - If Azure AD-only authentication is disabled, you must create a server with a server admin and password when using all APIs.
 
