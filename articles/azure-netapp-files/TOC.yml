@@ -45,6 +45,8 @@
         href: performance-linux-mount-options.md
       - name: Linux concurrency best practices
         href: performance-linux-concurrency-session-slots.md
+      - name: Linux NFS read-ahead best practices
+        href: performance-linux-nfs-read-ahead.md
       - name: SMB performance best practices
         href: azure-netapp-files-smb-performance.md 
   - name: Cost model for Azure NetApp Files
