@@ -23,11 +23,11 @@ The Microsoft Azure Consumption Commitment (MACC) is a contractual commitment th
 
 2. Search for **Cost Management + Billing**.
 
-    ![Screenshot that shows search in portal for cost management + billing.](./media/track-macc-commitment/billing-search-cost-management-billing.png)
+    ![Screenshot that shows search in portal for cost management + billing.](./media/track-consumption-commitment/billing-search-cost-management-billing.png)
 
 3. In the billing scopes page, select the billing account for which you want to track the commitment. The billing account should be of type **Microsoft Customer Agreement**.
 
-    ![Screenshot that shows Billing Scopes.](./media/track-macc-commitment/list-of-scopes.png)
+    ![Screenshot that shows Billing Scopes.](./media/track-consumption-commitment/list-of-scopes.png)
 
     > [!NOTE]
     >
@@ -35,7 +35,7 @@ The Microsoft Azure Consumption Commitment (MACC) is a contractual commitment th
 
 4. Select **Properties** from the left-hand side and then select **Microsoft Azure Consumption Commitment (MACC)**.
 
-   ![Screenshot that shows selecting MACC tab.](./media/track-macc-commitment/select-macc-tab.png)
+   ![Screenshot that shows selecting MACC tab.](./media/track-consumption-commitment/select-macc-tab.png)
 
 5. The Microsoft Azure Consumption Commitment (MACC) tab has the following sections:
 
@@ -43,13 +43,13 @@ The Microsoft Azure Consumption Commitment (MACC) is a contractual commitment th
 
    The remaining commitment displays the remaining commitment amount as of your last invoice.
 
-   ![Screenshot of remaining commitment for a MACC](./media/track-macc-commitment/macc-remaining-commitment.png)
+   ![Screenshot of remaining commitment for a MACC](./media/track-consumption-commitment/macc-remaining-commitment.png)
 
    #### Details
 
    The Details section displays other important aspects of your commitment.
 
-   ![Screenshot of MACC details](./media/track-macc-commitment/macc-details.png)
+   ![Screenshot of MACC details](./media/track-consumption-commitment/macc-details.png)
 
    | Term | Definition |
    |---|---|
@@ -68,7 +68,7 @@ The Microsoft Azure Consumption Commitment (MACC) is a contractual commitment th
 
    The Events section displays events (invoiced spend) that decremented your MACC commitment.
 
-   ![Screenshot of MACC events](./media/track-macc-commitment/macc-events.png)
+   ![Screenshot of MACC events](./media/track-consumption-commitment/macc-events.png)
 
    | Term | Definition |
    |---|---|
