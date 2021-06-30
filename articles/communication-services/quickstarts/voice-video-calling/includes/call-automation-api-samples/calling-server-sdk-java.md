@@ -6,7 +6,7 @@ author: ravithanneeru
 manager: joseys
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 06/08/2021
+ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
 ms.author: joseys
@@ -36,18 +36,24 @@ In your POM file, reference the `azure-communication-callingserver` package with
 <dependency>
       <groupId>com.azure</groupId>
       <artifactId>azure-communication-callingserver</artifactId>
-      <version>1.0.0-beta.1</version>
+      <version>1.0.0-beta.2</version>
 </dependency>
 ```
 
 For create the user identity, your application needs to reference the `azure-communication-identity` package:
 
 ```java
-<dependency>
-	<groupId>com.azure</groupId>
-	<artifactId>azure-communication-identity</artifactId>
-	<version>1.0.0</version>
-</dependency>
+  <dependency>
+      <groupId>com.azure</groupId>
+      <artifactId>azure-communication-identity</artifactId>
+      <version>1.1.1</version>
+      <exclusions>
+        <exclusion>
+          <groupId>com.azure</groupId>
+          <artifactId>azure-communication-common</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
 ```
 
 ## Object model
