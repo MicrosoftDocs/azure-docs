@@ -62072,7 +62072,7 @@
     }, 
     {
       "source_path": "articles/load-balancer/load-balancer-monitor-log.md",
-      "redirect_url": "/azure/load-balancer/monitor-load-balancer.md",
+      "redirect_url": "/azure/load-balancer/monitor-load-balancer",
       "redirect_document_id": false
     },
     {
