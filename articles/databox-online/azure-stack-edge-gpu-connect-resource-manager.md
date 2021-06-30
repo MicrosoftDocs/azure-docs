@@ -88,11 +88,7 @@ For test and development use only, you can use Windows PowerShell to create cert
 
 1. You first need to create a root certificate for the signing chain. For more information, see See steps to [Create signing chain certificates](azure-stack-edge-gpu-create-certificates-powershell.md#create-signing-chain-certificate).
 
-<<<<<<< HEAD
-2. You can next create the endpoint certificates for the blob and Azure Resource Manager. You can get these endpoints from the **Device** page in the local web UI. See the steps to [Create endpoint certificates](azure-stack-edge-gpu-create-certificates-powershell.md#create-signed-endpoint-certificates).
-=======
 2. You can next create the endpoint certificates for Azure Resource Manager and blob (optional). You can get these endpoints from the **Device** page in the local web UI. See the steps to [Create endpoint certificates](azure-stack-edge-gpu-manage-certificates.md#create-signed-endpoint-certificates).
->>>>>>> b9f00a91876dcb48e7e423325c0a41bcbe915004
 
 3. For all these certificates, make sure that the subject name and subject alternate name conform to the following guidelines:
 
