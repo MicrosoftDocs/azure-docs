@@ -15,7 +15,7 @@ Due to the nature of **real-world** Reinforcement Learning, a Personalizer model
 
 ## What is Apprentice mode?
 
-Similar to how an apprentice learns from a master, and with experience can get better; Apprentice mode is a _behavior_ that lets Personalizer learn by observing the results obtained from existing application logic.
+Similar to how an apprentice learns a craft from an expert, and with experience can get better; Apprentice mode is a _behavior_ that lets Personalizer learn by observing the results obtained from existing application logic.
 
 Personalizer trains by mimicking the same output as the application. As more events flow, Personalizer can _catch up_ to the existing application without impacting the existing logic and outcomes. Metrics, available from the Azure portal and the API, help you understand the performance as the model learns.
 
@@ -72,17 +72,19 @@ Apprentice Mode attempts to train the Personalizer model by attempting to imitat
 
 ### Scenarios where Apprentice Mode May Not be Appropriate:
 
-* **Editorially chosen Content**: In some scenarios such as news or entertainment, the baseline item could be manually assigned by an editorial team. This means humans are using their knowledge about the broader world, and understanding of what may be appealing content, to choose specific articles or media out of a pool, and flagging them as "preferred" or "hero" articles. Because these editors are not an algorithm, and the factors considered by editors can be nuanced and not included as features of the context and actions, Apprentice mode is unlikely to be able to predict the next baseline action. In these situations:
-** Test Personalizer in Online Mode: Apprentice mode not predicting baselines does not imply Personalizer can't achieve as-good or even better results. Consider putting Personalizer in Online Mode for a period of time or in an A/B test if you have the infrastructure, and then run an Offline Evaluation to assess the difference.
-** Add editorial considerations and recommendations as features: Ask your editors what factors influence their choices, and see if you can add those as features in your context and action. For example, editors in a media company may highlight content while a certain celebrity is in the news: This knowledge could be added as a Context feature.
+#### Editorially chosen Content:
+In some scenarios such as news or entertainment, the baseline item could be manually assigned by an editorial team. This means humans are using their knowledge about the broader world, and understanding of what may be appealing content, to choose specific articles or media out of a pool, and flagging them as "preferred" or "hero" articles. Because these editors are not an algorithm, and the factors considered by editors can be nuanced and not included as features of the context and actions, Apprentice mode is unlikely to be able to predict the next baseline action. In these situations you can:
+
+* Test Personalizer in Online Mode: Apprentice mode not predicting baselines does not imply Personalizer can't achieve as-good or even better results. Consider putting Personalizer in Online Mode for a period of time or in an A/B test if you have the infrastructure, and then run an Offline Evaluation to assess the difference.
+* Add editorial considerations and recommendations as features: Ask your editors what factors influence their choices, and see if you can add those as features in your context and action. For example, editors in a media company may highlight content while a certain celebrity is in the news: This knowledge could be added as a Context feature.
 
 ### Factors that will improve and accelerate Apprentice Mode
 If apprentice mode is learning and attaining Matched rewards above zero but seems to be growing slowly (not getting to 60%..80% matched rewards within 2 weeks), it is possible that the challenge is having too little data. Taking the following steps could accelerate the learning. 
 
-1. Adding more events with positive rewards over time: Apprentice mode will perform better in use cases where your application gets more than 100 positive rewards per day. For example, if a website rewarding a click has 2% clickthrough, it should be having at least 5,000 visits per day to have noticeable learning. You can also experiment with a reward that is simpler and happens more frequently. For example going from "Did users finish reading the article" to "Did users start reading the article".
-2. Adding differentiating features: You can do a visual inspection of the actions in a Rank call and their features. Does the baseline action have features that are differentiated from other actions? If they look mostly the same, add more features that will make them less similar.
-3. Reducing Actions per Event: Personalizer will use the Explore % setting to discover preferences and trends. When a Rank call has more actions, the chance of an Action being xhosen for exploration becomes lower. Reduce the number of actions sent in each Rank call to a smaller number, to less than 10. This can be a temporary adjustement to show that Apprentice Mode has the right data to match rewards.
-
+1. Adding more events with positive rewards over time: Apprentice mode will perform better in use cases where your application gets more than 100 positive rewards per day. For example, if a website rewarding a click has 2% clickthrough, it should be having at least 5,000 visits per day to have noticeable learning. 
+2. Try a reward score that is simpler and happens more frequently. For example going from "Did users finish reading the article" to "Did users start reading the article".
+3. Adding differentiating features: You can do a visual inspection of the actions in a Rank call and their features. Does the baseline action have features that are differentiated from other actions? If they look mostly the same, add more features that will make them less similar.
+4. Reducing Actions per Event: Personalizer will use the Explore % setting to discover preferences and trends. When a Rank call has more actions, the chance of an Action being chosen for exploration becomes lower. Reduce the number of actions sent in each Rank call to a smaller number, to less than 10. This can be a temporary adjustement to show that Apprentice Mode has the right data to match rewards.
 
 
 ## Using Apprentice mode to train with historical data
