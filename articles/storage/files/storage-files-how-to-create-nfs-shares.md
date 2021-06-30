@@ -4,7 +4,7 @@ description: Learn how to create an Azure file share that can be mounted using t
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/28/2021
+ms.date: 06/30/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
@@ -28,7 +28,6 @@ Azure file shares are fully managed file shares that live in the cloud. This art
 [!INCLUDE [files-nfs-regional-availability](../../../includes/files-nfs-regional-availability.md)]
 
 ## Prerequisites
-- NFS shares cannot be created on storage accounts that were created before registering for NFS.
 - NFS shares only accept numeric UID/GID. To avoid your clients sending alphanumeric UID/GID, disable ID mapping.
 - NFS shares can only be accessed from trusted networks. Connections to your NFS share must originate from one of the following sources:
     - Either [create a private endpoint](storage-files-networking-endpoints.md#create-a-private-endpoint) (recommended) or [restrict access to your public endpoint](storage-files-networking-endpoints.md#restrict-public-endpoint-access).
@@ -39,6 +38,9 @@ Azure file shares are fully managed file shares that live in the cloud. This art
 - If you intend to use the Azure CLI, [install the latest version](/cli/azure/install-azure-cli).
 
 ## Register the NFS 4.1 protocol
+
+You must first register for the feature in order to create NFS Azure file shares. You cannot create NFS shares in storage accounts that were created before registration.
+
 If you're using the Azure PowerShell module or the Azure CLI, register your feature using the following commands:
 
 # [Portal](#tab/azure-portal)

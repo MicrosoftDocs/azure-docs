@@ -4,7 +4,7 @@ description: Learn about file shares hosted in Azure Files using the Network Fil
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/28/2021
+ms.date: 06/30/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
@@ -60,8 +60,8 @@ The status of items that appear in this tables may change over time as support c
 | [Private endpoints](storage-files-networking-overview.md#private-endpoints) | ✔️  |
 | [Grant network access to specific Azure virtual networks](storage-files-networking-endpoints.md#restrict-access-to-the-public-endpoint-to-specific-virtual-networks)|  ✔️  |
 | Grant network access to specific IP addresses| ⛔ |
-| Premium tier |  ✔️  |
-| Standard tier| ⛔ |
+| [Premium tier](storage-files-planning.md#storage-tiers) |  ✔️  |
+| [Standard tiers (Hot, Cool, and Transaction optimized)](storage-files-planning.md#storage-tiers)| ⛔ |
 | POSIX-permissions|  ✔️  |
 | Root squash|  ✔️  |
 | [Identity-based authentication](storage-files-active-directory-overview.md) | ⛔ |
@@ -72,7 +72,7 @@ The status of items that appear in this tables may change over time as support c
 | [GRS or GZRS redundancy types](storage-files-planning.md#redundancy)| ⛔ |
 | [AzCopy](../common/storage-use-azcopy-v10.md)| ⛔ |
 | Azure Storage Explorer| ⛔ |
-| Enable NFS on existing storage accounts*| ⛔ |
+| Create NFS shares on existing storage accounts*| ⛔ |
 
 \* If a storage account was created prior to registering for NFS, you cannot use it for NFS. Only storage accounts created after registering for NFS can be used.
 
