@@ -123,8 +123,6 @@
         - name: Deep learning
           displayName: deep learning vs machine learning, deep learning, vs, versus
           href: concept-deep-learning-vs-machine-learning.md
-        - name: MLflow  
-          href: concept-mlflow.md        
         - name: AutoML
           items: 
             - name: Automated ML overview
@@ -142,6 +140,7 @@
             href: algorithm-cheat-sheet.md
           - name: How to select algorithms
             href: how-to-select-algorithms.md
+            
     - name: Deploy models
       items:
         - name: Endpoints
@@ -150,33 +149,48 @@
           href: concept-onnx.md
         - name: Prebuilt docker images for inference
           href: concept-prebuilt-docker-images-inference.md
-    - name: MLOps
+          
+    - name: Manage the ML lifecycle (MLOps)
       items:
           - name: MLOps capabilities
             displayName: deploy, deployment, publish, production, operationalize, operationalization
             href: concept-model-management-and-deployment.md
           - name: ML pipelines
             href: concept-ml-pipelines.md
-    - name: Plan and manage costs
-      displayName: low priority VM
-      href: concept-plan-manage-cost.md
+          - name: MLflow  
+            href: concept-mlflow.md        
+          - name: Responsible ML
+            items:
+              - name: Responsible ML overview
+                displayName: responsible,ml
+                href: concept-responsible-ml.md
+              - name: Model interpretability
+                displayName: explainability
+                href: how-to-machine-learning-interpretability.md
+              - name: Fairness in Machine Learning
+                displayName: fairness
+                href: concept-fairness-ml.md
+              - name: Differential Privacy
+                displayName: differential,privacy
+                href: concept-differential-privacy.md
 
-    - name: Workspace
-      href: concept-workspace.md
-    - name: Environments
-      href: concept-environments.md
-
-      
-    - name: Compute
-      items: 
+    - name: Workspace & compute resources
+      items:
+        - name: Workspace
+          href: concept-workspace.md
+        - name: Environments
+          href: concept-environments.md
         - name: Compute instance
           displayName: resource, dsvm, Data Science Virtual Machine
           href: concept-compute-instance.md
         - name: Compute target
           displayName: resource, dsvm, AKS, kubernetes, amlcompute, Data Science Virtual Machine, local, cluster, ACI, container instance, ADB, Databricks, data lake, lake, HDI, HDInsight
           href: concept-compute-target.md
+        - name: Plan and manage costs
+          displayName: low priority VM
+          href: concept-plan-manage-cost.md   
           
-    - name: Data
+    - name: Work with data
       items: 
         - name: Data access
           href: concept-data.md
@@ -197,20 +211,7 @@
         - name: Data encryption
           href: concept-data-encryption.md
 
-    - name: Responsible ML
-      items:
-        - name: Responsible ML overview
-          displayName: responsible,ml
-          href: concept-responsible-ml.md
-        - name: Model interpretability
-          displayName: explainability
-          href: how-to-machine-learning-interpretability.md
-        - name: Fairness in Machine Learning
-          displayName: fairness
-          href: concept-fairness-ml.md
-        - name: Differential Privacy
-          displayName: differential,privacy
-          href: concept-differential-privacy.md
+
           
 - name: How-to guides
   items:
