@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory Single sign-on (SSO) integration with Cornerstone Single Sign-On | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory Single sign-on (SSO) integration with Cornerstone | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Cornerstone Single Sign-On.
 services: active-directory
 author: jeevansd
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/27/2021
+ms.date: 06/24/2021
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory Single sign-on (SSO) integration with Cornerstone Single Sign-On
+# Tutorial: Azure Active Directory Single sign-on (SSO) integration with Cornerstone
 
-In this tutorial, you'll learn how to integrate Cornerstone Single Sign-On with Azure Active Directory (Azure AD). When you integrate Cornerstone Single Sign-On with Azure AD, you can:
+In this tutorial, you'll learn how to set up the single sign-on integration between Cornerstone and Azure Active Directory (Azure AD). When you integrate Cornerstone with Azure AD, you can:
 
-* Control in Azure AD who has access to Cornerstone Single Sign-On.
-* Enable your users to be automatically signed-in to Cornerstone Single Sign-On with their Azure AD accounts.
+* Control in Azure AD who has SSO access to Cornerstone.
+* Enable your users to be automatically signed-in to Cornerstone with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
 ## Prerequisites
@@ -26,7 +26,7 @@ In this tutorial, you'll learn how to integrate Cornerstone Single Sign-On with 
 To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-* Cornerstone single sign-on (SSO) enabled subscription.
+* Enabled SSO in Cornerstone.
 
 > [!NOTE]
 > This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
@@ -35,9 +35,9 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* Cornerstone Single Sign-On supports **SP** initiated SSO.
+* Cornerstone supports **SP** initiated SSO.
 
-* If you are integrating one or multiple products from this particular list then you should use this Cornerstone OnDemand Single Sign-On app from the Gallery.
+* If you are integrating one or multiple products from this particular list then you should use this Cornerstone Single Sign-On app from the Gallery.
 
     We offer solutions for :
 
@@ -51,7 +51,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 ## Adding Cornerstone Single Sign-On from the gallery
 
-To configure the integration of Cornerstone Single Sign-On into Azure AD, you need to add Cornerstone Single Sign-On from the gallery to your list of managed SaaS apps.
+To configure the Azure AD SSO integration with Cornerstone, you need to...
 
 1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
 1. On the left navigation pane, select the **Azure Active Directory** service.
@@ -60,18 +60,19 @@ To configure the integration of Cornerstone Single Sign-On into Azure AD, you ne
 1. In the **Add from the gallery** section, type **Cornerstone Single Sign-On** in the search box.
 1. Select **Cornerstone Single Sign-On** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-## Configure and test Azure AD SSO for Cornerstone Single Sign-On
+## Configure and test Azure AD SSO for Cornerstone
 
-Configure and test Azure AD SSO with Cornerstone Single Sign-On using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Cornerstone Single Sign-On.
+Configure and test Azure AD SSO with Cornerstone using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Cornerstone.
 
-To configure and test Azure AD SSO with Cornerstone Single Sign-On, perform the following steps:
+To configure and test Azure AD SSO with Cornerstone, perform the following steps:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
     1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
     1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
-2. **[Configure Cornerstone Single Sign-On SSO](#configure-cornerstone-single-sign-on-sso)** - to configure the Single Sign-On settings on application side.
+2. **[Configure Cornerstone Single Sign-On](#configure-cornerstone-single-sign-on)** - to configure the SSO in Cornerstone.
     1. **[Create Cornerstone Single Sign-On test user](#create-cornerstone-single-sign-on-test-user)** - to have a counterpart of B.Simon in Cornerstone that is linked to the Azure AD representation of user.
 3. **[Test SSO](#test-sso)** - to verify whether the configuration works.
+4. **[Test SSO for Cornerstone (Mobile)](#test-sso-for-cornerstone-mobile)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
 
@@ -95,7 +96,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<PORTAL_NAME>.csod.com/samldefault.aspx?ouid=<OUID>`
 
     > [!NOTE]
-    > These values are not real. Update these values with the actual Reply URL, Identifier and Sign on URL. You need to reach out to your cornerstone consulting team or to your partner to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > These values are not real. Update these values with the actual Reply URL, Identifier and Sign on URL. Please reach out to your Cornerstone implementation project team to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 4. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
@@ -119,7 +120,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Cornerstone Single Sign-On.
+In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Cornerstone.
 
 1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
 1. In the applications list, select **Cornerstone Single Sign-On**.
@@ -129,24 +130,66 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
-## Configure Cornerstone Single Sign-On SSO
+## Configure Cornerstone Single Sign-On
 
-To configure single sign-on on **Cornerstone Single Sign-On** side, you need to reach out to your cornerstone consulting team or to your partner. They set this setting to have the SAML SSO connection set properly on both sides.
+To configure SSO in Cornerstone, you need to reach out to your Cornerstone implementation project team. They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create Cornerstone Single Sign-On test user
 
-In this section, you create a user called Britta Simon in Cornerstone. Work with your cornerstone consulting team or reach out to your partner to add the users in the Cornerstone Single Sign-On platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in Cornerstone. Please work with your Cornerstone implementation project team to add the users in Cornerstone. Users must be created and activated before you use single sign-on.
 
 
 ## Test SSO 
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to Cornerstone Single Sign-On Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application** in Azure portal. This will redirect to Cornerstone Sign-on URL where you can initiate the login flow. 
 
-* Go to Cornerstone Single Sign-On Sign-on URL directly and initiate the login flow from there.
+* Go to Cornerstone Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the Cornerstone Single Sign-On tile in the My Apps, this will redirect to Cornerstone Single Sign-On Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the Cornerstone Single Sign-On tile in the My Apps, this will redirect to Cornerstone Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+
+## Test SSO for Cornerstone (Mobile)
+
+1. In a different browser window, log in to your Cornerstone website as an administrator and perform the following steps.
+
+    a. Go to the **Admin -> Tools -> CORE FUNCTIONS -> Core Preferences -> Authentication Preferences**.
+
+    ![screeenshot for Authentication Preferences mobile appilcation Cornerstone.](./media/cornerstone-ondemand-tutorial/division-mobile.png)
+
+    b. Search the **Division Name** by giving the Division Name in the search box.
+
+    c. Click the **Division Name** in the results.
+
+    d. From the SAML/IDP server URL dropdown, select the appropriate SAML/IDP server that should be used for user Authentication.
+
+    ![screeenshot for Other credentials validated against client SAML/IDP server.](./media/cornerstone-ondemand-tutorial/other-credentials.png)
+
+    e. Click **Save**.
+
+1. Go to **Admin > Tools > Core Functions > Core Preferences > Mobile**.
+
+    a. Select the appropriate **Division OU**.
+
+    b. Select **Allow users** in this OU to access the Cornerstone Learn app on their mobile and tablet device and checkbox in Enable Mobile Access.
+
+    c. Click **Save**.
+
+2. Open **Cornerstone Learn** mobile application. On the sign in page, enter the portal name.
+
+    ![screeenshot for mobile appilcation Cornerstone.](./media/cornerstone-ondemand-tutorial/welcome-mobile.png)
+
+3. Click **Alternative Login** and then click **SSO**.
+
+    ![screeenshot for mobile appilcation Alternative Login.](./media/cornerstone-ondemand-tutorial/sso-mobile.png)
+
+4. .  Enter your **Azure AD credentials** to sign into the Cornerstone application and click **Next**.
+
+    ![screeenshot for mobile appilcation Azure AD credentials.](./media/cornerstone-ondemand-tutorial/credentials-mobile.png)
+
+5. Finally after successful sign in, the application homepage will be displayed as shown below.
+
+    ![screeenshot for mobile appilcation home page.](./media/cornerstone-ondemand-tutorial/home-page-mobile.png)
 
 ## Next steps
 

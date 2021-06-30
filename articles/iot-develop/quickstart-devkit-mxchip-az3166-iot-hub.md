@@ -39,7 +39,7 @@ You'll complete the following tasks:
 * [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer/releases): Cross-platform utility to  monitor and manage Azure IoT 
 * Hardware
 
-    * The [MXCHIP AZ3166 IoT DevKit](https://aka.ms/iot-devkit) (MXCHIP DevKit)
+    * The [MXCHIP AZ3166 IoT DevKit](https://www.seeedstudio.com/AZ3166-IOT-Developer-Kit.html) (MXCHIP DevKit)
     * Wi-Fi 2.4 GHz
     * USB 2.0 A male to Micro USB male cable
 

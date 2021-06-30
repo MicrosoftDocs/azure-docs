@@ -1114,6 +1114,8 @@
         href: lablog-tutorial.md
       - name: Land Gorilla Client
         href: landgorilla-tutorial.md
+      - name: LanSchool Air
+        href: lanschool-air-tutorial.md
       - name: LaunchDarkly
         href: launchdarkly-tutorial.md
       - name: LCVista
@@ -2096,6 +2098,8 @@
         href: waywedo-tutorial.md
       - name: Wdesk
         href: wdesk-tutorial.md
+      - name: Webcargo
+        href: webcargo-tutorial.md  
       - name: webMethods Integration Suite
         href: webmethods-integration-cloud-tutorial.md
       - name: Wedo
@@ -2275,6 +2279,8 @@
         href: browserstack-single-sign-on-provisioning-tutorial.md
       - name: Cerner Central
         href: cernercentral-provisioning-tutorial.md
+      - name: CheckProof
+        href: checkproof-provisioning-tutorial.md
       - name: Cisco Umbrella User Management
         href: cisco-umbrella-user-management-provisioning-tutorial.md
       - name: Cisco Webex
@@ -2357,6 +2363,8 @@
         href: hootsuite-provisioning-tutorial.md
       - name: Hoxhunt
         href: hoxhunt-provisioning-tutorial.md
+      - name: H5mag
+        href: h5mag-provisioning-tutorial.md
       - name: Ideo
         href: ideo-provisioning-tutorial.md        
       - name: Infor CloudSuite
@@ -2501,6 +2509,8 @@
         href: smallstep-ssh-provisioning-tutorial.md
       - name: Soloinsight-CloudGate SSO
         href: soloinsight-cloudgate-sso-provisioning-tutorial.md
+      - name: SoSafe
+        href: sosafe-provisioning-tutorial.md
       - name: Symantec Web Security Service (WSS)
         href: symantec-web-security-service.md
       - name: Smartfile
@@ -2545,6 +2555,8 @@
         href: visibly-provisioning-tutorial.md
       - name: Visitly
         href: visitly-provisioning-tutorial.md
+      - name: Vonage
+        href: vonage-provisioning-tutorial.md
       - name: Webroot Security Awareness Training
         href: webroot-security-awareness-training-provisioning-tutorial.md
       - name: WEDO

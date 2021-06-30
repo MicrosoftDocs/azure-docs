@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 07/13/2020
+ms.date: 06/29/2021
 
 ms.author: justinha
 author: justinha
@@ -40,7 +40,7 @@ To complete this tutorial, you need the following resources and privileges:
 
 * A working Azure AD tenant with at least an Azure AD Premium P1 or trial license enabled.
     * If needed, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* An account with *global administrator* privileges.
+* An account with *global administrator* privileges. Some MFA settings can also be managed by an Authentication Policy Administrator. For more information, see [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator).
 * A non-administrator user with a password you know, such as *testuser*. You test the end-user Azure AD Multi-Factor Authentication experience using this account in this tutorial.
     * If you need to create a user, see [Quickstart: Add new users to Azure Active Directory](../fundamentals/add-users-azure-active-directory.md).
 * A group that the non-administrator user is a member of, such as *MFA-Test-Group*. You enable Azure AD Multi-Factor Authentication for this group in this tutorial.
