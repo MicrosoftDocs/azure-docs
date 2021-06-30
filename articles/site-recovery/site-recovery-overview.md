@@ -2,7 +2,7 @@
 title: About Azure Site Recovery
 description: Provides an overview of the Azure Site Recovery service, and summarizes disaster recovery and migration deployment scenarios.
 ms.topic: overview
-ms.date: 06/09/2021
+ms.date: 06/30/2021
 ms.custom: MVC
 ---
 
@@ -28,7 +28,7 @@ Site Recovery can manage replication for:
 --- | ---
 **Simple BCDR solution** | Using Site Recovery, you can set up and manage replication, failover, and failback from a single location in the Azure portal.
 **Azure VM replication** | You can set up disaster recovery of Azure VMs from a primary region to a secondary region.
-**VMware VM replication** | You can replicate VMware VMs to Azure using the improved ASR replication appliance that offers better security and resilience than the configuration server. For more information, see [Disaster recovery of VMware VMs](vmware-azure-about-disaster-recovery.md).
+**VMware VM replication** | You can replicate VMware VMs to Azure using the improved Azure Site Recovery replication appliance that offers better security and resilience than the configuration server. For more information, see [Disaster recovery of VMware VMs](vmware-azure-about-disaster-recovery.md).
 **On-premises VM replication** | You can replicate on-premises VMs and physical servers to Azure, or to a secondary on-premises datacenter. Replication to Azure eliminates the cost and complexity of maintaining a secondary datacenter.
 **Workload replication** | Replicate any workload running on supported Azure VMs, on-premises Hyper-V and VMware VMs, and Windows/Linux physical servers.
 **Data resilience** | Site Recovery orchestrates replication without intercepting application data. When you replicate to Azure, data is stored in Azure storage, with the resilience that provides. When failover occurs, Azure VMs are created, based on the replicated data.

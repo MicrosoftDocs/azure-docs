@@ -7,7 +7,7 @@ ms.date: 06/29/2021
 ---
 # About on-premises disaster recovery failover/failback - Preview
 
-This article provides an overview of failover and failback during disaster recovery of on-premises machines to Azure with [Azure Site Recovery](site-recovery-overview.md) (ASR)- Preview.
+This article provides an overview of failover and failback during disaster recovery of on-premises machines to Azure with [Azure Site Recovery](site-recovery-overview.md) - Preview.
 
 See information for Classic releases, [here](failover-failback-overview.md).
 
@@ -113,19 +113,19 @@ After failover to Azure, the replicated Azure VMs are in an unprotected state.
 
 ## VMware/physical reprotection/failback
 
-To reprotect and fail back VMware machines and physical servers from Azure to on-premises, ensure that you have a healthy ASR replication appliance.
+To reprotect and fail back VMware machines and physical servers from Azure to on-premises, ensure that you have a healthy Azure Site Recovery replication appliance.
 
 **Appliance selection**
 
-- You can select any of the ASR appliances registered under a vault to re-protect to on-premises. You do not require a PowerShell in Azure for re-protect operation and a scale-out MT for Linux VMs.
-- ASR appliance doesn’t require additional network connection/ports (as compared with forward protection) during failback. Same appliance can be used for forward and backward protections if in healthy state. It should not impact performance of replications.
+- You can select any of the Azure Site Recovery replication appliances registered under a vault to re-protect to on-premises. You do not require a PowerShell in Azure for re-protect operation and a scale-out MT for Linux VMs.
+- Replication appliance doesn’t require additional network connection/ports (as compared with forward protection) during failback. Same appliance can be used for forward and backward protections if in healthy state. It should not impact performance of replications.
   > [!NOTE]
-  > Storage vMotion of ASR replication appliance is not supported after re-protect operation.
+  > Storage vMotion of replication appliance is not supported after re-protect operation.
 
 
 **Re-protect job**
 
-- If this is a new re-protect operation, then by default, a new log storage account will be automatically created by ASR in the target region. Retention disk is not required.
+- If this is a new re-protect operation, then by default, a new log storage account will be automatically created by Azure Site Recovery in the target region. Retention disk is not required.
 - During entire operation (initial replication and differential replication), data will be continuously replicated, compressed and then sent to on-premises source machine.
 - In case of ALR and OLR, retrieve original configurations of VM.
   > [!NOTE]
@@ -135,7 +135,7 @@ To reprotect and fail back VMware machines and physical servers from Azure to on
 
 **Failure**
 
-- Any failed re-protect job can be retried. During retry, you can choose any healthy ASR replication appliance.
+- Any failed re-protect job can be retried. During retry, you can choose any healthy replication appliance.
 
 When you reprotect Azure VMs to on-premises, you can specify that you want to fail back to the original location, or to an alternate location.
 

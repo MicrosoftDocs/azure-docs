@@ -10,7 +10,7 @@ ms.custom: mvc
 
 <We may not need this quick start. There are several processes involved in replication, which cannot be simplified under a QS. For now, added related links to the sections that drive replication scenario>
 
-The [Azure Site Recovery (ASR)](site-recovery-overview.md) (ASR) service contributes to your business continuity and disaster recovery (BCDR) strategy by keeping your business applications online during planned and unplanned outages. Site Recovery manages and orchestrates disaster recovery of on-premises machines and Azure virtual machines (VM), including replication, failover, and recovery.
+The [Azure Site Recovery](site-recovery-overview.md) service contributes to your business continuity and disaster recovery (BCDR) strategy by keeping your business applications online during planned and unplanned outages. Site Recovery manages and orchestrates disaster recovery of on-premises machines and Azure virtual machines (VM), including replication, failover, and recovery.
 
 This Quickstart (Preview) describes how to set up disaster recovery for a VMware VM by replicating it to a secondary Azure region. We recommend you use default setting to enable replication.
 
@@ -27,7 +27,7 @@ To complete this tutorial, you need an Azure subscription and a VMware VM.
 - Sign in to the [Azure portal](https://portal.azure.com/).
 - To get started, navigate to [[Azure private preview portal](https://aka.ms/rcmcanary). And do the steps detailed in the following sections.
   [Create a recovery Services vault](/azure/site-recovery/quickstart-create-vault-template?tabs=CLI)
-- [Register and deploy ASR replication appliance](deploy-vmware-azure-replication-appliance-preview.md)
+- [Register and deploy Azure Site Recovery replication appliance](deploy-vmware-azure-replication-appliance-preview.md)
 
 ## Enable replication of VMware VMs
 

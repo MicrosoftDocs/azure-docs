@@ -8,7 +8,7 @@ ms.custom: MVC
 ---
 # Fail over VMware VMs - Preview
 
-This article describes how to fail over an on-premises VMware virtual machine (VM) to Azure with [Azure Site Recovery](site-recovery-overview.md) (ASR) - Preview.
+This article describes how to fail over an on-premises VMware virtual machine (VM) to Azure with [Azure Site Recovery](site-recovery-overview.md) - Preview.
 
 For information about fail over in Classic releases, see [this article](vmware-azure-tutorial-failover-failback.md).
 
@@ -91,7 +91,7 @@ In some scenarios, failover requires additional processing that takes around 8 t
 >[!TIP]
 > If you encounter any connectivity issues after failover, follow the [troubleshooting guide](site-recovery-failover-to-azure-troubleshoot.md).
 
-## Planned failover from Azure to on-premises 
+## Planned failover from Azure to on-premises
 
 You can perform a planned failover from Azure to on-premises. Since it is a planned failover activity, the recovery point is generated after the planned failover job is triggered.
 
@@ -103,7 +103,7 @@ When the planned failover is triggered, pending changes are copied to on-premise
 After a successful planned failover, the machine will be active in your on-premises environment.
 
 > [!NOTE]
-> If protected machine has iSCSI disks, the configuration is retained in Azure upon failover. After planned failover from Azure to on-premises, the iSCSI configuration cannot be retained. So, vmdk disks are created on the on-premises machine. To remove duplicate disks, delete the iSCSI disk as the data is replaced with vmdk disks. We are working on enhancing this experience in the upcoming releases.
+> If protected machine has iSCSI disks, the configuration is retained in Azure upon failover. After planned failover from Azure to on-premises, the iSCSI configuration cannot be retained. So, vmdk disks are created on the on-premises machine. To remove duplicate disks, delete the iSCSI disk as the data is replaced with vmdk disks. 
 
 
 ### Failed over VM to Azure - requirements
@@ -111,7 +111,7 @@ After a successful planned failover, the machine will be active in your on-premi
 Ensure the following for the VM,  after it is failed over to Azure:
 
 1. The VM in Azure should always be switched on.
-2. Ensure mobility agent services *service 1* and *service 2* are running on the VM. This is to ensure mobility agent in the VM can communicate with ASR services in Azure.
+2. Ensure mobility agent services *service 1* and *service 2* are running on the VM. This is to ensure mobility agent in the VM can communicate with Azure Site Recovery services in Azure.
 3. The URLs mentioned [here](vmware-azure-architecture-preview.md#set-up-outbound-network-connectivity) are accessible from the VM.
 
 ## Cancel planned failover
@@ -123,7 +123,7 @@ To cancel a planned failover:
 1. Navigate to the machine in recovery services vault and select **Cancel Failover**.
 2. Click **OK** << is there a prompt after step one for which user confirms and says OK?>>
 
-If there are any issues preventing ASR from successfully canceling the failed job, follow the recommended steps provided in the job. After following the recommended action, retry the cancel job.
+If there are any issues preventing Azure Site Recovery from successfully canceling the failed job, follow the recommended steps provided in the job. After following the recommended action, retry the cancel job.
 
 the previous planned failover operation will be canceled. The machine in Azure will be returned to the state just before *planned failover* was triggered.
 
@@ -134,9 +134,9 @@ You can perform a planned failover  any time later, once your on-premises condit
 
 ### Planned failover - failure
 
-If the planned failover fails, ASR automatically initiates a job to cancel the failed job and retrieves the state of the machine that was just before the planned failover.
+If the planned failover fails, Azure Site Recovery automatically initiates a job to cancel the failed job and retrieves the state of the machine that was just before the planned failover.
 
-In case cancellation of last planned failover job fails, ASR prompts you to initiate the cancellation manually. <<reinitiate? >>
+In case cancellation of last planned failover job fails, Azure Site Recovery prompts you to initiate the cancellation manually. <<reinitiate? >>
 
 This information is provided as part of failed planned failover operation and as a health issue of the replicated item.
 

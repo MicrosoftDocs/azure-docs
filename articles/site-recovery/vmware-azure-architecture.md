@@ -3,12 +3,12 @@ title: VMware VM disaster recovery architecture in Azure Site Recovery - Classic
 description: This article provides an overview of components and architecture used when setting up disaster recovery of on-premises VMware VMs to Azure with Azure Site Recovery - Classic
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 06/29/2021
+ms.date: 06/30/2021
 ---
 
 # VMware to Azure disaster recovery architecture - Classic
 
-This article describes the architecture and processes used when you deploy disaster recovery replication, failover, and recovery of VMware virtual machines (VMs) between an on-premises VMware site and Azure using the [Azure Site Recovery](site-recovery-overview.md) (ASR) service - Classic.
+This article describes the architecture and processes used when you deploy disaster recovery replication, failover, and recovery of VMware virtual machines (VMs) between an on-premises VMware site and Azure using the [Azure Site Recovery](site-recovery-overview.md) service - Classic.
 
 For architecture details in Preview, [see this article](vmware-azure-architecture-preview.md)
 
@@ -63,7 +63,7 @@ For exhaustive list of URLs to be filtered for communication between on-premises
     - The configuration server orchestrates replication with Azure over port HTTPS 443 outbound.
     - VMs send replication data to the process server (running on the configuration server machine) on port HTTPS 9443 inbound. This port can be modified.
     - The process server receives replication data, optimizes, and encrypts it, and sends it to Azure storage over port 443 outbound.
-5. The replication data logs first land in a cache storage account in Azure. These logs are processed and the data is stored in an Azure Managed Disk (called as asr seed disk). The recovery points are created on this disk.
+5. The replication data logs first land in a cache storage account in Azure. These logs are processed and the data is stored in an Azure Managed Disk (called as Azure Site Recovery seed disk). The recovery points are created on this disk.
 
 ![Diagram showing the VMware to Azure replication process.](./media/vmware-azure-architecture/v2a-architecture-henry.png)
 

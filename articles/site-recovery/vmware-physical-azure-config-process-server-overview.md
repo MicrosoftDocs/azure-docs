@@ -7,9 +7,9 @@ ms.date: 06/29/2021
 
 # About Site Recovery components (configuration, process, master target)
 
-This article describes the configuration, process, and master target servers used by the [Site Recovery](site-recovery-overview.md) (ASR) service to replicate VMware VMs and physical servers to Azure. This article is applicable to Classic releases.
+This article describes the configuration, process, and master target servers used by the [Site Recovery](site-recovery-overview.md) service to replicate VMware VMs and physical servers to Azure. This article is applicable to Classic releases.
 
-In Preview, to replicate VMs, you need to create and use an ASR replication server. For information about ASR replication server and its components, see [this article](vmware-azure-architecture-preview.md).
+In Preview, to replicate VMs, you need to create and use an Azure Site Recovery replication server. For information about Azure Site Recovery replication server and its components, see [this article](vmware-azure-architecture-preview.md).
 
 ## Configuration server
 

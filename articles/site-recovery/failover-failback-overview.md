@@ -1,8 +1,8 @@
 ---
 title: About failover and failback in Azure Site - Classic
-description: Learn about failover and failable in Azure Site Recovery - Classic
+description: Learn about failover and failback in Azure Site Recovery - Classic
 ms.topic: conceptual
-ms.date: 12/24/2019
+ms.date: 06/30/2021
 
 ---
 # About on-premises disaster recovery failover/failback - Classic

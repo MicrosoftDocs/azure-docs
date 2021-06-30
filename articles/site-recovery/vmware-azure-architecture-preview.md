@@ -3,12 +3,12 @@ title: VMware VM disaster recovery architecture in Azure Site Recovery - Preview
 description: This article provides an overview of components and architecture used when setting up disaster recovery of on-premises VMware VMs to Azure with Azure Site Recovery - Preview
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 06/29/2021
+ms.date: 06/30/2021
 ---
 
 # VMware to Azure disaster recovery architecture - Preview
 
-This article describes the architecture (preview) and processes used when you deploy disaster recovery replication, failover, and recovery of VMware virtual machines (VMs) between an on-premises VMware site and Azure using the [Azure Site Recovery](site-recovery-overview.md) (ASR) service - Preview.
+This article describes the architecture (preview) and processes used when you deploy disaster recovery replication, failover, and recovery of VMware virtual machines (VMs) between an on-premises VMware site and Azure using the [Azure Site Recovery](site-recovery-overview.md) service - Preview.
 
 For information about Classic architecture, see [this article](vmware-azure-architecture.md).
 
@@ -20,11 +20,11 @@ The following table and graphic provide a high-level view of the components used
 **Component** | **Requirement** | **Details**
 --- | --- | ---
 **Azure** | An Azure subscription, Azure Storage account for cache, Managed Disk, and Azure network. | Replicated data from on-premises VMs is stored in Azure storage. Azure VMs are created with the replicated data when you run a failover from on-premises to Azure. The Azure VMs connect to the Azure virtual network when they're created.
-**ASR replication appliance** | 	This is the basic building block of the entire ASR on-premises infrastructure. <br/><br/> All components in the appliance coordinate with ASR replication appliance. This service oversees all end-to-end Site Recovery activities including monitoring the health of protected machines, data replication, automatic updates, etc. | The appliance hosts various crucial components like:<br/><br/>**ASR proxy server:** This component acts as a proxy channel between mobility agent and Site Recovery  services in the cloud. It ensures there is no additional internet connectivity required from production workloads to generate recovery points.<br/><br/>**Discovered items:** This component gathers information of vCenter and coordinates with ASR management service in the cloud.<br/><br/>**Re-protection server:** This component coordinates between Azure and on-premises machines during reprotect and failback operations.<br/><br/>**ASR process server:** This component is used for caching, compression of data before being sent to Azure. <br/><br/> 	Learn more about replication appliance and how to use multiple replication appliance.<add applicable link here>
+**Azure Site Recovery replication appliance** | 	This is the basic building block of the entire Azure Site Recovery on-premises infrastructure. <br/><br/> All components in the appliance coordinate with the replication appliance. This service oversees all end-to-end Site Recovery activities including monitoring the health of protected machines, data replication, automatic updates, etc. | The appliance hosts various crucial components like:<br/><br/>**Azure Site Recovery proxy server:** This component acts as a proxy channel between mobility agent and Site Recovery  services in the cloud. It ensures there is no additional internet connectivity required from production workloads to generate recovery points.<br/><br/>**Discovered items:** This component gathers information of vCenter and coordinates with Azure Site Recovery management service in the cloud.<br/><br/>**Re-protection server:** This component coordinates between Azure and on-premises machines during reprotect and failback operations.<br/><br/>**Azure Site Recovery process server:** This component is used for caching, compression of data before being sent to Azure. <br/><br/> 	Learn more about replication appliance and how to use multiple replication appliance.<add applicable link here>
 **VMware servers** | VMware VMs are hosted on on-premises vSphere ESXi servers. We recommend a vCenter server to manage the hosts. | During Site Recovery deployment, you add VMware servers to the Recovery Services vault.
 **Replicated machines** | Mobility Service is installed on each VMware VM that you replicate. | We recommend that you allow automatic installation of the Mobility Service. Alternatively, you can install the service manually.
 
-  ![Diagram showing VMware to Azure replication architecture relationships.](./media/vmware-azure-architecture-preview/on-premises-environment.png)
+  [![Diagram showing VMware to Azure replication architecture relationships.](./media/vmware-azure-architecture-preview/on-premises-environment-inline.png)](./media/vmware-azure-architecture-preview/on-premises-environment-expanded.png#lightbox)
 
 ## Set up outbound network connectivity
 
@@ -73,10 +73,6 @@ If you're using a URL-based firewall proxy to control outbound connectivity, all
     - VMs send replication data to the process server (running on the configuration server machine) on port HTTPS 9443 inbound. This port can be modified.
     - The process server receives replication data, optimizes, and encrypts it, and sends it to Azure storage over port 443 outbound.
 5. The replication data logs first land in a cache storage account in Azure. These logs are processed and the data is stored in an Azure Managed Disk (called as *asrseeddisk*). The recovery points are created on this disk.
-
-  ![Diagram showing the VMware to Azure replication process.](./media/vmware-azure-architecture/v2a-architecture-henry.png)
-
-<this image needs an update>
 
 ## Resynchronization process
 
@@ -146,15 +142,11 @@ After replication is set up and you run a disaster recovery drill (test failover
     - You can model app-dependencies by including all the VMs across the app in a single recovery plan.
     - You can add scripts, Azure runbooks, and pause for manual actions.
 2. After triggering the initial failover, you commit it to start accessing the workload from the Azure VM.
-3. When your primary on-premises site is available again, you can prepare for fail back. If you need to fail back large volumes of traffic, set up a new ASR replication appliance.
+3. When your primary on-premises site is available again, you can prepare for fail back. If you need to fail back large volumes of traffic, set up a new Azure Site Recovery replication appliance.
 
     - Stage 1: Reprotect the Azure VMs so that they replicate from Azure back to the on-premises VMware VMs.
     - Stage 2: Run a failover to the on-premises site.
     - Stage 3: After workloads have failed back, you reenable replication for the on-premises VMs.
-
-![Diagram showing VMware failback from Azure.](./media/vmware-azure-architecture/enhanced-failback.png)
-<this image needs an update>
-
 
 ## Next steps
 

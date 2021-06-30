@@ -132,7 +132,7 @@
       href: vmware-physical-azure-config-process-server-overview.md
     - name: Support requirements for configuration and process servers
       href: vmware-azure-configuration-server-requirements.md
-    - name: Deploy ASR replication appliance (preview)
+    - name: Deploy Azure Site Recovery replication appliance (preview)
       href: deploy-vmware-azure-replication-appliance-preview.md
   - name: VMware to Azure architecture
     items:
@@ -306,7 +306,7 @@
         href: vmware-azure-enable-replication.md
       - name: Exclude disks from replication
         href: vmware-azure-exclude-disk.md
-      - name: Walkthrough-Set up replication with multi-tenancy and CSP for VMWare VMs
+      - name: Walkthrough-Set up replication with multi-tenancy and CSP for VMware VMs
         href: vmware-azure-multi-tenant-csp-disaster-recovery.md
     - name: Run failover and failback
       items:
