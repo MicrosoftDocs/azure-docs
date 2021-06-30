@@ -83,7 +83,7 @@ In the application's **Main** method, add a call to the asynchronous tasks used 
 
 ## Object model
 
-With Form Recognizer, you can create two different client types. The first, `FormRecognizerClient` is used to query the service to recognized form fields and content. The second, `FormTrainingClient` is use to create and Manage custom models that you can use to improve recognition.
+With Form Recognizer, you can create two different client types. The first, `FormRecognizerClient` is used to query the service to recognized form fields and content. The second, `FormTrainingClient` is uses to create and manage custom models to improve recognition.
 
 ### FormRecognizerClient
 
