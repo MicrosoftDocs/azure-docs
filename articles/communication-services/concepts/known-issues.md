@@ -11,12 +11,13 @@ ms.topic: troubleshooting
 ms.service: azure-communication-services
 ---
 
-# Known issues: Azure Communication Services Calling SDKs
-This article provides information about limitations and known issues related to the Azure Communication Services Calling SDKs.
+# Known issues
+This article provides information about limitations and known issues related to the Azure Communication Services Calling SDKs and Azure Communication Services Call Automation APIs
 
 > [!IMPORTANT]
 > There are multiple factors that can affect the quality of your calling experience. Refer to the **[network requirements](./voice-video-calling/network-requirements.md)** documentation to learn more about Communication Services network configuration and testing best practices.
 
+# Azure Communication Services Calling SDKs
 
 ## JavaScript SDK
 
@@ -121,3 +122,17 @@ Developers are encouraged to do the following:
 
 #### Possible causes
 In some browsers (Safari for example), acquiring your own stream from the same device will have a side-effect of running into race conditions. Acquiring streams from other devices may lead the user into insufficient USB/IO bandwidth, and sourceUnavailableError rate will skyrocket.  
+
+
+# Azure Communication Services Call Automation APIs
+
+Following are the known issues in the Azure Communication Services Call Automation APIs
+
+1. The only authentication supported at this time for server applications is using a connection string.
+
+2. Calls should be make only between entities of the same Azure Communication Service resource. Cross resource communication is blocked.
+
+3. Calls between Teams' tenant users and Azure Communication Service user or server application entities are not allowed.
+
+4. If an application dials out to two or more PSTN identities and then quits the call, the call between the other PSTN entities would be dropped.
+
