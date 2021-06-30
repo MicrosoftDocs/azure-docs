@@ -35,13 +35,11 @@ Per-device authentication enables each device to connect securely to IoT Hub and
 
 ### Devices have a secure identity
 
-Every device that connects to an IoT Hub has a device ID that's used to track cloud-to-device or device-to-cloud communsications. You configure a device with its connection information, which includes the IoT Hub hostname, the device ID, and the information the device uses to authenticate to IoT Hub. You can use a process called manual provisioning, in which you connect a single device to its IoT hub. For manual provisioning, you have two options for authenticating IoT Edge devices:
+Every device that connects to an IoT Hub has a device ID that's used to track cloud-to-device or device-to-cloud communications. You configure a device with its connection information, which includes the IoT Hub hostname, the device ID, and the information the device uses to authenticate to IoT Hub. You can use a process called manual provisioning, in which you connect a single device to its IoT hub. For manual provisioning, you have two options for authenticating IoT Edge devices:
 
 * symmetric key: When you create a new device identity in IoT Hub, the service creates two keys. You place one of the keys on the device, and it presents the key to IoT Hub when authenticating. This method is faster to get started, but not as secure.
 
 * X.509 Self-signed: You create two X.509 identity certificates and place them on the device. When you create a new device identity in IoT Hub, you provide thumbprints from both certificates. When the device authenticates to IoT Hub, it presents one certificate and IoT Hub verifies that the certificate matches its thumbprint.
-
-*note: find corresponding info for iot hub? or take this out and use the info below? It feels like it's duplicate info.*
 
 If you have many devices to set up and don't want to manually provision each one, use one of the following articles to learn how IoT Edge works with the IoT Hub Device Provisioning Service](../iot-dps).
 
@@ -53,7 +51,8 @@ If you want to create your devices and validate them one by one, you can use one
 
 *  [Create and provision IoT Edge devices using symmetric keys](../iot-edge/how-to-auto-provision-symmetric-keys.md)
 
-The security token method provides authentication for each call made by the device to IoT Hub by associating the symmetric key to each call. X.509-based authentication allows authentication of an IoT device at the physical layer as part of the TLS connection establishment. The security-token-based method can be used without the X.509 authentication, which is a less secure pattern. The choice between the two methods is primarily dictated by how secure the device authentication needs to be, and availability of secure storage on the device (to store the private key securely).
+The security token method provides authentication for each call made by the device to IoT Hub by associating the symmetric key to each call. X.509-based authentication allows authentication of an IoT device at the physical layer as part of the 
+Transport Layer Security (TLS) standard connection establishment. The security-token-based method can be used without the X.509 authentication, which is a less secure pattern. The choice between the two methods is primarily dictated by how secure the device authentication needs to be, and availability of secure storage on the device (to store the private key securely).
 
 ### Devices can securely communicate with an IoT Hub
 
@@ -92,7 +91,7 @@ IoT Hub implements commands by allowing you to invoke direct methods on devices 
 
 ### Built-in endpoint collects data from your device by default
 
-A built-in endpoint collects data from your device by default. The data is collected using a request-response pattern over dedicated IoT device endpoints, is available for a max of 7 days, and can be used to take actions on a device. 
+A built-in endpoint collects data from your device by default. The data is collected using a request-response pattern over dedicated IoT device endpoints, is available for a max of seven days, and can be used to take actions on a device. 
 
 For more information about IoT Hub endpoints, see [IoT Hub Dev Guide Endpoints](
 iot-hub-devguide-endpoints.md#list-of-built-in-iot-hub-endpoints)
