@@ -7,7 +7,7 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 06/15/2021
+ms.date: 06/30/2021
 ---
 
 # What's new in Azure Sentinel
@@ -35,6 +35,7 @@ If you're looking for items older than six months, you'll find them in the [Arch
 - [Alert enrichment: alert details (Public preview)](#alert-enrichment-alert-details-public-preview)
 - [Upgrades for normalization and the Azure Sentinel Information Model](#upgrades-for-normalization-and-the-azure-sentinel-information-model)
 - [More help for playbooks!](#more-help-for-playbooks)
+- [New documentation reorganization](#new-documentation-reorganization)
 
 ### Updated service-to-service connectors
 
@@ -78,6 +79,13 @@ Two new documents can help you get started or get more comfortable with creating
 - [Use triggers and actions in playbooks](playbook-triggers-actions.md) explains the difference between the **incident trigger** and the **alert trigger** and which to use when, and shows you some of the different actions you can take in playbooks in response to incidents, including how to access the information in [custom details](playbook-triggers-actions.md#work-with-custom-details).
 
 Playbook documentation also explicitly addresses the multi-tenant MSSP scenario.
+
+### New documentation reorganization
+
+This month we've reorganization our [Azure Sentinel documentation](index.yml), restructuring into intuitive categories that follow common customer journeys. Use the filtered docs search and updated landing page to navigate through Azure Sentinel docs.
+
+:::image type="content" source="media/whats-new/new-docs.png" alt-text="New Azure Sentinel documentation reorganization." lightbox="media/whats-new/new-docs.png":::
+
 
 ## May 2021
 
