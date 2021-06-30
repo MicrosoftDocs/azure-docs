@@ -33,7 +33,7 @@ The subnet needs to be large enough to hold the maximum size that you'll scale y
 
 ## Creating an ASE in the portal
 
-1. To create an ASE, search the marketplace for **App Service Environment (preview)**.  
+1. To create an ASE, search the marketplace for **App Service Environment v3**.  
 2. Basics:  Select the Subscription, select or create the Resource Group, and enter the name of your ASE.  Select the type of Virtual IP type. If you select Internal, your inbound ASE address will be an address in your ASE subnet. If you select External, your inbound ASE address will be a public internet facing address. The ASE name will be also used for the domain suffix of your ASE. If your ASE name is *contoso* and you have an Internal VIP ASE, then the domain suffix will be *contoso.appserviceenvironment.net*. If your ASE name is *contoso* and you have an external VIP, the domain suffix will be *contoso.p.azurewebsites.net*. 
 ![App Service Environment create basics tab](./media/creation/creation-basics.png)
 3. Hosting: Select *Enabled* or *Disabled* for Host Group deployment. Host Group deployment is used to select dedicated hardware. If you select Enabled, your ASE will be deployed onto dedicated hardware. When you deploy onto dedicated hardware, you are charged for the entire dedicated host during ASE creation and then a reduced price for your App Service plan instances. 
