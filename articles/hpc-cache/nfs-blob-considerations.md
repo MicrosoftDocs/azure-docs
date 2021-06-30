@@ -4,7 +4,7 @@ description: Describes procedures and limitations when using ADLS-NFS blob stora
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 03/29/2021
+ms.date: 06/30/2021
 ms.author: v-erkel
 ---
 
@@ -18,9 +18,9 @@ This article explains strategies and limitations that you should understand when
 
 You should also read the NFS blob documentation, especially these sections that describe compatible and incompatible scenarios:
 
-* [Feature overview](../storage/blobs/network-file-system-protocol-support.md#applications-and-workloads-suited-for-this-feature)
-* [Features not yet supported](../storage/blobs/network-file-system-protocol-support.md#azure-storage-features-not-yet-supported)
+* [Feature overview](../storage/blobs/network-file-system-protocol-support.md)
 * [Performance considerations](../storage/blobs/network-file-system-protocol-support-performance.md)
+* [Known issues and limitations](../storage/blobs/network-file-system-protocol-known-issues.md)
 
 ## Understand consistency requirements
 
