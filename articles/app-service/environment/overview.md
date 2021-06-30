@@ -10,7 +10,7 @@ ms.custom: seodec18
 ---
 # App Service Environment overview 
 > [!NOTE]
-> This article is about the App Service Environment v3 (preview)
+> This article is about the App Service Environment v3 which is used with Isolated v2 App Service plans
 > 
 
 The Azure App Service Environment is an Azure App Service feature that provides a fully isolated and dedicated environment for securely running App Service apps at high scale. This capability can host your:
