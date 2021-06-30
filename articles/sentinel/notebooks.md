@@ -134,9 +134,9 @@ After you've created an AML workspace, start launching your notebooks in your Az
 
     :::image type="content" source="media/notebooks/sentinel-notebooks-restart-kernel.png" alt-text="Restart a notebook kernel.":::
 
-> [!NOTE]
-> If you run into issues with your notebooks, see the [Azure Machine Learning notebook troubleshooting](/azure/machine-learning/how-to-run-jupyter-notebooks#troubleshooting).
->
+## Troubleshooting
+
+If you run into issues with your notebooks, see the [Azure Machine Learning notebook troubleshooting](/azure/machine-learning/how-to-run-jupyter-notebooks#troubleshooting).
 
 
 ## Next steps
