@@ -97,6 +97,8 @@
     items:
     - name: Python Basic Encoding
       href: encode-basic-encoding-python-quickstart.md
+    - name: Event-based Face Redaction
+      href: face-redaction-event-based-python-quickstart.md
   - name: Azure portal
     items:
     - name: Customer managed keys or BYOK tutorial
@@ -472,6 +474,9 @@
       href: security-access-storage-managed-identity-cli-tutorial.md
     - name: Give a Function App access to Media Services account
       href: security-function-app-managed-identity-cli-tutorial.md
+    - name: Create a Media Services and Storage account with a Private Link
+      href: security-private-link-how-to.md
+      displayName: security, private link, links, firewall
   - name: Use media players
     items:
     - name: Azure Media Player full set up

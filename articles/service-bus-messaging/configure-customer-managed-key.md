@@ -269,7 +269,7 @@ In this step, you will update the Service Bus namespace with key vault informati
              },
              "properties":{
                 "encryption":{
-                   "keySource":"Microsoft.KeyVault",
+                   "keySource":"Microsoft.KeyVault",             
                    "keyVaultProperties":[
                       {
                          "keyName":"[parameters('keyName')]",
@@ -317,6 +317,28 @@ In this step, you will update the Service Bus namespace with key vault informati
     ```powershell
     New-AzResourceGroupDeployment -Name UpdateServiceBusNamespaceWithEncryption -ResourceGroupName {MyRG} -TemplateFile ./UpdateServiceBusNamespaceWithEncryption.json -TemplateParameterFile ./UpdateServiceBusNamespaceWithEncryptionParams.json
     ```
+
+#### Enable infrastructure encryption for double encryption of data inAzure Service Bus data 
+If you require a higher level of assurance that your data is secure, you can enable infrastructure level encryption which is also known as Double Encryption. 
+
+When infrastructure encryption is enabled, data in the Azure Service Bus is encrypted twice, once at the service level and once at the infrastructure level, using two different encryption algorithms and two different keys. Hence, infrastructure encryption of Azure Service Bus data protects against a scenario where one of the encryption algorithms or keys may be compromised.
+
+You can enable infrastructure encryption by updating the ARM template with `requireInfrastructureEncryption` property in the above **UpdateServiceBusNamespaceWithEncryption.json** as shown below. 
+
+```json
+"properties":{
+   "encryption":{
+      "keySource":"Microsoft.KeyVault",    
+      "requireInfrastructureEncryption":true,         
+      "keyVaultProperties":[
+         {
+            "keyName":"[parameters('keyName')]",
+            "keyVaultUri":"[parameters('keyVaultUri')]"
+         }
+      ]
+   }
+}
+```
     
 
 ## Next steps
