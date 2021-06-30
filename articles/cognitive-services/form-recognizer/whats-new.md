@@ -19,11 +19,15 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 ## June 2021
 
-### Form Recognizer containers v2.1 are in gated preview
+### Form Recognizer containers v2.1 released in gated preview
 
 Form Recognizer features are now supported by seven containers—**Layout**, **Business Card**,**ID Document**,  **Receipt**, **Invoice**, **Custom API**, and **Custom Supervised**. To use them, you must submit an [online request](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUNlpBU1lFSjJUMFhKNzVHUUVLN1NIOEZETiQlQCN0PWcu), and receive approval.
 
 *See* [**Install and run Docker containers for Form Recognizer**](containers/form-recognizer-container-install-run.md?branch=main&tabs=layout) and [**Configure Form Recognizer containers**](containers/form-recognizer-container-configuration.md?branch=main)
+
+### Form Recognizer connector released in preview
+
+  The [**Form Recognizer connector**](/connectors/formrecognizer) integrates with  [Azure Logic Apps](/azure/logic-apps/logic-apps-overview),  [Microsoft Power Automate](/power-automate/getting-started), and [Microsoft Power Apps](/powerapps/powerapps-overview) . The connector supports workflow actions and triggers to extract and analyze document data and structure from custom and prebuilt forms, invoices, receipts, business cards and ID documents.
 
 ### Form Recognizer SDK v3.1.0 patched to v3.1.1 for C#, Java, and Python
 
@@ -52,7 +56,7 @@ The patch addresses invoices that do not have sub-line item fields detected such
 
 ## May 2021
 
-### Form Recognizer 2.1 API is now Generally Available (GA)
+### Form Recognizer 2.1 API Generally Available (GA) release
 
 * Form Recognizer 2.1 is generally available. This General Availability (GA) release marks the stability of the changes introduced in prior 2.1 preview package versions. This release enables you to detect and extract information and data from the following:
 
