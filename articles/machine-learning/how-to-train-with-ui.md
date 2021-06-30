@@ -23,7 +23,7 @@ There are many ways to create a training job with Azure Machine Learning. You ca
 
 * An Azure Machine Learning workspace. See [Create an Azure Machine Learning workspace](how-to-manage-workspace.md). 
 
-* Understanding of [what a job is](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-train-cli#introducing-jobs) in Azure Machine Learning. 
+* Understanding of [what a job is](how-to-train-cli.md#introducing-jobs) in Azure Machine Learning. 
 
 ## Get started
 
@@ -66,7 +66,7 @@ Curated environments contain collections of Python packages and are available in
 
 ### Custom environments
 
-Custom environments are the environments created by the users. You can select an environment that you created before and reuse it for different jobs. You can learn more about [how to create an environment](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-manage-environments-in-studio#create-an-environment). 
+Custom environments are the environments created by the users. You can select an environment that you created before and reuse it for different jobs. You can learn more about [how to create an environment](how-to-manage-environments-in-studio.md#create-an-environment). 
 
 ### Container registry image
 
