@@ -12,7 +12,7 @@ ms.date: 12/02/2019
 
 # Create a MySQL server and configure a firewall rule using the Azure CLI
 
-[[!INCLUDE[applies-to-single-flexible-server](../includes/applies-to-single-flexible-server.md)]
+[[!INCLUDE[applies-to-mysql-single-flexible-server](../includes/applies-to-mysql-single-flexible-server.md)]
 
 This sample CLI script creates an Azure Database for MySQL server and configures a server-level firewall rule. Once the script runs successfully, the MySQL server is accessible by all Azure services and the configured IP address.
 

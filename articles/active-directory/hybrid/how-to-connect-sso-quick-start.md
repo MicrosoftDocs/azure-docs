@@ -227,7 +227,7 @@ In Step 2, Azure AD Connect creates computer accounts (representing Azure AD) in
 >[!IMPORTANT]
 >The Kerberos decryption key on a computer account, if leaked, can be used to generate Kerberos tickets for any user in its AD forest. Malicious actors can then impersonate Azure AD sign-ins for compromised users. We highly recommend that you periodically roll over these Kerberos decryption keys - at least once every 30 days.
 
-For instructions on how to roll over keys, see [Azure Active Directory Seamless Single Sign-On: Frequently asked questions](how-to-connect-sso-faq.md).
+For instructions on how to roll over keys, see [Azure Active Directory Seamless Single Sign-On: Frequently asked questions](how-to-connect-sso-faq.yml).
 
 >[!IMPORTANT]
 >You don't need to do this step _immediately_ after you have enabled the feature. Roll over the Kerberos decryption keys at least once every 30 days.
@@ -235,6 +235,6 @@ For instructions on how to roll over keys, see [Azure Active Directory Seamless 
 ## Next steps
 
 - [Technical deep dive](how-to-connect-sso-how-it-works.md): Understand how the Seamless Single Sign-On feature works.
-- [Frequently asked questions](how-to-connect-sso-faq.md): Get answers to frequently asked questions about Seamless Single Sign-On.
+- [Frequently asked questions](how-to-connect-sso-faq.yml): Get answers to frequently asked questions about Seamless Single Sign-On.
 - [Troubleshoot](tshoot-connect-sso.md): Learn how to resolve common problems with the Seamless Single Sign-On feature.
 - [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): Use the Azure Active Directory Forum to file new feature requests.
