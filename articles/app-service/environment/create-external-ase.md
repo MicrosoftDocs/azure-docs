@@ -12,6 +12,10 @@ ms.custom: seodec18
 
 # Create an External App Service environment
 
+> [!NOTE]
+> This article is about the App Service Environment v2 which is used with Isolated App Service plans
+> 
+
 Azure App Service Environment is a deployment of Azure App Service into a subnet in an Azure virtual network (VNet).
 
 > [!NOTE]
