@@ -103,7 +103,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 1. Before the next step make sure you are authorized as Account Super User. For checking if the user is an Account Super User perform login at [Vonage admin portal](http://admin.vonage.com).
    You should see on the top left side similar to the picture below.
 
-   ![Provisioning tab automatic](media/vonage-provisioning-tutorial/account-super-user.png)
+   ![Provisioning tab user](media/vonage-provisioning-tutorial/account-super-user.png)
 
 1. In the **Admin Credentials** section, click on Authorize , make sure that you enter your Account Super User credentials, if it doesn't ask you to enter credentials make sure that you logged in with the Account Super User (you can check it http://admin.vonage.com/ on the upper left side, bellow your name you need to see "Account Super User"). Click **Test Connection** to ensure Azure AD can connect to Vonage. If the connection fails , ensure your Vonage account has Admin permissions and try again.
 
