@@ -18,7 +18,7 @@ monikerRange : '>= cyclecloud-8'
 - The cluster must be created in an Active Directory Domain.
 - The cluster can contain only a single head node.
 - High availability on the head node is not supported yet.
-- The head node VM image customization is not supported.
+- Head node VM image customization is not supported.
 - Linux compute nodes are not supported yet.
 - The head node requires outbound internet access to download Nuget binary and Python3.
 - CLI and cloud-init configuration is not supported yet.
@@ -31,13 +31,13 @@ Currently all HPC Pack nodes must be joined into an Active Directory Domain. If 
 
 ### Azure Key Vault
 
-Microsoft HPC Pack requires a PFX certificate to secure the node communication,  and it also requires AD domain user credentials to join the nodes into AD domain. While you can directly specify a PFX file, protection password, and user password in the template, we strongly recommend that you use Azure Key Vault for secure handling of the certificate and user password . Refer to [Create an Azure Key Vault Certificate](https://docs.microsoft.com/powershell/high-performance-computing/deploy-an-hpc-pack-cluster-in-azure?view=hpc19-ps#create-azure-key-vault-certificate-on-azure-portal).
+Microsoft HPC Pack requires a PFX certificate to secure the node communication,  and it also requires AD domain user credentials to join the nodes into AD domain. While you can directly specify a PFX file, protection password, and user password in the template, we strongly recommend using Azure Key Vault for secure handling of the certificate and user password . Refer to [Create an Azure Key Vault Certificate](https://docs.microsoft.com/powershell/high-performance-computing/deploy-an-hpc-pack-cluster-in-azure?view=hpc19-ps#create-azure-key-vault-certificate-on-azure-portal).
 
 The cluster also requires Username and Password of an AD administrator account to join nodes to the domain as they are created. We strongly recommend to use Azure Key Vault.
 
 ### Azure User Assigned Managed Identity
 
-In order to use Azure Key Vault for the certificate and credentials , you need to create an Azure User Assigned Managed Identity and grant **Ge**' permission for both Secret and the Certificate of the Azure Key Vault.
+In order to use Azure Key Vault for the certificate and credentials , you need to create an Azure User Assigned Managed Identity and grant **Get**' permission for both Secret and the Certificate of the Azure Key Vault.
 
 You can refer to this [Key Vault tutorial](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-nonaad) for creating your Key Vault and a Managed Identity with Key Vault access.
 
@@ -64,7 +64,7 @@ On the **About** page, specify a unique **Cluster Name** for the cluster,Since i
 
 ### Auto-Scaling
 
-The cluster is started without any compute node. You can enable **Autoscale** to automatically scale up/down the compute nodes depending on the cluster workloads, you can use **Max Cores** to specify the maximum number of compute vCPU cores of your cluster. The autoscaler runs every minute as a Windows Scheduled Task on the head node.
+The cluster is started without any compute nodes. You can enable **Autoscale** to automatically scale up/down the compute nodes depending on the cluster workloads, you can use **Max Cores** to specify the maximum number of compute vCPU cores of your cluster. The autoscaler runs every minute as a Windows Scheduled Task on the head node.
 
 There are two scale-down options for compute nodes: **Deallocate** or **Terminate**. If you choose the **Terminate** option, the HPC Pack cluster will always remove the compute node VMs on scale-down. If you choose the **Deallocate** option, the HPC Pack cluster will deallocate the compute node VMs on scale-down, and maintain them for up to a configurable number of days (**VM Retention Days**).The deallocated compute nodes will not be removed from the HPC Pack cluster as long as they are still retained.However, they will be taken offline and shown as unreachable in the HPC Pack cluster. The **Deallocate** option is recommended for the HPC Pack cluster since it can significantly reduce the node preparation time on scale-up, and you only pay for the disk storage of the deallocated VMs.
 
@@ -84,7 +84,7 @@ There are two scale-down options for compute nodes: **Deallocate** or **Terminat
 
 ## azhpcpack CLI
 
-The _azhpcpack.ps1_ CLI is the main interface for all autoscaling behavior (the Scheduled Task calls _azhpcpack.ps1 autoscale_). The CLI is available in _C:\cycle\hpcpack-autoscaler\bin_)
+The _azhpcpack.ps1_ CLI is the main interface for all autoscaling behavior (the Scheduled Task calls `azhpcpack.ps1 autoscale`). The CLI is available in _C:\cycle\hpcpack-autoscaler\bin_)
 
 The CLI can be used to diagnose issues with autoscaling or to manually control cluster scaling from inside the Head Node.
 
