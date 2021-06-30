@@ -9,7 +9,7 @@ ms.custom: MVC
 ---
 # Set up disaster recovery to Azure for on-premises VMware VMs - Preview
 
-This article describes how to enable replication for on-premises VMware VMs, for disaster recovery to Azure using the [Azure Site Recovery](site-recovery-overview.md) (ASR) service - Preview.
+This article describes how to enable replication for on-premises VMware VMs, for disaster recovery to Azure using the [Azure Site Recovery](site-recovery-overview.md) service - Preview.
 
 For information on how to set up disaster recovery in Classic releases, see [this article](vmware-azure-tutorial.md)
 
@@ -46,7 +46,7 @@ VMware to Azure replication includes the following procedures:
 - Prepare Azure account
 - Prepare infrastructure
 - [Create a recovery Services vault](/azure/site-recovery/quickstart-create-vault-template?tabs=CLI)
-- Create ASR replication appliances
+- Create Azure Site recovery replication appliances
 - Enable replication
 
 ## Prepare Azure account
@@ -69,13 +69,13 @@ Use the following steps to assign the required permissions:
 
 4. In **Add a role assignment**, Select **Add,** select the Contributor or Owner role, and select the account. Then Select **Save**.
 
-5. To register the ASR replication appliance, your Azure account needs permissions to register AAD apps.
+5. To register the Azure Site Recovery replication appliance, your Azure account needs permissions to register the AAD apps.
 
 Follow these steps to assign required permissions:
 
 1. In Azure portal, navigate to **Azure Active Directory** > **Users** > **User Settings**. In **User settings**, verify that Azure AD users can register applications (set to *Yes* by default).
 
-2. In case the **App registrations** settings is set to *No*, request the tenant/global admin to assign the required permission. Alternately, the tenant/global admin can assign the Application Developer role to an account to allow the registration of AAD App. [Learn more](add the link here)
+2. In case the **App registrations** settings is set to *No*, request the tenant/global admin to assign the required permission. Alternately, the tenant/global admin can assign the Application Developer role to an account to allow the registration of AAD App.
 
 ## Prepare infrastructure - set up Azure Site Recovery Replication appliance
 
@@ -102,7 +102,7 @@ Follow these steps to enable replication:
 
 1. Select **Enable replication** under **Getting Started** section.
 
-   ![Enable replication](./media/vmware-azure-set-up-replication-tutorial-preview/enable-replication.png)
+   [![Enable replication](./media/vmware-azure-set-up-replication-tutorial-preview/enable-replication-inline.png)](./media/vmware-azure-set-up-replication-tutorial-preview/enable-replication-expanded.png#lightbox)
 
 2. **Choose** the machine type you want to protect through Azure Site Recovery.
 
