@@ -56,7 +56,7 @@ To configure and test Azure AD SSO with LinkedIn Learning, perform the following
     1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
     1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
 1. **[Configure LinkedIn Learning SSO](#configure-linkedin-learning-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create LinkedIn Learning test user](#create-linkedin-learning-test-user)** - to have a counterpart of B.Simon in LinkedIn Learning that is linked to the Azure AD representation of user.
+    1. **[Assign Licenses](#assign-licenses)**- to have a counterpart of B.Simon in LinkedIn Learning that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
@@ -153,15 +153,28 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![Certificate file](./media/linkedinlearning-tutorial/upload-file.png "Certificate file")
 
+1. Fill the required values manually under **SSO settings** tab.
+
+    ![Entering Values](./media/linkedinlearning-tutorial/certificate.png "Entering Values")
+
 1. Under **SSO settings**, select your SSO options as per your requirement and click **Save**.
 
     ![SSO settings](./media/linkedinlearning-tutorial/options.png "SSO settings")
 
-### Create LinkedIn Learning test user
+### Enabling Single Sign-On
 
-LinkedIn Learning Application supports **Just in time user provisioning** and after authentication users are created in the application automatically. On the admin settings page on the LinkedIn Learning portal flip the switch **Automatically Assign licenses** to active Just in time provisioning and this will also assign a license to the user.
+After completing your configuration, enable SSO by selecting **Active** from the SSO Status drop down.
 
-   ![Creating an Azure AD test user](./media/linkedinlearning-tutorial/switch.png)
+  ![Enabling Single Sign-On](./media/linkedinlearning-tutorial/configuration.png "Enabling Single Sign-On")
+
+### Assign Licenses
+
+Once you have enabled SSO, you can automatically assign licenses to your employees by toggling **Automatically provision licenses** to **On** and click **Save**. When you enable this option, users are automatically granted a license when they are authenticated for the first time.
+
+   ![Assign Licenses](./media/linkedinlearning-tutorial/license.png "Assign Licenses")
+
+> [!NOTE]   
+> If you do not enable this option, an admin must add users manually in the People tab. LinkedIn Learning identifies users by their email address.
 
 ## Test SSO 
 
