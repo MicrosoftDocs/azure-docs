@@ -41,7 +41,7 @@
 
 1. On the **Security** tab, at this time, leave the default values:
 
-   - **DDos protection**: Basic
+   - **DDos protection**: Disabled
    - **Firewall**: Disabled
 1. Select **Review + create** to validate the virtual network settings.
 1. After the settings have been validated, select **Create**.
