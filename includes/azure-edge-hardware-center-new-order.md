@@ -118,6 +118,10 @@ To place an order through the Azure Edge Hardware Center, do these steps:
 
     ![Screenshot showing the Configure hardware option for an order item shipped from the Azure Edge Hardware Center](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-18.png)
 
-    After you activate the device, you can open the management resource from the item details by *ADD INSTRUCTION*.
+    The subscription, resource group, and deployment area are filled in from the order, but you can change them.
 
-    ![Screenshot of a management resource opened from order item details in the Azure Edge Hardware Center](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-19.png)
+    ![Screen opened by the Configure hardware option in a shipped order item](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-19.png)
+
+    After you activate the device, you can open the management resource from the item details by *ADD INSTRUCTION*.<!--Screenshot and instruction optional?-->
+
+    ![Screenshot of a management resource opened from order item details in the Azure Edge Hardware Center](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-20.png)
