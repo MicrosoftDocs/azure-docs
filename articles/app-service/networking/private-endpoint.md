@@ -4,7 +4,7 @@ description: Connect privately to a Web App using Azure Private Endpoint
 author: ericgre
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 ms.topic: article
-ms.date: 06/15/2021
+ms.date: 07/01/2021
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
@@ -36,6 +36,8 @@ A Private Endpoint is a special network interface (NIC) for your Azure Web App i
 When you create a Private Endpoint for your Web App, it provides secure connectivity between clients on your private network and your Web App. The Private Endpoint is assigned an IP Address from the IP address range of your VNet.
 The connection between the Private Endpoint and the Web App uses a secure [Private Link][privatelink]. Private Endpoint is only used for incoming flows to your Web App. Outgoing flows will not use this Private Endpoint, but you can inject outgoing flows to your network in a different subnet through the [VNet integration feature][vnetintegrationfeature].
 
+Each slot of an app is configured separately. You can plug up to 100 Private Endpoints per slot. You cannot share a Private Endpoint between slots.
+
 The Subnet where you plug the Private Endpoint can have other resources in it, you don't need a dedicated empty Subnet.
 You can also deploy the Private Endpoint in a different region than the Web App. 
 
@@ -57,6 +59,7 @@ In the Web HTTP logs of your Web App, you will find the client source IP. This f
 
   > [!div class="mx-imgBorder"]
   > ![Web App Private Endpoint global overview](media/private-endpoint/global-schema-web-app.png)
+
 
 ## DNS
 
