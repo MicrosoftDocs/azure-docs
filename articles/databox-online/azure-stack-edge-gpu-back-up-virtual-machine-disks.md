@@ -128,7 +128,7 @@ Before you back up VMs, make sure that:
         Location          : dbelocal
         ProvisioningState : Succeeded
         Tags              :
-        ResourceId        : /subscriptions/d64617ad-6266-4b19-45af-81112d213322/resourceGroups/myaseazrg1
+        ResourceId        : /subscriptions/.../resourceGroups/myaseazrg1
         
         PS C:\Users\user>
         ```
@@ -181,7 +181,7 @@ Before you back up VMs, make sure that:
         ProvisioningState            : Succeeded
         Incremental                  : False
         Encryption                   : Microsoft.Azure.Management.Compute.Models.Encryption
-        Id                           : /subscriptions/d64617ad-6266-4b19-45af-81112d213322/r
+        Id                           : /subscriptions/.../r
                                        esourceGroups/myaseazrg1/providers/Microsoft.Compute/
                                        snapshots/myasdisk1ss
         Name                         : myasdisk1ss
@@ -265,7 +265,7 @@ Before you back up VMs, make sure that:
         Location          : dbelocal
         ProvisioningState : Succeeded
         Tags              :
-        ResourceId        : /subscriptions/992601bc-b03d-4d72-598e-d24eac232122/resourceGroups/myaserg3
+        ResourceId        : /subscriptions/.../resourceGroups/myaserg3
         
         PS C:\Users\user>
         ```
@@ -312,7 +312,7 @@ Before you back up VMs, make sure that:
         DiskSizeGB         : 10
         EncryptionSettings :
         ProvisioningState  : Succeeded
-        Id                 : /subscriptions/992601bc-b03d-4d72-598e-d24eac232122/resourceGroups/myaserg3/providers/Microsoft.Compute/snapshots/myasetestdisk1_ss
+        Id                 : /subscriptions/.../resourceGroups/myaserg3/providers/Microsoft.Compute/snapshots/myasetestdisk1_ss
         Name               : myasetestdisk1_ss
         Type               : Microsoft.Compute/snapshots
         Location           : DBELocal

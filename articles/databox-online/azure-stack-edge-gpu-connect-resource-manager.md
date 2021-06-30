@@ -527,7 +527,7 @@ Set the Azure Resource Manager environment and verify that your device to client
     ResourceGroupName : ase-image-resourcegroup
     ResourceType      : Microsoft.Storage/storageaccounts
     Location          : dbelocal
-    ResourceId        : /subscriptions/d64617ad-6266-4b19-45af-81112d213322/resourceGroups/ase-image-resourcegroup/providers/Microsoft.Storage/storageac
+    ResourceId        : /subscriptions/.../resourceGroups/ase-image-resourcegroup/providers/Microsoft.Storage/storageac
                         counts/aseimagestorageaccount
     Tags              :
     
@@ -535,14 +535,14 @@ Set the Azure Resource Manager environment and verify that your device to client
     ResourceGroupName : ASERG
     ResourceType      : Microsoft.Compute/images
     Location          : dbelocal
-    ResourceId        : /subscriptions/d64617ad-6266-4b19-45af-81112d213322/resourceGroups/ASERG/providers/Microsoft.Compute/images/myaselinuxvmimage1
+    ResourceId        : /subscriptions/.../resourceGroups/ASERG/providers/Microsoft.Compute/images/myaselinuxvmimage1
     Tags              :
     
     Name              : ASEVNET
     ResourceGroupName : ASERG
     ResourceType      : Microsoft.Network/virtualNetworks
     Location          : dbelocal
-    ResourceId        : /subscriptions/d64617ad-6266-4b19-45af-81112d213322/resourceGroups/ASERG/providers/Microsoft.Network/virtualNetworks/ASEVNET
+    ResourceId        : /subscriptions/.../resourceGroups/ASERG/providers/Microsoft.Network/virtualNetworks/ASEVNET
     Tags              :
     
     PS C:\WINDOWS\system32>  
@@ -667,10 +667,10 @@ Next, get which environment you are currently connected to via your Azure Resour
 ```output
 PS C:\WINDOWS\system32> Get-AzContext |fl *​
 ​​
-Name               : Default Provider Subscription (A4257FDE-B946-4E01-ADE7-674760B8D1A3) - EdgeArmUser@localhost​
+Name               : Default Provider Subscription (...) - EdgeArmUser@localhost​
 Account            : EdgeArmUser@localhost​
 Environment        : AzDBE2​
-Subscription       : a4257fde-b946-4e01-ade7-674760b8d1a3​
+Subscription       : ...​
 Tenant             : c0257de7-538f-415c-993a-1b87a031879d​
 TokenCache         : Microsoft.Azure.Commands.Common.Authentication.ProtectedFileTokenCache​
 VersionProfile     :​
@@ -690,7 +690,7 @@ AccessToken           :​
 Credential            :​
 TenantMap             : {}​
 CertificateThumbprint :​
-ExtendedProperties    : {[Subscriptions, A4257FDE-B946-4E01-ADE7-674760B8D1A3], [Tenants, c0257de7-538f-415c-993a-1b87a031879d]}
+ExtendedProperties    : {[Subscriptions, ...], [Tenants, c0257de7-538f-415c-993a-1b87a031879d]}
 ```
 
 Log into the other environment. The sample output is shown below.
@@ -708,10 +708,10 @@ Run this cmdlet to confirm which environment you are connected to.
 ```output
 PS C:\WINDOWS\system32> Get-AzContext |fl *​
 ​​
-Name               : Default Provider Subscription (A4257FDE-B946-4E01-ADE7-674760B8D1A3) - EdgeArmUser@localhost​
+Name               : Default Provider Subscription (...) - EdgeArmUser@localhost​
 Account            : EdgeArmUser@localhost​
 Environment        : AzDBE1​
-Subscription       : a4257fde-b946-4e01-ade7-674760b8d1a3​
+Subscription       : ...
 Tenant             : c0257de7-538f-415c-993a-1b87a031879d​
 TokenCache         : Microsoft.Azure.Commands.Common.Authentication.ProtectedFileTokenCache​
 VersionProfile     :​
@@ -748,7 +748,7 @@ PS C:\WINDOWS\system32> Get-AzureRmContext |fl *​
 Name               : Default Provider Subscription (A4257FDE-B946-4E01-ADE7-674760B8D1A3) - EdgeArmUser@localhost​
 Account            : EdgeArmUser@localhost​
 Environment        : AzDBE2​
-Subscription       : a4257fde-b946-4e01-ade7-674760b8d1a3​
+Subscription       : ...​
 Tenant             : c0257de7-538f-415c-993a-1b87a031879d​
 TokenCache         : Microsoft.Azure.Commands.Common.Authentication.ProtectedFileTokenCache​
 VersionProfile     :​
@@ -768,7 +768,7 @@ AccessToken           :​
 Credential            :​
 TenantMap             : {}​
 CertificateThumbprint :​
-ExtendedProperties    : {[Subscriptions, A4257FDE-B946-4E01-ADE7-674760B8D1A3], [Tenants, c0257de7-538f-415c-993a-1b87a031879d]}
+ExtendedProperties    : {[Subscriptions, ...], [Tenants, c0257de7-538f-415c-993a-1b87a031879d]}
 ```
 
 Log into the other environment. The sample output is shown below.
@@ -786,10 +786,10 @@ Run this cmdlet to confirm which environment you are connected to.
 ```output
 PS C:\WINDOWS\system32> Get-AzureRmContext |fl *​
 ​​
-Name               : Default Provider Subscription (A4257FDE-B946-4E01-ADE7-674760B8D1A3) - EdgeArmUser@localhost​
+Name               : Default Provider Subscription (...) - EdgeArmUser@localhost​
 Account            : EdgeArmUser@localhost​
 Environment        : AzDBE1​
-Subscription       : a4257fde-b946-4e01-ade7-674760b8d1a3​
+Subscription       : ...​
 Tenant             : c0257de7-538f-415c-993a-1b87a031879d​
 TokenCache         : Microsoft.Azure.Commands.Common.Authentication.ProtectedFileTokenCache​
 VersionProfile     :​

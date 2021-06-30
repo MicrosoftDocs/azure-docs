@@ -65,7 +65,7 @@ The subscription is used to deploy the VMs.
     
     Name                          Id                                   TenantId
     ----                          --                                   --------
-    Default Provider Subscription d64617ad-6266-4b19-45af-81112d213322 c0257de7-53...
+    Default Provider Subscription ...                                  ...
     
     
     PS C:\WINDOWS\system32>
@@ -129,7 +129,7 @@ The subscription is used to deploy the VMs.
     
     Name                 Id                 TenantId          State
     ----                 --                --------           -----
-    Default Provider Subscription A4257FDE-B946-4E01-ADE7-674760B8D1A3 c0257de7-538f-415c-993a-1b87a031879d Enabled
+    Default Provider Subscription         ...                 c0257de7-538f-415c-993a-1b87a031879d Enabled
     
     PS C:\windows\system32>
     ```
@@ -203,7 +203,7 @@ Start by creating a new Azure resource group and use this as a logical container
     Location          : dbelocal
     ProvisioningState : Succeeded
     Tags              :
-    ResourceId        : /subscriptions/d64617ad-6266-4b19-45af-81112d213322/resourceGroups/myaseazrg
+    ResourceId        : /subscriptions/.../resourceGroups/myaseazrg
     
     PS C:\WINDOWS\system32>
     ```
@@ -296,7 +296,7 @@ New-AzureRmStorageAccount -Name sa191113014333  -ResourceGroupName rg19111301433
 
 ResourceGroupName      : rg191113014333
 StorageAccountName     : sa191113014333
-Id                     : /subscriptions/a4257fde-b946-4e01-ade7-674760b8d1a3/resourceGroups/rg191113014333/providers/Microsoft.Storage/storageaccounts/sa191113014333
+Id                     : /subscriptions/.../resourceGroups/rg191113014333/providers/Microsoft.Storage/storageaccounts/sa191113014333
 Location               : DBELocal
 Sku                    : Microsoft.Azure.Management.Storage.Models.Sku
 Kind                   : Storage
@@ -483,7 +483,7 @@ You will now create a managed disk from the uploaded VHD.
     DiskMBpsReadWrite            : 60
     DiskState                    : Unattached
     Encryption                   : Microsoft.Azure.Management.Compute.Models.Encryption
-    Id                           : /subscriptions/d64617ad-6266-4b19-45af-81112d213322/r
+    Id                           : /subscriptions/.../r
                                    esourceGroups/myaseazrg/providers/Microsoft.Compute/d
                                    isks/myazmd
     Name                         : myazmd
@@ -526,7 +526,7 @@ CreationData       : Microsoft.Azure.Management.Compute.Models.CreationData
 DiskSizeGB         : 30
 EncryptionSettings :
 ProvisioningState  : Succeeded
-Id                 : /subscriptions/a4257fde-b946-4e01-ade7-674760b8d1a3/resourceGroups/rg191113014333/providers/Micros
+Id                 : /subscriptions/.../resourceGroups/rg191113014333/providers/Micros
                      oft.Compute/disks/ld191113014333
 Name               : ld191113014333
 Type               : Microsoft.Compute/disks
@@ -584,7 +584,7 @@ You'll now create a VM image from the managed disk.
     StorageProfile       : Microsoft.Azure.Management.Compute.Models.ImageStorageProfile
     ProvisioningState    : Succeeded
     HyperVGeneration     : V1
-    Id                   : /subscriptions/d64617ad-6266-4b19-45af-81112d213322/resourceG
+    Id                   : /subscriptions/.../resourceG
                            roups/myaseazrg/providers/Microsoft.Compute/images/myaseazlin
                            uxvmimage
     Name                 : myaseazlinuxvmimage
@@ -617,7 +617,7 @@ SourceVirtualMachine :
 StorageProfile       : Microsoft.Azure.Management.Compute.Models.ImageStorageProfile
 ProvisioningState    : Succeeded
 HyperVGeneration     : V1
-Id                   : /subscriptions/b172b183-b144-478c-8c72-5d35a296eaae/resourceGroups/RG191113014333/providers/Microsoft.Compute/images/ig191113014333
+Id                   : /subscriptions/.../resourceGroups/RG191113014333/providers/Microsoft.Compute/images/ig191113014333
 Name                 : ig191113014333
 Type                 : Microsoft.Compute/images
 Location             : dbelocal
@@ -691,7 +691,7 @@ You'll create a virtual network interface card by using the virtual network subn
     Name                        : myaznic1
     ResourceGroupName           : myaseazrg
     Location                    : dbelocal
-    Id                          : /subscriptions/d64617ad-6266-4b19-45af-81112d213322/re
+    Id                          : /subscriptions/.../re
                                   sourceGroups/myaseazrg/providers/Microsoft.Network/net
                                   workInterfaces/myaznic1
     Etag                        : W/"0b20057b-2102-4f34-958b-656327c0fb1d"
@@ -704,16 +704,14 @@ You'll create a virtual network interface card by using the virtual network subn
                                       "Name": "myazipconfig1",
                                       "Etag":
                                   "W/\"0b20057b-2102-4f34-958b-656327c0fb1d\"",
-                                      "Id": "/subscriptions/d64617ad-6266-4b19-45af-8111
-                                  2d213322/resourceGroups/myaseazrg/providers/Microsoft.
+                                      "Id": "/subscriptions/.../resourceGroups/myaseazrg/providers/Microsoft.
                                   Network/networkInterfaces/myaznic1/ipConfigurations/my
                                   azipconfig1",
                                       "PrivateIpAddress": "10.126.76.60",
                                       "PrivateIpAllocationMethod": "Dynamic",
                                       "Subnet": {
                                         "Delegations": [],
-                                        "Id": "/subscriptions/d64617ad-6266-4b19-45af-81
-                                  112d213322/resourceGroups/ASERG/providers/Microsoft.Ne
+                                        "Id": "/subscriptions/.../resourceGroups/ASERG/providers/Microsoft.Ne
                                   twork/virtualNetworks/ASEVNET/subnets/ASEVNETsubNet",
                                         "ServiceAssociationLinks": []
                                       },
@@ -776,26 +774,26 @@ PS C:\windows\system32> (Get-AzureRmNetworkInterface)[0]
 Name                        : nic200108020444
 ResourceGroupName           : rg200108020444
 Location                    : dbelocal
-Id                          : /subscriptions/a4257fde-b946-4e01-ade7-674760b8d1a3/resourceGroups/rg200108020444/providers/Microsoft.Network/networ
+Id                          : /subscriptions/.../resourceGroups/rg200108020444/providers/Microsoft.Network/networ
                               kInterfaces/nic200108020444
 Etag                        : W/"f9d1759d-4d49-42fa-8826-e218e0b1d355"
 ResourceGuid                : 3851ae62-c13e-4416-9386-e21d9a2fef0f
 ProvisioningState           : Succeeded
 Tags                        :
 VirtualMachine              : {
-                                "Id": "/subscriptions/a4257fde-b946-4e01-ade7-674760b8d1a3/resourceGroups/rg200108020444/providers/Microsoft.Compu
+                                "Id": "/subscriptions/.../resourceGroups/rg200108020444/providers/Microsoft.Compu
                               te/virtualMachines/VM200108020444"
                               }
 IpConfigurations            : [
                                 {
                                   "Name": "ip200108020444",
                                   "Etag": "W/\"f9d1759d-4d49-42fa-8826-e218e0b1d355\"",
-                                  "Id": "/subscriptions/a4257fde-b946-4e01-ade7-674760b8d1a3/resourceGroups/rg200108020444/providers/Microsoft.Net
+                                  "Id": "/subscriptions/.../resourceGroups/rg200108020444/providers/Microsoft.Net
                               work/networkInterfaces/nic200108020444/ipConfigurations/ip200108020444",
                                   "PrivateIpAddress": "5.5.166.65",
                                   "PrivateIpAllocationMethod": "Static",
                                   "Subnet": {
-                                    "Id": "/subscriptions/a4257fde-b946-4e01-ade7-674760b8d1a3/resourceGroups/DbeSystemRG/providers/Microsoft.Netw
+                                    "Id": "/subscriptions/.../resourceGroups/DbeSystemRG/providers/Microsoft.Netw
                               ork/virtualNetworks/vSwitch1/subnets/subnet123",
                                     "ResourceNavigationLinks": [],
                                     "ServiceEndpoints": []
@@ -882,7 +880,7 @@ You can now use the VM image to create a VM and attach it to the virtual network
     PS C:\WINDOWS\system32> $VirtualMachine =  Set-AzVMOperatingSystem -VM $VirtualMachine -Linux -ComputerName $ComputerName -Credential $cred
     PS C:\WINDOWS\system32> $VirtualMachine =  Set-AzVmOsDisk -VM $VirtualMachine -Name $OsDiskName -Caching "ReadWrite" -CreateOption "FromImage" -Linux -StorageAccountType Standard_LRS
     PS C:\WINDOWS\system32> $nicID = (Get-AzNetworkInterface -Name $NicName -ResourceGroupName $ResourceGroupName).Id
-    PS C:\WINDOWS\system32> $nicID/subscriptions/d64617ad-6266-4b19-45af-81112d213322/resourceGroups/myaseazrg/providers/Microsoft.Network/networkInterfaces/myaznic1
+    PS C:\WINDOWS\system32> $nicID/subscriptions/.../resourceGroups/myaseazrg/providers/Microsoft.Network/networkInterfaces/myaznic1
     PS C:\WINDOWS\system32> $VirtualMachine =  Add-AzVMNetworkInterface -VM $VirtualMachine -Id $nicID
     PS C:\WINDOWS\system32> $image = ( Get-AzImage -ResourceGroupName $ResourceGroupName -ImageName $ImageName).Id
     PS C:\WINDOWS\system32> $VirtualMachine =  Set-AzVMSourceImage -VM $VirtualMachine -Id $image
@@ -903,7 +901,7 @@ You can now use the VM image to create a VM and attach it to the virtual network
     Name                        : myaznic1
     ResourceGroupName           : myaseazrg
     Location                    : dbelocal
-    Id                          : /subscriptions/d64617ad-6266-4b19-45af-81112d213322/re
+    Id                          : /subscriptions/.../re
                                   sourceGroups/myaseazrg/providers/Microsoft.Network/net
                                   workInterfaces/myaznic1
     Etag                        : W/"0b20057b-2102-4f34-958b-656327c0fb1d"
@@ -916,16 +914,14 @@ You can now use the VM image to create a VM and attach it to the virtual network
                                       "Name": "myazipconfig1",
                                       "Etag":
                                   "W/\"0b20057b-2102-4f34-958b-656327c0fb1d\"",
-                                      "Id": "/subscriptions/d64617ad-6266-4b19-45af-8111
-                                  2d213322/resourceGroups/myaseazrg/providers/Microsoft.
+                                      "Id": "/subscriptions/.../resourceGroups/myaseazrg/providers/Microsoft.
                                   Network/networkInterfaces/myaznic1/ipConfigurations/my
                                   azipconfig1",
                                       "PrivateIpAddress": "10.126.76.60",
                                       "PrivateIpAllocationMethod": "Dynamic",
                                       "Subnet": {
                                         "Delegations": [],
-                                        "Id": "/subscriptions/d64617ad-6266-4b19-45af-81
-                                  112d213322/resourceGroups/ASERG/providers/Microsoft.Ne
+                                        "Id": "/subscriptions/.../resourceGroups/ASERG/providers/Microsoft.Ne
                                   twork/virtualNetworks/ASEVNET/subnets/ASEVNETsubNet",
                                         "ServiceAssociationLinks": []
                                       },
