@@ -49,9 +49,13 @@ Change the **Solution Configuration** to **Release**, change **Solution Platform
 
 The next step is to configure the app to use your account information. You took note of the **Account Key**, **Account ID**, and **Account Domain** values, in the ["Create an Object Anchors account"](#create-an-object-anchors-account) section.
 
-Open `quickstarts\apps\directx\AoaSampleApp\AoaSampleAppMain.cpp`.
+Open `Assets\ObjectAnchorsConfig.json`.
 
-Locate the `AccountInformation` field. Replace `{ /* Account ID goes here. */ }` with your Account ID. Replace `L"Account key goes here."` with your Account Key. Replace `L"Account domain goes here."` with your Account Domain.
+Locate the `AccountId` field and replace `Set me` with your Account ID.
+
+Locate the `AccountKey` field and replace `Set me` with your Account Key.
+
+Locate the `AccountDomain` field and replace `Set me` with your Account Domain.
 
 Now, build the **AoaSampleApp** project by right-clicking the project and selecting **Build**.
 
