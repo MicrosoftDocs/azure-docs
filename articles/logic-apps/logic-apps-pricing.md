@@ -21,11 +21,14 @@ ms.date: 06/29/2021
 
 In multi-tenant Azure Logic Apps, a logic app and its workflow follow the [**Consumption** plan](https://azure.microsoft.com/pricing/details/logic-apps) for pricing and billing. You create such logic apps in various ways, for example, when you choose the **Logic App (Consumption)** resource type, use the **Azure Logic Apps (Consumption)** extension in Visual Studio Code, or when you create [automation tasks](create-automation-tasks-azure-resources.md).
 
-The following table describes how the Consumption model works with components when used with a multi-tenant based logic app and workflow:
+The following describes how the Consumption model works with components when used with a multi-tenant based logic app and workflow:
+
+* [Trigger and action operations](#consumption-operations)
+* [Storage operations](#storage-operations)
+* [Integration accounts](#integration-accounts)
 
 | Component | Metering and billing |
 | ----------|----------------------|
-| Trigger and action operations | Metering and billing apply at the operation *execution* level, whether or not the workflow runs, finishes, or is even instantiated. For example, suppose your workflow starts with a polling trigger that regularly makes outbound calls to an endpoint. The outbound call is metered and billed as an execution, whether or not the trigger fires or is skipped, which affects whether a workflow instance is created. <p><p>Based on the operation type, metering and billing follow different [Consumption pricing](https://azure.microsoft.com/pricing/details/logic-apps). For more detailed information, review [Consumption model for trigger and action operations](#consumption-operations). |
 | Storage operations | Metering and billing apply to any storage operations. <p><p>For example, storage operations run when saving inputs and outputs from your workflow's run history. Storage usage and data retention are managed at the logic app level, not the workflow level. Metering and billing follow [Consumption data retention pricing](https://azure.microsoft.com/pricing/details/logic-apps/), which appears under the execution pricing table. For more detailed information, review [Storage operations](#storage-operations). |
 | Integration accounts | Metering and billing apply based on the integration account type and follow the [general integration account pricing](https://azure.microsoft.com/pricing/details/logic-apps/) unless your logic apps are hosted in an [integration service environment (ISE)](#integration-service-environment-pricing). For more detailed information, review [Integration accounts](#integration-accounts). |
 |||
@@ -34,7 +37,11 @@ The following table describes how the Consumption model works with components wh
 
 ### Trigger and action operations in the Consumption model
 
-The following table describes how the Consumption model works with trigger and action operations when used in a multi-tenant based logic app and its workflow:
+Metering and billing apply at the operation *execution* level, whether or not the workflow runs, finishes, or is instantiated. For example, suppose a workflow starts with a polling trigger that regularly makes outbound calls to an endpoint. The outbound call is metered and billed as an execution, whether or not the trigger fires or is skipped, which affects whether a workflow instance is created.
+
+When an operation executes, the operation usually makes the same number of calls as the number of executions [unless the operation makes retry attempts](#other-operation-behavior). For example, a Salesforce operation that gets records is a single call. However, on an operation that supports and enables chunking or pagination, that operation might have to make multiple calls per execution to get all the data. In multi-tenant, *only the single execution is metered and billed*. For example, suppose you have an operation that has chunking or pagination enabled. During one execution, the operation has to make 10 calls before getting all the data. *In multi-tenant, the operation is metered and charged as a single execution*.
+
+Based on the operation type, metering and billing follow different [Consumption pricing](https://azure.microsoft.com/pricing/details/logic-apps) and behavior, as briefly described in the following table: 
 
 | Operation type | Description | Metering and billing |
 |----------------|-------------|----------------------|
@@ -59,7 +66,7 @@ To help you estimate more accurate consumption costs, review these tips:
 
 ## Standard model (single-tenant)
 
-In single-tenant Azure Logic Apps, logic app workflows follow the **Standard** pricing and billing model. For example, you create such logic apps when you choose the **Logic App (Standard)** resource type or use the **Azure Logic Apps (Standard)** extension in Visual Studio Code. This pricing model requires that logic apps use a hosting plan and a pricing tier. Your pricing tier selection determines the rates that apply to [metering and billing compute, storage, and memory resource usage](#standard-pricing-tiers).
+In single-tenant Azure Logic Apps, a logic app and its workflows follow the [**Standard** plan](https://azure.microsoft.com/pricing/details/logic-apps/) for pricing and billing. You create such logic apps in various ways, for example, when you choose the **Logic App (Standard)** resource type or use the **Azure Logic Apps (Standard)** extension in Visual Studio Code. This pricing model requires that logic apps use a hosting plan and a pricing tier. The pricing tier that you select determines the resource level and rates that apply to compute, memory, and storage usage. For more information, review [Standard model pricing tiers and rates](#standard-pricing-tiers).
 
 > [!NOTE]
 > For new logic apps based on the **Logic App (Standard)** resource type, you must use the **Workflow Standard** hosting plan. 
