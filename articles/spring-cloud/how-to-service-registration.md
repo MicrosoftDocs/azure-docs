@@ -25,15 +25,26 @@ Before your application can manage service registration and discovery using Spri
 Include dependencies for *spring-cloud-starter-netflix-eureka-client* and *spring-cloud-starter-azure-spring-cloud-client* to your *pom.xml*
 
 ```xml
-    <dependency>
-        <groupId>org.springframework.cloud</groupId>
-        <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-    </dependency>
-    <dependency>
-        <groupId>com.microsoft.azure</groupId>
-        <artifactId>spring-cloud-starter-azure-spring-cloud-client</artifactId>
-        <version>2.1.0</version>
-    </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+            <version>3.0.2</version>
+        </dependency>
+        <dependency>
+            <groupId>com.microsoft.azure</groupId>
+            <artifactId>spring-cloud-starter-azure-spring-cloud-client</artifactId>
+            <version>2.1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.jersey</groupId>
+            <artifactId>jersey-client</artifactId>
+            <version>1.19.4</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.jersey.contribs</groupId>
+            <artifactId>jersey-apache-client4</artifactId>
+            <version>1.19.4</version>
+        </dependency>
 ```
 
 ## Update the top level class
@@ -44,13 +55,16 @@ Finally, we add an annotation to the top level class of your application
     package foo.bar;
 
     import org.springframework.boot.SpringApplication;
-    import org.springframework.cloud.client.SpringCloudApplication;
+    import org.springframework.boot.autoconfigure.SpringBootApplication;
+    import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
-    @SpringCloudApplication
+    @SpringBootApplication
+    @EnableEurekaClient
     public class DemoApplication {
-        public static void main(String... args) {
-            SpringApplication.run(DemoApplication.class, args);
-        }
+
+    	public static void main(String[] args) {
+	    	SpringApplication.run(DemoApplication.class, args);
+	    }
     }
  ```
 

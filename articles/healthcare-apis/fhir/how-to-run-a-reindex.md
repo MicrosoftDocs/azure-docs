@@ -186,8 +186,8 @@ Below is a table outlining the available parameters, defaults, and recommended r
 | --------------------------------- | ---------------------------- | ------------------ | ------------------------------- |
 | QueryDelayIntervalInMilliseconds  | This is the delay between each batch of resources being kicked off during the reindex job. | 500 MS (.5 seconds) | 50 to 5000: 50 will speed up the reindex job and 5000 will slow it down from the default. |
 | MaximumResourcesPerQuery  | This is the maximum number of resources included in the batch of resources to be reindexed.  | 100 | 1-500 |
-| MaximumConcurreny  | This is the number of batches done at a time.  | 1 | 1-5 |
-| targetDataStoreUsagePercentrage | This allows you to specify what percent of your data store to use for the reindex job. For example, you could specify 50% and that would ensure that at most the reindex job would use 50% of available RUs on Cosmos DB.  | No present, which means that up to 100% can be used. | 1-100 |
+| MaximumConcurrency  | This is the number of batches done at a time.  | 1 | 1-5 |
+| targetDataStoreUsagePercentage | This allows you to specify what percent of your data store to use for the reindex job. For example, you could specify 50% and that would ensure that at most the reindex job would use 50% of available RUs on Cosmos DB.  | No present, which means that up to 100% can be used. | 1-100 |
 
 If you want to use any of the parameters above, you can pass them into the Parameters resource when you start the reindex job.
 

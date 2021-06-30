@@ -106,7 +106,7 @@ Azure Security Center's security alerts page has been redesigned to provide:
 
 To access the new experience, use the 'try it now' link from the banner at the top of the security alerts page.
 
-:::image type="content" source="media/security-center-managing-and-responding-alerts/preview-alerts-experience-banner.png" alt-text="Banner with link to the new preview alerts experience":::
+:::image type="content" source="media/security-center-managing-and-responding-alerts/preview-alerts-experience-banner.png" alt-text="Banner with link to the new preview alerts experience.":::
 
 To create sample alerts from the new alerts experience, see [Generate sample Azure Defender alerts](security-center-alert-validation.md#generate-sample-azure-defender-alerts).
 
@@ -168,7 +168,7 @@ The filters added this month provide options to refine the recommendations list 
     > - [Fix button](security-center-remediate-recommendations.md#fix-button)
     > - [Prevent misconfigurations with Enforce/Deny recommendations](prevent-misconfigurations.md)
 
-:::image type="content" source="./media/release-notes/added-recommendations-filters.png" alt-text="Recommendations grouped by security control" lightbox="./media/release-notes/added-recommendations-filters.png":::
+:::image type="content" source="./media/release-notes/added-recommendations-filters.png" alt-text="Recommendations grouped by security control." lightbox="./media/release-notes/added-recommendations-filters.png":::
 
 ### Continuous export gets new data types and improved deployifnotexist policies
 
@@ -249,7 +249,7 @@ You can now filter the list of security recommendations according to a range of 
 - are for **storage accounts**
 - support **quick fix** remediation
 
-:::image type="content" source="media/release-notes/recommendations-filters.png" alt-text="Filters for the recommendations list":::
+:::image type="content" source="media/release-notes/recommendations-filters.png" alt-text="Filters for the recommendations list.":::
 
 
 ### Auto provisioning experience improved and expanded
@@ -284,7 +284,7 @@ The **System updates should be installed on your machines** recommendation has b
 
 - A redesigned experience in the Azure Security Center pages of the Azure portal. The recommendation details page for **System updates should be installed on your machines** includes the list of findings as shown below. When you select a single finding, the details pane opens with a link to the remediation information and a list of affected resources.
 
-    :::image type="content" source="./media/upcoming-changes/system-updates-should-be-installed-subassessment.png" alt-text="Opening one of the subrecommendations in the portal experience for the updated recommendation":::
+    :::image type="content" source="./media/upcoming-changes/system-updates-should-be-installed-subassessment.png" alt-text="Opening one of the subrecommendations in the portal experience for the updated recommendation.":::
 
 - Enriched data for the recommendation from Azure Resource Graph (ARG). ARG is an Azure service that's designed to provide efficient resource exploration. You can use ARG to query at scale across a given set of subscriptions so that you can effectively govern your environment. 
 
@@ -303,7 +303,7 @@ The **System updates should be installed on your machines** recommendation has b
 
 You can now see whether or not your subscriptions have the default Security Center policy assigned, in the Security Center's **security policy** page of the Azure portal.
 
-:::image type="content" source="media/release-notes/policy-assignment-info-per-subscription.png" alt-text="The policy management page of Azure Security Center showing the default policy assignments":::
+:::image type="content" source="media/release-notes/policy-assignment-info-per-subscription.png" alt-text="The policy management page of Azure Security Center showing the default policy assignments.":::
 
 
 
@@ -351,7 +351,7 @@ The recommendation **Authorized IP ranges should be defined on Kubernetes Servic
 
 For more information about this recommendation and all other Security Center recommendations, see [Security recommendations - a reference guide](recommendations-reference.md).
 
-:::image type="content" source="./media/release-notes/authorized-ip-ranges-recommendation.png" alt-text="The authorized IP ranges should be defined on Kubernetes Services recommendation with the quick fix option":::
+:::image type="content" source="./media/release-notes/authorized-ip-ranges-recommendation.png" alt-text="The authorized IP ranges should be defined on Kubernetes Services recommendation with the quick fix option.":::
 
 
 ### Regulatory compliance dashboard now includes option to remove standards
@@ -374,7 +374,7 @@ For Azure Security Center, you can use ARG and the [Kusto Query Language (KQL)](
 
 Within ARG, there are tables of data for you to use in your queries.
 
-:::image type="content" source="./media/release-notes/azure-resource-graph-tables.png" alt-text="Azure Resource Graph Explorer and the available tables":::
+:::image type="content" source="./media/release-notes/azure-resource-graph-tables.png" alt-text="Azure Resource Graph Explorer and the available tables.":::
 
 > [!TIP]
 > The ARG documentation lists all the available tables in [Azure Resource Graph table and resource type reference](../governance/resource-graph/reference/supported-tables-resources.md).
@@ -600,7 +600,7 @@ Security Center's integrated vulnerability assessment tools return findings abou
 
 The security findings are now available for export through continuous export when you select recommendations and enable the **include security findings** option.
 
-:::image type="content" source="./media/continuous-export/include-security-findings-toggle.png" alt-text="Include security findings toggle in continuous export configuration" :::
+:::image type="content" source="./media/continuous-export/include-security-findings-toggle.png" alt-text="Include security findings toggle in continuous export configuration." :::
 
 Related pages:
 
@@ -665,7 +665,7 @@ Also, **Preview** recommendations don't render a resource "Unhealthy".
 
 An example of a preview recommendation:
 
-:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="Recommendation with the preview flag":::
+:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="Recommendation with the preview flag.":::
 
 [Learn more about secure score](secure-score-security-controls.md).
 
@@ -674,7 +674,7 @@ An example of a preview recommendation:
 
 The details page for recommendations now includes a freshness interval indicator (whenever relevant) and a clear display of the severity of the recommendation.
 
-:::image type="content" source="./media/release-notes/recommendations-severity-freshness-indicators.png" alt-text="Recommendation page showing freshness and severity":::
+:::image type="content" source="./media/release-notes/recommendations-severity-freshness-indicators.png" alt-text="Recommendation page showing freshness and severity.":::
 
 
 ## August 2020
@@ -1093,7 +1093,7 @@ The security controls - and this toggle - are part of the new secure score exper
 
 Learn more about security controls in [Enhanced secure score (preview) in Azure Security Center](secure-score-security-controls.md).
 
-:::image type="content" source="./media/secure-score-security-controls/recommendations-group-by-toggle.gif" alt-text="Group by controls toggle for recommendations":::
+:::image type="content" source="./media/secure-score-security-controls/recommendations-group-by-toggle.gif" alt-text="Group by controls toggle for recommendations.":::
 
 ### Expanded security control "Implement security best practices" 
 

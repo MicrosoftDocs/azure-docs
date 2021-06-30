@@ -126,7 +126,7 @@ New-AzResourceGroupDeployment -ResourceGroupName testgroup `
 
 ### Parameter files
 
-Rather than passing parameters as inline values in your script, you may find it easier to use a JSON file that contains the parameter values. The parameter file can be a local file or an external file with an accessible URI.Bicep file uses JSON parameter files.
+Rather than passing parameters as inline values in your script, you may find it easier to use a JSON file that contains the parameter values. The parameter file can be a local file or an external file with an accessible URI. Bicep file uses JSON parameter files.
 
 For more information about the parameter file, see [Create Resource Manager parameter file](./parameter-files.md).
 
@@ -185,5 +185,5 @@ To avoid conflicts with concurrent deployments and to ensure unique entries in t
 ## Next steps
 
 - To roll back to a successful deployment when you get an error, see [Rollback on error to successful deployment](../templates/rollback-on-error.md).
-- To understand how to define parameters in your template, see [Understand the structure and syntax of ARM templates](../templates/syntax.md).
+- To understand how to define parameters in your file, see [Understand the structure and syntax of Bicep files](file.md).
 - For information about deploying a template that requires a SAS token, see [Deploy private ARM template with SAS token](../templates/secure-template-with-sas-token.md).

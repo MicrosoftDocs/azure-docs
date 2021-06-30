@@ -4,9 +4,9 @@ description: Learn requirements and steps for publishing integrated solutions to
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: vikrambmsft
-ms.author: vikramb
-ms.date: 04/16/2020
+author: Microsoft-BradleyWright
+ms.author: brwrigh
+ms.date: 06/22/2021
 ---
 # Publish an integrated solution
 
@@ -75,19 +75,13 @@ After your nomination is approved, use the linked program resources to develop y
     * APIs
     * Unified data repository
 
-    Use these resources for the development process:
+2. Identify a cross-partner project manager to drive the project plan and timeline that you developed in the business and technical workshops.
 
-    * [Business decision workshop discussion guide](https://aka.ms/AA5qicx)
-    * [Technical decision workshop discussion guide](https://aka.ms/AA5qid1)
-    * [Quickstart video: Integrated Solutions workshops](https://partner.microsoft.com/asset/detail/integrated-solutions-workshop-quickstart-guide-mp4)
+3. Develop the complete technical integration of the solution.
 
-1. Identify a cross-partner project manager to drive the project plan and timeline that you developed in the business and technical workshops.
+4. Decide the solution pricing and a single price point to surface on Microsoft AppSource or Azure Marketplace.
 
-1. Develop the complete technical integration of the solution.
-
-1. Decide the solution pricing and a single price point to surface on Microsoft AppSource or Azure Marketplace.
-
-1. Complete the marketing collateral for the Microsoft AppSource or Azure Marketplace listing, including:
+5. Complete the marketing collateral for the Microsoft AppSource or Azure Marketplace listing, including:
 
     * A combined solution name.
     * A listing description of the integrated solution. Follow [offer-listing best practices](./gtm-offer-listing-best-practices.md).
@@ -97,7 +91,7 @@ After your nomination is approved, use the linked program resources to develop y
 
 ## Publish your integrated solution
 
-After you finish the technical integration and the marketing collateral, refer to the publisher guide for [Consulting services for Microsoft AppSource and Azure Marketplace](./plan-consulting-service-offer.md). Use this resource to determine whether your solution will be published in Microsoft AppSource or Azure Marketplace. Also use the guide to prepare your publishing artifacts and complete the publishing process.
+After you finish the technical integration and the marketing collateral, refer to the publisher guide for [Consulting services for Microsoft AppSource and Azure Marketplace](./plan-consulting-service-offer.md) to determine whether your solution will be published in Microsoft AppSource or Azure Marketplace. We recommend using the guide to prepare your publishing artifacts and complete the publishing process.
 
 Although five service types are available for consulting-service offers, an integrated solution must be either a proof of concept or a full implementation.
 
