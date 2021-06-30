@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot access denied in Privileged Identity Management - Azure Active Directory | Microsoft Docs
+title: Troubleshoot resource access denied in Privileged Identity Management - Azure Active Directory | Microsoft Docs
 description: Learn how to troubleshoot system errors with roles in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
