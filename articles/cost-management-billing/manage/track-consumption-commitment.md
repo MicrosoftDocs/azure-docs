@@ -58,11 +58,13 @@ The Microsoft Azure Consumption Commitment (MACC) is a contractual commitment th
    | Start date | The date when the commitment became effective. |
    | End date | The date when the commitment expired. |
    | Commitment amount | The amount that you’ve committed to spend on MACC-eligible products/services. |
-   | Status | The status of your commitment. Your MACC can have one of the following statutes: 
-- Active: MACC is active. Any eligible spend will contribute towards your MACC commitment.
-- Completed: You’ve completed your MACC commitment. 
-- Expired: MACC is expired. Contact your Microsoft Account team for more information. 
-- Canceled: MACC is canceled. New Azure spend will not contribute towards your MACC commitment. |
+   | Status | The status of your commitment. |
+
+   Your MACC can have one of the following statutes: 
+   - Active: MACC is active. Any eligible spend will contribute towards your MACC commitment.
+   - Completed: You’ve completed your MACC commitment. 
+   - Expired: MACC is expired. Contact your Microsoft Account team for more information. 
+   - Canceled: MACC is canceled. New Azure spend will not contribute towards your MACC commitment.
 
    #### Events
 
@@ -184,17 +186,18 @@ The API response returns lists of MACCs for your billing account.
 | Element name  | Description                                                                                               |
 |---------------|-----------------------------------------------------------------------------------------------------------|
 | `purchasedDate`  | The date when the MACC was purchased.   |
-| `status`  | The status of your commitment. Your MACC can have one of the following statutes: 
-- Active: MACC is active. Any eligible spend will contribute towards your MACC commitment.
-- Completed: You’ve completed your MACC commitment. 
-- Expired: MACC is expired. Contact your Microsoft Account team for more information. 
-- Canceled: MACC is canceled. New Azure spend will not contribute towards your MACC commitment.  |
+| `status`  | The status of your commitment. |
 | `originalAmount` | The original commitment amount. |
 | `closedBalance`   | The remaining commitment as of the last invoice.    |
 | `source`      | For MACC, the source will always be ConsumptionCommitment. |
 | `startDate`      |  The date when the MACC became active.  |
 | `expirationDate`  | The date when the MACC expires.   |
 
+Your MACC can have one of the following statutes: 
+- Active: MACC is active. Any eligible spend will contribute towards your MACC commitment.
+- Completed: You’ve completed your MACC commitment. 
+- Expired: MACC is expired. Contact your Microsoft Account team for more information. 
+- Canceled: MACC is canceled. New Azure spend will not contribute towards your MACC commitment. 
 
 ### Get events that affected MACC commitment
 
