@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/05/2021
+ms.date: 06/07/2021
 ms.author: yelevin
 
 ---
@@ -41,6 +41,13 @@ In addition to the activities tracked and presented in the timeline by Azure Sen
 
 1. You'll see a page with a list of any activities you've created in the **My activities** tab. In the **Activity templates** tab, you'll see the collection of activities offered out-of-the-box by Microsoft security researchers. These are the activities that are already being tracked and displayed on the timelines in your entity pages.
 
+    > [!NOTE]
+    > - As long as you have not created any user-defined activities, your entity pages will display all the activities listed under the **Activity templates** tab.
+    >
+    > - Once you define a single custom activity, your entity pages will display **only** those activities that appear in the **My activities** tab.
+    >
+    > - If you want to continue seeing the out-of-the-box activities in your entity pages, you must create an activity for each template you want to be tracked and displayed. Follow the instructions under "Create an activity from a template" below.
+
 ## Create an activity from a template
 
 1. Click on the **Activity templates** tab to see the various activities available by default. You can filter the list by entity type as well as by data source. Selecting an activity from the list will display the following details in the preview pane:
@@ -53,9 +60,11 @@ In addition to the activities tracked and presented in the timeline by Azure Sen
 
     - The query that results in the detection of this activity
 
-1. Click the **Create activity** button at the bottom of the preview pane to start the activity creation wizard. 
+1. Click the **Create activity** button at the bottom of the preview pane to start the activity creation wizard.
 
-1. The **Activity wizard - Create new activity from template** will open, with its fields already populated from the template. You can make changes as you like in the **General** and **Activity configuration** tabs.
+    :::image type="content" source="./media/customize-entity-activities/activity-details.png" alt-text="View activity details":::
+
+1. The **Activity wizard - Create new activity from template** will open, with its fields already populated from the template. You can make changes as you like in the **General** and **Activity configuration** tabs, or leave everything as is to continue viewing the out-of-the-box activity.
 
 1. When you are satisfied, select the **Review and create** tab. When you see the **Validation passed** message, click the **Create** button at the bottom.
 
@@ -75,6 +84,10 @@ The **Activity wizard - Create new activity** will open, with its fields blank.
 1. You can filter by additional parameters to help refine the query and optimize its performance. For example, you can filter for Active Directory users by choosing the **IsDomainJoined** parameter and setting the value to **True**.
 
 1. You can select the initial status of the activity to **Enabled** or **Disabled**.
+
+1. Select **Next : Activity configuration** to proceed to the next tab.
+
+    :::image type="content" source="./media/customize-entity-activities/create-new-activity.png" alt-text="Screenshot - Create a new activity":::
 
 ### Activity configuration tab
 
@@ -109,24 +122,37 @@ At least one identifier is required in a query.
 Based on the entity selected you will see the available identifiers. Clicking on the relevant identifiers will paste the identifier into the query, at the location of the cursor.
 
 > [!NOTE]
-> - The query must contain the **TimeGenerated** field, in order to place the detected activity in the entity's timeline.
+> - The query can contain **up to 10 fields**, so you must project the fields you want.
 >
-> - You can project **up to 10 fields** in the query.
+> - The projected fields must include the **TimeGenerated** field, in order to place the detected activity in the entity's timeline.
+
+```kusto
+SecurityEvent
+| where EventID == "4728"
+| where (SubjectUserSid == '{{Account_Sid}}' ) or (SubjectUserName == '{{Account_Name}}' and SubjectDomainName == '{{Account_NTDomain}}' )
+| project TimeGenerated, SubjectUserName, MemberName, MemberSid, GroupName=TargetUserName
+```
+
+:::image type="content" source="./media/customize-entity-activities/new-activity-query.png" alt-text="Screenshot - Enter a query to detect the activity":::
 
 #### Presenting the activity in the timeline
 
 You can determine how the activity will be presented in the timeline for your convenience.
 
-You can add dynamic parameters to the activity output with the following format: `{{ParameterName}}`
+You can add dynamic parameters to the activity output with the following format: `{{ParameterName}}`. The parameters include built-in ones provided by Azure Sentinel, plus others based on the fields you projected in the query.
+
+Once the activity query passes validation (you'll know it has if you see the "View query results" link below the query window), the **Available values** section can be expanded, and you'll see the different parameters you can use to create a dynamic activity title. Clicking on the **copy** icon next to a particular parameter will copy that parameter to your clipboard, and you can then paste it into the **Activity title** field above.
 
 You can add the following parameters: 
+- Any field you projected in the query.
+- Entity identifiers of any entities mentioned in the query.
+- Count – use this parameter to summarize the count of the KQL query output. The bucket size is determined in the entity page.
+- StartTimeUTC – Start time of the activity in UTC.
+- EndTimeUTC – End time of the activity in UTC.
 
-- Any field you projected in the query  
-- Count – use this parameter to summarize the count of the KQL query output 
-- StartTimeUTC – Start time of the activity in UTC 
-- EndTimeUTC – End time of the activity in UTC 
+:::image type="content" source="./media/customize-entity-activities/new-activity-title.png" alt-text="Screenshot - See the available values for your activity title":::
 
-**Example**: "User `{{TargetUsername}}` was added to group `{{GroupName}}` by `{{SubjectUsername}}`"
+When you are satisfied with your query and activity title, select **Next : Review**.
 
 ### Review and create tab 
 

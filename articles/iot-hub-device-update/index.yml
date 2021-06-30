@@ -78,6 +78,8 @@ landingContent:
         url:  /python/api/azure-mgmt-deviceupdate/
     - linkListType: reference
       links:
+      - text: Data Plane - .NET
+        url: /dotnet/api/azure.iot.deviceupdate?view=azure-dotnet-preview&preserve-view=true
       - text: Data Plane - JavaScript
         url: /javascript/api/@azure/iot-device-update/?view=azure-node-preview&preserve-view=true
       - text: Data Plane - Java

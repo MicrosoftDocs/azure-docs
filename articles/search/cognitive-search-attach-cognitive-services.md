@@ -3,8 +3,8 @@ title: Attach Cognitive Services to a skillset
 titleSuffix: Azure Cognitive Search
 description: Learn how to attach a Cognitive Services all-in-one subscription to an AI enrichment pipeline in Azure Cognitive Search.
 
-author: LuisCabrer
-ms.author: luisca
+author: vkurpad
+ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/16/2021
@@ -139,7 +139,7 @@ Content-Type: application/json
 
 ## Example: Estimate costs
 
-To estimate the costs associated with cognitive search indexing, start with an idea of what an average document looks like so you can run some numbers. For example, you might approximate:
+To estimate the costs associated with Cognitive Search indexing, start with an idea of what an average document looks like so you can run some numbers. For example, you might approximate:
 
 + 1,000 PDFs.
 + Six pages each.

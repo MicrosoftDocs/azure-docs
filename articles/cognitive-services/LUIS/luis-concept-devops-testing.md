@@ -20,7 +20,7 @@ Tests are a critical part of [CI/CD workflows](luis-concept-devops-automation.md
 There are two different kinds of testing for a LUIS app that you need to perform in continuous integration workflows:
 
 - **Unit tests** - Relatively simple tests that verify the key functionality of your LUIS app. A unit test passes when the expected intent and the expected entities are returned for a given test utterance. All unit tests must pass for the test run to complete successfully.  
-This kind of testing is similar to [Interactive testing](./luis-concept-test.md) that you can do in the [LUIS portal](https://www.luis.ai/).
+This kind of testing is similar to [Interactive testing](./luis-interactive-test.md) that you can do in the [LUIS portal](https://www.luis.ai/).
 
 - **Batch tests** - Batch testing is a comprehensive test on your current trained model to measure its performance. Unlike unit tests, batch testing isn't pass|fail testing. The expectation with batch testing is not that every test will return the expected intent and expected entities. Instead, a batch test helps you view the accuracy of each intent and entity in your app and helps you to compare over time as you make improvements.  
 This kind of testing is the same as the [Batch testing](./luis-how-to-batch-test.md) that you can perform interactively in the LUIS portal.
@@ -86,7 +86,7 @@ Batch test sets should contain a large number of test cases, designed to test ac
 
 The LUIS portal offers features to help with interactive testing:
 
-* [**Interactive testing**](./luis-concept-test.md) allows you to submit a sample utterance and get a response of LUIS-recognized intents and entities. You verify the success of the test by visual inspection.
+* [**Interactive testing**](./luis-interactive-test.md) allows you to submit a sample utterance and get a response of LUIS-recognized intents and entities. You verify the success of the test by visual inspection.
 
 * [**Batch testing**](./luis-how-to-batch-test.md) uses a batch test file as input to validate your active trained version to measure its prediction accuracy. A batch test helps you view the accuracy of each intent and entity in your active version, displaying results with a chart.
 
@@ -131,4 +131,4 @@ If you want to disable non-deterministic training for those LUIS app versions th
 ## Next steps
 
 * Learn about [implementing CI/CD workflows](luis-concept-devops-automation.md)
-* Learn how to [implement DevOps for LUIS with GitHub](luis-how-to-devops-with-github.md)
+* Learn how to [implement DevOps for LUIS with GitHub](./luis-concept-devops-automation.md)

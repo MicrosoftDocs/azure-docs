@@ -110,7 +110,7 @@ In the following code, `_artifactsLocation` is used to point to a single locatio
     "metadata": {
       "description": "The base URI where artifacts required by this template are located."
     },
-    "defaultValue": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-custom-script-windows/"
+    "defaultValue": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.compute/vm-custom-script-windows/"
   },
   "_artifactsLocationSasToken": {
     "type": "securestring",
@@ -663,4 +663,4 @@ Consider the following tips for testing and automation:
 ## Next steps
 
 * [Azure Resource Manager template considerations](/azure-stack/user/azure-stack-develop-templates)
-* [Best practices for ARM templates](template-syntax.md)
+* [Best practices for ARM templates](./syntax.md)
