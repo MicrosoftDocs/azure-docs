@@ -7,7 +7,7 @@ ms.date: 05/25/2021
 ---
 
 # Quickstart: Get started with Azure Video Analyzer in the Azure Portal
-This quickstart walks you through the steps to get started with Azure Video Analyzer. You'll create an Azure Video Analyzer account and its accompanying resources by using the Azure portal. You'll then use that account to deploy the Video Analyzer edge module and a Real Time Streaming Protocol (RTSP) camera simulator module to your Azure IoT Edge device. 
+This quickstart walks you through the steps to get started with Azure Video Analyzer. You'll create an Azure Video Analyzer account and its accompanying resources by using the Azure portal. You'll then deploy the Video Analyzer edge module and a Real Time Streaming Protocol (RTSP) camera simulator module to your Azure IoT Edge device. 
 
 After you complete the setup steps, you'll be able to run the simulated live video stream through a pipeline that detects and reports any motion in that stream. The following diagram graphically represents that pipeline.
 
@@ -91,7 +91,7 @@ When you create an Azure Video Analyzer account, you have to associate an Azure 
           "telemetryOptOut": false
       }
     ```
-1. Go to your Azure IoT Hub instance.
+1. Go to your Azure IoT Hub account.
 1. Select **IoT Edge** under **Automatic Device Management**.
 1. Select the **Device ID** value for your IoT Edge device.
 1. Select **Set modules**.
@@ -178,7 +178,7 @@ It might take a few moments for the modules to be started on the device and then
 1. Select the policy named **iothubowner**.
 1. Copy the **Primary connection string** value. It will look like `HostName=xxx.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX`.
 
-### Connect to the hub
+### Connect to IoT Hub
 
 1. Open Visual Studio Code and select **View** > **Explorer**. Or, select Ctrl+Shift+E.
 1. In the lower-left corner of the **Explorer** tab, select **Azure IoT Hub**.
@@ -192,7 +192,7 @@ It might take a few moments for the modules to be started on the device and then
     > :::image type="content" source="./media/get-started-detect-motion-emit-events/modules-node.png" alt-text="Screenshot that shows the expanded Modules node.":::
 
 > [!TIP]
-> If you have [manually deployed Video Analyzer](deploy-iot-edge-device.md) on an edge device (such as an ARM64 device), the module will appear under that device, under Azure IoT Hub. You can select that module and contine with the following steps.
+> If you have [manually deployed Video Analyzer](deploy-iot-edge-device.md) on an edge device (such as an ARM64 device), the module will appear under that device, under Azure IoT Hub. You can select that module and continue with the following steps.
 
 ### Prepare to monitor the modules 
 
@@ -671,7 +671,7 @@ In the response payload, notice the following details:
 
 ## Observe results
 
-The live pipeline that you created and activated uses the motion detection processor node to detect motion in the incoming live video stream and sends events to the IoT Hub sink. These events are then relayed to your hub as messages, which can now be observed. Messages in the **OUTPUT** window will have the following "body":
+The live pipeline that you created and activated uses the motion detection processor node to detect motion in the incoming live video stream and sends events to the IoT Hub sink. These events are then relayed to IoT Hub as messages, which can now be observed. Messages in the **OUTPUT** window will have the following "body":
 
 
 ```json
