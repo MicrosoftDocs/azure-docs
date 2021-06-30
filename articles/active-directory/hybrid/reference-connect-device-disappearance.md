@@ -32,7 +32,7 @@ Some customers may need to revisit [How To: Plan your hybrid Azure Active Direct
 
 ## How can I verify which devices are deleted with this update?
 
-To verify which devices are deleted, you can use the PowerShell script [below.](#export-adsynctoolshybridazureadjoincertificatereport)
+To verify which devices are deleted, you can use the PowerShell script [below.](#powershell-certificate-report-script)
 
 
 This script generates a report about certificates stored in Active Directory Computer objects, specifically, certificates issued by the Hybrid Azure AD join feature.
@@ -40,7 +40,7 @@ It checks the certificates present in the UserCertificate property of a Computer
 Before, Azure AD Connect would synchronize to Azure AD any Computer that contained at least one valid certificate but starting on Azure AD Connect version 1.4, the synchronization engine can identify  Hybrid Azure AD join certificates and will ‘cloudfilter’ the computer object from synchronizing to Azure AD unless there’s a valid Hybrid Azure AD join certificate.
 Azure AD Devices that were already synchronized to AD but do not have a valid Hybrid Azure AD join certificate will be deleted (CloudFiltered=TRUE) by the sync engine.
 
-## Export-ADSyncToolsHybridAzureADjoinCertificateReport 
+## PowerShell certificate report script
 
 
  ```PowerShell
