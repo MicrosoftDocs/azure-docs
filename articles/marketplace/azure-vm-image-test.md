@@ -275,4 +275,4 @@ In this example, curl will be used to to make a POST API call to Azure Active Di
 
 ## Next steps
 
-- Sign in to [Partner Center](https://partner.microsoft.com/).
+- Sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2166002).

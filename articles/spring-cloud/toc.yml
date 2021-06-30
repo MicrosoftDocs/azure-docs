@@ -25,10 +25,15 @@
         href: quickstart-logs-metrics-tracing.md
       - name: Integrate with Azure Database for MySQL
         href: quickstart-integrate-azure-database-mysql.md
-      - name: Provisioning
-        items:
-        - name: Provision using an ARM template
-          href: quickstart-deploy-infrastructure-vnet.md
+    - name: Provisioning
+      expanded: true
+      items:
+      - name: Provision using an ARM template
+        href: quickstart-deploy-infrastructure-vnet.md
+      - name: Provision using Azure CLI
+        href: quickstart-deploy-infrastructure-vnet-azure-cli.md
+      - name: Provision using Terraform
+        href: quickstart-deploy-infrastructure-vnet-terraform.md
 - name: Tutorials
   items:
     - name: Alerts and action groups

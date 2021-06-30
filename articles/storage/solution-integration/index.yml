@@ -64,6 +64,8 @@ landingContent:
             url: ./validated-partners/data-management/dobimigrate-quick-start-guide.md
           - text: Komprise getting started guide
             url: ./validated-partners/data-management/komprise-quick-start-guide.md
+          - text: StorageX getting started guide
+            url: ./validated-partners/data-management/storagex-quick-start-guide.md
                      # Card
   - title: Primary and secondary storage partners
     linkLists:

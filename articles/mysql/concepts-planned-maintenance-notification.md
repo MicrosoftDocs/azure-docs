@@ -9,6 +9,8 @@ ms.date: 10/21/2020
 ---
 # Planned maintenance notification in Azure Database for MySQL - Single Server
 
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
+
 Learn how to prepare for planned maintenance events on your Azure Database for MySQL.
 
 ## What is a planned maintenance?

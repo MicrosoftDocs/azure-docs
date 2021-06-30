@@ -94,7 +94,7 @@ The deployment process to Azure App Service will use your Azure credentials from
 Run the Maven command below to configure the deployment. This command will help you to set up the App Service operating system, Java version, and Tomcat version.
 
 ```azurecli-interactive
-mvn com.microsoft.azure:azure-webapp-maven-plugin:1.16.0:config
+mvn com.microsoft.azure:azure-webapp-maven-plugin:2.0.0:config
 ```
 
 ::: zone pivot="platform-windows"
@@ -238,7 +238,7 @@ JBoss EAP is only available on the Linux version of App Service. Please select t
 1. When prompted with **Web App** option, accept the default option `<create>` by pressing enter.
 1. When prompted with **OS** option, select **Linux** by pressing enter.
 1. When prompted with **javaVersion** option, select **Java 8** by entering `1`.
-1. When prompted with **runtimeStack** option, select **Jbosseap 7** by entering `1`
+1. When prompted with **runtimeStack** option, select **Jbosseap 7** by entering `2`
 1. When prompted with **pricingTier** option, select **P1v3** by entering `3`
 1. Finally, press enter on the last prompt to confirm your selections.
 
@@ -276,7 +276,7 @@ Property | Required | Description | Version
 `<resourceGroup>` | true | Azure Resource Group for your Web App. | 0.1.0+
 `<appName>` | true | The name of your Web App. | 0.1.0+
 `<region>` | true | Specifies the region where your Web App will be hosted; the default value is **westeurope**. All valid regions at [Supported Regions](https://azure.microsoft.com/global-infrastructure/services/?products=app-service) section. | 0.1.0+
-`<pricingTier>` | false | The pricing tier for your Web App. The default value is **P1V2** for production workload, while **B2** is the recommended minimum for Java dev/test. [Learn more](https://azure.microsoft.com/pricing/details/app-service/linux/)| 0.1.0+
+`<pricingTier>` | true | The pricing tier for your Web App. The default value is **P1V2** for production workload, while **B2** is the recommended minimum for Java dev/test. [Learn more](https://azure.microsoft.com/pricing/details/app-service/linux/)| 0.1.0+
 `<runtime>` | true | The runtime environment configuration, you could see the detail [here](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App:-Configuration-Details). | 0.1.0+
 `<deployment>` | true | The deployment configuration, you could see the details [here](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App:-Configuration-Details). | 0.1.0+
 

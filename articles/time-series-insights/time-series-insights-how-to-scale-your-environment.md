@@ -6,6 +6,7 @@ services: time-series-insights
 author: tedvilutis
 ms.author: tvilutis
 manager: cnovak
+ms.reviewer: orspodek
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual

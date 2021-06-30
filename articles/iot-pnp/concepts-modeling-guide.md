@@ -622,7 +622,7 @@ Adding localized strings is optional. The following example has only a single, d
 
 ## Lifecycle and tools
 
-The four lifecycle stages for a device model are authoring, publication, use, and versioning:
+The four lifecycle stages for a device model are *author*, *publish*, *use*, and *version*:
 
 ### Author
 
@@ -635,7 +635,33 @@ DTML device models are JSON documents that you can create in a text editor. Howe
 
 To learn more, see [Define a new IoT device type in your Azure IoT Central application](../iot-central/core/howto-set-up-template.md).
 
-The [DTDL editor for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl) gives you a text-based editing environment with syntax validation and autocomplete for finer control over the model authoring experience.
+There are DTDL authoring extensions for both VS Code and Visual Studio 2019.
+
+To install the DTDL extension for VS Code, go to [DTDL editor for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl). You can also search for **DTDL** in the **Extensions** view in VS Code.
+
+When you've installed the extension, use it to help you author DTDL model files in VS code:
+
+- The extension provides syntax validation in DTDL model files, highlighting errors as shown on the following screenshot:
+
+    :::image type="content" source="media/concepts-modeling-guide/model-validation.png" alt-text="Model validation in VS Code":::
+
+- Use intellisense and autocomplete when you're editing DTDL models:
+
+    :::image type="content" source="media/concepts-modeling-guide/model-intellisense.png" alt-text="Use intellisense for DTDL models in VS Code":::
+
+- Create a new DTDL interface. The **DTDL: Create Interface** command creates a JSON file with a new interface. The interface includes example telemetry, property, and command definitions.
+
+To install the DTDL extension for Visual Studio 2019, go to [DTDL Language Support for VS 2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16dtdllanguagesupport). You can also search for **DTDL** in **Manage Extensions** in Visual Studio.
+
+When you've installed the extension, use it to help you author DTDL model files in Visual Studio:
+
+- The extension provides syntax validation in DTDL model files, highlighting errors as shown on the following screenshot:
+
+    :::image type="content" source="media/concepts-modeling-guide/model-validation-2.png" alt-text="Model validation in Visual Studio":::
+
+- Use intellisense and autocomplete when you're editing DTDL models:
+
+    :::image type="content" source="media/concepts-modeling-guide/model-intellisense-2.png" alt-text="Use intellisense for DTDL models in Visual Studio":::
 
 ### Publish
 
@@ -673,6 +699,5 @@ The following list summarizes some key constraints and limits on models:
 
 Now that you've learned about device modeling, here are some additional resources:
 
-- [Install and use the DTDL authoring tools](howto-use-dtdl-authoring-tools.md)
 - [Digital Twins Definition Language v2 (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl)
 - [Model repositories](./concepts-model-repository.md)
