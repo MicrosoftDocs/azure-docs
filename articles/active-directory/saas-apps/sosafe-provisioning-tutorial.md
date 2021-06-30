@@ -6,7 +6,6 @@ documentationcenter: ''
 author: Zhchia
 writer: Zhchia
 manager: beatrizd
-
 ms.assetid: 30de9f90-482e-43ef-9fcb-f3d4f5eac533
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
