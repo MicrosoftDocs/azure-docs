@@ -201,6 +201,8 @@
           href: database/authentication-aad-directory-readers-role-tutorial.md
         - name: Enable Azure AD-only authentication
           href: database/authentication-azure-ad-only-authentication-tutorial.md
+        - name: Create server with Azure AD-only authentication enabled
+          href: database/authentication-azure-ad-only-authentication-create-server.md
       - name: Configure TDE with BYOK
         href: database/transparent-data-encryption-byok-configure.md 
       - name: Always Encrypted
