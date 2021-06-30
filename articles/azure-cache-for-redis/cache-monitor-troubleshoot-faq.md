@@ -55,4 +55,4 @@ The following are some common reason for a cache disconnect.
 
 For more information about monitoring and troubleshooting your Azure Cache for Redis instances, see [How to monitor Azure Cache for Redis](cache-how-to-monitor.md) and the various troubleshoot guides.
 
-Learn about other [Azure Cache for Redis FAQs](cache-faq.md).
+Learn about other [Azure Cache for Redis FAQs](cache-faq.yml).
