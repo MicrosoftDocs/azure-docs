@@ -2553,6 +2553,8 @@
         href: visibly-provisioning-tutorial.md
       - name: Visitly
         href: visitly-provisioning-tutorial.md
+      - name: Vonage
+        href: vonage-provisioning-tutorial.md
       - name: Webroot Security Awareness Training
         href: webroot-security-awareness-training-provisioning-tutorial.md
       - name: WEDO
