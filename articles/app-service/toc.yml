@@ -373,13 +373,13 @@
     - name: FAQ
       items:
       - name: Availability, performance, and application FAQ
-        href: faq-availability-performance-application-issues.md
+        href: faq-availability-performance-application-issues.yml
       - name: Deployment FAQ
-        href: faq-deployment.md
+        href: faq-deployment.yml
       - name: Open-source technologies FAQ
-        href: faq-open-source-technologies.md
+        href: faq-open-source-technologies.yml
       - name: Configuration and management FAQ
-        href: faq-configuration-and-management.md
+        href: faq-configuration-and-management.yml
   - name: IP address change
     items:
     - name: Inbound IP address
