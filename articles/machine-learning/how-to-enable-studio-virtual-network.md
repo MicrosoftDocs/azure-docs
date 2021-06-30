@@ -41,7 +41,7 @@ See the other articles in this series:
 
 + A pre-existing virtual network and subnet to use.
 
-+ An existing [Azure Machine Learning workspace with Private Link enabled](how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint).
++ An existing [Azure Machine Learning workspace with private endpoint enabled](how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint).
 
 + An existing [Azure storage account added your virtual network](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints).
 
@@ -64,6 +64,13 @@ The studio supports reading data from the following datastore types in a virtual
 * Azure Data Lake Storage Gen2
 * Azure SQL Database
 
+### Firewall settings
+
+Some storage services, such as Azure Storage Account, have firewall settings that apply to the public endpoint for that specific service instance. Usually this setting allows you to allow/disallow access from specific IP addresses from the public internet. __This is not supported__ when using Azure Machine Learning studio. It is supported when using the Azure Machine Learning SDK or CLI.
+
+> [!TIP]
+> Azure Machine Learning studio is supported when using the Azure Firewall service. For more information, see [Use your workspace behind a firewall](how-to-access-azureml-behind-firewall.md).
+
 ### Configure datastores to use workspace-managed identity
 
 After you add an Azure storage account to your virtual network with a either a [service endpoint](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints) or [private endpoint](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints), you must configure your datastore to use [managed identity](../active-directory/managed-identities-azure-resources/overview.md) authentication. Doing so lets the studio access data in your storage account.
@@ -80,7 +87,7 @@ Azure Machine Learning uses [datastores](concept-data.md#datastores) to connect 
 
     ![Screenshot showing how to enable managed workspace identity](./media/how-to-enable-studio-virtual-network/enable-managed-identity.png)
 
-These steps add the workspace-managed identity as a __Reader__ to the storage service using Azure RBAC. __Reader__ access lets the workspace retrieve firewall settings to ensure that data doesn't leave the virtual network. Changes may take up to 10 minutes to take effect.
+These steps add the workspace-managed identity as a __Reader__ to the storage service using Azure RBAC. __Reader__ access allows the workspace to view the resource, but not make changes.
 
 ### Enable managed identity authentication for default storage accounts
 
@@ -102,9 +109,9 @@ The following table describes why you must enable managed identity authenticatio
 >
 > To resolve this issue, remove the filestore account from the virtual network then add it back to the virtual network.
 
-### Grant workspace managed identity __Reader__ access to storage private link
+### Grant workspace managed identity __Reader__ access to storage private endpoint
 
-If your Azure storage account uses a private endpoint, you must grant the workspace-managed identity **Reader** access to the private link. For more information, see the [Reader](../role-based-access-control/built-in-roles.md#reader) built-in role. 
+If your Azure storage account uses a private endpoint, you must grant the workspace-managed identity **Reader** access to the private endpoint. For more information, see the [Reader](../role-based-access-control/built-in-roles.md#reader) built-in role. 
 
 If your storage account uses a service endpoint, you can skip this step.
 

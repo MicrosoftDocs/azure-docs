@@ -143,7 +143,13 @@ conceptualContent:
           text: Use Cognitive Services within Azure Databricks and Azure Synapse Analytics
         - url: ./big-data/samples-python.md
           itemType: reference
-          text: Python Samples   
+          text: Python Samples
+    - title: Responsible use of AI
+      summary: Azure Cognitive Services provides information and guidelines on how to responsibly use our AI services in your applications.
+      links:
+        - url: responsible-use-of-ai-overview.md
+          itemType: overview
+          text: Responsible use of AI
 additionalContent:
   sections:
     - title: Additional resources

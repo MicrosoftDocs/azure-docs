@@ -95,10 +95,10 @@ sections:
           Yes, you use [Power BI Desktop to connect to Cost Management data](/power-bi/connect-data/desktop-connect-azure-cost-management) or you can use the [Cost Management Power BI App for EAs](costs/analyze-cost-data-azure-cost-management-power-bi-template-app.md).
       - question: What are the supported offer types in Cost Management?
         answer: |
-          See [Supported Microsoft Azure offers](/azure/cost-management-billing/costs/understand-cost-mgt-data#supported-microsoft-azure-offers).
+          See [Supported Microsoft Azure offers](./costs/understand-cost-mgt-data.md#supported-microsoft-azure-offers).
       - question: How soon can I see my cost and usage data in Azure Cost Management?
         answer: |
-          See [Cost and usage data updates and retention](/azure/cost-management-billing/costs/understand-cost-mgt-data#cost-and-usage-data-updates-and-retention).
+          See [Cost and usage data updates and retention](./costs/understand-cost-mgt-data.md#cost-and-usage-data-updates-and-retention).
       - question: Can I find all my cost related information in Azure Cost Management?
         answer: |
           See [Costs included in Cost Management](costs/understand-cost-mgt-data.md#costs-included-in-cost-management).
@@ -141,7 +141,7 @@ sections:
       - question: How do I see reservation savings?
         answer: |
           There are a couple of ways to view your savings.
-          -  If you're an EA customer, you can use the Azure Cost Management Power BI App for EA to view the [RI Savings report](/azure/cost-management-billing/costs/analyze-cost-data-azure-cost-management-power-bi-template-app#reports-available-with-the-app.md).
+          -  If you're an EA customer, you can use the Azure Cost Management Power BI App for EA to view the [RI Savings report](./costs/analyze-cost-data-azure-cost-management-power-bi-template-app.md#reports-available-with-the-app).
           -  Use the Usage + Charges data file to manually [determine reservation savings](reservations/understand-reserved-instance-usage-ea.md#determine-reservation-savings).
       - question: How do I view reservation underutilization?
         answer: |
@@ -151,7 +151,7 @@ sections:
           See [Charge back Azure Reservation costs](reservations/charge-back-usage.md?toc=/azure/cost-management-billing/reservations/toc.json) for detailed information.
       - question: How can I view charges incurred for Spot VMs?
         answer: |
-          See [View your Spot VM charges](/azure/cost-management-billing/costs/cost-analysis-common-uses#view-your-spot-vm-charges).
+          See [View your Spot VM charges](./costs/cost-analysis-common-uses.md#view-your-spot-vm-charges).
       - question: How do I get a reservation details report?
         answer: |
           Read the API documentation to [generate a reservation details report](/rest/api/cost-management/generatereservationdetailsreport).
@@ -438,4 +438,3 @@ sections:
       - question: Does PAL association affect the security of a customer's Power Apps environment?
         answer: |
           PAL association only adds partner's MPN ID to the credential already provisioned. It doesn't alter any permissions (Power Apps role) or provide extra Power Apps service data to the partner or Microsoft.
-

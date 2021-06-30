@@ -1,12 +1,13 @@
 ---
 title: Things to consider when using Azure Video Analyzer for Media (formerly Video Indexer) at scale - Azure
-titleSuffix: Azure Media Services
+titleSuffix: Azure Video Analyzer for Media
 description: This topic explains what things to consider when using Azure Video Analyzer for Media (formerly Video Indexer) at scale.
-services: media-services
+services: azure-video-analyzer
 author: Juliako
 manager: femila
 
 ms.topic: how-to
+ms.subservice: azure-video-analyzer-media
 ms.date: 11/13/2020
 ms.author: juliako 
 ---
@@ -44,7 +45,7 @@ When you upload videos using URL, you just need to provide a path to the locatio
 > [!TIP]
 > Use the `videoUrl` optional parameter of the upload video API.
 
-To see an example of how to upload videos using URL, check out [this example](upload-index-videos.md#code-sample). Or, you can use [AzCopy](../../storage/common/storage-use-azcopy-v10.md) for a fast and reliable way to get your content to a storage account from which you can submit it to Video Analyzer for Media using [SAS URL](../../storage/common/storage-sas-overview.md).
+To see an example of how to upload videos using URL, check out [this example](upload-index-videos.md#code-sample). Or, you can use [AzCopy](../../storage/common/storage-use-azcopy-v10.md) for a fast and reliable way to get your content to a storage account from which you can submit it to Video Analyzer for Media using [SAS URL](../../storage/common/storage-sas-overview.md). Video Analyzer for Media recommends using *readonly* SAS URLs.
 
 ## Increase media reserved units if needed
 

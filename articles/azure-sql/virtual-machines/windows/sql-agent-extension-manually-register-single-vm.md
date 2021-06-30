@@ -216,7 +216,7 @@ To upgrade the extension to full mode, run the following Azure PowerShell code s
   $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
 
   # Register with SQL IaaS Agent extension in full mode
-  Update-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -SqlManagementType Full
+  Update-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -SqlManagementType Full -Location $vm.Location
   ```
 
 ---
@@ -316,6 +316,6 @@ Remove-AzSqlVM -ResourceGroupName <resource_group_name> -Name <VM_name>
 For more information, see the following articles:
 
 * [Overview of SQL Server on a Windows VM](sql-server-on-azure-vm-iaas-what-is-overview.md)
-* [FAQ for SQL Server on a Windows VM](frequently-asked-questions-faq.md)
+* [FAQ for SQL Server on a Windows VM](frequently-asked-questions-faq.yml)
 * [Pricing guidance for SQL Server on a Windows VM](pricing-guidance.md)
 * [Release notes for SQL Server on a Windows VM](../../database/doc-changes-updates-release-notes.md)

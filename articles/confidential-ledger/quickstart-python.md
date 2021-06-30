@@ -100,7 +100,7 @@ We'll finish setup by setting some variables for use in your application: the re
 ```python
 resource_group = "myResourceGroup"
 ledger_name = "<your-unique-ledger-name>"
-subscription_id "<azure-subscription-id>"
+subscription_id = "<azure-subscription-id>"
 
 identity_url = "https://identity.confidential-ledger.core.azure.com"
 ledger_url = "https://" + ledger_name + ".eastus.cloudapp.azure.com"
@@ -215,7 +215,7 @@ from azure.confidentialledger.identity_service import ConfidentialLedgerIdentity
 
 rg = "myResourceGroup"
 ledger_name = "<unique-ledger-name>"
-subscription_id "<azure-subscription-id>"
+subscription_id = "<azure-subscription-id>"
 
 identity_url = "https://identity.confidential-ledger.core.azure.com"
 ledger_url = "https://" + ledger_name + ".eastus.cloudapp.azure.com"

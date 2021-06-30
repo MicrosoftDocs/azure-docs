@@ -5,7 +5,7 @@ description: This article will show you how to store the user's preferences.
 author: metanMSFT
 manager: guillasi
 
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: immersive-reader
 ms.topic: how-to
 ms.date: 06/29/2020

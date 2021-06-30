@@ -10,9 +10,9 @@ ms.date: 06/26/2020
 
 
 
-# Create an Azure VMware Solution (AVS) assessment
+# Create an Azure VMware Solution assessment
 
-This article describes how to create an Azure VMware Solution (AVS) assessment for on-premises servers in VMware environment with Azure Migrate: Discovery and assessment.
+This article describes how to create an Azure VMware Solution assessment for on-premises servers in VMware environment with Azure Migrate: Discovery and assessment.
 
 [Azure Migrate](migrate-services-overview.md) helps you to migrate to Azure. Azure Migrate provides a centralized hub to track discovery, assessment, and migration of on-premises infrastructure, applications, and data to Azure. The hub provides Azure tools for assessment and migration, as well as third-party independent software vendor (ISV) offerings.
 
