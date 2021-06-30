@@ -20,3 +20,4 @@ The VMware software versions used in new deployments of Azure VMware Solution pr
 
 The currently running software version is applied to new clusters added to an existing private cloud. For more information, see the [VMware software version requirements](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-54E5293B-8707-4D29-BFE8-EE63539CC49B.html).
 
+
