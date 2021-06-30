@@ -112,22 +112,22 @@ Follow these instructions to provision the Device Update agent on your IoT Linux
     > [!Note]
     > The IoT Identity service registers module identities with IoT Hub by using symmetric keys currently.
 
-```shell
-   sudo apt-get install aziot-identity-service
-```
+    ```shell
+   	sudo apt-get install aziot-identity-service
+    ```
         
 2. Provisioning IoT Identity service to get the IoT device information.
     1. Create a custom copy of the configuration template so we can add the provisioning information. In a terminal, enter the below command.
       
-```shell
-   sudo cp /etc/aziot/config.toml.template /etc/aziot/config.toml 
-```
+       ```shell
+          sudo cp /etc/aziot/config.toml.template /etc/aziot/config.toml 
+       ```
    
 3. Next edit the configuration file to include the connection string of the device you wish to act as the provisioner for this device or machine. In a terminal, enter the below command.
 
-```shell
-   sudo nano /etc/aziot/config.toml
-```
+   ```shell
+      sudo nano /etc/aziot/config.toml
+   ```
    
 4. You should see a message like the following example:
 
@@ -145,9 +145,9 @@ Follow these instructions to provision the Device Update agent on your IoT Linux
     > [!Note]
     > The IoT Identity service registers module identities with IoT Hub by using symmetric keys currently.
     
-```shell
-   sudo aziotctl config apply
-```
+	```shell
+	   sudo aziotctl config apply
+	```
     
 6.	Finally install the Device Update agent. We provide sample images in [Artifacts](https://github.com/Azure/iot-hub-device-update/releases), the swUpdate file is the base image that you can flash onto a Raspberry Pi B3+ board, and the .gz file is the update you would import through Device Update for IoT Hub. See example of [how to flash the image to your IoT Hub device](./device-update-raspberry-pi.md#flash-sd-card-with-image).
 
@@ -171,10 +171,10 @@ The Device Update agent can also be configured without the IoT Identity service 
        
     2. You should see a window open with some text in it. Delete the entire string following 'connection_String=' the first-time you provision the Device Update agent on the IoT device. It is just place holder text.
     
-    3. In the terminal, replace "<your-connection-string>" with the connection string of the device for your instance of Device Update agent. Enter and save. It should look 
-	```shell
-   	connection_string=<ADD CONNECTION STRING HERE>
-	```   
+    3. In the terminal, replace <your-connection-string> with the connection string of the device for your instance of Device Update agent. Enter and save. It should look 
+       ```text
+       connection_string=<ADD CONNECTION STRING HERE>
+       ```   
 	    
     > [!Important]
     > Do not add quotes around the connection string.
@@ -189,14 +189,14 @@ This section describes how to start and verify the Device Update agent as a modu
 1.	Log into the machine or device that has the Device Update agent installed.
 
 1.	Open a Terminal window, and enter the command below.
-    ```shell
-    sudo systemctl restart adu-agent
-    ```
+    	```shell
+    	sudo systemctl restart adu-agent
+    	```
     
 1.	You can check the status of the agent using the command below. If you see any issues, refer to this [troubleshooting guide](troubleshoot-device-update.md).
-    ```shell
-    sudo systemctl status adu-agent
-    ```
+    	```shell
+    	sudo systemctl status adu-agent
+   	```
     
     You should see status OK.
 
