@@ -33,7 +33,7 @@ sections:
       - question: |
           What are some production best practices?
         answer: |
-          * [StackExchange.Redis best practices](#stackexchange-redis-best-practices)
+          * [StackExchange.Redis best practices](#stackexchangeredis-best-practices)
           * [Configuration and concepts](#configuration-and-concepts)
           * [Performance testing](#performance-testing)
 
