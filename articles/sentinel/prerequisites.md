@@ -1,5 +1,5 @@
 ---
-titles: Prerequisites for deploying Azure Sentinel
+title: Prerequisites for deploying Azure Sentinel
 description: Learn about pre-deployment activities and prerequisites for deploying Azure Sentinel.
 services: sentinel
 author: batamig
@@ -119,6 +119,19 @@ For more information, see [Data residency in Azure](https://azure.microsoft.com/
 | Service Principal	Azure Sentinel Contributor	Azure Sentinel’s Resource Group	Automated configuration management tasks                                                                                                                        |                  |                                      |                                      |
 •	When designating permissions for Azure Sentinel usage, Azure Sentinel Responder, Azure Sentinel Reader, Azure Sentinel Contributor will be needed by the users depending on their role within the product. Additional roles related to Azure services outside of Azure Sentinel, Azure Monitor, and Azure Log Analytics may be needed if ingesting data or monitoring those services. Azure AD roles may be required, such as global admin or security admin, when setting up data connectors for services in other Microsoft portals.
 </--> 
+
+
+## Consider cost and data retention plans
+
+When structuring your Azure Sentinel instance, consider Azure Sentinel's cost and billing structure.
+
+For more information, see:
+
+- [Azure Sentinel costs and billing](azure-sentinel-billing.md)
+- [Azure Sentinel pricing](https://azure.microsoft.com/en-us/pricing/details/azure-sentinel/)
+- [Log Analytics pricing](https://azure.microsoft.com/en-us/pricing/details/monitor/)
+- [Logic apps (playbooks) pricing](https://azure.microsoft.com/en-us/pricing/details/logic-apps/)
+- [Integrating Azure Data Explorer for long-term log retention](store-logs-in-azure-data-explorer.md)
 
 ## Next steps
 

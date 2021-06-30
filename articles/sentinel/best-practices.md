@@ -14,21 +14,9 @@ ms.date: 06/21/2021
 
 This article collects best practices and guidance to use when deploying, managing, and using Azure Sentinel, including links to additional articles for more information.
 
-## Architectural best practices
-
-- Before deploying Azure Sentinel, review and complete pre-deployment activities and prerequisites, and review best practices for creating your Azure Sentinel instance.
-
-    For more information, see [Pre-deployment activities and prerequisites for deploying Azure Sentinel](prerequisites.md).
-
-- When structuring your Azure Sentinel instance, consider Azure Sentinel's cost and billing structure. For more information, see:
-
-    - [Azure Sentinel costs and billing](azure-sentinel-billing.md)
-    - [Azure Sentinel pricing](https://azure.microsoft.com/en-us/pricing/details/azure-sentinel/)
-    - [Log Analytics pricing](https://azure.microsoft.com/en-us/pricing/details/monitor/)
-    - [Logic apps (playbooks) pricing](https://azure.microsoft.com/en-us/pricing/details/logic-apps/)
-    - [Integrating Azure Data Explorer for long-term log retention](store-logs-in-azure-data-explorer.md)
-
-
+> [!IMPORTANT]
+> Before deploying Azure Sentinel, review and complete pre-deployment activities and prerequisites, and review best practices for creating your Azure Sentinel instance. For more information, see [Pre-deployment activities and prerequisites for deploying Azure Sentinel](prerequisites.md).
+>
 ## Regular SOC activities to perform
 
 Schedule the following Azure Sentinel activities on a regular basis to ensure continued security best practices:
@@ -63,7 +51,7 @@ Schedule the following Azure Sentinel activities on a regular basis to ensure co
 - **Log Analytics workspace review**. Review that the Log Analytics Workspace data retention policy still aligns with the organization policy.  For more information, see  [Data retention policy](/workplace-analytics/privacy/license-expiration) and [Integrate Azure Data Explorer for long-term log retention](store-logs-in-azure-data-explorer.md).
 
 
-## Integrating with other Microsoft security services
+## Integrate with Microsoft security services
 
 Azure Sentinel is empowered by the components that send data to your workspace, and is made stronger through integrations with other Microsoft services. Any logs ingested into products such as Microsoft Cloud App Security, Microsoft Defender for Endpoint, and Microsoft Defender for Identity allow these services to create detections, and in turn provide those detections to Azure Sentinel. Logs can also be ingested directly into Azure Sentinel to provide a fuller picture for events and incidents.
 
@@ -81,10 +69,11 @@ More than ingesting alerts and logs from other sources, Azure Sentinel also:
 
 ## Next steps
 
-For more best practice information, see:
+For more information, see:
 
-- [Data collection best practices](data-collection-overview.md)
-- [Connect data from threat intelligence providers](connect-threat-intelligence.md)
+- [Data collection best practices](best-practices-data.md)
+- [Best practices for incident management and response](best-practices-incidents.md)
+
 
 To get started with Azure Sentinel, see:
 

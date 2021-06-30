@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 06/21/2021
 ---
 
-## Best practices for incident management and response
+# Best practices for incident management and response
 
 This article reviews best practices for managing and responding to incidents in Azure Sentinel.
 

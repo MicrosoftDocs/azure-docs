@@ -25,10 +25,16 @@
     href: powerbi.md
 - name: Concepts
   items:
-  - name: Prerequisites
-    href: prerequisites.md
   - name: Best practices
-    href: best-practices.md
+    items:
+    - name: Overview
+      href: best-practices.md
+    - name: Pre-deployment and prerequisites
+      href: prerequisites.md
+    - name: Data collection
+      href: best-practices-data.md
+    - name: Incident management and response
+      href: best-practices-incidents
   - name: Architecture
     items:
     - name: Roles and permissions

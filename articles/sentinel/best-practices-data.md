@@ -1,31 +1,20 @@
 ---
-title: Data collection best practices | Microsoft Docs
-description: Learn about best practices for data collection in Azure Sentinel.
+title: Best practices for data collection in Azure Sentinel
+description: Learn about best practices to employ when connecting data sources to Azure Sentinel.
 services: sentinel
-documentationcenter: na
 author: batamig
-manager: rkarlin
-editor: ''
-
+ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
-ms.devlang: na
 ms.topic: conceptual
-ms.custom: mvc
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 06/29/2021
-ms.author: bagol
-
+ms.date: 06/21/2021
 ---
-# Data collection best practices
 
-[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+#  Data collection best practices
 
-This article reviews best practices for collecting data using Azure Sentinel data connectors. 
+This section reviews best practices for collecting data using Azure Sentinel data connectors. 
 
 For more information, see [Connect data sources](connect-data-sources.md), [Azure Sentinel partner data connectors](partner-data-connectors.md) and the [Azure Sentinel solutions catalog](sentinel-solutions-catalog.md).
-
 
 ## Prioritize your data connectors
 
@@ -68,7 +57,7 @@ The following table describes common challenges or requirements, and possible so
 |Challenge / Requirement  |Possible solutions  |Considerations  |
 |---------|---------|---------|
 |**Requires log filtering**     | Logstash <br>Azure Function <br> LogicApp <br> Custom code (.NET, Python)  |  While filtering can lead to cost savings, and ingests only the required data, some Azure Sentinel features are not supported, such as [UEBA](identify-threats-with-entity-behavior-analytics.md), [entity pages](identify-threats-with-entity-behavior-analytics.md#entity-pages), [machine learning](bring-your-own-ml.md), and [fusion](fusion.md). <br><br>When configuring log filtering, you'll need to make updates in resources such as threat hunting queries and analytics rules.     |
-|**Agent cannot be installed**     |Use Windows Event Forwarding, supported with the [Azure Monitor Agent](connect-windows-security-events.md#azure-monitor-agent-new).         |   Using Windows Event forwarding lowers load balancing events per second from the Windows Event Collector from 10,000 events to 500-1000 events.|
+|**Agent cannot be installed**     |Use Windows Event Forwarding, supported with the [Azure Monitor Agent](connect-windows-security-events.md#connector-options).         |   Using Windows Event forwarding lowers load balancing events per second from the Windows Event Collector from 10,000 events to 500-1000 events.|
 |**Servers do not connect to the internet**     | Use the [Log Analytics gateway](/azure/azure-monitor/agents/gateway)        | Configuring a proxy to your agent requires firewall rules to allow the Gateway to work.        |
 |**Requires tagging and enrichment at ingestion**     |- Use Logstash to inject a ResourceID <br>- Use an ARM template to inject the ResourceID into on-premises machines <br>- Ingest the resource ID into separate workspaces        | <br>- Log Analytics doesn't support RBAC for custom tables <br>-  Azure Sentinel doesn’t support row-level RBAC <br><br>**Tip**: You may want to adopt cross workspace design and functionality for Azure Sentinel.        |
 |**Requires splitting operation and security logs**     | Use the [Microsoft Monitor Agent or Azure Monitor Agent](connect-windows-security-events.md) multi-home functionality.        |  Multi-home functionality requires more deployment overhead for the agent.       |
@@ -121,9 +110,4 @@ If you need to collect Microsoft Office data, outside of the standard connector 
 
 ## Next steps
 
-- To get started with Azure Sentinel, you need a subscription to Microsoft Azure. If you don't have a subscription, you can sign up for a [free trial](https://azure.microsoft.com/free/).
-
-- Learn how to [onboard your data to Azure Sentinel](quickstart-onboard.md) and [get visibility into your data and potential threats](quickstart-get-visibility.md).
-
-- Start collecting data in Azure Sentinel! For more information, see [Connect data sources](connect-data-sources.md).
-
+<TBD>

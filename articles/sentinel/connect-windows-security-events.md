@@ -27,6 +27,7 @@ The Windows Security Events connector lets you stream security events from any W
 ## Connector options
 
 The Windows Security Events connector supports the following versions:
+
 |Connector version  |Description  |
 |---------|---------|
 |**Security events**     |Legacy version, based on the Log Analytics Agent, and sometimes known as the Microsoft Monitoring Agent (MMA) or the OMS agent. <br><br>Limited to 10,000 events per second. To ensure optimal performance, make sure to keep to 8,500 events per second or fewer.       |
