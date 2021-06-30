@@ -20,7 +20,7 @@ Here are suggestions for where you can get help when developing your Azure Virtu
 
 Various articles explain how to determine, diagnose, and fix issues that you might encounter when using Azure Virtual Machines. Use these articles to troubleshoot deployment failures, unexpected restarts, connection issues and more. 
 
-For a full list of self help troubleshooting content, see [Azure Virtual Machine troubleshooting documentation](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/welcome-virtual-machines)
+For a full list of self help troubleshooting content, see [Azure Virtual Machine troubleshooting documentation](/troubleshoot/azure/virtual-machines/welcome-virtual-machines)
 
 
 ## Post a question on Microsoft Q&A
@@ -37,7 +37,7 @@ If you can't find an answer to your problem using search, submit a new question 
 | Area | Tag |
 |-------|----------------------|
 | [Azure Virtual Machines](./linux/overview.md) | [azure-virtual-machines](/answers/topics/azure-virtual-machines.html) | 
-| [Azure SQL Virtual Machines](https://docs.microsoft.com/azure/azure-sql/virtual-machines/) | [azure-sql-virtual-machines](/answers/topics/azure-sql-virtual-machines.html)| 
+| [Azure SQL Virtual Machines](../azure-sql/virtual-machines/index.yml) | [azure-sql-virtual-machines](/answers/topics/azure-sql-virtual-machines.html)| 
 | [Azure Virtual Machine backup](backup-recovery.md) | [azure-virtual-machine-backup](/answers/questions/36892/azure-virtual-machine-backups.html) | 
 | [Azure Virtual Machine extension](./extensions/overview.md) | [azure-virtual-machine-extension](/answers/topics/azure-virtual-machines-extension.html)| 
 | [Azure Virtual Machine Images](shared-image-galleries.md) | [azure-virtual-machine-images](/answers/topics/azure-virtual-machines-images.html) | 
@@ -108,4 +108,4 @@ News and information about Azure Virtual Machines is shared at the [Azure blog](
 
 ## Next steps
 
-Learn more about [Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/)
+Learn more about [Azure Virtual Machines](./index.yml)

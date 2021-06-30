@@ -141,7 +141,11 @@ Make sure that the user **iotedge** has read permissions for the directory holdi
    ```
 
    >[!TIP]
-   >If the config file doesn't exist on your device yet, use `/etc/aziot/config.toml.edge.template` as a template to create one.
+   >If the config file doesn't exist on your device yet, use the following command to create it based on the template file:
+   >
+   >```bash
+   >sudo cp /etc/aziot/config.toml.edge.template /etc/aziot/config.toml
+   >```
 
 1. Find the **Hostname** section in the config file. Uncomment the line that contains the `hostname` parameter, and update the value to be the fully qualified domain name (FQDN) or the IP address of the IoT Edge device.
 

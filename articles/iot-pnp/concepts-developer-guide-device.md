@@ -81,5 +81,4 @@ Now that you've learned about IoT Plug and Play device development, here are som
 - [C device SDK](/azure/iot-hub/iot-c-sdk-ref/)
 - [IoT REST API](/rest/api/iothub/device)
 - [Understand components in IoT Plug and Play models](concepts-modeling-guide.md)
-- [Install and use the DTDL authoring tools](howto-use-dtdl-authoring-tools.md)
 - [IoT Plug and Play service developer guide](concepts-developer-guide-service.md)

@@ -383,7 +383,7 @@ The output from the preceding example with the default values is:
 | arrayOutput | Array | [1, 2, 3] |
 | crossOutput | String | option 1 |
 
-For more information about using parameters, see [Parameters in ARM templates](template-parameters.md).
+For more information about using parameters, see [Parameters in ARM templates](./parameters.md).
 
 ## variables
 
@@ -477,8 +477,8 @@ The output from the preceding example with the default values is:
 | exampleOutput3 | String | myVariable |
 | exampleOutput4 |  Object | {"property1": "value1", "property2": "value2"} |
 
-For more information about using variables, see [Variables in ARM template](template-variables.md).
+For more information about using variables, see [Variables in ARM template](./variables.md).
 
 ## Next steps
 
-* For a description of the sections in an ARM template, see [Understand the structure and syntax of ARM templates](template-syntax.md).
+* For a description of the sections in an ARM template, see [Understand the structure and syntax of ARM templates](./syntax.md).
