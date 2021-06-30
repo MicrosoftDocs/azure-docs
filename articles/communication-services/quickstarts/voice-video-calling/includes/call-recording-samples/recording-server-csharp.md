@@ -88,7 +88,7 @@ Use the server call ID received during initiation of a call.
 ```csharp
 var startRecordingResponse = await callingServerClient.InitializeServerCall("<servercallid>").StartRecordingAsync("<callbackuri>").ConfigureAwait(false);
 ```
-The `StartRecordingAsync` API response contains the recording id of the recording session.
+The `StartRecordingAsync` API response contains the recording ID of the recording session.
 
 ## Stop recording session using 'StopRecordingAsync' server API
 
