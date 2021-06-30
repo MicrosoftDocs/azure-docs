@@ -121,11 +121,11 @@ Follow these steps to grant guest access to an Azure Time Series Insights enviro
 
 ## Procedure for when the Subscription is moved across Tenants
 
-Time Series Insights Data Access Policies are backed by Azure Active Directory, which are tied to an Azure Tenant.
+Time Series Insights Data Access Policies are backed by Azure Active Directory, which are tied to an Azure Tenant where the Subscription lives in.
 
-When you grant Data Access Policies to an Azure Active Directory Object (User, Group or App), this object belogs to the Azure Active Directory in the Subscription's Tenant.
+The AAD Objects that you grant Data Access Policies to and the the Time Series Insights Environment itself should live under the same Tenant. If not, these objects will not have access to the Environment.
 
-When you move a Subscription between Tenants, all the Data Access Policies in existing Time Series Insights from the moved Subscription will need to be re-applied, since the AAD Objects the Data Access Policies point to do not exist in the target Tenant.
+If you plan to move the Subscription the Environment lives in to a different Tenant, you must ensure that the Data Access Policies are updated to reflect the AAD Objects under the new Tenant.
 
 To make this process smooth, follow the steps below.
 
