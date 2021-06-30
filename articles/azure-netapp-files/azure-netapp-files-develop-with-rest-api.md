@@ -31,6 +31,8 @@ The REST API specification for Azure NetApp Files is published through [GitHub](
 * When the API limit has been exceeded, the HTTP response code is **429**.  For example:
 
    `"Microsoft.Azure.ResourceProvider.Common.Exceptions.ResourceProviderException: Error getting Pool. Rate limit exceeded for this endpoint - try again later ---> CloudVolumes.Service.Client.Client.ApiException: Error calling V2DescribePool: {\"code\":429,\"message\":\"Rate limit exceeded for this endpoint - try again later\"}`
+   
+   This response code can come from throttling or a temporary condition. See [Azure Resource Manager HTTP 429 response code](../azure-resource-manager/management/request-limits-and-throttling.md#error-code) for more information.
 
 ## Access the Azure NetApp Files REST API  
 
