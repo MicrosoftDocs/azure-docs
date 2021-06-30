@@ -3,7 +3,7 @@ title: Azure Automation Update Management Supported Clients
 description: This article describes the supported Windows and Linux operating systems with Azure Automation Update Management.
 services: automation
 ms.subservice: update-management
-ms.date: 06/22/2021
+ms.date: 06/29/2021
 ms.topic: conceptual
 ---
 
@@ -23,6 +23,7 @@ The following table lists the supported operating systems for update assessments
 |Windows Server 2019 (Datacenter/Standard including Server Core)<br><br>Windows Server 2016 (Datacenter/Standard excluding Server Core)<br><br>Windows Server 2012 R2(Datacenter/Standard)<br><br>Windows Server 2012 | |
 |Windows Server 2008 R2 (RTM and SP1 Standard)| Update Management supports assessments and patching for this operating system. The [Hybrid Runbook Worker](../automation-windows-hrw-install.md) is supported for Windows Server 2008 R2. |
 |CentOS 6, 7, and 8 (x64)      | Linux agents require access to an update repository. Classification-based patching requires `yum` to return security data that CentOS doesn't have in its RTM releases. For more information on classification-based patching on CentOS, see [Update classifications on Linux](view-update-assessments.md#linux).          |
+|Oracle Linux 6.x and 7.x (x64) | Linux agents require access to an update repository.        |
 |Red Hat Enterprise 6, 7, and 8 (x64)     | Linux agents require access to an update repository.        |
 |SUSE Linux Enterprise Server 12, 15, and 15.1 (x64)     | Linux agents require access to an update repository.     |
 |Ubuntu 14.04 LTS, 16.04 LTS, 18.04 LTS, and 20.04 LTS (x64)      |Linux agents require access to an update repository.         |

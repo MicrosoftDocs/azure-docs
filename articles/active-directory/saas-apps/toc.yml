@@ -2096,6 +2096,8 @@
         href: waywedo-tutorial.md
       - name: Wdesk
         href: wdesk-tutorial.md
+      - name: Webcargo
+        href: webcargo-tutorial.md  
       - name: webMethods Integration Suite
         href: webmethods-integration-cloud-tutorial.md
       - name: Wedo
@@ -2505,6 +2507,8 @@
         href: smallstep-ssh-provisioning-tutorial.md
       - name: Soloinsight-CloudGate SSO
         href: soloinsight-cloudgate-sso-provisioning-tutorial.md
+      - name: SoSafe
+        href: sosafe-provisioning-tutorial.md
       - name: Symantec Web Security Service (WSS)
         href: symantec-web-security-service.md
       - name: Smartfile

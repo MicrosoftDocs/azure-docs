@@ -143,7 +143,7 @@ Common RADIUS client integrations include applications such as [Remote Desktop G
 Others might include:
 
 - Citrix Gateway
-  - [Citrix Gateway](https://docs.citrix.com/advanced-concepts/implementation-guides/citrix-gateway-microsoft-azure.html) supports both RADIUS and NPS extension integration, and a SAML integration.
+  - [Citrix Gateway](https://docs.citrix.com/en-us/citrix-gateway) supports both RADIUS and NPS extension integration, and a SAML integration.
 - Cisco VPN
   - The Cisco VPN supports both RADIUS and [SAML authentication for SSO](../saas-apps/cisco-anyconnect.md).
   - By moving from RADIUS authentication to SAML, you can integrate the Cisco VPN without deploying the NPS extension.
