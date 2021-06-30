@@ -3,7 +3,7 @@ title: Deploy and configure Azure VMware Solution
 description: Use the information gathered in the planning stage to deploy and configure Azure VMware Solution.
 ms.topic: tutorial
 ms.custom: contperf-fy21q4, devx-track-azurecli
-ms.date: 06/28/2021
+ms.date: 07/07/2021
 ---
 
 # Deploy and configure Azure VMware Solution
