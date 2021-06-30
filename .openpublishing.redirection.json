@@ -5288,86 +5288,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/automation/how-to/remove-desired-state-configuration-package.md",
-      "redirect_url": "/azure/automation/state-configuration/remove-node-and-configuration-package",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-watchers-tutorial.md",
-      "redirect_url": "/azure/automation/automation-scenario-using-watcher-task",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-scenario-remove-resourcegroup.md",
-      "redirect_url": "/azure/automation",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-offering-get-started.md",
-      "redirect_url": "/azure/automation/",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-alert-activity-log.md",
-      "redirect_url": "/azure/automation/automation-alert-metric",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/log-analytics/log-analytics-change-tracking.md",
-      "redirect_url": "/azure/automation/automation-change-tracking",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-azure-vm-alert-integration.md",
-      "redirect_url": "/azure/automation/automation-create-alert-triggered-runbook",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-invoke-runbook-from-omsla-alert.md",
-      "redirect_url": "/azure/automation/automation-create-alert-triggered-runbook",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-update-account-powershell.md",
-      "redirect_url": "/azure/automation/automation-create-runas-account",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-remove-hrw.md",
-      "redirect_url": "/azure/automation/automation-hybrid-runbook-worker",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-tutorial-troubleshoot-changes.md",
-      "redirect_url": "/azure/automation/troubleshoot/change-tracking",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-runbook-settings.md",
-      "redirect_url": "/azure/automation/automation-runbook-execution",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-scenario-start-stop-vm-wjson-tags.md",
-      "redirect_url": "/azure/automation/automation-solution-vm-management",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-solution-startstopvm-graphical.md",
-      "redirect_url": "/azure/automation/automation-solution-vm-management",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-solution-startstopvm-psworkflow.md",
-      "redirect_url": "/azure/automation/automation-solution-vm-management",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-troubleshooting-hrw-runbook-terminates-suspended.md",
-      "redirect_url": "/azure/automation/automation-troubleshooting-hybrid-runbook-worker",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/automation/automation-change-tracking.md",
       "redirect_url": "/azure/automation/change-tracking",
       "redirect_document_id": false
@@ -5433,56 +5353,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/automation/automation-first-runbook-graphical.md",
-      "redirect_url": "/azure/automation/learn/automation-tutorial-runbook-graphical",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-first-runbook-textual.md",
-      "redirect_url": "/azure/automation/learn/automation-tutorial-runbook-textual",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-first-runbook-textual-powershell.md",
-      "redirect_url": "/azure/automation/learn/automation-tutorial-runbook-textual-powershell",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-first-runbook-textual-python2.md",
-      "redirect_url": "/azure/automation/learn/automation-tutorial-runbook-textual-python2",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-create-runas-account.md",
-      "redirect_url": "/azure/automation/manage-runas-account",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-manage-account.md",
-      "redirect_url": "/azure/automation/manage-runas-account",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-sec-configure-azure-runas-account.md",
-      "redirect_url": "/azure/automation/manage-runas-account",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-verify-runas-authentication.md",
-      "redirect_url": "/azure/automation/manage-runas-account",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-creating-importing-runbook.md",
-      "redirect_url": "/azure/automation/manage-runbooks",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-testing-runbook.md",
-      "redirect_url": "/azure/automation/manage-runbooks",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/automation/policy-samples.md",
       "redirect_url": "/azure/automation/policy-reference",
       "redirect_document_id": false
@@ -5490,86 +5360,6 @@
     {
       "source_path_from_root": "/articles/automation/automation-create-account-template.md",
       "redirect_url": "/azure/automation/quickstart-create-automation-account-template",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-pass-json-string.md",
-      "redirect_url": "/azure/automation/runbook-input-parameters",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-runbook-input-parameters.md",
-      "redirect_url": "/azure/automation/runbook-input-parameters",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-certificates.md",
-      "redirect_url": "/azure/automation/shared-resources/certificates",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-create-aduser-account.md",
-      "redirect_url": "/azure/automation/shared-resources/credentials",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-credentials.md",
-      "redirect_url": "/azure/automation/shared-resources/credentials",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-integration-modules.md",
-      "redirect_url": "/azure/automation/shared-resources/modules",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-schedules.md",
-      "redirect_url": "/azure/automation/shared-resources/schedules",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-variables.md",
-      "redirect_url": "/azure/automation/shared-resources/variables",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-scenario-source-control-integration-with-github-ent.md",
-      "redirect_url": "/azure/automation/source-control-integration",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-scenario-source-control-integration-with-VSTS.md",
-      "redirect_url": "/azure/automation/source-control-integration",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-source-control-integration.md",
-      "redirect_url": "/azure/automation/source-control-integration",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-source-control-integration-legacy.md",
-      "redirect_url": "/azure/automation/source-control-integration-legacy",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-starting-a-runbook.md",
-      "redirect_url": "/azure/automation/start-runbooks",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-troubleshooting-hybrid-runbook-worker.md",
-      "redirect_url": "/azure/automation/troubleshoot/hybrid-runbook-worker",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-onboard-troubleshoot.md",
-      "redirect_url": "/azure/automation/troubleshoot/onboarding",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-troubleshooting-automation-errors.md",
-      "redirect_url": "/azure/automation/troubleshoot/runbooks",
       "redirect_document_id": false
     },
     {
@@ -10410,11 +10200,6 @@
     {
       "source_path_from_root": "/articles/azure-resource-manager/management/move-region.md",
       "redirect_url": "/azure/azure-resource-manager/management/move-resources-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/automation/automation-migrate-account-subscription.md",
-      "redirect_url": "/azure/azure-resource-manager/management/move-resource-group-and-subscription",
       "redirect_document_id": false
     },
     {
