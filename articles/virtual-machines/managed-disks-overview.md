@@ -2,9 +2,9 @@
 title: Azure Disk Storage overview
 description: Overview of Azure managed disks, which handle the storage accounts for you when using VMs.
 author: roygara
-ms.service: virtual-machines
+ms.service: storage
 ms.topic: conceptual
-ms.date: 04/24/2020
+ms.date: 06/29/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: contperf-fy21q1

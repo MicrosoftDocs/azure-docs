@@ -4,9 +4,9 @@ description: Learn how to upload a VHD to an Azure managed disk and copy a manag
 services: "virtual-machines,storage"
 author: roygara
 ms.author: rogarana
-ms.date: 06/15/2020
+ms.date: 06/29/2021
 ms.topic: how-to
-ms.service: virtual-machines
+ms.service: storage
 ms.subservice: disks
 ---
 

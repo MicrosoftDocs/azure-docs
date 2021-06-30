@@ -2,9 +2,9 @@
 title: Azure PowerShell - Enable end-to-end encryption on your VM host
 description: How to enable end-to-end encryption for your Azure VMs using encryption at host.
 author: roygara
-ms.service: virtual-machines
+ms.service: storage
 ms.topic: how-to
-ms.date: 08/24/2020
+ms.date: 06/29/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurepowershell
