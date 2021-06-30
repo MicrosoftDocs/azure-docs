@@ -165,18 +165,7 @@ In additional to lineage, the data asset schema (shown in Asset -> Schema tab) i
 
 ### Data Factory Execute SSIS Package support
 
-| Data store | Supported |
-| ------------------- | ------------------- |
-| Azure Blob Storage | Yes |
-| Azure Data Lake Storage Gen1 | Yes |
-| Azure Data Lake Storage Gen2 | Yes |
-| Azure File Storage | Yes |
-| Azure SQL Database \* | Yes |
-| Azure SQL Managed Instance \*| Yes |
-| Azure Synapse Analytics \* | Yes |
-| SQL Server \* | Yes |
-
-*\* Azure Purview currently doesn't support query or stored procedure for lineage or scanning. Lineage is limited to table and view sources only.*
+Refer to [supported data stores](how-to-lineage-sql-server-integration-services.md#supported-data-stores).
 
 > [!Note]
 > Azure Data Lake Storage Gen2 is now generally available. We recommend that you start using it today. For more information, see the [product page](https://azure.microsoft.com/en-us/services/storage/data-lake-storage/).

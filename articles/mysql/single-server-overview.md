@@ -10,7 +10,7 @@ ms.date: 6/19/2021
 ---
 # Azure Database for MySQL Single Server
 
-[!INCLUDE[applies-to-single-server](includes/applies-to-single-server.md)]
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 [Azure Database for MySQL](overview.md) powered by the MySQL community edition is available in two deployment modes:
 

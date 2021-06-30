@@ -38,6 +38,8 @@ sections:
           
           Under a tenant, a single DDoS protection plan can be used across multiple subscriptions, so there is no need to create more than one DDoS protection plan.
           
+          When Application Gateway with WAF is deployed in a DDoS protected VNet, there are no additional charges for WAF - you pay for the Application Gateway at the [lower non-WAF rate](https://azure.microsoft.com/pricing/details/application-gateway/). This applies to both Application Gateway v1 and v2 SKUs.
+          
           See [Azure DDoS Protection Standard pricing](https://azure.microsoft.com/pricing/details/ddos-protection/) for more details.
           
       - question: |
