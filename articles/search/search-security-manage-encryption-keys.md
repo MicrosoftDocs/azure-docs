@@ -396,7 +396,7 @@ Conditions that will prevent you from adopting this simplified approach include:
 ### User-assigned managed identity (preview)
 
 > [!IMPORTANT] 
-> User-assigned managed identity support is currently in preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> User-assigned managed identity support is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 > 
 > The [REST API version 2020-06-30-Preview](search-api-preview.md) provides this feature.
 
@@ -404,16 +404,15 @@ Assigning a user-assigned managed identity to your search service will enable yo
 
 1. If you don't already have a user-assigned managed identity created, you'll need to create one. To create a user-assigned managed identity follow the below steps:
 
-    1. Navigate to the Azure portal.
-    1. Create a new resource.
-    1. Search for "User Assigned Managed Identity".
-    1. Create the user-assigned managed identity resource.
+    1. Sign into the [Azure portal](https://portal.azure.com/).
+    1. Select **+ Create a new resource**.
+    1. In the "Search services and marketplace" search bar, search for "User Assigned Managed Identity" and then select **Create**.
+    1. Give the identity a descriptive name.
 
 1. Next, assign the user-assigned managed identity to the search service. This can be done using the [2021-04-01-preview](/rest/api/searchmanagement/management-api-versions) management API.
 
-    To assign the identity to the search service, update identity property of the search service:
+    The identity property takes a type and one or more fully-qualified user-assigned identities:
     
-    * **identity** is the identity for the resource.
     * **type** is the type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an identity created by the system and a set of user assigned identities. The type 'None' will remove all identities from the service.
     * **userAssignedIdentities** includes the details of the user assigned managed identity.
         * User-assigned managed identity format: 
