@@ -315,7 +315,7 @@ The app doesn't yet offer a way to view the original images that you uploaded. I
 
 In this section, you will use a free, open-source JavaScript library to add a lightbox viewer that enables users to see the original images they've uploaded (rather than just the image thumbnails). The files are provided for you in the resources that accompany this lab. All you have to do is integrate them into the project and make a minor modification to *Index.cshtml*.
 
-TBD - need to spread resources.
+TBD - need to spread resources. resources.zip
 
 1. In Solution Explorer, right-click the project's "Scripts" folder and use the **Add -> Existing Item...** command to import **lightbox.js** from the "scripts" folder in the lab resources.
 
