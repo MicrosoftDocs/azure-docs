@@ -6,9 +6,9 @@ services: synapse-analytics
 ms.service: synapse-analytics 
 ms.subservice: machine-learning
 ms.topic: overview 
-ms.reviewer: jrasnick, garye, negust
+ms.reviewer: jrasnick, garye, negust, ruxu
 
-ms.date: 06/28/2021
+ms.date: 06/30/2021
 author: garyericson
 ms.author: garye
 ---
@@ -19,7 +19,7 @@ Using pretrained models from Azure Cognitive Services, you can enrich your data 
 
 [Azure Cognitive Services](/azure/cognitive-services/what-are-cognitive-services) are cloud-based services that add cognitive intelligence to your data even if you don't have AI or data science skills. There are a few ways you can use these services with your data in Synapse Analytics:
 
-- The Cognitive Services wizard in Synapse Analytics generates PySpark code in a Jupyter notebook that connects to a cognitive service using data in a Spark table. Then, using pretrained machine learning models, the service does the work for you to add AI to your data.
+- The Cognitive Services wizard in Synapse Analytics generates PySpark code in a Synapse notebook that connects to a cognitive service using data in a Spark table. Then, using pretrained machine learning models, the service does the work for you to add AI to your data.
 
 - The tutorial [Build machine learning applications using Microsoft Machine Learning for Apache Spark (Preview)](tutorial-build-applications-use-mmlspark.md) demonstrates how to call a number of cognitive services using Microsoft Machine Learning for Apache Spark (MMLSpark).
 
@@ -43,3 +43,4 @@ The following tutorials provide complete examples of using Cognitive Services in
 
 - [Machine Learning capabilities in Azure Synapse Analytics](what-is-machine-learning.md)
 - [What are Cognitive Services?](/azure/cognitive-services/what-are-cognitive-services)
+- [Use a sample notebook from the Synapse Analytics gallery](quickstart-gallery-sample-notebook.md)
