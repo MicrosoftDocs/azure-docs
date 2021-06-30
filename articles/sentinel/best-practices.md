@@ -16,7 +16,7 @@ This article collects best practices and guidance to use when deploying, managin
 
 ## Architectural best practices
 
-- Before deploying Azure Sentinel, review and complete pre-deployment activities and prerequisites, and review best practices for creating your Azure Sentinel instance. 
+- Before deploying Azure Sentinel, review and complete pre-deployment activities and prerequisites, and review best practices for creating your Azure Sentinel instance.
 
     For more information, see [Pre-deployment activities and prerequisites for deploying Azure Sentinel](prerequisites.md).
 
@@ -62,6 +62,23 @@ Schedule the following Azure Sentinel activities on a regular basis to ensure co
 
 - **Log Analytics workspace review**. Review that the Log Analytics Workspace data retention policy still aligns with the organization policy.  For more information, see  [Data retention policy](/workplace-analytics/privacy/license-expiration) and [Integrate Azure Data Explorer for long-term log retention](store-logs-in-azure-data-explorer.md).
 
+
+## Integrating with other Microsoft security services
+
+Azure Sentinel is empowered by the components that send data to your workspace, and is made stronger through integrations with other Microsoft services. Any logs ingested into products such as Microsoft Cloud App Security, Microsoft Defender for Endpoint, and Microsoft Defender for Identity allow these services to create detections, and in turn provide those detections to Azure Sentinel. Logs can also be ingested directly into Azure Sentinel to provide a fuller picture for events and incidents.
+
+For example, the following image shows how Azure Sentinel ingests data from other Microsoft services, as well as multi-cloud and partner platforms to provide coverage for your environment:
+
+:::image type="content" source="media/best-practices/azure-sentinel-and-other-services.png" alt-text="Azure Sentinel integrating with other Microsoft and partner services":::
+
+More than ingesting alerts and logs from other sources, Azure Sentinel also:
+
+- **Uses the information it ingests with machine learning** that allows for better event correlation, alert aggregation, anomaly detection, and more.
+- **Builds and presents interactive visuals via workbooks**, showing trends, related information, and key data used for both admin tasks and investigations.
+- **Runs playbooks to act on alerts**, gathering information, performing actions on items, and sending notifications to various platforms.
+- **Integrates with partner platforms**, such as ServiceNow and Jira, to provide essential services for SOC teams.
+- **Ingests and fetches enrichment feeds** from threat intelligence platforms to bring valuable data for investigating.
+
 ## Next steps
 
 For more best practice information, see:
@@ -69,8 +86,7 @@ For more best practice information, see:
 - [Data collection best practices](data-collection-overview.md)
 - [Connect data from threat intelligence providers](connect-threat-intelligence.md)
 
-> [!div class="nextstepaction"]
->[On-board Azure Sentinel](quickstart-onboard.md)
+To get started with Azure Sentinel, see:
 
-> [!div class="nextstepaction"]
->[Get visibility into alerts](quickstart-get-visibility.md)
+- [On-board Azure Sentinel](quickstart-onboard.md)
+- [Get visibility into alerts](quickstart-get-visibility.md)
