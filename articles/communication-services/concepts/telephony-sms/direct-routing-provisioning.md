@@ -45,7 +45,7 @@ When you add a direct routing configuration to a resource, all calls made from t
 The following examples display voice routing in a call flow.
 
 ### One route example:
-If you created one voice route with a pattern ^\+1(425|206)(\d{7})$ and added sbc1.contoso.biz and sbc2.contoso.biz to it, then when the user makes a call to +1 425 XXX XX XX or +1 206 XXX XX XX, the call is first routed to SBC sbc1.contoso.biz or sbc2.contoso.biz. If neither SBC is available, the call is dropped.
+If you created one voice route with a pattern `^\+1(425|206)(\d{7})$` and added `sbc1.contoso.biz` and `sbc2.contoso.biz` to it, then when the user makes a call to `+1 425 XXX XX XX` or `+1 206 XXX XX XX`, the call is first routed to SBC `sbc1.contoso.biz` or `sbc2.contoso.biz`. If neither SBC is available, the call is dropped.
 
 ### Two routes example:
 If you created one voice route with a pattern ^\+1(425|206)(\d{7})$ and added sbc1.contoso.biz and sbc2.contoso.biz to it, and then created a second route with the same pattern with sbc3.contoso.biz and sbc4.contoso.biz. In this case, when the user makes a call to +1 425 XXX XX XX or +1 206 XXX XX XX, the call is first routed to SBC sbc1.contoso.biz or sbc2.contoso.biz. If both sbc1 and sbc2 are unavailable, the route with lower priority will be tried (sbc3.contoso.biz and sbc4.contoso.biz). If none of the SBCs of the second route are available, the call is.
