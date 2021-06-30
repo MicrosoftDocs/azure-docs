@@ -160,6 +160,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![image](common/default-attributes.png)
 
+    > [!NOTE]
+    > Ensure that the the SAML Response doesn't include any non-standard ASCII characters in the DisplayName and Surname attributes.    
+
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
 	![The Certificate download link](common/certificatebase64.png)
@@ -168,9 +171,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-    | **Logout URL** |
-    |-----|
-    | `https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0` |
+    ```Logout URL
+    https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0
+    ```
 
 ### Create an Azure AD test user
 
@@ -222,7 +225,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     e. Check/Uncheck the **Use a domain specific issuer** option as per the note mentioned in the above **Basic SAML Configuration** section in the Azure AD.
 
-	f. In the **Change password URL** field in Google Cloud (G Suite) Connector, paste the value of **Change password URL** which you have copied from Azure portal.
+	f. In the **Change password URL** field in Google Cloud (G Suite) Connector, enter the value as `https://account.activedirectory.windowsazure.com/changepassword.aspx`
 
     g. Click **Save**.
 
