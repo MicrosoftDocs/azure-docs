@@ -137,7 +137,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Log in to your Tulip website as administrator.
 
-1. Go to the **Security** -> **SAML** and perform the following steps in the below page.
+1. Go to the **Settings** -> **SAML** and perform the following steps in the below page.
 
 	![Screenshot for tulip configuration.](./media/tulip-tutorial/configuration.png)
 
