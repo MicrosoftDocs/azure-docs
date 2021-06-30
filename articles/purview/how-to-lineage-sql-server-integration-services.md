@@ -47,21 +47,27 @@ On premises SSIS lineage extraction is not supported yet.
 You can [run SSIS package with Execute SSIS Package activity](../data-factory/how-to-invoke-ssis-package-ssis-activity.md) or [run SSIS package with Transact-SQL in ADF SSIS Integration Runtime](../data-factory/how-to-invoke-ssis-package-stored-procedure-activity.md).  
 
 Once Execute SSIS Package activity finishes the execution, you can check lineage report status from the activity output in [Data Factory activity monitor](../data-factory/monitor-visually.md#monitor-activity-runs).
-:::image type="content" source="media/how-to-lineage-sql-server-integration-services/ssis-activity-report-lineage-status.png" alt-text="ssis-status":::
+:::image type="content" source="media/how-to-lineage-sql-server-integration-services/activity-report-lineage-status.png" alt-text="ssis-status":::
 
 ### Step 3. Browse lineage Information in your Azure Purview account
 
 - You can browse the Data Catalog by choosing asset type “SQL Server Integration Services”.
-:::image type="content" source="media/how-to-lineage-sql-server-integration-services/browse-assets-ssis-1.png" alt-text="browse-assets":::
-:::image type="content" source="media/how-to-lineage-sql-server-integration-services/browse-assets-ssis-2.png" alt-text="browser-assets-ssis":::
-:::image type="content" source="media/how-to-lineage-sql-server-integration-services/browse-assets-ssis-3.png" alt-text="browse-assets-ssis-package":::
+
+:::image type="content" source="media/how-to-lineage-sql-server-integration-services/browse-assets-1.png" alt-text="Browser assets" lightbox="media/how-to-lineage-sql-server-integration-services/browse-assets-1.png":::
+:::image type="content" source="media/how-to-lineage-sql-server-integration-services/browse-assets-2.png" alt-text="browser-assets-ssis":::
+:::image type="content" source="media/how-to-lineage-sql-server-integration-services/browse-assets-3.png" alt-text="browse-assets-ssis-package":::
 
 - You can also search the Data Catalog using keywords.
-:::image type="content" source="media/how-to-lineage-sql-server-integration-services/search-assets-ssis.png" alt-text="search-ssis":::
+
+:::image type="content" source="media/how-to-lineage-sql-server-integration-services/search-assets.png" alt-text="search-ssis" lightbox="media/how-to-lineage-sql-server-integration-services/search-assets.png":::
+
 - You can view lineage information for an SSIS Execute Package activity and open in Data Factory to view/edit the activity settings.
-:::image type="content" source="media/how-to-lineage-sql-server-integration-services/ssis-lineage.png" alt-text="show-ssis-lineage":::
+
+:::image type="content" source="media/how-to-lineage-sql-server-integration-services/lineage.png" alt-text="show-ssis-lineage" lightbox="media/how-to-lineage-sql-server-integration-services/lineage.png":::
+
 - You can choose one data source to drill into how the columns in the source are mapped to the columns in the destination.
-:::image type="content" source="media/how-to-lineage-sql-server-integration-services/ssis-lineage-drill-in.png" alt-text="show-ssis-lineage-drill-in":::
+
+:::image type="content" source="media/how-to-lineage-sql-server-integration-services/lineage-drill-in.png" alt-text="show-ssis-lineage-drill-in" lightbox="media/how-to-lineage-sql-server-integration-services/lineage-drill-in.png":::
 
 ## Next steps
 
