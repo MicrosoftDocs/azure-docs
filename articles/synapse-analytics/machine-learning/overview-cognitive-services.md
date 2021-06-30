@@ -39,7 +39,7 @@ The following tutorials provide complete examples of using Cognitive Services in
 
 - [Build machine learning applications using Microsoft Machine Learning for Apache Spark (Preview)](tutorial-build-applications-use-mmlspark.md) - This tutorial demonstrates how to use MMLSpark to access several models from Cognitive Services.
 
-## Next Steps
+## Next steps
 
 - [Machine Learning capabilities in Azure Synapse Analytics](what-is-machine-learning.md)
 - [What are Cognitive Services?](/azure/cognitive-services/what-are-cognitive-services)
