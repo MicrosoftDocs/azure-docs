@@ -51,7 +51,7 @@ The next step is to configure the app to use your account information. You took 
 
 Open `quickstarts\apps\directx\AoaSampleApp\AoaSampleAppMain.cpp`.
 
-Locate the `AccountInformation` field. Replace `{ /* Account ID goes here. */ }` with your Account Id. Replace `L"Account key goes here."` with your Account Key. Replace `L"Account domain goes here."` with your Account Domain.
+Locate the `AccountInformation` field. Replace `{ /* Account ID goes here. */ }` with your Account ID. Replace `L"Account key goes here."` with your Account Key. Replace `L"Account domain goes here."` with your Account Domain.
 
 Now, build the **AoaSampleApp** project by right-clicking the project and selecting **Build**.
 

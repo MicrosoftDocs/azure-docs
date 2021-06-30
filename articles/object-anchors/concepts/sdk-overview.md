@@ -29,7 +29,7 @@ An [ObjectSearchArea](/dotnet/api/microsoft.azure.objectanchors.objectsearcharea
 
 ### AccountInformation
 
-An [AccountInformation](/dotnet/api/microsoft.azure.objectanchors.accountinformation) stores the Id, Key and Domain for your Azure Object Anchors account.
+An [AccountInformation](/dotnet/api/microsoft.azure.objectanchors.accountinformation) stores the ID, Key and Domain for your Azure Object Anchors account.
 
 ### ObjectAnchorsSession
 
