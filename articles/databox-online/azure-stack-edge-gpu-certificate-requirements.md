@@ -30,7 +30,11 @@ Certificate issuing requirements are as follows:
 
 ## Certificate algorithms
 
-Certificate algorithms must have the following requirements:
+Only the Rivest–Shamir–Adleman (RSA) certificates are supported with your device. Elliptic Curve Digital Signature Algorithm (ECDSA) certificates are not supported.
+
+Certificates that contain an RSA public key are referred to as RSA certificates. Certificates that contain an Elliptic Curve Cryptographic (ECC) public key are referred to as ECDSA (Elliptic Curve Digital Signature Algorithm) certificates.
+
+Certificate algorithm requirements are as follows:
 
 * Certificates must use the RSA key algorithm.
 
@@ -42,9 +46,9 @@ Certificate algorithms must have the following requirements:
 
 ## Certificate subject name and subject alternative name
 
-Certificates must have the following subject name and subject alternative name requirements:
+Certificates must meet the following subject name and subject alternative name requirements:
 
-* You can either use a single certificate covering all name spaces in the certificate's Subject Alternative Name (SAN) fields. Alternatively, you can use individual certificates for each of the namespaces. Both approaches require using wild cards for endpoints where required, such as binary large object (Blob).
+* You can either use a single certificate covering all namespaces in the certificate's Subject Alternative Name (SAN) fields. Alternatively, you can use individual certificates for each of the namespaces. Both approaches require using wild cards for endpoints where required, such as binary large object (Blob).
 
 * Ensure that the subject names (common name in the subject name) is part of subject alternative names in the subject alternative name extension.
 

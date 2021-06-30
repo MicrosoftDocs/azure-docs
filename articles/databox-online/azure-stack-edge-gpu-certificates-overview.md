@@ -20,7 +20,20 @@ This article describes the types of certificates that can be installed on your A
 
 A certificate provides a link between a **public key** and an entity (such as domain name) that has been **signed** (verified) by a trusted third party (such as a **certificate authority**).  A certificate provides a convenient way of distributing trusted public encryption keys. Certificates thereby ensure that your communication is trusted and that you're sending encrypted information to the right server. 
 
-When your  device is initially configured, self-signed certificates are automatically generated. Optionally, you can bring your own certificates. There are guidelines that you need to follow if you plan to bring your own certificates.
+## Deploying certificates on device
+
+On your Azure Stack Edge device, you can use the self-signed certificates or bring your own certificates.
+
+- **Device-generated certificates**: When your  device is initially configured, self-signed certificates are automatically generated. If needed, you can regenerate these certificates via the local web UI. Once the certificates are regenerated, download and import the certificates on the clients used to access your device.
+
+- **Bring your own certificates**: Optionally, you can bring your own certificates. There are guidelines that you need to follow if you plan to bring your own certificates.
+
+- Start by understanding the types of the certificates that can be used with your Azure Stack Edge device in this article.
+- Next, review the [Certificate requirements for each type of certificate](azure-stack-edge-gpu-certificate-requirements.md). [Viewing the certificate requirements](azure-stack-edge-certificate-requirements.md). 
+- You can then [Create your certificates via Azure PowerShell](azure-stack-edge-gpu-create-certificates-powershell.md) or [Create your certificates via Readiness Checker tool](azure-stack-edge-gpu-create-certificates-tool.md).
+- Finally, [Convert the certificates to appropriate format](azure-stack-edge-gpu-prepare-certificates-device-upload.md) so that they are ready to upload on to your device.
+- [Upload your certificates](azure-stack-edge-gpu-manage-certificates.md#upload-certificates-on-your-device) on the device.
+- [Import the certificates on the clients](azure-stack-edge-gpu-manage-certificates.md#import-certificates-on-the-client-accessing-the-device) accessing the device.
 
 ## Types of certificates
 
@@ -29,14 +42,16 @@ The various types of certificates that you can bring for your device are as foll
     - Root CA
     - Intermediate
 
-- Endpoint certificates
-    - Node certificate
+- Node certificates
+
+- Endpoint certificates   
     - Local UI certificates
     - Azure Resource Manager certificates
     - Blob storage certificates
     - IoT device certificates
-    <!--- WiFi certificates
-    - VPN certificates-->
+    - Wi-Fi certificates
+    - VPN certificates
+    - Kubernetes certificates
 
 - Encryption certificates
     - Support session certificates
@@ -148,31 +163,32 @@ If your  device is experiencing any issues, then to troubleshoot those issues, a
 - The Support session certificate must be provided as DER format with a `.cer` extension.
 
 
-<!--## VPN certificates
+## VPN certificates
 
 If VPN is configured on your  device, then you will also need a certificate for any communication that occurs over the VPN channel. You can bring your own VPN certificate to ensure the communication is trusted.
 
 ### Caveats
 
-- The VPN certificate must be uploaded as a pfx format with a  private key.
+- The VPN certificate must be uploaded as a *.pfx* format with a  private key.
 - The VPN certificate is not dependant on the device name, device serial number, or device configuration. It only requires the external FQDN.
-- Make sure that the client OID is set.-->
+- Make sure that the client OID is set.
 
-<!--## WiFi certificates
+## Wi-Fi certificates
 
-If your device is configured to operate on a wireless network, then you will also need a WiFi certificate for any communication that occurs over the wireless network. 
+If your device is configured to operate on a wireless network, then you will also need a Wi-Fi certificate for any communication that occurs over the wireless network. 
 
 ### Caveats
 
-- The WiFi certificate must be uploaded as a pfx format with a private key.
-- Make sure that the client OID is set.-->
+- The Wi-Fi certificate must be uploaded as a *.pfx* format with a private key.
+- Make sure that the client OID is set.
 
+## Kubernetes certificates
 
-## Supported certificate algorithms
+If your device has an Edge container registry, then you'll need an Edge Container Registry certificate for secure communication with the client that is accessing the registry on the device.
 
-Only the Rivest–Shamir–Adleman (RSA) certificates are supported with your  device. Elliptic Curve Digital Signature Algorithm (ECDSA) certificates are not supported.
+### Caveats
 
-Certificates that contain an RSA public key are referred to as RSA certificates. Certificates that contain an Elliptic Curve Cryptographic (ECC) public key are referred to as ECDSA (Elliptic Curve Digital Signature Algorithm) certificates. 
+- The Edge Container Registry certificate must be uploaded as *.pfx* format with a private key.
 
 
 ## Next steps
