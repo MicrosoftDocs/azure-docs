@@ -12,11 +12,7 @@ ms.custom: references_regions
 
 # Use the Azure portal to enable end-to-end encryption using encryption at host
 
-When you enable encryption at host, data stored on the VM host is encrypted at rest and flows encrypted to the Storage service. For conceptual information on encryption at host, and other managed disk encryption types, see:
-
-* Linux: [Encryption at host - End-to-end encryption for your VM data](./disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
-
-* Windows: [Encryption at host - End-to-end encryption for your VM data](./disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
+When you enable encryption at host, data stored on the VM host is encrypted at rest and flows encrypted to the Storage service. For conceptual information on encryption at host, and other managed disk encryption types, see: [Encryption at host - End-to-end encryption for your VM data](./disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
 
 ## Restrictions
 
@@ -77,6 +73,8 @@ Now that you've setup an Azure Key Vault and disk encryption set, you can deploy
 1. Finish the VM deployment process, make selections that fit your environment.
 
 You have now deployed a VM with encryption at host enabled, all its associated disks will be encrypted using encryption at host.
+
+## Disable host based encryption
 
 ## Next steps
 
