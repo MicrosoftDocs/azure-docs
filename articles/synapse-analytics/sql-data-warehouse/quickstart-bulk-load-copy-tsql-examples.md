@@ -151,21 +151,15 @@ Managed Identity authentication is required when your storage account is attache
     | Members | Azure AD user |
 
     ![Add role assignment page in Azure portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
-1. 
-1. 
-1. 
-1. 
-1. 
-1. navigate to **Access Control (IAM)**, and select **Add role assignment**. Assign **Storage Blob Data Owner, Contributor, or Reader** Azure role to your Azure AD user. 
 
     > [!IMPORTANT]
     > Specify the **Storage** **Blob Data** Owner, Contributor, or Reader Azure role. These roles are different than the Azure built-in roles of Owner, Contributor, and Reader.
 
     ![Granting Azure RBAC permission to load](./media/quickstart-bulk-load-copy-tsql-examples/rbac-load-permissions.png)
 
-2. Configure Azure AD authentication by going through the following [documentation](../../azure-sql/database/authentication-aad-configure.md?tabs=azure-powershell). 
+1. Configure Azure AD authentication by going through the following [documentation](../../azure-sql/database/authentication-aad-configure.md?tabs=azure-powershell). 
 
-3. Connect to your SQL pool using Active Directory where you can now run the COPY statement without specifying any credentials:
+1. Connect to your SQL pool using Active Directory where you can now run the COPY statement without specifying any credentials:
 
 	```sql
 	COPY INTO dbo.target_table
