@@ -15,7 +15,7 @@ ms.reviewer: laobri
 
 # Create a training job with Job Creation UI (preview)
 
-There are many ways to create a training job with Azure Machine Learning. You can use CLI, REST API, or you can use the UI to directly create a training job without the need to learn CLI or REST APIs. In this article, you will learn how to use your own data and code to train a machine learning model with the job creation UI in Azure Machine Learning Studio.
+There are many ways to create a training job with Azure Machine Learning. You can use CLI, REST API, or you can use the UI to directly create a training job without the need to learn CLI or REST APIs. In this article, you'll learn how to use your own data and code to train a machine learning model with the job creation UI in Azure Machine Learning Studio.
 
 ## Prerequisites
 
@@ -40,14 +40,14 @@ There are many ways to create a training job with Azure Machine Learning. You ca
 1. If you are in the Experiment page and you would like to create a new job, you can go to the **All runs** tab and click **Create job**. 
 [![Experiment page entry for job creation UI](media/how-to-train-with-ui/experiment-entry.png)](media/how-to-train-with-ui/experiment-entry.png)
 
-Then you will land in to the job creation panel, you can follow the steps in the wizard to configure and create a training job. 
+Then you'll land in to the job creation panel, you can follow the steps in the wizard to configure and create a training job. 
 
 ## Select compute resources
 
-The first step in the job creation UI is to select the compute target you would like your job to run on. Job creation UI supports a lot of different compute types: compute cluster, compute instance, attached Kubernetes cluster. You can select a compute type first and select from your existing compute targets. You can see the node information and SKU type in the dropdown to help you better choose. For compute cluster or Kubernetes cluster, you can also specify how many nodes you need for this job in **Instance count**. If omitted, we will set the default number for instance count as 1. You can then click **Next** to go to the next step. 
+The first step in the job creation UI is to select the compute target you would like your job to run on. Job creation UI supports several compute types: compute cluster, compute instance, attached Kubernetes cluster. You can select a compute type first and select from your existing compute targets. You can see the node information and SKU type in the dropdown to help you better choose. For compute cluster or Kubernetes cluster, you can also specify how many nodes you need for this job in **Instance count**. If omitted, we'll set the default number for instance count as 1. You can then click **Next** to go to the next step. 
  [![Select a compute cluster](media/how-to-train-with-ui/compute-cluster.png)](media/how-to-train-with-ui/compute-cluster.png)
 
-If this is your first time using Azure Machine Learning, you'll see an empty list and links to create a new compute. You can learn how to [create a compute instance](how-to-create-manage-compute-instance.md), [create a compute cluster](how-to-create-attach-compute-cluster.md), or [attach an Azure Arc enabled Kubernetes cluster](how-to-attach-arc-kubernetes.md). 
+If you are using Azure Machine Learning for the first time, you'll see an empty list and links to create a new compute. You can learn how to [create a compute instance](how-to-create-manage-compute-instance.md), [create a compute cluster](how-to-create-attach-compute-cluster.md), or [attach an Azure Arc enabled Kubernetes cluster](how-to-attach-arc-kubernetes.md). 
  [![Create a new compute instance](media/how-to-train-with-ui/create-new-compute.png)](media/how-to-train-with-ui/create-new-compute.png)
 
 ## Specify the necessary environment
@@ -60,13 +60,13 @@ After selecting a compute target, you can specify the environment. Job creation 
 
 ### Curated environments
 
-Curated environments contain collections of Python packages and are available in your workspace by default. These environments are backed by cached Docker images which reduces the run preparation cost. You can see detailed information about the contents of each curated environment in the card.
+Curated environments contain collections of Python packages and are available in your workspace by default. These environments are backed by cached Docker images, which reduce the run preparation overhead. You can see detailed information about the contents of each curated environment in the card.
 
  [![Curated environments](media/how-to-train-with-ui/curated-env.png)](media/how-to-train-with-ui/curated-env.png)
 
 ### Custom environments
 
-Custom environments are the environments created by the users.You can select an environment that you created before and reuse it for different jobs. You can learn more about [how to create an environment](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-manage-environments-in-studio#create-an-environment). 
+Custom environments are the environments created by the users. You can select an environment that you created before and reuse it for different jobs. You can learn more about [how to create an environment](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-manage-environments-in-studio#create-an-environment). 
 
 ### Container registry image
 
@@ -79,9 +79,9 @@ After specifying the environment, you can configure your job with more settings.
 
 |Field| Description|
 |------| ------|
-|Job name| The job name field is used to uniquely identify your job. It is also set as the display name for your job. This field is optional and we will generate a GUID for you if you don't enter anything. Please noted that the job name cannot be duplicated.|
-|Experiment name| Tags the job for better organization in the Azure Machine Learning studio. Each job's run record will be organized under the corresponding experiment in the studio's "Experiment" tab. We will set as **Default** experiment by default.|
-|Code| You can upload a code file or a folder from local, or upload a code file from workspace default blob storage. We will show the files to be uploaded after you make the selection. |
+|Job name| The job name field is used to uniquely identify your job. Its also set as the display name for your job. This field is optional and we'll generate a GUID for you if you don't enter anything. Note that the job name cannot be duplicated.|
+|Experiment name| Tags the job for better organization in the Azure Machine Learning studio. Each job's run record will be organized under the corresponding experiment in the studio's "Experiment" tab. we'll set as **Default** experiment by default.|
+|Code| You can upload a code file or a folder from local, or upload a code file from workspace default blob storage. we'll show the files to be uploaded after you make the selection. |
 |Command| The command to execute. Command-line arguments can be explicitly written into the command or inferred from other sections, specifically **inputs** using curly braces notation.|
 |Inputs| Specify the input binding. We support three types of inputs: 1) Azure Machine Learning registered dataset; 2) workspace default blob storage; 3) upload local file. You can add multiple inputs. |
 |Environment variables| Setting environment variables allows you to provide dynamic configuration of the job. You can add the variable and value here.|
@@ -91,11 +91,11 @@ After specifying the environment, you can configure your job with more settings.
 
 #### Code
 
-The command will run from the root directory of the uploaded code folder. After you select your code file or folder, you will be able to see the files to be uploaded. You can copy the relative path for the code and paste it in the command box. 
+The command will run from the root directory of the uploaded code folder. After you select your code file or folder, you'll be able to see the files to be uploaded. You can copy the relative path for the code and paste it in the command box. 
 
 If the code is in the root directory, you can directly refer to it in the command like `python main.py`.
 
-If the code is not in the root directory, you should use the relative path. For example, look at the [word language model](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/train/pytorch/word-language-model) example, if you upload the entire folder:
+If the code isn't in the root directory, you should use the relative path. For example, look at the [word language model](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/train/pytorch/word-language-model) example, if you upload the entire folder:
 
 ```tree
 .
@@ -104,7 +104,7 @@ If the code is not in the root directory, you should use the relative path. For 
 └── src
     └── main.py
 ```
-This directory contains two subdirectory, and the source code is in the subdirectory `src`. In this case, when you refer your source code in the command, you should use `python ./src/main.py`.
+This directory contains two subdirectories, with the source code in the `src` subdirectory. In this case, when you refer your source code in the command, you should use `python ./src/main.py`.
 
 [![Refer code in the command](media/how-to-train-with-ui/code-command.png)](media/how-to-train-with-ui/code-command.png)
 
@@ -126,7 +126,7 @@ You can also click **view the YAML spec** to review and download the yaml file g
 [![view yaml spec](media/how-to-train-with-ui/view-yaml.png)](media/how-to-train-with-ui/view-yaml.png)
 [![Yaml spec](media/how-to-train-with-ui/yaml-spec.png)](media/how-to-train-with-ui/yaml-spec.png)
 
-After you click **Create**, you will be landed to the run details page, where you can monitor and manage your training job. 
+After you click **Create**, you'll be landed to the run details page, where you can monitor and manage your training job. 
 
 ## Coming soon
 
