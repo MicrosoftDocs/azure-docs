@@ -83,7 +83,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. Open the [Atlassian Admin Portal](https://admin.atlassian.com/) and click on your organization name.
 
-   ![organization](./media/atlassian-cloud-tutorial/organization.png)
+   ![Admin Portal](./media/atlassian-cloud-tutorial/organization.png)
 
 1. You need to verify your domain before going to configure single sign-on. For more information, see [Atlassian domain verification](https://confluence.atlassian.com/cloud/domain-verification-873871234.html) document.
 
