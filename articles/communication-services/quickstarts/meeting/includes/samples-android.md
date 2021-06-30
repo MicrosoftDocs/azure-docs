@@ -18,7 +18,7 @@ ms.service: azure-communication-services
 ## Start a group call using the meeting client
 
 The `joinGroupCall` method is set as the action that will be performed when the *Join Group Call* button is tapped. Joining a group call can be done via the `MeetingUIClient`, and just requires a `MeetingUIClientGroupCallLocator` and the `MeetingUIClientJoinOptions`.
-Note to replace `<GROUP_ID>` with a UUID string. Group ID string must be in GUID or UUID format, see the guide for [UUID]((https://developer.android.com/reference/java/util/UUID)).
+Note to replace `<GROUP_ID>` with a UUID string. Group ID string must be in GUID or UUID format, see the guide for [UUID](https://developer.android.com/reference/java/util/UUID).
 
 ```java
 import com.azure.android.communication.ui.meetings.MeetingUIClient;
