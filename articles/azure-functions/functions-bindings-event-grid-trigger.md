@@ -15,6 +15,9 @@ Use the function trigger to respond to an event sent to an Event Grid topic.
 
 For information on setup and configuration details, see the [overview](./functions-bindings-event-grid.md).
 
+> [!NOTE]
+> Event Grid triggers aren't natively supported in an internal load balancer App Service Environment. The trigger uses an HTTP request that can't reach the function app without a gateway into the virtual network.
+
 ## Example
 
 # [C#](#tab/csharp)
