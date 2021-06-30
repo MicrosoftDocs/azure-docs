@@ -19,7 +19,7 @@ This article discusses the two types of Azure Time Series Insights access polici
 
 > **Warning**: Access Policies grant AAD Users and/or Groups Data Plane access to your Time Series Insights Environment.
 > An Azure Active Directory is tied to a Tenant. So if you decide to move your Subscription between Tenants, make sure to follow the procedure
-> from [the section below(#Procedure-for-when-the-Subscription-is-moved-across-Tenants).
+> from [the section below](#Procedure-for-when-the-Subscription-is-moved-across-Tenants).
 
 ## Sign in to Azure Time Series Insights
 
