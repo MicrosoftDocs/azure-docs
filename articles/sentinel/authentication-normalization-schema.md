@@ -39,7 +39,7 @@ For more information about normalization in Azure Sentinel, see [Normalization a
 Azure Sentinel provides the following built-in, product-specific authentication event parsers: 
 
 - **Security Events sign-ins (Events 4624 and 4625)**, collected using the Log Analytics Agent or Azure Monitor Agent
-- **Asuze Active Directory sign-ins**, collected using the Azure Active Directory connector. Seperate parsers are provided for regular, Non-Interactive, Managed Identities and Service Principles Sign-ins.
+- **Asuze Active Directory sign-ins**, collected using the Azure Active Directory connector. Separate parsers are provided for regular, Non-Interactive, Managed Identities and Service Principles Sign-ins.
 - **AWS sign-ins**, collected using the AWS CloudTrail connector.
 - **Okta authentication**, collected using the Okta connector.
 
@@ -159,7 +159,7 @@ An **Actor**, running an *Acting Application* (**ActingApp**) on a *Source Devic
 | **SrcGeoLongtitude**|Optional |Longitude  | Example: `-73.614830` <br><br>For more information, see [Logical types](normalization.md#logical-types).|
 | **SrcGeoLatitude**|Optional |Latitude |Example: `45.505918` <br><br>For more information, see [Logical types](normalization.md#logical-types). |
 |**TargetAppId** |Optional | String| The ID of the application to which the authorization is required, often assigned by the reporting device. <br><br>Example: `89162` |
-|<a name="targetappname"></a>**TargetAppName** |Optional |String |The name of the application to which the authorization is required, including a service, a URL, or a SaaS applicaton. <br><br>Example: `Saleforce` |
+|<a name="targetappname"></a>**TargetAppName** |Optional |String |The name of the application to which the authorization is required, including a service, a URL, or a SaaS application. <br><br>Example: `Saleforce` |
 | **TargetAppType**|Optional |String |The type of the application authorizing on behalf of the Actor. Supported values include:  <br><br>- `Process` <br>- `Service` <br>- `Resource` <br>- `URL` <br>- `SaaS application` <br>- `Other`|
 |**TargetUrl** |Optional |String |The URL associated with the target application. <br><br>Example: `https://console.aws.amazon.com/console/home?fromtb=true&hashArgs=%23&isauthcode=true&nc2=h_ct&src=header-signin&state=hashArgsFromTB_us-east-1_7596bc16c83d260b` |
 |**LogonTarget**| Alias| |Alias to either [TargetAppName](#targetappname), *URL*, or [TargetDvcHostname](#targetdvchostname), whichever field best describes the authentication target. |
