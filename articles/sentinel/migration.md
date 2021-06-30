@@ -26,7 +26,7 @@ You'll want to plan your migration properly to ensure that transition doesn't in
 
 To start, identify your key core capabilities and first-priority requirements. Evaluate the key use cases your current SIEM covers, and decide which detections and capabilities where Azure Sentinel needs to continue providing coverage.
 
-You'll add more in-process planning at each step of your migration process, as you consider the exact data sources and detection rules you want to migrate. For more information, see [How to migrate to Azure Sentinel](#how-to-migrate-to-azure-sentinel).
+You'll add more in-process planning at each step of your migration process, as you consider the exact data sources and detection rules you want to migrate. For more information, see [Migrate your data](#migrate-your-data) and [Migrate analytics rules](#migrate-analytics-rules).
 
 > [!TIP]
 > Your current SIEM may have an overwhelming number of detections and use cases. Decide which ones are most useful to your business and determine which ones may not need to be migrated. For example, check to see which detections produced results within the past year.
@@ -51,7 +51,7 @@ If you have limited or no investment in an existing on-premises SIEM, moving to 
 
 Although Azure Sentinel provides extended data and response for both on-premises the cloud, you may want to start your migration slowly, by running Azure Sentinel and your legacy SIEM [side-by-side](#select-a-side-by-side-approach-and-method). In a side-by-side architecture local resources can use the on-premises SIEM and cloud resources and new workloads use cloud-based analytics.
 
-Unless you choose a long-term side-by-side configuration, [complete your migration](#how-to-migrate-to-azure-sentinel) to a full Azure Sentinel deployment to access lower infrastructure costs, real-time threat analysis, and cloud-scalability.
+Unless you choose a long-term side-by-side configuration, complete your migration to a full Azure Sentinel deployment to access lower infrastructure costs, real-time threat analysis, and cloud-scalability.
 
 ## Select a side-by-side approach and method
 
