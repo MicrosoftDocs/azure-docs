@@ -461,7 +461,7 @@ To render `RemoteVideoStream`, your application should do the following:
 - `createView` resolves after a local endpoint subscribes to the video and receives the first video frame. At this point the application can attach the `view` instance returned from `createView` to the DOM.
 - once a stream becomes unavailable, your application should `dispose` all views associated with the VideoStreamRenderer instance used to render the given stream. It may also choose to `dispose` a `VideoStreamRenderer` instance itself.
 
-Note:
+Some important considerations:
 - if a stream becomes unavailable (e.g. sender stopped video, or there's a network connectivity issue) before `createView` resolves, `createView` will be rejected information that the stream became unavailable.
 - after the `VideoStreamRendererView` instance is disposed, it can not be reused. Your application must create a new `VideoStreamRendererView` instance using the `createView` method.
 - Both `createView` and `dispose` can throw exceptions. Your application should handle these scenarios accordingly.
