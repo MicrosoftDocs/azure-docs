@@ -84,7 +84,7 @@ Playbook documentation also explicitly addresses the multi-tenant MSSP scenario.
 
 This month we've reorganization our [Azure Sentinel documentation](index.yml), restructuring into intuitive categories that follow common customer journeys. Use the filtered docs search and updated landing page to navigate through Azure Sentinel docs.
 
-:::image type="content" source="media/whats-new/new-docs.PNG" alt-text="New Azure Sentinel documentation organization.":::
+:::image type="content" source="media/whats-new/new-docs.png" alt-text="New Azure Sentinel documentation organization." lightbox="new-docs.png":::
 
 ## May 2021
 
