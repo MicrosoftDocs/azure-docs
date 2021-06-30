@@ -70,6 +70,7 @@ You can configure the following logs for Azure Machine Learning:
 | AmlComputeClusterNodeEvent | Events from nodes within an Azure Machine Learning compute cluster. |
 | AmlComputeJobEvent | Events from jobs running on Azure Machine Learning compute. |
 
+
 > [!NOTE]
 > When you enable metrics in a diagnostic setting, dimension information is not currently included as part of the information sent to a storage account, event hub, or log analytics.
 
@@ -109,7 +110,28 @@ Data in Azure Monitor Logs is stored in tables, with each table having its own s
 | AmlComputeClusterEvent | Events from Azure Machine Learning compute clusters. |
 | AmlComputeClusterNodeEvent | Events from nodes within an Azure Machine Learning compute cluster. |
 | AmlComputeJobEvent | Events from jobs running on Azure Machine Learning compute. |
-| ModelsChangeEvent | Events from changes made to the Model. |
+| ModelsChangeEvent | Event when ML model is either created, modified or deleted. |
+| ModelsReadEvent | Event when a ML model is read. |
+| ModelsActionEvent | Event when Packaging of models and assets happen into a ready-to-build package. |
+| DeploymentReadEvent | Event when a model deployment read happens on any compute target (ACI/AKS). |
+| DeploymentEventACI | Event when a model deployment happens on ACI. |
+| DeploymentEventAKS | Event when a model deployment happens on AKS. |
+| InferencingOperationAKS | Event for inference or related operation on AKS compute type (very chatty). |
+| InferencingOperationACI | Event for inference or related operation on ACI compute type (very chatty). |
+| EnvironmentChangeEvent | Event when Environment changes are detected. |
+| EnvironmentReadEvent | Event when Environment configs are read (very chatty). |
+| DataLabelChangeEvent | Event when data label(s) is either created, deleted or rejected. |
+| DataLabelReadEvent | Event when data label(s) is read. |
+| ComputeInstanceEvent | Event when Compute Instance is accessed (read/ write/ delete) (very chatty). |
+| DataStoreChangeEvent | Event when a ML datastore is created or modified or deleted. |
+| DataStoreReadEvent | Event when a  ML datastore is read. |
+| DataSetChangeEvent | Event when a registered or unregistered ML dataset is either created, modified or deleted. |
+| DataSetReadEvent | Event when a registered or unregistered ML dataset is read. |
+| PipelineChangeEvent | Event for pipeline draft or endpoint or module creates or updates or deletes. |
+| PipelineReadEvent | Event for pipeline draft or endpoint or module reads. |
+| RunEvent | Event when ML experiments or a run is created or deleted. |
+| RunReadEvent | Events from jobs running on Azure Machine Learning compute. |
+
 
 > [!IMPORTANT]
 > When you select **Logs** from the Azure Machine Learning menu, Log Analytics is opened with the query scope set to the current workspace. This means that log queries will only include data from that resource. If you want to run a query that includes data from other databases or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](../azure-monitor/logs/scope.md) for details.
