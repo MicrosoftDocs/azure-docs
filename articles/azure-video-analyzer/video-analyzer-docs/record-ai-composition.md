@@ -16,7 +16,7 @@ Azure Video Analyzer supports such scenarios via a feature called [AI Compositio
 After completing the steps in this guide, you'll be able to run a simulated live video stream through a pipeline with AI composability and extend it to your specific scenarios. The following diagram graphically represents that pipeline.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/ai-composition/overview.png" alt-text="AI composition overview":::
+> :::image type="content" source="./media/ai-composition/motion-with-object-detection-using-ai-composition.svg" alt-text="AI composition overview":::
  
 ## Prerequisites
 
