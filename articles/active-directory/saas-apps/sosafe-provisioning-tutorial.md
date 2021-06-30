@@ -22,7 +22,7 @@ ms.author: Zhchia
 This tutorial describes the steps you need to perform in both SoSafe and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to [SoSafe](https://sosafe.de/) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
 
-## Capabilities Supported
+## Capabilities supported
 > [!div class="checklist"]
 > * Create users in SoSafe.
 > * Remove users in SoSafe when they do not require access anymore.
@@ -48,9 +48,9 @@ The scenario outlined in this tutorial assumes that you already have the followi
 ## Step 2. Configure SoSafe to support provisioning with Azure AD
 
 1. Login to [Sosafe admin console](https://manager.sosafe.de) and navigate to **Extended Data > SCIM** tab.
-1. Enter your Azure Tenant Id under **Identity Provider Tenant ID (Azure, Okta, etc.)** and click on **Save**.
+1. Enter your Azure Tenant ID under **Identity Provider Tenant ID (Azure, Okta, etc.)** and select **Save**.
 1. Click on **Generate Token**.
-1. Now copy the **Tenant URL** and **Token** visioble on this page.These values will be entered in the **Tenant URL** and **Secret Token** * field in the Provisioning tab of your Sosafe application in the Azure portal.
+1. Copy the **Tenant URL** and **Token** visible on this page. These values will be entered in the **Tenant URL** and **Secret Token** * field in the Provisioning tab of your Sosafe application in the Azure portal.
 
 ## Step 3. Add SoSafe from the Azure AD application gallery
 
