@@ -114,4 +114,5 @@ To persistently set read-ahead for NFS mounts, `udev` rules can be written as fo
 * [Linux filesystem cache best practices for Azure NetApp Files](performance-linux-filesystem-cache.md)
 * [Linux NFS mount options best practices for Azure NetApp Files](performance-linux-mount-options.md)
 * [Linux concurrency best practices](performance-linux-concurrency-session-slots.md)
+* [Azure virtual machine SKUs best practices](performance-virtual-machine-sku.md) 
 * [Performance benchmarks for Linux](performance-benchmarks-linux.md) 

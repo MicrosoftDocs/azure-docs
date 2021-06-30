@@ -48,7 +48,9 @@
       - name: Linux NFS read-ahead best practices
         href: performance-linux-nfs-read-ahead.md
       - name: SMB performance best practices
-        href: azure-netapp-files-smb-performance.md 
+        href: azure-netapp-files-smb-performance.md
+      - name: Azure virtual machine SKUs best practices
+        href: performance-virtual-machine-sku.md 
   - name: Cost model for Azure NetApp Files
     href: azure-netapp-files-cost-model.md
   - name: Understand volume quota

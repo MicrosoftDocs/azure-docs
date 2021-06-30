@@ -137,4 +137,5 @@ When no close-to-open consistency (`nocto`) is used, the client will trust the f
 * [Linux filesystem cache best practices for Azure NetApp Files](performance-linux-filesystem-cache.md)
 * [Linux concurrency best practices for Azure NetApp Files](performance-linux-concurrency-session-slots.md)
 * [Linux NFS read-ahead best practices](performance-linux-nfs-read-ahead.md)
+* [Azure virtual machine SKUs best practices](performance-virtual-machine-sku.md) 
 * [Performance benchmarks for Linux](performance-benchmarks-linux.md) 

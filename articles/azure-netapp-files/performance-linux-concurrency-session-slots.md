@@ -265,4 +265,5 @@ The following example shows Packet 14 (server maximum requests):
 * [Linux filesystem cache best practices for Azure NetApp Files](performance-linux-filesystem-cache.md)
 * [Linux NFS mount options best practices for Azure NetApp Files](performance-linux-mount-options.md)
 * [Linux NFS read-ahead best practices](performance-linux-nfs-read-ahead.md)
+* [Azure virtual machine SKUs best practices](performance-virtual-machine-sku.md) 
 * [Performance benchmarks for Linux](performance-benchmarks-linux.md) 

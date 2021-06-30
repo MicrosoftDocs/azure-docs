@@ -50,4 +50,5 @@ Testing with `directio` is an excellent way to understand the limits of the stor
 * [Linux NFS mount options best practices for Azure NetApp Files](performance-linux-mount-options.md)
 * [Linux concurrency best practices for Azure NetApp Files](performance-linux-concurrency-session-slots.md)
 * [Linux NFS read-ahead best practices](performance-linux-nfs-read-ahead.md)
+* [Azure virtual machine SKUs best practices](performance-virtual-machine-sku.md) 
 * [Performance benchmarks for Linux](performance-benchmarks-linux.md) 
