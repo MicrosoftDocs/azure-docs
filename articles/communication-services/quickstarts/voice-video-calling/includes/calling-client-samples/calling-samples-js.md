@@ -2,7 +2,7 @@
 author: mikben
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.author: mikben
 ---
 ## Prerequisites
@@ -128,10 +128,9 @@ const camera = cameras[0]
 localVideoStream = new LocalVideoStream(camera);
 const placeCallOptions = {videoOptions: {localVideoStreams:[localVideoStream]}};
 const call = callAgent.startCall(['acsUserId'], placeCallOptions);
-
 ```
 
-When your call connects, it automatically starts sending a video stream from the selected camera to the other participant. This also applies to the `Call.Accept()` video options and `CallAgent.join()` video options.
+- When your call connects, it automatically starts sending a video stream from the selected camera to the other participant. This also applies to the `Call.Accept()` video options and `CallAgent.join()` video options.
 
 ### Join a group call
 
@@ -210,6 +209,9 @@ callAgentInstance.on('incomingCall', incomingCallHander);
 ```
 
 The `incomingCall` event includes an `incomingCall` instance that you can accept or reject.
+
+When starting/joining/accepting a call with video on, if the specified video camera device is being used by another process or if its disabled in the system, the call will start with video off, and a cameraStartFailed: true call diagnostic will be raised.
+See Call Diagnostics section to see how to handle this call diagnostic.
 
 ## Manage calls
 
@@ -343,6 +345,11 @@ const cameras = await callClient.getDeviceManager().getCameras();
 const camera = cameras[1];
 localVideoStream.switchSource(camera);
 ```
+
+If the specified video device is being used by another process, or if its disabled in the system:
+- While in a call, if your video is off and you start video using the call.startVideo() api, this API will throw with a SourceUnavailableError and a cameraStartFiled: true call diagnostic will be raised.
+- A call to the localVideoStream.switchSource() api will cause a cameraStartFailed: true call diagnostic to be raised be raised.
+See Call Diagnostics section to see how to handle call diagnostics.
 
 ## Manage remote participants
 

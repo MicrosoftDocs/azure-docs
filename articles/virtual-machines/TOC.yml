@@ -278,14 +278,14 @@
     - name: Azure compute units (ACU)
       href: acu.md
     - name: Benchmark scores
+      displayName: benchmark, coremark
       items:
       - name: Linux
-        displayName: Benchmark scores, score, acu
         href: ./linux/compute-benchmark-scores.md
       - name: Windows
-        displayName: Benchmark scores, score, acu
         href: ./windows/compute-benchmark-scores.md
   - name: Dedicated hosts
+    displayName: sole-tenant, sole tenant, isolated, isolation
     items:
     - name: Overview
       displayName: Dedicated hosts, ADH
@@ -1638,7 +1638,7 @@
       href: ../azure-monitor/agents/agents-overview.md?context=/azure/virtual-machines/context/context
     - name: FAQ
       displayName: Agents
-      href: /azure-monitor/faq.yml#agents
+      href: /azure/azure-monitor/faq#agents
     - name: Azure Diagnostics extension
       items:
       - name: Overview
@@ -1711,7 +1711,7 @@
         href: ../azure-monitor/vm/vminsights-ga-release-faq.yml?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
       - name: FAQ
         displayName: Azure monitor for VMs
-        href: ../azure-monitor/faq.yml?context=/azure/virtual-machines/context/context
+        href: /azure/azure-monitor/faq?context=/azure/virtual-machines/context/context
       - name: Enable monitoring
         items:
         - name: Enable monitoring overview

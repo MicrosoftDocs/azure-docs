@@ -13,16 +13,14 @@ items:
   items:
   - name: Create a Communication Services resource
     href: quickstarts/create-communication-resource.md
-  - name: Create and manage access tokens
-    href: quickstarts/access-tokens.md
-  - name: Use managed identities
-    href: quickstarts/managed-identity.md
-  - name: Set up managed identities from CLI
+  - name: Identity and Access
+    items:
+      - name: Create and manage access tokens
+        href: quickstarts/access-tokens.md
+      - name: Use managed identities
+        href: quickstarts/managed-identity.md
+      - name: Set up managed identities from CLI
     href: quickstarts/managed-identity-from-cli.md
-  - name: Export SDK telemetry data to Application Insights
-    href: quickstarts/telemetry-application-insights.md
-  - name: Get a relay token
-    href: quickstarts/relay-token.md
   - name: Chat
     items:
       - name: Add chat to your app
@@ -45,14 +43,18 @@ items:
         href: quickstarts/telephony-sms/logic-app.md
   - name: Voice and video calling
     items:
-    - name: Add voice calling to your app
+    - name: Add voice calling to your client app
       href: quickstarts/voice-video-calling/getting-started-with-calling.md
-    - name: Add video calling to your app
+    - name: Add video calling to your client app
       href: quickstarts/voice-video-calling/get-started-with-video-calling.md
     - name: Use the Calling SDK
       href: quickstarts/voice-video-calling/calling-client-samples.md
-    - name: Join your calling app to a Teams meeting
+    - name: Join your calling client app to a Teams meeting
       href: quickstarts/voice-video-calling/get-started-teams-interop.md
+    - name: Join a service to a call
+      href: quickstarts/voice-video-calling/call-automation-api-sample.md
+    - name: Record calls
+      href: quickstarts/voice-video-calling/call-recording-sample.md
   - name: UI Library
     items:
       - name: Get started with Composites
@@ -61,15 +63,19 @@ items:
         href: https://azure.github.io/communication-ui-library/?path=/story/quickstarts-statefulclient--page
       - name: Get started with UI Components
         href: https://azure.github.io/communication-ui-library/?path=/story/quickstarts-uicomponents--page
+  - name: Access TURN relays
+    href: quickstarts/relay-token.md    
 - name: Tutorials
   expanded: false
   items:
   - name: Build a trusted authentication service using Azure Functions
     href: tutorials/trusted-service-tutorial.md
-  - name: Sign an HTTP request with an HMAC signature using C#
-    href: tutorials/hmac-header-tutorial.md
+  - name: Export SDK telemetry data to Application Insights
+    href: quickstarts/telemetry-application-insights.md
   - name: Prepare a web app for Communication Services (Node.js)
     href: tutorials/building-app-start.md
+  - name: Sign an HTTP request with an HMAC signature using C#
+    href: tutorials/hmac-header-tutorial.md
   - name: Sign and make requests to ACS' SMS API with Postman
     href: tutorials/postman-tutorial.md
 - name: Concepts
@@ -109,6 +115,10 @@ items:
         href: concepts/call-flows.md
       - name: Call flow topologies
         href: concepts/detailed-call-flows.md
+      - name: Call automation APIs
+        href: concepts/voice-video-calling/call-automation-apis.md
+      - name: Call recording
+        href: concepts/voice-video-calling/call-recording.md
       - name: Known issues
         href: concepts/known-issues.md
   - name: UI Library
@@ -140,6 +150,8 @@ items:
     href: concepts/logging-and-diagnostics.md
   - name: Metrics
     href: concepts/metrics.md
+  - name: Best Practices
+    href: concepts/best-practices.md
   - name: Troubleshooting
     href: concepts/troubleshooting-info.md
 - name: Samples

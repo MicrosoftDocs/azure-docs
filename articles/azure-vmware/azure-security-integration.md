@@ -43,11 +43,11 @@ The diagram shows the integrated monitoring architecture of integrated security 
 
 2. Under Resources, select **Servers** and then **+Add**.
 
-   :::image type="content" source="media/azure-security-integration/add-server-to-azure-arc.png" alt-text="A screenshot showing Azure Arc Servers page for adding an Azure VMware Solution VM to Azure.":::
+   :::image type="content" source="media/azure-security-integration/add-server-to-azure-arc.png" alt-text="Screenshot showing Azure Arc Servers page for adding an Azure VMware Solution VM to Azure.":::
 
 3. Select **Generate script**.
  
-   :::image type="content" source="media/azure-security-integration/add-server-using-script.png" alt-text="A screenshot of Azure Arc page showing option for adding a server using interactive script."::: 
+   :::image type="content" source="media/azure-security-integration/add-server-using-script.png" alt-text="Screenshot of Azure Arc page showing option for adding a server using interactive script."::: 
  
 4. On the **Prerequisites** tab, select **Next**.
 
@@ -77,13 +77,13 @@ This provides you with the security health details of your resource.
 
 2. For Resource type, select **Servers - Azure Arc**.
  
-   :::image type="content" source="media/azure-security-integration/select-resource-in-security-center.png" alt-text="A screenshot of the Azure Security Center Inventory page showing Servers - Azure Arc selected under Resource type.":::
+   :::image type="content" source="media/azure-security-integration/select-resource-in-security-center.png" alt-text="Screenshot showing the Azure Security Center Inventory page with the Servers - Azure Arc selected under Resource type.":::
 
 3. Select the name of your resource. A page opens showing the security health details of your resource.
 
 4. Under **Recommendation list**, select the **Recommendations**, **Passed assessments**, and **Unavailable assessments** tabs to view these details.
 
-   :::image type="content" source="media/azure-security-integration/view-recommendations-assessments.png" alt-text="A screenshot of Azure Security Center showing security recommendations and assessments.":::
+   :::image type="content" source="media/azure-security-integration/view-recommendations-assessments.png" alt-text="Screenshot showing the Azure Security Center security recommendations and assessments.":::
 
 ## Deploy an Azure Sentinel workspace
 
@@ -107,6 +107,9 @@ Azure Sentinel is built on top of a Log Analytics workspace, so you'll just need
 
    :::image type="content" source="media/azure-security-integration/select-events-you-want-to-stream.png" alt-text="Screenshot of Security Events page in Azure Sentinel where you can select which events to stream.":::
 
+
+
+
 ## Connect Azure Sentinel with Azure Security Center  
 
 1. On the Azure Sentinel workspace page, select the configured workspace.
@@ -115,7 +118,7 @@ Azure Sentinel is built on top of a Log Analytics workspace, so you'll just need
 
 3. Select **Azure Security Center** from the list and then select **Open connector page**.
 
-    :::image type="content" source="media/azure-security-integration/connect-security-center-with-azure-sentinel.png" alt-text="Screenshot of Data connectors page in Azure Sentinel showing selection to connect Azure Security Center with Azure Sentinel.":::
+   :::image type="content" source="media/azure-security-integration/connect-security-center-with-azure-sentinel.png" alt-text="Screenshot of Data connectors page in Azure Sentinel showing selection to connect Azure Security Center with Azure Sentinel.":::
 
 4. Select **Connect** to connect the Azure Security Center with Azure Sentinel.
 
@@ -198,7 +201,7 @@ You can create queries or use the available pre-defined query in Azure Sentinel 
 1. On the Azure Sentinel overview page, under Threat management, select **Hunting**. A list of pre-defined queries is displayed.
 
    >[!TIP]
-   >You can also create a new query by selecting **+New Query**. 
+   >You can also create a new query by selecting **New Query**. 
    >
    >:::image type="content" source="media/azure-security-integration/create-new-query.png" alt-text="Screenshot of Azure Sentinel Hunting page with + New Query highlighted.":::
 
