@@ -70,7 +70,7 @@
       - name: Linked-based SSO
         href: configure-linked-sign-on.md
       - name: Header-based SSO (on-prem apps)
-        href: application-proxy-configure-single-sign-on-with-headers.md
+        href: ../app-proxy/application-proxy-configure-single-sign-on-with-headers.md
       - name: One-click SSO
         href: one-click-sso-tutorial.md
     - name: Application security

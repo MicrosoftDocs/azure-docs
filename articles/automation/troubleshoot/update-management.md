@@ -3,17 +3,65 @@ title: Troubleshoot Azure Automation Update Management issues
 description: This article tells how to troubleshoot and resolve issues with Azure Automation Update Management.
 services: automation
 ms.subservice: update-management
-ms.date: 04/18/2021
+ms.date: 06/10/2021
 ms.topic: troubleshooting
 ms.custom: devx-track-azurepowershell
 ---
 
 # Troubleshoot Update Management issues
 
-This article discusses issues that you might run into when deploying the Update Management feature on your machines. There's an agent troubleshooter for the Hybrid Runbook Worker agent to determine the underlying problem. To learn more about the troubleshooter, see [Troubleshoot Windows update agent issues](update-agent-issues.md) and [Troubleshoot Linux update agent issues](update-agent-issues-linux.md). For other feature deployment issues, see [Troubleshoot feature deployment issues](onboarding.md).
+This article discusses issues that you might run into when using the Update Management feature to assess and manage updates on your machines. There's an agent troubleshooter for the Hybrid Runbook Worker agent to help determine the underlying problem. To learn more about the troubleshooter, see [Troubleshoot Windows update agent issues](update-agent-issues.md) and [Troubleshoot Linux update agent issues](update-agent-issues-linux.md). For other feature deployment issues, see [Troubleshoot feature deployment issues](onboarding.md).
 
 >[!NOTE]
 >If you run into problems when deploying Update Management on a Windows machine, open the Windows Event Viewer, and check the **Operations Manager** event log under **Application and Services Logs** on the local machine. Look for events with event ID 4502 and event details that contain `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent`.
+
+## <a name="windows-defender-update-missing-status"></a>Scenario: Windows Defender update always show as missing
+
+### Issue
+
+Definition update for Windows Defender (**KB2267602**) always shows as missing in an assessment when it's installed and shows as up to date when verified from Windows Update history.
+
+### Cause
+
+Definition updates are published multiple times in a single day. As a result, you could see multiple releases of KB2267602 published in a single day, but with a different update ID and version.
+
+Update Management assessment runs once in 11 hours. In this example, at 10:00 AM an assessment ran and version 1.237.316.0 was available at the time. When you search the **Update** table in your Log Analytics workspace, the Definition update 1.237.316.0 is shown with an **UpdateState** of **Needed**. If a scheduled deployment runs a few hours later, let's say 1:00 PM and version 1.237.316.0 is still available or a newer version is, the newer version is installed and this is reflected in the record written to the **UpdateRunProgress** table. However, in the **Update** table, it would still show version 1.237.316.0 as **Needed** until the next assessment is run. When the assessment runs again, there may not be a newer definition update available, so the **Update** table would not show the definition update version 1.237.316.0 as missing or a newer version available as needed. Because of the frequency of definition updates, there could be multiple versions returned in the log search. 
+
+### Resolution
+
+Run the following log query to confirm definition updates installed are being properly reported. This query returns the time generated, version, and update ID of KB2267602 in the **Updates** table. Replace the value for *Computer* with the fully qualified name of the machine.
+
+```kusto
+Update
+| where TimeGenerated > ago(14h) and OSType != "Linux" and (Optional == false or Classification has "Critical" or Classification has "Security") and SourceComputerId in ((
+    Heartbeat
+    | where TimeGenerated > ago(12h) and OSType =~ "Windows" and notempty(Computer)
+    | summarize arg_max(TimeGenerated, Solutions) by SourceComputerId
+    | where Solutions has "updates"
+    | distinct SourceComputerId))
+| summarize hint.strategy=partitioned arg_max(TimeGenerated, *) by Computer, SourceComputerId, UpdateID
+| where UpdateState =~ "Needed" and Approved != false and Computer == "<computerName>"
+| render table
+```
+
+Your query results should return something similar to the following:
+
+:::image type="content" source="./media/update-management/example-query-updates-table.png" alt-text="Example showing results of log query from Updates table.":::
+
+Run the following log query to get the time generated, version, and update ID of KB2267602 in the **UpdatesRunProgress** table. This query helps us understand if it was installed from Update Management or if it was auto-installed on the machine from Microsoft Update. You need to replace the value for *CorrelationId* with the runbook job GUID (that is, the **MasterJOBID** property value from the **Patch-MicrosoftOMSComputer** runbook job) for the update, and *SourceComputerId* with the GUID of the machine.
+
+```kusto
+UpdateRunProgress
+| where OSType!="Linux" and CorrelationId=="<master job id>" and SourceComputerId=="<source computer id>"
+| summarize arg_max(TimeGenerated, Title, InstallationStatus) by UpdateId
+| project TimeGenerated, id=UpdateId, displayName=Title, InstallationStatus
+```
+
+Your query results should return something similar to the following:
+
+:::image type="content" source="./media/update-management/example-query-updaterunprogress-table.png" alt-text="Example showing results of log query from UpdatesRunProgress table.":::
+
+If the **TimeGenerated** value for the log query results from the **Updates** table is earlier than the timestamp (that is, value of **TimeGenerated**) of the update installation on machine or from the log query results from the **UpdateRunProgress** table, then wait for the next assessment. Afterwards, run the log query against the **Updates** table again. Either an update for KB2267602 won't appear or it appears with a newer version. However, even after the most recent assessment if same version shows up as **Needed** in the **Updates** table but it is already installed, you should open an Azure support incident.
 
 ## <a name="updates-linux-installed-different"></a>Scenario: Linux updates shown as pending and those installed vary
 

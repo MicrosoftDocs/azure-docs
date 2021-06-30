@@ -2,14 +2,14 @@
 title: Use tenant restrictions to manage access to SaaS apps - Azure AD
 description: How to use tenant restrictions to manage which users can access apps based on their Azure AD tenant.
 services: active-directory
-author: iantheninja
+author: mtillman
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 6/2/2021
-ms.author: iangithinji
+ms.author: mtillman
 ms.reviewer: hpsin
 ms.collection: M365-identity-device-management
 ---

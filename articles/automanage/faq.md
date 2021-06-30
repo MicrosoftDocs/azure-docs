@@ -83,26 +83,26 @@ Yes, we have a built-in policy that will automatically apply Automanage to all V
 The Automanage Account is an MSI (Managed Service Identity) that provides the security context or the identity under which the automated operations occur.
 
 
-**When enabling Automanage, does it impact any additional VMs besides the VM(s) I selected?**
+**When enabling Automanage, does it impact any additional machines besides the machine(s) I selected?**
 
-If your VM is linked to an existing Log Analytics workspace, we will reuse that workspace to apply these solutions: Change Tracking, Inventory, and Update Management. All VMs connected to that workspace will have those solutions enabled.
-
-
-**Can I change the environment of my VM?**
-
-At this time, you will need to disable Automanage for that VM and then re-enable Automanage with the desired environment and preferences.
+If your VM is linked to an existing Log Analytics workspace, we will reuse that workspace to apply these solutions: Change Tracking, Inventory, and Update Management. All machines connected to that workspace will have those solutions enabled.
 
 
-**If my VM is already configured for a service, like Update Management, will Automanage reconfigure it?**
+**Can I change the environment of my machine?**
+
+At this time, you will need to disable Automanage for that machine and then re-enable Automanage with the desired environment and preferences.
+
+
+**If my machine is already configured for a service, like Update Management, will Automanage reconfigure it?**
 No, Automanage will not reconfigure it. We will begin to monitor the resources associated to that service for drift.
 
 
-**Why does my VM have a Failed status in the Automanage portal?**
+**Why does my machine have a Failed status in the Automanage portal?**
 
 If you see the status as *Failed*, you can troubleshoot the deployment in a few different ways:
 * Go to **Resource groups**, select your resource group, click on **Deployments** and see the *Failed* status there along with error details.
 * Go to **Subscriptions**, select your resource group, click on **Deployments** and see the *Failed* status there along with error details.
-* You can also visit the activity log of a VM, which will contain an entry for "Create or Update Configuration Profile Assignments". This may also contain more details on your deployment.
+* You can also visit the activity log of a machine, which will contain an entry for "Create or Update Configuration Profile Assignments". This may also contain more details on your deployment.
 
 **How can I get troubleshooting support for Automanage?**
 

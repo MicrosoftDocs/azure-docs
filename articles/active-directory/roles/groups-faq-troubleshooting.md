@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting roles assigned to cloud group FAQ - Azure Active Directory | Microsoft Docs
+title: Troubleshoot Azure AD roles assigned to groups - Azure Active Directory
 description: Learn some common questions and troubleshooting tips for assigning roles to groups in Azure Active Directory.
 services: active-directory
 author: rolyon
@@ -16,9 +16,9 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# Troubleshooting roles assigned to cloud groups
+# Troubleshoot Azure AD roles assigned to groups
 
-Here are some common questions and troubleshooting tips for assigning roles to groups in Azure Active Directory (Azure AD).
+Here are some common questions and troubleshooting tips for assigning Azure Active Directory (Azure AD) roles to Azure AD groups.
 
 **Q:** I'm a Groups Administrator but I can't see the **Azure AD roles can be assigned to the group** switch.
 
@@ -90,11 +90,11 @@ User | Catalog owner | Only if group owner | Only if group owner | Only if app o
     - In Azure AD Premium P1 licensed organizations: Select the gear icon. A pane opens that can give this information.
     - In Azure AD Premium P2 licensed organizations: You'll find direct and inherited license information in the **Membership** column.
 
-**Q:** Why do we enforce creating a new cloud group for assigning it to role?  
+**Q:** Why do we enforce creating a new group for assigning it to role?  
 
 **A:** If you assign an existing group to a role, the existing group owner could add other members to this group without the new members realizing that they'll have the role. Because role-assignable groups are powerful, we're putting lots of restrictions to protect them. You don't want changes to the group that would be surprising to the person managing the group.
 
 ## Next steps
 
-- [Use cloud groups to manage role assignments](groups-concept.md)
+- [Use Azure AD groups to manage role assignments](groups-concept.md)
 - [Create a role-assignable group](groups-create-eligible.md)

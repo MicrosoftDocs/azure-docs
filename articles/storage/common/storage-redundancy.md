@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/17/2021
+ms.date: 06/10/2021
 ms.author: tamram
 ms.subservice: common
 ---
@@ -124,7 +124,6 @@ Only general-purpose v2 storage accounts support GZRS and RA-GZRS. For more info
 GZRS and RA-GZRS are supported in the following regions:
 
 - (Africa) South Africa North
-- (Asia Pacific) East Asia
 - (Asia Pacific) Southeast Asia
 - (Asia Pacific) Australia East
 - (Asia Pacific) Central India
@@ -140,7 +139,6 @@ GZRS and RA-GZRS are supported in the following regions:
 - (US) Central US
 - (US) East US
 - (US) East US 2
-- (US) North Central US
 - (US) South Central US
 - (US) West US 2
 

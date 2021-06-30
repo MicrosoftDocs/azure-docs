@@ -120,5 +120,5 @@ Select **Save draft**, then **← Plan overview** in the left-nav menu to return
 
 ## Next steps
 
-- To **Co-sell with Microsoft** (optional), select it in the left-nav menu. For details, see [Co-sell partner engagement](marketplace-co-sell.md).
+- To **Co-sell with Microsoft** (optional), select it in the left-nav menu. For details, see [Co-sell partner engagement](./co-sell-overview.md).
 - If you're not setting up co-sell or you've finished, it's time to [Review and publish your offer](review-publish-offer.md).

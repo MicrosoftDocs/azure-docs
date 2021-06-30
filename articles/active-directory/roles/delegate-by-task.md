@@ -161,8 +161,8 @@ In this article, you can find the information needed to restrict a user's admini
 > [!div class="mx-tableFixed"]
 > | Task | Least privileged role | Additional roles |
 > | ---- | --------------------- | ---------------- |
-> | Add resources to a catalog | User Administrator | With entitlement management, you can delegate this task to the catalog owner ([see documentation](../governance/entitlement-management-catalog-create.md#add-additional-catalog-owners)) |
-> | Add SharePoint Online sites to catalog | Global Administrator |  |
+> | Add resources to a catalog | Identity Governance Administrator | With entitlement management, you can delegate this task to the catalog owner ([see documentation](../governance/entitlement-management-catalog-create.md#add-additional-catalog-owners)) |
+> | Add SharePoint Online sites to catalog | SharePoint Administrator |  |
 
 ## Groups
 
@@ -221,7 +221,7 @@ In this article, you can find the information needed to restrict a user's admini
 > [!div class="mx-tableFixed"]
 > | Task | Least privileged role | Additional roles |
 > | ---- | --------------------- | ---------------- |
-> | Read sign-in logs | Reports Reader | Security Reader<br/>Security Administrator |
+> | Read sign-in logs | Reports Reader | Security Reader<br/>Security Administrator<br/> Global Reader |
 
 ## Multi-factor authentication
 

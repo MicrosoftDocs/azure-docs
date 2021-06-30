@@ -21,7 +21,7 @@ Azure Stream Analytics offers a SQL-like query language for performing transform
 * East US 2
 * West Europe
 
-If you are interested in using this feature in any another region, you can [request access](https://aka.ms/ccodereqregion).  However, there is no such region restriction when using [Stream Analytics clusters](https://docs.microsoft.com/azure/stream-analytics/cluster-overview).
+If you are interested in using this feature in any another region, you can [request access](https://aka.ms/ccodereqregion).  However, there is no such region restriction when using [Stream Analytics clusters](./cluster-overview.md).
 
 ## Package path
 
