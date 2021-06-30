@@ -455,7 +455,7 @@ const streamType: MediaStreamType = remoteVideoStream.mediaStreamType;
 To check the stream type, inspect the `mediaStreamType` property of a given stream. It will return 'Video' or 'ScreenSharing';
 
 To render `RemoteVideoStream`, your application should do the following:
-- application can then create a new instance of `VideoStreamRenderer`, supply `RemoteVideoStream` instance as an argument
+- create a new instance of `VideoStreamRenderer` and supply `RemoteVideoStream` instance as an argument.
 - check and subscribe to stream's `isAvailableChanged` event
 - once the `isAvailable` property changes to `true`, a remote participant is sending data, application can then create a new `VideoStreamRendererView` instance by using the asynchronous `createView` method
 - `createView` resolves after local endpoint subscribes to the video and receives first video frame, at this point application can attach `view` instance returned from `createView` to the DOM.
