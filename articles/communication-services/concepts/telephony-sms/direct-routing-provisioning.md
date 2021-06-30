@@ -56,7 +56,7 @@ If you created one voice route with a pattern `^\+1(425|206)(\d{7})$` and added 
   > [!NOTE]
   >In all examples, while the higher voice route has higher priority, the SBCs in a route are tried in random order.
 
-  > [!NOTE]
+> [!NOTE]
   >In all the examples, if the dialed number does not match the pattern, the call will be dropped unless there is a purchased number exist for the communication resource, and this number was used as alternateCallerId in the application. 
 
 ## Configure voice routing 
