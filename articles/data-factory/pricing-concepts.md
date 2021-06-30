@@ -195,7 +195,7 @@ To accomplish the scenario, you need to create two pipelines with the following 
   - Data Movement Activities = $0.333 (Prorated for 10 minutes of execution time. $0.25/hour on Azure Integration Runtime)
   - Pipeline Activity = $0.116 (Prorated for 7 minutes of execution time. $1/hour on Azure Integration Runtime)
 
-> [!NOTE]
+> [!NOTE] 
 > These prices are for example purposes only.
 
 **FAQ**
