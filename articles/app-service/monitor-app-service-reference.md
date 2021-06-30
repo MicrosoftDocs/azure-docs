@@ -37,6 +37,10 @@ App Service doesn't have any metrics that contain dimensions.
 
 ## Resource logs
 
+> [!NOTE]
+> Azure Monitor integration with App Service is in [preview](https://aka.ms/appsvcblog-azmon).
+>
+
 This section lists the types of resource logs you can collect for App Service. 
 
 | Log type | Windows | Windows Container | Linux | Linux Container | Description |
@@ -46,7 +50,7 @@ This section lists the types of resource logs you can collect for App Service.
 | AppServiceEnvironmentPlatformLogs | Yes | N/A | Yes | Yes | App Service Environment: scaling, configuration changes, and status logs|
 | AppServiceAuditLogs | Yes | Yes | Yes | Yes | Login activity via FTP and Kudu |
 | AppServiceFileAuditLogs | Yes | Yes | TBA | TBA | File changes made to the site content; **only available for Premium tier and above** |
-| AppServiceAppLogs | ASP.NET | ASP.NET | Java SE & Tomcat Blessed Images <sup>1</sup> | Java SE & Tomcat Blessed Images <sup>1</sup> | Application logs |
+| AppServiceAppLogs | ASP.NET | ASP.NET | Java SE & Tomcat Images <sup>1</sup> | Java SE & Tomcat Blessed Images <sup>1</sup> | Application logs |
 | AppServiceIPSecAuditLogs  | Yes | Yes | Yes | Yes | Requests from IP Rules |
 | AppServicePlatformLogs  | TBA | Yes | Yes | Yes | Container operation logs |
 | AppServiceAntivirusScanAuditLogs | Yes | Yes | Yes | Yes | [Anti-virus scan logs](https://azure.github.io/AppService/2020/12/09/AzMon-AppServiceAntivirusScanAuditLogs.html) using Microsoft Defender; **only available for Premium tier** | 
@@ -55,54 +59,20 @@ This section lists the types of resource logs you can collect for App Service.
 
 For reference, see a list of [all resource logs category types supported in Azure Monitor](/azure/azure-monitor/platform/resource-logs-schema).
 
-### Web Sites
-
-Resource Provider and Type: [Microsoft.web/sites](/azure/azure-monitor/platform/resource-logs-categories#microsoftwebsites)
-
-| Category | Display Name |
-|:---------|:-------------|
-|AppServiceAntivirusScanAuditLogs|	Report Antivirus Audit Logs|
-|AppServiceAppLogs|	App Service Application Logs|
-|AppServiceAuditLogs|	Access Audit Logs|
-|AppServiceConsoleLogs|	App Service Console Logs|
-|AppServiceFileAuditLogs|	Site Content Change Audit Logs|
-|AppServiceHTTPLogs|	HTTP logs|
-|AppServiceIPSecAuditLogs|	IPSecurity Audit Logs|
-|AppServicePlatformLogs|	App Service Platform logs|
-
-
-### Web Site Slots
-
-Resource Provider and Type: [Microsoft.web/sites/slots](/azure/azure-monitor/platform/resource-logs-categories#microsoftwebsitesslots)
-
-| Category | Display Name |
-|:---------|:-------------|
-|AppServiceAntivirusScanAuditLogs|	Report Antivirus Audit Logs|
-|AppServiceAppLogs|	App Service Application Logs|
-|AppServiceAuditLogs|	Access Audit Logs|
-|AppServiceConsoleLogs|	App Service Console Logs|
-|AppServiceFileAuditLogs|	Site Content Change Audit Logs|
-|AppServiceHTTPLogs|	HTTP logs|
-|AppServiceIPSecAuditLogs|	IPSecurity Audit Logs|
-|AppServicePlatformLogs|	App Service Platform logs|
-
-### App Service Environment
-
-App Service Environment : [Microsoft.Web/hostingEnvironments](/azure/azure-monitor/essentials/metrics-supported#microsoftwebhostingenvironments)
+|Resource Log Type | Resource Provider / Type Namespace<br/> and link to individual metrics |
+|-------|-----|
+| Web Sites | [Microsoft.web/sites](/azure/azure-monitor/platform/resource-logs-categories#microsoftwebsites) |
+| Web Site Slots | [Microsoft.web/sites/slots](/azure/azure-monitor/platform/resource-logs-categories#microsoftwebsitesslots) |
+| App Service Environment | [Microsoft.Web/hostingEnvironments](/azure/azure-monitor/essentials/metrics-supported#microsoftwebhostingenvironments) |
+| App Service Environment Front-end | [Microsoft.Web/hostingEnvironments/multiRolePools](/azure/azure-monitor/essentials/metrics-supported#microsoftwebhostingenvironmentsmultirolepools)|
 
 ## Azure Monitor Logs tables
 
 Azure App Service uses Kusto tables from Azure Monitor Logs. You can query these tables with Log analytics. For a list of App Service tables used by Kusto, see the [Azure Monitor Logs table reference - App Service tables](/azure/azure-monitor/reference/tables/tables-resourcetype#app-services). 
 
-This section refers to all Azure Monitor Logs Kusto tables relevant to App Service. These tables are available for query by Log Analytics. 
-
-|Resource Type | Notes |
-|-------|-----|
-| [App services](/azure/azure-monitor/reference/tables/tables-resourcetype#app-services) | |
-
 ## Activity log
 
-The following table lists the operations related to App Service that may be created in the Activity log.
+The following table lists common operations related to App Service that may be created in the Activity log. This is not an exhaustive list.
 
 | Operation | Description |
 |:---|:---|

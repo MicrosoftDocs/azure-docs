@@ -41,7 +41,7 @@ The metrics and logs you can collect are discussed in the following sections.
 
 You can analyze metrics for *App Service* with metrics from other Azure services using metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Getting started with Azure Metrics Explorer](/azure/azure-monitor/platform/metrics-getting-started) for details on using this tool. 
 
-For a list of platform metrics collected for App Service, see [Monitoring *[service-name]* data reference metrics](monitor-app-service-reference.md#metrics)  
+For a list of platform metrics collected for App Service, see [Monitoring App Service data reference metrics](monitor-app-service-reference.md#metrics)  
 
 For reference, you can see a list of [all resource metrics supported in Azure Monitor](/azure/azure-monitor/platform/metrics-supported).
 
@@ -60,7 +60,7 @@ For a list of queryable tables used by Azure Monitor Logs and Log Analytics, see
 ### Sample Kusto queries
 
 > [!IMPORTANT]
-> When you select **Logs** from the [service-name] menu, Log Analytics is opened with the query scope set to the current [Service resource]. This means that log queries will only include data from that resource. If you want to run a query that includes data from other [resource] or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](/azure/azure-monitor/log-query/scope/) for details.
+> When you select **Logs** from the App Service menu, Log Analytics is opened with the query scope set to the current resource. This means that log queries will only include data from that resource. If you want to run a query that includes data from other [resource] or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](/azure/azure-monitor/log-query/scope/) for details.
 
 The following sample query can help you monitor app logs using `AppServiceAppLogs`:
 
@@ -70,7 +70,7 @@ AppServiceAppLogs
 | summarize count() by CustomLevel, _ResourceId
 ```
 
-The following sample query can help you monitor HTTP logs using `AppServiceHTTPLogs`:
+The following sample query can help you monitor HTTP logs using `AppServiceHTTPLogs` where the `HTTP response code` is `500` or higher:
 
 ```Kusto
 AppServiceHTTPLogs 
@@ -79,7 +79,7 @@ AppServiceHTTPLogs
 | reduce by strcat(CsMethod, ':\\', CsUriStem)
 ```
 
-The following sample query can help you monitor app errors using `AppServiceConsoleLogs` and `AppserviceHTTPLogs`:
+The following sample query can help you monitor HTTP 500 errors by joining `AppServiceConsoleLogs` and `AppserviceHTTPLogs`:
 
 ```Kusto
 let myHttp = AppServiceHTTPLogs | where  ScStatus == 500 | project TimeGen=substring(TimeGenerated, 0, 19), CsUriStem, ScStatus;  
@@ -89,11 +89,13 @@ let myConsole = AppServiceConsoleLogs | project TimeGen=substring(TimeGenerated,
 myHttp | join myConsole on TimeGen | project TimeGen, CsUriStem, ScStatus, ResultDescription;   
 ```
 
+See [Azure Monitor queries for App Service](https://github.com/microsoft/AzureMonitorCommunity/tree/master/Azure%20Services/App%20Services/Queries) for more sample queries.
+
 ## Alerts
 
-Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues in your system before your customers notice them. You can set alerts on [metrics](/azure/azure-monitor/platform/alerts-metric-overview), [logs](/azure/azure-monitor/platform/alerts-unified-log), and the [activity log](/azure/azure-monitor/platform/activity-log-alerts). Different types of alerts have benefits and drawbacks.
+Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues in your system before your customers notice them. You can set alerts on [metrics](/azure/azure-monitor/platform/alerts-metric-overview), [logs](/azure/azure-monitor/platform/alerts-unified-log), and the [activity log](/azure/azure-monitor/platform/activity-log-alerts).
 
-If you're creating or running an application on App Service [Azure Monitor Application Insights](/azure/azure-monitor/overview#application-insights) may offer additional types of alerts.
+If you're running an application on App Service [Azure Monitor Application Insights](/azure/azure-monitor/overview#application-insights) may offer additional types of alerts.
 
 The following table lists common and recommended alert rules for App Service.
 
