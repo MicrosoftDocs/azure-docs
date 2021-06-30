@@ -150,7 +150,7 @@ To create an Azure Stack Edge resource, take the following steps in the Azure po
 
     ![Create a resource 8](media/azure-stack-edge-gpu-deploy-prep/create-resource-8.png) 
 
-    You are also notified that during the resource creation, a Managed Service Identity (MSI) is enabled that lets you authenticate to cloud services. This identity exists for as long as the resource exists.
+    You are also notified that during the resource creation, a Managed Identity (MI) is enabled that lets you authenticate to cloud services. This identity exists for as long as the resource exists.
 
 11. Select **Create**.
 
