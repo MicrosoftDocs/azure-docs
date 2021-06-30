@@ -42,7 +42,7 @@ For cloud calling, outbound calls are billed at per-minute rates depending on th
 
 ### Azure direct routing
 
-[!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
+[!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
 
 With this option, you can connect legacy on-premises telephony and your carrier of choice to Azure Communication services. It provides PSTN calling capabilities to your ACS applications even if Voice Calling (PSTN) is not available in your country/region. 
 

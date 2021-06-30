@@ -13,7 +13,7 @@ ms.service: azure-communication-services
 
 # Azure direct routing infrastructure requirements 
 
-[!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
+[!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
 
  
 This article describes infrastructure, licensing, and Session Border Controller (SBC) connectivity details that you'll want to keep in mind as your plan your Azure direct routing deployment.

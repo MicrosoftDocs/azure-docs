@@ -57,6 +57,22 @@ Note: USA mixed rates to `+1-425` is $0.013. Refer to the following link for det
 
 **Total cost for the call**: $0.04 + $0.13 = $0.17
 
+### Pricing example: Outbound Call from app using JS SDK via Azure Communication Services direct routing
+
+Alice makes an outbound call from an ACS web application to a telephone number (Bob) via Azure Communication Services direct routing.
+- Alice used the JS SDK to build the app.
+- Call goes to a Session Border Controller (SBC) connected via ACS direct routing
+- The call lasts a total of 10 minutes. 
+
+**Cost calculations**
+
+- 1 participant on the VoIP leg (Alice) from App to Communication Services servers x 10 minutes x $0.004 per participant leg per minute = $0.04
+- 1 participant on the ACS direct routing outbound leg (Bob) from Communication Services servers to an SBC x 10 minutes x $0.004 per participant leg per minute = $0.04.
+
+**Total cost for the call**: $0.04 + $0.04 = $0.08
+>[!Note]
+>ACS direct routing leg is not charged till 08/01/2021
+
 
 ### Pricing example: Group audio call using JS SDK and 1 PSTN leg
 
