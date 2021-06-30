@@ -1,7 +1,7 @@
 ---
 title: 'Set up a Gen2 environment using the Azure portal - Azure Time Series Insights Gen2 | Microsoft Docs'
 description: 'Learn how to set up an environment in Azure Time Series Insights Gen2 using Azure portal.'
-author: tedvilutis    
+author: tedvilutis
 ms.author: tvilutis
 manager: cnovak
 ms.workload: big-data
