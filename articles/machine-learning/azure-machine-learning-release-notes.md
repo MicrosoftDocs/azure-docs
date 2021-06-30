@@ -32,8 +32,6 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
     + Added `opencensus-ext-azure==1.0.8` dependency to azureml-defaults
   + **azureml-pipeline-core**
     + Updated the AutoMLStep to use prebuilt images when the environment for job submission matches the default environment
-  + **azureml-pipeline-steps**
-    + Updated the AutoMLStep to use prebuilt images when the environment for job submission matches the default environment
   + **azureml-responsibleai**
     + New error analysis client added to upload, download and list error analysis reports
     + Ensure `raiwidgets` and `responsibleai` packages are version synchronised
