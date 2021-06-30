@@ -6,7 +6,7 @@ documentationcenter: na
 author: batamig
 ms.service: azure-sentinel
 ms.topic: conceptual
-ms.date: 06/27/2021
+ms.date: 06/30/2021
 ms.author: bagol
 ---
 
@@ -14,7 +14,7 @@ ms.author: bagol
 
 Your security operations center (SOC) team will use centralized security information and event management (SIEM) and security orchestration, automation, and response (SOAR) solutions to protect your increasingly decentralized digital estate.
 
-Legacy SIEMs are often on-premises, and can maintain good coverage of your on-premises assets. However, on-premises architectures may have insufficient coverage for your cloud assets, such as in Azure, Microsoft 365, AWS, or Google Cloud Platform (GCP).
+Legacy SIEMs are often on-premises, and can maintain good coverage of your on-premises assets. However, on-premises architectures may have insufficient coverage for your cloud assets, such as in Azure, Microsoft 365, AWS, or Google Cloud Platform (GCP). In contrast, Azure Sentinel can ingest data from both on-premises and cloud assets, ensuring coverage over your entire estate.
 
 This article describes how to migrate from an existing, legacy SIEM to Azure Sentinel, either in a side-by-side configuration or by transitioning to a full Azure Sentinel deployment.
 
@@ -24,7 +24,7 @@ You may have decided to start a direct or gradual transition to Azure Sentinel, 
 
 You'll want to plan your migration properly to ensure that transition doesn't introduce gaps in coverage, which could put your organization's security in jeopardy.
 
-To start, identify your key core capabilities and first-priority requirements. Evaluate the key use cases your current SIEM deploys, and decide which detections and capabilities Azure Sentinel needs to maintain effectiveness.
+To start, identify your key core capabilities and first-priority requirements. Evaluate the key use cases your current SIEM covers, and decide which detections and capabilities where Azure Sentinel needs to continue providing coverage.
 
 You'll add more in-process planning at each step of your migration process, as you consider the exact data sources and detection rules you want to migrate. For more information, see [How to migrate to Azure Sentinel](#how-to-migrate-to-azure-sentinel).
 
@@ -49,7 +49,7 @@ For example, evaluate the following key areas:
 
 If you have limited or no investment in an existing on-premises SIEM, moving to Azure Sentinel can be a straightforward, direct migration. However, enterprises that are heavily invested in a legacy SIEM typically require a multi-stage process to accommodate transition tasks.
 
-You may want to start by running Azure Sentinel and your legacy SIEM [side-by-side](#select-a-side-by-side-approach-and-method), where local resources use the on-premises SIEM and cloud resources and new workloads use cloud-based analytics.
+Although Azure Sentinel provides extended data and response for both on-premises the cloud, you may want to start your migration slowly, by running Azure Sentinel and your legacy SIEM [side-by-side](#select-a-side-by-side-approach-and-method). In a side-by-side architecture local resources can use the on-premises SIEM and cloud resources and new workloads use cloud-based analytics.
 
 Unless you choose a long-term side-by-side configuration, [complete your migration](#how-to-migrate-to-azure-sentinel) to a full Azure Sentinel deployment to access lower infrastructure costs, real-time threat analysis, and cloud-scalability.
 
@@ -113,7 +113,7 @@ The following table describes side-by-side configurations that are *not* recomme
 
 |Method  |Description  |
 |---------|---------|
-|**Send Azure Sentinel logs to your legacy SIEM**     |  With this method, you'll continue to experience the cost and scale challenges of your on-premises SIEM. <br><br>You'll pay for data ingestion in Azure Sentinel, along with storage costs in your legacy SIEM, and you can't take advantage of Azure Sentinel's SIEM and SOAR detections, analytics, AI, or investigation and automation tools.       |
+|**Send Azure Sentinel logs to your legacy SIEM**     |  With this method, you'll continue to experience the cost and scale challenges of your on-premises SIEM. <br><br>You'll pay for data ingestion in Azure Sentinel, along with storage costs in your legacy SIEM, and you can't take advantage of Azure Sentinel's SIEM and SOAR detections, analytics, User Entity Behavior Analytics (UEBA), AI, or investigation and automation tools.       |
 |**Send logs from a legacy SIEM to Azure Sentinel**     |   While this method provides you with the full functionality of Azure Sentinel, your organization still pays for two different data ingestion sources. Besides adding architectural complexity, this model can result in higher costs.     |
 |**Use Azure Sentinel and your legacy SIEM as two fully separate solutions**     |  You could use Azure Sentinel to analyze some data sources, like your cloud data, and continue to use your on-premises SIEM for other sources. This setup allows for clear boundaries for when to use each solution, and avoids duplication of costs. <br><br>However, cross-correlation becomes difficult, and you can't fully diagnose attacks that cross both sets of data sources. In today's landscape, where threats often move laterally across an organization, such visibility gaps can pose significant security risks.       |
 |     |         |
@@ -136,14 +136,16 @@ Make sure that you migrate only the data that represents your current key use ca
 
 1. Use any of the following resources to ingest data:
 
-    - Use **Azure Sentinel's [built-in data connectors](connect-data-sources.md)** to start ingesting data. For example, you may want to start with your cloud data, or use [free data connectors](azure-sentinel-billing.md#free-data-sources) to ingest data from other Microsoft products.
+    - Use **Azure Sentinel's [built-in data connectors](connect-data-sources.md)** to start ingesting data. For example, you may want to start a [free trial](azure-sentinel-billing.md#free-trial) with your cloud data, or use [free data connectors](azure-sentinel-billing.md#free-data-sources) to ingest data from other Microsoft products.
 
     - Use **[Syslog](connect-data-sources.md#syslog), [Common Event Format (CEF)](connect-data-sources.md#common-event-format-cef), or [REST APIs](connect-data-sources.md#rest-api-integration)** to connect other data sources.
 
         For more information, see [Azure Sentinel partner data connectors](partner-data-connectors.md) and the [Azure Sentinel solutions catalog](sentinel-solutions-catalog.md).
 
 > [!TIP]
-> As you migrate detections and build use cases in Azure Sentinel, stay mindful of the data you ingest, and verify its value to your key priorities. Revisit data collection conversations to ensure data depth and breadth across your use cases.
+> - Free data connectors may limit your ability to test with data that's important to you. When testing, consider limited data ingestion from both free and paid data connectors to get the most out of your test results.
+>
+> - As you migrate detections and build use cases in Azure Sentinel, stay mindful of the data you ingest, and verify its value to your key priorities. Revisit data collection conversations to ensure data depth and breadth across your use cases.
 >
 
 ## Migrate analytics rules
@@ -186,9 +188,9 @@ Azure Sentinel uses machine learning analytics to create high-fidelity and actio
 
         1. **Identify any attributes, fields, or entities** in your data that you want to use in your rules.
 
-        1. **Identify your rule criteria and logic**. At this stage, you may want to to use rule templates as samples for how to construct your KQL queries.
+        1. **Identify your rule criteria and logic**. At this stage, you may want to use rule templates as samples for how to construct your KQL queries.
 
-            Consider filters, correlation rules, activelists, reference sets, watchlists, detection anomalies, aggregations, and so on. You might use references provided by your legacy SIEM to understand how to best map your query syntax.
+            Consider filters, correlation rules, active lists, reference sets, watchlists, detection anomalies, aggregations, and so on. You might use references provided by your legacy SIEM to understand how to best map your query syntax.
 
             For example, see:
 
@@ -226,7 +228,7 @@ Use the following checklist to make sure that you're fully migrated to Azure Sen
 |Readiness area  |Details  |
 |---------|---------|
 |**Technology readiness**     | **Check critical data**: Make sure all sources and alerts are available in Azure Sentinel. <br><br>**Archive all records**: Save critical past incident and case records, raw data optional, to retain institutional history.   |
-|**Process readiness**     |  **Playbooks**: Update [investigation and hunting processes](tutorial-investigate-cases.md) to Azure Sentinel.<br><br>**Metrics**: Ensure that you can get all key metrics from Azure Sentinel.<br><br>**Workbooks**: Create [custom workbooks](tutorial-monitor-your-data.md) or use built-in workbook templates to quickly gain insights as soon as you [connect to data sources](connect-data-sources.md).<br><br>**Cases**: Make sure to transfer all current cases to the new system, including required source data.        |
+|**Process readiness**     |  **Playbooks**: Update [investigation and hunting processes](tutorial-investigate-cases.md) to Azure Sentinel.<br><br>**Metrics**: Ensure that you can get all key metrics from Azure Sentinel.<br><br>**Workbooks**: Create [custom workbooks](tutorial-monitor-your-data.md) or use built-in workbook templates to quickly gain insights as soon as you [connect to data sources](connect-data-sources.md).<br><br>**Incidents**: Make sure to transfer all current incidents to the new system, including required source data.        |
 |**People readiness**     |  **SOC analysts**: Make sure everyone on your team is trained on Azure Sentinel and is comfortable leaving the legacy SIEM.   |
 |     |         |
 ## Next steps
