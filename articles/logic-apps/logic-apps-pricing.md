@@ -40,7 +40,9 @@ The following describes how the Consumption model works with components when use
 
 Metering and billing apply to each operation execution, whether or not the workflow successfully runs, finishes, or is even instantiated. An operation execution usually makes the same number of calls as the number of executions. This number is just one execution [unless the operation makes retry attempts](#other-operation-behavior). If an operation supports and enables chunking or pagination, the operation execution might have to make multiple calls. In the Consumption model, *only the single execution is metered and billed*.
 
-For example, suppose a workflow starts with a polling trigger that gets records by regularly making outbound calls to an endpoint. The outbound call is metered and billed as a single execution, whether or not the trigger fires or is skipped, which controls whether the workflow instance is created and run. On an operation that supports and uses chunking or pagination, suppose that the operation has to make 10 calls before getting all the data. Despite the multiple calls, the operation is metered and billed as a *single execution*.
+For example, suppose a workflow starts with a polling trigger that gets records by regularly making outbound calls to an endpoint. The outbound call is metered and billed as a single execution, whether or not the trigger fires or is skipped. The trigger state controls whether or not the workflow instance is created and run. On an operation that supports and uses chunking or pagination, suppose that the operation has to make 10 calls before getting all the data. Despite the multiple calls, the operation is metered and billed as a *single execution*.
+
+The following table briefly describes the various operation types in multi-tenant Azure Logic Apps and their billing model behavior:
 
 | Operation type | Description | Metering and billing |
 |----------------|-------------|----------------------|
