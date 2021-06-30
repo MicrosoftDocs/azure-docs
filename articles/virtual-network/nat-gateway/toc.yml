@@ -58,7 +58,7 @@
     href: https://azure.microsoft.com/resources/samples/?service=virtual-network
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
-    href: ./policy-reference.md
+    href: ../policy-reference.md
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn
@@ -77,5 +77,3 @@
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-virtual-network
-  - name: FAQ
-    href: virtual-networks-faq.md
