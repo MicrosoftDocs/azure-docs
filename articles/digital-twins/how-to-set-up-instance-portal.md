@@ -30,29 +30,21 @@ This version of this article goes through these steps manually, one by one, usin
 
 ## Create the Azure Digital Twins instance
 
-In this section, you will **create a new instance of Azure Digital Twins** using the [Azure portal](https://ms.portal.azure.com/). Navigate to the portal and log in with your credentials.
+[!INCLUDE [digital-twins-setup-portal.md](../../includes/digital-twins-setup-portal.md)]
 
-Once in the portal, start by selecting _Create a resource_ in the Azure services home page menu.
+3. On the following **Create Resource** page, fill in the values given below:
+    * **Subscription**: The Azure subscription you're using
+      - **Resource group**: A resource group in which to deploy the instance. If you don't already have an existing resource group in mind, you can create one here by selecting the *Create new* link and entering a name for a new resource group
+    * **Location**: An Azure Digital Twins-enabled region for the deployment. For more details on regional support, visit [Azure products available by region (Azure Digital Twins)](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
+    * **Resource name**: A name for your Azure Digital Twins instance. If your subscription has another Azure Digital Twins instance in the region that's
+      already using the specified name, you'll be asked to pick a different name.
+    * **Grant access to resource**: Checking the box in this section will give your Azure account permission to access and manage data in the instance. If you're the one that will be managing the instance, you should check this box now. If it's greyed out because you don't have permission in the subscription, you can continue creating the resource and have someone with the required permissions grant you the role later. For more information about this role and assigning roles to your instance, see the next section, [Set up user access permissions](#set-up-user-access-permissions).
 
-:::image type="content" source= "media/how-to-set-up-instance/portal/create-resource.png" alt-text="Screenshot of the Azure portal, highlighting the 'Create a resource' icon from the home page.":::
+    :::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins-2.png" alt-text="Screenshot of the Create Resource process for Azure Digital Twins in the Azure portal. The described values are filled in.":::
 
-Search for *Azure Digital Twins* in the search box, and choose the **Azure Digital Twins** service from the results. Select the _Create_ button to create a new instance of the service.
+4. When you're finished, you can select **Review + create** if you don't want to configure any more settings for your instance. This will take you to a summary page, where you can review the instance details you've entered and finish with **Create**. 
 
-:::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins.png" alt-text="Screenshot of the Azure portal, highlighting the 'Create' button from the Azure Digital Twins service page.":::
-
-On the following **Create Resource** page, fill in the values given below:
-* **Subscription**: The Azure subscription you're using
-  - **Resource group**: A resource group in which to deploy the instance. If you don't already have an existing resource group in mind, you can create one here by selecting the *Create new* link and entering a name for a new resource group
-* **Location**: An Azure Digital Twins-enabled region for the deployment. For more details on regional support, visit [Azure products available by region (Azure Digital Twins)](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
-* **Resource name**: A name for your Azure Digital Twins instance. If your subscription has another Azure Digital Twins instance in the region that's
-  already using the specified name, you'll be asked to pick a different name.
-* **Grant access to resource**: Checking the box in this section will give your Azure account permission to access and manage data in the instance. If you're the one that will be managing the instance, you should check this box now. If it's greyed out because you don't have permission in the subscription, you can continue creating the resource and have someone with the required permissions grant you the role later. For more information about this role and assigning roles to your instance, see the next section, [Set up user access permissions](#set-up-user-access-permissions).
-
-:::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins-2.png" alt-text="Screenshot of the Create Resource process for Azure Digital Twins in the Azure portal. The described values are filled in.":::
-
-When you're finished, you can select **Review + create** if you don't want to configure any more settings for your instance. This will take you to a summary page, where you can review the instance details you've entered and finish with **Create**. 
-
-If you do want to configure more details for your instance, the next section describes the remaining setup tabs.
+    If you do want to configure more details for your instance, the next section describes the remaining setup tabs.
 
 ### Additional setup options
 

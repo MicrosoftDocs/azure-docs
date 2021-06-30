@@ -45,7 +45,7 @@ To create a cache, follow these steps:
    
     :::image type="content" source="media/cache-how-to-version/select-redis-version.png" alt-text="Redis version.":::
 
-1. Click **Create**. 
+1. Select **Create**. 
    
     It takes a while for the cache to create. You can monitor progress on the Azure Cache for Redis **Overview** page. When **Status** shows as **Running**, the cache is ready to use.
 

@@ -4,7 +4,7 @@ description: Learn how to troubleshoot connector issues in Azure Data Factory.
 author: jianleishen
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 06/07/2021
+ms.date: 06/24/2021
 ms.author: jianleishen
 ms.custom: has-adal-ref
 ---
@@ -677,6 +677,14 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 - **Recommendation**:  Check the port of the target server. FTP uses port 21.
 
+### Error code: FtpFailedToReadFtpData
+
+- **Message**: `Failed to read data from ftp: The remote server returned an error: 227 Entering Passive Mode (*,*,*,*,*,*).`
+
+- **Cause**: Port range between 1024 to 65535 is not open for data transfer under passive mode that ADF supports.
+
+- **Recommendation**:  Check the firewall settings of the target server. Open port 1024-65535 or port range specified in FTP server to SHIR/Azure IR IP address.
+
 
 ## HTTP
 
@@ -1014,6 +1022,16 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
     * If you're using Self-hosted IR, add the Self-hosted IR machine's IP to the allowlist.
     * If you're using Azure IR, add [Azure Integration Runtime IP addresses](./azure-integration-runtime-ip-addresses.md). If you don't want to add a range of IPs to the SFTP server allowlist, use Self-hosted IR instead.
 
+
+#### Error code: SftpPermissionDenied
+
+- **Message**: `Permission denied to access '%path;'`
+
+- **Cause**: The specified user does not have read or write permission to the folder or file when operating.
+
+- **Recommendation**:  Grant the user with permission to read or write to the folder or files on SFTP server.
+ 
+ 
 ## SharePoint Online list
 
 ### Error code: SharePointOnlineAuthFailed

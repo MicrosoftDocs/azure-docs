@@ -2,7 +2,7 @@
 author: mikben
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.author: mikben
 ---
 ## Prerequisites
@@ -22,8 +22,14 @@ Use the `npm install` command to install the Azure Communication Services callin
 ```console
 npm install @azure/communication-common --save
 npm install @azure/communication-calling --save
-
 ```
+The ACS Web Calling sdk must be used through https. For local development, use localhost or local 'file:'
+
+## Documentation support
+- [Submit issues/bugs on github](https://github.com/Azure/Communication/issues)
+- [API usage examples](https://docs.microsoft.com/azure/communication-services/quickstarts/voice-video-calling/calling-client-samples?pivots=platform-web)
+- [Application samples](https://docs.microsoft.com/azure/communication-services/samples/overview)
+- [API Reference](https://docs.microsoft.com/javascript/api/azure-communication-services/@azure/communication-calling/?view=azure-communication-services-js&preserve-view=true)
 
 ## Object model
 
@@ -36,6 +42,8 @@ The following classes and interfaces handle some of the major features of the Az
 | `DeviceManager`                    | Used to manage media devices.                                                                                           |
 | `AzureCommunicationTokenCredential` | Implements the `CommunicationTokenCredential` interface, which is used to instantiate `callAgent`. |
 
+Note: The Calling SDK's objects are not POJO.
+
 ## Initialize a CallClient instance, create a CallAgent instance, and access deviceManager
 
 Create a new `CallClient` instance. You can configure it with custom options like a Logger instance.
@@ -47,10 +55,15 @@ The `createCallAgent` method uses `CommunicationTokenCredential` as an argument.
 You can use the `getDeviceManager` method on the `CallClient` instance to access `deviceManager`.
 
 ```js
+const { CallClient } = require('@azure/communication-calling');
+const { AzureCommunicationTokenCredential} = require('@azure/communication-common');
+const { AzureLogger, setLogLevel } = require("@azure/logger");
 // Set the logger's log level
 setLogLevel('verbose');
-// Redirect logger output to wherever desired. By default it logs to console
-AzureLogger.log = (...args) => { console.log(...args) };
+// Redirect log output to wherever desired. To console, file, buffer, REST API, etc...
+AzureLogger.log = (...args) => {
+  console.log(...args); // Redirect log output to console
+};
 const userToken = '<user token>';
 callClient = new CallClient(options);
 const tokenCredential = new AzureCommunicationTokenCredential(userToken);
@@ -115,10 +128,9 @@ const camera = cameras[0]
 localVideoStream = new LocalVideoStream(camera);
 const placeCallOptions = {videoOptions: {localVideoStreams:[localVideoStream]}};
 const call = callAgent.startCall(['acsUserId'], placeCallOptions);
-
 ```
 
-When your call connects, it automatically starts sending a video stream from the selected camera to the other participant. This also applies to the `Call.Accept()` video options and `CallAgent.join()` video options.
+- When your call connects, it automatically starts sending a video stream from the selected camera to the other participant. This also applies to the `Call.Accept()` video options and `CallAgent.join()` video options.
 
 ### Join a group call
 
@@ -197,6 +209,9 @@ callAgentInstance.on('incomingCall', incomingCallHander);
 ```
 
 The `incomingCall` event includes an `incomingCall` instance that you can accept or reject.
+
+When starting/joining/accepting a call with video on, if the specified video camera device is being used by another process or if its disabled in the system, the call will start with video off, and a cameraStartFailed: true call diagnostic will be raised.
+See Call Diagnostics section to see how to handle this call diagnostic.
 
 ## Manage calls
 
@@ -330,6 +345,11 @@ const cameras = await callClient.getDeviceManager().getCameras();
 const camera = cameras[1];
 localVideoStream.switchSource(camera);
 ```
+
+If the specified video device is being used by another process, or if its disabled in the system:
+- While in a call, if your video is off and you start video using the call.startVideo() api, this API will throw with a SourceUnavailableError and a cameraStartFiled: true call diagnostic will be raised.
+- A call to the localVideoStream.switchSource() api will cause a cameraStartFailed: true call diagnostic to be raised be raised.
+See Call Diagnostics section to see how to handle call diagnostics.
 
 ## Manage remote participants
 
@@ -591,6 +611,12 @@ console.log(result.audio);
 console.log(result.video);
 ```
 
+#### Notes
+- The 'videoDevicesUpdated' event fires when video devices are plugging-in/unplugged.
+- The 'audioDevicesUpdated' event fires when audio devices are plugged
+- When the DeviceManager is created, at first it does not know about any devices if permissions have not been granted yet and so initially it's device lists are empty. If we then call the DeviceManager.askPermission() API, the user is prompted for device access and if the user clicks on 'allow' to grant the access, then the device manager will learn about the devices on the system, update it's device lists and emit the 'audioDevicesUpdated' and 'videoDevicesUpdated' events. Lets say we then refresh the page and create device manager, the device manager will be able to learn about devices because user has already previously granted access, and so it will initially it will have it's device lists filled and it will not emit 'audioDevicesUpdated' nor 'videoDevicesUpdated' events.
+- Speaker enumeration/selection is not suppported on Android nor iOS. This is already in 'known issues' documentation.
+
 ## Record calls
 > [!NOTE]
 > This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment. To use this api please use 'beta' release of ACS Calling Web SDK
@@ -832,6 +858,77 @@ function subscribeToRemoteVideoStream(stream: RemoteVideoStream, participant: Re
 }
 ```
 
+## Call diagnostics
+Call diagnostics is an extended feature of the core `Call` API and allows you to diagnose an active call.
+```js
+	const callQualityApi = call.api(Features.CallQuality);
+```
+
+- Subscribe to `diagnosticChanged` event to monitor when any call diagnostic changes.
+```js
+	/**
+	 *  Each diagnostic has the following data:
+     	 * - diagnostic is the type of diagnostic, e.g. NetworkSendQuality, DeviceSpeakWhileMuted, etc...
+ 	 * - value is DiagnosticQuality or DiagnosticFlag:
+ 	 *     - DiagnosticQuality = enum { Good = 1, Poor = 2, Bad = 3 }.
+ 	 *     - DiagnosticFlag = true | false.
+ 	 * - valueType = 'DiagnosticQuality' | 'DiagnosticFlag'
+ 	 * - mediaType is the media type associated with the event, e.g. Audio, Video, ScreenShare. These are defined in `CallDiagnosticEventMediaType`.
+	 */
+	 const diagnosticChangedListener = (diagnosticInfo: NetworkDiagnosticChangedEventArgs | MediaDiagnosticChangedEventArgs) => {
+		console.log(`Diagnostic changed: ` +
+			`Diagnostic: ${diagnosticInfo.diagnostic}` +
+			`Value: ${diagnosticInfo.value}` + 
+			`Value type: ${diagnosticInfo.valueType}` +
+			`Media type: ${diagnosticInfo.mediaType}` +
+
+		if (diagnosticInfo.valueType === 'DiagnosticQuality') {
+			if (diagnosticInfo.value === DiagnosticQuality.Bad) {
+				console.error(`${diagnosticInfo.diagnostic} is bad quality`);
+
+			} else if (diagnosticInfo.value === DiagnosticQuality.Poor) {
+				console.error(`${diagnosticInfo.diagnostic} is poor quality`);
+			}
+
+		} else if (diagnosticInfo.valueType === 'DiagnosticFlag') {
+			if (diagnosticInfo.value === true) {
+				console.error(`${diagnosticInfo.diagnostic}`);
+			}
+		}
+	};
+	
+	call.api(Features.Diagnostics).network.on('diagnosticChanged', diagnosticChangedListener);
+	call.api(Features.Diagnostics).media.on('diagnosticChanged', diagnosticChangedListener);
+```
+
+- Get the latest call diagnostic values that were raised. If a diagnostic is undefined, that is because it was never raised.
+```js
+	const latestNetworkDiagnostics = call.api(Features.Diagnostics).network.getLatest();
+	
+	console.log(`noNetwork: ${latestNetworkDiagnostics.noNetwork.value}, ` +
+			`value type = ${latestNetworkDiagnostics.noNetwork.valueType}`);
+			
+	console.log(`networkReconnect: ${latestNetworkDiagnostics.networkReconnect.value}, ` +
+			`value type = ${latestNetworkDiagnostics.networkReconnect.valueType}`);
+			
+	console.log(`networkReceiveQuality: ${latestNetworkDiagnostics.networkReceiveQuality.value}, ` +
+			`value type = ${latestNetworkDiagnostics.networkReceiveQuality.valueType}`);
+
+
+	const latestMediaDiagnostics = call.api(Features.Diagnostics).media.getLatest();
+	
+	console.log(`speakingWhileMicrophoneIsMuted: ${latestMediaDiagnostics.speakingWhileMicrophoneIsMuted.value}, ` +
+			`value type = ${latestMediaDiagnostics.speakingWhileMicrophoneIsMuted.valueType}`);
+			
+	console.log(`cameraStartFailed: ${latestMediaDiagnostics.cameraStartFailed.value}, ` +
+			`value type = ${latestMediaDiagnostics.cameraStartFailed.valueType}`);
+			
+	console.log(`microphoneNotFunctioning: ${latestMediaDiagnostics.microphoneNotFunctioning.value}, ` +
+			`value type = ${latestMediaDiagnostics.microphoneNotFunctioning.valueType}`);
+
+	
+```
+
 ## Learn about eventing models
 
 Inspect current values and subscribe to update events for future values.
@@ -901,3 +998,17 @@ function subscribeToRemoteParticipant(p) {
     p.on('videoStreamsUpdated', e => { e.added.forEach(v => { subscribeToRemoteVideoStream(v) }) })
 }
 ```
+
+## Releasing resources
+1. How to properly release resources when a call is finished:
+    - When call is finished our SDK will terminate signaling&media sessions leaving you with an instance of the call that holds the last state of it, so you can check callEndReason etc.., if your app won't hold the reference to the Call instance - JavaScript GC will clean up everything so in terms of memory consumption your app should go back to initial state from before the call.
+
+2. Which resource types are long-lived (app lifetime) vs. short-lived (call lifetime):
+    - The following are considered to be "long-lived" resources - you can create them and keep referenced for a long time, they are very light in terms of resource(memory) consumption so won't impact perf:
+        - CallClient
+        - CallAgent
+        - DeviceManager
+    - The following are considered to be "short-lived" resources and are the ones that are playing some role in the call itself, emit events to the application, or are interacting with local media devices. These will consume more cpu&memory, but once call ends - SDK will cleanup all the state and release resource:
+        - Call - since it's the one holding the actual state of the call ( both signaling and media ).
+        - RemoteParticipants - Represent the remote participants in the call.
+        - VideoStreamRenderer with it's VideoStreamRendererViews - handling video rendering.

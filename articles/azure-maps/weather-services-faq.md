@@ -3,7 +3,7 @@ title: Microsoft Azure Maps Weather services frequently asked questions (FAQ)
 description: Find answer to common questions about Azure Maps Weather services data and features.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 12/07/2020
+ms.date: 06/23/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -24,9 +24,9 @@ This article answers to common questions about Azure Maps [Weather services](/re
 
 **How does Azure Maps source Weather data?**
 
-Azure Maps is built with the collaboration of world-class mobility and location technology partners, including AccuWeather, who provides the underlying weather data. To read the announcement of  Azure Maps’ collaboration with AccuWeather, see [Rain or shine: Azure Maps Weather Services will bring insights to your enterprise](https://azure.microsoft.com/blog/rain-or-shine-azure-maps-weather-services-will-bring-insights-to-your-enterprise/).
+Azure Maps is built with the collaboration of world-class mobility and location technology partners, including AccuWeather, who provides the underlying weather data. To read the announcement of Azure Map's collaboration with AccuWeather, see [Rain or shine: Azure Maps Weather Services will bring insights to your enterprise](https://azure.microsoft.com/blog/rain-or-shine-azure-maps-weather-services-will-bring-insights-to-your-enterprise/).
 
-AccuWeather has real-time weather and environmental information available anywhere in the world, largely due to their partnerships with numerous national governmental weather agencies and other proprietary arrangements. A list of this foundational information is provided below.
+AccuWeather has real-time weather and environmental information available anywhere in the world, largely because of their partnerships with many national governmental weather agencies and other proprietary arrangements. A list of this foundational information is provided below.
 
 * Publicly available global surface observations from government agencies
 * Proprietary surface observation datasets from governments and private companies
@@ -38,33 +38,33 @@ AccuWeather has real-time weather and environmental information available anywhe
 * Air quality observations
 * Observations from departments of transportation
 
-Tens of thousands of surface observations, along with other data, are incorporated to create and influence the current conditions made available to users. This includes not only freely available standard datasets, but also unique observations obtained from national meteorological services in many countries/regions including India, Brazil, and Canada and other proprietary inputs. These unique datasets increase the spatial and temporal resolution of current condition data for our users. 
+Tens of thousands of surface observations, along with other data, are incorporated to create and influence the current conditions made available to users. These surface observations include not only freely available standard datasets, but also unique observations obtained from national meteorological services in many countries/regions, such as India, Brazil, Canada, and other proprietary inputs. These unique datasets increase the spatial and temporal resolution of current condition data for our users.
 
-These datasets are reviewed in real time for accuracy for the Digital Forecast System, which utilizes AccuWeather’s proprietary artificial intelligence algorithms to continuously modify the forecasts, ensuring they always incorporate the latest data and thereby maximizing their continual accuracy.
+These datasets are reviewed in real time for accuracy for the Digital Forecast System, which uses AccuWeather’s proprietary artificial intelligence algorithms to continuously modify the forecasts, ensuring they always incorporate the latest data and, in that way, maximize their continual accuracy.
 
 **What models create weather forecast data?**
 
-Numerous weather forecast guidance systems are utilized to formulate global forecasts. Over 150 numerical forecast models are used each day, both external and internal datasets. This includes government models such as the European Centre ECMWF and the U.S. Global Forecast System (GFS). Additionally, AccuWeather incorporates proprietary high-resolution models that downscale forecasts to specific locations and strategic regional domains to predict weather with further accuracy. AccuWeather’s unique blending and weighting algorithms   have been developed over the last several decades. These algorithms optimally leverage the numerous forecast inputs to provide highly accurate forecasts.
+Many weather forecast guidance systems are used to formulate global forecasts. Over 150 numerical forecast models are used each day, both external and internal datasets. These models include government models such as the European Centre ECMWF and the U.S. Global Forecast System (GFS). Also, AccuWeather incorporates proprietary high-resolution models that downscale forecasts to specific locations and strategic regional domains to predict weather with further accuracy. AccuWeather’s unique blending and weighting algorithms   have been developed over the last several decades. These algorithms optimally apply the many forecast inputs to provide highly accurate forecasts.
 
 ## Weather services coverage and availability
 
 **What kind of coverage can I expect for different countries/regions?**
 
-Weather service coverage varies by country/region. All features are not available in every country/region. For more information, see [coverage documentation](./weather-coverage.md).
+Weather service coverage varies by country/region. All features aren't available in every country/region. For more information, see [coverage documentation](./weather-coverage.md).
 
 ## Data update frequency
 
 **How often is Current Conditions data updated?**
 
-Current Conditions data is approximately updated at least once an hour, but can be updated more frequently with rapidly changing conditions – such as large temperature changes, sky conditions changes, precipitation changes, and so on. Most observation stations around the world report many times per hour as conditions change. However, a few areas will still only update once, twice, or four times an hour at scheduled intervals.  
+Current Conditions data is updated at least once an hour, but can be updated more frequently with rapidly changing conditions – such as large temperature changes, sky conditions changes, precipitation changes, and so on. Most observation stations around the world report many times per hour as conditions change. However, a few areas will still only update once, twice, or four times an hour at scheduled intervals.  
 
-Azure Maps caches the Current Conditions data for up to 10 minutes to help capture the near real-time update frequency of the data as it occurs. To see when the cached response expires and avoid displaying outdated data, you can leverage the Expires Header information in the HTTP header of the Azure Maps API response.
+Azure Maps caches the Current Conditions data for up to 10 minutes to help capture the near real-time update frequency of the data as it occurs. To see when the cached response expires and avoid displaying outdated data, you can use the Expires Header information in the HTTP header of the Azure Maps API response.
 
 **How often is Daily and Hourly Forecast data updated?**
 
-Daily and Hourly Forecast data is updated multiple times per day, as updated observations are received.  For example, if a forecasted high/low temperature is surpassed, our Forecast data will adjust at the next update cycle. This can happen at different intervals but typically happens within an  hour. Many sudden weather conditions can cause a forecast data change. For example, on a hot summer afternoon, an isolated thunderstorm can suddenly emerge, bringing heavy cloud coverage and rain. The isolated storm can effectively drop temperature by as much as 10 degrees. This new temperature value will impact the Hourly and Daily Forecasts for the remainder of the day, and as such, will be updated in our datasets.
+Daily and Hourly Forecast data is updated multiple times per day, as updated observations are received.  For example, if a forecasted high/low temperature is surpassed, our Forecast data will adjust at the next update cycle. Updates happen at different intervals but typically happens within an hour. Many sudden weather conditions may cause a forecast data change. For example, on a hot summer afternoon, an isolated thunderstorm might suddenly emerge, bringing heavy cloud coverage and rain. The isolated storm could effectively drop temperature by as much as 10 degrees. This new temperature value will impact the Hourly and Daily Forecasts for the rest of the day, and as such, will be updated in our datasets.
 
-Azure Maps Forecast APIs are cached for up to 30 mins. To see when the cached response expires and avoid displaying outdated data, you can leverage the Expires Header information in the HTTP header of the Azure Maps API response. We recommend updating as necessary based on a specific product use case and UI (user interface).
+Azure Maps Forecast APIs are cached for up to 30 mins. To see when the cached response expires and avoid displaying outdated data, you can look at the Expires Header information in the HTTP header of the Azure Maps API response. We recommend updating as necessary based on a specific product use case and UI (user interface).
 
 ## Developing with Azure Maps SDKs
 
@@ -90,7 +90,7 @@ The Azure Maps [Weather concept article](./weather-services-concepts.md#radar-an
  
 **Can I create radar and satellite tile animations?**
 
-Yes. In addition to real-time radar and satellite tiles, Azure Maps customers can request past and future tiles to enhance data visualizations with map overlays. This can be done by directly calling [Get Map Tile v2 API](/rest/api/maps/renderv2/getmaptilepreview) or by requesting tiles via Azure Maps web SDK. Radar tiles are provided for up to 1.5 hours in the past, and for up to 2 hours in the future. The tiles and are available in 5-minute intervals. Infrared tiles are provided for up to 3 hours in the past, and are available in 10-minute intervals. For more information, see the open-source Weather Tile Animation [code sample](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Animated%20tile%20layer).  
+Yes. In addition to real-time radar and satellite tiles, Azure Maps customers can request past and future tiles to enhance data visualizations with map overlays. Customers can call the [Get Map Tile v2 API](/rest/api/maps/renderv2/getmaptilepreview) or request tiles via Azure Maps web SDK. Radar tiles are available for up to 1.5 hours in the past, and for up to 2 hours in the future. The tiles are available in 5-minute intervals. Infrared tiles are provided for up to 3 hours in the past, and are available in 10-minute intervals. For more information, see the open-source Weather Tile Animation [code sample](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Animated%20tile%20layer).  
 
 **Do you offer icons for different weather conditions?**
 

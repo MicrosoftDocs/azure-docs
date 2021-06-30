@@ -42,6 +42,7 @@ The following regions and maximum resources are available to container groups wi
 | Korea Central | 4 | 16 | N/A | N/A | 50 | N/A |
 | North Central US | 2 | 3.5 | 4 | 16 | 50 | K80, P100, V100 |
 | North Europe | 4 | 16 | 4 | 16 | 50 | K80 |
+| Norway East | 4 | 16 | N/A | N/A | 50 | N/A |
 | South Central US | 4 | 16 | 4 | 16 | 50 | V100 |
 | Southeast Asia | 4 | 16 | 4 | 16 | 50 | P100, V100 |
 | South India | 4 | 16 | N/A | N/A | 50 | K80 |
