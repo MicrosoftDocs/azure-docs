@@ -28,28 +28,28 @@ If you bring your own certificates, then the certificates that you created for y
 
 Before you upload your root certificates and endpoint certificates on to the device, make sure the certificates are exported in appropriate format.
 
-- The root certificate must be exported as DER format with `.cer` extension. For detailed steps, see [Export certificates as DER format](#export-certificates-as-der-format).
-- The endpoint certificates must be exported as *.pfx* files with private keys. For detailed steps, see [Export certificates as *.pfx* file with private keys](#export-certificates-as-pfx-format-with-private-key). 
+- The root certificate must be exported as DER format with `.cer` extension. For detailed steps, see [Export certificates as DER format](azure-stack-edge-gpu-prepare-certificates-device-upload.md#export-certificates-as-der-format).
+- The endpoint certificates must be exported as *.pfx* files with private keys. For detailed steps, see [Export certificates as *.pfx* file with private keys](azure-stack-edge-gpu-prepare-certificates-device-upload.md#export-certificates-as-pfx-format-with-private-key). 
 
 ### Upload certificates 
 
 To upload the root and endpoint certificates on the device, use the **+ Add certificate** option on the **Certificates** page in the local web UI. Follow these steps:
 
-    1. Upload the root certificates first. In the local web UI, go to **Certificates > + Add certificate**.
+1. Upload the root certificates first. In the local web UI, go to **Certificates > + Add certificate**.
 
-        ![Add signing chain certificate 1](media/azure-stack-edge-series-manage-certificates/add-cert-1.png)
+    ![Add signing chain certificate 1](media/azure-stack-edge-series-manage-certificates/add-cert-1.png)
 
-    2. Next upload the endpoint certificates. 
+2. Next upload the endpoint certificates. 
 
-        ![Add signing chain certificate 2](media/azure-stack-edge-series-manage-certificates/add-cert-2.png)
+    ![Add signing chain certificate 2](media/azure-stack-edge-series-manage-certificates/add-cert-2.png)
 
-        Choose the certificate files in *.pfx* format and enter the password you supplied when you exported the certificate. The Azure Resource Manager certificate may take a few minutes to apply.
+    Choose the certificate files in *.pfx* format and enter the password you supplied when you exported the certificate. The Azure Resource Manager certificate may take a few minutes to apply.
 
-        If the signing chain is not updated first, and you try to upload the endpoint certificates, then you will get an error.
+    If the signing chain is not updated first, and you try to upload the endpoint certificates, then you will get an error.
 
-        ![Apply certificate error](media/azure-stack-edge-series-manage-certificates/apply-cert-error-1.png)
+    ![Apply certificate error](media/azure-stack-edge-series-manage-certificates/apply-cert-error-1.png)
 
-        Go back and upload the signing chain certificate and then upload and apply the endpoint certificates.
+    Go back and upload the signing chain certificate and then upload and apply the endpoint certificates.
 
 > [!IMPORTANT]
 > If the device name or the DNS domain are changed, new certificates must be created. The client certificates and the device certificates should then be updated with the new device name and DNS domain. 
@@ -64,7 +64,7 @@ In both the cases, the certificates that you created and uploaded to your device
 
 - The endpoint certificates that you exported as the `.pfx` must be exported as DER with `.cer` extension. This `.cer` is then imported in the **Personal certificate store** on your system. For detailed steps, see [Import certificates into the Personal certificate store](#import-certificates-as-der-format).
 
-### Import DER format certificate 
+### Import certificates as DER format 
 
 To import certificates on a Windows client, take the following steps:
 

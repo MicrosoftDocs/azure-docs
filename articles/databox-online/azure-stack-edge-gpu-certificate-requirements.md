@@ -87,7 +87,7 @@ The PFX certificates installed on your Azure Stack Edge Pro device should meet t
 
 * Use only RSA certificates with the Microsoft RSA/Schannel Cryptographic provider.
 
-For more information, see [Export PFX certificates with private key](azure-stack-edge-gpu-manage-certificates.md#export-certificates-as-pfx-format-with-private-key).
+For more information, see [Export PFX certificates with private key](azure-stack-edge-gpu-prepare-certificates-device-upload.md#export-certificates-as-pfx-format-with-private-key).
 
 ## Next steps
 

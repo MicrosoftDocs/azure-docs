@@ -29,7 +29,7 @@ On your Azure Stack Edge device, you can use the self-signed certificates or bri
 - **Bring your own certificates**: Optionally, you can bring your own certificates. There are guidelines that you need to follow if you plan to bring your own certificates.
 
 - Start by understanding the types of the certificates that can be used with your Azure Stack Edge device in this article.
-- Next, review the [Certificate requirements for each type of certificate](azure-stack-edge-gpu-certificate-requirements.md). [Viewing the certificate requirements](azure-stack-edge-certificate-requirements.md). 
+- Next, review the [Certificate requirements for each type of certificate](azure-stack-edge-gpu-certificate-requirements.md).  
 - You can then [Create your certificates via Azure PowerShell](azure-stack-edge-gpu-create-certificates-powershell.md) or [Create your certificates via Readiness Checker tool](azure-stack-edge-gpu-create-certificates-tool.md).
 - Finally, [Convert the certificates to appropriate format](azure-stack-edge-gpu-prepare-certificates-device-upload.md) so that they are ready to upload on to your device.
 - [Upload your certificates](azure-stack-edge-gpu-manage-certificates.md#upload-certificates-on-your-device) on the device.

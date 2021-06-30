@@ -129,7 +129,7 @@ If using Azure Storage Explorer, you will need to install certificates on your c
 You can bring your own certificates. 
 
 - Start by understanding the [Types of the certificates that can be used with your Azure Stack Edge device](azure-stack-edge-gpu-certificates-overview.md).
-- Next, review the [Certificate requirements for each type of certificate](azure-stack-edge-gpu-certificate-requirements.md). [Viewing the certificate requirements](azure-stack-edge-certificate-requirements.md). 
+- Next, review the [Certificate requirements for each type of certificate](azure-stack-edge-gpu-certificate-requirements.md).
 - You can then [Create your certificates via Azure PowerShell](azure-stack-edge-gpu-create-certificates-powershell.md) or [Create your certificates via Readiness Checker tool](azure-stack-edge-gpu-create-certificates-tool.md).
 - Finally, [Convert the certificates to appropriate format](azure-stack-edge-gpu-prepare-certificates-device-upload.md) so that they are ready to upload on to your device.
 
