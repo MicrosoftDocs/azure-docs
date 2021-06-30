@@ -126,7 +126,7 @@ If the third type of errors listed in the table below aren't fixed, although the
 | Volume | Volume overflow| Overflowing volume is detected at {}s. Adjust the recording equipment to avoid the volume overflow at its peak value.|
 | Volume | Start silence issue | The first 100 ms silence isn't clean. Reduce the recording noise floor level and leave the first 100 ms at the start silent.|
 | Volume| End silence issue| The last 100 ms silence  isn't clean.  Reduce the recording noise floor level and leave the last 100 ms at the end silent.|
-| Mismatch | Script and audio mismatch| There's a mismatch between the script and the audio content. Review the script and the audio content to make sure they match and control the noise floor level. Reduce the length of long silence or split the audio into multiple utterances if it's too long.|
+| Mismatch | Script and audio mismatch|Review the script and the audio content to make sure they match and control the noise floor level. Reduce the length of long silence or split the audio into multiple utterances if it's too long.|
 | Mismatch | Start silence issue |Extra audio was heard before the first word. Review the script and the audio content to make sure they match, control the noise floor level, and make the first 100 ms silent.|
 | Mismatch | End silence issue| Extra audio was heard after the last word. Review the script and the audio content to make sure they match, control the noise floor level, and make the last 100 ms silent.|
 | Mismatch | Low signal-noise ratio | Audio SNR level is lower than 20 dB. At least 35 dB is recommended.|
