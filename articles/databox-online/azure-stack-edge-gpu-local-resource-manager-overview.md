@@ -7,9 +7,9 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 05/20/2021
+ms.date: 06/30/2021
 ms.author: alkohli
-#Customer intent: As an IT admin, I need to understand what si the local Azure Resource Manager on my Azure Stack Edge Pro device.
+#Customer intent: As an IT admin, I need to understand what is the local Azure Resource Manager on my Azure Stack Edge Pro device.
 ---
 
 # What is local Azure Resource Manager on Azure Stack Edge?
