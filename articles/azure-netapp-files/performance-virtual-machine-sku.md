@@ -1,6 +1,6 @@
 ---
 title: Azure virtual machine SKUs best practices for Azure NetApp Files | Microsoft Docs
-description: Describes filesystem cache and Linux NFS read-ahead best practices for Azure NetApp Files.  
+description: Describes Azure NetApp Files best practices about Azure virtual machine SKUs, including differences within and between SKUs.   
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -22,13 +22,13 @@ This article describes Azure NetApp Files best practices about Azure virtual mac
 
 ## SKU selection process considerations
 
-Storage performance involves more than the speed of the storage itself. The processor speed and architecture have a lot to do with the overall experience from any particular compute node. As part of the selection process for a given SKU, you should consider the following:
+Storage performance involves more than the speed of the storage itself. The processor speed and architecture have a lot to do with the overall experience from any particular compute node. As part of the selection process for a given SKU, you should consider the following factors:
 
 * AMD or Intel: For example, SAS uses a math kernel library designed specifically for Intel processors.  In this case, Intel SKUs are preferred over AMD SKU.
-* The F2, E_v3 as well as D_v3 machine types are each based on more than one chipset.  In using Azure Dedicated Hosts, you might select specific models (Broadwell, Cascade Lake, or Skylake when selecting the E type for example). Otherwise, the chipset selection is non-deterministic.  If you are deploying an HPC cluster and a consistent experience across the inventory is important, then you can consider single Azure Dedicated Hosts or go with single chipset SKUs such as the E_v4 or D_v4.
+* The F2, E_v3, and D_v3 machine types are each based on more than one chipset.  In using Azure Dedicated Hosts, you might select specific models (Broadwell, Cascade Lake, or Skylake when selecting the E type for example). Otherwise, the chipset selection is non-deterministic.  If you are deploying an HPC cluster and a consistent experience across the inventory is important, then you can consider single Azure Dedicated Hosts or go with single chipset SKUs such as the E_v4 or D_v4.
 * Performance variability with network-attached storage (NAS) has been observed in testing with both the Intel Broadwell based SKUs and the AMD EPYC™ 7551  based SKUs. Two issues have been observed:
     * When the accelerated network interface is inappropriately mapped to a sub optimal NUMA Node, read performance decreases significantly.   Though mapping the accelerated networking interface to a specific NUMA node is beneficial on newer SKUs, it must be considered a requirement on SKUs with these chipsets (Lv2|E_v3|D_v3).
-    * Virtual machines running on the Lv2, or either E_v3  or D_v3 running on a Broadwell chipset are more susceptible to resource contention than when running on other SKUs.  When testing using multiple virtual machines running within a single Azure Dedicated Host, running network-based storage workload from one virtual machine has been seen to decrease the performance of network-based storage workloads running from a second virtual machine. The decrease is more pronounced when any of the virtual machines on the node have not had their accelerated network interface/NUMA node optimally mapped.  Keep in mind that the E_v3 and D_V3 may between them land on Haswell, Broadwell, Cascade Lake or Skylake. 
+    * Virtual machines running on the Lv2, or either E_v3  or D_v3 running on a Broadwell chipset are more susceptible to resource contention than when running on other SKUs.  When testing using multiple virtual machines running within a single Azure Dedicated Host, running network-based storage workload from one virtual machine has been seen to decrease the performance of network-based storage workloads running from a second virtual machine. The decrease is more pronounced when any of the virtual machines on the node have not had their accelerated network interface/NUMA node optimally mapped.  Keep in mind that the E_v3 and D_V3 may between them land on Haswell, Broadwell, Cascade Lake, or Skylake. 
 
 For the most consistent performance when selecting virtual machines, select from SKUs with a single type of chipset – newer SKUs are preferred over the older models where available.   Keep in mind, aside from using a dedicated host, predicting correctly which type of hardware the E_v3 or D_v3 virtual machines land on is unlikely.  When using the E_v3 or D_v3 SKU:
 
@@ -39,7 +39,7 @@ For the most consistent performance when selecting virtual machines, select from
  
 The following table highlights  the differences within and between SKUs.  Note, for example, that the chipset of the underlying E_v3 and D_v3 vary between the Broadwell, Cascade Lake, Skylake, and also in the case of the D_v3.  
 
-|     Family    |     Version    |          |     Frequency (GHz)    |
+|     Family    |     Version    |   Description     |     Frequency (GHz)    |
 |-|-|-|-|
 |     E    |     V3    |     Intel® Xeon® E5-2673   v4 (Broadwell)    |     2.3 (3.6)    |
 |     E    |     V3    |     Intel® Xeon®   Platinum 8272CL (Cascade Lake)    |     2.6 (3.7)    |
