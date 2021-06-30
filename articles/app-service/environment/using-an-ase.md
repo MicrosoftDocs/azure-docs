@@ -10,6 +10,9 @@ ms.author: ccompy
 ms.custom: seodec18
 ---
 # Use an App Service Environment
+> [!NOTE]
+> This article is about the App Service Environment v2 which is used with Isolated App Service plans
+> 
 
 An App Service Environment (ASE) is a deployment of Azure App Service into a subnet in a customer's Azure Virtual Network instance. An ASE consists of:
 
