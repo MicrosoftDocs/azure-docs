@@ -456,7 +456,7 @@ To check the stream type, inspect the `mediaStreamType` property of a given stre
 
 To render `RemoteVideoStream`, your application should do the following:
 - create a new instance of `VideoStreamRenderer` and supply `RemoteVideoStream` instance as an argument.
-- check and subscribe to stream's `isAvailableChanged` event
+- check and subscribe to the stream's `isAvailableChanged` event.
 - once the `isAvailable` property changes to `true`, a remote participant is sending data, application can then create a new `VideoStreamRendererView` instance by using the asynchronous `createView` method
 - `createView` resolves after local endpoint subscribes to the video and receives first video frame, at this point application can attach `view` instance returned from `createView` to the DOM.
 - once stream becomes unavailable, application should `dispose` all views associated with the VideoStreamRenderer instance used to render given stream, it may also choose to `dispose` a `VideoStreamRenderer` instance itself.
