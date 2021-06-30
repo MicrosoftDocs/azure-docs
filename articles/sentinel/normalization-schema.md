@@ -103,7 +103,7 @@ Below is the schema of the network sessions table, versioned 1.0.0
 | **DstDvcDomain** | String | CONTOSO | The Domain of the destination device. | Destination,<br>Device |
 | **DstPortNumber** | Integer | 443 | The destination IP port. | Destination,<br>Port |
 | **DstGeoRegion** | Region (String) | Vermont | The region within a country associated with the destination IP address | Destination,<br>Geo |
-| **DstResourceId** | Device ID (String) |  /subscriptions/3c1bb38c-82e3-4f8d-a115-a7110ba70d05 /resourcegroups/contoso77/providers /microsoft.compute/virtualmachines /victim | The resource Id of the destination device. | Destination |
+| **DstResourceId** | Device ID (String) |  /subscriptions/3c1bb38c-82e3-4f8d-a115-a7110ba70d05 /resourcegroups/contoso77/providers /microsoft.compute/virtualmachines /victim | The resource ID of the destination device. | Destination |
 | **DstNatIpAddr** | IP address | 2::1 | If reported by an intermediary NAT device such as a firewall, the IP address used by the NAT device for communication with the source. | Destination NAT,<br>IP |
 | **DstNatPortNumber** | int | 443 | If reported by an intermediary NAT device such as a firewall, the port used by the NAT device for communication with the source. | Destination NAT,<br>Port |
 | **DstUserSid** | User SID |  S-12-1445 | The User ID of the identity associated with the session’s destination. Typically, the identity used to authenticate a server. See "data types" for details. | Destination,<br>User |
