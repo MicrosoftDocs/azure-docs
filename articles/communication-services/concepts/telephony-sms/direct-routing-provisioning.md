@@ -18,7 +18,7 @@ Azure Communication Services direct routing enables you to connect your existing
  
 For information about whether ACS direct routing is the right solution for your organization, see [Azure telephony concepts](./telephony-concept.md). For information about prerequisites and planning your deployment, see [ACS direct routing infrastructure requirements] (./sip-interface-infrastructure.md).
 
-## Connect the SBC with ACS 
+## Connect the SBC with Azure Communication Services
 
 ### Configure using Azure portal 
 · In the left navigation, select Direct routing under Voice Calling - PSTN and then select Configure at the Session Border Controller tab.
