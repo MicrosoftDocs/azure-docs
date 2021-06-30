@@ -30,13 +30,13 @@ To provision an Azure SQL logical server or managed instance, you'll need to hav
 
 The [SQL Security Manager](../../role-based-access-control/built-in-roles.md#sql-security-manager) Azure RBAC role doesn't have enough permissions to create a server or instance with Azure AD-only authentication enabled. The [SQL Security Manager](../../role-based-access-control/built-in-roles.md#sql-security-manager) role will be required to manage the Azure AD-only authentication feature after server or instance creation.
 
-## Provision a server or managed instance with Azure AD-only auth enabled
+## Provision with Azure AD-only authentication enabled
 
 The following provides you with examples and scripts on how to create a SQL logical server or managed instance with an Azure AD admin set for the server or instance, and have Azure AD-only authentication enabled during server creation. For more information on the feature, see [Azure AD-only authentication](authentication-azure-ad-only-authentication.md).
 
-# [PowerShell](#tab/azure-powershell)
+### Azure SQL Database
 
-## Azure SQL Database
+# [PowerShell](#tab/azure-powershell)
 
 The PowerShell command `New-AzSqlServer` is used to provision a new Azure SQL logical server. The below command will provision a new logical server with Azure AD-only authentication enabled. 
 
@@ -57,35 +57,7 @@ New-AzSqlServer -ResourceGroupName "<ResourceGroupName>" -Location "<Location>" 
 
 For more information, see [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver).
 
-## Azure SQL Managed Instance
-
-The PowerShell command `New-AzSqlInstance` is used to provision a new Azure SQL Managed Instance. The below command will provision a new managed instance with Azure AD-only authentication enabled.
-
-> [!NOTE]
-> The script requires a virtual network and subnet be created as a prerequisite.
-
-The managed instance SQL Administrator login will be automatically created and the password will be set to a random password. Since SQL Authentication connectivity is disabled with this provision, the SQL Administrator login won't be used.
-
-The Azure AD admin will be the account you set for `<AzureADAccount>`, and can be used to manage the instance when the provisioning is complete.
-
-Replace the following values in the example:
-
-- `<managedinstancename>`: Name the managed instance you want to create
-- `<ResourceGroupName>`: Name of the resource group for your managed instance. This should also include the virtual network and subnet created
-- `<Location>`: Location of the server, such as `West US`, or `Central US`
-- `<AzureADAccount>`: Can be an Azure AD user or group. For example, `DummyLogin`
-- The `SubnetId` parameter needs to be updated with the `<ResourceGroupName>`, the `Subscription ID`, `<VNetName>`, and `<SubnetName>`. Your subscription ID can be found in the Azure portal
-
-
-```powershell
-New-AzSqlInstance -Name "<managedinstancename>" -ResourceGroupName "<ResourceGroupName>" -ExternalAdminName "<AzureADAccount>" -EnableActiveDirectoryOnlyAuthentication -Location "<Location>" -SubnetId "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/<ResourceGroupName>/providers/Microsoft.Network/virtualNetworks/<VNetName>/subnets/<SubnetName>" -LicenseType LicenseIncluded -StorageSizeInGB 1024 -VCore 16 -Edition "GeneralPurpose" -ComputeGeneration Gen4
-```
-
-For more information, see [New-AzSqlInstance](/powershell/module/az.sql/new-azsqlinstance).
-
 # [Rest API](#tab/rest-api)
-
-## Azure SQL Database
 
 The [Servers - Create Or Update](/rest/api/sql/2020-11-01-preview/servers/create-or-update) Rest API can be used to create an Azure SQL logical server with Azure AD-only authentication enabled during provisioning. 
 
@@ -159,78 +131,9 @@ $responce.statuscode
 $responce.content
 ```
 
-## Azure SQL Managed Instance
-
-The [Managed Instances - Create Or Update](/rest/api/sql/2020-11-01-preview/managed-instances/create-or-update) Rest API can be used to create a managed instance with Azure AD-only authentication enabled during provisioning.
-
-> [!NOTE]
-> The script requires a virtual network and subnet be created as a prerequisite.
-
-The script below will provision a managed instance, set the Azure AD admin as `<AzureADAccount>`, and enable Azure AD-only authentication. The instance SQL Administrator login will also be created automatically and the password will be set to a random password. Since SQL Authentication connectivity is disabled with this provisioning, the SQL Administrator login won't be used.
-
-The Azure AD admin, `<AzureADAccount>` can be used to manage the instance when the provisioning is complete.
-
-Replace the following values in the example:
-
-- `<tenantId>`: Can be found by going to the [Azure portal](https://portal.azure.com), and going to your **Azure Active Directory** resource. In the **Overview** pane, you should see your **Tenant ID**
-- `<subscriptionId>`: Your subscription ID can be found in the Azure portal
-- `<instanceName>`: Use a unique managed instance name
-- `<ResourceGroupName>`: Name of the resource group for your Azure SQL logical server
-- `<AzureADAccount>`: Can be an Azure AD user or group. For example, `DummyLogin`
-- `<Location>`: Location of the server, such as `westus2`, or `centralus`
-- `<objectId>`: Can be found by going to the [Azure portal](https://portal.azure.com), and going to your **Azure Active Directory** resource. In the **User** pane, search for the Azure AD user and find their **Object ID**
-- The `subnetId` parameter needs to be updated with the `<ResourceGroupName>`, the `Subscription ID`, `<VNetName>`, and `<SubnetName>`
-
-
-```rest
-Import-Module Azure
-Import-Module MSAL.PS
-
-$tenantId = '<tenantId>'
-$clientId = '1950a258-227b-4e31-a9cf-717495945fc2' # Static Microsoft client ID used for getting a token
-$subscriptionId = '<subscriptionId>'
-$uri = "urn:ietf:wg:oauth:2.0:oob" 
-$instanceName = "<instanceName>"
-$resourceGroupName = "<ResourceGroupName>"
-$scopes ="https://management.core.windows.net/.default"
-
-Login-AzAccount -tenantId $tenantId
-
-# Login as an Azure AD user with permission to provision a managed instance
-
-$result = Get-MsalToken -RedirectUri $uri -ClientId $clientId -TenantId $tenantId -Scopes $scopes
-
-$authHeader = @{
-'Content-Type'='application\json; '
-'Authorization'=$result.CreateAuthorizationHeader()
-}
-
-$body = '{
-"name": "<instanceName>", "type": "Microsoft.Sql/managedInstances", "identity": { "type": "SystemAssigned"},"location": "<Location>", "sku": {"name": "GP_Gen5", "tier": "GeneralPurpose", "family":"Gen5","capacity": 8},
-"properties": {"administrators":{ "login":"<AzureADAccount>", "sid":"<objectId>", "tenantId":"<tenantId>", "principalType":"User", "azureADOnlyAuthentication":true },
-"subnetId": "/subscriptions/<subscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Network/virtualNetworks/<VNetName>/subnets/<SubnetName>",
-"licenseType": "LicenseIncluded", "vCores": 8, "storageSizeInGB": 2048, "collation": "SQL_Latin1_General_CP1_CI_AS", "proxyOverride": "Proxy", "timezoneId": "UTC", "privateEndpointConnections": [], "storageAccountType": "GRS", "zoneRedundant": false 
-  }
-}'
-
-# To provision the instance, execute the `PUT` command
-
-Invoke-RestMethod -Uri https://management.azure.com/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Sql/managedInstances/$instanceName/?api-version=2020-11-01-preview -Method PUT -Headers $authHeader -Body $body -ContentType "application/json"
-
-```
-
-To check the results, execute the `GET` command:
-
-```rest
-Invoke-RestMethod -Uri https://management.azure.com/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Sql/managedInstances/$instanceName/?api-version=2020-11-01-preview -Method GET -Headers $authHeader  | Format-List
-```
-
-
 # [ARM Template](#tab/arm-template)
 
 For more information and ARM templates, see [Azure Resource Manager templates for Azure SQL Database & SQL Managed Instance](arm-templates-content-guide.md).
-
-## Azure SQL Database
 
 To provision a SQL logical server with an Azure AD admin set for the server and Azure AD-only authentication enabled using an ARM Template, see our [Azure SQL logical server with Azure AD-only authentication](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.sql/sql-logical-server-aad-only-auth) quickstart template.
 
@@ -308,7 +211,103 @@ You can also use the following template. Use a [Custom deployment in the Azure p
 }
 ```
 
-## Azure SQL Managed Instance
+---
+
+### Azure SQL Managed Instance
+
+# [PowerShell](#tab/azure-powershell)
+
+The PowerShell command `New-AzSqlInstance` is used to provision a new Azure SQL Managed Instance. The below command will provision a new managed instance with Azure AD-only authentication enabled.
+
+> [!NOTE]
+> The script requires a virtual network and subnet be created as a prerequisite.
+
+The managed instance SQL Administrator login will be automatically created and the password will be set to a random password. Since SQL Authentication connectivity is disabled with this provision, the SQL Administrator login won't be used.
+
+The Azure AD admin will be the account you set for `<AzureADAccount>`, and can be used to manage the instance when the provisioning is complete.
+
+Replace the following values in the example:
+
+- `<managedinstancename>`: Name the managed instance you want to create
+- `<ResourceGroupName>`: Name of the resource group for your managed instance. This should also include the virtual network and subnet created
+- `<Location>`: Location of the server, such as `West US`, or `Central US`
+- `<AzureADAccount>`: Can be an Azure AD user or group. For example, `DummyLogin`
+- The `SubnetId` parameter needs to be updated with the `<ResourceGroupName>`, the `Subscription ID`, `<VNetName>`, and `<SubnetName>`. Your subscription ID can be found in the Azure portal
+
+
+```powershell
+New-AzSqlInstance -Name "<managedinstancename>" -ResourceGroupName "<ResourceGroupName>" -ExternalAdminName "<AzureADAccount>" -EnableActiveDirectoryOnlyAuthentication -Location "<Location>" -SubnetId "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/<ResourceGroupName>/providers/Microsoft.Network/virtualNetworks/<VNetName>/subnets/<SubnetName>" -LicenseType LicenseIncluded -StorageSizeInGB 1024 -VCore 16 -Edition "GeneralPurpose" -ComputeGeneration Gen4
+```
+
+For more information, see [New-AzSqlInstance](/powershell/module/az.sql/new-azsqlinstance).
+
+# [Rest API](#tab/rest-api)
+
+The [Managed Instances - Create Or Update](/rest/api/sql/2020-11-01-preview/managed-instances/create-or-update) Rest API can be used to create a managed instance with Azure AD-only authentication enabled during provisioning.
+
+> [!NOTE]
+> The script requires a virtual network and subnet be created as a prerequisite.
+
+The script below will provision a managed instance, set the Azure AD admin as `<AzureADAccount>`, and enable Azure AD-only authentication. The instance SQL Administrator login will also be created automatically and the password will be set to a random password. Since SQL Authentication connectivity is disabled with this provisioning, the SQL Administrator login won't be used.
+
+The Azure AD admin, `<AzureADAccount>` can be used to manage the instance when the provisioning is complete.
+
+Replace the following values in the example:
+
+- `<tenantId>`: Can be found by going to the [Azure portal](https://portal.azure.com), and going to your **Azure Active Directory** resource. In the **Overview** pane, you should see your **Tenant ID**
+- `<subscriptionId>`: Your subscription ID can be found in the Azure portal
+- `<instanceName>`: Use a unique managed instance name
+- `<ResourceGroupName>`: Name of the resource group for your Azure SQL logical server
+- `<AzureADAccount>`: Can be an Azure AD user or group. For example, `DummyLogin`
+- `<Location>`: Location of the server, such as `westus2`, or `centralus`
+- `<objectId>`: Can be found by going to the [Azure portal](https://portal.azure.com), and going to your **Azure Active Directory** resource. In the **User** pane, search for the Azure AD user and find their **Object ID**
+- The `subnetId` parameter needs to be updated with the `<ResourceGroupName>`, the `Subscription ID`, `<VNetName>`, and `<SubnetName>`
+
+
+```rest
+Import-Module Azure
+Import-Module MSAL.PS
+
+$tenantId = '<tenantId>'
+$clientId = '1950a258-227b-4e31-a9cf-717495945fc2' # Static Microsoft client ID used for getting a token
+$subscriptionId = '<subscriptionId>'
+$uri = "urn:ietf:wg:oauth:2.0:oob" 
+$instanceName = "<instanceName>"
+$resourceGroupName = "<ResourceGroupName>"
+$scopes ="https://management.core.windows.net/.default"
+
+Login-AzAccount -tenantId $tenantId
+
+# Login as an Azure AD user with permission to provision a managed instance
+
+$result = Get-MsalToken -RedirectUri $uri -ClientId $clientId -TenantId $tenantId -Scopes $scopes
+
+$authHeader = @{
+'Content-Type'='application\json; '
+'Authorization'=$result.CreateAuthorizationHeader()
+}
+
+$body = '{
+"name": "<instanceName>", "type": "Microsoft.Sql/managedInstances", "identity": { "type": "SystemAssigned"},"location": "<Location>", "sku": {"name": "GP_Gen5", "tier": "GeneralPurpose", "family":"Gen5","capacity": 8},
+"properties": {"administrators":{ "login":"<AzureADAccount>", "sid":"<objectId>", "tenantId":"<tenantId>", "principalType":"User", "azureADOnlyAuthentication":true },
+"subnetId": "/subscriptions/<subscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Network/virtualNetworks/<VNetName>/subnets/<SubnetName>",
+"licenseType": "LicenseIncluded", "vCores": 8, "storageSizeInGB": 2048, "collation": "SQL_Latin1_General_CP1_CI_AS", "proxyOverride": "Proxy", "timezoneId": "UTC", "privateEndpointConnections": [], "storageAccountType": "GRS", "zoneRedundant": false 
+  }
+}'
+
+# To provision the instance, execute the `PUT` command
+
+Invoke-RestMethod -Uri https://management.azure.com/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Sql/managedInstances/$instanceName/?api-version=2020-11-01-preview -Method PUT -Headers $authHeader -Body $body -ContentType "application/json"
+
+```
+
+To check the results, execute the `GET` command:
+
+```rest
+Invoke-RestMethod -Uri https://management.azure.com/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Sql/managedInstances/$instanceName/?api-version=2020-11-01-preview -Method GET -Headers $authHeader  | Format-List
+```
+
+# [ARM Template](#tab/arm-template)
 
 To provision a new managed instance, virtual network and subnet, with an Azure AD admin set for the instance and Azure AD-only authentication enabled, use the following template.
 
