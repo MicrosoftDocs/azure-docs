@@ -7,7 +7,7 @@ ms.date: 01/25/2021
 
 # Quickstart: Configure your Azure Defender for IoT solution
 
-This article provides an explanation of how to perform initial configuration of your IoT security solution using Defender for IoT.
+This article provides an explanation of how to configure of your IoT security solution using Defender for IoT.
 
 ## Prerequisites
 
