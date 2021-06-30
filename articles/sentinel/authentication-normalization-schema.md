@@ -36,7 +36,7 @@ For more information about normalization in Azure Sentinel, see [Normalization a
 
 ## Parsers
 
-Azure Sentinel provides the following built-in, product-specific authentication event parsers:
+Azure Sentinel provides the following built-in, product-specific authentication event parsers: 
 
 - **Security Events sign-ins (Events 4624 and 4625)**, collected using the Log Analytics Agent or Azure Monitor Agent
 - **Asuze Active Directory sign-ins**, collected using the Azure Active Directory connector. Seperate parsers are provided for regular, Non-Interactive, Managed Identities and Service Principles Sign-ins.
