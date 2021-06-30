@@ -1,7 +1,7 @@
 ---
 title: Manage a Gen 2 environment - Azure Time Series | Microsoft Docs
 description: Learn how to manage an Azure Time Series Insights Gen 2 environment.
-author: tedvilutis    
+author: tedvilutis
 ms.author: tvilutis
 manager: cnovak
 ms.workload: big-data
