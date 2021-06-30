@@ -174,7 +174,7 @@ Get-AzMaintenanceUpdate `
 
 ## Apply updates
 
-Use [New-AzApplyUpdate](/powershell/module/az.maintenance/new-azapplyupdate) to apply pending updates.
+Use [New-AzApplyUpdate](/powershell/module/az.maintenance/new-azapplyupdate) to apply pending updates. Apply update calls can take upto 2 hours to complete.
 
 ### Isolated VM
 

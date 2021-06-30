@@ -149,8 +149,6 @@ One thing to consider when choosing a new memory reservation value (**maxmemory-
 > [!IMPORTANT]
 > The **maxmemory-reserved** and **maxfragmentationmemory-reserved** settings are available only for Standard and Premium caches.
 >
-> The `noeviction` eviction policy is the only memory policy that's available for an Enterprise tier cache.
->
 
 #### Keyspace notifications (advanced settings)
 
@@ -187,10 +185,10 @@ Each pricing tier has different limits for client connections, memory, and bandw
 
 | Azure Cache for Redis metric | More information |
 | --- | --- |
-| Network bandwidth usage |[Cache performance - available bandwidth](cache-planning-faq.md#azure-cache-for-redis-performance) |
+| Network bandwidth usage |[Cache performance - available bandwidth](/azure/azure-cache-for-redis/cache-planning-faq#azure-cache-for-redis-performance) |
 | Connected clients |[Default Redis server configuration - max clients](#maxclients) |
 | Server load |[Usage charts - Redis Server Load](cache-how-to-monitor.md#usage-charts) |
-| Memory usage |[Cache performance - size](cache-planning-faq.md#azure-cache-for-redis-performance) |
+| Memory usage |[Cache performance - size](/azure/azure-cache-for-redis/cache-planning-faq#azure-cache-for-redis-performance) |
 
 To upgrade your cache, select **Upgrade now** to change the pricing tier and [scale](#scale) your cache. For more information on choosing a pricing tier, see [Choosing the right tier](cache-overview.md#choosing-the-right-tier)
 

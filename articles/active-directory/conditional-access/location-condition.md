@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 06/07/2021
+ms.date: 06/21/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -85,6 +85,9 @@ The first time the user is required to share their location from the Microsoft A
 For the next 24 hours, if the user is still accessing the resource and granted the app permission to run in the background, the device's location is shared silently once per hour. After 24 hours, the user must open the app and approve the notification. Every time the user shares their GPS location, the app does jailbreak detection (Using the same logic as the Intune MAM SDK). If the device is jailbroken, the location is not considered valid and the user is not granted access. 
 
 A Conditional Access policy with GPS-based named locations in report-only mode prompts users to share their GPS location, even though they are not blocked from signing in.
+
+> [!IMPORTANT]
+> Users may receive prompts every hour letting them know that Azure AD is checking their location in the Authenticator app. The preview should only be used to protect very sensitive apps where this behavior is acceptable or where access needs to be restricted to a specific country/region.
 
 #### Include unknown countries/regions
 

@@ -97,8 +97,10 @@ The ".x" text is symbolic to represent new minor versions of Linux distributions
 |Microsoft|Windows Server|2012 - 2019|
 |Microsoft|Windows Client|Windows 10|
 |OpenLogic|CentOS|7.3 -8.x|
-|Red Hat|Red Hat Enterprise Linux|7.4 - 8.x|
+|Red Hat|Red Hat Enterprise Linux\*|7.4 - 8.x|
 |SUSE|SLES|12 SP3-SP5, 15.x|
+
+\* Red Hat CoreOS isn't supported.
 
 Custom virtual machine images are supported by Guest Configuration policy definitions as long as
 they're one of the operating systems in the table above.
