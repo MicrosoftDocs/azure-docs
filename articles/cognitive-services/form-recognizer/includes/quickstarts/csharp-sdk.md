@@ -17,7 +17,7 @@ ms.custom: " devx-track-csharp"
 <!-- markdownlint-disable MD033 -->
 > [!IMPORTANT]
 >
-> * This quickstart uses SDK version **3.1.0** and targets API version **2.1**.
+> * This quickstart uses SDK version **3.1.1** and targets API version **2.1**.
 >
 >* The code in this article uses synchronous methods and un-secured credentials storage for simplicity reasons.
 
@@ -61,7 +61,7 @@ Build succeeded.
 Within the application directory, install the Form Recognizer client library for .NET with the following command:
 
 ```console
-dotnet add package Azure.AI.FormRecognizer --version 3.1.0
+dotnet add package Azure.AI.FormRecognizer --version 3.1.1
 ```
 
 From the project directory, open the *Program.cs* file in your preferred editor or IDE. Add the following `using` directives:

@@ -15,7 +15,32 @@ ms.author: lajanuar
 <!-- markdownlint-disable MD036 -->
 # What's new in Azure Form Recognizer
 
-Form Recognizer service is updated on an ongoing basis. Bookmark this page to stay up-to-date with release notes, feature enhancements, and documentation updates.
+Form Recognizer service is updated on an ongoing basis. Bookmark this page to stay up-to-date with release notes, feature enhancements, and documentation updates. To use them, you must submit an [online request](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUNlpBU1lFSjJUMFhKNzVHUUVLN1NIOEZETiQlQCN0PWcu), and receive approval.
+
+*See* [Install and run Docker containers for Form Recognizer](containers/form-recognizer-container-install-run.md?branch=main&tabs=layout) and [Configure Form Recognizer containers](containers/form-recognizer-container-configuration.md?branch=main)
+
+## June 2021
+
+### Form Recognizer containers v2.1 are in gated preview
+
+Form Recognizer features are now supported by seven containers—**Layout**, **Business Card**,**ID Document**,  **Receipt**, **Invoice**, **Custom API**, and **Custom Supervised**. 
+
+### Form Recognizer 3.1.0 has been patched to version 3.1.1
+
+The patch addresses invoices that do not have sub-line item fields detected such as a  `FormField` with `Text` but no `BoundingBox` or `Page` information.
+
+### {**C#**}(#tab/csharp)
+
+| [Reference documentation](/dotnet/api/azure.ai.formrecognizer?view=azure-dotnet&preserve-view=true) | [NuGet package version 3.1.1](https://www.nuget.org/packages/Azure.AI.FormRecognizer) |
+
+### [Java](#tab/java)
+
+ | [Reference documentation](/java/api/com.azure.ai.formrecognizer.models?view=azure-java-stable&preserve-view=true)| [Maven artifact package dependency version 3.1.1](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer/3.1.1) |
+
+### [JavaScript](#tab/javascipt)
+
+| [Reference documentation](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient?view=azure-node-latest&preserve-view=true)| [npm package dependency form-recognizer 3.1.1](https://www.npmjs.com/package/@azure/ai-form-recognizer)  |
+
 
 ## May 2021
 
