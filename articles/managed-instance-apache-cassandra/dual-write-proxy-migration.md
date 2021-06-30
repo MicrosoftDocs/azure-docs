@@ -15,12 +15,12 @@ ms.date: 06/02/2021
 > This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Where possible, we recommend using the Apache Cassandra native capability to migrate data from your existing cluster into Azure Managed Instance for Apache Cassandra by configuring a [hybrid cluster](configure-hybrid-cluster.md). This will use Apache Cassandra's gossip protocol to replicate data from your source datacenter into your new managed-instance datacenter in a seamless way. However, there may be some scenarios where your source database version is not compatible, or a hybrid cluster setup is otherwise not feasible. 
+Where possible, we recommend using the Apache Cassandra native capability to migrate data from your existing cluster into Azure Managed Instance for Apache Cassandra by configuring a [hybrid cluster](configure-hybrid-cluster.md). This capability uses Apache Cassandra's gossip protocol to replicate data from your source datacenter into your new managed-instance datacenter in a seamless way. However, there might be some scenarios where your source database version is not compatible, or a hybrid cluster setup is otherwise not feasible. 
 
 This article describes how to migrate data to Azure Managed Instance for Apache Cassandra in a live fashion by using a [dual-write proxy](https://github.com/Azure-Samples/cassandra-proxy) and Apache Spark. The benefits of this approach are:
 
-- **Minimal application changes**. The proxy can accept connections from your application code with little or no configuration changes. It will route all requests to your source database, and asynchronously route writes to a secondary target. 
-- **Client wire protocol dependent**. Because this approach is not dependent on back-end resources or internal protocols, it can be used with any source or target Cassandra system that implements the Apache Cassandra wire protocol.
+- **Minimal application changes**. The proxy can accept connections from your application code with few or no configuration changes. It will route all requests to your source database and asynchronously route writes to a secondary target. 
+- **Client wire protocol dependency**. Because this approach is not dependent on back-end resources or internal protocols, it can be used with any source or target Cassandra system that implements the Apache Cassandra wire protocol.
 
 The following image illustrates the approach.
 
@@ -31,7 +31,7 @@ The following image illustrates the approach.
 
 * Provision an Azure Managed Instance for Apache Cassandra cluster by using the [Azure portal](create-cluster-portal.md) or the [Azure CLI](create-cluster-cli.md). Ensure that you can [connect to your cluster with CQLSH](./create-cluster-portal.md#connecting-to-your-cluster).
 
-* [Provision an Azure Databricks account inside your Managed Cassandra virtual network](deploy-cluster-databricks.md). Ensure that the account has network access to your source Cassandra cluster. We'll create a Spark cluster in this account for the historic data load.
+* [Provision an Azure Databricks account inside your Managed Cassandra virtual network](deploy-cluster-databricks.md). Ensure that the account has network access to your source Cassandra cluster. We'll create a Spark cluster in this account for the historical data load.
 
 * Ensure that you've already migrated the keyspace/table scheme from your source Cassandra database to your target Cassandra managed-instance database.
 
@@ -51,7 +51,7 @@ You need to add the Apache Spark Cassandra Connector library to your cluster to 
 Select **Install**, and then restart the cluster when installation is complete.
 
 > [!NOTE]
-> Make sure that you restart the Azure Databricks cluster after the Cassandra Connector library is installed.
+> Be sure to restart the Azure Databricks cluster after the Cassandra Connector library is installed.
 
 ## Install the dual-write proxy
 
@@ -114,7 +114,7 @@ By default, the source credentials will be passed through from your client app. 
 java -jar target/cassandra-proxy-1.0-SNAPSHOT-fat.jar localhost <target-server> --proxy-jks-file <path to JKS file> --proxy-jks-password <keystore password> --target-username <username> --target-password <password>
 ```
 
-The default source and target ports, when not specified, will be `9042`. If either the target or the source Cassandra endpoint runs on a different port, you can use `--source-port` or `--target-port` to specify a different port number: 
+The default source and target ports, when not specified, will be 9042. If either the target or the source Cassandra endpoint runs on a different port, you can use `--source-port` or `--target-port` to specify a different port number: 
 
 ```bash
 java -jar target/cassandra-proxy-1.0-SNAPSHOT-fat.jar localhost <target-server> --source-port 9042 --target-port 10350 --proxy-jks-file <path to JKS file> --proxy-jks-password <keystore password> --target-username <username> --target-password <password>
@@ -133,17 +133,17 @@ java -jar target/cassandra-proxy-1.0-SNAPSHOT-fat.jar <source-server> <destinati
 
 ### Allow zero application code changes
 
-By default, the proxy listens on port `29042`. The application code must be changed to point to this port. But you can change the port that the proxy listens on. You might do this if you want to eliminate application-level code changes by:
+By default, the proxy listens on port 29042. The application code must be changed to point to this port. However, you can change the port that the proxy listens on. You might do this if you want to eliminate application-level code changes by:
 
 - Having the source Cassandra server run on a different port.
-- Having the proxy run on the standard Cassandra port `9042`.
+- Having the proxy run on the standard Cassandra port 9042.
 
 ```bash
 java -jar target/cassandra-proxy-1.0-SNAPSHOT-fat.jar source-server destination-server --proxy-port 9042
 ```
 
 > [!NOTE]
-> Installing the proxy on cluster nodes does not require restart of the nodes. However, if you have many application clients and prefer to have the proxy running on the standard Cassandra port `9042` in order to eliminate any application-level code changes, you would need to change the [Apache Cassandra default port](https://cassandra.apache.org/doc/latest/faq/#what-ports-does-cassandra-use). You would then need to restart the nodes in your cluster, and configure the source port to be the new port that you defined for your source Cassandra cluster. 
+> Installing the proxy on cluster nodes does not require restart of the nodes. However, if you have many application clients and prefer to have the proxy running on the standard Cassandra port 9042 in order to eliminate any application-level code changes, you need to change the [Apache Cassandra default port](https://cassandra.apache.org/doc/latest/faq/#what-ports-does-cassandra-use). You then need to restart the nodes in your cluster, and configure the source port to be the new port that you defined for your source Cassandra cluster. 
 >
 > In the following example, we change the source Cassandra cluster to run on port 3074, and we start the cluster on port 9042:
 >
@@ -162,9 +162,9 @@ java -jar target/cassandra-proxy-1.0-SNAPSHOT-fat.jar source-server destination-
 After the dual-write proxy is running, you'll need to change the port on your application client and restart. (Or change the Cassandra port and restart the cluster if you've chosen that approach.) The proxy will then start forwarding writes to the target endpoint. You can learn about [monitoring and metrics](https://github.com/Azure-Samples/cassandra-proxy#monitoring) available in the proxy tool. 
 
 
-## Run the historic data load
+## Run the historical data load
 
-To load the data, create a Scala notebook in your Azure Databricks account. Replace your source and target Cassandra configurations with the corresponding credentials, and replace the source and target keyspaces and tables. Add more variables for each table as required to the following sample, and then run. After your application starts sending requests to the dual-write proxy, you're ready to migrate historic data. 
+To load the data, create a Scala notebook in your Azure Databricks account. Replace your source and target Cassandra configurations with the corresponding credentials, and replace the source and target keyspaces and tables. Add more variables for each table as required to the following sample, and then run. After your application starts sending requests to the dual-write proxy, you're ready to migrate historical data. 
 
 ```scala
 import com.datastax.spark.connector._
@@ -221,13 +221,13 @@ DFfromSourceCassandra
 ```
 
 > [!NOTE]
-> In the preceding Scala sample, you'll notice that `timestamp` is being set to the current time before reading all the data in the source table. Then, `writetime` is being set to this backdated time stamp. This ensures that records that are written from the historic data load to the target endpoint can't overwrite updates that come in with a later time stamp from the dual-write proxy while historic data is being read.
+> In the preceding Scala sample, you'll notice that `timestamp` is being set to the current time before reading all the data in the source table. Then, `writetime` is being set to this backdated time stamp. This ensures that records that are written from the historical data load to the target endpoint can't overwrite updates that come in with a later time stamp from the dual-write proxy while historical data is being read.
 >
-> If you need to preserve *exact* time stamps for any reason, you should take a historic data migration approach that preserves time stamps, such as [this sample](https://github.com/scylladb/scylla-migrator). 
+> If you need to preserve *exact* time stamps for any reason, you should take a historical data migration approach that preserves time stamps, such as [this sample](https://github.com/scylladb/scylla-migrator). 
 
 ## Validate the source and target
 
-After the historic data load is complete, your databases should be in sync and ready for cutover. However, we recommend that you carry out a validation of the source and target to ensure that request results match before finally cutting over.
+After the historical data load is complete, your databases should be in sync and ready for cutover. However, we recommend that you validate the source and target to ensure that request results match before finally cutting over.
 
 
 ## Next steps
