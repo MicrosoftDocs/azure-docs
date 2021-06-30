@@ -90,7 +90,7 @@ Complete alias:  *Prefix*. {GUID}.*region*.azure.privatelinkservice
 
 ## Control service exposure
 
-The Private Link service provides you with three options to control the exposure of your service through the **Visibility** setting. Your visibility setting determines whether a consumer can connect to your service. Here are the visibility setting options, from more restrictive to least restrictive:
+The Private Link service provides you with three options in the **Visibility** setting to control the exposure of your service. Your visibility setting determines whether a consumer can connect to your service. Here are the visibility setting options, from most restrictive to least restrictive:
  
 - **Role-based access control only**: If your service is for private consumption from different VNets that you own, you can use RBAC as an access control mechanism inside subscriptions that are associated with the same Active Directory tenant. 
 - **Restricted by subscription**: If your service will be consumed across different tenants, you can restrict the exposure to a limited set of subscriptions that you trust. Authorizations can be pre-approved.
