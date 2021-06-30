@@ -92,45 +92,45 @@ The first type of errors listed in the table below must be fixed manually, other
 | --------- | ----------- | --------------------------- |
 | Script | Invalid separator| You must separate the utterance ID and the script content with a TAB character.|
 | Script | Invalid script ID| Script line ID must be numeric.|
-| Script | Duplicated script|Each line of the script content must be unique.|
+| Script | Duplicated script|Each line of the script content must be unique. The line is duplicated with {}.|
 | Script | Script too long| The script must be less than 1,000 characters.|
-| Script | No matching audio| The ID of each utterance (each line of the script file) should match with the audio ID.|
-| Script | No valid script| No valid script found in this dataset. Fix the problematic script lines according to detailed issue list.|
-| Audio | No matching script| No audio files match the script ID. The name of the wav files should match with the IDs in the script file.|
-| Audio | Invalid audio format| The audio format of the .wav files is invalid. Check the wav file format by audio tools like sox.|
-| Audio | Low sampling rate| The sampling rate of the .wav files shouldn't be lower than 16 KHz. |
-| Audio | Too long audio| Audio duration is longer than 30 seconds. Split the long audio to multiple files. It's recommended that less utterance should be shorter than 15 seconds.|
-| Audio | No valid audio| No valid audio is found in this dataset. Check your audio data and upload again.|
+| Script | No matching audio| The ID of each utterance (each line of the script file) must match the audio ID.|
+| Script | No valid script| No valid script found in this dataset. Fix the script lines that appear in the detailed issue list.|
+| Audio | No matching script| No audio files match the script ID. The name of the wav files should match with the IDs in the script file.|
+| Audio | Invalid audio format| The audio format of the .wav files is invalid. Check the wav file format using an audio tool like [SoX](http://sox.sourceforge.net/).|
+| Audio | Low sampling rate| The sampling rate of the .wav files cannot be lower than 16 KHz.|
+| Audio | Too long audio| Audio duration is longer than 30 seconds. Split the long audio into multiple files. We suggest utterances should be shorter than 15 seconds.|
+| Audio | No valid audio| No valid audio is found in this dataset. Check your audio data and upload again.|
 
 The second type of errors listed in the table below will be automatically fixed, but double checking the fixed data is recommended.
 
 | Category | Name | Description |
 | --------- | ----------- | --------------------------- |
-| Audio | Stereo audio auto fixed | Use mono in your audio sample recordings. Stereo audios are automatically converted into mono and may cause content loss.  Download the normalized dataset and review it.|
-| Volume | Volume peak auto fixed |The volume peak should be within the range of -3 dB (70% of max volume) to -6 dB (50%). Control the volume peak during the sample recording or data preparation. This audio is linearly scaled to fit the peak range automatically (-4 dB or 65%). Download the normalized dataset and review it.|
-|Mismatch | Silence auto fixed| The start silence is detected to be longer than 200 ms, and has been trimmed to 200 ms automatically. Download the normalized dataset and review it. |
-| Mismatch |Silence auto fixed | The end silence is detected to be longer than 200 ms, and has been trimmed to 200 ms automatically. Download the normalized dataset and review it. |
-| Mismatch |Silence auto fixed |The start silence is detected to be shorter than 100 ms, and has been extended to 100 ms automatically. Download the normalized dataset and review it. |
-| Mismatch |Silence auto fixed | The end silence is detected to be shorter than 100 ms, and has been extended to 100 ms automatically. Download the normalized dataset and review it. |
+| Audio | Stereo audio auto fixed | Use mono in your audio sample recordings. Stereo audio channels are automatically merged into a mono channel, which can cause content loss.  Download the normalized dataset and review it.|
+| Volume | Volume peak auto fixed |The volume peak should be within the range of -3 dB (70% of max volume) to -6 dB (50%). Control the volume peak during the sample recording or data preparation. This audio is linearly scaled to fit the peak range automatically (-4 dB or 65%). Download the normalized dataset and review it.|
+|Mismatch | Silence auto fixed| The start silence is detected to be longer than 200 ms, and has been trimmed to 200 ms automatically. Download the normalized dataset and review it. |
+| Mismatch |Silence auto fixed | The end silence is detected to be longer than 200 ms, and has been trimmed to 200 ms automatically. Download the normalized dataset and review it. |
+| Mismatch |Silence auto fixed |The start silence is detected to be shorter than 100 ms, and has been extended to 100 ms automatically. Download the normalized dataset and review it. |
+| Mismatch |Silence auto fixed | The end silence is detected to be shorter than 100 ms, and has been extended to 100 ms automatically. Download the normalized dataset and review it.|
 
 If the third type of errors listed in the table below aren't fixed, although the data with these errors won't be excluded during training, it will affect the quality of training. For higher-quality training, manually fixing these errors is recommended. 
 
 | Category | Name | Description |
 | --------- | ----------- | --------------------------- |
-| Script | Non-normalized text|This script contains digit 0-9. Expand  them to normalized words and match with the audio. For example, normalize '123' to 'one hundred and twenty-three'.|
-| Script | Non-normalized text|This script contains symbols. Normalize the symbols to match the audio. For example, '50%' to 'fifty percent'.|
-| Script | Not enough question utterances| At least 10% of the total utterances should be question sentences so as to allow the voice model to properly express the question tone.|
-| Script |Not enough exclamation utterances| At least 10% of the total utterances should be exclamation sentences so as to allow the voice model to properly express the question tone.|
+| Script | Non-normalized text|This script contains digit 0-9. Expand them to normalized words and match with the audio. For example, normalize '123' to 'one hundred and twenty-three'.|
+| Script | Non-normalized text|This script contains symbols {}. Normalize the symbols to match the audio. For example, '50%' to 'fifty percent'.|
+| Script | Not enough question utterances| At least 10% of the total utterances should be question sentences. This helps the voice model properly express a questioning tone.|
+| Script |Not enough exclamation utterances| At least 10% of the total utterances should be exclamation sentences. This helps the voice model properly express an excited tone.|
 | Audio| Low sampling rate for neural voice | It's recommended that the sampling rate of your .wav files should be 24 KHz or higher for creating neural voices. It will be automatically upsampled to 24 KHz if it's lower.|
-| Volume |Overall volume too low|Volume shouldn't be lower than -18 dB (10% of max volume). Control the volume average level within proper range during the sample recording or data preparation.|
-| Volume | Volume overflow| Overflowing volume is detected at {}s. Adjust the recording equipment to avoid the volume overflow at its peak value.|
-| Volume | Start silence issue | The first 100 ms silence isn't clean. Please reduce the recording noise floor level and leave the first 100 ms at the start silent.|
-| Volume| End silence issue| The last 100 ms silence is not clean. Please reduce the recording noise floor level and leave the last 100 ms at the end silent.|
-| Mismatch | Script and audio mismatch| There's a mismatch between the script and the audio content. Review the script and the audio content to make sure they match and control the noise floor level. Reduce the length of long silence or split the audio into multiple utterances if it's too long.|
-| Mismatch | Start silence issue |Extra audio energy detected before the first word. Please review the script and the audio content to make sure they match. Control the noise floor level. Also leave the first 100 ms silence.|
-| Mismatch | End silence issue| Extra audio energy detected after the last word. Please review the script and the audio content to make sure they match. Control the noise floor level. Also leave the last 100 ms silence.|
-| Mismatch | Low signal-noise ratio | Audio SNR level is lower than 20 dB.|
-| Mismatch | No score available |Failed to recognize speech content on this audio. Check the audio and the script content to make sure the audio is valid, and matches the script.|
+| Volume |Overall volume too low|Volume shouldn't be lower than -18 dB (10% of max volume). Control the volume average level within proper range during the sample recording or data preparation.|
+| Volume | Volume overflow| Overflowing volume is detected at {}s. Adjust the recording equipment to avoid the volume overflow at its peak value.|
+| Volume | Start silence issue | The first 100 ms silence isn't clean. Reduce the recording noise floor level and leave the first 100 ms at the start silent.|
+| Volume| End silence issue| The last 100 ms silence  isn't clean.  Reduce the recording noise floor level and leave the last 100 ms at the end silent.|
+| Mismatch | Script and audio mismatch| There's a mismatch between the script and the audio content. Review the script and the audio content to make sure they match and control the noise floor level. Reduce the length of long silence or split the audio into multiple utterances if it's too long.|
+| Mismatch | Start silence issue |Extra audio was heard before the first word. Review the script and the audio content to make sure they match, control the noise floor level, and make the first 100 ms silent.|
+| Mismatch | End silence issue| Extra audio was heard after the last word. Review the script and the audio content to make sure they match, control the noise floor level, and make the last 100 ms silent.|
+| Mismatch | Low signal-noise ratio | Audio SNR level is lower than 20 dB. At least 35 dB is recommended.|
+| Mismatch | No score available |Failed to recognize speech content in this audio. Check the audio and the script content to make sure the audio is valid, and matches the script.|
 
 ## Train your custom neural voice model
 
