@@ -22,7 +22,7 @@ Microsoft works with each vendor to:
 
 [!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
 
-At the moment of publishing Media bypass is not supported by Azure Communication Services. 
+Media bypass is not yet supported by Azure Communication Services. 
 Early media is not supported by a web-based client.
 The table that follows list devices certified for Azure Communication Services direct routing.
 
