@@ -6,10 +6,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.author: aashishb
-author: aashishb
+ms.author: jhirono
+author: jhirono
 ms.reviewer: larryfr
-ms.date: 06/03/2021
+ms.date: 06/30/2021
 ms.custom: devx-track-python
 ---
 
@@ -78,7 +78,6 @@ For information on configuring UDR, see [Route network traffic with a routing ta
     * AzureMachineLearning
     * AzureResourceManager
     * Storage.region
-    * KeyVault.region
     * ContainerRegistry.region
     * AzureFrontDoor.FirstParty
 
@@ -86,7 +85,7 @@ For information on configuring UDR, see [Route network traffic with a routing ta
 
     * MicrosoftContainerRegistry.region
 
-    For entries that contain `region`, replace with the Azure region that you're using. For example, `keyvault.westus`.
+    For entries that contain `region`, replace with the Azure region that you're using. For example, `ContainerRegistry.westus`.
 
     For the __protocol__, select `TCP`. For the source and destination __ports__, select `*`.
 
@@ -174,7 +173,6 @@ The hosts in the following tables are owned by Microsoft, and provide services r
 | **Required for** | **Azure public** | **Azure Government** | **Azure China 21Vianet** |
 | ----- | ----- | ----- | ----- |
 | Azure Storage Account | core.windows.net | core.usgovcloudapi.net | core.chinacloudapi.cn |
-| Azure Key Vault | vault.azure.net | vault.usgovcloudapi.net | vault.azure.cn |
 | Azure Container Registry | azurecr.io | azurecr.us | azurecr.cn |
 | Microsoft Container Registry | mcr.microsoft.com | mcr.microsoft.com | mcr.microsoft.com |
 
