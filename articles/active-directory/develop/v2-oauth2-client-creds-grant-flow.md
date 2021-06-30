@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 06/25/2021
+ms.date: 06/30/2021
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
@@ -80,10 +80,6 @@ If you sign the user into your app, you can identify the organization to which t
 #### Request the permissions from a directory admin
 
 When you're ready to request permissions from the organization's admin, you can redirect the user to the Microsoft identity platform *admin consent endpoint*.
-
-> [!TIP]
-> Try executing this request in Postman! (Use your own app ID for best results - the tutorial application won't request useful permissions.)
-> [![Try running this request in Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
 ```HTTP
 // Line breaks are for legibility only.
