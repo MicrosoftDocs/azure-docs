@@ -11,8 +11,9 @@ ms.custom: seodec18
 
 # Create an App Service Environment
 > [!NOTE]
-> This article is about the App Service Environment v3 (preview)
+> This article is about the App Service Environment v3 which is used with Isolated v2 App Service plans
 > 
+
 
 The [App Service Environment (ASE)][Intro] is a single tenant deployment of the App Service that injects into your Azure Virtual Network (VNet). A deployment of an ASE will require use of one subnet. This subnet can't be used for anything else other than the ASE. 
 
