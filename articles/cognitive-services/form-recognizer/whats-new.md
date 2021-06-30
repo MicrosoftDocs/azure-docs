@@ -15,7 +15,7 @@ ms.author: lajanuar
 <!-- markdownlint-disable MD036 -->
 # What's new in Azure Form Recognizer
 
-Form Recognizer service is updated on an ongoing basis. Bookmark this page to stay up-to-date with release notes, feature enhancements, and documentation updates. To use them, you must submit an [online request](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUNlpBU1lFSjJUMFhKNzVHUUVLN1NIOEZETiQlQCN0PWcu), and receive approval.
+Form Recognizer service is updated on an ongoing basis. Bookmark this page to stay up-to-date with release notes, feature enhancements, and documentation updates. 
 
 ## June 2021
 
