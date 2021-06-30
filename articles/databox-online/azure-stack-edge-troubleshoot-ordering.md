@@ -74,4 +74,3 @@ For more information, see [Register resource providers](azure-stack-edge-manage-
 ## Next steps
 
 * Learn more about how to [Troubleshoot your Azure Stack Edge issues](azure-stack-edge-gpu-troubleshoot.md).
-* Learn more about how to [Troubleshoot your Azure Stack Edge Pro FPGA issues](azure-stack-edge-gpu-troubleshoot.md).
