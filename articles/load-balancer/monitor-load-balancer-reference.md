@@ -6,7 +6,7 @@ ms.topic: reference
 ms.author: allensu
 ms.service: load-balancer
 ms.custom: subject-monitoring
-ms.date: 06/25/2021
+ms.date: 06/29/2021
 ---
 
 # Monitoring Load Balancer data reference
@@ -51,12 +51,6 @@ Load Balancer has the following dimensions associated with its metrics.
 Resource logs are currently unsupported by Azure Load Balancer
 
 ## Azure Monitor Logs tables
-
-This section refers to all of the Azure Monitor Logs Kusto tables relevant to Load Balancer and available for query by Log Analytics. 
-
-| Resource type | Notes |
-| ----- | ------|
-| [Load Balancer](/azure-monitor/reference/tables/tables-resourcetype#load-balancers) |  |
 ### Diagnostics tables
 
 Diagnostics tables are currently unsupported by Azure Load Balancer.
@@ -65,7 +59,7 @@ Diagnostics tables are currently unsupported by Azure Load Balancer.
 The following table lists the operations related to Load Balancer that may be created in the Activity log.
 
 | Operation | Description |
-|:---|:---|
+| --- | --- |
 | Microsoft.Network/loadBalancers/read | Gets a load balancer definition |
 | Microsoft.Network/loadBalancers/write | Creates a load balancer or updates an existing load balancer |
 | Microsoft.Network/loadBalancers/delete | Deletes a load balancer |
