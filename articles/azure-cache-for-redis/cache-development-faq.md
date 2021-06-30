@@ -144,4 +144,4 @@ Redis Databases are just a logical separation of data within the same Redis inst
 
 ## Next steps
 
-Learn about other [Azure Cache for Redis FAQs](cache-faq.md).
+Learn about other [Azure Cache for Redis FAQs](cache-faq.yml).

@@ -1,13 +1,13 @@
 ---
 title: Technical details and requirements for migrating to Azure Cloud Services (extended support)
 description: Provides technical details and requirements for migrating from Azure Cloud Services (classic) to Azure Cloud Services (extended support)
-author: tanmaygore
 ms.service: cloud-services-extended-support
 ms.subservice: classic-to-arm-migration
 ms.reviwer: mimckitt
 ms.topic: how-to
 ms.date: 02/06/2020
-ms.author: tagore
+author: hirenshah1
+ms.author: hirshah
 
 ---
 
