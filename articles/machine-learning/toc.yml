@@ -397,7 +397,7 @@
           href: how-to-train-cli.md
         - name: Train with the REST API
           href: how-to-train-with-rest.md
-        - name: Train with Azure Machine Learning studio
+        - name: Train with the job creation UI
           href: how-to-train-with-ui.md
         - name: Train with the Python SDK
           items:
