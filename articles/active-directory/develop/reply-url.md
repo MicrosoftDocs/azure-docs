@@ -1,17 +1,18 @@
 ---
-title: Redirect URI (reply URL) restrictions | Azure
+title: Redirect URI (reply URL) restrictions | Azure AD
 titleSuffix: Microsoft identity platform
 description: A description of the restrictions and limitations on redirect URI (reply URL) format enforced by the Microsoft identity platform.
 author: SureshJa
 ms.author: sureshja
 manager: CelesteDG
-ms.date: 11/23/2020
+ms.date: 06/23/2021
 ms.topic: conceptual
 ms.subservice: develop
-ms.custom: aaddev
+ms.custom: contperf-fy21q4-portal, aaddev
 ms.service: active-directory
 ms.reviewer: marsma, lenalepa, manrath
 ---
+
 # Redirect URI (reply URL) restrictions and limitations
 
 A redirect URI, or reply URL, is the location where the authorization server sends the user once the app has been successfully authorized and granted an authorization code or access token. The authorization server sends the code or token to the redirect URI, so it's important you register the correct location as part of the app registration process.
@@ -21,6 +22,10 @@ A redirect URI, or reply URL, is the location where the authorization server sen
 * The redirect URI must begin with the scheme `https`. There are some [exceptions for localhost](#localhost-exceptions) redirect URIs.
 
 * The redirect URI is case-sensitive. Its case must match the case of the URL path of your running application. For example, if your application includes as part of its path `.../abc/response-oidc`,  do not specify `.../ABC/response-oidc` in the redirect URI. Because the web browser treats paths as case-sensitive, cookies associated with `.../abc/response-oidc` may be excluded if redirected to the case-mismatched `.../ABC/response-oidc` URL.
+
+* A Redirect Uri without a path segment appends a trailing slash to the URI in the response. For e.g. URIs such as https://contoso.com and http://localhost:7071 will return as https://contoso.com/ and http://localhost:7071/ respectively. This is applicable only when the response mode is either query or fragment.
+
+* Redirect Uris containing path segment do not append a trailing slash. (Eg. https://contoso.com/abc, https://contoso.com/abc/response-oidc will be used as it is in the response)
 
 ## Maximum number of redirect URIs
 
@@ -70,7 +75,7 @@ You cannot, however, use the **Redirect URIs** text box in the Azure portal to a
 
 :::image type="content" source="media/reply-url/portal-01-no-http-loopback-redirect-uri.png" alt-text="Error dialog in Azure portal showing disallowed http-based loopback redirect URI":::
 
-To add a redirect URI that uses the `http` scheme with the `127.0.0.1` loopback address, you must currently modify the [replyUrlsWithType](reference-app-manifest.md#replyurlswithtype-attribute) attribute in the [application manifest](reference-app-manifest.md).
+To add a redirect URI that uses the `http` scheme with the `127.0.0.1` loopback address, you must currently modify the [replyUrlsWithType attribute in the application manifest](reference-app-manifest.md#replyurlswithtype-attribute).
 
 ## Restrictions on wildcards in redirect URIs
 
@@ -78,9 +83,9 @@ Wildcard URIs like `https://*.contoso.com` may seem convenient, but should be av
 
 Wildcard URIs are currently unsupported in app registrations configured to sign in personal Microsoft accounts and work or school accounts. Wildcard URIs are allowed, however, for apps that are configured to sign in only work or school accounts in an organization's Azure AD tenant.
 
-To add redirect URIs with wildcards to app registrations that sign in work or school accounts, use the application manifest editor in [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) in the Azure portal. Though it's possible to set a redirect URI with a wildcard by using the manifest editor, we *strongly* recommend you adhere to [section 3.1.2 of RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2) and use only absolute URIs.
+To add redirect URIs with wildcards to app registrations that sign in work or school accounts, use the application manifest editor in **App registrations** in the Azure portal. Though it's possible to set a redirect URI with a wildcard by using the manifest editor, we *strongly* recommend you adhere to section 3.1.2 of RFC 6749. and use only absolute URIs.
 
-If your scenario requires more redirect URIs than the maximum limit allowed, consider the following [state parameter approach](#use-a-state-parameter) instead of adding a wildcard redirect URI.
+If your scenario requires more redirect URIs than the maximum limit allowed, consider the following state parameter approach instead of adding a wildcard redirect URI.
 
 #### Use a state parameter
 

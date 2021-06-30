@@ -8,19 +8,18 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/21/2021
+ms.date: 06/25/2021
 ---
 
 # Use API keys for Azure Cognitive Search authentication
 
-Key-based authentication uses access keys (or an *API key* as it's called in Cognitive Search) that are unique to your service to authenticate requests. Passing a valid API key on the request is considered proof that the request is from an authorized client. In Cognitive Search, key-based authentication is used for all inbound operations. 
+Cognitive Search uses API keys as its primary authentication methodology. For inbound requests to the search services, such as requests that create or query an index, API keys are the only authentication option you have. A few outbound request scenarios, particularly those involving indexers, can use Azure Active Directory identities and roles.
 
-> [!NOTE]
-> Alternative [role-based authentication](search-security-rbac.md) is currently limited to two scenarios: portal access, and outbound indexer data read operations.
+API keys are generated when the service created. Passing a valid API key on the request is considered proof that the request is from an authorized client. There are two kinds of keys. *Admin keys* convey write permissions on the service and also grant rights to query system information. *Query keys* convey read permissions and can be used by apps to query a specific index. 
 
 ## Using API keys in search
 
-When connecting to a search service, all requests must include a read-only API key that was generated specifically for your service. The API key is the sole mechanism for authenticating inbound requests to your search service endpoint and is required on every request. 
+When connecting to a search service, all requests must include an API key that was generated specifically for your service.
 
 + In [REST solutions](search-get-started-rest.md), the API key is typically specified in a request header
 

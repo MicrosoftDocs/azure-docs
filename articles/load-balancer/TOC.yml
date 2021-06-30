@@ -220,4 +220,4 @@
   - name: Product updates
     href: https://azure.microsoft.com/updates/?product=load-balancer
   - name: FAQ
-    href: load-balancer-faqs.md
+    href: load-balancer-faqs.yml

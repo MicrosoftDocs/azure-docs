@@ -205,27 +205,21 @@ We'll use the [Postman](https://www.postman.com/) application to create the toke
 
 1. In the Postman app, select **New**.
 
-2. In the **Create New** window, select **Collection**.
+2. In the **Create New** window, select **HTTP Request**.
 
-3. Select **New** again.
+3. Enter a **Request name** for the request, such as *POST Token Request*.
 
-4. In the **Create New** window, select **Request**.
+4. Select the **POST** HTTP method.
 
-5. Enter a **Request name** for the request, such as *POST Token Request*.
-
-6. Select the collection you previously created, and then select **Save**.
-
-7. Select the **POST** HTTP method.
-
-8. Enter the following URL to address bar (replace `<Tenant ID>` with the Directory (Tenant) ID, the `<Client ID>` with the Application (Client) ID), and `<Client Secret>` with your client secret:
+5. Enter the following URL to address bar (replace `<Tenant ID>` with the Directory (Tenant) ID, the `<Client ID>` with the Application (Client) ID), and `<Client Secret>` with your client secret:
 
     ```http
     https://login.microsoftonline.com/<Tenant ID>/oauth2/v2.0/token?response_type=token&grant_type=client_credentials&client_id=<Client ID>&client_secret=<Client Secret>%3D&scope=api%3A%2F%2Fazmaps.fundamentals%2F.default
     ```
 
-9. Select **Send**
+6. Select **Send**
 
-10. You should see the following JSON response:
+7. You should see the following JSON response:
 
 ```json
 {
