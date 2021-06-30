@@ -7,7 +7,7 @@ ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: conceptual
 ms.date: 11/13/2020
-ms.author: punagpal
+ms.author: rabhaiya
 ---
 
 # Azure IoT Connector for FHIR (preview) data flow

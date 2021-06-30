@@ -117,7 +117,7 @@ After the disk is restored, use the template that was generated as part of the r
 
 1. To customize the VM setting provided in the template, select **Edit template**. If you want to add more customizations, select **Edit parameters**.
     - [Learn more](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template) about deploying resources from a custom template.
-    - [Learn more](../azure-resource-manager/templates/template-syntax.md) about authoring templates.
+    - [Learn more](../azure-resource-manager/templates/syntax.md) about authoring templates.
 
    ![Load template deployment](./media/backup-azure-arm-restore-vms/edit-template1.png)
 

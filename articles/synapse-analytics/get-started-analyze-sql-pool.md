@@ -89,7 +89,7 @@ A dedicated SQL pool consumes billable resources as long as it's active. You can
 	)
     ```
 1. Click the Run button to execute the script.
-1. This script will finish in less than 60 seconds. It loads 2 million rows of NYC Taxi data into a table called **dbo.Trip**.
+1. This script will finish in less than 60 seconds. It loads 2 million rows of NYC Taxi data into a table called **dbo.NYCTaxiTripSmall**.
 
 ## Explore the NYC Taxi data in the dedicated SQL pool
 

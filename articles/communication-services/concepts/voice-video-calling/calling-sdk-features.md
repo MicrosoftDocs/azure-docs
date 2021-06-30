@@ -7,11 +7,13 @@ manager: jken
 services: azure-communication-services
 
 ms.author: mikben
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
 ---
 # Calling SDK overview
+
+[!INCLUDE [SDP Plan B Deprecation Notice](../../includes/plan-b-sdp-deprecation.md)]
 
 The Calling SDK enables end-user devices to drive voice and video communication experiences. This page provides detailed descriptions of Calling features, including platform and browser support information. To get started right away, please check out [Calling quickstarts](../../quickstarts/voice-video-calling/getting-started-with-calling.md) or [Calling hero sample](../../samples/calling-hero-sample.md). 
 
@@ -111,6 +113,20 @@ The following table represents the set of supported browsers which are currently
 
 * For Safari versions 13.1+ are supported, 1:1 calls are not supported on Safari.
 * Unless otherwise specified, the past 3 versions of each browser are supported.
+
+## Android Calling SDK support
+
+* Support for Android API Level 21 or Higher
+
+* Support for Java 7 or higher
+
+* Support for Android Studio 2.0
+
+## iOS Calling SDK support
+
+* Support for iOS 10.0+ at build time, and iOS 12.0+ at run time
+
+* Xcode 12.0+
 
 ## Calling client - browser security model
 

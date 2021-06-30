@@ -12,6 +12,8 @@ ms.date: 01/16/2021
 
 # Quickstart: Use Java and JDBC with Azure Database for MySQL Flexible Server
 
+[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+
 This topic demonstrates creating a sample application that uses Java and [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity) to store and retrieve information in [Azure Database for MySQL Flexible Server](./index.yml).
 
 ## Prerequisites

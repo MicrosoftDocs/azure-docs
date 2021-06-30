@@ -48,26 +48,26 @@ In [Azure CLI](tutorial-multiple-sites-cli.md), you must use `--host-names` inst
 * `(A-Z,a-z,0-9)` - alphanumeric characters
 * `-` - hyphen or minus
 * `.` - period as a delimiter
-*	`*` - can match with multiple characters in the allowed range
-*	`?` - can match with a single character in the allowed range
+* `*` - can match with multiple characters in the allowed range
+* `?` - can match with a single character in the allowed range
 
 ### Conditions for using wildcard characters and multiple host names in a listener:
 
-*	You can only mention up to 5 host names in a single listener
-*	Asterisk `*` can be mentioned only once in a component of a domain style name or host name. For example, component1*.component2*.component3. `(*.contoso-*.com)` is valid.
-*	There can only be up to two asterisks `*` in a host name. For example, `*.contoso.*` is valid and `*.contoso.*.*.com` is invalid.
-*	There can only be a maximum of 4 wildcard characters in a host name. For example, `????.contoso.com`, `w??.contoso*.edu.*` are valid, but `????.contoso.*` is invalid.
-*	Using asterisk `*` and question mark `?` together in a component of a host name (`*?` or `?*` or `**`) is invalid. For example, `*?.contoso.com` and `**.contoso.com` are invalid.
+* You can only mention up to 5 host names in a single listener
+* Asterisk `*` can be mentioned only once in a component of a domain style name or host name. For example, component1*.component2*.component3. `(*.contoso-*.com)` is valid.
+* There can only be up to two asterisks `*` in a host name. For example, `*.contoso.*` is valid and `*.contoso.*.*.com` is invalid.
+* There can only be a maximum of 4 wildcard characters in a host name. For example, `????.contoso.com`, `w??.contoso*.edu.*` are valid, but `????.contoso.*` is invalid.
+* Using asterisk `*` and question mark `?` together in a component of a host name (`*?` or `?*` or `**`) is invalid. For example, `*?.contoso.com` and `**.contoso.com` are invalid.
 
 ### Considerations and limitations of using wildcard or multiple host names in a listener:
 
-*	[SSL termination and End-to-End SSL](ssl-overview.md) requires you to configure the protocol as HTTPS and upload a certificate to be used in the listener configuration. If it is a multi-site listener, you can input the host name as well, usually this is the CN of the SSL certificate. When you are specifying multiple host names in the listener or use wildcard characters, you must consider the following:
-    *	If it is a wildcard hostname like *.contoso.com, you must upload a wildcard certificate with CN like *.contoso.com
-    *	If multiple host names are mentioned in the same listener, you must upload a SAN certificate (Subject Alternative Names) with the CNs matching the host names mentioned.
-*	You cannot use a regular expression to mention the host name. You can only use wildcard characters like asterisk (*) and question mark (?) to form the host name pattern.
-*	For backend health check, you cannot associate multiple [custom probes](application-gateway-probe-overview.md) per HTTP settings. Instead, you can probe one of the websites at the backend or use “127.0.0.1” to probe the localhost of the backend server. However, when you are using wildcard or multiple host names in a listener, the requests for all the specified domain patterns will be routed to the backend pool depending on the rule type (basic or path-based).
-*	The properties “hostname" takes one string as input, where you can mention only one non-wildcard domain name and “hostnames” takes an array of strings as input, where you can mention up to 5 wildcard domain names. But both the properties cannot be used at once.
-*	You cannot create a [redirection](redirect-overview.md) rule with a target listener which uses wildcard or multiple host names.
+* [SSL termination and End-to-End SSL](ssl-overview.md) requires you to configure the protocol as HTTPS and upload a certificate to be used in the listener configuration. If it is a multi-site listener, you can input the host name as well, usually this is the CN of the SSL certificate. When you are specifying multiple host names in the listener or use wildcard characters, you must consider the following:
+    * If it is a wildcard hostname like *.contoso.com, you must upload a wildcard certificate with CN like *.contoso.com
+    * If multiple host names are mentioned in the same listener, you must upload a SAN certificate (Subject Alternative Names) with the CNs matching the host names mentioned.
+* You cannot use a regular expression to mention the host name. You can only use wildcard characters like asterisk (*) and question mark (?) to form the host name pattern.
+* For backend health check, you cannot associate multiple [custom probes](application-gateway-probe-overview.md) per HTTP settings. Instead, you can probe one of the websites at the backend or use "127.0.0.1" to probe the localhost of the backend server. However, when you are using wildcard or multiple host names in a listener, the requests for all the specified domain patterns will be routed to the backend pool depending on the rule type (basic or path-based).
+* The properties "hostname" takes one string as input, where you can mention only one non-wildcard domain name and "hostnames" takes an array of strings as input, where you can mention up to 5 wildcard domain names. But both the properties cannot be used at once.
+* You cannot create a [redirection](redirect-overview.md) rule with a target listener which uses wildcard or multiple host names.
 
 See [create multi-site using Azure PowerShell](tutorial-multiple-sites-powershell.md) or [using Azure CLI](tutorial-multiple-sites-cli.md) for the step-by-step guide on how to configure wildcard host names in a multi-site listener.
 
@@ -92,4 +92,4 @@ Learn how to configure multiple site hosting in Application Gateway
 * [Using Azure PowerShell](tutorial-multiple-sites-powershell.md) 
 * [Using Azure CLI](tutorial-multiple-sites-cli.md)
 
-You can visit [Resource Manager template using multiple site hosting](https://github.com/Azure/azure-quickstart-templates/blob/master/201-application-gateway-multihosting) for an end to end template-based deployment.
+You can visit [Resource Manager template using multiple site hosting](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/application-gateway-multihosting) for an end to end template-based deployment.

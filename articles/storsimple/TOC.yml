@@ -402,7 +402,7 @@
     - name: CSP release notes
       href: https://partner.microsoft.com/Support/whats-new
     - name: "StorSimple for CSP: FAQ"
-      href: storsimple-partner-csp-faq.md
+      href: storsimple-partner-csp-faq.yml
 - name: Related
   items:
   - name: StorSimple 5000-7000 Series
