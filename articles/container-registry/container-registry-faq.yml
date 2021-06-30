@@ -16,15 +16,14 @@ summary: |
   * [Troubleshoot network issues with registry](container-registry-troubleshoot-access.md)
   * [Troubleshoot registry performance](container-registry-troubleshoot-performance.md)
   
-  ## Resource management
 
 sections:
-  - name: General
+  - name: Resource management
     questions:
       - question: |
           Can I create an Azure Container Registry using a Resource Manager template?
         answer: |
-          Yes. Here is [a template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-container-registry) that you can use to create a registry.
+          Yes. Here is [a template](https://azure.microsoft.com/resources/templates/container-registry/) that you can use to create a registry.
           
       - question: |
           Is there security vulnerability scanning for images in ACR?
@@ -95,8 +94,8 @@ sections:
         answer: |
           It takes some time to propagate firewall rule changes. After you change firewall settings, please wait for a few minutes before verifying this change.
           
-          ## Registry operations
- 
+  - name: Registry operations
+    questions:
       - question: |
           How do I access Docker Registry HTTP API V2?
         answer: |
@@ -303,8 +302,8 @@ sections:
           > [!WARNING]
           > Non-distributable artifacts typically have restrictions on how and where they can be distributed and shared. Use this feature only to push artifacts to private registries. Ensure that you are in compliance with any terms that cover redistributing non-distributable artifacts.
           
-          ## Diagnostics and health checks
-
+  - name: Diagnostics and health checks
+    questions:
       - question:  |
           Check health with `az acr check-health`
         answer: |
@@ -518,8 +517,8 @@ sections:
           
           Configure the Docker proxy to output of the previous command and the port 8888 (for example 10.0.75.1:8888)
           
-          ## Tasks
-
+  - name: Tasks
+    questions:
       - question:  |
           How do I batch cancel runs?
         answer: |
