@@ -48,7 +48,7 @@ Because all requests are handled through the same API, you see consistent result
 
 The following image shows the mechanism of handling all the API requests and the role the local Azure Resource Manager plays in providing a consistent management layer to handle those requests.
 
-![Diagram for Azure Resource Manager](media/azure-stack-edge-gpu-connect-resource-manager/edge-device-flow.svg)
+![Diagram for Azure Resource Manager.](media/azure-stack-edge-gpu-connect-resource-manager/edge-device-flow.svg)
 
 
 #### Use of Resource Manager templates
