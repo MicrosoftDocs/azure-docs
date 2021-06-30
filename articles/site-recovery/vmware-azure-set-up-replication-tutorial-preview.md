@@ -130,7 +130,7 @@ Follow these steps to enable replication:
 
 9. Select the storage
 
-   - Cache storage account:
+  - Cache storage account:
     -  Now, choose cache storage account which Azure Site Recovery uses for staging purposes – caching and storing logs before writing the changes on to the managed disks.
 
     - By default, a new LRS v1 type storage account will be created by Azure Site Recovery for the first enable replication operation in a vault. For the next operations, same cache storage account will be re-used.
