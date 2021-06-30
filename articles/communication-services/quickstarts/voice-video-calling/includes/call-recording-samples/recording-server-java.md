@@ -57,9 +57,9 @@ const isRecordingActiveChangedHandler = () => {
 callRecordingApi.on('isRecordingActiveChanged', isRecordingActiveChangedHandler);
 ```
 
-Get server call id which can be used to start/stop/pause/resume recording sessions:
+Get server call ID which can be used to start/stop/pause/resume recording sessions:
 
-Once the call is connected use the `getServerCallId` method to get the server call id.
+Once the call is connected use the `getServerCallId` method to get the server call ID.
 
 ```JavaScript
 callAgent.on('callsUpdated', (e: { added: Call[]; removed: Call[] }): void => {
@@ -90,7 +90,7 @@ CallingServerClientBuilder builder = new CallingServerClientBuilder().httpClient
 
 ## Start recording session using 'startRecordingWithResponse' server API
 
-Use the server call id received during initiation of the call.
+Use the server call ID received during initiation of the call.
 
 ```java
 URI recordingStateCallbackUri = new URI("<CallbackUri>");
@@ -98,11 +98,11 @@ URI recordingStateCallbackUri = new URI("<CallbackUri>");
 Response<StartCallRecordingResult> response = this.callingServerClient.initializeServerCall("<serverCallId>")
 .startRecordingWithResponse(String.valueOf(recordingStateCallbackUri),null);
 ```
-The `startRecordingWithResponse` API response contains the recording id of the recording session.
+The `startRecordingWithResponse` API response contains the recording ID of the recording session.
 
 ## Stop recording session using 'stopRecordingWithResponse' server API
 
-Use the recording id received in response of `startRecordingWithResponse`.
+Use the recording ID received in response of `startRecordingWithResponse`.
 
 ```java
 Response<Void> response = this.callingServerClient.initializeServerCall(serverCallId)
@@ -111,7 +111,7 @@ Response<Void> response = this.callingServerClient.initializeServerCall(serverCa
 
 ## Pause recording session using 'pauseRecordingWithResponse' server API
 
-Use the recording id received in response of  `startRecordingWithResponse`.
+Use the recording ID received in response of  `startRecordingWithResponse`.
 
 ```java
 Response<Void> response = this.callingServerClient.initializeServerCall(serverCallId)
@@ -120,7 +120,7 @@ Response<Void> response = this.callingServerClient.initializeServerCall(serverCa
 
 ## Resume recording session using 'resumeRecordingWithResponse' server API
 
-Use the recording id received in response of  `startRecordingWithResponse`.
+Use the recording ID received in response of  `startRecordingWithResponse`.
 
 ```java
 Response<Void> response = this.callingServerClient.initializeServerCall(serverCallId)
@@ -178,4 +178,4 @@ Path destinationPath = Paths.get(filePath);
 
 Response<Void> downloadResponse = callingServerClient.downloadToWithResponse(contentLocation, destinationPath, parallelDownloadOptions, overwrite, context);
 ```
-The content location and document Ids for the recording files can be fetched from the `contentLocation` and `documentId` fields respectively, for each `recordingChunk`.
+The content location and document IDs for the recording files can be fetched from the `contentLocation` and `documentId` fields respectively, for each `recordingChunk`.
