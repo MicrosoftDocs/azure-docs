@@ -71,10 +71,6 @@ To use this feature, you need:
 
 11. Close the window to return to the Diagnostic settings pane.
 
-12. After about 15 minutes, verify that the logs are pushed to your storage account. Go to the [Azure portal](https://portal.azure.com), select **Storage accounts**, select the storage account that you used earlier, and then select **Blobs**. For **Audit logs**, select **insights-log-audit**. For **Sign-in logs**, select **insights-logs-signin**.
-
-    ![Storage account](./media/quickstart-azure-monitor-route-logs-to-storage-account/StorageAccount.png)
-
 ## Next steps
 
 * [Interpret audit logs schema in Azure Monitor](./overview-reports.md)
