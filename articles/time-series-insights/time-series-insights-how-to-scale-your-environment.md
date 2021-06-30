@@ -3,7 +3,7 @@ title: 'How to scale your environment - Azure Time Series Insights| Microsoft Do
 description: Learn how to scale your Azure Time Series Insights environment using the Azure portal.
 ms.service: time-series-insights
 services: time-series-insights
-author: tedvilutis    
+author: tedvilutis
 ms.author: tvilutis
 manager: cnovak
 ms.devlang: csharp
