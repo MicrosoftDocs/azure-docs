@@ -5,7 +5,7 @@ description: What is Metrics Advisor?
 services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: metrics-advisor
 ms.topic: overview
 ms.date: 09/14/2020
@@ -38,14 +38,21 @@ Metrics Advisor can connect to, and [ingest multi-dimensional metric](how-tos/on
 * Automatically monitor every time series within [multi-dimensional metrics](glossary.md#multi-dimensional-metric).
 * Use [parameter tuning](how-tos/configure-metrics.md) and [interactive feedback](how-tos/anomaly-feedback.md) to customize the model applied on your data, and future anomaly detection results.
 
-## Real-time alerts through multiple channels
+## Real-time notification through multiple channels
 
-Whenever anomalies are detected, Metrics Advisor is able to [send real time alerts](how-tos/alerts.md) through multiple channels using hooks, such as: email hooks, web hooks, and Azure DevOps hooks. Flexible alert rules let you customize which alerts are sent, and their destination.
+Whenever anomalies are detected, Metrics Advisor is able to [send real time notification](how-tos/alerts.md) through multiple channels using hooks, such as: email hooks, web hooks, Teams hooks and Azure DevOps hooks. Flexible alert configuration lets you customize when and where to send a notification.
 
 ## Smart diagnostic insights by analyzing anomalies
 
-Analyze anomalies detected on multi-dimensional metrics, and generate [smart diagnostic insights](how-tos/diagnose-incident.md) including most the most likely root cause, diagnostic trees, metric drilling, and more. By configuring [Metrics graph](how-tos/metrics-graph.md), cross metrics analysis can be enabled to help you visualize incidents.
+### Analyze root cause into specific dimension 
 
+Metrics Advisor combines anomalies detected on the same multi-dimensional metric into a diagnostic tree to help you analyze root cause into specific dimension. There's also automated analyzed insights available by analyzing the greatest contribution of each dimension. 
+
+### Cross-metrics analysis using Metrics graph
+
+A [Metrics graph](./how-tos/metrics-graph.md) indicates the relation between metrics. Cross-metrics analysis can be enabled to help you catch on abnormal status among all related metrics in a holistic view. And eventually locate the final root cause.
+
+Refer to [how to diagnose an incident](./how-tos/diagnose-an-incident.md) for more detail.
 
 ## Typical workflow
 
@@ -53,11 +60,15 @@ The workflow is simple: after onboarding your data, you can fine-tune the anomal
 
 1. [Create an Azure resource](https://go.microsoft.com/fwlink/?linkid=2142156) for Metrics Advisor. 
 2. Build your first monitor using the web portal.
-    1. Onboard your data
-    2. Fine-tune anomaly detection
-    3. Subscribe to alerts
-    4. View diagnostic insights
+    1. [Onboard your data](./how-tos/onboard-your-data.md)
+    2. [Fine-tune anomaly detection configuration](./how-tos/configure-metrics.md)
+    3. [Subscribe anomalies for notification](./how-tos/alerts.md)
+    4. [View diagnostic insights](./how-tos/diagnose-an-incident.md)
 3. Use the REST API to customize your instance.
+
+## Video
+* [Introducing Metrics Advisor](https://www.youtube.com/watch?v=0Y26cJqZMIM)
+* [New to Cognitive Services](https://www.youtube.com/watch?v=7tCLJHdBZgM)
 
 ## Next steps
 

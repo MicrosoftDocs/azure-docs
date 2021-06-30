@@ -251,7 +251,7 @@ To confirm a successful deployment, or to validate the status of your extension 
 
 ## Simulate security alerts from Azure Defender for Kubernetes
 
-A full list of supported alerts is available in the [reference table of all security alerts in Azure Security Center](alerts-reference.md#alerts-akscluster).
+A full list of supported alerts is available in the [reference table of all security alerts in Azure Security Center](alerts-reference.md#alerts-k8scluster).
 
 1. To simulate an Azure Defender alert, run the following command:
 

@@ -49,7 +49,7 @@ Any other services you use could have associated costs.
 
 After you enable Azure Sentinel on a Log Analytics workspace, you can retain all data ingested into the workspace at no charge for the first 90 days. Retention beyond 90 days is charged per the standard [Log Analytics retention prices](https://azure.microsoft.com/pricing/details/monitor/).
 
-You can specify different retention settings for individual data types. For more information, see [Retention by data type](/azure/azure-monitor/logs/manage-cost-storage#retention-by-data-type).
+You can specify different retention settings for individual data types. For more information, see [Retention by data type](../azure-monitor/logs/manage-cost-storage.md#retention-by-data-type).
 
 ### Free trial
 
@@ -69,6 +69,7 @@ The following table lists the free data sources you can enable in Azure Sentinel
 | Azure Sentinel Data Connector   | Data type | Free or paid |
 |-------------------------------------|--------------------------------|------------------|
 | **Azure Activity Logs**         | AzureActivity                  | Free             |
+| **Azure AD Identity Protection**         | SecurityAlert (IPC)                  | Free             |
 | **Office 365**                     | OfficeActivity (SharePoint)    | Free|
 || OfficeActivity (Exchange)|Free|
 || OfficeActivity (Teams)          | Free|
@@ -116,6 +117,7 @@ Manage data ingestion and retention:
 - [Optimize Log Analytics costs with dedicated clusters](#optimize-log-analytics-costs-with-dedicated-clusters).
 - [Separate non-security data in a different workspace](#separate-non-security-data-in-a-different-workspace).
 - [Reduce long-term data retention costs with Azure Data Explorer (ADX)](#reduce-long-term-data-retention-costs-with-adx).
+- [Use Data Collection Rules for your Windows Security Events](#use-data-collection-rules-for-your-windows-security-events).
 
 Understand, monitor, and alert for data ingestion and cost changes:
 
@@ -143,7 +145,7 @@ To change your pricing tier commitment, select one of the other tiers on the pri
 > [!NOTE]
 > Azure Sentinel data ingestion volumes appear under **Security Insights** in some portal Usage Charts.
 
-The Azure Sentinel pricing tiers don't include Log Analytics charges. To change your pricing tier commitment for Log Analytics, see [Changing pricing tier](/azure/azure-monitor/logs/manage-cost-storage#changing-pricing-tier).
+The Azure Sentinel pricing tiers don't include Log Analytics charges. To change your pricing tier commitment for Log Analytics, see [Changing pricing tier](../azure-monitor/logs/manage-cost-storage.md#changing-pricing-tier).
 
 #### Define a data volume cap in Log Analytics
 
@@ -156,7 +158,7 @@ To define a daily volume cap, select **Usage and estimated costs** in the left n
 The **Usage and estimated costs** screen also shows your ingested data volume trend in the past 31 days, and the total retained data volume.
 
 > [!IMPORTANT]
-> The daily cap doesn't limit collection of all data types. For more information about managing the daily cap in Log Analytics, see [Manage your maximum daily data volume](/azure/azure-monitor/logs/manage-cost-storage#manage-your-maximum-daily-data-volume).
+> The daily cap doesn't limit collection of all data types. For more information about managing the daily cap in Log Analytics, see [Manage your maximum daily data volume](../azure-monitor/logs/manage-cost-storage.md#manage-your-maximum-daily-data-volume).
 
 #### Optimize Log Analytics costs with dedicated clusters
 
@@ -166,7 +168,7 @@ Log Analytics dedicated clusters don't apply to Azure Sentinel Commitment Tiers.
 
 You can add multiple Azure Sentinel workspaces to a Log Analytics dedicated cluster. There are a couple of advantages to using a Log Analytics dedicated cluster for Azure Sentinel:
 
-- Cross-workspace queries run faster if all the workspaces involved in the query are in the dedicated cluster. It's still best to have as few workspaces as possible in your environment, and a dedicated cluster still retains the [100 workspace limit](/azure/azure-monitor/log-query/cross-workspace-query) for inclusion in a single cross-workspace query.
+- Cross-workspace queries run faster if all the workspaces involved in the query are in the dedicated cluster. It's still best to have as few workspaces as possible in your environment, and a dedicated cluster still retains the [100 workspace limit](../azure-monitor/logs/cross-workspace-query.md) for inclusion in a single cross-workspace query.
 
 - All workspaces in the dedicated cluster can share the Log Analytics Commitment Tier set on the cluster. Not having to commit to separate Log Analytics Commitment Tiers for each workspace can allow for cost savings and efficiencies. By enabling a dedicated cluster, you commit to a minimum Log Analytics Commitment Tier of 1 TB ingestion per day.
 
@@ -180,7 +182,7 @@ Here are some other considerations for moving to a dedicated cluster for cost op
 - Moving a cluster to another resource group or subscription isn't currently supported.
 - A workspace link to a cluster fails if the workspace is linked to another cluster.
 
-For more information about dedicated clusters, see [Log Analytics dedicated clusters](/azure/azure-monitor/logs/manage-cost-storage#log-analytics-dedicated-clusters).
+For more information about dedicated clusters, see [Log Analytics dedicated clusters](../azure-monitor/logs/manage-cost-storage.md#log-analytics-dedicated-clusters).
 
 #### Separate non-security data in a different workspace
 
@@ -197,6 +199,14 @@ Azure Sentinel security data might lose some of its value after a few months. Se
 With ADX, you can store data at a lower price, but still explore the data using the same Kusto Query Language (KQL) queries as in Azure Sentinel. You can also use the ADX proxy feature to do cross-platform queries. These queries aggregate and correlate data spread across ADX, Application Insights, Azure Sentinel, and Log Analytics.
 
 For more information, see [Integrate Azure Data Explorer for long-term log retention](store-logs-in-azure-data-explorer.md).
+
+#### Use data collection rules for your Windows Security Events
+
+The [Windows Security Events connector](connect-windows-security-events.md?tabs=LAA) enables you to stream security events from any computer running Windows Server that's connected to your Azure Sentinel workspace, including physical, virtual, or on-premises servers, or in any cloud. This connector includes support for the Azure Monitor agent, which uses data collection rules to define the data to collect from each agent. 
+
+Data collection rules enable you to manage collection settings at scale, while still allowing unique, scoped configurations for subsets of machines. For more information, see [Configure data collection for the Azure Monitor agent](../azure-monitor/agents/data-collection-rule-azure-monitor-agent.md).
+
+Besides for the predefined sets of events that you can select to ingest, such as All events, Minimal, or Common, data collection rules enable you to build custom filters and select specific events to ingest. The Azure Monitor Agent uses these rules to filter the data at the source, and then ingest only the events you've selected, while leaving everything else behind. Selecting specific events to ingest can help you optimize your costs and save more.
 
 ### Understand, monitor, and alert for changes in data ingestion and costs
 
@@ -265,7 +275,7 @@ Many devices and data sources allow for logging fields beyond the standard CEF s
 
 ## Understand your Azure Sentinel costs and bill
 
-It's important to understand and track your Azure Sentinel costs. The [Azure Cost Management + Billing](/azure/cost-management-billing/costs/quick-acm-cost-analysis) hub provides useful functionality. After you open **Cost Management + Billing** in the Azure portal, select **Cost Management** in the left navigation and then select the [scope](/azure//cost-management-billing/costs/understand-work-scopes) or set of resources to investigate, such as an Azure subscription or resource group.
+It's important to understand and track your Azure Sentinel costs. The [Azure Cost Management + Billing](../cost-management-billing/costs/quick-acm-cost-analysis.md) hub provides useful functionality. After you open **Cost Management + Billing** in the Azure portal, select **Cost Management** in the left navigation and then select the [scope](..//cost-management-billing/costs/understand-work-scopes.md) or set of resources to investigate, such as an Azure subscription or resource group.
 
 To see your Azure bill, select **Cost Analysis** in the left navigation of **Cost Management + Billing**. On the **Cost analysis** screen, select the drop-down caret in the **View** field, and select **Invoice details**.
 
@@ -285,7 +295,7 @@ The following table shows how Azure Sentinel and Log Analytics costs appear in t
 |Azure Sentinel overage over the Commitment Tier, or Pay-As-You-Go|**sentinel**|**analysis**|
 |Log Analytics overage over the Commitment Tier, or Pay-As-You-Go|**log analytics**|**data ingestion**|
 
-For more information on viewing and downloading your Azure bill, see [Azure cost and billing information](/azure/cost-management-billing/understand/download-azure-daily-usage).
+For more information on viewing and downloading your Azure bill, see [Azure cost and billing information](../cost-management-billing/understand/download-azure-daily-usage.md).
 
 The **Cost Analysis** screen also shows detailed views of your Azure usage and costs, with the option to apply a variety of controls and filters.
 
@@ -302,5 +312,4 @@ For example, to see charts of your daily costs for a certain time frame:
 You could also apply further controls. For example, to view only the costs associated with Azure Sentinel, select **Add filter**, select **Service name**, and then select the service names **sentinel**, **log analytics**, and **azure monitor**.
 
 ## Next steps
-For more tips on reducing Log Analytics data volume, see [Tips for reducing data volume](/azure/azure-monitor/logs/manage-cost-storage#tips-for-reducing-data-volume).
-
+For more tips on reducing Log Analytics data volume, see [Tips for reducing data volume](../azure-monitor/logs/manage-cost-storage.md#tips-for-reducing-data-volume).

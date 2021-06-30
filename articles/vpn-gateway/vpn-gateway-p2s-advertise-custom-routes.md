@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 05/28/2021
+ms.date: 06/08/2021
 ms.author: cherylmc
 
 ---
@@ -44,17 +44,12 @@ To advertise custom routes, use the `Set-AzVirtualNetworkGateway cmdlet`. The fo
 
 ## Advertise custom routes - forced tunneling
 
-To advertise custom routes, use the `Set-AzVirtualNetworkGateway cmdlet`. The following example shows you how to advertise the IP for the [Contoso storage account tables](https://contoso.table.core.windows.net).
+You can direct all traffic to the VPN tunnel by advertising 0.0.0.0/1 and 128.0.0.0/1 as custom routes to the clients. The reason for breaking 0.0.0.0/0 into two smaller subnets is that these smaller prefixes are more specific than the default route that may already be configured on the local network adapter and as such will be prefered when routing traffic.
 
-1. Ping *contoso.table.core.windows.net* and note the IP address. For example:
+1. To enable forced tunneling, use the following commands:
 
-    ```cmd
-    C:\>ping contoso.table.core.windows.net
-    Pinging table.by4prdstr05a.store.core.windows.net [13.88.144.250] with 32 bytes of data:
-    ```
-1. To add multiple custom routes, use a comma and spaces to separate the addresses. For example:
-
-    ```azurepowershell-interactive
+    ```azurepowershell-interactive    
+    $gw = Get-AzVirtualNetworkGateway -Name <name of gateway> -ResourceGroupName <name of resource group>
     Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -CustomRoute 0.0.0.0/1 , 128.0.0.0/1
     ```
 ## View custom routes

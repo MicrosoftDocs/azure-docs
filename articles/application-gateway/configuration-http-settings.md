@@ -72,7 +72,7 @@ This setting lets you configure an optional custom forwarding path to use when t
 
 ## Use for app service
 
-This is a UI only shortcut that selects the two required settings for the Azure App Service back end. It enables **pick host name from back-end address**, and it creates a new custom probe if you don't have one already. (For more information, see the [Pick host name from back-end address](#pick-host-name-from-back-end-address)setting section of this article.) A new probe is created, and the probe header is picked from the back-end member's address.
+This is a UI only shortcut that selects the two required settings for the Azure App Service back end. It enables **pick host name from back-end address**, and it creates a new custom probe if you don't have one already. (For more information, see the [Pick host name from back-end address](#pick-host-name-from-back-end-address) setting section of this article.) A new probe is created, and the probe header is picked from the back-end member's address.
 
 ## Use custom probe
 

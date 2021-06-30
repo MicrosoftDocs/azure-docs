@@ -6,7 +6,7 @@ author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/29/2021
+ms.date: 06/16/2021
 ---
 
 # Copy data to and from Azure Databricks Delta Lake by using Azure Data Factory
@@ -254,7 +254,7 @@ To copy data to Azure Databricks Delta Lake, the following properties are suppor
 | Property      | Description                                                  | Required |
 | :------------ | :----------------------------------------------------------- | :------- |
 | type          | The type property of the Copy activity sink, set to **AzureDatabricksDeltaLakeSink**. | Yes      |
-| preCopyScript | Specify a SQL query for the Copy activity to run before writing data into Databricks delta table in each run. You can use this property to clean up the preloaded data, or add a truncate table or Vacuum statement. | No       |
+| preCopyScript | Specify a SQL query for the Copy activity to run before writing data into Databricks delta table in each run. Example : `VACUUM eventsTable DRY RUN` You can use this property to clean up the preloaded data, or add a truncate table or Vacuum statement. | No       |
 | importSettings | Advanced settings used to write data into delta table. | No |
 | ***Under `importSettings`:*** |                                                              |  |
 | type | The type of import command, set to **AzureDatabricksDeltaLakeImportCommand**. | Yes |
@@ -308,7 +308,8 @@ If your source data store and format meet the criteria described in this section
                 "type": "<source type>"
             },
             "sink": {
-                "type": "AzureDatabricksDeltaLakeSink"
+                "type": "AzureDatabricksDeltaLakeSink",
+                "sqlReadrQuery": "VACUUM eventsTable DRY RUN"
             }
         }
     }

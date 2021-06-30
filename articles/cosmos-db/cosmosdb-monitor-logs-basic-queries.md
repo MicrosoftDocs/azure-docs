@@ -16,7 +16,7 @@ In this article, we'll cover how to write simple queries to help troubleshoot is
 
 For Azure Diagnostics tables, all data is written into one single table and users will need to specify which category they'd like to query.
 
-For resource-specific tables (currently in preview for SQL API), data is written into individual tables for each category of the resource. We recommend this mode since it makes it much easier to work with the data, provides better discoverability of the schemas, and improves performance across both ingestion latency and query times.
+For resource-specific tables, data is written into individual tables for each category of the resource (not available for table API). We recommend this mode since it makes it much easier to work with the data, provides better discoverability of the schemas, and improves performance across both ingestion latency and query times.
 
 ## <a id="azure-diagnostics-queries"></a> AzureDiagnostics Queries
 
@@ -323,7 +323,7 @@ For resource-specific tables (currently in preview for SQL API), data is written
    | summarize by OperationName 
    ```
 
-## Next steps
+## Next steps 
 * For more information on how to create diagnostic settings for Cosmos DB see [Creating Diagnostics settings](cosmosdb-monitor-resource-logs.md) article.
 
-* For detailed information about how to create a diagnostic setting by using the Azure portal, CLI, or PowerShell, see [create diagnostic setting to collect platform logs and metrics in Azure](../azure-monitor/platform/diagnostic-settings.md) article.
+* For detailed information about how to create a diagnostic setting by using the Azure portal, CLI, or PowerShell, see [create diagnostic setting to collect platform logs and metrics in Azure](../azure-monitor/essentials/diagnostic-settings.md) article.
