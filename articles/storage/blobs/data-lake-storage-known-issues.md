@@ -103,4 +103,4 @@ For the time being (and most likely the foreseeable future), we won't support cu
 
 ## Soft delete for blobs capability (currently in preview)
 
-If parent directories for soft-deleted files or directories are renamed, the soft-deleted items may not be displayed correctly in the Azure Portal. In such cases you can use [PowerShell](soft-delete-blob-manage?tabs=dotnet#restore-soft-deleted-blobs-and-directories-by-using-powershell) or [Azure CLI](soft-delete-blob-manage?tabs=dotnet#restore-soft-deleted-blobs-and-directories-by-using-azure-cli) to list and restore the soft-deleted items. 
+If parent directories for soft-deleted files or directories are renamed, the soft-deleted items may not be displayed correctly in the Azure Portal. In such cases you can use [PowerShell](soft-delete-blob-manage.md?tabs=dotnet#restore-soft-deleted-blobs-and-directories-by-using-powershell) or [Azure CLI](soft-delete-blob-manage.md?tabs=dotnet#restore-soft-deleted-blobs-and-directories-by-using-azure-cli) to list and restore the soft-deleted items. 
