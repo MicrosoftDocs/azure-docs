@@ -31,7 +31,7 @@ See [Monitoring Load Balancer](monitor-load-balancer.md) for details on collecti
 
 For more information, see a list of [all platform metrics supported in Azure Monitor for load balancer](../azure-monitor/essentials/metrics-supported.md#microsoftnetworkloadbalancers).
 
-## Metric Dimensions
+## Metric dimensions
 
 For more information on what metric dimensions are, see [Multi-dimensional metrics](/azure/azure-monitor/essentials/data-platform-metrics#multi-dimensional-metrics).
 
@@ -51,7 +51,7 @@ Load Balancer has the following dimensions associated with its metrics.
 
 Resource logs are currently unsupported by Azure Load Balancer
 
-## Azure Monitor Logs tables
+## Azure Monitor logs tables
 ### Diagnostics tables
 
 Diagnostics tables are currently unsupported by Azure Load Balancer.
