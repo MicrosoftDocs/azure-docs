@@ -25,7 +25,6 @@ For Preview, the following SKUs are currently available.
 | NetFoundry ZTNA | Other| [Azure Marketplace](https://ms.portal.azure.com/#create/netfoundryinc.application-ziti-private-edgeapp-edge-router)|
 | Nuage Networks SD-WAN From Nokia | SD-WAN| [Azure Marketplace](https://aka.ms/NokiaNuage)|
 | Versa SD-WAN| SD-WAN |[Azure Marketplace](https://aka.ms/versa)|
-| VMware SD-WAN by Velocloud | SD-WAN | [Azure Marketplace](https://ms.portal.azure.com/#create/vmware-inc.vmware_sdwan_edge_zonesvelo_ase)|
 
 ## Next steps
 
