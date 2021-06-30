@@ -68,17 +68,17 @@ Verify properties as follows:
 
 3. Select **Shut down machine before beginning failover** to attempt to shut down source VMs before triggering the failover. Failover continues even if the shutdown fails. You can follow the failover progress on the **Jobs** page.
 
-In some scenarios, failover requires additional processing that takes around 8 to 10 minutes to complete. You might notice longer test failover times for:
+  In some scenarios, failover requires additional processing that takes around 8 to 10 minutes to complete. You might notice longer test failover times for:
 
-* VMware VMs running a Mobility service version older than 9.8.
-* Physical servers.
-* VMware Linux VMs.
-* Hyper-V VMs protected as physical servers.
-* VMware VMs that don't have the DHCP service enabled.
-* VMware VMs that don't have the following boot drivers: storvsc, vmbus, storflt, intelide, atapi.
+  * VMware VMs running a Mobility service version older than 9.8.
+  * Physical servers.
+  * VMware Linux VMs.
+  * Hyper-V VMs protected as physical servers.
+  * VMware VMs that don't have the DHCP service enabled.
+  * VMware VMs that don't have the following boot drivers: storvsc, vmbus, storflt, intelide, atapi.
 
-> [!WARNING]
-> Don't cancel a failover in progress. Before failover is started, VM replication is stopped. If you cancel a failover in progress, failover stops, but the VM won't replicate again.
+  > [!WARNING]
+  > Don't cancel a failover in progress. Before failover is started, VM replication is stopped. If you cancel a failover in progress, failover stops, but the VM won't replicate again.
 
 ## Connect to failed-over VM
 
@@ -103,7 +103,7 @@ When the planned failover is triggered, pending changes are copied to on-premise
 After a successful planned failover, the machine will be active in your on-premises environment.
 
 > [!NOTE]
-> If protected machine has iSCSI disks, the configuration is retained in Azure upon failover. After planned failover from Azure to on-premises, the iSCSI configuration cannot be retained. So, vmdk disks are created on the on-premises machine. To remove duplicate disks, delete the iSCSI disk as the data is replaced with vmdk disks. 
+> If protected machine has iSCSI disks, the configuration is retained in Azure upon failover. After planned failover from Azure to on-premises, the iSCSI configuration cannot be retained. So, vmdk disks are created on the on-premises machine. To remove duplicate disks, delete the iSCSI disk as the data is replaced with vmdk disks.
 
 
 ### Failed over VM to Azure - requirements

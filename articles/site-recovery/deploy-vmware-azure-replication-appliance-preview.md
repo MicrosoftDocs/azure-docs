@@ -16,7 +16,7 @@ You deploy an on-premises replication appliance when you use [Azure Site Recover
 - The replication appliance coordinates communications between on-premises VMware and Azure. It also manages data replication.
 - [Learn more](vmware-azure-architecture-preview.md) about the Azure Site Recovery replication appliance components and processes.
 
-<< as discussed earlier, we need to mention about the capacity for each replication appliance)
+<< as discussed earlier, we need to mention about the capacity for each replication appliance>>
 
 ## Hardware requirements
 
@@ -38,8 +38,7 @@ Operating system locale | English (en-*)
 Windows Server roles | Don't enable these roles: <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V
 Group policies | Don't enable these group policies: <br> - Prevent access to the command prompt. <br> - Prevent access to registry editing tools. <br> - Trust logic for file attachments. <br> - Turn on Script Execution. <br> [Learn more](/previous-versions/windows/it-pro/windows-7/gg176671(v=ws.10))
 IIS | - No pre-existing default website <br> - No pre-existing website/application listening on port 443 <br>- Enable  [anonymous authentication](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731244(v=ws.10)) <br> - Enable [FastCGI](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753077(v=ws.10)) setting
-FIPS (Federal Information Processing Standards) | Do not enable FIPS mode
-|
+FIPS (Federal Information Processing Standards) | Do not enable FIPS mode|
 
 ## Network requirements
 <needs detailed review>
@@ -92,7 +91,7 @@ Use the following steps to assign the required permissions assigned:
 
 4. In **Add a role assignment**, Select **Add,** select the Contributor or Owner role, and select the account. Then Select **Save**.
 
-5. To register the appliance, your Azure account needs permissions to register AAD apps.
+  To register the appliance, your Azure account needs permissions to register AAD apps.
 
   Follow these steps to assign required permissions:
 
@@ -102,9 +101,10 @@ Use the following steps to assign the required permissions assigned:
 
 ## Prepare infrastructure - set up Azure Site Recovery Replication appliance
 
-You need to set up an Azure Site Recovery replication appliance on the on-premises environment to channel mobility agent communications. For detailed information on the operations performed by the appliance see this section
+You need to set up an Azure Site Recovery replication appliance on the on-premises environment to channel mobility agent communications. For detailed information on the operations performed by the appliance [see this section](vmware-azure-architecture-preview.md)
 
-1. Go to **Recovery Services Vault** > **Getting Started**. In VMware machines to Azure, select **1: Prepare Infrastructure**
+Go to **Recovery Services Vault** > **Getting Started**. In VMware machines to Azure, select
+ **Prepare Infrastructure** and proceed with the sections detailed below:
 
    [![Site recovery](./media/deploy-vmware-azure-replication-appliance-preview/site-recovery-inline.png)](./media/deploy-vmware-azure-replication-appliance-preview/site-recovery-expanded.png#lightbox)
 
@@ -245,7 +245,7 @@ If you select **Prepare infrastructure** under **Getting started**, you can see 
 
 Upon Selecting  *1 appliance(s)*, you will be re-directed to Azure Site Recovery replication appliance view to see the list of appliances registered to this vault.
 
-![Azure Site Recovery replication](./media/deploy-vmware-azure-replication-appliance-preview/asr-replication-appliance.png)
+[![Register recovery service vault](./media/deploy-vmware-azure-replication-appliance-preview/register-recovery-services-vault-inline.png)](./media/deploy-vmware-azure-replication-appliance-preview/register-recovery-services-vault-expanded.png#lightbox)
 
 
 ## Deploy replication appliance

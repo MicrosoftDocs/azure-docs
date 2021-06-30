@@ -113,8 +113,7 @@ Follow these steps to enable replication:
 3. After choosing Virtual machines, you need to choose the vCenter server added to Azure Site Recovery replication appliances, registered in this vault.
 
 4. Later, search the source VM name to protect the machines of your choice. To review the selected VMs, select **Selected resources**.
-
-  [![Select sources](./media/vmware-azure-set-up-replication-tutorial-preview/select-sources-inline.png)](./media/vmware-azure-set-up-replication-tutorial-preview/select-sources-expanded.png#lightbox)
+    [![Select sources](./media/vmware-azure-set-up-replication-tutorial-preview/select-sources-inline.png)](./media/vmware-azure-set-up-replication-tutorial-preview/select-sources-expanded.png#lightbox)
 
 5. After you choose the list of VMs, select **Next** to proceed to source settings. Here, select the replication appliance and VM credentials. These credentials will be used to push mobility agent on the VM by configuration server to complete enabling Azure Site Recovery. Ensure accurate credentials are chosen.
 
@@ -122,7 +121,7 @@ Follow these steps to enable replication:
 
 7. Later, you can choose an Azure network or create a new target network to be used during Failover. If you select **Create new**, you will be redirected to create virtual network context blade and asked to provide address space and subnet details. This network will be created in the target subscription and target resource group selected in the previous step.
 
-  [![Create Virtual Network](./media/vmware-azure-set-up-replication-tutorial-preview/create-virtual-network-inline.png)](./media/vmware-azure-set-up-replication-tutorial-preview/create-virtual-network-expanded.png#lightbox)
+    [![Create Virtual Network](./media/vmware-azure-set-up-replication-tutorial-preview/create-virtual-network-inline.png)](./media/vmware-azure-set-up-replication-tutorial-preview/create-virtual-network-expanded.png#lightbox)
 
 8. Then, provide the test failover network details.
 
@@ -144,19 +143,19 @@ Follow these steps to enable replication:
 
 10. Create a new replication policy if needed.
 
-   A default replication policy gets created under the vault with 72 hour recovery point retention and 4 hour app consistency frequency.  You can create a new replication policy as per your RPO requirements.
+     A default replication policy gets created under the vault with 72 hour recovery point retention and 4 hour app consistency frequency.  You can create a new replication policy as per your RPO requirements.
 
-  - Select **Create new**.
+     - Select **Create new**.
 
-  - Enter the Name.
+     - Enter the Name.
 
-  - Enter **Recovery point retention** in hours
+     - Enter **Recovery point retention** in hours
 
-  - Select **App-consistent snapshot frequency in hours** as per business requirements
+     - Select **App-consistent snapshot frequency in hours** as per business requirements
 
-  - Select **OK** to save the policy.
+     - Select **OK** to save the policy.
 
-   The policy will be created and can used for protecting the chosen source machines.
+     The policy will be created and can used for protecting the chosen source machines.
 
 11. After choosing the replication policy, select **Next**. Review the Source and Target properties. Select **Enable Replication** to initiate the operation.
 
