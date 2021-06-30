@@ -13,13 +13,13 @@ ms.date: 12/02/2020
 ms.custom: seodec18
 ---
 
-> :warning: Warning: Access Policies grant AAD Users and/or Groups Data Plane access to your Time Series Insights Environment.
-> An Azure Active Directory is tied to a Tenant. So if you decide to move your Subscription between Tenants, make sure to follow the procedure
-> from [the section below(#Procedure-for-when-the-Subscription-is-moved-across-Tenants).
-
 # Grant data access to an environment
 
 This article discusses the two types of Azure Time Series Insights access policies.
+
+> :warning: Warning: Access Policies grant AAD Users and/or Groups Data Plane access to your Time Series Insights Environment.
+> An Azure Active Directory is tied to a Tenant. So if you decide to move your Subscription between Tenants, make sure to follow the procedure
+> from [the section below(#Procedure-for-when-the-Subscription-is-moved-across-Tenants).
 
 ## Sign in to Azure Time Series Insights
 
@@ -119,13 +119,7 @@ Follow these steps to grant guest access to an Azure Time Series Insights enviro
 
     [![Guest user selects your Azure tenant from drop-down](media/data-access/data-access-all-capabilities.png)](media/data-access/data-access-all-capabilities.png#lightbox)
 
-## Next steps
-
-* Read [Authentication and Authorization](time-series-insights-authentication-and-authorization.md) for Azure Active Directory app registration steps.
-
-* View [your environment in the Azure Time Series Insights Explorer](./concepts-ux-panels.md).
-
-# Procedure for when the Subscription is moved across Tenants
+## Procedure for when the Subscription is moved across Tenants
 
 Time Series Insights Data Access Policies are backed by Azure Active Directory, which are tied to an Azure Tenant.
 
@@ -135,12 +129,21 @@ When you move a Subscription between Tenants, all the Data Access Policies in ex
 
 To make this process smooth, follow the steps below.
 
-## Before moving a Subscription to another Tenant
+### Before moving a Subscription to another Tenant
 
-- Make sure you extract the current Data Access Policies assignments from the Environment while still in the source Tenant.
-- Make sure the users you still want to have access to the Environment after the Subscription is migrated exist on the target Active Directory.
-- Make sure you will have - or you're engaged with someone who will have - at least Contributor access to the Subscription after it's moved.
+- Make sure you keep a list of the current Data Access Policies assignments from the Environment while it's still in the source Tenant.
+- Make sure the users, groups or apps you still want to have access to the Environment after the Subscription are migrated to the Active Directory in the target Tenant.
+- Make sure you will have - or you're engaged with someone who will have - at least Contributor access to the Subscription after it's moved, so the Data Access Policies can be re-applied in the Environment in the target Tenant.
 
-## After moving a Subscription to another Tenant
+### After moving a Subscription to another Tenant
 
-Having Contributor access to the Subscription in the target Tenant, you can re-grant Access Policies to the Environment.
+Having Contributor access to the Subscription in the target Tenant, you can
+
+- Remove all the Data Access Policies that were migrated with the Environment, since they belong to the source Tenant.
+- Re-grant Access Policies to the Environment using the steps above, now pointing to the AAD objects in the target Tenant.
+
+## Next steps
+
+* Read [Authentication and Authorization](time-series-insights-authentication-and-authorization.md) for Azure Active Directory app registration steps.
+
+* View [your environment in the Azure Time Series Insights Explorer](./concepts-ux-panels.md).
