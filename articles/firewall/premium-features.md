@@ -45,7 +45,7 @@ To learn more about Azure Firewall Premium Intermediate CA certificate requireme
 
 A network intrusion detection and prevention system (IDPS) allows you to monitor your network for malicious activity, log information about this activity, report it, and optionally attempt to block it. 
 
-Azure Firewall Premium Preview provides signature-based IDPS to allow rapid detection of attacks by looking for specific patterns, such as byte sequences in network traffic, or known malicious instruction sequences used by malware. The IDPS signatures are applicable for both application and network level traffic (Layers 4-7), they are fully managed, and continuously updated. IDPS can be applied to inbound, spoke-to-spoke (East-West), and outbound traffic.
+Azure Firewall Premium provides signature-based IDPS to allow rapid detection of attacks by looking for specific patterns, such as byte sequences in network traffic, or known malicious instruction sequences used by malware. The IDPS signatures are applicable for both application and network level traffic (Layers 4-7), they are fully managed, and continuously updated. IDPS can be applied to inbound, spoke-to-spoke (East-West), and outbound traffic.
 
 The Azure Firewall signatures/rulesets include:
 - An emphasis on fingerprinting actual malware, Command and Control, exploit kits, and in the wild malicious activity missed by traditional prevention methods.
@@ -57,10 +57,6 @@ The Azure Firewall signatures/rulesets include:
 IDPS allows you to detect attacks in all ports and protocols for non-encrypted traffic. However, when HTTPS traffic needs to be inspected, Azure Firewall can use its TLS inspection capability to decrypt the traffic and better detect malicious activities.  
 
 The IDPS Bypass List allows you to not filter traffic to any of the IP addresses, ranges, and subnets specified in the bypass list.
-
- After setting up IDPS mode, you can browse through the various signatures, view their attributes, and set dedicated IDPS mode per signature or group of signatures. This allows you to fine-tune the IDPS setup, as needed. For example, if you receive a false positive where a legitimate request is blocked by Azure Firewall due to a “faulty” signature, you can use the signature ID from the application rules logs and set the IDPS mode of this specific signature to **off**. This causes the "faulty" signature to be ignored and resolves the false positive issue.
-
-You can apply the same fine-tuning procedure for signatures that are creating too many low-priority alerts, and therefore interfering with visibility for high-priority alerts.
 
 You can also use signature rules when the IDPS mode is set to **Alert**, but there are one or more specific signatures that you want to block, including their associated traffic. In this case, you can add new signature rules by setting the TLS Inspection mode to **deny**.
 
@@ -87,19 +83,7 @@ The categories are organized based on severity under **Liability**, **High-Bandw
 
 You can create exceptions to your web category rules. Create a separate allow or deny rule collection with a higher priority within the rule collection group. For example, you can configure a rule collection that allows `www.linkedin.com` with priority 100, with a rule collection that denies **Social networking** with priority 200. This creates the exception for the pre-defined **Social networking** web category.
 
-### Categorization change
-
-You can request a categorization change if you:
-
- - think an FQDN or URL should be under a different category 
- 
-or 
-
-- have a suggested category for an uncategorized FQDN or URL
-
-You're welcome to submit a request at [https://aka.ms/azfw-webcategories-request](https://aka.ms/azfw-webcategories-request).
- 
-## Supported regions
+ ## Supported regions
 
 Azure Firewall Premium is supported in the following regions:
 
