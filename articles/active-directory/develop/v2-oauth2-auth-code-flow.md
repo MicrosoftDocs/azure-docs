@@ -268,7 +268,7 @@ A successful token response will look like:
 
 | Parameter     | Description   |
 |---------------|------------------------------|
-| `access_token`  | The requested access token. The  app can use this token to authenticate to the secured resource, such as a web API.  |
+| `access_token`  | The requested access token. The app can use this token to authenticate to the secured resource, such as a web API. |
 | `token_type`    | Indicates the token type value. The only type that Azure AD supports is Bearer |
 | `expires_in`    | How long the access token is valid (in seconds). |
 | `scope`         | The scopes that the access_token is valid for. Optional - this is non-standard, and if omitted the token will be for the scopes requested on the initial leg of the flow. |
@@ -352,11 +352,11 @@ POST /{tenant}/oauth2/v2.0/token HTTP/1.1
 Host: https://login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
 
-client_id=6731de76-14a6-49ae-97bc-6eba6914391e
+client_id=535fb089-9ff3-47b6-9bfb-4f1264799865
 &scope=https%3A%2F%2Fgraph.microsoft.com%2Fmail.read
 &refresh_token=OAAABAAAAiL9Kn2Z27UubvWFPbm0gLWQJVzCTE9UkP3pSx1aXxUjq...
 &grant_type=refresh_token
-&client_secret=JqQX2PNo9bpM0uEihUPzyrh      // NOTE: Only required for web apps. This secret needs to be URL-Encoded
+&client_secret=sampleCredentia1s    // NOTE: Only required for web apps. This secret needs to be URL-Encoded
 ```
 
 > [!TIP]

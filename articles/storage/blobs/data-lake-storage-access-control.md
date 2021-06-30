@@ -89,7 +89,7 @@ In the POSIX-style model that's used by Data Lake Storage Gen2, permissions for 
 
 The following table shows you the ACL entries required to enable a security principal to perform the operations listed in the **Operation** column. 
 
-This table shows a column that represents each level of a fictitious directory hierarchy. There's a column for the root directory of the container (`\`), a subdirectory named **Oregon**, a subdirectory of the Oregon directory named **Portland**, and a text file in the Portland directory named **Data.txt**. 
+This table shows a column that represents each level of a fictitious directory hierarchy. There's a column for the root directory of the container (`/`), a subdirectory named **Oregon**, a subdirectory of the Oregon directory named **Portland**, and a text file in the Portland directory named **Data.txt**. 
 
 > [!IMPORTANT]
 > This table assumes that you are using **only** ACLs without any Azure role assignments. To see a similar table that combines Azure RBAC together with ACLs, see [Permissions table: Combining Azure RBAC and ACL](data-lake-storage-access-control-model.md#permissions-table-combining-azure-rbac-and-acl).
@@ -153,7 +153,7 @@ The owning group can be changed by:
 
 The following pseudocode represents the access check algorithm for storage accounts.
 
-```console
+```python
 def access_check( user, desired_perms, path ) : 
   # access_check returns true if user has the desired permissions on the path, false otherwise
   # user is the identity that wants to perform an operation on path
@@ -201,7 +201,7 @@ For a new Data Lake Storage Gen2 container, the mask for the access ACL of the r
 
 |Entity|Directories|Files|
 |--|--|--|
-|Owning user|`rwx`|`r-w`|
+|Owning user|`rwx`|`rw-`|
 |Owning group|`r-x`|`r--`|
 |Other|`---`|`---`|
 

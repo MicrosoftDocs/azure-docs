@@ -38,6 +38,11 @@ Each node in an AKS cluster contains a fixed amount of compute resources such as
 - Standard_B1ms
 - Standard_F1
 - Standard_F1s
+- Standard_A2
+- Standard_D1
+- Standard_D1_v2
+- Standard_DS1
+- Standard_DS1_v2
 
 For more information on VM types and their compute resources, see [Sizes for virtual machines in Azure][vm-skus].
 

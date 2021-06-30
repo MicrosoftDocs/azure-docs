@@ -107,7 +107,7 @@ Because calls to Azure Cosmos DB are made over the network, you might need to va
  
 To reduce latency and CPU jitter, we recommend that you enable accelerated networking on your client virtual machines. For more information, see [Create a Windows virtual machine with accelerated networking](../virtual-network/create-vm-accelerated-networking-powershell.md) or [Create a Linux virtual machine with accelerated networking](../virtual-network/create-vm-accelerated-networking-cli.md).
 
-## SDK usage
+## <a id="sdk-usage"></a> SDK usage
 
 **Install the most recent SDK**
 
@@ -181,7 +181,7 @@ readItemResponse.Diagnostics.ToString();
 
 See [Increase the number of threads/tasks](#increase-threads) in the Networking section of this article.
 
-## Indexing policy
+## <a id="indexing-policy"></a> Indexing policy
  
 **Exclude unused paths from indexing for faster writes**
 
