@@ -7,9 +7,9 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.reviewer: larryfr
-ms.author: peterlu
-author: peterclu
-ms.date: 05/14/2021
+ms.author: jhirono
+author: jhirono
+ms.date: 06/30/2021
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1
 
 ---
