@@ -103,7 +103,7 @@ You can modify a VM's just-in-time configuration by adding and configuring a new
 
 To edit the existing JIT rules for a VM:
 
-1. Open the Azure Defender dashboard and from the advanced protection area, select **Adaptive application controls**.
+1. Open the Azure Defender dashboard and from the advanced protection area, select **Just-in-time VM access**.
 
 1. From the **Configured** tab, right-click on the VM to which you want to add a port, and select edit. 
 
