@@ -49,10 +49,9 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 1. Login to [Vonage admin portal](http://admin.vonage.com) with an admin user.
 
-   ![Log in to vonage admin portal](media/vonage-provisioning-tutorial/login.png)
+   ![Log in to vonage admin portal](media/vonage-provisioning-tutorial/log-in.png)
 
-1. Navigate to  
-   **Account > Single Sign-On Settings** on the left side menu.
+1. Navigate to **Account > Single Sign-On Settings** on the left side menu.
 
    ![Single sign on settings](media/vonage-provisioning-tutorial/single-sign-on-settings.png)
 
@@ -77,8 +76,8 @@ The Azure AD provisioning service allows you to scope who will be provisioned ba
 
 ## Step 5. Configure automatic user provisioning to Vonage 
 
-[!NOTE]
-> Any user that is added to Vonage must have first name, last name and email. Otherwise the integration will fail.
+> [!NOTE]
+>  Any user that is added to Vonage must have first name, last name and email. Otherwise the integration will fail.
 
 This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in Vonage based on user and/or group assignments in Azure AD.
 
