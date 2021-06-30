@@ -93,7 +93,7 @@ The following host machine requirements are applicable to **train and analyze** 
 
 | Container | Minimum | Recommended |
 |-----------|---------|-------------|
-| Custom API| 0.3 cores, 0.5-GB memory| 0.6 cores, 1-GB memory |
+| Custom API| 0.5 cores, 0.5-GB memory| 1 cores, 1-GB memory |
 |Custom Supervised | 4 cores, 2-GB memory | 8 cores, 4-GB memory|
 
 If you are only making analyze calls, the host machine requirements are as follows:
