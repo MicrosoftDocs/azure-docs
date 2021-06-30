@@ -21,7 +21,7 @@ For information about whether ACS direct routing is the right solution for your 
 ## Connect the SBC with Azure Communication Services
 
 ### Configure using Azure portal 
-· In the left navigation, select Direct routing under Voice Calling - PSTN and then select Configure at the Session Border Controller tab.
+· In the left navigation, select Direct routing under Voice Calling - PSTN and then select Configure from the Session Border Controller tab.
 · Enter an FQDN and signaling port for the SBC.
  
 If you are using Office 365, make sure the domain part of the SBC’s FQDN is different from the domain you registered in Office 365 admin portal under Domains. 
