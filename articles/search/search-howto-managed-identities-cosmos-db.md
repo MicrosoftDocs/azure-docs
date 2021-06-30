@@ -23,13 +23,11 @@ Before learning more about this feature, it is recommended that you have an unde
 * [Indexer overview](search-indexer-overview.md)
 * [Azure Cosmos DB indexer](search-howto-index-cosmosdb.md)
 
-## Set up the connection
+## 1 - Set up a managed identity
 
-### 1 - Create and assign the managed identity
+Set up the [managed identity](/azure/active-directory/managed-identities-azure-resources/overview) using one of the following options.
 
-In the first step you will either assign a system-assigned managed identity to the search service or assign a user-assigned managed identity to the search service. See [What are managed identities for Azure resources?](/azure/active-directory/managed-identities-azure-resources/overview) for more information about the types of managed identities.
-
-#### Option 1 - Turn on system-assigned managed identity
+### Option 1 - Turn on system-assigned managed identity
 
 When a system-assigned managed identity is enabled, Azure creates an identity for your search service that can be used to authenticate to other Azure services within the same tenant and subscription. You can then use this identity in Azure role-based access control (Azure RBAC) assignments that allow access to data during indexing.
 
@@ -39,21 +37,20 @@ After selecting **Save** you will see an Object ID that has been assigned to you
 
 ![Object ID](./media/search-managed-identities/system-assigned-identity-object-id.png "Object ID")
  
-#### Option 2 - Assign a user-assigned managed identity to the search service (preview)
+### Option 2 - Assign a user-assigned managed identity to the search service (preview)
 
-If you don't already have a user-assigned managed identity created, you'll need to create one. To create a user-assigned managed identity follow the below steps.
+If you don't already have a user-assigned managed identity created, you'll need to create one. A user-assigned managed identity is a resource on Azure.
 
-1. Navigate to the Azure portal.
-1. Create a new resource.
-1. Search for "User Assigned Managed Identity".
-1. Create the user-assigned managed identity resource.
+1. Sign into the [Azure portal](https://portal.azure.com/).
+1. Select **+ Create a new resource**.
+1. In the "Search services and marketplace" search bar, search for "User Assigned Managed Identity" and then select **Create**.
+1. Give the identity a descriptive name.
 
-Next, assign the user-assigned managed identity to the search service. This can be done using the [2021-04-01-preview](/rest/api/searchmanagement/management-api-versions) management API.
+Next, assign the user-assigned managed identity to the search service. This can be done using the [2021-04-01-preview management API](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update).
 
-To assign the identity to the search service, update identity property of the search service:
+The identity property takes a type and one or more fully-qualified user-assigned identities:
 
-* **identity** is the identity for the resource.
-* **type** is the type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an identity created by the system and a set of user assigned identities. The type 'None' will remove all identities from the service.
+* **type** is the type of identity. Valid values are "SystemAssigned", "UserAssigned", or "SystemAssigned, UserAssigned" if you want to use both. A value of "None" will clear any previously assigned identities from the search service.
 * **userAssignedIdentities** includes the details of the user assigned managed identity.
     * User-assigned managed identity format: 
         * /subscriptions/**subscription ID**/resourcegroups/**resource group name**/providers/Microsoft.ManagedIdentity/userAssignedIdentities/**name of managed identity**
@@ -84,7 +81,7 @@ api-key: [admin key]
 } 
 ```
  
-### 2 - Add a role assignment
+## 2 - Add a role assignment
 
 In this step you will give your Azure Cognitive Search service permission to read data from your Cosmos DB database.
 
@@ -102,11 +99,11 @@ In this step you will give your Azure Cognitive Search service permission to rea
 
     ![Add reader and data access role assignment](./media/search-managed-identities/add-role-assignment-cosmos-db-account-reader-role.png "Add reader and data access role assignment")
 
-### 3 - Create the data source
+## 3 - Create the data source
 
-Create the data source and provide either a system-assigned managed identity or a user-assigned managed identity (preview).
+Create the data source and provide either a system-assigned managed identity or a user-assigned managed identity (preview). Note that you are no longer using the Management REST API in the below steps.
 
-#### Option 1 - Create the data source with a system-assigned managed identity
+### Option 1 - Create the data source with a system-assigned managed identity
 
 The [REST API](/rest/api/searchservice/create-data-source), Azure portal, and the [.NET SDK](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourcetype) support using a system-assigned managed identity. Below is an example of how to create a data source to index data from Cosmos DB using the [REST API](/rest/api/searchservice/create-data-source) and a managed identity connection string. The managed identity connection string format is the same for the REST API, .NET SDK, and the Azure portal.
 
@@ -142,12 +139,12 @@ The body of the request contains the data source definition, which should includ
 | **dataChangeDetectionPolicy** | Recommended |
 |**dataDeletionDetectionPolicy** | Optional |
 
-#### Option 2 - Create the data source with a user-assigned managed identity
+### Option 2 - Create the data source with a user-assigned managed identity
 
-The 2021-04-30-preview REST API support the user-assigned managed identity. Below is an example of how to create a data source to index data from a storage account using the [REST API](/rest/api/searchservice/create-data-source), a managed identity connection string, and the user-assigned managed identity.
+The 2020-06-30-preview REST API support the user-assigned managed identity. Below is an example of how to create a data source to index data from a storage account using the [REST API](/rest/api/searchservice/create-data-source), a managed identity connection string, and the user-assigned managed identity.
 
 ```http
-POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
+POST https://[service name].search.windows.net/datasources?api-version=2020-06-30-preview
 Content-Type: application/json
 api-key: [Search service admin key]
 
@@ -183,7 +180,7 @@ The body of the request contains the data source definition, which should includ
 | **dataChangeDetectionPolicy** | Recommended |
 |**dataDeletionDetectionPolicy** | Optional |
 
-### 4 - Create the index
+## 4 - Create the index
 
 The index specifies the fields in a document, attributes, and other constructs that shape the search experience.
 
@@ -205,7 +202,7 @@ api-key: [admin key]
 
 For more on creating indexes, see [Create Index](/rest/api/searchservice/create-index)
 
-### 5 - Create the indexer
+## 5 - Create the indexer
 
 An indexer connects a data source with a target search index and provides a schedule to automate the data refresh.
 

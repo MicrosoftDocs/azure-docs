@@ -40,9 +40,7 @@ A [system-assigned managed identity](/azure/active-directory/managed-identities-
 ### User-assigned managed identity (preview)
 
 > [!IMPORTANT]
-> User-assigned managed identity support is currently in preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-> 
-> The [REST API version 2020-06-30-Preview](search-api-preview.md) provides this feature.
+>This feature is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [REST API version 2020-06-30-Preview](search-api-preview.md) and [Management REST API 2021-04-01-Preview](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update) provide this feature.
 
 A [user-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types) is a standalone Azure resource that can be assigned to one or more Azure services. A single Azure Cognitive Search service can have one or more user-assigned managed identities assigned to it. A single user-assigned managed identity can be assigned to multiple search services.
 
