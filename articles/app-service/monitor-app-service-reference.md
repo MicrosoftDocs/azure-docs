@@ -59,13 +59,6 @@ This section lists the types of resource logs you can collect for App Service.
 
 For reference, see a list of [all resource logs category types supported in Azure Monitor](/azure/azure-monitor/platform/resource-logs-schema).
 
-|Resource Log Type | Resource Provider / Type Namespace<br/> and link to individual metrics |
-|-------|-----|
-| Web Sites | [Microsoft.web/sites](/azure/azure-monitor/platform/resource-logs-categories#microsoftwebsites) |
-| Web Site Slots | [Microsoft.web/sites/slots](/azure/azure-monitor/platform/resource-logs-categories#microsoftwebsitesslots) |
-| App Service Environment | [Microsoft.Web/hostingEnvironments](/azure/azure-monitor/essentials/metrics-supported#microsoftwebhostingenvironments) |
-| App Service Environment Front-end | [Microsoft.Web/hostingEnvironments/multiRolePools](/azure/azure-monitor/essentials/metrics-supported#microsoftwebhostingenvironmentsmultirolepools)|
-
 ## Azure Monitor Logs tables
 
 Azure App Service uses Kusto tables from Azure Monitor Logs. You can query these tables with Log analytics. For a list of App Service tables used by Kusto, see the [Azure Monitor Logs table reference - App Service tables](/azure/azure-monitor/reference/tables/tables-resourcetype#app-services). 
