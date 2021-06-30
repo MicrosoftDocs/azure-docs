@@ -45,7 +45,7 @@ Azure Sentinel provides the following built-in, product-specific authentication 
 
 To use the source-agnostic parser that unify all of listed parsers and ensure that you analyze across all the configured sources, use **imAuthentication** as the table name in your query.
 
-Deploy the '[source-agnostic and source-specific parsers](normalization.md#parsers) from the [Azure Sentinel GitHub repository](https://aka.ms/AzSentinelAuth).
+Deploy the [source-agnostic and source-specific parsers](normalization.md#parsers) from the [Azure Sentinel GitHub repository](https://aka.ms/AzSentinelAuth).
 
 
 
@@ -101,7 +101,7 @@ Event fields are common to all schemas and describe the activity itself and the 
 | **EventVendor**         | Mandatory   | String     |           The vendor of the product generating the event. <br><br>Example: `Microsoft`  <br><br>**Note**: This field may not be available in the source record. In such cases, this field must be set by the parser.  |
 | **EventSchemaVersion**  | Mandatory   | String     |    The version of the schema. The version of the schema documented here is `0.1`         |
 | **EventReportUrl**      | Optional    | String     | A URL provided in the event for a resource that provides additional information about the event.|
-| <a name ="dvc">**Dvc** | Mandatory       | String     |               A unique identifier of the reporting device, which would be any device identifier provided by the reporting device. <br><br>Example: `45.21.42.12` <br><br>In many cases, such as in Syslog messages, the value included in the message can be an IP address, a hostname, or an FQDN. It can be stored in the ***Dvc*** without identifying its type. For cloud sources for which there is not apparent reporting device use the [EventProduct](#eventproduct) value.          |
+| <a name ="dvc"></a>**Dvc** | Mandatory       | String     |               A unique identifier of the reporting device, which would be any device identifier provided by the reporting device. <br><br>Example: `45.21.42.12` <br><br>In many cases, such as in Syslog messages, the value included in the message can be an IP address, a hostname, or an FQDN. It can be stored in the ***Dvc*** without identifying its type. For cloud sources for which there is not apparent reporting device use the [EventProduct](#eventproduct) value.          |
 | <a name ="dvcipaddr"></a>**DvcIpAddr**           | Recommended | IP Address |         The IP Address of the device on which the process event occurred.  <br><br>Example: `45.21.42.12`  <br><br>**Note**: If an identifier is available but the type is not known, do not use this field. For more information, see [Dvc](#dvc).  |
 | <a name ="dvchostname"></a>**DvcHostname**         | Recommended | Hostname   |               The hostname of the device on which the process event occurred. <br><br>Example: `ContosoDc.Contoso.Azure`      <br><br>**Note**: If an identifier is available but the type is not known, do not use this field. For more information, see [Dvc](#dvc).          |
 | **AdditionalFields**    | Optional    | Dynamic    | If your source provides additional information worth preserving, either keep it with the original field names or create the dynamic ***AdditionalFields*** field, and add the extra information as key/value pairs.    |
