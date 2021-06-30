@@ -77,9 +77,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. Before you start go to your Atlassian product instance and copy/save the Instance URL.
    > [!NOTE]
-   > url should fit `https://<instance_name>.atlassian.com` pattern.
+   > url should fit `https://<INSTANCE>.atlassian.com` pattern.
 
-   ![instance name](./media/atlassian-cloud-tutorial/instance.png)
+   ![Instance Name](./media/atlassian-cloud-tutorial/instance.png)
 
 1. Open the [Atlassian Admin Portal](https://admin.atlassian.com/) and click on your organization name.
 
@@ -91,7 +91,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Security](./media/atlassian-cloud-tutorial/admin.png)
 
-1. In the **Add SAML configuration** section, fill the required values which you have copied from azure portal and click **Save configuration**.
+1. In the **Add SAML configuration** section, fill the required fields which you have copied from the Azure Portal and click **Save configuration**.
 
    ![Add SAML Configuration](./media/atlassian-cloud-tutorial/configuration.png)
 
@@ -123,7 +123,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Certificate 1](./media/atlassian-cloud-tutorial/certificate-download.png)
 
-1. **Save** the SAML Configuration in Atlassian.
+1. **Add** and **Save** the SAML Configuration in Atlassian.
 
 1. On the **Basic SAML Configuration** section, perform the following steps.
 
@@ -177,7 +177,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    b.	Select **Edit** for the policy you want to enforce. 
 
-   c.	In **Settings**, enable the **Enforce single sign-on** to their managed users for the successful SAML redirection. 
+   c.	In **Settings**, enable the **Enforce single sign-on** to their managed users for the successfull SAML redirection. 
 
    d.	Click **Update**. 
 
@@ -209,24 +209,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### Create Atlassian Cloud test user
 
-To enable Azure AD users to sign in to Atlassian Cloud, provision the user accounts manually in Atlassian Cloud by doing the following:
+To enable Azure AD users sign in to Atlassian Cloud, provision the user accounts manually in Atlassian Cloud by doing the following steps:
 
-1. In the **Administration** pane, select **Users**.
+1. Go to **Products** tab, select **Users** and click **Invite users**.
 
-    ![The Atlassian Cloud Users link](./media/atlassian-cloud-tutorial/administration.png)
+    ![The Atlassian Cloud Users link](./media/atlassian-cloud-tutorial/users.png)
 
-1. To create a user in Atlassian Cloud, select **Invite user**.
+1. In the **Email address** textbox, enter the user's email address, and then click **Invite user**.
 
-    ![Create an Atlassian Cloud user](./media/atlassian-cloud-tutorial/invite-user.png)
-
-1. In the **Email address** box, enter the user's email address, and then assign the application access.
-
-    ![Atlassian Cloud user](./media/atlassian-cloud-tutorial/create-user.png)
-
-1. To send an email invitation to the user, select **Invite users**. An email invitation is sent to the user and, after accepting the invitation, the user is active in the system.
-
-> [!NOTE]
-> You can also bulk-create users by selecting the **Bulk Create** button in the **Users** section.
+    ![Create an Atlassian Cloud user](./media/atlassian-cloud-tutorial/invite-users.png)
 
 ### Test SSO
 
