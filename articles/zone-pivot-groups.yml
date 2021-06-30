@@ -912,6 +912,14 @@ groups:
     title: JavaScript
   - id: programming-language-csharp
     title: C#
+- id: acs-csharp-java
+  title: Java and C# pivots
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-csharp
+    title: C#
 - id: acs-plat-azp-azcli-net-ps
   # Owner: mikben (Azure Communication Services)
   title: JS and C# pivots
