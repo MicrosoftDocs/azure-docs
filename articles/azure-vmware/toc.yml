@@ -20,25 +20,10 @@
       href: tutorial-configure-vmware-hcx.md
 - name: Tutorials
   items:
-<<<<<<< HEAD
-  - name: Network planning checklist
-    href: tutorial-network-checklist.md
-  - name: Create a private cloud
-    href: tutorial-create-private-cloud.md
-=======
->>>>>>> 9eb7cdb7f8ce71304cd07fa373dcf222fdf11277
   - name: Access a private cloud
     href: tutorial-access-private-cloud.md
   - name: Configure networking
     href: tutorial-configure-networking.md
-<<<<<<< HEAD
-  - name: Create an NSX-T network segment
-    href: tutorial-nsx-t-network-segment.md
-  - name: Expand or shrink clusters in a private cloud
-    href: tutorial-scale-private-cloud.md
-  - name: Delete a private cloud
-    href: tutorial-delete-private-cloud.md
-=======
   - name: Create a private cloud
     href: tutorial-create-private-cloud.md
   - name: Create an NSX-T network segment
@@ -53,7 +38,6 @@
     href: tutorial-network-checklist.md
   - name: Peer on-premises to private cloud
     href: tutorial-expressroute-global-reach-private-cloud.md
->>>>>>> 9eb7cdb7f8ce71304cd07fa373dcf222fdf11277
 - name: Concepts
   items:
   - name: Access and identity
