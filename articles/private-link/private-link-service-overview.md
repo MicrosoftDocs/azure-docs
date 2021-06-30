@@ -90,11 +90,11 @@ Complete alias:  *Prefix*. {GUID}.*region*.azure.privatelinkservice
 
 ## Control service exposure
 
-Private Link service provides you three options to control the exposure of your service through "Visibility" setting. Your visibility settings decide whether a consumer can connect to your service or not. They are, from more to least restrictive:
+The Private Link service provides you with three options to control the exposure of your service through the **Visibility** setting. Your visibility setting determines whether a consumer can connect to your service. Here are the visibility setting options, from more restrictive to least restrictive:
  
-- **Role-based access control only**: If your service is for private consumption from different VNets you own, you can use Azure RBAC as access control mechanism inside subscriptions associated with the same Active Directory Tenant. 
-- **Restricted by subscription**: If your service is going to be consumed across different tenants, you can restrict the exposure to a limited set of subscription that you trust. Authorizations can be pre-approved.
-- **Anyone with your alias**: If you want to make it public and allow anyone with your private link service alias request a connection to your service. 
+- **Role-based access control only**: If your service is for private consumption from different VNets that you own, you can use RBAC as an access control mechanism inside subscriptions that are associated with the same Active Directory tenant. 
+- **Restricted by subscription**: If your service will be consumed across different tenants, you can restrict the exposure to a limited set of subscriptions that you trust. Authorizations can be pre-approved.
+- **Anyone with your alias**: If you want to make your service public and allow anyone with your Private Link service alias to request a connection, select this option. 
 
 ## Control service access
 
