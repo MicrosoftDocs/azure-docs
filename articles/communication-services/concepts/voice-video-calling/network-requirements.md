@@ -7,7 +7,7 @@ manager: jken
 services: azure-communication-services
 
 ms.author: nmurav
-ms.date: 3/23/2021
+ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
 ---
@@ -44,7 +44,7 @@ Below are the bandwidth requirements for the JavaScript SDKs:
 |500 kbps|Group video calling 360p at 30fps|
 |1.2 Mbps|HD Group video calling with resolution of HD 720p at 30fps| 
 
-Below are the bandwidth requirements for the native Android and iOS SDKs:
+Below are the bandwidth requirements for the native Windows, Android and iOS SDKs:
 
 |Bandwidth|Scenarios|
 |:--|:--|

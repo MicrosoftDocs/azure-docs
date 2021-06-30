@@ -2,6 +2,7 @@
 title: Release Notes - Azure Event Grid IoT Edge | Microsoft Docs 
 description: Azure Event Grid on IoT Edge Release Notes 
 ms.date: 07/08/2020
+ms.subservice: iot-edge
 ms.topic: article
 ---
 

@@ -48,6 +48,7 @@ These Blob REST APIs aren't supported:
 * [Get Page Ranges](/rest/api/storageservices/get-page-ranges)
 * [Incremental Copy Blob](/rest/api/storageservices/incremental-copy-blob)
 * [Put Page from URL](/rest/api/storageservices/put-page-from-url)
+* [Put Block List](/rest/api/storageservices/put-block-list)
 
 Unmanaged VM disks are not supported in accounts that have a hierarchical namespace. If you want to enable a hierarchical namespace on a storage account, place unmanaged VM disks into a storage account that doesn't have the hierarchical namespace feature enabled.
 
@@ -55,7 +56,7 @@ Unmanaged VM disks are not supported in accounts that have a hierarchical namesp
 
 ## Support for setting access control lists (ACLs) recursively
 
-The ability to apply ACL changes recursively from parent directory to child items is generally available. In the current release of this capability, you can apply ACL changes by using PowerShell, Azure CLI, and the .NET, Java, and Python SDK. Support is not yet available for the Azure portal, or Azure Storage Explorer.
+The ability to apply ACL changes recursively from parent directory to child items is generally available. In the current release of this capability, you can apply ACL changes by using Azure Storage Explorer, PowerShell, Azure CLI, and the .NET, Java, and Python SDK. Support is not yet available for the Azure portal.
 
 <a id="known-issues-tools"></a>
 
@@ -79,7 +80,7 @@ ACLs are not yet supported.
 
 ## Third party applications
 
-Third party applications that use REST APIs to work will continue to work if you use them with Data Lake Storage Gen2
+Third party applications that use REST APIs to work will continue to work if you use them with Data Lake Storage Gen2.
 Applications that call Blob APIs will likely work.
 
 ## Access control lists (ACL) and anonymous read access

@@ -11,7 +11,8 @@ ms.date: 03/08/2021
 ms.author: apimpm
 ---
 # API Management caching policies
-This topic provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](./api-management-policies.md).
+
+This article provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](./api-management-policies.md).
 
 > [!IMPORTANT]
 > Built-in cache is volatile and is shared by all units in the same region in the same API Management service.
@@ -48,6 +49,9 @@ Use the `cache-lookup` policy to perform cache look up and return a valid cached
   <!-- optional, can repeated several times -->
 </cache-lookup>
 ```
+
+> [!NOTE]
+> When using `vary-by-query-parameter`, you might want to declare the parameters in the rewrite-uri template or set the attribute `copy-unmatched-params` to `false`. By deactivating this flag, parameters that aren't declared are sent to the back end.
 
 ### Examples
 
@@ -227,7 +231,7 @@ For more information and examples of this policy, see [Custom caching in Azure A
 | caching-type | Choose between the following values of the attribute:<br />- `internal` to use the built-in API Management cache,<br />- `external` to use the external cache as described in [Use an external Azure Cache for Redis in Azure API Management](api-management-howto-cache-external.md),<br />- `prefer-external` to use external cache if configured or internal cache otherwise. | No       | `prefer-external` |
 | default-value    | A value that will be assigned to the variable if the cache key lookup resulted in a miss. If this attribute is not specified, `null` is assigned.                                                                                                                                                                                                           | No       | `null`            |
 | key              | Cache key value to use in the lookup.                                                                                                                                                                                                                                                                                                                       | Yes      | N/A               |
-| variable-name    | Name of the [context variable](api-management-policy-expressions.md#ContextVariables) the looked up value will be assigned to, if lookup is successful. If lookup results in a miss, the variable will be assigned the value of the `default-value` attribute or `null`, if the `default-value` attribute is omitted.                                       | Yes      | N/A               |
+| variable-name    | Name of the [context variable](api-management-policy-expressions.md#ContextVariables) the looked up value will be assigned to, if lookup is successful. If lookup results in a miss, the variable will not be set.                                       | Yes      | N/A               |
 
 ### Usage
 This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).

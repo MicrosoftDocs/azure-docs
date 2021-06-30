@@ -5,7 +5,7 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 04/22/2021
+ms.date: 06/10/2021
 ---
 
 # Logical replication and logical decoding in Azure Database for PostgreSQL - Flexible Server
@@ -16,7 +16,7 @@ ms.date: 04/22/2021
 Azure Database for PostgreSQL - Flexible Server supports the following logical data extraction and replication methodologies:
 1. **Logical replication**
    1. Using PostgreSQL [native logical replication](https://www.postgresql.org/docs/12/logical-replication.html) to replicate data objects. Logical replication allows fine-grained control over the data replication, including table-level data replication.
-   2. Using [pglogical](https://github.com/2ndQuadrant/pglogical) extension that provides logical streaming replication and additional capabilities such as copying initial schema of the database, support for TRUNCATE, ability to replicate DDL etc.
+   <!--- 2. Using [pglogical](https://github.com/2ndQuadrant/pglogical) extension that provides logical streaming replication and additional capabilities such as copying initial schema of the database, support for TRUNCATE, ability to replicate DDL etc. -->
 2. **Logical decoding** which is implemented by [decoding](https://www.postgresql.org/docs/12/logicaldecoding-explanation.html) the content of write-ahead log (WAL). 
 
 ## Comparing logical replication and logical decoding
@@ -39,10 +39,13 @@ Logical decoding
 
 ## Pre-requisites for logical replication and logical decoding
 
-1. Set the server parameter `wal_level` to `logical`.
-2. Restart the server to apply the `wal_level` change.
-3. Confirm that your PostgreSQL instance allows network traffic from your connecting resource.
-4. Grant the admin user replication permissions.
+1. Go to server parameters page on the portal.
+2. Set the server parameter `wal_level` to `logical`.
+<!---
+3. If you want to use pglogical extension, search for the `shared_preload_libaries` parameter, and select `pglogical` from the drop-down box. Also update `max_worker_processes` parameter value to at least 16. -->
+3. Save the changes and restart the server to apply the `wal_level` change.
+4. Confirm that your PostgreSQL instance allows network traffic from your connecting resource.
+5. Grant the admin user replication permissions.
    ```SQL
    ALTER ROLE <adminname> WITH REPLICATION;
    ```
@@ -82,36 +85,62 @@ Here's some sample code you can use to try out logical replication.
    ```SQL
    SELECT * FROM basic;
    ```
+   You can add more rows to the publisher's table and view the changes on the subscriber.
 
-You can add more rows to the publisher's table and view the changes on the subscriber.
+   If you are not able to see the data, enable the login privilege for `azure_pg_admin` and check the table content. 
+   ```SQL 
+   ALTER ROLE azure_pg_admin login;
+   ```
+
 
 Visit the PostgreSQL documentation to understand more about [logical replication](https://www.postgresql.org/docs/current/logical-replication.html).
 
-
+<!---
 ### pglogical extension
 
-Here is an example of configuring pglogical at the provider database server and the subscriber. Please refer to pglogical extension documentation for more details.
+Here is an example of configuring pglogical at the provider database server and the subscriber. Please refer to pglogical extension documentation for more details. Also make sure you have performed pre-requisite tasks listed above.
 
-1. Install pglogical extension in both the provider and the subscriber database servers.
+1. Install pglogical extension in the database in both the provider and the subscriber database servers.
     ```SQL
+   \C myDB
    CREATE EXTENSION pglogical;
    ```
-2. At the provider database server, create the provider node.
+2. At the **provider** (source/publisher) database server, create the provider node.
    ```SQL
-   select pglogical.create_node( node_name := 'provider1', dsn := ' host=myProviderDB.postgres.database.azure.com port=5432 dbname=myDB');
+   select pglogical.create_node( node_name := 'provider1', 
+   dsn := ' host=myProviderServer.postgres.database.azure.com port=5432 dbname=myDB user=myUser password=myPassword');
    ```
-3. Add tables in testUser schema to the default replication set.
-    ```SQL
+3. Create a replication set.
+   ```SQL
+   select pglogical.create_replication_set('myreplicationset');
+   ```
+4. Add all tables in the database to the replication set.
+   ```SQL
+   SELECT pglogical.replication_set_add_all_tables('myreplicationset', '{public}'::text[]);
+   ```
+
+   As an alternate method, ou can also add tables from a specific schema (for example, testUser) to a default replication set.
+   ```SQL
    SELECT pglogical.replication_set_add_all_tables('default', ARRAY['testUser']);
    ```
-4. At the subscriber server, create a subscriber node.
+
+5. At the **subscriber** database server, create a subscriber node.
    ```SQL
-   select pglogical.create_node( node_name := 'subscriber1', dsn := ' host=mySubscriberDB.postgres.database.azure.com port=5432 dbname=myDB');
+   select pglogical.create_node( node_name := 'subscriber1', 
+   dsn := ' host=mySubscriberServer.postgres.database.azure.com port=5432 dbname=myDB user=myUser password=myPasword' );
    ```
-5. Create a subscription to start the synchronization and replication process.
+6. Create a subscription to start the synchronization and the replication process.
     ```SQL
-   select pglogical.create_subscription( subscription_name := 'subscription1', provider_dsn := ' host=myProviderDB.postgres.database.azure.com port=5432 dbname=myDB');
+   select pglogical.create_subscription (
+   subscription_name := 'subscription1',
+   replication_sets := array['myreplicationset'],
+   provider_dsn := 'host=myProviderServer.postgres.database.azure.com port=5432 dbname=myDB user=myUser password=myPassword');
    ```
+7. You can then verify the subscription status.
+   ```SQL
+   SELECT subscription_name, status FROM pglogical.show_subscription_status();
+   ```
+-->
 ### Logical decoding
 Logical decoding can be consumed via the streaming protocol or SQL interface. 
 

@@ -2,14 +2,14 @@
 title: Test cases for test toolkit
 description: Describes the tests that are run by the ARM template test toolkit.
 ms.topic: conceptual
-ms.date: 04/12/2021
+ms.date: 06/25/2021
 ms.author: tomfitz
 author: tfitzmac
 ---
 
 # Default test cases for ARM template test toolkit
 
-This article describes the default tests that are run with the [template test toolkit](test-toolkit.md) for Azure Resource Manager templates (ARM templates). It provides examples that pass or fail the test. It includes the name of each test. To run a specific test, see [Test parameters](test-toolkit.md#test-parameters).
+This article describes the default tests that are run with the [template test toolkit](test-toolkit.md) for Azure Resource Manager templates (ARM templates). It provides examples that pass or fail the test and includes the name of each test. To run a specific test, see [Test parameters](test-toolkit.md#test-parameters).
 
 ## Use correct schema
 
@@ -36,30 +36,6 @@ The schema property in the template must be set to one of the following schemas:
 * `https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#`
 * `https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json`
 
-## Parameters must exist
-
-Test name: **Parameters Property Must Exist**
-
-Your template should have a parameters element. Parameters are essential for making your templates reusable in different environments. Add parameters to your template for values that change when deploying to different environments.
-
-The following example **passes** this test:
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-      "vmName": {
-          "type": "string",
-          "defaultValue": "linux-vm",
-          "metadata": {
-            "description": "Name for the Virtual Machine."
-          }
-      }
-  },
-  ...
-```
-
 ## Declared parameters must be used
 
 Test name: **Parameters Must Be Referenced**
@@ -72,7 +48,7 @@ Test name: **Secure String Parameters Cannot Have Default**
 
 Don't provide a hard-coded default value for a secure parameter in your template. An empty string is fine for the default value.
 
-You use the types **SecureString** or **SecureObject** on parameters that contain sensitive values, like passwords. When a parameter uses a secure type, the value of the parameter isn't logged or stored in the deployment history. This action prevents a malicious user from discovering the sensitive value.
+You use the types `secureString` or `secureObject` on parameters that contain sensitive values, like passwords. When a parameter uses a secure type, the value of the parameter isn't logged or stored in the deployment history. This action prevents a malicious user from discovering the sensitive value.
 
 However, when you provide a default value, that value is discoverable by anyone who can access the template or the deployment history.
 
@@ -80,10 +56,10 @@ The following example **fails** this test:
 
 ```json
 "parameters": {
-    "adminPassword": {
-        "defaultValue": "HardcodedPassword",
-        "type": "SecureString"
-    }
+  "adminPassword": {
+    "defaultValue": "HardcodedPassword",
+    "type": "secureString"
+  }
 }
 ```
 
@@ -91,9 +67,9 @@ The next example **passes** this test:
 
 ```json
 "parameters": {
-    "adminPassword": {
-        "type": "SecureString"
-    }
+  "adminPassword": {
+    "type": "secureString"
+  }
 }
 ```
 
@@ -107,7 +83,7 @@ The following example **fails** this test because the URL is hardcoded.
 
 ```json
 "variables":{
-    "AzureURL":"https://management.azure.com"
+  "AzureURL":"https://management.azure.com"
 }
 ```
 
@@ -115,8 +91,8 @@ The test also **fails** when used with [concat](template-functions-string.md#con
 
 ```json
 "variables":{
-    "AzureSchemaURL1": "[concat('https://','gallery.azure.com')]",
-    "AzureSchemaURL2": "[uri('gallery.azure.com','test')]"
+  "AzureSchemaURL1": "[concat('https://','gallery.azure.com')]",
+  "AzureSchemaURL2": "[uri('gallery.azure.com','test')]"
 }
 ```
 
@@ -124,8 +100,8 @@ The following example **passes** this test.
 
 ```json
 "variables": {
-    "AzureSchemaURL": "[environment().gallery]"
-},
+  "AzureSchemaURL": "[environment().gallery]"
+}
 ```
 
 ## Location uses parameter
@@ -134,7 +110,7 @@ Test name: **Location Should Not Be Hardcoded**
 
 Your templates should have a parameter named location. Use this parameter for setting the location of resources in your template. In the main template (named _azuredeploy.json_ or _mainTemplate.json_), this parameter can default to the resource group location. In linked or nested templates, the location parameter shouldn't have a default location.
 
-Users of your template may have limited regions available to them. When you hard code the resource location, users may be blocked from creating a resource in that region. Users could be blocked even if you set the resource location to `"[resourceGroup().location]"`. The resource group may have been created in a region that other users can't access. Those users are blocked from using the template.
+Users of your template may have limited regions available to them. When you hardcode the resource location, users may be blocked from creating a resource in that region. Users could be blocked even if you set the resource location to `"[resourceGroup().location]"`. The resource group may have been created in a region that other users can't access. Those users are blocked from using the template.
 
 By providing a location parameter that defaults to the resource group location, users can use the default value when convenient but also specify a different location.
 
@@ -142,23 +118,23 @@ The following example **fails** this test because location on the resource is se
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {},
-    "variables": {},
-    "resources": [
-        {
-            "type": "Microsoft.Storage/storageAccounts",
-            "apiVersion": "2019-06-01",
-            "name": "storageaccount1",
-            "location": "[resourceGroup().location]",
-            "kind": "StorageV2",
-            "sku": {
-                "name": "Premium_LRS",
-                "tier": "Premium"
-            }
-        }
-    ]
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2021-02-01",
+      "name": "storageaccount1",
+      "location": "[resourceGroup().location]",
+      "kind": "StorageV2",
+      "sku": {
+        "name": "Premium_LRS",
+        "tier": "Premium"
+      }
+    }
+  ]
 }
 ```
 
@@ -166,29 +142,29 @@ The next example uses a location parameter but **fails** this test because the l
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "location": {
-            "type": "string",
-            "defaultValue": "westus"
-        }
-    },
-    "variables": {},
-    "resources": [
-        {
-            "type": "Microsoft.Storage/storageAccounts",
-            "apiVersion": "2019-06-01",
-            "name": "storageaccount1",
-            "location": "[parameters('location')]",
-            "kind": "StorageV2",
-            "sku": {
-                "name": "Premium_LRS",
-                "tier": "Premium"
-            }
-        }
-    ],
-    "outputs": {}
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": {
+      "type": "string",
+      "defaultValue": "westus"
+    }
+  },
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2021-02-01",
+      "name": "storageaccount1",
+      "location": "[parameters('location')]",
+      "kind": "StorageV2",
+      "sku": {
+        "name": "Premium_LRS",
+        "tier": "Premium"
+      }
+    }
+  ],
+  "outputs": {}
 }
 ```
 
@@ -196,32 +172,32 @@ Instead, create a parameter that defaults to the resource group location but all
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "location": {
-            "type": "string",
-            "defaultValue": "[resourceGroup().location]",
-            "metadata": {
-                "description": "Location for the resources."
-            }
-        }
-     },
-    "variables": {},
-    "resources": [
-        {
-            "type": "Microsoft.Storage/storageAccounts",
-            "apiVersion": "2019-06-01",
-            "name": "storageaccount1",
-            "location": "[parameters('location')]",
-            "kind": "StorageV2",
-            "sku": {
-                "name": "Premium_LRS",
-                "tier": "Premium"
-            }
-        }
-    ],
-    "outputs": {}
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]",
+      "metadata": {
+        "description": "Location for the resources."
+      }
+    }
+  },
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2021-02-01",
+      "name": "storageaccount1",
+      "location": "[parameters('location')]",
+      "kind": "StorageV2",
+      "sku": {
+        "name": "Premium_LRS",
+        "tier": "Premium"
+      }
+    }
+  ],
+  "outputs": {}
 }
 ```
 
@@ -237,25 +213,25 @@ The following example **fails** this test because the location isn't an expressi
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {},
-    "functions": [],
-    "variables": {},
-    "resources": [
-        {
-            "type": "Microsoft.Storage/storageAccounts",
-            "apiVersion": "2019-06-01",
-            "name": "storageaccount1",
-            "location": "westus",
-            "kind": "StorageV2",
-            "sku": {
-                "name": "Premium_LRS",
-                "tier": "Premium"
-            }
-        }
-    ],
-    "outputs": {}
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "functions": [],
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2021-02-01",
+      "name": "storageaccount1",
+      "location": "westus",
+      "kind": "StorageV2",
+      "sku": {
+        "name": "Premium_LRS",
+        "tier": "Premium"
+      }
+    }
+  ],
+  "outputs": {}
 }
 ```
 
@@ -263,24 +239,24 @@ The following example **passes** this test.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {},
-    "functions": [],
-    "variables": {},
-    "resources": [
-        {
-            "type": "Microsoft.Maps/accounts",
-            "apiVersion": "2020-02-01-preview",
-            "name": "demoMap",
-            "location": "global",
-            "sku": {
-                "name": "S0"
-            }
-        }
-    ],
-    "outputs": {
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "functions": [],
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Maps/accounts",
+      "apiVersion": "2021-02-01",
+      "name": "demoMap",
+      "location": "global",
+      "sku": {
+        "name": "S0"
+      }
     }
+  ],
+  "outputs": {
+  }
 }
 ```
 
@@ -288,32 +264,32 @@ The next example also **passes** this test.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "location": {
-            "type": "string",
-            "defaultValue": "[resourceGroup().location]",
-            "metadata": {
-                "description": "Location for the resources."
-            }
-        }
-     },
-    "variables": {},
-    "resources": [
-        {
-            "type": "Microsoft.Storage/storageAccounts",
-            "apiVersion": "2019-06-01",
-            "name": "storageaccount1",
-            "location": "[parameters('location')]",
-            "kind": "StorageV2",
-            "sku": {
-                "name": "Premium_LRS",
-                "tier": "Premium"
-            }
-        }
-    ],
-    "outputs": {}
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]",
+      "metadata": {
+        "description": "Location for the resources."
+      }
+    }
+  },
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2021-02-01",
+      "name": "storageaccount1",
+      "location": "[parameters('location')]",
+      "kind": "StorageV2",
+      "sku": {
+        "name": "Premium_LRS",
+        "tier": "Premium"
+      }
+    }
+  ],
+  "outputs": {}
 }
 ```
 
@@ -321,13 +297,13 @@ The next example also **passes** this test.
 
 Test name: **VM Size Should Be A Parameter**
 
-Don't hardcode the virtual machine size. Provide a parameter so users of your template can modify the size of the deployed virtual machine.
+Don't hardcode the virtual machine (VM) size. Provide a parameter so users of your template can modify the size of the deployed virtual machine.
 
 The following example **fails** this test.
 
 ```json
 "hardwareProfile": {
-    "vmSize": "Standard_D2_v3"
+  "vmSize": "Standard_D2_v3"
 }
 ```
 
@@ -335,20 +311,20 @@ Instead, provide a parameter.
 
 ```json
 "vmSize": {
-    "type": "string",
-    "defaultValue": "Standard_A2_v2",
-    "metadata": {
-        "description": "Size for the Virtual Machine."
-    }
-},
+  "type": "string",
+  "defaultValue": "Standard_A2_v2",
+  "metadata": {
+    "description": "Size for the Virtual Machine."
+  }
+}
 ```
 
 Then, set the VM size to that parameter.
 
 ```json
 "hardwareProfile": {
-    "vmSize": "[parameters('vmSize')]"
-},
+  "vmSize": "[parameters('vmSize')]"
+}
 ```
 
 ## Min and max values are numbers
@@ -361,20 +337,20 @@ The following example **fails** this test:
 
 ```json
 "exampleParameter": {
-    "type": "int",
-    "minValue": "0",
-    "maxValue": "10"
-},
+  "type": "int",
+  "minValue": "0",
+  "maxValue": "10"
+}
 ```
 
 Instead, provide the values as numbers. The following example **passes** this test:
 
 ```json
 "exampleParameter": {
-    "type": "int",
-    "minValue": 0,
-    "maxValue": 10
-},
+  "type": "int",
+  "minValue": 0,
+  "maxValue": 10
+}
 ```
 
 You also get this warning if you provide a min or max value, but not the other.
@@ -386,11 +362,11 @@ Test name: **artifacts parameter**
 When you include parameters for `_artifactsLocation` and `_artifactsLocationSasToken`, use the correct defaults and types. The following conditions must be met to pass this test:
 
 * if you provide one parameter, you must provide the other
-* `_artifactsLocation` must be a **string**
+* `_artifactsLocation` must be a `string`
 * `_artifactsLocation` must have a default value in the main template
 * `_artifactsLocation` can't have a default value in a nested template
 * `_artifactsLocation` must have either `"[deployment().properties.templateLink.uri]"` or the raw repo URL for its default value
-* `_artifactsLocationSasToken` must be a **secureString**
+* `_artifactsLocationSasToken` must be a `secureString`
 * `_artifactsLocationSasToken` can only have an empty string for its default value
 * `_artifactsLocationSasToken` can't have a default value in a nested template
 
@@ -413,31 +389,31 @@ The following example **passes** this test. The **currentImage** variable is dyn
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-      "osType": {
-          "type": "string",
-          "allowedValues": [
-              "Windows",
-              "Linux"
-          ]
-      }
+    "osType": {
+      "type": "string",
+      "allowedValues": [
+        "Windows",
+        "Linux"
+      ]
+    }
   },
   "variables": {
     "imageOS": {
-        "Windows": {
-            "image": "Windows Image"
-        },
-        "Linux": {
-            "image": "Linux Image"
-        }
+      "Windows": {
+        "image": "Windows Image"
+      },
+      "Linux": {
+        "image": "Linux Image"
+      }
     },
     "currentImage": "[variables('imageOS')[parameters('osType')].image]"
   },
   "resources": [],
   "outputs": {
-      "result": {
-          "type": "string",
-          "value": "[variables('currentImage')]"
-      }
+    "result": {
+      "type": "string",
+      "value": "[variables('currentImage')]"
+    }
   }
 }
 ```
@@ -458,11 +434,11 @@ The following example **fails** this test.
 
 ```json
 "resources": [
-    {
-        "type": "Microsoft.Compute/virtualMachines",
-        "apiVersion": "[providers('Microsoft.Compute', 'virtualMachines').apiVersions[0]]",
-        ...
-    }
+  {
+    "type": "Microsoft.Compute/virtualMachines",
+    "apiVersion": "[providers('Microsoft.Compute', 'virtualMachines').apiVersions[0]]",
+    ...
+  }
 ]
 ```
 
@@ -470,11 +446,11 @@ The following example **passes** this test.
 
 ```json
 "resources": [
-    {
-       "type": "Microsoft.Compute/virtualMachines",
-       "apiVersion": "2019-12-01",
-       ...
-    }
+  {
+    "type": "Microsoft.Compute/virtualMachines",
+    "apiVersion": "2020-12-01",
+    ...
+  }
 ]
 ```
 
@@ -554,7 +530,7 @@ The following example **fails** this test.
 
 ```json
 "dependsOn": [
-    "[if(equals(parameters('newOrExisting'),'new'), variables('storageAccountName'), '')]"
+  "[if(equals(parameters('newOrExisting'),'new'), variables('storageAccountName'), '')]"
 ]
 ```
 
@@ -562,7 +538,7 @@ The next example **passes** this test.
 
 ```json
 "dependsOn": [
-    "[variables('storageAccountName')]"
+  "[variables('storageAccountName')]"
 ]
 ```
 
@@ -570,7 +546,23 @@ The next example **passes** this test.
 
 Test name: **Deployment Resources Must Not Be Debug**
 
-When you define a [nested or linked template](linked-templates.md) with the **Microsoft.Resources/deployments** resource type, you can enable debugging for that template. Debugging is fine when you need to test that template but should be turned when you're ready to use the template in production.
+When you define a [nested or linked template](linked-templates.md) with the `Microsoft.Resources/deployments` resource type, you can enable [debugging](/azure/templates/microsoft.resources/deployments#debugsetting-object). Debugging is used when you need to test a template but can expose sensitive information. Before the template is used in production, turn off debugging. You can remove the `debugSetting` object or change the `detailLevel` property to `none`.
+
+The following example **fails** this test:
+
+```json
+"debugSetting": {
+  "detailLevel": "requestContent"
+}
+```
+
+The following example **passes** this test:
+
+```json
+"debugSetting": {
+  "detailLevel": "none"
+}
+```
 
 ## Admin user names can't be literal value
 
@@ -582,21 +574,23 @@ The following example **fails** this test:
 
 ```json
 "osProfile":  {
-    "adminUserName":  "myAdmin"
-},
+  "adminUserName": "myAdmin"
+}
 ```
 
 Instead, use a parameter. The following example **passes** this test:
 
 ```json
 "osProfile": {
-    "adminUsername": "[parameters('adminUsername')]"
+  "adminUsername": "[parameters('adminUsername')]"
 }
 ```
 
 ## Use latest VM image
 
 Test name: **VM Images Should Use Latest Version**
+
+This test is disabled, but the output shows that it passed. The best practice is to check your template for the following criteria:
 
 If your template includes a virtual machine with an image, make sure it's using the latest version of the image.
 
@@ -610,10 +604,10 @@ The following example **fails** this test.
 
 ```json
 "imageReference": {
-    "publisher": "Canonical",
-    "offer": "UbuntuServer",
-    "sku": "16.04-LTS",
-    "version": "latest-preview"
+  "publisher": "Canonical",
+  "offer": "UbuntuServer",
+  "sku": "16.04-LTS",
+  "version": "latest-preview"
 }
 ```
 
@@ -621,11 +615,11 @@ The following example **passes** this test.
 
 ```json
 "imageReference": {
-    "publisher": "Canonical",
-    "offer": "UbuntuServer",
-    "sku": "16.04-LTS",
-    "version": "latest"
-},
+  "publisher": "Canonical",
+  "offer": "UbuntuServer",
+  "sku": "16.04-LTS",
+  "version": "latest"
+}
 ```
 
 ## Don't use ManagedIdentity extension
@@ -644,22 +638,22 @@ The following example **fails** the test because it includes a secure parameter 
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "secureParam": {
-            "type": "securestring"
-        }
-    },
-    "functions": [],
-    "variables": {},
-    "resources": [],
-    "outputs": {
-        "badResult": {
-            "type": "string",
-            "value": "[concat('this is the value ', parameters('secureParam'))]"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "secureParam": {
+      "type": "secureString"
     }
+  },
+  "functions": [],
+  "variables": {},
+  "resources": [],
+  "outputs": {
+    "badResult": {
+      "type": "string",
+      "value": "[concat('this is the value ', parameters('secureParam'))]"
+    }
+  }
 }
 ```
 
@@ -667,22 +661,22 @@ The following example **fails** because it uses a [list*](template-functions-res
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "storageName": {
-            "type": "string"
-        }
-    },
-    "functions": [],
-    "variables": {},
-    "resources": [],
-    "outputs": {
-        "badResult": {
-            "type": "object",
-            "value": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageName')), '2019-06-01')]"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storageName": {
+      "type": "string"
     }
+  },
+  "functions": [],
+  "variables": {},
+  "resources": [],
+  "outputs": {
+    "badResult": {
+      "type": "object",
+      "value": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageName')), '2021-02-01')]"
+    }
+  }
 }
 ```
 
@@ -690,33 +684,154 @@ The following example **fails** because it uses a [list*](template-functions-res
 
 Test name: **CommandToExecute Must Use ProtectedSettings For Secrets**
 
-In a Custom Script Extension, use the encrypted property `protectedSettings` when `commandToExecute` includes secret data such as a password. Examples of secret data types are `secureString`, `secureObject`, `list()` functions, or scripts.
+For resources with type `CustomScript`, use the encrypted `protectedSettings` when `commandToExecute` includes secret data such as a password. For example, secret data can be used in secure parameters of type `secureString` or `secureObject`, [list() functions](template-functions-resource.md#list) such as `listKeys()`, or custom scripts.
 
-For more information about Custom Script Extension for virtual machines, see [Windows](
-/azure/virtual-machines/extensions/custom-script-windows), [Linux](../../virtual-machines/extensions/custom-script-linux.md), and the schema [Microsoft.Compute virtualMachines/extensions](/azure/templates/microsoft.compute/virtualmachines/extensions).
+Don't use secret data in the `settings` object because it uses clear text. For more information, see [Microsoft.Compute virtualMachines/extensions](/azure/templates/microsoft.compute/virtualmachines/extensions), [Windows](
+/azure/virtual-machines/extensions/custom-script-windows), or [Linux](../../virtual-machines/extensions/custom-script-linux.md).
 
-In this example, a template with a parameter named `adminPassword` and type `secureString` **passes** the test because the encrypted property `protectedSettings` includes `commandToExecute`.
+This example **fails** because `settings` uses `commandToExecute` with a secure parameter:
 
 ```json
-"properties": [
-  {
-    "protectedSettings": {
-      "commandToExecute": "[parameters('adminPassword')]"
-    }
+"parameters": {
+  "adminPassword": {
+    "type": "secureString"
   }
-]
+}
+...
+"properties": {
+  "type": "CustomScript",
+  "settings": {
+    "commandToExecute": "[parameters('adminPassword')]"
+  }
+}
 ```
 
-The test **fails** if the unencrypted property `settings` includes `commandToExecute`.
+This example **fails** because `settings` uses `commandToExecute` with a `listKeys()` function:
 
 ```json
-"properties": [
-  {
-    "settings": {
-      "commandToExecute": "[parameters('adminPassword')]"
-    }
+"properties": {
+  "type": "CustomScript",
+  "settings": {
+    "commandToExecute": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageName')), '2021-02-01')]"
   }
-]
+}
+```
+
+This example **passes** because `protectedSettings` uses `commandToExecute` with a secure parameter:
+
+```json
+"parameters": {
+  "adminPassword": {
+    "type": "secureString"
+  }
+}
+...
+"properties": {
+  "type": "CustomScript",
+  "protectedSettings": {
+    "commandToExecute": "[parameters('adminPassword')]"
+  }
+}
+```
+
+This example **passes** because `protectedSettings` uses `commandToExecute` with a `listKeys()` function:
+
+```json
+"properties": {
+  "type": "CustomScript",
+  "protectedSettings": {
+    "commandToExecute": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageName')), '2021-02-01')]"
+  }
+}
+```
+
+## Use recent API versions in reference functions
+
+Test name: **apiVersions Should Be Recent In Reference Functions**
+
+Ensures the `apiVersions` used in [reference functions](template-functions-resource.md#reference) are recent and aren't preview versions. The test evaluates API versions against the resource providers available versions. An API version that's less than two years old from the date the test was run is considered recent.
+
+This example **fails** because the API version is more than two years old:
+
+```json
+"outputs": {
+  "stgAcct": {
+    "type": "string",
+    "value": "[reference(resourceId(parameters('storageResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2019-06-01')]"
+  }
+}
+```
+
+This example **fails** because the API version is a preview version:
+
+```json
+"outputs": {
+  "stgAcct": {
+    "type": "string",
+    "value": "[reference(resourceId(parameters('storageResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2020-08-01-preview')]"
+  }
+}
+```
+
+This example **passes** because the API version less than two years old and isn't a preview version:
+
+```json
+"outputs": {
+  "stgAcct": {
+    "type": "string",
+    "value": "[reference(resourceId(parameters('storageResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2021-02-01')]"
+  }
+}
+```
+
+## Use type and name in resourceId functions
+
+Test name: **Resources Should Not Be Ambiguous**
+
+This test is disabled, but the output shows that it passed. The best practice is to check your template for the following criteria:
+
+A [resourceId](template-functions-resource.md#resourceid) must include a resource type and resource name. This test finds all the template's `resourceId` functions and verifies that the resource is used in the template with the correct syntax. Otherwise the function is considered ambiguous.
+
+For example, a `resourceId` function is considered ambiguous:
+
+* When a resource isn't found in the template and a resource group isn't specified.
+* If a resource includes a condition and a resource group isn't specified.
+* If a related resource contains some but not all of the name segments. For example, a child resource contains more than one name segment. For more information, see [resourceId remarks](template-functions-resource.md#remarks-3).
+
+## Use inner scope for nested deployment secure parameters
+
+Test name: **Secure Params In Nested Deployments**
+
+Use the nested template's `expressionEvaluationOptions` object with `inner` scope to evaluate expressions that contain secure parameters of type `secureString` or `secureObject` or [list() functions](template-functions-resource.md#list) such as `listKeys()`. If the `outer` scope is used, expressions are evaluated in clear text within the parent template's scope. The secure value is then visible to anyone with access to the deployment history. The default value of `expressionEvaluationOptions` is `outer`.
+
+For more information about nested templates, see [Microsoft.Resources/deployments](/azure/templates/microsoft.resources/deployments) and [Expression evaluation scope in nested templates](linked-templates.md#expression-evaluation-scope-in-nested-templates).
+
+This example **fails** because `expressionEvaluationOptions` uses `outer` scope to evaluate secure parameters or `list()` functions:
+
+```json
+"resources": [
+{
+  "type": "Microsoft.Resources/deployments",
+  "apiVersion": "2021-04-01",
+  "name": "nestedTemplate",
+  "properties": {
+    "expressionEvaluationOptions": {
+      "scope": "outer"
+    }
+```
+
+This example **passes** because `expressionEvaluationOptions` uses `inner` scope to evaluate secure parameters or `list()` functions:
+
+```json
+"resources": [
+{
+  "type": "Microsoft.Resources/deployments",
+  "apiVersion": "2021-04-01",
+  "name": "nestedTemplate",
+  "properties": {
+    "expressionEvaluationOptions": {
+      "scope": "inner"
+    }
 ```
 
 ## Next steps

@@ -5,7 +5,7 @@ author: nkuntjoro
 ms.author: nikuntjo
 ms.service: certification
 ms.topic: tutorial
-ms.date: 03/01/2021
+ms.date: 06/22/2021
 ms.custom: template-tutorial 
 ---
 
@@ -22,8 +22,12 @@ In this tutorial, you will learn how to:
 
 ## Prerequisites
 
-- You'll need a valid work/school [Azure Active Directory account](../active-directory/fundamentals/active-directory-whatis.md).
-- You'll need a verified Microsoft Partner Network (MPN) account. If you don't have an MPN account, [join the partner network](https://partner.microsoft.com/) before you begin.
+- Valid work/school [Azure Active Directory account](../active-directory/fundamentals/active-directory-whatis.md).
+- Verified Microsoft Partner Network (MPN) account. If you don't have an MPN account, [join the partner network](https://partner.microsoft.com/) before you begin. 
+
+> [!NOTE] 
+> If you're having problems setting up or validating your MPN account, see the [Partner Center Support](/partner-center) documentation.
+
 
 ## Signing into the Azure Certified Device portal
 
@@ -55,6 +59,10 @@ Then, you must supply basic device information. You can to edit this information
     | Device type            | Specification of Finished Product or Solution-Ready Developer Kit.     For more information about the terminology, see [Certification glossary](./resources-glossary.md).                                                                     |
     | Device class           | Gateway, Sensor, or other.  For more information about the terminology, see [Certification glossary](./resources-glossary.md).                                                                    |
     | Device source code URL | Required if you are certifying a Solution-Ready Dev Kit, optional otherwise. URL must be to a GitHub location for your device code. |
+
+    > [!Note]
+    > If you are marketing a Microsoft service (e.g. Azure Sphere), please ensure that your device name adheres to Microsoft [branding guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks).
+
 1. Select the `Next` button to continue to the `Certifications` tab.
 
     ![Image of the Create new project form, Certifications tab](./media/images/create-new-project-certificationswindow.png)

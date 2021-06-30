@@ -1,6 +1,6 @@
 ---
 title: Add or edit Azure role assignment conditions using the Azure portal (preview) - Azure RBAC
-description: Learn how to add, edit, list, or delete attribute-based access control (ABAC) conditions in Azure role assignments using the Azure portal and Azure role-based access control (Azure RBAC).
+description: Learn how to add, edit, view, or delete attribute-based access control (ABAC) conditions in Azure role assignments using the Azure portal and Azure role-based access control (Azure RBAC).
 services: active-directory
 author: rolyon
 manager: mtillman
@@ -8,8 +8,9 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/06/2021
+ms.date: 05/07/2021
 ms.author: rolyon
+ms.custom: subject-rbac-steps
 ---
 
 # Add or edit Azure role assignment conditions using the Azure portal (preview)
@@ -18,6 +19,8 @@ ms.author: rolyon
 > Azure ABAC and Azure role assignment conditions are currently in preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+An [Azure role assignment condition](conditions-overview.md) is an additional check that you can optionally add to your role assignment to provide more fine-grained access control. For example, you can add a condition that requires an object to have a specific tag to read the object. This article describes how to add, edit, view, or delete conditions for your role assignments using the Azure portal.
 
 ## Prerequisites
 
@@ -28,7 +31,7 @@ For information about the prerequisites to add or edit role assignment condition
 
 To determine the conditions you need, review the examples in [Example Azure role assignment conditions](../storage/common/storage-auth-abac-examples.md).
 
-Currently, conditions can be added to built-in or custom role assignments that have [storage blob data actions](conditions-format.md#actions). These include the following built-in roles:
+Currently, conditions can be added to built-in or custom role assignments that have [storage blob data actions](../storage/common/storage-auth-abac-attributes.md). These include the following built-in roles:
 
 - [Storage Blob Data Contributor](built-in-roles.md#storage-blob-data-contributor)
 - [Storage Blob Data Owner](built-in-roles.md#storage-blob-data-owner)
@@ -45,6 +48,8 @@ There are two ways that you can add a condition. You can add a condition when yo
 1. On the **Condition** tab, click **Add condition**.
 
     If you don't see the Condition tab, be sure you selected a role that supports conditions.
+
+   ![Screenshot of Add role assignment page with Add condition tab for preview experience.](./media/shared/condition.png)
 
     The Add role assignment condition page appears.
 
@@ -84,7 +89,7 @@ Once you have the Add role assignment condition page open, you can review the ba
 
 1. In the **Add action** section, click **Add action**.
 
-    The Select an action pane appears. This pane is a filtered list of data actions based on the role assignment that will be the target of your condition. 
+    The Select an action pane appears. This pane is a filtered list of data actions based on the role assignment that will be the target of your condition. For more information, see [Azure role assignment condition format and syntax](conditions-format.md#actions).
 
     ![Select an action pane for condition with an action selected.](./media/conditions-role-assignments-portal/condition-actions-select.png)
 
@@ -115,7 +120,7 @@ Once you have the Add role assignment condition page open, you can review the ba
 
 1. In the Value box, enter a value for the right side of the expression.
 
-    ![Build expression section with values for blob index tags.](./media/conditions-role-assignments-portal/condition-expressions.png)
+    ![Build expression section with values for blob index tags.](./media/shared/condition-expressions.png)
 
 ## Step 6: Review and add condition
 

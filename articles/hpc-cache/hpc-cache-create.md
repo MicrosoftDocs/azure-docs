@@ -4,8 +4,9 @@ description: How to create an Azure HPC Cache instance
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 09/30/2020
-ms.author: v-erkel
+ms.date: 05/05/2021
+ms.author: v-erkel 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Create an Azure HPC Cache
@@ -37,7 +38,7 @@ In **Service Details**, set the cache name and these other attributes:
 
 On the **Cache** page, you must set the capacity of your cache. The values set here determine how much data your cache can hold and how quickly it can service client requests.
 
-Capacity also affects the cache's cost.
+Capacity also affects the cache's cost, and how many storage targets it can support.
 
 Choose the capacity by setting these two values:
 
@@ -45,6 +46,9 @@ Choose the capacity by setting these two values:
 * The amount of storage allocated for cached data, in TB
 
 Choose one of the available throughput values and cache storage sizes.
+
+> [!TIP]
+> If you want to use more than 10 storage targets with your cache, you must choose the highest available cache storage size value for your throughput size. Learn more in [Add storage targets](hpc-cache-add-storage.md#size-your-cache-correctly-to-support-your-storage-targets).
 
 Keep in mind that the actual data transfer rate depends on workload, network speeds, and the type of storage targets. The values you choose set the maximum throughput for the entire cache system, but some of that is used for overhead tasks. For example, if a client requests a file that isn't already stored in the cache, or if the file is marked as stale, your cache uses some of its throughput to fetch it from back-end storage.
 
@@ -132,6 +136,8 @@ nets/<cache_subnet_name>"``
   | 12288 GB   | yes         | yes         | yes         |
   | 24576 GB   | no          | yes         | yes         |
   | 49152 GB   | no          | no          | yes         |
+
+  If you want to use more than 10 storage targets with your cache, choose the highest available cache size value for your SKU. These configurations support up to 20 storage targets.
 
   Read the **Set cache capacity** section in the portal instructions tab for important information about pricing, throughput, and how to size your cache appropriately for your workflow.
 

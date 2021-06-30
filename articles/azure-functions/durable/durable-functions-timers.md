@@ -47,12 +47,12 @@ public static async Task Run(
 
 ```js
 const df = require("durable-functions");
-const moment = require("moment");
+const { DateTime } = require("luxon");
 
 module.exports = df.orchestrator(function*(context) {
     for (let i = 0; i < 10; i++) {
-        const deadline = moment.utc(context.df.currentUtcDateTime).add(1, 'd');
-        yield context.df.createTimer(deadline.toDate());
+        const deadline = DateTime.fromJSDate(context.df.currentUtcDateTime, {zone: 'utc'}).plus({ days: 1 });
+        yield context.df.createTimer(deadline.toJSDate());
         yield context.df.callActivity("SendBillingEvent");
     }
 });
@@ -71,6 +71,18 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
         yield context.call_activity("SendBillingEvent")
 
 main = df.Orchestrator.create(orchestrator_function)
+```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+param($Context)
+
+for ($num = 0 ; $num -le 9 ; $num++){    
+    $expiryTime =  New-TimeSpan -Days 1
+    $timerTask = Start-DurableTimer -Duration $expiryTime
+    Invoke-DurableActivity -FunctionName 'SendBillingEvent'
+}
 ```
 ---
 
@@ -119,13 +131,13 @@ public static async Task<bool> Run(
 
 ```js
 const df = require("durable-functions");
-const moment = require("moment");
+const { DateTime } = require("luxon");
 
 module.exports = df.orchestrator(function*(context) {
-    const deadline = moment.utc(context.df.currentUtcDateTime).add(30, "s");
+    const deadline = DateTime.fromJSDate(context.df.currentUtcDateTime, {zone: 'utc'}).plus({ seconds: 30 });
 
     const activityTask = context.df.callActivity("GetQuote");
-    const timeoutTask = context.df.createTimer(deadline.toDate());
+    const timeoutTask = context.df.createTimer(deadline.toJSDate());
 
     const winner = yield context.df.Task.any([activityTask, timeoutTask]);
     if (winner === activityTask) {
@@ -161,6 +173,26 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
         return False
 
 main = df.Orchestrator.create(orchestrator_function)
+```
+
+# [PowerShell](#tab/powershell)
+```powershell
+param($Context)
+
+$expiryTime =  New-TimeSpan -Seconds 30
+
+$activityTask = Invoke-DurableActivity -FunctionName 'GetQuote'-NoWait
+$timerTask = Start-DurableTimer -Duration $expiryTime -NoWait
+
+$winner = Wait-DurableTask -Task @($activityTask, $timerTask) -Any
+
+if ($winner -eq $activityTask) {
+    Stop-DurableTaskTimer -Task $timerTask
+    return $True
+}
+else {
+    return $False
+}
 ```
 
 ---

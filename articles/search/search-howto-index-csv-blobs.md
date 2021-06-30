@@ -1,7 +1,7 @@
 ---
 title: Search over CSV blobs 
 titleSuffix: Azure Cognitive Search
-description: Extract and import CSV from Azure Blob storage using the delimitedText parsing mode.
+description: Extract and import CSV from Azure Blob Storage using the delimitedText parsing mode.
 
 manager: nitinme
 author: HeidiSteen 

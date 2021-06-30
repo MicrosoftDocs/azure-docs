@@ -21,7 +21,7 @@ An event domain is a management tool for large numbers of Event Grid topics rela
 Event domains provide you the same architecture used by Azure services like Storage and IoT Hub to publish their events. They allow you to publish events to thousands of topics. Domains also give you authorization and authentication control over each topic so you can partition your tenants.
 
 ## Example use case
-[!INCLUDE [event-grid-domain-example-use-case.md](../../includes/event-grid-domain-example-use-case.md)]
+[!INCLUDE [event-grid-domain-example-use-case.md](./includes/event-grid-domain-example-use-case.md)]
 
 ## Access management
 
@@ -40,7 +40,7 @@ For information about these roles, see [Built-in roles for Event Grid](security-
 Subscribing to events on a topic within an event domain is the same as [creating an Event Subscription on a custom topic](./custom-event-quickstart.md) or subscribing to an event from an Azure service.
 
 > [!IMPORTANT]
-> Domain topic is considered an **auto-managed** resource in Event Grid. You can create an event subscription at the domain topic scope without creating the domain topic. In this case, Event Grid automatically creates the domain topic on your behalf. Of course, you can still choose to create the domain topic manually. This behavior allows you to worry about one less resource when dealing with a huge number of domain topics. When the last subscription to a domain topic is deleted, the domain topic is also deleted irrespective of whether the domain topic was manually created or auto-created. 
+> Domain topic is considered an **auto-managed** resource in Event Grid. You can create an event subscription at the [domain scope](#domain-scope-subscriptions) without creating the domain topic. In this case, Event Grid automatically creates the domain topic on your behalf. Of course, you can still choose to create the domain topic manually. This behavior allows you to worry about one less resource when dealing with a huge number of domain topics. When the last subscription to a domain topic is deleted, the domain topic is also deleted irrespective of whether the domain topic was manually created or auto-created. 
 
 ### Domain scope subscriptions
 

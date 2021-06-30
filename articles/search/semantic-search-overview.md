@@ -8,28 +8,32 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/01/2021
+ms.date: 05/25/2021
 ms.custom: references_regions
 ---
 # Semantic search in Azure Cognitive Search
 
 > [!IMPORTANT]
-> Semantic search is in public preview, available through the preview REST API and portal. Preview features are offered as-is, under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/), and are not guaranteed to have the same implementation at general availability. These features are billable. For more information, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
+> Semantic search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and beta SDKs. These features are billable. For more information about, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
 
-Semantic search is a collection of query-related capabilities that add semantic relevance and language understanding to search results. This article is a high-level introduction to semantic search all-up, with descriptions of each feature and how they work collectively. The embedded video describes the technology, and the section at the end covers availability and pricing.
+Semantic search is a collection of query-related capabilities that bring semantic relevance and language understanding to search results. This article is a high-level introduction to semantic search all-up, with descriptions of each feature and how they work collectively. The embedded video describes the technology, and the section at the end covers availability and pricing.
 
-We recommend reviewing this article for background, but if you'd rather get started right away, follow these steps:
+Semantic search is a premium feature. We recommend this article for background, but if you'd rather get started, follow these steps:
 
-1. [Sign up for the preview](https://aka.ms/SemanticSearchPreviewSignup), assuming a service that meets [regional and tier requirements](#availability-and-pricing).
-1. Create new or modify existing queries to return [semantic captions and highlights](semantic-how-to-query-request.md).
-1. Add a few more properties to also return [semantic answers](semantic-answers.md).
-1. Optionally, include a [spell check](speller-how-to-add.md) query property to maximize precision and recall.
+> [!div class="checklist"]
+> * [Check regional and service tier requirements](#availability-and-pricing).
+> * [Sign up for the preview program](https://aka.ms/SemanticSearchPreviewSignup). It can take up to two business days to process the request.
+> * Upon acceptance, create or modify queries to [return semantic captions and highlights](semantic-how-to-query-request.md).
+> * Add a few more query properties to also return [semantic answers](semantic-answers.md).
+> * Optionally, invoke [spell check](speller-how-to-add.md) to maximize precision and recall.
 
 ## What is semantic search?
 
-Semantic search is an optional layer of search-related AI that extends the traditional query execution pipeline with a semantic ranking model, and returns additional properties that improve the user experience.
+Semantic search is collection of features that improve the quality of search results. When enabled on your search service, it extends the query execution pipeline in two ways. First, it adds secondary ranking over an initial result set, promoting the most semantically relevant results to the top of the list. Second, it extracts and returns captions and answers in the response, which you can render on a search page to improve the user's search experience.
 
-*Semantic ranking* looks for context and relatedness among terms, elevating matches that make more sense given the query. Language understanding finds *captions* and *answers* within your content that summarize the matching document or answer a question, which can then be rendered on a search results page for a more productive search experience.
+## How semantic ranking works
+
+*Semantic ranking* looks for context and relatedness among terms, elevating matches that make more sense given the query. Language understanding finds summarizations or *captions* and *answers* within your content and includes them in the response, which can then be rendered on a search results page for a more productive search experience.
 
 State-of-the-art pretrained models are used for summarization and ranking. To maintain the fast performance that users expect from search, semantic summarization and ranking are applied to just the top 50 results, as scored by the [default similarity scoring algorithm](index-similarity-and-scoring.md#similarity-ranking-algorithms). Using those results as the document corpus, semantic ranking re-scores those results based on the semantic strength of the match.
 
@@ -39,9 +43,9 @@ The following video provides an overview of the capabilities.
 
 > [!VIDEO https://www.youtube.com/embed/yOf0WfVd_V0]
 
-## Components and workflow
+## Features in semantic search
 
-Semantic search improves precision and recall with the addition of the following capabilities:
+Semantic search improves precision and recall through these new capabilities:
 
 | Feature | Description |
 |---------|-------------|
@@ -66,16 +70,37 @@ Results are then re-scored based on the [conceptual similarity](semantic-ranking
 
 To use semantic capabilities in queries, you'll need to make small modifications to the [search request](semantic-how-to-query-request.md), but no extra configuration or reindexing is required.
 
+## Semantic capabilities and limitations
+
+Semantic search is a newer technology so it's important to set expectations about what it can and cannot do. It improves the quality of search results in two ways:
+
+* First, it promotes matches that are semantically closer to the intent of original query.
+
+* Second, it makes results easier to use when captions, and potentially answers, are present on the page.
+
+At all times, the engine is working with existing content, and the language models work best on searchable content that is structured as prose. Language models used in semantic search are designed to extract an intact string from your content that looks like an answer, but won't try to compose a new string as an answer to a query, or as a caption for a matching document.
+
+Semantic search cannot correlate or infer information from different pieces of content within the document or corpus of documents. For example, given a query for "resort hotels in a desert" absent any geographical input, the engine won't produce matches for hotels located in Arizona or Nevada, even though both states have deserts. Similarly, if the query includes the clause "in the last 5 years", the engine won't calculate a time interval based on the current date to return.
+
+In Cognitive Search, mechanisms that might be helpful for the above scenarios include [synonym maps](search-synonyms.md) that allow you to build associations among terms that are outwardly different, or [date filters](search-query-odata-filter.md) specified as an OData expression.
+
 ## Availability and pricing
 
-Semantic capabilities are available through [sign-up registration](https://aka.ms/SemanticSearchPreviewSignup), on search services created at a Standard tier (S1, S2, S3), located in one of these regions: North Central US, West US, West US 2, East US 2, North Europe, West Europe. 
+Semantic search is available through [sign-up registration](https://aka.ms/SemanticSearchPreviewSignup). Between preview launch on March 2 through early July, semantic features are offered free of charge.
 
-Spell correction is available in the same regions, but has no tier restrictions. If you have an existing service that meets tier and region criteria, only sign up is required.
+| Feature | Tier | Region | Sign up | Projected pricing |
+|---------|------|--------|---------------------|-------------------|
+| Semantic search (captions, highlights, answers) | Standard tier (S1, S2, S3) | North Central US, West US, West US 2, East US 2, North Europe, West Europe | Required | Starting in early July, expected pricing is USD $500/month for the first 250,000 queries, and $2 for each additional 1,000 queries.  |
+| Spell check | Any | North Central US, West US, West US 2, East US 2, North Europe, West Europe | Required | None (free) |
 
-Between preview launch on March 2 through late April, spell correction and semantic ranking are offered free of charge. Later in April the computational costs of running this functionality will become a billable event. The expected cost is about USD $500/month for 250,000 queries. You can find detailed cost information documented in the [Cognitive Search pricing page](https://azure.microsoft.com/pricing/details/search/) and in [Estimate and manage costs](search-sku-manage-costs.md).
+There is one [sign-up registration](https://aka.ms/SemanticSearchPreviewSignup) for both semantic features and spell check. 
+
+You can use spell check without semantic search, free of charge. Charges for semantic search are levied when query requests include `queryType=semantic` and the search string is not empty (for example, `search=pet friendly hotels in new york`. Empty search (queries where `search=*`) are not charged.
+
+Final pricing information will be documented in the [Cognitive Search pricing page](https://azure.microsoft.com/pricing/details/search/) and in [Estimate and manage costs](search-sku-manage-costs.md).
 
 ## Next steps
 
 [Sign-up](https://aka.ms/SemanticSearchPreviewSignup) for the preview on a search service that meets the tier and regional requirements noted in the previous section.
 
-When your service is ready, [create a semantic query](semantic-how-to-query-request.md) to see semantic ranking in action.
+It can take up to two business days to process the request. Once your service is ready, [create a semantic query](semantic-how-to-query-request.md) to see semantic ranking in action.

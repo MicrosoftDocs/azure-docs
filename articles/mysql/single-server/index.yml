@@ -21,8 +21,8 @@ landingContent:
             url: ../single-server-overview.md
       - linkListType: whats-new
         links:
-          - text: Check out our blog
-            url: https://techcommunity.microsoft.com/t5/Azure-Database-for-MySQL/bg-p/ADforMySQL
+          - text: What's new in Single Server?
+            url: ../single-server-whats-new.md
  # Card 2
   - title: Get started
     linkLists:
@@ -102,6 +102,9 @@ landingContent:
             url: ../concepts-migrate-dump-restore.md
           - text: Migrate using import and export
             url: ../concepts-migrate-import-export.md
+          - text: Migrate RDS MySQL using MySQL Workbench
+            url: ../how-to-migrate-rds-mysql-workbench.md
+# Card 5
 # Card 5
   - title: Business Continuity
     linkLists:

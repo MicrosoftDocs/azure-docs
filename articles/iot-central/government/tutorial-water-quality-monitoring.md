@@ -52,8 +52,6 @@ In this section, you use the Azure IoT Central **Water quality monitoring** temp
     * **URL**: You can enter any URL you want or change the URL value later.
     * If you have an Azure subscription, enter values for **Directory**, **Azure subscription**, and **Location**. If you don't have a subscription, you can turn on **7-day free trial** and complete the required contact information.
 
-    For more information about directories and subscriptions, see the [Create an application](../core/quick-deploy-iot-central.md) quickstart.
-
 1. Select the **Create** button on the lower-left part of the page.
 
     ![The Azure IoT Central new-application page](./media/tutorial-waterqualitymonitoring/new-application-waterqualitymonitoring1.png)
@@ -90,7 +88,7 @@ The dashboard includes the following kinds of tiles:
 
 * **Average pH KPI tiles**: KPI tiles like **Average pH in the last 30 minutes** are at the top of the dashboard pane. You can customize KPI tiles and set each to a different type and time range.
 
-* **Water monitoring area map**: Azure IoT Central uses Azure Maps, which you can directly set in your application to show device location. You can also map location information from your application to your device and then use Azure Maps to show the information on a map. Hover over the map and try the controls.
+* **Water monitoring area map**: Azure IoT Central uses Azure Maps, which you can directly set in your application to show device [location](../core/howto-use-location-data.md). You can also map location information from your application to your device and then use Azure Maps to show the information on a map. Hover over the map and try the controls.
 
 * **Average pH distribution heat-map chart**: You can select different visualization charts to show device telemetry in the way that is most appropriate for your application.
 

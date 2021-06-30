@@ -2,10 +2,26 @@
 title: Quickstart - Join a Teams meeting
 author: askaur
 ms.author: askaur
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 ---
+
+In this quickstart, you'll learn how to chat in a Teams meeting using the Azure Communication Services Chat SDK for JavaScript.
+
+## Sample Code
+Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/join-chat-to-teams-meeting).
+
+## Prerequisites 
+
+* A [Teams deployment](/deployoffice/teams-install). 
+* A working [chat app](../get-started.md). 
+
+## Enable Teams interoperability 
+
+A Communication Services user that joins a Teams meeting as a guest user can access the meeting's chat only when they've joined the Teams meeting call. See the [Teams interop](../../voice-video-calling/get-started-teams-interop.md) documentation to learn how to add a Communication Services user to a Teams meeting call.
+
+You must be a member of the owning organization of both entities to use this feature.
 
 ## Joining the meeting chat 
 
@@ -57,7 +73,7 @@ Create an **index.html** file in the root directory of your project. We'll use t
 
 Replace the code in index.html with the following snippet.
 The text boxes at the top of the page will be used to enter the Teams meeting context and meeting thread ID. The 'Join Teams Meeting' button will be used to join the specified meeting.
-A chat pop-up will appear at the bottom of the page. It can be used to send messages on the meeting thread, and it will display in real time any messages sent on the thread while the ACS user is a member.
+A chat pop-up will appear at the bottom of the page. It can be used to send messages on the meeting thread, and it will display in real time any messages sent on the thread while the Communication Services user is a member.
 
 ```html
 <!DOCTYPE html>
@@ -304,6 +320,12 @@ sendMessageButton.addEventListener("click", async () =>
 	});
 ```
 
+Display names of the chat thread participants are not set by the Teams client. The names will be returned as null in the API for listing participants, in the `participantsAdded` event and in the `participantsRemoved` event. The display names of the chat participants can be retrieved from the `remoteParticipants` field of the `call` object. On receiving a notification about a roster change, you can use this code to retrieve the name of the user that was added or removed:
+
+```
+var displayName = call.remoteParticipants.find(p => p.identifier.communicationUserId == '<REMOTE_USER_ID>').displayName;
+```
+
 ## Get a Teams meeting chat thread for a Communication Services user
 
 The Teams meeting link and chat can be retrieved using Graph APIs, detailed in [Graph documentation](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true). The Communication Services Calling SDK accepts a full Teams meeting link. This link is returned as part of the `onlineMeeting` resource, accessible under the [`joinWebUrl` property](/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true)
@@ -323,9 +345,9 @@ npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool 
 
 Open your browser and navigate to http://localhost:8080/. You should see the following:
 
-:::image type="content" source="../acs-join-teams-meeting-chat-quickstart.png" alt-text="Screenshot of the completed JavaScript Application.":::
+:::image type="content" source="../join-teams-meeting-chat-quickstart.png" alt-text="Screenshot of the completed JavaScript Application.":::
 
-Insert the Teams meeting link and thread ID into the text boxes. Press *Join Teams Meeting* to join the Teams meeting. After the ACS user has been admitted into the meeting, you can chat from within your Communication Services application. Navigate to the box at the bottom of the page to start chatting.
+Insert the Teams meeting link and thread ID into the text boxes. Press *Join Teams Meeting* to join the Teams meeting. After the Communication Services user has been admitted into the meeting, you can chat from within your Communication Services application. Navigate to the box at the bottom of the page to start chatting.
 
 > [!NOTE] 
-> Currently only sending, receiving, and editing messages is supported for interoperability scenarios with Teams. Other features like typing indicators and Communication Services users adding or removing other users from the Teams meeting are not yet supported.  
+> Currently only sending, receiving, editing messages and sending typing notifications is supported for interoperability scenarios with Teams. Other features like read receipts and Communication Services users adding or removing other users from the Teams meeting are not yet supported.

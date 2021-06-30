@@ -6,12 +6,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
-ms.date: 07/06/2020
+ms.date: 06/03/2021
 ---
 
 # Offer listing best practices
 
-This article gives suggestions for creating and engaging Microsoft commercial marketplace offers. The following tables outline best practices for completing offer information in Partner Center. For an analysis of how your offers are performing, go to the [Marketplace Insights dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/marketplaceinsights) in Partner Center. 
+This article gives suggestions for creating and engaging Microsoft commercial marketplace offers. The following tables outline best practices for completing offer information in Partner Center. For an analysis of how your offers are performing, go to the [Marketplace Insights dashboard](https://go.microsoft.com/fwlink/?linkid=2165936) in Partner Center.
 
 ## Online store offer details
 
@@ -25,21 +25,23 @@ This article gives suggestions for creating and engaging Microsoft commercial ma
 
 ## Online store listing details
 
-Categories and industries for a different online store will be applicable to different offer types.
+This table shows which offer types have categories and industries applicable to the different online stores: Azure Marketplace and Microsoft AppSource.
 
-| Online store | Categories <br>by online store | Categories <br>by online store | Industries <br> for AppSource |
+| Offer type | Categories for Azure Marketplace | Categories for AppSource | Industries for AppSource |
 | :------------------- |:----------------:|:------:|:-------------:|
-| **Offer Type**   |  **Azure Marketplace**  | **AppSource**  |
-| Azure App | X | |
-| Container | X | |
-| Consulting Services | | | X |
-| Dynamics 365 Customer Engagement & Power Platform | | X | X |
-| Dynamics 365 Finance & Supply Chain Management | | X | X | 
-| Dynamics 365 Business Central | | X | X |
-| IoT Edge Modules | X | |
-| Power BI | | X | X |
+| Azure Application     | X |   |   |
+| Azure Container       | X |   |   |
+| Azure Virtual Machine | X |   |   |
+| Consulting Service    | X<sup>*</sup> |   | X<sup>*</sup> |
+| Dynamics 365 Customer Engagement & Power Apps | | X | X |
+| Dynamics 365 for Operations | | X | X |
+| Dynamics 365 business central | | X | X |
+| IoT Edge Module | X | |  |
+| Managed service | X | |  |
+| Power BI app | | X | X |
 | SaaS | X | X | X |
-| Azure Virtual Machine |  X |    |
+
+* The offer is published to the relevant online store based on the primary product. If the primary product is Azure, it goes to Azure Marketplace. Otherwise, its published to AppSource.
 
 ### Categories
 
@@ -56,24 +58,26 @@ Select categories and subcategories that best align with your solution type. You
 
 #### IMPORTANT: SaaS Offers and Microsoft 365 Add-ins
 
-See [Transacting in the commercial marketplace](marketplace-commercial-transaction-capabilities-and-considerations.md) for specific details on how transact capabilities may affect how your offer can be viewed and purchased by marketplace customers. For SaaS offers, the offer's transaction capability as well as the category selection will determine the online store where your offer will be published.
+For specific details on how transact capabilities may affect how your offer can be viewed and purchased by marketplace customers, see [Transacting in the commercial marketplace](marketplace-commercial-transaction-capabilities-and-considerations.md). For SaaS offers, the offer's transaction capability as well as the category selection will determine the online store where your offer will be published.
 
+This table shows the combinations of options that are applicable to the different online stores: Azure Marketplace and Microsoft AppSource.
 
-| SaaS offer    | SaaS offer   | SaaS offer  | SaaS offer   | SaaS offer   | SaaS offer   | SaaS offer    | Applicable online store| Applicable online store |
-|:-------------:|:---:|:--------:|:---------:|:--:|:--:|:---:|:---------------------:|:-------------:|
-| Metered billing | Microsoft 365 add-ins | Contact me | Transact (at least 1 plan) | Private-only plan | Public-only plan | Public & private plans | AppSource | Azure Marketplace |
-|  | X |  |  |  |  |  | X |  |
-| X |  |  | X | X |  |  |  | X |
-| X |  |  | X |  | X |  |  | X |
-| X |  |  | X |  |  | X |  | X<sup>2</sup> |
-|  |  |  | X | X |  |  |  | X |
-|  |  |  | X |  | X |  | X<sup>1</sup> | X<sup>1</sup> |
-|  |  |  | X |  |  | X | X<sup>1</sup> | X<sup>1,2</sup> |
-|  |  | X |  |  |  |  | x<sup>1</sup> | X<sup>1</sup> | 
+| Metered billing | Microsoft 365 add-ins | Private-only plan | Public-only plan | Public & private plans | Applicable online store |
+|:-------------:|:---:|:--------:|:---------:|:---------------------:|:-------------:|
+|  | X |  |  |  | AppSource |
+| X |  | X |  |  | Azure Marketplace |
+| X |  |  | X |  | Azure Marketplace |
+| X |  |  |  | X | Azure Marketplace<sup>2</sup> |
+|  |  | X |  |  | Azure Marketplace |
+|  |  |  | X |  | AppSource<sup>1</sup><br>Azure Marketplace<sup>1</sup> |
+|  |  |  |  | X | AppSource<sup>1</sup><br>Azure Marketplace<sup>1,2</sup> |
+|  |  |  |  | X | AppSource<sup>1</sup><br>Azure Marketplace<sup>1</sup> |
 
 1. Depending on category/subcategory and industry selection
 2. Offers with private plans will be published to the Azure portal
 
+> [!NOTE]
+> You cannot have both listing plans and transactable plans in the same offer.
 
 ### Industries
 
@@ -131,10 +135,10 @@ When you link from the AppSource or Azure Marketplace badge on your site to your
 The following example URL contains both of the preceding query parameters:
 `https://appsource.microsoft.com/product/dynamics-365/mscrm.04931187-431c-415d-8777-f7f482ba8095?src=website&mktcmpid=blogpost_12`
 
-By adding the parameters to your AppSource URL, you can review the effectiveness of your campaign in the analytics dashboard in [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/).
+By adding the parameters to your AppSource URL, you can review the effectiveness of your campaign in the [analytics dashboard](https://go.microsoft.com/fwlink/?linkid=2165765) in Partner Center.
 
 ## Next steps
 
 Learn more about your [commercial marketplace benefits](./gtm-your-marketplace-benefits.md).
 
-Sign in to [Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) to create and configure your offer.
+Sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2165290) to create and configure your offer. If you haven't yet enrolled in Partner Center, [create an account](create-account.md).
