@@ -12,7 +12,9 @@ ms.date: 06/30/2021
 
 # Plan and manage costs for Azure SQL Database
 
-This article describes how you plan for and manage costs for Azure SQL Database. First, you use the Azure pricing calculator to add Azure resources, and review the estimated costs. After you've started using Azure SQL Database resources, use Cost Management features to set budgets and monitor costs. You can also review forecasted costs and identify spending trends to identify areas where you might want to act. Costs for Azure SQL Database are only a portion of the monthly costs in your Azure bill. Although this article explains how to plan for and manage costs for Azure SQL Database, you're billed for all Azure services and resources used in your Azure subscription, including any third-party services.
+This article describes how you plan for and manage costs for Azure SQL Database. 
+
+First, you use the Azure pricing calculator to add Azure resources, and review the estimated costs. After you've started using Azure SQL Database resources, use Cost Management features to set budgets and monitor costs. You can also review forecasted costs and identify spending trends to identify areas where you might want to act. Costs for Azure SQL Database are only a portion of the monthly costs in your Azure bill. Although this article explains how to plan for and manage costs for Azure SQL Database, you're billed for all Azure services and resources used in your Azure subscription, including any third-party services.
 
 
 ## Prerequisites
@@ -42,7 +44,9 @@ For environments with multiple databases that have varying and unpredictable usa
 
 ## Estimate Azure SQL Database costs
 
-Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs for different Azure SQL Database configurations. Review [Azure SQL Database pricing here](https://azure.microsoft.com/pricing/details/azure-sql-database/). The information and pricing in the following image are for example purposes only: 
+Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs for different Azure SQL Database configurations. For more information, see [Azure SQL Database pricing](https://azure.microsoft.com/pricing/details/azure-sql-database/). 
+
+The information and pricing in the following image are for example purposes only: 
 
 :::image type="content" source="media/cost-management/pricing-calc.png" alt-text="Azure SQL Database pricing calculator example":::
 
@@ -65,15 +69,15 @@ Billing depends on the SKU of your product, the generation hardware of your SKU,
 - General purpose (GP)
 - Business critical (BC)
 - And for storage: geo-redundant storage (GRS), locally redundant storage (LRS), and zone-redundant storage (ZRS)
-- It's also possible to have a deprecated SKU from deprecated resource offerings. 
+- It's also possible to have a deprecated SKU from deprecated resource offerings
 
 To learn more, see [service tiers](service-tiers-general-purpose-business-critical.md). 
 
-The following table shows the most common billing meters and their possible SKUs for single databases in Azure SQL Database: 
+The following table shows the most common billing meters and their possible SKUs for **single databases**: 
 
 | Measurement| Possible SKU(s) | Description | 
 | :----|:----|:----|
-| Backup | GP/BC/HS | Measures the consumption of storage used by backups, billed by the amount of storage utilized in GB per month. | 
+| Backup\* | GP/BC/HS | Measures the consumption of storage used by backups, billed by the amount of storage utilized in GB per month. | 
 | Backup (LTR) | GRS/LRS/ZRS/GF | Measures the consumption of storage used by long-term backups configured via long-term retention, billed by the amount of storage utilized. | 
 | Compute  | B/S/P/GP/BC  | Measures the consumption of your compute resources per hour. | 
 | Compute (primary/named replica) | HS | Measures the consumption of your compute resources per hour of your primary HS replica. 
@@ -83,18 +87,18 @@ The following table shows the most common billing meters and their possible SKUs
 | License | GP/BC/HS | The billing for your SQL Server license accrued per month. | 
 | Storage | B/S\*/P\*/G/BC/HS | Billed monthly, by the amount of data stored per hour. |
 
-\* In the DTU purchasing model, an initial set of storage for data is provided at no additional cost, depending on the service level. Extra data storage can be purchased in the standard and premium tiers.
+\* In the DTU purchasing model, an initial set of storage for data and backups is provided at no additional cost. The size of the storage depends on the service tier selected. Extra data storage can be purchased in the standard and premium tiers. For more information, see [Azure SQL Database pricing](https://azure.microsoft.com/pricing/details/azure-sql-database/). 
 
-The following table shows the most common billing meters and their possible SKUs for elastic pools in Azure SQL Database: 
+The following table shows the most common billing meters and their possible SKUs for **elastic pools**: 
 
 | Measurement| Possible SKU(s) | Description | 
 |:----|:----|:----|
-| Backup | GP/BC  | Measures the consumption of storage used by backups, billed per GB per hour on a monthly basis. | 
+| Backup\* | GP/BC  | Measures the consumption of storage used by backups, billed per GB per hour on a monthly basis. | 
 | Compute  | B/S/P/GP/BC | Measures the consumption of your compute resources per hour, such as vCores and memory or DTUs. | 
 | License | GP/BC | The billing for your SQL Server license accrued per month. | 
 | Storage | B/S\*/P\*/GP/HS | Billed monthly, both by the amount of data stored on the drive using storage space per hour, and the throughput of megabytes per second (MBPS). |
 
-\* In the DTU purchasing model, an initial set of storage for data is provided at no additional cost, depending on the service level. Extra data storage can be purchased in the standard and premium tiers.
+\* In the DTU purchasing model, an initial set of storage for data and backups is provided at no additional cost. The size of the storage depends on the service tier selected. Extra data storage can be purchased in the standard and premium tiers. For more information, see [Azure SQL Database pricing](https://azure.microsoft.com/pricing/details/azure-sql-database/). 
 
 ### Using Monetary Credit with Azure SQL Database
 
