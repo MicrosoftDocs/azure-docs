@@ -154,7 +154,7 @@ If the cache is stopped or not in a healthy state, the update will apply after t
 
 ---
 
-## Update an ADLS-NFS storage target (PREVIEW)
+## Update an ADLS-NFS storage target
 
 Similar to NFS targets, you can change the namespace path and the usage model for ADLS-NFS storage targets.
 

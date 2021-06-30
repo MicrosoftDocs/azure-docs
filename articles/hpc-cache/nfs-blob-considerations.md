@@ -4,16 +4,13 @@ description: Describes procedures and limitations when using ADLS-NFS blob stora
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 03/29/2021
+ms.date: 06/30/2021
 ms.author: v-erkel
 ---
 
-# Use NFS-mounted blob storage (PREVIEW) with Azure HPC Cache
+# Use NFS-mounted blob storage with Azure HPC Cache
 
-Starting in March 2021 you can use NFS-mounted blob containers with Azure HPC Cache. Read more about the [NFS 3.0 protocol support in Azure Blob storage](../storage/blobs/network-file-system-protocol-support.md) on the Blob storage documentation site.
-
-> [!NOTE]
-> NFS 3.0 protocol support in Azure Blob storage is in preview and should not be used in production environments. Check for updates and more details in the [NFS protocol support documentation](../storage/blobs/network-file-system-protocol-support.md).
+You can use NFS-mounted blob containers with Azure HPC Cache. Read more about the [NFS 3.0 protocol support in Azure Blob storage](../storage/blobs/network-file-system-protocol-support.md) on the Blob storage documentation site.
 
 Azure HPC Cache uses NFS-enabled blob storage in its ADLS-NFS storage target type. These storage targets are similar to regular NFS storage targets, but also have some overlap with regular Azure Blob targets.
 
@@ -21,9 +18,9 @@ This article explains strategies and limitations that you should understand when
 
 You should also read the NFS blob documentation, especially these sections that describe compatible and incompatible scenarios:
 
-* [Feature overview](../storage/blobs/network-file-system-protocol-support.md#applications-and-workloads-suited-for-this-feature)
-* [Features not yet supported](../storage/blobs/network-file-system-protocol-support.md#azure-storage-features-not-yet-supported)
+* [Feature overview](../storage/blobs/network-file-system-protocol-support.md)
 * [Performance considerations](../storage/blobs/network-file-system-protocol-support-performance.md)
+* [Known issues and limitations](../storage/blobs/network-file-system-protocol-known-issues.md)
 
 ## Understand consistency requirements
 
@@ -63,7 +60,7 @@ These cache usage models include write caching:
 * **Greater than 15% writes, checking the backing server for changes every 60 seconds**
 * **Greater than 15% writes, write back to the server every 30 seconds**
 
-Only use these usage models to edit files that were created with NFS.
+Write caching usage models should be used only on files that were created with NFS.
 
 If you try to use write caching on REST-created files, your file changes could be lost. This is because the cache does not try to save file edits to the storage container immediately.
 
@@ -110,5 +107,5 @@ Keep in mind the limitations explained above in [Preload data with NFS protocol]
 
 ## Next steps
 
-* Learn [ADLS-NFS storage target prerequisites](hpc-cache-prerequisites.md#nfs-mounted-blob-adls-nfs-storage-requirements-preview)
+* Learn [ADLS-NFS storage target prerequisites](hpc-cache-prerequisites.md#nfs-mounted-blob-adls-nfs-storage-requirements)
 * Create an [NFS-enabled blob storage account](../storage/blobs/network-file-system-protocol-support-how-to.md)
