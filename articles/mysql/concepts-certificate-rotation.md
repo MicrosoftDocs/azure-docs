@@ -10,7 +10,7 @@ ms.date: 04/08/2021
 
 # Understanding the changes in the Root CA change for Azure Database for MySQL Single Server
 
-[!INCLUDE[applies-to-single-server](includes/applies-to-single-server.md)]
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 Azure Database for MySQL Single Server successfully completed the root certificate change on **February 15, 2021 (02/15/2021)** as part of standard maintenance and security best practices. This article gives you more details about the changes, the resources affected, and the steps needed to ensure that your application maintains connectivity to your database server.
 

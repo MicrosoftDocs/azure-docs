@@ -278,14 +278,14 @@
     - name: Azure compute units (ACU)
       href: acu.md
     - name: Benchmark scores
+      displayName: benchmark, coremark
       items:
       - name: Linux
-        displayName: Benchmark scores, score, acu
         href: ./linux/compute-benchmark-scores.md
       - name: Windows
-        displayName: Benchmark scores, score, acu
         href: ./windows/compute-benchmark-scores.md
   - name: Dedicated hosts
+    displayName: sole-tenant, sole tenant, isolated, isolation
     items:
     - name: Overview
       displayName: Dedicated hosts, ADH
