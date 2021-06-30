@@ -31,11 +31,7 @@ When you need to take on an privileged access group role, you can request activa
 
 1. Open [Privileged Identity Management](https://portal.azure.com/#blade/Microsoft_Azure_PIMCommon/CommonMenuBlade/quickStart).
 
-1. Select **Privileged access groups (Preview)** and then select the group you want to manage. You can search or filter in the list.
-
-    ![Open the Privileged access groups (Preview) experience](./media/groups-activate-roles/groups-select-group.png)
-
-1. Select **Activate** to open the Activate page.
+1. Select **Privileged access groups (Preview)** and then select **Activate role** to open the **My roles** page for privileged access groups.
 
 1. If your role requires multi-factor authentication, select **Verify your identity before proceeding**. You only have to authenticate once per session.
 
@@ -45,11 +41,7 @@ When you need to take on an privileged access group role, you can request activa
 
     ![Screen to provide security verification such as a PIN code](./media/groups-activate-roles/groups-mfa-enter-code.png)
 
-1. If you want to specify a reduced scope, select **Scope** to open the Resource filter pane.
-
-    It's a best practice to only request access to the resources you need. On the Resource filter pane, you can specify the resource groups or resources that you need access to.
-
-1. If necessary, specify a custom activation start time. The member would be activated after the selected time.
+1. If necessary, specify a custom activation start time. The member or owner can be activated only after the selected time.
 
 1. In the **Reason** box, enter the reason for the activation request.
 
