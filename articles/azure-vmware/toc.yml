@@ -14,9 +14,9 @@
     href: tutorial-deploy-azure-vmware-solution.md
   - name: 3 - Connect to on-premises environment
     href: tutorial-expressroute-global-reach-private-cloud.md
-  - name: 4 - Install VMware HCX Connector
+  - name: 4 - Install the VMware HCX Connector
     href: tutorial-install-vmware-hcx.md
-  - name: 5 - Configure on-premises VMware HCX Connector
+  - name: 5 - Configure the on-premises VMware HCX Connector
     href: tutorial-configure-vmware-hcx.md
 - name: Tutorials
   items:
@@ -30,8 +30,6 @@
     href: tutorial-nsx-t-network-segment.md
   - name: Delete a private cloud
     href: tutorial-delete-private-cloud.md
-  - name: Deploy and configure VMware HCX
-    href: tutorial-deploy-vmware-hcx.md
   - name: Expand or shrink clusters in a private cloud
     href: tutorial-scale-private-cloud.md
   - name: Network planning checklist
