@@ -8,7 +8,7 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
-ms.date: 06/10/2021
+ms.date: 06/29/2021
 ms.topic: how-to
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1
 
@@ -48,9 +48,9 @@ In this article you learn how to enable the following workspaces resources in a 
 
 ## Secure the workspace with private endpoint
 
-Azure Private Link lets you connect to your workspace using a private endpoint. The private endpoint is a set of private IP addresses within your virtual network. You can then limit access to your workspace to only occur over the private IP addresses. Private Link helps reduce the risk of data exfiltration.
+Azure Private Link lets you connect to your workspace using a private endpoint. The private endpoint is a set of private IP addresses within your virtual network. You can then limit access to your workspace to only occur over the private IP addresses. A private endpoint helps reduce the risk of data exfiltration.
 
-For more information on setting up a Private Link workspace, see [How to configure Private Link](how-to-configure-private-link.md).
+For more information on configuring a private endpoint for your workspace, see [How to configure a private endpoint](how-to-configure-private-link.md).
 
 > [!WARNING]
 > Securing a workspace with private endpoints does not ensure end-to-end security by itself. You must follow the steps in the rest of this article, and the VNet series, to secure individual components of your solution. For example, if you use a private endpoint for the workspace, but your Azure Storage Account is not behind the VNet, traffic between the workspace and storage does not use the VNet for security.
@@ -122,12 +122,19 @@ By default, Azure Machine Learning performs data validity and credential checks 
 
 ### Use datastores
 
- Azure Data Lake Store Gen1 and Azure Data Lake Store Gen2 skip validation by default, so no further action is necessary. However, for the following services you can use similar syntax to skip datastore validation:
+The following table lists the services that you need to skip validation for:
 
-- Azure Blob storage
-- Azure fileshare
-- PostgreSQL
-- Azure SQL Database
+| Service | Skip validation required? |
+| ----- |:-----:|
+| Azure Blob storage | Yes |
+| Azure File share | Yes |
+| Azure Data Lake Store Gen1 | No |
+| Azure Data Lake Store Gen2 | No |
+| Azure SQL Database | Yes |
+| PostgreSql | Yes |
+
+> [!NOTE]
+> Azure Data Lake Store Gen1 and Azure Data Lake Store Gen2 skip validation by default, so you don't have to do anything.
 
 The following code sample creates a new Azure Blob datastore and sets `skip_validation=True`.
 
@@ -244,6 +251,22 @@ Once those requirements are fulfilled, use the following steps to enable Azure C
 
 > [!TIP]
 > When ACR is behind a VNet, you can also [disable public access](../container-registry/container-registry-access-selected-networks.md#disable-public-network-access) to it.
+
+## Securely connect to your workspace
+
+The following methods can be used to connect to the secure workspace:
+
+* [Azure VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) - Connects on-premises networks to the VNet over a private connection. Connection is made over the public internet. There are two types of VPN gateways that you might use:
+
+    * [Point-to-site](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md): Each client computer uses a VPN client to connect to the VNet.
+    * [Site-to-site](../vpn-gateway/tutorial-site-to-site-portal.md): A VPN device connects the VNet to your on-premises network.
+
+* [ExpressRoute](https://azure.microsoft.com/services/expressroute/) - Connects on-premises networks into the cloud over a private connection. Connection is made using a connectivity provider.
+* [Azure Bastion](../bastion/bastion-overview.md) - In this scenario, you create an Azure Virtual Machine (sometimes called a jump box) inside the VNet. You then connect to the VM using Azure Bastion. Bastion allows you to connect to the VM using either an RDP or SSH session from your local web browser. You then use the jump box as your development environment. Since it is inside the VNet, it can directly access the workspace. For an example of using a jump box, see [Tutorial: Create a secure workspace](tutorial-create-secure-workspace.md).
+
+> [!IMPORTANT]
+> When using a __VPN gateway__ or __ExpressRoute__, you will need to plan how name resolution works between your on-premises resources and those in the VNet. For more information, see [Use a custom DNS server](how-to-custom-dns.md).
+
 ## Next steps
 
 This article is part two of a five-part virtual network series. See the rest of the articles to learn how to secure a virtual network:
