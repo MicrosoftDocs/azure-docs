@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 06/23/2021
+ms.date: 07/01/2021
 ms.author: lajanuar
 keywords: on-premises, Docker, container, identify
 ---
