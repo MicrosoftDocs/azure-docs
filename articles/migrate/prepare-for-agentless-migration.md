@@ -96,11 +96,11 @@ The preparation script will also set the DHCP service start type as Automatic. T
 To edit the DHCP startup settings manually, run the following example in Windows PowerShell:
 
 
-          ```
+    ```
           |Get-Service -Name Dhcp|
           Where-Object StartType -ne Automatic |
           Set-Service -StartupType Automatic
-          ```
+      ```
 
 4.	**Disable VMware Tools**                                 
 Make “VMware Tools” service start-type to disabled if it exists as they are not required for the VM in Azure.
