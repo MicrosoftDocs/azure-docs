@@ -18,8 +18,8 @@ Anomaly Detector with Multivariate Anomaly Detection (MVAD) is an advanced AI to
 
 In general, you could take these steps to use MVAD:
 
+  1. Create an Anomaly Detector resource that supports MVAD on Azure.
   1. Prepare your data.
-  1. Create an Anomaly Detector resource on Azure.
   1. Train an MVAD model.
   1. Query the status of your model.
   1. Detect anomalies with the trained MVAD model.
@@ -32,9 +32,18 @@ In this tutorial, you'll:
 > * Understand how to train and inference with MVAD.
 > * Understand the input parameters and how to interpret the output in inference results.
 
-## 1. Data Preparation
+## 1. Create an Anomaly Detector resource that supports MVAD
 
-The very first step before using MVAD is preparing your own data. 
+* Create an Azure subscription if you don't have one - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
+* Once you have your Azure subscription, [create an Anomaly Detector resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector) in the Azure portal to get your API key and API endpoint.
+
+> [!NOTE]
+> During preview stage, MVAD is available on limited regions only. Please bookmark [What's new in Anomaly Detector](../whats-new.md)  to keep up to date with MVAD region roll-outs. You could also file a GitHub issue or contact us at AnomalyDetector@microsoft.com to request for specific regions.
+
+## 2. Data Preparation
+
+Then you need to prepare your training data (and inference data).
+
 [!INCLUDE [mvad-data-schema](../includes/mvad-data-schema.md)]
 
 ### Tools for zipping and uploading data
@@ -49,26 +58,30 @@ zip -j series.zip series/*.csv
 
 #### Compressing csv files in Windows
 
-* Navigate *into* the folder with all the csv files
-* Select all the csv files you need
-* Right click on one of the csv files and select `Send to`
-* Select `Compressed (zipped) folder` from the drop-down
-* Rename the zip file as needed
+* Navigate *into* the folder with all the csv files.
+* Select all the csv files you need.
+* Right click on one of the csv files and select `Send to`.
+* Select `Compressed (zipped) folder` from the drop-down.
+* Rename the zip file as needed.
 
 #### Python code zipping & uploading data to Azure Blob Storage
 
-You could refer to [this doc](/azure/storage/blobs/storage-quickstart-blobs-portal#upload-a-block-blob) to learn how to upload a file to Azure Blob.
+You could refer to [this doc](/azure/storage/blobs/storage-quickstart-blobs-portal.md#upload-a-block-blob) to learn how to upload a file to Azure Blob.
 
 Or, you could refer to the sample code below that can do the zipping and uploading for you. You could copy and save the Python code in this section as a .py file (for example, `zipAndUpload.py`) and run it using command lines like these:
 
-* `python zipAndUpload.py -s "foo\bar" -z test123.zip -c {azure blob connection string} -n container_xxx` This command will compress all the csv files in `foo\bar` into a single zipfile named `test123.zip`. It will upload `test123.zip` to the container `container_xxx` in your blob.
-* `python zipAndUpload.py -s "foo\bar" -z test123.zip -c {azure blob connection string} -n container_xxx -r` This command will do the same thing as the above, but it will delete the zipfile `test123.zip` after uploading successfully. 
+* `python zipAndUpload.py -s "foo\bar" -z test123.zip -c {azure blob connection string} -n container_xxx`
+
+    This command will compress all the csv files in `foo\bar` into a single zipfile named `test123.zip`. It will upload `test123.zip` to the container `container_xxx` in your blob.
+* `python zipAndUpload.py -s "foo\bar" -z test123.zip -c {azure blob connection string} -n container_xxx -r` 
+
+    This command will do the same thing as the above, but it will delete the zipfile `test123.zip` after uploading successfully. 
 
 Arguments:
 
-* `--source-folder`, `-s` path to the source folder containing csv files
-* `--zipfile-name`, `-z` name of the zip file
-* `--connection-string`, `-c` connection string to your blob
+* `--source-folder`, `-s`, path to the source folder containing csv files
+* `--zipfile-name`, `-z`, name of the zip file
+* `--connection-string`, `-c`, connection string to your blob
 * `--container-name`, `-n`, name of the container
 * `--remove-zipfile`, `-r`, if on, remove the zip file
 
@@ -140,11 +153,6 @@ if __name__ == "__main__":
         print(f"Failed to delete zip file. {repr(ex)}")
 ```
 
-## 2. Create an Anomaly Detector resource
-
-* Create an Azure subscription if you don't have one - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
-* Once you have your Azure subscription, [create an Anomaly Detector resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector) in the Azure portal to get your API key and API endpoint.
-
 ## 3. Train an MVAD Model
 
 Here is a sample request body and the sample code in Python to train an MVAD model.
@@ -201,7 +209,7 @@ As the training API is asynchronized, you won't get the model immediately after 
 
 ### List all the models
 
-You may refer to [this page](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector-v1-1-preview/operations/ListMultivariateModel) about the request URL and request headers. Notice that we only return 10 models ordered by update time, but you can visit other models by setting the `$skip` and the `$top` parameters in the request URL. For example, if your request URL is `https://{endpoint}/anomalydetector/v1.1-preview/multivariate/models?$skip=10&$top=20`, then we will skip the 10 latest models and return the next 20 models.
+You may refer to [this page](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector-v1-1-preview/operations/ListMultivariateModel) about the request URL and request headers. Notice that we only return 10 models ordered by update time, but you can visit other models by setting the `$skip` and the `$top` parameters in the request URL. For example, if your request URL is `https://{endpoint}/anomalydetector/v1.1-preview/multivariate/models?$skip=10&$top=20`, then we will skip the latest 10 models and return the next 20 models.
 
 A sample response is 
 
@@ -231,11 +239,11 @@ A sample response is
 }
 ```
 
-The response contains 4 fields, `models`, `currentCount`, `maxCount`, and `nextLink`. 
+The response contains 4 fields, `models`, `currentCount`, `maxCount`, and `nextLink`.
 
-* `models` contains the created time, last updated time, model ID, display name, variable counts, and the status of each model. 
-* `current count ` contains the number of trained multivariate models.
-* `maxCount` is the maximum number of models to be trained for this Anomaly Detector resource. 
+* `models` contains the created time, last updated time, model ID, display name, variable counts, and the status of each model.
+* `currentCount` contains the number of trained multivariate models.
+* `maxCount` is the maximum number of models supported by this Anomaly Detector resource.
 * `nextLink` could be used to fetch more models.
 
 ### Get models by Model ID
@@ -300,20 +308,26 @@ The response contains 4 fields, `models`, `currentCount`, `maxCount`, and `nextL
 
 You will receive more detailed information about the model queried. The response contains meta information about the model, its training parameters, and diagnostic information. Diagnostic Information is useful for debugging and tracing training progress.
 
-* `epochIds` indicates how many epochs the model has been trained out of in total 100 epochs. For example, if the model is still in the training status, `epochId` might be `[10, 20, 30, 40, 50]` which means that it has completed its 50th training epoch, so there are half way to go.
-* `trainLosses` and `validationLosses` are used to check whether the optimization progress converges - the two losses should decrease gradually.
-* `latenciesInSeconds` contains the time cost for each epoch and is recorded every 10 epochs. In this example, the 10th epoch takes approximately 0.34 seconds to finish. This would be helpful to estimate the completion time of training.
-* `variableStates` summarizes information about each variable. It is a list ranked by `filledNARatio` in descending order. It tells how many data points are used for each variable and `filledNARatio` tells how many missing points are there. Usually we need to reduce `filledNARatio` as much as possible.
-Too many missing data points will deteriorate model performance.
-* If any errors have encountered during data processing, they will be included in the `errors` field.
+* `epochIds` indicates how many epochs the model has been trained out of in total 100 epochs. For example, if the model is still in training status, `epochId` might be `[10, 20, 30, 40, 50]` which means that it has completed its 50th training epoch, and there are half way to go.
+* `trainLosses` and `validationLosses` are used to check whether the optimization progress converges in which case the two losses should decrease gradually.
+* `latenciesInSeconds` contains the time cost for each epoch and is recorded every 10 epochs. In this example, the 10th epoch takes approximately 0.34 seconds. This would be helpful to estimate the completion time of training.
+* `variableStates` summarizes information about each variable. It is a list ranked by `filledNARatio` in descending order. It tells how many data points are used for each variable and `filledNARatio` tells how many points are missing. Usually we need to reduce `filledNARatio` as much as possible.
+Too many missing data points will deteriorate model accuracy.
+* Errors during data processing will be included in the `errors` field.
 
 ## 5. Inference with MVAD
 
-To perform inference on new data, simply provide the blob source to the zip file containing inferencing data, the start time, and end time. Inference is also asynchronized, so the results are not returned immediately. Notice that you need to save the link to the results in the **response header** containing the **result ID**, so that you may know where to get the results. A response code 201 indicates the success. Failures are usually caused by model issues or data issues. You cannot perform inference if the model is not ready or the data link is invalid. Make sure that the training data and inference data are consistent, which means they should be **exactly** the same time series but with different timestamps. More time series, less time series, or inference with different time series will not pass the data verification phase and errors will occur. Data verification is deferred so that you will get error message when you query the results.
+To perform inference, simply provide the blob source to the zip file containing the inference data, the start time, and end time.
+
+Inference is also asynchronized, so the results are not returned immediately. Notice that you need to save in a variable the link of the results in the **response header** which contains the `resultId`, so that you may know where to get the results afterwards.
+
+Failures are usually caused by model issues or data issues. You cannot perform inference if the model is not ready or the data link is invalid. Make sure that the training data and inference data are consistent, which means they should be **exactly** the same variables but with different timestamps. More variables, fewer variables, or inference with different set of variables will not pass the data verification phase and errors will occur. Data verification is deferred so that you will get error message only when you query the results.
 
 ## 6. Get Inference Results
 
-You need the result ID to get results. Result ID is obtained from the response header when you submit the inference request. [This page](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector-v1-1-preview/operations/GetDetectionResult) contains instructions to query the inference results. A sample response looks like this
+You need the `resultId` to get results. `resultId` is obtained from the response header when you submit the inference request. [This page](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector-v1-1-preview/operations/GetDetectionResult) contains instructions to query the inference results. 
+
+A sample response looks like this
 
 ```json
  {
@@ -423,14 +437,19 @@ The response contains the result status, variable information, inference paramet
 * `variableStates` lists the information of each variable in the inference request.
 * `setupInfo` is the request body submitted for this inference.
 * `results` contains the detection results. There're three typical types of detection results.
-    1. Error code `InsufficientHistoricalData`. This usually happens with the first few timestamps because the model inferences data in a window-based manner and it needs historical data to make a decision. For the first few timestamps, there is insufficient historical data, so inference cannot be performed on them. In this case, the error message can be ignored.
+    1. Error code `InsufficientHistoricalData`. This usually happens only with the first few timestamps because the model inferences data in a window-based manner and it needs historical data to make a decision. For the first few timestamps, there is insufficient historical data, so inference cannot be performed on them. In this case, the error message can be ignored.
     1. `"isAnomaly": false` indicates the current timestamp is not an anomaly.
         * `severity ` indicates the relative severity of the anomaly and for normal data it is always 0.
         * `score` is the raw output of the model on which the model makes a decision which could be non-zero even for normal data points.
     1. `"isAnomaly": true` indicates an anomaly at the current timestamp.
         * `severity ` indicates the relative severity of the anomaly and for abnormal data it is always greater than 0.
         * `score` is the raw output of the model on which the model makes a decision. `severity` is a derived value from `score`. Every data point has a `score`.
-        * `contributors` is a list containing the contribution score of each variable. Higher contribution scores indicate higher possibility of the root cause.
+        * `contributors` is a list containing the contribution score of each variable. Higher contribution scores indicate higher possibility of the root cause. This list is often used for interpreting anomalies as well as diagnosing the root causes.
+
+> [!NOTE]
+> A common pitfall is taking all data points with `isAnomaly`=`true` as anomalies. That may end up with too many false positives.
+> You should use both `isAnomaly` and `severity` (or `score`) to sift out anomalies that are not severe and (optionally) use grouping to check the duration of the anomalies to suppress random noises. 
+> Please refer to the [FAQ](../concepts/best-practices-multivariate.md#faq) in the best practices document for the difference between `severity` and `score`.
 
 ## Next steps
 
