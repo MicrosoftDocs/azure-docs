@@ -441,8 +441,8 @@ public func setAudio(route: MeetingUIClientAudioRoute, completionHandler: @escap
 // Raise the hand of current user for an active call.
 public func raiseHand(completionHandler: @escaping (Error?) -> Void)
 
-// Lower the hand of user provided in the identifier for an active call.
-// public func lowerHand(identifier: CommunicationIdentifier, completionHandler: @escaping (Error?) -> Void)
+// Lower the hand of current user for an active call.
+// public func lowerHand(completionHandler: @escaping (Error?) -> Void)
 
 // Show the call roster for an active call.
 public func showCallRoster(completionHandler: @escaping (Error?) -> Void)
