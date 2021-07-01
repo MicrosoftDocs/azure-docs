@@ -73,7 +73,7 @@ If your app is only scaled to one instance and bccomes unhealthy, it will not be
  
 ### Why are the Health check request not showing in my frontend logs?
 
-The Health check request are sent to your site internally, so the request will not show in [the frontend logs](troubleshoot-diagnostic-logs.md#enable-web-servier-logging). This also means the request will have an origin of `127.0.0.1` since it the request being sent internally. You can add log statements in your Health check code to keep logs of when your Health check path is pinged.
+The Health check request are sent to your site internally, so the request will not show in [the frontend logs](troubleshoot-diagnostic-logs.md#enable-web-server-logging). This also means the request will have an origin of `127.0.0.1` since it the request being sent internally. You can add log statements in your Health check code to keep logs of when your Health check path is pinged.
 
 ### Are the Health check requests sent over HTTP or HTTPS?
 
