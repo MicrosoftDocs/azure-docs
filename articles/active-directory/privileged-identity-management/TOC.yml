@@ -41,6 +41,8 @@
       href: pim-how-to-activate-role.md
     - name: Azure roles
       href: pim-resource-roles-activate-your-roles.md
+    - name: Privileged Access groups
+      href: groups-activate-roles.md 
   - name: Approve
     items:
     - name: Azure AD roles
