@@ -415,7 +415,7 @@ The `tagOverrides` parameter sets the `operation_Id` to the function's invocatio
 
 ## HTTP triggers and bindings
 
-HTTP and webhook triggers and HTTP output bindings use request and response objects to represent the HTTP messaging.  
+HTTP and webhook triggers and HTTP output bindings use request and response objects to represent the HTTP messaging.
 
 ### Request object
 
@@ -485,6 +485,8 @@ When you work with HTTP triggers, you can access the HTTP request and response o
     res = { status: 201, body: "Insert succeeded." };
     context.done(null, res);   
     ```  
+
+Note that request and response keys are in lowercase.
 
 ## Scaling and concurrency
 
