@@ -420,7 +420,7 @@ Allows your company to crawl content from the Adobe Experience Manager server, p
 
 ### Adobe AEM
 
-by [BA Insight](https://www.bainsight.com/connectors/)
+by [BA Insight](https://www.bainsight.com/)
 
 The Adobe Experience Manager connector enables indexing of content managed by the Adobe Experience Manager (AEM) platform and supports both Full and Incremental crawling to ensure index freshness.
 

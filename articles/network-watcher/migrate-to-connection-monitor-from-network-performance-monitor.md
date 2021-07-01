@@ -73,6 +73,23 @@ After the migration, be sure to:
 * While you're disabling NPM, re-create your alerts on the NWConnectionMonitorTestResult and NWConnectionMonitorPathResult tables or use metrics. 
 * Migrate any external integrations to the NWConnectionMonitorTestResult and NWConnectionMonitorPathResult tables. Examples of external integrations are dashboards in Power BI and Grafana, and integrations with Security Information and Event Management (SIEM) systems.
 
+## Common Errors Encountered
+
+Below are some common errors faced during the migration : 
+
+| Error  |    Reason   |
+|---|---|
+| No valid NPM config found. Go to NPM UI to check config     |     This error occurs when User is selecting Import Tests from NPM to migrate the tests but NPM is not enabled in the workspace   |
+|Workspace selected does not have 'Service Connectivity Monitor' config    |       This error occurs when User is migrating tests from NPM’s Service Connectivity Monitor to Connection Monitor but there are no tests configured in Service Connectivity Monitor |
+|Workspace selected does not have 'ExpressRoute Monitor' config    |     This error occurs when User is migrating tests from NPM’s ExpressRoute Monitor to Connection Monitor but there are no tests configured in ExpressRoute Monitor  |
+|Workspace selected does not have 'Performance Monitor' config    |      This error occurs when User is migrating tests from NPM’s Performance Monitor to Connection Monitor but there are no tests configured in Performance Monitor |
+|Workspace selected does not have valid '{0}' tests    |      This error occurs when User is migrating tests from NPM to Connection Monitor but there are no valid tests present in the feature chosen by User to migrate  |
+|Before you attempt migrate, please enable Network watcher extension in selection subscription and location of LA workspace selected      |      This error occurs when User is migrating tests from NPM to Connection Monitor and Network Watcher Extension is not enabled in the LA workspace selected. User needs to enable NW Extension before migrating tests |
+|Few {1} tests contain agents that are no longer active. List of inactive agents - {0}. These agents may be running in the past but are shut down/not running any more. Enable agents and migrate to Connection Monitor. Click continue to migrate the tests that do not contain agents that are not active       |    This error occurs when User is migrating tests from NPM to Connection Monitor and some selected tests contain inactive Network Watcher Agents or such NW Agents which are no longer active but used to be active in the past and have been shut down. User can deselect these tests and continue to select and migrate the tests which do not contain any such inactive agents  |
+|Your {1} tests contain agents that are no longer active. List of inactive agents -  {0}. These agents may be running in the past but are shut down/not running any more. Enable agents and migrate to Connection Monitor     | This error occurs when User is migrating tests from NPM to Connection Monitor and selected tests contain inactive Network Watcher Agents or such NW Agents which are no longer active but used to be active in the past and have been shut down. User needs to enable the agents and then continue to migrate these tests to Connection Monitor    |
+|An error occurred while importing tests to connection monitor     |    This error occurs when User is trying to migrate tests from NPM to CM but due to errors the migration is not successful |
+
+
 
 ## Next steps
 
