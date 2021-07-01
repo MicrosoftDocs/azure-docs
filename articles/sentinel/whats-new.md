@@ -30,12 +30,29 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 ## June 2021
 
+- [Upgrades for normalization and the Azure Sentinel Information Model](#upgrades-for-normalization-and-the-azure-sentinel-information-model)
 - [Updated service-to-service connectors](#updated-service-to-service-connectors)
 - [Export and import analytics rules (Public preview)](#export-and-import-analytics-rules-public-preview)
 - [Alert enrichment: alert details (Public preview)](#alert-enrichment-alert-details-public-preview)
-- [Upgrades for normalization and the Azure Sentinel Information Model](#upgrades-for-normalization-and-the-azure-sentinel-information-model)
+
 - [More help for playbooks!](#more-help-for-playbooks)
 - [New documentation reorganization](#new-documentation-reorganization)
+
+### Upgrades for normalization and the Azure Sentinel Information Model
+
+The Azure Sentinel Information Model enables you to use and create source-agnostic content, simplifying your analysis of the data in your Azure Sentinel workspace.
+
+In this month's update, we've enhanced our normalization documentation, providing new levels of detail and full DNS, process event, and authentication normalization schemas.
+
+For more information, see:
+
+- [Normalization and the Azure Sentinel Information Model (ASIM)](normalization.md) (updated)
+- [Azure Sentinel Authentication normalization schema reference (Public preview)](authentication-normalization-schema.md) (new!)
+- [Azure Sentinel data normalization schema reference](normalization-schema.md)
+- [Azure Sentinel DNS normalization schema reference (Public preview)](dns-normalization-schema.md) (new!)
+- [Azure Sentinel Process Event normalization schema reference (Public preview)](process-events-normalization-schema.md) (new!)
+- [Azure Sentinel Registry Event normalization schema reference (Public preview)](registry-event-normalization-schema.md) (new!)
+
 
 ### Updated service-to-service connectors
 
@@ -59,18 +76,6 @@ In addition to enriching your alert content with entity mapping and custom detai
 
 For more information, see [Customize alert details in Azure Sentinel](customize-alert-details.md).
 
-### Upgrades for normalization and the Azure Sentinel Information Model
-
-The Azure Sentinel Information Model enables you to use and create source-agnostic content, simplifying your analysis of the data in your Azure Sentinel workspace.
-
-
-In this month's update, we've enhanced our normalization documentation, providing new levels of detail and a full DNS normalization schema.
-
-For more information, see:
-
-- [Normalization and the Azure Sentinel Information Model (ASIM)](normalization.md) (updated)
-- [Azure Sentinel data normalization schema reference](normalization-schema.md)
-- [Azure Sentinel DNS normalization schema reference (Public preview)](dns-normalization-schema.md) (new!)
 
 ### More help for playbooks!
 

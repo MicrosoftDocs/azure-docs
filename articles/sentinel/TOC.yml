@@ -391,10 +391,16 @@
       href: cef-name-mapping.md
     - name: Normalization
       items:
-      - name: Network normalization schema
-        href: normalization-schema.md
+      - name: Authentication normalization schema
+        href: authentication-normalization-schema.md
       - name: DNS normalization schema
         href: dns-normalization-schema.md
+      - name: Network normalization schema
+        href: normalization-schema.md
+      - name: Process event normalization schema
+        href: process-events-normalization-schema.md
+      - name: Registry event normalization schema
+        href: registry-event-normalization-schema.md
   - name: Detection and analysis references
     items:
     - name: Top Azure Sentinel workbooks
