@@ -93,6 +93,15 @@ In addition to the built-in notebook charting options, you can use popular open-
 > [!Note]
 > By default, every Apache Spark pool in Azure Synapse Analytics contains a set of commonly used and default libraries. You can view the full list of libraries in the [Azure Synapse runtime](../spark/apache-spark-version-support.md) documentation. In addition, to make third-party or locally built code available to your applications, you can [install a library](../spark/apache-spark-azure-portal-add-libraries.md) onto one of your Spark pools.
 
+> [!Note]
+> When using the Apache Spark 3.0 Runtime you now can toogle the output from the MatPlotLib in you notebook with this code:
+
+   ```python
+   # Toogle the output of your plot with this instruction
+   from notebookutils import enableMatplotlib
+   enableMatplotlib()
+   ```
+
 1. To make development easier and less expensive, we'll downsample the dataset. We'll use the built-in Apache Spark sampling capability. In addition, both Seaborn and Matplotlib require a Pandas DataFrame or NumPy array. To get a Pandas DataFrame, use the ```toPandas()``` command to convert the DataFrame.
 
    ```python
