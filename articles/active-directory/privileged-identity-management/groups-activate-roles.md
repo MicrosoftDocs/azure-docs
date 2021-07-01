@@ -33,6 +33,8 @@ When you need to take on an privileged access group role, you can request activa
 
 1. Select **Privileged access groups (Preview)** and then select **Activate role** to open the **My roles** page for privileged access groups.
 
+    ![Privileged access roles page in PIM](./media/groups-activate-roles/groups-select-group.png)
+
 1. On the **My roles** page, select **Activate** on the row of the eligible assignment you want to activate.
 
     ![Activate link on the eligible role assignment row](./media/groups-activate-roles/groups-activate-link.png)
@@ -49,7 +51,7 @@ When you need to take on an privileged access group role, you can request activa
 
 1. In the **Reason** box, enter the reason for the activation request.
 
-    ![Activate link on the eligible role assignment row](./media/groups-activate-roles/groups-activate-link.png)
+    ![Activate page with duration and justification](./media/groups-activate-roles/groups-activate-page.png)
 
 1. Select **Activate**.
 
