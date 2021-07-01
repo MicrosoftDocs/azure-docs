@@ -81,7 +81,7 @@ You may need to configure these settings manually if the OS version is not suppo
       - On the on-premises server, open the command prompt with elevated privileges.
       - Enter **diskpart**.
 
-         ![Administrator Command Prompt diskpart](./media/concepts-vmware-agentless-migration/command-prompt-diskpart.png)
+     ![Administrator Command Prompt diskpart](./media/concepts-vmware-agentless-migration/command-prompt-diskpart.png)
 
   3.	Enter SAN. If the drive letter of the guest operating system isn't maintained, Offline All or Offline Shared is returned.
 
