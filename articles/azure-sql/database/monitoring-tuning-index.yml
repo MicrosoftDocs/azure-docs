@@ -30,14 +30,14 @@ landingContent:
             url: monitor-tune-overview.md
       - linkListType: learn
         links:
-          - text: Protect, monitor, and tune a migrated database
-            url: /learn/modules/protect-monitor-tuning-migrated-database/
           - text: Configure databases for performance
             url: /learn/modules/configure-databases-performance/
-          - text: Optimize query performance in SQL Server
+          - text: Optimize query performance 
             url: /learn/paths/optimize-query-performance-sql-server/
-          - text: Monitor and optimize operational resources in SQL Server
+          - text: Monitor and optimize operational resources 
             url: /learn/paths/monitor-optimize-operational-resources-sql-server/
+          - text: Protect, monitor, and tune 
+            url: /learn/modules/protect-monitor-tuning-migrated-database/
 
   # Card (optional)
   - title: Azure SQL Database intelligent performance recommendations
