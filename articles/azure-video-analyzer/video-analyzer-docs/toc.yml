@@ -123,8 +123,8 @@
     items:      
     - name: Develop and deploy gRPC inference server
       href: develop-deploy-grpc-inference-srv.md
-    - name: Record using AI composition
-      href: record-ai-composition.md
+    - name: Analyze using AI composition
+      href: analyze-ai-composition.md
   - name: Portal
     items:      
     - name: Invoke direct methods with the portal

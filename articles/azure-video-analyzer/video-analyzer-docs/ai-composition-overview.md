@@ -69,4 +69,4 @@ Sequential and parallel nodes can be combined.
 
 ## Next steps
 
-[How To record an object of interest to AMS asset using multiple AI modelsAI](record-ai-composition.md)
+[Analyze live video streams with multiple AI models using AI composition](analyze-ai-composition.md)
