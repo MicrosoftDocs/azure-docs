@@ -168,47 +168,47 @@ In case of any organizational restrictions, you can manually set up the Site Rec
 5. Ensure the following URLs are whitelisted and reachable from the Azure Site Recovery replication appliance for continuous connectivity:
 
   | **URL**                  | **Details**                             |
-| ------------------------- | -------------------------------------------|
-| portal.azure.com          | Navigate to the Azure portal.              |
-| `*.windows.net `<br>`*.msftauth.net`<br>`*.msauth.net`<br>`*.microsoft.com`<br>`*.live.com `<br>`*.office.com ` | To sign-in to your Azure subscription.  |
-|`*.microsoftonline.com `|Create Azure Active  Directory (AD) apps for the appliance to communicate with Azure Site Recovery. |
-|management.azure.com |Create Azure AD apps for the appliance to communicate with the Azure Site Recovery service. |
-|`*.services.visualstudio.com `|Upload app logs used for internal monitoring. |
-|`*.vault.azure.net `|Manage secrets in the Azure Key Vault. Note: Ensure machines to replicate have access to this. |
-|aka.ms |Allow access to aka links. Used for Azure Site Recovery appliance updates. |
-|download.microsoft.com/download |Allow downloads from Microsoft download. |
-|`*.servicebus.windows.net `|Communication between the appliance and the Azure Site Recovery service. |
-|`*.discoverysrv.windowsazure.com `|Connect to Azure Site Recovery discovery service URL. |
-|`*.hypervrecoverymanager.windowsazure.com `|Connect to Azure Site Recovery micro-service URLs  |
-|`*.blob.core.windows.net `|Upload data to Azure storage which is used to create target disks |
-|`*.backup.windowsazure.com `|Protection service URL – a microservice used by Azure Site Recovery for processing and creating replicated disks in Azure |
+  | ------------------------- | -------------------------------------------|
+  | portal.azure.com          | Navigate to the Azure portal.              |
+  | `*.windows.net `<br>`*.msftauth.net`<br>`*.msauth.net`<br>`*.microsoft.com`<br>`*.live.com `<br>`*.office.com ` | To sign-in to your Azure subscription.  |
+  |`*.microsoftonline.com `|Create Azure Active  Directory (AD) apps for the appliance to communicate with Azure Site Recovery. |
+  |management.azure.com |Create Azure AD apps for the appliance to communicate with the Azure Site Recovery service. |
+  |`*.services.visualstudio.com `|Upload app logs used for internal monitoring. |
+  |`*.vault.azure.net `|Manage secrets in the Azure Key Vault. Note: Ensure machines to replicate have access to this. |
+  |aka.ms |Allow access to aka links. Used for Azure Site Recovery appliance updates. |
+  |download.microsoft.com/download |Allow downloads from Microsoft download. |
+  |`*.servicebus.windows.net `|Communication between the appliance and the Azure Site Recovery service. |
+  |`*.discoverysrv.windowsazure.com `|Connect to Azure Site Recovery discovery service URL. |
+  |`*.hypervrecoverymanager.windowsazure.com `|Connect to Azure Site Recovery micro-service URLs  |
+  |`*.blob.core.windows.net `|Upload data to Azure storage which is used to create target disks |
+  |`*.backup.windowsazure.com `|Protection service URL – a microservice used by Azure Site Recovery for processing and creating replicated disks in Azure |
 
 
 6. After saving the details, proceed to choose the appliance connectivity. Leave the default selection as FDQN for this preview.
 
 7. After saving connectivity details, Select **Continue** to proceed to registration with Microsoft Azure.
 
-**Prerequisites for successful registration of appliance with Azure**:
+  **Prerequisites for successful registration of appliance with Azure**:
 
-You need an account with permissions to register Azure Active Directory (AAD) apps.
+  You need an account with permissions to register Azure Active Directory (AAD) apps.
 
-- To enable, navigate to Azure portal > **Azure Active Directory** > **Users** > **User Settings**.
-- In **User settings**, verify that Azure AD users can register applications (set to *Yes* by default).
-- In case the **App registrations** setting is set to *No*, request the tenant/global admin to assign the required permission. Alternately, the tenant/global admin can assign the *Application Developer* role to an account to allow the registration of AAD App. [Learn more](/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
+  - To enable, navigate to Azure portal > **Azure Active Directory** > **Users** > **User Settings**.
+  - In **User settings**, verify that Azure AD users can register applications (set to *Yes* by default).
+  - In case the **App registrations** setting is set to *No*, request the tenant/global admin to assign the required permission. Alternately, the tenant/global admin can assign the *Application Developer* role to an account to allow the registration of AAD App. [Learn more](/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
 
 
 8. Ensure the prerequisites are met, proceed with registration.
 
-  - **Friendly name of appliance** : Provide a friendly name with which you want to track this appliance in the Azure portal under recovery services vault infrastructure.
+    - **Friendly name of appliance** : Provide a friendly name with which you want to track this appliance in the Azure portal under recovery services vault infrastructure.
 
-  -  **Azure Site Recovery replication appliance key** : Copy the key from the portal by navigating to **Recovery Services vault** > **Getting started** > **VMware to Azure Prepare Infrastructure**.
+    -  **Azure Site Recovery replication appliance key** : Copy the key from the portal by navigating to **Recovery Services vault** > **Getting started** > **VMware to Azure Prepare Infrastructure**.
 
-  - After pasting the key, select **Login.**
+    - After pasting the key, select **Login.**
     You will be redirected to a new authentication tab.
 
     By default, an authentication code will be generated as highlighted below, in the authentication manager page. Use this code in the authentication tab.
 
-  - Enter your Microsoft Azure credentials to complete registration.
+    - Enter your Microsoft Azure credentials to complete registration.
 
     After successful registration, you can close the tab and move to configuration manager to continue the set up.
 
@@ -226,13 +226,13 @@ You need an account with permissions to register Azure Active Directory (AAD) ap
 
   After successful registration, proceed to configure vCenter details.
 
-12. Select **Add vCenter Server** to add vCenter information. Enter the server name or IP address of the vCenter and port information. Post that, provide username, password and friendly name and is used to fetch details of [virtual machine managed through the vCenter](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery). The user account details will be encrypted and stored locally in the machine.
+11. Select **Add vCenter Server** to add vCenter information. Enter the server name or IP address of the vCenter and port information. Post that, provide username, password and friendly name and is used to fetch details of [virtual machine managed through the vCenter](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery). The user account details will be encrypted and stored locally in the machine.
 
-13. After successfully saving the vCenter information, select **Add virtual machine credentials** to provide user details of the VMs discovered through the vCenter. For Linux OS, ensure to provide root credentials and for Windows OS, a user account with admin privileges should be added, these credentials will be used to push mobility agent on to the source VM during enable replication operation. The credentials can be chosen per VM in the Azure portal during enable replication workflow.
+12. After successfully saving the vCenter information, select **Add virtual machine credentials** to provide user details of the VMs discovered through the vCenter. For Linux OS, ensure to provide root credentials and for Windows OS, a user account with admin privileges should be added, these credentials will be used to push mobility agent on to the source VM during enable replication operation. The credentials can be chosen per VM in the Azure portal during enable replication workflow.
 
-14. After successfully adding the details, select **Continue** to install all Azure Site Recovery replication appliance components and register with Azure services. This activity can take up to 30 min.
+13. After successfully adding the details, select **Continue** to install all Azure Site Recovery replication appliance components and register with Azure services. This activity can take up to 30 minutes.
 
-  Ensure you do not close the browser while configuration is in progress.
+    Ensure you do not close the browser while configuration is in progress.
 
 ## View Azure Site Recovery replication appliance in Azure portal
 
@@ -270,9 +270,9 @@ To set up a new appliance, you can follow either of the following methods:
 2. [Download](https://aka.ms/V2ARcmApplianceCreationPowershellZip) the zip that contains the required installers and place this folder on the Azure Site Recovery replication appliance.
 3.	After successfully copying the zip folder, unzip and extract the components of the folder.
 4. Go to the path where the folder is extracted to and execute the following PowerShell script as an administrator:
-```powershell
+    ```powershell
    DRInstaller.ps1
-```
+   ```
 
 ## Sizing and capacity
 You can create and use multiple replication appliances in a vault.
