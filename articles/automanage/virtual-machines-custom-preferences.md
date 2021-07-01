@@ -111,4 +111,4 @@ Azure Automanage creates default resource groups to store resources in. Check re
 Get the most frequently asked questions answered in our FAQ. 
 
 > [!div class="nextstepaction"]
-> [Frequently Asked Questions](faq.md)
+> [Frequently Asked Questions](faq.yml)
