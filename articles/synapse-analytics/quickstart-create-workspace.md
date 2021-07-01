@@ -46,7 +46,7 @@ After your Azure Synapse workspace is created, you have two ways to open Synapse
 1. Navigate to an existing ADLSGEN2 storage account
 1. Select **Access control (IAM)**.
 1. Select **Add** > **Add role assignment** to open the Add role assignment page.
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
     
     | Setting | Value |
     | --- | --- |
