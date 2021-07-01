@@ -45,7 +45,9 @@ In the planning phase, you defined whether you to use an *existing* or *new* Exp
 ### Use an existing virtual network gateway
 
 >[IMPORTANT]
->[!INCLUDE [disk-pool-planning-note](disk-pool-planning-note.md)]
+>[!INCLUDE [disk-pool-planning-note](disk-pool-planning-note.md)] 
+
+
 
 
 [!INCLUDE [connect-expressroute-to-vnet](includes/connect-expressroute-vnet.md)]
