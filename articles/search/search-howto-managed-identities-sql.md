@@ -42,7 +42,7 @@ After selecting **Save** you will see an Object ID that has been assigned to you
 If you don't already have a user-assigned managed identity created, you'll need to create one. A user-assigned managed identity is a resource on Azure.
 
 1. Sign into the [Azure portal](https://portal.azure.com/).
-1. Select **+ Create a new resource**.
+1. Select **+ Create a resource**.
 1. In the "Search services and marketplace" search bar, search for "User Assigned Managed Identity" and then select **Create**.
 1. Give the identity a descriptive name.
 
@@ -58,9 +58,8 @@ The identity property takes a type and one or more fully-qualified user-assigned
 Example of how to assign a user-assigned managed identity to a search service:
 
 ```http
-PUT https://management.azure.com/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Search/searchServices/[search service name]?api-version=2021-04-01-preview
+PUT https://management.azure.com/subscriptions/[subscription ID]/resourceGroups/[resource group name]/providers/Microsoft.Search/searchServices/[search service name]?api-version=2021-04-01-preview
 Content-Type: application/json
-api-key: [admin key]
 
 {
   "location": "[region]",
@@ -167,7 +166,7 @@ api-key: [admin key]
     "name" : "sql-datasource",
     "type" : "azuresql",
     "credentials" : { 
-        "connectionString" : "Database=sql-database;ResourceId=/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azure-sql-resource-group/providers/Microsoft.Sql/servers/sql-server-search-demo;Connection Timeout=30;" 
+        "connectionString" : "Database=sql-database;ResourceId=/subscriptions/[subscription ID]/resourceGroups/[resource group name]/providers/Microsoft.Sql/servers/[SQL Server name];Connection Timeout=30;" 
     },
     "container" : { 
         "name" : "my-table" 
@@ -204,14 +203,14 @@ api-key: [admin key]
     "name" : "sql-datasource",
     "type" : "azuresql",
     "credentials" : { 
-        "connectionString" : "Database=sql-database;ResourceId=/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azure-sql-resource-group/providers/Microsoft.Sql/servers/sql-server-search-demo;Connection Timeout=30;" 
+        "connectionString" : "Database=sql-database;ResourceId=/subscriptions/[subscription ID]/resourceGroups/[resource group name]/providers/Microsoft.Sql/servers/[SQL Server name];Connection Timeout=30;"
     },
     "container" : { 
         "name" : "my-table" 
     },
     "identity" : { 
         "@odata.type": "#Microsoft.Azure.Search.DataUserAssignedIdentity",
-        "userAssignedIdentity" : "/subscriptions/[subscription ID]/resourcegroups/[resource group name]/providers/Microsoft.ManagedIdentity/userAssignedIdentities/[name of managed identity]" 
+        "userAssignedIdentity" : "/subscriptions/[subscription ID]/resourcegroups/[resource group name]/providers/Microsoft.ManagedIdentity/userAssignedIdentities/[managed identity name]"
     }
 }   
 ```

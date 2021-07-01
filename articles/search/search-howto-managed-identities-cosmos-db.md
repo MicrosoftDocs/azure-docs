@@ -42,7 +42,7 @@ After selecting **Save** you will see an Object ID that has been assigned to you
 If you don't already have a user-assigned managed identity created, you'll need to create one. A user-assigned managed identity is a resource on Azure.
 
 1. Sign into the [Azure portal](https://portal.azure.com/).
-1. Select **+ Create a new resource**.
+1. Select **+ Create a resource**.
 1. In the "Search services and marketplace" search bar, search for "User Assigned Managed Identity" and then select **Create**.
 1. Give the identity a descriptive name.
 
@@ -58,9 +58,8 @@ The identity property takes a type and one or more fully-qualified user-assigned
 Example of how to assign a user-assigned managed identity to a search service:
 
 ```http
-PUT https://management.azure.com/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Search/searchServices/[search service name]?api-version=2021-04-01-preview
+PUT https://management.azure.com/subscriptions/[subscription ID]/resourceGroups/[resource group name]/providers/Microsoft.Search/searchServices/[search service name]?api-version=2021-04-01-preview
 Content-Type: application/json
-api-key: [admin key]
 
 {
   "location": "[region]",
@@ -83,7 +82,7 @@ api-key: [admin key]
  
 ## 2 - Add a role assignment
 
-In this step you will give your Azure Cognitive Search service permission to read data from your Cosmos DB database.
+In this step you will either give your Azure Cognitive Search service or user-assigned managed identity permission to read data from your Cosmos DB database.
 
 1. In the Azure portal, navigate to the Cosmos DB account that contains the data that you would like to index.
 2. Select **Access control (IAM)**
@@ -118,7 +117,7 @@ api-key: [Search service admin key]
     "name": "cosmos-db-datasource",
     "type": "cosmosdb",
     "credentials": {
-        "connectionString": "Database=sql-test-db;ResourceId=/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cosmos-db-resource-group/providers/Microsoft.DocumentDB/databaseAccounts/my-cosmos-db-account/;"
+        "connectionString": "Database=sql-test-db;ResourceId=/subscriptions/[subscription ID]/resourceGroups/[resource group name]/providers/Microsoft.DocumentDB/databaseAccounts/[Cosmos DB account name]/;"
     },
     "container": { "name": "myCollection", "query": null },
     "dataChangeDetectionPolicy": {
@@ -152,14 +151,14 @@ api-key: [Search service admin key]
     "name": "cosmos-db-datasource",
     "type": "cosmosdb",
     "credentials": {
-        "connectionString": "Database=sql-test-db;ResourceId=/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cosmos-db-resource-group/providers/Microsoft.DocumentDB/databaseAccounts/my-cosmos-db-account/;"
+        "connectionString": "Database=sql-test-db;ResourceId=/subscriptions/[subscription ID]/resourceGroups/[resource group name]/providers/Microsoft.DocumentDB/databaseAccounts/[Cosmos DB account name]/;"
     },
     "container": { 
         "name": "myCollection", "query": null 
     },
     "identity" : { 
         "@odata.type": "#Microsoft.Azure.Search.DataUserAssignedIdentity",
-        "userAssignedIdentity" : "/subscriptions/[subscription ID]/resourcegroups/[resource group name]/providers/Microsoft.ManagedIdentity/userAssignedIdentities/[name of managed identity]" 
+        "userAssignedIdentity" : "/subscriptions/[subscription ID]/resourcegroups/[resource group name]/providers/Microsoft.ManagedIdentity/userAssignedIdentities/[managed identity name]" 
     },
     "dataChangeDetectionPolicy": {
         "@odata.type": "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
