@@ -18,16 +18,17 @@ ms.author: marsma
 
 Welcome to what's new in the Microsoft identity platform documentation. This article lists new docs that have been added and those that have had significant updates in the last three months.
 
+
 ## June 2021
 
 ### New articles
 
 - [Best practices for least privileged access for applications](secure-least-privileged-access.md)
 - [Differences between ADAL.NET and MSAL.NET apps](msal-net-differences-adal-net.md)
-- [How to migrate confidential client applications from ADAL.NET to MSAL.NET](msal-net-migration-confidential-client.md)
 - [How to: Get a complete list of apps using ADAL in your tenant](howto-get-list-of-all-active-directory-auth-library-apps.md)
+- [How to migrate confidential client applications from ADAL.NET to MSAL.NET](msal-net-migration-confidential-client.md)
 
-### Update articles
+### Updated articles
 
 - [Application and service principal objects in Azure Active Directory](app-objects-and-service-principals.md)
 - [A web app that calls web APIs: Code configuration](scenario-web-app-call-api-app-configuration.md)
