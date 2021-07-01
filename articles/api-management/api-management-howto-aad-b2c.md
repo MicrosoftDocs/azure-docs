@@ -63,7 +63,7 @@ In this section, create a user flow in your Azure Active Directory B2C tenant co
 
    :::image type="content" source="media/api-management-howto-aad-b2c/b2c-app-registration.png" alt-text="Register a new application":::
 
-1. On the app **Overview** page, find the **Application (client) ID** value and copy the value to the clipboard.
+1. On the app **Overview** page, find the **Application (client) ID** and copy the value to the clipboard.
 
    :::image type="content" source="media/api-management-howto-aad-b2c/api-management-b2c-app-id.png" alt-text="Application ID":::
 1. Switch back to the API Management **Add identity provider** page and paste the ID into the **Client Id** text box.
@@ -89,11 +89,7 @@ After the changes are saved, developers will be able to create new accounts and 
 > [!IMPORTANT]
 > You need to [republish the developer portal](api-management-howto-developer-portal-customize.md#publish) when you create or update Azure Active Directory B2C configuration settings for the changes to take effect.
 
-In the developer portal, sign-in with AAD B2C is possible with the **Sign-in button: OAuth** widget. The widget is already included on the sign-in page of the default developer portal content.
-
-Although a new account is automatically created whenever a new user signs in with AAD B2C, you may consider adding the same widget to the sign-up page.
-
-The **Sign-up form: OAuth** widget represents a form used for signing up with OAuth.
+In the developer portal, sign-in with Azure AD B2C is possible with the **Sign-in button: OAuth** widget. The widget is already included on the sign-in page of the default developer portal content.
 
 1. To sign in by using Azure Active Directory B2C, open a new browser window and go to the developer portal. Select **Sign in**.
 1. Select **Azure Active Directory B2C**.
@@ -104,22 +100,26 @@ When the signup is complete, you're redirected back to the developer portal. You
 
 :::image type="content" source="media/api-management-howto-aad-b2c/developer-portal-home.png" alt-text="Sign in to developer portal complete":::
 
+Although a new account is automatically created whenever a new user signs in with Azure AD B2C, you may consider adding the same widget to the sign-up page.
+
+The **Sign-up form: OAuth** widget represents a form used for signing up with OAuth.
+
 ## Legacy developer portal - how to sign up with Azure AD B2C
 
 [!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
-1. To sign up for a developer account by using Azure Active Directory B2C, open a new browser window and go to the legacy developer portal. Click the **Sign up** button.
+1. To sign up for a developer account by using Azure AD B2C, open a new browser window and go to the legacy developer portal. Click the **Sign up** button.
     :::image type="content" source="media/api-management-howto-aad-b2c/api-management-b2c-dev-portal.png" alt-text="Sign up in legacy developer portal":::
 2. Choose to sign up with **Azure Active Directory B2C**.
 
-    :::image type="content" source="media/api-management-howto-aad-b2c/api-management-b2c-dev-portal-b2c-button.pxx.png" alt-text="Sign up  with Azure Active Directory B2C":::
+    :::image type="content" source="media/api-management-howto-aad-b2c/api-management-b2c-dev-portal-b2c-button.png" alt-text="Sign up  with Azure Active Directory B2C":::
 
 3. You're redirected to the signup policy that you configured in the previous section. Choose to sign up by using your email address or one of your existing social accounts.
 
    > [!NOTE]
    > If Azure Active Directory B2C is the only option that's enabled on the **Identities** tab in the publisher portal, you'll be redirected to the signup policy directly.
 
-   ![Developer portal][api-management-howto-aad-b2c-dev-portal-b2c-options]
+   :::image type="content" source="media/api-management-howto-aad-b2c/api-management-b2c-dev-portal-b2c-options.png" alt-text="Sign up options in legacy developer portal":::
 
    When the signup is complete, you're redirected back to the developer portal. You're now signed in to the developer portal for your API Management service instance.
 
