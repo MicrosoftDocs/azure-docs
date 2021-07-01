@@ -2,7 +2,7 @@
 title: Supported Resource Types through Azure Resource Health | Microsoft Docs
 description: Supported Resource Types through Azure Resource health
 ms.topic: conceptual
-ms.date: 06/25/2021
+ms.date: 07/05/2021
 ---
 
 # Resource types and health checks in Azure resource health
@@ -264,10 +264,6 @@ Below is a complete list of all the checks executed through resource health by r
 | Executed Checks |
 | --- |
 |<ul><li>Are any Backup operations on Backup Items configured in this vault failing due to causes beyond user control?</li><li>Are any Restore operations on Backup Items configured in this vault failing due to causes beyond user control?</li></ul> |
-
->[!Note]
- >(To be added later)
-
 
 ## Next Steps
 -  See [Introduction to Azure Service Health dashboard](service-health-overview.md) and [Introduction to Azure Resource Health](resource-health-overview.md) to understand more about them. 
