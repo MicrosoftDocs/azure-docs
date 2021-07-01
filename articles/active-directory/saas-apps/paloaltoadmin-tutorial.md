@@ -104,7 +104,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	| | |
 
     > [!NOTE]
-    > The **Name** value, shown above as _adminrole_, should be the same value as the _Admin role attribute_, which is configured in step 12 of the **[Configure Palo Alto Networks - Admin UI SSO](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/paloaltoadmin-tutorial#configure-palo-alto-networks---admin-ui-sso)** section. The **Source Attribute** value, shown above as _customadmin_, should be the same value as the _Admin Role Profile Name_, which is configured in step 9 of the the **[Configure Palo Alto Networks - Admin UI SSO](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/paloaltoadmin-tutorial#configure-palo-alto-networks---admin-ui-sso)** section.  
+    > The **Name** value, shown above as _adminrole_, should be the same value as the _Admin role attribute_, which is configured in step 12 of the **[Configure Palo Alto Networks - Admin UI SSO](#configure-palo-alto-networks---admin-ui-sso)** section. The **Source Attribute** value, shown above as _customadmin_, should be the same value as the _Admin Role Profile Name_, which is configured in step 9 of the the **[Configure Palo Alto Networks - Admin UI SSO](#configure-palo-alto-networks---admin-ui-sso)** section.  
 
 	> [!NOTE]
     > For more information about the attributes, see the following articles:
