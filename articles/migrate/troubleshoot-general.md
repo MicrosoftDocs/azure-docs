@@ -28,7 +28,7 @@ Review [common discovery issues](common-questions-discovery-assessment.md).
 
 ## App-discovery isn't working
 
-Discovery of apps, roles, and features running on on-premises machines is currently only supported for VMware VMs. [Review common errors](troubleshoot-appliance.md#common-software-inventory-errors) for app-discovery.
+Discovery of apps, roles, and features running on on-premises machines is currently only supported for VMware VMs. [Review common errors](troubleshoot-discovery.md#common-software-inventory-errors) for app-discovery.
 
 ## Assessment isn't working
 

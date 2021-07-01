@@ -140,7 +140,7 @@ The error usually comes for servers running Windows Server 2008 or lower.
 ### Remediation
 You need to install the required PowerShell version (2.0 or later) at this location on the server: ($SYSTEMROOT)\System32\WindowsPowershell\v1.0\powershell.exe. [Learn more](https://docs.microsoft.com/powershell/scripting/windows-powershell/install/installing-windows-powershell) on how to install PowerShell in Windows Server.
 
-After installing the required PowerShell version, you can verify if the error was resolved by following steps [here](troubleshoot-dependencies.md#mitigation-verification-using-VMware-PowerCLI).
+After installing the required PowerShell version, you can verify if the error was resolved by following steps below under "Mitigation verification using VMware PowerCLI".
 
 ## Error 9022: GetWMIObjectAccessDenied
 
@@ -158,7 +158,7 @@ Make sure that the user account provided in the appliance has access to WMI Name
 11. Ensure you grant execute permissions and select "This namespace and subnamespaces" in the 'Applies to:' drop-down.
 12. Select 'Apply' button to save the settings and close all dialog boxes.
 
-After getting the required access, you can verify if the error was resolved by following steps [here](troubleshoot-dependencies.md#mitigation-verification-using-VMware-PowerCLI).
+After getting the required access, you can verify if the error was resolved by following steps below under "Mitigation verification using VMware PowerCLI".
 
 ## Error 9032: InvalidRequest
 
@@ -167,7 +167,7 @@ There can be multiple reasons for this issue, one of the reason is when the user
 
 ### Remediation
 - Make sure the username of the server credentials does not have invalid XML characters and is in username@domain.com format popularly known as UPN format.
-- After editing the credentials on the appliance, you can verify if the error was resolved by following steps [here](troubleshoot-dependencies.md#mitigation-verification-using-VMware-PowerCLI).
+- After editing the credentials on the appliance, you can verify if the error was resolved by following steps below under "Mitigation verification using VMware PowerCLI".
 
 
 ## Error 10002: ScriptExecutionTimedOutOnVm
@@ -198,7 +198,7 @@ There can be multiple reasons for this issue, one of the reason is when the user
 - Ensure that you are able to login into the impacted server using the same credential provided in the appliance.
 - You can try using another user account (for the same domain, in case server is domain-joined) for that server instead of Administrator account .
 - The issue can happen when Global Catalog <-> Domain Controller communication is broken. You can check this by creating a new user account in the domain controller and providing the same in the appliance. This might also require restarting the Domain controller.
-- After taking the remdiation steps, you can verify if the error was resolved by following steps [here](troubleshoot-dependencies.md#mitigation-verification-using-VMware-PowerCLI).
+- After taking the remediation steps, you can verify if the error was resolved by following steps below under "Mitigation verification using VMware PowerCLI".
 
 ## Error 10012: CredentialNotProvided
 
@@ -207,7 +207,7 @@ This error occurs when you have provided a domain credential with a wrong domain
 
 ### Remediation
 - Go to appliance configuration managre to add a server credential or edit an existing one as explained in the cause.
-- After taking the remdiation steps, you can verify if the error was resolved by following steps [here](troubleshoot-dependencies.md#mitigation-verification-using-VMware-PowerCLI).
+- After taking the remediation steps, you can verify if the error was resolved by following steps below under "Mitigation verification using VMware PowerCLI".
 
 ## Mitigation verification using VMware PowerCLI
 After using the mitigation steps on the errors listed above, you can verify if the mitigation worked by running few PowerCLI commands from the appliance server. If the commands succeed, it means that the issue is now resolved else you need to check and follow the remediation steps again.
