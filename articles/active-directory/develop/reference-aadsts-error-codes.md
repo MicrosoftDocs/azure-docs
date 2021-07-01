@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/17/2021
+ms.date: 07/01/2021
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
@@ -115,13 +115,13 @@ For example, if you received the error code "AADSTS50058" then do a search in [h
 | AADSTS50048 | SubjectMismatchesIssuer - Subject mismatches Issuer claim in the client assertion. Contact the tenant admin. |
 | AADSTS50049 | NoSuchInstanceForDiscovery - Unknown or invalid instance. |
 | AADSTS50050 | MalformedDiscoveryRequest - The request is malformed. |
-| AADSTS50053 | IdsLocked - The account is locked because the user tried to sign in too many times with an incorrect user ID or password. |
-| AADSTS50055 | InvalidPasswordExpiredPassword - The password is expired. |
-| AADSTS50056 | Invalid or null password -Password does not exist in store for this user. |
-| AADSTS50057 | UserDisabled - The user account is disabled. The account has been disabled by an administrator. |
-| AADSTS50058 | UserInformationNotProvided - This means that a user is not signed in. This is a common error that's expected when a user is unauthenticated and has not yet signed in.</br>If this error is encountered in an SSO context where the user has previously signed in, this means that the SSO session was either not found or invalid.</br>This error may be returned to the application if prompt=none is specified. |
+| AADSTS50053 | IdsLocked - The account is locked because the user tried to sign in too many times with an incorrect user ID or password. The user is blocked due to repeated sign-in attempts. See [Remediate risks and unblock users](/azure/active-directory/identity-protection/howto-unblock-user). |
+| AADSTS50055 | InvalidPasswordExpiredPassword - The password is expired. The user's password is expired, and therefore their login or session was ended. They will be offered the opportunity to reset it, or may ask an admin to reset it via [Reset a user's password using Azure Active Directory](/azure/active-directory/fundamentals/active-directory-users-reset-password-azure-portal). |
+| AADSTS50056 | Invalid or null password: password does not exist in the directory for this user. The user should be asked to enter their password again. |
+| AADSTS50057 | UserDisabled - The user account is disabled. The user object in Active Directory backing this account has been disabled. An admin can re-enable this account [through Powershell](/powershell/module/activedirectory/enable-adaccount) |
+| AADSTS50058 | UserInformationNotProvided - Session information is not sufficient for single-sign-on. This means that a user is not signed in. This is a common error that's expected when a user is unauthenticated and has not yet signed in.</br>If this error is encountered in an SSO context where the user has previously signed in, this means that the SSO session was either not found or invalid.</br>This error may be returned to the application if prompt=none is specified. |
 | AADSTS50059 | MissingTenantRealmAndNoUserInformationProvided - Tenant-identifying information was not found in either the request or implied by any provided credentials. The user can contact the tenant admin to help resolve the issue. |
-| AADSTS50061 | SignoutInvalidRequest - The sign-out request is invalid. |
+| AADSTS50061 | SignoutInvalidRequest - Unable to complete signout. The request was invalid. |
 | AADSTS50064 | CredentialAuthenticationError - Credential validation on username or password has failed. |
 | AADSTS50068 | SignoutInitiatorNotParticipant - Sign out has failed. The app that initiated sign out is not a participant in the current session. |
 | AADSTS50070 | SignoutUnknownSessionIdentifier - Sign out has failed. The sign out request specified a name identifier that didn't match the existing session(s). |
@@ -132,8 +132,9 @@ For example, if you received the error code "AADSTS50058" then do a search in [h
 | AADSTS50079 | UserStrongAuthEnrollmentRequired - Due to a configuration change made by the administrator, or because the user moved to a new location, the user is required to use multi-factor authentication. |
 | AADSTS50085 | Refresh token needs social IDP login. Have user try signing-in again with username -password |
 | AADSTS50086 | SasNonRetryableError |
-| AADSTS50087 | SasRetryableError - The service is temporarily unavailable. Try again. |
-| AADSTS50089 | Flow token expired - Authentication Failed. Have the user try signing-in again with username -password. |
+| AADSTS50087 | SasRetryableError - A transient error has occurred during strong authentication. Please try again. |
+| AADSTS50088 | Limit on telecom MFA calls reached. Please try again in a few minutes. |
+| AADSTS50089 | Authentication failed due to flow token expired. Expected - auth codes, refresh tokens, and sessions expire over time or are revoked by the user or an admin. The app will request a new login from the user. |
 | AADSTS50097 | DeviceAuthenticationRequired - Device authentication is required. |
 | AADSTS50099 | PKeyAuthInvalidJwtUnauthorized - The JWT signature is invalid. |
 | AADSTS50105 | EntitlementGrantsNotFound - The signed in user is not assigned to a role for the signed in app. Assign the user  to the app. To learn more, see the troubleshooting article for error [AADSTS50105](/troubleshoot/azure/active-directory/error-code-aadsts50105-user-not-assigned-role). |
