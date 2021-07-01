@@ -354,7 +354,7 @@ Some of the insights you might want to gain after Traffic Analytics is fully con
 
     ![Flow details for traffic distribution in log search](./media/traffic-analytics/flow-details-for-traffic-distribution-in-log-search.png)
 	
-- The **More Insight** blade of a Azure region also shows the total traffic remaining inside that region (i.e. source and destination in datacenter). It further gives insights about traffic exchanged between availability zones of a datacenter 
+- The **More Insight** blade of a Azure region also shows the total traffic remaining inside that region (i.e. source and destination in same region). It further gives insights about traffic exchanged between availability zones of a datacenter 
 
 	![Inter Zone and Intra region traffic](./media/traffic-analytics/inter-zone-and-intra-region-traffic.png)
 
