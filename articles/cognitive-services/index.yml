@@ -187,7 +187,7 @@ additionalContent:
               url: ./big-data/cognitive-services-for-big-data.md
             - text: Cognitive Services Management REST API
               url: /rest/api/cognitiveservices/
-        - title: Explor other Azure AI Services
+        - title: Explore other Azure AI Services
           links:
             - text: Azure Applied AI Services
               url: ../applied-ai-services/index.yml
