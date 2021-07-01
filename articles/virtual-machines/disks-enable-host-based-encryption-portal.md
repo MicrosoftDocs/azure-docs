@@ -4,7 +4,7 @@ description: Use encryption at host to enable end-to-end encryption on your Azur
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 06/14/2021
+ms.date: 06/30/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
@@ -75,6 +75,14 @@ Now that you've setup an Azure Key Vault and disk encryption set, you can deploy
 You have now deployed a VM with encryption at host enabled, all its associated disks will be encrypted using encryption at host.
 
 ## Disable host based encryption
+
+Make sure your VM is deallocated first, you cannot disable encryption at host unless your VM is deallocated.
+
+1. On your VM, select **Disks** and then select **Additional settings**.
+
+    :::image type="content" source="media/virtual-machines-disks-encryption-at-host-portal/disks-encryption-host-based-encryption-additional-settings.png" alt-text="Screenshot of the Disks blade on a VM, Additional Settings is highlighted.":::
+
+1. Select **No** for **Encryption at host** then select **Save**.
 
 ## Next steps
 
