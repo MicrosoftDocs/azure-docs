@@ -48,7 +48,7 @@ There are fundamentally four layers to a virtual machine that require monitoring
 :::image type="content" source="media/monitor-virtual-machines/monitoring-layers.png" alt-text="Monitoring layers" lightbox="media/monitor-virtual-machines/monitoring-layers.png":::
 
 ## VM insights
-This scenario will focus on [VM insights](../vm/vminsights-overview.md), which is the primary feature in Azure Monitor for monitoring virtual machines, providing the following features.
+This scenario focuses on [VM insights](../vm/vminsights-overview.md), which is the primary feature in Azure Monitor for monitoring virtual machines, providing the following features:
 
 - Simplified onboarding of agents to enable monitoring of a virtual machine guest operating system and workloads. 
 - Pre-defined trending performance charts and workbooks that allow you to analyze core performance metrics from the virtual machine's guest operating system.
@@ -59,7 +59,7 @@ This scenario will focus on [VM insights](../vm/vminsights-overview.md), which i
 Any monitoring tool such as Azure Monitor requires an agent installed on a machine to collect data from its guest operating system. Azure Monitor currently has multiple agents that collect different data, send data to different locations, and support different features. VM insights manages the deployment and configuration of the agents that most customers will use, but you should be aware of the different agents that are described in the following table in case you require the particular scenarios that they support. See [Overview of Azure Monitor agents](../agents/agents-overview.md) for a detailed description and comparison of the different agents.
 
 > [!NOTE]
-> When the Azure Monitor agent fully supported VM insights, Azure Security Center, and Azure Sentinel, then it will completely replace the Log Analytics agent, diagnostic extension, and Telegraf agent.
+> When the Azure Monitor agent fully supports VM insights, Azure Security Center, and Azure Sentinel, then it will completely replace the Log Analytics agent, diagnostic extension, and Telegraf agent.
 
 - [Azure Monitor agent](../agents/agents-overview.md#log-analytics-agent) - Supports virtual machines in Azure, other cloud environments, and on-premises. Sends data to Azure Monitor Metrics and Logs. When it fully supports VM insights, Azure Security Center, and Azure Sentinel, then it will completely replace the Log Analytics agent and diagnostic extension.
 - [Log Analytics agent](../agents/agents-overview.md#log-analytics-agent) - Supports virtual machines in Azure, other cloud environments, and on-premises. Sends data to Azure Monitor Logs. Supports VM insights and monitoring solutions. This is the same agent used for System Center Operations Manager.
