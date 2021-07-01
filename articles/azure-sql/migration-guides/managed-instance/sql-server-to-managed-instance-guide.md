@@ -32,7 +32,7 @@ For more migration information, see the [migration overview](sql-server-to-manag
 
 To migrate your SQL Server to Azure SQL Managed Instance, make sure you have: 
 
-- Chosen a [migration method](sql-server-to-managed-instance-overview.md#compare-migration-options) and the corresponding totps for your method.
+- Chosen a [migration method](sql-server-to-managed-instance-overview.md#compare-migration-options) and the corresponding tools for your method.
 - Installed the [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) on a machine that can connect to your source SQL Server.
 - Created a target [Azure SQL Managed Instance](../../managed-instance/instance-create-quickstart.md)
 - Configured connectivity and proper permissions to access both source and target. 
@@ -229,7 +229,6 @@ To migrate using backup and restore, follow these steps:
 1. Once restore completes, view the database in **Object Explorer** within SQL Server Management Studio. 
 
 To learn more about this migration option, see [Restore a database to Azure SQL Managed Instance with SSMS](../../managed-instance/restore-sample-database-quickstart.md).
-> [!VIDEO https://www.youtube.com/embed/RxWYojo_Y3Q]
 
 > [!NOTE]
 > A database restore operation is asynchronous and retryable. You might get an error in SQL Server Management Studio if the connection breaks or a time-out expires. Azure SQL Database will keep trying to restore database in the background, and you can track the progress of the restore using the [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) and [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) views.
