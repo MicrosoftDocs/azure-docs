@@ -69,8 +69,7 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-The `joinGroupCall` method is set as the action that will be performed when the *Join Group Call* button is tapped. Joining a group call can be done via the `MeetingUIClient`. Create a 
-`MeetingUIClientGroupCallLocator` and configure the join options using the `MeetingUIClientJoinOptions`.
+The `joinGroupCall` method is set as the action that will be performed when the *Join Group Call* button is tapped. Joining a group call can be done via the `MeetingUIClient`. Create a `MeetingUIClientGroupCallLocator` and configure the join options using the `MeetingUIClientJoinOptions`.
 Note to replace `<GROUP_ID>` with a UUID string. Group ID string must be in GUID or UUID format.
 ```java
 /**
