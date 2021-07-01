@@ -3,7 +3,7 @@ title: 'Prerequisites for Azure AD ECMA Connector Host'
 description: This article describes the prerequisites and hardware requirements you need for using the Azure AD ECMA Connector Host.
 services: active-directory
 author: billmath
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to

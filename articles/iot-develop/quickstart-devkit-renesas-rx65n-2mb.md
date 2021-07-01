@@ -30,12 +30,12 @@ You will complete the following tasks:
 * [Git](https://git-scm.com/downloads) for cloning the repository
 * Hardware
 
-    > * The [Renesas Starter Kit+ for RX65N-2MB](https://www.renesas.com/products/microcontrollers-microprocessors/rx-32-bit-performance-efficiency-mcus/rx65n-2mb-starter-kit-plus-renesas-starter-kit-rx65n-2mb) (Renesas RX65N)
-    > * The [Renesas E2 emulator Lite](https://www.renesas.com/software-tool/e2-emulator-lite-rte0t0002lkce00000r)
-    > * 2 USB 2.0 A male to Mini USB male cables
-    > * The included 5V power supply
-    > * Ethernet cable
-    > * Wired Ethernet access
+    * The [Renesas Starter Kit+ for RX65N-2MB](https://www.renesas.com/products/microcontrollers-microprocessors/rx-32-bit-performance-efficiency-mcus/rx65n-2mb-starter-kit-plus-renesas-starter-kit-rx65n-2mb) (Renesas RX65N)
+    * The [Renesas E2 emulator Lite](https://www.renesas.com/software-tool/e2-emulator-lite-rte0t0002lkce00000r)
+    * 2 USB 2.0 A male to Mini USB male cables
+    * The included 5V power supply
+    * Ethernet cable
+    * Wired Ethernet access
 
 ## Prepare the development environment
 
@@ -65,11 +65,11 @@ To install the tools:
 
 1. From File Explorer, navigate to the following path in the repo and run the setup script named *get-toolchain.bat*:
 
-    > *getting-started\tools\get-toolchain.bat*
+    *getting-started\tools\get-toolchain.bat*
 
 1. Add the RX compiler to the Windows Path:
 
-    > *%USERPROFILE%\AppData\Roaming\GCC for Renesas RX 8.3.0.202004-GNURX-ELF\rx-elf\rx-elf\bin*
+    *%USERPROFILE%\AppData\Roaming\GCC for Renesas RX 8.3.0.202004-GNURX-ELF\rx-elf\rx-elf\bin*
 
 1. After the installation, open a new console window to recognize the configuration changes made by the setup script. Use this console to complete the remaining programming tasks in the quickstart. You can use Windows CMD, PowerShell, or Git Bash for Windows.
 1. Run the following commands to confirm that CMake version 3.14 or later is installed and the RX compiler path is set up correctly.
@@ -92,7 +92,7 @@ To connect the Renesas RX65N to Azure, you'll modify a configuration file for Wi
 
 1. Open the following file in a text editor:
 
-    > *getting-started\Renesas\RSK_RX65N_2MB\app\azure_config.h*
+    *getting-started\Renesas\RSK_RX65N_2MB\app\azure_config.h*
 
 1. Set the Azure IoT device information constants to the values that you saved after you created Azure resources.
 
@@ -106,13 +106,13 @@ To connect the Renesas RX65N to Azure, you'll modify a configuration file for Wi
 
 ### Build the image
 
-In your console or in File Explorer, run the script *rebuild.bat* at the following path to build the image:
+1. In your console or in File Explorer, run the script *rebuild.bat* at the following path to build the image:
 
-> *getting-started\Renesas\RSK_RX65N_2MB\tools\rebuild.bat*
+    *getting-started\Renesas\RSK_RX65N_2MB\tools\rebuild.bat*
 
-After the build completes, confirm that the binary file was created in the following path:
+2. After the build completes, confirm that the binary file was created in the following path:
 
-> *getting-started\Renesas\RSK_RX65N_2MB\build\app\rx65n_azure_iot.hex*
+    *getting-started\Renesas\RSK_RX65N_2MB\build\app\rx65n_azure_iot.hex*
 
 ### Connect the device
 
@@ -142,17 +142,17 @@ After the build completes, confirm that the binary file was created in the follo
     * **Project Name**: RX65N
     * **Tool**: E2 emulator Lite
 
-    :::image type="content" source="media/quickstart-devkit-renesas-rx65n-2mb/rfp-new.png" alt-text="Renesas Flash Programmer, New Project":::
+    :::image type="content" source="media/quickstart-devkit-renesas-rx65n-2mb/rfp-new.png" alt-text="Screenshot of Renesas Flash Programmer, New Project":::
 
 3. Select the *Tool Details* button, and navigate to the *Reset Settings* tab.
 
 4. Select *Reset Pin as Hi-Z* and press the *OK* button.
 
-    :::image type="content" source="media/quickstart-devkit-renesas-rx65n-2mb/rfp-reset.png" alt-text="Renesas Flash Programmer, Reset Settings":::
+    :::image type="content" source="media/quickstart-devkit-renesas-rx65n-2mb/rfp-reset.png" alt-text="Screenshot of Renesas Flash Programmer, Reset Settings":::
 
 5. Press the *Connect* button and when prompted, check the *Auto Authentication* checkbox and then press *OK*.
 
-    :::image type="content" source="media/quickstart-devkit-renesas-rx65n-2mb/rfp-auth.png" alt-text="Renesas Flash Programmer, Authentication":::
+    :::image type="content" source="media/quickstart-devkit-renesas-rx65n-2mb/rfp-auth.png" alt-text="Screenshot of Renesas Flash Programmer, Authentication":::
 
 6. Select the *Browse...* button and locate the *rx65n_azure_iot.hex* file created in the previous section.
 
@@ -162,7 +162,7 @@ After the build completes, confirm that the binary file was created in the follo
 
 You can use the **Termite** app to monitor communication and confirm that your device is set up correctly.
 > [!TIP]
-> If you have issues getting your device to initialize or connect after flashing, see [Troubleshooting](https://github.com/azure-rtos/getting-started/blob/master/docs/troubleshooting.md).
+> If you have issues getting your device to initialize or connect after flashing, see [Troubleshooting](troubleshoot-embedded-device-quickstarts.md).
 
 1. Start **Termite**.
 1. Select **Settings**.
@@ -170,7 +170,7 @@ You can use the **Termite** app to monitor communication and confirm that your d
     * **Baud rate**: 115,200
     * **Port**: The port that your Renesas RX65N is connected to. If there are multiple port options in the dropdown, you can find the correct port to use. Open Windows **Device Manager**, and view **Ports** to identify which port to use.
 
-    :::image type="content" source="media/quickstart-devkit-renesas-rx65n-2mb/termite-settings.png" alt-text="Confirm settings in the Termite app":::
+    :::image type="content" source="media/quickstart-devkit-renesas-rx65n-2mb/termite-settings.png" alt-text="Screenshot of serial port settings in the Termite app":::
 
 1. Select OK.
 1. Press the **Reset** button on the device.
@@ -218,7 +218,7 @@ To view the device status in IoT Central portal:
 1. Confirm that the **Device status** is updated to **Provisioned**.
 1. Confirm that the **Device template** is updated to **Getting Started Guide**.
 
-    :::image type="content" source="media/quickstart-devkit-renesas-rx65n-2mb/iot-central-device-view-status.png" alt-text="View device status in IoT Central":::
+    :::image type="content" source="media/quickstart-devkit-renesas-rx65n-2mb/iot-central-device-view-status.png" alt-text="Screenshot of device status in IoT Central":::
 
 ## View telemetry
 
@@ -230,7 +230,7 @@ To view telemetry in IoT Central portal:
 1. Select the device from the device list.
 1. View the telemetry as the device sends messages to the cloud in the **Overview** tab.
 
-    :::image type="content" source="media/quickstart-devkit-renesas-rx65n-2mb/iot-central-device-telemetry.png" alt-text="View device telemetry in IoT Central":::
+    :::image type="content" source="media/quickstart-devkit-renesas-rx65n-2mb/iot-central-device-telemetry.png" alt-text="Screenshot of device telemetry in IoT Central":::
 
     > [!NOTE]
     > You can also monitor telemetry from the device by using the Termite app.
@@ -244,7 +244,7 @@ To call a method in IoT Central portal:
 1. Select the **Command** tab from the device page.
 1. In the **State** dropdown, select **True**, and then select **Run**.  The LED light should turn on.
 
-    :::image type="content" source="media/quickstart-devkit-renesas-rx65n-2mb/iot-central-invoke-method.png" alt-text="Call a direct method on a device":::
+    :::image type="content" source="media/quickstart-devkit-renesas-rx65n-2mb/iot-central-invoke-method.png" alt-text="Screenshot of calling a direct method on a device in IoT Central":::
 
 1. In the **State** dropdown, select **False**, and then select **Run**. The LED light should turn off.
 
@@ -254,11 +254,11 @@ You can view the device information from IoT Central.
 
 Select **About** tab from the device page.
 
-:::image type="content" source="media/quickstart-devkit-renesas-rx65n-2mb/iot-central-device-about.png" alt-text="View information about the device in IoT Central":::
+:::image type="content" source="media/quickstart-devkit-renesas-rx65n-2mb/iot-central-device-about.png" alt-text="Screenshot of device information in IoT Central":::
 
 ## Troubleshoot
 
-If you experience issues building the device code, flashing the device, or connecting, see [Troubleshooting](https://github.com/azure-rtos/getting-started/blob/master/docs/troubleshooting.md).
+If you experience issues building the device code, flashing the device, or connecting, see [Troubleshooting](troubleshoot-embedded-device-quickstarts.md).
 
 ## Clean up resources
 

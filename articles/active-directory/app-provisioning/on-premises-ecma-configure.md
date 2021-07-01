@@ -3,7 +3,7 @@ title: 'Azure AD ECMA Connector Host configuration'
 description: This article describes how to configure the Azure AD ECMA Connector Host.
 services: active-directory
 author: billmath
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to

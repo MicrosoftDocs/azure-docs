@@ -23,7 +23,7 @@ To use an availability zone, create your virtual machine in a [supported Azure r
 
 1. Click **Create a resource** > **Compute** > **Virtual machine**. 
 
-3. Enter the virtual machine information. The user name and password is used to sign in to the virtual machine. The password must be at least 12 characters long and meet the [defined complexity requirements](faq.md#what-are-the-password-requirements-when-creating-a-vm). 
+3. Enter the virtual machine information. The user name and password is used to sign in to the virtual machine. The password must be at least 12 characters long and meet the [defined complexity requirements](faq.yml#what-are-the-password-requirements-when-creating-a-vm-). 
 
 4. Choose a region such as East US 2 that supports availability zones. 
 

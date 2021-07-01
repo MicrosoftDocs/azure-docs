@@ -7,7 +7,7 @@ manager: nmurav
 services: azure-communication-services
 
 ms.author: nmurav
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
 ---
@@ -149,7 +149,7 @@ Traditional telephone calling (calling that occurs over the public switched tele
 
 #### United States calling prices
 
-The following prices include required communications taxes and fees until June 30th, 2021:
+The following prices include required communications taxes and fees:
 
 |Number type   |To make calls   |To receive calls|
 |--------------|-----------|------------|
@@ -158,7 +158,7 @@ The following prices include required communications taxes and fees until June 3
 
 #### Other calling destinations
 
-The following prices include required communications taxes and fees until June 30th, 2021:
+The following prices include required communications taxes and fees:
 
 |Make calls to   |Price per minute|
 |-----------|------------|
@@ -172,7 +172,7 @@ The following prices include required communications taxes and fees until June 3
 
 SMS offers pay-as-you-go pricing. The price is a per-message charge based on the destination of the message. Messages can be sent by toll-free phone numbers to phone numbers located within the United States. Note that local (geographic) phone numbers can't be used to send SMS messages.
 
-The following prices include required communications taxes and fees until June 30th, 2021:
+The following prices include required communications taxes and fees:
 
 |Country   |Send messages|Receive messages|
 |-----------|------------|------------|

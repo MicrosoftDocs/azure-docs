@@ -48,7 +48,7 @@ The following table lists some runbook execution tasks with the recommended exec
 |Execute long-running script|Hybrid Runbook Worker|Azure sandboxes have [resource limits](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits).|
 |Interact with local services|Hybrid Runbook Worker|Directly access the host machine, or resources in other cloud environments or the on-premises environment. |
 |Require third-party software and executables|Hybrid Runbook Worker|You manage the operating system and can install software.|
-|Monitor a file or folder with a runbook|Hybrid Runbook Worker|Use a [Watcher task](automation-watchers-tutorial.md) on a Hybrid Runbook Worker.|
+|Monitor a file or folder with a runbook|Hybrid Runbook Worker|Use a [Watcher task](./automation-scenario-using-watcher-task.md) on a Hybrid Runbook Worker.|
 |Run a resource-intensive script|Hybrid Runbook Worker| Azure sandboxes have [resource limits](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits).|
 |Use modules with specific requirements| Hybrid Runbook Worker|Some examples are:</br> WinSCP - dependency on winscp.exe </br> IIS administration - dependency on enabling or managing IIS|
 |Install a module with an installer|Hybrid Runbook Worker|Modules for sandbox must support copying.|

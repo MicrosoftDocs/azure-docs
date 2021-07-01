@@ -17,6 +17,7 @@ ms.author: pafarley
 * A valid Azure subscription - [Create one for free](https://azure.microsoft.com/free/).
 * The current version of the [Java Development Kit(JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * The [Gradle build tool](https://gradle.org/install/), or another dependency manager.
+* [!INCLUDE [terms-azure-portal](./terms-azure-portal.md)]
 
 
 [!INCLUDE [Create a service principal](./create-service-principal.md)]

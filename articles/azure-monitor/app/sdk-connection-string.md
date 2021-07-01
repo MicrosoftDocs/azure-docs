@@ -29,7 +29,7 @@ Customer scenarios where we visualize this having the most impact:
 
 - Firewall exceptions or proxy redirects 
 
-    In cases where monitoring for intranet web server is required, our earlier solution asked customers to add individual service endpoints to your configuration. For more information, see [here](../faq.md#can-i-monitor-an-intranet-web-server). 
+    In cases where monitoring for intranet web server is required, our earlier solution asked customers to add individual service endpoints to your configuration. For more information, see [here](../faq.yml#can-i-monitor-an-intranet-web-server-). 
     Connection strings offer a better alternative by reducing this effort to a single setting. A simple prefix, suffix amendment allows automatic population and redirection of all endpoints to the right services. 
 
 - Sovereign or Hybrid cloud environments
@@ -207,17 +207,22 @@ NetCore config.json:
 
 # [Java](#tab/java)
 
+You can set the connection string in the `applicationinsights.json` configuration file:
 
-Java (v2.5.x) Explicitly Set:
-```java
-TelemetryConfiguration.getActive().setConnectionString("InstrumentationKey=00000000-0000-0000-0000-000000000000");
+```json
+{
+  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000"
+}
 ```
 
-ApplicationInsights.xml
+See [connection string configuration](/azure/azure-monitor/app/java-standalone-config#connection-string) for more details.
+
+For Application Insights Java 2.x, you can set the connection string in the `ApplicationInsights.xml` configuration file:
+
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings">
-    <ConnectionString>InstrumentationKey=00000000-0000-0000-0000-000000000000;</ConnectionString>
+    <ConnectionString>InstrumentationKey=00000000-0000-0000-0000-000000000000</ConnectionString>
 </ApplicationInsights>
 ```
 

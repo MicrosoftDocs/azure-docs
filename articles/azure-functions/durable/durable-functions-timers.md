@@ -47,12 +47,12 @@ public static async Task Run(
 
 ```js
 const df = require("durable-functions");
-const moment = require("moment");
+const { DateTime } = require("luxon");
 
 module.exports = df.orchestrator(function*(context) {
     for (let i = 0; i < 10; i++) {
-        const deadline = moment.utc(context.df.currentUtcDateTime).add(1, 'd');
-        yield context.df.createTimer(deadline.toDate());
+        const deadline = DateTime.fromJSDate(context.df.currentUtcDateTime, {zone: 'utc'}).plus({ days: 1 });
+        yield context.df.createTimer(deadline.toJSDate());
         yield context.df.callActivity("SendBillingEvent");
     }
 });
@@ -131,13 +131,13 @@ public static async Task<bool> Run(
 
 ```js
 const df = require("durable-functions");
-const moment = require("moment");
+const { DateTime } = require("luxon");
 
 module.exports = df.orchestrator(function*(context) {
-    const deadline = moment.utc(context.df.currentUtcDateTime).add(30, "s");
+    const deadline = DateTime.fromJSDate(context.df.currentUtcDateTime, {zone: 'utc'}).plus({ seconds: 30 });
 
     const activityTask = context.df.callActivity("GetQuote");
-    const timeoutTask = context.df.createTimer(deadline.toDate());
+    const timeoutTask = context.df.createTimer(deadline.toJSDate());
 
     const winner = yield context.df.Task.any([activityTask, timeoutTask]);
     if (winner === activityTask) {

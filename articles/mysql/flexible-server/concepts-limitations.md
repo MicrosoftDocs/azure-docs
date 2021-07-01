@@ -10,7 +10,9 @@ ms.date: 10/1/2020
 
 # Limitations in Azure Database for MySQL - Flexible Server (Preview)
 
-> [!IMPORTANT] 
+[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+
+> [!IMPORTANT]
 > Azure Database for MySQL - Flexible Server is currently in public preview.
 
 This article describes limitations in the Azure Database for MySQL Flexible Server service. [General limitations](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.7/en/limits.html) in the MySQL database engine are also applicable. If you'd like to learn about resource (compute, memory, storage) tiers, see the [compute and storage](concepts-compute-storage.md) article.

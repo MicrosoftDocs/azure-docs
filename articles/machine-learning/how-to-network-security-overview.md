@@ -1,22 +1,23 @@
 ---
-title: Virtual network isolation and security overview
+title: Secure workspace resources using virtual networks (VNets)
 titleSuffix: Azure Machine Learning
-description: Use an isolated Azure Virtual Network with Azure Machine Learning to secure workspace resources and compute environments.
+description: Secure Azure Machine Learning workspace resources and compute environments using an isolated Azure Virtual Network (VNet).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
-ms.date: 03/02/2021
+ms.date: 06/11/2021
 ms.topic: how-to
-ms.custom: devx-track-python, references_regions, contperf-fy21q1
+ms.custom: devx-track-python, references_regions, contperf-fy21q1,contperf-fy21q4,FY21Q4-aml-seo-hack 
 
 ---
 
-# Virtual network isolation and privacy overview
+<!-- # Virtual network isolation and privacy overview -->
+# Secure Azure Machine Learning workspace resources using virtual networks (VNets)
 
-In this article, you learn how to use virtual networks (VNets) to secure network communication in Azure Machine Learning. This article uses an example scenario to show you how to configure a complete virtual network.
+Secure Azure Machine Learning workspace resources and compute environments using virtual networks (VNets). This article uses an example scenario to show you how to configure a complete virtual network.
 
 This article is part one of a five-part series that walks you through securing an Azure Machine Learning workflow. We highly recommend that you read through this overview article to understand the concepts first. 
 
@@ -29,7 +30,7 @@ Here are the other articles in this series:
 This article assumes that you have familiarity with the following topics:
 + [Azure Virtual Networks](../virtual-network/virtual-networks-overview.md)
 + [IP networking](../virtual-network/public-ip-addresses.md)
-+ [Azure Private Link](how-to-configure-private-link.md)
++ [Azure Machine Learning workspace with private endpoint](how-to-configure-private-link.md)
 + [Network Security Groups (NSG)](../virtual-network/network-security-groups-overview.md)
 + [Network firewalls](../firewall/overview.md)
 ## Example scenario
@@ -43,7 +44,7 @@ The table below compares how services access different parts of an Azure Machine
 |**No virtual network**| Public IP | Public IP | Public IP | Public IP |
 |**Secure resources in a virtual network**| Private IP (private endpoint) | Public IP (service endpoint) <br> **- or -** <br> Private IP (private endpoint) | Private IP | Private IP  | 
 
-* **Workspace** - Create a private endpoint from your VNet to connect to Private Link on the workspace. The private endpoint connects the workspace to the vnet through several private IP addresses.
+* **Workspace** - Create a private endpoint for your workspace. The private endpoint connects the workspace to the vnet through several private IP addresses.
 * **Associated resource** - Use service endpoints or private endpoints to connect to workspace resources like Azure storage, Azure Key Vault, and Azure Container Services.
     * **Service endpoints** provide the identity of your virtual network to the Azure service. Once you enable service endpoints in your virtual network, you can add a virtual network rule to secure the Azure service resources to your virtual network. Service endpoints use public IP addresses.
     * **Private endpoints** are network interfaces that securely connect you to a service powered by Azure Private Link. Private endpoint uses a private IP address from your VNet, effectively bringing the service into your VNet.
@@ -80,7 +81,7 @@ For detailed instructions on how to complete these steps, see [Secure an Azure M
 ### Limitations
 
 Securing your workspace and associated resources within a virtual network have the following limitations:
-- Using an Azure Machine Learning workspace with private link is not available in the Azure Government or Azure China 21Vianet regions.
+- Using an Azure Machine Learning workspace with private endpoint is not available in the Azure Government or Azure China 21Vianet regions.
 - All resources must be behind the same VNet. However, subnets within the same VNet are allowed.
 
 ## Secure the training environment
@@ -138,7 +139,7 @@ The following network diagram shows a secured Azure Machine Learning workspace w
 
 You can secure the workspace behind a VNet using a private endpoint and still allow access over the public internet. The initial configuration is the same as [securing the workspace and associated resources](#secure-the-workspace-and-associated-resources). 
 
-After securing the workspace with a private link, you then [Enable public access](how-to-configure-private-link.md#enable-public-access). After this, you can access the workspace from both the public internet and the VNet.
+After securing the workspace with a private endpoint, you then [Enable public access](how-to-configure-private-link.md#enable-public-access). After this, you can access the workspace from both the public internet and the VNet.
 
 ### Limitations
 

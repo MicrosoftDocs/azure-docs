@@ -13,12 +13,11 @@ ms.date: 05/27/2021
 
 # CARIN Implementation Guide for Blue Button&#174;
 
-In this tutorial, we'll walk through setting up the Azure API for FHIR to pass the [Touchstone](https://touchstone.aegis.net/touchstone/) tests for the [CARIN Implementation Guide for Blue Button ](https://build.fhir.org/ig/HL7/carin-bb/index.html) (C4BB IG).
+In this tutorial, we'll walk through setting up the Azure API for FHIR to pass the [Touchstone](https://touchstone.aegis.net/touchstone/) tests for the [CARIN Implementation Guide for Blue Button](https://build.fhir.org/ig/HL7/carin-bb/index.html) (C4BB IG).
 
 ## Touchstone capability statement
 
 The first test that we'll focus on is testing the Azure API for FHIR against the [C4BB IG capability statement](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/CARIN/CARIN-4-BlueButton/00-Capability&activeOnly=false&contentEntry=TEST_SCRIPTS). If you run this test against the Azure API for FHIR without any updates, the test will fail due to missing search parameters and missing profiles. 
-
 
 ### Define search parameters
 
@@ -38,19 +37,12 @@ The rest of the search parameters needed for the C4BB IG are defined by the base
 Outside of defining search parameters, the other update you need to make to pass this test is to load the [required profiles](validation-against-profiles.md). There are eight profiles defined within the C4BB IG. 
 
 * [C4BB Coverage](https://build.fhir.org/ig/HL7/carin-bb/StructureDefinition-C4BB-Coverage.html) 
-
 * [C4BB ExplanationOfBenefit Inpatient Institutional](https://build.fhir.org/ig/HL7/carin-bb/StructureDefinition-C4BB-ExplanationOfBenefit-Inpatient-Institutional.html) 
-
 * [C4BB ExplanationOfBenefit Outpatient Institutional](https://build.fhir.org/ig/HL7/carin-bb/StructureDefinition-C4BB-ExplanationOfBenefit-Outpatient-Institutional.html) 
-
 * [C4BB ExplanationOfBenefit Pharmacy](https://build.fhir.org/ig/HL7/carin-bb/StructureDefinition-C4BB-ExplanationOfBenefit-Pharmacy.html) 
-
 * [C4BB ExplanationOfBenefit Professional NonClinician](https://build.fhir.org/ig/HL7/carin-bb/StructureDefinition-C4BB-ExplanationOfBenefit-Professional-NonClinician.html) 
-
 * [C4BB Organization](https://build.fhir.org/ig/HL7/carin-bb/StructureDefinition-C4BB-Organization.html) 
-
 * [C4BB Patient](https://build.fhir.org/ig/HL7/carin-bb/StructureDefinition-C4BB-Patient.html) 
-
 * [C4BB Practitioner](https://build.fhir.org/ig/HL7/carin-bb/StructureDefinition-C4BB-Practitioner.html) 
 
 ### Sample rest file
@@ -67,13 +59,13 @@ After testing the capabilities statement, we will test the [read capabilities](h
 
 ## Touchstone EOB query test
 
-The next test we'll review is the [EOB query test](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/CARIN/CARIN-4-BlueButton/02-EOBQuery&activeOnly=false&contentEntry=TEST_SCRIPTS). If you've already completed the Read test, you have all the data loaded that you'll need. This test validates that you can search for specific patients and explanation of benefits resources using various parameters.
+The next test we'll review is the [EOB query test](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/CARIN/CARIN-4-BlueButton/02-EOBQuery&activeOnly=false&contentEntry=TEST_SCRIPTS). If you've already completed the read test, you have all the data loaded that you'll need. This test validates that you can search for specific `Patient` and `ExplanationOfBenefit` resources using various parameters.
 
 :::image type="content" source="media/cms-tutorials/test-execution-touchstone-eob-query-test.png" alt-text="Touchstone EOB query execution results.":::
 
 ## Touchstone error handling test
 
-The final test we'll walk through is testing [error handling](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/CARIN/CARIN-4-BlueButton/99-ErrorHandling&activeOnly=false&contentEntry=TEST_SCRIPTS). The only step you need to do is delete an ExplanationOfBenefit resource from your database and use the ID of the delete ExplanationOfBenfit resource in the test.
+The final test we'll walk through is testing [error handling](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/CARIN/CARIN-4-BlueButton/99-ErrorHandling&activeOnly=false&contentEntry=TEST_SCRIPTS). The only step you need to do is delete an ExplanationOfBenefit resource from your database and use the ID of the deleted `ExplanationOfBenefit` resource in the test.
 
 :::image type="content" source="media/cms-tutorials/test-execution-touchstone-error-handling.png" alt-text="Touchstone EOB error handling results.":::
 

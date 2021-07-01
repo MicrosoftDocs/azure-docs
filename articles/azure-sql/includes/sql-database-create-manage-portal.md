@@ -1,7 +1,7 @@
 ---
 author: MashaMSFT
 ms.service: sql-database
-ms.subservice: operations  
+ms.subservice: service-overview  
 ms.topic: include
 ms.date: 08/23/2019
 ms.author: mathoma
