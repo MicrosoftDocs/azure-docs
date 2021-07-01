@@ -13,7 +13,7 @@ ms.author: mimart
 author: msmimart
 manager: CelesteDG
 ms.reviewer: mal
-ms.custom: "it-pro, seo-update-azuread-jan, seoapril2019, contentperf-fy22q1"
+ms.custom: "it-pro, seo-update-azuread-jan, seoapril2019, contentperf-fy21q4, contperf-fy21q4"
 ms.collection: M365-identity-device-management
 ---
 
