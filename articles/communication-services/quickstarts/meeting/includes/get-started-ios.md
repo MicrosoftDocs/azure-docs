@@ -294,3 +294,4 @@ The Microsoft Teams SDK supports over 100 strings and resources. The framework b
 1. Determine what kind of localizations your application supports from the app Xcode Project > Info > Localizations list
 2. Unzip the Localizations.zip included with the package
 3. Copy the localization folders from the unzipped folder based on what your app supports to the root of the TeamsAppSDK.framework
+
