@@ -70,7 +70,7 @@ This process will give you three pieces of information for use when deploying th
 1. The **Custom deployment** screen will appear.
     1. Select a **subscription**, **resource group**, and **region** in which to deploy your Function App.
 
-    1. Enter your **Client ID** and **Client Secret** that you saved in [Step 1](#step-1-get-your-source-systems-api-credentials) above.
+    1. Enter your **Client ID** and **Client Secret** that you saved in [Step 1](#step-1---get-your-source-systems-api-credentials) above.
 
     1. Enter your Azure Sentinel **Workspace ID** and **Workspace Key** (primary key) that you copied and put aside.
 
@@ -171,8 +171,7 @@ This process will give you three pieces of information for use when deploying th
 
     1. Select **Save**.
 
-1. Complete Setup.
-1.	Once all application settings have been entered, click Save. Note that it will take some time to have the required dependencies download, so you may see some inital failure messages.
+1. Complete Setup. ***WHAT'S LEFT TO DO???***
 
 
 
@@ -182,9 +181,9 @@ This process will give you three pieces of information for use when deploying th
 
 After a successful connection is established, the data appears in **Logs** under *CustomLogs*, in the following tables: 
 
-- 
-- 
-- 
+- table
+- table
+- table
 
 To query data, enter one of the above table names in the query window.
 
