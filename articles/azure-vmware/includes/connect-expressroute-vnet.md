@@ -8,7 +8,7 @@ ms.date: 12/08/2020
 <!-- Used in deploy-azure-vmware-solution.md and tutorial-configure-networking.md -->
 
 >[!IMPORTANT]
->[!INCLUDE [disk-pool-planning-note](includes/disk-pool-planning-note.md)]
+>[!INCLUDE [disk-pool-planning-note](disk-pool-planning-note.md)]
 
 1. Request an ExpressRoute authorization key:
 
