@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/08/2021
+ms.date: 07/01/2021
 ms.author: yelevin
 
 ---
@@ -111,6 +111,32 @@ To use the investigation graph:
 1. Hover over the timeline to see which things on the graph occurred at what point in time.
 
     ![Use timeline in map to investigate alerts](media/tutorial-investigate-cases/use-timeline.png)
+
+## Search for incidents
+
+NOTES:
+currently in private preview, will run for 3 weeks or so. targeted end july.
+
+basic search - icon is grey. comes from investigation graph data.
+advanced search - comes from log analytics data. shows blue. 
+
+we only show top 50 results. currently only first 50. maybe this bug will get fixed.
+
+updates might take a few minutes to show in results.
+
+you cannot enable auto-refresh once you've searched.
+
+if you're searching for entities - all entities fields are supported - it searches through all entity fields.
+
+owner supports name or email address.
+
+searches are strings - not advanced. 
+
+not supported for cross workspace views
+
+if you don't find what you're looking for - expand your search
+
+need to press enter each time in order to start the search.
 
 ## Closing an incident
 
