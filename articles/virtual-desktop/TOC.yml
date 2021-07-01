@@ -25,19 +25,19 @@
   - name: Connect to Azure Virtual Desktop resources
     items:
       - name: Connect with the Windows Desktop client
-        href: ./user-documentation/connect-windows-7-10.md
+        href: ./user-documentation/connect-windows-7-10.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
       - name: Connect with the web client
-        href: ./user-documentation/connect-web.md
+        href: ./user-documentation/connect-web.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
       - name: Connect with the Android client
-        href: ./user-documentation/connect-android.md
+        href: ./user-documentation/connect-android.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
       - name: Connect with the macOS client
-        href: ./user-documentation/connect-macos.md
+        href: ./user-documentation/connect-macos.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
       - name: Connect with the iOS client
-        href: ./user-documentation/connect-ios.md
+        href: ./user-documentation/connect-ios.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
       - name: Connect with the Microsoft Store client
-        href: ./user-documentation/connect-microsoft-store.md
+        href: ./user-documentation/connect-microsoft-store.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
       - name: Connect with thin clients
-        href: ./user-documentation/linux-overview.md
+        href: ./user-documentation/linux-overview.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
   - name: Configure device redirections
     href: configure-device-redirections.md
   - name: Set up the PowerShell module

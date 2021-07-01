@@ -100,3 +100,7 @@ You can't move data that's stored in the premium tier between hot, cool, and arc
 Currently, the WASB driver, which was designed to work with the Blob API only, encounters problems in a few common scenarios. Specifically, when it is a client to a hierarchical namespace-enabled storage account. Multi-protocol access on Data Lake Storage won't mitigate these issues. 
 
 For the time being (and most likely the foreseeable future), we won't support customers using the WASB driver as a client to a hierarchical namespace-enabled storage account. Instead, we recommend that you opt to use the [Azure Blob File System (ABFS)](data-lake-storage-abfs-driver.md) driver in your Hadoop environment. If you are trying to migrate off of an on-premise Hadoop environment with a version earlier than Hadoop branch-3, then please open an Azure Support ticket so that we can get in touch with you on the right path forward for you and your organization.
+
+## Soft delete for blobs capability (currently in preview)
+
+If parent directories for soft-deleted files or directories are renamed, the soft-deleted items may not be displayed correctly in the Azure Portal. In such cases you can use [PowerShell](soft-delete-blob-manage.md?tabs=dotnet#restore-soft-deleted-blobs-and-directories-by-using-powershell) or [Azure CLI](soft-delete-blob-manage.md?tabs=dotnet#restore-soft-deleted-blobs-and-directories-by-using-azure-cli) to list and restore the soft-deleted items. 
