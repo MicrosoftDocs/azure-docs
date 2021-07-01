@@ -83,7 +83,7 @@ The data collected for each event:
 
 - **Transport_protocol** – Can be TCP, UDP, or ICMP.
 
-- **Application protocol** – The application protocol assosiated with the connection.
+- **Application protocol** – The application protocol associated with the connection.
 
 - **Extended properties** – Additional details of the connection. For example, `host name`. 
 
