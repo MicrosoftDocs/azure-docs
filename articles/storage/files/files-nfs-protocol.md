@@ -4,7 +4,7 @@ description: Learn about file shares hosted in Azure Files using the Network Fil
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/30/2021
+ms.date: 07/01/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
@@ -26,7 +26,6 @@ NFS file shares are often used in the following scenarios:
 - Fully POSIX-compliant file system.
 - Hard link support.
 - Symbolic link support.
-
 - NFS file shares currently only support most features from the [4.1 protocol specification](https://tools.ietf.org/html/rfc5661). Some features such as delegations and callback of all kinds, Kerberos authentication, and encryption-in-transit are not supported.
 
 
@@ -46,7 +45,7 @@ For more details on the available networking options, see [Azure Files networkin
 
 ## Support for Azure Storage features
 
-The following table shows the current level of support for Azure Files features in accounts that have the NFS 4.1 feature enabled. 
+The following table shows the current level of support for Azure Storage features in accounts that have the NFS 4.1 feature enabled. 
 
 The status of items that appear in this tables may change over time as support continues to expand.
 
@@ -58,11 +57,12 @@ The status of items that appear in this tables may change over time as support c
 | Encryption in transit| ⛔ |
 | [LRS or ZRS redundancy types](storage-files-planning.md#redundancy)|	✔️ |
 | [Private endpoints](storage-files-networking-overview.md#private-endpoints) | ✔️  |
+| Subdirectory mounts|	✔️ |
 | [Grant network access to specific Azure virtual networks](storage-files-networking-endpoints.md#restrict-access-to-the-public-endpoint-to-specific-virtual-networks)|  ✔️  |
-| Grant network access to specific IP addresses| ⛔ |
+| [Grant network access to specific IP addresses](../common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#grant-access-from-an-internet-ip-range)| ⛔ |
 | [Premium tier](storage-files-planning.md#storage-tiers) |  ✔️  |
 | [Standard tiers (Hot, Cool, and Transaction optimized)](storage-files-planning.md#storage-tiers)| ⛔ |
-| POSIX-permissions|  ✔️  |
+| [POSIX-permissions](https://en.wikipedia.org/wiki/File-system_permissions#Notation_of_traditional_Unix_permissions)|  ✔️  |
 | Root squash|  ✔️  |
 | [Identity-based authentication](storage-files-active-directory-overview.md) | ⛔ |
 | [Azure file share soft delete](storage-files-prevent-file-share-deletion.md) | ⛔  |
@@ -70,9 +70,10 @@ The status of items that appear in this tables may change over time as support c
 | [Azure file share backups](../../backup/azure-file-share-backup-overview.md)| ⛔ |
 | [Azure file share snapshots](storage-snapshots-files.md)| ⛔ |
 | [GRS or GZRS redundancy types](storage-files-planning.md#redundancy)| ⛔ |
-| [AzCopy](../common/storage-use-azcopy-v10.md)| ⛔ |
+| [AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)| ⛔ |
 | Azure Storage Explorer| ⛔ |
 | Create NFS shares on existing storage accounts*| ⛔ |
+| Support for more than 16 groups| ⛔ |
 
 \* If a storage account was created prior to registering for NFS, you cannot use it for NFS. Only storage accounts created after registering for NFS can be used.
 
@@ -82,3 +83,4 @@ The status of items that appear in this tables may change over time as support c
 
 ## Next steps
 - [Create an NFS file share](storage-files-how-to-create-nfs-shares.md)
+- [Compare access to Azure Files, Blob Storage, and Azure NetApp Files with NFS](../common/nfs-comparison.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)

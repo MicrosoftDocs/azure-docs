@@ -4,7 +4,7 @@ description: Learn how to create an Azure file share that can be mounted using t
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/30/2021
+ms.date: 07/01/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
@@ -183,32 +183,6 @@ Now that you have created a FileStorage account and configured the networking, y
     :::image type="content" source="media/storage-files-how-to-create-mount-nfs-shares/files-nfs-create-share.png" alt-text="Screenshot of file share creation blade.":::
 
 # [PowerShell](#tab/azure-powershell)
-
-1. Ensure that the .NET framework is installed. See [Download .NET Framework](https://dotnet.microsoft.com/download/dotnet-framework).
-
-1. Verify that the version of PowerShell that have installed is `5.1` or higher by using the following command.    
-
-   ```powershell
-   echo $PSVersionTable.PSVersion.ToString() 
-   ```
-
-   To upgrade your version of PowerShell, see [Upgrading existing Windows PowerShell](/powershell/scripting/install/installing-windows-powershell#upgrading-existing-windows-powershell)
-
-1. Install the latest version of the PowershellGet module.
-
-   ```powershell
-   install-Module PowerShellGet –Repository PSGallery –Force  
-   ```
-
-1. Close, and then reopen the PowerShell console.
-
-1. Install the **Az.Storage** preview module version **2.5.2-preview**.
-
-   ```powershell
-   Install-Module Az.Storage -Repository PsGallery -RequiredVersion 2.5.2-preview -AllowClobber -AllowPrerelease -Force  
-   ```
-
-   For more information about how to install PowerShell modules, see [Install the Azure PowerShell module](/powershell/azure/install-az-ps)
 
 1. To create a premium file share with the Azure PowerShell module, use the [New-AzRmStorageShare](/powershell/module/az.storage/new-azrmstorageshare) cmdlet.
 
