@@ -34,9 +34,9 @@ To create a management resource for a device ordered through the Azure Edge Hard
     |**Deploy Azure resource in**             |Select the country or region where the metadata for the management resource will reside. The metadata can be stored in a different location than the physical device. |
     |**Device type**<sup>2</sup>              |Select the device type. This option corresponds to the configuration that's selected for the hardware product in an Azure Edge Hardware Center order.<br>For example, for an Azure Stack Edge Pro - GPU device, the device type is either **Azure Stack Edge Pro - 1 GPU** or **Azure Stack Edge Pro - 1 GPU**.|       
 
-    <sup>1</sup>An organization may use different subscriptions and resource groups to order devices than they use to manage them.
+    <sup>1</sup> An organization may use different subscriptions and resource groups to order devices than they use to manage them.
 
-    <sup>2</sup>When you use **Configure hardware** from the order item, the device type is taken from the order item, and **DEVICE DETAILS** aren't displayed. 
+    <sup>2</sup> When you use **Configure hardware** from the order item, the device type is taken from the order item, and **DEVICE DETAILS** aren't displayed. 
 
     ![Screenshot of the Basics tab in the Create management resource wizard, with example field entries](media/azure-edge-hardware-center-create-management-resource/create-management-resource-02.png)
 
