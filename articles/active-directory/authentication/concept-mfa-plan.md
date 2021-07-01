@@ -161,20 +161,20 @@ We recommend migrating applications secured with Active Directory Federation Ser
 If your organization is federated with Azure AD, you can configure Azure AD MFA  as an authentication provider with AD FS resources both on-premises and in the cloud.  
 
 ### RADIUS clients and Azure AD MFA
-For applications that are using RADIUS authentication, we recommend moving client applications to modern protocols such as SAML, Open ID Connect, or OAuth on Azure AD. If the application cannot be updated, then you can deploy Network Policy Server (NPS) with the Azure MFA extension. The network policy server (NPS) extension acts as an adapter between RADIUS-based applications and Azure AD MFA to provide a second factor of authentication.
+For applications that are using RADIUS authentication, we recommend moving client applications to modern protocols such as SAML, Open ID Connect, or OAuth on Azure AD. If the application cannot be updated, then you can deploy [Network Policy Server (NPS) with the Azure MFA extension](howto-mfa-nps-extension.md). The network policy server (NPS) extension acts as an adapter between RADIUS-based applications and Azure AD MFA to provide a second factor of authentication.
 
 #### Common integrations
 Many vendors now support SAML authentication for their applications. When possible, we recommend federating these applications with Azure AD and enforcing MFA through Conditional Access. If your vendor doesn’t support modern authentication – you can use the NPS extension.
-Common RADIUS client integrations include applications such as Remote Desktop Gateways and VPN servers. 
+Common RADIUS client integrations include applications such as [Remote Desktop Gateways](howto-mfa-nps-extension-rdg.md) and [VPN servers](howto-mfa-nps-extension-vpn.md). 
 
 Others might include:
 
 - Citrix Gateway
 
-  Citrix Gateway supports both RADIUS and NPS extension integration, and a SAML integration.
+  [Citrix Gateway](https://docs.citrix.com/advanced-concepts/implementation-guides/citrix-gateway-microsoft-azure.html#microsoft-azure-mfa-deployment-methods) supports both RADIUS and NPS extension integration, and a SAML integration.
 
 - Cisco VPN
-  - The Cisco VPN supports both RADIUS and SAML authentication for SSO.
+  - The Cisco VPN supports both RADIUS and [SAML authentication for SSO](../saas-apps/cisco-anyconnect.md).
   - By moving from RADIUS authentication to SAML, you can integrate the Cisco VPN without deploying the NPS extension.
 
 - All VPNs
@@ -190,7 +190,6 @@ Follow the steps below:
 1. Configure your Conditional Access policies
 1. Configure session lifetime settings
 1. Configure Azure AD MFA registration policies 
-
 
 ## Manage Azure AD MFA
 This section provides reporting and troubleshooting information for Azure AD MFA.
