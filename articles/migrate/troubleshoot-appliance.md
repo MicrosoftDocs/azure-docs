@@ -5,7 +5,7 @@ author: vineetvikram
 ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: troubleshooting
-ms.date: 01/02/2020
+ms.date: 07/01/2020
 ---
 
 
@@ -127,9 +127,10 @@ Error 50004: "Can't connect to a host or cluster because the server name can't b
 ## Error: No suitable authentication method found
 
 Ensure password-based authentication is enabled on the linux server using the following steps:
-    1. Log in to the linux server and open the ssh configuration file using the command 'vi /etc/ssh/sshd_config'
-    2. Set "PasswordAuthentication" option to yes. Save the file.
-    3. Restart ssh service by running "service sshd restart"
+
+1. Log in to the linux server and open the ssh configuration file using the command 'vi /etc/ssh/sshd_config'
+2. Set "PasswordAuthentication" option to yes. Save the file.
+3. Restart ssh service by running "service sshd restart"
 
 
 ## Next steps

@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot assessments  in Azure Migrate
+title: Troubleshoot assessments in Azure Migrate
 description: Get help with assessment in Azure Migrate.
 author: rashi-ms
 ms.author: rajosh
