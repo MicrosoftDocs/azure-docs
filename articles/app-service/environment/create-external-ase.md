@@ -16,14 +16,9 @@ ms.custom: seodec18
 > This article is about the App Service Environment v2 which is used with Isolated App Service plans
 > 
 
-Azure App Service Environment is a deployment of Azure App Service into a subnet in an Azure virtual network (VNet).
+Azure App Service Environment is a deployment of Azure App Service into a subnet in an Azure virtual network (VNet). There are two ways to deploy an App Service Environment (ASE):
 
-> [!NOTE]
-> Each App Service Environment has a Virtual IP (VIP), which can be used to contact the App Service Environment.
-
-There are two ways to deploy an App Service Environment (ASE):
-
-- With a VIP on an external IP address, often called an External ASE.
+- With a VIP on an external public facing IP address, often called an External ASE.
 - With the VIP on an internal IP address, often called an ILB ASE because the internal endpoint is an Internal Load Balancer (ILB).
 
 This article shows you how to create an External ASE. For an overview of the ASE, see [An introduction to the App Service Environment][Intro]. For information on how to create an ILB ASE, see [Create and use an ILB ASE][MakeILBASE].
