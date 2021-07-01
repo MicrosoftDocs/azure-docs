@@ -69,9 +69,8 @@ To increase the Server Registration tenant limit on the server, create a DWORD v
 You can also workaround this issue by using the following PowerShell commands to register the server:
 
 ```powershell
-Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
-Login-AzureRmStorageSync -SubscriptionID "<guid>" -TenantID "<guid>"
-Register-AzureRmStorageSyncServer -SubscriptionId "<guid>" -ResourceGroupName "<string>" -StorageSyncServiceName "<string>"
+Connect-AzAccount -Subscription "<guid>" -Tenant "<guid>"
+Register-AzStorageSyncServer -ResourceGroupName "<your-resource-group-name>" -StorageSyncServiceName "<your-storage-sync-service-name>"
 ```
 
 <a id="server-registration-prerequisites"></a>**Server Registration displays the following message: "Pre-requisites are missing"**  
