@@ -41,11 +41,11 @@ First, you need to create an account with the Object Anchors service.
 
    Take note of the **Account Domain**. You'll need it later.
 
-   :::image type="content" source="./media/object-anchors-quickstarts/create-aoa-resource-6.1.png" alt-text="Copy the account domain for your Object Anchors resource":::
+   :::image type="content" source="./media/object-anchors-quickstarts/create-aoa-resource-6-1.png" alt-text="Copy the account domain for your Object Anchors resource":::
 
    Take note of the **Account ID**. You'll need it later.
 
-   :::image type="content" source="./media/object-anchors-quickstarts/create-aoa-resource-6.2.png" alt-text="Copy the account ID for your Object Anchors resource":::
+   :::image type="content" source="./media/object-anchors-quickstarts/create-aoa-resource-6-2.png" alt-text="Copy the account ID for your Object Anchors resource":::
 
    Go to the **Access Keys** page and take note of the **Primary key**. You'll need it later.
 
