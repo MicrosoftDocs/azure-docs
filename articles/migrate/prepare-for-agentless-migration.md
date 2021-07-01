@@ -37,7 +37,7 @@ You can also use this article to manually prepare the VMs for migration to Azure
 
 For the migrated VMs to function properly on Azure, some changes may be required to the VMs’ configuration before migration. Azure Migrate handles these configuration changes via the *hydration* process. The hydration process is not performed for other operating system versions supported by Azure but not listed above. You may need to perform the required changes manually before you migrate. If the VM is migrated without the required changes, the VM may not boot or establish connectivity to the migrated VM. The following diagram shows you Azure Migrate performs the hydration process.
 
-      ![Hydration steps](./media/concepts-vmware-agentless-migration/hydration-process.png)
+  ![Hydration steps](./media/concepts-vmware-agentless-migration/hydration-process.png)
 
 When a user triggers Test Migration or Migration, Azure Migrate performs the hydration process to prepare the on-premises VM for migration to Azure.
 To set up for the hydration process, Azure Migrate creates a temporary Azure VM and attaches the disks of the source VM to perform changes to make the source VM ready for Azure. The temporary Azure VM is an intermediate VM that is created during the migration process before the final migrated VM is created. The temporary VM will be created with a similar OS type (Windows/Linux) using one of the marketplace OS images. If the on-premises VM is running Windows, the operating system disk of the on-premises VM will be attached as a data disk to the temporary VM for performing changes. If it is a Linux server, all the disks attached to the on-premises VM will be attached as data disks to the temporary Azure VM.
@@ -46,13 +46,13 @@ Azure Migrate will create the network interface, a new virtual network, subnet, 
 
 After the virtual machine is created, Azure Migrate will invoke the [Custom Script Extension](/azure/virtual-machines/extensions/custom-script-windows) on the temporary VM using the Azure Virtual Machine REST API. The Custom Script Extension utility will execute a preparation script, containing the required configuration for Azure readiness, on the on-premises VM disks attached to the temporary Azure VM. The preparation script is downloaded from an Azure Migrate owned storage account. The network security group rules of the virtual network will be configured to permit the temporary Azure VM to access the Azure Migrate storage account for invoking the script.
 
-     ![Migration steps](./media/concepts-vmware-agentless-migration/migration-steps.png)
+  ![Migration steps](./media/concepts-vmware-agentless-migration/migration-steps.png)
 
-### Changes performed during the hydration process
+## Changes performed during the hydration process
 
 The preparation script executes the following changes based on the OS type of the source VM to be migrated. You can also use this section as a guidance to manually prepare the VMs for migration to Azure for operating systems versions not supported for hydration.
 
-#### Changes performed on Windows servers
+### Changes performed on Windows servers
 
 1. **Discover and prepare the Windows OS volume:**
 
@@ -82,9 +82,10 @@ The preparation script executes the following changes based on the OS type of th
 
   2. Set storage area network (SAN) policy to ONLINE ALL.
     This ensures that the Windows volumes in the Azure VM use the same drive letter assignments as the on-premises VM. By default, Azure VMs are assigned drive D: to use as temporary storage. This drive assignment causes all other attached storage drive assignments to increment by one letter. To prevent this automatic assignment, and to ensure that Azure assigns the next free drive letter to its temporary volume, set the storage area network (SAN) policy to Online All:
-    To manually configure this setting:
-    - On the on-premises server, open the command prompt with elevated privileges.
-    - Enter **diskpart**
+
+      To manually configure this setting:
+      On the on-premises server, open the command prompt with elevated privileges and enter **diskpart**
+
     ![Manual Configuration](./media/concepts-vmware-agentless-migration/command-prompt-diskpart.png)
 
   3. Enter SAN. If the drive letter of the guest operating system isn't maintained, Offline All or Offline Shared is returned.
@@ -114,7 +115,7 @@ The preparation script executes the following changes based on the OS type of th
     > [!NOTE]                        
     > To connect to Windows Server 2003 VMs, Hyper-V Integration Services must be installed on the Azure VM. Windows Server 2003 machines don't have this installed by default. See this [article](/azure/migrate/prepare-windows-server-2003-migration) to install and prepare for migration.
 
-#### Install the Windows Azure Guest Agent
+### Install the Windows Azure Guest Agent
 
 Azure Migrate will attempt to install the Microsoft Azure Virtual Machine Agent (VM Agent), a secure, lightweight process that manages virtual machine (VM) interaction with the Azure Fabric Controller. The VM Agent has a primary role in enabling and executing Azure virtual machine extensions that enable post-deployment configuration of VM, such as installing and configuring software. Azure Migrate automatically installs the Windows VM agent on Windows Server 2008 R2 and higher versions.
 
@@ -122,14 +123,14 @@ The Windows VM agent can be manually installed with a Windows installer package.
 
 To check if the Azure VM Agent was successfully installed, open Task Manager, select the **Details** tab, and look for the process name *WindowsAzureGuestAgent.exe*. The presence of this process indicates that the VM agent is installed. You can also use [PowerShell to detect the VM agent](/azure/virtual-machines/extensions/agent-windows#powershell).
 
-    ![Successfull Installation of Azure VM Agent](./media/concepts-vmware-agentless-migration/installation-azure-vm-agent.png)
+  ![Successfull Installation of Azure VM Agent](./media/concepts-vmware-agentless-migration/installation-azure-vm-agent.png)
 
 After the aforementioned changes are performed, the system partition will be unloaded. The VM is now ready for migration.
 [Learn more about the changes for Windows servers](/azure/virtual-machines/windows/prepare-for-upload-vhd-image)
 
-#### Changes performed on Linux servers
+### Changes performed on Linux servers
 
-**Discover and mount Linux OS partitions**  
+1. **Discover and mount Linux OS partitions**  
 
 Before performing relevant configuration changes, the preparation script will validate if the correct OS disk was selected for migration. The script will collect information on all partitions, their UUIDs, and mount-points. The script will look through all these visible partitions to locate the /boot and /root partitions.
 The following actions are performed in this step:
@@ -141,7 +142,7 @@ The following actions are performed in this step:
     - Use fstab content to determine if /boot is a separate partition. If it’s a separate partition, then obtain the boot partition device name from the fstab content or look for the partition which has the boot flag.
     - The script will proceed to discover and mount /boot, and other necessary partitions on “/mnt/azure_sms_root” to build the root filesystem tree required for chroot jail. Other necessary partitions include: /boot/grub/menu.lst, /boot/grub/grub.conf, /boot/grub2/grub.cfg, /boot/grub/grub.cfg, /boot/efi (for UEFI boot), /var, /lib, /etc, /usr and others.
 
-**Discover OS Version**
+2. **Discover OS Version**
 
 Once the root partition is discovered, the script will use the below files to determine the Linux Operating System Distribution and version.
   - RHEL/CentOS: etc/redhat-release
@@ -162,42 +163,82 @@ Azure runs on the Hyper-V hypervisor. So, Linux requires certain kernel modules 
 > [!NOTE]
 > This step may not apply to Ubuntu and Debian VMs as the Hyper-V drivers are built-in by default.[Learn more about the changes](/azure/virtual-machines/linux/create-upload-generic#installing-kernel-modules-without-hyper-v)
 
-![Illustrative example for rebuilding initrd](./media/concepts-vmware-agentless-migration/rebuilding-initrd.png)
+Illustrative example for rebuilding initrd
+- Back up the exisiting initrd image
+  ```
+  cd /boot
+  sudo cp initrd-`uname -r`.img  initrd-`uname -r`.img.bak
+  ```
+- Rebuild the initrd with the hv_vmbus and hv_storvsc kernel modules:
+  ```
+  sudo mkinitrd --preload=hv_storvsc --preload=hv_vmbus -v -f initrd-`uname -r`.img `uname -r`
+  ```
 
 Most new versions of Linux distributions have this included by default. If not included, install manually for all versions except those called out above using the aforementioned steps.
 
-**Enable Azure Serial Console logging**
+3. **Enable Azure Serial Console logging**
 
 The script will then make changes to enable Azure Serial Console logging. Enabling console logging helps with troubleshooting issues on the Azure VM. Learn more about Azure Serial Console for Linux [Azure Serial Console for Linux - Virtual Machines | Microsoft Docs](/azure/virtual-machines/serial-console-linux).
 
 Modify the kernel boot line in GRUB or GRUB2 to include the following parameters, so that all console messages are sent to the first serial port. These messages can assist Azure support with debugging any issues.
 
-  ![Modifying kernel](./media/concepts-vmware-agentless-migration/modifying-kernel.png)
+```
+  console=ttyS0,115200n8 earlyprintk=ttyS0,115200 rootdelay=300
+```
+
+We also recommend removing the following parameters if they exist.
+
+```
+  rhgb quiet crashkernel=auto
+```
 
   [Refer this article](/azure/virtual-machines/linux/create-upload-generic#general-linux-system-requirements) for specific changes.
 
-**Network changes for connectivity**
+4. **Network changes for connectivity**
 
 Based on the OS Version, the script will perform the required network changes for connectivity to the migrated VM. The changes include:
 
   1. Move (or remove) the udev rules to avoid generating static rules for the Ethernet interface. These rules cause problems when you clone a virtual machine in Azure.
 
-   ![Illustrative example for RedHat servers](./media/concepts-vmware-agentless-migration/connectivity-migrated-vm.png)
+   Illustrative example for RedHat servers
+
+```
+   # sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
+   # sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
+```
 
   2. Remove Network Manager if necessary. Network Manager can interfere with the Azure Linux agent for a few OS versions. It is recommended to make these changes for servers running RedHat and Ubuntu distributions.
 
   Uninstall this package by running the following command:
-    ![Uninstall network manager](./media/concepts-vmware-agentless-migration/uninstall-network-manager.png)
+  Illustrative example for RedHat servers
+  ```
+     # sudo rpm -e --nodeps NetworkManager
+  ```
 
   3. Backup existing NIC settings and create eth0 NIC configuration file with DHCP settings. To do this, the script will create or edit the /etc/sysconfig/network-scripts/ifcfg-eth0 file, and add the following text:
 
-   ![Backup existing NIC settings](./media/concepts-vmware-agentless-migration/backup-exisiting-nic-settings.png)
+  Illustrative example for RedHat servers
+```
+    DEVICE=eth0
+    ONBOOT=yes
+    BOOTPROTO=dhcp
+    TYPE=Ethernet
+    USERCTL=no
+    PEERDNS=yes
+    IPV6INIT=no
+    PERSISTENT_DHCLIENT=yes
+    NM_CONTROLLED=yes
+```
 
   4. Reset etc/sysconfig/network file as follows.
 
-    ![Reset network file](./media/concepts-vmware-agentless-migration/reset-network-file.png)
+  Illustrative example for RedHat servers
+  ```
+  NETWORKING=yes
+  HOSTNAME=localhost.localdomain
+  ```
 
-**Fstab validation**
+5. **Fstab validation**
 
 Azure Migrate will validate the entries of the fstab file and replace fstab entries with persistent volume identifiers, UUIDs wherever needed. This ensures the drive/partition name remains constant no matter what system it is attached to.
   - If the device name is a standard device name (say /dev/sdb1), then:
@@ -206,7 +247,7 @@ Azure Migrate will validate the entries of the fstab file and replace fstab entr
   - If the device name is UUID/LABEL/LV, then no changes will be done.
   - If it’s a network device (nfs, cifs, smbfs …etc), then the script will comment the entry. To access it, you can uncomment the same and reboot your Azure VM
 
-**Install the Linux Azure Guest Agent**
+6. **Install the Linux Azure Guest Agent**
 
 Azure Migrate will attempt to install the Microsoft Azure Linux Agent (waagent), a secure, lightweight process that manages Linux & FreeBSD provisioning, and VM interaction with the Azure Fabric Controller.  [Learn more](/azure/virtual-machines/extensions/agent-linux) about the functionality enabled for Linux and FreeBSD IaaS deployments via the Linux agent.
 
@@ -226,5 +267,5 @@ After the necessary changes are performed, Azure Migrate will spin down the temp
 
 After this, the modified OS disk and the data disks, that contain the replicated data, are cloned. A new virtual machine is created in the target region, virtual network, and subnet, and the cloned disks are attached to virtual machine. This marks the completion of the migration process.
 
-## Next steps
+## Learn More
   - [Prepare on-premises machines for migration to Azure](./prepare-for-migration.md)
