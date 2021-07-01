@@ -10,6 +10,8 @@ ms.date: 01/29/2021
 
 # High availability concepts in Azure Database for MySQL Flexible Server (Preview)
 
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+
 > [!IMPORTANT] 
 > Azure Database for MySQL - Flexible Server is currently in public preview.
 

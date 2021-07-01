@@ -92,8 +92,6 @@ Targeting the full framework from ASP.NET Core, self-contained deployment, and L
 
 # [Node.js](#tab/nodejs)
 
-Windows agent-based monitoring is not supported, to enable with Linux visit the [Node.js App Service documentation](../../app-service/configure-language-nodejs.md?pivots=platform-linux#monitor-with-application-insights).
-
 You can monitor your Node.js apps running in Azure App Service without any code change, just with a couple of simple steps. Application insights for Node.js applications is integrated with App Service on Linux - both code-based and custom containers, and with App Service on Windows for code-based apps. The integration is in public preview. The integration adds Node.js SDK, which is in GA. 
 
 1. **Select Application Insights** in the Azure control panel for your app service.
