@@ -35,6 +35,17 @@ After you complete these steps, you should have:
 - A FHIR server with rge audience set to `https://MYFHIRAPI.azurehealthcareapis.com`, where `MYFHIRAPI` is the name of your Azure API for FHIR instance.
 - A public client application registration. Make a note of the application ID for this client application.
 
+### Configure Admin Consent for your app
+SMART on FHIR will require you to go through the process of authenticating and authorising the app. The first time will also require you to get an admin consent to let the app access your FHIR resources. If you don't have an ownership role over the app, you will have to reach out to the owner and ask them to click on the admin consent. In the case that you do have administrative priviliges, you should add yourself as an owner of the app, in order to approve the consent once.
+
+**To do so:**
+1. Go to Active Directory.
+2. Click on App Registration on the left blade.
+3. Search the app registration you created in the process above, and click on it.
+4. On the left menu, under Manage, click on "Owners".
+5. Click "Add owners", and add yourself.
+6. Click save.
+
 ## Enable the SMART on FHIR proxy
 
 Enable the SMART on FHIR proxy in the **Authentication** settings for your Azure API for FHIR instance by selecting the **SMART on FHIR proxy** check box:
