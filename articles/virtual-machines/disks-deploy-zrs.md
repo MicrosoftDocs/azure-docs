@@ -10,9 +10,11 @@ ms.subservice: disks
 ms.custom: references_regions, devx-track-azurepowershell
 ---
 
-# Deploy a ZRS managed disk
+# Deploy a managed disk that uses zone-redundant storage (preview)
 
-This article covers the various ways you can deploy a ZRS managed disk through the Azure portal, PowerShell module, CLI, and Resource Manager templates.
+This article covers how to deploy a disk that uses zone-redundant storage (ZRS) as a redundancy option. ZRS replicates your Azure managed disk synchronously across three Azure availability zones in the selected region. Each availability zone is a separate physical location with independent power, cooling, and networking.
+
+For conceptual information on ZRS, see [Zone-redundant storage for managed disks (preview)](disks-redundancy.md#zone-redundant-storage-for-managed-disks-preview)
 
 ## Limitations
 
