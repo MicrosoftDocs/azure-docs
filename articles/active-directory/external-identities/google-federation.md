@@ -29,7 +29,7 @@ After you've added Google as one of your application's sign-in options, on the *
 > Google federation is designed specifically for Gmail users. To federate with G Suite domains, use [SAML/WS-Fed identity provider federation](direct-federation.md).
 
 > [!IMPORTANT]
-> **Starting in the second half of 2021**, Google is [deprecating web-view sign-in support](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). If you’re using Google federation for B2B invitations or [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md), or if you're using self-service sign-up with Gmail, Google Gmail users won't be able to sign in if your apps authenticate users with an embedded web-view. [Learn more](#deprecation-of-web-view-sign-in-support).
+> **Starting September 30th, 2021**, Google is [deprecating web-view sign-in support](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). If you’re using Google federation for B2B invitations or [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md), or if you're using self-service sign-up with Gmail, Google Gmail users won't be able to sign in if your apps authenticate users with an embedded web-view. [Learn more](#deprecation-of-web-view-sign-in-support).
 
 ## What is the experience for the Google user?
 
@@ -56,7 +56,7 @@ You can also give Google guest users a direct link to an application or resource
 
 ## Deprecation of web-view sign-in support
 
-Starting in the second half of 2021, Google is [deprecating embedded web-view sign-in support](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). If you’re using Google federation for B2B or [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md), or if you're using [self-service sign-up with Gmail](identity-providers.md), if your apps authenticate users with an embedded web-view, Google Gmail users won't be able to authenticate.
+Starting September 30th, 2021, Google is [deprecating embedded web-view sign-in support](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). If you’re using Google federation for B2B or [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md), or if you're using [self-service sign-up with Gmail](identity-providers.md), if your apps authenticate users with an embedded web-view, Google Gmail users won't be able to authenticate.
 
 The following are known scenarios that will impact Gmail users:
 - Windows apps that use the [WebView](/windows/communitytoolkit/controls/wpf-winforms/webview) control, [WebView2](/microsoft-edge/webview2/), or the older WebBrowser control, for authentication. These apps should migrate to using the Web Account Manager (WAM) flow.
@@ -78,7 +78,7 @@ We’re continuing to test various platforms and scenarios, and will update this
 ### Action needed for embedded web-views
 Modify your apps to use the system browser for sign-in. For details, see [Embedded vs System Web UI](../develop/msal-net-web-browsers.md#embedded-vs-system-web-ui) in the MSAL.NET documentation. All MSAL SDKs use the system web-view by default.
 ### What to expect
-Before Google puts these changes into place in the second half of 2021, Microsoft will deploy a workaround for apps still using embedded web-views to ensure that authentication isn't blocked.
+Before Google puts these changes into place on September 30th, 2021, Microsoft will deploy a workaround for apps still using embedded web-views to ensure that authentication isn't blocked. Users signing in with a Gmail account on an embedded web-view will be prompted to enter a code on a separate browser to complete signing in.
 
 Applications that are migrated to an allowed web-view for authentication won't be affected, and users will be allowed to authenticate via Google as usual.
 
@@ -89,7 +89,7 @@ If applications are not migrated to an allowed web-view for authentication, then
 We will update this document as dates and further details are shared by Google.
 
 ### Distinguishing between CEF/Electron and embedded web-views
-In addition to the [deprecation of embedded web-view and framework sign-in support](#deprecation-of-web-view-sign-in-support), Google is also [deprecating Chromium Embedded Framework (CEF) based Gmail authentication](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). For applications built on CEF, such as Electron apps, Google will disable authentication on June 30, 2021. Impacted applications have received notice from Google directly, and are not covered in this documentation.  This document pertains to the embedded web-views described above, which Google will restrict at a separate date later in 2021.
+In addition to the [deprecation of embedded web-view and framework sign-in support](#deprecation-of-web-view-sign-in-support), Google is also [deprecating Chromium Embedded Framework (CEF) based Gmail authentication](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). For applications built on CEF, such as Electron apps, Google will disable authentication on June 30, 2021. Impacted applications have received notice from Google directly, and are not covered in this documentation.  This document pertains to the embedded web-views described above, which Google will restrict at a separate date on September 30th, 2021.
 
 ### Action needed for embedded frameworks
 Follow [Google’s guidance](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html) to determine if your apps are affected.
