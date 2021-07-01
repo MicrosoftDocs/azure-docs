@@ -96,8 +96,6 @@ Follow the below steps to assign the search service or user-assigned managed ide
 
 2. Authenticate with your Azure AD account
 
-    ![Authenticate](./media/search-managed-identities/visual-studio-authenticate.png "Authenticate")
-
 3. Execute the following commands:
 
     Include the brackets around your search service name or user-assigned managed identity name.
