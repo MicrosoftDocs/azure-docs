@@ -48,9 +48,9 @@ To learn more about specific language version support policy timeline, visit the
 
 ## Configuring language versions
 
-|Language                         |Guides         |
+|Language                         | Configuration guides         |
 |-----------------------------------------|-----------------|
-|C# (class library) |[link]()|
+|C# (class library) |[link](./functions-dotnet-class-library#supported-versions)|
 |Node |[link](./functions-reference-node#setting-the-node-version)|
 |PowerShell |[link](./functions-reference-powershell#changing-the-powershell-version)|
 |Python |[link](./functions-reference-python#python-version)|
