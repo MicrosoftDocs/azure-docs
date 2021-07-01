@@ -267,6 +267,8 @@
       href: manage-scale-per-app.md
   - name: Monitor app
     items:
+    - name: Monitor App Service
+      href: monitor-app-service.md
     - name: Quotas & alerts
       href: web-sites-monitor.md
     - name: Enable logs
@@ -313,6 +315,8 @@
       href: webjobs-sdk-how-to.md
 - name: Reference
   items:
+  - name: Monitoring data
+    href: monitor-app-service-reference.md
   - name: Azure CLI
     href: /cli/azure/appservice
   - name: Azure PowerShell
