@@ -4,7 +4,10 @@ description: Important note about the importance of deploying a vNet closer to A
 ms.topic: include
 ms.date: 07/14/2021
 
-# used in: articles\azure-vmware\attach-disk-pools-to-azure-vmware-solution.md, articles\azure-vmware\tutorial-network-checklist.md, articles\azure-vmware\includes\production-ready-deployment-steps.md, articles\azure-vmware\includes\connect-expressroute-vnet.md 
+# used in: 
+# articles\azure-vmware\attach-disk-pools-to-azure-vmware-solution.md
+# articles\azure-vmware\tutorial-network-checklist.md
+# articles\azure-vmware\includes\production-ready-deployment-steps.md 
 ---
 
 
