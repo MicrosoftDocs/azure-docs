@@ -96,7 +96,7 @@ Follow the below steps to assign the search service or user-assigned managed ide
 
 2. Authenticate with your Azure AD account
 
-    ![Authenticate](./media/search-managed-identities/visual-studio-authentication.png "Authenticate")
+    ![Authenticate](./media/search-managed-identities/visual-studio-authenticate.png "Authenticate")
 
 3. Execute the following commands:
 
@@ -229,8 +229,8 @@ api-key: [admin key]
 {
     "name" : "my-target-index",
     "fields": [
-    { "name": "id", "type": "Edm.String", "key": true, "searchable": false },
-    { "name": "booktitle", "type": "Edm.String", "searchable": true, "filterable": false, "sortable": false, "facetable": false }
+        { "name": "id", "type": "Edm.String", "key": true, "searchable": false },
+        { "name": "booktitle", "type": "Edm.String", "searchable": true, "filterable": false, "sortable": false, "facetable": false }
     ]
 }
 ```
