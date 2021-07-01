@@ -78,10 +78,10 @@ You may need to configure these settings manually if the OS version is not suppo
       This ensures that the Windows volumes in the Azure VM use the same drive letter assignments as the on-premises VM. By default, Azure VMs are assigned drive D: to use as temporary storage. This drive assignment causes all other attached storage drive assignments to increment by one letter. To prevent this automatic assignment, and to ensure that Azure assigns the next free drive letter to its temporary volume, set the storage area network (SAN) policy to OnlineAll:
 
       To manually configure this setting:
-        - On the on-premises server, open the command prompt with elevated privileges.
-        - Enter **diskpart**.
+      - On the on-premises server, open the command prompt with elevated privileges.
+      - Enter **diskpart**.
 
-          ![Administrator Command Prompt diskpart](./media/concepts-vmware-agentless-migration/command-prompt-diskpart.png)
+         ![Administrator Command Prompt diskpart](./media/concepts-vmware-agentless-migration/command-prompt-diskpart.png)
 
   3.	Enter SAN. If the drive letter of the guest operating system isn't maintained, Offline All or Offline Shared is returned.
 
