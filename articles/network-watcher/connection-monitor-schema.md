@@ -16,7 +16,9 @@ ms.date: 01/07/2021
 ms.author: mjha
 ---
 
-### Fields used in Connection Monitor Schema
+# Fields used in Connection Monitor Schema
+
+### Connection Monitor Tests
 
 Listed below are the fields in the schema and what they signify in Connection Monitor Tests
 
@@ -54,6 +56,9 @@ Listed below are the fields in the schema and what they signify in Connection Mo
 | AvgRoundTripTimeMs	| The average round trip time for the test |
 | JitterMs	| The mean deviation round trip time for the test |
 | AdditionalData	| The additional data for the test |
+
+
+### Connection Monitor Path
 
 Listed below are the fields in the schema and what they signify in Connection Monitor Path
 

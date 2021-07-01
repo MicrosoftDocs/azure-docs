@@ -30,7 +30,7 @@
   items:
   - name: Connection Monitor
     href: connection-monitor-overview.md
-    name: Connection Monitor Schema
+  - name: Connection Monitor Schema
     href: connection-monitor-schema.md
   - name: Diagnose VM network traffic filter problems
     href: network-watcher-ip-flow-verify-overview.md
