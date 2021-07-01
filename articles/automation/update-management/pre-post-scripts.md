@@ -3,7 +3,7 @@ title: Manage pre-scripts and post-scripts in your Update Management deployment 
 description: This article tells how to configure and manage pre-scripts and post-scripts for update deployments.
 services: automation
 ms.subservice: update-management
-ms.date: 03/08/2021
+ms.date: 06/30/2021
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -40,19 +40,25 @@ In addition to your standard runbook parameters, the `SoftwareUpdateConfiguratio
 
 ### SoftwareUpdateConfigurationRunContext properties
 
-|Property  |Description  |
-|---------|---------|
-|SoftwareUpdateConfigurationName     | The name of the software update configuration.        |
-|SoftwareUpdateConfigurationRunId     | The unique ID for the run.        |
-|SoftwareUpdateConfigurationSettings     | A collection of properties related to the software update configuration.         |
-|SoftwareUpdateConfigurationSettings.operatingSystem     | The operating systems targeted for the update deployment.         |
-|SoftwareUpdateConfigurationSettings.duration     | The maximum duration of the update deployment run as `PT[n]H[n]M[n]S` as per ISO8601; also called the maintenance window.          |
-|SoftwareUpdateConfigurationSettings.Windows     | A collection of properties related to Windows computers.         |
-|SoftwareUpdateConfigurationSettings.Windows.excludedKbNumbers     | A list of KBs that are excluded from the update deployment.        |
-|SoftwareUpdateConfigurationSettings.Windows.includedUpdateClassifications     | Update classifications selected for the update deployment.        |
-|SoftwareUpdateConfigurationSettings.Windows.rebootSetting     | Reboot settings for the update deployment.        |
-|azureVirtualMachines     | A list of resourceIds for the Azure VMs in the update deployment.        |
-|nonAzureComputerNames|A list of the non-Azure computers FQDNs in the update deployment.|
+|Property  |Type |Description  |
+|---------|---------|---------|
+|SoftwareUpdateConfigurationName     |String | The name of the software update configuration.        |
+|SoftwareUpdateConfigurationRunId     |GUID | The unique ID for the run.        |
+|SoftwareUpdateConfigurationSettings     || A collection of properties related to the software update configuration.         |
+|SoftwareUpdateConfigurationSettings.OperatingSystem     |Int | The operating systems targeted for the update deployment. `1` = Windows and `2` = Linux        |
+|SoftwareUpdateConfigurationSettings.Duration     |Timespan (HH:MM:SS) | The maximum duration of the update deployment run as `PT[n]H[n]M[n]S` as per ISO8601; also called the maintenance window.<br> Example: 02:00:00         |
+|SoftwareUpdateConfigurationSettings.WindowsConfiguration     || A collection of properties related to Windows computers.         |
+|SoftwareUpdateConfigurationSettings.WindowsConfiguration.excludedKbNumbers     |String | A space separated list of KBs that are excluded from the update deployment.        |
+|SoftwareUpdateConfigurationSettings.WindowsConfiguration.includedKbNumbers     |String | A space separated list of KBs that are included with the update deployment.        |
+|SoftwareUpdateConfigurationSettings.WindowsConfiguration.UpdateCategories     |Integer | 1 = "Critical";<br> 2 = "Security"<br> 4 = "UpdateRollUp"<br> 8 = "FeaturePack"<br> 16 = "ServicePack"<br> 32 = "Definition"<br> 64 = "Tools"<br> 128 = "Updates"        |
+|SoftwareUpdateConfigurationSettings.WindowsConfiguration.rebootSetting     |String | Reboot settings for the update deployment. Values are `IfRequired`, `Never`, `Always`      |
+|SoftwareUpdateConfigurationSettings.LinuxConfiguration     || A collection of properties related to Linux computers.         |
+|SoftwareUpdateConfigurationSettings.LinuxConfiguration.IncludedPackageClassifications |Integer |0 = "Unclassified"<br> 1 = "Critical"<br> 2 = "Security"<br> 4 = "Other"|
+|SoftwareUpdateConfigurationSettings.LinuxConfiguration.IncludedPackageNameMasks |String | A space separated list of package names that are included with the update deployment. |
+|SoftwareUpdateConfigurationSettings.LinuxConfiguration.ExcludedPackageNameMasks |String |A space separated list of package names that are excluded from the update deployment. |
+|SoftwareUpdateConfigurationSettings.LinuxConfiguration.RebootSetting |String |Reboot settings for the update deployment. Values are `IfRequired`, `Never`, `Always`      |
+|SoftwareUpdateConfiguationSettings.AzureVirtualMachines     |String array | A list of resourceIds for the Azure VMs in the update deployment.        |
+|SoftwareUpdateConfigurationSettings.NonAzureComputerNames|String array |A list of the non-Azure computers FQDNs in the update deployment.|
 
 The following example is a JSON string passed in to the **SoftwareUpdateConfigurationRunContext** parameter:
 
