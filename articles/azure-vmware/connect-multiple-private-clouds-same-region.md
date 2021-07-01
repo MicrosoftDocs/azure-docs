@@ -17,7 +17,9 @@ You can connect a private cloud to multiple private clouds, and the connections 
 You can only connect to private clouds in the same region. To connect to private clouds that are in different regions, [use ExpressRoute Global Reach](tutorial-expressroute-global-reach-private-cloud.md) to connect your private clouds in the same way you connect your private cloud to your on-premises circuit. 
 
 >[!IMPORTANT]
->The AVS Interconnect (Preview) feature is currently in public preview and available in all regions. 
+>The AVS Interconnect (Preview) feature is currently in public preview and available in all regions except for South Central US (SAT20), North Europe (DUB21), Southeast Asia (SG2), and UK West (CWL20).  
+
+
 >This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 >For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -64,6 +66,5 @@ You can only connect to private clouds in the same region. To connect to private
 1. In your Azure VMware Solution private cloud, under **Manage**, select **Connectivity**.
 
 2. For the connection you want to remove, on the right, select **Delete** (trash can) and then **Yes**.
-
 
 
