@@ -46,10 +46,20 @@ To learn more about specific language version support policy timeline, visit the
 * PowerShell - [dotnet.microsoft.com](https://docs.microsoft.com/powershell/scripting/powershell-support-lifecycle?view=powershell-7.1#powershell-releases-end-of-life)
 * Python - [devguide.python.org](https://devguide.python.org/#status-of-python-branches)
 
+## Configuring language versions
+
+|Language                         |Guides         |
+|-----------------------------------------|-----------------|
+|C# (class library) |[link]()|
+|Node |[link](./functions-reference-node#setting-the-node-version)|
+|PowerShell |[link](./functions-reference-powershell#changing-the-powershell-version)|
+|Python |[link](./functions-reference-python#python-version)|
+ 
+
 ## Next steps
 
 To learn more about how to upgrade your functions apps language versions, see the following resources:
 
-+ [How to target specific language version](./set-language-version.md)
+
 + [Currently supported language versions](./supported-languages.md#languages-by-runtime-version)
 
