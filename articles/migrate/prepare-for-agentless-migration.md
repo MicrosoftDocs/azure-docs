@@ -78,16 +78,14 @@ You may need to configure these settings manually if the OS version is not suppo
       This ensures that the Windows volumes in the Azure VM use the same drive letter assignments as the on-premises VM. By default, Azure VMs are assigned drive D: to use as temporary storage. This drive assignment causes all other attached storage drive assignments to increment by one letter. To prevent this automatic assignment, and to ensure that Azure assigns the next free drive letter to its temporary volume, set the storage area network (SAN) policy to OnlineAll:
 
       To manually configure this setting:
-
-        a.	On the on-premises server, open the command prompt with elevated privileges.
-        b.	Enter **diskpart**.
-
+        - On the on-premises server, open the command prompt with elevated privileges.
+        - Enter **diskpart**.
           ![Administrator Command Prompt diskpart](./media/concepts-vmware-agentless-migration/command-prompt-diskpart.png)
 
   3.	Enter SAN. If the drive letter of the guest operating system isn't maintained, Offline All or Offline Shared is returned.
 
   4.	At the DISKPART prompt, enter SAN Policy=OnlineAll. This setting ensures that disks are brought online, and it ensures that you can read and write to both disks.
-        ![Administrator Command Prompt diskpart online policy](./media/concepts-vmware-agentless-migration/diskpart-online-policy.png)
+           ![Administrator Command Prompt diskpart online policy](./media/concepts-vmware-agentless-migration/diskpart-online-policy.png)
 
 3.	**Set the DHCP start type**                             
 The preparation script will also set the DHCP service start type as Automatic. This will enable the migrated VM to obtain an IP address and establish connectivity post-migration. Make sure the DHCP service is configured, and the status is running.
@@ -95,12 +93,11 @@ The preparation script will also set the DHCP service start type as Automatic. T
   ![Set DHCP Start Type](./media/concepts-vmware-agentless-migration/get-service-dhcp.png)
 To edit the DHCP startup settings manually, run the following example in Windows PowerShell:
 
-
-    ```
-          |Get-Service -Name Dhcp|
-          Where-Object StartType -ne Automatic |
-          Set-Service -StartupType Automatic
-      ```
+```
+      |Get-Service -Name Dhcp|
+      Where-Object StartType -ne Automatic |
+      Set-Service -StartupType Automatic
+```
 
 4.	**Disable VMware Tools**                                 
 Make “VMware Tools” service start-type to disabled if it exists as they are not required for the VM in Azure.
