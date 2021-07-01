@@ -58,11 +58,9 @@ The Azure Stack Edge Pro GPU solution comprises of Azure Stack Edge resource, Az
 
 * **Azure Stack Edge Pro GPU physical device** - A 1U rack-mounted server supplied by Microsoft that can be configured to send data to Azure.
 
-    To procure a device, go to the Azure Edge Hardware Center (Preview) and place an order. Azure Edge Hardware Center service lets you choose from a variety of Azure Stack Edge SKUs as per your business need. You can order multiple units of a device type, ship multiple devices to different locations, save addresses for future orders, and also track the status of your orders. 
+    [!INCLUDE [azure-stack-edge-gateway-edge-hardware-center-overview](../../includes/azure-stack-edge-gateway-edge-hardware-center-overview.md)]    
 
-    Once the order is delivered, you can configure your device and create an Azure Stack Edge resource to manage the device. 
-
-    For more information, go to [Create an order for your Azure Stack Edge Pro GPU device](azure-stack-edge-gpu-deploy-prep.md#create-a-new-resource).
+    For more information, go to [Create an order for your Azure Stack Edge Pro GPU device](azure-stack-edge-gpu-order-edge-hardware-center.md#create-a-new-resource).
     
 * **Azure Stack Edge resource** – A resource in the Azure portal that lets you manage an Azure Stack Edge Pro GPU device from a web interface that you can access from different geographical locations. Use the Azure Stack Edge resource to create and manage resources, view, and manage devices and alerts, and manage shares.  
    
