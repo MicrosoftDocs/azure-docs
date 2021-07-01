@@ -1,8 +1,8 @@
 ---
 title: Troubleshoot the ongoing server discovery, software inventory and SQL discovery
 description: Get help with server discovery,software inventory and SQL discovery
-author: VikramBansal
-ms.author: vikram1988
+author: Vikram1988
+ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: troubleshooting
 ms.date: 01/02/2020

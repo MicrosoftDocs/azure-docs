@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot assessment and dependency visualization in Azure Migrate
-description: Get help with assessment and dependency visualization in Azure Migrate.
+title: Troubleshoot assessments  in Azure Migrate
+description: Get help with assessment in Azure Migrate.
 author: rashi-ms
 ms.author: rajosh
 ms.manager: abhemraj
@@ -8,7 +8,7 @@ ms.topic: troubleshooting
 ms.date: 01/02/2020
 ---
 
-# Troubleshoot assessment/dependency visualization
+# Troubleshoot assessment
 
 This article helps you troubleshoot issues with assessment and dependency visualization with [Azure Migrate: Discovery and assessment](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool).
 

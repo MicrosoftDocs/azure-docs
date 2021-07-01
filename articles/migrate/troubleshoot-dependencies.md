@@ -1,28 +1,27 @@
 ---
 title: Troubleshoot issues with agentless and agent-based dependency analysis
 description: Get help with dependency visualization in Azure Migrate.
-author: VikramBansal
-ms.author: vikram1988
+author: Vikram1988
+ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: troubleshooting
 ms.date: 01/02/2020
 ---
 
-# Troubleshoot assessment/dependency visualization
+# Troubleshoot dependency visualization
 
 This article helps you troubleshoot issues with agent-based and agentless dependency analysis _(only available for VMware servers)_. [Leran more](concepts-dependency-visualization.md) about the types of dependency visualization supported in Azure Migrate.
 
-# Agentless dependency analysis
 
-## Visualize dependencies for > 1 hour
+## Visualize dependencies for > 1 hour with agentless dependency analysis
 
 With agentless dependency analysis, you can visualize dependencies or export them in a map for a duration of up to 30 days.
 
-## Visualized dependencies for > 10 servers
+## Visualized dependencies for > 10 servers with agentless dependency analysis
 
 Azure Migrate offers a Power BI template that you can use to visualize network connections of many servers at once, and filter by process and server. [Learn more](how-to-create-group-machine-dependencies-agentless.md#visualize-network-connections-in-power-bi) on how to visualize the dependencies for many servers toegther.
 
-## Dependencies export CSV shows "Unknown process"
+## Dependencies export CSV shows "Unknown process" with agentless dependency analysis
 In agentless dependency analysis, the process names are captured on a best-effort basis. In certain scenarios, although the source and destination server names and the destination port are captured, it is not feasible to determine the process names at both ends of the dependency. In such cases, the process is marked as "_Unknown process_".
 
 ## Common agentless dependency analysis errors
@@ -245,16 +244,15 @@ After using the mitigation steps on the errors listed above, you can verify if t
       ````
 5. After verifying that the mitigation worked, you can go to the Azure Migrate project> Discovery and assessment>Overview>Manage>Appliances, select the appliance name and select **Refresh services** to start a fresh discovery cycle.
 
-# Agent-based dependency analysis
 
-## My Log Analytics workspace is not listed when trying to configure the workspace in Azure Migrate
+## My Log Analytics workspace is not listed when trying to configure the workspace in Azure Migrate for agent-based dependency analysis
 Azure Migrate currently supports creation of OMS workspace in East US, Southeast Asia and West Europe regions. If the workspace is created outside of Azure Migrate in any other region, it currently cannot be associated with a project.
 
-## Dependency visualization in Azure Government
+## Agent-based dependency visualization in Azure Government
 
 Agent-based dependency analysis is not supported in Azure Government. Please use agentless dependency analysis_(only available for VMware servers)_.
 
-## Dependencies don't show after agent install
+## Agent-based dependencies don't show after agent install
 
 After you've installed the dependency visualization agents on on-premises VMs, Azure Migrate typically takes 15-30 minutes to display the dependencies in the portal. If you've waited for more than 30 minutes, make sure that the Microsoft Monitoring Agent (MMA) can connect to the Log Analytics workspace.
 
@@ -267,20 +265,20 @@ For Windows VMs:
 
 For Linux VMs, make sure that the installation commands for MMA and the dependency agent succeeded. Refer to more troubleshooting guidance [here](../azure-monitor/vm/service-map.md#post-installation-issues).
 
-## Supported operating systems
+## Supported operating systems for agent-based dependency analysis
 
 - **MMS agent**: Review the supported [Windows](../azure-monitor/agents/agents-overview.md#supported-operating-systems), and [Linux](../azure-monitor/agents/agents-overview.md#supported-operating-systems) operating systems.
 - **Dependency agent**: the supported [Windows and Linux](../azure-monitor/vm/vminsights-enable-overview.md#supported-operating-systems) operating systems.
 
-## Visualize dependencies for > 1 hour
+## Visualize dependencies for > 1 hour with agent-based dependency analysis
 
 With agent-based dependency analysis, Although Azure Migrate allows you to go back to a particular date in the last month, the maximum duration for which you can visualize the dependencies is one hour. For example, you can use the time duration functionality in the dependency map to view dependencies for yesterday, but you can view them for a one-hour period only. However, you can use Azure Monitor logs to [query the dependency data](./how-to-create-group-machine-dependencies.md) over a longer duration.
 
-## Visualized dependencies for > 10 servers
+## Visualized dependencies for > 10 servers with agent-based dependency analysis
 
 In Azure Migrate, with agent-based dependency analysis, you can [visualize dependencies for groups](./how-to-create-a-group.md#refine-a-group-with-dependency-mapping) with up to 10 VMs. For larger groups, we recommend that you split the VMs into smaller groups to visualize dependencies.
 
-## Servers show "Install agent"
+## Servers show "Install agent" for agent-based dependency analysis
 
 After migrating servers with dependency visualization enabled to Azure, servers might show "Install agent" action instead of "View dependencies" due to the following behavior:
 
