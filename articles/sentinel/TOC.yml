@@ -400,7 +400,7 @@
       - name: Process event normalization schema
         href: process-events-normalization-schema.md
       - name: Registry event normalization schema
-        href: registry-events-normalization-schema.md
+        href: registry-event-normalization-schema.md
   - name: Detection and analysis references
     items:
     - name: Top Azure Sentinel workbooks
