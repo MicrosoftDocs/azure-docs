@@ -33,8 +33,6 @@
       href: prerequisites.md
     - name: Data collection
       href: best-practices-data.md
-    - name: Incident management and response
-      href: best-practices-incidents.md
   - name: Architecture
     items:
     - name: Roles and permissions

@@ -67,13 +67,64 @@ More than ingesting alerts and logs from other sources, Azure Sentinel also:
 - **Integrates with partner platforms**, such as ServiceNow and Jira, to provide essential services for SOC teams.
 - **Ingests and fetches enrichment feeds** from threat intelligence platforms to bring valuable data for investigating.
 
+##  Manage and respond to incidents
+
+The following image shows recommended steps in an incident management and response process.
+
+:::image type="content" source="media/best-practices/incident-handling.png" alt-text="Incident management process: Triage. Preparation. Remediation. Eradication. Post incident activities.":::
+
+The following sections provide high-level descriptions for how to use Azure Sentinel features for incident management and response throughout the process. For more information, see [Tutorial: Investigate incidents with Azure Sentinel](tutorial-investigate-cases.md).
+
+### Use the Incidents page and the Investigation graph
+
+Start any triage process for new incidents on the Azure Sentinel **Incidents** page and the **Investigation graph**. 
+
+Discover key entities, such as accounts, URLs, IP address, host names, activities, timeline, and more. Use this data to understand whether you have a [false positive](false-positives.md) on hand, in which case you can close the incident directly.
+
+Any generated incidents are displayed on the **Incidents** page, which serves as the central location for triage and early investigation. The **Incidents** page lists the title, severity, and related alerts, logs, and any entities of interest. Incidents also provide a quick jump into collected logs and any tools related to the incident.
+
+The **Incidents** page works together with the **Incidents graph**, an interactive tool that allows users to explore and dive deep into an alert to show the full scope of an attack. Users can then construct a timeline of events and discover the extent of a threat chain.
+
+If you discover that the incident is a true positive, take action directly from the **Incidents** page to investigate logs, entities, and exploring the threat chain. After you've identified the threat and created a plan of action, use other tools in Azure Sentinel and [other Microsoft security services](best-practices.md#integrate-with-microsoft-security-services) to continue investigating.
+
+
+### Handle incidents with workbooks
+
+In addition to [visualizing and displaying information and trends](quickstart-get-visibility.md), Azure Sentinel workbooks are valuable investigative tools.
+
+For example, use the [Investigation Insights](#investigation-insights) workbook to investigate specific incidents together with any associated entities and alerts. Dive deeper into entities by showing related logs, actions, and alerts.
+
+
+### Handle incidents with threat hunting
+
+While investigating and searching for root causes, run built-in threat hunting queries and check results for any indicators of compromise.
+
+During an investigation, or after having taken steps to remediate and eradicate the threat, use [livestream](livestream.md) to monitor, in real time, whether there are any lingering malicious events, or if malicious events are still continuing.
+
+### Handle incidents with entity behavior
+
+Entity behavior in Azure Sentinel allows users to review and investigate actions and alerts for specific entities, such as investigating into accounts and host names. For more information, see:
+
+- [Enable User and Entity Behavior Analytics (UEBA) in Azure Sentinel](enable-entity-behavior-analytics.md)
+- [Investigate incidents with UEBA data](investigate-with-ueba.md)
+- [Azure Sentinel UEBA enrichments reference](ueba-enrichments.md)
+
+### Handle incidents with watchlists and threat intelligence
+
+To maximize threat intelligence-based detections, make sure to use threat intelligence data connectors to ingest indicators of compromise:
+
+- Connect data sources required by the [Fusion](fusion.md) and [TI Map alerts](import-threat-intelligence.md)
+- Ingest indicators from [TAXII or MISP platforms](connect-threat-intelligence.md)
+
+Use indicators of compromise in analytics rules, when threat hunting, investigating logs, or generating additional incidents.
+
+Use a combination of watchlists to cover data both from ingested logs and external, enrichment data. For example, keep lists of IP address ranges used by your organization or recently terminated employees. Use watchlists with playbooks to gather enrichment data, such as adding malicious IP addresses to watchlists to use during detection, threat hunting and investigations.
+
+During an incident, use watchlists to contain investigation data, and then delete them when your investigation is done to ensure that sensitive data does not remain in view.
+
 ## Next steps
 
-For more information, see:
-
-- [Data collection best practices](best-practices-data.md)
-- [Best practices for incident management and response](best-practices-incidents.md)
-
+For more information, see [Data collection best practices](best-practices-data.md).
 
 To get started with Azure Sentinel, see:
 
