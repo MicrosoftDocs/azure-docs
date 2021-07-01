@@ -3,7 +3,7 @@ title: Quickstart - Add joining a teams meeting to an Android app using Azure Co
 description: In this quickstart, you learn how to use the Azure Communication Services Teams Embed library for Android.
 author: palatter
 ms.author: palatter
-ms.date: 01/25/2021
+ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 ---
