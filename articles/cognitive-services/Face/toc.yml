@@ -76,7 +76,7 @@ items:
   - name: Face REST API
     href: APIReference.md
   - name: .NET
-    href: /dotnet/api/overview/azure/cognitiveservices/client/faceapi
+    href: /dotnet/api/overview/azure/cognitiveservices/face-readme
   - name: Java
     href: /java/api/overview/azure/cognitiveservices/client/faceapi
   - name: Node.js
