@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/30/2021
+ms.date: 07/01/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to manage disks on a VM running on an Azure Stack Edge Pro device so that I can use it to run applications using Edge compute before sending it to Azure.
 ---
@@ -150,6 +150,21 @@ Follow these steps to detach or remove a data disk associated with a virtual mac
 1. After the disk is detached, the virtual machine is updated. Refresh the **Overview** page to view the updated list of data disks.
 
     ![Select save](./media/azure-stack-edge-gpu-manage-virtual-machine-disks-portal/list-data-disks-2.png)
+
+
+## Delete a disk
+
+If a disk isn't attached to a virtual machine, you can delete the disk on the **Disks** blade in virtual machine **Resources**.
+
+Follow these steps to delete a disk:
+
+1. Go to **Virtual Machines**. Select **Resources**. Then select **Disks**.
+ 
+    ![In Resources for virtual machines, display Disks](./media/azure-stack-edge-gpu-manage-virtual-machine-disks-portal/delete-disk-1.png)
+
+2. To delete a disk, select the trashcan icon at the right end of the disk entry. If you don't see the trashcan, [detach the disk from the VM](#detch-a-vm-disk), and then delete it.
+
+    ![To delete an unattached disk, selecting the trashcan icon to the right of the entry in the list of disks](./media/azure-stack-edge-gpu-manage-virtual-machine-disks-portal/delete-disk-2.png)
 
 
 ## Next steps
