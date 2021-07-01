@@ -119,7 +119,7 @@ additionalContent:
         - title: Web application load balancer
           links:
             - text: What is Azure Application Gateway?
-              url: ../expressroute/expressroute-introduction.md
+              url: ../application-gateway/overview.md
             - text: Direct web traffic using the portal
               url: ../application-gateway/quick-create-portal.md
             - text: See more
