@@ -106,4 +106,4 @@ You can use an Azure Communication Service access token, more information [how g
 | Customize the looby, join button background color​                   | No          |
 | Customize the looby, screen background color​                        | No          |
 
-For more information about how to start into the Embed SDK, [samples guide](../../quickstarts/meeting/samples-for-teams-embed.md) or if you want to learn more about the SDK capabilities see the [Getting Started guide.](../../quickstarts/meeting/getting-started-with-teams-embed.md)
+For more information about how to start into the Embed SDK,[Getting Started guide.](../../quickstarts/meeting/getting-started-with-teams-embed.md) or if you want to learn more about the SDK capabilities see the [samples guide](../../quickstarts/meeting/samples-for-teams-embed.md)
