@@ -158,7 +158,7 @@ The resource health check functions in following conditions:
 |     |     |
 | --- | --- |
 | **Supported Resources** | Recovery Services vault |
-| **Supported Regions** | East US 2, East Asia and France Central |
+| **Supported Regions** | East US 2, East Asia, and France Central. |
 | **For unsupported regions** | The resource health status is shown as "Unknown". |
 
 
