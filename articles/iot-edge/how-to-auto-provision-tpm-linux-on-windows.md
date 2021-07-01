@@ -5,7 +5,7 @@ author: kgremban
 manager: lizross
 ms.author: kgremban
 ms.reviewer: fcabrera
-ms.date: 06/18/2021
+ms.date: 07/01/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -39,51 +39,6 @@ This article shows you how to use auto-provisioning on a device running IoT Edge
 
 > [!NOTE]
 > TPM 2.0 is required when using TPM attestation with DPS and can only be used to create individual, not group, enrollments.
-
-## Retrieve the TPM information from your device
-
-To provision your device, you need to gather information from your TPM chip and provide it to your instance of the Device Provisioning Service (DPS) so that the service can recognize your device when it tries to connect.
-
-First, you need to determine the **Endorsement key**, which is unique to each TPM chip and is obtained from the TPM chip manufacturer associated with it. Then, you need to provide a **Registration ID** for your device. You can derive a unique registration ID for your TPM device by, for example, creating an SHA-256 hash of the endorsement key.
-
-IoT Edge for Linux on Windows provides a PowerShell script to help retrieve this information from your TPM. For more information, see [EflowTpmProvisioningInfo](https://github.com/Azure/iotedge-eflow/blob/main/samples/scripts/EflowTpmProvisioningInfo.ps1).
-
-### Simulate a TPM (optional)
-
-If you don't have a physical TPM available and want to test this provisioning method, you can simulate a TPM on your device.
-
-IoT Hub Device Provisioning Service provides samples that simulate a TPM and return the endorsement key and registration ID for you.
-
-1. Choose one of the samples from the following list, based on your preferred language.
-1. Stop following the DPS sample steps once you have the simulated TPM running and have collected the endorsement key and registration ID. Do not press *Enter* to run registration in the sample application.
-1. Keep the window hosting the simulated TPM running until you're completely finished testing this scenario.
-1. Return to this article to create a DPS enrollment and configure your device.
-
-Simulated TPM samples:
-
-* [C](../iot-dps/quick-create-simulated-device.md)
-* [Java](../iot-dps/quick-create-simulated-device-tpm-java.md)
-* [C#](../iot-dps/quick-create-simulated-device-tpm-csharp.md)
-* [Node.js](../iot-dps/quick-create-simulated-device-tpm-node.md)
-* [Python](../iot-dps/quick-create-simulated-device-tpm-python.md)
-
-## Create a device enrollment entry
-
-The Device Provisioning Service supports two types of enrollments. Enrollment groups are used to enroll multiple related devices. Individual enrollments are used to enroll a single device. TPM attestation only supports individual enrollments because a group of devices cannot share TPM information. Therefore, this article demonstrates individual enrollments.
-
-1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your instance of the Device Provisioning Service.
-
-1. From the Device Provisioning Service menu, select **Manage enrollments**. Select the **Add individual enrollment** button at the top.
-
-1. In the **Add Enrollment** panel, enter the following information:
-
-   * Select **TPM** as the identity attestation mechanism.
-   * Enter the registration ID and endorsement key for your TPM device from the values you noted previously.
-   * Select an IoT hub linked with your provisioning service.
-   * Optionally, enter a unique device ID. If you choose not to provide one, the registration ID will be used to identify the device instead.
-   * Select **True** to declare that this enrollment is for an IoT Edge device.
-
-1. Select **Save** to save your individual enrollment.
 
 ## Install IoT Edge for Linux on Windows
 
@@ -133,12 +88,6 @@ The installation steps in this section are abridged to highlight the steps speci
 
 1. The output will report **Deployment successful** once IoT Edge for Linux on Windows has been successfully deployed to your device.
 
-1. Provision your device using the **Scope ID** that you collected from your instance of Device Provisioning Service.
-
-   ```powershell
-   Provision-EflowVM -provisioningType "DpsTpm" -scopeId "<scope id>"
-   ```
-
 # [Windows Admin Center](#tab/windowsadmincenter)
 
 >[!NOTE]
@@ -159,6 +108,71 @@ The installation steps in this section are abridged to highlight the steps speci
    1. Select **Next** to continue to the **Connect** step, where you provide the provisioning information for your device.
 
 ---
+
+## Retrieve the TPM information from your device
+
+To provision your device, you need to gather information from your TPM chip and provide it to your instance of the Device Provisioning Service (DPS) so that the service can recognize your device when it tries to connect.
+
+First, you need to determine the **Endorsement key**, which is unique to each TPM chip and is obtained from the TPM chip manufacturer associated with it. Then, you need to provide a **Registration ID** for your device. You can derive a unique registration ID for your TPM device by, for example, creating an SHA-256 hash of the endorsement key.
+
+IoT Edge for Linux on Windows provides a PowerShell script to help retrieve this information from your TPM. To use the script, follow these steps on your device:
+
+1. Open PowerShell in an elevated session.
+
+1. Clone the [iotedge-eflow](https://github.com/Azure/iotedge-eflow) repository.
+
+   ```powershell
+   git clone https://github.com/Azure/iotedge-eflow.git
+   ```
+
+1. Import the downloaded module.
+
+   ```powershell
+   Import-Module <path>\iotedge-eflow\samples\scripts\EflowTpmProvisioningInfo.ps1
+   ```
+
+1. Run the command.
+
+   ```powershell
+   Get-EflowVmTpmProvisioningInformation
+   ```
+
+### Simulate a TPM (optional)
+
+If you don't have a physical TPM available and want to test this provisioning method, you can simulate a TPM on your device.
+
+IoT Hub Device Provisioning Service provides samples that simulate a TPM and return the endorsement key and registration ID for you.
+
+1. Choose one of the samples from the following list, based on your preferred language.
+1. Stop following the DPS sample steps once you have the simulated TPM running and have collected the endorsement key and registration ID. Do not press *Enter* to run registration in the sample application.
+1. Keep the window hosting the simulated TPM running until you're completely finished testing this scenario.
+1. Return to this article to create a DPS enrollment and configure your device.
+
+Simulated TPM samples:
+
+* [C](../iot-dps/quick-create-simulated-device.md)
+* [Java](../iot-dps/quick-create-simulated-device-tpm-java.md)
+* [C#](../iot-dps/quick-create-simulated-device-tpm-csharp.md)
+* [Node.js](../iot-dps/quick-create-simulated-device-tpm-node.md)
+* [Python](../iot-dps/quick-create-simulated-device-tpm-python.md)
+
+## Create a device enrollment entry
+
+The Device Provisioning Service supports two types of enrollments. Enrollment groups are used to enroll multiple related devices. Individual enrollments are used to enroll a single device. TPM attestation only supports individual enrollments because a group of devices cannot share TPM information. Therefore, this article demonstrates individual enrollments.
+
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your instance of the Device Provisioning Service.
+
+1. From the Device Provisioning Service menu, select **Manage enrollments**. Select the **Add individual enrollment** button at the top.
+
+1. In the **Add Enrollment** panel, enter the following information:
+
+   * Select **TPM** as the identity attestation mechanism.
+   * Enter the registration ID and endorsement key for your TPM device from the values you noted previously.
+   * Select an IoT hub linked with your provisioning service.
+   * Optionally, enter a unique device ID. If you choose not to provide one, the registration ID will be used to identify the device instead.
+   * Select **True** to declare that this enrollment is for an IoT Edge device.
+
+1. Select **Save** to save your individual enrollment.
 
 ## Configure the device with provisioning information
 
