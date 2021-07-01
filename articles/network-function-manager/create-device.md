@@ -3,7 +3,7 @@ title: 'Tutorial: Create a device resource for Azure Network Function Manager'
 description: In this tutorial, learn about how to create a device resource for Azure Network Function Manager.
 author: cherylmc
 
-ms.service: vnf-manager
+ms.service: network-function-manager
 ms.topic: tutorial
 ms.date: 06/30/2021
 ms.author: cherylmc
