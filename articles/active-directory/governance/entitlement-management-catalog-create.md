@@ -50,7 +50,7 @@ A catalog is a container of resources and access packages. You create a catalog 
 1. Click **Create** to create the catalog.
 
 ### Creating a catalog programmatically
-
+## Create a catalog programmatically
 ### Create a catalog with Microsoft Graph
 
 You can also create a catalog using Microsoft Graph.  A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission, or an application with that application permission, can call the API to [create an accessPackageCatalog](/graph/api/accesspackagecatalog-post?view=graph-rest-beta&preserve-view=true).
