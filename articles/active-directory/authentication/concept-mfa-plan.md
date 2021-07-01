@@ -154,16 +154,19 @@ We provide [communication templates](https://aka.ms/mfatemplates) and [end-user 
 ## Plan integration with on-premises systems
 
 Applications that authenticate directly with Azure AD and have modern authentication (WS-Fed, SAML, OAuth, OpenID Connect) can make use of Conditional Access policies.
-Some legacy and on-premises applications do not authenticate directly against Azure AD and require additional steps to use Azure AD MFA. You can integrate them by using Azure AD Application proxy or Network policy services.
+Some legacy and on-premises applications do not authenticate directly against Azure AD and require additional steps to use Azure AD MFA. You can integrate them by using Azure AD Application proxy or [Network policy services](/windows-server/networking/core-network-guide/core-network-guide#BKMK_optionalfeatures).
 
 ### Integrate with AD FS resources
+
 We recommend migrating applications secured with Active Directory Federation Services (AD FS) to Azure AD. However, if you are not ready to migrate these to Azure AD, you can use the Azure MFA adapter with AD FS 2016 or newer.
-If your organization is federated with Azure AD, you can configure Azure AD MFA  as an authentication provider with AD FS resources both on-premises and in the cloud.  
+If your organization is federated with Azure AD, you can [configure Azure AD MFA as an authentication provider with AD FS resources](/windows-server/identity/ad-fs/operations/configure-ad-fs-and-azure-mfa) both on-premises and in the cloud.  
 
 ### RADIUS clients and Azure AD MFA
+
 For applications that are using RADIUS authentication, we recommend moving client applications to modern protocols such as SAML, Open ID Connect, or OAuth on Azure AD. If the application cannot be updated, then you can deploy [Network Policy Server (NPS) with the Azure MFA extension](howto-mfa-nps-extension.md). The network policy server (NPS) extension acts as an adapter between RADIUS-based applications and Azure AD MFA to provide a second factor of authentication.
 
 #### Common integrations
+
 Many vendors now support SAML authentication for their applications. When possible, we recommend federating these applications with Azure AD and enforcing MFA through Conditional Access. If your vendor doesn’t support modern authentication – you can use the NPS extension.
 Common RADIUS client integrations include applications such as [Remote Desktop Gateways](howto-mfa-nps-extension-rdg.md) and [VPN servers](howto-mfa-nps-extension-vpn.md). 
 
