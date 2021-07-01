@@ -15,11 +15,9 @@ ms.service: azure-communication-services
 - A `User Access Token` to enable the call client. For more information on [how to get a `User Access Token`](../../access-tokens.md)
 - Complete the quickstart for [getting started with adding Teams Embed to your application](../getting-started-with-teams-embed.md)
 
-## Join a group call using the meeting client
+## Joining a group call
 
-SDK supports joining a group call with a user access token. The group call will not ring for other participants. The user will be joining the call silently.
-
-### Set up the layout for joining a group call
+Group call can be joined by providing `MeetingUIClientGroupCallLocator` and `MeetingUIClientJoinOptions` to the `meetingUIClient.join` API. The group call will not ring for other participants. The user will be joining the call silently.
 
 Navigate to the main layout file (`app/src/main/res/layout/activity_main.xml`) to set up the button to join a group call. Create a button with an ID `join_groupCall`.
 
@@ -69,8 +67,11 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
+Setting up the client and providing the token is done the same way as for meeting join API, which is described in the [quickstart](../getting-started-with-teams-embed.md).
+
 The `joinGroupCall` method is set as the action that will be performed when the *Join Group Call* button is tapped. Joining a group call can be done via the `MeetingUIClient`. Create a `MeetingUIClientGroupCallLocator` and configure the join options using the `MeetingUIClientJoinOptions`.
 Note to replace `<GROUP_ID>` with a UUID string. Group ID string must be in GUID or UUID format.
+
 ```java
 /**
  * Join a group call with a groupID.
@@ -91,7 +92,9 @@ private void joinGroupCall() {
 }
 ```
 
-## Teams Embed Events
+## Teams Embed call or meeting status events capturing
+
+Joined group call or meeting status can be captured from `MeetingUIClientCallEventListener` class. The status includes connection states, participants count, and modalities like microphone or camera state.
 
 Add the following code to your `MainActivity.java`.
 
@@ -241,6 +244,8 @@ public void provideSubTitleFor(CommunicationIdentifier communicationIdentifier, 
 ```
 ## Receive information about user actions in the UI and add your own custom functionalities.
 
+### Call Screen
+
 The `MeetingUIClientCallUserEventListener` interface methods are called upon user actions in remote participant's profile.
 
 Add the `MeetingUIClientCallUserEventListener` to your class.
@@ -302,7 +307,7 @@ public boolean onParticipantViewLongPressed(@NonNull Activity activity, @NonNull
 }
 ```
 
-## Receive information about user actions in the call roster and add your own custom functionalities.
+### Call Roster
 
 The `MeetingUIClientCallRosterDelegate` interface methods are called upon user actions in the call roster.
 
@@ -351,12 +356,12 @@ public boolean onCallParticipantCellTapped(@NonNull Activity activity, @NonNull 
 ```
 ## User experience customization
 
-The user experience in the SDK can be customized by providing app-specific icons or replacing call controls bars. 
+The user experience in the SDK can be customized by providing app-specific icons. 
 
 ### Customize UI icons in a call or meeting
 The icons shown in the call or meeting could be customized through method `public void setIconConfig(Map<MeetingUIClientIconType, Integer> iconConfig)` exposed in `MeetingUIClient`.
 
-After creating the meetingUIClient, set the icon configuration `meetingUIClient.setIconConfig(getIconConfig())`   for the call icons supported in `MeetingUIClientIconType`.
+After creating the meetingUIClient, set the icon configuration `meetingUIClient.setIconConfig(getIconConfig())` for the call icons supported in `MeetingUIClientIconType`.
 
 ```java
 private MeetingUIClient createMeetingUIClient() {
