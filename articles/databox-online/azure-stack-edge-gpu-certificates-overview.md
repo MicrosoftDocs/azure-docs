@@ -49,9 +49,10 @@ The various types of certificates that you can bring for your device are as foll
     - Azure Resource Manager certificates
     - Blob storage certificates
     - IoT device certificates
-    - Wi-Fi certificates
-    - VPN certificates
     - Kubernetes certificates
+    
+- Wi-Fi certificates
+- VPN certificates  
 
 - Encryption certificates
     - Support session certificates
@@ -66,7 +67,7 @@ These are the certificates for the authority that signs the certificates or the 
 
 These certificates could be root certificates or the intermediate certificates. The root certificates are always self-signed (or signed by itself). The intermediate certificates are not self-signed and are signed by the signing authority.
 
-### Caveats
+#### Caveats
 
 - The root certificates should be signing chain certificates.
 - The root certificates can be uploaded on your device in the following format: 
@@ -80,7 +81,7 @@ These certificates could be root certificates or the intermediate certificates. 
 
 <!--Your  device could be a 1-node device or a 4-node device.--> All the nodes in your device are constantly communicating with each other and therefore need to have a trust relationship. Node certificates provide a way to establish that trust. Node certificates also come into play when you are connecting to the device node using a remote PowerShell session over https.
 
-### Caveats
+#### Caveats
 
 - The node certificate should be provided in `.pfx` format with a private key that can be exported. 
 - You can create and upload 1 wildcard node certificate or 4 individual node certificates. 
@@ -98,7 +99,7 @@ For any endpoints that the device exposes, a certificate is required for trusted
 
 When you bring in a signed certificate of your own, you also need the corresponding signing chain of the certificate. For the signing chain, Azure Resource Manager, and the blob certificates on the device, you will need the corresponding certificates on the client machine also to authenticate and communicate with the device.
 
-### Caveats
+#### Caveats
 
 - The endpoint certificates need to be in `.pfx` format with a private key. Signing chain should be DER format (`.cer` file extension). 
 - When you bring your own endpoint certificates, these can be as individual certificates or multidomain certificates. 
@@ -119,7 +120,7 @@ When you bring in a signed certificate of your own, you also need the correspond
 
 You can access the local web UI of your device via a browser. To ensure that this communication is secure, you can upload your own certificate. 
 
-### Caveats
+#### Caveats
 
 - The local UI certificate is also uploaded in a `.pfx` format with a private key that can be exported.
 - After you upload the local UI certificate, you will need to restart the browser and clear the cache. Refer to the specific instructions for your browser.
@@ -142,53 +143,51 @@ There are three IoT Edge certificates that you need to install to enable this tr
 - **Device key certificate**
 
 
-### Caveats
+#### Caveats
 
 - The IoT Edge certificates are uploaded in `.pem` format. 
 
 For more information on IoT Edge certificates, see [Azure IoT Edge certificate details](../iot-edge/iot-edge-certs.md#iot-edge-certificates) and [Create IoT Edge production certificates](/azure/iot-edge/how-to-manage-device-certificates?view=iotedge-2020-11&preserve-view=true#create-production-certificates) .
 
-## Support session certificates
+## Kubernetes certificates
 
-If your  device is experiencing any issues, then to troubleshoot those issues, a remote PowerShell Support session may be opened on the device. To enable a secure, encrypted communication over this Support session, you can upload a certificate.
+If your device has an Edge container registry, then you'll need an Edge Container Registry certificate for secure communication with the client that is accessing the registry on the device.
 
-### Caveats
+#### Caveats
 
-- Make sure that the corresponding `.pfx` certificate with private key is installed on the client machine using the decryption tool.
-- Verify that the **Key Usage** field for the certificate is not **Certificate Signing**. To verify this, right-click the certificate, choose **Open** and in the **Details** tab, find **Key Usage**. 
-
-
-### Caveats
-
-- The Support session certificate must be provided as DER format with a `.cer` extension.
-
+- The Edge Container Registry certificate must be uploaded as *.pfx* format with a private key.
 
 ## VPN certificates
 
-If VPN is configured on your  device, then you will also need a certificate for any communication that occurs over the VPN channel. You can bring your own VPN certificate to ensure the communication is trusted.
+If VPN (Point-to-site) is configured on your  device, you can bring your own VPN certificate to ensure the communication is trusted. The root certificate is installed on the Azure VPN Gateway and the client certificates are installed on each client computer that connects to a VNet using Point-to-Site.
 
-### Caveats
+#### Caveats
 
 - The VPN certificate must be uploaded as a *.pfx* format with a  private key.
 - The VPN certificate is not dependant on the device name, device serial number, or device configuration. It only requires the external FQDN.
 - Make sure that the client OID is set.
 
+For more information, see [Generate and export certificates for Point-to-Site using PowerShell](../vpn-gateway/vpn-gateway-certificates-point-to-site.md#generate-and-export-certificates-for-point-to-site-using-powershell).
+
 ## Wi-Fi certificates
 
 If your device is configured to operate on a wireless network, then you will also need a Wi-Fi certificate for any communication that occurs over the wireless network. 
 
-### Caveats
+#### Caveats
 
 - The Wi-Fi certificate must be uploaded as a *.pfx* format with a private key.
 - Make sure that the client OID is set.
 
-## Kubernetes certificates
+## Support session certificates
 
-If your device has an Edge container registry, then you'll need an Edge Container Registry certificate for secure communication with the client that is accessing the registry on the device.
+If your  device is experiencing any issues, then to troubleshoot those issues, a remote PowerShell Support session may be opened on the device. To enable a secure, encrypted communication over this Support session, you can upload a certificate.
 
-### Caveats
+#### Caveats
 
-- The Edge Container Registry certificate must be uploaded as *.pfx* format with a private key.
+- Make sure that the corresponding `.pfx` certificate with private key is installed on the client machine using the decryption tool.
+- Verify that the **Key Usage** field for the certificate is not **Certificate Signing**. To verify this, right-click the certificate, choose **Open** and in the **Details** tab, find **Key Usage**. 
+
+- The Support session certificate must be provided as DER format with a `.cer` extension.
 
 
 ## Next steps
