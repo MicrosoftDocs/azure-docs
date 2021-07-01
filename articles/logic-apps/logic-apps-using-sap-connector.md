@@ -35,7 +35,7 @@ This article explains how you can access your SAP resources from Logic Apps usin
   > [460089 - Minimum authorization profiles for external RFC programs](https://launchpad.support.sap.com/#/notes/460089). 
   > 
   > * For RFC actions, the user account additionally needs access to function modules `RFC_GROUP_SEARCH` and `DD_LANGU_TO_ISOLA`.
-  > * For BAPI actions, the user account additionally needs access to function modules `BAPI_TRANSACTION_COMMIT`, `BAPI_TRANSACTION_ROLLBACK`, `RPY_BOR_TREE_INIT`, `SWO_QUERY_METHODS` and `SWO_QUERY_API_METHODS`.
+  > * For BAPI actions, the user account also needs access to the following function modules: `BAPI_TRANSACTION_COMMIT`, `BAPI_TRANSACTION_ROLLBACK`, `RPY_BOR_TREE_INIT`, `SWO_QUERY_METHODS` and `SWO_QUERY_API_METHODS`.
   > * For IDOC actions, the user account additionally needs access to function modules `IDOCTYPES_LIST_WITH_MESSAGES`, `IDOCTYPES_FOR_MESTYPE_READ`, `INBOUND_IDOCS_FOR_TID`, `OUTBOUND_IDOCS_FOR_TID`, `GET_STATUS_FROM_IDOCNR` and `IDOC_RECORD_READ`.
   > * For Read Table action, the user account additionally needs access to function module `RFC BBP_RFC_READ_TABLE` or `RFC_READ_TABLE`.
 
