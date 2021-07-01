@@ -56,44 +56,45 @@ Health check integrates with App Service's [authentication and authorization fea
 
 If you're using your own authentication system, the Health check path must allow anonymous access. To secure the Health check endpoint, you should first use features such as [IP restrictions](app-service-ip-restrictions.md#set-an-ip-address-based-rule), [client certificates](app-service-ip-restrictions.md#set-an-ip-address-based-rule), or a Virtual Network to restrict application access. You can secure the Health check endpoint by requiring the `User-Agent` of the incoming request matches `HealthCheck/1.0`. The User-Agent can't be spoofed since the request would already secured by prior security features.
 
-## Frequently Asked Questions
-
-### What happens if my app is running on a single instance?
-
-If your app is only scaled to one instance and bccomes unhealthy, it will not be removed from the load balancer because that would take your application down entirely. Scale out to two or more instances to two or more instances to get the re-routing benefit of health check. If your app is running on a single instance, you can still use health check's [monitoring](#monitoring) feature to keep track of your application's health.
- 
-### Why are the health check request not showing in my frontend logs?
-
-The health check request are sent to your site internally, so the request will not show in the frontend logs. You can add log statements in your health check code to keep logs of when your health check path is pinged.
-
-### Are the health check requests sent over HTTP or HTTPS?
-
-The health check requests will be sent via HTTPS when [HTTPS Only](configure-ssl-bindings.md#enforce-https) is enabled on the site. Otherwise, they are sent over HTTP.
-
-### What if I have multiple apps on the same App Service Plan?
-
-Unhealthy instances will be always be removed from the load balancer rotation regardless of other apps on the App Service Plan (up to the percentage specified in [`WEBSITE_HEALTHCHECK_MAXUNHEALTHYWORKERPERCENT`](#configuration)). When an app on an instance remains unhealthy for over one hour, the instance will only be replaced if all other apps with health check enabled are also unhealthy. Apps which do not have health check enabled will not be taken into account. 
-
-#### Example 
-
-Imagine you have two applications (or one app with a slot) with health check enabled, called App A and App B. They are on the same App Service Plan and that the Plan is scaled out to 4 instances. If App A becomes unhealthy on two instances, the load balancer will stop sending requests to App A on those two instances. Requests will still be routed to App B on those instances assuming App B is healthy. If App A remains unhealthy for over an hour on those two instances, those instances will only be replaced if App B is **also** unhealthy on those instances. If App B is healthy, the instance will not be replaced.
-
-![Visual diagram explaining the example scenario above.][2]
-
-> [!NOTE]
-> If there were another site or slot on the Plan (Site C) without health check enabled, it would not be taken into consideration for the instance replacement.
-
-### What if all my instance are unhealthy?
-
-In the scenario where all instances of your application are unhealthy, App Service will remove instances from the load balancer up to the percentage specified in `WEBSITE_HEALTHCHECK_MAXUNHEALTHYWORKERPERCENT`. In this scenario, taking all unhealthy app instances out of the load balancer rotation would effectively cause an outage for your application.
-
 ## Monitoring
 
 After providing your application's Health check path, you can monitor the health of your site using Azure Monitor. From the **Health check** blade in the Portal, click the **Metrics** in the top toolbar. This will open a new blade where you can see the site's historical health status and create a new alert rule. For more information on monitoring your sites, [see the guide on Azure Monitor](web-sites-monitor.md).
 
 ## Limitations
 
-Health check should not be enabled on Premium Functions sites. Due to the rapid scaling of Premium Functions, the health check requests can cause unnecessary fluctuations in HTTP traffic. Premium Functions have their own internal health probes that are used to inform scaling decisions.
+- Health check should not be enabled on Premium Functions sites. Due to the rapid scaling of Premium Functions, the Health check requests can cause unnecessary fluctuations in HTTP traffic. Premium Functions have their own internal health probes that are used to inform scaling decisions.
+- Health check can be enabled for **Free** and **Shared** App Service Plans so you can have metrics on the site's health and set up alerts, but because **Free** and **Shared** sites cannot scale out, any unhealthy instances will not be replaced. You should scale up to the **Basic** tier or higher so you can scale out to 2 or more instances and utilize the full benefit of Health check. This is recommended for production-facing applications as it will increase your app's availability and performance.
+
+## Frequently Asked Questions
+
+### What happens if my app is running on a single instance?
+
+If your app is only scaled to one instance and bccomes unhealthy, it will not be removed from the load balancer because that would take your application down entirely. Scale out to two or more instances to two or more instances to get the re-routing benefit of Health check. If your app is running on a single instance, you can still use Health check's [monitoring](#monitoring) feature to keep track of your application's health.
+ 
+### Why are the Health check request not showing in my frontend logs?
+
+The Health check request are sent to your site internally, so the request will not show in [the frontend logs](troubleshoot-diagnostic-logs.md#enable-web-servier-logging). This also means the request will have an origin of `127.0.0.1` since it the request being sent internally. You can add log statements in your Health check code to keep logs of when your Health check path is pinged.
+
+### Are the Health check requests sent over HTTP or HTTPS?
+
+The Health check requests will be sent via HTTPS when [HTTPS Only](configure-ssl-bindings.md#enforce-https) is enabled on the site. Otherwise, they are sent over HTTP.
+
+### What if I have multiple apps on the same App Service Plan?
+
+Unhealthy instances will be always be removed from the load balancer rotation regardless of other apps on the App Service Plan (up to the percentage specified in [`WEBSITE_HEALTHCHECK_MAXUNHEALTHYWORKERPERCENT`](#configuration)). When an app on an instance remains unhealthy for over one hour, the instance will only be replaced if all other apps with Health check enabled are also unhealthy. Apps which do not have Health check enabled will not be taken into account. 
+
+#### Example 
+
+Imagine you have two applications (or one app with a slot) with Health check enabled, called App A and App B. They are on the same App Service Plan and that the Plan is scaled out to 4 instances. If App A becomes unhealthy on two instances, the load balancer will stop sending requests to App A on those two instances. Requests will still be routed to App B on those instances assuming App B is healthy. If App A remains unhealthy for over an hour on those two instances, those instances will only be replaced if App B is **also** unhealthy on those instances. If App B is healthy, the instance will not be replaced.
+
+![Visual diagram explaining the example scenario above.][2]
+
+> [!NOTE]
+> If there were another site or slot on the Plan (Site C) without Health check enabled, it would not be taken into consideration for the instance replacement.
+
+### What if all my instances are unhealthy?
+
+In the scenario where all instances of your application are unhealthy, App Service will remove instances from the load balancer up to the percentage specified in `WEBSITE_HEALTHCHECK_MAXUNHEALTHYWORKERPERCENT`. In this scenario, taking all unhealthy app instances out of the load balancer rotation would effectively cause an outage for your application.
 
 ## Next steps
 - [Create an Activity Log Alert to monitor all Autoscale engine operations on your subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/monitor-autoscale-alert)
