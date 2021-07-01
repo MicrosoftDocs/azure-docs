@@ -379,8 +379,8 @@ Preparing a CentOS 7 virtual machine for Azure is very similar to CentOS 6, howe
     cat > /etc/cloud/cloud.cfg.d/91-azure_datasource.cfg <<EOF
     datasource_list: [ Azure ]
     datasource:
-    Azure:
-        apply_network_config: False
+        Azure:
+            apply_network_config: False
     EOF
 
     if [[ -f /mnt/resource/swapfile ]]; then
