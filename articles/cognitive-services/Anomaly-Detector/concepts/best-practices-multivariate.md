@@ -122,7 +122,7 @@ Signal values of close timestamps are well aligned and the MVAD model can now ex
 
 ## Common pitfalls
 
-Apart from what's listed in the [error code table](../concepts/troubleshoot), we've learnt from customers like you some common pitfalls while using MVAD APIs. Hope this table will help you dodge them in your practice.
+Apart from what's listed in the [error code table](../concepts/troubleshoot), we've learnt from customers like you some common pitfalls while using MVAD APIs. This table will help you dodge them in your practice.
 
 | Pitfall | Consequence |Explanation and solution |
 | --------- | ----- | ----- |
