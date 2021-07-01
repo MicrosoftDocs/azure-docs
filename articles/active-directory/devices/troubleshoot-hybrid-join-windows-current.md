@@ -437,7 +437,9 @@ Download the file Auth.zip from [https://github.com/CSS-Identity/DRS/tree/main/A
 +----------------------------------------------------------------------+
 ```
 
-### Step 2: Find the error code from dsregcmd output
+### Step 2: Find the error code 
+
+### From dsregcmd output
 
 > [!NOTE]
 >  Available from **Windows 10 May 2021 Update (version 21H1)**.
@@ -465,7 +467,7 @@ Download the file Auth.zip from [https://github.com/CSS-Identity/DRS/tree/main/A
   Server Error Description : AADSTS50126: Error validating credentials due to invalid username or password.
 ```
 
-### Step 2: Find the Error code from AAD Analytic and operational logs
+### From AAD Analytic and operational logs
 
 Use Event Viewer to locate the log entries logged by AAD CloudAP plugin during PRT acquisition 
 
