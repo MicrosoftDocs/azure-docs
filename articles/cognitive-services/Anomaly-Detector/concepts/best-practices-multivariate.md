@@ -26,7 +26,7 @@ In this tutorial, you'll:
 
 ## API usage
 
-Follow the instructions in this section to avoid errors while using MVAD. If you still get errors, please refer to the [full list of error codes](../concepts/troubleshoot) for explanations and actions to take.
+Follow the instructions in this section to avoid errors while using MVAD. If you still get errors, please refer to the [full list of error codes](./troubleshoot) for explanations and actions to take.
 
 [!INCLUDE [mvad-data-schema](../includes/mvad-data-schema.md)]
 
@@ -122,7 +122,7 @@ Signal values of close timestamps are well aligned and the MVAD model can now ex
 
 ## Common pitfalls
 
-Apart from what's listed in the [error code table](../concepts/troubleshoot), we've learnt from customers like you some common pitfalls while using MVAD APIs. This table will help you dodge them in your practice.
+Apart from what's listed in the [error code table](./troubleshoot), we've learnt from customers like you some common pitfalls while using MVAD APIs. This table will help you dodge them in your practice.
 
 | Pitfall | Consequence |Explanation and solution |
 | --------- | ----- | ----- |

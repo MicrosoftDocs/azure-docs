@@ -19,12 +19,14 @@ MVAD detects anomalies from a group of metrics, and we call each metric a **vari
 * The column names of the csv file should be precisely `timestamp` and `value`, case-sensitive.
 * The `timestamp` values should conform to ISO 8601; the `value` could be integers or decimals with any number of decimal places.
     A good example of the content of a csv file：
+
     |timestamp | value|
     |-------|-------|
     |2019-04-01T00:00:00Z| 5|
     |2019-04-01T00:01:00Z| 3.6|
     |2019-04-01T00:02:00Z| 4|
-    |`...`| `...` |
+    |...| ...|
+
     > [!NOTE]
     > If your timestamps have hours, minutes, and/or seconds, ensure that they're properly rounded up before calling the APIs.
     >
