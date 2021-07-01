@@ -27,11 +27,11 @@
   items:
   - name: Best practices
     items:
-    - name: Overview
-      href: best-practices.md
-    - name: Pre-deployment and prerequisites
+    - name: Pre-deployment best practices
       href: prerequisites.md
-    - name: Data collection
+    - name: General best practices
+      href: best-practices.md
+    - name: Data collection best practices
       href: best-practices-data.md
   - name: Architecture
     items:
