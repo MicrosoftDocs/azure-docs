@@ -122,15 +122,13 @@ curl -H "Content-Type: application/json" -X POST -d @<path-to-JSON-config-file> 
 
 ## Confirm data written to Cosmos DB
 
-Sign into the [Azure portal](https://portal.azure.com/learn.docs.microsoft.com) and navigate to your Azure Cosmos DB account. Check that the three records from the “hotels” topic are created in your account. You should see something like this:
-
-:::image type="content" source="./media/kafka-connector-sink/cosmosdb-sink-records.png" alt-text="CosmosDB sink records.":::
+Sign into the [Azure portal](https://portal.azure.com/learn.docs.microsoft.com) and navigate to your Azure Cosmos DB account. Check that the three records from the “hotels” topic are created in your account.
 
 ## Cleanup
 
 To delete the connector from the Control Center, navigate to the sink connector you created and click the **Delete** icon.
 
-:::image type="content" source="./media/kafka-connector-source/delete-connector.png" alt-text="Delete connector.":::
+:::image type="content" source="./media/kafka-connector-sink/delete-connector.png" alt-text="Delete connector.":::
 
 Alternatively, use the Connect REST API to delete:
 
