@@ -145,7 +145,7 @@ Example
 
 
 ## TLS and SSL
-Azure Database for PostgreSQL - Flexible Server enforces connecting your client applications to the PostgreSQL service using Transport Layer Security (TLS). TLS is an industry standard protocol that ensures encrypted network connections between your database server and client applications. TLS is an updated protocol of SSL (Secure Sockets Layer).Azure Database for PostgreSQL supports TLS 1.2 or later, since Internet Engineering Task Force (IETF) has released a document where they explicitly state that TLS 1.0 and TLS 1.1 must not be used and they deprecated both protocols by the end of 2019.
+Azure Database for PostgreSQL - Flexible Server enforces connecting your client applications to the PostgreSQL service using Transport Layer Security (TLS). TLS is an industry standard protocol that ensures encrypted network connections between your database server and client applications. TLS is an updated protocol of SSL (Secure Sockets Layer).Azure Database for PostgreSQL supports TLS 1.2 or later, since Internet Engineering Task Force (IETF) has released a document(https://datatracker.ietf.org/doc/rfc8996/) where they explicitly state that TLS 1.0 and TLS 1.1 must not be used and they deprecated both protocols by the end of 2019.
 
 All incoming connections with older versions of  TLS protocol such as  TLS 1.0 and TLS 1.1 will be denied.
 
