@@ -84,7 +84,7 @@ Content-Type: application/json
 
 When connecting to the database in the next step, you will need to connect with an Azure Active Directory (Azure AD) account that has admin access to the database in order to give your search service permission to access the database.
 
-Follow the instructions [here](../azure-sql/database/authentication-aad-configure.md?tabs=azure-powershell#provision-azure-ad-admin-sql-database) to give your Azure AD account admin access to the database.
+Look at [Configure and manage Azure AD authentication with Azure SQL](../azure-sql/database/authentication-aad-configure.md?tabs=azure-powershell) to give your Azure AD account admin access to the database.
 
 ## 3 - Assign permissions to read the database
 
