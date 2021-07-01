@@ -5,7 +5,7 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: conceptual
-ms.date: 5/20/2021
+ms.date: 7/1/2021
 ms.author: wgries
 ms.subservice: files
 ---
@@ -25,15 +25,13 @@ The following Azure File Sync agent versions are supported:
 | V11.3 Release - [KB4539953](https://support.microsoft.com/topic/f68974f6-bfdd-44f4-9659-bf2d8a696c26)| 11.3.0.0 | April 7, 2021 | Supported |
 | V11.2 Release - [KB4539952](https://support.microsoft.com/topic/azure-file-sync-agent-v11-2-release-february-2021-c956eaf0-cd8e-4511-98c0-e5a1f2c84048)| 11.2.0.0 | February 2, 2021 | Supported |
 | V11.1 Release - [KB4539951](https://support.microsoft.com/help/4539951)| 11.1.0.0 | November 4, 2020 | Supported |
-| V10.1 Release - [KB4522411](https://support.microsoft.com/help/4522411)| 10.1.0.0 | June 5, 2020 | Supported - Agent version will expire on June 28, 2021 |
-| May 2020 update rollup - [KB4522412](https://support.microsoft.com/help/4522412)| 10.0.2.0 | May 19, 2020 | Supported - Agent version will expire on June 28, 2021 |
-| V10 Release - [KB4522409](https://support.microsoft.com/help/4522409)| 10.0.0.0 | April 9, 2020 | Supported - Agent version will expire on June 28, 2021 |
 
 ## Unsupported versions
 The following Azure File Sync agent versions have expired and are no longer supported:
 
 | Milestone | Agent version number | Release date | Status |
 |----|----------------------|--------------|------------------|
+| V10 Release | 10.0.0.0 - 10.1.0.0 | N/A | Not Supported - Agent version expired on June 28, 2021 |
 | V9 Release | 9.0.0.0 - 9.1.0.0 | N/A | Not Supported - Agent version expired on February 16, 2021 |
 | V8 Release | 8.0.0.0 | N/A | Not Supported - Agent version expired on January 12, 2021 |
 | V7 Release | 7.0.0.0 - 7.2.0.0 | N/A | Not Supported - Agent versions expired on September 1, 2020 |
