@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Plan an Azure Active Directory Multi-Factor Authentication deployment 
 
-Azure Active Directory (Azure AD) Multi-Factor Authentication (MFA) helps safeguard access to data and applications, providing an additional layer of security by using a second form of authentication. Organizations can enable multifactor authentication with [Conditional Access](../conditional-access/overview.md) to make the solution fit their specific needs.
+Azure Active Directory (Azure AD) Multi-Factor Authentication (MFA) helps safeguard access to data and applications, providing another layer of security by using a second form of authentication. Organizations can enable multifactor authentication with [Conditional Access](../conditional-access/overview.md) to make the solution fit their specific needs.
 
 This deployment guide shows you how to plan and implement an [Azure AD MFA](concept-mfa-howitworks.md) roll-out.
 
