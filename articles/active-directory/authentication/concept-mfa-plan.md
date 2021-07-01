@@ -149,9 +149,70 @@ If the user does not have a backup method available, you can:
 User communications
 
 It’s critical to inform users about upcoming changes, Azure AD MFA registration requirements, and any necessary user actions. 
-We provide communication templates and end-user documentation to help draft your communications. Send users to https://myprofile.microsoft.com to register by selecting the Security Info link on that page.
+We provide [communication templates](https://aka.ms/mfatemplates) and [end-user documentation](../user-help/security-info-setup-signin.md) to help draft your communications. Send users to [https://myprofile.microsoft.com](https://myprofile.microsoft.com/) to register by selecting the **Security Info** link on that page.
 
 ## Plan integration with on-premises systems
 
+Applications that authenticate directly with Azure AD and have modern authentication (WS-Fed, SAML, OAuth, OpenID Connect) can make use of Conditional Access policies.
+Some legacy and on-premises applications do not authenticate directly against Azure AD and require additional steps to use Azure AD MFA. You can integrate them by using Azure AD Application proxy or Network policy services.
 
+### Integrate with AD FS resources
+We recommend migrating applications secured with Active Directory Federation Services (AD FS) to Azure AD. However, if you are not ready to migrate these to Azure AD, you can use the Azure MFA adapter with AD FS 2016 or newer.
+If your organization is federated with Azure AD, you can configure Azure AD MFA  as an authentication provider with AD FS resources both on-premises and in the cloud.  
+
+### RADIUS clients and Azure AD MFA
+For applications that are using RADIUS authentication, we recommend moving client applications to modern protocols such as SAML, Open ID Connect, or OAuth on Azure AD. If the application cannot be updated, then you can deploy Network Policy Server (NPS) with the Azure MFA extension. The network policy server (NPS) extension acts as an adapter between RADIUS-based applications and Azure AD MFA to provide a second factor of authentication.
+
+#### Common integrations
+Many vendors now support SAML authentication for their applications. When possible, we recommend federating these applications with Azure AD and enforcing MFA through Conditional Access. If your vendor doesn’t support modern authentication – you can use the NPS extension.
+Common RADIUS client integrations include applications such as Remote Desktop Gateways and VPN servers. 
+
+Others might include:
+
+- Citrix Gateway
+
+  Citrix Gateway supports both RADIUS and NPS extension integration, and a SAML integration.
+
+- Cisco VPN
+  - The Cisco VPN supports both RADIUS and SAML authentication for SSO.
+  - By moving from RADIUS authentication to SAML, you can integrate the Cisco VPN without deploying the NPS extension.
+
+- All VPNs
+
+## Deploy Azure AD MFA
+
+Your MFA rollout plan should include a pilot deployment followed by deployment waves that are within your support capacity. Begin your rollout by applying your Conditional Access policies to a small group of pilot users. After evaluating the effect on the pilot users, process used, and registration behaviors, you can either add more groups to the policy or add more users to the existing groups.
+
+Follow the steps below:
+
+1. Meet the necessary prerequisites
+1. Configure chosen authentication methods
+1. Configure your Conditional Access policies
+1. Configure session lifetime settings
+1. Configure Azure AD MFA registration policies 
+
+
+## Manage Azure AD MFA
+This section provides reporting and troubleshooting information for Azure AD MFA.
+
+### Reporting and Monitoring
+
+Azure AD has reports that provide technical and business insights, follow the progress of your deployment and check if your users are successful at sign-in with MFA. Have your business and technical application owners assume ownership of and consume these reports based on your organization’s requirements.
+
+You can monitor authentication method registration and usage across your organization using the [Authentication Methods Activity dashboard](howto-authentication-methods-activity.md). This helps you understand what methods are being registered and how they're being used.
+
+#### Sign-in report to review MFA events
+
+The Azure AD sign-in reports include authentication details for events when a user is prompted for multi-factor authentication, and if any Conditional Access policies were in use. You can also use PowerShell for reporting on users registered for MFA. 
+
+NPS extension and AD FS logs can be viewed from **Security** > **MFA** > **Activity report**.
+
+For more information, and additional MFA reports, see [Review Azure AD Multi-Factor Authentication events](howto-mfa-reporting.md#view-the-azure-ad-sign-ins-report).
+
+### Troubleshoot Azure AD MFA
+See [Troubleshooting Azure AD MFA](https://support.microsoft.com/help/2937344/troubleshooting-azure-multi-factor-authentication-issues) for common issues.
+
+## Next steps
+
+[Deploy other identity features](../fundamentals/active-directory-deployment-plans.md)
 
