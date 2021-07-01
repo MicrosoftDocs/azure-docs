@@ -53,6 +53,14 @@ In this quickstart, you'll learn the benefits of Azure Arc enabled Kubernetes an
 
 [!INCLUDE [azure-powershell-requirements-no-header.md](../../../includes/azure-powershell-requirements-no-header.md)]
 
+> [!IMPORTANT]
+> While the **Az.ConnectedKubernetes** PowerShell module is in preview, you must install it separately using
+> the `Install-Module` cmdlet.
+
+```azurepowershell-interactive
+Install-Module -Name Az.ConnectedKubernetes
+```
+
 * An up-and-running Kubernetes cluster. If you don't have one, you can create a cluster using one of these options:
     * [Kubernetes in Docker (KIND)](https://kind.sigs.k8s.io/)
     * Create a Kubernetes cluster using Docker for [Mac](https://docs.docker.com/docker-for-mac/#kubernetes) or [Windows](https://docs.docker.com/docker-for-windows/#kubernetes)
