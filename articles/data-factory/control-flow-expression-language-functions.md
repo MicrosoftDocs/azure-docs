@@ -1,6 +1,6 @@
 ---
 title: Expression and functions in Azure Data Factory and Azure Synapse Analytics
-description: This article provides information about expressions and functions that you can use in creating data factory and Synapse Analytics pipeline entities.
+description: This article provides information about expressions and functions that you can use in creating data factory and Synapse pipeline entities.
 author: minhe-msft
 ms.author: hemin
 ms.reviewer: jburchel
