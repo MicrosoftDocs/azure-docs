@@ -166,7 +166,7 @@ api-key: [admin key]
     "name" : "sql-datasource",
     "type" : "azuresql",
     "credentials" : { 
-        "connectionString" : "Database=sql-database;ResourceId=/subscriptions/[subscription ID]/resourceGroups/[resource group name]/providers/Microsoft.Sql/servers/[SQL Server name];Connection Timeout=30;" 
+        "connectionString" : "Database=[SQL database name];ResourceId=/subscriptions/[subscription ID]/resourceGroups/[resource group name]/providers/Microsoft.Sql/servers/[SQL Server name];Connection Timeout=30;" 
     },
     "container" : { 
         "name" : "my-table" 
@@ -203,7 +203,7 @@ api-key: [admin key]
     "name" : "sql-datasource",
     "type" : "azuresql",
     "credentials" : { 
-        "connectionString" : "Database=sql-database;ResourceId=/subscriptions/[subscription ID]/resourceGroups/[resource group name]/providers/Microsoft.Sql/servers/[SQL Server name];Connection Timeout=30;"
+        "connectionString" : "Database=[SQL database name];ResourceId=/subscriptions/[subscription ID]/resourceGroups/[resource group name]/providers/Microsoft.Sql/servers/[SQL Server name];Connection Timeout=30;"
     },
     "container" : { 
         "name" : "my-table" 
