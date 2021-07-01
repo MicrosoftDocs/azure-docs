@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Send custom events to web endpoint - Event Grid, PowerShell'
 description: 'Quickstart: Use Azure Event Grid and PowerShell to publish a custom topic, and subscribe to events for that topic. The events are handled by a web application.' 
-ms.date: 04/22/2021
+ms.date: 07/01/2021
 ms.topic: quickstart 
 ms.custom: devx-track-azurepowershell
 ---
