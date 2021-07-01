@@ -29,7 +29,7 @@ The section [HTTP status codes](#http-status-codes) explains how invocation and 
 
 ## Prerequisites
 
-* An **Azure subscription**. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
+* An **Azure subscription**. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 * The [Azure CLI](/cli/azure/install-azure-cli).
 * The [Install, set up, and use the 2.0 CLI (preview)](how-to-configure-cli.md).
 
@@ -146,6 +146,10 @@ To get more details about this error, run:
 ```azurecli
 az ml endpoint get-logs -n <endpoint-name> --deployment <deployment-name> --lines 100
 ```
+
+### ERR_1350: Unable to download user model, not enough space on the disk
+
+This issue happens when the size of the model is bigger than the available disk space. Please try an SKU with more disk space.
 
 ### ERR_2100: Unable to start user container
 

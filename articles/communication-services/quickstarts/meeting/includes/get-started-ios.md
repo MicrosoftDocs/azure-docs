@@ -3,12 +3,16 @@ title: Quickstart - Add joining a Microsoft Teams meeting to an iOS app using Az
 description: In this quickstart, you'll learn how to use the Azure Communication Services Teams Embed library for iOS.
 author: palatter
 ms.author: palatter
-ms.date: 01/25/2021
+ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 ---
 
 In this quickstart, you'll learn how to join a Microsoft Teams meeting using the Azure Communication Services Teams Embed library for iOS.
+
+## Sample Code
+
+You can download the sample app from [GitHub](https://github.com/Azure-Samples/teams-embed-ios-getting-started).
 
 ## Prerequisites
 
@@ -291,8 +295,3 @@ The Microsoft Teams SDK supports over 100 strings and resources. The framework b
 1. Determine what kind of localizations your application supports from the app Xcode Project > Info > Localizations list
 2. Unzip the Localizations.zip included with the package
 3. Copy the localization folders from the unzipped folder based on what your app supports to the root of the TeamsAppSDK.framework
-
-
-## Sample Code
-
-You can download the sample app from [GitHub](https://github.com/Azure-Samples/teams-embed-ios-getting-started)
