@@ -102,4 +102,4 @@ Listed below are the fields in the schema and what they signify in Connection Mo
 | HopResourceIds	| The hop resource ids identified for the test |
 | Issues	| The issues identified for the test |
 | Hops	| The hops identified for the test |
-| AdditionalData	| The additional data for the test |
+| AdditionalData | The additional data for the test |
