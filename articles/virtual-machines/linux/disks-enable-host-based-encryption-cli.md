@@ -4,7 +4,7 @@ description: Use encryption at host to enable end-to-end encryption on your Azur
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 06/30/2021
+ms.date: 07/01/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
@@ -204,7 +204,7 @@ az vmss show -n $vmssName \
 
 ### Update a virtual machine scale set to disable encryption at host. 
 
-You can disable encryption at host on your virtual machine scale set but, this will only affect VMs created after you disable encryption at host. For existing VMs, you must deallocate the VM, disable encryption at host, then reallocate the VM.
+You can disable encryption at host on your virtual machine scale set but, this will only affect VMs created after you disable encryption at host. For existing VMs, you must deallocate the VM, [disable encryption at host on that individual VM](#update-a-vm-to-disable-encryption-at-host), then reallocate the VM.
 
 ```azurecli
 rgName=yourRGName

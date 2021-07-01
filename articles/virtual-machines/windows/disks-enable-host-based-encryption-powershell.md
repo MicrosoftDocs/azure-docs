@@ -4,7 +4,7 @@ description: How to enable end-to-end encryption for your Azure VMs using encryp
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 06/30/2021
+ms.date: 07/01/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurepowershell
@@ -290,7 +290,7 @@ $VMSS.VirtualMachineProfile.SecurityProfile.EncryptionAtHost
 
 ### Update a virtual machine scale set to disable encryption at host. 
 
-You can disable encryption at host on your virtual machine scale set but, this will only affect VMs created after you disable encryption at host. For existing VMs, you must deallocate the VM, disable encryption at host, then reallocate the VM.
+You can disable encryption at host on your virtual machine scale set but, this will only affect VMs created after you disable encryption at host. For existing VMs, you must deallocate the VM, [disable encryption at host on that individual VM](#disable-encryption-at-host), then reallocate the VM.
 
 ```powershell
 $ResourceGroupName = "yourResourceGroupName"
