@@ -267,8 +267,8 @@ Some of the insights you might want to gain after Traffic Analytics is fully con
 
 **Look for**
 
-- Which hosts, subnets, and virtual networks are sending or receiving the most traffic, traversing maximum malicious traffic and blocking significant flows?
-    - Check comparative chart for host, subnet, and virtual network. Understanding which hosts, subnets, and virtual networks are sending or receiving the most traffic can help you identify the hosts that are processing the most traffic, and whether the traffic distribution is done properly.
+- Which hosts, subnets, virtual networks and VMSS are sending or receiving the most traffic, traversing maximum malicious traffic and blocking significant flows?
+    - Check comparative chart for hosts, subnet, virtual network and VMSS. Understanding which hosts, subnets, virtual networks and VMSS are sending or receiving the most traffic can help you identify the hosts that are processing the most traffic, and whether the traffic distribution is done properly.
     - You can evaluate if the volume of traffic is appropriate for a host. Is the volume of traffic normal behavior, or does it merit further investigation?
 - How much inbound/outbound traffic is there?
     -   Is the host expected to receive more inbound traffic than outbound, or vice-versa?
@@ -277,13 +277,16 @@ Some of the insights you might want to gain after Traffic Analytics is fully con
 - Statistics of malicious allowed/blocked traffic
   - Why is a host receiving malicious traffic and why are flows from malicious sources allowed? This behavior requires further investigation and probably optimization of configuration.
 
-    Select **See all**, under **Host**, as shown in the following picture:
+    Select **See all**, under **IP**, as shown in the following picture:
 
     ![Dashboard showcasing host with most traffic details](media/traffic-analytics/dashboard-showcasing-host-with-most-traffic-details.png)
 
-- The following picture shows time trending for the top five talking hosts and the flow-related details (allowed – inbound/outbound and denied - inbound/outbound flows) for a host:
+    The following picture shows time trending for the top five talking hosts and the flow-related details (allowed – inbound/outbound and denied - inbound/outbound flows) for a host:
+
+	Select **See more**, under **Details of top 5 talking IPs**, as shown in the following picture to get insights about all the hosts:
 
     ![Top five most-talking host trend](media/traffic-analytics/top-five-most-talking-host-trend.png)
+	
 
 **Look for**
 
