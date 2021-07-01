@@ -239,7 +239,7 @@ Compiling the project takes 5 -10 minutes. Once completed, you should have indiv
 
 ## Verify the services
 
-Access the app gateway and customers service from browser with the **Public Url** shown above, in the format of "https://<service name>-api-gateway.azuremicroservices.io".
+Access the app gateway and customers service from browser with the **Public Url** shown above, in the format of `https://<service name>-api-gateway.azuremicroservices.io`.
 
 ![Access petclinic customers service](media/build-and-deploy/access-customers-service.png)
 
@@ -311,7 +311,7 @@ Compiling the project takes 5 -10 minutes. Once completed, you should have indiv
     
 ## Verify the services
 
-A successful deployment command will return a the URL of the form: "https://<service name>-spring-petclinic-api-gateway.azuremicroservices.io". Use it to navigate to the running service.
+A successful deployment command will return a the URL of the form: `https://<service name>-spring-petclinic-api-gateway.azuremicroservices.io`. Use it to navigate to the running service.
 
 ![Access Pet Clinic](media/build-and-deploy/access-customers-service.png)
 
