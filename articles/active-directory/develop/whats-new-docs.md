@@ -33,7 +33,7 @@ Welcome to what's new in the Microsoft identity platform documentation. This art
 - [Application and service principal objects in Azure Active Directory](app-objects-and-service-principals.md)
 - [A web app that calls web APIs: Code configuration](scenario-web-app-call-api-app-configuration.md)
 - [Customize claims emitted in tokens for a specific app in a tenant](active-directory-claims-mapping.md)
-- [Microsoft identity platform code samples (v2.0 endpoint)](sample-v2-code.md)
+- [Microsoft identity platform code samples](sample-v2-code.md)
 - [Migrating applications to MSAL.NET or Microsoft.Identity.Web](msal-net-migration.md)
 - [Token cache serialization in MSAL.NET](msal-net-token-cache-serialization.md)
 - [What's new for authentication?](reference-breaking-changes.md)
