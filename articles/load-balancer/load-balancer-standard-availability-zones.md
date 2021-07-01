@@ -73,9 +73,9 @@ Review [Azure cloud design patterns](/azure/architecture/patterns/) to improve t
 
 ## Limitations
 
-* Zones can't be changed, updated, or created for the resource once created.
+* Zones can't be changed, updated, or created for the resource after creation.
 
-* Resources can't be updated from zonal to zone redundant or vice versa once created.
+* Resources can't be updated from zonal to zone redundant or vice versa after creation.
 
 ## Next steps
 - Learn more about [Availability Zones](../availability-zones/az-overview.md)
