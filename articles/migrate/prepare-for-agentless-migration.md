@@ -92,7 +92,7 @@ The preparation script executes the following changes based on the OS type of th
 
   4. At the DISKPART prompt, enter SAN Policy=OnlineAll. This setting   ensures that disks are brought online, and it ensures that you can read and write to both disks.
 
-    ![Administrator Command Prompt diskpart online policy](./media/concepts-vmware-agentless-migration/diskpart-online-policy.png)
+![Administrator Command Prompt diskpart online policy](./media/concepts-vmware-agentless-migration/diskpart-online-policy.png)
 
 3.	**Set the DHCP start type**
 
@@ -160,9 +160,8 @@ After the aforementioned changes are performed, the system partition will be unl
       1. Find the list of kernels installed on the system (/lib/modules)
       2. For each module, inspect if the Hyper-V drivers are already included.
       3. If any of these drivers are missing, add the required drivers and regenerate the image for the corresponding kernel version.
-
-         > [!NOTE]
-         > This step may not apply to Ubuntu and Debian VMs as the Hyper-V drivers are built-in by default.[Learn more about the changes](/azure/virtual-machines/linux/create-upload-generic#installing-kernel-modules-without-hyper-v)
+        > [!NOTE]
+        > This step may not apply to Ubuntu and Debian VMs as the Hyper-V drivers are built-in by default.[Learn more about the changes](/azure/virtual-machines/linux/create-upload-generic#installing-kernel-modules-without-hyper-v)
 
       Illustrative example for rebuilding initrd
         - Back up the exisiting initrd image
