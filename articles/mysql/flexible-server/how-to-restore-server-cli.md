@@ -10,6 +10,7 @@ ms.date: 04/01/2021
 
 # Point-in-time restore of a Azure Database for MySQL - Flexible Server with Azure CLI
 
+[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 > [!IMPORTANT]
 > Azure Database for MySQL - Flexible Server is currently in public preview.
@@ -17,6 +18,7 @@ ms.date: 04/01/2021
 This article provides step-by-step procedure to perform point-in-time recoveries in flexible server using backups.
 
 ## Prerequisites
+
 - If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 - Install or upgrade Azure CLI to the latest version. See [Install Azure CLI](/cli/azure/install-azure-cli).
 -  Login to Azure account using [az login](/cli/azure/reference-index#az_login) command. Note the **id** property, which refers to **Subscription ID** for your Azure account.

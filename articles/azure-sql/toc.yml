@@ -201,6 +201,8 @@
           href: database/authentication-aad-directory-readers-role-tutorial.md
         - name: Enable Azure AD-only authentication
           href: database/authentication-azure-ad-only-authentication-tutorial.md
+        - name: Create server with Azure AD-only authentication enabled
+          href: database/authentication-azure-ad-only-authentication-create-server.md
       - name: Configure TDE with BYOK
         href: database/transparent-data-encryption-byok-configure.md 
       - name: Always Encrypted
@@ -519,7 +521,7 @@
       - name: Move sharded data
         href: database/elastic-scale-overview-split-and-merge.md
       - name: Elastic tools FAQ
-        href: database/elastic-scale-faq.md
+        href: database/elastic-scale-faq.yml
 
   - name: How to
     href: database/how-to-content-reference-guide.md
