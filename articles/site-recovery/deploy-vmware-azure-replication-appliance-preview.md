@@ -120,19 +120,23 @@ To set up a new appliance, you can use an OVF template (recommended) or PowerShe
 
 ### Create Site Recovery appliance
 
-You can create the Site Recovery appliance by using the OVF template or through PowerShell.
+You can create the Site Recovery replication appliance by using the OVF template or through PowerShell.
+
+#### Create replication appliance through OVF template
+
+We recommend this approach as Azure Site Recovery ensures all prerequisite configurations are handled by the template.
+The OVF template spins up a machine with the required specifications.
+
+Follow these steps:
 
 1. Download the OVF template to set up an appliance on your on-premises environment.
-
-   This is the recommended approach as Azure Site Recovery ensures all prerequisite configurations are handled by the template.
-
-   The OVF template spins up a machine with the required specifications.
-
 2. After the deployment is complete, power on the VM to accept Microsoft Evaluation license.
 3. In the next screen, provide password for the administrator user.
 4.  Select **Finalize,** the system reboots and you can login with the administrator user account.
 
-In case of any organizational restrictions, you can manually set up the Site Recovery replication appliance through PowerShell. Do the following:
+#### Set up Azure site recovery appliance through PowerShell
+
+In case of any organizational restrictions, you can manually set up the Site Recovery replication appliance through PowerShell. Follow these steps:
 
 1. Download the installers from [here](https://aka.ms/V2ARcmApplianceCreationPowershellZip) and place this folder on the Azure Site Recovery replication appliance.
 2. After successfully copying the zip folder, unzip and extract the components of the folder.
@@ -209,10 +213,10 @@ In case of any organizational restrictions, you can manually set up the Site Rec
 
       After successful registration, you can close the tab and move to configuration manager to continue the set up.
 
-    ![Enter code](./media/deploy-vmware-azure-replication-appliance-preview/enter-code.png)
+      ![Enter code](./media/deploy-vmware-azure-replication-appliance-preview/enter-code.png)
 
-    > [!NOTE]
-    > An authentication code expires within 5 minutes of generation. In case of inactivity for more than this duration, you will be prompted to login again to Azure.
+      > [!NOTE]
+      > An authentication code expires within 5 minutes of generation. In case of inactivity for more than this duration, you will be prompted to login again to Azure.
 
 
 9. Select **Login** to reconnect with the session. For authentication code, refer to the section *Summary* or *Register with Azure Recovery Services vault* in the configuration manger.

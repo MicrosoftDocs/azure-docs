@@ -12,7 +12,9 @@ ms.custom: mvc
 
 The [Azure Site Recovery](site-recovery-overview.md) service contributes to your business continuity and disaster recovery (BCDR) strategy by keeping your business applications online during planned and unplanned outages. Site Recovery manages and orchestrates disaster recovery of on-premises machines and Azure virtual machines (VM), including replication, failover, and recovery.
 
-This Quickstart (Preview) describes how to set up disaster recovery for a VMware VM by replicating it to a secondary Azure region. We recommend you use default setting to enable replication.
+This Quickstart provides information about how to set up disaster recovery for a VMware VM to Azure, using the Azure Site Recovery service - preview.
+
+We recommend you use default setting to enable replication.
 
 ## Prerequisites
 

@@ -10,7 +10,7 @@ ms.custom: MVC
 
 This article describes how to fail over an on-premises VMware virtual machine (VM) to Azure with [Azure Site Recovery](site-recovery-overview.md) - Preview.
 
-For information about fail over in Classic releases, see [this article](vmware-azure-tutorial-failover-failback.md).
+For information about failover in Classic releases, see [this article](vmware-azure-tutorial-failover-failback.md).
 
 In this tutorial, you learn how to:
 
