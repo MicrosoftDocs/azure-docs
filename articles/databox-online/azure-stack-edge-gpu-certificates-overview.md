@@ -45,11 +45,14 @@ The various types of certificates that you can bring for your device are as foll
 - Node certificates
 
 - Endpoint certificates   
-    - Local UI certificates
+   
     - Azure Resource Manager certificates
     - Blob storage certificates
-    - IoT device certificates
-    - Kubernetes certificates
+
+- Local UI certificates
+- IoT device certificates
+    
+- Kubernetes certificates
     
 - Wi-Fi certificates
 - VPN certificates  
@@ -171,7 +174,7 @@ For more information, see [Generate and export certificates for Point-to-Site us
 
 ## Wi-Fi certificates
 
-If your device is configured to operate on a wireless network, then you will also need a Wi-Fi certificate for any communication that occurs over the wireless network. 
+If your device is configured to operate on a WPA2-Enterprise wireless network, then you will also need a Wi-Fi certificate for any communication that occurs over the wireless network. 
 
 #### Caveats
 
