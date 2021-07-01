@@ -62,11 +62,11 @@ The Video Indexer service was renamed to Azure Video Analyzer for Media.
 
 ### Improved upload experience in the portal
  
-Video Analyzer for Media has a new upload experience in the [Developer Portal](https://api-portal.videoindexer.ai).
-.
+Video Analyzer for Media has a new upload experience in the [portal](https://www.videoindexer.ai). To upload your media file, press the **Upload** button from the **Media files** tab.
+
 ### New developer portal in available in gov-cloud
  
-Video Analyzer for Media new Developer Portal is now also available in Azure for US Government.
+[Video Analyzer for Media Developer Portal](https://api-portal.videoindexer.ai) is now also available in Azure for US Government.
 
 ### Observed people tracing (preview)  
 
