@@ -535,30 +535,33 @@ $privateEndpoint = New-AzPrivateEndpoint `
 
 ## Frequently asked questions
 
-Q. Can I create a private endpoint for an existing Backup vault?<br>
-A. No, private endpoints can be created for new Backup vaults only. So the vault must not have ever had any items protected to it. In fact, no attempts to protect any items to the vault can be made before creating private endpoints.
+### Can I create a private endpoint for an existing Backup vault?<br>
 
-Q. I tried to protect an item to my vault, but it failed and the vault still doesn't contain any items protected to it. Can I create private endpoints for this vault?<br>
-A. No, the vault must not have had any attempts to protect any items to it in the past.
+No, private endpoints can be created for new Backup vaults only. So the vault must not have ever had any items protected to it. In fact, no attempts to protect any items to the vault can be made before creating private endpoints.
 
-Q. I have a vault that's using private endpoints for backup and restore. Can I later add or remove private endpoints for this vault even if I have backup items protected to it?<br>
-A. Yes. If you already created private endpoints for a vault and protected backup items to it, you can later add or remove private endpoints as required.
+### I tried to protect an item to my vault, but it failed and the vault still doesn't contain any items protected to it. Can I create private endpoints for this vault?<br>
 
-Q. Can the private endpoint for Azure Backup also be used for Azure Site Recovery?<br>
-A. No, the private endpoint for Backup can only be used for Azure Backup. You'll need to create a new private endpoint for Azure Site Recovery, if it's supported by the service.
+No, the vault must not have had any attempts to protect any items to it in the past.
 
-Q. I missed one of the steps in this article and went on to protect my data source. Can I still use private endpoints?<br>
-A. Not following the steps in the article and continuing to protect items may lead to the vault not being able to use private endpoints. It's therefore recommended you refer to this checklist before proceeding to protect items.
+### I have a vault that's using private endpoints for backup and restore. Can I later add or remove private endpoints for this vault even if I have backup items protected to it?<br>
 
-Q. Can I use my own DNS server instead of using the Azure private DNS zone or an integrated private DNS zone?<br>
-A. Yes, you can use your own DNS servers. However, make sure all required DNS records are added as suggested in this section.
+Yes. If you already created private endpoints for a vault and protected backup items to it, you can later add or remove private endpoints as required.
 
-Q. Do I need to perform any additional steps on my server after I've followed the process in this article?<br>
-A. After following the process detailed in this article, you don't need to do additional work to use private endpoints for backup and restore.
+### Can the private endpoint for Azure Backup also be used for Azure Site Recovery?<br>
 
-    ```config
-    # sudo rpm -e --nodeps NetworkManager
-    ```
+No, the private endpoint for Backup can only be used for Azure Backup. You'll need to create a new private endpoint for Azure Site Recovery, if it's supported by the service.
+
+### I missed one of the steps in this article and went on to protect my data source. Can I still use private endpoints?<br>
+
+Not following the steps in the article and continuing to protect items may lead to the vault not being able to use private endpoints. It's therefore recommended you refer to this checklist before proceeding to protect items.
+
+### Can I use my own DNS server instead of using the Azure private DNS zone or an integrated private DNS zone?<br>
+
+Yes, you can use your own DNS servers. However, make sure all required DNS records are added as suggested in this section.
+
+### Do I need to perform any additional steps on my server after I've followed the process in this article?<br>
+
+After following the process detailed in this article, you don't need to do additional work to use private endpoints for backup and restore.
 
 ## Next steps
 
