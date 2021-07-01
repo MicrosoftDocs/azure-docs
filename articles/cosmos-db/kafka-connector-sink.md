@@ -108,7 +108,7 @@ An easy option to create the connector is by going through the Control Center we
 
 Alternatively, in the connectors page, you can upload the JSON file created earlier by using the **Upload connector config file** option.
 
-:::image type="content" source="./media/kafka-connector-source/upload-connector-config.png" alt-text="Upload connector config.":::
+:::image type="content" source="./media/kafka-connector-sink/upload-connector-config.png" alt-text="Upload connector config.":::
 
 ### Create connector using REST API
 
@@ -124,7 +124,7 @@ curl -H "Content-Type: application/json" -X POST -d @<path-to-JSON-config-file> 
 
 Sign into the [Azure portal](https://portal.azure.com/learn.docs.microsoft.com) and navigate to your Azure Cosmos DB account. Check that the three records from the “hotels” topic are created in your account. You should see something like this:
 
-:::image type="content" source="./media/kafka-connector-source/cosmosdb-sink-records.png" alt-text="CosmosDB sink records.":::
+:::image type="content" source="./media/kafka-connector-sink/cosmosdb-sink-records.png" alt-text="CosmosDB sink records.":::
 
 ## Cleanup
 
@@ -141,7 +141,7 @@ curl -X DELETE http://localhost:8083/connectors/cosmosdb-sink-connector
 
 To delete the created Azure Cosmos DB service and its resource group using Azure CLI, refer to these [steps](https://github.com/microsoft/kafka-connect-cosmosdb/blob/dev/doc/CosmosDB_Setup.md#cleanup).
 
-## <a id=" sink-configuration-properties "></a>Sink configuration properties
+## <a id="sink-configuration-properties"></a>Sink configuration properties
 
 The following settings are used to configure the Cosmos DB Kafka sink connector. These configuration values determine which Kafka topics data is consumed, which Azure Cosmos DB container’s data is written into, and formats to serialize the data. For an example configuration file with the default values, refer to [this config]( https://github.com/microsoft/kafka-connect-cosmosdb/blob/dev/src/docker/resources/sink.example.json).
 
@@ -233,7 +233,7 @@ Refer to the [InsertUUID repository](https://github.com/confluentinc/kafka-conne
 
 ### Using SMTs to configure Time to live (TTL)
 
-Using both the `InsertField` and `Cast` SMTs, you can add specify the TTL on each item created in Azure Cosmos DB. You must enable TTL on the container before enabling TTL at an item level. See the [time-to-live](how-to-time-to-live?tabs=dotnetv2%2Cjavav4#enable-time-to-live-on-a-container-using-azure-portal) doc for more information.
+Using both the `InsertField` and `Cast` SMTs, you can add specify the TTL on each item created in Azure Cosmos DB. You must enable TTL on the container before enabling TTL at an item level. See the [time-to-live](how-to-time-to-live.md#enable-time-to-live-on-a-container-using-azure-portal) doc for more information.
 
 Inside your Sink connector config, add the following properties to set the TTL in seconds. In this following example, the TTL is set to 100 seconds. If the message already contains the `TTL` field, the `TTL` value will be overwritten by these SMTs.
 
