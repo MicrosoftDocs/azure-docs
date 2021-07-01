@@ -48,11 +48,15 @@ This how-to guide outlines the steps to create an Azure SQL logical [server](log
     - **Password**: Enter a password that meets the password requirements, and enter it again in the **Confirm password** field.
     - **Location**: Select a location from the dropdown list
 
+        :::image type="content" source="media/transparent-data-encryption-byok-create-server/create-server.png" alt-text="Create sql server menu in Azure portal":::
+    
 8. Select **Next: Networking** at the bottom of the page.
 
 9. On the **Networking** tab, for **Connectivity method**, select **Public endpoint**.
 
 10. For **Firewall rules**, set **Add current client IP address** to **Yes**. Leave **Allow Azure services and resources to access this server** set to **No**.
+
+    :::image type="content" source="media/transparent-data-encryption-byok-create-server/networking-settings.png" alt-text="screenshot of networking settings when creating a SQL server in the Azure portal":::
 
 11. Select **Next: Security** at the bottom of the page.
 
@@ -60,11 +64,19 @@ This how-to guide outlines the steps to create an Azure SQL logical [server](log
 
 13. On the **Identity (preview)** blade, select **Customer managed key** click **Add**. Select the desired **Subscription** and then under **User assigned managed identities** select the desired user assigned managed identity from the selected subscription. Then click **Select**. 
 
+    :::image type="content" source="media/transparent-data-encryption-byok-create-server/selecting-user-assigned-managed-identity.png" alt-text="screenshot of user assigned managed identity when configuring server identity":::
+
 14. Under **Primary identity**, select the same user-assigned managed identity selected in the previous step.
+
+    :::image type="content" source="media/transparent-data-encryption-byok-create-server/selecting-primary-identity-for-server.png" alt-text="screenshot of selecting primary identity for server":::
 
 15. Select **Apply**
 
 16. On the Security tab, under **Transparent data encryption**, select **Configure Transparent data encryption**. Then select **Select a key** and click **Change key**. Select the desired **Subscription**, **Key vault**, **Key**, and **Version** for the customer-managed key to be used for TDE. Click **Select**.
+
+    :::image type="content" source="media/transparent-data-encryption-byok-create-server/configure-tde-for-server.png" alt-text="screenshot configuring TDE for server":::
+
+    :::image type="content" source="media/transparent-data-encryption-byok-create-server/select-key-for-tde.png" alt-text="screenshot selecting key for use with TDE":::
 
 17. Select **Apply** 
 
