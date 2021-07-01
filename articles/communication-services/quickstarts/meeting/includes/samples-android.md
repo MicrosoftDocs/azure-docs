@@ -15,12 +15,40 @@ ms.service: azure-communication-services
 - A `User Access Token` to enable the call client. For more information on [how to get a `User Access Token`](../../access-tokens.md)
 - Complete the quickstart for [getting started with adding Teams Embed to your application](../getting-started-with-teams-embed.md)
 
-## Start a group call using the meeting client
+## Join a group call using the meeting client
 
-The `joinGroupCall` method is set as the action that will be performed when the *Join Group Call* button is tapped. Joining a group call can be done via the `MeetingUIClient`, and just requires a `MeetingUIClientGroupCallLocator` and the `MeetingUIClientJoinOptions`.
-Note to replace `<GROUP_ID>` with a UUID string. Group ID string must be in GUID or UUID format, see the guide for [UUID](https://developer.android.com/reference/java/util/UUID).
+SDK supports joining a group call with a user access token. The group call will not ring for other participants. The user will be joining the call silently.
+
+### Set up the layout for joining a group call
+
+Navigate to the main layout file (`app/src/main/res/layout/activity_main.xml`) to set up the button to join a group call. Create a button with an ID `join_groupCall`.
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/join_groupCall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Join Group Call"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+```
+
+Navigate to **MainActivity.java** and add the button on click action in the `onCreate` method:
 
 ```java
+package com.yourcompany.teamsembedandroidgettingstarted;
+
 import com.azure.android.communication.ui.meetings.MeetingUIClient;
 import com.azure.android.communication.ui.meetings.MeetingUIClientCall;
 import com.azure.android.communication.ui.meetings.MeetingUIClientGroupCallLocator;
@@ -28,6 +56,23 @@ import com.azure.android.communication.ui.meetings.MeetingUIClientJoinOptions;
 
 import java.util.UUID;
 
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        
+        Button joinGroupCallButton = findViewById(R.id.join_groupCall);
+        joinGroupCallButton.setOnClickListener(l -> joinGroupCall());
+    }
+}
+```
+
+The `joinGroupCall` method is set as the action that will be performed when the *Join Group Call* button is tapped. Joining a group call can be done via the `MeetingUIClient`. Create a 
+`MeetingUIClientGroupCallLocator` and configure the join options using the `MeetingUIClientJoinOptions`.
+Note to replace `<GROUP_ID>` with a UUID string. Group ID string must be in GUID or UUID format.
+```java
 /**
  * Join a group call with a groupID.
  */
@@ -241,7 +286,7 @@ public void onNamePlateOptionsClicked(@NonNull Activity activity, @NonNull Commu
 ```
 
 Add and implement `onParticipantViewLongPressed` method and map each `userIdentifier` to the corresponding call participant user.
-This method is called on long press of user tile from call main screen. Return true for custom handling or false for default handling of the long press.
+This method is called on long press of user tile from call main screen. Return `true` for custom handling or `false` for default handling of the long press.
 
 ```java
 @Override
@@ -259,7 +304,7 @@ public boolean onParticipantViewLongPressed(@NonNull Activity activity, @NonNull
 ```
 
 Add and implement `onParticipantClickedInRoster` method and map each `userIdentifier` to the corresponding call participant user.
-This method is called on single tap of user row from call roster screen. Return true for custom handling or false for default handling of the single tap.
+This method is called on single tap of user row from call roster screen. Return `true` for custom handling or `false` for default handling of the single tap.
 
 ```java
 @Override
