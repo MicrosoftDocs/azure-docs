@@ -2,7 +2,7 @@
 title: Azure Backup support matrix
 description: Provides a summary of support settings and limitations for the Azure Backup service.
 ms.topic: conceptual
-ms.date: 06/25/2021
+ms.date: 07/05/2021
 ms.custom: references_regions 
 ---
 
@@ -151,7 +151,7 @@ Azure Backup has added the Cross Region Restore feature to strengthen data avail
 | MARS Agent/On premises  | No                                                           | N/A               |
 | AFS (Azure file shares)                 | No                                                           | N/A               |
 
-## Resource health check
+## Resource health
 
 The resource health check functions in following conditions:
 
