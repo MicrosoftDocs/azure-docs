@@ -1,5 +1,6 @@
 ---
-title: Customize the API Management developer portal using templates -Azure | Microsoft Docs
+title: Customize the API Management developer portal using templates
+titleSuffix: Azure API Management
 description: Learn how to customize the Azure API Management developer portal using templates.
 services: api-management
 documentationcenter: ''
@@ -11,9 +12,8 @@ ms.assetid: a195675b-f7d0-4fc9-90bf-860e6f17ccf7
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/04/2019
 ms.author: apimpm
 
 ---
@@ -27,26 +27,31 @@ There are three fundamental ways to customize the developer portal in Azure API 
 
 Templates are used to customize the content of system-generated developer portal pages (for example, API docs, products, user authentication, etc.). Using [DotLiquid](http://dotliquidmarkup.org/) syntax, and a provided set of localized string resources, icons, and page controls, you have great flexibility to configure the content of the pages as you see fit.
 
+[!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+
 ## Developer portal templates overview
-Editing templates is done from the **Developer portal** while being logged in as an administrator. To get there first open the Azure Portal and  click **Developer portal** from the service toolbar of your API Management instance.
+
+Editing templates is done from the **Developer portal** while being logged in as an administrator. To get there first open the Azure portal and  click **Developer portal** from the service toolbar of your API Management instance.
 
 To access the developer portal templates, click the customize icon on the left to display the customization menu, and click **Templates**.
 
-![Developer portal templates][api-management-customize-menu]
+![Screenshot that highlights the customize icon to display the customization menu.][api-management-customize-menu]
 
 The templates list displays several categories of templates covering the different pages in the developer portal. Each template is different, but the steps to edit them and publish the changes are the same. To edit a template, click the name of the template.
 
 ![Developer portal templates][api-management-templates-menu]
 
-Clicking a template takes you to the developer portal page that is customizable by that template. In this example, the **Product list** template is displayed. The **Product list** template controls the area of the screen indicated by the red rectangle. 
+Clicking a template takes you to the developer portal page that is customizable by that template. In this example, the **Product list** template is displayed. The **Product list** template controls the area of the screen indicated by the red rectangle.
 
 ![Products list template][api-management-developer-portal-templates-overview]
 
-Some templates, like the **User Profile** templates, customize different parts of the same page. 
+Some templates, like the **User Profile** templates, customize different parts of the same page.
 
 ![User profile templates][api-management-user-profile-templates]
 
-The editor for each developer portal template has two sections displayed at the bottom of the page. The left-hand side displays the editing pane for the template, and the right-hand side displays the data model for the template. 
+The editor for each developer portal template has two sections displayed at the bottom of the page. The left-hand side displays the editing pane for the template, and the right-hand side displays the data model for the template.
 
 The template editing pane contains the markup that controls the appearance and behavior of the corresponding page in the developer portal. The markup in the template uses the [DotLiquid](http://dotliquidmarkup.org/) syntax. One popular editor for DotLiquid is [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers). Any changes made to the template during editing are displayed in real-time in the browser, but are not visible to your customers until you [save](#to-save-a-template) and [publish](#to-publish-a-template) the template.
 
@@ -111,7 +116,7 @@ The markup in the **Product list** template processes the data to provide the de
         <li>
             <h3><a href="/products/{{product.id}}">{{product.title}}</a></h3>
             {{product.description}}
-        </li>    
+        </li>
     {% endfor %}
     </ul>
     <paging-control></paging-control>
@@ -136,7 +141,7 @@ Saved templates can be published either individually, or all together. To publis
 
 Click **Yes** to confirm and make the template live on the developer portal.
 
-![Confirm publish][api-management-publish-template-confirm]
+![Screenshot that shows where you select Yes to make the template live.][api-management-publish-template-confirm]
 
 To publish all currently unpublished template versions, click **Publish** in the templates list. Unpublished templates are designated by an asterisk following the template name. In this example, the **Product list** and **Product** templates are being published.
 
@@ -151,11 +156,11 @@ Newly published templates are effective immediately in the developer portal.
 ## To revert a template to the previous version
 To revert a template to the previous published version, click revert in the template editor.
 
-![Revert template][api-management-revert-template]
+![Screenshot that highlights the icon you use to revert a template.][api-management-revert-template]
 
 Click **Yes** to confirm.
 
-![Confirm][api-management-revert-template-confirm]
+![Screenshot that shows where you select Yes to confirm the changes.][api-management-revert-template-confirm]
 
 The previously published version of a template is live in the developer portal once the revert operation is complete.
 
@@ -202,10 +207,3 @@ For reference information for developer portal templates, string resources, icon
 [api-management-reset-template]: ./media/api-management-developer-portal-templates/api-management-reset-template.png
 [api-management-reset-template-confirm]: ./media/api-management-developer-portal-templates/api-management-reset-template-confirm.png
 [api-management-restore-templates]: ./media/api-management-developer-portal-templates/api-management-restore-templates.png
-
-
-
-
-
-
-

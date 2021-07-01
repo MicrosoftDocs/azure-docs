@@ -1,0 +1,142 @@
+- name: Live Video Analytics on IoT Edge (preview) documentation 
+  href: index.yml
+- name: Overview
+  items:
+  - name: About Live Video Analytics on IoT Edge
+    href: overview.md
+  - name: Terminology
+    href: terminology.md
+  - name: What's new
+    items:
+    - name: Release notes
+      href: release-notes.md  
+- name: Quickstarts
+  items:
+  - name: Get started - Live Video Analytics on IoT Edge
+    href: get-started-detect-motion-emit-events-quickstart.md
+  - name: Detect motion, record video to Media Services
+    href: detect-motion-record-video-clips-media-services-quickstart.md  
+  - name: Detect motion and emit events
+    items:
+    - name: Using direct method calls
+      displayName: detect motion, emit events
+      href: detect-motion-emit-events-quickstart.md
+  - name: Detect motion, record video on edge devices
+    items:
+    - name: Using direct method calls
+      displayName: detect motion, record video on edge devices
+      href: detect-motion-record-video-clips-edge-devices-quickstart.md
+  - name: Analyze live video with your own model
+    items:
+    - name: with HTTP extension
+      items:
+      - name: Using direct method calls
+        displayName: analyze, your own model, http
+        href: use-your-model-quickstart.md
+    - name: with gRPC extension
+      items:
+      - name: Using direct method calls
+        displayName: analyze, your own model, grpc
+        href: analyze-live-video-use-your-grpc-model-quickstart.md
+- name: Tutorials
+  items:
+  - name: Continuous video recording  
+    href: continuous-video-recording-tutorial.md
+  - name: Event-based video recording  
+    href: event-based-video-recording-tutorial.md   
+  - name: Playback multi-day recordings
+    href: playback-multi-day-recordings-tutorial.md
+  - name: Analyze live video
+    items:
+    - name: With OVMS via HTTP extension
+      displayName: intel, OpenVINO 
+      href: use-intel-openvino-tutorial.md
+    - name: With OV DL Streamer via gRPC extension
+      displayName: intel, OpenVINO DL Streamer
+      href: use-intel-grpc-vas-tutorial.md  
+    - name: Use Custom Vision
+      href: custom-vision-tutorial.md  
+    - name: Use Spatial Analysis
+      href: spatial-analysis-tutorial.md
+- name: Samples
+  items:
+  - name: C# Direct Method samples
+    href: https://github.com/Azure-Samples/live-video-analytics-iot-edge-csharp
+  - name: C# SDK samples
+    href: https://github.com/Azure-Samples/live-video-analytics-iot-edge-csharp-sdk
+  - name: Python Direct Method samples
+    href: https://github.com/Azure-Samples/live-video-analytics-iot-edge-python
+  - name: Python SDK samples
+    href: https://github.com/Azure-Samples/live-video-analytics-iot-edge-python-sdk
+- name: Concepts
+  items:
+  - name: Media graph
+    href: media-graph-concept.md
+  - name: Media graph extension
+    displayName: AI
+    href: media-graph-extension-concept.md
+  - name: Video recording 
+    href: video-recording-concept.md
+  - name: Video playback
+    href: video-playback-concept.md
+  - name: Scenarios 
+    items:
+    - name: Continuous video recording 
+      href: continuous-video-recording-concept.md
+    - name: Event-based video recording 
+      href: event-based-video-recording-concept.md
+    - name: Live Video Analytics without video recording
+      href: analyze-live-video-concept.md
+- name: How-to guides
+  items:
+  - name: Create custom Azure Resource Manager role
+    href: create-custom-azure-resource-manager-role-how-to.md
+  - name: Deploy to an IoT Edge device
+    href: deploy-iot-edge-device.md
+  - name: Deploy to an IoT Edge for Linux on Windows
+    href: deploy-iot-edge-linux-on-windows.md
+  - name: Monitoring and logging
+    href: monitoring-logging.md
+  - name: Playback a recording 
+    href: playback-recordings-how-to.md 
+  - name: Manage recording policy
+    href: manage-recording-policy-how-to.md
+  - name: Invoke direct methods with the portal
+    href: use-azure-portal-to-invoke-direct-methods.md
+  - name: Deploy on Azure Stack Edge
+    href: deploy-azure-stack-edge-how-to.md
+  - name: Configure a signal gate
+    href: configure-signal-gate-how-to.md
+  - name: Troubleshoot
+    href: troubleshoot-how-to.md
+  - name: Upgrading
+    href: upgrading-lva-module.md
+  - name: Develop and deploy a gRPC inference server
+    href: develop-deploy-grpc-inference-srv-how-to.md
+- name: Reference
+  items:
+  - name: HTTP extension protocol
+    href: http-extension-protocol.md
+  - name: gRPC extension protocol
+    href: grpc-extension-protocol.md  
+  - name: Inference metadata schema
+    href: inference-metadata-schema.md  
+  - name: Direct methods
+    href: direct-methods.md
+  - name: Module Twin configuration schema  
+    href: module-twin-configuration-schema.md
+  - name: Quotas and limitations
+    href: quotas-limitations.md
+  - name: FAQs
+    href: faq.yml
+  - name: Production readiness and best practices
+    href: production-readiness.md
+  - name: Transparency and responsible AI principles
+    href: https://azure.microsoft.com/resources/transparency-note-live-video-analytics-lva/
+- name: Resources
+  items:
+  - name: Azure roadmap
+    href: https://azure.microsoft.com/updates/?category=media
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/media-services/
+

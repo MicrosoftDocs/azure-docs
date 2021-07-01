@@ -1,26 +1,25 @@
 ---
-title: Service Fabric CLI Script Sample - List applications on a cluster
+title: List applications on a cluster in sfctl
 description: Service Fabric CLI Script Sample - List the applications provisioned on a Service Fabric cluster.
 services: service-fabric
 documentationcenter: 
-author: Thraka
-manager: timlt
+author: athinanthny
+manager: chackdan
 editor: 
 tags: 
 
 ms.assetid: 
 ms.service: service-fabric
 ms.workload: multiple
-ms.devlang: na
-ms.topic: article
-ms.date: 12/06/2017
-ms.author: adegeo
+ms.topic: sample
+ms.date: 04/13/2018
+ms.author: atsenthi
 ms.custom: 
 ---
 
 # List applications running in a Service Fabric cluster
 
-This sample script connects to a Service Fabric cluster and lists all of the provisioned applications.
+This sample script connects to a Service Fabric cluster and then lists all of the provisioned applications.
 
 [!INCLUDE [links to azure cli and service fabric cli](../../../includes/service-fabric-sfctl.md)]
 

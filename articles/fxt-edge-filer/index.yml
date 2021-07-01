@@ -1,0 +1,66 @@
+### YamlMime:Landing
+
+title: Azure FXT Edge Filer documentation
+summary: The Azure FXT Edge Filer hybrid storage cache is a hardware/software hybrid system that speeds up data access for file-based, read-intensive high-performance computing (HPC) workflows.
+
+metadata:
+  title: Azure FXT Edge Filer documentation
+  description: Use Azure FXT Edge Filer as a caching layer for read-intensive high-performance computing (HPC) tasks.
+  ms.service: fxt-edge-filer
+  ms.topic: landing-page
+  author: ekpgh
+  ms.author: v-erkel
+  ms.date: 05/26/2021
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+
+landingContent:
+  # Card
+  - title: About Azure FXT Edge Filer
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure FXT Edge Filer?
+            url: overview.md
+
+  # Card
+  - title: Get started
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: 1 - Install hardware
+            url: install.md
+          - text: 2 - Connect cables
+            url: network-power.md
+          - text: 3 - Set hardware passwords
+            url: node-password.md
+          - text: 4 - Create a cluster
+            url: cluster-create.md
+          - text: 5 - Add cluster nodes
+            url: add-nodes.md
+          - text: 6 - Add back-end storage and configure the virtual namespace
+            url: add-storage.md
+          - text: 7 - Configure the cluster's network settings
+            url: configure-network.md
+          - text: 8 - Mount clients on the cluster
+            url: mount-clients.md
+
+  # Card
+  - title: Manage
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Monitor hardware status
+            url: monitor.md
+          - text: Safely power off hardware
+            url: power-off.md                      
+
+  # Card
+  - title: Resources
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Hardware specifications
+            url: specs.md
+          - text: Additional documentation
+            url: additional-doc.md

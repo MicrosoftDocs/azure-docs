@@ -5,23 +5,23 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 03/21/2018
+ ms.date: 02/25/2020
  ms.author: cherylmc
  ms.custom: include file
 ---
 ### To add additional address space
 
-1. To add additional address space, under the **Settings** section on your virtual network page, click **Address space** to open the Address space page.
-2. Add the additional address space, and then click **Save** at the top of the page.
+1. To add additional address ranges to your address space, in the **Settings** section of your virtual network page, select **Address space**. The **Address space** page appears.
+2. Add the additional address range, and then select **Save** at the top of the page.
 
-  ![Add address space](./media/vpn-gateway-additional-address-space-include/address_space.png)
+   ![Add address space](./media/vpn-gateway-additional-address-space-include/add-space.png)
 
 ### To create additional subnets
 
-1. To create subnets, in the **Settings** section of your virtual network page, click **Subnets** to open the **Subnets** page. 
-2. On the Subnets page, click **+Subnet** to open the **Add subnet** page. Name your new subnet and specify the address range.
+1. To create additional subnets, in the **Settings** section of your virtual network page, select **Subnets**. The **Subnets** page appears.
+1. Select **+ Subnet** to open the **Add subnet** page.
 
-  ![Subnet settings](./media/vpn-gateway-additional-address-space-include/add_subnet.png)
-3. To save your changes, click **OK** at the bottom of the page.
+   ![Add subnet](./media/vpn-gateway-additional-address-space-include/subnet.png)
+1. Enter the **Name** of your new subnet and specify the **Address range**. To save your changes, select **OK** at the bottom of the page.
 
-  ![Subnet settings](./media/vpn-gateway-additional-address-space-include/ok.png)
+   ![Subnet settings](./media/vpn-gateway-additional-address-space-include/add-subnet.png)

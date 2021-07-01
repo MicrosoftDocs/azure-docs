@@ -1,0 +1,139 @@
+- name: Azure Analysis Services Documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Azure Analysis Services?
+    href: analysis-services-overview.md
+- name: Quickstarts
+  items:
+  - name: Create a server - Portal
+    href: analysis-services-create-server.md
+  - name: Create a server - PowerShell
+    href: analysis-services-create-powershell.md
+  - name: Create a server - ARM template
+    displayName: Resource Manager
+    href: analysis-services-create-template.md
+  - name: Configure server firewall - Portal
+    href: analysis-services-qs-firewall.md
+- name: Tutorials
+  items:
+  - name: 1 - Add a sample model from the portal
+    href: analysis-services-create-sample-model.md
+  - name: 2 - Configure server administrator and user roles
+    href: tutorials/analysis-services-tutorial-roles.md
+  - name: 3 - Connect with Power BI Desktop
+    href: tutorials/analysis-services-tutorial-pbid.md
+- name: Concepts
+  items:
+  - name: Authentication and user permissions
+    href: analysis-services-manage-users.md
+  - name: Automation with service principals
+    href: analysis-services-service-principal.md
+  - name: Client libraries
+    href: /analysis-services/client-libraries?view=azure-analysis-services-current&preserve-view=true
+  - name: Compatibility level
+    href: /analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services?view=azure-analysis-services-current&preserve-view=true
+  - name: Connecting to on-premises data sources
+    href: analysis-services-gateway.md
+  - name: Connecting to servers
+    href: analysis-services-connect.md
+  - name: High availability
+    href: analysis-services-bcdr.md
+  - name: Long running operations
+    href: analysis-services-long-operations.md
+  - name: Supported data sources
+    href: analysis-services-datasource.md
+  - name: Network connectivity FAQ
+    href: analysis-services-network-faq.yml
+- name: How-to
+  items:
+  - name: Server
+    items:
+    - name: Backup and restore
+      href: analysis-services-backup.md
+    - name: Configure a server name alias
+      href: analysis-services-server-alias.md
+    - name: Configure scale-out
+      href: analysis-services-scale-out.md
+    - name: Install and configure an on-premises data gateway
+      href: analysis-services-gateway-install.md
+    - name: Use gateway for data sources on an Azure Virtual Network
+      href: analysis-services-vnet-gateway.md
+    - name: Manage a server
+      href: analysis-services-manage.md
+    - name: Monitor server metrics
+      href: analysis-services-monitor.md
+    - name: Setup diagnostic logging
+      href: analysis-services-logging.md
+    - name: Create service principal - Azure portal
+      href: ../active-directory/develop/howto-create-service-principal-portal.md
+    - name: Create service principal - PowerShell
+      href: ../active-directory/develop/howto-authenticate-service-principal-powershell.md
+    - name: Add a service principal to server administrator role
+      href: analysis-services-addservprinc-admins.md
+    - name: Move between regions
+      href: move-between-regions.md
+  - name: Model
+    items:
+    - name: Tabular modeling
+      href: /analysis-services/tabular-models/tabular-models-ssas
+    - name: Deploy from Visual Studio
+      href: analysis-services-deploy.md
+    - name: Refresh with REST API
+      href: analysis-services-async-refresh.md
+    - name: Refresh with Logic Apps 
+      href: analysis-services-refresh-logic-app.md
+    - name: Refresh with Azure Automation
+      href: analysis-services-refresh-azure-automation.md
+  - name: Security
+    items:
+    - name: Manage database users
+      href: analysis-services-database-users.md
+    - name: Manage server administrators
+      href: analysis-services-server-admins.md
+  - name: Connect
+    items:
+    - name: Connect with Excel
+      href: analysis-services-connect-excel.md
+    - name: Connect with Power BI
+      href: analysis-services-connect-pbi.md
+    - name: Create an .odc file
+      href: analysis-services-odc.md
+- name: Reference
+  items:
+  - name: PowerShell
+    href: analysis-services-powershell.md
+  - name: REST
+    href: /rest/api/analysisservices
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.analysisservices/servers
+  - name: DAX
+    href: /dax/data-analysis-expressions-dax-reference
+  - name: Power Query M
+    href: /powerquery-m/power-query-m-reference
+  - name: Tabular Model Scripting Language (TMSL)
+    href: /analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference?view=azure-analysis-services-current&preserve-view=true
+  - name: Tabular Object Model (TOM)
+    href: /analysis-services/tom/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo?view=azure-analysis-services-current&preserve-view=true
+  - name: Resource and object limits
+    href: analysis-services-capacity-limits.md
+- name: Resources
+  items:
+  - name: Samples
+    href: analysis-services-samples.md
+  - name: Analysis Services team blog
+    href: https://powerbi.microsoft.com/blog/category/analysis-services/
+  - name: Azure updates
+    href: https://azure.microsoft.com/updates/?query=Analysis%20Services
+  - name: Azure status
+    href: https://azure.microsoft.com/status/
+  - name: Feedback
+    href: https://feedback.azure.com/forums/556165-azure-analysis-services
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/analysis-services/
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/azure-analysis-services
+  - name: Videos
+    href: https://azure.microsoft.com/resources/videos/index/?services=analysis-services&sort=newest

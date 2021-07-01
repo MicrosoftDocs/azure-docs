@@ -1,137 +1,90 @@
 ---
-title: Quickstart - Create a private Docker registry in Azure with PowerShell
-description: Quickly learn to create a private Docker container registry with PowerShell.
-services: container-registry
-author: neilpeterson
-manager: timlt
-
-ms.service: container-registry
+title: Quickstart - Create registry - PowerShell
+description: Quickly learn to create a private Docker registry in Azure Container Registry with PowerShell
+ms.date: 06/03/2021
 ms.topic: quickstart
-ms.date: 03/03/2018
-ms.author: nepeters
-ms.custom: mvc
+ms.custom: devx-track-azurepowershell
+  - mvc
+  - devx-track-azurepowershell
+  - mode-api
 ---
 
-# Quickstart: Create an Azure Container Registry using PowerShell
+# Quickstart: Create a private container registry using Azure PowerShell
 
-Azure Container Registry is a managed Docker container registry service used for storing private Docker container images. This guide details creating an Azure Container Registry instance using PowerShell, pushing a container image into the registry and finally deploying the container from your registry into Azure Container Instances (ACI).
+Azure Container Registry is a private registry service for building, storing, and managing container images and related artifacts. In this quickstart, you create an Azure container registry instance with Azure  PowerShell. Then, use Docker commands to push a container image into the registry, and finally pull and run the image from your registry.
 
-This quickstart requires the Azure PowerShell module version 3.6 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
+## Prerequisites
 
-You must also have Docker installed locally. Docker provides packages that easily configure Docker on any [Mac][docker-mac], [Windows][docker-windows], or [Linux][docker-linux] system.
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## Log in to Azure
+This quickstart requires Azure PowerShell module. Run `Get-Module -ListAvailable Az` to determine your installed version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps).
 
-Log in to your Azure subscription with the `Login-AzureRmAccount` command and follow the on-screen directions.
+You must also have Docker installed locally. Docker provides packages for [macOS][docker-mac], [Windows][docker-windows], and [Linux][docker-linux] systems.
+
+Because the Azure Cloud Shell doesn't include all required Docker components (the `dockerd` daemon), you can't use the Cloud Shell for this quickstart.
+
+## Sign in to Azure
+
+Sign in to your Azure subscription with the [Connect-AzAccount][Connect-AzAccount] command, and follow the on-screen directions.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzAccount
 ```
 
 ## Create resource group
 
-Create an Azure resource group with [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). A resource group is a logical container into which Azure resources are deployed and managed.
+Once you're authenticated with Azure, create a resource group with [New-AzResourceGroup][New-AzResourceGroup]. A resource group is a logical container in which you deploy and manage your Azure resources.
 
 ```powershell
-New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
+New-AzResourceGroup -Name myResourceGroup -Location EastUS
 ```
 
-## Create a container registry
+## Create container registry
 
-Create an ACR instance using the [New-AzureRMContainerRegistry](/powershell/module/containerregistry/New-AzureRMContainerRegistry) command.
+Next, create a container registry in your new resource group with the [New-AzContainerRegistry][New-AzContainerRegistry] command.
 
-The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. In the following example, *myContainerRegistry007* is used. Update this to a unique value.
+The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. The following example creates a registry named "myContainerRegistry007." Replace *myContainerRegistry007* in the following command, then run it to create the registry:
 
 ```powershell
-$registry = New-AzureRMContainerRegistry -ResourceGroupName "myResourceGroup" -Name "myContainerRegistry007" -EnableAdminUser -Sku Basic
+$registry = New-AzContainerRegistry -ResourceGroupName "myResourceGroup" -Name "myContainerRegistry007" -EnableAdminUser -Sku Basic
 ```
 
-## Log in to ACR
+[!INCLUDE [container-registry-quickstart-sku](../../includes/container-registry-quickstart-sku.md)]
 
-Before pushing and pulling container images, you must log in to the ACR instance. First, use the [Get-AzureRmContainerRegistryCredential](/powershell/module/containerregistry/get-azurermcontainerregistrycredential) command to get the admin credentials for the ACR instance.
+## Log in to registry
+
+Before pushing and pulling container images, you must log in to your registry with the [Connect-AzContainerRegistry][connect-azcontainerregistry] cmdlet. The following example uses the same credentials you logged in with when authenticating to Azure with the `Connect-AzAccount` cmdlet.
+
+> [!NOTE]
+> In the following example, the value of `$registry.Name` is the resource name, not the fully qualified registry name.
 
 ```powershell
-$creds = Get-AzureRmContainerRegistryCredential -Registry $registry
+Connect-AzContainerRegistry -Name $registry.Name
 ```
 
-Next, use the [docker login][docker-login] command to log in to the ACR instance.
+The command returns `Login Succeeded` once completed.
 
-```powershell
-docker login $registry.LoginServer -u $creds.Username -p $creds.Password
-```
+[!INCLUDE [container-registry-quickstart-docker-push](../../includes/container-registry-quickstart-docker-push.md)]
 
-The command returns `Login Succeeded` once completed. You might also see a security warning recommending the use of the `--password-stdin` parameter. While its use is outside the scope of this article, we recommend following this best practice. See the [docker login][docker-login] command reference for more information.
-
-## Push image to ACR
-
-To push an image to an Azure Container registry, you must first have an image. If needed, run the following command to pull a pre-created image from Docker Hub.
-
-```powershell
-docker pull microsoft/aci-helloworld
-```
-
-The image must be tagged with the ACR login server name. Use the [docker tag][docker-tag] command to do this.
-
-```powershell
-$image = $registry.LoginServer + "/aci-helloworld:v1"
-docker tag microsoft/aci-helloworld $image
-```
-
-Finally, use [docker push][docker-push] to push the image to ACR.
-
-```powershell
-docker push $image
-```
-
-## Deploy image to ACI
-To deploy the image as a container instance in Azure Container Instances (ACI) first convert the registry credential to a PSCredential.
-
-```powershell
-$secpasswd = ConvertTo-SecureString $creds.Password -AsPlainText -Force
-$pscred = New-Object System.Management.Automation.PSCredential($creds.Username, $secpasswd)
-```
-
-To deploy your container image from the container registry with 1 CPU core and 1 GB of memory, run the following command:
-
-```powershell
-New-AzureRmContainerGroup -ResourceGroup myResourceGroup -Name mycontainer -Image $image -Cpu 1 -MemoryInGB 1 -IpAddressType public -Port 80 -RegistryCredential $pscred
-```
-
-You should get an initial response back from Azure Resource Manager with details on your container. To monitor the status of your container and check to see when it is running repeat the [Get-AzureRmContainerGroup][Get-AzureRmContainerGroup] command. It should take less than a minute.
-
-```powershell
-(Get-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer).ProvisioningState
-```
-
-Example output: `Succeeded`
-
-## View the application
-Once the deployment to ACI is successful, retrieve the container's public IP address with the [Get-AzureRmContainerGroup][Get-AzureRmContainerGroup] command:
-
-```powershell
-(Get-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer).IpAddress
-```
-
-Example output: `"13.72.74.222"`
-
-To see the running application, navigate to the public IP address in your favorite browser. It should look something like this:
-
-![Hello world app in the browser][qs-portal-15]
+[!INCLUDE [container-registry-quickstart-docker-pull](../../includes/container-registry-quickstart-docker-pull.md)]
 
 ## Clean up resources
 
-When no longer needed, you can use the [Remove-AzureRmResourceGroup][Remove-AzureRmResourceGroup] command to remove the resource group, Azure Container Registry, and all Azure Container Instances.
+Once you're done working with the resources you created in this quickstart, use the [Remove-AzResourceGroup][Remove-AzResourceGroup] command to remove the resource group, the container registry, and the container images stored there:
 
 ```powershell
-Remove-AzureRmResourceGroup -Name myResourceGroup
+Remove-AzResourceGroup -Name myResourceGroup
 ```
 
 ## Next steps
 
-In this quickstart, you created an Azure Container Registry with the Azure CLI, and launched an instance of it in Azure Container Instances. Continue to the Azure Container Instances tutorial for a deeper look at ACI.
+In this quickstart, you created an Azure Container Registry with Azure PowerShell, pushed a container image, and pulled and ran the image from the registry. Continue to the Azure Container Registry tutorials for a deeper look at ACR.
 
 > [!div class="nextstepaction"]
-> [Azure Container Instances tutorial](../container-instances/container-instances-tutorial-prepare-app.md)
+> [Azure Container Registry tutorials][container-registry-tutorial-prepare-registry]
+
+> [!div class="nextstepaction"]
+> [Azure Container Registry Tasks tutorials][container-registry-tutorial-quick-task]
 
 <!-- LINKS - external -->
 [docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms
@@ -142,8 +95,12 @@ In this quickstart, you created an Azure Container Registry with the Azure CLI, 
 [docker-windows]: https://docs.docker.com/docker-for-windows/
 
 <!-- Links - internal -->
-[Get-AzureRmContainerGroup]: /powershell/module/azurerm.containerinstance/get-azurermcontainergroup
-[Remove-AzureRmResourceGroup]: /powershell/module/azurerm.resources/remove-azurermresourcegroup
-
-<!-- IMAGES> -->
-[qs-portal-15]: ./media/container-registry-get-started-portal/qs-portal-15.png
+[Connect-AzAccount]: /powershell/module/az.accounts/connect-azaccount
+[Get-Module]: /powershell/module/microsoft.powershell.core/get-module
+[New-AzContainerRegistry]: /powershell/module/az.containerregistry/New-AzContainerRegistry
+[New-AzResourceGroup]: /powershell/module/az.resources/new-azresourcegroup
+[Remove-AzResourceGroup]: /powershell/module/az.resources/remove-azresourcegroup
+[container-registry-tutorial-quick-task]: container-registry-tutorial-quick-task.md
+[container-registry-skus]: container-registry-skus.md
+[container-registry-tutorial-prepare-registry]: container-registry-tutorial-prepare-registry.md
+[connect-azcontainerregistry]: /powershell/module/az.containerregistry/connect-azcontainerregistry

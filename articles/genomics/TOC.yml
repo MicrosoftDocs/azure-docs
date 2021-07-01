@@ -9,6 +9,8 @@
   items:
   - name: Run a sample Genomics workflow
     href: quickstart-run-genomics-workflow-portal.md
+- name: How-to guides
+  items:
   - name: Use various input file formats
     items:
     - name: Pair of FASTQ files
@@ -23,8 +25,14 @@
   items:
   - name: Common questions
     href: frequently-asked-questions-genomics.md
+  - name: Troubleshooting guide
+    href: troubleshooting-guide-genomics.md    
+  - name: File a support request
+    href: file-support-ticket-genomics.md  
   - name: Version release history
     href: version-release-history-genomics.md
+  - name: Business continuity
+    href: business-continuity-genomics.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=cognitive-services
   - name: Pricing

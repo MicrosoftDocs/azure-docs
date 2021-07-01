@@ -1,24 +1,15 @@
 ---
-title: Connect to GitHub with Azure Logic Apps | Microsoft Docs
-description: Automate workflows for GitHub with Azure Logic Apps
+title: Access, monitor, and manage your GitHub repo
+description: Monitor GitHub events and manage your GitHub repo by creating automated workflows with Azure Logic Apps
 services: logic-apps
-documentationcenter: 
-author: ecfan
-manager: anneta
-editor: ''
-tags: connectors
-
-ms.assetid: 8f873e6c-f4c0-4c2e-a5bd-2e953efe5e2b
-ms.service: logic-apps
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
+ms.suite: integration
+ms.reviewer: klam, logicappspm
+ms.topic: conceptual
 ms.date: 03/02/2018
-ms.author: estfan; ladocs
+tags: connectors
 ---
 
-# Connect to GitHub
+# Monitor and manage your GitHub repo by using Azure Logic Apps
 
 GitHub is a web-based Git repository hosting service that offers all of the distributed 
 revision control and source code management (SCM) functionality in Git plus other features.
@@ -41,11 +32,10 @@ and listen for the triggers described in this article.
 > [!INCLUDE [Steps to create a connection to GitHub](../../includes/connectors-create-api-github.md)]
 > 
 
-## Connector-specific details
+## Connector reference
 
-For triggers and actions defined in Swagger and any limits, 
-review the [connector details](/connectors/github/).
+For technical details about triggers, actions, and limits, which are described by the connector's OpenAPI (formerly Swagger) description, review the [connector's reference page](/connectors/github/).
 
-## Find more connectors
+## Next steps
 
-* Review the [Connectors list](apis-list.md).
+* Learn about other [Logic Apps connectors](../connectors/apis-list.md)

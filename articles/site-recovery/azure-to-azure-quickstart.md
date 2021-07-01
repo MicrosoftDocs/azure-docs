@@ -1,75 +1,70 @@
 ---
-title: Replicate an Azure VM to another Azure region (Preview)
-description: This quickstart provides the steps required to replicate an Azure VM in one Azure region to a different region.
-services: site-recovery
-author: rayne-wiselman
-manager: carmonm
-ms.service: site-recovery
+title: Set up Azure VM disaster recovery to a secondary region with Azure Site Recovery
+description: Quickly set up disaster recovery to another Azure region for an Azure VM, using the Azure Site Recovery service.
 ms.topic: quickstart
-ms.date: 02/07/2018
-ms.author: raynew
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: quickstart
-ms.date: 02/07/2018
-ms.author: raynew
+ms.date: 03/27/2020
 ms.custom: mvc
 ---
-# Replicate an Azure VM to another Azure region (Preview)
 
-The [Azure Site Recovery](site-recovery-overview.md) service contributes to your business continuity and disaster recovery (BCDR) strategy by keeping your business apps up and running available during planned and unplanned outages. Site Recovery manages and orchestrates disaster recovery of on-premises machines and Azure virtual machines (VMs), including replication, failover, and recovery.
+# Quickstart: Set up disaster recovery to a secondary Azure region for an Azure VM
 
-This quickstart describes how to replicate an Azure VM to a different Azure region.
+The [Azure Site Recovery](site-recovery-overview.md) service contributes to your business continuity and disaster recovery (BCDR) strategy by keeping your business applications online during planned and unplanned outages. Site Recovery manages and orchestrates disaster recovery of on-premises machines and Azure virtual machines (VM), including replication, failover, and recovery.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+This quickstart describes how to set up disaster recovery for an Azure VM by replicating it to a secondary Azure region. In general, default settings are used to enable replication.
 
-## Log in to Azure
+## Prerequisites
 
-Log in to the Azure portal at http://portal.azure.com.
+To complete this tutorial, you need an Azure subscription and a VM.
+
+- If you don't have an Azure account with an active subscription, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- A VM with a minimum 1 GB of RAM is recommended. [Learn more](../virtual-machines/windows/quick-create-portal.md) about how to create a VM.
+
+## Sign in to Azure
+
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Enable replication for the Azure VM
 
-1. In the Azure portal, click **Virtual machines**, and select the VM you want to replicate.
+The following steps enable VM replication to a secondary location.
 
-2. In **Settings**, click **Disaster recovery (preview)**.
-3. In **Configure disaster recovery** > **Target region** select the target region to which you'll replicate.
-4. For this Quickstart, accept the other default settings.
-5. Click **Enable replication**. This starts a job to enable replication for the VM.
+1. On the Azure portal, from **Home** > **Virtual machines** menu, select a VM to replicate.
+1. In **Operations** select **Disaster recovery**.
+1. From **Basics** > **Target region**, select the target region.
+1. To view the replication settings, select **Review + Start replication**. If you need to change any defaults, select **Advanced settings**.
+1. To start the job that enables VM replication select **Start replication**.
 
-    ![enable replication](media/azure-to-azure-quickstart/enable-replication1.png)
-
-
+   :::image type="content" source="media/azure-to-azure-quickstart/enable-replication1.png" alt-text="Enable replication.":::
 
 ## Verify settings
 
-After the replication job has finished, you can check the replication status, modify replication settings
-settings, and test the deployment.
+After the replication job finishes, you can check the replication status, modify replication settings, and test the deployment.
 
-1. In the VM menu, click **Disaster recovery (preview)**.
-2. You can verify replication health, recovery points that have been created, and source and target regions on the map.
+1. On the Azure portal menu, select **Virtual machines** and select the VM that you replicated.
+1. In **Operations** select **Disaster recovery**.
+1. To view the replication details from the **Overview** select **Essentials**. More details are shown in the **Health and status**, **Failover readiness**, and the **Infrastructure view** map.
 
-   ![Replication status](media/azure-to-azure-quickstart/replication-status.png)
+   :::image type="content" source="media/azure-to-azure-quickstart/replication-status.png" alt-text="Replication status.":::
 
 ## Clean up resources
 
-The VM in the primary region stops replicating when you disable replication for it:
+To stop replication of the VM in the primary region, you must disable replication:
 
 - The source replication settings are cleaned up automatically.
-- Site Recovery billing for the
-VM also stops.
+- The Site Recovery extension installed on the VM during replication isn't removed.
+- Site Recovery billing for the VM stops.
 
-Stop replication as follows:
+To disable replication, do these steps:
 
-1. Select the VM.
-2. In **Disaster recovery (preview)**, click **More**.
-3. Click **Disable Replication**.
+1. On the Azure portal menu, select **Virtual machines** and select the VM that you replicated.
+1. In **Operations** select **Disaster recovery**.
+1. From the **Overview**, select **Disable Replication**.
+1. To uninstall the Site Recovery extension, go to the VM's **Settings** > **Extensions**.
 
-   ![Disable replication](media/azure-to-azure-quickstart/disable2-replication.png)
+   :::image type="content" source="media/azure-to-azure-quickstart/disable2-replication.png" alt-text="Disable replication.":::
 
 ## Next steps
 
-In this quickstart, you replicated a single VM to a secondary region.
+In this quickstart, you replicated a single VM to a secondary region. Next, set up replication for multiple Azure VMs.
 
 > [!div class="nextstepaction"]
-> [Configure disaster recovery for Azure VMs](azure-to-azure-tutorial-enable-replication.md)
+> [Set up disaster recovery for Azure VMs](azure-to-azure-tutorial-enable-replication.md)

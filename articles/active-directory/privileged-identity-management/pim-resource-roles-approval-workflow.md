@@ -1,93 +1,78 @@
 ---
-title:  Privileged Identity Management - Approval workflow for Azure resource roles| Microsoft Docs
-description: Describes how the approval workflow process for Azure resources.
+title: Approve requests for Azure resource roles in PIM - Azure AD | Microsoft Docs
+description: Learn how to approve or deny requests for Azure resource roles in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: billmath
-manager: mtillman
+author: curtand
+manager: daveba
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/02/2018
-ms.author: billmath
+ms.subservice: pim
+ms.date: 11/08/2019
+ms.author: curtand
 ms.custom: pim
+ms.collection: M365-identity-device-management
 ---
 
-# Privileged Identity Management - Resource Roles - Approve
+# Approve or deny requests for Azure resource roles in Privileged Identity Management
 
-With approval workflow in PIM for Azure resource roles, administrators can further protect or restrict access to critical resources by requiring approval to activate role assignments. Unique to Azure resource roles is the concept of a resource hierarchy. This hierarchy enables the inheritance of role assignments from a parent resource object downward to all subordinate child resources within the parent container. 
+With Privileged Identity Management (PIM) in Azure Active Directory (Azure AD), you can configure roles to require approval for activation, and choose users or groups from your Azure AD organization as delegated approvers. We recommend selecting two or more approvers for each role to reduce workload for the privileged role administrator. Delegated approvers have 24 hours to approve requests. If a request is not approved within 24 hours, then the eligible user must re-submit a new request. The 24 hour approval time window is not configurable.
 
-For example Bob, a resource administrator uses PIM to assign Alice as an eligible member to the Owner role in the Contoso subscription. With this assignment Alice is also an eligible Owner of all resource group containers within the Contoso subscription, and all resources (like virtual machines) contained within each resource group, of the subscription. Let's assume there are three resource groups in the Contoso subscription; Fabrikam Test, Fabrikam Dev, and Fabrikam Prod. Each of these resource groups contains a single virtual machine.
+Follow the steps in this article to approve or deny requests for Azure resource roles.
 
-PIM settings are configured for each role of a resource and unlike assignments these settings are not inherited and apply strictly to the  resource role. [Read more about eligible assignments and resource visibility.](pim-resource-roles-eligible-visibility.md)
+## View pending requests
 
-Using the above example Bob uses PIM to require all members in the Owner role of the Contoso subscription request approval to activate. To protect the resources contained within the Fabrikam Prod resource group, Bob requires approval for members of the Owner role of this resource also. The owner roles in Fabrikam Test and Fabrikam Dev do not require approval to activate.
+As a delegated approver, you'll receive an email notification when an Azure resource role request is pending your approval. You can view these pending requests in Privileged Identity Management.
 
-When Alice requests activation of her Owner role for the Contoso subscription an approver must approve or deny her request before she becomes active in the role. Additionally if Alice decides to [scope her activation](pim-resource-roles-activate-your-roles.md#just-enough-administration) to the Fabrikam Prod resource group an approver must approve or deny this request too. However, if Alice decides to scope her activation to either or both Fabrikam Test or Fabrikam Dev, approval will not be required.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-Approval workflow may not be necessary for all members of a role. Consider a scenario where your organization hires several contract associates to assist in the development of an application that will run in an Azure subscription. As a resource administrator, you would like employees to have eligible access without approval required, but the contract associates must request approval. To configure approval workflow for only the contract associates you can create a custom role with the same permissions as the role assigned to employees and require approval to activate that custom role. [Learn more about custom roles](pim-resource-roles-custom-role-policy.md).
+1. Open **Azure AD Privileged Identity Management**.
 
-Follow the steps below to configure approval workflow and specify who can approve or deny requests.
+1. Select **Approve requests**.
 
-## Require approval to activate
+    ![Approve requests - Azure resources page showing request to review](./media/pim-resource-roles-approval-workflow/resources-approve-requests.png)
 
-Navigate to PIM in the Azure portal, and select a resource from the list.
+    In the **Requests for role activations** section, you'll see a list of requests pending your approval.
 
-![](media/azure-pim-resource-rbac/aadpim_manage_azure_resource_some_there.png)
+## Approve requests
 
-From the left navigation menu, select **Role settings**.
+1. Find and select the request that you want to approve. An approve or deny page appears.
 
-Search for and select a role, and click **Edit** to modify settings.
+    ![Approve requests - approve or deny pane with details and Justification box](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png)
 
-![](media/azure-pim-resource-rbac/aadpim_rbac_role_settings_view_settings.png)
+1. In the **Justification** box, enter the business justification.
 
-In the Activation section check the box **Require approval to activate**.
+1. Select **Approve**. You will receive an Azure notification of your approval.
 
-![](media/azure-pim-resource-rbac/aadpim_rbac_settings_require_approval_checkbox.png)
+    ![Approve notification showing request was approved](./media/pim-resource-roles-approval-workflow/resources-approve-notification.png)
 
-## Specify approvers
+## Deny requests
 
-Click **Select approvers** to open the selection screen.
+1. Find and select the request that you want to deny. An approve or deny page appears.
 
->[!NOTE]
->You must select at least one user or group to update the setting. There are no default approvers.
+    ![Approve requests - approve or deny pane with details and Justification box](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png)
 
-Resource administrators can add any combination of users and groups to the list of approvers. 
+1. In the **Justification** box, enter the business justification.
 
-![](media/azure-pim-resource-rbac/aadpim_rbac_role_settings_select_approvers.png)
-
-## Request approval to activate
-
-Requesting approval has no impact on the procedure a member must follow to activate. [Review the steps to activate a role](pim-resource-roles-activate-your-roles.md).
-
-If a member requested activation of a role that requires approval and the role is no longer required, the member may cancel their request in PIM.
-
-To cancel, navigate to PIM and select "My requests". Locate the request and click "Cancel".
-
-![](media/azure-pim-resource-rbac/aadpim_rbac_role_approval_request_pending.png)
-
-## Approve or deny a request
-
-To approve or deny a request you must be a member of the approver list. In PIM, select "Approve requests" from the tab in the left navigation menu and locate the request.
-
-![](media/azure-pim-resource-rbac/aadpim_rbac_approve_requests_list.png)
-
-Select the request, provide a justification for the decision, and select approve or deny, resolving the request.
-
-![](media/azure-pim-resource-rbac/aadpim_rbac_approve_request_approved.png)
+1. Select **Deny**. A notification appears with your denial.
 
 ## Workflow notifications
 
-- All members of the approver list are notified by email when a request for a role is pending their review. Email notifications include a direct link to the request where the approver can approve or deny.
-- Requests are resolved by the first member of the list that approves or denies. 
-- When an approver responds to the request, all members of the approver list are notified of the action. 
-- Resource administrators are notified when an approved member becomes active in their role. 
+Here's some information about workflow notifications:
+
+- Approvers are notified by email when a request for a role is pending their review. Email notifications include a direct link to the request, where the approver can approve or deny.
+- Requests are resolved by the first approver who approves or denies.
+- When an approver responds to the request, all approvers are notified of the action.
+- Resource administrators are notified when an approved user becomes active in their role.
 
 >[!Note]
->In an event where a resource administrator believes the approved member should not be active, they may remove the active role assignment in PIM. Although resource administrators are not notified of pending requests unless they are members of the approver list, they may view and cancel pending requests of all users by viewing pending requests in PIM. 
+>A resource administrator who believes that an approved user should not be active can remove the active role assignment in Privileged Identity Management. Although resource administrators are not notified of pending requests unless they are an approver, they can view and cancel pending requests for all users by viewing pending requests in Privileged Identity Management.
 
 ## Next steps
 
-[Apply PIM settings to unique groups of users](pim-resource-roles-custom-role-policy.md)
+- [Extend or renew Azure resource roles in Privileged Identity Management](pim-resource-roles-renew-extend.md)
+- [Email notifications in Privileged Identity Management](pim-email-notifications.md)
+- [Approve or deny requests for Azure AD roles in Privileged Identity Management](azure-ad-pim-approval-workflow.md)

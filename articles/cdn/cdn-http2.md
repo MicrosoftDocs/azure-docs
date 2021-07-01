@@ -1,19 +1,19 @@
 ---
 title: HTTP/2 support in Azure CDN | Microsoft Docs
-description: Learn about HTTP/2 and CDN support.
+description: Azure Content Delivery Network supports HTTP/2, which has benefits over HTTP/1, such as multiplexing & concurrency, header compression, and stream dependencies.
 services: cdn
 documentationcenter: ''
 author: lichard
 manager: erikre
 editor: ''
 
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 5/04/2017
-ms.author: rli
+ms.author: ril
 
 ---
 
@@ -27,7 +27,7 @@ The benefits of HTTP/2 include:
 
 *   **Multiplexing and concurrency**
 
-    Using HTTP 1.1, multiple making multiple resource requests requires multiple TCP connections, and each connection has performance overhead associated with it. HTTP/2 allows multiple resources to be requested on a single TCP connection.
+    Using HTTP 1.1, making multiple resource requests requires multiple TCP connections, and each connection has performance overhead associated with it. HTTP/2 allows multiple resources to be requested on a single TCP connection.
 
 *   **Header compression**
 
@@ -35,12 +35,12 @@ The benefits of HTTP/2 include:
 
 *   **Stream dependencies**
 
-    Stream dependencies allow the client to indicate to the server which of resources have priority.
+    Stream dependencies allow the client to indicate to the server which resources have priority.
 
 
 ## HTTP/2 Browser Support
 
-All of the major browsers have implemented HTTP/2 support in their current versions. Non-supported browsers will automatically fallback to HTTP/1.1.
+All of the major browsers have implemented HTTP/2 support in their current versions. Non-supported browsers automatically fallback to HTTP/1.1.
 
 |Browser|Minimum Version|
 |-------------|------------|
@@ -52,7 +52,7 @@ All of the major browsers have implemented HTTP/2 support in their current versi
 
 ## Enabling HTTP/2 Support in Azure CDN
 
-Currently HTTP/2 support is active for **Azure CDN from Akamai** and **Azure CDN from Verizon** profiles. No further action is required from customers.
+Currently, HTTP/2 support is active for all Azure CDN profiles. No further action is required from customers.
 
 ## Next Steps
 
@@ -64,4 +64,4 @@ To learn more about HTTP/2, visit the following resources:
 *   [Official HTTP/2 FAQ](https://http2.github.io/faq/)
 *   [Akamai HTTP/2 information](https://http2.akamai.com/)
 
-To learn more about Azure CDN's available features, see the [Azure CDN Overview](https://azure.microsoft.com/documentation/articles/cdn-overview/).
+To learn more about Azure CDN's available features, see the [Azure CDN Overview](./cdn-overview.md).

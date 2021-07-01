@@ -1,13 +1,10 @@
 ---
-title: Set up disaster recovery to Azure for physical on-premises servers with Azure Site Recovery | Microsoft Docs
+title: Set up disaster recovery of physical on-premises servers with Azure Site Recovery 
 description: Learn how to set up disaster recovery to Azure for on-premises Windows and Linux servers, with the Azure Site Recovery service.
-services: site-recovery
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/08/2018
-ms.author: raynew
+ms.date: 11/12/2019
+
 
 ---
 # Set up disaster recovery to Azure for on-premises physical servers
@@ -27,22 +24,27 @@ This tutorial shows you how to set up disaster recovery of on-premises physical 
 
 To complete this tutorial:
 
-- Make sure that you understand the [scenario architecture and components](physical-azure-architecture.md).
+- Make sure that you understand the [architecture and components](physical-azure-architecture.md) for this scenario.
 - Review the [support requirements](vmware-physical-secondary-support-matrix.md) for all components.
 - Make sure that the servers you want to replicate comply with [Azure VM requirements](vmware-physical-secondary-support-matrix.md#replicated-vm-support).
 - Prepare Azure. You need an Azure subscription, an Azure virtual network, and a storage account.
 - Prepare an account for automatic installation of the Mobility service on each server you want to replicate.
 
-> [!NOTE]
-> Before you begin, note that after failover to Azure, physical servers can't be failed back to on-premises physical machines. You can only fail back to VMware VMs. 
+Before you begin, note that:
+
+- After failover to Azure, physical servers can't be failed back to on-premises physical machines. You can only fail back to VMware VMs. 
+- This tutorial sets up physical server disaster recovery to Azure with the simplest settings. If you want to learn about other options, read through our How To guides:
+    - Set up the [replication source](physical-azure-set-up-source.md), including the Site Recovery configuration server.
+    - Set up the [replication target](physical-azure-set-up-target.md).
+    - Configure a [replication policy](vmware-azure-set-up-replication.md), and [enable replication](vmware-azure-enable-replication.md).
 
 
 ### Set up an Azure account
 
-Get a Microsoft [Azure account](http://azure.microsoft.com/).
+Get a Microsoft [Azure account](https://azure.microsoft.com/).
 
 - You can start with a [free trial](https://azure.microsoft.com/pricing/free-trial/).
-- Learn about [Site Recovery pricing](site-recovery-faq.md#pricing), and get [pricing details](https://azure.microsoft.com/pricing/details/site-recovery/).
+- Learn about [Site Recovery pricing](/azure/site-recovery/site-recovery-faq#pricing), and get [pricing details](https://azure.microsoft.com/pricing/details/site-recovery/).
 - Find out which [regions are supported](https://azure.microsoft.com/pricing/details/site-recovery/) for Site Recovery.
 
 ### Verify Azure account permissions
@@ -50,7 +52,7 @@ Get a Microsoft [Azure account](http://azure.microsoft.com/).
 Make sure your Azure account has permissions for replication of VMs to Azure.
 
 - Review the [permissions](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) you need to replicate machines to Azure.
-- Verify and modify [role-based access](../active-directory/role-based-access-control-configure.md) permissions. 
+- Verify and modify [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.md) permissions. 
 
 
 
@@ -64,13 +66,10 @@ Set up an [Azure network](../virtual-network/quick-create-portal.md).
 
 ## Set up an Azure storage account
 
-Set up an [Azure storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account).
+Set up an [Azure storage account](../storage/common/storage-account-create.md).
 
 - Site Recovery replicates on-premises machines to Azure storage. Azure VMs are created from the storage after failover occurs.
 - The storage account must be in the same region as the Recovery Services vault.
-- The storage account can be standard or [premium](../virtual-machines/windows/premium-storage.md).
-- If you set up a premium account, you will also need an additional standard account for log data.
-
 
 
 ### Prepare an account for Mobility service installation
@@ -106,26 +105,30 @@ Set up the configuration server, register it in the vault, and discover VMs.
 4. Download the Site Recovery Unified Setup installation file.
 5. Download the vault registration key. You need this when you run Unified Setup. The key is valid for five days after you generate it.
 
-   ![Set up source](./media/physical-azure-disaster-recovery/source-environment.png)
+   ![Screenshot showing the options to download the installation file and registration key.](./media/physical-azure-disaster-recovery/source-environment.png)
 
 
 ### Register the configuration server in the vault
 
 Do the following before you start: 
 
-- On the configuration server machine, make sure that the system clock is synchronized with a [Time Server](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service). It should match. If it's 15 minutes in front or behind, setup might fail.
-- Make sure the machine can access these URLs:
-        [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
+#### Verify time accuracy
+On the configuration server machine, make sure that the system clock is synchronized with a [Time Server](/windows-server/networking/windows-time-service/windows-time-service-top). It should match. If it's 15 minutes in front or behind, setup might fail.
 
-- IP address-based firewall rules should allow communication to Azure.
-- Allow the [Azure Datacenter IP Ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653), and the HTTPS (443) port.
-- Allow IP address ranges for the Azure region of your subscription, and for West US (used for Access Control and Identity Management).
+#### Verify connectivity
+Make sure the machine can access these URLs based on your environment: 
 
+[!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]  
+
+IP address-based firewall rules should allow communication to all of the Azure URLs that are listed above over HTTPS (443) port. To simplify and limit the IP Ranges, it is recommended that URL filtering be done.
+
+- **Commercial IPs** - Allow the [Azure Datacenter IP Ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653), and the HTTPS (443) port. Allow IP address ranges for the Azure region of your subscription to support the AAD, Backup, Replication, and Storage URLs.  
+- **Government IPs** - Allow the [Azure Government Datacenter IP Ranges](https://www.microsoft.com/en-us/download/details.aspx?id=57063), and the HTTPS (443) port for all USGov Regions (Virginia, Texas, Arizona, and Iowa) to support AAD, Backup, Replication, and Storage URLs.  
+
+#### Run setup
 Run Unified Setup as a Local Administrator, to install the configuration server. The process server and the master target server are also installed by default on the configuration server.
 
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
-
-After registration finishes, the configuration server is displayed on the **Settings** > **Servers** page in the vault.
 
 
 ## Set up the target environment
@@ -136,7 +139,7 @@ Select and verify target resources.
 2. Specify the target deployment model.
 3. Site Recovery checks that you have one or more compatible Azure storage accounts and networks.
 
-   ![Target](./media/physical-azure-disaster-recovery/network-storage.png)
+   ![Screenshot of the options for setting up the target environment.](./media/physical-azure-disaster-recovery/network-storage.png)
 
 
 ## Create a replication policy
@@ -147,7 +150,7 @@ Select and verify target resources.
 4. In **Recovery point retention**, specify how long (in hours) the retention window is for each recovery point. Replicated VMs can be recovered to any point in a window. Up to 24 hours retention is supported for machines replicated to premium storage, and 72 hours for standard storage.
 5. In **App-consistent snapshot frequency**, specify how often (in minutes) recovery points containing application-consistent snapshots will be created. Click **OK** to create the policy.
 
-    ![Replication policy](./media/physical-azure-disaster-recovery/replication-policy.png)
+    ![Screenshot of the options for creating a replication policy.](./media/physical-azure-disaster-recovery/replication-policy.png)
 
 
 The policy is automatically associated with the configuration server. By default, a matching policy is automatically created for failback. For example, if the replication policy is **rep-policy** then a failback policy **rep-policy-failback** is created. This policy isn't used until you initiate a failback from Azure.

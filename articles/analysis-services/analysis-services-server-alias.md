@@ -1,21 +1,12 @@
 ---
 title: Azure Analysis Services alias server names | Microsoft Docs
-description: Describes how to create and use server name aliases.
-services: analysis-services
-documentationcenter: ''
+description: Learn how to create Azure Analysis Services server name aliases. Users can then connect to your server with a shorter alias name instead of the server name.
 author: minewiskan
-manager: kfile
-editor: 
-
-ms.assetid: 
-ms.service: analysis-services
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 02/14/2018
+ms.service: azure-analysis-services
+ms.topic: conceptual
+ms.date: 12/01/2020
 ms.author: owend
-
+ms.reviewer: minewiskan
 ---
 
 # Alias server names
@@ -29,7 +20,7 @@ Alias server names are good for:
 - Direct users to different servers at different times of the day. 
 - Direct users in different regions to instances that are geographically closer, like when using Azure Traffic Manager. 
 
-Any HTTP endpoint that returns a valid Azure Analysis Services server name can serve as an alias.
+Any HTTPS endpoint that returns a valid Azure Analysis Services server name can serve as an alias. The endpoint must support HTTPS over port 443 and the port must not be specified in the URI.
 
 ![Alias using link format](media/analysis-services-alias/aas-alias-browser.png)
 
@@ -41,7 +32,7 @@ When connecting from a client, the alias server name is entered using **link://*
 
 To create an alias endpoint, you can use any method that returns a valid Azure Analysis Services server name. For example, a reference to a file in Azure Blob Storage containing the real server name, or create and publish an ASP.NET Web Forms application.
 
-In this example, an ASP.NET Web Forms Application is created in Visual Studio. The master page reference and user control are removed from the Default.aspx page. The contents of Default.aspx are simply the following Page directive:
+In this example, an ASP.NET Web Forms Application is created in Visual Studio. The page reference and user control are removed from the Default.aspx page. The contents of Default.aspx are simply the following Page directive:
 
 ```
 <%@ Page Title="Home Page" Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="FriendlyRedirect._Default" %>
@@ -58,5 +49,5 @@ protected void Page_Load(object sender, EventArgs e)
 
 ## See also
 
-[Client libraries](analysis-services-data-providers.md)   
+[Client libraries](/analysis-services/client-libraries?view=azure-analysis-services-current&preserve-view=true)   
 [Connect from Power BI Desktop](analysis-services-connect-pbi.md)

@@ -10,10 +10,10 @@ editor: ''
 ms.assetid: 958244a5-f9f5-455e-b7ef-71a65558872e
 ms.service: storsimple
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/1/2016
+ms.date: 03/17/2021
 ms.author: alkohli
 ---
 # Use the StorSimple Device Manager service to administer your StorSimple Virtual Array
@@ -29,15 +29,13 @@ After reading this article, you will know how to:
 * Administer your StorSimple Virtual Array via the StorSimple Device Manager service
 
 > [!NOTE]
-> To view the management options available for the StorSimple 8000 series device, go to [Use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
-> 
-> 
+> To view the management options available for the StorSimple 8000 series device, go to [Use the StorSimple Manager service to administer your StorSimple device](./storsimple-8000-manager-service-administration.md).
 
 ## Connect to the StorSimple Device Manager service
 The StorSimple Device Manager service runs in Microsoft Azure and connects to multiple StorSimple Virtual Arrays. You use a central Microsoft Azure portal running in a browser to manage these devices. To connect to the StorSimple Device Manager service, do the following.
 
 #### To connect to the service
-1. Go to [https://ms.portal.azure.com](https://ms.portal.azure.com).
+1. Go to [https://portal.azure.com](https://portal.azure.com).
 2. Using your Microsoft account credentials, log on to the Microsoft Azure portal (located at the top-right of the pane).
 3. Navigate to Browse --> 'Filter' on StorSimple Device Managers to view all your device managers in a given subscription.
 
@@ -46,9 +44,11 @@ The following table shows a summary of all the common management tasks and compl
 
 For more information about each workflow, click the appropriate procedure in the table.
 
+[!INCLUDE [StorSimple software warning](../../includes/storsimple-update-software-warning.md)]
+
 #### StorSimple Device Manager workflows
 | If you want to do this ... | Use this procedure |
-| --- | --- | --- |
+| --- | --- |
 | Create a service</br>Delete a service</br>Get the service registration key</br>Regenerate the service registration key |[Deploy the StorSimple Device Manager service](storsimple-virtual-array-manage-service.md) |
 | View the activity logs |[Use the StorSimple service summary](storsimple-virtual-array-service-summary.md) |
 | Deactivate a Virtual Array</br>Delete a Virtual Array |[Deactivate or delete a virtual array](storsimple-virtual-array-deactivate-and-delete-device.md) |
@@ -73,4 +73,3 @@ For more information about each workflow, click the appropriate procedure in the
 
 ## Next steps
 For information about the web UI and how to use it, go to [Use the StorSimple web UI to administer your StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
-

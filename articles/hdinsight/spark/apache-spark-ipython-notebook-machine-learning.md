@@ -1,49 +1,43 @@
 ---
-title: Build Apache Spark machine learning applications on Azure HDInsight | Microsoft Docs
-description: Step-by-step instructions on how to build Apache Spark machine learning application on HDInsight Spark clusters using Jupyter notebook
-services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-
-ms.assetid: f584ca5e-abee-4b7c-ae58-2e45dfc56bf4
+title: 'Tutorial: Build Spark machine learning app - Azure HDInsight'
+description: Tutorial - Step-by-step instructions on how to build Apache Spark machine learning application in HDInsight Spark clusters using Jupyter Notebook.
 ms.service: hdinsight
-ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 01/23/2018
-ms.author: jgao
+ms.topic: tutorial
+ms.custom: hdinsightactive,mvc, devx-track-python
+ms.date: 04/07/2020
 
+# Customer intent: As a developer new to Apache Spark and to Apache Spark in Azure HDInsight, I want to learn how to create a simple machine learning Spark application.
 ---
-# Build Apache Spark machine learning applications on Azure HDInsight
 
-Learn how to build an Apache Spark machine learning application using a Spark cluster on HDInsight. This article shows how to use the Jupyter notebook available with the cluster to build and test this application. The application uses the sample HVAC.csv data that is available on all clusters by default.
+# Tutorial: Build an Apache Spark machine learning application in Azure HDInsight
 
-[MLlib](https://spark.apache.org/docs/1.1.0/mllib-guide.html) is Spark’s scalable machine learning library consisting of common learning algorithms and utilities, including classification, regression, clustering, collaborative filtering, dimensionality reduction, as well as underlying optimization primitives.
+In this tutorial, you learn how to use the [Jupyter Notebook](https://jupyter.org/) to build an [Apache Spark](./apache-spark-overview.md) machine learning application for Azure HDInsight.
 
-## Prerequisites:
+[MLlib](https://spark.apache.org/docs/latest/ml-guide.html) is Spark's adaptable machine learning library consisting of common learning algorithms and utilities. (Classification, regression, clustering, collaborative filtering, and dimensionality reduction. Also, underlying optimization primitives.)
 
-You must have the following item:
+In this tutorial, you learn how to:
+> [!div class="checklist"]
+> * Develop an Apache Spark machine learning application
 
-* An Apache Spark cluster on HDInsight. For instructions, see [Create Apache Spark clusters in Azure HDInsight](apache-spark-jupyter-spark-sql.md). 
+## Prerequisites
 
-## <a name="data"></a>Understand the data set
+* An Apache Spark cluster on HDInsight. See [Create an Apache Spark cluster](./apache-spark-jupyter-spark-sql-use-portal.md).
 
-The following data shows the target temperature and the actual temperature of some buildings that have HVAC systems installed. The **System** column represents the system ID and the **SystemAge** column represents the number of years the HVAC system has been in place at the building. You use the data in this tutorial to predict whether a building will be hotter or colder based on the target temperature, given a system ID and system age.
+* Familiarity with using Jupyter Notebooks with Spark on HDInsight. For more information, see [Load data and run queries with Apache Spark on HDInsight](./apache-spark-load-data-run-query.md).
 
-![Snapshot of data used for Spark machine learning example](./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-understand-data.png "Snapshot of data used for Spark machine learning example")
+## Understand the data set
 
-The data file, **HVAC.csv**, is located at **\HdiSamples\HdiSamples\SensorSampleData\hvac** on all HDInsight clusters.
+The application uses the sample **HVAC.csv** data that is available on all clusters by default. The file is located at `\HdiSamples\HdiSamples\SensorSampleData\hvac`. The data shows the target temperature and the actual temperature of some buildings that have HVAC systems installed. The **System** column represents the system ID and the **SystemAge** column represents the number of years the HVAC system has been in place at the building. You can predict whether a building will be hotter or colder based on the target temperature, given system ID, and system age.
 
-## <a name="app"></a>Write a Spark machine learning application using Spark MLlib
-In this application, you use a Spark [ML pipeline](https://spark.apache.org/docs/2.2.0/ml-pipeline.html) to perform a document classification. ML Pipelines provide a uniform set of high-level APIs built on top of DataFrames that help users create and tune practical machine learning pipelines. In the pipeline, you split the document into words, convert the words into a numerical feature vector, and finally build a prediction model using the feature vectors and labels. Perform the following steps to create the application.
+:::image type="content" source="./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-understand-data.png " alt-text="Snapshot of data used for Spark machine learning example" border="true":::
 
-1. Create a Jupyter notebook using the PySpark kernel. For the instructions, see [Create a Jupyter notebook](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook).
-2. Import the types required for this scenario. Paste the following snippet in an empty cell, and then press **SHIFT + ENTER**. 
+## Develop a Spark machine learning application using Spark MLlib
+
+This application uses a Spark [ML pipeline](https://spark.apache.org/docs/2.2.0/ml-pipeline.html) to do a document classification. ML Pipelines provide a uniform set of high-level APIs built on top of DataFrames. The DataFrames help users create and tune practical machine learning pipelines. In the pipeline, you split the document into words, convert the words into a numerical feature vector, and finally build a prediction model using the feature vectors and labels. Do the following steps to create the application.
+
+1. Create a Jupyter Notebook using the PySpark kernel. For the instructions, see [Create a Jupyter Notebook file](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook-file).
+
+1. Import the types required for this scenario. Paste the following snippet in an empty cell, and then press **SHIFT + ENTER**.
 
     ```PySpark
     from pyspark.ml import Pipeline
@@ -59,7 +53,8 @@ In this application, you use a Spark [ML pipeline](https://spark.apache.org/docs
     from pyspark.mllib.regression import LabeledPoint
     from numpy import array
     ```
-3. Load the data (hvac.csv), parse it, and use it to train the model. 
+
+1. Load the data (hvac.csv), parse it, and use it to train the model.
 
     ```PySpark
     # Define a type called LabelDocument
@@ -71,22 +66,22 @@ In this application, you use a Spark [ML pipeline](https://spark.apache.org/docs
         if (values[3] > values[2]):
             hot = 1.0
         else:
-            hot = 0.0        
+            hot = 0.0
 
         textValue = str(values[4]) + " " + str(values[5])
 
         return LabeledDocument((values[6]), textValue, hot)
 
     # Load the raw HVAC.csv file, parse it using the function
-    data = sc.textFile("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+    data = sc.textFile("/HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
 
     documents = data.filter(lambda s: "Date" not in s).map(parseDocument)
     training = documents.toDF()
     ```
 
-    In the code snippet, you define a function that compares the actual temperature with the target temperature. If the actual temperature is greater, the building is hot, denoted by the value **1.0**. Otherwise the building is cold, denoted by the value **0.0**. 
+    In the code snippet, you define a function that compares the actual temperature with the target temperature. If the actual temperature is greater, the building is hot, denoted by the value **1.0**. Otherwise the building is cold, denoted by the value **0.0**.
 
-4. Configure the Spark machine learning pipeline that consists of three stages: tokenizer, hashingTF, and lr. 
+1. Configure the Spark machine learning pipeline that consists of three stages: tokenizer, hashingTF, and lr.
 
     ```PySpark
     tokenizer = Tokenizer(inputCol="SystemInfo", outputCol="words")
@@ -95,23 +90,23 @@ In this application, you use a Spark [ML pipeline](https://spark.apache.org/docs
     pipeline = Pipeline(stages=[tokenizer, hashingTF, lr])
     ```
 
-    For more information about what is a pipeline and how it works see <a href="http://spark.apache.org/docs/latest/ml-guide.html#how-it-works" target="_blank">Spark machine learning pipeline</a>.
+    For more information about pipeline and how it works, see [Apache Spark machine learning pipeline](https://spark.apache.org/docs/latest/ml-pipeline.html).
 
-5. Fit the pipeline to the training document.
-   
+1. Fit the pipeline to the training document.
+
     ```PySpark
     model = pipeline.fit(training)
     ```
 
-6. Verify the training document to checkpoint your progress with the application.
-   
+1. Verify the training document to checkpoint your progress with the application.
+
     ```PySpark
     training.show()
     ```
-   
-    This should give the output similar to the following:
 
-    ```
+    The output is similar to:
+
+    ```output
     +----------+----------+-----+
     |BuildingID|SystemInfo|label|
     +----------+----------+-----+
@@ -140,13 +135,13 @@ In this application, you use a Spark [ML pipeline](https://spark.apache.org/docs
 
     Comparing the output against the raw CSV file. For example, the first row the CSV file has this data:
 
-    ![Output data snapshot for Spark machine learning example](./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-output-data.png "Output data snapshot for Spark machine learning example")
+    :::image type="content" source="./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-output-data.png " alt-text="Output data snapshot for Spark machine learning example" border="true":::
 
-    Notice how the actual temperature is less than the target temperature suggesting the building is cold. Hence in the training output, the value for **label** in the first row is **0.0**, which means the building is not hot.
+    Notice how the actual temperature is less than the target temperature suggesting the building is cold. The value for **label** in the first row is **0.0**, which means the building isn't hot.
 
-7. Prepare a data set to run the trained model against. To do so, you pass on a system ID and system age (denoted as **SystemInfo** in the training output), and the model predicts whether the building with that system ID and system age will be hotter (denoted by 1.0) or cooler (denoted by 0.0).
-   
-    ```PySpark   
+1. Prepare a data set to run the trained model against. To do so, you pass on a system ID and system age (denoted as **SystemInfo** in the training output). The model predicts whether the building with that system ID and system age will be hotter (denoted by 1.0) or cooler (denoted by 0.0).
+
+    ```PySpark
     # SystemInfo here is a combination of system ID followed by system age
     Document = Row("id", "SystemInfo")
     test = sc.parallelize([(1L, "20 25"),
@@ -155,10 +150,11 @@ In this application, you use a Spark [ML pipeline](https://spark.apache.org/docs
                     (4L, "9 22"),
                     (5L, "17 10"),
                     (6L, "7 22")]) \
-        .map(lambda x: Document(*x)).toDF() 
+        .map(lambda x: Document(*x)).toDF()
     ```
-8. Finally, make predictions on the test data. 
-   
+
+1. Finally, make predictions on the test data.
+
     ```PySpark
     # Make predictions on test documents and print columns of interest
     prediction = model.transform(test)
@@ -167,9 +163,9 @@ In this application, you use a Spark [ML pipeline](https://spark.apache.org/docs
         print row
     ```
 
-    You should see an output similar to the following:
+    The output is similar to:
 
-    ```   
+    ```output  
     Row(SystemInfo=u'20 25', prediction=1.0, probability=DenseVector([0.4999, 0.5001]))
     Row(SystemInfo=u'4 15', prediction=0.0, probability=DenseVector([0.5016, 0.4984]))
     Row(SystemInfo=u'16 9', prediction=1.0, probability=DenseVector([0.4785, 0.5215]))
@@ -177,45 +173,34 @@ In this application, you use a Spark [ML pipeline](https://spark.apache.org/docs
     Row(SystemInfo=u'17 10', prediction=1.0, probability=DenseVector([0.4925, 0.5075]))
     Row(SystemInfo=u'7 22', prediction=0.0, probability=DenseVector([0.5015, 0.4985]))
     ```
-   
-   From the first row in the prediction, you can see that for an HVAC system with ID 20 and system age of 25 years, the building is hot (**prediction=1.0**). The first value for DenseVector (0.49999) corresponds to the  prediction 0.0 and the second value (0.5001) corresponds to the prediction 1.0. In the output, even though the second value is only marginally higher, the model shows **prediction=1.0**.
-10. Shut down the notebook to release the resources. To do so, from the **File** menu on the notebook, click **Close and Halt**. This will shut down and close the notebook.
 
-## <a name="anaconda"></a>Use Anaconda scikit-learn library for Spark machine learning
-Apache Spark clusters on HDInsight include Anaconda libraries. This also includes the **scikit-learn** library for machine learning. The library also includes various data sets that you can use to build sample applications directly from a Jupyter notebook. For examples on using the scikit-learn library, see [http://scikit-learn.org/stable/auto_examples/index.html](http://scikit-learn.org/stable/auto_examples/index.html).
+   Observe the first row in the prediction. For an HVAC system with ID 20 and system age of 25 years, the building is hot (**prediction=1.0**). The first value for DenseVector (0.49999) corresponds to the  prediction 0.0 and the second value (0.5001) corresponds to the prediction 1.0. In the output, even though the second value is only marginally higher, the model shows **prediction=1.0**.
 
-## <a name="seealso"></a>See also
-* [Overview: Apache Spark on Azure HDInsight](apache-spark-overview.md)
+1. Shut down the notebook to release the resources. To do so, from the **File** menu on the notebook, select **Close and Halt**. This action shuts down and closes the notebook.
 
-### Scenarios
-* [Spark with BI: Perform interactive data analysis using Spark in HDInsight with BI tools](apache-spark-use-bi-tools.md)
-* [Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](apache-spark-machine-learning-mllib-ipython.md)
-* [Website log analysis using Spark in HDInsight](apache-spark-custom-library-website-log-analysis.md)
+## Use Anaconda scikit-learn library for Spark machine learning
 
-### Create and run applications
-* [Create a standalone application using Scala](apache-spark-create-standalone-application.md)
-* [Run jobs remotely on a Spark cluster using Livy](apache-spark-livy-rest-interface.md)
+Apache Spark clusters in HDInsight include Anaconda libraries. It also includes the **scikit-learn** library for machine learning. The library also includes various data sets that you can use to build sample applications directly from a Jupyter Notebook. For examples on using the scikit-learn library, see [https://scikit-learn.org/stable/auto_examples/index.html](https://scikit-learn.org/stable/auto_examples/index.html).
 
-### Tools and extensions
-* [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applications](apache-spark-intellij-tool-plugin.md)
-* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Use Zeppelin notebooks with a Spark cluster on HDInsight](apache-spark-zeppelin-notebook.md)
-* [Kernels available for Jupyter notebook in Spark cluster for HDInsight](apache-spark-jupyter-notebook-kernels.md)
-* [Use external packages with Jupyter notebooks](apache-spark-jupyter-notebook-use-external-packages.md)
-* [Install Jupyter on your computer and connect to an HDInsight Spark cluster](apache-spark-jupyter-notebook-install-locally.md)
+## Clean up resources
 
-### Manage resources
-* [Manage resources for the Apache Spark cluster in Azure HDInsight](apache-spark-resource-manager.md)
-* [Track and debug jobs running on an Apache Spark cluster in HDInsight](apache-spark-job-debugging.md)
+If you're not going to continue to use this application, delete the cluster that you created with the following steps:
 
-[hdinsight-versions]: hdinsight-component-versioning.md
-[hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-[hdinsight-weblogs-sample]:../hadoop/apache-hive-analyze-website-log.md
-[hdinsight-sensor-data-sample]:../hadoop/apache-hive-analyze-sensor-data.md
+1. In the **Search** box at the top, type **HDInsight**.
 
-[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[azure-create-storageaccount]:../../storage/common/storage-create-storage-account.md
+1. Select **HDInsight clusters** under **Services**.
+
+1. In the list of HDInsight clusters that appears, select the **...** next to the cluster that you created for this tutorial.
+
+1. Select **Delete**. Select **Yes**.
+
+:::image type="content" source="./media/apache-spark-ipython-notebook-machine-learning/hdinsight-azure-portal-delete-cluster.png " alt-text="Azure portal deletes an HDInsight cluster" border="true":::
+
+## Next steps
+
+In this tutorial, you learned how to use the Jupyter Notebook to build an Apache Spark machine learning application for Azure HDInsight. Advance to the next tutorial to learn how to use IntelliJ IDEA for Spark jobs.
+
+> [!div class="nextstepaction"]
+> [Create a Scala Maven application using IntelliJ](./apache-spark-create-standalone-application.md)

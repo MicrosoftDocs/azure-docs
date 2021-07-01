@@ -5,27 +5,27 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 04/05/2018
+ ms.date: 05/27/2021
  ms.author: cherylmc
  ms.custom: include file
 ---
-The VNet-to-VNet FAQ applies to VPN Gateway connections. If you are looking for VNet Peering, see [Virtual Network Peering](../articles/virtual-network/virtual-network-peering-overview.md)
+The VNet-to-VNet FAQ applies to VPN gateway connections. For information about VNet peering, see [Virtual network peering](../articles/virtual-network/virtual-network-peering-overview.md).
 
 ### Does Azure charge for traffic between VNets?
 
-VNet-to-VNet traffic within the same region is free for both directions when using a VPN gateway connection. Cross region VNet-to-VNet egress traffic is charged with the outbound inter-VNet data transfer rates based on the source regions. Refer to the [VPN Gateway pricing page](https://azure.microsoft.com/pricing/details/vpn-gateway/) for details. If you are connecting your VNets using VNet Peering, rather than VPN Gateway, see the [Virtual Network pricing page](https://azure.microsoft.com/pricing/details/virtual-network/).
+VNet-to-VNet traffic within the same region is free for both directions when you use a VPN gateway connection. Cross-region VNet-to-VNet egress traffic is charged with the outbound inter-VNet data transfer rates based on the source regions. For more information, see [VPN Gateway pricing page](https://azure.microsoft.com/pricing/details/vpn-gateway/). If you're connecting your VNets by using VNet peering instead of a VPN gateway, see [Virtual network pricing](https://azure.microsoft.com/pricing/details/virtual-network/).
 
-### Does VNet-to-VNet traffic travel across the Internet?
+### Does VNet-to-VNet traffic travel across the internet?
 
-No. VNet-to-VNet traffic travels across the Microsoft Azure backbone, not the Internet.
+No. VNet-to-VNet traffic travels across the Microsoft Azure backbone, not the internet.
 
-### Can I establish a VNet-to-VNet connection across AAD Tenants?
+### Can I establish a VNet-to-VNet connection across Azure Active Directory (AAD) tenants?
 
-Yes, VNet-to-VNet connections using Azure VPN gateways work across AAD Tenants.
+Yes, VNet-to-VNet connections that use Azure VPN gateways work across AAD tenants.
 
 ### Is VNet-to-VNet traffic secure?
 
-Yes, it is protected by IPsec/IKE encryption.
+Yes, it's protected by IPsec/IKE encryption.
 
 ### Do I need a VPN device to connect VNets together?
 
@@ -35,13 +35,13 @@ No. Connecting multiple Azure virtual networks together doesn't require a VPN de
 
 No. The virtual networks can be in the same or different Azure regions (locations).
 
-### If the VNets are not in the same subscription, do the subscriptions need to be associated with the same AD tenant?
+### If the VNets aren't in the same subscription, do the subscriptions need to be associated with the same Active Directory tenant?
 
 No.
 
 ### Can I use VNet-to-VNet to connect virtual networks in separate Azure instances? 
 
-No. VNet-to-VNet supports connecting virtual networks within the same Azure instance. For example, you can’t create  a connection between public Azure and the Chinese / German / US Gov Azure instances. For these scenarios, consider using a Site-to-Site VPN connection.
+No. VNet-to-VNet supports connecting virtual networks within the same Azure instance. For example, you can’t create  a connection between global Azure and Chinese/German/US government Azure instances. Consider using a Site-to-Site VPN connection for these scenarios.
 
 ### Can I use VNet-to-VNet along with multi-site connections?
 
@@ -49,23 +49,23 @@ Yes. Virtual network connectivity can be used simultaneously with multi-site VPN
 
 ### How many on-premises sites and virtual networks can one virtual network connect to?
 
-See [Gateway requirements](../articles/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#requirements) table.
+See the [Gateway requirements](../articles/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#requirements) table.
 
 ### Can I use VNet-to-VNet to connect VMs or cloud services outside of a VNet?
 
-No. VNet-to-VNet supports connecting virtual networks. It does not support connecting virtual machines or cloud services that are not in a virtual network.
+No. VNet-to-VNet supports connecting virtual networks. It doesn't support connecting virtual machines or cloud services that aren't in a virtual network.
 
-### Can a cloud service or a load balancing endpoint span VNets?
+### Can a cloud service or a load-balancing endpoint span VNets?
 
-No. A cloud service or a load balancing endpoint can't span across virtual networks, even if they are connected together.
+No. A cloud service or a load-balancing endpoint can't span across virtual networks, even if they're connected together.
 
-### Can I used a PolicyBased VPN type for VNet-to-VNet or Multi-Site connections?
+### Can I use a PolicyBased VPN type for VNet-to-VNet or Multi-Site connections?
 
-No. VNet-to-VNet and Multi-Site connections require Azure VPN gateways with RouteBased (previously called Dynamic Routing) VPN types.
+No. VNet-to-VNet and Multi-Site connections require Azure VPN gateways with RouteBased (previously called dynamic routing) VPN types.
 
 ### Can I connect a VNet with a RouteBased VPN Type to another VNet with a PolicyBased VPN type?
 
-No, both virtual networks MUST be using route-based (previously called Dynamic Routing) VPNs.
+No, both virtual networks MUST use route-based (previously called dynamic routing) VPNs.
 
 ### Do VPN tunnels share bandwidth?
 

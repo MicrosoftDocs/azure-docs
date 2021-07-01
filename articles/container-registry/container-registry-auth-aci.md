@@ -1,14 +1,8 @@
 ---
-title: Authenticate with Azure Container Registry from Azure Container Instances
+title: Access from Container Instances
 description: Learn how to provide access to images in your private container registry from Azure Container Instances by using an Azure Active Directory service principal.
-services: container-registry
-author: mmacy
-manager: timlt
-
-ms.service: container-registry
 ms.topic: article
-ms.date: 01/24/2018
-ms.author: marsma
+ms.date: 04/23/2018
 ---
 
 # Authenticate with Azure Container Registry from Azure Container Instances
@@ -21,7 +15,7 @@ In this article, you learn to create and configure an Azure AD service principal
 
 You should use a service principal for authentication from ACI in **headless scenarios**, such as in applications or services that create container instances in an automated or otherwise unattended manner.
 
-For example, if you have an automated script that runs nightly and creates a [task-based container instance](../container-instances/container-instances-restart-policy.md) to process some data, it can use a service principal with pull-only (Reader) permissions to authenticate to the registry. You can then rotate the service principal's credentials or revoke its access completely without affecting other services and applications.
+For example, if you have an automated script that runs nightly and creates a [task-based container instance](../container-instances/container-instances-restart-policy.md) to process some data, it can use a service principal with pull-only permissions to authenticate to the registry. You can then rotate the service principal's credentials or revoke its access completely without affecting other services and applications.
 
 Service principals should also be used when the registry [admin user](container-registry-authentication.md#admin-account) is disabled.
 
@@ -41,15 +35,24 @@ az container create \
     --registry-password <service-principal-password>
 ```
 
+## Sample scripts
+
+You can find the preceding sample scripts for Azure CLI on GitHub, as well versions for Azure PowerShell:
+
+* [Azure CLI][acr-scripts-cli]
+* [Azure PowerShell][acr-scripts-psh]
+
 ## Next steps
 
 The following articles contain additional details on working with service principals and ACR:
 
 * [Azure Container Registry authentication with service principals](container-registry-auth-service-principal.md)
-* [Authenticate with Azure Container Registry from Azure Container Service (AKS)](container-registry-auth-aks.md)
+* [Authenticate with Azure Container Registry from Azure Kubernetes Service (AKS)](../aks/cluster-container-registry-integration.md)
 
 <!-- IMAGES -->
 
 <!-- LINKS - External -->
+[acr-scripts-cli]: https://github.com/Azure/azure-docs-cli-python-samples/tree/master/container-registry
+[acr-scripts-psh]: https://github.com/Azure/azure-docs-powershell-samples/tree/master/container-registry
 
 <!-- LINKS - Internal -->

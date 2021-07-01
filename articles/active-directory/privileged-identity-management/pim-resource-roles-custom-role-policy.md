@@ -1,45 +1,49 @@
 ---
-title: Privileged Identity Management for Azure Resources - Use custom roles to target PIM settings| Microsoft Docs
-description: Describes how to use custom roles in PIM for Azure resources.
+title: Use Azure custom roles in PIM - Azure AD | Microsoft Docs
+description: Learn how to use Azure custom roles in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: billmath
-manager: mtillman
+author: curtand
+manager: daveba
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/30/2018
-ms.author: billmath
+ms.subservice: pim
+ms.date: 11/08/2019
+ms.author: curtand
+ms.collection: M365-identity-device-management
 ---
 
+# Use Azure custom roles in Privileged Identity Management
 
-# Use custom roles to target PIM settings
+You might need to apply strict Privileged Identity Management (PIM) settings to some users in a privileged role in your Azure Active Directory (Azure AD) organization, while providing greater autonomy for others. Consider for example a scenario in which your organization hires several contract associates to assist in the development of an application that will run in an Azure subscription.
 
-It may be necessary to apply strict PIM settings to some members of a role, while providing greater autonomy for others. Consider a scenario where your organization hires sevral contract associates to assist in the development of an application that will run in an Azure subscription. 
+As a resource administrator, you want employees to be eligible for access without requiring approval. However, all contract associates must be approved when they request access to the organization's resources.
 
-As a resource administrator, you would like employees of your organization to have eligible access without approval required, but all contract associates must seek approval when they request activation. Follow the steps below outline the process to enable targeted PIM settings for Azure resource roles.
+Follow the steps outlined in the next section to set up targeted Privileged Identity Management settings for Azure resource roles.
 
 ## Create the custom role
 
-[Use this guide to create a custom role for a resource](../role-based-access-control-custom-roles.md).
+To create a custom role for a resource, follow the steps described in [Azure custom roles](../../role-based-access-control/custom-roles.md).
 
-Include a descriptive name so you can easily remember which built-in role you intended to duplicate.
+When you create custom role, include a descriptive name so you can easily remember which built-in role you intended to duplicate.
 
->[!NOTE]
->Ensure the custom role is a duplicate of the role you intended, and its scope matches the built-in role.
+> [!NOTE]
+> Ensure that the custom role is a duplicate of the built-in role you want to duplicate, and that its scope matches the built-in role.
 
 ## Apply PIM settings
 
-Once the role is created in your tenant, navigate to PIM and select the resource the role is scoped to.
+After the role is created in your Azure AD organization, go to the **Privileged Identity Management - Azure resources** page in the Azure portal. Select the resource that the role applies to.
 
-![](media/azure-pim-resource-rbac/aadpim_manage_azure_resource_some_there.png)
+![The "Privileged Identity Management - Azure resources" pane](media/pim-resource-roles-custom-role-policy/aadpim-manage-azure-resource-some-there.png)
 
-[Configure PIM role settings](pim-resource-roles-configure-role-settings.md) that should apply to these members
+[Configure Privileged Identity Management role settings](pim-resource-roles-configure-role-settings.md) that should apply to these members of the role.
 
-Finally, [Assign roles](pim-resource-roles-assign-roles.md) to the distinct group of members you wish to target with these settings.
+Finally, [assign roles](pim-resource-roles-assign-roles.md) to the distinct group of members that you want to target with these settings.
 
 ## Next steps
 
-[Review the owners of subscription](pim-resource-roles-perform-access-review.md)
+- [Configure Azure resource role settings in Privileged Identity Management](pim-resource-roles-configure-role-settings.md)
+- [Custom roles in Azure](../../role-based-access-control/custom-roles.md)

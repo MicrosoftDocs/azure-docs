@@ -1,5 +1,5 @@
 ---
-title: 'About Network Monitoring in Log Analytics | Microsoft Docs'
+title: 'About Network Monitoring in Azure Monitor logs | Microsoft Docs'
 description: Overview of network monitoring solutions, including NPM, to manage networks across cloud, on-premises, and hybrid environments.
 services: monitoring-and-diagnostics
 documentationcenter: na
@@ -9,13 +9,13 @@ editor: ''
 tags: azure-resource-manager
 
 ms.assetid: 
-ms.service: monitoring-and-diagnostics
+ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
-ms.author: ajaycode
+ms.author: agummadi
 
 ---
 # Network monitoring solutions 
@@ -31,7 +31,7 @@ Network Performance Monitor (NPM) is a suite of capabilities, each of which is g
 * Mission critical multi-tier applications/micro-services
 * User locations and web-based applications (HTTP/HTTPs) 
 
-Performance Monitor, ExpressRoute Monitor, and Service Endpoint Monitor are monitoring capabilities within NPM and are described below.
+Performance Monitor, ExpressRoute Monitor, and Service Connectivity Monitor are monitoring capabilities within NPM and are described below.
 
 ## Performance Monitor
 
@@ -47,18 +47,21 @@ Performance Monitor is part of NPM and is network monitoring for cloud, hybrid, 
 
 For more information, view the following articles:
 
-* [Configure a Network Performance Monitor Solution in Log Analytics](../log-analytics/log-analytics-network-performance-monitor.md) 
-* [Use cases](https://blogs.technet.microsoft.com/msoms/2016/08/30/monitor-on-premises-cloud-iaas-and-hybrid-networks-using-oms-network-performance-monitor/)
-*  Product Updates: [February 2017](https://blogs.technet.microsoft.com/msoms/2017/02/27/oms-network-performance-monitor-is-now-generally-available/), [August 2017](https://blogs.technet.microsoft.com/msoms/2017/08/14/improvements-to-oms-network-performance-monitor/)
+* [Configure a Network Performance Monitor Solution in Azure Monitor logs](../azure-monitor/insights/network-performance-monitor.md) 
+* [Use cases](/archive/blogs/msoms/monitor-on-premises-cloud-iaas-and-hybrid-networks-using-oms-network-performance-monitor)
+* Product Updates:
+  * [February 2017](/archive/blogs/msoms/oms-network-performance-monitor-is-now-generally-available)
+  * [August 2017](/archive/blogs/msoms/improvements-to-oms-network-performance-monitor)
 
 ## ExpressRoute Monitor
 
-NPM for ExpressRoute offers comprehensive ExpressRoute monitoring for private peering connections. You can monitor E2E connectivity and performance between your branch offices and Azure over ExpressRoute. The key capabilities are:
+NPM for ExpressRoute offers comprehensive ExpressRoute monitoring for Azure Private peering and Microsoft peering connections. You can monitor E2E connectivity and performance between your branch offices and Azure over ExpressRoute. The key capabilities are:
 
 * Auto-detection of ER circuits associated with your subscription
 * Detection of network topology  from on-premises to your cloud applications
-* Capacity planning, utilization analysis, bandwidth utilization per Virtual Network
+* Capacity planning,  bandwidth utilization analysis
 * Monitoring and alerting on both primary and secondary paths
+* Monitoring connectivity to Azure services such as Microsoft 365, Dynamics 365, ... over ExpressRoute
 * Detect degradation of connectivity to VNets
 
 ![Geo-map showing traffic across regions](./media/network-monitoring-overview/expressroute-topology-map.png) 
@@ -68,20 +71,20 @@ For more information, see the following articles:
 * [Configure Network Performance Monitor for ExpressRoute](../expressroute/how-to-npm.md)
 * [Blog post](https://aka.ms/NPMExRmonitorGA)
 
-## Service Endpoint Monitor
+## Service Connectivity Monitor
 
-With Service Endpoint monitoring, you can now test reachability of applications and detect performance bottlenecks across on-premises, carrier networks and cloud/private data centers.
+With Service Connectivity monitoring, you can now test reachability of applications and detect performance bottlenecks across on-premises, carrier networks and cloud/private data centers.
 
 * Monitor end-to-end network connectivity to applications
 * Correlate application delivery with network performance, detect precise location of degradation along the path between the user and the application
 * Test application reachability from multiple user locations across the globe
 * Determine network latency and packet loss for your line of business and SaaS applications
 * Determine hot spots on the network, that may be causing poor application performance
-* Monitor reachability to  Office 365 applications, using built-in tests for Microsoft Office 365, Dynamics 365, Skype for Business and other Microsoft services
+* Monitor reachability to Microsoft 365 applications, using built-in tests for Microsoft 365, Dynamics 365, Skype for Business and other Microsoft services
 
 For more information, see the following articles:
 
-* [Configure Network Performance Monitor for monitoring Service Endpoints](https://aka.ms/applicationconnectivitymonitorguide)
+* [Configure Network Performance Monitor for monitoring Service Endpoints](../azure-monitor/insights/network-performance-monitor-service-connectivity.md#configuration)
 * [Blog post](https://aka.ms/svcendptmonitor)
 
 ## Traffic Analytics
@@ -96,10 +99,10 @@ Traffic Analytics is a cloud-based solution that provides  visibility into user 
 
 Traffic Analytics equips you with actionable information that helps you audit your organization’s network activity, secure applications and data,  optimize workload performance and stay compliant.
 
-![Geo-map showing traffic across regions](../network-watcher/media/traffic-analytics/geo-map-view-showcasing-traffic-distribution-to-countries-and-continents.png) 
+![Geo-map showing traffic across regions 2](../network-watcher/media/traffic-analytics/geo-map-view-showcasing-traffic-distribution-to-countries-and-continents.png) 
 
 Related links:
-* [Blog post](https://aka.ms/trafficanalytics), [Documentation](https://aka.ms/trafficanalyticsdocs), [FAQ](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-faq)
+* [Blog post](https://aka.ms/trafficanalytics), [Documentation](../network-watcher/traffic-analytics.md), [FAQ](../network-watcher/traffic-analytics-faq.yml)
 
 ## DNS Analytics
 Built for DNS Administrators, this solution collects, analyzes, and correlates DNS logs to provide security, operations, and performance-related insights.  Some of the capabilities are:
@@ -113,8 +116,8 @@ Built for DNS Administrators, this solution collects, analyzes, and correlates D
 ![DNS Analytics Dashboard](./media/network-monitoring-overview/dns-analytics-overview.png) 
 
 Related links:
-* [Blog post](https://blogs.technet.microsoft.com/msoms/2017/04/19/introducing-oms-dns-analytics/), [Documentation](https://docs.microsoft.com/azure/log-analytics/log-analytics-dns)
+* [Blog post](/archive/blogs/msoms/introducing-oms-dns-analytics), [Documentation](../azure-monitor/insights/dns-analytics.md)
 
 ## Miscellaneous
 
-* [New Pricing](https://docs.microsoft.com/azure/log-analytics/log-analytics-network-performance-monitor-pricing-faq)
+* [New Pricing](../azure-monitor/insights/network-performance-monitor-pricing-faq.md)

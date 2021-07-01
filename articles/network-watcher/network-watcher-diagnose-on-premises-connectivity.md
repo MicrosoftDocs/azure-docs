@@ -1,40 +1,41 @@
 ---
-title: Diagnose On-Premises connectivity via VPN gateway with Azure Network Watcher | Microsoft Docs
+title: Diagnose On-Premises connectivity via VPN gateway
+titleSuffix: Azure Network Watcher
 description: This article describes how to diagnose on-premises connectivity via VPN gateway with Azure Network Watcher resource troubleshooting.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: timlt
-editor:
-
+author: damendo
 ms.assetid: aeffbf3d-fd19-4d61-831d-a7114f7534f9
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
-ms.date: 02/22/2017
-ms.author: jdial
+ms.date: 01/07/2021
+ms.author: damendo
 ---
 
 # Diagnose on-premises connectivity via VPN gateways
 
-Azure VPN Gateway enables you to create hybrid solution that address the need for a secure connection between your on-premises network and your Azure virtual network. As your requirements are unique, so is the choice of on-premises VPN device. Azure currently supports [several VPN devices](../vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable) that are constantly validated in partnership with the device vendors. Review the device-specific configuration settings before configuring your on-premises VPN device. Similarly, Azure VPN Gateway is configured with a set of [supported IPsec parameters](../vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec) that are used for establishing connections. Currently there is no way for you to specify or select a specific combination of IPsec parameters from the Azure VPN Gateway. For establishing a successful connection between on-premises and Azure, the on-premises VPN device settings must be in accordance with the IPsec parameters prescribed by Azure VPN Gateway. If the settings are in correct, there is a loss of connectivity and until now troubleshooting these issues was not trivial and usually took hours to identify and fix the issue.
+Azure VPN Gateway enables you to create hybrid solution that address the need for a secure connection between your on-premises network and your Azure virtual network. As your requirements are unique, so is the choice of on-premises VPN device. Azure currently supports [several VPN devices](../vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable) that are constantly validated in partnership with the device vendors. Review the device-specific configuration settings before configuring your on-premises VPN device. Similarly, Azure VPN Gateway is configured with a set of [supported IPsec parameters](../vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec) that are used for establishing connections. Currently there is no way for you to specify or select a specific combination of IPsec parameters from the Azure VPN Gateway. For establishing a successful connection between on-premises and Azure, the on-premises VPN device settings must be in accordance with the IPsec parameters prescribed by Azure VPN Gateway. If the settings are incorrect, there is a loss of connectivity and until now troubleshooting these issues was not trivial and usually took hours to identify and fix the issue.
 
 With the Azure Network Watcher troubleshoot feature, you are able to diagnose any issues with your Gateway and Connections and within minutes have enough information to make an informed decision to rectify the issue.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Scenario
 
 You want to configure a site-to-site connection between Azure and on-premises using FortiGate as the on-premises VPN Gateway. To achieve this scenario, you would require the following setup:
 
 1. Virtual Network Gateway - The VPN Gateway on Azure
-1. Local Network Gateway - The [on-premises (FortiGate) VPN Gateway](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway) representation in Azure cloud
-1. Site-to-site connection (route based) - [Connection between the VPN Gateway and the on-premises router](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#createconnection)
+1. Local Network Gateway - The [on-premises (FortiGate) VPN Gateway](../vpn-gateway/tutorial-site-to-site-portal.md#LocalNetworkGateway) representation in Azure cloud
+1. Site-to-site connection (route based) - [Connection between the VPN Gateway and the on-premises router](../vpn-gateway/tutorial-site-to-site-portal.md#CreateConnection)
 1. [Configuring FortiGate](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Fortinet/Current/Site-to-Site_VPN_using_FortiGate.md)
 
-Detailed step by step guidance for configuring a Site-to-Site configuration can be found by visiting: [Create a VNet with a Site-to-Site connection using the Azure portal](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+Detailed step by step guidance for configuring a Site-to-Site configuration can be found by visiting: [Create a VNet with a Site-to-Site connection using the Azure portal](../vpn-gateway/tutorial-site-to-site-portal.md).
 
-One of the critical configuration steps is configuring the IPsec communication parameters, any misconfiguration leads to loss of connectivity between the on-premises network and Azure. Currently Azure VPN Gateways are configured to support the following IPsec parameters for Phase 1. Note, as mentioned earlier these settings cannot be modified.  As you can see in the table below, the encryption algorithms supported by Azure VPN Gateway are AES256, AES128, and 3DES.
+One of the critical configuration steps is configuring the IPsec communication parameters, any misconfiguration leads to loss of connectivity between the on-premises network and Azure. Currently Azure VPN Gateways are configured to support the following IPsec parameters for Phase 1. As you can see in the table below, the encryption algorithms supported by Azure VPN Gateway are AES256, AES128, and 3DES.
 
 ### IKE phase 1 setup
 
@@ -45,7 +46,7 @@ One of the critical configuration steps is configuring the IPsec communication p
 | Authentication Method |Pre-Shared Key |Pre-Shared Key |
 | Encryption Algorithms |AES256 AES128 3DES |AES256 3DES |
 | Hashing Algorithm |SHA1(SHA128) |SHA1(SHA128), SHA2(SHA256) |
-| Phase 1 Security Association (SA) Lifetime (Time) |28,800 seconds |10,800 seconds |
+| Phase 1 Security Association (SA) Lifetime (Time) |28,800 seconds |28,800 seconds |
 
 As a user, you would be required to configure your FortiGate, a sample configuration can be found on [GitHub](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Fortinet/Current/fortigate_show%20full-configuration.txt). Unknowingly you configured your FortiGate to use SHA-512 as the hashing algorithm. As this algorithm is not a supported algorithm for policy-based connections, your VPN connection does work.
 
@@ -53,7 +54,7 @@ These issues are hard to troubleshoot and root causes are often non-intuitive. I
 
 ## Troubleshooting using Azure Network Watcher
 
-To diagnose your connection, connect to Azure PowerShell and initiate the `Start-AzureRmNetworkWatcherResourceTroubleshooting` cmdlet. You can find the details on using this cmdlet at [Troubleshoot Virtual Network Gateway and connections - PowerShell](network-watcher-troubleshoot-manage-powershell.md). This cmdlet may take up to few minutes to complete.
+To diagnose your connection, connect to Azure PowerShell and initiate the `Start-AzNetworkWatcherResourceTroubleshooting` cmdlet. You can find the details on using this cmdlet at [Troubleshoot Virtual Network Gateway and connections - PowerShell](network-watcher-troubleshoot-manage-powershell.md). This cmdlet may take up to few minutes to complete.
 
 Once the cmdlet completes, you can navigate to the storage location specified in the cmdlet to get detailed information on about the issue and logs. Azure Network Watcher creates a zip folder that contains the following log files:
 
@@ -99,7 +100,7 @@ Azure Network Watcher troubleshoot feature enables you to diagnose and troublesh
 | ConnectionEntityNotFound | Connection configuration is missing. | No |
 | ConnectionIsMarkedDisconnected | The Connection is marked "disconnected." |No|
 | ConnectionNotConfiguredOnGateway | The underlying service does not have the Connection configured. | Yes |
-| ConnectionMarkedStandy | The underlying service is marked as standby.| Yes|
+| ConnectionMarkedStandby | The underlying service is marked as standby.| Yes|
 | Authentication | Preshared Key mismatch. | Yes|
 | PeerReachability | The peer gateway is not reachable. | Yes|
 | IkePolicyMismatch | The peer gateway has IKE policies that are not supported by Azure. | Yes|

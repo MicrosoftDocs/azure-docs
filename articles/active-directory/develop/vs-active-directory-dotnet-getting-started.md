@@ -1,21 +1,15 @@
 ---
-title: Get Started with Azure AD in Visual Studio .NET MVC projects | Microsoft Docs
+title: Get started with Azure AD in .NET MVC projects | Azure
 description: How to get started using Azure Active Directory in .NET MVC projects after connecting to or creating an Azure AD using Visual Studio connected services
-services: active-directory
-documentationcenter: ''
 author: ghogen
-manager: douge
-editor: ''
-
-ms.assetid: 1c8b6a58-5144-4965-a905-625b9ee7b22b
-ms.service: active-directory
-ms.workload: web
-ms.tgt_pltfrm: vs-getting-started
-ms.devlang: na
-ms.topic: article
+manager: jillfra
+ms.prod: visual-studio-windows
+ms.technology: vs-azure
+ms.workload: azure-vs
+ms.topic: how-to
 ms.date: 03/12/2018
 ms.author: ghogen
-ms.custom: aaddev
+ms.custom: "devx-track-csharp, aaddev, vs-azure"
 
 ---
 # Getting Started with Azure Active Directory (ASP.NET MVC Projects)
@@ -83,5 +77,5 @@ To add the SignIn/SignOut controls to your view, you can use the `_LoginPartial.
 
 ## Next steps
 
-- [Authentication scenarios for Azure Active Directory](active-directory-authentication-scenarios.md)
-- [Add sign-in with Microsoft to an ASP.NET web app](guidedsetups/active-directory-aspnetwebapp-v1.md)
+- [Authentication scenarios for Azure Active Directory](./authentication-vs-authorization.md)
+- [Add sign-in with Microsoft to an ASP.NET web app](quickstart-v2-aspnet-webapp.md)

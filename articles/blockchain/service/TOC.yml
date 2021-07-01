@@ -1,0 +1,94 @@
+- name: Azure Blockchain Service (Preview)
+  href: index.yml
+- name: Overview
+  items:
+  - name: About Azure Blockchain Service
+    href: overview.md
+  - name: What's new
+    href: whats-new.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Create member using Portal
+    href: create-member.md
+  - name: Create member using CLI
+    href: create-member-cli.md
+  - name: Create member using Azure PowerShell
+    href: create-member-powershell.md
+  - name: Create member using ARM template
+    displayName: Resource Manager
+    href: create-member-template.md
+  - name: Connect to transaction node
+    items:
+    - name: Using VS Code
+      href: connect-vscode.md
+    - name: Using MetaMask
+      href: connect-metamask.md
+    - name: Using Geth
+      href: connect-geth.md
+- name: Tutorials
+  items:
+  - name: Create smart contracts
+    href: send-transaction.md
+  - name: Publish data using Data Manager
+    href: data-manager-cosmosdb.md
+- name: Concepts
+  items:
+  - name: Consortium
+    href: consortium.md
+  - name: Data access and security
+    href: data-security.md
+  - name: Data manager overview
+    href: data-manager.md
+  - name: Develop
+    href: develop.md
+  - name: Limits
+    href: limits.md
+  - name: Patching, updating, versioning
+    href: ledger-versions.md
+- name: How-to guides
+  items:
+  - name: Configure Azure AD access
+    href: configure-aad.md
+  - name: Configure Data Manager - Portal
+    href: data-manager-portal.md
+  - name: Configure Data Manager - CLI
+    href: data-manager-cli.md
+  - name: Configure transaction nodes
+    href: configure-transaction-nodes.md
+  - name: Manage using Azure CLI
+    href: manage-cli.md
+  - name: Manage consortium using PowerShell
+    href: manage-consortium-powershell.md
+  - name: Migration guide
+    href: migration-guide.md
+  - name: Use Logic Apps
+    href: ethereum-logic-app.md
+  - name: Monitor Azure Blockchain Service
+    href: monitor-azure-blockchain-service.md
+- name: Reference
+  items:
+  - name: Azure CLI
+    href: /cli/azure/blockchain
+- name: Resources
+  items:
+  - name: Azure Blockchain dev kit
+    href: https://github.com/Microsoft/vscode-azure-blockchain-ethereum/wiki
+  - name: Blockchain REST API
+    href: /rest/api/blockchain/
+  - name: Code samples
+    href: https://github.com/Azure-Samples/blockchain
+  - name: Blog
+    href: https://azure.microsoft.com/blog/topics/blockchain/
+  - name: Microsoft Q&A question page
+    href: /answers/topics/azure-blockchain-service.html
+  - name: Community support
+    href: https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain
+  - name: Stack Overflow support
+    href: https://stackoverflow.com/questions/tagged/azure-blockchain-service
+  - name: Product feedback
+    href: https://feedback.azure.com/forums/921130-azure-blockchain-service
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/blockchain-service
+  - name: Region availability
+    href: https://azure.microsoft.com/global-infrastructure/services/?products=blockchainservice

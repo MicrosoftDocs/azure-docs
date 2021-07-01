@@ -1,22 +1,15 @@
 ---
-title: Changes made to a MVC project when you connect to Azure AD | Microsoft Docs
+title: Changes made to a MVC project when you connect to Azure AD
 description: Describes what happens to your MVC project when you connect to Azure AD by using Visual Studio connected services
-services: active-directory
-documentationcenter: na
 author: ghogen
-manager: douge
-editor: ''
-
-ms.assetid: 8b24adde-547e-4ffe-824a-2029ba210216
-ms.service: active-directory
-ms.workload: web
-ms.tgt_pltfrm: vs-what-happened
-ms.devlang: na
-ms.topic: article
+manager: jillfra
+ms.prod: visual-studio-windows
+ms.technology: vs-azure
+ms.workload: azure-vs
+ms.topic: how-to
 ms.date: 03/12/2018
 ms.author: ghogen
-ms.custom: aaddev
-
+ms.custom: "devx-track-csharp, aaddev, vs-azure"
 ---
 # What happened to my MVC project (Visual Studio Azure Active Directory connected service)?
 
@@ -24,13 +17,13 @@ ms.custom: aaddev
 > - [Getting Started](vs-active-directory-dotnet-getting-started.md)
 > - [What Happened](vs-active-directory-dotnet-what-happened.md)
 
-This article identifies the exact changes made to am ASP.NET MVC project when adding the [Azure Active Directory connected service using Visual Studio](vs-active-directory-add-connected-service.md).
+This article identifies the exact changes made to an ASP.NET MVC project when adding the [Azure Active Directory connected service using Visual Studio](vs-active-directory-add-connected-service.md).
 
 For information on working with the connected service, see [Getting Started](vs-active-directory-dotnet-getting-started.md).
 
 ## Added references
 
-Affects the project file *.NET references) and `packages.config` (NuGet references).
+Affects the project file (*.NET references) and `packages.config` (NuGet references).
 
 | Type | Reference |
 | --- | --- |
@@ -101,7 +94,7 @@ Additional changes if you selected the **Read directory data** option:
 
     ```xml
     <configSections>
-      <!-- For more information on Entity Framework configuration, visit http://go.microsoft.com/fwlink/?LinkID=237468 -->
+      <!-- For more information on Entity Framework configuration, visit https://go.microsoft.com/fwlink/?LinkID=237468 -->
       <section name="entityFramework" type="System.Data.Entity.Internal.ConfigFile.EntityFrameworkSection, EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />
     </configSections>
 
@@ -143,7 +136,7 @@ Additional changes if you selected the **Read directory data** option:
 
 ### File backup (Visual Studio 2015)
 
-When adding the connected service, Visual Studio 2015 backs up changed and removed files. All affected files are saved in the folder `Backup/AzureAD`. Visual Studio 2017 does not create backups.
+When adding the connected service, Visual Studio 2015 backs up changed and removed files. All affected files are saved in the folder `Backup/AzureAD`. Visual Studio 2017 and later does not create backups.
 
 - `Startup.cs`
 - `App_Start\IdentityConfig.cs`
@@ -163,5 +156,5 @@ When adding the connected service, Visual Studio 2015 backs up changed and remov
 
 ## Next steps
 
-- [Authentication scenarios for Azure Active Directory](active-directory-authentication-scenarios.md)
-- [Add sign-in with Microsoft to an ASP.NET web app](guidedsetups/active-directory-aspnetwebapp-v1.md)
+- [Authentication scenarios for Azure Active Directory](./authentication-vs-authorization.md)
+- [Add sign-in with Microsoft to an ASP.NET web app](quickstart-v2-aspnet-webapp.md)

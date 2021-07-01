@@ -1,31 +1,26 @@
 ---
 title: Azure Germany available services | Microsoft Docs
-description: Provides an overview of the available services in Azure Germany
-services: germany
-cloud: na
-documentationcenter: na
-author: gitralf
-manager: chsieg
-
-ms.assetid: na
-ms.service: germany
-ms.devlang: na
+description: This article provides an overview of the available services in Azure Germany.
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 07/20/2017
-ms.author: ralfwi
+ms.date: 10/16/2020
+author: gitralf
+ms.author: ralfwi 
+ms.service: germany
+ms.custom: bfdocs
 ---
 
 # Available services in Azure Germany
-Azure Germany is continually expanding its services. These services are deployed through the same code that's used in global Azure. This article documents the services that are currently available in Azure Germany. 
+
+[!INCLUDE [closureinfo](../../includes/germany-closure-info.md)]
+
+Azure Germany is no longer expanding its services. This article documents the services that are currently available in Azure Germany. 
 
 >[!NOTE]
 > For the most up-to-date list of services, see [Products by region](https://azure.microsoft.com/regions/services/). 
 >
 >
 
-In the following tables, services specified as Azure Resource Manager enabled have resource providers and can be managed through PowerShell. For detailed information on Resource Manager providers, API versions, and schemas, see [Resource Manager supported services](../azure-resource-manager/resource-manager-supported-services.md). Services specified as available in the portal can be managed in the [Azure Germany portal](http://portal.microsoftazure.de/). 
+In the following tables, services specified as Azure Resource Manager enabled have resource providers and can be managed through PowerShell. For detailed information on Resource Manager providers, API versions, and schemas, see [Resource Manager supported services](../azure-resource-manager/management/resource-providers-and-types.md). Services specified as available in the portal can be managed in the [Azure Germany portal](https://portal.microsoftazure.de/). 
 
 ## [Compute](./germany-services-compute.md)
 
@@ -75,9 +70,9 @@ In the following tables, services specified as Azure Resource Manager enabled ha
 | Service | Resource Manager | Portal |
 | --- | --- | --- |
 | [SQL Database](./germany-services-database.md#sql-database) | Yes | Yes |
-| SQL Data Warehouse | Yes | Yes |
+| Azure Synapse Analytics | Yes | Yes |
 | SQL Server Stretch Database | Yes | Yes |
-| [Azure Redis Cache](./germany-services-database.md#azure-redis-cache) | Yes | Yes |
+| [Azure Cache for Redis](./germany-services-database.md#azure-cache-for-redis) | Yes | Yes |
 | Azure Cosmos DB | Yes | Yes |
 
 
@@ -125,11 +120,10 @@ In the following tables, services specified as Azure Resource Manager enabled ha
 | --- | --- | --- |
 | Automation | No | No |
 | Backup | Yes | Yes |
-| Log Analytics | No | No |
+| Azure Monitor logs | No | No |
 | Site Recovery | Yes | Yes |
-| Scheduler | Yes | Yes |
 
 
 
 ## Next steps
-For supplemental information and updates, subscribe to the [Microsoft Azure Germany blog](https://blogs.msdn.microsoft.com/azuregermany/).
+For supplemental information and updates, subscribe to the [Microsoft Azure Germany blog](/archive/blogs/azuregermany/).

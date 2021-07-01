@@ -1,17 +1,14 @@
 ---
-title: Configure metrics alerts for Azure Database for PostgreSQL in Azure portal
-description: This article describes how to configure and access metric alerts for Azure Database for PostgreSQL from the Azure portal.
-services: postgresql
-author: rachel-msft
-ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
+title: Configure alerts - Azure portal -  Azure Database for PostgreSQL - Single Server
+description: This article describes how to configure and access metric alerts for Azure Database for PostgreSQL - Single Server from the Azure portal.
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
-ms.topic: article
-ms.date: 02/28/2018
+ms.topic: how-to
+ms.date: 5/6/2019
 ---
 
-# Use the Azure portal to set up alerts on metrics for Azure Database for PostgreSQL 
+# Use the Azure portal to set up alerts on metrics for Azure Database for PostgreSQL - Single Server
 
 This article shows you how to set up Azure Database for PostgreSQL alerts using the Azure portal. You can receive an alert based on monitoring metrics for your Azure services.
 
@@ -23,50 +20,56 @@ You can configure an alert to do the following actions when it triggers:
 * Call a webhook.
 
 You can configure and get information about alert rules using:
-* [Azure portal](../monitoring-and-diagnostics/insights-alerts-portal.md)
-* [PowerShell](../monitoring-and-diagnostics/insights-alerts-powershell.md)
-* [Command-line interface (CLI)](../monitoring-and-diagnostics/insights-alerts-command-line-interface.md)
-* [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
+* [Azure portal](../azure-monitor/alerts/alerts-metric.md#create-with-azure-portal)
+* [Azure CLI](../azure-monitor/alerts/alerts-metric.md#with-azure-cli)
+* [Azure Monitor REST API](/rest/api/monitor/metricalerts)
 
 ## Create an alert rule on a metric from the Azure portal
 1. In the [Azure portal](https://portal.azure.com/), select the Azure Database for PostgreSQL server you want to monitor.
 
-2. Under the **Monitoring** section of the sidebar, select **Alert rules** as shown:
+2. Under the **Monitoring** section of the sidebar, select **Alerts** as shown:
 
-   ![Select Alert rules](./media/howto-alert-on-metric/1-alert-rules.png)
+   :::image type="content" source="./media/howto-alert-on-metric/2-alert-rules.png" alt-text="Select Alert Rules":::
 
-3. Select **Add metric alert** (+ icon). 
+3. Select **Add metric alert** (+ icon).
 
-4. The **Add rule** page opens as shown below.  Fill in the required information:
+4. The **Create rule** page opens as shown below. Fill in the required information:
 
-   ![Add metric alert form](./media/howto-alert-on-metric/2-add-rule-form.png)
+   :::image type="content" source="./media/howto-alert-on-metric/4-add-rule-form.png" alt-text="Add metric alert form":::
 
-   | Setting | Description  |
-   |---------|---------|
-   | Name | Provide a name for the alert rule. This value is sent in the alert notification email. |
-   | Description | Provide a short description of the alert rule. This value is sent in the alert notification email. |
-   | Alert on | Choose **Metrics** for this kind of alert. |
-   | Subscription | This field is prepopulated with the subscription that hosts your Azure Database for PostgreSQL. |
-   | Resource group | This field is prepopulated with the resource group of your Azure Database for PostgreSQL. |
-   | Resource | This field is prepopulated with the name of your Azure Database for PostgreSQL. |
-   | Metric | Select the metric that you want to issue an alert for. For example, **Storage percentage**. |
-   | Condition | Choose the condition for the metric to be compared with. For example, **Greater than**. |
-   | Threshold | Threshold value for the metric, for example 85 (percent). |
-   | Period | The period of time that the metric rule must be satisfied before the alert triggers. For example, **Over the last 30 minutes**. |
+5. Within the **Condition** section, select **Add condition**.
 
-   Based on the example, the alert looks for Storage percentage above 85% over a 30-minute period. That alert triggers when the average Storage percentage has been above 85% for 30 minutes. Once the first trigger occurs, it triggers again when the average Storage percentage is below 85% over 30 minutes.
+6. Select a metric from the list of signals to be alerted on. In this example, select "Storage percent".
+   
+   :::image type="content" source="./media/howto-alert-on-metric/6-configure-signal-logic.png" alt-text="Select metric":::
 
-5. Choose the notification method you want for the alert rule. 
+7. Configure the alert logic including the **Condition** (ex. "Greater than"), **Threshold** (ex. 85 percent), **Time Aggregation**, **Period** of time the metric rule must be satisfied before the alert triggers (ex. "Over the last 30 minutes"), and **Frequency**.
+   
+   Select **Done** when complete.
 
-   Check **Email owners, contributors, and readers** option if you want the subscription administrators and co-administrators to be emailed when the alert fires.
+   :::image type="content" source="./media/howto-alert-on-metric/7-set-threshold-time.png" alt-text="Screenshot that highlights the Alert logic section and the Done button.":::
 
-   If you want additional emails to receive a notification when the alert fires, add them in the **Additional administrator email(s)** field. Separate multiple emails with semi-colons - *email@contoso.com;email2@contoso.com*
+8. Within the **Action Groups** section, select **Create New** to create a new group to receive notifications on the alert.
 
-   Optionally, provide a valid URI in the **Webhook** field if you want it called when the alert fires.
+9. Fill out the "Add action group" form with a name, short name, subscription, and resource group.
 
-6. Select **OK** to create the alert.
+10. Configure an **Email/SMS/Push/Voice** action type.
+    
+    Choose "Email Azure Resource Manager Role" to select subscription Owners, Contributors, and Readers to receive notifications.
+   
+    Optionally, provide a valid URI in the **Webhook** field if you want it called when the alert fires.
 
-   Within a few minutes, the alert is active and triggers as previously described.
+    Select **OK** when completed.
+
+    :::image type="content" source="./media/howto-alert-on-metric/10-action-group-type.png" alt-text="Screenshot that shows how to add a new action group.":::
+
+11. Specify an Alert rule name, Description, and Severity.
+
+    :::image type="content" source="./media/howto-alert-on-metric/11-name-description-severity.png" alt-text="Action group"::: 
+
+12. Select **Create alert rule** to create the alert.
+
+    Within a few minutes, the alert is active and triggers as previously described.
 
 ## Manage your alerts
 Once you have created an alert, you can select it and do the following actions:
@@ -76,5 +79,5 @@ Once you have created an alert, you can select it and do the following actions:
 * **Disable** or **Enable** the alert, if you want to temporarily stop or resume receiving notifications.
 
 ## Next steps
-* Learn more about [configuring webhooks in alerts](../monitoring-and-diagnostics/insights-webhooks-alerts.md).
-* Get an [overview of metrics collection](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) to make sure your service is available and responsive.
+* Learn more about [configuring webhooks in alerts](../azure-monitor/alerts/alerts-webhooks.md).
+* Get an [overview of metrics collection](../azure-monitor/data-platform.md) to make sure your service is available and responsive.
