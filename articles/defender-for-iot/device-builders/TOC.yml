@@ -53,7 +53,7 @@
     href: concept-security-agent-authentication.md
   - name: Security posture - CIS benchmark
     href: concept-security-posture.md
-  - name: Event aggregation (Preview)
+  - name: Micro agent event collection (Preview)
     displayName: process events, network connection
     href: concept-event-aggregation.md
   - name: Built-in alerts for IoT Hub
