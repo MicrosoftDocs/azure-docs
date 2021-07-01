@@ -196,7 +196,6 @@ In case of any organizational restrictions, you can manually set up the Site Rec
     - In **User settings**, verify that Azure AD users can register applications (set to *Yes* by default).
     - In case the **App registrations** setting is set to *No*, request the tenant/global admin to assign the required permission. Alternately, the tenant/global admin can assign the *Application Developer* role to an account to allow the registration of AAD App. [Learn more](/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
 
-
 8. Ensure the prerequisites are met, proceed with registration.
 
     - **Friendly name of appliance** : Provide a friendly name with which you want to track this appliance in the Azure portal under recovery services vault infrastructure.
@@ -206,11 +205,11 @@ In case of any organizational restrictions, you can manually set up the Site Rec
     - After pasting the key, select **Login.**
     You will be redirected to a new authentication tab.
 
-    By default, an authentication code will be generated as highlighted below, in the authentication manager page. Use this code in the authentication tab.
+      By default, an authentication code will be generated as highlighted below, in the authentication manager page. Use this code in the authentication tab.
 
     - Enter your Microsoft Azure credentials to complete registration.
 
-    After successful registration, you can close the tab and move to configuration manager to continue the set up.
+      After successful registration, you can close the tab and move to configuration manager to continue the set up.
 
     [![Register recovery service vault](./media/deploy-vmware-azure-replication-appliance-preview/register-recovery-services-vault-inline.png)](./media/deploy-vmware-azure-replication-appliance-preview/register-recovery-services-vault-expanded.png#lightbox)
 
@@ -224,7 +223,7 @@ In case of any organizational restrictions, you can manually set up the Site Rec
 
 10. After successful login, Subscription, Resource Group and Recovery Services vault details are displayed. You can logout in case you want to change the vault. Else, Select **Continue** to proceed.
 
-  After successful registration, proceed to configure vCenter details.
+    After successful registration, proceed to configure vCenter details.
 
 11. Select **Add vCenter Server** to add vCenter information. Enter the server name or IP address of the vCenter and port information. Post that, provide username, password and friendly name and is used to fetch details of [virtual machine managed through the vCenter](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery). The user account details will be encrypted and stored locally in the machine.
 
