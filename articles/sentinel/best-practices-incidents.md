@@ -1,5 +1,5 @@
 ---
-titles: Best practices for incident management and response in Azure Sentinel
+title: Best practices for incident management and response in Azure Sentinel
 description: Learn about best practices for managing and responding to incidents in Azure Sentinel.
 services: sentinel
 author: batamig

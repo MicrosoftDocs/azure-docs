@@ -29,7 +29,7 @@ Schedule the following Azure Sentinel activities on a regular basis to ensure co
 
 - **Analytic rules**.  Review and enable new Analytic Rules as applicable, including both newly released or newly available rules due to recently connected Data Connectors.
 
-- **Data connectors**. Review the status and date and time of the last log received to ensure data is flowing. Check for new connectors, and review ingestion to ensure that ingestion has not gone over set limit.   For more information, see [Data collection best practices](data-collection-overview.md) and [Connect data sources](connect-data-sources.md).
+- **Data connectors**. Review the status and date and time of the last log received to ensure data is flowing. Check for new connectors, and review ingestion to ensure that ingestion has not gone over set limit.   For more information, see [Data collection best practices](best-practices-data.md) and [Connect data sources](connect-data-sources.md).
 
 - **Log Analytics Agent**. Verify that servers and workstations are actively connected to the workspace. Troubleshoot and remediate failed connections.   For more information, see     [Log Analytics Agent overview](/azure/azure-monitor/agents/log-analytics-agent).
 
