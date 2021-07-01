@@ -11,6 +11,7 @@ ms.subservice: security
 ms.date: 12/03/2020 
 ms.author: ronytho
 ms.reviewer: jrasnick
+ms.custom: subject-rbac-steps
 ---
 
 # How to set up access control for your Synapse workspace 
