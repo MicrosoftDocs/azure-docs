@@ -33,6 +33,10 @@ When you need to take on an privileged access group role, you can request activa
 
 1. Select **Privileged access groups (Preview)** and then select **Activate role** to open the **My roles** page for privileged access groups.
 
+1. On the **My roles** page, select **Activate** on the row of the eligible assignment you want to activate.
+
+    ![Activate link on the eligible role assignment row](./media/groups-activate-roles/groups-activate-link.png)
+
 1. If your role requires multi-factor authentication, select **Verify your identity before proceeding**. You only have to authenticate once per session.
 
     ![Verify my identity with MFA before role activation](./media/groups-activate-roles/groups-my-roles-mfa.png)
@@ -41,13 +45,15 @@ When you need to take on an privileged access group role, you can request activa
 
     ![Screen to provide security verification such as a PIN code](./media/groups-activate-roles/groups-mfa-enter-code.png)
 
-1. If necessary, specify a custom activation start time. The member or owner can be activated only after the selected time.
+1. If necessary, specify a custom activation start time. The member or owner is to be activated only after the selected time.
 
 1. In the **Reason** box, enter the reason for the activation request.
 
+    ![Activate link on the eligible role assignment row](./media/groups-activate-roles/groups-activate-link.png)
+
 1. Select **Activate**.
 
-    If the [role requires approval](pim-resource-roles-approval-workflow.md) to activate, a notification will appear in the upper right corner of your browser informing you the request is pending approval.
+If the [role requires approval](pim-resource-roles-approval-workflow.md) to activate, an Azure notification appears in the upper right corner of your browser informing you the request is pending approval.
 
 ## View the status of your requests
 
@@ -57,7 +63,7 @@ You can view the status of your pending requests to activate.
 
 1. Select **My requests** to see a list of your Azure AD role and privileged access group role requests.
 
-1. Scroll to the right to view the **Request Status** column.
+1. Scroll to the right, if needed, to view the **Request Status** column.
 
 ## Cancel a pending request
 
