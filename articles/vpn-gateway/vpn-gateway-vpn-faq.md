@@ -75,7 +75,7 @@ Route-based gateways implement the route-based VPNs. Route-based VPNs use "route
 
 ### Can I specify my own policy-based traffic selectors?
 
-Yes, traffic selectors can be defined via the *trafficSelectorPolicies* attribute on a connection via the [New-AzIpsecTrafficSelectorPolicy](https://docs.microsoft.com/en-us/powershell/module/az.network/new-azipsectrafficselectorpolicy?view=azps-6.1.0) PowerShell command. For the specified traffic selector to take effect, ensure the [Use Policy Based Traffic Selectors](vpn-gateway-connect-multiple-policybased-rm-ps.md#enablepolicybased) option is enabled.
+Yes, traffic selectors can be defined via the *trafficSelectorPolicies* attribute on a connection via the [New-AzIpsecTrafficSelectorPolicy](https://docs.microsoft.com/powershell/module/az.network/new-azipsectrafficselectorpolicy) PowerShell command. For the specified traffic selector to take effect, ensure the [Use Policy Based Traffic Selectors](vpn-gateway-connect-multiple-policybased-rm-ps.md#enablepolicybased) option is enabled.
 
 ### Can I update my policy-based VPN gateway to route-based?
 
