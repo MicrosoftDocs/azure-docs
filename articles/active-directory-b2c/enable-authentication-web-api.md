@@ -498,7 +498,7 @@ To stop the program, in the command shell press `Ctrl+C`. You can rerun the app 
 > [!TIP]
 > Alternatively to run the `dotnet run` command, use [VS Code debugger](https://code.visualstudio.com/docs/editor/debugging). VS Code's built-in debugger helps accelerate your edit, compile and debug loop.
 
-Open a browser and go to http://localhost:6000/public. In the browser window, you should see the following text displayed the current date and time.
+Open a browser and go to `http://localhost:6000/public`. In the browser window, you should see the following text displayed the current date and time.
 
 
 
@@ -522,13 +522,13 @@ To stop the program, in the command shell press `Ctrl+C`. You can rerun the app 
 > [!TIP]
 > Alternatively to run the `node app.js` command, use [VS Code debugger](https://code.visualstudio.com/docs/editor/debugging). VS Code's built-in debugger helps accelerate your edit, compile and debug loop.
 
-Open a browser and go to http://localhost:6000/public. In the browser window, you should see the following text displayed the current date and time.
+Open a browser and go to `http://localhost:6000/public`. In the browser window, you should see the following text displayed the current date and time.
 
 ---
 
 ## Calling the web API from your app
 
-First try to call the protected web API endpoint without an access token. Open a browser and go to http://localhost:6000/hello. The API will return unauthorized HTTP error message, confirming that web API is protected with a bearer token.
+First try to call the protected web API endpoint without an access token. Open a browser and go to `http://localhost:6000/hello`. The API will return unauthorized HTTP error message, confirming that web API is protected with a bearer token.
 
 Continue to configure your app to call the web API. For guidance, see the [Prerequisites](#prerequisites) section.
 
@@ -545,6 +545,3 @@ Get the complete example on GitHub:
 * [Node.js Web API using the Passport.js library](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi)
 
 ---
-
-
-
