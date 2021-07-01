@@ -17,7 +17,8 @@ ms.custom: seodec18
 
 This article discusses the two types of Azure Time Series Insights access policies.
 
-> **Warning**: Access Policies grant AAD Users and/or Groups Data Plane access to your Time Series Insights Environment.
+> [!Warning]
+> Access Policies grant Azure AD Users and/or Groups Data Plane access to your Time Series Insights Environment.
 > An Azure Active Directory is tied to a Tenant. So if you decide to move your Subscription between Tenants, make sure to follow the procedure
 > from [the section below](#procedure-for-when-the-subscription-is-moved-across-tenants).
 
@@ -123,9 +124,9 @@ Follow these steps to grant guest access to an Azure Time Series Insights enviro
 
 Time Series Insights Data Access Policies are backed by Azure Active Directory, which are tied to an Azure Tenant where the Subscription lives in.
 
-The AAD Objects that you grant Data Access Policies to and the the Time Series Insights Environment itself should live under the same Tenant. If not, these objects will not have access to the Environment.
+The Azure AD Objects that you grant Data Access Policies to and the the Time Series Insights Environment itself should live under the same Tenant. If not, these objects will not have access to the Environment.
 
-If you plan to move the Subscription the Environment lives in to a different Tenant, you must ensure that the Data Access Policies are updated to reflect the AAD Objects under the new Tenant.
+If you plan to move the Subscription the Environment lives in to a different Tenant, you must ensure that the Data Access Policies are updated to reflect the Azure AD Objects under the new Tenant.
 
 To make this process smooth, follow the steps below.
 
@@ -140,7 +141,7 @@ To make this process smooth, follow the steps below.
 Having Contributor access to the Subscription in the target Tenant, you can
 
 - Remove all the Data Access Policies that were migrated with the Environment, since they belong to the source Tenant.
-- Re-grant Access Policies to the Environment using the steps above, now pointing to the AAD objects in the target Tenant.
+- Re-grant Access Policies to the Environment using the steps above, now pointing to the Azure AD objects in the target Tenant.
 
 ## Next steps
 
