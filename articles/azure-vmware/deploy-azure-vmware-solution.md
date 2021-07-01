@@ -30,6 +30,9 @@ The diagram shows the deployment workflow of Azure VMware Solution.
 
 In the planning phase, you defined whether you to use an *existing* or *new* ExpressRoute virtual network gateway.  
 
+>[IMPORTANT]
+>[!INCLUDE [disk-pool-planning-note](disk-pool-planning-note.md)] 
+
 ### Use a new ExpressRoute virtual network gateway
 
 >[!IMPORTANT]
@@ -43,12 +46,6 @@ In the planning phase, you defined whether you to use an *existing* or *new* Exp
 
 
 ### Use an existing virtual network gateway
-
->[IMPORTANT]
->[!INCLUDE [disk-pool-planning-note](disk-pool-planning-note.md)] 
-
-
-
 
 [!INCLUDE [connect-expressroute-to-vnet](includes/connect-expressroute-vnet.md)]
 
