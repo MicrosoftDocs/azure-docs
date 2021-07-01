@@ -51,7 +51,7 @@ As you create the account, make sure to configure settings with the following va
 
 | Setting | Value |
 |--|--|
-| **Storage account name** | Any name that you want. This name doesn't have to match the name of your Gen1 account |
+| **Storage account name** | Any name that you want. This name doesn't have to match the name of your Gen1 account and can be in any subscription of your choice |
 | **Location** | The same region used by the Data Lake Storage Gen1 account. |
 | **Replication** | LRS or ZRS |
 | **Minimum TLS version** | 1.0 |
@@ -63,15 +63,15 @@ As you create the account, make sure to configure settings with the following va
 
 ## Verify RBAC role assignments
 
-RBAC role requirements for Gen1 and Gen2 accounts go here.
+Ensure that you have Storage Blob Data Owner RBAC assignment for your identity on Gen2 and Owner RBAC assignment on Gen1.
 
 ## Perform the migration
 
 Before you begin, decide whether to copy only data or perform a complete migration. 
 
-If you copy only the data, both accounts remain active. You can modify applications and workloads to use your new Gen2-enabled account without interrupting production availability. Once you've verified that your applications and workloads work as expected, you can work our team to redirect your Gen1 URI to your Gen2 URI and then retire the Gen1 account. Microsoft recommends this option.
+If you copy only the data, both accounts remain active after the migration is completed. During the migration, your Gen1 account will be read only. You can then update your compute workloads to use your new Gen2-enabled. Once you've verified that your applications and workloads work as expected, you can retire the Gen1 account. Microsoft recommends this option.
 
-If you perform a complete migration, data is copied from Gen1 to Gen2. Then, your Gen1 URI is redirected to your Gen2 URI. After the migration completes you won't have access to your Gen1 account and all Gen1 requests will be redirected to your Gen2 enabled account. This option might make sense if there aren't any critical production workloads or applications that depend on your Gen1 account.
+If you perform a complete migration, data is copied from Gen1 to Gen2. Then, your Gen1 URI is redirected to your Gen2 URI. After the migration completes you won't have access to your Gen1 account and all Gen1 requests will be redirected to your Gen2 enabled account. This option might make sense if you have updated your applications to Gen2, and if you think there might be other unknown applications that would still be using the Gen1 APIs.
 
 > [!NOTE]
 > Gen2 doesn't support Azure Data Lake Analytics applications. If you have any, make sure to move them to Azure Synapse Analytics or another supported workload before you migrate from Gen1 to Gen2.
@@ -140,7 +140,7 @@ If you perform a complete migration, data is copied from Gen1 to Gen2. Then, you
 Microsoft provides application compatibility with limited functionality so that your applications can continue using Gen1 APIs to interact with data in your Gen2-enabled account. The compatibility layer runs on the server so there's nothing to install. 
 
 > [!IMPORTANT]
-> Microsoft does not recommend this capability as a replacement for migrating your workloads and applications.
+> Microsoft does not recommend this capability as a replacement for migrating your workloads and applications. Support for the Gen1 compatibility layer will end when Gen1 is retired in Feb 29, 2024.
 
 To encounter the least number of issues with the compatibility layer, make sure that your Gen1 SDKs use the following versions (or higher).
 
@@ -166,7 +166,7 @@ The following functionality isn't supported in Gen2, and therefore the compatibi
 
 #### How much does the data migration cost?
 
-Need to clarify this one.
+During the data migration, you will be billed for your data and transactions on Gen1. If you choose the "Copy data" option, you will be billed for both Gen1 and Gen2 after the migration is completed. You will need to delete the Gen1 account when you have completed updating your applications. If you chose the "Complete migration" option, you will be billed only for Gen2 after the migration. 
 
 #### After the migration completes, can I choose to go back to using the Gen2 account?
 
