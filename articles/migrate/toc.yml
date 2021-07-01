@@ -235,11 +235,15 @@
       href: troubleshoot-project.md
   - name: Discover
     items:
-    - name: Troubleshoot Azure Migrate appliance/discovery
-      href: troubleshoot-appliance-discovery.md
+    - name: Troubleshoot Azure Migrate appliance
+      href: troubleshoot-appliance.md
+    - name: Troubleshoot discovery
+      href: troubleshoot-discovery.md
+    - name: Troubleshoot dependency visualization
+      href: troubleshoot-dependencies.md
   - name: Assess
     items:
-    - name: Troubleshoot assessment/dependency visualization
+    - name: Troubleshoot assessment
       href: troubleshoot-assessment.md
   - name: Migrate
     items:
