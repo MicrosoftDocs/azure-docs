@@ -4,7 +4,7 @@ description: Learn how to prepare on-premises machines for agentless migration w
 author: deseelam
 ms.author: deseelam
 ms.manager: bsiva
-ms.topic: Conceptual
+ms.topic: conceptual
 ms.date: 06/30/2021
 ---
 
@@ -42,7 +42,7 @@ To set up for the hydration process, Azure Migrate creates a temporary Azure VM 
 
 Azure Migrate will create the network interface, a new virtual network, subnet, and a network security group (NSG) to host the temporary VM. If there are conflicting policies that prevent the creation of the network artifacts, Azure Migrate will attempt to create the temporary Azure VM in the virtual network and subnet provided as part of the replication target settings options.
 
-After the virtual machine is created, Azure Migrate will invoke the [Custom Script Extension]( https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/custom-script-windows) on the temporary VM using the Azure Virtual Machine REST API. The Custom Script Extension utility will execute a preparation script, containing the required configuration for Azure readiness, on the on-premises VM disks attached to the temporary Azure VM. The preparation script is downloaded from an Azure Migrate owned storage account. The network security group rules of the virtual network will be configured to permit the temporary Azure VM to access the Azure Migrate storage account for invoking the script.
+After the virtual machine is created, Azure Migrate will invoke the [Custom Script Extension]( https://docs.microsoft.com/azure/virtual-machines/extensions/custom-script-windows) on the temporary VM using the Azure Virtual Machine REST API. The Custom Script Extension utility will execute a preparation script, containing the required configuration for Azure readiness, on the on-premises VM disks attached to the temporary Azure VM. The preparation script is downloaded from an Azure Migrate owned storage account. The network security group rules of the virtual network will be configured to permit the temporary Azure VM to access the Azure Migrate storage account for invoking the script.
 
 ![Migration steps](./media/concepts-vmware-agentless-migration/migration-steps.png)
 
@@ -155,7 +155,7 @@ Azure runs on the Hyper-V hypervisor. So, Linux requires certain kernel modules 
 Most new versions of Linux distributions have this included by default. If not included, install manually for all versions except those called out above using the aforementioned steps.
 
 **Enable Azure Serial Console logging**
-The script will then make changes to enable Azure Serial Console logging. Enabling console logging helps with troubleshooting issues on the Azure VM. Learn more about Azure Serial Console for Linux [Azure Serial Console for Linux - Virtual Machines | Microsoft Docs](https://docs.microsoft.com/en-us/troubleshoot/azure/virtual-machines/serial-console-linux).
+The script will then make changes to enable Azure Serial Console logging. Enabling console logging helps with troubleshooting issues on the Azure VM. Learn more about Azure Serial Console for Linux [Azure Serial Console for Linux - Virtual Machines | Microsoft Docs](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/serial-console-linux).
 
 Modify the kernel boot line in GRUB or GRUB2 to include the following parameters, so that all console messages are sent to the first serial port. These messages can assist Azure support with debugging any issues.
 
