@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/17/2021
+ms.date: 07/01/2021
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
@@ -115,7 +115,7 @@ For example, if you received the error code "AADSTS50058" then do a search in [h
 | AADSTS50048 | SubjectMismatchesIssuer - Subject mismatches Issuer claim in the client assertion. Contact the tenant admin. |
 | AADSTS50049 | NoSuchInstanceForDiscovery - Unknown or invalid instance. |
 | AADSTS50050 | MalformedDiscoveryRequest - The request is malformed. |
-| AADSTS50053 | IdsLocked - The account is locked because the user tried to sign in too many times with an incorrect user ID or password. |
+| AADSTS50053 | IdsLocked - The account is locked because the user tried to sign in too many times with an incorrect user ID or password. The user is blocked due to repeated sign-in attempts. See [Remediate risks and unblock users](/azure/active-directory/identity-protection/howto-unblock-user). |
 | AADSTS50055 | InvalidPasswordExpiredPassword - The password is expired. The user's password is expired, and therefore their login or session was ended. They will be offered the opportunity to reset it, or may ask an admin to reset it via [Reset a user's password using Azure Active Directory](/azure/active-directory/fundamentals/active-directory-users-reset-password-azure-portal). |
 | AADSTS50056 | Invalid or null password: password does not exist in the directory for this user. The user should be asked to enter their password again. |
 | AADSTS50057 | UserDisabled - The user account is disabled. The user object in Active Directory backing this account has been disabled. An admin can re-enable this account [through Powershell](/powershell/module/activedirectory/enable-adaccount?view=windowsserver2019-ps) |
