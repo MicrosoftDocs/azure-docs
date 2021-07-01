@@ -108,7 +108,7 @@ An easy option to create the connector is by going through the Control Center we
 
 Alternatively, in the connectors page, you can upload the JSON file created earlier by using the **Upload connector config file** option.
 
-![Upload connector config](./images/upload-connector-config.png "Upload connector config")
+:::image type="content" source="./media/kafka-connector-source/upload-connector-config.png" alt-text="Upload connector config.":::
 
 ### Create connector using REST API
 
@@ -124,13 +124,13 @@ curl -H "Content-Type: application/json" -X POST -d @<path-to-JSON-config-file> 
 
 Sign into the [Azure portal](https://portal.azure.com/learn.docs.microsoft.com) and navigate to your Azure Cosmos DB account. Check that the three records from the “hotels” topic are created in your account. You should see something like this:
 
-![CosmosDB sink records](./images/cosmosdb-sink-records.png "CosmosDB sink records")
+:::image type="content" source="./media/kafka-connector-source/cosmosdb-sink-records.png" alt-text="CosmosDB sink records.":::
 
 ## Cleanup
 
 To delete the connector from the Control Center, navigate to the sink connector you created and click the **Delete** icon.
 
-![Delete connector](./images/delete-connector.png "Delete connector")
+:::image type="content" source="./media/kafka-connector-source/delete-connector.png" alt-text="Delete connector.":::
 
 Alternatively, use the Connect REST API to delete:
 
