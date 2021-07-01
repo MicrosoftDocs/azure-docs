@@ -48,9 +48,9 @@ In this article you learn how to enable the following workspaces resources in a 
 
 ## Secure the workspace with private endpoint
 
-Azure Private Link lets you connect to your workspace using a private endpoint. The private endpoint is a set of private IP addresses within your virtual network. You can then limit access to your workspace to only occur over the private IP addresses. Private Link helps reduce the risk of data exfiltration.
+Azure Private Link lets you connect to your workspace using a private endpoint. The private endpoint is a set of private IP addresses within your virtual network. You can then limit access to your workspace to only occur over the private IP addresses. A private endpoint helps reduce the risk of data exfiltration.
 
-For more information on setting up a Private Link workspace, see [How to configure Private Link](how-to-configure-private-link.md).
+For more information on configuring a private endpoint for your workspace, see [How to configure a private endpoint](how-to-configure-private-link.md).
 
 > [!WARNING]
 > Securing a workspace with private endpoints does not ensure end-to-end security by itself. You must follow the steps in the rest of this article, and the VNet series, to secure individual components of your solution. For example, if you use a private endpoint for the workspace, but your Azure Storage Account is not behind the VNet, traffic between the workspace and storage does not use the VNet for security.
@@ -122,12 +122,19 @@ By default, Azure Machine Learning performs data validity and credential checks 
 
 ### Use datastores
 
- Azure Data Lake Store Gen1 and Azure Data Lake Store Gen2 skip validation by default, so no further action is necessary. However, for the following services you can use similar syntax to skip datastore validation:
+The following table lists the services that you need to skip validation for:
 
-- Azure Blob storage
-- Azure fileshare
-- PostgreSQL
-- Azure SQL Database
+| Service | Skip validation required? |
+| ----- |:-----:|
+| Azure Blob storage | Yes |
+| Azure File share | Yes |
+| Azure Data Lake Store Gen1 | No |
+| Azure Data Lake Store Gen2 | No |
+| Azure SQL Database | Yes |
+| PostgreSql | Yes |
+
+> [!NOTE]
+> Azure Data Lake Store Gen1 and Azure Data Lake Store Gen2 skip validation by default, so you don't have to do anything.
 
 The following code sample creates a new Azure Blob datastore and sets `skip_validation=True`.
 
