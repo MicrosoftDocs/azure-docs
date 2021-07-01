@@ -37,13 +37,14 @@ You can only connect the disk pool to an Azure VMware Solution private cloud in 
 
 - Scalability and performance requirements of your workloads are identified. For details, see [Planning for Azure disk pools](../virtual-machines/disks-pools-planning.md).
 
-- [Azure VMware Solution private cloud](deploy-azure-vmware-solution.md) deployed with a [virtual network configured](deploy-azure-vmware-solution.md#step-3-connect-to-azure-virtual-network-with-expressroute). For more information, see [Network planning checklist](tutorial-network-checklist.md) and [Configure networking for your VMware private cloud](tutorial-configure-networking.md).  Use either the Standard (1 Gbps) or High Performance (2 Gbps) SKU for the Azure VMware Solution private cloud.
+- [Azure VMware Solution private cloud](deploy-azure-vmware-solution.md) deployed with a [virtual network configured](deploy-azure-vmware-solution.md#step-3-connect-to-azure-virtual-network-with-expressroute). For more information, see [Network planning checklist](tutorial-network-checklist.md) and [Configure networking for your VMware private cloud](tutorial-configure-networking.md). 
 
-   - If you select Ultra Disks, use either the Ultra Performance or ErGw3AZ (10 Gbps) SKU for the Azure VMware Solution private cloud and then [enable ExpressRoute FastPath](/azure/expressroute/expressroute-howto-linkvnet-arm#configure-expressroute-fastpath).
+   - If you select Ultra Disks, use Ultra Performance for the Azure VMware Solution private cloud and then [enable ExpressRoute FastPath](/azure/expressroute/expressroute-howto-linkvnet-arm#configure-expressroute-fastpath).
 
-   - If you select Premium SSD-Managed Disks, use either the Standard (1 Gbps) or High Performance (2 Gbps) SKU for the Azure VMware Solution private cloud.
+   - If you select Premium SSD-Managed Disks, use Standard (1 Gbps) for the Azure VMware Solution private cloud.
 
 - Disk pool as the backing storage deployed and exposed as an iSCSI target with each disk as an individual LUN. For details, see [Deploy an Azure disk pool](../virtual-machines/disks-pools-deploy.md).
+
 
    >[!IMPORTANT]
    > The disk pool must be deployed in the same subscription as the VMware cluster, and it must be attached to the same VNET as the VMware cluster.
