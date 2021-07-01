@@ -353,7 +353,7 @@ Azure Machine Learning studio is a web-based application that lets you easily ma
     1. Select __Access control (IAM)__ from the left side.
     1. Select __+ Add__, and then __Add role assignment (Preview)__.
 
-    ![Access control (IAM) page with Add role assignment menu open.](../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png)
+        ![Access control (IAM) page with Add role assignment menu open.](../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png)
 
     1. On the __Role__ tab, select the __Reader__.
 
