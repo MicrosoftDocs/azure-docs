@@ -17,9 +17,13 @@ You can connect a private cloud to multiple private clouds, and the connections 
 You can only connect to private clouds in the same region. To connect to private clouds that are in different regions, [use ExpressRoute Global Reach](tutorial-expressroute-global-reach-private-cloud.md) to connect your private clouds in the same way you connect your private cloud to your on-premises circuit. 
 
 >[!IMPORTANT]
->The AVS Interconnect (Preview) feature is currently in public preview and available in all regions except for South Central US (SAT20), North Europe (DUB21), Southeast Asia (SG2), and UK West (CWL20).  
+>The AVS Interconnect (Preview) feature is currently in public preview.  
 >This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 >For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+## Supported regions
+
+The AVS Interconnect (Preview) feature is available in all regions except for South Central US (SAT20), North Europe (DUB21), Southeast Asia (SG2), and UK West (CWL20). 
 
 ## Prerequisites
 
