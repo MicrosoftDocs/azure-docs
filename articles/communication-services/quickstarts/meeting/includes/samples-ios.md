@@ -19,8 +19,6 @@ ms.service: azure-communication-services
 
 Group call can be joined by providing `MeetingUIClientGroupCallLocator` and `MeetingUIClientGroupCallJoinOptions` to the `meetingUIClient?.join` API. The group call will not ring for other participants. The user will be joining the call silently.
 
-### Add a button to the ViewController
-
 Create a button in the `viewDidLoad` callback in **ViewController.swift**.
 
 ```swift
