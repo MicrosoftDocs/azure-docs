@@ -20,23 +20,15 @@ The Microsoft Azure Consumption Commitment (MACC) is a contractual commitment th
 ### [Azure portal](#tab/portal)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-
-2. Search for **Cost Management + Billing**.
-
+2. Search for **Cost Management + Billing**.  
     ![Screenshot that shows search in portal for cost management + billing.](./media/track-consumption-commitment/billing-search-cost-management-billing.png)
-
-3. In the billing scopes page, select the billing account for which you want to track the commitment. The billing account should be of type **Microsoft Customer Agreement**.
-
+3. In the billing scopes page, select the billing account for which you want to track the commitment. The billing account should be of type **Microsoft Customer Agreement**.  
     ![Screenshot that shows Billing Scopes.](./media/track-consumption-commitment/list-of-scopes.png)
 
     > [!NOTE]
-    >
-    > Azure portal remembers the last billing scope that you access and displays the scope the next time you come to Cost Management + Billing page. You won't see the billing scopes page if you have visited Cost Management + Billing earlier. If so, check that you are in the [right scope](#check-access-to-a-microsoft-customer-agreement). If not, [switch the scope](view-all-accounts.md#switch-billing-scope-in-the-azure-portal) to select the billing account for a Microsoft Customer Agreement.
-
-4. Select **Properties** from the left-hand side and then select **Microsoft Azure Consumption Commitment (MACC)**.
-
+     > Azure portal remembers the last billing scope that you access and displays the scope the next time you come to Cost Management + Billing page. You won't see the billing scopes page if you have visited Cost Management + Billing earlier. If so, check that you are in the [right scope](#check-access-to-a-microsoft-customer-agreement). If not, [switch the scope](view-all-accounts.md#switch-billing-scope-in-the-azure-portal) to select the billing account for a Microsoft Customer Agreement.
+4. Select **Properties** from the left-hand side and then select **Microsoft Azure Consumption Commitment (MACC)**.  
    ![Screenshot that shows selecting MACC tab.](./media/track-consumption-commitment/select-macc-tab.png)
-
 5. The Microsoft Azure Consumption Commitment (MACC) tab has the following sections:
 
    #### Remaining Commitment 
@@ -183,6 +175,7 @@ The API response returns lists of MACCs for your billing account.
     ]
   }
 ```
+
 | Element name  | Description                                                                                               |
 |---------------|-----------------------------------------------------------------------------------------------------------|
 | `purchasedDate`  | The date when the MACC was purchased.   |
@@ -206,6 +199,7 @@ Make the following request, replacing `<billingAccountName>` with the `name` cop
 ```json
 GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/<billingAccountName>/providers/Microsoft.Consumption/events?api-version=2021-05-01&startDate=<startDate>&endDate=<endDate>&$filter=lotsource%20eq%20%27ConsumptionCommitment%27
 ```
+
 The API response returns all events that affected your MACC commitment.
 
 ```json
@@ -261,6 +255,7 @@ The API response returns all events that affected your MACC commitment.
     }
   ]
 }
+
 ```
 | Element name  | Description                                                                                               |
 |---------------|-----------------------------------------------------------------------------------------------------------|
@@ -274,6 +269,8 @@ The API response returns all events that affected your MACC commitment.
 | `closedBalance`  | The balance after the event.   |
 | `eventType`  | Only SettledCharges events are supported for MACC.   |
 | `invoiceNumber`  | The unique ID of the invoice whose charges decremented MACC.   |
+
+---
 
 ## Azure Services and Marketplace Offers that are eligible for MACC
 
