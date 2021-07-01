@@ -45,6 +45,7 @@ Follow steps 1 to 5 of the [Monitor Azure AD B2C with Azure monitor](./azure-mon
 2.	Search for and select **Azure Sentinel**.
 
 3.	Select **Add**.
+
 ![Azure Sentinel](./media/azure-sentinel/azure-sentinel-add.png)
 
 4.	Select the workspace created in the previous step. 
@@ -53,6 +54,14 @@ Follow steps 1 to 5 of the [Monitor Azure AD B2C with Azure monitor](./azure-mon
 5. Select Add **Azure Sentinel**.
 > [!NOTE]
 > You can run Azure Sentinel on more than one workspace, but the data is isolated to a single workspace. For additional details on enabling Sentinel, please see this [QuickStart](https://docs.microsoft.com/en-us/azure/sentinel/quickstart-onboard). 
+
+## Create a Sentinel Rule
+
+Now that you've enabled Sentinel you'll want to be notified when something suspicious occurs in your B2C tenant.
+>[!NOTE] 
+>Azure Sentinel provides out-of-the-box, built-in templates to help you create threat detection rules designed by Microsoft's team of security experts and analysts. Rules created from these templates automatically search across your data for any suspicious activity. Because today there is no native Azure AD B2C connector we will not use native rules in our example, hence for our scenario you will create our own rule.
+
+
 
 # OLD DOCO from WARD Deployment overview
 
