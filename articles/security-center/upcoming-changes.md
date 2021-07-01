@@ -46,7 +46,7 @@ If you need to export larger amounts of data, use the available filters before s
 
 :::image type="content" source="media/upcoming-changes/filter-subscriptions.png" alt-text="Filtering subscriptions in the Azure portal.":::
 
-Learn more about [performing a CSV exports of alerts and recommendations](continuous-export.md#manual-one-time-export-of-alerts-and-recommendations).
+Learn more about [performing a CSV export of alerts and recommendations](continuous-export.md#manual-one-time-export-of-alerts-and-recommendations).
 
 ### Legacy implementation of ISO 27001 is being replaced with new ISO 27001:2013
 
