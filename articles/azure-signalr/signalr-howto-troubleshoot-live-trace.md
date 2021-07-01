@@ -51,11 +51,11 @@ The real-time live traces captured by live trace tool contain detailed informati
 | Connection ID | Type of the connection. Allowed values are `Server` (connections between server and service) and `Client` (connections between client and service)|
 | User ID | Identity of the user |
 | IP | The IP address of client |
-| Server Sticky | Routing mode of client. Allowed values are `Disabled`, `Preferred` and `Required`. For more details, please refer to [ServerStickyMode](https://github.com/Azure/azure-signalr/blob/master/docs/run-asp-net-core.md#serverstickymode) |
-| Transport | The transport that the client can use to send HTTP requests. Allowed values are `WebSockets`, `ServerSentEvents` and `LongPolling`. For more details, please refer to [HttpTransportType](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.http.connections.httptransporttype) |
+| Server Sticky | Routing mode of client. Allowed values are `Disabled`, `Preferred` and `Required`. For more details, refer to [ServerStickyMode](https://github.com/Azure/azure-signalr/blob/master/docs/run-asp-net-core.md#serverstickymode) |
+| Transport | The transport that the client can use to send HTTP requests. Allowed values are `WebSockets`, `ServerSentEvents` and `LongPolling`. For more details, refer to [HttpTransportType](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.http.connections.httptransporttype) |
 
 ## Next Steps
 
-In this guide, you learned about how to use live trace tool, You could also learn how to handle the common issues:
-* Troubleshooting guides: For how to troubleshoot typical issues based on live traces, please refer to our [troubleshooting guide](./signalr-howto-troubleshoot-guide.md).
-* Troubleshooting methods: For self-diagnosis to find the root cause directly or narrow down the issue, please refer to our [troubleshooting methods introduction](./signalr-howto-troubleshoot-method.md).
+In this guide, you learned about how to use live trace tool, you could also learn how to handle the common issues:
+* Troubleshooting guides: For how to troubleshoot typical issues based on live traces, refer to our [troubleshooting guide](./signalr-howto-troubleshoot-guide.md).
+* Troubleshooting methods: For self-diagnosis to find the root cause directly or narrow down the issue, refer to our [troubleshooting methods introduction](./signalr-howto-troubleshoot-method.md).
