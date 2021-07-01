@@ -189,6 +189,7 @@ This section can be ignored for Azure AD registered devices.
 
 >[!NOTE]
 >Diagnostic is info is displayed only if the acquisition/refresh failure happened after the the last successful PRT update time (AzureAdPrtUpdateTime/EnterprisePrtUpdateTime).  
+>On a shared device this diagnostic info could be form a different user's logon attempt.
 
 - **AcquirePrtDiagnostics:** Set to "PRESENT" if acquire PRT diagnostic info is present in the logs.  
 This field is skipped if no diagnostics info is available.
