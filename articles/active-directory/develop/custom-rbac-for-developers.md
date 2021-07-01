@@ -28,11 +28,11 @@ Role-based access control (RBAC) allows certain users or groups to have specific
 
 ## What are roles?
 
-Role-based access control (RBAC) is a popular mechanism to enforce authorization in applications. When using RBAC, an application developer grants permissions to ***roles***, and not to individual users or groups. An administrator can then assign roles to different users and groups to control who has access to what content and functionality.
+Role-based access control (RBAC) is a popular mechanism to enforce authorization in applications. When using RBAC, an application developer grants permissions to *roles*, and not to individual users or groups. An administrator can then assign roles to different users and groups to control who has access to what content and functionality.
 
-RBAC helps you as an app developer manage resources, what areas of an app users have access to and what they can do with those resources. While admins can control which users have access to an app using the ***User assignment*** required property, developers need to account for specific users within the app and what users can do within the app.
+RBAC helps you, as an app developer, manage resources, and what users can do with those resources. RBAC also allows an app developer to control what areas of an app users have access to. While admins can control which users have access to an app using the *User assignment required* property, developers need to account for specific users within the app and what users can do within the app.
 
-As an app developer, you need to first create a role definition within the app’s registration section in the Azure AD admin center. The role definition includes a value that is returned for users who are assigned to that role. This value can then be used by a developer to implement application logic to determine what those users can or cannot do in an application.
+As an app developer, you need to first create a role definition within the app’s registration section in the Azure AD admin center. The role definition includes a value that is returned for users who are assigned to that role. A developer can then use this value to implement application logic to determine what those users can or can't do in an application.
 
 ## Options for adding RBAC to apps
 
@@ -41,26 +41,26 @@ There are several considerations that must be managed when including role-based 
 - Applying, storing, and retrieving the pertinent roles for authenticated users. 
 - Affecting the desired application behavior based on the roles assigned to the current user. 
 
-Once the roles are defined, the Microsoft identity platform supports several different solutions that can be used to apply, store, and retrieve role information for authenticated users. These include app roles, Azure AD groups, and the use of custom datastores for user role information.
+Once you define the roles, the Microsoft identity platform supports several different solutions that can be used to apply, store, and retrieve role information for authenticated users. These solutions include app roles, Azure AD groups, and the use of custom datastores for user role information.
 
-Developers have the flexibility to provide their own implementation for how role assignments are to be interpreted as application permissions. This can involve leveraging middleware or other functionality provided by their applications’ platform and/or related libraries. Apps will typically receive user role information as claims and will decide user permissions based on those claims
+Developers have the flexibility to provide their own implementation for how role assignments are to be interpreted as application permissions. This can involve leveraging middleware or other functionality provided by their applications’ platform or related libraries. Apps will typically receive user role information as claims and will decide user permissions based on those claims.
 
 ### App roles
 
-Azure AD supports declaring app roles for an application registration. When a user signs into an application, Azure AD will include a [roles claim](/azure/active-directory/develop/access-tokens#payload-claims) for each role that the user has been granted for that application. Applications that receive tokens containing these claims can then use this information to determine what permissions the user may perform based on the roles they are assigned.
+Azure AD supports declaring app roles for an application registration. When a user signs into an application, Azure AD will include a [roles claim](/azure/active-directory/develop/access-tokens#payload-claims) for each role that the user has been granted for that application. Applications that receive tokens that contain these claims can then use this information to determine what permissions the user may exercise based on the roles they're assigned.
 
 ### Groups
 
-Developers can also use [Azure AD Groups](/azure/active-directory/fundamentals/active-directory-manage-groups) to implement RBAC in their applications, where the users’ memberships in specific groups are interpreted as their role memberships. When using Azure AD Groups, Azure AD will include a [groups claim](/azure/active-directory/develop/access-tokens#payload-claims) that will include the identifiers of all of the groups to which the user is assigned within the current Azure AD tenant. Applications that receive tokens containing these claims can then use this information to determine what permissions the user may perform based on the roles they are assigned.
+Developers can also use [Azure AD Groups](/azure/active-directory/fundamentals/active-directory-manage-groups) to implement RBAC in their applications, where the users’ memberships in specific groups are interpreted as their role memberships. When using Azure AD Groups, Azure AD will include a [groups claim](/azure/active-directory/develop/access-tokens#payload-claims) that will include the identifiers of all of the groups to which the user is assigned within the current Azure AD tenant. Applications that receive tokens that contain these claims can then use this information to determine what permissions the user may exercise based on the roles they're assigned.
 
 > [!IMPORTANT]
 > When working with groups, developers need to be aware of the concept of an [overage claim](/azure/active-directory/develop/access-tokens#payload-claims). By default, if a user is a member of more than the overage limit (150 for SAML tokens, 200 for JWT tokens, 6 if using the implicit flow), Azure AD will not emit a groups claim in the token. Instead, it will include an “overage claim” in the token that indicates the token’s consumer will need to query the Graph API to retrieve the user’s group memberships. For more information about working with overage claims, please see this link. It is possible to only emit groups that are assigned to an application, though group-based assignment does require Azure Active Directory Premium P1 or P2 edition.
 
 ### Managing RBAC with a custom data store
 
-App roles and groups both store information about user assignments in the Azure AD directory. Another option available to developers for managing user role information is to maintain the information outside of the directory in a custom data store, for example in a SQL Database or in Azure Storage (or Cosmos DB) Table Storage.
+App roles and groups both store information about user assignments in the Azure AD directory. Another option for managing user role information that is available to developers is to maintain the information outside of the directory in a custom data store. For example, in a SQL Database, Azure Table storage or Azure Cosmos DB Table API.
 
-Using custom storage allows developers additional customization and control over how roles are assigned to users and how they are represented. However, there is no mechanism currently available to include this information in tokens returned from Azure AD. If developers maintain role information in a custom datastore, they will need to have the apps retrieve the roles. This is typically done using extensibility points defined in the middleware available to the platform that is being used to develop the application.
+Using custom storage allows developers extra customization and control over how to assign roles to users and how to represent them. However, there's no mechanism currently available to include this information in tokens returned from Azure AD. If developers maintain role information in a custom data store, they'll need to have the apps retrieve the roles. This is typically done using extensibility points defined in the middleware available to the platform that is being used to develop the application.
 
 > [!NOTE]
 > Using [Azure AD B2C Custom policies](azure/active-directory-b2c/custom-policy-overview) it is possible to interact with custom data stores and to include custom claims within a token.
@@ -69,15 +69,13 @@ Using custom storage allows developers additional customization and control over
 
 In general, app roles are the recommended solution. App roles provide the simplest programming model and are purpose made for RBAC implementations. However, specific application requirements may indicate that a different approach would be better solution.
 
-App roles are preferred by developers when they want to describe and control the parameters of authorization in their app themselves. For example, an app using groups for authorization will break in the next tenant as both the group ID and name could be different. An app using app roles remains safe. In fact, assigning groups to app roles is popular with SaaS apps for the same reasons.
-
-Developers can use app roles to control whether a user can sign into an app, or an app can obtain an access token for a web API. To extend this security control to groups, developers and admins can also assign security groups to app roles.
+Developers can use app roles to control whether a user can sign into an app, or an app can obtain an access token for a web API. App roles are preferred over Azure AD groups by developers when they want to describe and control the parameters of authorization in their app themselves. For example, an app using groups for authorization will break in the next tenant as both the group ID and name could be different. An app using app roles remains safe. In fact, assigning groups to app roles is popular with SaaS apps for the same reasons.
 
 Although either app roles or groups can be used for authorization, key differences between them can influence which is the best solution for a given scenario.
 
 |          |App Roles |Azure AD Groups |Custom Data Store|
 |----------|-----------|------------|-----------------|
-|**Programming model** |**Simplest**. They are specific to an application and are defined in the app registration. They move with the application.|**More complex**. Group IDs vary between tenants and overage claims may need to be considered. Groups are not specific to an app, but to an Azure AD tenant.|**Most complex**. Developers must implement means by which role information is both stored and retrieved.|
+|**Programming model** |**Simplest**. They are specific to an application and are defined in the app registration. They move with the application.|**More complex**. Group IDs vary between tenants and overage claims may need to be considered. Groups aren't specific to an app, but to an Azure AD tenant.|**Most complex**. Developers must implement means by which role information is both stored and retrieved.|
 |**Role values are static between Azure AD tenants**|Yes  |No |Depends on the implementation |
 |**Role values can be used in multiple applications**|No. Unless role configuration is duplicated in each app registration.|Yes |Yes |
 |**Information stored within directory**|Yes  |Yes |No |
@@ -86,7 +84,7 @@ Although either app roles or groups can be used for authorization, key differenc
 
 
 > [!NOTE]
-> In the case of an overage, Groups claims may need to be retrieved at runtime.
+> Yes* - In the case of an overage, *groups claims* may need to be retrieved at runtime.
 
 ## Next steps
 
