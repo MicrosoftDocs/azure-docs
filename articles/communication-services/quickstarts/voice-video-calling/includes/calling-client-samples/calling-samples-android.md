@@ -668,7 +668,7 @@ VideoStreamRendererView uiView = previewRenderer.createView(new RenderingOptions
 layout.addView(uiView);
 ```
 
-## Record calls Android
+## Record calls
 > [!NOTE]
 > This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment. To use this api please use 'beta' release of ACS Calling Android SDK
 
@@ -724,7 +724,7 @@ Just like starting the call recording, if you want to stop the call recording yo
 When recording is stopped from the server, the event `handleCallOnIsRecordingChanged` will trigger and the value of `callRecordingFeature.isRecordingActive()` will be `false`.
 
 
-## Call transcription Android
+## Call transcription
 > [!NOTE]
 > This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment. To use this api please use 'beta' release of ACS Calling Android SDK
 
