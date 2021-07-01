@@ -28,6 +28,7 @@ Use this table to determine **availability of neural and standard voices** by re
 | North Europe | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/v1` |
 | South Central US | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/v1` |
 | Southeast Asia | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1` |
+| Switzerland North | `https://switzerlandnorth.tts.speech.microsoft.com/cognitiveservices/v1` |
 | UK South | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/v1` |
 | West Central US | `https://westcentralus.tts.speech.microsoft.com/cognitiveservices/v1` |
 | West Europe | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/v1` |
