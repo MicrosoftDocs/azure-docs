@@ -32,7 +32,7 @@ The Microsoft Azure Consumption Commitment (MACC) is a contractual commitment th
 
 #### Remaining Commitment 
 
-The remaining commitment displays the remaining commitment amount as of your last invoice.
+The remaining commitment displays the remaining commitment amount since your last invoice.
 
 :::image type="content" source="./media/track-consumption-commitment/macc-remaining-commitment.png" alt-text="Screenshot of remaining commitment for a MACC." lightbox="./media/track-consumption-commitment/macc-remaining-commitment.png" :::
 
@@ -40,7 +40,7 @@ The remaining commitment displays the remaining commitment amount as of your las
 
 The Details section displays other important aspects of your commitment.
 
-![Screenshot of MACC details](./media/track-consumption-commitment/macc-details.png)
+:::image type="content" source="./media/track-consumption-commitment/macc-details.png" alt-text="Screenshot of MACC details." lightbox="./media/track-consumption-commitment/macc-details.png" :::
 
 | Term | Definition |
 |---|---|
@@ -56,7 +56,7 @@ Your MACC can have one of the following statutes:
 - Active: MACC is active. Any eligible spend will contribute towards your MACC commitment.
 - Completed: You’ve completed your MACC commitment. 
 - Expired: MACC is expired. Contact your Microsoft Account team for more information. 
-- Canceled: MACC is canceled. New Azure spend will not contribute towards your MACC commitment.
+- Canceled: MACC is canceled. New Azure spend won't contribute towards your MACC commitment.
 
 #### Events
 
@@ -74,9 +74,9 @@ The Events section displays events (invoiced spend) that decremented your MACC c
 
 ### [REST API](#tab/rest)
 
-You can use the [Azure Billing](/rest/api/billing/) and the [Consumption](/rest/api/consumption/) APIs to programmatically to get Microsoft Azure Consumption Commitment (MACC) for your billing account.
+You can use the [Azure Billing](/rest/api/billing/) and the [Consumption](/rest/api/consumption/) APIs to programmatically get Microsoft Azure Consumption Commitment (MACC) for your billing account.
 
-The examples shown below use REST APIs. Currently, PowerShell and Azure CLI are not supported.
+The examples shown below use REST APIs. Currently, PowerShell and Azure CLI aren't supported.
 
 ### Find billing accounts you have access to
 
@@ -181,7 +181,7 @@ The API response returns lists of MACCs for your billing account.
 | `purchasedDate`  | The date when the MACC was purchased.   |
 | `status`  | The status of your commitment. |
 | `originalAmount` | The original commitment amount. |
-| `closedBalance`   | The remaining commitment as of the last invoice.    |
+| `closedBalance`   | The remaining commitment since the last invoice.    |
 | `source`      | For MACC, the source will always be ConsumptionCommitment. |
 | `startDate`      |  The date when the MACC became active.  |
 | `expirationDate`  | The date when the MACC expires.   |
@@ -191,7 +191,7 @@ Your MACC can have one of the following statutes:
 - Active: MACC is active. Any eligible spend will contribute towards your MACC commitment.
 - Completed: You’ve completed your MACC commitment. 
 - Expired: MACC is expired. Contact your Microsoft Account team for more information. 
-- Canceled: MACC is canceled. New Azure spend will not contribute towards your MACC commitment. 
+- Canceled: MACC is canceled. New Azure spend won't contribute towards your MACC commitment. 
 
 ### Get events that affected MACC commitment
 
@@ -263,7 +263,7 @@ The API response returns all events that affected your MACC commitment.
 | `billingProfileId` | The unique identifier for the billing profile for which the event happened. |
 | `billingProfileDisplayName` | The display name for the billing profile for which the event happened. |
 | `lotId`   | The unique identifier for the MACC.    |
-| `lotSource`      | This will be ConsumptionCommitment for MACC. |
+| `lotSource`      | It will be ConsumptionCommitment for MACC. |
 | `transactionDate`      |  The date when the event happened.  |
 | `description`  | The description of the event.   |
 | `charges`  | The amount of MACC decrement.   |
@@ -279,10 +279,11 @@ You can determine which Azure services and Marketplace offers are eligible for M
 
 ## Azure Credits and MACC
 
-If your organization received Azure credits from Microsoft, the consumption or purchases that are covered by credits will not contribute towards your MACC commitment.
+If your organization received Azure credits from Microsoft, the consumption or purchases that are covered by credits won't contribute towards your MACC commitment.
 
-If your organization purchased Azure Prepayment, the consumption or purchases that are covered by credits will not contribute towards your MACC commitment.  However, the actual Prepayment purchase itself will decrement your MACC commitment.
-For example, Contoso made a MACC commitment of $50,000 in May. In June, they purchased an Azure Prepayment of $10,000. The purchase will decrement their MACC commitment and the remaining commitment will be $40,000. In June, Contoso consumed $10,000 of Azure Prepayment-eligible services. The service charges will be covered by their Azure Prepayment; however, the service charges  won’t decrement their MACC commitment. Once the Azure Prepayment is fully utilized, all Azure service consumption and other eligible purchases will decrement their MACC commitment.
+If your organization purchased Azure Prepayment, the consumption or purchases that are covered by credits won't contribute towards your MACC commitment.  However, the actual Prepayment purchase itself will decrement your MACC commitment.
+
+For example, Contoso made a MACC commitment of $50,000 in May. In June, they purchased an Azure Prepayment of $10,000. The purchase will decrement their MACC commitment and the remaining commitment will be $40,000. In June, Contoso consumed $10,000 of Azure Prepayment-eligible services. The service charges will be covered by their Azure Prepayment; however, the service charges  won’t decrement their MACC commitment. Once the Azure Prepayment is fully used, all Azure service consumption and other eligible purchases will decrement their MACC commitment.
 
 ## Check access to a Microsoft Customer Agreement
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]
