@@ -24,7 +24,7 @@ After you complete the steps in this tutorial, you'll have a production-ready en
 
 - If you plan to use VMware HCX Enterprise, make sure you've enabled the [VMware HCX Enterprise](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/) add-on through a [support request](https://portal.azure.com/#create/Microsoft.Support).
 
-- [Software version requirements](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-54E5293B-8707-4D29-BFE8-EE63539CC49B.html)
+- [Software version requirements](https://docs.vmware.com/en/VMware-HCX/4.1/hcx-user-guide/GUID-54E5293B-8707-4D29-BFE8-EE63539CC49B.html)
 
 - Your on-premises vSphere environment (source environment) meets the [minimum requirements](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-54E5293B-8707-4D29-BFE8-EE63539CC49B.html).
 
@@ -34,7 +34,7 @@ After you complete the steps in this tutorial, you'll have a production-ready en
 
 - [Define VMware HCX network segments](tutorial-plan-private-cloud-deployment.md#define-vmware-hcx-network-segments).  The primary use cases for VMware HCX are workload migrations and disaster recovery.
 
-- Review the [VMware HCX Documentation](https://docs.vmware.com/en/VMware-HCX/index.html) for information on using HCX.
+- Review the [VMware HCX Documentation](https://docs.vmware.com/en/VMware-HCX/4.1/hcx-user-guide/GUID-BFD7E194-CFE5-4259-B74B-991B26A51758.html) for information on using HCX.
 
 ## Add a site pairing
 
