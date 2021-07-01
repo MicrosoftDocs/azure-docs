@@ -80,7 +80,7 @@ Use the following steps to enable access to data stored in Azure Blob and File s
 
     For more information, see the [Reader](../role-based-access-control/built-in-roles.md#reader) built-in role.
 
-<a id='enable-managed-identity'></a>
+   <a id='enable-managed-identity'></a>
 1. **Enable managed identity authentication for default storage accounts**. Each Azure Machine Learning workspace has two default storage accounts, a default blob storage account and a default file store account, which are defined when you create your workspace. You can also set new defaults in the **Datastore** management page.
 
     ![Screenshot showing where default datastores can be found](./media/how-to-enable-studio-virtual-network/default-datastores.png)
