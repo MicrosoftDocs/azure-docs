@@ -297,7 +297,7 @@ In this Dockerfile, the parent image is one of the built-in Java containers of A
 1. Make sure the image tag begins with `<acr-name>.azurecr.io` and press **Enter**.
 1. When Visual Studio Code finishes pushing the image to your container registry, click **Refresh** at the top of the **REGISTRIES** explorer and verify the image is pushed successfully.
 
-    ![Screenshot shows the image deployed to Azure container registry.](./media/quickstart-docker/image-in-acr.png)
+    ![Screenshot shows the image deployed to Azure container registry.](./media/quickstart-docker/image-in-registry.png)
 
 ## Deploy to App Service
 
