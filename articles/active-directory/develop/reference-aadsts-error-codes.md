@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/17/2021
+ms.date: 07/01/2021
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
@@ -115,7 +115,7 @@ For example, if you received the error code "AADSTS50058" then do a search in [h
 | AADSTS50048 | SubjectMismatchesIssuer - Subject mismatches Issuer claim in the client assertion. Contact the tenant admin. |
 | AADSTS50049 | NoSuchInstanceForDiscovery - Unknown or invalid instance. |
 | AADSTS50050 | MalformedDiscoveryRequest - The request is malformed. |
-| AADSTS50053 | IdsLocked - The account is locked because the user tried to sign in too many times with an incorrect user ID or password. |
+| AADSTS50053 | IdsLocked - The account is locked because the user tried to sign in too many times with an incorrect user ID or password. The user is blocked due to repeated sign-in attempts. See [Remediate risks and unblock users](/azure/active-directory/identity-protection/howto-unblock-user). |
 | AADSTS50055 | InvalidPasswordExpiredPassword - The password is expired. |
 | AADSTS50056 | Invalid or null password -Password does not exist in store for this user. |
 | AADSTS50057 | UserDisabled - The user account is disabled. The account has been disabled by an administrator. |
