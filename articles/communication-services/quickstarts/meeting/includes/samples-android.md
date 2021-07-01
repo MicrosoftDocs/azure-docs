@@ -278,7 +278,7 @@ public void onNamePlateOptionsClicked(@NonNull Activity activity, @NonNull Commu
         CommunicationUserIdentifier userIdentifier = (CommunicationUserIdentifier) communicationIdentifier;
         if (userIdentifier.getId().startsWith("8:acs:")) {
             // Custom behavior based on the user here.
-            System.out.println("Acs user tile clicked");
+            System.out.println("On user name plate clicked");
         }
     }
 }
@@ -294,7 +294,7 @@ public boolean onParticipantViewLongPressed(@NonNull Activity activity, @NonNull
         CommunicationUserIdentifier userIdentifier = (CommunicationUserIdentifier) communicationIdentifier;
         if (userIdentifier.getId().startsWith("8:acs:")) {
             // Custom behavior based on the user here.
-            System.out.println("Acs user tile long press");
+            System.out.println("On participant tile long pressed");
             return true;
         }
         return false;
@@ -302,17 +302,47 @@ public boolean onParticipantViewLongPressed(@NonNull Activity activity, @NonNull
 }
 ```
 
-Add and implement `onParticipantClickedInRoster` method and map each `userIdentifier` to the corresponding call participant user.
-This method is called on single tap of user row from call roster screen. Return `true` for custom handling or `false` for default handling of the single tap.
+## Receive information about user actions in the call roster and add your own custom functionalities.
+
+The `MeetingUIClientCallRosterDelegate` interface methods are called upon user actions in the call roster.
+
+Add the `MeetingUIClientCallRosterDelegate` to your class.
+
+```java
+public class MainActivity extends AppCompatActivity implements MeetingUIClientCallRosterDelegate {
+```
+
+Call `setMeetingUIClientCallRosterDelegate` with parameter `this`.
+
+```java
+private void joinMeeting() {
+    getAllPermissions();
+    MeetingUIClient meetingUIClient = createMeetingUIClient();
+
+    MeetingUIClientTeamsMeetingLinkLocator meetingUIClientTeamsMeetingLinkLocator = new MeetingUIClientTeamsMeetingLinkLocator(<MEETING_URL>);
+
+    MeetingUIClientJoinOptions meetingJoinOptions = new MeetingUIClientJoinOptions(displayName, false);
+
+    try {
+        MeetingUIClientCall meetingUIClientCall = meetingUIClient.join(meetingUIClientTeamsMeetingLinkLocator, meetingJoinOptions);
+        meetingUIClientCall.setMeetingUIClientCallRosterDelegate(this);
+    } catch (Exception ex) {
+        Toast.makeText(getApplicationContext(), "Failed to join meeting: " + ex.getMessage(), Toast.LENGTH_SHORT).show();
+    }
+}
+```
+
+Add and implement `onCallParticipantCellTapped` method and map each `userIdentifier` to the corresponding call participant user.
+This method is called on single tap of remote participant cell from call roster screen. Return `true` for custom handling or `false` for default handling of the single tap.
 
 ```java
 @Override
-public boolean onParticipantClickedInRoster(@NonNull Activity activity, @NonNull CommunicationIdentifier communicationIdentifier) {
+public boolean onCallParticipantCellTapped(@NonNull Activity activity, @NonNull CommunicationIdentifier communicationIdentifier) {
     if(communicationIdentifier instanceof CommunicationUserIdentifier) {
         CommunicationUserIdentifier userIdentifier = (CommunicationUserIdentifier) communicationIdentifier;
         if (userIdentifier.getId().startsWith("8:acs:")) {
             // Custom behavior based on the user here.
-            System.out.println("Acs user clicked in call roster");
+            System.out.println("On call participant cell tapped");
             return true;
         }
         return false;
