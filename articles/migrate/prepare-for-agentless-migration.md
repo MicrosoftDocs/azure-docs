@@ -63,8 +63,8 @@ The preparation script executes the following changes based on the OS type of th
     - If the files are not found, the partition is unmounted, and the search continues for the correct partition.
     - If the files are not present on any of the partitions, it could indicate that an incorrect OS disk was selected, or the OS disk is corrupted.  Azure Migrate will fail the migration process with an appropriate error.
 
-  > [!NOTE]
-  > This step is not relevant if you’re manually preparing the servers.
+    > [!NOTE]
+    > This step is not relevant if you’re manually preparing the servers.
 
 2.	**Make boot and connectivity related changes:**
 
@@ -156,14 +156,15 @@ After the aforementioned changes are performed, the system partition will be unl
       The next step is to inspect the kernel image and rebuild the Linux init image so, it contains the necessary Hyper-V drivers (**hv_vmbus, hv_storvsc, hv_netvsc**) on the initial ramdisk. Rebuilding the init image ensures that the VM will boot in Azure.
 
       Azure runs on the Hyper-V hypervisor. So, Linux requires certain kernel modules to run in Azure. To prepare your Linux image, you need to rebuild the initrd so that at least the hv_vmbus and hv_storvsc kernel modules are available on the initial ramdisk. The mechanism for rebuilding the initrd or initramfs image may vary depending on the distribution. Consult your distribution's documentation or support for the proper procedure. Here is one example for rebuilding the initrd by using the mkinitrd utility:
-        1. Find the list of kernels installed on the system (/lib/modules)
-        2. For each module, inspect if the Hyper-V drivers are already included.
-        3. If any of these drivers are missing, add the required drivers and regenerate the image for the corresponding kernel version.
 
-        > [!NOTE]
-        > This step may not apply to Ubuntu and Debian VMs as the Hyper-V drivers are built-in by default.[Learn more about the changes](/azure/virtual-machines/linux/create-upload-generic#installing-kernel-modules-without-hyper-v)
+      1. Find the list of kernels installed on the system (/lib/modules)
+      2. For each module, inspect if the Hyper-V drivers are already included.
+      3. If any of these drivers are missing, add the required drivers and regenerate the image for the corresponding kernel version.
 
-        Illustrative example for rebuilding initrd
+         > [!NOTE]
+         > This step may not apply to Ubuntu and Debian VMs as the Hyper-V drivers are built-in by default.[Learn more about the changes](/azure/virtual-machines/linux/create-upload-generic#installing-kernel-modules-without-hyper-v)
+
+      Illustrative example for rebuilding initrd
         - Back up the exisiting initrd image
         ```
           cd /boot
