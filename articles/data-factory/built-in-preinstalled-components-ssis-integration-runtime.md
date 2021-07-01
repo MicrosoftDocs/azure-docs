@@ -9,22 +9,18 @@ ms.custom: seo-lt-2019
 ms.date: 05/14/2020
 ---
 
-# OS and .NET Framework on Azure-SSIS Integration Runtime
-
-| Name | Version |
-|------|---------|
-| **Windows versions** | Windows Server 2019 |
-| **.NET Framework version** | 4.7.2 |
-
-# Built-in and preinstalled components on Azure-SSIS IR
+# Built-in and preinstalled components on Azure-SSIS Integration Runtime
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article lists all built-in and preinstalled components, such as clients, drivers, providers, connection managers, data sources/destinations/transformations, and tasks on SSIS Integration Runtime (IR) in Azure Data Factory (ADF).  To provision SSIS IR in ADF, follow the instructions in [Provision Azure-SSIS IR](./tutorial-deploy-ssis-packages-azure.md).
 
-| Name | Name - Version - Platform |
-|------|---------------------------|
-| **Built-in clients/drivers/providers** | *Access Database Engine 2016 Redistributable* - RTM - X64<br/><br/>*Microsoft Analysis Management Objects* - 15.0.1000.81 - X64<br/><br/>*Microsoft Analysis Services OLEDB Provider* - 15.0.1000.81 - X64<br/><br/>*Microsoft SQL Server 2012 Native Client* - 11.4.7462.6 - X64<br/><br/>*Microsoft ODBC Driver 13 for SQL Server* - 14.0.900.902 - X64<br/><br/>*Microsoft OLEDB Driver 18 for SQL Server* - 18.1.0.0 - X64<br/><br/>*Microsoft OLEDB Provider for DB2* - 6.0 - X64<br/><br/>*SharePoint Online Client Components SDK* - 15.4711.1001 - X64 |
+## OS and .NET Framework on Azure-SSIS IR
+
+| Name | Version |
+|------|---------|
+| **Windows versions** | Windows Server 2019 |
+| **.NET Framework version** | 4.7.2 |
 
 ## Built-in and preinstalled clients, drivers, and providers on Azure-SSIS IR
 
