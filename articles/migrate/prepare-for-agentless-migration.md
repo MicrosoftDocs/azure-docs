@@ -86,13 +86,13 @@ The preparation script executes the following changes based on the OS type of th
       To manually configure this setting:
       On the on-premises server, open the command prompt with elevated privileges and enter **diskpart**
 
-    ![Manual Configuration](./media/concepts-vmware-agentless-migration/command-prompt-diskpart.png)
+![Manual Configuration](./media/concepts-vmware-agentless-migration/command-prompt-diskpart.png)
 
   3. Enter SAN. If the drive letter of the guest operating system isn't maintained, Offline All or Offline Shared is returned.
 
   4. At the DISKPART prompt, enter SAN Policy=OnlineAll. This setting ensures that disks are brought online, and it ensures that you can read and write to both disks.
 
-    ![Administrator Command Prompt diskpart online policy](./media/concepts-vmware-agentless-migration/diskpart-online-policy.png)
+![Administrator Command Prompt diskpart online policy](./media/concepts-vmware-agentless-migration/diskpart-online-policy.png)
 
 3.	**Set the DHCP start type**
 
@@ -132,135 +132,134 @@ After the aforementioned changes are performed, the system partition will be unl
 
 1. **Discover and mount Linux OS partitions**  
 
-Before performing relevant configuration changes, the preparation script will validate if the correct OS disk was selected for migration. The script will collect information on all partitions, their UUIDs, and mount-points. The script will look through all these visible partitions to locate the /boot and /root partitions.
-The following actions are performed in this step:
-  - Discover /root partition:
-    - Mount each visible partition and look for etc/fstab.
-    - If the fstab files are not found, the partition is unmounted, and the search continues for the correct partition.
-    - If found, read the fstab content to identify the root device and mount it as the base mountpoint  .
-  - Discover /boot and other system partitions:
-    - Use fstab content to determine if /boot is a separate partition. If it’s a separate partition, then obtain the boot partition device name from the fstab content or look for the partition which has the boot flag.
-    - The script will proceed to discover and mount /boot, and other necessary partitions on “/mnt/azure_sms_root” to build the root filesystem tree required for chroot jail. Other necessary partitions include: /boot/grub/menu.lst, /boot/grub/grub.conf, /boot/grub2/grub.cfg, /boot/grub/grub.cfg, /boot/efi (for UEFI boot), /var, /lib, /etc, /usr and others.
+      Before performing relevant configuration changes, the preparation script will validate if the correct OS disk was selected for migration. The script will collect information on all partitions, their UUIDs, and mount-points. The script will look through all these visible partitions to locate the /boot and /root partitions.
+      The following actions are performed in this step:
+      - Discover /root partition:
+        - Mount each visible partition and look for etc/fstab.
+        - If the fstab files are not found, the partition is unmounted, and the search continues for the correct partition.
+        - If found, read the fstab content to identify the root device and mount it as the base mountpoint  .
+      - Discover /boot and other system partitions:
+        - Use fstab content to determine if /boot is a separate partition. If it’s a separate partition, then obtain the boot partition device name from the fstab content or look for the partition which has the boot flag.
+        - The script will proceed to discover and mount /boot, and other necessary partitions on “/mnt/azure_sms_root” to build the root filesystem tree required for chroot jail. Other necessary partitions include: /boot/grub/menu.lst, /boot/grub/grub.conf, /boot/grub2/grub.cfg, /boot/grub/grub.cfg, /boot/efi (for UEFI boot), /var, /lib, /etc, /usr and others.
 
 2. **Discover OS Version**
 
-Once the root partition is discovered, the script will use the below files to determine the Linux Operating System Distribution and version.
-  - RHEL/CentOS: etc/redhat-release
-  - OL: etc/oracle-release
-  - SLES: etc/SuSE-release
-  - Ubuntu: etc/lsb-release
-  - Debian: etc/debian_version
+      Once the root partition is discovered, the script will use the below files to determine the Linux Operating System Distribution and version.
+      - RHEL/CentOS: etc/redhat-release
+      - OL: etc/oracle-release
+      - SLES: etc/SuSE-release
+      - Ubuntu: etc/lsb-release
+      - Debian: etc/debian_version
 
-**Install Hyper-V Linux Integration Services and regenerate kernel image**  
+3. **Install Hyper-V Linux Integration Services and regenerate kernel image**  
 
-The next step is to inspect the kernel image and rebuild the Linux init image so, it contains the necessary Hyper-V drivers (**hv_vmbus, hv_storvsc, hv_netvsc**) on the initial ramdisk. Rebuilding the init image ensures that the VM will boot in Azure.
+      The next step is to inspect the kernel image and rebuild the Linux init image so, it contains the necessary Hyper-V drivers (**hv_vmbus, hv_storvsc, hv_netvsc**) on the initial ramdisk. Rebuilding the init image ensures that the VM will boot in Azure.
 
-Azure runs on the Hyper-V hypervisor. So, Linux requires certain kernel modules to run in Azure. To prepare your Linux image, you need to rebuild the initrd so that at least the hv_vmbus and hv_storvsc kernel modules are available on the initial ramdisk. The mechanism for rebuilding the initrd or initramfs image may vary depending on the distribution. Consult your distribution's documentation or support for the proper procedure. Here is one example for rebuilding the initrd by using the mkinitrd utility:
-  1. Find the list of kernels installed on the system (/lib/modules)
-  2. For each module, inspect if the Hyper-V drivers are already included.
-  3. If any of these drivers are missing, add the required drivers and regenerate the image for the corresponding kernel version.
+      Azure runs on the Hyper-V hypervisor. So, Linux requires certain kernel modules to run in Azure. To prepare your Linux image, you need to rebuild the initrd so that at least the hv_vmbus and hv_storvsc kernel modules are available on the initial ramdisk. The mechanism for rebuilding the initrd or initramfs image may vary depending on the distribution. Consult your distribution's documentation or support for the proper procedure. Here is one example for rebuilding the initrd by using the mkinitrd utility:
+        1. Find the list of kernels installed on the system (/lib/modules)
+        2. For each module, inspect if the Hyper-V drivers are already included.
+        3. If any of these drivers are missing, add the required drivers and regenerate the image for the corresponding kernel version.
 
-> [!NOTE]
-> This step may not apply to Ubuntu and Debian VMs as the Hyper-V drivers are built-in by default.[Learn more about the changes](/azure/virtual-machines/linux/create-upload-generic#installing-kernel-modules-without-hyper-v)
+        > [!NOTE]
+        > This step may not apply to Ubuntu and Debian VMs as the Hyper-V drivers are built-in by default.[Learn more about the changes](/azure/virtual-machines/linux/create-upload-generic#installing-kernel-modules-without-hyper-v)
 
-Illustrative example for rebuilding initrd
-- Back up the exisiting initrd image
-  ```
-  cd /boot
-  sudo cp initrd-`uname -r`.img  initrd-`uname -r`.img.bak
-  ```
-- Rebuild the initrd with the hv_vmbus and hv_storvsc kernel modules:
-  ```
-  sudo mkinitrd --preload=hv_storvsc --preload=hv_vmbus -v -f initrd-`uname -r`.img `uname -r`
-  ```
+        Illustrative example for rebuilding initrd
+        - Back up the exisiting initrd image
+        ```
+          cd /boot
+          sudo cp initrd-`uname -r`.img  initrd-`uname -r`.img.bak
+        ```
+        - Rebuild the initrd with the hv_vmbus and hv_storvsc kernel modules:
+        ```
+        sudo mkinitrd --preload=hv_storvsc --preload=hv_vmbus -v -f initrd-`uname -r`.img `uname -r`
+        ```
+        Most new versions of Linux distributions have this included by default. If not included, install manually for all versions except those called out above using the aforementioned steps.
 
-Most new versions of Linux distributions have this included by default. If not included, install manually for all versions except those called out above using the aforementioned steps.
+4. **Enable Azure Serial Console logging**
 
-3. **Enable Azure Serial Console logging**
+     The script will then make changes to enable Azure Serial Console logging. Enabling console logging helps with troubleshooting issues on the Azure VM. Learn more about Azure Serial Console for Linux [Azure Serial Console for Linux - Virtual Machines | Microsoft Docs](/azure/virtual-machines/serial-console-linux).
 
-The script will then make changes to enable Azure Serial Console logging. Enabling console logging helps with troubleshooting issues on the Azure VM. Learn more about Azure Serial Console for Linux [Azure Serial Console for Linux - Virtual Machines | Microsoft Docs](/azure/virtual-machines/serial-console-linux).
+     Modify the kernel boot line in GRUB or GRUB2 to include the following parameters, so that all console messages are sent to the first serial port. These messages can assist Azure support with debugging any issues.
 
-Modify the kernel boot line in GRUB or GRUB2 to include the following parameters, so that all console messages are sent to the first serial port. These messages can assist Azure support with debugging any issues.
+     ```
+     console=ttyS0,115200n8 earlyprintk=ttyS0,115200 rootdelay=300
+     ```
 
-```
-  console=ttyS0,115200n8 earlyprintk=ttyS0,115200 rootdelay=300
-```
+     We also recommend removing the following parameters if they exist.
 
-We also recommend removing the following parameters if they exist.
+     ```
+     rhgb quiet crashkernel=auto
+     ```
+     [Refer this article](/azure/virtual-machines/linux/create-upload-generic#general-linux-system-requirements) for specific changes.
 
-```
-  rhgb quiet crashkernel=auto
-```
+5. **Network changes for connectivity**
 
-  [Refer this article](/azure/virtual-machines/linux/create-upload-generic#general-linux-system-requirements) for specific changes.
+    Based on the OS Version, the script will perform the required network changes for connectivity to the migrated VM. The changes include:
 
-4. **Network changes for connectivity**
+    1. Move (or remove) the udev rules to avoid generating static rules for the Ethernet interface. These rules cause problems when you clone a virtual machine in Azure.
 
-Based on the OS Version, the script will perform the required network changes for connectivity to the migrated VM. The changes include:
+    Illustrative example for RedHat servers
 
-  1. Move (or remove) the udev rules to avoid generating static rules for the Ethernet interface. These rules cause problems when you clone a virtual machine in Azure.
+    ```console
+      # sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
+      # sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
+    ```
 
-   Illustrative example for RedHat servers
+    2. Remove Network Manager if necessary. Network Manager can interfere with the Azure Linux agent for a few OS versions. It is recommended to make these changes for servers running RedHat and Ubuntu distributions.
 
-```
-   # sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
-   # sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
-```
+    Uninstall this package by running the following command:
+    Illustrative example for RedHat servers
 
-  2. Remove Network Manager if necessary. Network Manager can interfere with the Azure Linux agent for a few OS versions. It is recommended to make these changes for servers running RedHat and Ubuntu distributions.
+    ```console
+      # sudo rpm -e --nodeps NetworkManager
+    ```
 
-  Uninstall this package by running the following command:
-  Illustrative example for RedHat servers
-  ```
-     # sudo rpm -e --nodeps NetworkManager
-  ```
+     3. Backup existing NIC settings and create eth0 NIC configuration file with DHCP settings. To do this, the script will create or edit the /etc/sysconfig/network-scripts/ifcfg-eth0 file, and add the following text:
 
-  3. Backup existing NIC settings and create eth0 NIC configuration file with DHCP settings. To do this, the script will create or edit the /etc/sysconfig/network-scripts/ifcfg-eth0 file, and add the following text:
-
-  Illustrative example for RedHat servers
-```
-    DEVICE=eth0
-    ONBOOT=yes
-    BOOTPROTO=dhcp
-    TYPE=Ethernet
-    USERCTL=no
-    PEERDNS=yes
-    IPV6INIT=no
-    PERSISTENT_DHCLIENT=yes
-    NM_CONTROLLED=yes
-```
+     Illustrative example for RedHat servers
+     ```config
+      DEVICE=eth0
+      ONBOOT=yes
+      BOOTPROTO=dhcp
+      TYPE=Ethernet
+      USERCTL=no
+      PEERDNS=yes
+      IPV6INIT=no
+      PERSISTENT_DHCLIENT=yes
+      NM_CONTROLLED=yes
+    ```
 
   4. Reset etc/sysconfig/network file as follows.
 
-  Illustrative example for RedHat servers
-  ```
-  NETWORKING=yes
-  HOSTNAME=localhost.localdomain
-  ```
+      Illustrative example for RedHat servers
+      ```config
+        NETWORKING=yes
+        HOSTNAME=localhost.localdomain
+      ```
 
-5. **Fstab validation**
+6. **Fstab validation**
 
-Azure Migrate will validate the entries of the fstab file and replace fstab entries with persistent volume identifiers, UUIDs wherever needed. This ensures the drive/partition name remains constant no matter what system it is attached to.
+    Azure Migrate will validate the entries of the fstab file and replace fstab entries with persistent volume identifiers, UUIDs wherever needed. This ensures the drive/partition name remains constant no matter what system it is attached to.
   - If the device name is a standard device name (say /dev/sdb1), then:
     - If it’s a root or boot partition, then it is replaced with UUID.
     - If the partition co-exists with either the root or boot partition as standard partitions on the same disk, then it is replaced with UUID.
   - If the device name is UUID/LABEL/LV, then no changes will be done.
   - If it’s a network device (nfs, cifs, smbfs …etc), then the script will comment the entry. To access it, you can uncomment the same and reboot your Azure VM
 
-6. **Install the Linux Azure Guest Agent**
+7. **Install the Linux Azure Guest Agent**
 
-Azure Migrate will attempt to install the Microsoft Azure Linux Agent (waagent), a secure, lightweight process that manages Linux & FreeBSD provisioning, and VM interaction with the Azure Fabric Controller.  [Learn more](/azure/virtual-machines/extensions/agent-linux) about the functionality enabled for Linux and FreeBSD IaaS deployments via the Linux agent.
+  Azure Migrate will attempt to install the Microsoft Azure Linux Agent (waagent), a secure, lightweight process that manages Linux & FreeBSD provisioning, and VM interaction with the Azure Fabric Controller.  [Learn more](/azure/virtual-machines/extensions/agent-linux) about the functionality enabled for Linux and FreeBSD IaaS deployments via the Linux agent.
 
-Review the list of [required packages](/azure/virtual-machines/extensions/agent-linux#requirements) to install Linux VM agent. Azure Migrate installs the Linux VM agent automatically for RHEL6, RHEL7, CentOS7 (6 should be supported like RHEL), Ubuntu 14.04, Ubuntu 16.04, Ubuntu18.04 when using the agentless method of VMware migration. Follow these instructions to [install the Linux Agent manually] (/azure/virtual-machines/extensions/agent-linux#installation) for other OS versions.
+  Review the list of [required packages](/azure/virtual-machines/extensions/agent-linux#requirements) to install Linux VM agent. Azure Migrate installs the Linux VM agent automatically for RHEL6, RHEL7, CentOS7 (6 should be supported like RHEL), Ubuntu 14.04, Ubuntu 16.04, Ubuntu18.04 when using the agentless method of VMware migration. Follow these instructions to [install the Linux Agent manually] (/azure/virtual-machines/extensions/agent-linux#installation) for other OS versions.
 
-You can use the command to verify the service status of the Azure Linux Agent to make sure it's running. The service name might be **walinuxagent** or **waagent**.
-Once the hydration changes are done, the script will unmount all the partitions mounted, deactivate volume groups, and then flush the devices.
-```
+  You can use the command to verify the service status of the Azure Linux Agent to make sure it's running. The service name might be **walinuxagent** or **waagent**.
+  Once the hydration changes are done, the script will unmount all the partitions mounted, deactivate volume groups, and then flush the devices.
+  ```
   $ vgchange -an <vg-name>
   $ blockdev –flushbufs <disk-device-name>
-```
+  ```
 
-[Learn more on the changes for Linux servers](/azure/virtual-machines/linux/create-upload-generic)
+  [Learn more on the changes for Linux servers](/azure/virtual-machines/linux/create-upload-generic)
 
 ### Clean-up the temporary VM
 After the necessary changes are performed, Azure Migrate will spin down the temporary VM and free the attached OS disks (and data disks). This marks the end of the *hydration process*.                                  

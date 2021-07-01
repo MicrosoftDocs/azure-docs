@@ -83,7 +83,7 @@ Required changes are summarized in the table.
 **Install Hyper-V Guest Integration** | [Install manually](prepare-windows-server-2003-migration.md#install-on-vmware-vms) on machines running Windows Server 2003. | [Install manually](prepare-windows-server-2003-migration.md#install-on-vmware-vms) on machines running Windows Server 2003. | [Install manually](prepare-windows-server-2003-migration.md#install-on-hyper-v-vms) on machines running Windows Server 2003.
 **Enable Azure Serial Console**.<br/><br/>[Enable the console](/troubleshoot/azure/virtual-machines/serial-console-windows) on Azure VMs to help with troubleshooting. You don't need to reboot the VM. The Azure VM will boot by using the disk image. The disk image boot is equivalent to a reboot for the new VM. | Enable manually | Enable manually | Enable manually
 **Connect after migration**<br/><br/> To connect after migration, there are a number of steps to take before you migrate. | [Set up](#prepare-to-connect-to-azure-windows-vms) manually. | [Set up](#prepare-to-connect-to-azure-windows-vms) manually. | [Set up](#prepare-to-connect-to-azure-windows-vms) manually.
-For more details see [Changes performed on Windows server](prepare-for-agentless-migration.md#Changes-performed-on-Windows-servers)
+For more details see [changes performed on Windows server](./prepare-for-agentless-migration.md#changes-performed-on-windows-servers)
 
 #### Configure SAN policy
 
@@ -126,7 +126,7 @@ For other versions, prepare machines as summarized in the table.
 **Update network interfaces** | Update network interfaces to receive IP address based on DHCP.nst | Update manually for all versions except those called out above.
 **Enable ssh** | Ensure ssh is enabled and the sshd service is set to start automatically on reboot.<br/><br/> Ensure that incoming ssh connection requests are not blocked by the OS firewall or scriptable rules.| Enable manually for all versions except those called out above.
 
-For more details see [Changes performed on Linux server](prepare-for-agentless-migration.md#Changes-performed-on-Linux-servers)
+For more details see [changes performed on Linux server](./prepare-for-agentless-migration.md#changes-performed-on-linux-servers)
 The following table summarizes the steps performed automatically for the operating systems listed above.
 
 
