@@ -81,13 +81,6 @@ Make a note of your password. If you forget, you would have to resetyour passwor
 }
 ```
 
-> [!NOTE]
-> - Make a note of your password that will be generate for you if not provided. If you forget the password you would have to reset the password using ``` az postgres flexible-server update``` command
-> - If you are not using App Service Environment , you would need to enable Allow access from any Azure IPs using this command. 
->  ```azurecli
->  az postgres flexible-server firewall-rule list --resource--resource-grouproup demoresourcegroup --server-name mydemoserver --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
->  ```
-
 ## Create a Web App
 In this section, you create app host in App Service app, connect this app to the Postgres database, then deploy your code to that host. Make sure you're in the repository root of your application code in the terminal. Note Basic Plan does not support VNET integration. Please use Standard or Premium. 
 
@@ -118,7 +111,7 @@ az network vnet show --resource-group demoresourcegroup -n demoappvnet
 Run the following command to create a new subnet in the same virtual network as the database server was created. **Update the address-prefix to avoid conflict with the database subnet.**
 
 ```azurecli
-az network vnet subnet create --resource-group demoresourcegroup --vnet-name demoappvnet --name webappsubnet  --address-prefixes 10.0.1.0/24  --delegations Microsoft.Web/serverFarms --service-endpoints Microsoft.Web
+az network vnet subnet create --resource-group demoresourcegroup --vnet-name demoappvnet --name webappsubnet  --address-prefixes 10.0.1.0/24  --delegations Microsoft.Web/serverFarms
 ```
 
 ## Add the Web App to the virtual network
@@ -132,13 +125,13 @@ az webapp vnet-integration add --resource-group demoresourcegroup -n  mywebapp -
 With the code now deployed to App Service, the next step is to connect the app to the flexible server in Azure. The app code expects to find database information in a number of environment variables. To set environment variables in App Service, use [az webapp config appsettings set](cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) command.
 
 ```azurecli
-az webapp config appsettings set --settings DBHOST="<postgres-server-name>.postgres.database.azure.com" DBNAME="postgres" DBUSER="<username>" DBPASS="<password>" ---resource-groupeneric-configurations '{"vnetRouteAllEnabled": true}'
+az webapp config appsettings set --settings DBHOST="<postgres-server-name>.postgres.database.azure.com" DBNAME="postgres" DBUSER="<username>" DBPASS="<password>" --groupeneric-configurations '{"vnetRouteAllEnabled": true}'
 ```
 - Replace **postgres-server-name**,**username**,**password** for the newly created flexible server command.
 - Replace **<username>** and **<password>** with the credentials that the command also generated for you.
 - The resource group and app name are drawn from the cached values in the .azure/config file.
 - The command creates settings named **DBHOST**, **DBNAME**, **DBUSER***, and **DBPASS**. If your application code is using different name for the database information then use those names for the app settings as mentioned in the code.
-- **vnetRouteAllEnabled** set to  true to allow all inbound and outbound connections from within the virtual network.
+- **vnetRouteAllEnabled** set to  true to allow all outbound connections from within the virtual network.
 
 ## Clean up resources
 
