@@ -6,7 +6,7 @@ services: active-directory
 author: mmacy
 manager: CelesteDG
 
-ms.date: 04/30/2021
+ms.date: 07/01/2021
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference
