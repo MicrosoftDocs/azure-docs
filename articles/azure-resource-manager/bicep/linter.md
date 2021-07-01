@@ -2,7 +2,7 @@
 title: Use Bicep linter
 description: Learn how to use Bicep linter.
 ms.topic: conceptual
-ms.date: 06/29/2021
+ms.date: 07/01/2021
 ---
 
 # Use Bicep linter
@@ -18,9 +18,53 @@ The linter can be used with Visual Studio code and Bicep CLI. It requires:
 
 ## Customize linter
 
-*** is there a default bicepconfig.json?  If yes, show the default bicepconfig.json.
+Using bicepconfig.json, you can enable or disable linter, supply rule-specific values, and set the level of rules as well. The following is the default bicepconfig.json:
 
-Using bicepconfig.json, you can enable or disable linter, supply rule-specific values, and set the level of rules as well. Bicepconfig.json can be placed alongside your templates in the same directory. The closest configuration file found up the folder tree is used.
+```json
+{
+  "analyzers": {
+    "core": {
+      "verbose": false,
+      "enabled": true,
+      "rules": {
+        "no-hardcoded-env-urls": {
+          "level": "warning",
+          "disallowedhosts": [
+            "management.core.windows.net",
+            "gallery.azure.com",
+            "management.core.windows.net",
+            "management.azure.com",
+            "database.windows.net",
+            "core.windows.net",
+            "login.microsoftonline.com",
+            "graph.windows.net",
+            "trafficmanager.net",
+            "vault.azure.net",
+            "datalake.azure.net",
+            "azuredatalakestore.net",
+            "azuredatalakeanalytics.net",
+            "vault.azure.net",
+            "api.loganalytics.io",
+            "api.loganalytics.iov1",
+            "asazure.windows.net",
+            "region.asazure.windows.net",
+            "api.loganalytics.iov1",
+            "api.loganalytics.io",
+            "asazure.windows.net",
+            "region.asazure.windows.net",
+            "batch.core.windows.net"
+          ],
+          "excludedhosts": [
+            "schema.management.azure.com"
+          ]
+        }
+      }
+    }
+  }
+}
+```
+
+Customized bicepconfig.json can be placed alongside your templates in the same directory. The closest configuration file found up the folder tree is used.
 
 The following json is a sample bicepconfig.json:
 
