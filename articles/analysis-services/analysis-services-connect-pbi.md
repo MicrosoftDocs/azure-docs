@@ -32,7 +32,7 @@ Once you've created a server in Azure, and deployed a tabular model to it, users
     
     If you have a Power BI model in [Mixed storage mode](/power-bi/transform-model/desktop-composite-models), the **Connect live** option is replaced by the **[DirectQuery](/power-bi/connect-data/desktop-directquery-datasets-azure-analysis-services)** option. Live connections are also automatically upgraded to DirectQuery if the model is switched from Import to Mixed storage mode.
 
-5. When prompted to enter your login credentials, select **Microsoft account**, and then click **Sign in**. 
+5. When prompted to enter your credentials, select **Microsoft account**, and then click **Sign in**. 
 
     :::image type="content" source="media/analysis-services-connect-pbi/aas-sign-in.png" alt-text="Sign in to Azure AS":::
 
