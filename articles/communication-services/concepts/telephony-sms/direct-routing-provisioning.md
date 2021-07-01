@@ -30,7 +30,7 @@ If you are using Office 365, make sure the domain part of the SBC’s FQDN is di
 - The *.onmicrosoft.com domain cannot be used for the FQDN of the SBC.
 For the full list of requirements, refer to [Azure direct routing infrastructure requirements](./sip-interface-infrastructure.md).
 
-:::image type="content" source="../media/direct-routing-provisioning/add-session-border-controller.png" alt-text="Adding Session Border Controller.":::
+   :::image type="content" source="../media/direct-routing-provisioning/add-session-border-controller.png" alt-text="Adding Session Border Controller.":::
 - When you are done, click Next.
 If everything set up correctly, you should see exchange of OPTIONS messages between Microsoft and your Session Border Controller, user your SBC monitoring/logs to validate the connection.
 

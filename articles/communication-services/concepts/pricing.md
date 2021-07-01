@@ -71,7 +71,7 @@ Alice makes an outbound call from an Azure Communication Services app to a telep
 
 **Total cost for the call**: $0.04 + $0.04 = $0.08
 >[!Note]
->Azure Communication Services direct routing leg is not charged till 08/01/2021
+>Azure Communication Services direct routing leg is not charged until 08/01/2021.
 
 
 ### Pricing example: Group audio call using JS SDK and one PSTN leg
