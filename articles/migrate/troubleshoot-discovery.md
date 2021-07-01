@@ -138,7 +138,7 @@ The issue happens when VMware discovery agent in appliance tries to download the
 The error usually comes for servers running Windows Server 2008 or lower.
 
 ### Remediation
-You need to install the required PowerShell version (2.0 or later) at this location on the server: ($SYSTEMROOT)\System32\WindowsPowershell\v1.0\powershell.exe. [Learn more](https://docs.microsoft.com/powershell/scripting/windows-powershell/install/installing-windows-powershell?view=powershell-7.1 ) on how to install PowerShell in Windows Server.
+You need to install the required PowerShell version (2.0 or later) at this location on the server: ($SYSTEMROOT)\System32\WindowsPowershell\v1.0\powershell.exe. [Learn more](https://docs.microsoft.com/powershell/scripting/windows-powershell/install/installing-windows-powershell) on how to install PowerShell in Windows Server.
 
 After installing the required PowerShell version, you can verify if the error was resolved by following steps [here](troubleshoot-dependencies.md#mitigation-verification-using-VMware-PowerCLI).
 
