@@ -53,6 +53,7 @@ For more information, see:
 - [Azure Sentinel Process Event normalization schema reference (Public preview)](process-events-normalization-schema.md) (new!)
 - [Azure Sentinel Registry Event normalization schema reference (Public preview)](registry-event-normalization-schema.md) (new!)
 
+
 ### Updated service-to-service connectors
 
 Two of our most-used connectors have been the beneficiaries of major upgrades.
