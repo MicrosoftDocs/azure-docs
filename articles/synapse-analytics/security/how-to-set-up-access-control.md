@@ -89,11 +89,11 @@ Identify the following information about your storage:
 - The ADLS Gen2 account to use for your workspace. This document calls it `storage1`. `storage1` is considered the "primary" storage account for your workspace.
 - The container inside `workspace1` that your Synapse workspace will use by default. This document calls it `container1`. 
  
-1. Select **Access control (IAM)**.
+- Select **Access control (IAM)**.
 
-1. Select **Add** > **Add role assignment** to open the Add role assignment page.
+- Select **Add** > **Add role assignment** to open the Add role assignment page.
 
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+- Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
     
     | Setting | Value |
     | --- | --- |
@@ -108,11 +108,17 @@ Identify the following information about your storage:
 In the Azure portal, create a Synapse workspace:
 
 - Select your subscription
+
 - Select or create a resource group for which you have the Azure **Owner** role.
+
 - Name the workspace `workspace1`
+
 - Choose `storage1` for the Storage account
+
 - Choose `container1` for the container that is being used as the "filesystem".
+
 - Open WS1 in Synapse Studio
+
 - Navigate to **Manage** > **Access Control** and assign Synapse roles at *workspace scope* to the security groups as follows:
   - Assign the **Synapse Administrator** role to `workspace1_SynapseAdministrators` 
   - Assign the **Synapse Contributor** role to `workspace1_SynapseContributors` 
