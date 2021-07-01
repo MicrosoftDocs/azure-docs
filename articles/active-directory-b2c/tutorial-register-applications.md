@@ -53,7 +53,7 @@ To register a web application in your Azure AD B2C tenant, you can use our new u
     * The reply URL is case-sensitive. Its case must match the case of the URL path of your running application. For example, if your application includes as part of its path `.../abc/response-oidc`,  do not specify `.../ABC/response-oidc` in the reply URL. Because the web browser treats paths as case-sensitive, cookies associated with `.../abc/response-oidc` may be excluded if redirected to the case-mismatched `.../ABC/response-oidc` URL.
 
 1. Under **Permissions**, select the *Grant admin consent to openid and offline_access permissions* check box.
-1. Select **Register**.
+1. Select **Create**.
 
 #### [Applications (Legacy)](#tab/applications-legacy/)
 
