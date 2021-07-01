@@ -8,7 +8,7 @@ ms.author: sagopal
 ms.reviewer: nibaccam
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 07/23/2020
+ms.date: 07/01/2021
 ms.topic: how-to
 ms.custom: devx-track-python
 
