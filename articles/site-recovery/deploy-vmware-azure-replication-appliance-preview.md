@@ -81,7 +81,7 @@ To create and register the Azure Site Recovery replication appliance, you need a
 
 If you just created a free Azure account, you're the owner of your subscription. If you're not the subscription owner, work with the owner for the required permissions.
 
-Use the following steps to assign the required permissions assigned:
+Use the following steps to assign the required permissions::
 
 1. In the Azure portal, search for **Subscriptions**, and under **Services**, select **Subscriptions** search box to search for the Azure subscription.
 
@@ -134,7 +134,7 @@ You can create the Site Recovery appliance by using the OVF template or through 
 3. In the next screen, provide password for the administrator user.
 4.  Select **Finalize,** the system reboots and you can login with the administrator user account.
 
-  In case of any organizational restrictions, you can manually set up the Site Recovery replication appliance through PowerShell. Do the following:
+In case of any organizational restrictions, you can manually set up the Site Recovery replication appliance through PowerShell. Do the following:
 
 1. Download the installers from [here](https://aka.ms/V2ARcmApplianceCreationPowershellZip) and place this folder on the Azure Site Recovery replication appliance.
 2. After successfully copying the zip folder, unzip and extract the components of the folder.
@@ -142,25 +142,24 @@ You can create the Site Recovery appliance by using the OVF template or through 
 
     Once you create the appliance, Microsoft Azure appliance configuration manager is launched automatically. Prerequisites such as internet connectivity, Time sync, system configurations and group policies (listed below) are validated.
 
-  - CheckRegistryAccessPolicy - Prevents access to registry editing tools.
-     - Key: HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System
-     - DisableRegistryTools value should not be equal 0.
+    - CheckRegistryAccessPolicy - Prevents access to registry editing tools.
+      - Key: HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System
+      - DisableRegistryTools value should not be equal 0.
 
-  - CheckCommandPromptPolicy - Prevents access to the command prompt.
+    - CheckCommandPromptPolicy - Prevents access to the command prompt.
 
-     - Key: HKLM\SOFTWARE\Policies\Microsoft\Windows\System
+      - Key: HKLM\SOFTWARE\Policies\Microsoft\Windows\System
+      - DisableCMD value should not be equal 0
 
-     - DisableCMD value should not be equal 0
+    - CheckTrustLogicAttachmentsPolicy - Trust logic for file attachments.
 
-  - CheckTrustLogicAttachmentsPolicy - Trust logic for file attachments.
+      - Key: HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Attachments
+      - UseTrustedHandlers value should not be equal 3
 
-     - Key: HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Attachments
-     - UseTrustedHandlers value should not be equal 3
+    - CheckPowershellExecutionPolicy - Turn on Script Execution
 
-  - CheckPowershellExecutionPolicy - Turn on Script Execution
-
-     - PowerShell execution policy shouldn't be AllSigned or Restricted
-     - Ensure the group policy 'Turn on Script Execution Attachment Manager' is not set to Disabled or 'Allow only signed scripts'
+      - PowerShell execution policy shouldn't be AllSigned or Restricted
+      - Ensure the group policy 'Turn on Script Execution Attachment Manager' is not set to Disabled or 'Allow only signed scripts'
 
 4. Configure the proxy settings by toggling on the **use proxy to connect to internet** option.
 
@@ -172,7 +171,7 @@ You can create the Site Recovery appliance by using the OVF template or through 
 | ------------------------- | -------------------------------------------|
 | portal.azure.com          | Navigate to the Azure portal.              |
 | `*.windows.net `<br>`*.msftauth.net`<br>`*.msauth.net`<br>`*.microsoft.com`<br>`*.live.com `<br>`*.office.com ` | To sign-in to your Azure subscription.  |
-|`*.microsoftonline.com `|Create Azure Active Directory (AD) apps for the appliance to communicate with Azure Site Recovery. |
+|`*.microsoftonline.com `|Create Azure Active  Directory (AD) apps for the appliance to communicate with Azure Site Recovery. |
 |management.azure.com |Create Azure AD apps for the appliance to communicate with the Azure Site Recovery service. |
 |`*.services.visualstudio.com `|Upload app logs used for internal monitoring. |
 |`*.vault.azure.net `|Manage secrets in the Azure Key Vault. Note: Ensure machines to replicate have access to this. |
@@ -189,29 +188,28 @@ You can create the Site Recovery appliance by using the OVF template or through 
 
 7. After saving connectivity details, Select **Continue** to proceed to registration with Microsoft Azure.
 
-  **Prerequisites for successful registration of appliance with Azure**:
+**Prerequisites for successful registration of appliance with Azure**:
 
-  You need an account with:
+You need an account with permissions to register Azure Active Directory (AAD) apps.
 
- - Permissions to register Azure Active Directory (AAD) apps
+- To enable, navigate to Azure portal > **Azure Active Directory** > **Users** > **User Settings**.
+- In **User settings**, verify that Azure AD users can register applications (set to *Yes* by default).
+- In case the **App registrations** setting is set to *No*, request the tenant/global admin to assign the required permission. Alternately, the tenant/global admin can assign the *Application Developer* role to an account to allow the registration of AAD App. [Learn more](/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
 
-    - To enable, navigate to Azure portal -> Azure Active Directory -> Users -> User Settings.
-    - In User settings, verify that Azure AD users can register applications (set to Yes by default)
-    - In case the 'App registrations' setting is set to 'No', request the tenant/global admin to assign the required permission. Alternately, the tenant/global admin can assign the Application Developer role to an account to allow the registration of AAD App. [Learn more](/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
-
- - Owner or Contributor plus User Access Administrator permissions on the Azure subscription to create a Key Vault. The key vault is used to store certifications generated
+- Owner or Contributor plus User Access Administrator permissions on the Azure subscription to create a Key Vault. The key vault is used to store certifications generated
 
 8. Ensure the prerequisites are met, proceed with registration.
 
-    - **Friendly name of appliance** : Provide a friendly name with which you want to track this appliance in the Azure portal under recovery services vault infrastructure.
+  - **Friendly name of appliance** : Provide a friendly name with which you want to track this appliance in the Azure portal under recovery services vault infrastructure.
 
-    -  **Azure Site Recovery replication appliance key** : Copy the key from portal by navigating to recovery services vault -> Getting started -> VMware to Azure Prepare Infrastructure.
+  -  **Azure Site Recovery replication appliance key** : Copy the key from the portal by navigating to **Recovery Services vault** > **Getting started** > **VMware to Azure Prepare Infrastructure**.
 
-    - After pasting the key, select **Login.** You will be redirected to a new authentication tab.
+  - After pasting the key, select **Login.**
+    You will be redirected to a new authentication tab.
 
     By default, an authentication code will be generated as highlighted below, in the authentication manager page. Use this code in the authentication tab.
 
-    Enter your Microsoft Azure credentials to complete registration.
+  - Enter your Microsoft Azure credentials to complete registration.
 
     After successful registration, you can close the tab and move to configuration manager to continue the set up.
 
@@ -225,23 +223,25 @@ You can create the Site Recovery appliance by using the OVF template or through 
 
 9. Select **Login** to reconnect with the session. For authentication code, refer to the section *Summary* or *Register with Azure Recovery Services vault* in the configuration manger.
 
-10. After successful login, subscription, resource group and recovery services vault details are displayed as shown below. You can logout in case you want to change the vault. Else, Select 'continue' to proceed.
+10. After successful login, Subscription, Resource Group and Recovery Services vault details are displayed. You can logout in case you want to change the vault. Else, Select **Continue** to proceed.
 
-11. After successful registration, proceed to configure vCenter details.
+  After successful registration, proceed to configure vCenter details.
 
 12. Select **Add vCenter Server** to add vCenter information. Enter the server name or IP address of the vCenter and port information. Post that, provide username, password and friendly name and is used to fetch details of [virtual machine managed through the vCenter](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery). The user account details will be encrypted and stored locally in the machine.
 
 13. After successfully saving the vCenter information, select **Add virtual machine credentials** to provide user details of the VMs discovered through the vCenter. For Linux OS, ensure to provide root credentials and for Windows OS, a user account with admin privileges should be added, these credentials will be used to push mobility agent on to the source VM during enable replication operation. The credentials can be chosen per VM in the Azure portal during enable replication workflow.
 
-14. After successfully adding the details, select continue to install all Azure Site Recovery replication appliance components and register with Azure services. This activity can take up to 30 min. Ensure to not close the browser while configuration is in progress.
+14. After successfully adding the details, select **Continue** to install all Azure Site Recovery replication appliance components and register with Azure services. This activity can take up to 30 min.
+
+  Ensure you do not close the browser while configuration is in progress.
 
 ## View Azure Site Recovery replication appliance in Azure portal
 
-After successful configuration of Azure Site Recovery replication appliance, navigate to Azure portal, Recovery Services Vault.
+After successful configuration of Azure Site Recovery replication appliance, navigate to Azure portal, **Recovery Services Vault**.
 
-If you select **Prepare infrastructure** under **Getting started**, you can see that an Azure Site Recovery replication appliance is already registered with this vault. Now you are all set! Start protecting your source machines through this replication appliance.
+Select **Prepare infrastructure** under **Getting started**, you can see that an Azure Site Recovery replication appliance is already registered with this vault. Now you are all set! Start protecting your source machines through this replication appliance.
 
-Upon Selecting  *1 appliance(s)*, you will be re-directed to Azure Site Recovery replication appliance view to see the list of appliances registered to this vault.
+Select  *1 appliance(s)*, you will be re-directed to Azure Site Recovery replication appliance view, where the list of appliances registered to this vault, is displayed.
 
 [![Register recovery service vault](./media/deploy-vmware-azure-replication-appliance-preview/register-recovery-services-vault-inline.png)](./media/deploy-vmware-azure-replication-appliance-preview/register-recovery-services-vault-expanded.png#lightbox)
 
