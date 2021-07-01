@@ -1,6 +1,6 @@
 ---
 title: Manage VMs disks on Azure Stack Edge Pro GPU, Pro R, Mini R via Azure portal
-description: Learn how to manage disks including add or detach a data disk on VMs that are deployed on your Azure Stack Edge Pro GPU, Azure Stack Edge Pro R, and Azure Stack Edge Mini R via the Azure portal.
+description: Learn how to manage disks including add, resize, detach, and delete data disks for VMs deployed on your Azure Stack Edge Pro GPU, Azure Stack Edge Pro R, and Azure Stack Edge Mini R via the Azure portal.
 services: databox
 author: alkohli
 
@@ -16,9 +16,9 @@ Customer intent: As an IT admin, I need to understand how to manage disks on a V
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-You can provision disks on the virtual machines (VMs) deployed on your Azure Stack Edge Pro device using the Azure portal. The disks are provisioned on the device via the local Azure Resource Manager and consume the device capacity. The operations such as adding a disk, detaching a disk can be done via the Azure portal, which in turn makes calls to the local Azure Resource Manager to provision the storage. 
+You can provision disks on the virtual machines (VMs) deployed on your Azure Stack Edge Pro device using the Azure portal. The disks are provisioned on the device via the local Azure Resource Manager and consume the device capacity. The operations such as adding, detaching, and deleting a disk can be done via the Azure portal, which in turn makes calls to the local Azure Resource Manager to provision the storage. 
 
-This article explains how to add a data disk to an existing VM, detach a data disk, and finally resize the VM itself via the Azure portal. 
+This article explains how to add, detach, and delete data disks from an existing VM, and resize the VM itself via, the Azure portal.
 
         
 ## About disks on VMs
@@ -48,7 +48,6 @@ Before you begin to manage disks on the VMs running on your device via the Azure
     1. Enable compute on the network interface. Azure Stack Edge Pro GPU creates and manages a virtual switch corresponding to that network interface.
 
 1. You have at least one VM deployed on your device. To create this VM, see the instructions in [Deploy VM on your Azure Stack Edge Pro via the Azure portal](azure-stack-edge-gpu-deploy-virtual-machine-portal.md).
-
 
 
 ## Add a data disk
@@ -120,7 +119,7 @@ Follow these steps to attach an existing disk to the virtual machine deployed on
 
     ![Select attach an existing disk](./media/azure-stack-edge-gpu-manage-virtual-machine-disks-portal/attach-existing-data-disk-1.png)
 
-1. Accept default LUN or assign a valid LUN. Choose an existing data disk from the dropdown list. Select Save.
+1. Accept default LUN or assign a valid LUN. Choose an existing data disk from the dropdown list. Select **Save**.
 
     ![Select an existing disk](./media/azure-stack-edge-gpu-manage-virtual-machine-disks-portal/attach-existing-data-disk-2.png)
 
@@ -154,15 +153,13 @@ Follow these steps to detach or remove a data disk associated with a virtual mac
 
 ## Delete a disk
 
-If a disk isn't attached to a virtual machine, you can delete the disk on the **Disks** blade in virtual machine **Resources**.
+After you [detach a data disk from a VM](#detach-a-data-disk), follow these steps to delete the disk:
 
-Follow these steps to delete a disk:
-
-1. Go to **Virtual Machines**. Select **Resources**. Then select **Disks**.
+1. Open the device in the portal, and go to **Virtual Machines**. Select **Resources**. Then select **Disks**.
  
     ![In Resources for virtual machines, display Disks](./media/azure-stack-edge-gpu-manage-virtual-machine-disks-portal/delete-disk-1.png)
 
-2. To delete a disk, select the trashcan icon at the right end of the disk entry. If you don't see the trashcan, [detach the disk from the VM](#detch-a-vm-disk), and then delete it.
+2. To delete a disk, select the trashcan icon at the right end of the disk entry. If you don't see the trashcan, [detach the disk from the VM](#detach-a-data-disk).
 
     ![To delete an unattached disk, selecting the trashcan icon to the right of the entry in the list of disks](./media/azure-stack-edge-gpu-manage-virtual-machine-disks-portal/delete-disk-2.png)
 
