@@ -19,6 +19,8 @@ ms.collection: M365-identity-device-management
 
 A [device identity](/graph/api/resources/device?view=graph-rest-1.0) is an object in Azure Active Directory (Azure AD). This device object is similar to users, groups, or applications. A device identity gives administrators information they can use when making access or configuration decisions.
 
+![Devices displayed in Azure AD Devices blade](./media/overview/azure-active-directory-devices-all-devices.png)
+
 There are three ways to get a device identity:
 
 - Azure AD registration
