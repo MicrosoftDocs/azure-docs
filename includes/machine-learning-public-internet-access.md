@@ -5,7 +5,7 @@ author: lobrien
 ms.service: machine-learning
 services: machine-learning
 ms.topic: include
-ms.date: 06/18/2021
+ms.date: 07/01/2021
 ms.author: larryfr
 ms.custom: include file
 ---
