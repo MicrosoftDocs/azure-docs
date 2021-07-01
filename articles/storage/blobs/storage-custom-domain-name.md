@@ -86,7 +86,12 @@ Create a CNAME record to point to your host name. A CNAME record is a type of Do
 
    - The subdomain alias such as `www` or `photos`. The subdomain is required, root domains are not supported. 
       
-   - The host name that you obtained in the [Get the host name of your storage endpoint](#endpoint) section earlier in this article. 
+   - The host name for the blob service that you obtained in the [Get the host name of your storage endpoint](#endpoint) section earlier in this article. 
+
+   The following table contains an example:
+   | Host |  Cname | TTL |
+   |------------|-----------------|-------------------|
+   | `photos`  | `mystorageaccount.blob.core.windows.net` | 3600 |
 
 <a id="register"></a>
 
