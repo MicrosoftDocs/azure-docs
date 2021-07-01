@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 06/25/2021
+ms.date: 06/30/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge Pro GPU device using APIs so that I can efficiently manage my VMs.
 ---
@@ -50,7 +50,7 @@ Select the VM and drill down to the details. <!--Copy the IP allocated to the VM
 
     ![IP allocated to GPU VM in Azure portal](media/azure-stack-edge-gpu-deploy-gpu-virtual-machine/get-ip-gpu-virtual-machine-1.png)
 
-1. If needed, you could switch the compute network back to whatever you need. 
+1. If needed, you could switch the compute network back to whatever you need.
 
 After the VM is created, you can deploy GPU extension using the extension template.
 
