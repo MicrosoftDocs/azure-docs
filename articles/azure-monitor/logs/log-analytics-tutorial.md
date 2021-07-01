@@ -35,7 +35,7 @@ You can view the scope in the top left corner of the screen. If you're using you
 [![Query scope](media/log-analytics-tutorial/scope.png)](media/log-analytics-tutorial/scope.png#lightbox)
 
 ## Table schema
-The left side of the screen includes the **Tables** tab which allows you to inspect the tables that are available in the current scope. These are grouped by **Solution** by default, but you change their grouping or filter them. 
+The left side of the screen includes the **Tables** tab which allows you to inspect the tables that are available in the current scope. These are grouped by **Solution** by default, but you can change their grouping or filter them. 
 
 Expand the **Log Management** solution and locate the **AzureActivity** table. You can expand the table to view its schema, or hover over its name to show additional information about it. 
 
