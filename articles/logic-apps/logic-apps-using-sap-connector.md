@@ -31,7 +31,7 @@ This article explains how you can access your SAP resources from Logic Apps usin
 
   > [!IMPORTANT]
   > Make sure that you set up your SAP server and user account to allow using RFC. For more information, which includes the supported user account types 
-  > and the minimum authorization required for each type of action (RFC, BAPI, IDOC) review the following SAP note: 
+  > and the minimum required authorization for each action type (RFC, BAPI, IDOC), review the following SAP note: 
   > [460089 - Minimum authorization profiles for external RFC programs](https://launchpad.support.sap.com/#/notes/460089). 
   > * For RFC actions, the user account additionally needs access to function modules `RFC_GROUP_SEARCH` and `DD_LANGU_TO_ISOLA`.
   > * For BAPI actions, the user account additionally needs access to function modules `BAPI_TRANSACTION_COMMIT`, `BAPI_TRANSACTION_ROLLBACK`, `RPY_BOR_TREE_INIT`, `SWO_QUERY_METHODS` and `SWO_QUERY_API_METHODS`.
