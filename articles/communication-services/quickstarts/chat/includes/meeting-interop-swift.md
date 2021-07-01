@@ -2,7 +2,7 @@
 title: Quickstart - Join a Teams meeting
 author: askaur
 ms.author: askaur
-ms.date: 05/13/2021
+ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 ---

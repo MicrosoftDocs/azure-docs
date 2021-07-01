@@ -64,7 +64,7 @@ A virtual hub is a virtual network that is created and used by Virtual WAN. It's
    >[!IMPORTANT]
    >By default, Azure assigns a private IP address from the GatewaySubnet prefix range automatically as the Azure BGP IP address on the Azure VPN gateway. The custom Azure APIPA BGP address is needed when your on premises VPN devices use an APIPA address (169.254.0.1 to 169.254.255.254) as the BGP IP. Azure VPN Gateway will choose the custom APIPA address if the corresponding local network gateway resource (on-premises network) has an APIPA address as the BGP peer IP. If the local network gateway uses a regular IP address (not APIPA), Azure VPN Gateway will revert to the private IP address from the GatewaySubnet range.
 
-   :::image type="content" source="../../includes/media/virtual-wan-tutorial-site-include/site-links.png" alt-text="Screenshot shows Create VPN site page with the Links tab open." lightbox="../../includes/media/virtual-wan-tutorial-site-include/site-links.png":::
+   :::image type="content" source="../../includes/media/virtual-wan-tutorial-site-include/site-links.png" alt-text="Screenshot showing the Create VPN site page with the Links tab open." lightbox="../../includes/media/virtual-wan-tutorial-site-include/site-links.png":::
 
 1. Select **Review + create**. 
 
