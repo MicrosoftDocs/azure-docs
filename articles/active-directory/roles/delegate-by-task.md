@@ -51,6 +51,7 @@ In this article, you can find the information needed to restrict a user's admini
 > | Create, read, update, and delete sign-up user flow |External ID User Flow Administrator |  |
 > | Create, read, update, and delete user attributes | External ID User Flow Attribute Administrator |  |
 > | Create, read, update, and delete users | User Administrator |  |
+> | Configure B2B external collaboration settings | Global Administrator |  |
 > | Read all configuration | Global Reader |  |
 > | Read B2C audit logs | Global Reader ([see documentation](../../active-directory-b2c/faq.yml)) |  |
 

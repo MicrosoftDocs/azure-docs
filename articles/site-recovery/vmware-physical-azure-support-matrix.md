@@ -298,6 +298,7 @@ Operating system disk size | Up to 2,048 GB for Generation 1 machines. <br> Up t
 Operating system disk count | 1 </br> boot and system partition on different disks is not supported | Check fails if unsupported.
 Data disk count | 64 or less. | Check fails if unsupported.
 Data disk size | Up to 32,767 GB when replicating to managed disk (9.41 version onwards)<br> Up to 4,095 GB when replicating to storage account </br> Minimum disk size requirement - at least 1024 MB| Check fails if unsupported.
+RAM | ASR driver consumes 6% of RAM.
 Network adapters | Multiple adapters are supported. |
 Shared VHD | Not supported. | Check fails if unsupported.
 FC disk | Not supported. | Check fails if unsupported.
