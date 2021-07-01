@@ -22,7 +22,7 @@ ms.reviewer: john.garland, maggie.marxen, ian.bennett, marsma
 Role-based access control (RBAC) allows certain users or groups to have specific permissions regarding which resources they have access to, what they can do with those resources, and who manages which resources. This article explains application-specific role-based access control.
 
 > [!NOTE]
-> Application role-based access control differs from [Azure role-based access control](azure/role-based-access-control/overview) and [Azure AD role-based access control](/azure/active-directory/roles/custom-overview#understand-azure-ad-role-based-access-control). Azure custom roles and built-in roles are both part of Azure RBAC, which helps you manage Azure resources. Azure AD RBAC allows you to manage Azure AD resources.
+> Application role-based access control differs from [Azure role-based access control](/azure/role-based-access-control/overview) and [Azure AD role-based access control](../roles/custom-overview.md#understand-azure-ad-role-based-access-control). Azure custom roles and built-in roles are both part of Azure RBAC, which helps you manage Azure resources. Azure AD RBAC allows you to manage Azure AD resources.
 
 
 
@@ -47,14 +47,14 @@ Developers have the flexibility to provide their own implementation for how role
 
 ### App roles
 
-Azure AD supports declaring app roles for an application registration. When a user signs into an application, Azure AD will include a [roles claim](/azure/active-directory/develop/access-tokens#payload-claims) for each role that the user has been granted for that application. Applications that receive tokens that contain these claims can then use this information to determine what permissions the user may exercise based on the roles they're assigned.
+Azure AD supports declaring app roles for an application registration. When a user signs into an application, Azure AD will include a [roles claim](./access-tokens.md#payload-claims) for each role that the user has been granted for that application. Applications that receive tokens that contain these claims can then use this information to determine what permissions the user may exercise based on the roles they're assigned.
 
 ### Groups
 
-Developers can also use [Azure AD Groups](/azure/active-directory/fundamentals/active-directory-manage-groups) to implement RBAC in their applications, where the users’ memberships in specific groups are interpreted as their role memberships. When using Azure AD Groups, Azure AD will include a [groups claim](/azure/active-directory/develop/access-tokens#payload-claims) that will include the identifiers of all of the groups to which the user is assigned within the current Azure AD tenant. Applications that receive tokens that contain these claims can then use this information to determine what permissions the user may exercise based on the roles they're assigned.
+Developers can also use [Azure AD Groups](../fundamentals/active-directory-manage-groups.md) to implement RBAC in their applications, where the users’ memberships in specific groups are interpreted as their role memberships. When using Azure AD Groups, Azure AD will include a [groups claim](./access-tokens.md#payload-claims) that will include the identifiers of all of the groups to which the user is assigned within the current Azure AD tenant. Applications that receive tokens that contain these claims can then use this information to determine what permissions the user may exercise based on the roles they're assigned.
 
 > [!IMPORTANT]
-> When working with groups, developers need to be aware of the concept of an [overage claim](/azure/active-directory/develop/access-tokens#payload-claims). By default, if a user is a member of more than the overage limit (150 for SAML tokens, 200 for JWT tokens, 6 if using the implicit flow), Azure AD will not emit a groups claim in the token. Instead, it will include an “overage claim” in the token that indicates the token’s consumer will need to query the Graph API to retrieve the user’s group memberships. For more information about working with overage claims, please see this link. It is possible to only emit groups that are assigned to an application, though group-based assignment does require Azure Active Directory Premium P1 or P2 edition.
+> When working with groups, developers need to be aware of the concept of an [overage claim](./access-tokens.md#payload-claims). By default, if a user is a member of more than the overage limit (150 for SAML tokens, 200 for JWT tokens, 6 if using the implicit flow), Azure AD will not emit a groups claim in the token. Instead, it will include an “overage claim” in the token that indicates the token’s consumer will need to query the Graph API to retrieve the user’s group memberships. For more information about working with overage claims, please see this link. It is possible to only emit groups that are assigned to an application, though group-based assignment does require Azure Active Directory Premium P1 or P2 edition.
 
 ### Managing RBAC with a custom data store
 
@@ -63,7 +63,7 @@ App roles and groups both store information about user assignments in the Azure 
 Using custom storage allows developers extra customization and control over how to assign roles to users and how to represent them. However, there's no mechanism currently available to include this information in tokens returned from Azure AD. If developers maintain role information in a custom data store, they'll need to have the apps retrieve the roles. This is typically done using extensibility points defined in the middleware available to the platform that is being used to develop the application.
 
 > [!NOTE]
-> Using [Azure AD B2C Custom policies](azure/active-directory-b2c/custom-policy-overview) it is possible to interact with custom data stores and to include custom claims within a token.
+> Using [Azure AD B2C Custom policies](/azure/active-directory-b2c/custom-policy-overview) it is possible to interact with custom data stores and to include custom claims within a token.
 
 ## Choosing an approach
 
