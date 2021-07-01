@@ -25,13 +25,17 @@ Learn about important updates in Microsoft's commercial marketplace program. Thi
 
 | Category | Description | Date |
 | ------------ | ------------- | ------------- |
-| Payouts | Added commercial marketplace payout scenarios to [the tax page](/partner-center/tax-details-marketplace). &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| 2021-04-26 |
+| Taxation | For end-customer taxation, Australia is Microsoft-managed, except for purchases made through an enterprise agreement customer purchase scenario, which are publisher-managed. | 2021-07-01 |
+| Taxation | Added a number of missing countries to the [tax details page](/partner-center/tax-details-marketplace): <ul><li>Argentina</li><li>Bulgaria</li><li>Hong Kong SAR</li><li>Korea (South)</li><li>Pakistan</li><li>Palestinian Authority</li><li>Panama</li><li>Paraguay</li><li>Peru</li><li>Philippines</li><li>Saint Kitts and Nevis</li><li>Senegal</li><li>Sri Lanka</li><li>Tajikistan</li><li>Tanzania</li><li>Thailand</li><li>Trinidad and Tobago</li><li>Tunisia</li><li>Turkmenistan</li><li>Uganda</li><li>Uzbekistan</li><li>Zimbabwe</li></ul> | 2021-07-01 |
+| Taxation | Nigeria moved from the "shared publisher/developer-managed countries" list to the “end-customer taxation with differences in Marketplaces".  | 2021-07-01 |
+| Payouts | Added commercial marketplace payout scenarios to the [tax details page](/partner-center/tax-details-marketplace). | 2021-04-26 |
 |
 
 ## Documentation updates
 
 | Category | Description | Date |
 | ------------ | ------------- | ------------- |
+| Policies | We’ve updated the [commercial marketplace certification policies](/legal/marketplace/certification-policies). | 2021-07-01 |
 | Policies | We’ve updated the [commercial marketplace certification policies](/legal/marketplace/certification-policies). | 2021-05-07 |
 | Policy | The [Microsoft Publisher Agreement](/legal/marketplace/msft-publisher-agreement) has been updated. To see what’s changed, see [Change history for Microsoft Publisher Agreement](/legal/marketplace/mpa-change-history). | 2021-04-16 |
 | Offers | Microsoft 365 independent software vendors (ISVs) can now link their software as a service (SaaS) offer to their related Teams apps, Office add-ins (WXPO), and SharePoint SPFx solutions in Partner Center. SaaS ISVs can also declare if their SaaS offer is integrated with Microsoft Graph API. To learn more, see [Test and deploy Microsoft 365 Apps by partners in the Integrated apps portal](/microsoft-365/admin/manage/test-and-deploy-microsoft-365-apps). | 2021-04-08 |
