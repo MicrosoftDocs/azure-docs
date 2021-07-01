@@ -80,7 +80,7 @@ You can select multiple SBCs for a single pattern. In such a case, the routing a
 
 ### Conceptual documentation
 
-- [Session Border Controllers certified for Azure Communication Services direct routing](../certified-session-border-controllers.md)
+- [Session Border Controllers certified for Azure Communication Services direct routing](./certified-session-border-controllers.md)
 - [Pricing](../pricing.md)
 
 ### Quickstarts

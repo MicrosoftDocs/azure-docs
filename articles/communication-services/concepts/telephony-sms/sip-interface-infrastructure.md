@@ -184,7 +184,7 @@ On the leg between the Cloud Media Processor and Communication Services Calling 
 
 ## Supported Session Border Controllers (SBCs)
 
-- [Session Border Controllers certified for Azure Communication Services direct routing](../certified-session-border-controllers.md)
+- [Session Border Controllers certified for Azure Communication Services direct routing](./certified-session-border-controllers.md)
 
 ## Next steps
 
