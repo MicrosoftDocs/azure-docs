@@ -128,7 +128,7 @@ Follow these steps to create a VM after you've created a VM image.<!--Use this p
     |Virtual machine name     | Enter a name for the new virtual machine.        |
     |Edge resource group     | Create a new resource group for all the resources associated with the VM.        |
     |Image     | Select from the VM images available on the device.        |
-    |Size     | Choose from the [Supported VM sizes](azure-stack-edge-gpu-virtual-machine-sizes.md).        |
+    |Size     | Choose from the [Supported VM sizes](azure-stack-edge-gpu-virtual-machine-sizes.md).<br>For a GPU VM, select a [VM size from NCasT4-v3-series](azure-stack-edge-gpu-virtual-machine-sizes.md#ncast4_v3-series-preview). |
     |Username     | Use the default username **azureuser** for the admin to sign in to the VM.        |
     |Authentication type    | Choose from an SSH public key or a user-defined password.       |
     |SSH public key | Displayed when you select the **SSH public key** authentication type. Paste in the SSH public key. |
@@ -136,7 +136,7 @@ Follow these steps to create a VM after you've created a VM image.<!--Use this p
     |Confirm password    | Enter the password again.        |
 
 
-    ![Screenshot that shows the Basics tab.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-basics-1.png)<!--OK as is.-->
+    ![Screenshot showing the Basics tab.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-basics-1.png)<!--OK as is.-->
 
     Select **Next: Disks**.
 
@@ -178,11 +178,11 @@ Follow these steps to create a VM after you've created a VM image.<!--Use this p
 
     1. On the **Add extension** pane, select the extension to install.
 
-       ![Screenshot that shows the Add extension pane. Select the extension to install.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-advanced-tab-with-extension-added.png)
+       ![Screenshot that shows the Add extension pane. Select the extension to install.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-add-extension-pane.png)
 
        The **Advanced** tab shows the extension you selected.
 
-       ![Screenshot that shows an extension added to the Advanced tab.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-add-extension-pane.png) 
+       ![Screenshot that shows an extension added to the Advanced tab.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-advanced-tab-with-extension-added.png) 
 
 1. If you want to use the `cloud-init` utility to customize the new VM on its first boot, on the **Advanced** tab, paste your `cloud-init` script into the **Custom data** box under **Custom data and cloud init**. 
 
