@@ -99,6 +99,10 @@ items:
         href: concepts/telephony-sms/plan-solution.md
       - name: Azure direct routing infrastructure requirements
         href: concepts/telephony-sms/sip-interface-infrastructure.md
+      - name: Azure direct routing certified Session Border Controllers
+        href: concepts/telephony-sms/certified-session-border-controllers.md
+      - name: Pair the Session Border Controller and configure voice routing
+        href: concepts/telephony-sms/direct-routing-provisioning.md
       - name: SMS FAQ
         href: concepts/telephony-sms/sms-faq.md
       - name: Messaging policy
