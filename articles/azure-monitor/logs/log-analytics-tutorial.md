@@ -35,7 +35,7 @@ You can view the scope in the top left corner of the screen. If you're using you
 :::image type="content" source="media/log-analytics-tutorial/scope.png" alt-text="Log Analytics scope" lightbox="media/log-analytics-tutorial/scope.png":::
 
 ## Table schema
-The left side of the screen includes the **Tables** tab which allows you to inspect the tables that are available in the current scope. These are grouped by **Solution** by default, but you change their grouping or filter them. 
+The left side of the screen includes the **Tables** tab which allows you to inspect the tables that are available in the current scope. These are grouped by **Solution** by default, but you can change their grouping or filter them. 
 
 Expand the **Log Management** solution and locate the **AppRequests** table. You can expand the table to view its schema, or hover over its name to show additional information about it. 
 
@@ -68,7 +68,7 @@ A **where** statement is added to the query with the value you selected. The res
 ## Time range
 All tables in a Log Analytics workspace have a column called **TimeGenerated** which is the time that the record was created. All queries have a time range that limits the results to records with a **TimeGenerated** value within that range. The time range can either be set in the query or with the selector at the top of the screen.
 
-By default, the query will return records form the last 24 hours. You should see a message here that we're not seeing all of the results. This is because Log Analytics can return a maximum of 30,000 records, and our query returned more records than that. Select the **Time range** dropdown and change it to **12 hours**. Click **Run** again to return the results. 
+By default, the query will return records from the last 24 hours. You should see a message here that we're not seeing all of the results. This is because Log Analytics can return a maximum of 30,000 records, and our query returned more records than that. Select the **Time range** dropdown and change it to **12 hours**. Click **Run** again to return the results. 
 
 :::image type="content" source="media/log-analytics-tutorial/query-results-max.png" alt-text="Time range" lightbox="media/log-analytics-tutorial/query-results-max.png":::
 
