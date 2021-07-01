@@ -48,9 +48,7 @@ To get started, you'll need:
 
 ## Managed Identity assignments
 
-There are two types of managed identities,  [**system-assigned**](#enable-a-system-assigned-managed-identity-in-the-azure-portal) and [**user-assigned**](#create-a-user-assigned-managed-identity-in-the-azure-portal). Right now, Document Translation does not support user-assigned managed identities.
-
-A system-assigned managed identity is **enabled** directly on a service instance. It is not enabled by default; you must go to your resource and update the identity setting. The system-assigned managed identity is tied to your resource throughout its lifecycle. If you delete your resource, the managed identity will be deleted as well.
+There are two types of managed identities, **system-assigned** and **user-assigned**.  Right  now, Document Translation does not support user-assigned managed identities. A system-assigned managed identity is **enabled** directly on a service instance. It is not enabled by default; you must go to your resource and update the identity setting. The system-assigned managed identity is tied to your resource throughout its lifecycle. If you delete your resource, the managed identity will be deleted as well.
 
 In the following steps, we'll enable a system-assigned managed identity and grant your Translator resource limited access to your Azure blob storage account.
 
