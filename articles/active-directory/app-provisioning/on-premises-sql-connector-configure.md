@@ -35,7 +35,13 @@ For more installation and configuration information see:
 
 Depending on the options you select, some of the wizard screens may or may not be available and the information may be slightly different.  For purposes of this configuration, the user object type is used. Use the information below to guide you in your configuration.
 
-
+**Supported systems**
+* Microsoft SQL Server & SQL Azure
+* IBM DB2 10.x
+* IBM DB2 9.x
+* Oracle 10 & 11g
+* Oracle 12c and 18c
+* MySQL 5.x
 ## Create a generic SQL connector
 
 To create a generic SQL connector use the following steps:
