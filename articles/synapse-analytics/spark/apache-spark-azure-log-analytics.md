@@ -199,6 +199,30 @@ And you can customize the workbook by Kusto query and configure alerts.
    | summarize max(value_d) by bin(TimeGenerated, 30s), executorId_s
    | order by TimeGenerated asc
    ```
+## Write custom application logs
+
+You can write custom logs by leveraging the Apache Log4j library.
+Here are the examples:
+
+For Scala:
+
+```scala
+%%spark
+val logger = org.apache.log4j.LogManager.getLogger("com.contoso.LoggerExample")
+logger.info("info message")
+logger.warn("warn message")
+logger.error("error message")
+```
+
+For PySpark:
+
+```python
+%%pyspark
+logger = sc._jvm.org.apache.log4j.LogManager.getLogger("com.contoso.PythonLoggerExample")
+logger.info("info message")
+logger.warn("warn message")
+logger.error("error message")
+```
 
 ## Create and manage alerts using Azure Log Analytics
 
