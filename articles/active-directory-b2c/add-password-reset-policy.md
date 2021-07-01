@@ -41,7 +41,7 @@ The password reset flow involves the following steps:
 
 ### Hiding the change email button
 
-After the email is verified, the user can still select **Change email**, type the another email, and repeat the email verification from the beginning. If you'd prefer to hide the **Change email** button, you can modify the CSS to hide the associated HTML element(s) on the page. For example, you can add the CSS entry below to the selfAsserted.HTML and [customize the user interface with HTML templates](customize-ui-with-html?pivots=b2c-user-flow):
+After the email is verified, the user can still select **Change email**, type the another email, and repeat the email verification from the beginning. If you'd prefer to hide the **Change email** button, you can modify the CSS to hide the associated HTML element(s) on the page. For example, you can add the CSS entry below to the selfAsserted.HTML and [customize the user interface with HTML templates](customize-ui-with-html.md).
 
 ```html
 <style type="text/css">
