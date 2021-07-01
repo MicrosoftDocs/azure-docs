@@ -54,8 +54,6 @@ landingContent:
             url: core/concepts-telemetry-properties-commands.md
       - linkListType: how-to-guide
         links:
-          - text: Connect an Azure Sphere device
-            url: core/howto-connect-sphere.md
           - text: Troubleshoot device connectivity
             url: core/troubleshoot-connection.md
   - title: Build integrated solutions
