@@ -56,7 +56,7 @@ For more information about tools available to use for the Discover phase, see [S
 After data sources have been discovered, assess any on-premises SQL Server instance(s) that can be migrated to Azure SQL Managed Instance to identify migration blockers or compatibility issues.
 Proceed to the following steps to assess and migrate databases to Azure SQL Managed Instance:
 
-:::image type="content" source="media/sql-server-to-managed-instance-overview/migration-process-sqlmi-steps.png" alt-text="Steps for migration to Azure SQL Managed Instance":::
+:::image type="content" source="media/sql-server-to-managed-instance-overview/migration-process-sql-managed-instance-steps.png" alt-text="Steps for migration to Azure SQL Managed Instance":::
 
 - [Assess SQL Managed Instance compatibility](#assess) where you should ensure that there are no blocking issues that can prevent your migrations.
   This step also includes creation of a [performance baseline](sql-server-to-managed-instance-performance-baseline.md#create-a-baseline) to determine resource usage on your source SQL Server instance. This step is needed if you want to deploy a properly sized managed instance and verify that performance after migration is not affected.
