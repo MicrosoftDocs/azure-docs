@@ -91,7 +91,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Security](./media/atlassian-cloud-tutorial/admin.png)
 
-1. In the **Add SAML configuration** section, fill the required fields which you have copied from the Azure Portal and click **Save configuration**.
+1. In the **Add SAML configuration** section, fill the required fields which you have copied from the Azure portal and click **Save configuration**.
 
    ![Add SAML Configuration](./media/atlassian-cloud-tutorial/configuration.png)
 
@@ -177,7 +177,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    b.	Select **Edit** for the policy you want to enforce. 
 
-   c.	In **Settings**, enable the **Enforce single sign-on** to their managed users for the successfull SAML redirection. 
+   c.	In **Settings**, enable the **Enforce single sign-on** to their managed users for the successful SAML redirection. 
 
    d.	Click **Update**. 
 
