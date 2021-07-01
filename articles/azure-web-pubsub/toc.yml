@@ -9,7 +9,7 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Try the live demo
+  - name: Try the chatroom live demo
     href: quickstart-live-demo.md
   - name: Start with a simple chatroom serverless application
     href: quickstart-serverless.md

@@ -10,7 +10,11 @@ ms.date: 04/26/2021
 
 # Quickstart: Get started with live demo
 
-The Azure Web PubSub service helps you build real-time messaging web applications using WebSockets and the publish-subscribe pattern easily. In this quickstart, learn how to get started easily with a live demo.
+The Azure Web PubSub service helps you build real-time messaging web applications using WebSockets and the publish-subscribe pattern easily. The [chatroom live demo](https://azure.github.io/azure-webpubsub/demos/clientpubsub.html) demonstrates the real-time messaging capability provided by Azure Web PubSub. With this live demo, you could easily create or join a chat group and send real-time message to a specific group. 
+
+:::image type="content" source="media/quickstart-live-demo/chat-live-demo.gif" alt-text="Using the chatroom live demo.":::
+
+In this quickstart, learn how to get started easily with a live demo.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -27,10 +31,15 @@ As the first step, you need to get the Client URL from the Azure Web PubSub inst
 - Set proper `Roles`: **Send To Groups** and **Join/Leave Groups**
 - Generate and copy the `Client Access URL`. 
 
+:::image type="content" source="media/quickstart-live-demo/generate-client-url.png" alt-text="Screenshot of generating client URL.":::
+
 ### Try the live demo 
 
 With this live demo, you could join or leave a group and send messages to the group members easily. 
 
-- Open [Client Pub/Sub Demo](https://azure.github.io/azure-webpubsub/demos/clientpubsub.html), paste the `Client Access URL` and Connect. 
+- Open [chatroom live demo](https://azure.github.io/azure-webpubsub/demos/clientpubsub.html), paste the `Client Access URL` and Connect. 
+
+:::image type="content" source="media/quickstart-live-demo/paste-client-access-url.png" alt-text="Screenshot of pasting client URL with live demo.":::
+
 - Try different groups to join and different groups to send messages to, and see what messages are received.
 - You can also try to uncheck `Roles` when generating the `Client Access URL` to see what will happen when join/leave a group or send messages to a group.
