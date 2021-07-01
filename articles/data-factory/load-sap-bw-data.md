@@ -128,7 +128,7 @@ Incremental copy uses a "high-watermark" mechanism that's based on the **request
 
 ![Incremental copy workflow flow chart](media/load-sap-bw-data/incremental-copy-workflow.png)
 
-On the data factory **Let's get started** page, select **Create pipeline from template** to use the built-in template.
+On the data factory home page, select **Pipeline templates** in the **Discover more** section to use the built-in template.
 
 1. Search for **SAP BW** to find and select the **Incremental copy from SAP BW to Azure Data Lake Storage Gen2** template. This template copies data into Azure Data Lake Storage Gen2. You can use a similar workflow to copy to other sink types.
 

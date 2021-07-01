@@ -6,7 +6,7 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/12/2019
+ms.date: 06/04/2021
 ---
 
 # Create Azure Data Factory Data Flow
@@ -19,7 +19,7 @@ Get started by first creating a new V2 Data Factory from the Azure portal. After
 
 ![Screenshot shows the New data factory pane with V2 selected for Version.](media/data-flow/v2portal.png "data flow create")
 
-Once you are in the Data Factory UI, you can use sample Data Flows. The samples are available from the ADF Template Gallery. In ADF, create "Pipeline from Template" and select the Data Flow category from the template gallery.
+Once you are in the Data Factory UI, you can use sample Data Flows. The samples are available from the ADF Template Gallery. In ADF, select "Pipeline templates" tile in the 'Discover more' section of the homepage, and select the Data Flow category from the template gallery.
 
 ![Screenshot shows the Data Flow tab with Transform data using data flow selected.](media/data-flow/template.png "data flow create")
 
