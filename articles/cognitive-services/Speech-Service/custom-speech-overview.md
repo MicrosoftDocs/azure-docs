@@ -39,9 +39,6 @@ This diagram highlights the pieces that make up the [Custom Speech area of the S
 
 You need to have an Azure account and Speech service subscription before you can use the [Speech Studio](https://speech.microsoft.com/customspeech) to create a custom model. If you don't have an account and subscription, [try the Speech service for free](overview.md#try-the-speech-service-for-free).
 
-> [!NOTE]
-> Please be sure to create a standard (S0) subscription. Free (F0) subscriptions aren't supported.
-
 If you plan to train a custom model with **audio data**, pick one of the following regions that have dedicated hardware available for training. This will reduce the time it takes to train a model and allow you to use more audio for training. In these regions, the Speech service will use up to 20 hours of audio for training; in other regions it will only use up to 8 hours.
 
 * Australia East
