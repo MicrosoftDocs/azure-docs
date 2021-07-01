@@ -4,7 +4,7 @@ description: Learn how to connect to an Azure Analysis Services server by using 
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 5/25/2021
+ms.date: 06/30/2021
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -32,10 +32,12 @@ Once you've created a server in Azure, and deployed a tabular model to it, users
     
     If you have a Power BI model in [Mixed storage mode](/power-bi/transform-model/desktop-composite-models), the **Connect live** option is replaced by the **[DirectQuery](/power-bi/connect-data/desktop-directquery-datasets-azure-analysis-services)** option. Live connections are also automatically upgraded to DirectQuery if the model is switched from Import to Mixed storage mode.
 
-5. If prompted, enter your login credentials. 
+5. When prompted to enter your login credentials, select **Microsoft account**, and then click **Sign in**. 
+
+    :::image type="content" source="media/analysis-services-connect-pbi/aas-sign-in.png" alt-text="Sign in to Azure AS":::
 
    > [!NOTE]
-   > One-time passcode (OTP) accounts aren't supported. 
+   > Windows and Basic authentication are not supported. 
 
 6. In **Navigator**, expand the server, then select the model or perspective you want to connect to, and then click **Connect**. Click a model or perspective to show all objects for that view.
 
