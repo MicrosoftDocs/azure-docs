@@ -30,7 +30,7 @@ This article explains how you can access your SAP resources from Logic Apps usin
 * An [SAP application server](https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server) or [SAP message server](https://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm) that you want to access from Azure Logic Apps. For information about the SAP servers that support this connector, review [SAP compatibility](#sap-compatibility).
 
   > [!IMPORTANT]
-  > Make sure that you set up your SAP server and user account to allow using RFC. For more information, including the types of user account supported 
+  > Make sure that you set up your SAP server and user account to allow using RFC. For more information, which includes the supported user account types 
   > and the minimum authorization required for each type of action (RFC, BAPI, IDOC) review the following SAP note: 
   > [460089 - Minimum authorization profiles for external RFC programs](https://launchpad.support.sap.com/#/notes/460089). 
   > * For RFC actions, the user account additionally needs access to function modules `RFC_GROUP_SEARCH` and `DD_LANGU_TO_ISOLA`.
