@@ -49,7 +49,7 @@ The table in this article provides information on the Peering Service connectivi
 ## Next steps
 
 - To learn about Peering Service, see [Peering Service overview](about.md).
-- To learn about Peering Service FAQs, see [Peering Service FAQ](faq.md).
+- To learn about Peering Service FAQs, see [Peering Service FAQ](faq.yml).
 - To learn about partners onboarding and Peering Service configuration, see [Peering Service configuration](connection.md).
 - To learn about Peering Service connection, see [Peering Service connection](connection.md).
 - To learn about Peering Service connection telemetry, see [Peering Service connection telemetry](connection-telemetry.md).
