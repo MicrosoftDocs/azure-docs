@@ -15,9 +15,9 @@ ms.service: azure-communication-services
 - A `User Access Token` to enable the call client. For more information on [how to get a `User Access Token`](../../access-tokens.md)
 - Complete the quickstart for [getting started with adding Teams Embed to your application](../getting-started-with-teams-embed.md)
 
-## Join a group call using the meeting client
+## Joining a group call
 
-SDK supports joining a group call with a user access token. The group call will not ring for other participants. The user will be joining the call silently.
+Group call can be joined by providing `MeetingUIClientGroupCallLocator` and `MeetingUIClientGroupCallJoinOptions` to the `meetingUIClient?.join` API. The group call will not ring for other participants. The user will be joining the call silently.
 
 ### Add a button to the ViewController
 
@@ -56,7 +56,7 @@ private func joinGroupCall() {
 }
 ```
 
-Setting up the client and providing the token is done the same way as for meeting join API which is described in the [quickstart](../getting-started-with-teams-embed.md). 
+Setting up the client and providing the token is done the same way as for meeting join API, which is described in the [quickstart](../getting-started-with-teams-embed.md). 
 
 The `joinGroupCall` method is set as the action that will be performed when the *Join Group Call* button is tapped.
 Create a `MeetingUIClientGroupCallLocator` and configure the join options using the `MeetingUIClientGroupCallJoinOptions`.
@@ -146,7 +146,7 @@ Implement `MeetingUIClientCallDelegate` protocol methods that your app needs and
     }
 ```
 
-## Bring your own identity from the app to the participants in the SDK call.
+## Bring your own identity from the app to the participants in the call.
 
 The app can assign its users identity values to the participants in the call or meeting and override the default values. The values include avatar, name, subtitle, and role.  
 
