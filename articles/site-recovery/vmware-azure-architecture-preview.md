@@ -24,8 +24,6 @@ The following table and graphic provide a high-level view of the components used
 **VMware servers** | VMware VMs are hosted on on-premises vSphere ESXi servers. We recommend a vCenter server to manage the hosts. | During Site Recovery deployment, you add VMware servers to the Recovery Services vault.
 **Replicated machines** | Mobility Service is installed on each VMware VM that you replicate. | We recommend that you allow automatic installation of the Mobility Service. Alternatively, you can install the service manually.
 
-  [![Diagram showing VMware to Azure replication architecture relationships.](./media/vmware-azure-architecture-preview/on-premises-environment-inline.png)](./media/vmware-azure-architecture-preview/on-premises-environment-expanded.png#lightbox)
-
 ## Set up outbound network connectivity
 
 For Site Recovery to work as expected, you need to modify outbound network connectivity to allow your environment to replicate.

@@ -104,11 +104,9 @@ Use the following steps to assign the required permissions::
 You need to set up an Azure Site Recovery replication appliance in the on-premises environment to channel mobility agent communications. For detailed information on the operations performed by the appliance [see this section](vmware-azure-architecture-preview.md)
 
 Go to **Recovery Services Vault** > **Getting Started**. In VMware machines to Azure, select
- **Prepare Infrastructure** and proceed with the sections detailed below:
+**Prepare Infrastructure** and proceed with the sections detailed below:
 
-   [![Site recovery](./media/deploy-vmware-azure-replication-appliance-preview/site-recovery-inline.png)](./media/deploy-vmware-azure-replication-appliance-preview/site-recovery-expanded.png#lightbox)
-
-   To set up a new appliance, you can use an OVF template (recommended) or PowerShell.
+To set up a new appliance, you can use an OVF template (recommended) or PowerShell.
 
 ### Configuration requirements for Site Recovery replication appliance
 
@@ -211,8 +209,6 @@ In case of any organizational restrictions, you can manually set up the Site Rec
 
       After successful registration, you can close the tab and move to configuration manager to continue the set up.
 
-    [![Register recovery service vault](./media/deploy-vmware-azure-replication-appliance-preview/register-recovery-services-vault-inline.png)](./media/deploy-vmware-azure-replication-appliance-preview/register-recovery-services-vault-expanded.png#lightbox)
-
     ![Enter code](./media/deploy-vmware-azure-replication-appliance-preview/enter-code.png)
 
     > [!NOTE]
@@ -240,9 +236,6 @@ After successful configuration of Azure Site Recovery replication appliance, nav
 Select **Prepare infrastructure** under **Getting started**, you can see that an Azure Site Recovery replication appliance is already registered with this vault. Now you are all set! Start protecting your source machines through this replication appliance.
 
 Select  *1 appliance(s)*, you will be re-directed to Azure Site Recovery replication appliance view, where the list of appliances registered to this vault, is displayed.
-
-[![Register recovery service vault](./media/deploy-vmware-azure-replication-appliance-preview/register-recovery-services-vault-inline.png)](./media/deploy-vmware-azure-replication-appliance-preview/register-recovery-services-vault-expanded.png#lightbox)
-
 
 ## Deploy replication appliance
 
