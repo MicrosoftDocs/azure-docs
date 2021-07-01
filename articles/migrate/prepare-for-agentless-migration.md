@@ -81,18 +81,18 @@ The preparation script executes the following changes based on the OS type of th
           - VMbus
 
   2. Set storage area network (SAN) policy to ONLINE ALL.
-    This ensures that the Windows volumes in the Azure VM use the same drive letter assignments as the on-premises VM. By default, Azure VMs are assigned drive D: to use as temporary storage. This drive assignment causes all other attached storage drive assignments to increment by one letter. To prevent this automatic assignment, and to ensure that Azure assigns the next free drive letter to its temporary volume, set the storage area network (SAN) policy to Online All:
+     This ensures that the Windows volumes in the Azure VM use the same drive letter assignments as the on-premises VM. By default, Azure VMs are assigned drive D: to use as temporary storage. This drive assignment causes all other attached storage drive assignments to increment by one letter. To prevent this automatic assignment, and to ensure that Azure assigns the next free drive letter to its temporary volume, set the storage area network (SAN) policy to Online All:
 
-      To manually configure this setting:
-      On the on-premises server, open the command prompt with elevated privileges and enter **diskpart**
+     To manually configure this setting:
+     On the on-premises server, open the command prompt with elevated privileges and enter **diskpart**
 
-![Manual Configuration](./media/concepts-vmware-agentless-migration/command-prompt-diskpart.png)
+      ![Manual Configuration](./media/concepts-vmware-agentless-migration/command-prompt-diskpart.png)
 
   3. Enter SAN. If the drive letter of the guest operating system isn't maintained, Offline All or Offline Shared is returned.
 
-  4. At the DISKPART prompt, enter SAN Policy=OnlineAll. This setting ensures that disks are brought online, and it ensures that you can read and write to both disks.
+  4. At the DISKPART prompt, enter SAN Policy=OnlineAll. This setting   ensures that disks are brought online, and it ensures that you can read and write to both disks.
 
-![Administrator Command Prompt diskpart online policy](./media/concepts-vmware-agentless-migration/diskpart-online-policy.png)
+    ![Administrator Command Prompt diskpart online policy](./media/concepts-vmware-agentless-migration/diskpart-online-policy.png)
 
 3.	**Set the DHCP start type**
 
