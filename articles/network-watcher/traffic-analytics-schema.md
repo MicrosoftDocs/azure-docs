@@ -158,6 +158,44 @@ Listed below are the fields in the schema and what they signify
 | SrcPublicIPs_s | <SOURCE_PUBLIC_IP>\|\<FLOW_STARTED_COUNT>\|\<FLOW_ENDED_COUNT>\|\<OUTBOUND_PACKETS>\|\<INBOUND_PACKETS>\|\<OUTBOUND_BYTES>\|\<INBOUND_BYTES> | Entries separated by bars |
 | DestPublicIPs_s | <DESTINATION_PUBLIC_IP>\|\<FLOW_STARTED_COUNT>\|\<FLOW_ENDED_COUNT>\|\<OUTBOUND_PACKETS>\|\<INBOUND_PACKETS>\|\<OUTBOUND_BYTES>\|\<INBOUND_BYTES> | Entries separated by bars |
 
+### Public IP Details Schema
+
+Traffic Analytics provides WHOIS data and geographic location for all public IPs in the customer's environment. For Malicious IP, it provides DNS domain, threat type and thread descriptions as identified by Microsoft security intelligence solutions. IP Details are published to your Log Analytics Workspace so you can create custom queries and put alerts on them. You can also access pre-populated queries from the traffic analytics dashboard.
+
+Below is the schema for public ip details:
+
+| Field | Format | Comments |
+|:---   |:---    |:---  |
+| TableName | AzureNetworkAnalyticsIPDetails_CL | Table that contains Traffic Analytics IP Details data |
+| SubType_s	| FlowLog |	Subtype for the flow logs. **Use only "FlowLog"**, other values of SubType_s are for internal workings of the product |
+| FASchemaVersion_s | 2 | Schema version. It does not reflect NSG Flow Log version |
+| FlowIntervalStartTime_t | Date and Time in UTC | Start time of the flow log processing interval. This is time from which flow interval is measured |
+| FlowIntervalEndTime_t | Date and Time in UTC | End time of the flow log processing interval |
+| FlowType_s | * AzurePublic <br> * ExternalPublic <br> * MaliciousFlow | Definition in notes below the table |
+| IP | Public IP | Public IP whose information is provided in the record |
+| Location | Location of the IP | - For Azure Public IP: Azure region of virtual network/network interface/virtual machine to which the IP belongs to <br> - For External Public IP and Malicious IP: 2-letter country code where IP is located (ISO 3166-1 alpha-2) |
+| PublicIPDetails | Information about IP | - For AzurePublic IP: Azure Service behind the IP <br> - ExternalPublic/Malicious IP: WhoIS information of the IP |
+| ThreatType | Threat posed by malicious IP | **For Malicious IPs only**: One of the threats from the list of currently allowed values (described below) |
+| ThreatDescription | Description of the threat | **For Malicious IPs only**: Description of the threat posed by the malicious IP |
+| DNSDomain | DNS domain | **For Malicious IPs only**: Domain name associated with this IP |
+
+List of Threat Types:
+
+| Value | Description |
+|:---   |:---    |
+| Botnet | Indicator is detailing a botnet node/member. |
+| C2 | Indicator is detailing a Command & Control node of a botnet. |
+| CryptoMining | Traffic involving this network address / URL is an indication of CyrptoMining / Resource abuse. |
+| DarkNet | Indicator is that of a Darknet node/network. |
+| DDos | Indicators relating to an active or upcoming DDoS campaign. |
+| MaliciousUrl | URL that is serving malware. |
+| Malware | Indicator describing a malicious file or files. |
+| Phishing | Indicators relating to a phishing campaign. |
+| Proxy | Indicator is that of a proxy service. |
+| PUA |	Potentially Unwanted Application. |
+| WatchList | This is the generic bucket into which indicators are placed when it cannot be determined exactly what the threat is or will require manual interpretation. This should typically not be used by partners submitting data into the system. |
+
+
 ### Notes
 
 1. In case of AzurePublic and ExternalPublic flows, the customer owned Azure VM IP is populated in VMIP_s field, while the Public IP addresses are being populated in the PublicIPs_s field. For these two flow types, we should use VMIP_s and PublicIPs_s instead of SrcIP_s and DestIP_s fields. For AzurePublic and ExternalPublicIP addresses, we aggregate further, so that the number of records ingested to customer log analytics workspace is minimal.(This field will be deprecated soon and we should be using SrcIP_ and DestIP_s depending on whether azure VM was the source or the destination in the flow)
