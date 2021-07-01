@@ -30,7 +30,7 @@ You can also try asking your question on Stack Overflow, which has a large commu
 
 ## Provide Feedback
 
-To provide feedback on specific funtionalities Azure Communication Services provide on Azure Portal, submit your feedback via buttons or links that has this icon :::image type="content" source="./media/give-feedback-icon.png" alt-text="Image of Give Feedback Icon.":::
+To provide feedback on specific funtionalities Azure Communication Services provide on Azure Portal, submit your feedback via buttons or links that has this icon :::image type="content" source="./media/give-feedback-icon.png" alt-text="Image of Give Feedback Icon.":::. 
 
 For example:
 - To give feedback about phone numbers, you can find the “Give feedback” on the command bar of the Phone Numbers blade
