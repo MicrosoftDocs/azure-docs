@@ -16,15 +16,15 @@ Kafka Connect for Azure Cosmos DB is a connector to read from and write data to 
 
 ## Prerequisites
 
-* It is recommended to start with the Confluent Platform because this gives you a complete environment to work with. If you do not wish to use Confluent Platform, then you need to install and configure Zookeper, Apache Kafka, Kafka Connect, yourself. You will also need to install and configure the Azure Cosmos DB connectors manually.
-* Create an Azure Cosmos DB account, container  [setup guide](https://github.com/microsoft/kafka-connect-cosmosdb/blob/dev/doc/CosmosDB_Setup.md)
+* It is recommended to start with the [Confluent platform setup](https://github.com/microsoft/kafka-connect-cosmosdb/blob/dev/doc/Confluent_Platform_Setup.md) because this gives you a complete environment to work with. If you do not wish to use Confluent Platform, then you need to install and configure Zookeper, Apache Kafka, Kafka Connect, yourself. You will also need to install and configure the Azure Cosmos DB connectors manually.
+* Create an Azure Cosmos DB account, container [setup guide](https://github.com/microsoft/kafka-connect-cosmosdb/blob/dev/doc/CosmosDB_Setup.md)
 * Bash shell, which is tested on GitHub Codespaces, Mac, Ubuntu, Windows with WSL2. This doesn’t work in Cloud Shell or WSL1.
 * Download [Java 11+](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)
 * Download [Maven](https://maven.apache.org/download.cgi)
 
 ## Install the source connector
 
-If you are using the Confluent platform setup from this repo, the Azure Cosmos DB source connector is included in the installation, and you can skip this step. This is the recommended option.
+If you are using the recommended [Confluent platform setup](https://github.com/microsoft/kafka-connect-cosmosdb/blob/dev/doc/Confluent_Platform_Setup.md), the Azure Cosmos DB source connector is included in the installation, and you can skip this step.
 
 Otherwise, you can use JAR file from latest [Release](https://github.com/microsoft/kafka-connect-cosmosdb/releases) and install the connector manually. To learn more, see these [instructions](https://docs.confluent.io/current/connect/managing/install.html#install-connector-manually). You can also package a new JAR file from the source code:
 
@@ -48,7 +48,7 @@ Create a Kafka topic using Confluent Control Center. For this quickstart, we wil
 
 ### Create the source connector in Kafka Connect
 
-To create the Azure Cosmos DB source connector in Kafka Connect, use the following JSON config. Make sure to  replace the placeholder values for `connect.cosmos.connection.endpoint`, `connect.cosmos.master.key` properties with the values of your Azure Cosmos DB account.
+To create the Azure Cosmos DB source connector in Kafka Connect, use the following JSON config. Make sure to replace the placeholder values for `connect.cosmos.connection.endpoint`, `connect.cosmos.master.key` properties which you should have saved from the Azure Cosmos DB setup guide in the prerequisites.
 
 ```json
 {
@@ -74,7 +74,7 @@ See the [source properties](#source-configuration-properties) section for more i
 
 #### Create connector using Control Center
 
-An easy option to create the connector is from the Confluent Control Center portal. Follow the [Confluent setup guide](https://docs.confluent.io/platform/current/quickstart/ce-docker-quickstart.html#step-3-install-a-ak-connector-and-generate-sample-data) to create a connector from Control Center. When setting up, instead of using the `DatagenConnector` option, use the `CosmosDBSourceConnector` tile instead. When configuring the sink connector, fill out the values as you have filled in the JSON file.
+An easy option to create the connector is from the Confluent Control Center portal. Follow the [Confluent setup guide](https://docs.confluent.io/platform/current/quickstart/ce-docker-quickstart.html#step-3-install-a-ak-connector-and-generate-sample-data) to create a connector from Control Center. When setting up, instead of using the `DatagenConnector` option, use the `CosmosDBSourceConnector` tile instead. When configuring the source connector, fill out the values as you have filled in the JSON file.
 
 Alternatively, in the connectors page, you can upload the JSON file built from the previous section by using the **Upload connector config file** option.
 
@@ -148,7 +148,7 @@ The following settings are used to configure the Kafka source connector. These c
 
 | Name | Type | Description | Required/optional |
 | :--- | :--- | :--- | :--- |
-| connector.class | String | Class name of the Azure Cosmos DB sink. It should be set to `com.azure.cosmos.kafka.connect.sink.CosmosDBSourceConnector` | Required |
+| connector.class | String | Class name of the Azure Cosmos DB source. It should be set to `com.azure.cosmos.kafka.connect.source.CosmosDBSourceConnector` | Required |
 | connect.cosmos.databasename | String | Name of the database to read from. | Required |
 | connect.cosmos.master.key | String | The Azure Cosmos DB primary key. | Required |
 | connect.cosmos.connection.endpoint | URI | The account endpoint. | Required |
@@ -161,7 +161,7 @@ The following settings are used to configure the Kafka source connector. These c
 | value.converter | String | Serialization format for the value data written into the Kafka topic. | Required |
 | key.converter.schemas.enable | String | Set to `true` if the key data has embedded schema. | Optional |
 | value.converter.schemas.enable | String | Set to `true` if the key data has embedded schema. | Optional |
-| tasks.max | Int | Maximum number of connectors sink tasks. Default value is `1`. | Optional |
+| tasks.max | Int | Maximum number of connectors source tasks. Default value is `1`. | Optional |
 
 ## Supported data types
 
