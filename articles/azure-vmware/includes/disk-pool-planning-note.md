@@ -5,7 +5,11 @@ ms.topic: include
 ms.date: 07/14/2021
 ---
 
-<!-- Used in attach-disk-pools-to-azure-vmware-solution.md and tutorial-network-checklist.md -->
+<!-- Used in:
+* articles\azure-vmware\attach-disk-pools-to-azure-vmware-solution.md
+* articles\azure-vmware\tutorial-network-checklist.md
+* articles\azure-vmware\includes\production-ready-deployment-steps.md* 
+* articles\azure-vmware\includes\connect-expressroute-vnet.md 
+-->
 
->[!IMPORTANT]
->If you plan to scale your Azure VMware Solution hosts using disk pools, it's crucial to deploy a vNet close to the hosts with an ExpressRoute Gateway.  The closer the storage is to your hosts, the better the performance.
+If you plan to scale your Azure VMware Solution hosts using [Azure disk pools](../virtual-machines/disks-pools.md), it's crucial to deploy the vNet close to your hosts with an ExpressRoute virtual network gateway.  The closer the storage is to your hosts, the better the performance.
