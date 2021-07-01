@@ -1,9 +1,9 @@
 ---
 title: Deploy a ZRS managed disk
-description: Learn about zone-redundant storage and locally-redundant storage for Azure managed disks.
+description: Learn how to deploy a managed disk that uses zone-redundant storage (ZRS).
 author: roygara
 ms.author: rogarana
-ms.date: 05/26/2021
+ms.date: 07/01/2021
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
@@ -376,7 +376,7 @@ You must enable the feature for your subscription. Use the following steps to en
      Register-AzProviderFeature -FeatureName "SsdZrsManagedDisks" -ProviderNamespace "Microsoft.Compute" 
     ```
 
-2.	Confirm that the registration state is **Registered** (it may take a few minutes) using the following command before trying out the feature.
+1.	Confirm that the registration state is **Registered** (it may take a few minutes) using the following command before trying out the feature.
 
     ```powershell
      Get-AzProviderFeature -FeatureName "SsdZrsManagedDisks" -ProviderNamespace "Microsoft.Compute"  

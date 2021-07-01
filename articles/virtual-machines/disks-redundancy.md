@@ -3,7 +3,7 @@ title: Redundancy options for Azure managed disks
 description: Learn about zone-redundant storage and locally-redundant storage for Azure managed disks.
 author: roygara
 ms.author: rogarana
-ms.date: 05/26/2021
+ms.date: 07/01/2021
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
@@ -42,9 +42,6 @@ Except for more write latency, disks using ZRS are identical to disks using LRS.
 ### Limitations
 
 [!INCLUDE [disk-storage-zrs-limitations](../../includes/disk-storage-zrs-limitations.md)]
-
-### Create ZRS managed disks
-
 
 ## Next steps
 
