@@ -2,7 +2,7 @@
 title: Troubleshoot Azure Video Analyzer - Azure
 description: This article covers troubleshooting steps for Azure Video Analyzer.
 ms.topic: how-to
-ms.date: 05/04/2021
+ms.date: 07/01/2021
 ---
 
 # Troubleshoot Azure Video Analyzer
@@ -148,8 +148,8 @@ When self-guided troubleshooting steps don't resolve your problem, go the Azure 
 
 To gather the relevant logs that should be added to the ticket, follow the instructions below in order and upload the log files in the **Details** pane of the support request.
 
-1. [Configure the Video Analyzer module to collect Verbose Logs]()
-1. [Turn on Debug Logs]()
+1. [Configure the Video Analyzer module to collect Verbose Logs](#configure-video-analyzer-module-to-collect-verbose-logs)
+1. [Turn on Debug Logs](#video-analyzer-debug-logs)
 1. Reproduce the issue
 1. Connect to the virtual machine from the **IoT Hub** page in the portal
 
