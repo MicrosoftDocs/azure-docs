@@ -20,8 +20,8 @@ Azure Machine Learning requires both inbound and outbound access to the public i
 | Outbound | * | AzureMachineLearning | Azure Machine Learning. |
 | Outbound | * | AzureResourceManager | Azure Resource Manager. |
 | Outbound | * | Storage.region | Azure Storage Account. |
-| Outbound | * | ContainerRegistry.region | Azure Container Registry. |
 | Outbound | * | AzureFrontDoor.FirstParty | Azure Front Door. | 
+| Outbound | * | ContainerRegistry.region | Azure Container Registry. Only needed for custom Docker images. This includes small modifications (such as additional packages) to base images provided by Microsoft. |
 | Outbound | * | MicrosoftContainerRegistry.region | Only needed if you use Docker images provided by Microsoft and enable user-managed dependencies. |
 
 > [!TIP]

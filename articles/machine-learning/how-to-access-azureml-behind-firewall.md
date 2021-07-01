@@ -81,12 +81,10 @@ For information on configuring UDR, see [Route network traffic with a routing ta
     * AzureMachineLearning
     * AzureResourceManager
     * Storage.region
-    * ContainerRegistry.region
     * AzureFrontDoor.FirstParty
+    * ContainerRegistry.region - Only needed for custom Docker images. This includes small modifications (such as additional packages) to base images provided by Microsoft.
+    * MicrosoftContainerRegistry.region - Only needed if you plan on using the _default Docker images provided by Microsoft_, and _enabling user-managed dependencies_.
 
-    If you plan on using the _default Docker images provided by Microsoft_, and _enabling user-managed dependencies_, add the following service tag:
-
-    * MicrosoftContainerRegistry.region
 
     For entries that contain `region`, replace with the Azure region that you're using. For example, `ContainerRegistry.westus`.
 
