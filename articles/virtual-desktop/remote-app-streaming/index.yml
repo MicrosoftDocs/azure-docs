@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
-title: Azure Virtual Desktop for Independent Software Vendors
-summary: summary # < 160 chars
+title: Azure Virtual Desktop Remote App Streaming
+summary: With Azure Virtual Desktop Remote App Streaming, you can deliver apps to users inside and outside your organization. Learn how with these tutorials and guides.
 
 metadata:
   title: Azure Virtual Desktop Remote App Streaming
@@ -22,17 +22,27 @@ landingContent:
     linkLists:
       - linkListType: overview
         links: 
-          - text: What is Azure Virtual Desktop, and how can I use it to host and stream my apps?
-            url: ../overview.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+          - text: What is Azure Virtual Desktop, and how can it help me stream apps to my users?
+            url: overview.md
 
   # Card
   - title: Get started with Azure Virtual Desktop
     linkLists:
-      - linkListType: get-started
+      - linkListType: tutorial
         links:
-          - text: How to set up your deployment
-            url: ../configure-adfs-sso.md
-      - linkListType: how-to-guide
-        links:
-          - text: How to estimate costs
-            url: ../azure-monitor-costs.md
+          - text: 1. Create a host pool with the Azure portal
+            url: ../create-host-pools-azure-marketplace.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+          - text: 2. Manage app groups
+            url: ../manage-app-groups.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+          - text: 3. Create a host pool to validate service updates
+            url: ../create-validation-host-pool.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+          - text: 4. Set up service alerts
+            url: ../set-up-service-alerts.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+      
+  # Card
+  - title: General Azure Virtual Desktop documentation
+    linkLists:
+      - linkListType: overview
+        links: 
+          - text: The main Azure Virtual Desktop documentation, where you'll find more detailed information about the service.
+            url: ../overview.md

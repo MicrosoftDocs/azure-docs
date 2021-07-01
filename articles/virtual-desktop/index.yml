@@ -74,3 +74,10 @@ landingContent:
           - text: Connect with Linux or thin clients 
             url: ./user-documentation/linux-overview.md
 
+  # Card
+  - title: Azure Virtual Desktop Remote App Streaming
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: How to stream apps to your customers.
+            url: ./remote-app-streaming/overview.md
