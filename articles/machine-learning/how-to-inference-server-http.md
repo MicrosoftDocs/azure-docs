@@ -21,7 +21,7 @@ The server can also be used when creating validation gates in a continuous integ
 
 ## Prerequisites
 
-- Python version 3.7
+- Requires: Python >=3.7
 
 ## Installation
 
@@ -50,7 +50,7 @@ python -m pip install azureml-inference-server-http
     source myenv/bin/activate
     ```
 
-1. Install the `azureml-inference-server-http` package from the [pypi](https://pypi.org/) feed:
+1. Install the `azureml-inference-server-http` package from the [pypi](https://pypi.org/project/azureml-inference-server-http/) feed:
 
     ```bash
     python -m pip install azureml-inference-server-http
@@ -124,6 +124,7 @@ The following steps explain how the Azure Machine Learning inference HTTP server
 1. Finally, the request is sent to your entry script. The entry script then makes an inference call to the loaded model and returns a response.
 
 :::image type="content" source="./media/how-to-inference-server-http/inference-server-architecture.png" alt-text="Diagram of the HTTP server process":::
+
 ## Frequently asked questions
 
 ### Do I need to reload the server when changing the score script?
@@ -136,4 +137,5 @@ The Azure Machine Learning inference server runs on Windows & Linux based operat
 
 ## Next steps
 
-For more information on creating an entry script and deploying models, see [How to deploy a model using Azure Machine Learning](how-to-deploy-and-where.md).
+* For more information on creating an entry script and deploying models, see [How to deploy a model using Azure Machine Learning](how-to-deploy-and-where.md).
+* Learn about [Prebuilt docker images for inference](concept-prebuilt-docker-images-inference.md)

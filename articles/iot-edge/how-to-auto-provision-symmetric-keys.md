@@ -22,6 +22,11 @@ This article shows you how to create a Device Provisioning Service individual or
 * Create an enrollment for the device.
 * Install the IoT Edge runtime and connect to the IoT Hub.
 
+:::moniker range=">=iotedge-2020-11"
+>[!TIP]
+>For a simplified experience, try the [Azure IoT Edge configuration tool](https://github.com/azure/iot-edge-config). This command-line tool, currently in public preview, installs IoT Edge on your device and provisions it using DPS and symmetric key attestation.
+:::moniker-end
+
 Symmetric key attestation is a simple approach to authenticating a device with a Device Provisioning Service instance. This attestation method represents a "Hello world" experience for developers who are new to device provisioning, or do not have strict security requirements. Device attestation using a [TPM](../iot-dps/concepts-tpm-attestation.md) or [X.509 certificates](../iot-dps/concepts-x509-attestation.md) is more secure, and should be used for more stringent security requirements.
 
 ## Prerequisites
