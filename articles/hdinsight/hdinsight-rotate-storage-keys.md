@@ -12,9 +12,12 @@ ms.date: 06/29/2021
 
 In this article, you will learn how to rotate Azure Storage account access keys for the primary or secondary storage accounts in Azure HDInsight.
 
+>[!CAUTION]
+> Directly rotating the access key on the storage side will make the HDInsight cluster inaccessible.
+
 ## Prerequisites
 
-* **Directly rotating the access key on the storage side will make the cluster not accessible.** We are going to alternate between primary and secondary access key to rotate the storage account key.
+* We are going to use an approach to rotate the primary and secondary access keys of the storage account in a staggered, alternating fashion to ensure HDInsight cluster is accessible throughout the process.
 
     Here is an example on how to use primary and secondary storage access keys and set up rotation policies on them:
     1. Use access key1 on the storage account when creating HDInsight cluster.
