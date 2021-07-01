@@ -9,13 +9,16 @@ ms.topic: how-to
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 06/30/2021
+ms.date: 07/01/2021
 ms.custom: devx-track-python
 ---
 
 # Use workspace behind a Firewall for Azure Machine Learning
 
 In this article, learn how to configure Azure Firewall to control access to your Azure Machine Learning workspace and the public internet. To learn more about securing Azure Machine Learning, see [Enterprise security for Azure Machine Learning](concept-enterprise-security.md).
+
+> [!NOTE]
+> The information in this article applies to Azure Machine Learning workspace whether it uses a private endpoint or a service endpoint.
 
 ## Required public internet access
 
@@ -81,7 +84,7 @@ For information on configuring UDR, see [Route network traffic with a routing ta
     * ContainerRegistry.region
     * AzureFrontDoor.FirstParty
 
-    If you plan on using the default Docker images provided by Microsoft, and enabling user-managed dependencies, add the following service tag:
+    If you plan on using the _default Docker images provided by Microsoft_, and _enabling user-managed dependencies_, add the following service tag:
 
     * MicrosoftContainerRegistry.region
 
@@ -176,9 +179,10 @@ The hosts in the following tables are owned by Microsoft, and provide services r
 | Azure Container Registry | azurecr.io | azurecr.us | azurecr.cn |
 | Microsoft Container Registry | mcr.microsoft.com | mcr.microsoft.com | mcr.microsoft.com |
 
-
 > [!TIP]
-> If you plan on using federated identity, follow the [Best practices for securing Active Directory Federation Services](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs) article.
+> * __Azure Container Registry__ is required for any custom Docker image. This includes small modifications (such as additional packages) to base images provided by Microsoft.
+> * __Microsoft Container Registry__ is only needed if you plan on using the _default Docker images provided by Microsoft_, and _enabling user-managed dependencies_.
+> * If you plan on using federated identity, follow the [Best practices for securing Active Directory Federation Services](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs) article.
 
 Also, use the information in the [inbound configuration](#inbound-configuration) section to add IP addresses for `BatchNodeManagement` and `AzureMachineLearning`.
 
