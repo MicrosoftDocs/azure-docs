@@ -176,7 +176,7 @@ api-key: [admin key]
 
 ### Option 2 - Create the data source with a user-assigned managed identity
 
-The 2020-06-30-preview REST API support the user-assigned managed identity. Below is an example of how to create a data source to index data from a storage account using the [REST API](/rest/api/searchservice/create-data-source), a managed identity connection string, and the user-assigned managed identity.
+The 2021-04-30-preview REST API support the user-assigned managed identity. Below is an example of how to create a data source to index data from a storage account using the [REST API](/rest/api/searchservice/create-data-source), a managed identity connection string, and the user-assigned managed identity.
 
 The data source must have the following required properties:
 
@@ -195,7 +195,7 @@ The data source must have the following required properties:
 Example of how to create a blob data source object using the [REST API](/rest/api/searchservice/create-data-source):
 
 ```http
-POST https://[service name].search.windows.net/datasources?api-version=2020-06-30-preview
+POST https://[service name].search.windows.net/datasources?api-version=2021-04-30-preview
 Content-Type: application/json
 api-key: [admin key]
 

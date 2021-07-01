@@ -140,10 +140,10 @@ The body of the request contains the data source definition, which should includ
 
 ### Option 2 - Create the data source with a user-assigned managed identity
 
-The 2020-06-30-preview REST API support the user-assigned managed identity. Below is an example of how to create a data source to index data from a storage account using the [REST API](/rest/api/searchservice/create-data-source), a managed identity connection string, and the user-assigned managed identity.
+The 2021-04-30-preview REST API support the user-assigned managed identity. Below is an example of how to create a data source to index data from a storage account using the [REST API](/rest/api/searchservice/create-data-source), a managed identity connection string, and the user-assigned managed identity.
 
 ```http
-POST https://[service name].search.windows.net/datasources?api-version=2020-06-30-preview
+POST https://[service name].search.windows.net/datasources?api-version=2021-04-30-preview
 Content-Type: application/json
 api-key: [Search service admin key]
 
