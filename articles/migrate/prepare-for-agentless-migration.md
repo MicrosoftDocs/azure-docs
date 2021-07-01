@@ -80,11 +80,13 @@ You may need to configure these settings manually if the OS version is not suppo
       To manually configure this setting:
         - On the on-premises server, open the command prompt with elevated privileges.
         - Enter **diskpart**.
+
           ![Administrator Command Prompt diskpart](./media/concepts-vmware-agentless-migration/command-prompt-diskpart.png)
 
   3.	Enter SAN. If the drive letter of the guest operating system isn't maintained, Offline All or Offline Shared is returned.
 
   4.	At the DISKPART prompt, enter SAN Policy=OnlineAll. This setting ensures that disks are brought online, and it ensures that you can read and write to both disks.
+
            ![Administrator Command Prompt diskpart online policy](./media/concepts-vmware-agentless-migration/diskpart-online-policy.png)
 
 3.	**Set the DHCP start type**                             
