@@ -14,7 +14,7 @@ ms.author: alexeyo
 
 # Use Speech service through a Virtual Network service endpoint
 
-[Azure Virtual Network](../../virtual-network/virtual-networks-overview.md) [service endpoint](../../virtual-network/virtual-network-service-endpoints-overview.md) helps to provide secure and direct connectivity to Azure services over an optimized route on the Azure backbone network. Endpoints help you secure your critical Azure service resources to only your virtual networks. Service endpoints enables private IP addresses in the virtual network to reach the endpoint of an Azure service without needing a public IP address on the virtual network.
+[Azure Virtual Network](../../virtual-network/virtual-networks-overview.md) [service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md) help to provide secure and direct connectivity to Azure services over an optimized route on the Azure backbone network. Endpoints help you secure your critical Azure service resources to only your virtual networks. Service endpoints enable private IP addresses in the virtual network to reach the endpoint of an Azure service without needing a public IP address on the virtual network.
 
 This article explains how to set up and use Virtual Network service endpoints with Speech service in Azure Cognitive Services.
 
@@ -29,7 +29,7 @@ To set up a Speech resource for Virtual Network service endpoint scenarios, you 
 1. [Adjust existing applications and solutions.](#adjust-existing-applications-and-solutions)
 
 > [!NOTE]
-> Setting up and using Virtual Network service endpoints for Speech service is similar to setting up and using the private endpoints. In this article, we refer to the corresponding sections of the [article on using private endpoints](speech-services-private-link.md) when the procedure is the same.
+> Setting up and using Virtual Network service endpoints for Speech service is similar to setting up and using private endpoints. In this article, we refer to the corresponding sections of the [article on using private endpoints](speech-services-private-link.md) when the procedures are the same.
 
 [!INCLUDE [](includes/speech-vnet-service-enpoints-private-endpoints.md)]
 
@@ -56,7 +56,7 @@ You need to add all virtual networks that are allowed access via the service end
    > [!NOTE]
    > To use Virtual Network service endpoints, you need to select the **Selected Networks and Private Endpoints** network security option. No other options are supported. If your scenario requires the **All networks** option, consider using [private endpoints](speech-services-private-link.md), which support all three network security options.
 
-5. Select **Add existing virtual network** or **Add new virtual network** and provide the required parameters. Select **Add** for an existing virtual network or **Create** for a new one. If you add an existing virtual network, the `Microsoft.CognitiveServices` service endpoint will automatically be enabled for the selected subnets. This operation can take up to 15 minutes. Also, see the notes in the start of this section.
+5. Select **Add existing virtual network** or **Add new virtual network** and provide the required parameters. Select **Add** for an existing virtual network or **Create** for a new one. If you add an existing virtual network, the `Microsoft.CognitiveServices` service endpoint will automatically be enabled for the selected subnets. This operation can take up to 15 minutes. Also, see the note at the beginning of this section.
 
 ### Enabling service endpoint for an existing virtual network 
 
@@ -73,14 +73,14 @@ As described in the previous section, when you configure a virtual network as *a
 
 A Speech resource that has a custom domain enabled interacts with the Speech service in a different way. This is true for a custom-domain-enabled Speech resource regardless of whether service endpoints are configured. Information in this section applies to both scenarios.
 
-### Use a Speech resource that has a custom domain name and allowed virtual networks configured
+### Use a Speech resource that has a custom domain name and allowed virtual networks 
 
 In this scenario, the **Selected Networks and Private Endpoints** option is selected in the networking settings of the Speech resource and at least one virtual network is allowed. This scenario is equivalent to [using a Speech resource that has a custom domain name and a private endpoint enabled](speech-services-private-link.md#adjust-an-application-to-use-a-speech-resource-with-a-private-endpoint).
 
 
 ### Use a Speech resource that has a custom domain name but that doesn't have allowed virtual networks
 
-In this scenario, private endpoints aren't enabled and any of the following is true:
+In this scenario, private endpoints aren't enabled and one of these statements is true:
 
 - The **Selected Networks and Private Endpoints** option is selected in the networking settings of the Speech resource, but no allowed virtual networks are configured
 - The **All networks** option is selected in the networking settings of the Speech resource

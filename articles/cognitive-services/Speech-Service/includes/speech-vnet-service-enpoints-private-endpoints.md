@@ -27,4 +27,4 @@ We recommend that you try both endpoint types before you make a decision about y
 For more information, see these resources:
 
 - [Azure Private Link and private endpoint documentation](../../../private-link/private-link-overview.md)
-- [Virtual Network service endpoint documentation](../../../virtual-network/virtual-network-service-endpoints-overview.md)
+- [Virtual Network service endpoints documentation](../../../virtual-network/virtual-network-service-endpoints-overview.md)
