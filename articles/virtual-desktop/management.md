@@ -4,7 +4,7 @@ description: How to manage your Windows Virtual Desktop environment.
 author: heidilohr
 
 ms.topic: conceptual
-ms.date: 06/30/2021
+ms.date: 07/01/2021
 ms.author: helohr
 manager: femila
 ---
