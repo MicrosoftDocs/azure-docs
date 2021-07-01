@@ -88,7 +88,7 @@ This article is intended for advanced SAP users.
 
     Available by using RFC with a custom service based on standard services.
 
-### ABAPAuditLog_CL log schema
+### ABAPChangeDocsLog_CL log schema
 
 
 | Field                    | Description                 |
