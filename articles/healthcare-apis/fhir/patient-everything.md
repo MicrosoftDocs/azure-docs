@@ -26,10 +26,6 @@ The Azure API for FHIR validates that it can find the patient matching the provi
 *  Resources in the [Patient Compartment](https://www.hl7.org/fhir/compartmentdefinition-patient.html)
 *  [Device resources](https://www.hl7.org/fhir/device.html) that reference the Patient resource. This is limited to 100 devices. If the patient has more than 100 devices linked to them, only 100 will be returned. 
 
- 
-> [!Note]
-> The capability statement for the FHIR Server is missing support for $patient-everything, which is tracked here: Issue [1989](https://github.com/microsoft/fhir-server/issues/1989). 
-
 
 ## Patient-everything parameters
 The Azure API for FHIR supports the following query parameters. All of these parameters are optional:

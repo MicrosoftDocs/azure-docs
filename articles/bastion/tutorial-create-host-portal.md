@@ -6,14 +6,14 @@ author: cherylmc
 
 ms.service: bastion
 ms.topic: tutorial
-ms.date: 04/27/2021
+ms.date: 06/29/2021
 ms.author: cherylmc
 
 ---
 
 # Tutorial: Configure Bastion and connect to a Windows VM through a browser
 
-This tutorial shows you how to connect to a virtual machine through your browser using Azure Bastion and the Azure portal. In the Azure portal, you deploy Bastion to your virtual network. After deploying Bastion, you connect to a VM via its private IP address using the Azure portal. Your VM does not need a public IP address or special software. Once the service is provisioned, the RDP/SSH experience is available to all of the virtual machines in the same virtual network. For more information about Azure Bastion, see [What is Azure Bastion?](bastion-overview.md).
+This tutorial shows you how to connect to a virtual machine through your browser using Azure Bastion and the Azure portal. In this tutorial, using the Azure portal, you deploy Bastion to your virtual network. Once the service is provisioned, the RDP/SSH experience is available to all of the virtual machines in the same virtual network. When you use Bastion to connect, the VM does not need a public IP address or special software. After deploying Bastion, you can remove the public IP address from your VM if it is not needed for anything else. Next, you connect to a VM via its private IP address using the Azure portal. For more information about Azure Bastion, see [What is Azure Bastion?](bastion-overview.md).
 
 In this tutorial, you'll learn how to:
 
@@ -27,11 +27,11 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 ## Prerequisites
 
 * A virtual network.
-* A Windows virtual machine in the virtual network.
-* The following required roles:
-  * Reader role on the virtual machine.
-  * Reader role on the NIC with private IP of the virtual machine.
-  * Reader role on the Azure Bastion resource.
+* A Windows virtual machine in the virtual network. If you don't have a VM, create one using [Quickstart: Create a VM](../virtual-machines/windows/quick-create-portal.md).
+* The following required roles for your resources:
+   * Required VM roles:
+     * Reader role on the virtual machine.
+     * Reader role on the NIC with private IP of the virtual machine.
 
 * Ports: To connect to the Windows VM, you must have the following ports open on your Windows VM:
   * Inbound ports: RDP (3389)
@@ -77,14 +77,13 @@ This section helps you create the bastion object in your VNet. This is required 
 1. Review your settings. Next, at the bottom of the page, select **Create**.
 1. You will see a message letting you know that your deployment is underway. Status will display on this page as the resources are created. It takes about 5 minutes for the Bastion resource to be created and deployed.
 
-## Remove a VM public IP address
+## Remove VM public IP address
 
 [!INCLUDE [Remove a public IP address from a VM](../../includes/bastion-remove-ip.md)]
 
 ## Connect to a VM
 
 [!INCLUDE [Connect to a Windows VM](../../includes/bastion-vm-rdp.md)]
-
 
 ## Clean up resources
 
