@@ -79,7 +79,7 @@ In some cases, you use the services side by side to fulfill distinct roles. For 
 
 In other cases, you link them together to form an event and data pipeline. You use Event Grid to respond to events in the other services. For an example of using Event Grid with Event Hubs to migrate data to a data warehouse, see [Stream big data into a data warehouse](event-grid-event-hubs-integration.md). The following image shows the workflow for streaming the data.
 
-![Stream data overview](./media/compare-messaging-services/overview.png)
+:::image type="content" source="./media/compare-messaging-services/overview.png" alt-text="Image showing how Event Hubs, Service Bus, and Event Grid can be connected together.":::
 
 ## Next steps
 See the following articles: 
