@@ -47,7 +47,7 @@ If you are using the Confluent Platform, the easiest way to create a Kafka topic
 ./kafka-topics.sh --create --zookeeper <ZOOKEEPER_URL:PORT> --replication-factor <NO_OF_REPLICATIONS> --partitions <NO_OF_PARTITIONS> --topic <TOPIC_NAME>
 ```
 
-For this quickstart, we will create a Kafka topic named “hotels” and will write non-schema embedded JSON data to the topic. To create a topic inside Control Center, see the [Confluent guide](https://docs.confluent.io/platform/current/quickstart/ce-docker-quickstart.html#step-2-create-ak-topics).
+For this scenario, we will create a Kafka topic named “hotels” and will write non-schema embedded JSON data to the topic. To create a topic inside Control Center, see the [Confluent guide](https://docs.confluent.io/platform/current/quickstart/ce-docker-quickstart.html#step-2-create-ak-topics).
 
 Next, start the Kafka console producer to write a few records to the “hotels” topic.
 
@@ -331,3 +331,10 @@ To be clear, the only JSON structure that is valid for `schemas.enable=true` has
 ## Limitations
 
 * Auto-creation of databases and containers in Azure Cosmos DB are not supported. The database and containers must already exist, and they must be configured to use these.
+
+## Next steps
+
+You can learn more about change feed in Azure Cosmo DB with the following docs:
+
+* [Introduction to the change feed](https://azurecosmosdb.github.io/labs/dotnet/labs/08-change_feed_with_azure_functions.html)
+* [Reading from change feed](read-change-feed.md)

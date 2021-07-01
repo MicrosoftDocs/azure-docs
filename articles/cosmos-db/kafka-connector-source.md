@@ -42,7 +42,7 @@ ls target/*dependencies.jar
 
 ## Create a Kafka topic
 
-Create a Kafka topic using Confluent Control Center. For this quickstart, we will create a Kafka topic named "apparels" and write non-schema embedded JSON data to the topic. To create a topic inside the Control Center, see [create Kafka topic doc](https://docs.confluent.io/platform/current/quickstart/ce-docker-quickstart.html#step-2-create-ak-topics).
+Create a Kafka topic using Confluent Control Center. For this scenario, we will create a Kafka topic named "apparels" and write non-schema embedded JSON data to the topic. To create a topic inside the Control Center, see [create Kafka topic doc](https://docs.confluent.io/platform/current/quickstart/ce-docker-quickstart.html#step-2-create-ak-topics).
 
 ## Create the source connector
 
@@ -177,3 +177,5 @@ The Azure Cosmos DB source connector converts JSON document to schema and suppor
 | String | String |
 
 ## Next steps
+
+* Kafka Connect for Azure Cosmos DB [sink connector](kafka-connector-sink.md)

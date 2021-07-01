@@ -644,14 +644,6 @@
               href: secure-access-to-data.md
             - name: Advanced threat protection
               href: cosmos-db-advanced-threat-protection.md
-        - name: Connectors
-          items:
-            - name: Kafka Connect
-              href: kafka-connector.md
-            - name: Kafka Connect - Source
-              href: .md
-            - name: Kafka Connect - sink
-              href: .md
         - name: Connectivity modes
           href: sql-sdk-connection-modes.md
     - name: How-to guides
@@ -749,6 +741,14 @@
               href: migrate-dotnet-v3.md
             - name: Migrate to .NET V2 SDK
               href: migrate-dotnet-v2.md
+        - name: Connectors
+          items:
+            - name: Kafka Connect
+              href: kafka-connector.md
+            - name: Kafka Connect - Source
+              href: kafka-connector-source.md
+            - name: Kafka Connect - sink
+              href: kafka-connector-sink.md
         - name: Troubleshooting
           items:
             - name: Common errors
