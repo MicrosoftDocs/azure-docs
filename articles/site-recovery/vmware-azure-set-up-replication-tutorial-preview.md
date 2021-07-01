@@ -131,8 +131,8 @@ Follow these steps to enable replication:
     -  Managed disks
       -  By default, premium SSD managed disks are created in Azure. You can customize the type of Managed disks by Selecting on **Customize**. Choose the type of disk based on the business requirement. Ensure [appropriate disk type is chosen](/azure/virtual-machines/disks-types#disk-comparison) based on the IOPS of the source machine disks. For pricing information, refer to the managed disk pricing document [here](https://azure.microsoft.com/pricing/details/managed-disks/).
 
-        >[!NOTE]
-        > If mobility agent is installed manually before enabling replication, you can change the type of managed disk at a disk level. Else, by default, one managed disk type can be chosen at a machine level.
+      >[!NOTE]
+      > If mobility agent is installed manually before enabling replication, you can change the type of managed disk at a disk level. Else, by default, one managed disk type can be chosen at a machine level.
 
 10. Create a new replication policy if needed.
 
