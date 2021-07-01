@@ -126,21 +126,21 @@ You can create the Site Recovery appliance by using the OVF template or through 
 
 1. Download the OVF template to set up an appliance on your on-premises environment.
 
-  This is the recommended approach as Azure Site Recovery ensures all prerequisite configurations are handled by the template.
+   This is the recommended approach as Azure Site Recovery ensures all prerequisite configurations are handled by the template.
 
-  The OVF template spins up a machine with the required specifications.
+   The OVF template spins up a machine with the required specifications.
 
 2. After the deployment is complete, power on the VM to accept Microsoft Evaluation license.
 3. In the next screen, provide password for the administrator user.
 4.  Select **Finalize,** the system reboots and you can login with the administrator user account.
 
-In case of any organizational restrictions, you can manually set up the Site Recovery replication appliance through PowerShell. Do the following:
+  In case of any organizational restrictions, you can manually set up the Site Recovery replication appliance through PowerShell. Do the following:
 
 1. Download the installers from [here](https://aka.ms/V2ARcmApplianceCreationPowershellZip) and place this folder on the Azure Site Recovery replication appliance.
 2. After successfully copying the zip folder, unzip and extract the components of the folder.
 3. Go to the path in which the folder is extracted to and execute the following PowerShell script: `DRInstaller.ps1` as administrator.
 
-  Once you create the appliance, Microsoft Azure appliance configuration manager is launched automatically. Prerequisites such as internet connectivity, Time sync, system configurations and group policies (listed below) are validated.
+    Once you create the appliance, Microsoft Azure appliance configuration manager is launched automatically. Prerequisites such as internet connectivity, Time sync, system configurations and group policies (listed below) are validated.
 
   - CheckRegistryAccessPolicy - Prevents access to registry editing tools.
      - Key: HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System
@@ -164,7 +164,7 @@ In case of any organizational restrictions, you can manually set up the Site Rec
 
 4. Configure the proxy settings by toggling on the **use proxy to connect to internet** option.
 
- All Azure Site Recovery services will use these settings to connect to the internet. Only HTTP proxy is supported.
+    All Azure Site Recovery services will use these settings to connect to the internet. Only HTTP proxy is supported.
 
 5. Ensure the following URLs are whitelisted and reachable from the Azure Site Recovery replication appliance for continuous connectivity:
 
@@ -189,27 +189,25 @@ In case of any organizational restrictions, you can manually set up the Site Rec
 
 7. After saving connectivity details, Select **Continue** to proceed to registration with Microsoft Azure.
 
- **Prerequisites for successful registration of appliance with Azure**:
+  **Prerequisites for successful registration of appliance with Azure**:
 
- You need an account with:
+  You need an account with:
 
  - Permissions to register Azure Active Directory (AAD) apps
 
     - To enable, navigate to Azure portal -> Azure Active Directory -> Users -> User Settings.
     - In User settings, verify that Azure AD users can register applications (set to Yes by default)
-    - In case the 'App registrations' setting is set to 'No', request the tenant/global admin to assign the required permission. Alternately, the tenant/global admin can assign the
-
-    Application Developer role to an account to allow the registration of AAD App. [Learn more](/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
+    - In case the 'App registrations' setting is set to 'No', request the tenant/global admin to assign the required permission. Alternately, the tenant/global admin can assign the Application Developer role to an account to allow the registration of AAD App. [Learn more](/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
 
  - Owner or Contributor plus User Access Administrator permissions on the Azure subscription to create a Key Vault. The key vault is used to store certifications generated
 
-6. Ensure the prerequisites are met, proceed with registration.
+8. Ensure the prerequisites are met, proceed with registration.
 
-  - **Friendly name of appliance** : Provide a friendly name with which you want to track this appliance in the Azure portal under recovery services vault infrastructure.
+    - **Friendly name of appliance** : Provide a friendly name with which you want to track this appliance in the Azure portal under recovery services vault infrastructure.
 
-  -  **Azure Site Recovery replication appliance key** : Copy the key from portal by navigating to recovery services vault -> Getting started -> VMware to Azure Prepare Infrastructure.
+    -  **Azure Site Recovery replication appliance key** : Copy the key from portal by navigating to recovery services vault -> Getting started -> VMware to Azure Prepare Infrastructure.
 
-  - After pasting the key, select **Login.** You will be redirected to a new authentication tab.
+    - After pasting the key, select **Login.** You will be redirected to a new authentication tab.
 
     By default, an authentication code will be generated as highlighted below, in the authentication manager page. Use this code in the authentication tab.
 
@@ -256,9 +254,9 @@ To set up a new appliance, you can follow either of the following methods:
 
 1. Download the OVF template to set up an appliance on your on-premises environment.
 
-  We recommend this approach as all prerequisite configurations are handled by the template.  
+    We recommend this approach as all prerequisite configurations are handled by the template.  
 
-  The OVF template spins up a machine with the required specifications.
+    The OVF template spins up a machine with the required specifications.
 
 2. After the deployment is complete, power on the VM to accept Microsoft Evaluation license and click **Next**.
 3. In the next screen, provide the password for the administrator user.

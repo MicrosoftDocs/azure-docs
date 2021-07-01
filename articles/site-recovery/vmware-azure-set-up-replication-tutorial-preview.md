@@ -42,7 +42,7 @@ In this tutorial, you learn how to:
 VMware to Azure replication includes the following procedures:
 
 - Sign in to the [Azure portal](https://portal.azure.com/).
-- To get started, navigate to [Azure private preview portal](https://aka.ms/rcmcanary). And do the steps detailed in the following sections.
+- To get started, navigate to [Azure preview portal](https://aka.ms/rcmcanary). And do the steps detailed in the following sections.
 - Prepare Azure account
 - Prepare infrastructure
 - [Create a recovery Services vault](/azure/site-recovery/quickstart-create-vault-template?tabs=CLI)

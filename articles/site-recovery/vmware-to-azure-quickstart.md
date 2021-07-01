@@ -25,9 +25,10 @@ To complete this tutorial, you need an Azure subscription and a VMware VM.
 ## Get started
 
 - Sign in to the [Azure portal](https://portal.azure.com/).
-- To get started, navigate to [[Azure private preview portal](https://aka.ms/rcmcanary). And do the steps detailed in the following sections.
-  [Create a recovery Services vault](/azure/site-recovery/quickstart-create-vault-template?tabs=CLI)
-- [Register and deploy Azure Site Recovery replication appliance](deploy-vmware-azure-replication-appliance-preview.md)
+- To get started, navigate to [Azure preview portal](https://aka.ms/rcmcanary) and do the steps as detailed in the following sections:
+
+  - [Create a recovery Services vault](/azure/site-recovery/quickstart-create-vault-template?tabs=CLI)
+  - [Register and deploy Azure Site Recovery replication appliance](deploy-vmware-azure-replication-appliance-preview.md)
 
 ## Enable replication of VMware VMs
 
