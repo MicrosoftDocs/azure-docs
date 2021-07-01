@@ -188,20 +188,20 @@ In case of any organizational restrictions, you can manually set up the Site Rec
 
 7. After saving connectivity details, Select **Continue** to proceed to registration with Microsoft Azure.
 
-  **Prerequisites for successful registration of appliance with Azure**:
+    **Prerequisites for successful registration of appliance with Azure**:
 
-  You need an account with permissions to register Azure Active Directory (AAD) apps.
+    You need an account with permissions to register Azure Active Directory (AAD) apps.
 
-  - To enable, navigate to Azure portal > **Azure Active Directory** > **Users** > **User Settings**.
-  - In **User settings**, verify that Azure AD users can register applications (set to *Yes* by default).
-  - In case the **App registrations** setting is set to *No*, request the tenant/global admin to assign the required permission. Alternately, the tenant/global admin can assign the *Application Developer* role to an account to allow the registration of AAD App. [Learn more](/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
+    - To enable, navigate to Azure portal > **Azure Active Directory** > **Users** > **User Settings**.
+    - In **User settings**, verify that Azure AD users can register applications (set to *Yes* by default).
+    - In case the **App registrations** setting is set to *No*, request the tenant/global admin to assign the required permission. Alternately, the tenant/global admin can assign the *Application Developer* role to an account to allow the registration of AAD App. [Learn more](/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
 
 
 8. Ensure the prerequisites are met, proceed with registration.
 
     - **Friendly name of appliance** : Provide a friendly name with which you want to track this appliance in the Azure portal under recovery services vault infrastructure.
 
-    -  **Azure Site Recovery replication appliance key** : Copy the key from the portal by navigating to **Recovery Services vault** > **Getting started** > **VMware to Azure Prepare Infrastructure**.
+    - **Azure Site Recovery replication appliance key** : Copy the key from the portal by navigating to **Recovery Services vault** > **Getting started** > **VMware to Azure Prepare Infrastructure**.
 
     - After pasting the key, select **Login.**
     You will be redirected to a new authentication tab.
