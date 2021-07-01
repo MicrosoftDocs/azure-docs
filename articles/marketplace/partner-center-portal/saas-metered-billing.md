@@ -21,7 +21,7 @@ For a SaaS offer to use metered billing, it must first:
 - Integrate with the [SaaS Fulfillment APIs](./pc-saas-fulfillment-api-v2.md) for customers to provision and connect to your offer.  
 - Be configured for the **flat rate** pricing model when charging customers for your service.  Dimensions are an optional extension to the flat rate pricing model. 
 
-Then the SaaS offer can integrate with the [commercial marketplace metering service APIs](./marketplace-metering-service-apis.md) to inform Microsoft of billable events.
+Then the SaaS offer can integrate with the [commercial marketplace metering service APIs](../marketplace-metering-service-apis.md) to inform Microsoft of billable events.
 
 >[!Note]
 >Marketplace metering service is available only to the flat rate billing model, and does not apply to the per user billing model.
@@ -36,7 +36,7 @@ Understanding the offer hierarchy is important, when it comes to defining the of
 - Within each plan configured for a flat rate billing model, at least one recurring fee (which can be $0) is included:
     - Recurring **monthly** fee: flat monthly fee that is pre-paid on a monthly recurrence when the user purchases the plan.
     - Recurring **annual** fee: flat annual fee that is pre-paid on an annual recurrence when the user purchases the plan.
-- In addition to the recurring fees, a flat rate plan can also include optional custom dimensions used to charge customers for the overage usage not included in the flat rate.  Each dimension represents a billable unit that your service will communicate to Microsoft using the [commercial marketplace metering service API](./marketplace-metering-service-apis.md).
+- In addition to the recurring fees, a flat rate plan can also include optional custom dimensions used to charge customers for the overage usage not included in the flat rate.  Each dimension represents a billable unit that your service will communicate to Microsoft using the [commercial marketplace metering service API](../marketplace-metering-service-apis.md).
 
 ## Sample offer
 
@@ -62,7 +62,7 @@ As an example, Contoso is a publisher with a SaaS service called Contoso Notific
 
     [![Enterprise plan pricing](./media/saas-enterprise-pricing.png "Click for enlarged view")](./media/saas-enterprise-pricing.png)
 
-Based on the plan selected, an Azure customer purchasing subscription to CNS SaaS offer will be able to send the included quantity of text and emails per subscription term (month or year as appears in subscription details - startDate and endDate).  Contoso counts the usage up to the included quantity in base without sending any usage events to Microsoft. When customers consume more than the included quantity, they do not have to change plans or do anything different.  Contoso will measure the overage beyond the included quantity and start emitting usage events to Microsoft for charging the overage usage using the [commercial marketplace metering service API](./marketplace-metering-service-apis.md).  Microsoft in turn will charge the customer for the overage usage as specified by the publisher in the custom dimensions. The overage billing is done on the next billing cycle (monthly, but can be quarterly or early for some customers).  For a monthly flat rate plan, the overage billing will be made for every month where overage has occurred.  For a yearly flat rate plan, once the quantity included in base per year is consumed, all additional usage emitted by the custom meter will be billed as overage during each billing cycle (monthly) until the end of the subscription's year term.
+Based on the plan selected, an Azure customer purchasing subscription to CNS SaaS offer will be able to send the included quantity of text and emails per subscription term (month or year as appears in subscription details - startDate and endDate).  Contoso counts the usage up to the included quantity in base without sending any usage events to Microsoft. When customers consume more than the included quantity, they do not have to change plans or do anything different.  Contoso will measure the overage beyond the included quantity and start emitting usage events to Microsoft for charging the overage usage using the [commercial marketplace metering service API](../marketplace-metering-service-apis.md).  Microsoft in turn will charge the customer for the overage usage as specified by the publisher in the custom dimensions. The overage billing is done on the next billing cycle (monthly, but can be quarterly or early for some customers).  For a monthly flat rate plan, the overage billing will be made for every month where overage has occurred.  For a yearly flat rate plan, once the quantity included in base per year is consumed, all additional usage emitted by the custom meter will be billed as overage during each billing cycle (monthly) until the end of the subscription's year term.
 
 ## Billing dimensions
 
@@ -152,4 +152,4 @@ To understand publisher support options and open a support ticket with Microsoft
 
 ## Next steps
 
-- [Marketplace metering service APIs](./marketplace-metering-service-apis.md)
+- [Marketplace metering service APIs](../marketplace-metering-service-apis.md)

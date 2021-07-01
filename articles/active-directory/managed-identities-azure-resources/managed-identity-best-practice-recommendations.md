@@ -24,7 +24,7 @@ ms.author: barclayn
 
 User-assigned managed identities are more efficient in a broader range of scenarios than system-assigned managed identities. See the table below for some scenarios and the recommendations for user-assigned or system-assigned.
 
-User-assigned identities can be used by multiple resources, and their life cycles are decoupled from the resources’ life cycles with which they’re associated. [Read which resources support managed identities](https://aka.ms/managedidentitystatus).
+User-assigned identities can be used by multiple resources, and their life cycles are decoupled from the resources’ life cycles with which they’re associated. [Read which resources support managed identities](./services-support-managed-identities.md).
 
 This life cycle allows you to separate your resource creation and identity administration responsibilities. User-assigned identities and their role assignments can be configured in advance of the resources that require them. Users who create the resources only require the access to assign a user-assigned identity, without the need to create new identities or role assignments. 	
 
@@ -76,8 +76,8 @@ In the example below, “Virtual Machine 4” has both a user-assigned identity,
 
 ## Limits 
 
-View the limits for [managed identities](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-role-based-access-control-limits)
-and for [custom roles and role assignments](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-role-based-access-control-limits).
+View the limits for [managed identities](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-rbac-limits)
+and for [custom roles and role assignments](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-rbac-limits).
 
 ## Maintenance
 

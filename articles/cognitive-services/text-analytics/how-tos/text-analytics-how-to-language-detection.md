@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 04/02/2021
+ms.date: 06/10/2021
 ms.author: aahi
 ---
 
@@ -298,3 +298,4 @@ In this article, you learned concepts and workflow for language detection by usi
 * [Text Analytics overview](../overview.md)
 * [Using the Text Analytics client library](../quickstarts/client-libraries-rest-api.md)
 * [What's new](../whats-new.md)
+* [Model versions](../concepts/model-versioning.md)

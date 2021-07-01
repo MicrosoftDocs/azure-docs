@@ -220,7 +220,7 @@ Microsoft will provide notification at least **12 months** in advance of retirin
 
 ## FAQ
 
-[!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
+[!INCLUDE [cosmos-db-sdk-faq](includes/cosmos-db-sdk-faq.md)]
 
 ## See also
 
