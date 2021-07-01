@@ -28,7 +28,7 @@ Before you begin your deployment, ensure you meet the following prerequisites fo
 | Scenario | Prerequisite |
 |----------|--------------|
 |**Cloud-only** identity environment with modern authentication | **No prerequisite tasks** |
-|**Hybrid identity** scenarios | Deploy [Azure AD Connect](../whatis-hybrid-identity.md) and synchronize user identities between the on-premises Active Directory Domain Services (AD DS) and Azure AD. |
+|**Hybrid identity** scenarios | Deploy [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) and synchronize user identities between the on-premises Active Directory Domain Services (AD DS) and Azure AD. |
 | **On-premises legacy applications** published for cloud access| Deploy [Azure AD Application Proxy](../app-proxy/application-proxy-deployment-plan.md) |
 
 ## Choose authentication methods for MFA
@@ -93,9 +93,9 @@ Common use cases to require Azure AD MFA include:
 
 - For [administrators](../conditional-access/howto-conditional-access-policy-admin-mfa.md)
 - To [specific applications](tutorial-enable-azure-mfa.md)
-- For [all users](../conditional-access/howto-conditional-access-policy-all-users-mfa)
+- For [all users](../conditional-access/howto-conditional-access-policy-all-users-mfa.md)
 - For [Azure management](../conditional-access/howto-conditional-access-policy-azure-management.md)
-- From [network locations you don't trust](../active-directory/conditional-access/untrusted-networks.md)
+- From [network locations you don't trust](../conditional-access/untrusted-networks.md)
 
 ### Named locations
 

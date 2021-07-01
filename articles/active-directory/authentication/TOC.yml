@@ -83,7 +83,7 @@
   - name: Azure AD Multi-Factor Authentication
     items:
     - name: Planning guide
-      href: howto-mfa-plan.md
+      href: concept-mfa-plan.md
     - name: Deployment guide
       href: howto-mfa-getstarted.md
     - name: Configure settings
