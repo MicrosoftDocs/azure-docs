@@ -600,7 +600,7 @@ public func recordingFeature(_ recordingFeature: RecordingFeature, didChangeReco
 }
 ```
 
-If you want to start recording from your application, please first follow [Calling Recording overview](https://docs.microsoft.com/en-us/azure/communication-services/concepts/voice-video-calling/call-recording "Calling Recording overview") for the steps to set up call recording.
+If you want to start recording from your application, please first follow [Calling Recording overview](../../../../concepts/voice-video-calling/call-recording.md) for the steps to set up call recording.
 
 Once you have the call recording setup on your server, from your iOS application you need to obtain the `ServerCallId` value from the call and then send it to your server to start the recording process. The `ServerCallId` value can be found using `getServerCallId()` from the `CallInfo` class, which can be found in the class object using `getInfo()`.
 
