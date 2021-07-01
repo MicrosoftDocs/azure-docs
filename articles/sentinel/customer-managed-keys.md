@@ -139,7 +139,7 @@ Analytics with the new Azure Key Vault key version. For more information, see [A
 
 ## Replacing a customer-managed key
 
-Azure Sentinel and Log Analytics support replacing a customer-managed key. In order to replace the key, create another key, either in the same key vault or in another key vault, and configure it according to the key creation instructions above. Then, update the dedicated Log Analytics cluster with the new key. Sentinel will detect the key change and will use it across all Azure Sentinel's data storage resources within one hour.
+Azure Sentinel does not support replacing a customer-managed key. Please use the key rotation capability instead.
 
 ## Next steps
 In this document, you learned how to set up a customer-managed key in Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
