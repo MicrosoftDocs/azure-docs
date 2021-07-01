@@ -51,8 +51,8 @@ Azure File Sync is supported on NTFS volumes with Windows Server 2012 R2 and new
 |256 TB – 512 TB| 128 KB              |
 |512 TB – 1 PB  | 256 KB              |
 |1 PB – 2 PB    | 512 KB              |
-|2 TB – 4 PB    | 1024 KB             |
-|4 TB – 8 TB    | 2048 KB (max size)  |
+|2 PB – 4 PB    | 1024 KB             |
+|4 PB – 8 PB    | 2048 KB (max size)  |
 |> 8 TB         | not supported       |
 
 It is possible that upon creation of the volume, you manually formatted the volume with a different cluster size. If your volume stems from an older version of Windows, default cluster sizes may also be different. [This article has more details on default cluster sizes.](https://support.microsoft.com/help/140365/default-cluster-size-for-ntfs-fat-and-exfat) Even if you choose a cluster size smaller than 4 KB, an 8 KB limit as the smallest file size that can be tiered, still applies. (Even if technically 2x cluster size would equate to less than 8 KB.)

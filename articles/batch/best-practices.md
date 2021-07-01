@@ -192,7 +192,7 @@ Typically, virtual machines in a Batch pool are accessed through public IP add
 
 ### Testing connectivity with Cloud Services configuration
 
-You can't use the normal "ping"/ICMP protocol with cloud services, because the ICMP protocol is not permitted through the Azure load balancer. For more information, see [Connectivity and networking for Azure Cloud Services](../cloud-services/cloud-services-connectivity-and-networking-faq.md#can-i-ping-a-cloud-service).
+You can't use the normal "ping"/ICMP protocol with cloud services, because the ICMP protocol is not permitted through the Azure load balancer. For more information, see [Connectivity and networking for Azure Cloud Services](../cloud-services/cloud-services-connectivity-and-networking-faq.yml#can-i-ping-a-cloud-service-).
 
 ## Batch node underlying dependencies
 

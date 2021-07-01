@@ -2,7 +2,7 @@
 title: Troubleshoot Azure Video Analyzer - Azure
 description: This article covers troubleshooting steps for Azure Video Analyzer.
 ms.topic: how-to
-ms.date: 05/04/2021
+ms.date: 07/01/2021
 ---
 
 # Troubleshoot Azure Video Analyzer
@@ -148,8 +148,8 @@ When self-guided troubleshooting steps don't resolve your problem, go the Azure 
 
 To gather the relevant logs that should be added to the ticket, follow the instructions below in order and upload the log files in the **Details** pane of the support request.
 
-1. [Configure the Video Analyzer module to collect Verbose Logs]()
-1. [Turn on Debug Logs]()
+1. [Configure the Video Analyzer module to collect Verbose Logs](#configure-video-analyzer-module-to-collect-verbose-logs)
+1. [Turn on Debug Logs](#video-analyzer-debug-logs)
 1. Reproduce the issue
 1. Connect to the virtual machine from the **IoT Hub** page in the portal
 
@@ -215,23 +215,8 @@ To configure the Video Analyzer module to generate debug logs, do the following:
    ![Screenshot of the "Set Modules" button in the Azure portal.](media/troubleshoot/set-modules.png)
 
 1. In the **IoT Edge Modules** section, look for and select **avaedge**.
-1. Select **Container Create Options**.
-1. In the **Binds** section, add the following command:
-
-   `/var/local/videoanalyzer/logs:/var/lib/videoanalyzer/logs`
-
-   > [!NOTE]
-   > This command binds the logs folders between the Edge device and the container. If you want to collect the logs in a different location, use the following command, replacing **$LOG_LOCATION_ON_EDGE_DEVICE** with the location you want to use:
-   > `/var/$LOG_LOCATION_ON_EDGE_DEVICE:/var/lib/videoanalyzer/logs`
-
-1. Select **Update**.
-1. Select **Review + Create**. A successful validation message is posted under a green banner.
-1. Select **Create**.
-1. Update **Module Identity Twin** to point to the DebugLogsDirectory parameter, which points to the directory in which the logs are collected:
-
-   a. Under the **Modules** table, select **avaedge**.
-   b. At the top of the pane, select **Module Identity Twin**. An editable pane opens.
-   c. Under **desired key**, add the following key/value pair:
+1. Select **Module Identity Twin**. An editable pane opens.
+1. Under **desired key**, add the following key/value pair:
 
    `"DebugLogsDirectory": "/var/lib/videoanalyzer/logs"`
 
@@ -243,7 +228,7 @@ To configure the Video Analyzer module to generate debug logs, do the following:
    > 2. Use the following command, replacing **$DEBUG_LOG_LOCATION** with the location used in the previous step:
    >    `"DebugLogsDirectory": "/var/$DEBUG_LOG_LOCATION"`
 
-   d. Select **Save**.
+1. Select **Save**.
 
 1. You can stop log collection by setting the value in **Module Identity Twin** to _null_. Go back to the **Module Identity Twin** page and update the following parameter as:
 

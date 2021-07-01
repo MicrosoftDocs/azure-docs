@@ -1192,6 +1192,8 @@ items:
     items:
     - name: What is machine learning in Azure Synapse?
       href: machine-learning/what-is-machine-learning.md
+    - name: Cognitive Services in Azure Synapse Analytics
+      href: machine-learning/overview-cognitive-services.md
   - name: Quickstarts
     items:
     - name: Use a sample notebook from the gallery
