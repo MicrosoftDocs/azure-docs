@@ -70,3 +70,9 @@ The AVS Interconnect (Preview) feature is available in all regions except for So
 2. For the connection you want to remove, on the right, select **Delete** (trash can) and then **Yes**.
 
 
+## Next steps
+
+Now that you've connected multiple private clouds in the same region, you may want to learn about:
+
+- [Move Azure VMware Solution resources to another region](move-azure-vmware-solution-across-regions.md)
+- [Move Azure VMware Solution subscription to another subscription](move-ea-csp-subscriptions.md)
