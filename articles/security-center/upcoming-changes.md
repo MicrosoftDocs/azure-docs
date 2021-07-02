@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: overview
-ms.date: 06/17/2021
+ms.date: 07/01/2021
 ms.author: memildin
 
 ---
@@ -24,16 +24,33 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 
 | Planned change                                                                                                                                                                                          | Estimated date for change |
 |---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|
-| [Legacy implementation of ISO 27001 is being replaced with new ISO 27001:2013](#legacy-implementation-of-iso-27001-is-being-replaced-with-new-iso-270012013)                                            | June 2021                 |
+| [CSV exports to be limited to 20 MB](#csv-exports-to-be-limited-to-20-mb)                                                                                                                               | July 2021                 |
+| [Legacy implementation of ISO 27001 is being replaced with new ISO 27001:2013](#legacy-implementation-of-iso-27001-is-being-replaced-with-new-iso-270012013)                                            | July 2021                 |
 | [Deprecating recommendation 'Log Analytics agent health issues should be resolved on your machines'](#deprecating-recommendation-log-analytics-agent-health-issues-should-be-resolved-on-your-machines) | July 2021                 |
 | [Enhancements to SQL data classification recommendation](#enhancements-to-sql-data-classification-recommendation)                                                                                       | Q3 2021                   |
 | [Enable Azure Defender security control to be included in secure score](#enable-azure-defender-security-control-to-be-included-in-secure-score)                                                         | Q3 2021                   |
 |                                                                                                                                                                                                         |                           |
 
 
+### CSV exports to be limited to 20 MB
+
+**Estimated date for change:** July 2021
+
+When exporting Security Center data such as recommendations and alerts, there's currently no limit on the amount of data that you can download.
+
+:::image type="content" source="media/upcoming-changes/download-csv-report.png" alt-text="One of Security Center's 'download CSV report' buttons.":::
+
+With this change, we're instituting a limit of 20 MB. 
+
+If you need to export larger amounts of data, use the available filters before selecting, or select subsets of your subscriptions and download the data in batches.
+
+:::image type="content" source="media/upcoming-changes/filter-subscriptions.png" alt-text="Filtering subscriptions in the Azure portal.":::
+
+Learn more about [performing a CSV export of alerts and recommendations](continuous-export.md#manual-one-time-export-of-alerts-and-recommendations).
+
 ### Legacy implementation of ISO 27001 is being replaced with new ISO 27001:2013
 
-**Estimated date for change:** June 2021
+**Estimated date for change:** July 2021
 
 The legacy implementation of ISO 27001 will be removed from Security Center's regulatory compliance dashboard. If you're tracking your ISO 27001 compliance with Security Center, onboard the new ISO 27001:2013 standard for all relevant management groups or subscriptions, and the current legacy ISO 27001 will soon be removed from the dashboard.
 

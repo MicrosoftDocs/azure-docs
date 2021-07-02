@@ -403,4 +403,4 @@ Now you can delete the App Service certificate. From the left navigation, select
 * [Enforce HTTPS](configure-ssl-bindings.md#enforce-https)
 * [Enforce TLS 1.1/1.2](configure-ssl-bindings.md#enforce-tls-versions)
 * [Use a TLS/SSL certificate in your code in Azure App Service](configure-ssl-certificate-in-code.md)
-* [FAQ : App Service Certificates](./faq-configuration-and-management.md)
+* [FAQ : App Service Certificates](./faq-configuration-and-management.yml)
