@@ -306,7 +306,7 @@ The response contains 4 fields, `models`, `currentCount`, `maxCount`, and `nextL
       }
 ```
 
-You will receive more detailed information about the model queried. The response contains meta information about the model, its training parameters, and diagnostic information. Diagnostic Information is useful for debugging and tracing training progress.
+You will receive more detailed information about the queried model. The response contains meta information about the model, its training parameters, and diagnostic information. Diagnostic Information is useful for debugging and tracing training progress.
 
 * `epochIds` indicates how many epochs the model has been trained out of in total 100 epochs. For example, if the model is still in training status, `epochId` might be `[10, 20, 30, 40, 50]` which means that it has completed its 50th training epoch, and there are half way to go.
 * `trainLosses` and `validationLosses` are used to check whether the optimization progress converges in which case the two losses should decrease gradually.
