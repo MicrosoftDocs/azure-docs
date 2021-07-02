@@ -44,7 +44,7 @@ Learn about important updates in the commercial marketplace program of Partner C
 | Offers | Microsoft 365 independent software vendors (ISVs) can now link their software as a service (SaaS) offer to their related Teams apps, Office add-ins (WXPO), and SharePoint SPFx solutions in Partner Center. SaaS ISVs can also declare if their SaaS offer is integrated with Microsoft Graph API. To learn more, see [Test and deploy Microsoft 365 Apps by partners in the Integrated apps portal](/microsoft-365/admin/manage/test-and-deploy-microsoft-365-apps). | 2021-04-08 |
 |||
 
-## Feature Request
+## Feature request
 
 | Category | Description | Date |
 | ------------ | ------------- | ------------- |
