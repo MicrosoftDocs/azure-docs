@@ -59,7 +59,30 @@ A virtual environment is a folder within a project that isolates a copy of a spe
 
 ## Set up
 
-Install the sample requirements.
+Set up and [configure your local Python dev environment for Azure](/azure/developer/python/configure-local-development-environment)
+
+Install the azure-identity library for Python. This module is needed for Azure Active Directory authentication. See the details at [Azure Identity client library for Python](https://docs.microsoft.com//python/api/overview/azure/identity-readme?view=azure-python#environment-variables)
+
+``` bash
+pip install azure-identity
+```
+
+Install the Python SDK for [Azure Media Services](/python/api/overview/azure/media-services?view=azure-python)
+
+The Pypi page for the Media Services Python SDK with latest version details is located at - [azure-mgmt-media](https://pypi.org/project/azure-mgmt-media/)
+
+
+``` bash
+pip install azure-mgmt-media
+```
+
+Install the [Azure Storage SDK for Python](https://pypi.org/project/azure-storage-blob/)
+
+``` bash
+pip install azure-storage-blob
+```
+
+You can optionally install ALL of the requirements for a given samples by using the "requirements.txt" file in the samples folder
 
 ``` bash
 pip install -r requirements.txt
