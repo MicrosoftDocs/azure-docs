@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 02/11/2021
+ms.date: 07/02/2021
 ms.author: lajanuar
 ---
 
@@ -76,6 +76,20 @@ Follow these steps to create a new resource using the Azure portal:
 * Continuous Deployment - Set this to **On** if you want to receive automatic updates when the development team makes changes to the sample labeling tool.
 * Startup command - Set this to `./run.sh eula=accept`
 
+> [!div class="mx-imgBorder"]
+> ![Configure Docker](./media/quickstarts/configure-docker.png)
+
+* Next, select **Review + Create**, then **Create** to deploy your web app. When complete, you can access your web app at the URL provided in the **Overview** for your resource.
+
+### Continuous deployment
+
+After you have created your web app, you can enable the continuous deployment option:
+
+* From the left pane, choose **Container settings**.
+* In the main window, navigate to Continuous deployment and toggle between the **On** and **Off** buttons to set your preference:
+
+:::image type="content" source="media/label-tool/continuous-deployment.png" alt-text="Screenshot: container settings for continuous deployment.":::
+
 # [v2.0](#tab/v2-0)  
 
 * Options - Select **Single Container**
@@ -84,15 +98,9 @@ Follow these steps to create a new resource using the Azure portal:
 * Username (Optional) - Create a username. 
 * Password (Optional) - Create a secure password that you'll remember.
 * Image and tag - Set this to `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest`
-* Continuous Deployment - Set this to **On** if you want to receive automatic updates when the development team makes changes to the sample labeling tool.
 * Startup command - Set this to `./run.sh eula=accept`
 
  ---
-
-   > [!div class="mx-imgBorder"]
-   > ![Configure Docker](./media/quickstarts/configure-docker.png)
-
-7. That's it. Next, select **Review + Create**, then **Create** to deploy your web app. When complete, you can access your web app at the URL provided in the **Overview** for your resource.
 
 > [!NOTE]
 > When creating your web app, you can also configure authorization/authentication. This is not necessary to get started.
@@ -133,7 +141,6 @@ az container create \
 ```
 
 # [v2.0](#tab/v2-0)
-
 
 ```azurecli
 DNS_NAME_LABEL=aci-demo-$RANDOM
