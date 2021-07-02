@@ -1,13 +1,13 @@
 ---
-title: Preview - Create an image version encrypted with your own keys 
+title: Create an image version encrypted with your own keys 
 description: Create an image version in a shared image gallery, by using customer-managed encryption keys.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: shared-image-gallery
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 11/3/2020
-ms.author: cynthn 
+ms.date: 7/1/2021
+ms.author: olayemio 
 ms.custom: devx-track-azurepowershell
 ---
 
