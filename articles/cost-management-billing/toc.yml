@@ -296,6 +296,8 @@
       href: manage/spending-limit.md
     - name: Track credits for Microsoft Customer Agreement
       href: manage/mca-check-azure-credits-balance.md
+    - name: Track your Microsoft Azure Consumption Commitment
+      href: manage/track-consumption-commitment.md
     - name: Migrate from EA to MCA APIs
       href: costs/migrate-cost-management-api.md
     - name: Assign roles to EA SPNs
