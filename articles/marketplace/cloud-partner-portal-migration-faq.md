@@ -167,7 +167,7 @@ Your offer ID is now shown on the left-navigation bar of the offer:
 
 ### Stop distribution of an offer
 
-You can request to [Stop distribution of an offer](update-existing-offer.md#stop-selling-an-offer-or-plan) on the marketplace directly from the Partner Center portal. The option is available on the **Offer overview** page for your offer.
+You can request to [Stop distribution of an offer](update-existing-offer.md#stop-distribution-of-an-offer-or-plan) on the marketplace directly from the Partner Center portal. The option is available on the **Offer overview** page for your offer.
 
 [![Screenshot shows the Partner Center page to Stop distribution of an offer.](media/cpp-pc-faq/stop-sell.png "Shows the Partner Center page to Stop distribution of an offer")](media/cpp-pc-faq/stop-sell.png#lightbox)
 <br><br>
