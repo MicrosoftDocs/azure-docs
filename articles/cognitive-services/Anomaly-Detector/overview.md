@@ -94,7 +94,6 @@ No customer configuration is necessary to enable zone-resiliency. Zone-resilienc
 ## Join the Anomaly Detector community
 
 * Join the [Anomaly Detector Advisors group on Microsoft Teams](https://aka.ms/AdAdvisorsJoin)
-* See selected [user generated content](user-generated-content.md)
 
 ## Next steps
 
