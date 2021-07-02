@@ -31,7 +31,7 @@ For platform-specific installation instructions, see the following links:
 
 ## Create a speech configuration
 
-To call the Speech service using the Speech SDK, you need to create a [`SpeechConfig`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig). This class includes information about your subscription, like your key and associated location/region, endpoint, host, or authorization token. Create a [`SpeechConfig`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig) by using your key and location/region. See the [Find keys and location/region](../../../overview.md#find-keys-and-region) page to find your key-location/region pair.
+To call the Speech service using the Speech SDK, you need to create a [`SpeechConfig`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig). This class includes information about your subscription, like your key and associated location/region, endpoint, host, or authorization token. Create a [`SpeechConfig`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig) by using your key and location/region. See the [Find keys and location/region](../../../overview.md#find-keys-and-locationregion) page to find your key-location/region pair.
 
 ```csharp
 using System;
