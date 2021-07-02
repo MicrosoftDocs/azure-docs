@@ -28,7 +28,6 @@ The following table lists common tools required for creating and managing Azure 
 |---|---|---|---|
 | Azure CLI (az)<sup>1</sup> | Yes | Modern command-line interface for managing Azure services. | [Install](/cli/azure/install-azure-cli) |
 | Azure CLI `arcdata` extension  | Yes | This extension supports deployment and management for Azure Arc-enabled data services and SQL managed instance. | [Install](install-arcdata-extension.md) |
-||||
 | [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] | Only for PostgreSQL Hyperscale | Command line tool for managing Azure Arc-enabled PostgreSQL Hyperscale resources. [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] also includes a command line utility to connect to and query `azdata postgres query` and `azdata postgres shell`. | [Install](/sql/azdata/install/deploy-install-azdata?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json) <br><br> Prior to June, 2021 releases `azdata` also applied to data controller and Azure Arc SQL managed instance. For these resources, now use the Azure CLI extension `arcdata`. |
 | Azure Data Studio | Yes | Rich experience tool for connecting to and querying a variety of databases including Azure SQL, SQL Server, PostrgreSQL, and MySQL. Extensions to Azure Data Studio provide an administration experience for Azure Arc enabled data services. | [Install](/sql/azure-data-studio/download-azure-data-studio) |
 | [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] extension for Azure Data Studio | Only for PostgreSQL Hyperscale | Extension for Azure Data Studio that will install [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] if you don't already have it.| Install from extensions gallery in Azure Data Studio.|
@@ -40,7 +39,7 @@ The following table lists common tools required for creating and managing Azure 
 
 <sup>1</sup> Use the latest Azure CLI version. Run `az --version` to find the version. See [Install](/cli/azure/install-azure-cli) to get the latest. 
 
-<sup>2</sup> You must use `kubectl` version 1.13 or later. Also, the version of `kubectl` should be plus or minus one minor version of your Kubernetes cluster. If you want to install a specific version on `kubectl` client, see [Install `kubectl` binary via curl](https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-kubectl-binary-using-curl) (on Windows 10, use cmd.exe and not Windows PowerShell to run curl).
+<sup>2</sup> Use the `kubectl` version for your Kubernetes cluster. If you want to install a specific version on `kubectl` client, see [Install `kubectl` binary via curl](https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-kubectl-binary-using-curl) (on Windows 10, use cmd.exe and not Windows PowerShell to run curl).
 
 <sup>3</sup> If you are using PowerShell, curl is an alias to the Invoke-WebRequest cmdlet.
 

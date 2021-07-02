@@ -36,7 +36,7 @@
             href: create-data-controller-azure-data-studio.md
           - name: Portal
             href: create-data-controller-resource-in-azure-portal.md
-          - name: Azure Data CLI (azdata)
+          - name: Azure CLI (az)
             href: create-data-controller-using-cli.md
           - name: Kubernetes tools
             href: create-data-controller-using-kubernetes-native-tools.md

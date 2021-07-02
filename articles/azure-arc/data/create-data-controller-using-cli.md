@@ -19,9 +19,7 @@ ms.topic: how-to
 
 Review the topic [Create the Azure Arc data controller](create-data-controller.md) for overview information.
 
-To create the Azure Arc data Controller using the the Azure CLI extension,  you will need to have the CLI installed.
-
-   [Install the CLI](install-client-tools.md)
+To create the Azure Arc data Controller using the the Azure CLI extension, you will need to have Azure (`az`) CLI installed with the `arcdata` extension. See [Install arcdata Azure CLI extension](install-arcdata-extension.md).
 
 Regardless of which target platform you choose, you will need to set the following environment variables prior to the creation for the data controller administrator user. You can provide these credentials to other people that need to have administrator access to the data controller as needed.
 
@@ -76,7 +74,7 @@ If you are going to use `managed-premium` as your storage class, then you can ru
 az arcdata dc create --profile-name azure-arc-aks-premium-storage --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
 
 #Example:
-#az arcdata dc create --profile-name azure-arc-aks-premium-storage --namespace arc --name arc --subscription 1e5ff510-76cf-44cc-9820-82f2d9b51951 --resource-group my-resource-group --location eastus --connectivity-mode indirect
+#az arcdata dc create --profile-name azure-arc-aks-premium-storage --namespace arc --name arc --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --resource-group my-resource-group --location eastus --connectivity-mode indirect
 ```
 
 If you are not sure what storage class to use, you should use the `default` storage class which is supported regardless of which VM type you are using. It just won't provide the fastest performance.
@@ -87,7 +85,7 @@ If you want to use the `default` storage class, then you can run this command:
 az arcdata dc create --profile-name azure-arc-aks-default-storage --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
 
 #Example:
-#az arcdata dc create --profile-name azure-arc-aks-default-storage --namespace arc --name arc --subscription 1e5ff510-76cf-44cc-9820-82f2d9b51951 --resource-group my-resource-group --location eastus --connectivity-mode indirect
+#az arcdata dc create --profile-name azure-arc-aks-default-storage --namespace arc --name arc --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --resource-group my-resource-group --location eastus --connectivity-mode indirect
 ```
 
 Once you have run the command, continue on to [Monitoring the creation status](#monitoring-the-creation-status).
@@ -102,7 +100,7 @@ You can run the following command to create the data controller using the manage
 az arcdata dc create --profile-name azure-arc-aks-premium-storage --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
 
 #Example:
-#az arcdata dc create --profile-name azure-arc-aks-premium-storage --namespace arc --name arc --subscription 1e5ff510-76cf-44cc-9820-82f2d9b51951 --resource-group my-resource-group --location eastus --connectivity-mode indirect
+#az arcdata dc create --profile-name azure-arc-aks-premium-storage --namespace arc --name arc --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --resource-group my-resource-group --location eastus --connectivity-mode indirect
 ```
 
 If you are not sure what storage class to use, you should use the `default` storage class which is supported regardless of which VM type you are using. In Azure Stack Hub, premium disks and standard disks are backed by the same storage infrastructure. Therefore, they are expected to provide the same general performance, but with different IOPS limits.
@@ -113,7 +111,7 @@ If you want to use the `default` storage class, then you can run this command.
 az arcdata dc create --profile-name azure-arc-aks-default-storage --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
 
 #Example:
-#az arcdata dc create --profile-name azure-arc-aks-default-storage --namespace arc --name arc --subscription 1e5ff510-76cf-44cc-9820-82f2d9b51951 --resource-group my-resource-group --location eastus --connectivity-mode indirect
+#az arcdata dc create --profile-name azure-arc-aks-default-storage --namespace arc --name arc --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --resource-group my-resource-group --location eastus --connectivity-mode indirect
 ```
 
 Once you have run the command, continue on to [Monitoring the creation status](#monitoring-the-creation-status).
@@ -128,7 +126,7 @@ You can run the following command to create the data controller using the `defau
 az arcdata dc create --profile-name azure-arc-aks-hci --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
 
 #Example:
-#az arcdata dc create --profile-name azure-arc-aks-hci --namespace arc --name arc --subscription 1e5ff510-76cf-44cc-9820-82f2d9b51951 --resource-group my-resource-group --location eastus --connectivity-mode indirect
+#az arcdata dc create --profile-name azure-arc-aks-hci --namespace arc --name arc --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --resource-group my-resource-group --location eastus --connectivity-mode indirect
 ```
 
 Once you have run the command, continue on to [Monitoring the creation status](#monitoring-the-creation-status).
@@ -163,7 +161,7 @@ You can run the following command to create the data controller:
 az arcdata dc create --profile-name azure-arc-azure-openshift --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
 
 #Example
-#az arcdata dc create --profile-name azure-arc-azure-openshift --namespace arc --name arc --subscription 1e5ff510-76cf-44cc-9820-82f2d9b51951 --resource-group my-resource-group --location eastus --connectivity-mode indirect
+#az arcdata dc create --profile-name azure-arc-azure-openshift --namespace arc --name arc --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --resource-group my-resource-group --location eastus --connectivity-mode indirect
 ```
 
 Once you have run the command, continue on to [Monitoring the creation status](#monitoring-the-creation-status).
@@ -254,7 +252,7 @@ Now you are ready to create the data controller using the following command.
 az arcdata dc create --path ./custom --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
 
 #Example:
-#az arcdata dc create --path ./custom --namespace arc --name arc --subscription 1e5ff510-76cf-44cc-9820-82f2d9b51951 --resource-group my-resource-group --location eastus --connectivity-mode indirect
+#az arcdata dc create --path ./custom --namespace arc --name arc --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --resource-group my-resource-group --location eastus --connectivity-mode indirect
 ```
 
 Once you have run the command, continue on to [Monitoring the creation status](#monitoring-the-creation-status).
@@ -298,7 +296,7 @@ Now you are ready to create the data controller using the following command.
 az arcdata dc create --path ./custom --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
 
 #Example:
-#az arcdata dc create --path ./custom --namespace arc --name arc --subscription 1e5ff510-76cf-44cc-9820-82f2d9b51951 --resource-group my-resource-group --location eastus --connectivity-mode indirect
+#az arcdata dc create --path ./custom --namespace arc --name arc --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --resource-group my-resource-group --location eastus --connectivity-mode indirect
 ```
 
 Once you have run the command, continue on to [Monitoring the creation status](#monitoring-the-creation-status).
@@ -313,7 +311,7 @@ Run the following command to create the data controller using the provided EKS d
 az arcdata dc create --profile-name azure-arc-eks --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
 
 #Example:
-#az arcdata dc create --profile-name azure-arc-eks --namespace arc --name arc --subscription 1e5ff510-76cf-44cc-9820-82f2d9b51951 --resource-group my-resource-group --location eastus --connectivity-mode indirect
+#az arcdata dc create --profile-name azure-arc-eks --namespace arc --name arc --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --resource-group my-resource-group --location eastus --connectivity-mode indirect
 ```
 
 Once you have run the command, continue on to [Monitoring the creation status](#monitoring-the-creation-status).
@@ -328,7 +326,7 @@ Run the following command to create the data controller using the provided GKE d
 az arcdata dc create --profile-name azure-arc-gke --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
 
 #Example:
-#az arcdata dc create --profile-name azure-arc-gke --namespace arc --name arc --subscription 1e5ff510-76cf-44cc-9820-82f2d9b51951 --resource-group my-resource-group --location eastus --connectivity-mode indirect
+#az arcdata dc create --profile-name azure-arc-gke --namespace arc --name arc --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --resource-group my-resource-group --location eastus --connectivity-mode indirect
 ```
 
 Once you have run the command, continue on to [Monitoring the creation status](#monitoring-the-creation-status).
