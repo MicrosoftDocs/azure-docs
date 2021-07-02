@@ -7,7 +7,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
-ms.date: 07/04/2017
+ms.date: 07/02/2021
 ms.author: robinsh
 ms.custom: "mqtt, devx-track-csharp"
 ---
@@ -41,6 +41,16 @@ These files are typically batch processed in the cloud using tools such as [Azur
 
 * An active Azure account. If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.
 
+* The sample applications you run in this article is written using C#. For the Azure IoT C# samples, we recommend the .NET Core SDK 3.1 or greater on your development machine.
+
+    You can download the .NET Core SDK for multiple platforms from [.NET](https://dotnet.microsoft.com/download).
+
+    You can verify the current version of C# on your development machine using the following command:
+
+    ```cmd/sh
+    dotnet --version
+    ```
+
 * Download the Azure IoT C# samples from [https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) and extract the ZIP archive.
 
 * Open the *FileUploadSample* folder in Visual Studio Code, and open the *FileUploadSample.cs* file.
@@ -51,15 +61,15 @@ These files are typically batch processed in the cloud using tools such as [Azur
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-[!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-associate-storage.md)]
+## Register a new device in the IoT hub
 
-## Get the IoT hub connection string
+[!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
-[!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
+[!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-include-associate-storage.md)]
 
 ## Examine the Application
 
-Navigate to the *FileUploadSample* folder in your .NET samples download. Open the folder in Visual Studio Code. The folder contains a file named *parameters.cs*. If you open that file, you'll see that the parameter *p* is required and contains the connection string. The parameter *t* can be specified if you want to change the transport protocol. The default protocol is mqtt. The file *program.cs* contains the *main* function. The *FileUploadSample.cs* file contains the primary sample logic. *TestPayload.txt* is the file to be uploaded to your blob container.
+Navigate to the *FileUploadSample* folder in your .NET samples download. Open the folder in Visual Studio Code. The folder contains a file named *parameters.cs*. If you open that file, you'll see that the parameter *p* is required and contains the device connection string. You copied and saved this connection string when you registered the device. The parameter *t* can be specified if you want to change the transport protocol. The default protocol is mqtt. The file *program.cs* contains the *main* function. The *FileUploadSample.cs* file contains the primary sample logic. *TestPayload.txt* is the file to be uploaded to your blob container.
 
 ## Run the application
 
@@ -69,7 +79,7 @@ Now you are ready to run the application.
 1. Type the following commands:
     ```cmd/sh
     dotnet restore
-    dotnet run --p "{Your connection string}"
+    dotnet run --p "{Your device connection string}"
     ```
 
 The output should resemble the following:
