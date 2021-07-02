@@ -8,5 +8,5 @@ ms.topic: include
 ---
 
 > [!IMPORTANT]
-> The Standard SKU is currently in Preview. During Preview, you can configure the Standard SKU using the portal only. You can't configure the Standard SKU using PowerShell or CLI.
+> The Standard SKU is currently in Preview. During Preview, you can configure the Standard SKU using the Azure portal only. For steps, see []
 >

@@ -56,6 +56,7 @@ Azure Bastion requires a dedicated subnet:**AzureBastionSubnet**. This subnet ne
 
 * Subnet name must be *AzureBastionSubnet*.
 * Subnet size must be /27 or larger (/26, /25 etc.).
+* If you want to use host scaling, we recommend a /26 or larger subnet. See the [Host scaling](#instance) section of this article.
 * The subnet must be in the same VNet and resource group as the bastion host.
 * The subnet cannot contain additional resources.
 
