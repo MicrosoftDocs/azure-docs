@@ -2218,6 +2218,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "overview-what-is-azure-ml.md",
+      "redirect_url": "/azure/machine-learning/overview-what-is-azure-machine-learning",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/machine-learning/resource-known-issues.md",
       "redirect_url": "/azure/machine-learning/how-to-configure-auto-train#troubleshooting",
       "redirect_document_id": false
