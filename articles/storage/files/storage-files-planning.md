@@ -4,7 +4,7 @@ description: Understand planning for an Azure Files deployment. You can either d
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/29/2021
+ms.date: 07/02/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
