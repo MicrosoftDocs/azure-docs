@@ -321,10 +321,6 @@ Error responses will look like:
 
 Now that you've successfully acquired an `access_token`, you can use the token in requests to web APIs by including it in the `Authorization` header:
 
-> [!TIP]
-> Execute this request in Postman! (Replace the `Authorization` header first)
-> [![Try running this request in Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
-
 ```HTTP
 GET /v1.0/me/messages
 Host: https://graph.microsoft.com
