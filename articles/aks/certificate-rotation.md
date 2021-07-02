@@ -37,7 +37,7 @@ AKS generates and uses the following certificates, Certificate Authorities, and 
 
 * Check expiration date of apiserver certificate
 ```console
-curl https://apiserver-fqdn -k -v 2>&1 |grep expire
+curl https://{apiserver-fqdn} -k -v 2>&1 |grep expire
 ```
 
 * Check expiration date of certificate on VMAS agent node
