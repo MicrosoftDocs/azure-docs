@@ -16,7 +16,9 @@ ms.author: cherylmc
 
 This article shows you how to create an Azure Bastion host using Azure CLI. Once you provision the Azure Bastion service in your virtual network, the seamless RDP/SSH experience is available to all of the VMs in the same virtual network. Azure Bastion deployment is per virtual network, not per subscription/account or virtual machine.
 
-Optionally, you can create an Azure Bastion host by using the [Azure portal](./tutorial-create-host-portal.md), or using [Azure PowerShell](bastion-create-host-powershell.md).
+Optionally, you can create an Azure Bastion host by using the following methods:
+* [Azure portal](./tutorial-create-host-portal.md)
+* [Azure PowerShell](bastion-create-host-powershell.md)
 
 [!INCLUDE [Note about SKU limitations for preview.](../../includes/bastion-preview-sku-note.md)]
 
