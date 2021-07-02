@@ -3,7 +3,7 @@ title: Drawing package requirements in Microsoft Azure Maps Creator
 description: Learn about the Drawing package requirements to convert your facility design files to map data
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 5/27/2021
+ms.date: 07/02/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -93,10 +93,10 @@ The table below outlines the supported entity types and converted map features f
 | Layer | Entity types | Converted Features |
 | :----- | :-------------------| :-------
 | [Exterior](#exterior-layer) | Polygon, PolyLine (closed), Circle, Ellipse (closed) | Levels
-| [Unit](#unit-layer) |  Polygon, PolyLine (closed), Circle, Ellipse (closed) |  Unit and Vertical penetrations
-| [Wall](#wall-layer)  | Polygon, PolyLine (closed), Circle, Ellipse (closed) |
+| [Unit](#unit-layer) |  Polygon, PolyLine (closed), Circle, Ellipse (closed) |  Units and Vertical penetrations
+| [Wall](#wall-layer)  | Polygon, PolyLine (closed), Circle, Ellipse (closed), Structures |
 | [Door](#door-layer) | Polygon, PolyLine, Line, CircularArc, Circle | Openings
-| [Zone](#zone-layer) | Polygon, PolyLine (closed), Circle, Ellipse (closed) | Zone
+| [Zone](#zone-layer) | Polygon, PolyLine (closed), Circle, Ellipse (closed) | Zones
 | [UnitLabel](#unitlabel-layer) | Text (single line) | Not applicable. This layer can only add properties to the unit features from the Units layer. For more information, see the [UnitLabel layer](#unitlabel-layer).
 | [ZoneLabel](#zonelabel-layer) | Text (single line) | Not applicable. This layer can only add properties to zone features from the ZonesLayer. For more information, see the [ZoneLabel layer](#zonelabel-layer).
 
@@ -269,7 +269,7 @@ The `unitProperties` object contains a JSON array of unit properties.
 |`nameSubtitle`|    string    |false|    Subtitle of the unit. |
 |`addressRoomNumber`|    string|    false|    Room, unit, apartment, or suite number of the unit.|
 |`verticalPenetrationCategory`|    string|    false| When this property is defined, the resulting feature is a vertical penetration (VRT) rather than a unit. You can use vertical penetrations to go to other vertical penetration features in the levels above or below it. Vertical penetration is a [Category](https://aka.ms/pa-indoor-spacecategories) name. If this property is defined, the `categoryName` property is overridden with `verticalPenetrationCategory`. |
-|`verticalPenetrationDirection`|    string|    false    |If `verticalPenetrationCategory` is defined, optionally define the valid direction of travel. The permitted values are: `lowToHigh`, `highToLow`, `both`, and `closed`. The default value is `both`.|
+|`verticalPenetrationDirection`|    string|    false    |If `verticalPenetrationCategory` is defined, optionally define the valid direction of travel. The permitted values are: `lowToHigh`, `highToLow`, `both`, and `closed`. The default value is `both`. The value is case-sensitive.|
 | `nonPublic` | bool | false | Indicates if the unit is open to the public. |
 | `isRoutable` | bool | false | When this property is set to `false`, you can't go to or through the unit. The default value is `true`. |
 | `isOpenArea` | bool | false | Allows the navigating agent to enter the unit without the need for an opening attached to the unit. By default, this value is set to `true` for units with no openings, and `false` for units with openings. Manually setting `isOpenArea` to `false` on a unit with no openings results in a warning, because the resulting unit won't be reachable by a navigating agent.|
@@ -281,7 +281,7 @@ The `zoneProperties` object contains a JSON array of zone properties.
 | Property  | Type | Required | Description |
 |-----------|------|----------|-------------|
 |zoneName        |string    |true    |Name of zone to associate with `zoneProperty` record. This record is only valid when a label matching `zoneName` is found in the `zoneLabel` layer of the zone.  |
-|categoryName|    string|    false    |Purpose of the unit. A list of values that the provided rendering styles can make use of is available [here](https://atlas.microsoft.com/sdk/javascript/indoor/0.1/categories.json).|
+|categoryName|    string|    false    |Purpose of the zone. A list of values that the provided rendering styles can make use of is available [here](https://atlas.microsoft.com/sdk/javascript/indoor/0.1/categories.json).|
 |zoneNameAlt|    string|    false    |Alternate name of the zone.  |
 |zoneNameSubtitle|    string |    false    |Subtitle of the zone. |
 |zoneSetId|    string |    false    | Set ID to establish a relationship among multiple zones so that they can be queried or selected as a group. For example, zones that span multiple levels. |
