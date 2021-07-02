@@ -17,7 +17,7 @@ The Azure Migrate: App Containerization tool currently supports -
 
 - Containerizing Java Web Apps on Apache Tomcat (on Linux servers) and deploying them on Linux containers on AKS.
 - Containerizing Java Web Apps on Apache Tomcat (on Linux servers) and deploying them on Linux containers on App Service. [Learn more](./tutorial-app-containerization-java-appservice.md)
-- Containerizing ASP.NET apps and deploying them on Windows containers on AKS. [Learn more](./tutorial-app-containerization--aspnet-kubernetes.md)
+- Containerizing ASP.NET apps and deploying them on Windows containers on AKS. [Learn more](./tutorial-app-containerization-aspnet-kubernetes.md)
 - Containerizing ASP.NET apps and deploying them on Windows containers on App Service. [Learn more](./tutorial-app-containerization-aspnet-appservice.md)
 
 The Azure Migrate: App Containerization tool helps you to -
