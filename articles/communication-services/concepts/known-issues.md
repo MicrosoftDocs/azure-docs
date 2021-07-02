@@ -128,11 +128,11 @@ In some browsers (Safari for example), acquiring your own stream from the same d
 
 Following are the known issues in the Azure Communication Services Call Automation APIs
 
-1. The only authentication supported at this time for server applications is using a connection string.
+- The only authentication supported at this time for server applications is using a connection string.
 
-2. Calls should be make only between entities of the same Azure Communication Service resource. Cross resource communication is blocked.
+- Calls should be make only between entities of the same Azure Communication Service resource. Cross resource communication is blocked.
 
-3. Calls between Teams' tenant users and Azure Communication Service user or server application entities are not allowed.
+- Calls between Teams' tenant users and Azure Communication Service user or server application entities are not allowed.
 
-4. If an application dials out to two or more PSTN identities and then quits the call, the call between the other PSTN entities would be dropped.
+- If an application dials out to two or more PSTN identities and then quits the call, the call between the other PSTN entities would be dropped.
 
