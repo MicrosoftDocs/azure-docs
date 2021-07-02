@@ -22,11 +22,26 @@ This preview release is published July 6, 2021.
 
 ### Breaking change
 
-- `azdata` is replaced by `az` CLI extensions `<placeholder>`. You will need to update your scripts.
+#### New Azure CLI extension for data controller and Azure Arc-enabled SQL Managed Instance
+
+This release introduces the `arcdata` extension to the Azure CLI. To add the extension, run the following commmand: 
+
+```azurecli
+az extension add --name arcdata 
+```
+
+The extension supports command line interaction with data controller and managed instance resources. 
+
+To update your scripts for data controller, replace `azdata arc dc...` with `az arcdata dc...`.
+
+To update your scripts for managed instance, replace `azdata arc sql mi...` with `az sql mi-arc...`.
+
+For Azure Arc-enabled PostgreSQL Hyperscale, continue to use `azdata`.
+
 
 ### What's new
 
-This release introduces `az` CLI extensions for Azure Arc enabled data services. `<placeholder>`.
+This release introduces `az` CLI extensions for Azure Arc enabled data services. See information in [Breaking change](#breaking-change) above. 
 
 #### Platform
 
