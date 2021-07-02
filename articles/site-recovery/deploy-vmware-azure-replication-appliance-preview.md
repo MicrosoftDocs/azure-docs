@@ -257,7 +257,7 @@ To set up a new appliance, you can follow either of the following methods:
 3. In the next screen, provide the password for the administrator user.
 4. Select **Finalize**.
 
-  The system restarts and you can login with the administrator user account.
+   The system restarts and you can login with the administrator user account.
 
 ### Set up appliance on a virtual machine or physical server through PowerShell
  In case of any organizational restrictions, you can manually set up the Azure Site Recovery replication appliance through PowerShell.  
