@@ -19,7 +19,7 @@ ms.topic: how-to
 
 Review the topic [Create the Azure Arc data controller](create-data-controller.md) for overview information.
 
-To create the Azure Arc data Controller using the the Azure CLI extension, you will need to have Azure (`az`) CLI installed with the `arcdata` extension. See [Install arcdata Azure CLI extension](install-arcdata-extension.md).
+To create the Azure Arc data Controller using the the Azure CLI extension, you will need to have Azure (`az`) CLI installed with the `arcdata` extension. See [Install `arcdata` Azure CLI extension](install-arcdata-extension.md).
 
 Regardless of which target platform you choose, you will need to set the following environment variables prior to the creation for the data controller administrator user. You can provide these credentials to other people that need to have administrator access to the data controller as needed.
 
@@ -53,7 +53,7 @@ kubectl config current-context
 ## Create the Azure Arc data controller
 
 > [!NOTE]
-> You can use a different value for the `--namespace` parameter of the az arcdata dc create command in the examples below, but be sure to use that namespace name for the `--namespace parameter` in all other commands below.
+> You can use a different value for the `--namespace` parameter of the `az arcdata dc create` command in the examples below, but be sure to use that namespace name for the `--namespace parameter` in all other commands below.
 
 - [Create on Azure Kubernetes Service (AKS)](#create-on-azure-kubernetes-service-aks)
 - [Create on AKS engine on Azure Stack Hub](#create-on-aks-engine-on-azure-stack-hub)
