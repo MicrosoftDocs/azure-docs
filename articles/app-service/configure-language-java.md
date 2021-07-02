@@ -64,7 +64,7 @@ Otherwise, your deployment method will depend on your archive type:
 To deploy .jar files to Java SE, use the `/api/zipdeploy/` endpoint of the Kudu site. For more information on this API, please see [this documentation](./deploy-zip.md#rest). 
 
 > [!NOTE]
->  Your .jar application must be named `app.jar` for App Service to identify and run your application. The Maven Plugin (mentioned above) will automatically rename your application for you during deployment. If you do not wish to rename your JAR to *app.jar*, you can upload a shell script with the command to run your .jar app. Paste the absolute path to this script in the [Startup File](/app-service/faq-app-service-linux#built-in-images) textbox in the Configuration section of the portal. The startup script does not run from the directory into which it is placed. Therefore, always use absolute paths to reference files in your startup script (for example: `java -jar /home/myapp/myapp.jar`).
+>  Your .jar application must be named `app.jar` for App Service to identify and run your application. The Maven Plugin (mentioned above) will automatically rename your application for you during deployment. If you do not wish to rename your JAR to *app.jar*, you can upload a shell script with the command to run your .jar app. Paste the absolute path to this script in the [Startup File](/azure/app-service/faq-app-service-linux#built-in-images) textbox in the Configuration section of the portal. The startup script does not run from the directory into which it is placed. Therefore, always use absolute paths to reference files in your startup script (for example: `java -jar /home/myapp/myapp.jar`).
 
 ### Tomcat
 
