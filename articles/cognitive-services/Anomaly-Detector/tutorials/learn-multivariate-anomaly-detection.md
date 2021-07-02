@@ -40,7 +40,7 @@ In this tutorial, you'll:
 > [!NOTE]
 > During preview stage, MVAD is available in limited regions only. Please bookmark [What's new in Anomaly Detector](../whats-new.md)  to keep up to date with MVAD region roll-outs. You could also file a GitHub issue or contact us at [AnomalyDetector@microsoft.com](mailto:AnomalyDetector@microsoft.com) to request for specific regions.
 
-## 2. Data Preparation
+## 2. Data preparation
 
 Then you need to prepare your training data (and inference data).
 
@@ -50,17 +50,17 @@ Then you need to prepare your training data (and inference data).
 
 In this section, we share some sample code and tools which you could copy and edit to add into your own application logic which deals with MVAD input data.
 
-#### Compressing csv files in \*nix
+#### Compressing CSV files in \*nix
 
 ```bash
 zip -j series.zip series/*.csv
 ```
 
-#### Compressing csv files in Windows
+#### Compressing CSV files in Windows
 
-* Navigate *into* the folder with all the csv files.
-* Select all the csv files you need.
-* Right click on one of the csv files and select `Send to`.
+* Navigate *into* the folder with all the CSV files.
+* Select all the CSV files you need.
+* Right click on one of the CSV files and select `Send to`.
 * Select `Compressed (zipped) folder` from the drop-down.
 * Rename the zip file as needed.
 
@@ -72,14 +72,14 @@ Or, you could refer to the sample code below that can do the zipping and uploadi
 
 * `python zipAndUpload.py -s "foo\bar" -z test123.zip -c {azure blob connection string} -n container_xxx`
 
-    This command will compress all the csv files in `foo\bar` into a single zipfile named `test123.zip`. It will upload `test123.zip` to the container `container_xxx` in your blob.
+    This command will compress all the CSV files in `foo\bar` into a single zip file named `test123.zip`. It will upload `test123.zip` to the container `container_xxx` in your blob.
 * `python zipAndUpload.py -s "foo\bar" -z test123.zip -c {azure blob connection string} -n container_xxx -r` 
 
-    This command will do the same thing as the above, but it will delete the zipfile `test123.zip` after uploading successfully. 
+    This command will do the same thing as the above, but it will delete the zip file `test123.zip` after uploading successfully. 
 
 Arguments:
 
-* `--source-folder`, `-s`, path to the source folder containing csv files
+* `--source-folder`, `-s`, path to the source folder containing CSV files
 * `--zipfile-name`, `-z`, name of the zip file
 * `--connection-string`, `-c`, connection string to your blob
 * `--container-name`, `-n`, name of the container
@@ -150,7 +150,7 @@ if __name__ == "__main__":
         if args.remove_zipfile:
             os.remove(args.zipfile_name)
     except Exception as ex:
-        print(f"Failed to delete zip file. {repr(ex)}")
+        print(f"Failed to delete the zip file. {repr(ex)}")
 ```
 
 ## 3. Train an MVAD Model
@@ -203,7 +203,7 @@ Response code `201` indicates a successful request.
 
 [!INCLUDE [mvad-input-params](../includes/mvad-input-params.md)]
 
-## 4. Get Model Status
+## 4. Get model status
 
 As the training API is asynchronous, you won't get the model immediately after calling the training API. However, you can query the status of models either by API key, which will list all the models, or by model ID, which will list information about the specific model.
 
@@ -246,7 +246,7 @@ The response contains 4 fields, `models`, `currentCount`, `maxCount`, and `nextL
 * `maxCount` is the maximum number of models supported by this Anomaly Detector resource.
 * `nextLink` could be used to fetch more models.
 
-### Get models by Model ID
+### Get models by model ID
 
 [This page](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector-v1-1-preview/operations/GetMultivariateModel) describes the request URL to query model information by model ID. A sample response looks like this
 
@@ -323,7 +323,7 @@ Inference is also asynchronous, so the results are not returned immediately. Not
 
 Failures are usually caused by model issues or data issues. You cannot perform inference if the model is not ready or the data link is invalid. Make sure that the training data and inference data are consistent, which means they should be **exactly** the same variables but with different timestamps. More variables, fewer variables, or inference with a different set of variables will not pass the data verification phase and errors will occur. Data verification is deferred so that you will get error message only when you query the results.
 
-## 6. Get Inference Results
+## 6. Get inference results
 
 You need the `resultId` to get results. `resultId` is obtained from the response header when you submit the inference request. [This page](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector-v1-1-preview/operations/GetDetectionResult) contains instructions to query the inference results. 
 

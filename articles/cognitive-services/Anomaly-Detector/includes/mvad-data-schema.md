@@ -15,10 +15,10 @@ ms.author: yingqunpku
 
 MVAD detects anomalies from a group of metrics, and we call each metric a **variable** or a time series.
 
-* Each variable must have two and only two fields, `timestamp` and `value`, and should be stored in a comma-separated values (csv) file.
-* The column names of the csv file should be precisely `timestamp` and `value`, case-sensitive.
+* Each variable must have two and only two fields, `timestamp` and `value`, and should be stored in a comma-separated values (CSV) file.
+* The column names of the CSV file should be precisely `timestamp` and `value`, case-sensitive.
 * The `timestamp` values should conform to ISO 8601; the `value` could be integers or decimals with any number of decimal places.
-    A good example of the content of a csv file：
+    A good example of the content of a CSV file：
 
     |timestamp | value|
     |-------|-------|
@@ -35,11 +35,11 @@ MVAD detects anomalies from a group of metrics, and we call each metric a **vari
     > For details, please refer to the ["Timestamp round-up" section](/cognitive-services/anomaly-detector/concepts/best-practices-multivariate.md#timestamp-round-up) in the best practices document.
 * The name of the csv file will be used as the variable name and should be unique. For example, "temperature.csv" and "humidity.csv".
 * Variables for training and variables for inference should be consistent. For example, if you are using `series_1`, `series_2`, `series_3`, `series_4`, and `series_5` for training, you should provide exactly the same variables for inference.
-* Csv files should be compressed into a zip file and uploaded to an Azure blob container. The zip file can have whatever name you want.
+* CSV files should be compressed into a zip file and uploaded to an Azure blob container. The zip file can have whatever name you want.
 
 #### Folder structure
 
-A common mistake in data preparation is extra folders in the zip file. For example, assume the name of the zip file is `series.zip`. Then after decompressing the files to a new folder `./series`, the **correct** path to csv files is `./series/series_1.csv` and a **wrong** path could be `./series/foo/bar/series_1.csv`.
+A common mistake in data preparation is extra folders in the zip file. For example, assume the name of the zip file is `series.zip`. Then after decompressing the files to a new folder `./series`, the **correct** path to CSV files is `./series/series_1.csv` and a **wrong** path could be `./series/foo/bar/series_1.csv`.
 
 The correct example of the directory tree after decompressing the zip file in Windows
 
