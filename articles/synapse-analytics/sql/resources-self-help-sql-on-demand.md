@@ -473,7 +473,7 @@ Synapse SQL will return `NULL` instead of the values that you see in the transac
 
 ### Column is not compatible with external data type
 
-The value specified in the `WITH` clause doesn't not match the underlying Cosmos DB types in analytical storage and cannot be implicitly converted. Use `VARCHAR` type in the schema.
+The value specified in the `WITH` clause doesn't match the underlying Cosmos DB types in analytical storage and cannot be implicitly converted. Use `VARCHAR` type in the schema.
 
 ### Performance issues
 
@@ -491,8 +491,8 @@ Delta Lake support is currently in public preview in serverless SQL pools. There
   - Do not specify wildcards to describe the partition schema. Delta Lake query will automatically identify the Delta Lake partitions. 
 - Delta Lake tables created in the Apache Spark pools are not synchronized in serverless SQL pool. You cannot query Apache Spark pools Delta Lake tables using T-SQL language.
 - External tables do not support partitioning. Use [partitioned views](create-use-views.md#delta-lake-partitioned-views) on Delta Lake folder to leverage the partition elimination. See known issues and workarounds below.
-- Serverless SQL pools do not support time travel queries. You can vote for thisfeature on [Azure feedback site](https://feedback.azure.com/forums/307516-azure-synapse-analytics/suggestions/43656111-add-time-travel-feature-in-delta-lake)
-- Serverless SQL pools do not suppor updating Delta Lake files. You can use serverless SQL pool to query the latest version of Delta Lake. Use Apache Spark pools in Azure Synapse Analytics [to update Delta Lake](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#update-table-data) or [read historical data](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#read-older-versions-of-data-using-time-travel).
+- Serverless SQL pools do not support time travel queries. You can vote for this feature on [Azure feedback site](https://feedback.azure.com/forums/307516-azure-synapse-analytics/suggestions/43656111-add-time-travel-feature-in-delta-lake)
+- Serverless SQL pools do not support updating Delta Lake files. You can use serverless SQL pool to query the latest version of Delta Lake. Use Apache Spark pools in Azure Synapse Analytics [to update Delta Lake](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#update-table-data) or [read historical data](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#read-older-versions-of-data-using-time-travel).
 - Delta Lake support is not available in dedicated SQL pools. Make sure that you are using serverless pools to query Delta Lake files.
 
 You can propose ideas and enhancements on [Azure Synapse feedback site](https://feedback.azure.com/forums/307516-azure-synapse-analytics?category_id=171048).
