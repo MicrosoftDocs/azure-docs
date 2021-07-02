@@ -62,6 +62,8 @@
             href: deploy-data-controller-direct-mode-prerequisites.md
           - name: Deploy
             href: deploy-data-controller-direct-mode.md
+        - name: Create custom configuration template
+          href: create-custom-configuration-template.md 
     - name: Common experiences across Azure Arc enabled data services
       items:
         - name: Monitor with dashboards (Azure Data Studio)
