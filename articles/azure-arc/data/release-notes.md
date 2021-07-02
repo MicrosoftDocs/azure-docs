@@ -18,7 +18,7 @@ This article highlights capabilities, features, and enhancements recently releas
 
 ## June 2021
 
-This preview release is published July 6, 2021.
+This preview release is published July 8, 2021.
 
 ### Breaking change
 
