@@ -4,7 +4,7 @@ description: Learn how to configure role-based access control with Azure Active 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 06/15/2021
+ms.date: 07/01/2021
 ms.author: thweiss
 ---
 
@@ -40,7 +40,7 @@ The Azure Cosmos DB data plane RBAC is built on concepts that are commonly found
 > - [Azure PowerShell scripts](manage-with-powershell.md),
 > - [Azure CLI scripts](manage-with-cli.md),
 > - Azure management libraries available in
->   - [.NET](https://www.nuget.org/packages/Azure.ResourceManager.CosmosDB)
+>   - [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.CosmosDB/)
 >   - [Java](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-cosmos)
 >   - [Python](https://pypi.org/project/azure-mgmt-cosmosdb/)
 

@@ -71,6 +71,12 @@ Traffic flows using a zone at the time of zone failure may be affected but appli
 
 Review [Azure cloud design patterns](/azure/architecture/patterns/) to improve the resiliency of your application to failure scenarios.
 
+## Limitations
+
+* Zones can't be changed, updated, or created for the resource after creation.
+
+* Resources can't be updated from zonal to zone redundant or vice versa after creation.
+
 ## Next steps
 - Learn more about [Availability Zones](../availability-zones/az-overview.md)
 - Learn more about [Standard Load Balancer](./load-balancer-overview.md)
