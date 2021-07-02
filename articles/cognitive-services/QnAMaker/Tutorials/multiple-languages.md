@@ -18,7 +18,7 @@ In this tutorial, we use the [Surface Pen FAQ](https://support.microsoft.com/sur
 ## Create Knowledge Base in German
 To be able to create a knowledge base in more than one language, the language setting must be set at the creation of the first KB of the QnA service.
 
-> ![NOTE]
+> [!NOTE]
 > The option to enable adding knowledge bases in multiple language to a service is only available as Custom Question Answering > feature as part of Text Analytics.
 >
 > If you are using the GA version, a separate QnA Maker resource would need to be created for each distinct language.

@@ -71,7 +71,7 @@ For the question and answer pair “Fix problems with Surface Pen” shown below
 
 As you can see, when `trouble shoot` was not added as a synonym, we got a low confidence response to the query “How to troubleshoot your surface pen”. However, after we add `trouble shoot` as a synonym to “fix problems”, we received the correct response to the query with a higher confidence score. Once, these word alterations were added, the relevance of results improved thereby improving user experience. 
 
-> ![NOTE]
+> [!NOTE]
 > It may be noted that synonyms are case insensitive. Synonyms also might not work as expected if you add stop words as synonyms. The list of stop words can be found here: [List of stop words](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/STOPWORDS.md).
 
 For instance, if you add the abbreviation **IT** for Information technology, the system might not be able to recognize Information Technology because **IT** is a stop word and filtered when query is processed.

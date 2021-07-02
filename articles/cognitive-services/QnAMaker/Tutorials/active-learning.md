@@ -45,8 +45,8 @@ We can now either accept these suggestions or reject them using the checkmark or
 
 The knowledge base does not change unless we choose to add or edit the suggestions as suggested by Active Learning. Finally, click on Save and train to save the changes.
 
- > ![NOTE] 
- > To check your version and service settings for active learning, refer the article on [how to use active learning](../how-to/use-active-learning.md)
+> [!NOTE] 
+> To check your version and service settings for active learning, refer the article on [how to use active learning](../how-to/use-active-learning.md)
 
 ## Add alternate questions using editor
 
@@ -64,7 +64,7 @@ Alternate questions added to the QnA pair is shown as
 By adding alternate questions along with Active Learning, we further enrich the knowledge base with variations of a question that helps to provide the same response to a similar user query.
 
 
-> ![NOTE] 
+> [!NOTE] 
 > Alternate questions have many stop words, then they might not impact the accuracy of response as expected. So, if the only difference between alternate questions is in the stop words, these alternate questions are not required.
 
 The list of stop words can be found here: List of [stop words](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/STOPWORDS.md).
