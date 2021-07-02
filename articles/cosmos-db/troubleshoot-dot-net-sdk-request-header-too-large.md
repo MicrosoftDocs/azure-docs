@@ -32,7 +32,7 @@ Restart your client application to reset all the session tokens. Eventually, the
 
 #### Solution:
 > [!IMPORTANT]
-> Upgrade to at least .NET [v3.20.1](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/changelog.md) and [v2.15.0](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/changelog.md) which contains optimizations to scope the session token which will reduce it size and help avoid the header from being to large. 
+> Upgrade to at least .NET [v3.20.1](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/changelog.md) or [v2.15.0](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/changelog.md) which contains an optimizations to reduce the session token size. This will prevent the header from growing and hitting the size limit. 
 1. Follow the guidance in the [.NET v3](performance-tips-dotnet-sdk-v3-sql.md) or [.NET v2](performance-tips.md) performance tips articles. Convert the application to use the direct connection mode with the Transmission Control Protocol (TCP). The direct connection mode with the TCP protocol doesn't have the header size restriction like the HTTP protocol, so it avoids this issue. Make sure to use the latest version of the SDK, which has a fix for query operations when the service interop isn't available.
 1. If the direct connection mode with the TCP protocol isn't an option for your workload, mitigate it by changing the [client consistency level](how-to-manage-consistency.md). The session token is only used for session consistency, which is the default consistency level for Azure Cosmos DB. Other consistency levels don't use the session token.
 
