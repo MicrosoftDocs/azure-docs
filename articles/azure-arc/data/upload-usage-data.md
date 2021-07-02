@@ -35,12 +35,6 @@ Before you proceed, make sure you have created the required service principal an
 
 Usage information such as inventory and resource usage can be uploaded to Azure in the following two-step way:
 
-1. Log in to the data controller. Enter the values at the prompt. 
-
-   ```console
-   azdata login
-   ```
-
 1. Export the usage data using `az arcdata dc export` command, as follows:
 
    ```console

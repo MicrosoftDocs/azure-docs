@@ -19,25 +19,6 @@ This document walks you through the steps for installing Azure SQL Managed Insta
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## Log in to the Azure Arc data controller
-
-Before you can create an instance, log in to the Azure Arc data controller if you are not already logged in.
-
-```console
-azdata login
-```
-
-You will then be prompted for the namespace where the data controller is created, the username and password to log in to the controller.  
-
-> If you need to validate the namespace, you can run ```kubectl get pods -A``` to get a list of all the namespaces on the cluster.
-
-```console
-Username: arcadmin
-Password:
-Namespace: arc
-Logged in successfully to `https://10.0.0.4:30080` in namespace `arc`. Setting active context to `arc`
-```
-
 ## Create Azure SQL Managed Instance on Azure Arc
 
 - Launch Azure Data Studio
@@ -46,8 +27,6 @@ Logged in successfully to `https://10.0.0.4:30080` in namespace `arc`. Setting a
   > [!NOTE]
   > You may be prompted to install the appropriate CLI here if it is not currently installed.
 - Accept the Privacy and license terms and click **Select** at the bottom
-
-
 
 - In the Deploy Azure SQL Managed Instance - Azure Arc blade, enter the following information:
   - Enter a name for the SQL Server instance
@@ -62,11 +41,6 @@ Logged in successfully to `https://10.0.0.4:30080` in namespace `arc`. Setting a
 - In a few minutes, your creation should successfully complete
 
 ## Connect to Azure SQL Managed Instance - Azure Arc from Azure Data Studio
-
-- Log in to the Azure Arc data controller, by providing the namespace, username and password for the data controller: 
-```console
-azdata login
-```
 
 - View all the Azure SQL Managed Instances provisioned, using the following commands:
 
@@ -91,9 +65,6 @@ sqlinstance1  1/1         25.51.65.109:1433  Ready
 - Optionally, enter the specific database name to connect to
 - Optionally, select/Add New Server Group as appropriate
 - Select **Connect** to connect to the Azure SQL Managed Instance - Azure Arc
-
-
-
 
 ## Next Steps
 

@@ -26,13 +26,7 @@ Before you proceed, you need:
 
 You can get service logs across all pods or specific pods for troubleshooting purposes. One way is to use standard Kubernetes tools such as the `kubectl logs` command. In this article, you'll use the Azure (`az`) CLI `arcdata` extension, which makes it easier to get all of the logs at once.
 
-1. Sign in to the data controller with an administrator account.
-
-   ```console
-   azdata login
-   ```
-
-2. Run the following command to dump the logs:
+Run the following command to dump the logs:
 
    ```console
    az arcdata dc debug copy-logs --namespace <namespace name> --exclude-dumps --skip-compress
