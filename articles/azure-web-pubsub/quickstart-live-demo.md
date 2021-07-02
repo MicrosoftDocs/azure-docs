@@ -45,8 +45,8 @@ With this live demo, you could join or leave a group and send messages to the gr
 >  **Client Access URL** is a convenience tool provided in the portal to simplify your getting-started experience, you can also use this Client Access URL to do some quick connect test. To write your own application, we provide SDKs in 4 languages to help you generate the URL. 
 
 - Try different groups to join and different groups to send messages to, and see what messages are received. For example:
-    - Create a group and make 2 clients joining into the same group. You will see that the message could broadcast to the group members. 
-    - Make 2 clients joining into different groups. You will see that the client cannot receive message if it is not group member. 
+    - Create a group and make two clients joining into the same group. You will see that the message could broadcast to the group members. 
+    - Make two clients joining into different groups. You will see that the client cannot receive message if it is not group member. 
 - You can also try to uncheck `Roles` when generating the `Client Access URL` to see what will happen when join/leave a group or send messages to a group. For example:
     - Uncheck the `Send to Groups` permission. You will see that the client cannot send messages to the group. 
     - Uncheck the `Join/Leave Groups` permission. You will see that the client cannot join a group. 
