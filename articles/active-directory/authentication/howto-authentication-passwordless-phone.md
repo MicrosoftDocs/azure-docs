@@ -35,7 +35,7 @@ To use passwordless phone sign-in with the Microsoft Authenticator app, the foll
 
 - Azure AD Multi-Factor Authentication, with push notifications allowed as a verification method. Azure Multi-Factor Auth Connector must be enabled to allow users to register for push notifications for phoine sign-in.
 
-  ![Screenshot of Azure Multi-Factor Auth Connector enabled.](media/howt-authentication-passwordless-phone/connector.png)
+  ![Screenshot of Azure Multi-Factor Auth Connector enabled.](media/howto-authentication-passwordless-phone/connector.png)
 
 - Latest version of Microsoft Authenticator installed on devices running iOS 8.0 or greater, or Android 6.0 or greater.
 - The device on which the Microsoft Authenticator app is installed must be registered within the Azure AD tenant to an individual user. 
