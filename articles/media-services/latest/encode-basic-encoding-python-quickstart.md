@@ -61,13 +61,13 @@ A virtual environment is a folder within a project that isolates a copy of a spe
 
 Set up and [configure your local Python dev environment for Azure](/azure/developer/python/configure-local-development-environment)
 
-Install the azure-identity library for Python. This module is needed for Azure Active Directory authentication. See the details at [Azure Identity client library for Python](https://docs.microsoft.com//python/api/overview/azure/identity-readme?view=azure-python#environment-variables)
+Install the azure-identity library for Python. This module is needed for Azure Active Directory authentication. See the details at [Azure Identity client library for Python](/python/api/overview/azure/identity-readme?view=azure-python#environment-variables)
 
 ``` bash
 pip install azure-identity
 ```
 
-Install the Python SDK for [Azure Media Services](/python/api/overview/azure/media-services?view=azure-python)
+Install the Python SDK for [Azure Media Services](/python/api/overview/azure/media-services)
 
 The Pypi page for the Media Services Python SDK with latest version details is located at - [azure-mgmt-media](https://pypi.org/project/azure-mgmt-media/)
 
@@ -281,11 +281,11 @@ Get familiar with the [Media Services Python SDK](/python/api/azure-mgmt-media/)
 
 ## Resources
 
-- See the Azure Media Services [management API](/python/api/overview/azure/mediaservices/management?view=azure-python).
+- See the Azure Media Services [management API](/python/api/overview/azure/mediaservices/management).
 - Learn how to use the [Storage APIs with Python](/azure/developer/python/azure-sdk-example-storage-use?tabs=cmd)
-- Learn more about the [Azure Identity client library for Python](/python/api/overview/azure/identity-readme?view=azure-python#environment-variables)
+- Learn more about the [Azure Identity client library for Python](/python/api/overview/azure/identity-readme#environment-variables)
 - Learn more about [Azure Media Services v3](/azure/media-services/latest/media-services-overview).
 - Learn about the [Azure Python SDKs](/azure/developer/python)
 - Learn more about [usage patterns for Azure Python SDKs](/azure/developer/python/azure-sdk-library-usage-patterns)
 - Find more Azure Python SDKs in the [Azure Python SDK index](/azure/developer/python/azure-sdk-library-package-index)
-- [Azure Storage Blob Python SDK reference](/python/api/azure-storage-blob/?view=azure-python)
+- [Azure Storage Blob Python SDK reference](/python/api/azure-storage-blob/)
