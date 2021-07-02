@@ -90,6 +90,8 @@ After you have created your web app, you can enable the continuous deployment op
 
 :::image type="content" source="media/label-tool/continuous-deployment.png" alt-text="Screenshot: container settings for continuous deployment.":::
 
+:::image type="content" source="media/label-tool/continuous-deployment.png" alt-text="Screenshot: enlargement of container settings for continuous deployment." lightbox="media/label-tool/continuous-deployment-bigger.png":::
+
 # [v2.0](#tab/v2-0)
 
 * Options - Select **Single Container**
