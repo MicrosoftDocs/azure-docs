@@ -117,20 +117,12 @@ Follow the documentation of azacsnap to:
 - [Test Azure Application Consistent Snapshot tool](../../../azure-netapp-files/azacsnap-cmd-ref-test.md)
 - [Back up using Azure Application Consistent Snapshot tool](../../../azure-netapp-files/azacsnap-cmd-ref-backup.md)
 - [Obtain details using Azure Application Consistent Snapshot tool](../../../azure-netapp-files/azacsnap-cmd-ref-details.md)
-- [Back up using Azure Application Consistent Snapshot tool](../../../azure-netapp-files/azacsnap-cmd-ref-backup.md)
 - [Delete using Azure Application Consistent Snapshot tool](../../../azure-netapp-files/azacsnap-cmd-ref-delete.md)
 - [Restore using Azure Application Consistent Snapshot tool](../../../azure-netapp-files/azacsnap-cmd-ref-restore.md)
 - [Disaster recovery using Azure Application Consistent Snapshot tool](../../../azure-netapp-files/azacsnap-disaster-recovery.md)
 - [Troubleshoot Azure Application Consistent Snapshot tool](../../../azure-netapp-files/azacsnap-troubleshoot.md)
 - [Tips and tricks for using Azure Application Consistent Snapshot tool](../../../azure-netapp-files/azacsnap-tips.md)
 
-
-## NetApp SnapCenter
-For customers who also like to use the native NetApp tools to backup/snapshot their databases, here is a reference on how this can be implemented. Most of the TR’s are done in cooperation with Microsoft, so those scenarios are also supported:
-
-- TR4667 - [Automating SAP System Copies Using the SnapCenter SAP HANA Plug-In](www.netapp.com/us/media/tr-4667.pdf)
-- TR4614 - [SAP HANA Backup and Recovery with SnapCenter](www.netapp.com/us/media/tr-4614.pdf)
-- TR4719 - [SAP HANA System Replication, Backup and Recovery with SnapCenter](www.netapp.com/us/media/tr-4719.pdf)
 
 ## Next steps
 
