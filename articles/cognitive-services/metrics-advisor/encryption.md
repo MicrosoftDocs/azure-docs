@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
-ms.date: 09/10/2020
+ms.date: 07/02/2021
 ms.author: mbullwin
 #Customer intent: As a user of the Metrics Advisor service, I want to learn how encryption at rest works.
 ---
@@ -34,7 +34,7 @@ Metrics Advisor supports CMK and double encryption by using BYOS (bring your own
     4. 'Version' should be set to **11**. 
     5. 'Compute + storage' should choose a 'Memory Optimized' SKU with at least **32 vCores**.
     
-    ![Create an Azure Database for PostgreSQL](media/cmk-createPG.png)
+    ![Create an Azure Database for PostgreSQL](media/cmk-create.png)
 
 - Set Active Directory Admin for newly created PG
 
@@ -43,7 +43,7 @@ Metrics Advisor supports CMK and double encryption by using BYOS (bring your own
 
 ### Step2. Create a Metrics Advisor resource and enable Managed Identity
 
-- Create a Metrics Advisor in Azure Portal
+- Create a Metrics Advisor resource in the Azure portal
 
     Go to Azure portal again and search 'Metrics Advisor'. When creating Metrics Advisor, do remember the following:
 
