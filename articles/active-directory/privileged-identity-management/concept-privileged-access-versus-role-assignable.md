@@ -1,6 +1,6 @@
 ---
-title: Activate privileged access group roles in PIM - Azure AD | Microsoft Docs
-description: Learn how to activate your privileged access group roles in Azure AD Privileged Identity Management (PIM).
+title: Difference between Privileged Access groups and role-assignable groups - Azure AD | Microsoft Docs
+description: Learn how to tell the difference between Privileged Access groups and role-assignable groups in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -11,13 +11,13 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 07/01/2021
+ms.date: 07/02/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ---
 
-# What's the difference between Privileged Access Groups and Role Assignable Groups 
+# What's the difference between Privileged Access groups and role-assignable groups
 
 ## What are Azure AD role-assignable groups?
 
