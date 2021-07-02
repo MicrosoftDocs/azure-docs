@@ -355,7 +355,7 @@ There are three authentication types for Azure Log Analytics, they are **Basic**
         ![set connection detail](media/datafeeds/connection-details.png)
         
         **Azure portal**: Select Query editor in your SQL database, sign in admin account.
-        ![edit query in Azure Portal](media/datafeeds/query-editor-mi.png)
+        ![edit query in Azure Portal](media/datafeeds/query-editor.png)
 
         Then in the query window, you should execute the following lines (same for management tool method):
     
