@@ -92,7 +92,7 @@ Targeting the full framework from ASP.NET Core, self-contained deployment, and L
 
 # [Node.js](#tab/nodejs)
 
-You can monitor your Node.js apps running in Azure App Service without any code change, just with a couple of simple steps. Application insights for Node.js applications is integrated with App Service on Linux - both code-based and custom containers, and with App Service on Windows for code-based apps. The integration is in public preview. The integration adds Node.js SDK, which is in GA. 
+You can monitor your Node.js apps running in Azure App Service without any code change, just with a couple of simple steps. Application insights for Node.js applications is integrated with App Service on Linux - both code-based and custom containers, and with App Service on Windows for code-based apps.
 
 1. **Select Application Insights** in the Azure control panel for your app service.
 
@@ -113,7 +113,7 @@ You can monitor your Node.js apps running in Azure App Service without any code 
 
 # [Java](#tab/java)
 
-You can turn on monitoring for your Java apps running in Azure App Service just with one click, no code change required. Application Insights for Java is integrated with App Service on Linux - both code-based and custom containers, and with App Service on Windows - code-based apps. The integration is in public preview. It is important to know how your application will be monitored. The integration adds [Application Insights Java 3.0](./java-in-process-agent.md), which is in GA. You will get all the telemetry that it auto-collects.
+You can turn on monitoring for your Java apps running in Azure App Service just with one click, no code change required. Application Insights for Java is integrated with App Service on Linux - both code-based and custom containers, and with App Service on Windows - code-based apps. It is important to know how your application will be monitored. The integration adds [Application Insights Java 3.x](./java-in-process-agent.md) and you will get all the telemetry that it auto-collects.
 
 1. **Select Application Insights** in the Azure control panel for your app service.
 
@@ -127,7 +127,7 @@ You can turn on monitoring for your Java apps running in Azure App Service just 
 
     ![Instrument your web app.](./media/azure-web-apps/create-resource-01.png)
 
-2. After specifying which resource to use, you can configure the Java agent. The full [set of configurations](./java-standalone-config.md) is available, you just need to paste a valid json file without specifying the connection string. You have already picked an application insights resource to connect to, remember? 
+2. After specifying which resource to use, you can configure the Java agent. The full [set of configurations](./java-standalone-config.md) is available, you just need to paste a valid json file. Exclude the connection string and any configurations that are in preview - you will be able to add those as they become generally available.
 
     > [!div class="mx-imgBorder"]
     > ![Choose options per platform.](./media/azure-web-apps/create-app-service-ai.png)
