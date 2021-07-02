@@ -19,7 +19,7 @@ We'll send notification emails to function app users about upcoming language ver
 
 ### Retirement phase
 
-* __Phase 1:__ On the date of EOL of a language, users will no longer be able to create new functions app using the language. For at least the next 60 days after EOL date, existing function apps that are affected could still run on the platform and be updated. During this phase, you're highly encouraged to upgrade the language version of your affected function apps to a supported version.
+* __Phase 1:__ On the end-of-life date for a language version, you can no longer create new function apps targeting that language version. For at least 60 days after this date, existing function apps can continue to run on that language version and and are updated. During this phase, you're highly encouraged to upgrade the language version of your affected function apps to a supported version.
 
 * __Phase 2:__ After the first phase, it is not guaranteed that function apps using retired languages will be able to run on the platform. 
 
