@@ -76,9 +76,9 @@ To add a Speech service resource (free or paid tier) to your Azure account:
 -->
 It takes a few moments to deploy your new Speech resource. 
 
-### Find keys and region
+### Find keys and location/region
 
-To find the keys and region of a completed deployment, follow these steps:
+To find the keys and location/region of a completed deployment, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) using your Microsoft account.
 
