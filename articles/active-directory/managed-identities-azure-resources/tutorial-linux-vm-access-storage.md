@@ -74,7 +74,7 @@ Files require blob storage so you need to create a blob container in which to st
 
 You can use the VM's managed identity to retrieve the data in the Azure storage blob. Managed identities for Azure resources, can be used to authenticate to resources that support Azure AD authentication.  Grant access by assigning the [storage-blob-data-reader](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader) role to the managed-identity at the scope of the resource group that contains your storage account.
  
-For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).”
+For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 >[!NOTE]
 > For more information on the various roles that you can use to grant permissions to storage review [Authorize access to blobs and queues using Azure Active Directory](../../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights)

@@ -165,7 +165,7 @@ To verify if your Azure account is an “owner” or “contributor” within th
 
 1. Click **View your device stream**. If this is the first time viewing the video stream of your device, you will see a notification that a new model is being deployed in the upper right-hand corner. This may take a few minutes.
 
-    :::image type="content" source="./media/quickstart-percept-dk-setup/portal-03-1-start-video-stream.png" alt-text="View your video stream.":::
+    :::image type="content" source="./media/quickstart-percept-dk-setup/view-stream.png" alt-text="View your video stream.":::
 
     Once the model has deployed, you will get another notification with a **View stream** link. Click on the link to view the video stream from your Azure Percept Vision camera in a new browser window. The dev kit is preloaded with an AI model that automatically performs object detection of many common objects.
 
@@ -173,7 +173,7 @@ To verify if your Azure account is an “owner” or “contributor” within th
 
 1. Azure Percept Studio also has a number of sample AI models. To deploy a sample model to your dev kit, navigate back to your device page and click **Deploy a sample model**.
 
-    :::image type="content" source="./media/quickstart-percept-dk-setup/portal-04-explore-prebuilt.png" alt-text="Explore pre-built models.":::
+    :::image type="content" source="./media/quickstart-percept-dk-setup/deploy-sample-model.png" alt-text="Explore pre-built models.":::
 
 1. Select a sample model from the library and click **Deploy to device**.
 

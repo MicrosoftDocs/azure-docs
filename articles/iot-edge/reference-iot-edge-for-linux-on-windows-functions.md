@@ -107,6 +107,13 @@ Get-EflowVM | Select -ExpandProperty VmConfiguration | Format-List
 
 For more information, use the command `Get-Help Get-EflowVm -full`.
 
+## Get-EflowVmAddr
+
+The **Get-EflowVmAddr** command is used to query the virtual machine's current IP and MAC address. This command exists to account for the fact that the IP and MAC address can change over time. 
+
+For additional information, use the command `Get-Help Get-EflowVmAddr -full`.
+
+
 ## Get-EflowVmFeature
 
 The **Get-EflowVmFeature** command returns the status of the enablement of IoT Edge for Linux on Windows features.
@@ -117,9 +124,10 @@ The **Get-EflowVmFeature** command returns the status of the enablement of IoT E
 
 For more information, use the command `Get-Help Get-EflowVmFeature -full`.
 
+
 ## Get-EflowVmName
 
-The **Get-EflowVmName** command returns the virtual machine's current hostname. This command exists to account for the fact that the Windows hostname can change over time. It takes only common parameters.
+The **Get-EflowVmName** command returns the virtual machine's current hostname. This command exists to account for the fact that the Windows hostname can change over time.
 
 For more information, use the command `Get-Help Get-EflowVmName -full`.
 

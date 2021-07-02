@@ -91,7 +91,7 @@ myasetiered1       myasetiered1      DBELocal StandardLRS Storage            11/
 
 To get the access key, run the following cmdlet:
 
-`Get-AzureRmStorageAccountAccessKey`
+`Get-AzureRmStorageAccountKey`
 
 A sample output is shown below:
 

@@ -32,7 +32,7 @@ You can view the privileges granted to the Azure VMware Solution CloudAdmin role
 
 1. From the list of roles, select **CloudAdmin** and then select **Privileges**. 
 
-   :::image type="content" source="media/role-based-access-control-cloudadmin-privileges.png" alt-text="How to view the CloudAdmin role privileges in vSphere Client":::
+   :::image type="content" source="media/concepts/role-based-access-control-cloudadmin-privileges.png" alt-text="How to view the CloudAdmin role privileges in vSphere Client":::
 
 The CloudAdmin role in Azure VMware Solution has the following privileges on vCenter. For more information, see the [VMware product documentation](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-ED56F3C4-77D0-49E3-88B6-B99B8B437B62.html).
 
