@@ -96,7 +96,7 @@ The first type of errors listed in the table below must be fixed manually, other
 | Script | Script too long| The script must be less than 1,000 characters.|
 | Script | No matching audio| The ID of each utterance (each line of the script file) must match the audio ID.|
 | Script | No valid script| No valid script found in this dataset. Fix the script lines that appear in the detailed issue list.|
-| Audio | No matching script| No audio files match the script ID. The name of the wav files should match with the IDs in the script file.|
+| Audio | No matching script| No audio files match the script ID. The name of the wav files must match with the IDs in the script file.|
 | Audio | Invalid audio format| The audio format of the .wav files is invalid. Check the wav file format using an audio tool like [SoX](http://sox.sourceforge.net/).|
 | Audio | Low sampling rate| The sampling rate of the .wav files cannot be lower than 16 KHz.|
 | Audio | Too long audio| Audio duration is longer than 30 seconds. Split the long audio into multiple files. We suggest utterances should be shorter than 15 seconds.|
