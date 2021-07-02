@@ -8,5 +8,5 @@ ms.topic: include
 ---
 
 > [!IMPORTANT]
-> The Standard SKU is currently in Preview. During Preview, you can configure the Standard SKU using the Azure portal only. For steps, see []
+> There are now two available Bastion SKUs: Basic and Standard. The Standard SKU is currently in Preview. During Preview, you can only configure the Standard SKU using the Azure portal. For more information about Bastion SKUs and the features that are supported by each SKU, see [Configuration settings - Bastion SKUs](../articles/bastion/configuration-settings.md#skus)
 >
