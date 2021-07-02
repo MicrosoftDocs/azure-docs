@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 07/01/2021
 ms.custom: contperf-fy21q4
 ---
 
@@ -41,7 +41,7 @@ An *action* is an operation that follows the trigger and performs some kind of t
 
 ## Connector categories
 
-In Logic Apps, most triggers and actions are available in either a *built-in* version or *managed connector* version. A small number of triggers and actions are available in both versions. The versions available depend on whether you create a multi-tenant logic app or a single-tenant logic app, which is currently available only in [single-tenant Azure Logic Apps](../logic-apps/single-tenant-overview-compare.md).
+In Logic Apps, most triggers and actions are available in either a *built-in* version or *managed connector* version. A few triggers and actions are available in both versions. The versions available depend on whether you create a multi-tenant logic app or a single-tenant logic app, which is currently available only in [single-tenant Azure Logic Apps](../logic-apps/single-tenant-overview-compare.md).
 
 [Built-in triggers and actions](built-in.md) run natively on the Logic Apps runtime, don't require creating connections, and perform these kinds of tasks:
 
@@ -116,7 +116,7 @@ To make sure that your workflow runs at your specified start time and doesn't mi
 
 * When DST takes effect, manually adjust the recurrence so that your workflow continues to run at the expected time. Otherwise, the start time shifts one hour forward when DST starts and one hour backward when DST ends. For more information and examples, review [Recurrence for daylight saving time and standard time](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#daylight-saving-standard-time).
 
-* If you're using a **Recurrence** trigger, specify a time zone, a start date and time. In addition, configure specific times to run subsequent recurrences in the properties **At these hours** and **At these minutes**, which are available only for the **Day** and **Week** frequencies. However, some time windows might still cause problems when the time shifts.
+* If you're using a **Recurrence** trigger, specify a time zone, a start date, and start time. In addition, configure specific times to run subsequent recurrences in the properties **At these hours** and **At these minutes**, which are available only for the **Day** and **Week** frequencies. However, some time windows might still cause problems when the time shifts.
 
 * Consider using a [**Sliding Window** trigger](connectors-native-sliding-window.md) instead of a **Recurrence** trigger to avoid missed recurrences.
 
@@ -130,7 +130,7 @@ For workflows that need direct access to resources in an Azure virtual network, 
 
 Custom connectors created within an ISE don't work with the on-premises data gateway. However, these connectors can directly access on-premises data sources that are connected to an Azure virtual network hosting the ISE. So, logic apps in an ISE most likely don't need the data gateway when communicating with those resources. If you have custom connectors that you created outside an ISE that require the on-premises data gateway, logic apps in an ISE can use those connectors.
 
-In the Logic Apps Designer, when you browse the built-in triggers and actions or managed connectors that you want to use for logic apps in an ISE, the **CORE** label appears on built-in triggers and actions, while the **ISE** label appears on managed connectors that are specifically designed to work with an ISE.
+In the Logic Apps Designer, when you browse the built-in triggers and actions or managed connectors that you want to use for logic apps in an ISE, the **CORE** label appears on built-in triggers and actions, while the **ISE** label appears on managed connectors that are designed to work with an ISE.
 
 :::row:::
     :::column:::
