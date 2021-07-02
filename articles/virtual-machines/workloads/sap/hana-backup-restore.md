@@ -100,7 +100,7 @@ There are two ways of implementing this tool.
 1)	Locally on the database server
 2)	Remotely on a “backup” VM
 
-If you create a backup VM make sure the latest HANA client is installed in thatg VM. With this method azacsnap must be able open a remote database connection to a HANA instance running in a different VM.
+If you create a backup VM make sure the latest HANA client is installed in that VM. With this method azacsnap must be able open a remote database connection to a HANA instance running in a different VM.
 You need to request a ssh-key and a storage user from the Microsoft Support team to be able to access the storage. Without this ssh-key and the user it is not possible to create snapshots.
 
 ## Download and set up azacsnap
