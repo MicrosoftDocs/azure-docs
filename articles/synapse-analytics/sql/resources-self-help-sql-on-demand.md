@@ -509,7 +509,7 @@ Content of directory on path 'https://.....core.windows.net/.../_delta_log/*.jso
 Make sure that `_delta_log` folder exists (maybe you are querying plain Parquet files that are not converted to Delta Lake format).
 
 If the `_delta_log` folder exists, make sure that you have both read and list permission on the underlying Delta Lake folders.
-Try to read \*.json files directly using FORMAT='CSV' (put your URI in the BULK paramater):
+Try to read \*.json files directly using FORMAT='CSV' (put your URI in the BULK parameter):
 
 ```sql
 select top 10 * 
