@@ -20,6 +20,7 @@ ms.collection: M365-identity-device-management
 
 This article describes two ways to take over a DNS domain name in an unmanaged directory in Azure Active Directory (Azure AD). When a self-service user signs up for a cloud service that uses Azure AD, they are added to an unmanaged Azure AD directory based on their email domain. For more about self-service or "viral" sign-up for a service, see [What is self-service sign-up for Azure Active Directory?](directory-self-service-signup.md)
 
+
 > [!VIDEO https://www.youtube.com/embed/GOSpjHtrRsg]
 
 ## Decide how you want to take over an unmanaged directory
