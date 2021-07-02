@@ -2,7 +2,7 @@
 title: Deliver events using private link service
 description: This article describes how to work around the limitation of not able to deliver events using private link service. 
 ms.topic: how-to
-ms.date: 02/12/2021
+ms.date: 07/01/2021
 ---
 
 # Deliver events using private link service
@@ -40,7 +40,7 @@ To deliver events to Storage queues using managed identity, follow these steps:
 
 1. Enable system-assigned identity: [system topics](enable-identity-system-topics.md), [custom topics, and domains](enable-identity-custom-topics-domains.md). 
 1. [Add the identity to the **Storage Queue Data Message Sender**](../storage/common/storage-auth-aad-rbac-portal.md) role on Azure Storage queue.
-1. [Configure the event subscription](managed-service-identity.md#create-event-subscriptions-that-use-an-identity) that uses a Service Bus queue or topic as an endpoint to use the system-assigned identity.
+1. [Configure the event subscription](managed-service-identity.md#create-event-subscriptions-that-use-an-identity) that uses a Storage queue as an endpoint to use the system-assigned identity.
 
 
 ## Next steps
