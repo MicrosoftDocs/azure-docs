@@ -81,12 +81,12 @@ There are three resource types:
 
 - Arc enabled SQL Managed Instance 
 - Arc enabled PostgreSQL Hyperscale server group 
-- Arc enabled SQL Server 
+- SQL Server on Azure Arc-enabled servers 
 - Data controller 
 
 The following sections show the properties, types, and descriptions that are collected and stored about each type of resource: 
 
-### Arc enabled SQL Server 
+### SQL Server on Azure Arc-enabled servers 
 - SQL Server edition. 
    - `string: Edition` 
 - Resource ID of the container resource (Azure Arc for Servers). 
