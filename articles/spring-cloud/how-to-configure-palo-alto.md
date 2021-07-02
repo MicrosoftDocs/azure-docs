@@ -64,6 +64,22 @@ crl.microsoft.com,
 crl3.digicert.com
 ```
 
+The third CSV file is `AzureMonitorAddresses.csv`. This file should contain all addresses and IP ranges to be made available for metrics and monitoring via Azure Monitor, if Azure monitor is to be used. The content below is for demonstration purposes only. Consult [IP addresses used by Azure Monitor](/azure/azure-monitor/app/ip-addresses) for up-to-date values.
+
+```
+name,type,address,tag
+40.114.241.141,ip-netmask,40.114.241.141/32,AzureMonitor
+104.45.136.42,ip-netmask,104.45.136.42/32,AzureMonitor
+40.84.189.107,ip-netmask,40.84.189.107/32,AzureMonitor
+168.63.242.221,ip-netmask,168.63.242.221/32,AzureMonitor
+52.167.221.184,ip-netmask,52.167.221.184/32,AzureMonitor
+live.applicationinsights.azure.com,fqdn,live.applicationinsights.azure.com,AzureMonitor
+rt.applicationinsights.microsoft.com,fqdn,rt.applicationinsights.microsoft.com,AzureMonitor
+rt.services.visualstudio.com,fqdn,rt.services.visualstudio.com,AzureMonitor
+
+```
+
+
 
 ### Authenticate into Palo Alto
 
@@ -306,7 +322,68 @@ catch {}
 Invoke-WebRequest -Uri $url -Method Post -Headers $paloAltoHeaders -Body (Get-Content SecurityRule.json) -SkipCertificateCheck
 ```
 
-## Create App Insights addresses
+## Create Azure Monitor addresses
 
+Addreses for Azure Monitor (defined in `AzureMonitorAddresses.csv`) now need to be defined as Address objects on Palo Alto. Here's how this task can be automated:
+
+```powershell
+Get-Content ./AzureMonitorAddresses.csv | ConvertFrom-Csv | ForEach-Object { 
+    $requestBody = @{ 'entry' = [ordered]@{
+            '@name' = $_.name
+            $_.type = $_.address
+            'tag'   = @{ 'member' = @($_.tag) }
+        }
+    }
+ 
+    $name = $requestBody.entry.'@name'
+    $url = "https://${PaloAltoIpAddress}/restapi/v9.1/Objects/Addresses?location=vsys&vsys=vsys1&name=${name}"
+
+    # Delete the address if it already exists
+    try {
+        Invoke-RestMethod -Method Delete -Uri $url  -SkipCertificateCheck -Headers $paloAltoHeaders
+    }
+    catch {
+    }
+
+    # Create the address
+    Invoke-RestMethod -Method Post -Uri $url  -SkipCertificateCheck -Headers $paloAltoHeaders -Body (ConvertTo-Json -WarningAction Ignore $requestBody -Depth 3) -Verbose
+}
+```
+
+## Commit changes to Palo Alto
+
+Some of the changes above must be committed in order to become active. This can be done with a single REST API call:
+
+```powershell
+$url = "https://${PaloAltoIpAddress}/api/?type=commit&cmd=<commit></commit>"
+Invoke-RestMethod -Method Get -Uri $url  -SkipCertificateCheck -Headers $paloAltoHeaders
+```
 ## Configure the next hop
+
+With Palo Alto configured, Azure Spring Cloud must be configured to have Palo Alto as its next hop for outbound internet access.
+
+You can do this with standard Azure CLI:
+
+```azurecli
+az network route-table route create `
+    --resource-group ${AppResourceGroupName} `
+    --route-table-name ${AzureSpringCloudServiceSubnetRouteTableName} `
+    --name default `
+    --address-prefix 0.0.0.0/0 `
+    --next-hop-type VirtualAppliance `
+    --next-hop-ip-address ${PaloAltoIpAddress} --verbose
+
+az network route-table route create `
+    --resource-group ${AppResourceGroupName} `
+    --route-table-name ${AzureSpringCloudAppSubnetRouteTableName} `
+    --name default `
+    --address-prefix 0.0.0.0/0 `
+    --next-hop-type VirtualAppliance `
+    --next-hop-ip-address ${PaloAltoIpAddress} --verbose
+```
+
+The variables should be populated as follows:
+`$AppResourceGroupName` - The name of the resource group containing Azure Spring Cloud
+`$AzureSpringCloudServiceSubnetRouteTableName` - The name of the Azure Spring Cloud service/runtime subnet route table. In the reference architecture, this is set to 'rt-spokeruntime'.
+`$AzureSpringCloudAppSubnetRouteTableName` - The name of the Azure Spring Cloud app subnet route table. In the reference architecture, this is set to `rt-spokeapp`.
 
