@@ -42,18 +42,18 @@ For samples, we recommend that you always create and activate a Python virtual e
 1. Open the sample folder in VSCode or other editor
 1. Create the virtual environment
 
-``` bash
-# py -3 uses the global python interpreter. You can also use python -m venv .venv.
-py -3 -m venv .venv
-```
+  ``` bash
+  # py -3 uses the global python interpreter. You can also use python -m venv .venv.
+  py -3 -m venv .venv
+  ```
 
 This command runs the Python venv module and creates a virtual environment in a folder named .venv.
 
 1. Activate the virtual environment:
 
-``` bash
-.venv\scripts\activate
-```
+  ``` bash
+  .venv\scripts\activate
+  ```
 
 A virtual environment is a folder within a project that isolates a copy of a specific Python interpreter. Once you activate that environment (which Visual Studio Code does automatically), running pip install installs a library into that environment only. When you then run your Python code, it runs in the environment's exact context with specific versions of every library. And when you run pip freeze, you get the exact list of the those libraries. (In many of the samples, you create a requirements.txt file for the libraries you need, then use pip install -r requirements.txt. A requirements file is generally needed when you deploy code to Azure.)
 
@@ -63,30 +63,29 @@ Set up and [configure your local Python dev environment for Azure](/azure/develo
 
 Install the azure-identity library for Python. This module is needed for Azure Active Directory authentication. See the details at [Azure Identity client library for Python](/python/api/overview/azure/identity-readme#environment-variables)
 
-``` bash
-pip install azure-identity
-```
+  ``` bash
+  pip install azure-identity
+  ```
 
 Install the Python SDK for [Azure Media Services](/python/api/overview/azure/media-services)
 
 The Pypi page for the Media Services Python SDK with latest version details is located at - [azure-mgmt-media](https://pypi.org/project/azure-mgmt-media/)
 
-
-``` bash
-pip install azure-mgmt-media
-```
+  ``` bash
+  pip install azure-mgmt-media
+  ```
 
 Install the [Azure Storage SDK for Python](https://pypi.org/project/azure-storage-blob/)
 
-``` bash
-pip install azure-storage-blob
-```
+  ``` bash
+  pip install azure-storage-blob
+  ```
 
 You can optionally install ALL of the requirements for a given samples by using the "requirements.txt" file in the samples folder
 
-``` bash
-pip install -r requirements.txt
-```
+  ``` bash
+  pip install -r requirements.txt
+  ```
 
 ## Try the code
 
