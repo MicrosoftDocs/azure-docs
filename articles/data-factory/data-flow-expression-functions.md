@@ -1164,7 +1164,13 @@ ___
 Sorts the array using the provided predicate function. Sort expects a reference to two consecutive elements in the expression function as #item1 and #item2.  
 * ``sort([4, 8, 2, 3], compare(#item1, #item2)) -> [2, 3, 4, 8]``  
 * ``sort(['a3', 'b2', 'c1'], iif(right(#item1, 1) >= right(#item2, 1), 1, -1)) -> ['c1', 'b2', 'a3']``  
-
+___
+### <code>union</code>
+<code><b>union(<i>&lt;value1&gt;</i>: array, <i>&lt;value2&gt;</i> : array) => array</b></code><br/><br/>
+Returns a union set of distinct items from 2 arrays.
+* ``union([10, 20, 30], [20, 40]) => [10, 20, 30, 40]``
+___  
+  
 ## Cached lookup functions
 The following functions are only available when using a cached lookup when you've included a cached sink.
 ___
@@ -1188,7 +1194,6 @@ ___
 Returns the entire output row set of the results of the cache sink
 * ``cacheSink#outputs()``
 ___
-
 
 ## Conversion functions
 
