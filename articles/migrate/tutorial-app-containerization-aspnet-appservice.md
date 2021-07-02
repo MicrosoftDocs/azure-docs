@@ -1,6 +1,6 @@
 ---
 title: Azure App Containerization ASP.NET; Containerization and migration of ASP.NET applications to Azure App Service.
-description: Tutorial:Containerize & migrate ASP.NET applications to Azure App Service.
+description: Tutorial: Containerize & migrate ASP.NET applications to Azure App Service.
 services:
 author: rahugup
 manager: bsiva
@@ -31,7 +31,7 @@ The Azure Migrate: App Containerization tool helps you to -
 While all applications won't benefit from a straight shift to containers without significant rearchitecting, some of the benefits of moving existing apps to containers without rewriting include:
 
 - **Improved infrastructure utilization:** With containers, multiple applications can share resources and be hosted on the same infrastructure. This can help you consolidate infrastructure and improve utilization.
-- **Simplified management:** By hosting your applications on modern managed platforms like AKS and App Service, you can simplify your management practices. You can achieve this by retiring or reducing the infrastructure maintenance and management processes that you'd traditionally perform with owned infrastructure.
+- **Simplified management:** By hosting your applications on modern managed platform like AKS and App Service, you can simplify your management practices. You can achieve this by retiring or reducing the infrastructure maintenance and management processes that you'd traditionally perform with owned infrastructure.
 - **Application portability:** With increased adoption and standardization of container specification formats and platforms, application portability is no longer a concern.
 - **Adopt modern management with DevOps:** Helps you adopt and standardize on modern practices for management and security and transition to DevOps.
 
@@ -55,7 +55,7 @@ Before you begin this tutorial, you should:
 **Requirement** | **Details**
 --- | ---
 **Identify a machine to install the tool** | A Windows machine to install and run the Azure Migrate: App Containerization tool. The Windows machine could be a server (Windows Server 2016 or later) or client (Windows 10) operating system, meaning that the tool can run on your desktop as well. <br/><br/> The Windows machine running the tool should have network connectivity to the servers/virtual machines hosting the ASP.NET applications to be containerized.<br/><br/> Ensure that 6-GB space is available on the Windows machine running the Azure Migrate: App Containerization tool for storing application artifacts. <br/><br/> The Windows machine should have internet access, directly or via a proxy. <br/> <br/>Install the Microsoft Web Deploy tool on the machine running the App Containerization helper tool and application server if not already installed. You can download the tool from [here](https://aka.ms/webdeploy3.6)
-**Application servers** | Enable PowerShell remoting on the application servers: Login to the application server and Follow [these](/powershell/module/microsoft.powershell.core/enable-psremoting) instructions to turn on PowerShell remoting. <br/><br/> If the application server is running Window Server 2008 R2, ensure that PowerShell 5.1 is installed on the application server. Follow the instruction [here](/powershell/scripting/windows-powershell/wmf/setup/install-configure) to download and install PowerShell 5.1 on the application server. <br/><br/> Install the Microsoft Web Deploy tool on the machine running the App Containerization helper tool and application server if not already installed. You can download the tool from [here](https://aka.ms/webdeploy3.6)
+**Application servers** | Enable PowerShell remoting on the application servers: Log in to the application server and Follow [these](/powershell/module/microsoft.powershell.core/enable-psremoting) instructions to turn on PowerShell remoting. <br/><br/> If the application server is running Window Server 2008 R2, ensure that PowerShell 5.1 is installed on the application server. Follow the instruction [here](/powershell/scripting/windows-powershell/wmf/setup/install-configure) to download and install PowerShell 5.1 on the application server. <br/><br/> Install the Microsoft Web Deploy tool on the machine running the App Containerization helper tool and application server if not already installed. You can download the tool from [here](https://aka.ms/webdeploy3.6)
 **ASP.NET application** | The tool currently supports <br/><br/> - ASP.NET applications using Microsoft .NET framework 3.5 or later.<br/> - Application servers running Windows Server 2008 R2 or later (application servers should be running PowerShell version 5.1). <br/> - Applications running on Internet Information Services (IIS) 7.5 or later. <br/><br/> The tool currently doesn't support <br/><br/> - Applications requiring Windows authentication (AKS doesn’t support gMSA currently). <br/> - Applications that depend on other Windows services hosted outside IIS.
 
 
@@ -109,7 +109,7 @@ If you just created a free Azure account, you're the owner of your subscription.
    Alternately, you can open the app from the desktop by selecting the app shortcut.
 
 2. If you see a warning stating that says your connection isn’t private, click Advanced and choose to proceed to the website. This warning appears as the web interface uses a self-signed TLS/SSL certificate.
-3. At the sign-in screen, use the local administrator account on the machine to sign-in.
+3. At the sign in screen, use the local administrator account on the machine to sign in.
 4. Select **ASP.NET web apps** as the type of application you want to containerize.
 5. To specify target Azure service, select **Containers on Azure App Service**.
 ![Default load-up for App Containerization tool.](./media/tutorial-containerize-apps-aks/tool-home.png)
@@ -226,7 +226,7 @@ Once the container image is built, the next step is to deploy the application as
      - If you don't have an Azure file share or would like to create a new Azure file share, you can choose to create on from the tool by clicking **Create new Storage Account and file share**.  
 
 4. **Application deployment configuration**: Once you've completed the steps above, you'll need to specify the deployment configuration for the application. Click **Configure** to customize the deployment for the application. In the configure step you can provide the following customizations:
-     - **Name**: Specify a unique app name for the application. This name will be used to generate the application URL and used as a prefix for other resouces being created as part of this deployment.
+     - **Name**: Specify a unique app name for the application. This name will be used to generate the application URL and used as a prefix for other resources being created as part of this deployment.
      - **Application configuration**: For any application configurations that were parameterized, provide the values to use for the current deployment.
      - **Storage configuration**: Review the information for any application directories/folders that were configured for persistent storage.
 

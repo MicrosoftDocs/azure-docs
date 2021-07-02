@@ -1,6 +1,6 @@
 ---
 title: Azure App Containerization Java; Containerization and migration of Java web applications to Azure Kubernetes.
-description: Tutorial:Containerize & migrate Java web applications to Azure Kubernetes Service.
+description: Tutorial: Containerize & migrate Java web applications to Azure Kubernetes Service.
 services:
 author: rahugup
 manager: bsiva
@@ -32,7 +32,7 @@ The Azure Migrate: App Containerization tool helps you to -
 While all applications won't benefit from a straight shift to containers without significant rearchitecting, some of the benefits of moving existing apps to containers without rewriting include:
 
 - **Improved infrastructure utilization:** With containers, multiple applications can share resources and be hosted on the same infrastructure. This can help you consolidate infrastructure and improve utilization.
-- **Simplified management:** By hosting your applications on a modern managed platforms like AKS and App Service, you can simplify your management practices. You can achieve this by retiring or reducing the infrastructure maintenance and management processes that you'd traditionally perform with owned infrastructure.
+- **Simplified management:** By hosting your applications on a modern managed platform like AKS and App Service, you can simplify your management practices. You can achieve this by retiring or reducing the infrastructure maintenance and management processes that you'd traditionally perform with owned infrastructure.
 - **Application portability:** With increased adoption and standardization of container specification formats and platforms, application portability is no longer a concern.
 - **Adopt modern management with DevOps:** Helps you adopt and standardize on modern practices for management and security and transition to DevOps.
 
@@ -220,14 +220,14 @@ Once the container image is built, the next step is to deploy the application as
      - If you don’t have an AKS cluster or would like to create a new AKS cluster to deploy the application to, you can choose to create on from the tool by clicking **Create new AKS cluster**.      
           - The AKS cluster created using the tool will be created with a Linux node pool. The cluster will be configured to allow it to pull images from the Azure Container Registry that was created earlier (if create new registry option was chosen).
      - Click **Continue** after selecting the AKS cluster.
-2. **Specify secret store and monitoring workspace**: If you had opted to parameterize application configurations, then specify the secret store to be used for the application. You can choose Azure Key Vault or Kubernetes Sercrets for managing your application secrets.
+2. **Specify secret store and monitoring workspace**: If you had opted to parameterize application configurations, then specify the secret store to be used for the application. You can choose Azure Key Vault or Kubernetes Secrets for managing your application secrets.
 
      - If you've selected Kubernetes secrets for managing secrets, then click **Continue**.
      - If you'd like to use an Azure Key Vault for managing your application secrets, then specify the Azure Key Vault that you'd want to use.     
          - If you don’t have an Azure Key Vault or would like to create a new Key Vault, you can choose to create on from the tool by clicking **Create new**.
          - The tool will automatically assign the necessary permissions for managing secrets through the Key Vault.
     - **Monitoring workspace**: If you'd selected to enabled monitoring with Application Insights, then specify the Application Insights resource that you'd want to use. This option won't be visible if you had disabled monitoring integration.
-         - If you don’t have an Application Insisghts resource or would like to create a new resource, you can choose to create on from the tool by clicking **Create new**.
+         - If you don’t have an Application Insights resource or would like to create a new resource, you can choose to create on from the tool by clicking **Create new**.
 
 2. **Specify Azure file share**: If you had added more folders and selected the Persistent Volume option, then specify the Azure file share that should be used by Azure Migrate: App Containerization tool during the deployment process. The tool will create new directories in this Azure file share to copy over the application folders that are configured for Persistent Volume storage. Once the application deployment is complete, the tool will clean up the Azure file share by deleting the directories it had created.
 

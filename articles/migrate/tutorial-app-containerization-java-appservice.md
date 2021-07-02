@@ -1,6 +1,6 @@
 ---
-title: Azure App Containerization Java; Containerization and migration of Java web applications to Azure App Service .
-description: Tutorial:Containerize & migrate Java web applications to Azure App Service.
+title: Azure App Containerization Java; Containerization and migration of Java web applications to Azure App Service.
+description: Tutorial: Containerize & migrate Java web applications to Azure App Service.
 services:
 author: rahugup
 manager: bsiva
@@ -32,7 +32,7 @@ The Azure Migrate: App Containerization tool helps you to -
 While all applications won't benefit from a straight shift to containers without significant rearchitecting, some of the benefits of moving existing apps to containers without rewriting include:
 
 - **Improved infrastructure utilization:** With containers, multiple applications can share resources and be hosted on the same infrastructure. This can help you consolidate infrastructure and improve utilization.
-- **Simplified management:** By hosting your applications on a modern managed platforms like AKS and App Service, you can simplify your management practices. You can achieve this by retiring or reducing the infrastructure maintenance and management processes that you'd traditionally perform with owned infrastructure.
+- **Simplified management:** By hosting your applications on a modern managed platform like AKS and App Service, you can simplify your management practices. You can achieve this by retiring or reducing the infrastructure maintenance and management processes that you'd traditionally perform with owned infrastructure.
 - **Application portability:** With increased adoption and standardization of container specification formats and platforms, application portability is no longer a concern.
 - **Adopt modern management with DevOps:** Helps you adopt and standardize on modern practices for management and security and transition to DevOps.
 
@@ -110,7 +110,7 @@ If you just created a free Azure account, you're the owner of your subscription.
    Alternately, you can open the app from the desktop by selecting the app shortcut.
 
 2. If you see a warning stating that says your connection isn’t private, click Advanced and choose to proceed to the website. This warning appears as the web interface uses a self-signed TLS/SSL certificate.
-3. At the sign-in screen, use the local administrator account on the machine to sign-in.
+3. At the sign-in screen, use the local administrator account on the machine to sign in.
 4. Select **Java web apps on Tomcat** as the type of application you want to containerize.
 5. To specify target Azure service, select **Containers on Azure App Service**.
 ![Default load-up for App Containerization tool.](./media/tutorial-containerize-apps-aks/tool-home.png)
@@ -223,14 +223,14 @@ Once the container image is built, the next step is to deploy the application as
          - If you don’t have an Azure Key Vault or would like to create a new Key Vault, you can choose to create on from the tool by clicking **Create new**.
          - The tool will automatically assign the necessary permissions for managing secrets through the Key Vault.
     - **Monitoring workspace**: If you'd selected to enabled monitoring with Application Insights, then specify the Application Insights resource that you'd want to use. This option won't be visible if you had disabled monitoring integration.
-         - If you don’t have an Application Insisghts resource or would like to create a new resource, you can choose to create on from the tool by clicking **Create new**.
+         - If you don’t have an Application Insights resource or would like to create a new resource, you can choose to create on from the tool by clicking **Create new**.
 
 3. **Specify Azure file share**: If you had added more directories/folders and selected the Azure file share option for persistent storage, then specify the Azure file share to be used by Azure Migrate: App Containerization tool during the deployment process. The tool will copy over the application directories/folders that are configured for Azure file storage and mount them on the application container during deployment. 
 
      - If you don't have an Azure file share or would like to create a new Azure file share, you can choose to create on from the tool by clicking **Create new Storage Account and file share**.  
 
 4. **Application deployment configuration**: Once you've completed the steps above, you'll need to specify the deployment configuration for the application. Click **Configure** to customize the deployment for the application. In the configure step you can provide the following customizations:
-     - **Name**: Specify a unique app name for the application. This name will be used to generate the application URL and used as a prefix for other resouces being created as part of this deployment.
+     - **Name**: Specify a unique app name for the application. This name will be used to generate the application URL and used as a prefix for other resources being created as part of this deployment.
      - **Application configuration**: For any application configurations that were parameterized, provide the values to use for the current deployment.
      - **Storage configuration**: Review the information for any application directories/folders that were configured for persistent storage.
 
