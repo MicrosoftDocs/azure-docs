@@ -2,7 +2,7 @@
 title: Azure disk pools (preview) overview
 description: Learn about Azure disk pools (preview).
 author: roygara
-ms.service: virtual-machines
+ms.service: storage
 ms.topic: conceptual
 ms.date: 06/28/2021
 ms.author: rogarana
