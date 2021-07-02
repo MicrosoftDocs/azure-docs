@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 06/16/2021
+ms.date: 07/15/2021
 ms.author: b-juche
 ---
 # Troubleshoot volume errors for Azure NetApp Files
@@ -48,7 +48,7 @@ This article describes error messages you might encounter when creating or manag
 | Dual-protocol volume creation fails with the error `Could not query DNS server. Verify that the network configuration is correct and that DNS servers are available`. | 	This error indicates that DNS is not reachable. The reason might be because DNS IP is incorrect, or there is a networking issue. Check the DNS IP entered in AD connection and make sure that the IP is correct. <br> Also, make sure that the AD and the volume are in same region and in same VNet. If they are in different VNETs, ensure that VNet peering is established between the two VNets.|
 | Permission is denied error when mounting a dual-protocol volume. | A dual-protocol volume supports both the NFS and SMB protocols.  When you try to access the mounted volume on the UNIX system, the system attempts to map the UNIX user you use to a Windows user. If no mapping is found, the “Permission denied” error occurs. <br> This situation applies also when you use the ‘root’ user for the access. <br> To avoid the “Permission denied” issue, make sure that Windows Active Directory includes `pcuser` before you access the mount point. If you add `pcuser` after encountering the “Permission denied” issue, wait 24 hours for the cache entry to clear before trying the access again. |
 
-## Error for NFSv4.1 Kerberos volumes
+## Errors for NFSv4.1 Kerberos volumes
 
 |     Error conditions    |     Resolutions    |
 |-|-|
