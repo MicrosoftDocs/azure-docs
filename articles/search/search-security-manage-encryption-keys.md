@@ -8,7 +8,7 @@ author: NatiNimni
 ms.author: natinimn
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/22/2021
+ms.date: 07/02/2021
 ms.custom: references_regions, devx-track-azurepowershell 
 ---
 
@@ -398,7 +398,7 @@ Conditions that will prevent you from adopting this simplified approach include:
 > [!IMPORTANT] 
 > User-assigned managed identity support is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 > 
-> The [REST API version 2020-06-30-Preview](search-api-preview.md) provides this feature.
+> The REST API version 2021-04-30-Preview and [Management REST API 2021-04-01-Preview](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update) provide this feature.
 
 Assigning a user-assigned managed identity to your search service will enable your search service to authenticate to Azure Key Vault without storing credentials (ApplicationID or ApplicationSecret) in code. The lifecycle of this type of managed identity is independent to the lifecycle of your search service. For more information about how managed identities work, see [What are managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
 
@@ -445,7 +445,7 @@ Assigning a user-assigned managed identity to your search service will enable yo
 
 1. When setting up an access policy in Azure Key Vault, choose the user-assigned managed identity as the principle (instead of the AD-registered application). Assign the same permissions (multiple GETs, WRAP, UNWRAP) as instructed in the grant access key permissions step.
 
-1. Use a simplified construction of the `encryptionKey` that omits the Active Directory properties and add an identity property. Make sure to use the 2021-04-30-preview REST API version when creating the index.
+1. Use a simplified construction of the `encryptionKey` that omits the Active Directory properties and add an identity property. Make sure to use the 2021-04-30-preview REST API version.
 
     ```json
     {
