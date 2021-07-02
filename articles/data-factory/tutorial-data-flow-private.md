@@ -7,7 +7,7 @@ ms.reviewer: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 04/14/2021
+ms.date: 06/04/2021
 ---
 
 # Transform data securely by using mapping data flow
@@ -81,7 +81,7 @@ In this step, you create an Azure IR and enable Data Factory Managed Virtual Net
 
 In this step, you'll create a pipeline that contains a data flow activity.
 
-1. On the **Let's get started** page, select **Create pipeline**.
+1. On the home page of Azure Data Factory, select **Orchestrate**.
 
    ![Screenshot that shows creating a pipeline.](./media/doc-common-process/get-started-page.png)
 
