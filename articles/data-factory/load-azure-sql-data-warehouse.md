@@ -6,7 +6,7 @@ author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/29/2020
+ms.date: 06/04/2021
 ---
 
 # Load data into Azure Synapse Analytics by using Azure Data Factory
@@ -57,7 +57,7 @@ This article shows you how to use the Data Factory Copy Data tool to _load data 
 
 ## Load data into Azure Synapse Analytics
 
-1. In the **Get started** page, select the **Copy Data** tile to launch the Copy Data tool.
+1. In the home page of Azure Data Factory, select the **Ingest** tile to launch the Copy Data tool.
 
 2. In the **Properties** page, specify **CopyFromSQLToSQLDW** for the **Task name** field, and select **Next**.
 
