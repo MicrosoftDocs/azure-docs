@@ -490,10 +490,9 @@ Delta Lake support is currently in public preview in serverless SQL pools. There
   - Root folder must have a sub-folder named `_delta_log`. The query will fail if there is no `_delta_log` folder. If you don't see that folder, then you are referencing plain Parquet files that must be [converted to Delta Lake](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#convert-parquet-to-delta) using Apache Spark pools.
   - Do not specify wildcards to describe the partition schema. Delta Lake query will automatically identify the Delta Lake partitions. 
 - Delta Lake tables created in the Apache Spark pools are not synchronized in serverless SQL pool. You cannot query Apache Spark pools Delta Lake tables using T-SQL language.
-- External tables do not support partitioning. Use [partitioned views](create-use-views.md#delta-lake-partitioned-views) on Delta Lake folder to leverage the partition elimination.
-  - The [partitioned views](create-use-views.md#delta-lake-partitioned-views) on Delta Lake should not have the `OPENROWSET` function with the `WITH` clause. Due to the known issue in preview, you need to use schema inference and remove the `WITH` clause.
-- Serverless SQL pools do not support time travel queries or updating Delta Lake files. You can use serverless SQL pool to query the latest version of Delta Lake. Use Apache Spark pools in Azure Synapse Analytics [to update Delta Lake](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#update-table-data) or [read historical data](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#read-older-versions-of-data-using-time-travel).
-- Serverless SQL pools do not support Delta Lake data sets with the partitions containing `null` or empty values. Update `null` or empty values in your data sets if you need to read them withe the serverless SQL pools.
+- External tables do not support partitioning. Use [partitioned views](create-use-views.md#delta-lake-partitioned-views) on Delta Lake folder to leverage the partition elimination. See known issues and workarounds below.
+- Serverless SQL pools do not support time travel queries. You can vote for thisfeature on [Azure feedback site](https://feedback.azure.com/forums/307516-azure-synapse-analytics/suggestions/43656111-add-time-travel-feature-in-delta-lake)
+- Serverless SQL pools do not suppor updating Delta Lake files. You can use serverless SQL pool to query the latest version of Delta Lake. Use Apache Spark pools in Azure Synapse Analytics [to update Delta Lake](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#update-table-data) or [read historical data](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#read-older-versions-of-data-using-time-travel).
 - Delta Lake support is not available in dedicated SQL pools. Make sure that you are using serverless pools to query Delta Lake files.
 
 You can propose ideas and enhancements on [Azure Synapse feedback site](https://feedback.azure.com/forums/307516-azure-synapse-analytics?category_id=171048).
@@ -513,6 +512,12 @@ Easiest way is to grant yourself 'Storage Blob Data Contributor' role on the sto
 - [Visit full guide on Azure Active Directory access control for storage for more information](../../storage/common/storage-auth-aad-rbac-portal.md). 
 - [Visit Control storage account access for serverless SQL pool in Azure Synapse Analytics](develop-storage-files-storage-access-control.md)
 
+### Partitioning column returns NULL values
+
+If you are using views over the `OPENROWSET` function that read partitioned Delta Lake folder, you might get the value `NULL` instead of the actual column values for the partitioning columns. Due to the known issue, the `OPENROWSET` function with the `WITH` clause cannot read partitioning columns. The [partitioned views](create-use-views.md#delta-lake-partitioned-views) on Delta Lake should not have the `OPENROWSET` function with the `WITH` clause. You need to use the `OPENROWSET` function that doesn't have explicitly specified schema.
+
+**Workaround:** Remove the `WITH` clause form the `OPENROWSET` function that is used in the views.
+
 ### Query failed because of a topology change or compute container failure
 
 Some Delta Lake queries on partitioned data sets might fail with this error message if your database collation is not `Latin1_General_100_BIN2_UTF8`. Create a database with `Latin1_General_100_BIN2_UTF8` collation and execute the queries on that database instead of master and other databases with the default collation.
@@ -522,21 +527,27 @@ CREATE DATABASE mydb
     COLLATE Latin1_General_100_BIN2_UTF8;
 ```
 
+The queries executed via master database are affected with this issue.
+
+**Workaround:** Execute the queries on a custom database with `Latin1_General_100_BIN2_UTF8` database collation.
+
 ### Column of type 'VARCHAR' is not compatible with external data type 'Parquet column is of nested type'
 
 You are trying to read Delta Lake files that contain some nested type columns without specifying WITH clause (using automatic schema inference). Automatic schema inference doesn't work with the nested columns in Delta Lake.
 
-Use the `WITH` clause and explicitly assign the `VARCHAR` type to the nested columns.
+**Workaround:** Use the `WITH` clause and explicitly assign the `VARCHAR` type to the nested columns.
 
 ### Cannot find value of partitioning column in file 
 
-Delta Lake data sets may have `NULL` values in the partitioning columns. This is currently not supported in serverless SQL pool. In this case you will get the error that looks like:
+Delta Lake data sets may have `NULL` values in the partitioning columns. These partitions are stored in `HIVE_DEFAULT_PARTITION` folder. This is currently not supported in serverless SQL pool. In this case you will get the error that looks like:
 
 ```
-Resolving Delta logs on path 'https://....core.windows.net/.../' failed with error: Cannot find value of partitioning column '<column name>' in file 'https://......core.windows.net/...../<column name>=__HIVE_DEFAULT_PARTITION__/part-00042-2c0d5c0e-8e89-4ab8-b514-207dcfd6fe13.c000.snappy.parquet'.
+Resolving Delta logs on path 'https://....core.windows.net/.../' failed with error:
+Cannot find value of partitioning column '<column name>' in file 
+'https://......core.windows.net/...../<column name>=__HIVE_DEFAULT_PARTITION__/part-00042-2c0d5c0e-8e89-4ab8-b514-207dcfd6fe13.c000.snappy.parquet'.
 ```
 
-Try to update your Delta Lake data set using Apache Spark pools and use some value (empty string or `"null"`) instead of `null` in the partitioning column.
+**Workaround:** Try to update your Delta Lake data set using Apache Spark pools and use some value (empty string or `"null"`) instead of `null` in the partitioning column.
 
 ## Constraints
 
