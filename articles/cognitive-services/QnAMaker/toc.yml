@@ -129,7 +129,7 @@
     href: Tutorials/guided-conversations.md
   - name: Adding synonyms
     href: Tutorials/adding-synonyms.md
-  - name: Knowledge bases with mutliple languages
+  - name: Knowledge bases with multiple languages
     href: Tutorials/multiple-languages.md    
   - name: Customize your bot
     items:
