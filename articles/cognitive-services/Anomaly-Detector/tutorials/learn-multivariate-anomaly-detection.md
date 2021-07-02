@@ -38,7 +38,7 @@ In this tutorial, you'll:
 * Once you have your Azure subscription, [create an Anomaly Detector resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector) in the Azure portal to get your API key and API endpoint.
 
 > [!NOTE]
-> During preview stage, MVAD is available on limited regions only. Please bookmark [What's new in Anomaly Detector](../whats-new.md)  to keep up to date with MVAD region roll-outs. You could also file a GitHub issue or contact us at [AnomalyDetector@microsoft.com](mailto:AnomalyDetector@microsoft.com) to request for specific regions.
+> During preview stage, MVAD is available in limited regions only. Please bookmark [What's new in Anomaly Detector](../whats-new.md)  to keep up to date with MVAD region roll-outs. You could also file a GitHub issue or contact us at [AnomalyDetector@microsoft.com](mailto:AnomalyDetector@microsoft.com) to request for specific regions.
 
 ## 2. Data Preparation
 
