@@ -40,7 +40,7 @@ Get the values from your account to create an *.env* file. That's right, save it
 For samples, we recommend that you always create and activate a Python virtual environment using the following steps:
 
 1. Open the sample folder in VSCode or other editor
-1. Create the virtual environment
+2. Create the virtual environment
 
   ``` bash
   # py -3 uses the global python interpreter. You can also use python -m venv .venv.
@@ -49,7 +49,7 @@ For samples, we recommend that you always create and activate a Python virtual e
 
   This command runs the Python venv module and creates a virtual environment in a folder named .venv.
 
-1. Activate the virtual environment:
+3. Activate the virtual environment:
 
   ``` bash
   .venv\scripts\activate
