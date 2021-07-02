@@ -62,25 +62,22 @@ This article describes how to create one or more access reviews for privileged A
 
 10. Use the **End** setting to specify how to end the recurring access review series. The series can end in three ways: it runs continuously to start reviews indefinitely, until a specific date, or after a defined number of occurrences has been completed. You, another User administrator, or another Global administrator can stop the series after creation by changing the date in **Settings**, so that it ends on that date.
 
-11. In the **Users Scope** section, select the scope of the review. To review users and groups with access to the Azure AD role, select **Users and Groups**, or select **(Preview) Service Principals** to review the machine accounts with access to the Azure AD role.
+11. In the **Users Scope** section, select the scope of the review. To review users and groups with access to the Azure AD role, select **Users and Groups**, or select **(Preview) Service Principals** to review the machine accounts with access to the Azure AD role. 
+
+    When **Users and Groups** is selected, membership of groups assigned to the role will be reviewed as part of the access review. When **Service Principals** is selected, only those with direct membership (not via nested groups) will be reviewed.
 
     ![Users scope to review role membership of](./media/pim-how-to-start-security-review/users.png)
 
 12. Under **Review role membership**, select the privileged Azure AD roles to review. 
 
     > [!NOTE]
-    > - Selecting more than one role will create multiple access reviews. For example, selecting five roles will create five separate access reviews.
-    > - For roles with groups assigned to them, the access of each group linked with the role under review will be reviewed as a part of the access review.
-    If you are creating an access review of **Azure AD roles**, the following shows an example of the Review membership list.
-
-    > [!NOTE]
     > Selecting more than one role will create multiple access reviews. For example, selecting five roles will create five separate access reviews.
 
-1. In **assignment type**, scope the review by how the principal was assigned to the role. Choose **(Preview) eligible assignments only** to review eligible assignments (regardless of activation status when the review is created) or **(Preview) active assignments only** to review active assignments. Choose **all active and eligible assignments** to review all assignments regardless of type.
+13. In **assignment type**, scope the review by how the principal was assigned to the role. Choose **(Preview) eligible assignments only** to review eligible assignments (regardless of activation status when the review is created) or **(Preview) active assignments only** to review active assignments. Choose **all active and eligible assignments** to review all assignments regardless of type.
 
      ![Reviewers list of assignment types](./media/pim-how-to-start-security-review/assignment-type-select.png)
 
-13. In the **Reviewers** section, select one or more people to review all the users. Or you can select to have the members review their own access.
+14. In the **Reviewers** section, select one or more people to review all the users. Or you can select to have the members review their own access.
 
     ![Reviewers list of selected users or members (self)](./media/pim-how-to-start-security-review/reviewers.png)
 

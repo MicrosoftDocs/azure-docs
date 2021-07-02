@@ -53,7 +53,7 @@
   items:
   - name: Compare solutions for External Identities
     href: ../active-directory/external-identities/compare-with-b2c.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
-  - name: Learn the basics
+  - name: Learn authentication basics
     items:
     - name: Authentication and authorization
       href: ../active-directory/develop/authentication-vs-authorization.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
@@ -131,6 +131,8 @@
         href: enable-authentication-spa-app.md
       - name: Authentication options
         href: enable-authentication-spa-app-options.md
+    - name: Enable authentication in your web API
+      href: enable-authentication-web-api.md
     - name: Register a single-page application (SPA)
       href: tutorial-register-spa.md    
     - name: SAML application

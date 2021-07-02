@@ -1,5 +1,5 @@
 ---
-title: Connect to data in storage services on Azure
+title: Connect to data storage with the studio UI
 titleSuffix: Azure Machine Learning
 description: Create datastores and datasets to securely connect to data in storage services in Azure with the Azure Machine Learning studio.
 services: machine-learning

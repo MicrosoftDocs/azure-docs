@@ -7,7 +7,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: reference
-ms.date: 05/13/2021
+ms.date: 06/25/2021
 ms.author: aahi
 ---
 
@@ -103,27 +103,44 @@ Release notes for `1.1.013050001-amd64-preview`
 
 ---
 
-
 ## Form Recognizer
 
-The [Form Recognizer][fr-containers] container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services/custom-form` repository and is named `labeltool`. The fully qualified container image name is, `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool`.
+Form Recognizer features are supported by seven containers:
 
-This container image has the following tags available. You can also find a full list of [tags on the MCR](https://mcr.microsoft.com/v2/azure-cognitive-services/custom-form/labeltool/tags/list).
+| Container name | Fully qualified image name |
+|---|---|
+| **Layout** | mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout |
+| **Business Card** | mcr.microsoft.com/azure-cognitive-services/form-recognizer/businesscard |
+| **ID Document** | mcr.microsoft.com/azure-cognitive-services/form-recognizer/id-document |
+| **Receipt** | mcr.microsoft.com/azure-cognitive-services/form-recognizer/receipt |
+| **Invoice** | mcr.microsoft.com/azure-cognitive-services/form-recognizer/invoice |
+| **Custom API** | mcr.microsoft.com/azure-cognitive-services/form-recognizer/custom-api |
+| **Custom Supervised** | mcr.microsoft.com/azure-cognitive-services/form-recognizer/custom-supervised |
+
+[Form Recognizer][fr-containers] container images can be found on the `mcr.microsoft.com` container registry syndicate. They reside within the `azure-cognitive-services/form-recognizer` repository.
+
+Container images have the following tags available:
 
 # [Latest version](#tab/current)
 
-| Image Tags                    | Notes |
-|-------------------------------|:------|
-| `latest`                      |       |
-| `1.1.009301-amd64-preview`    |       |
+Release notes for `v2.1`:
 
+Form Recognizer containers are currently in gated preview. To use them, you must submit an [online request](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUNlpBU1lFSjJUMFhKNzVHUUVLN1NIOEZETiQlQCN0PWcu) and receive approval.
+
+| Container | Tags |
+|------------|:------|
+| **Layout**| &bullet; `latest` </br> &bullet; `2.1-preview` </br> &bullet; `2.1.0.016140001-08108749-amd64-preview`|
+| **Business Card** | &bullet; `latest` </br> &bullet; `2.1-preview` </br> &bullet; `2.1.016190001-amd64-preview`  </br> &bullet; `2.1.016320001-amd64-preview`  |
+| **ID Document** | &bullet; `latest` </br> &bullet; `2.1-preview`</br>&bullet; `2.1.016190001-amd64-preview`</br>&bullet; `2.1.016320001-amd64-preview` |
+| **Receipt**| &bullet; `latest` </br> &bullet; `2.1-preview`</br>&bullet; `2.1.016190001-amd64-preview`</br>&bullet; `2.1.016320001-amd64-preview` |
+| **Invoice**| &bullet; `latest` </br> &bullet; `2.1-preview`</br>&bullet; `2.1.016190001-amd64-preview`</br>&bullet; `2.1.016320001-amd64-preview` |
+| **Custom API** | &bullet; `latest` </br> &bullet;`2.1-distroless-20210622013115034-0cc5fcf6`</br>&bullet; `2.1-preview`|
+| **Custom Supervised**| &bullet; `latest` </br> &bullet; `2.1-distroless-20210622013149174-0cc5fcf6`</br>&bullet; `2.1-preview`|
 
 # [Previous versions](#tab/previous)
 
-| Image Tags                    | Notes |
-|-------------------------------|:------|
-| `1.1.008640001-amd64-preview` |       |
-| `1.1.008510001-amd64-preview` |       |
+> [!IMPORTANT]
+> The Form Recognizer v1.0 container has been retired.
 
 ---
 
@@ -1864,7 +1881,7 @@ This container image has the following tags available.
 [ad-containers]: ../anomaly-Detector/anomaly-detector-container-howto.md
 [cv-containers]: ../computer-vision/computer-vision-how-to-install-containers.md
 [fa-containers]: ../face/face-how-to-install-containers.md
-[fr-containers]: ../form-recognizer/form-recognizer-container-howto.md
+[fr-containers]: ../form-recognizer/containers/form-recognizer-container-install-run.md
 [lu-containers]: ../luis/luis-container-howto.md
 [sp-stt]: ../speech-service/speech-container-howto.md?tabs=stt
 [sp-cstt]: ../speech-service/speech-container-howto.md?tabs=cstt

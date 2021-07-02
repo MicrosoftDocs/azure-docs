@@ -108,6 +108,9 @@ You can use the Azure AD PowerShell Preview module, [AzureADPreview](/powershell
 
 ---
 
+> [!NOTE]
+> "User can consent to apps accessing company data on their behalf" setting, when turned off, does not disable the "Users can consent to apps accessing company data for groups they own" option
+
 ## Next steps
 
 To learn more:
