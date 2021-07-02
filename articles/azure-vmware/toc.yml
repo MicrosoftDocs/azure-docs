@@ -78,7 +78,7 @@
     href: configure-windows-server-failover-cluster.md
   - name: Rotate cloudadmin credentials
     href: rotate-cloudadmin-credentials.md
-  - name: Connect mulitple private clouds in same region
+  - name: Connect multiple private clouds in the same region
     href: connect-multiple-private-clouds-same-region.md
   - name: Move resources
     items:
