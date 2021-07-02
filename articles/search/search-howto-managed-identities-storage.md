@@ -9,7 +9,7 @@ ms.author: maheff
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/18/2021
+ms.date: 07/02/2021
 ---
 
 # Set up a connection to an Azure Storage account using a managed identity
