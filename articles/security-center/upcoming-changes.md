@@ -36,17 +36,17 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 
 **Estimated date for change:** July 2021
 
-When exporting Security Center data such as recommendations and alerts, there's currently no limit on the amount of data that you can download.
+When exporting Security Center recommendations data, there's currently no limit on the amount of data that you can download.
 
-:::image type="content" source="media/upcoming-changes/download-csv-report.png" alt-text="One of Security Center's 'download CSV report' buttons.":::
+:::image type="content" source="media/upcoming-changes/download-csv-report.png" alt-text="Security Center's 'download CSV report' button to export recommendation data.":::
 
-With this change, we're instituting a limit of 20 MB. 
+With this change, we're instituting a limit of 20 MB.
 
 If you need to export larger amounts of data, use the available filters before selecting, or select subsets of your subscriptions and download the data in batches.
 
 :::image type="content" source="media/upcoming-changes/filter-subscriptions.png" alt-text="Filtering subscriptions in the Azure portal.":::
 
-Learn more about [performing a CSV export of alerts and recommendations](continuous-export.md#manual-one-time-export-of-alerts-and-recommendations).
+Learn more about [performing a CSV export of your security recommendations](continuous-export.md#manual-one-time-export-of-alerts-and-recommendations).
 
 ### Legacy implementation of ISO 27001 is being replaced with new ISO 27001:2013
 
