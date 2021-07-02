@@ -17,19 +17,15 @@ ms.date: 06/29/2021
 
 <a name="consumption-pricing"></a>
 
-## Consumption model (multi-tenant)
+## Consumption (multi-tenant)
 
 In multi-tenant Azure Logic Apps, a logic app and its workflow follow the [**Consumption** plan](https://azure.microsoft.com/pricing/details/logic-apps) for pricing and billing. You create such logic apps in various ways, for example, when you choose the **Logic App (Consumption)** resource type, use the **Azure Logic Apps (Consumption)** extension in Visual Studio Code, or when you create [automation tasks](create-automation-tasks-azure-resources.md).
 
-The following describes how the Consumption model works with components when used with a multi-tenant based logic app and workflow:
-
-* [Trigger and action operations](#consumption-operations)
-* [Storage operations](#storage-operations)
-* [Integration accounts](#integration-accounts)
+The following table summarizes the components that are metered and billed and how the Consumption model works with these components when used with a multi-tenant based logic app and workflow:
 
 | Component | Metering and billing |
 | ----------|----------------------|
-| Trigger and action operations | Metering and billing apply to each operation *execution* and follows [Consumption pricing](https://azure.microsoft.com/pricing/details/logic-apps), based on the operation type. For more information, review [Trigger and action operations in the Consumption model](#consumption-operations). |
+| Trigger and action operations | Metering and billing apply to each operation *execution* and follows the [Consumption plan](https://azure.microsoft.com/pricing/details/logic-apps), based on the operation type. For more information, review [Trigger and action operations in the Consumption model](#consumption-operations). |
 | Storage operations | Metering and billing apply to any storage operations. <p><p>For example, storage operations run when saving inputs and outputs from your workflow's run history. Storage usage and data retention are managed at the logic app level, not the workflow level. Metering and billing follow [Consumption data retention pricing](https://azure.microsoft.com/pricing/details/logic-apps/), which appears under the execution pricing table. For more information, review [Storage operations](#storage-operations). |
 | Integration accounts | Metering and billing apply based on the integration account type and follow the [general integration account pricing](https://azure.microsoft.com/pricing/details/logic-apps/) unless your logic apps are hosted in an [integration service environment (ISE)](#integration-service-environment-pricing). For more information, review [Integration accounts](#integration-accounts). |
 |||
@@ -65,9 +61,9 @@ To help you estimate more accurate consumption costs, review these tips:
 
 <a name="standard-pricing"></a>
 
-## Standard model (single-tenant)
+## Standard (single-tenant)
 
-In single-tenant Azure Logic Apps, a logic app and its workflows follow the [**Standard** plan](https://azure.microsoft.com/pricing/details/logic-apps/) for pricing and billing. You create such logic apps in various ways, for example, when you choose the **Logic App (Standard)** resource type or use the **Azure Logic Apps (Standard)** extension in Visual Studio Code. This pricing model requires that logic apps use a hosting plan and a pricing tier. The pricing tier that you select determines the resource level and rates that apply to compute, memory, and storage usage. For more information, review [Standard model pricing tiers and rates](#standard-pricing-tiers).
+In single-tenant Azure Logic Apps, a logic app and its workflows follow the [**Standard** plan](https://azure.microsoft.com/pricing/details/logic-apps/) for pricing and billing. You create such logic apps in various ways, for example, when you choose the **Logic App (Standard)** resource type or use the **Azure Logic Apps (Standard)** extension in Visual Studio Code. This pricing model requires that a logic app uses a hosting plan and a pricing tier. The pricing tier that you choose determines the resource level and pricing rates that apply to compute, memory, and storage usage. For more information, review [Standard model pricing tiers and rates](#standard-pricing-tiers).
 
 > [!NOTE]
 > For new logic apps based on the **Logic App (Standard)** resource type, you must use the **Workflow Standard** hosting plan. 
@@ -90,7 +86,7 @@ For more information about logic apps that are single-tenant based versus multi-
 
 <a name="standard-pricing-tiers"></a>
 
-### Standard pricing tiers and billing rates
+### Pricing tiers and rates in the Standard model
 
 Each pricing tier includes a specific amount of compute, memory, and storage resources. For hourly rates per resource and per region, review the [Azure Logic Apps pricing page](https://azure.microsoft.com/pricing/details/logic-apps/). To learn more about how pricing works, this example provides sample estimates for the *East US 2 region*.
 
