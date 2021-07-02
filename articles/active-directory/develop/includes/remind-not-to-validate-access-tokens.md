@@ -1,5 +1,5 @@
 ---
-title: Don't validate MS Graph tokens | Azure
+title: Don't validate access tokens for Microsoft Graph
 description: Include file warning that access tokens for Microsoft Graph should be considered opaque and should never be validated by customer code. Only Microsoft Graph validates Microsoft Graph access tokens.
 services: active-directory
 author: hpsin
