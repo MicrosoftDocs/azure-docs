@@ -21,9 +21,9 @@ The Form Recognizer sample labeling tool is an application that provides a simpl
 
 ## Run the sample labeling tool locally
 
-The fastest way to start labeling data is to run the sample labeling tool locally. The following quickstart uses the Form Recognizer REST API and the sample labeling tool to train a custom model with manually labeled data. 
+The fastest way to start labeling data is to run the sample labeling tool locally. The following quickstart uses the Form Recognizer REST API and the sample labeling tool to train a custom model with manually labeled data.
 
-* [Quickstart: Label forms, train a model, and analyze a form using the sample labeling tool](label-tool.md).
+* [Get started with Azure Form Recognizer](label-tool.md).
 
 ## Deploy with Azure Container Instances (ACI)
 
