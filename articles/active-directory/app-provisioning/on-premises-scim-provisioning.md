@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/28/2021
+ms.date: 07/01/2021
 ms.author: billmath
 ms.reviewer: arvinh
 ---
@@ -32,7 +32,7 @@ The Azure AD provisioning service supports a [SCIM 2.0](https://techcommunity.mi
 ## Steps for on-premises app provisioning to SCIM-enabled apps
 Use the steps below to provision to SCIM-enabled apps. 
 
- 1. Add the "Agent-based SCIM provisioning" app from the [gallery](../../active-directory/manage-apps/add-application-portal.md).
+ 1. Add the "On-premises SCIM app" from the [gallery](../../active-directory/manage-apps/add-application-portal.md).
  2. Navigate to your app > Provisioning > Download the provisioning agent.
  3. Click on on-premises connectivity and download the provisioning agent.
  4. Copy the agent onto the virtual machine or server that your SCIM endpoint is hosted on.

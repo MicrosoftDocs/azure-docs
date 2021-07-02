@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 05/12/2021
+ms.date: 07/01/2021
 ms.author: lajanuar
 ---
 
@@ -38,7 +38,7 @@ You will need an Azure subscription ([create one for free](https://azure.microso
 
 [!INCLUDE [input requirements](./includes/input-requirements-receipts.md)]
 
-## The Analyze Layout operation
+## Analyze Layout
 
 First, call the [Analyze Layout](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeLayoutAsync) operation. Analyze Layout takes a document (image, TIFF, or PDF file) as the input and extracts the text, tables, selection marks, and structure of the document. The call returns a response header field called `Operation-Location`. The `Operation-Location` value is a URL that contains the Result ID to be used in the next step.
 
@@ -46,7 +46,7 @@ First, call the [Analyze Layout](https://westcentralus.dev.cognitive.microsoft.c
 |:-----|:----|
 |Operation-Location | `https://cognitiveservice/formrecognizer/v2.1/layout/analyzeResults/{resultId}' |
 
-## The Get Analyze Layout Result operation
+## Get Analyze Layout Result
 
 The second step is to call the [Get Analyze Layout Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/GetAnalyzeLayoutResult) operation. This operation takes as input the Result ID that was created by the Analyze Layout operation. It returns a JSON response that contains a **status** field with the following possible values.
 
