@@ -6,7 +6,6 @@ author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-monikerRange: 'azureapiforfhir'
 ms.date: 04/30/2021
 ms.author: cavoeg
 ---
