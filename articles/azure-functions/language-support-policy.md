@@ -26,7 +26,7 @@ We'll send notification emails to function app users about upcoming language ver
 
 ## Retirement policy exceptions
 
-There are few exceptions to the retirement policy outlined above. Here is a list of languages that have reached or are approaching their EOL dates but still supported on the platform until further notice. When these languages reach their EOL dates, there will be no update or security patch. So, developing and running your function apps with these languages are highly discouraged.
+There are few exceptions to the retirement policy outlined above. Here is a list of languages that are approaching or have reached their end-of-life dates but continue to be supported on the platform until further notice. When these languages versions reach their end-of-life dates, they are no longer updated or patched. Because of this, we discourage you from developing and running your function apps on these language versions.
 
 |Language Versions                        |EOL Date         |Expected Retirement Date|
 |-----------------------------------------|-----------------|----------------|
