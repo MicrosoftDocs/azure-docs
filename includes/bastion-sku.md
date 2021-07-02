@@ -7,7 +7,7 @@ ms.topic: include
 
 ---
 
-| Feature | Basic SKU | Standard SKU |
+| Feature | Basic SKU | Standard SKU (Preview) |
 |---|---|---|
 | RDP/SSH sessions directly in portal/browser | Available | Available |
 | Public IP address not required on VM | Available |Available| 
