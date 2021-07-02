@@ -423,7 +423,7 @@ Assigning a user-assigned managed identity to your search service will enable yo
     ```http
     PUT https://management.azure.com/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Search/searchServices/[search service name]?api-version=2021-04-01-preview
     Content-Type: application/json
-    api-key: [admin key]
+
     {
       "location": "[region]",
       "sku": {
@@ -437,7 +437,7 @@ Assigning a user-assigned managed identity to your search service will enable yo
       "identity": {
         "type": "UserAssigned",
         "userAssignedIdentities": {
-          "/subscriptions/[subscription ID]/resourcegroups/[resource group name]/providers/Microsoft.ManagedIdentity/userAssignedIdentities/[name of managed identity]": {}
+          "/subscriptions/[subscription ID]/resourcegroups/[resource group name]/providers/Microsoft.ManagedIdentity/userAssignedIdentities/[managed identity name]": {}
         }
       }
     } 
@@ -445,16 +445,17 @@ Assigning a user-assigned managed identity to your search service will enable yo
 
 1. When setting up an access policy in Azure Key Vault, choose the user-assigned managed identity as the principle (instead of the AD-registered application). Assign the same permissions (multiple GETs, WRAP, UNWRAP) as instructed in the grant access key permissions step.
 
-1. Use a simplified construction of the `encryptionKey` that omits the Active Directory properties and add an identity property.
+1. Use a simplified construction of the `encryptionKey` that omits the Active Directory properties and add an identity property. Make sure to use the 2021-04-30-preview REST API version when creating the index.
 
     ```json
     {
       "encryptionKey": {
-        "keyVaultUri": "https://demokeyvault.vault.azure.net",
-        "keyVaultKeyName": "myEncryptionKey",
-        "keyVaultKeyVersion": "eaab6a663d59439ebb95ce2fe7d5f660",
-        "identity": {
-            "userAssignedIdentity": "/subscriptions/[subscription ID]/resourcegroups/[resource group name]/providers/microsoft.managedidentity/userassignedidentities/[user-assigned managed identity name]"
+        "keyVaultUri": "https://[key vault name].vault.azure.net",
+        "keyVaultKeyName": "[key vault key name]",
+        "keyVaultKeyVersion": "[key vault key version]",
+        "identity" : { 
+            "@odata.type": "#Microsoft.Azure.Search.DataUserAssignedIdentity",
+            "userAssignedIdentity" : "/subscriptions/[subscription ID]/resourceGroups/[resource group name]/providers/Microsoft.ManagedIdentity/userAssignedIdentities/[managed identity name]"
         }
       }
     }
