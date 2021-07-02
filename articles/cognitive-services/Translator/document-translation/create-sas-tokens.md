@@ -8,7 +8,7 @@ author: laujan
 ms.date: 03/05/2021
 ---
 
-# Create SAS tokens for Document Translation processing
+# Create SAS tokens for your storage containers
 
 In this article, you'll learn how to create shared access signature (SAS) tokens using the Azure Storage Explorer or the Azure portal. An SAS token provides secure, delegated access to resources in your Azure storage account.
 
