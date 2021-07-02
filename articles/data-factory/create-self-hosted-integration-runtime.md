@@ -99,7 +99,7 @@ To create and set up a self-hosted integration runtime, use the following proced
 
 Use the following steps to create a self-hosted IR using Azure Data Factory UI.
 
-1. On the **Let's get started** page of Azure Data Factory UI, select the [Manage tab](./author-management-hub.md) from the leftmost pane.
+1. On the home page of Azure Data Factory UI, select the [Manage tab](./author-management-hub.md) from the leftmost pane.
 
    :::image type="content" source="media/doc-common-process/get-started-page-manage-button.png" alt-text="The home page Manage button":::
 

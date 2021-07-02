@@ -328,7 +328,7 @@ This section assumes that you have already obtained an ISO file from the Red Hat
             filesystem: swap
         mounts:
           - ["ephemeral0.1", "/mnt"]
-          - ["ephemeral0.2", "none", "swap", "sw", "0", "0"]
+          - ["ephemeral0.2", "none", "swap", "sw,nofail,x-systemd.requires=cloud-init.service", "0", "0"]
         EOF
         ```
 1. If you want to unregister the subscription, run the following command:
@@ -516,7 +516,7 @@ This section assumes that you have already obtained an ISO file from the Red Hat
             filesystem: swap
         mounts:
           - ["ephemeral0.1", "/mnt"]
-          - ["ephemeral0.2", "none", "swap", "sw", "0", "0"]
+          - ["ephemeral0.2", "none", "swap", "sw,nofail,x-systemd.requires=cloud-init.service", "0", "0"]
         EOF
         ```
 1. If you want to unregister the subscription, run the following command:
@@ -1387,7 +1387,7 @@ This section shows you how to prepare a RHEL 7 distro from an ISO using a kickst
         filesystem: swap
     mounts:
     - ["ephemeral0.1", "/mnt"]
-    - ["ephemeral0.2", "none", "swap", "sw", "0", "0"]
+    - ["ephemeral0.2", "none", "swap", "sw,nofail,x-systemd.requires=cloud-init.service", "0", "0"]
     EOF
 
     # Set the cmdline
