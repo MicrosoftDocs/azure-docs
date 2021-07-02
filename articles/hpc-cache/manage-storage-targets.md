@@ -4,7 +4,7 @@ description: How to suspend, remove, force delete, and flush Azure HPC Cache sto
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 06/28/2021
+ms.date: 07/01/2021
 ms.author: v-erkel
 ---
 
