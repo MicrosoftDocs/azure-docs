@@ -46,6 +46,23 @@ ASC_445,tcp,445,AzureSpringCloud
 ASC_123,udp,123,AzureSpringCloud
 ```
 
+The second CSV file is `AzureSpringCloudUrlCategories.csv`, containing the addresses (with wildcards) that should be available for egress from Azure Spring Cloud. As before, the content below is for demonstration purposes only. Consult [Azure Spring Cloud FQDN requirements/application rules](/azure/spring-cloud/vnet-customer-responsibilities#azure-spring-cloud-fqdn-requirementsapplication-rules) for up-to-date values.
+
+```
+name,description
+*.azmk8s.io,
+mcr.microsoft.com,
+*.cdn.mscr.io,
+*.data.mcr.microsoft.com,
+management.azure.com,
+*.microsoftonline.com,
+*.microsoft.com,
+packages.microsoft.com,
+acs-mirror.azureedge.net,
+mscrl.microsoft.com,
+crl.microsoft.com,
+crl3.digicert.com
+```
 
 
 ### Authenticate into Palo Alto
@@ -181,9 +198,113 @@ function New-PaloAltoServiceGroup {
 Get-Content ./AzureSpringCloudServices.csv | ConvertFrom-Csv | New-PaloAltoServiceGroup -ServiceGroupName 'AzureSpringCloud_SG'
 ```
 
-## Create a custom URL category
+## Create custom URL categories
+
+Next, we define custom URL categories for the service group to enable egress from Azure Spring Cloud.
+
+```powershell
+# Read Service entries from CSV to enter into Palo Alto
+$csvImport = Get-Content ${PSScriptRoot}/AzureSpringCloudUrls.csv | ConvertFrom-Csv
+
+# Convert name column of CSV to add to the Custom URL Group in Palo Alto
+$requestBody = @{ 'entry' = [ordered] @{
+        '@name' = 'AzureSpringCloud_SG'
+        'list'  = @{ 'member' = $csvImport.name }
+        'type'  = 'URL List'
+    }
+} | ConvertTo-Json -Depth 9
+
+$url = "https://${PaloAltoIpAddress}/restapi/v9.1/Objects/CustomURLCategories?location=vsys&vsys=vsys1&name=AzureSpringCloud_SG"
+
+try {
+    $existingObject = Invoke-RestMethod -Method Get -Uri $url  -SkipCertificateCheck -Headers $paloAltoHeaders
+    Invoke-RestMethod -Method Delete -Uri $url  -SkipCertificateCheck -Headers $paloAltoHeaders
+}
+catch {
+}
+
+Invoke-RestMethod -Method Post -Uri $url  -SkipCertificateCheck -Headers $paloAltoHeaders -Body $requestBody -Verbose
+```
 
 ## Create a security rule
+
+Create a JSON file containing a security rule, e.g. `SecurityRule.json`. Note the name two zones `Azure_Inside` and `Azure_Outside` zone names match the zones from the prerequisites. Also note the `service/member` entry contains the name of the service group created in the previous steps.
+
+```json
+{
+    "entry": [
+        {
+            "@name": "azureSpringCloudRule",
+            "@location": "vsys",
+            "@vsys": "vsys1",
+            "to": {
+                "member": [
+                    "Azure_Outside"
+                ]
+            },
+            "from": {
+                "member": [
+                    "Azure_Inside"
+                ]
+            },
+            "source-user": {
+                "member": [
+                    "any"
+                ]
+            },
+            "application": {
+                "member": [
+                    "any"
+                ]
+            },
+            "service": {
+                "member": [
+                    "AzureSpringCloud_SG"
+                ]
+            },
+            "hip-profiles": {
+                "member": [
+                    "any"
+                ]
+            },
+            "action": "allow",
+            "category": {
+                "member": [
+                    "any"
+                ]
+            },
+            "source": {
+                "member": [
+                    "any"
+                ]
+            },
+            "destination": {
+                "member": [
+                    "any"
+                ]
+            }
+        }
+    ]
+}
+```
+
+Now, apply this rule to Palo Alto. 
+
+```powershell
+$url = "https://${PaloAltoIpAddress}/restapi/v9.1/Policies/SecurityRules?location=vsys&vsys=vsys1&name=azureSpringCloudRule"
+
+# Delete the rule if it already exists
+try {
+    $getResult = Invoke-RestMethod -Headers $paloAltoHeaders -Method Get -SkipCertificateCheck -Uri $url -Verbose 
+    if ($getResult.'@status' -eq 'success') {
+        Invoke-RestMethod -Method Delete  -Headers $paloAltoHeaders -SkipCertificateCheck -Uri $url
+    }
+}
+catch {}
+
+# Create the rule from the JSON file
+Invoke-WebRequest -Uri $url -Method Post -Headers $paloAltoHeaders -Body (Get-Content SecurityRule.json) -SkipCertificateCheck
+```
 
 ## Create App Insights addresses
 
