@@ -112,7 +112,7 @@ See the reference docs for detailed information on the [`SpeechConfig`](https://
 
 ## Speech-to-text from audio file
 
-Use the following sample to run speech recognition from an audio file. Replace the variables `subscription` and `region` with your speech key and location/region. See the [Find keys and location/region](../../../overview.md#find-keys-and-region) page to find your key-location/region pair. Additionally, replace the variable `file` with a path to a .wav file. Running the script will recognize speech from the file, and output the text result.
+Use the following sample to run speech recognition from an audio file. Replace the variables `subscription` and `region` with your speech key and location/region. See the [Find keys and location/region](../../../overview.md#find-keys-and-locationregion) page to find your key-location/region pair. Additionally, replace the variable `file` with a path to a .wav file. Running the script will recognize speech from the file, and output the text result.
 
 ```go
 package main
