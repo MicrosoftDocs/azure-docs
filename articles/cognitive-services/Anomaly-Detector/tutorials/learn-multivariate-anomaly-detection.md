@@ -319,7 +319,7 @@ Too many missing data points will deteriorate model accuracy.
 
 To perform inference, simply provide the blob source to the zip file containing the inference data, the start time, and end time.
 
-Inference is also asynchronized, so the results are not returned immediately. Notice that you need to save in a variable the link of the results in the **response header** which contains the `resultId`, so that you may know where to get the results afterwards.
+Inference is also asynchronous, so the results are not returned immediately. Notice that you need to save in a variable the link of the results in the **response header** which contains the `resultId`, so that you may know where to get the results afterwards.
 
 Failures are usually caused by model issues or data issues. You cannot perform inference if the model is not ready or the data link is invalid. Make sure that the training data and inference data are consistent, which means they should be **exactly** the same variables but with different timestamps. More variables, fewer variables, or inference with a different set of variables will not pass the data verification phase and errors will occur. Data verification is deferred so that you will get error message only when you query the results.
 
