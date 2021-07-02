@@ -1,6 +1,6 @@
 ---
-title: Install arcdata extension
-description: Install the arcdata extension for Azure (az) cli
+title: Install `arcdata` extension
+description: Install the `arcdata` extension for Azure (az) cli
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -11,7 +11,7 @@ ms.date: 07/08/2021
 ms.topic: how-to
 ---
 
-# Install arcdata Azure CLI extension
+# Install `arcdata` Azure CLI extension
 
 > [!IMPORTANT]
 > If you are updating to a new monthly release, please be sure to also update to the latest version of Azure CLI and the Azure CLI extension.
@@ -23,13 +23,15 @@ ms.topic: how-to
 To get the latest Azure CLI, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 
-## Add the arcdata extension
+## Add the `arcdata` extension
 
 To add the extension, run the following command: 
 
 ```azurecli
 az extension add --name arcdata 
 ```
+
+[Learn more about Azure CLI extensions](/cli/azure/azure-cli-extensions-overview).
 
 ## Next steps
 
