@@ -55,7 +55,7 @@ When you choose a throughput value, keep in mind that the actual data transfer r
 
 The values you choose set the maximum throughput for the entire cache system, but some of that is used for overhead tasks. For example, if a client requests a file that isn't already stored in the cache, or if the file is marked as stale, your cache uses some of its throughput to fetch it from back-end storage.
 
-Azure HPC Cache manages which files are cached and preloaded to maximize cache hit rates. Cache contents are continuously assessed, and files are moved to long-term storage when they're less frequently accessed.
+Azure HPC Cache manages which files are cached and pre-loaded to maximize cache hit rates. Cache contents are continuously assessed, and files are moved to long-term storage when they're less frequently accessed.
 
 Choose a cache storage size that can comfortably hold the active set of working files, plus additional space for metadata and other overhead.
 

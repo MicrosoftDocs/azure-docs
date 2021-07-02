@@ -30,7 +30,8 @@ To work around this difference, Azure HPC Cache automatically disables NFS attri
 
 This setting persists for the lifetime of the container, even if you remove it from the cache.
 
-## Preload data with NFS protocol
+## Pre-load data with NFS protocol
+<!-- cross-referenced from hpc-cache-ingest.md and here -->
 
 On an NFS-enabled blob container, *a file can only be edited by the same protocol used when it was created*. That is, if you use the Azure REST API to populate a container, you cannot use NFS to update those files. Because Azure HPC Cache only uses NFS, it can't edit any files that were created with the Azure REST API.
 
@@ -44,7 +45,7 @@ If the files in your container were created with Azure Blob's REST API instead o
 * Empty the file (truncate it to 0).
 * Save a copy of the file. The copy is marked as an NFS-created file, and it can be edited using NFS.
 
-Azure HPC Cache **can't** edit the contents of a file that was created using REST. This means that it can't save a changed file from a client back to the storage target.
+**Azure HPC Cache can't edit the contents of a file that was created using REST.** This means that the cache can't save a changed file from a client back to the storage target.
 
 It's important to understand this limitation, because it can cause data integrity problems if you use read/write caching usage models on files that were not created with NFS.
 
@@ -103,7 +104,7 @@ Azure HPC Cache can help improve performance in a workload that includes writing
 
 One of the limitations outlined in the NFS-enabled blob [Performance considerations article](../storage/blobs/network-file-system-protocol-support-performance.md) is that ADLS-NFS storage is not very efficient at overwriting existing files. If you use Azure HPC Cache with NFS-mounted blob storage, the cache handles intermittent rewrites as clients modify an active file. The latency of writing a file to the back end container is hidden from the clients.
 
-Keep in mind the limitations explained above in [Preload data with NFS protocol](#preload-data-with-nfs-protocol).
+Keep in mind the limitations explained above in [Pre-load data with NFS protocol](#pre-load-data-with-nfs-protocol).
 
 ## Next steps
 

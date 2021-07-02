@@ -4,7 +4,7 @@ description: How to edit Azure HPC Cache storage targets
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 06/28/2021
+ms.date: 06/30/2021
 ms.author: v-erkel
 ---
 
@@ -12,7 +12,8 @@ ms.author: v-erkel
 
 You can modify storage targets with the Azure portal or by using the Azure CLI. For example, you can change access policies, usage models, and namespace paths for an existing storage target.
 
-Storage target *management* tasks, like suspending or deleting a storage target, are described in [Manage storage targets](manage-storage-targets.md).
+> [!TIP]
+> Read [Manage storage targets](manage-storage-targets.md) to learn how to delete or suspend storage targets, or make them write cached data to back-end storage.
 
 Depending on the type of storage, you can modify these storage target values:
 
@@ -29,8 +30,7 @@ Depending on the type of storage, you can modify these storage target values:
 
 You can't edit a storage target's name, type, or back-end storage system. If you need to change these properties, delete the storage target and create a replacement with the new value.
 
-> [!TIP]
-> The [Managing Azure HPC Cache video](https://azure.microsoft.com/resources/videos/managing-hpc-cache/) shows how to edit a storage target in the Azure portal.
+The [Managing Azure HPC Cache video](https://azure.microsoft.com/resources/videos/managing-hpc-cache/) shows how to edit a storage target in the Azure portal.
 
 ## Change a blob storage target's namespace path or access policy
 

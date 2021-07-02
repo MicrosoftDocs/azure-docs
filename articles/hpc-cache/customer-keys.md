@@ -4,7 +4,7 @@ description: How to use Azure Key Vault with Azure HPC Cache to control encrypti
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 07/20/2020
+ms.date: 07/01/2021
 ms.author: v-erkel
 ---
 
@@ -71,6 +71,8 @@ You must specify the encryption key source when you create your Azure HPC Cache.
 > [!TIP]
 > If the **Disk encryption keys** page does not appear, make sure that your cache is in one of the [supported regions](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=hpc-cache,key-vault).
 
+![Screenshot of the completed Disk encryption keys screen, part of the cache creation interface in the portal.](media/customer-keys-populated.png)
+
 The user who creates the cache must have privileges equal to the [Key Vault contributor role](../role-based-access-control/built-in-roles.md#key-vault-contributor) or higher.
 
 1. Click the button to enable privately managed keys. After you change this setting, the key vault settings appear.
@@ -86,6 +88,15 @@ The user who creates the cache must have privileges equal to the [Key Vault cont
 1. After selecting a vault, select the individual key from the available options, or create a new key. The key must be a 2048-bit RSA key.
 
 1. Specify the version for the selected key. Learn more about versioning in the [Azure Key Vault documentation](../key-vault/general/about-keys-secrets-certificates.md#objects-identifiers-and-versioning).
+
+These settings are optional:
+
+* Check the **Always use current key version** box if you want to use [automatic key rotation](../virtual-machines/disk-encryption.md#automatic-key-rotation-of-customer-managed-keys-preview).
+
+* If you need to use a specific managed identity for this cache, select **User assigned** in the **Managed identities** section and select the identity to use. Read the [managed identities documentation](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) for help.
+
+  > [!NOTE]
+  > You cannot change the assigned identity after you create the cache.
 
 Continue with the rest of the specifications and create the cache as described in [Create an Azure HPC Cache](hpc-cache-create.md).
 
@@ -104,11 +115,11 @@ This two-step process is necessary because the Azure HPC Cache instance needs an
 
 The cache shows the status **Waiting for key**. Click the **Enable encryption** button at the top of the page to authorize the cache to access the specified key vault.
 
-![screenshot of cache overview page in portal, with highlighting on the Enable encryption button (top row) and Status: Waiting for key](media/waiting-for-key.png)
+![Screenshot of cache overview page in portal, with highlighting on the Enable encryption button (top row) and Status: Waiting for key.](media/waiting-for-key.png)
 
 Click **Enable encryption** and then click the **Yes** button to authorize the cache to use the encryption key. This action also enables soft-delete and purge protection (if not already enabled) on the key vault.
 
-![screenshot of cache overview page in portal, with a banner message at the top that asks the user to enable encryption by clicking yes](media/enable-keyvault.png)
+![Screenshot of cache overview page in portal, with a banner message at the top that asks the user to enable encryption by clicking yes.](media/enable-keyvault.png)
 
 After the cache requests access to the key vault, it can create and encrypt the disks that store cached data.
 
@@ -120,17 +131,17 @@ You can change the key vault, key, or key version for your cache from the Azure 
 
 You cannot change a cache between customer-managed keys and system-managed keys.
 
-![screenshot of "Customer keys settings" page, reached by clicking Settings > Encryption from the cache page in the Azure portal](media/change-key-click.png)
+![Screenshot of "Customer keys settings" page, reached by clicking Settings > Encryption from the cache page in the Azure portal.](media/change-key-click.png)
 
 Click the **Change key** link, then click **Change the key vault, key, or version** to open the key selector.
 
-![screenshot of "select key from Azure Key Vault" page with three drop-down selectors to choose key vault, key, and version](media/select-new-key.png)
+![Screenshot of "select key from Azure Key Vault" page with three drop-down selectors to choose key vault, key, and version.](media/select-new-key.png)
 
 Key vaults in the same subscription and same region as this cache are shown in the list.
 
 After you choose the new encryption key values, click **Select**. A confirmation page appears with the new values. Click **Save** to finalize the selection.
 
-![screenshot of confirmation page with Save button at top left](media/save-key-settings.png)
+![Screenshot of confirmation page with Save button at top left.](media/save-key-settings.png)
 
 ## Read more about customer-managed keys in Azure
 
