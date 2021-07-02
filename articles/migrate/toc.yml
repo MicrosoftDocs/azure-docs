@@ -77,9 +77,13 @@
   - name: Containerize
     items:
     - name: Containerize ASP.NET apps and migrate to AKS
-      href: tutorial-app-containerization-aspnet-kubernetes.md
+      href: tutorial-containerize-aspnet-kubernetes.md
     - name: Containerize Java web apps and migrate to AKS
-      href: tutorial-app-containerization-java-kubernetes.md
+      href: tutorial-containerize-java-kubernetes.md
+    - name: Containerize ASP.NET apps and migrate to App Service
+      href: tutorial-containerize-aspnet-appservice.md
+    - name: Containerize Java web apps and migrate to App Service
+      href: tutorial-containerize-java-appservice.md
 - name: Concepts
   items:
   - name: General
