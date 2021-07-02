@@ -8,7 +8,7 @@ manager: femila
 ms.service: media-services
 ms.workload: 
 ms.topic: quickstart
-ms.date: 2/26/2021
+ms.date: 7/2/2021
 ms.author: inhenkel
 ---
 
