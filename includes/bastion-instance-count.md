@@ -10,4 +10,4 @@ Azure Bastion supports manual host scaling. You can configure the number of host
 
 Increasing the number of host instances lets Azure Bastion manage more concurrent sessions. Decreasing the number of instances decreases the number of concurrent supported sessions. 
 
-Azure Bastion supports up to 50 host instances. This feature is available for the Azure Bastion Standard SKU only. For more information about SKUs, see [Configuration settings](../articles/bastion/configuration-settings.md#sku).
+Azure Bastion supports up to 50 host instances. This feature is available for the Azure Bastion Standard SKU only. For more information about SKUs, see [Configuration settings](../articles/bastion/configuration-settings.md#skus).
