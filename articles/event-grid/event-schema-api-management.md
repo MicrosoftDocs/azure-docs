@@ -1,15 +1,15 @@
 ---
 title: API Management as an Event Grid source
-description: This article describes how to use Azure API Management as an Event Grid event source. It provides the schema and links to tutorial and how-to articles. 
+description: This article describes how to use Azure API Management as an Event Grid event source. It provides the schema and links to how-to articles. 
 ms.topic: conceptual
 author: spelluru
-ms.author: spelluru
-ms.date: 07/01/2021
+ms.author: dlepow
+ms.date: 07/02/2021
 ---
 
 # Azure API Management as an Event Grid source (Preview)
 
-This article provides the properties and schema for [Azure API Management](../api-management/index.yml) events. For an introduction to event schemas, see [Azure Event Grid event schema](./event-schema.md). It also gives you a list of quick starts and tutorials to use Azure Policy as an event source.
+This article provides the properties and schema for [Azure API Management](../api-management/index.yml) events. For an introduction to event schemas, see [Azure Event Grid event schema](./event-schema.md). It also gives you links to articles to use API Management as an event source.
 
 ## Available event types
 
@@ -20,107 +20,74 @@ API Management emits the following event types:
 | Microsoft.APIManagement.UserCreated | Raised when a user is created. |
 | Microsoft.APIManagement.UserUpdated | Raised when a user is updated. |
 | Microsoft.APIManagement.UserDeleted | Raised when a user is deleted. |
-| Microsoft.APIManagement.APISubscriptionCreated | Raised when an API subscription is created. |
-| Microsoft.APIManagement.APISubscriptionUpdated | Raised when an API subscription is updated. |
-| Microsoft.APIManagement.APISubscriptionDeleted | Raised when an API subscription is deleted. |
+| Microsoft.APIManagement.APICreated | Raised when an API is created. |
+| Microsoft.APIManagement.APIUpdated | Raised when an API is updated. |
+| Microsoft.APIManagement.APIDeleted | Raised when an API is deleted. |
 | Microsoft.APIManagement.ProductCreated | Raised when a product is created. |
 | Microsoft.APIManagement.ProductUpdated | Raised when a product is updated. |
 | Microsoft.APIManagement.ProductDeleted | Raised when a product is deleted. |
-| Microsoft.APIManagement.APIReleaseCreated | Raised when an API release is created. |
-| Microsoft.APIManagement.APIReleaseUpdated | Raised when an API release is updated. |
-| Microsoft.APIManagement.APIReleaseDeleted | Raised when an API release is deleted. |
+| Microsoft.APIManagement.ReleaseCreated | Raised when an API release is created. |
+| Microsoft.APIManagement.ReleaseUpdated | Raised when an API release is updated. |
+| Microsoft.APIManagement.ReleaseDeleted | Raised when an API release is deleted. |
+| Microsoft.APIManagement.SubscriptionCreated | Raised when a subscription is created. |
+| Microsoft.APIManagement.SubscriptionUpdated | Raised when a subscription is updated. |
+| Microsoft.APIManagement.SubscriptionDeleted | Raised when a subscription is deleted. |
 
 ## Example event
 
 # [Event Grid event schema](#tab/event-grid-event-schema)
-The following example shows the schema of a user created event: 
+The following example shows the schema of an product created event. The schema of other API Management resource created events is similar.
 
 ```json
 [{
-    "id": "5829794FCB5075FCF585476619577B5A5A30E52C84842CBD4E2AD73996714C4C",
-    "topic": "/subscriptions/<SubscriptionID>",
-    "subject": "/subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroup>/providers/<ProviderNamespace>/<ResourceType>/<ResourceName>",
-    "data": {
-        "timestamp": "2021-03-27T18:37:42.4496956Z",
-        "policyAssignmentId": "<policy-assignment-scope>/providers/microsoft.authorization/policyassignments/<policy-assignment-name>",
-        "policyDefinitionId": "<policy-definition-scope>/providers/microsoft.authorization/policydefinitions/<policy-definition-name>",
-        "policyDefinitionReferenceId": "",
-        "complianceState": "NonCompliant",
-        "subscriptionId": "<subscription-id>",
-        "complianceReasonCode": ""
-    },
-    "eventType": "Microsoft.PolicyInsights.PolicyStateCreated",
-    "eventTime": "2021-03-27T18:37:42.5241536Z",
-    "dataVersion": "1",
-    "metadataVersion": "1"
+  "id": "92c502f2-a966-42a7-a428-d3b319844544",
+  "topic": "/subscriptions/{subscription-id}/resourceGroups/{your-rg}/providers/Microsoft.ApiManagement/service/{your-APIM-instance}",
+  "subject": "/products/myproduct",
+  "data": {
+    "resourceUri": "/subscriptions/{subscription-id}/resourceGroups/{your-rg}/providers/Microsoft.ApiManagement/service/{your-APIM-instance}/products/myproduct"
+  },
+  "eventType": "Microsoft.ApiManagement.ProductCreated",
+  "dataVersion": "1",
+  "metadataVersion": "1",
+  "eventTime": "2021-07-02T00:47:47.8536532Z"
 }]
 ```
 
-The schema for a policy state changed event is similar: 
+The following example shows the schema of a user deleted event. The schema of other API Management resource deleted events is similar. 
 
 ```json
 [{
-    "id": "5829794FCB5075FCF585476619577B5A5A30E52C84842CBD4E2AD73996714C4C",
-    "topic": "/subscriptions/<SubscriptionID>",
-    "subject": "/subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroup>/providers/<ProviderNamespace>/<ResourceType>/<ResourceName>",
-    "data": {
-        "timestamp": "2021-03-27T18:37:42.4496956Z",
-        "policyAssignmentId": "<policy-assignment-scope>/providers/microsoft.authorization/policyassignments/<policy-assignment-name>",
-        "policyDefinitionId": "<policy-definition-scope>/providers/microsoft.authorization/policydefinitions/<policy-definition-name>",
-        "policyDefinitionReferenceId": "",
-        "complianceState": "NonCompliant",
-        "subscriptionId": "<subscription-id>",
-        "complianceReasonCode": ""
-    },
-    "eventType": "Microsoft.PolicyInsights.PolicyStateChanged",
-    "eventTime": "2021-03-27T18:37:42.5241536Z",
-    "dataVersion": "1",
-    "metadataVersion": "1"
+  "id": "81dac958-49cf-487e-8805-d0baf0ee485a",
+  "topic": "/subscriptions/{subscription-id}/resourceGroups/{your-rg}/providers/Microsoft.ApiManagement/service/{your-APIM-instance}",
+  "subject": "/users/apimuser-contoso-com",
+  "data": {
+    "resourceUri": "/subscriptions/{subscription-id}/resourceGroups/{your-rg}/providers/Microsoft.ApiManagement/service/{your-APIM-instance}/users/apimuser-contoso-com"
+  },
+  "eventType": "Microsoft.ApiManagement.UserDeleted",x`
+  "dataVersion": "1",
+  "metadataVersion": "1",
+  "eventTime": "2021-07-02T00:38:44.3978295Z"
 }]
 ```
 # [Cloud event schema](#tab/cloud-event-schema)
 
-The following example shows the schema of a policy state created event: 
+The following example shows the schema of an API updated event. The schema of other API Management resource updated events is similar. 
 
 ```json
 [{
-    "id": "5829794FCB5075FCF585476619577B5A5A30E52C84842CBD4E2AD73996714C4C",
-    "source": "/subscriptions/<SubscriptionID>",
-    "subject": "/subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroup>/providers/<ProviderNamespace>/<ResourceType>/<ResourceName>",
-    "data": {
-        "timestamp": "2021-03-27T18:37:42.4496956Z",
-        "policyAssignmentId": "<policy-assignment-scope>/providers/microsoft.authorization/policyassignments/<policy-assignment-name>",
-        "policyDefinitionId": "<policy-definition-scope>/providers/microsoft.authorization/policydefinitions/<policy-definition-name>",
-        "policyDefinitionReferenceId": "",
-        "complianceState": "NonCompliant",
-        "subscriptionId": "<subscription-id>",
-        "complianceReasonCode": ""
-    },
-    "type": "Microsoft.PolicyInsights.PolicyStateCreated",
-    "time": "2021-03-27T18:37:42.5241536Z",
-    "specversion": "1.0"
-}]
-```
-
-The schema for a policy state changed event is similar: 
-
-```json
-[{
-    "id": "5829794FCB5075FCF585476619577B5A5A30E52C84842CBD4E2AD73996714C4C",
-    "source": "/subscriptions/<SubscriptionID>",
-    "subject": "/subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroup>/providers/<ProviderNamespace>/<ResourceType>/<ResourceName>",
-    "data": {
-        "timestamp": "2021-03-27T18:37:42.4496956Z",
-        "policyAssignmentId": "<policy-assignment-scope>/providers/microsoft.authorization/policyassignments/<policy-assignment-name>",
-        "policyDefinitionId": "<policy-definition-scope>/providers/microsoft.authorization/policydefinitions/<policy-definition-name>",
-        "policyDefinitionReferenceId": "",
-        "complianceState": "NonCompliant",
-        "subscriptionId": "<subscription-id>",
-        "complianceReasonCode": ""
-    },
-    "type": "Microsoft.PolicyInsights.PolicyStateChanged",
-    "time": "2021-03-27T18:37:42.5241536Z",
-    "specversion": "1.0"
+  "id": "96c9a22d-c047-41f4-bd4f-7547df2bb884",
+  "topic": "/subscriptions/{subscription-id}/resourceGroups/{your-rg}/providers/Microsoft.ApiManagement/service/{your-APIM-instance}",
+  "subject": "/apis/demo-conference-api;Rev=1",
+  "data": {
+    "updatedProperties": [
+      "path"
+    ],
+    "resourceUri": "/subscriptions/{subscription-id}/resourceGroups/{your-rg}/providers/Microsoft.ApiManagement/service/{your-APIM-instance}/apis/demo-conference-api;Rev=1"
+  },
+  "eventType": "Microsoft.ApiManagement.APIUpdated",
+  "dataVersion": "1",
+  "metadataVersion": "1",
+  "eventTime": "2021-07-02T18:36:27.0214836Z"
 }]
 ```
 
@@ -163,23 +130,17 @@ The data object has the following properties:
 
 | Property | Type | Description |
 | -------- | ---- | ----------- |
-| `timestamp` | string | The time (in UTC) that the resource was scanned by Azure Policy. For ordering events, use this property instead of the top-level `eventTime` or `time` properties. |
-| `policyAssignmentId` | string | The resource ID of the policy assignment. |
-| `policyDefinitionId` | string | The resource ID of the policy definition. |
-| `policyDefinitionReferenceId` | string | The reference ID for the policy definition inside the initiative definition, if the policy assignment is for an initiative. May be empty. |
-| `complianceState` | string | The compliance state of the resource with respect to the policy assignment. |
-| `subscriptionId` | string | The subscription ID of the resource. |
-| `complianceReasonCode` | string | The compliance reason code. May be empty. |
+| `resourceUri` | string | The URI of the API Management resource that triggered the event. |
+| `updatedProperties` | string[] | List of properties updated in the API Management resouce that triggered an update event. |
 
 ## Tutorials and how-tos
 |Title  |Description  |
 |---------|---------|
-| | |
+| [Send events from API Management to Event Grid](../api-management/how-to-event-grid.md)| How to subscribe to API Management events using Event Grid. |
 
 ## Next steps
 
-- For a walkthrough routing Azure Policy state change events, see
-  [Use Event Grid for policy state change notifications](../governance/policy/tutorials/route-state-change-events.md).
 - For an introduction to Azure Event Grid, see [What is Event Grid?](./overview.md)
-- For more information about creating an Azure Event Grid subscription, see
-  [Event Grid subscription schema](./subscription-creation-schema.md).
+- For more information about creating an Azure Event Grid subscription, see [Event Grid subscription schema](./subscription-creation-schema.md).
+
+

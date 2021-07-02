@@ -295,6 +295,8 @@
               href: howto-use-analytics.md
             - name: Log events to Azure Event Hubs
               href: api-management-howto-log-event-hubs.md
+            - name: Send events to Event Grid
+              href: how-to-event-grid.md
             - name: Log requests with Azure Application Insights
               href: api-management-howto-app-insights.md
             - name: Configure cloud metrics and logs for self-hosted gateway

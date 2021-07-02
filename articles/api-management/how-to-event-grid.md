@@ -1,43 +1,39 @@
 ---
-title: Quickstart - Send events to Event Grid
+title: Send events from Azure API Management to Event Grid
 description: In this quickstart, you enable Event Grid events for your API Management instance, then send  events to a sample application.
-ms.topic: article
-ms.date: 07/01/2021
+ms.topic: how-to
+ms.date: 07/02/2021
 ms.custom:
 ---
 
-# Quickstart: Send events from API Management to Event Grid
+# Send events from API Management to Event Grid (Preview)
 
-Azure Event Grid is a fully managed event routing service that provides uniform event consumption using a publish-subscribe model. In this quickstart, you use the Azure CLI to create a container registry, subscribe to registry events, then deploy a sample web application to receive the events. Finally, you trigger container image `push` and `delete` events and view the event payload in the sample application.
+API Management integrates with Azure [Event Grid](../event-grid/overview.md) so that you can send event notifications to other services and trigger downstream processes. Event Grid is a fully managed event routing service that uses a publish-subscribe model. Event Grid has built-in support for Azure services like [Azure Functions](../azure-functions/functions-overview.md) and [Azure Logic Apps](../logic-apps/logic-apps-overview.md), and can deliver event alerts to non-Azure services using webhooks.
 
-After you complete the steps in this article, events sent from your container registry to Event Grid appear in the sample web app:
+For example, using integration with Event Grid, you can build an application that updates a database, creates a billing account, and sends an email notification each time a user is added to your API Management instance.
 
-![Web browser rendering the sample web application with three received events][sample-app-01]
+In this article, you subscribe to Event Grid events in your API Management instance, trigger events, and send the events to an endpoint that processes the data. To keep it simple, you send events to a sample web app that collects and displays the messages:
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+:::image type="content" source="media/how-to-event-grid/event-grid-viewer-intro.png" alt-text="API Management events in Event Grid viewer":::
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
-
-- The Azure CLI commands in this article are formatted for the **Bash** shell. If you're using a different shell like PowerShell or Command Prompt, you may need to adjust line continuation characters or variable assignment lines accordingly. This article uses variables to minimize the amount of command editing required.
-
-## Create a resource group
-
-An Azure resource group is a logical container in which you deploy and manage your Azure resources. The following [az group create][az-group-create] command creates a resource group named *myResourceGroup* in the *eastus* region. If you want to use a different name for your resource group, set `RESOURCE_GROUP_NAME` to a different value.
-
-```azurecli-interactive
-RESOURCE_GROUP_NAME=myResourceGroup
-
-az group create --name $RESOURCE_GROUP_NAME --location eastus
-```
-
+- If you don't already have an API Management service, complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md),
+- Enable a [system-assigned managed identity](api-management-howto-use-managed-service-identity#create-a-system-assigned-managed-identity) in your API Management instance.
+- Create a [resource group](../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups) if you don't have one in which to deploy the sample endpoint.
 
 ## Create an event endpoint
 
-In this section, you use a Resource Manager template located in a GitHub repository to deploy a pre-built sample web application to Azure App Service. Later, you subscribe to your registry's Event Grid events and specify this app as the endpoint to which the events are sent.
+In this section, you use a Resource Manager template to deploy a pre-built sample web application to Azure App Service. Later, you subscribe to your API Management instance's Event Grid events and specify this app as the endpoint to which the events are sent.
 
-To deploy the sample app, set `SITE_NAME` to a unique name for your web app, and execute the following commands. The site name must be unique within Azure because it forms part of the fully qualified domain name (FQDN) of the web app. In a later section, you navigate to the app's FQDN in a web browser to view your registry's events.
+To deploy the sample app, you can use the Azure CLI, Azure PowerShell, or the Azure portal. The following example uses the Azure CLI.
+
+* Set `RESOURCE_GROUP_NAME` to the name of an existing resource group
+* Set `SITE_NAME` to a unique name for your web app
+
+  The site name must be unique within Azure because it forms part of the fully qualified domain name (FQDN) of the web app. In a later section, you navigate to the app's FQDN in a web browser to view the events.
 
 ```azurecli-interactive
+RESOURCE_GROUP_NAME=<your-resource-group-name>
 SITE_NAME=<your-site-name>
 
 az deployment group create \
@@ -48,66 +44,60 @@ az deployment group create \
 
 Once the deployment has succeeded (it might take a few minutes), open a browser and navigate to your web app to make sure it's running:
 
-`http://<your-site-name>.azurewebsites.net`
+`https://<your-site-name>.azurewebsites.net`
 
-You should see the sample app rendered with no event messages displayed:
+You should see the sample app rendered with no event messages displayed.
 
-![Web browser showing sample web app with no events displayed][sample-app-02]
+:::image type="content" source="media/how-to-event-grid/event-grid-viewer.png" alt-text="New Event Grid viewer":::
 
-[!INCLUDE [event-grid-register-provider-cli.md](../../includes/event-grid-register-provider-cli.md)]
+[!INCLUDE [event-grid-register-provider-portal.md](../../includes/event-grid-register-provider-portal.md)]
 
 ## Subscribe to API Management events
 
-In Event Grid, you subscribe to a *topic* to tell it which events you want to track, and where to send them. 
+In Event Grid, you subscribe to a *topic* to tell it which events you want to track, and where to send them. Here, you create a subscription to events in your API Management instance.
+
+1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
+1. Select **Events (preview) > + Event Subscription**. 
+1. On the **Basic** tab:
+    * Enter a descriptive **Name** for the event subscription.
+    * In **Event Types**, select one or more API Management event types to send to Event Grid. For the example in this article, select at least **Microsoft.APIManagement.ProductCreated** 
+    * In **Endpoint Details**, select the **Web Hook** event type, click **Select an endpoint**, and enter your web app URL followed by `api/updates`. Example: `https://myapp.azurewebsites.net/api/updates`.
+    * Select **Confirm selection**.
+1. Leave the settings on the remaining tabs at their default values, and then select **Create**.
 
 :::image type="content" source="media/how-to-event-grid/create-event-subscription.png" alt-text="Create an event subscription in Azure portal":::
 
-## Trigger  events
+## Trigger and view events
 
-Now that the sample app is up and running and you've subscribed to your API Management with Event Grid, you're ready to generate some events.
+Now that the sample app is up and running and you've subscribed to your API Management instance with Event Grid, you're ready to generate events.
 
-## View API Management events
+As an example, [create a product](/api-management-howto-add-products.md) in your API Management instance. If your event subscription includes the **Microsoft.APIManagement.ProductCreated** event, creating the product triggers an event that is pushed to your web app endpoint. 
 
-You've now pushed an image to your registry and then deleted it. Navigate to your Event Grid Viewer web app, and you should see both `ImageDeleted` and `ImagePushed` events. You might also see a subscription validation event generated by executing the command in the [Subscribe to registry events](#subscribe-to-registry-events) section.
+Navigate to your Event Grid Viewer web app, and you should see the `ProductCreated` event. Select the button next to the event to show the details. 
 
-The following screenshot shows the sample app with the three events, and the `ImageDeleted` event is expanded to show its details.
-
-![Web browser showing the sample app with ImagePushed and ImageDeleted events][sample-app-03]
-
-Congratulations! If you see the `ImagePushed` and `ImageDeleted` events, your registry is sending events to Event Grid, and Event Grid is forwarding those events to your web app endpoint.
-
-## Clean up resources
-
-Once you're done with the resources you created in this quickstart, you can delete them all with the following Azure CLI command. When you delete a resource group, all of the resources it contains are permanently deleted.
-
-**WARNING**: This operation is irreversible. Be sure you no longer need any of the resources in the group before running the command.
-
-```azurecli-interactive
-az group delete --name $RESOURCE_GROUP_NAME
-```
+:::image type="content" source="media/how-to-event-grid/event-grid-viewer-product-created.png" alt-text="Product created event in Event Grid viewer":::
 
 ## Event Grid event schema
 
-You can find the Azure Container Registry event message schema reference in the Event Grid documentation:
+API Management event data always includes the `resourceUri`, which identifies the API Management resource that triggered the event. For details about the  API Management event message schema, see the Event Grid documentation:
 
-[Azure Event Grid event schema for Container Registry](../event-grid/event-schema-container-registry.md)
+[Azure Event Grid event schema for API Management](../event-grid/event-schema-api-management.md)
 
 ## Next steps
 
-In this quickstart, you deployed a container registry, built an image with ACR Tasks, deleted it, and have consumed your registry's events from Event Grid with a sample application. Next, move on to the ACR Tasks tutorial to learn more about building container images in the cloud, including automated builds on base image update:
-
-> [!div class="nextstepaction"]
-> [Build container images in the cloud with ACR Tasks](container-registry-tutorial-quick-task.md)
-
-<!-- IMAGES -->
-[sample-app-01]: ./media/container-registry-event-grid-quickstart/sample-app-01.png
-[sample-app-02]: ./media/container-registry-event-grid-quickstart/sample-app-02-no-events.png
-[sample-app-03]: ./media/container-registry-event-grid-quickstart/sample-app-03-with-events.png
-
-<!-- LINKS - External -->
-[azure-account]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
+* [Choose between Azure messaging services - Event Grid, Event Hubs, and Service Bus](../event-grid/compare-messaging-services.md)
+* Learn more about [subscribing to events](../event-grid/subscribe-through-portal.md).
 
 <!-- LINKS - Internal -->
 
 [az-eventgrid-event-subscription-create]: /cli/azure/eventgrid/event-subscription#az_eventgrid_event_subscription_create
 [az-group-create]: /cli/azure/group#az_group_create
+
+
+
+Qs:
+
+1. SKU support?
+1. Requirement for system MSI
+1. Sample scenarios - email notificais?
+1. Are all 15 event types going to be supported?
