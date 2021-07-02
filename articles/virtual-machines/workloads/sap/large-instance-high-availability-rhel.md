@@ -13,6 +13,9 @@ ms.date: 04/19/2021
 > [!NOTE]
 > This article contains references to the term *blacklist*, a term that Microsoft no longer uses. When this term is removed from the software, we’ll remove it from this article.
 
+> [!NOTE]
+> This article contains references to the term slave, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
+
 In this article, you learn how to configure the Pacemaker cluster in RHEL 7 to automate an SAP HANA database failover. You need to have a good understanding of Linux, SAP HANA, and Pacemaker to complete the steps in this guide.
 
 The following table includes the host names that are used throughout this article. The code blocks in the article show the commands that need to be run, as well as the output of those commands. Pay close attention to which node is referenced in each command.
@@ -1313,5 +1316,5 @@ Whether you prefer automatic registering depends on the customer scenario. Autom
 
 1. [Automated SAP HANA System Replication in Scale-Up in pacemaker cluster](https://access.redhat.com/articles/3397471)
 2. [Support Policies for RHEL High Availability Clusters - Management of SAP HANA in a Cluster](https://access.redhat.com/articles/3397471)
-3. [Setting up Pacemaker on RHEL in Azure - Azure Virtual Machines](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker)
-4. [Azure HANA Large Instances control through Azure portal - Azure Virtual Machines](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-li-portal)
+3. [Setting up Pacemaker on RHEL in Azure - Azure Virtual Machines](high-availability-guide-rhel-pacemaker.md)
+4. [Azure HANA Large Instances control through Azure portal - Azure Virtual Machines](hana-li-portal.md)
