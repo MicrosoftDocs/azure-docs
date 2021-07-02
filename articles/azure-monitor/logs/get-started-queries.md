@@ -85,7 +85,7 @@ SecurityEvent
 | top 10 by TimeGenerated
 ```
 
-Descending is the default sorting order, so we typically omit the **desc** argument.The output will look like this:
+Descending is the default sorting order, so we typically omit the **desc** argument. The output will look like this:
 
 ![Top 10](media/get-started-queries/top10.png)
 
