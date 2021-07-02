@@ -430,7 +430,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    <pre><code>
     # You may need to activate the Public cloud extention first. In this example the SUSEConnect command is for SLES 15 SP1
     SUSEConnect -p sle-module-public-cloud/15.1/x86_64
-    sudo zypper install python3-azure-mgmt-compute
+    sudo zypper install python3-azure-mgmt-compute-4.6.2
    </code></pre> 
  
    >[!IMPORTANT]
@@ -438,7 +438,8 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    >You can check the extension, by running SUSEConnect ---list-extensions.  
    >To achieve the faster failover times with Azure Fence Agent:
    > - on SLES 12 SP4 or SLES 12 SP5 install version **4.6.2** or higher of package python-azure-mgmt-compute  
-   > - on SLES 15.X install version **4.6.2** of package python**3**-azure-mgmt-compute, but not higher. Avoid version 17.0.0-6.7.1 of package python**3**-azure-mgmt-compute, as it contains changes incompatible with Azure Fence Agent    
+   > - on SLES 15.X install version **4.6.2** of package python**3**-azure-mgmt-compute, but **not higher**.
+   > Avoid version 17.0.0-6.7.1 of package python**3**-azure-mgmt-compute, as it contains changes incompatible with Azure Fence Agent, make sure you specify the 4.6.2 version during install: <pre><code>sudo zypper install python3-azure-mgmt-compute-4.6.2</code></pre>    
      
 1. **[A]** Setup host name resolution
 
