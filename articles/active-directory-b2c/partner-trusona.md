@@ -154,7 +154,7 @@ You should now see Trusona as a **new OpenID Connect Identity Provider** listed 
    
 1. Select **Run user flow**. You should be redirected to the Trusona OIDC gateway. On the Trusona gateway, scan the displayed Secure QR code with the Trusona app or with a custom app using the Trusona mobile SDK.
 
-1. After you scan the Secure QR code, you should be redirected to the Reply URL you defined in this section.
+1. After you scan the Secure QR code, you should be redirected to the Reply URL you defined.
 
 ## Next steps  
 
