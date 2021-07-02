@@ -48,7 +48,7 @@ Then you need to prepare your training data (and inference data).
 
 ### Tools for zipping and uploading data
 
-In this section, we share some sample code and tool which you could copy and edit to add into your own application logic which deals with MVAD input data.
+In this section, we share some sample code and tools which you could copy and edit to add into your own application logic which deals with MVAD input data.
 
 #### Compressing csv files in \*nix
 
