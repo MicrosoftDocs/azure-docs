@@ -1,7 +1,7 @@
 ---
-title: "Deploy an ML model with a managed online endpoint" 
+title: Deploy a machine learning model with a managed online endpoint (preview)
 titleSuffix: Azure Machine Learning
-description: Learn to deploy your machine learning model as a web service automatically managed by Azure.
+description: Learn to deploy your machine learning model as a web service that is automatically managed by Azure.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -15,7 +15,7 @@ ms.custom: how-to
 
 # Deploy and score a machine learning model with a managed online endpoint (preview)
 
-Managed online endpoints (preview) provide you the ability to deploy your model without the need to create and manage the underlying infrastructure. In this article, you'll start by deploying a model on your local machine to debug any errors, and then you'll deploy and test it in Azure. You'll also learn how to view the logs and monitor the Service Level Agreement (SLA). You start with a model and end up with a scalable HTTPS/REST endpoint that can be used for online/real-time scoring. For more information, see [What are Azure Machine Learning endpoints (preview)?](concept-endpoints.md).
+Use managed online endpoints (preview) to deploy your model without creating and managing the underlying infrastructure. In this article, you'll start by deploying a model on your local machine to debug any errors, and then you'll deploy and test it in Azure. You'll also learn how to view the logs and monitor the service-level agreement (SLA). You start with a model and end up with a scalable HTTPS/REST endpoint that you can use for online and real-time scoring. For more information, see [What are Azure Machine Learning endpoints (preview)?](concept-endpoints.md).
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
@@ -23,23 +23,24 @@ Managed online endpoints (preview) provide you the ability to deploy your model 
 
 * To use Azure Machine Learning, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 
-* You must install and configure the Azure CLI and ML extension. For more information, see [Install, set up, and use the 2.0 CLI (preview)](how-to-configure-cli.md). 
+* You must install and configure the Azure CLI and the `ml` extension to the Azure CLI. For more information, see [Install, set up, and use the 2.0 CLI (preview)](how-to-configure-cli.md). 
 
-* You must have an Azure resource group, in which you (or the service principal you use) need to have `Contributor` access. You'll have such a resource group if you configured your ML extension per the above article. 
+* You must have an Azure resource group, and you (or the service principal you use) must have Contributor access to it. If you complete the steps described in [Install, set up, and use the 2.0 CLI (preview)](how-to-configure-cli.md), your resource group will be created and ready to use. 
 
-* You must have an Azure Machine Learning workspace. You'll have such a workspace if you configured your ML extension per the above article.
+* You must have an Azure Machine Learning workspace. If you complete the steps described in [Install, set up, and use the 2.0 CLI (preview)](how-to-configure-cli.md), your workspace will be set up and ready to use.
 
-* If you've not already set the defaults for Azure CLI, you should save your default settings. To avoid having to repeatedly pass in the values, run:
+* If you haven't already set the defaults for the Azure CLI, save your default settings. To avoid passing in your subscription, workspace, and resource group values multiple times, run this command:
 
    ```azurecli
    az account set --subscription <subscription id>
    az configure --defaults workspace=<azureml workspace name> group=<resource group>
+   ```
 
-* [Optional] To deploy locally, you must have [Docker engine](https://docs.docker.com/engine/install/) running locally. This step is **highly recommended**. It will help you debug issues.
+* \[Optional\] To deploy locally, you must have the [Docker engine](https://docs.docker.com/engine/install/) running locally. We *highly recommend* this step. It will help you debug issues.
 
 ## Prepare your system
 
-To follow along with the article, clone the samples repository, and navigate to the right directory by running the following commands:
+To follow along with this article, first clone the samples repository. Then, run the following command to go to the directory:
 
 ```azurecli
 git clone https://github.com/Azure/azureml-examples
@@ -47,27 +48,29 @@ cd azureml-examples
 cd cli
 ```
 
-Set your endpoint name (rename the below `YOUR_ENDPOINT_NAME` to a unique name). The below command is for Unix environments:
+To set your endpoint name, choose one of the following commands, depending on your operating system (replace `YOUR_ENDPOINT_NAME` with a unique name).
+
+For Unix, run this command:
 
 ```azurecli
 export ENDPOINT_NAME=YOUR_ENDPOINT_NAME
 ```
 
-If you use a Windows operating system, use this command instead `set ENDPOINT_NAME=YOUR_ENDPOINT_NAME`.
+For Windows, run `set ENDPOINT_NAME=YOUR_ENDPOINT_NAME`.
 
 > [!NOTE]
-> Endpoint names need to be unique at the Azure region level. For example, there can be only one endpoint with the name `my-endpoint` in `westus2`. 
+> Endpoint names must be unique within an Azure region. For example, in the westus2 region, there can be only one endpoint with the name my-endpoint. 
 
 ## Define the endpoint configuration
 
-The inputs needed to deploy a model on an online endpoint are:
+Specific inputs are required to deploy a model on an online endpoint:
 
-- Model files (or the name and version of a model already registered in your workspace). In the example, we have a `scikit-learn` model that does regression.
-- Code that is needed to score the model. In this case, we have a `score.py` file.
-- An environment in which your model is run (as you'll see, the environment may be a Docker image with conda dependencies or may be a Dockerfile).
+- Model files (or the name and version of a model that is already registered in your workspace). In the example, we have a scikit-learn model that does regression.
+- The code that's required to score the model. In this case, we have a *score.py* file.
+- An environment in which your model is run (as you'll see, the environment may be a Docker image with conda dependencies, or it may be a Dockerfile).
 - Settings to specify the instance type and scaling capacity.
 
-The following snippet shows the `endpoints/online/managed/simple-flow/1-create-endpoint-with-blue.yml` file that captures all the above information: 
+The following snippet shows the *endpoints/online/managed/simple-flow/1-create-endpoint-with-blue.yml* file that captures all the above information: 
 
 :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/simple-flow/1-create-endpoint-with-blue.yml":::
 
@@ -78,10 +81,10 @@ The reference for the endpoint YAML format is below. To understand how to specif
 
 | Key | Description |
 | --- | --- |
-| $schema    | [Optional] The YAML schema. You can view the schema in the above example in a browser to see all available options in the YAML file.|
-| name       | Name of the endpoint. Needs to be unique at the Azure region level.|
-| traffic | Percentage of traffic from endpoint to divert to each deployment. Traffic values need to sum to 100 |
-| auth_mode | use `key` for key based authentication and `aml_token` for Azure machine learning token-based authentication. `key` doesn't expire but `aml_token` does. Get the most recent token with the `az ml endpoint get-credentials` command). |
+| $schema    | \[Optional\] The YAML schema. You can view the schema in the preceding example in a browser to see all available options in the YAML file.|
+| name       | Name of the endpoint. Must be unique in the Azure region.|
+| traffic | Percentage of traffic from the endpoint to divert to each deployment. Traffic values need to sum to 100. |
+| auth_mode | Use `key` for key based authentication and `aml_token` for Azure machine learning token-based authentication. `key` doesn't expire, but the `aml_token` does. Get the most recent token by using the `az ml endpoint get-credentials` command). |
 | deployments | Contains a list of deployments to be created in the endpoint. In this case, we have only one deployment, named `blue`. For more on multiple deployments, see [Safe rollout for online endpoints (preview)](how-to-safely-rollout-managed-endpoints.md)|
 
 Attributes of the `deployments`:
@@ -107,15 +110,15 @@ For more information on the YAML schema, see [online endpoint YAML reference](re
 
 ### Registering your model and environment separately
 
- In this example, we're specifying the model and environment properties inline: `name`, `version`, and the `local_path` from which to upload files. Under the covers, the CLI will upload the files and register the model and environment automatically. As a best practice for production, you should separately register the model and environment and specify the registered name and version in the YAML. The form is `model: azureml:my-model:1` or `environment: azureml:my-env:1`.
+In this example, we're specifying the model and environment properties inline: `name`, `version`, and the `local_path` from which to upload files. Under the covers, the CLI will upload the files and register the model and environment automatically. As a best practice for production, you should separately register the model and environment and specify the registered name and version in the YAML. The form is `model: azureml:my-model:1` or `environment: azureml:my-env:1`.
 
- To do the registration, you may extract the YAML definitions of `model` and `environment` into separate YAML files and use the commands `az ml model create` and `az ml environment create`. To learn more about these commands, run `az ml model create -h` and `az ml environment create -h`.
+To do the registration, you may extract the YAML definitions of `model` and `environment` into separate YAML files and use the commands `az ml model create` and `az ml environment create`. To learn more about these commands, run `az ml model create -h` and `az ml environment create -h`.
 
-### Using different CPU & GPU instance types
+### Using different CPU and GPU instance types
 
-The above YAML uses a general purpose type (`Standard_F2s_v2`) and a non-GPU Docker image (in the YAML see the `image` attribute). For GPU compute, you should choose a GPU compute type SKU and a GPU Docker image.
+The preceding YAML uses a general-purpose type (`Standard_F2s_v2`) and a non-GPU Docker image (in the YAML, see the `image` attribute). For GPU compute, you should choose a GPU compute type SKU and a GPU Docker image.
 
-You can see the supported general purpose and GPU instance types in [Managed online endpoints supported VM SKUs](reference-managed-online-endpoints-vm-sku-list.md). A list of Azure ML CPU & GPU base images can be found at [Azure Machine Learning base images](https://github.com/Azure/AzureML-Containers).
+You can see the supported general-purpose and GPU instance types in [Managed online endpoints supported VM SKUs](reference-managed-online-endpoints-vm-sku-list.md). A list of Azure ML CPU & GPU base images can be found at [Azure Machine Learning base images](https://github.com/Azure/AzureML-Containers).
 
 ### Using more than one model
 
@@ -124,16 +127,16 @@ Currently, you can specify only one model per deployment in the YAML. If you hav
 ## Understand the scoring script
 
 > [!Tip]
-> The format of the scoring script for managed online endpoints is the same format used in the previous version of the CLI and in the Python SDK.
+> The format of the scoring script for managed online endpoints is the same format that's used in the preceding version of the CLI and in the Python SDK.
 
 As referred to in the above YAML, the `code_configuration.scoring_script` must have an `init()` function and a `run()` function. This example uses this [score.py file](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/model-1/onlinescoring/score.py). The `init()` function is called when the container is initialized/started. This initialization typically occurs shortly after the deployment is created or updated. Write logic here to do global initialization operations like caching the model in memory (as is done in this example). The `run()` function is called for every invocation of the endpoint and should do the actual scoring/prediction. In the example, we extract the data from the JSON input, call the `scikit-learn` model's `predict()` method, and return the result.
 
-## Deploy and debug locally using local endpoints
+## Deploy and debug locally by using local endpoints
 
-To save time in debugging, it's **highly recommended** you test-run your endpoint locally.
+To save time debugging, we *highly recommend* that you test-run your endpoint locally.
 
-> [!Note]
-> * To deploy locally, you must have installed [Docker engine](https://docs.docker.com/engine/install/)
+> [!NOTE]
+> * To deploy locally, [Docker engine](https://docs.docker.com/engine/install/) must be installed.
 > * Your Docker engine must be running. Typically, the engine launches at startup. If it doesn't, you can [troubleshoot here](https://docs.docker.com/config/daemon/#start-the-daemon-manually).
 
 > [!Important]
@@ -143,7 +146,7 @@ To save time in debugging, it's **highly recommended** you test-run your endpoin
 
 ### Deploy the model locally
 
-To deploy the model locally, run the following command:
+To deploy the model locally:
 
 ```azurecli
 az ml endpoint create --local -n $ENDPOINT_NAME -f endpoints/online/managed/simple-flow/1-create-endpoint-with-blue.yml
@@ -151,12 +154,12 @@ az ml endpoint create --local -n $ENDPOINT_NAME -f endpoints/online/managed/simp
 
 The `--local` flag directs the CLI to deploy the endpoint in the Docker environment.
 
->[!NOTE]
->If you use a Windows operating system, use `%ENDPOINT_NAME%` instead of `$ENDPOINT_NAME` here and in subsequent commands
+> [!NOTE]
+> If you use a Windows operating system, use `%ENDPOINT_NAME%` instead of `$ENDPOINT_NAME` here and in subsequent commands
 
-### Check if the local deployment succeeded
+### Verify that the local deployment succeeded
 
-Check if the model was deployed without error by checking the logs:
+Check to see whether the model was deployed without error by checking the logs:
 
 ```azurecli
 az ml endpoint get-logs --local -n $ENDPOINT_NAME --deployment blue
@@ -170,7 +173,7 @@ Invoke the endpoint to score the model by using the convenience command `invoke`
 az ml endpoint invoke --local -n $ENDPOINT_NAME --request-file endpoints/online/model-1/sample-request.json
 ```
 
-If you would like to use a REST client (such as curl), you need the scoring URI. You can get it using the command `az ml endpoint show --local -n $ENDPOINT_NAME`. In the returned data, you'll find an attribute named `scoring_uri`. 
+If you would like to use a REST client (such as curl), you need the scoring URI. You can get it by using the command `az ml endpoint show --local -n $ENDPOINT_NAME`. In the returned data, you'll find an attribute named `scoring_uri`. 
 
 ### Review the logs for output from the invoke operation
 
@@ -208,9 +211,9 @@ You may list all the endpoints in the workspace in a table format with the `list
 az ml endpoint list --output table
 ```
 
-### Check if the cloud deployment succeeded
+### Check the status of the cloud deployment
 
-Check if the model was deployed without error by checking the logs:
+Check whether the model was deployed without error by checking the logs:
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="get_logs" :::
 
@@ -236,47 +239,49 @@ Retrieve the necessary credentials using the `get-credentials` command:
 az ml endpoint get-credentials -n $ENDPOINT_NAME
 ```
 
-### [Optional] Update the deployment
+### \[Optional\] Update the deployment
 
 If you want to update the code, model, environment, or your scale settings, update the YAML file and run the `az ml endpoint update` command. 
 
->[!IMPORTANT]
-> You can only modify **one** aspect (traffic, scale settings, code, model, or environment) in a single `update` command. 
+> [!IMPORTANT]
+> You can  modify only *one* aspect (traffic, scale settings, code, model, or environment) in a single `update` command. 
 
 To understand how `update` works:
 
-1. Open the file `online/model-1/onlinescoring/score.py`.
+1. Open the file *online/model-1/onlinescoring/score.py*.
 1. Change the last line of the `init()` function: after `logging.info("Init complete")`, add `logging.info("Updated successfully")`. 
-1. Save the file
-1. Run the command:
-```azurecli
-az ml endpoint update -n $ENDPOINT_NAME -f endpoints/online/managed/simple-flow/1-create-endpoint-with-blue.yml
-```
+1. Save the file.
+1. Run this command:
 
-> [!IMPORTANT]
-> Update using the YAML is declarative. That is, changes in the YAML will be reflected in the underlying Azure Resource Manager resources (endpoints & deployments). This approach facilitates [GitOps](https://www.atlassian.com/git/tutorials/gitops): *ALL* changes to endpoints/deployments go through the YAML (even `instance_count`). As a side effect, if you remove a deployment from the YAML and run `az ml endpoint update` using the file, that deployment will be deleted. You may make updates without using the YAML using the `--set ` flag, as  described in the following Tip.
+    ```azurecli
+    az ml endpoint update -n $ENDPOINT_NAME -f endpoints/online/managed/simple-flow/1-create-endpoint-with-blue.yml
+    ```
 
-5. Because you modified the `init()` function, which runs when the endpoint is created or updates, the message `Updated successfully` will be in the logs. Retrieve the logs by running:
-```azurecli
-az ml endpoint get-logs -n $ENDPOINT_NAME --deployment blue
-```
+    > [!IMPORTANT]
+    > Update by using the YAML is declarative. That is, changes in the YAML will be reflected in the underlying Azure Resource Manager resources (endpoints & deployments). This approach facilitates [GitOps](https://www.atlassian.com/git/tutorials/gitops): *All* changes to endpoints/deployments go through the YAML (even `instance_count`). As a side effect, if you remove a deployment from the YAML and run `az ml endpoint update` using the file, that deployment will be deleted. You may make updates without using the YAML using the `--set ` flag, as  described in the following Tip.
+    
+1. Because you modified the `init()` function, which runs when the endpoint is created or updates, the message `Updated successfully` will be in the logs. Retrieve the logs by running:
 
-In the rare case that you want to delete and recreate your deployment because of an irresolvable issue, use:
+    ```azurecli
+    az ml endpoint get-logs -n $ENDPOINT_NAME --deployment blue
+    ```
+
+In the rare case that you want to delete and re-create your deployment because of an irresolvable issue, run this command:
 
 ```azurecli
 az ml endpoint delete -n $ENDPOINT_NAME --deployment blue
 ```
 
-The `update` command works with local endpoints as well. Use the same `az ml endpoint update` command with the flag `--local`.
+The `update` command also works with local endpoints. Use the same `az ml endpoint update` command with the flag `--local`.
 
-> [!Tip]
-> With the `az ml endpoint update` command, you may use the [`--set` parameter available in Azure CLI](/cli/azure/use-cli-effectively#generic-update-arguments) to override attributes in your YAML **or** for setting specific attributes without passing the YAML file. Use of `--set` for single attributes is especially valuable in dev/test scenarios. For example, to scale up the `instance_count` of the first deployment, you could use the flag `--set deployments[0].scale_settings.instance_count=2`. However, since the YAML isn't updated, this technique doesn't facilitate [GitOps](https://www.atlassian.com/git/tutorials/gitops).
+> [!TIP]
+> With the `az ml endpoint update` command, you may use the [`--set` parameter available in Azure CLI](/cli/azure/use-cli-effectively#generic-update-arguments) to override attributes in your YAML *or* for setting specific attributes without passing the YAML file. Use of `--set` for single attributes is especially valuable in dev/test scenarios. For example, to scale up the `instance_count` of the first deployment, you could use the flag `--set deployments[0].scale_settings.instance_count=2`. However, since the YAML isn't updated, this technique doesn't facilitate [GitOps](https://www.atlassian.com/git/tutorials/gitops).
 
-### [Optional] Monitor SLA using Azure Monitor
+### \[Optional\] Monitor SLA by using Azure Monitor
 
 You can view metrics and set alerts based on your SLA by following instructions in [Monitor managed online endpoints](how-to-monitor-online-endpoints.md).
 
-### [Optional] Integrate with Log Analytics
+### \[Optional\] Integrate with Log Analytics
 
 The `get-logs` command will only provide the last few-hundred lines of logs from an automatically selected instance. However, Log Analytics provides a way to store and analyze logs durably. First, follow the steps in [Create a Log Analytics workspace in the Azure portal](../azure-monitor/logs/quick-create-workspace.md#create-a-workspace) to create a Log Analytics workspace.
 
