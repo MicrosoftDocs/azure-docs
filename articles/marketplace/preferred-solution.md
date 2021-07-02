@@ -4,7 +4,7 @@ description: Learn about the Microsoft preferred solution badge available in Azu
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: 
+author: feospina
 ms.author: feospina
 ms.date: 7/02/2021
 ---
