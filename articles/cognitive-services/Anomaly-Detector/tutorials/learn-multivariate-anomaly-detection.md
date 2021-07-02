@@ -205,7 +205,7 @@ Response code `201` indicates a successful request.
 
 ## 4. Get Model Status
 
-As the training API is asynchronized, you won't get the model immediately after calling the training API. However, you can query the status of models either by API key, which will list all the models, or by model ID, which will list information about the specific model.
+As the training API is asynchronous, you won't get the model immediately after calling the training API. However, you can query the status of models either by API key, which will list all the models, or by model ID, which will list information about the specific model.
 
 ### List all the models
 
