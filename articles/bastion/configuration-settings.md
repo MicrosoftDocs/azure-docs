@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 06/28/2021
+ms.date: 07/02/2021
 ms.author: cherylmc
 
 ---
@@ -17,15 +17,20 @@ The sections in this article discuss the resources and settings for Azure Bastio
 
 ## <a name="skus"></a>SKUs
 
-A SKU is also known as a Tier. Azure Bastion supports two SKU types: Basic and Standard. The Basic SKU provides base functionality, enabling Azure Bastion to manage RDP/SSH connectivity to Virtual Machines (VMs) without exposing public IP addresses on the target application VMs. The Standard SKU enables premium features which allow Azure Bastion to manage remote connectivity at a larger scale. The SKU is configured during the workflow when you create the bastion host. However, you can later upgrade the Basic SKU to the Standard SKU.
+A SKU is also known as a Tier. Azure Bastion supports two SKU types: Basic and Standard. 
 
-The following table shows features and corresponding SKUs.
+* The **Basic SKU** provides base functionality, enabling Azure Bastion to manage RDP/SSH connectivity to Virtual Machines (VMs) without exposing public IP addresses on the target application VMs. 
+* The **Standard SKU** enables premium features that allow Azure Bastion to manage remote connectivity at a larger scale. 
+
+The SKU is configured during the workflow when you create the bastion host. However, you can later upgrade the Basic SKU to the Standard SKU.
+
+The following table shows features and corresponding SKUs. 
 
 [!INCLUDE [Azure Bastion SKUs](../../includes/bastion-sku.md)]
 
 ### Configuration methods
 
-You can configure this setting using the following methods:
+Note that during Preview, you can only configure the Standard SKU using the Azure portal.
 
 | Method | Value | Link |
 | --- | --- | --- |
@@ -33,7 +38,7 @@ You can configure this setting using the following methods:
 
 ### Upgrade a SKU
 
-Azure Bastion supports upgrading from a Basic to a Standard SKU. However, downgrading from Standard to Basic is not supported. To downgrade, customers need to delete and recreate Azure Bastion.
+Azure Bastion supports upgrading from a Basic to a Standard SKU. However, downgrading from Standard to Basic is not supported. To downgrade, you must delete and recreate Azure Bastion.
 
 [//]: # (Add link to How-to when available)
 
@@ -41,7 +46,7 @@ Azure Bastion supports upgrading from a Basic to a Standard SKU. However, downgr
 
 [!INCLUDE [instance count](../../includes/bastion-instance-count.md)]
 
-Host scaling requires a /26 or larger subnet. For more information about the AzureBastionSubnet, see the [subnets](#subnet) section in this article.
+If you want to configure host scaling, the AzureBastionSubnet should be /26 or larger. Using a smaller subnet limits the amount of scale units. For more information about the AzureBastionSubnet, see the [subnets](#subnet) section in this article.
 
 [//]: # (Add link to How-to when it is available.)
 
@@ -52,13 +57,14 @@ You can configure this setting using the following methods:
 | Method | Value | Link |
 | --- | --- | --- |
 | Azure portal |Instance count  | [Configuration article](https://portal.azure.com)|
+
 ## <a name="subnet"></a>Azure Bastion subnet
 
-Azure Bastion requires a dedicated subnet:**AzureBastionSubnet**. This subnet needs to be created in the same Virtual Network that Azure Bastion is deployed to. The subnet must have the following configuration:
+Azure Bastion requires a dedicated subnet: **AzureBastionSubnet**. This subnet needs to be created in the same Virtual Network that Azure Bastion is deployed to. The subnet must have the following configuration:
 
 * Subnet name must be *AzureBastionSubnet*.
 * Subnet size must be /27 or larger (/26, /25 etc.).
-* If you want to use host scaling, a /26 or larger subnet is required. Using a smaller subnet space limits the number of scale units. See the [Host scaling](#instance) section of this article.
+* If you want to use host scaling, a /26 or larger subnet is recommended. Using a smaller subnet space limits the number of scale units. See the [Host scaling](#instance) section of this article.
 * The subnet must be in the same VNet and resource group as the bastion host.
 * The subnet cannot contain additional resources.
 
