@@ -728,7 +728,7 @@ ToLower(source, culture)
 **Description:** 
 Takes a *source* string value and converts it to lower case using the culture rules that are specified. If there is no *culture* info specified, then it will use Invariant culture.
 
-If you would like to set existing values in the target system to lower case, [update the schema for your target application](https://docs.microsoft.com/azure/active-directory/app-provisioning/customize-application-attributes#editing-the-list-of-supported-attributes) and set the property caseExact to 'true' for the attribute that you are interested in. 
+If you would like to set existing values in the target system to lower case, [update the schema for your target application](./customize-application-attributes.md#editing-the-list-of-supported-attributes) and set the property caseExact to 'true' for the attribute that you are interested in. 
 
 **Parameters:** 
 
