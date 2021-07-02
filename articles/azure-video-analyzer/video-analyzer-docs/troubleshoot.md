@@ -2,7 +2,7 @@
 title: Troubleshoot Azure Video Analyzer - Azure
 description: This article covers troubleshooting steps for Azure Video Analyzer.
 ms.topic: how-to
-ms.date: 05/04/2021
+ms.date: 07/01/2021
 ---
 
 # Troubleshoot Azure Video Analyzer
@@ -103,14 +103,14 @@ If there are any additional issues that you may need help with, please **[collec
 
 ### Video Analyzer working with external modules
 
-Video Analyzer via the pipeline extension processors can extend the pipeline to send and receive data from other IoT Edge modules by using HTTP or gRPC protocols. As a [specific example](), this live pipeline can send video frames as images to an external inference module such as Yolo v3 and receive JSON-based analytics results using HTTP protocol . In such a topology, the destination for the events is mostly the IoT hub. In situations where you don't see the inference events on the hub, check for the following:
+Video Analyzer via the pipeline extension processors can extend the pipeline to send and receive data from other IoT Edge modules by using HTTP or gRPC protocols. As a [specific example](https://github.com/Azure/video-analyzer/tree/main/pipelines/live/topologies/httpExtension), this live pipeline can send video frames as images to an external inference module such as Yolo v3 and receive JSON-based analytics results using HTTP protocol . In such a topology, the destination for the events is mostly the IoT hub. In situations where you don't see the inference events on the hub, check for the following:
 
 - Check to see whether the hub that live pipeline is publishing to and the hub you're examining are the same. As you create multiple deployments, you might end up with multiple hubs and mistakenly check the wrong hub for events.
 - In Azure portal, check to see whether the external module is deployed and running. In the example image here, rtspsim, yolov3, tinyyolov3 and logAnalyticsAgent are IoT Edge modules running external to the avaedge module.
 
   [ ![Screenshot that displays the running status of modules in Azure IoT Hub.](./media/troubleshoot/iot-hub-azure.png) ](./media/troubleshoot/iot-hub-azure.png#lightbox)
 
-- Check to see whether you're sending events to the correct URL endpoint. The external AI container exposes a URL and a port through which it receives and returns the data from POST requests. This URL is specified as an `endpoint: url` property for the HTTP extension processor. As seen in the [topology URL](), the endpoint is set to the inferencing URL parameter. Ensure that the default value for the parameter or the passed-in value is accurate. You can test to see whether it's working by using Client URL (cURL).
+- Check to see whether you're sending events to the correct URL endpoint. The external AI container exposes a URL and a port through which it receives and returns the data from POST requests. This URL is specified as an `endpoint: url` property for the HTTP extension processor. As seen in the [topology URL](https://github.com/Azure/video-analyzer/blob/main/pipelines/live/topologies/httpExtension/topology.json), the endpoint is set to the inferencing URL parameter. Ensure that the default value for the parameter or the passed-in value is accurate. You can test to see whether it's working by using Client URL (cURL).
 
   As an example, here is a Yolo v3 container that's running on local machine with an IP address of 172.17.0.3.
 
@@ -148,8 +148,8 @@ When self-guided troubleshooting steps don't resolve your problem, go the Azure 
 
 To gather the relevant logs that should be added to the ticket, follow the instructions below in order and upload the log files in the **Details** pane of the support request.
 
-1. [Configure the Video Analyzer module to collect Verbose Logs]()
-1. [Turn on Debug Logs]()
+1. [Configure the Video Analyzer module to collect Verbose Logs](#configure-video-analyzer-module-to-collect-verbose-logs)
+1. [Turn on Debug Logs](#video-analyzer-debug-logs)
 1. Reproduce the issue
 1. Connect to the virtual machine from the **IoT Hub** page in the portal
 

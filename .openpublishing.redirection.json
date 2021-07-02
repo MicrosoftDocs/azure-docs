@@ -61972,6 +61972,11 @@
       "source_path": "articles/virtual-desktop/linux-overview.md",
       "redirect_url": "/azure/virtual-desktop/user-documentation/linux-overview",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/anomaly-detector/user-generated-content.md",
+      "redirect_url": "/azure/cognitive-services/anomaly-detector/whats-new",
+      "redirect_document_id": false
     }
   ]
 }
