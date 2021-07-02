@@ -50,7 +50,7 @@ The Drawing package must be zipped into a single archive file, with the .zip ext
 
 ## DWG file conversion process
 
-The [Azure Maps Conversion service](/rest/api/maps/v2/conversion) performs the following on each DWG file:
+The [Azure Maps Conversion service](/rest/api/maps/v2/conversion) does the following on each DWG file:
 
 - Extracts feature classes:
     - Levels
@@ -75,8 +75,8 @@ A single DWG file is required for each level of the facility. All data of a sing
 Each DWG file must adhere to the following requirements:
 
 - The DWG file must define the _Exterior_ and _Unit_ layers. It can optionally define the following layers: _Wall_, _Door_, _UnitLabel_, _Zone_, and _ZoneLabel_.
-- The DWG file cannot contain features from multiple levels.
-- The DWG file cannot contain features from multiple facilities.
+- The DWG file can't contain features from multiple levels.
+- The DWG file can't contain features from multiple facilities.
 - The DWG must reference the same measurement system and unit of measurement as other DWG files in the Drawing package.
 
 ## DWG layer requirements
@@ -85,8 +85,8 @@ Each DWG layer must adhere to the following rules:
 
 - A layer must exclusively contain features of a single class. For example, units and walls can’t be in the same layer.
 - A single class of features can be represented by multiple layers.
-- Self-intersecting polygons are permitted, but are automatically repaired. When this occurs, the [Azure Maps Conversion service](/rest/api/maps/v2/conversion) raises a warning. It's advisable to manually inspect the repaired results, because they might not match the expected results.
-- Each layer has a supported list of entity types. Any other entity types in a layer will be ignored. For example, text entities are not supported on the wall layer.
+- Self-intersecting polygons are permitted, but are automatically repaired. When they repaired, the [Azure Maps Conversion service](/rest/api/maps/v2/conversion) raises a warning. It's advisable to manually inspect the repaired results, because they might not match the expected results.
+- Each layer has a supported list of entity types. Any other entity types in a layer will be ignored. For example, text entities aren't supported on the wall layer.
 
 The table below outlines the supported entity types and converted map features for each layer. If a layer contains unsupported entity types, then the [Azure Maps Conversion service](/rest/api/maps/v2/conversion) ignores those entities.  
 
@@ -113,7 +113,7 @@ No matter how many entity drawings are in the exterior layer, the [resulting fac
 - Resulting level feature must be at least 4 square meters.
 - Resulting level feature must not be greater 400,000 square meters.
 
-If the layer contains multiple overlapping PolyLines, the PolyLines are dissolved into a single Level feature. Alternatively, if the layer contains multiple non-overlapping PolyLines, the resulting Level feature has a multi-polygonal representation.
+If the layer contains multiple overlapping PolyLines, the PolyLines are dissolved into a single Level feature. Instead, if the layer contains multiple non-overlapping PolyLines, the resulting Level feature has a multi-polygonal representation.
 
 You can see an example of the Exterior layer as the outline layer in the [sample Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
 
@@ -212,7 +212,7 @@ The next sections detail the requirements for each object.
 | `name`      | string | true   |  Name of building. |
 | `streetAddress`|    string |    false    | Address of building. |
 |`unit`     | string    |  false    |  Unit in building. |
-| `locality` |    string |    false |    Name of an city, town, area, neighborhood, or region.|
+| `locality` |    string |    false |    Name of a city, town, area, neighborhood, or region.|
 | `adminDivisions` |    JSON array of strings |    false     | An array containing address designations. For example: (Country, State) Use ISO 3166 country codes and ISO 3166-2 state/territory codes. |
 | `postalCode` |    string    | false    | The mail sorting code. |
 | `hoursOfOperation` |    string |     false | Adheres to the [OSM Opening Hours](https://wiki.openstreetmap.org/wiki/Key:opening_hours/specification) format. |
