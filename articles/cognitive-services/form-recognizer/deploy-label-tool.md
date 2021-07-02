@@ -13,7 +13,7 @@ ms.author: lajanuar
 
 # Deploy the sample labeling tool
 
-The Form Recognizer sample labeling tool is an application that provides a simple user interface (UI), which you can use to manually label forms (documents) for the purpose of supervised learning. In this article, we'll provide links and instructions that teach you how to:
+The Form Recognizer sample labeling tool is an application that provides a simple user interface (UI), which you can use to manually label forms (documents) for supervised learning. In this article, we'll provide links and instructions that teach you how to:
 
 * [Run the sample labeling tool locally](#run-the-sample-labeling-tool-locally)
 * [Deploy the sample labeling tool to an Azure Container Instance (ACI)](#deploy-with-azure-container-instances-aci)
@@ -34,7 +34,7 @@ Before we get started, it's important to note that there are two ways to deploy 
 
 ### Azure portal
 
-Follow these steps to create a new resource using the Azure portal: 
+Follow these steps to create a new resource using the Azure portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/signin/index/).
 2. Select **Create a resource**.
@@ -49,11 +49,11 @@ Follow these steps to create a new resource using the Azure portal:
    > ![Select Basics](./media/quickstarts/select-basics.png)
    * Subscription - Select an existing Azure subscription
    * Resource Group - You can reuse an existing resource group or create a new one for this project. Creating a new resource group is recommended.
-   * Name - Give your web app a name. 
+   * Name - Give your web app a name.
    * Publish - Select **Docker Container**
    * Operating System -  Select **Linux**
    * Region - Choose a region that makes sense for you.
-   * Linux Plan - Select a pricing tier/plan for your app service. 
+   * Linux Plan - Select a pricing tier/plan for your app service.
 
    > [!div class="mx-imgBorder"]
    > ![Configure your web app](./media/quickstarts/select-docker.png)
@@ -68,13 +68,13 @@ Follow these steps to create a new resource using the Azure portal:
 # [v2.1](#tab/v2-1)
 
 * Options - Select **Single Container**
-* Image Source - Select **Private Registry** 
-* Server URL - Set this to `https://mcr.microsoft.com`
-* Username (Optional) - Create a username. 
+* Image Source - Select **Private Registry**
+* Server URL - Set to `https://mcr.microsoft.com`
+* Username (Optional) - Create a username.
 * Password (Optional) - Create a secure password that you'll remember.
-* Image and tag - Set this to `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-2.1`
-* Continuous Deployment - Set this to **On** if you want to receive automatic updates when the development team makes changes to the sample labeling tool.
-* Startup command - Set this to `./run.sh eula=accept`
+* Image and tag - Set to `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-2.1`
+* Continuous Deployment - Set to **On** if you want to receive automatic updates when the development team makes changes to the sample labeling tool.
+* Startup command - Set to `./run.sh eula=accept`
 
 > [!div class="mx-imgBorder"]
 > ![Configure Docker](./media/quickstarts/configure-docker.png)
@@ -90,15 +90,15 @@ After you have created your web app, you can enable the continuous deployment op
 
 :::image type="content" source="media/label-tool/continuous-deployment.png" alt-text="Screenshot: container settings for continuous deployment.":::
 
-# [v2.0](#tab/v2-0)  
+# [v2.0](#tab/v2-0)
 
 * Options - Select **Single Container**
-* Image Source - Select **Private Registry** 
-* Server URL - Set this to `https://mcr.microsoft.com`
-* Username (Optional) - Create a username. 
+* Image Source - Select **Private Registry**
+* Server URL - Set to `https://mcr.microsoft.com`
+* Username (Optional) - Create a username.
 * Password (Optional) - Create a secure password that you'll remember.
-* Image and tag - Set this to `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest`
-* Startup command - Set this to `./run.sh eula=accept`
+* Image and tag - Set to `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest`
+* Startup command - Set to `./run.sh eula=accept`
 
  ---
 
@@ -110,12 +110,12 @@ After you have created your web app, you can enable the continuous deployment op
 <!-- markdownlint-disable MD001 -->
 ### Azure CLI
 
-As an alternative to using the Azure portal, you can create a resource using the Azure CLI. Before you continue, you'll need to install the [Azure CLI](/cli/azure/install-azure-cli). You can skip this step if you're already working with the Azure CLI. 
+As an alternative to using the Azure portal, you can create a resource using the Azure CLI. Before you continue, you'll need to install the [Azure CLI](/cli/azure/install-azure-cli). You can skip this step if you're already working with the Azure CLI.
 
 There's a few things you need know about this command:
 
-* `DNS_NAME_LABEL=aci-demo-$RANDOM` generates a random DNS name. 
-* This sample assumes that you have a resource group that you can use to create a resource. Replace `<resource_group_name>` with a valid resource group associated with your subscription. 
+* `DNS_NAME_LABEL=aci-demo-$RANDOM` generates a random DNS name.
+* This sample assumes that you have a resource group that you can use to create a resource. Replace `<resource_group_name>` with a valid resource group associated with your subscription.
 * You'll need to specify where you want to create the resource. Replace `<region name>` with your desired region for the web app.
 * This command automatically accepts EULA.
 
@@ -155,14 +155,14 @@ az container create \
   --cpu 2 \
   --memory 8 \
   --command-line "./run.sh eula=accept"
-``` 
+```
 
 
 ---
 
 ### Connect to Azure AD for authorization
 
-It's recommended that you connect your web app to Azure Active Directory. This ensures that only users with valid credentials can sign in and use your web app. Follow the instructions in [Configure your App Service app](../../app-service/configure-authentication-provider-aad.md) to connect to Azure Active Directory.
+It's recommended that you connect your web app to Azure Active Directory (Azure AD). This connection ensures that only users with valid credentials can sign in and use your web app. Follow the instructions in [Configure your App Service app](../../app-service/configure-authentication-provider-aad.md) to connect to Azure Active Directory.
 
 ## Open source on GitHub
 
