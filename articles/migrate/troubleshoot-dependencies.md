@@ -130,7 +130,7 @@ The issue happens when VMware discovery agent in appliance tries to download the
     ````
     Test -NetConnection -ComputeName <Ip address of the ESXi host> -Port 443
     ````
-- If command returns succesfull connectivity, you can go to the Azure Migrate project> Discovery and assessment>Overview>Manage>Appliances, select the appliance name and select **Refresh services**.
+- If command returns successful connectivity, you can go to the Azure Migrate project> Discovery and assessment>Overview>Manage>Appliances, select the appliance name and select **Refresh services**.
 
 ## Error 9018: PowerShellNotFound
 
@@ -250,7 +250,7 @@ Azure Migrate currently supports creation of OMS workspace in East US, Southeast
 
 ## Agent-based dependency visualization in Azure Government
 
-Agent-based dependency analysis is not supported in Azure Government. Please use agentless dependency analysis_(only available for VMware servers)_.
+Agent-based dependency analysis is not supported in Azure Government. Please use agentless dependency analysis _(only available for VMware servers)_.
 
 ## Agent-based dependencies don't show after agent install
 
@@ -298,7 +298,7 @@ Collect network traffic logs as follows:
    - In Microsoft Edge and Internet Explorer, recording should start automatically. If it doesn't, select the green play button.
 4. Try to reproduce the error.
 5. After you've encountered the error while recording, stop recording, and save a copy of the recorded activity:
-   - In Chrome, right-click and select **Save as HAR with content**. This action compresses and exports the logs as a har file.
+   - In Chrome, right-click and select **Save as HAR with content**. This action compresses and exports the logs as a HTTP Archive (har) file.
    - In Microsoft Edge or Internet Explorer, select the **Export captured traffic** option. This action compresses and exports the log.
 6. Select the **Console** tab to check for any warnings or errors. To save the console log:
    - In Chrome, right-click anywhere in the console log. Select **Save as**, to export, and zip the log.

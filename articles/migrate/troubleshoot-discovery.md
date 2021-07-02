@@ -130,7 +130,7 @@ The issue happens when VMware discovery agent in appliance tries to download the
     ````
     Test -NetConnection -ComputeName <Ip address of the ESXi host> -Port 443
     ````
-- If command returns succesfull connectivity, you can go to the Azure Migrate project> Discovery and assessment>Overview>Manage>Appliances, select the appliance name and select **Refresh services**.
+- If command returns successful connectivity, you can go to the Azure Migrate project> Discovery and assessment>Overview>Manage>Appliances, select the appliance name and select **Refresh services**.
 
 ## Error 9018: PowerShellNotFound
 
