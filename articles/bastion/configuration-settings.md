@@ -41,6 +41,8 @@ Azure Bastion supports upgrading from a Basic to a Standard SKU. However, downgr
 
 [!INCLUDE [instance count](../../includes/bastion-instance-count.md)]
 
+Host scaling requires a /26 or larger subnet. For more information about the AzureBastionSubnet, see the [subnets](#subnet) section in this article.
+
 [//]: # (Add link to How-to when it is available.)
 
 ### Configuration methods
@@ -56,7 +58,7 @@ Azure Bastion requires a dedicated subnet:**AzureBastionSubnet**. This subnet ne
 
 * Subnet name must be *AzureBastionSubnet*.
 * Subnet size must be /27 or larger (/26, /25 etc.).
-* If you want to use host scaling, we recommend a /26 or larger subnet. See the [Host scaling](#instance) section of this article.
+* If you want to use host scaling, a /26 or larger subnet is required. Using a smaller subnet space limits the number of scale units. See the [Host scaling](#instance) section of this article.
 * The subnet must be in the same VNet and resource group as the bastion host.
 * The subnet cannot contain additional resources.
 
