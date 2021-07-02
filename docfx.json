@@ -133,7 +133,7 @@
       },
       "healthcare-apis": {
         "dest": "desthealthcareapis",
-        "moniker_range": ">=azureapiforfhir"
+        "moniker_range": "azureapiforfhir || healthcareapi-1.0.0"
       }
     },
     "overwrite": [],
@@ -825,7 +825,8 @@
         "articles/media-services/video-indexer/*.md": "video-indexer"
       },
       "monikerRange": {
-        "articles/iot-edge/**/*.md": ">=iotedge-2018-06"
+        "articles/iot-edge/**/*.md": ">=iotedge-2018-06",
+        "articles/healthcare-apis/dicom/**": "healthcare-apis"
       },
       "recommendations": {
         "articles/cognitive-services/Translator/**/*.md": false

@@ -6,12 +6,12 @@ author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-monikerRange: 'azureapiforfhir'
+monikerRange: 'healthcareapi-1.0.0'
 ms.date: 04/30/2021
 ms.author: cavoeg
 ---
 
-# Frequently asked questions about the Azure API for FHIR
+# Frequently asked questions about FHIR Service
 
 ## Azure API for FHIR: The Basics
 
