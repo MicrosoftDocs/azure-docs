@@ -16,7 +16,7 @@ Learn about important updates in the commercial marketplace program of Partner C
 
 | Category | Description | Date |
 | ------------ | ------------- | ------------- |
-| Customer engagement | New feature, allows publishers to respond to user reviews on Azure Marketplace or AppSource, and more. To learn more, see [Ratings & Reviews analytics dashboard in Partner Center](/azure/marketplace/ratings-reviews). | 2021-06- 03|
+| Customer engagement | Publishers can now respond to user reviews on Azure Marketplace or AppSource. To learn more, see [Ratings & Reviews analytics dashboard in Partner Center](/azure/marketplace/ratings-reviews). | 2021-06- 03|
 | Offers | Publishers now have a simpler and faster way to prepare and publish their Azure Virtual Machine-based offers in Partner Center. To learn more, see [How to create a virtual machine using an approved base](azure-vm-create-using-approved-base.md). | 2021-03-22 |
 | Analytics | Developers can use new report APIs to programmatically access commercial marketplace analytics data. You can schedule custom reports and download your marketplace data into your internal analytics systems. To learn more, see [Get started with programmatic access to analytics data](analytics-get-started.md). | 2021-03-08 |
 | Grow your business | Publishers can more easily mitigate the risk of their customers receiving an incorrect bill for metered billing usage. To learn more, see [Manage metered billing anomalies in Partner Center](anomaly-detection.md). | 2021-02-18 |
@@ -27,8 +27,8 @@ Learn about important updates in the commercial marketplace program of Partner C
 
 | Category | Description | Date |
 | ------------ | ------------- | ------------- |
-| Taxation | For end-customer taxation, Australia is Microsoft-managed, except for purchases made through an enterprise agreement customer purchase scenario, which are publisher-managed. | 2021-07-01 |
-| Taxation | Added a number of missing countries to the [tax details page](/partner-center/tax-details-marketplace): <ul><li>Argentina</li><li>Bulgaria</li><li>Hong Kong SAR</li><li>Korea (South)</li><li>Pakistan</li><li>Palestinian Authority</li><li>Panama</li><li>Paraguay</li><li>Peru</li><li>Philippines</li><li>Saint Kitts and Nevis</li><li>Senegal</li><li>Sri Lanka</li><li>Tajikistan</li><li>Tanzania</li><li>Thailand</li><li>Trinidad and Tobago</li><li>Tunisia</li><li>Turkmenistan</li><li>Uganda</li><li>Uzbekistan</li><li>Zimbabwe</li></ul> | 2021-07-01 |
+| Taxation | End-customer taxation in Australia is managed by Microsoft-managed, except for purchases made through an enterprise agreement, which are managed by the publisher. | 2021-07-01 |
+| Taxation | Updated [tax details page](/partner-center/tax-details-marketplace) country list to include the following: <ul><li>Argentina</li><li>Bulgaria</li><li>Hong Kong SAR</li><li>Korea (South)</li><li>Pakistan</li><li>Palestinian Authority</li><li>Panama</li><li>Paraguay</li><li>Peru</li><li>Philippines</li><li>Saint Kitts and Nevis</li><li>Senegal</li><li>Sri Lanka</li><li>Tajikistan</li><li>Tanzania</li><li>Thailand</li><li>Trinidad and Tobago</li><li>Tunisia</li><li>Turkmenistan</li><li>Uganda</li><li>Uzbekistan</li><li>Zimbabwe</li></ul> | 2021-07-01 |
 | Taxation | Nigeria moved from the "shared publisher/developer-managed countries" list to the “end-customer taxation with differences in Marketplaces".  | 2021-07-01 |
 | Payouts | Added commercial marketplace payout scenarios to the [tax details page](/partner-center/tax-details-marketplace). | 2021-04-26 |
 |
@@ -37,8 +37,8 @@ Learn about important updates in the commercial marketplace program of Partner C
 
 | Category | Description | Date |
 | ------------ | ------------- | ------------- |
-| Policies | We’ve updated the [commercial marketplace certification policies](/legal/marketplace/certification-policies). | 2021-07-01 |
 | Policies | We’ve updated the [commercial marketplace certification policies](/legal/marketplace/certification-policies). | 2021-05-07 |
+| Policies | Additional information regarding VM pricing options and descriptions. To learn more, see [Create a virtual machine using your own image](/azure/marketplace/azure-vm-create-using-own-image). | 2021-06-23 |
 | Co-sell | Information added for the MACC program including, requirements, how often we update MACC status, and definitions for Enrolled, and not Enrolled. To learn more, see [Azure Consumption Commitment enrollment](/azure/marketplace/azure-consumption-commitment-enrollment), or [Co-sell with Microsoft sales teams and partners overview](/azure/marketplace/co-sell-overview). | 2021-06-03 |
 | Offers | Additional information regarding VM pricing options and descriptions. To learn more see [How to plan a SaaS offer for the commercial marketplace](/azure/marketplace/plan-saas-offer). | 2021-05-25|
 | API guidance | This topic gives publishers a single convenient location to find recent changes to the commercial marketplace, including updates to certification policy, changes to tax rules, and more. To learn more, see [Align your business with our e-commerce platform](/azure/marketplace/marketplace-apis-guide). | 2021-05-13 |
