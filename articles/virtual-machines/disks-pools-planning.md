@@ -2,7 +2,7 @@
 title: Optimize your Azure disk pools (preview) performance
 description: Learn how to get the most performance out of an Azure disk pool.
 author: roygara
-ms.service: virtual-machines
+ms.service: storage
 ms.topic: conceptual
 ms.date: 06/28/2021
 ms.author: rogarana

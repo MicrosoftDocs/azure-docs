@@ -5,7 +5,7 @@ author: roygara
 ms.date: 06/28/2021
 ms.topic: conceptual
 ms.author: rogarana
-ms.service: virtual-machines
+ms.service: storage
 ms.subservice: disks
 ---
 
