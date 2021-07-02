@@ -28,9 +28,9 @@ The following table shows features and corresponding SKUs.
 
 [!INCLUDE [Azure Bastion SKUs](../../includes/bastion-sku.md)]
 
-### Configuration methods
+### Configuration methods for the Standard SKU
 
-Note that during Preview, you can only configure the Standard SKU using the Azure portal.
+During Preview, you must use the Azure portal if you want to specify the Standard SKU. If you use the Azure CLI or PowerShell to configure Bastion, the SKU is not specified and defaults to the Basic SKU.
 
 | Method | Value | Link |
 | --- | --- | --- |
@@ -76,8 +76,7 @@ You can configure this setting using the following methods:
 | --- | --- |--- |
 | Azure portal | Subnet  |[Configuration article](https://portal.azure.com)|
 | Azure PowerShell | -subnetName|[cmdlet](/powershell/module/az.network/new-azbastion#parameters) |
-| Azure CLI |  --subnet-name | [command](/cli/azure/network/vnet#az_network_vnet_create)
-|
+| Azure CLI |  --subnet-name | [command](/cli/azure/network/vnet#az_network_vnet_create) |
 
 ## <a name="public-ip"></a>Public IP address
 
