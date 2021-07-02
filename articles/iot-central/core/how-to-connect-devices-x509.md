@@ -8,26 +8,39 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
+zone_pivot_groups: programming-languages-set-ten
+
+# - id: programming-languages-set-ten
+# # Owner: aahill
+# title: Programming languages
+#   prompt: Choose a programming language
+#   pivots:
+#   - id: programming-language-csharp
+#     title: C#
+#   - id: programming-language-java
+#     title: Java
+#   - id: programming-language-javascript
+#     title: JavaScript
+#   - id: programming-language-python
+#     title: Python
 ---
 
-# How to connect devices with X.509 certificates using Node.js device SDK for IoT Central Application
+# How to connect devices with X.509 certificates to IoT Central Application
 
 IoT Central supports both shared access signatures (SAS) and X.509 certificates to secure the communication between a device and your application. The [Create and connect a client application to your Azure IoT Central application](./tutorial-connect-device.md) tutorial uses SAS. In this article, you learn how to modify the code sample to use X.509 certificates. X.509 certificates are recommended in production environments. For more information, see [Get connected to Azure IoT Central](./concepts-get-connected.md).
 
-This article shows two ways to use X.509 certificates - [group enrollments](how-to-connect-devices-x509.md#use-group-enrollment) typically used in a production environment, and [individual enrollments](how-to-connect-devices-x509.md#use-individual-enrollment) useful for testing. The article also describes how to [roll device certificates](#roll-x509-device-certificates) to maintain connectivity when certificates expire.
+This guide shows two ways to use X.509 certificates - [group enrollments](how-to-connect-devices-x509.md#use-group-enrollment) typically used in a production environment, and [individual enrollments](how-to-connect-devices-x509.md#use-individual-enrollment) useful for testing. The article also describes how to [roll device certificates](#roll-x509-device-certificates) to maintain connectivity when certificates expire.
 
-The code snippets in this article use JavaScript. For code samples in other languages, see:
-
-- [C](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_ll_client_x509_sample)
-- [C#](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/iot-hub/Samples/device/X509DeviceCertWithChainSample)
-- [Java](https://github.com/Azure/azure-iot-sdk-java/tree/master/device/iot-device-samples/send-event-x509)
-- [Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/sync-samples)
+This guide builds on the samples shown in the [Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md) tutorial that use C#, Java, JavaScript, and Python. For an example that uses the C programming language, see the [Provision multiple X.509 devices using enrollment groups](../../iot-dps/tutorial-custom-hsm-enrollment-group-x509.md).
 
 ## Prerequisites
 
-- Completion of [Create and connect a client application to your Azure IoT Central application (JavaScript)](./tutorial-connect-device.md) tutorial.
-- [Git](https://git-scm.com/download/).
-- Download and install [OpenSSL](https://www.openssl.org/). If you're using Windows, you can use the binaries from the [OpenSSL page on SourceForge](https://sourceforge.net/projects/openssl/).
+Complete the [Create and connect a client application to your Azure IoT Central application](./tutorial-connect-device.md) tutorial. This includes installing the prerequisites for your choice of programming language.
+
+In this how-to guide, you generate some test X.509 certificates. To be able to generate these certificates, you need:
+
+- A development machine with [Node.js](https://nodejs.org/) version 6 or later installed. You can run `node --version` in the command line to check your version. The instructions in this tutorial assume you're running the **node** command at the Windows command prompt. However, you can use Node.js on many other operating systems.
+- A local copy of the [Microsoft Azure IoT SDK for Node.js](https://github.com/Azure/azure-iot-sdk-node) GitHub repository that contains the scripts to generate the test X.509 certificates. Use this link to download a copy of the repository: [Download ZIP](https://github.com/Azure/azure-iot-sdk-node/archive/master.zip). Then unzip the file to a suitable location on your local machine.
 
 ## Use group enrollment
 
@@ -40,13 +53,7 @@ In this section, you use an X.509 certificate to connect a device with a certifi
 > [!WARNING]
 > This way of generating X.509 certs is for testing only. For a production environment you should use your official, secure mechanism for certificate generation.
 
-1. Open a command prompt. Clone the GitHub repository with the certificate generation scripts:
-
-    ```cmd/sh
-    git clone https://github.com/Azure/azure-iot-sdk-node.git
-    ```
-
-1. Navigate to the certificate generator script and install the required packages:
+1. Navigate to the certificate generator script in the Microsoft Azure IoT SDK for Node.js you downloaded. Install the required packages:
 
     ```cmd/sh
     cd azure-iot-sdk-node/provisioning/tools
@@ -63,13 +70,18 @@ In this section, you use an X.509 certificate to connect a device with a certifi
     > [!TIP]
     > A device ID can contain letters, numbers, and the `-` character.
 
-These commands produce three files each for the root and the device certificate
+These commands produce the following root and the device certificate
 
-filename | contents
--------- | --------
-\<name\>_cert.pem | The public portion of the X509 certificate
-\<name\>_key.pem | The private key for the X509 certificate
-\<name\>_fullchain.pem | The entire keychain for the X509 certificate.
+| filename | contents |
+| -------- | -------- |
+| mytestrootcert_cert.pem | The public portion of the root X509 certificate |
+| mytestrootcert_key.pem | The private key for the root X509 certificate |
+| mytestrootcert_fullchain.pem | The entire keychain for the root X509 certificate. |
+| sampleDevice01_cert.pem | The public portion of the device X509 certificate |
+| sampleDevice01_key.pem | The private key for the device X509 certificate |
+| sampleDevice01_fullchain.pem | The entire keychain for the device X509 certificate. |
+
+Make a note of the location of these files. You need then later.
 
 ### Create a group enrollment
 
@@ -99,7 +111,233 @@ After you save the enrollment group, make a note of the ID Scope.
 
 ### Run sample device code
 
-1. Copy the **sampleDevice01_key.pem** and **sampleDevice01_cert.pem** files to the _azure-iot-sdk-node/device/samples/pnp_ folder that contains the **pnpTemperatureController.js** application. You used this application when you completed the [Connect a device (JavaScript) tutorial](./tutorial-connect-device.md).
+:::zone pivot="programming-language-csharp"
+
+If you're using Windows, the X.509 certificates must be in the Windows certificate store for the sample to work. To add the certificates to the store:
+
+1. Use `openssl` to create PFX files from the PEM files. When you run these commands, you're prompted to create a password. Make a note of the password, you need it in the next step:
+
+    ```bash
+    openssl pkcs12 -inkey sampleDevice001_key.pem -in sampleDevice001_cert.pem -export -out sampledevice001.pfx
+    openssl pkcs12 -inkey mytestrootcert_key.pem -in mytestrootcert_cert.pem -export -out mytestrootcert.pfx
+    ```
+
+1. In Windows Explorer, double-click on each PFX file. In the **Certificate Import Wizard**, select **Current User** as the store location, enter the password from the previous step, and let the wizard choose the certificate store automatically. The wizard imports the certificates to the current user's personal store.
+
+To modify the sample code to use the certificates:
+
+1. In the **IoTHubDeviceSamples** Visual Studio solution, open the *Parameter.cs* file in the **TemperatureController** project.
+
+1. Add the following two parameter definitions to the class:
+
+    ```csharp
+    [Option(
+        'x',
+        "CertificatePath",
+        HelpText = "(Required if DeviceSecurityType is \"dps\"). \nThe device PFX file to use during device provisioning." +
+        "\nDefaults to environment variable \"IOTHUB_DEVICE_X509_CERT\".")]
+    public string CertificatePath { get; set; } = Environment.GetEnvironmentVariable("IOTHUB_DEVICE_X509_CERT");
+
+    [Option(
+        'p',
+        "CertificatePassword",
+        HelpText = "(Required if DeviceSecurityType is \"dps\"). \nThe password of the PFX certificate file." +
+        "\nDefaults to environment variable \"IOTHUB_DEVICE_X509_PASSWORD\".")]
+    public string CertificatePassword { get; set; } = Environment.GetEnvironmentVariable("IOTHUB_DEVICE_X509_PASSWORD");
+    ```
+
+    Save the changes.
+
+1. In the **IoTHubDeviceSamples** Visual Studio solution, open the *Program.cs* file in the **TemperatureController** project.
+
+1. Add the following `using` statements:
+
+    ```csharp
+    using System.Security.Cryptography.X509Certificates;
+    using System.IO;
+    ```
+
+1. Add the following method to the class:
+
+    ```csharp
+    private static X509Certificate2 LoadProvisioningCertificate(Parameters parameters)
+    {
+        var certificateCollection = new X509Certificate2Collection();
+        certificateCollection.Import(
+            parameters.CertificatePath,
+            parameters.CertificatePassword,
+            X509KeyStorageFlags.UserKeySet);
+
+        X509Certificate2 certificate = null;
+
+        foreach (X509Certificate2 element in certificateCollection)
+        {
+            Console.WriteLine($"Found certificate: {element?.Thumbprint} {element?.Subject}; PrivateKey: {element?.HasPrivateKey}");
+            if (certificate == null && element.HasPrivateKey)
+            {
+                certificate = element;
+            }
+            else
+            {
+                element.Dispose();
+            }
+        }
+
+        if (certificate == null)
+        {
+            throw new FileNotFoundException($"{parameters.CertificatePath} did not contain any certificate with a private key.");
+        }
+
+        Console.WriteLine($"Using certificate {certificate.Thumbprint} {certificate.Subject}");
+
+        return certificate;
+    }
+    ```
+
+1. In the `SetupDeviceClientAsync` method, replace the block of code for `case "dps"` with the following code:
+
+    ```csharp
+    case "dps":
+        s_logger.LogDebug($"Initializing via DPS");
+        Console.WriteLine($"Loading the certificate...");
+        X509Certificate2 certificate = LoadProvisioningCertificate(parameters);
+        DeviceRegistrationResult dpsRegistrationResult = await ProvisionDeviceAsync(parameters, certificate, cancellationToken);
+        var authMethod = new DeviceAuthenticationWithX509Certificate(dpsRegistrationResult.DeviceId, certificate);
+        deviceClient = InitializeDeviceClient(dpsRegistrationResult.AssignedHub, authMethod);
+        break;
+    ```
+
+1. Replace the `ProvisionDeviceAsync` method with the following code:
+
+    ```csharp
+    private static async Task<DeviceRegistrationResult> ProvisionDeviceAsync(Parameters parameters, X509Certificate2 certificate, CancellationToken cancellationToken)
+    {
+        SecurityProvider security = new SecurityProviderX509Certificate(certificate);
+        ProvisioningTransportHandler mqttTransportHandler = new ProvisioningTransportHandlerMqtt();
+        ProvisioningDeviceClient pdc = ProvisioningDeviceClient.Create(parameters.DpsEndpoint, parameters.DpsIdScope, security, mqttTransportHandler);
+
+        var pnpPayload = new ProvisioningRegistrationAdditionalData
+        {
+            JsonData = PnpConvention.CreateDpsPayload(ModelId),
+        };
+        return await pdc.RegisterAsync(pnpPayload, cancellationToken);
+    }
+    ```
+
+    Save the changes.
+
+1. Add the following environment variables to the project:
+
+    - `IOTHUB_DEVICE_X509_CERT`: `<full path to folder that contains PFX files>sampleDevice01.pfx`
+    - `IOTHUB_DEVICE_X509_PASSWORD`: The password you used when you created the *sampleDevice01.pfx* file.
+
+1. Build and run the application. Verify the device provisions successfully.
+
+:::zone-end
+
+:::zone pivot="programming-language-java"
+
+1. Navigate to the _azure-iot-sdk-java/device/iot-device-samples/pnp-device-sample/temperature-controller-device-sample_ folder that contains the *pom.xml* file and *src* folder for the temperature controller device sample.
+
+1. Edit the *pom.xml* file to add the following dependency configuration in the `<dependencies>` node:
+
+    ```xml
+    <dependency>
+        <groupId>com.microsoft.azure.sdk.iot.provisioning.security</groupId>
+        <artifactId>${x509-provider-artifact-id}</artifactId>
+        <version>${x509-provider-version}</version>
+    </dependency>
+    ```
+
+    Save the changes.
+
+1. Open the *src/main/java/samples/com/microsoft/azure/sdk/iot/device/TemperatureController.java* file in your text editor.
+
+1. Replace the `SecurityProviderSymmetricKey` import with the following imports:
+
+    ```java
+    import com.microsoft.azure.sdk.iot.provisioning.security.SecurityProvider;
+    import com.microsoft.azure.sdk.iot.provisioning.security.hsm.SecurityProviderX509Cert;
+    import com.microsoft.azure.sdk.iot.provisioning.security.exceptions.SecurityProviderException;
+    ```
+
+1. Add the following import:
+
+    ```java
+    import java.nio.file.*;
+    ```
+
+1. Add `SecurityProviderException` to the list of exceptions that the `main` method throws:
+
+    ```java
+    public static void main(String[] args) throws IOException, URISyntaxException, ProvisioningDeviceClientException, InterruptedException, SecurityProviderException {
+    ```
+
+1. Replace the `initializeAndProvisionDevice` method with the following code:
+
+    ```java
+    private static void initializeAndProvisionDevice() throws ProvisioningDeviceClientException, IOException, URISyntaxException, InterruptedException, SecurityProviderException {
+        String deviceX509Key = new String(Files.readAllBytes(Paths.get(System.getenv("IOTHUB_DEVICE_X509_KEY"))));
+        String deviceX509Cert = new String(Files.readAllBytes(Paths.get(System.getenv("IOTHUB_DEVICE_X509_CERT"))));
+        SecurityProvider securityProviderX509 = new SecurityProviderX509Cert(deviceX509Cert, deviceX509Key, null);
+        ProvisioningDeviceClient provisioningDeviceClient;
+        ProvisioningStatus provisioningStatus = new ProvisioningStatus();
+
+        provisioningDeviceClient = ProvisioningDeviceClient.create(globalEndpoint, scopeId, provisioningProtocol, securityProviderX509);
+
+        AdditionalData additionalData = new AdditionalData();
+        additionalData.setProvisioningPayload(com.microsoft.azure.sdk.iot.provisioning.device.plugandplay.PnpHelper.createDpsPayload(MODEL_ID));
+
+        provisioningDeviceClient.registerDevice(new ProvisioningDeviceClientRegistrationCallbackImpl(), provisioningStatus, additionalData);
+
+        while (provisioningStatus.provisioningDeviceClientRegistrationInfoClient.getProvisioningDeviceClientStatus() != ProvisioningDeviceClientStatus.PROVISIONING_DEVICE_STATUS_ASSIGNED)
+        {
+            if (provisioningStatus.provisioningDeviceClientRegistrationInfoClient.getProvisioningDeviceClientStatus() == ProvisioningDeviceClientStatus.PROVISIONING_DEVICE_STATUS_ERROR ||
+                    provisioningStatus.provisioningDeviceClientRegistrationInfoClient.getProvisioningDeviceClientStatus() == ProvisioningDeviceClientStatus.PROVISIONING_DEVICE_STATUS_DISABLED ||
+                    provisioningStatus.provisioningDeviceClientRegistrationInfoClient.getProvisioningDeviceClientStatus() == ProvisioningDeviceClientStatus.PROVISIONING_DEVICE_STATUS_FAILED)
+            {
+                provisioningStatus.exception.printStackTrace();
+                System.out.println("Registration error, bailing out");
+                break;
+            }
+            System.out.println("Waiting for Provisioning Service to register");
+            Thread.sleep(MAX_TIME_TO_WAIT_FOR_REGISTRATION);
+        }
+
+        ClientOptions options = new ClientOptions();
+        options.setModelId(MODEL_ID);
+
+        if (provisioningStatus.provisioningDeviceClientRegistrationInfoClient.getProvisioningDeviceClientStatus() == ProvisioningDeviceClientStatus.PROVISIONING_DEVICE_STATUS_ASSIGNED) {
+            System.out.println("IotHUb Uri : " + provisioningStatus.provisioningDeviceClientRegistrationInfoClient.getIothubUri());
+            System.out.println("Device ID : " + provisioningStatus.provisioningDeviceClientRegistrationInfoClient.getDeviceId());
+
+            String iotHubUri = provisioningStatus.provisioningDeviceClientRegistrationInfoClient.getIothubUri();
+            String deviceId = provisioningStatus.provisioningDeviceClientRegistrationInfoClient.getDeviceId();
+
+            log.debug("Opening the device client.");
+            deviceClient = DeviceClient.createFromSecurityProvider(iotHubUri, deviceId, securityProviderX509, IotHubClientProtocol.MQTT, options);
+            deviceClient.open();
+        }
+    }
+    ```
+
+    Save the changes.
+
+1. In your shell environment, add the following two environment variables. Make sure that you provide the full path to the PEM files and use the correct path delimiter for your operating system:
+
+    ```cmd/sh
+    set IOTHUB_DEVICE_X509_CERT=<full path to folder that contains PEM files>sampleDevice01_cert.pem
+    set IOTHUB_DEVICE_X509_KEY=<full path to folder that contains PEM files>sampleDevice01_key.pem
+    ```
+
+    > [!TIP]
+    > You set the other required environment variables when you completed the [Create and connect a client application to your Azure IoT Central application](./tutorial-connect-device.md) tutorial.
+
+1. Build and run the application. Verify the device provisions successfully.
+
+:::zone-end
+
+:::zone pivot="programming-language-javascript"
 
 1. Navigate to the _azure-iot-sdk-node/device/samples/pnp_ folder that contains the **pnpTemperatureController.js** application and run the following command to install the X.509 package:
 
@@ -109,7 +347,7 @@ After you save the enrollment group, make a note of the ID Scope.
 
 1. Open the **pnpTemperatureController.js** file in a text editor.
 
-1. Edit the `require` statements to include the following:
+1. Edit the `require` statements to include the following code:
 
     ```javascript
     const fs = require('fs');
@@ -125,7 +363,7 @@ After you save the enrollment group, make a note of the ID Scope.
     };
     ```
 
-1. Edit the `provisionDevice` function that creates the client by replacing the first line with the following:
+1. Edit the `provisionDevice` function that creates the client by replacing the first line with the following code:
 
     ```javascript
     var provSecurityClient = new X509Security(registrationId, deviceCert);
@@ -143,25 +381,99 @@ After you save the enrollment group, make a note of the ID Scope.
     client.setOptions(deviceCert);
     ```
 
-1. In your shell environment, set the following two environment variables:
+    Save the changes.
+
+1. In your shell environment, add the following two environment variables. Make sure that you provide the full path to the PEM files and use the correct path delimiter for your operating system:
 
     ```cmd/sh
-    set IOTHUB_DEVICE_X509_CERT=sampleDevice01_cert.pem
-    set IOTHUB_DEVICE_X509_KEY=sampleDevice01_key.pem
+    set IOTHUB_DEVICE_X509_CERT=<full path to folder that contains PEM files>sampleDevice01_cert.pem
+    set IOTHUB_DEVICE_X509_KEY=<full path to folder that contains PEM files>sampleDevice01_key.pem
     ```
 
     > [!TIP]
     > You set the other required environment variables when you completed the [Create and connect a client application to your Azure IoT Central application](./tutorial-connect-device.md) tutorial.
 
-1. Execute the script and verify the device was provisioned successfully:
+1. Execute the script and verify the device provisions successfully:
 
     ```cmd/sh
     node simple_thermostat.js
     ```
 
-    You can also verify that telemetry appears on the dashboard.
+:::zone-end
 
-    ![Verify Device Telemetry](./media/how-to-connect-devices-x509/telemetry.png)
+:::zone pivot="programming-language-python"
+
+1. Navigate to the _azure-iot-device/samples/pnp_ folder and open the **temp_controller_with_thermostats.py** file in a text editor.
+
+1. Add the following `from` statement to import the X.509 functionality:
+
+    ```python
+    from azure.iot.device import X509
+    ```
+
+1. Modify the first part of the `provision_device` function as follows:
+
+    ```python
+    async def provision_device(provisioning_host, id_scope, registration_id, x509, model_id):
+        provisioning_device_client = ProvisioningDeviceClient.create_from_x509_certificate(
+            provisioning_host=provisioning_host,
+            registration_id=registration_id,
+            id_scope=id_scope,
+            x509=x509,
+        )
+    ```
+
+1. In the `main` function, replace the line that sets the `symmetric_key` variable with the following code:
+
+    ```python
+    x509 = X509(
+        cert_file=os.getenv("IOTHUB_DEVICE_X509_CERT"),
+        key_file=os.getenv("IOTHUB_DEVICE_X509_KEY"),
+    )
+    ```
+
+1. In the `main` function, replace the call to the `provision_device` function with the following code:
+
+    ```python
+    registration_result = await provision_device(
+        provisioning_host, id_scope, registration_id, x509, model_id
+    )
+    ```
+
+1. In the `main` function, replace the call to the `IoTHubDeviceClient.create_from_symmetric_key` function with the following code:
+
+    ```python
+    device_client = IoTHubDeviceClient.create_from_x509_certificate(
+        x509=x509,
+        hostname=registration_result.registration_state.assigned_hub,
+        device_id=registration_result.registration_state.device_id,
+        product_info=model_id,
+    )
+    ```
+
+    Save the changes.
+
+1. In your shell environment, add the following two environment variables. Make sure that you provide the full path to the PEM files and use the correct path delimiter for your operating system:
+
+    ```cmd/sh
+    set IOTHUB_DEVICE_X509_CERT=<full path to folder that contains PEM files>sampleDevice01_cert.pem
+    set IOTHUB_DEVICE_X509_KEY=<full path to folder that contains PEM files>sampleDevice01_key.pem
+    ```
+
+    > [!TIP]
+    > You set the other required environment variables when you completed the [Create and connect a client application to your Azure IoT Central application](./tutorial-connect-device.md) tutorial.
+
+1. Execute the script and verify the device provisions successfully:
+
+    ```cmd/sh
+    python temp_controller_with_thermostats.py
+    ```
+
+:::zone-end
+
+Verify that telemetry appears on the dashboard in your IoT Central application:
+
+![Screenshot that shows telemetry arriving in your IoT Central application.](./media/how-to-connect-devices-x509/telemetry.png)
 
 ## Use individual enrollment
 
@@ -284,7 +596,7 @@ This section describes how to roll the certificates in IoT Central. When you rol
 
 ### Obtain new X.509 certificates
 
-Obtain new X.509 certificates from your certificate provider. You can create your own X.509 certificates using a tool like OpenSSL. This approach is useful for testing X.509 certificates but provides few security guarantees. Only use this approach for testing unless you are prepared to act as your own CA provider.
+Obtain new X.509 certificates from your certificate provider. You can create your own X.509 certificates using a tool like OpenSSL. This approach is useful for testing X.509 certificates but provides few security guarantees. Only use this approach for testing unless you're prepared to act as your own CA provider.
 
 ### Enrollment groups and security breaches
 
@@ -342,4 +654,5 @@ When the secondary certificate nears expiration, and needs to be rolled, you can
 
 ## Next steps
 
-Now that you've learned how to connect devices using  X.509 certificates, the suggested next step is to learn how to [Monitor device connectivity using Azure CLI](howto-monitor-devices-azure-cli.md)
+Now that you've learned how to connect devices using  X.509 certificates, the suggested next step is to learn how to [Monitor device connectivity using Azure CLI](howto-monitor-devices-azure-cli.md).
+
