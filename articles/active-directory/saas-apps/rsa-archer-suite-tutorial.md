@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/01/2020
+ms.date: 04/02/2021
 ms.author: jeedes
 ---
 
@@ -32,13 +32,13 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* RSA Archer Suite supports **SP** initiated SSO
-* RSA Archer Suite supports **Just In Time** user provisioning
+* RSA Archer Suite supports **SP** initiated SSO.
+* RSA Archer Suite supports **Just In Time** user provisioning.
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
 
-## Adding RSA Archer Suite from the gallery
+## Add RSA Archer Suite from the gallery
 
 To configure the integration of RSA Archer Suite into Azure AD, you need to add RSA Archer Suite from the gallery to your list of managed SaaS apps.
 
@@ -48,7 +48,6 @@ To configure the integration of RSA Archer Suite into Azure AD, you need to add 
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **RSA Archer Suite** in the search box.
 1. Select **RSA Archer Suite** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
-
 
 ## Configure and test Azure AD SSO for RSA Archer Suite
 
@@ -69,7 +68,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In the Azure portal, on the **RSA Archer Suite** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
@@ -138,7 +137,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Perform the following steps in the following page.
 
-	![Configure RSA Archer Suite SSO](./media/rsa-archer-suite-tutorial/configuring-saml-sso.png)
+	![Configure RSA Archer Suite SSO](./media/rsa-archer-suite-tutorial/configuration.png)
 
 	a. Go to the **Single Sign-On** tab and select **SAML** as a **Single Sign-On Mode** from the dropdown.
 

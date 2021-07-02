@@ -190,4 +190,4 @@ To recover a protected entity, such as a SQL Server database, from Azure:
 
 ## Next steps
 
-For more information, see [Azure Backup FAQ](backup-azure-backup-faq.md).
+For more information, see [Azure Backup FAQ](backup-azure-backup-faq.yml).

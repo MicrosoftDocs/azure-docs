@@ -11,9 +11,9 @@ metadata:
    ms.workload: identity
    ms.topic: landing-page
    ms.date: 09/28/2020
-   author: kenwith
-   ms.author: kenwith
-   manager: celested
+   author: iantheninja
+   manager: CelesteDG
+   ms.author: iangithinji
 
 landingContent:
   - title: About app management
@@ -76,10 +76,10 @@ landingContent:
     linkLists:
       - linkListType: learn
         links:
-          - text: What is App Proxy?
-            url: what-is-application-proxy.md
+          - text: What is Application Proxy?
+            url: ../app-proxy/what-is-application-proxy.md
           - text: App Proxy deployment
-            url: application-proxy-deployment-plan.md
+            url: ../app-proxy/application-proxy-deployment-plan.md
   - title: Secure apps
     linkLists:
       - linkListType: learn

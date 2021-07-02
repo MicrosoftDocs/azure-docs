@@ -11,7 +11,7 @@
 - name: Quickstarts
   items:
   - name: Create a VM in the portal
-    href: ../virtual-machines/windows/quick-create-portal.md?toc=/azure/azure-portal/toc.json&bc=/azure/azure-portal/breadcrumb/toc.json
+    href: ../virtual-machines/windows/quick-create-portal.md?context=/azure/azure-portal/context/context
   - name: Create a dashboard
     items:
     - name: Azure CLI
@@ -21,27 +21,27 @@
     - name: ARM template
       displayName: Resource Manager
       href: quick-create-template.md
-- name: Concepts
-  items:
-  - name: Share dashboards with Azure role-based access control
-    href: azure-portal-dashboard-share-access.md
-  - name: Programmatically create Azure dashboards
-    href: azure-portal-dashboards-create-programmatically.md
-    displayName: Azure CLI, az portal dashboard, az portal
 - name: How-to guides
   items:
   - name: Manage Azure portal settings and preferences
-    href: set-preferences.md
+    href: set-preferences.md  
+  - name: Manage Azure portal settings (older version)
+    href: original-preferences.md
   - name: Add, remove, and sort favorites
     href: azure-portal-add-remove-sort-favorites.md
   - name: View and filter resource information
     href: manage-filter-resource-views.md
   - name: Create Azure dashboards
     items:
-    - name: Create and share Azure dashboards
+    - name: Create an Azure dashboard
       href: azure-portal-dashboards.md
+    - name: Share an Azure dashboard
+      href: azure-portal-dashboard-share-access.md
     - name: Use a custom markdown tile
       href: azure-portal-markdown-tile.md
+    - name: Programmatically create an Azure dashboard
+      href: azure-portal-dashboards-create-programmatically.md
+      displayName: Azure CLI, az portal dashboard, az portal
   - name: Azure portal how-to video series
     href: azure-portal-video-series.md
   - name: Create and manage support requests
@@ -77,18 +77,18 @@
   items:
   - name: Keyboard shortcuts
     href: azure-portal-keyboard-shortcuts.md
-  - name: Safelist the Azure portal URLs
+  - name: Azure portal URLs
     href: azure-portal-safelist-urls.md
   - name: Structure of Azure dashboards
     href: azure-portal-dashboards-structure.md
   - name: Azure CLI
-    href: /cli/azure/ext/portal/portal
+    href: /cli/azure/portal
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ./policy-reference.md
 - name: Resources
   items:
-  - name: Azure roadmap
+  - name: Azure updates
     href: https://azure.microsoft.com/updates/
   - name: Build your skills with Microsoft Learn
     href: /learn/browse/?products=azure-portal
@@ -98,5 +98,5 @@
     href: https://azure.microsoft.com/regions/services/
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-management-portal
-  - name: Azure Videos
+  - name: Azure videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=azure-portal&sort=newest

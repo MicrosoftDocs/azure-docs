@@ -1,14 +1,16 @@
 ---
 title: Manage virtual networks - Azure portal - Azure Database for MySQL - Flexible Server
 description: Create and manage virtual networks for Azure Database for MySQL - Flexible Server using the Azure portal
-author: ambhatna
-ms.author: ambhatna
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
 ---
 
 # Create and manage virtual networks for Azure Database for MySQL - Flexible Server using the Azure portal
+
+[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 > [!IMPORTANT]
 > Azure Database for MySQL - Flexible Server is currently in public preview.
@@ -23,6 +25,7 @@ In this article, we will focus on creation of MySQL server with **Private access
 You can deploy your flexible server into a virtual network and subnet during server creation. After the flexible server is deployed, you cannot move it into another virtual network, subnet or to *Public access (allowed IP addresses)*.
 
 ## Prerequisites
+
 To create a flexible server in a virtual network, you need:
 - A [Virtual Network](../../virtual-network/quick-create-portal.md#create-a-virtual-network)
     > [!Note]

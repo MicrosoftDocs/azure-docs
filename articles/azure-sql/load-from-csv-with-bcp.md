@@ -7,9 +7,9 @@ ms.subservice: data-movement
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: how-to
-author: stevestein
-ms.author: sstein
-ms.reviewer: 
+author: dzsquared
+ms.author: drskwier
+ms.reviewer: mathoma
 ms.date: 01/25/2019
 ---
 # Load data from CSV into Azure SQL Database or SQL Managed Instance (flat files)
@@ -27,7 +27,7 @@ To complete the steps in this article, you need:
 * The bcp command-line utility installed
 * The sqlcmd command-line utility installed
 
-You can download the bcp and sqlcmd utilities from the [Microsoft Download Center][Microsoft Download Center].
+You can download the bcp and sqlcmd utilities from the [Microsoft sqlcmd Documentation](/sql/tools/sqlcmd-utility?view=sql-server-ver15&preserve-view=true).
 
 ### Data in ASCII or UTF-16 format
 

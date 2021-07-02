@@ -1,9 +1,8 @@
 ---
-title: Configure a SharePoint Online indexer (preview)
+title: Index data from SharePoint Online (preview)
 titleSuffix: Azure Cognitive Search
 description: Set up a SharePoint Online indexer to automate indexing of document library content in Azure Cognitive Search.
 
-manager: luisca
 author: MarkHeff
 ms.author: maheff
 ms.service: cognitive-search
@@ -11,21 +10,18 @@ ms.topic: conceptual
 ms.date: 03/01/2021
 ---
 
-# How to configure SharePoint Online indexing in Cognitive Search (preview)
+# Index data from SharePoint Online
 
 > [!IMPORTANT] 
-> SharePoint Online support is currently in a **gated public preview**. You can request access to the gated preview by filling out [this form](https://aka.ms/azure-cognitive-search/indexer-preview).
->
-> Preview functionality is provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-> 
-> The [REST API version 2020-06-30-Preview](search-api-preview.md) provides this feature. There is currently no portal or SDK support.
+> SharePoint Online support is currently in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). [Request access](https://aka.ms/azure-cognitive-search/indexer-preview) to this feature, and after access is enabled, use a [preview REST API (2020-06-30-preview or later)](search-api-preview.md) to index your content. There is currently limited portal support and no .NET SDK support.
+
+This article describes how to use Azure Cognitive Search to index documents (such as PDFs, Microsoft Office documents, and several other common formats) stored in SharePoint Online document libraries into an Azure Cognitive Search index. First, it explains the basics of setting up and configuring the indexer. Then, it offers a deeper exploration of behaviors and scenarios you are likely to encounter.
 
 > [!NOTE]
 > SharePoint Online supports a granular authorization model that determines per-user access at the document level. The SharePoint Online indexer does not pull these permissions into the search index, and Cognitive Search does not support document-level authorization. When a document is indexed from SharePoint Online into a search service, the content is available to anyone who has read access to the index. If you require document-level permissions, you should investigate security filters to trim results of unauthorized content. For more information, see [Security trimming using Active Directory identities](search-security-trimming-for-azure-search-with-aad.md).
 
-This article describes how to use Azure Cognitive Search to index documents (such as PDFs, Microsoft Office documents, and several other common formats) stored in SharePoint Online document libraries into an Azure Cognitive Search index. First, it explains the basics of setting up and configuring the indexer. Then, it offers a deeper exploration of behaviors and scenarios you are likely to encounter.
-
 ## Functionality
+
 An indexer in Azure Cognitive Search is a crawler that extracts searchable data and metadata from a data source. The SharePoint Online indexer will connect to your SharePoint Online site and index documents from one or more Document Libraries. The indexer provides the following functionality:
 + Index content from one or more SharePoint Online Document Libraries.
 + Index content from SharePoint Online Document Libraries that are in the same tenant as your Azure Cognitive Search service. The indexer will not work with SharePoint sites that are in a different tenant than your Azure Cognitive Search service. 
@@ -45,6 +41,10 @@ Deletion detection is also supported by default. This means that if a document i
 
 ## Setting up SharePoint Online indexing
 To set up the SharePoint Online Indexer, you will need to perform some actions in the Azure portal and some actions using the preview REST API. This preview isn’t supported by the SDK.
+
+ The following video shows how to set up the SharePoint Online indexer.
+ 
+> [!VIDEO https://www.youtube.com/embed/QmG65Vgl0JI]
 
 ### Step 1: Enable system assigned managed identity
 When a system-assigned managed identity is enabled, Azure creates an identity for your search service that can be used by the indexer.
@@ -83,7 +83,7 @@ The SharePoint Online indexer will use this AAD application for authentication.
 
 1.	Give admin consent (Only required for certain tenants).
 
-    Some tenants are locked down in such a way that admin consent is required for these delegated API permissions. If that is the case, you’ll need to have an admin grant admin consent for this AAD application before creating the indexer. 
+    Some tenants are locked down in such a way that admin consent is required for these delegated API permissions. If that is the case, you’ll need to have an admin grant admin consent for this AAD application before creating the indexer.
 
     Because not all tenant have this requirement, we recommend first skipping this step and continuing on with the instructions. You’ll know if you need admin consent if when creating the indexer, the authentication fails telling you that you need an admin to approve the authentication. In that case, have a tenant admin grant consent using the button below.
 
@@ -143,7 +143,7 @@ api-key: [admin key]
 
 ```
 
-For more information, see [Create Index (REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index).
+For more information, see [Create Index (REST API)](/rest/api/searchservice/create-index).
 
 ### Step 5: Create an indexer
 An indexer connects a data source with a target search index and provides a schedule to automate the data refresh. Once the index and data source have been created, you're ready to create the indexer!
@@ -222,7 +222,7 @@ Content-Type: application/json
 api-key: [admin key]
 ```
 
-More information on the indexer status can be found here: [Get Indexer Status](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status).
+More information on the indexer status can be found here: [Get Indexer Status](/rest/api/searchservice/get-indexer-status).
 
 ## Updating the data source
 If there are no updates to the data source object, the indexer can run on a schedule without any user interaction. However, every time the Azure Cognitive Search data source object is updated, you will need to login again in order for the indexer to run. For example, if you change the data source query, you will need to login again using the `https://microsoft.com/devicelogin` and a new code.
@@ -237,7 +237,7 @@ Once the data source has been updated, follow the below steps:
     api-key: [admin key]
     ```
 
-    More information on the indexer run request can be found here: [Run Indexer](https://docs.microsoft.com/rest/api/searchservice/run-indexer).
+    More information on the indexer run request can be found here: [Run Indexer](/rest/api/searchservice/run-indexer).
 
 1.	Check the indexer status. If the last indexer run has an error telling you to go to `https://microsoft.com/devicelogin`, go to that page and provide the new code. 
 
@@ -247,7 +247,7 @@ Once the data source has been updated, follow the below steps:
     api-key: [admin key]
     ```
 
-    More information on the indexer status can be found here: [Get Indexer Status](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status).
+    More information on the indexer status can be found here: [Get Indexer Status](/rest/api/searchservice/get-indexer-status).
 
 1.	Login
 
@@ -356,7 +356,7 @@ For some documents, Azure Cognitive Search is unable to determine the content ty
 "parameters" : { "configuration" : { "failOnUnprocessableDocument" : false } }
 ```
 
-Azure Cognitive Search limits the size of documents that are indexed. These limits are documented in [Service Limits in Azure Cognitive Search](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity). Oversized documents are treated as errors by default. However, you can still index storage metadata of oversized documents if you set `indexStorageMetadataOnlyForOversizedDocuments` configuration parameter to true:
+Azure Cognitive Search limits the size of documents that are indexed. These limits are documented in [Service Limits in Azure Cognitive Search](./search-limits-quotas-capacity.md). Oversized documents are treated as errors by default. However, you can still index storage metadata of oversized documents if you set `indexStorageMetadataOnlyForOversizedDocuments` configuration parameter to true:
 
 ```http
 "parameters" : { "configuration" : { "indexStorageMetadataOnlyForOversizedDocuments" : true } }

@@ -1,12 +1,14 @@
 ---
-title:  Analyze live video by using OpenVINO™ Model Server – AI Extension from Intel 
-description: In this tutorial, you'll use an AI model server provided by Intel to analyze the live video feed from a (simulated) IP camera. 
+title:  Analyze live video by using Live Video Analytics with OpenVINO™ Model Server – AI Extension from Intel 
+description: In this tutorial, you use an AI model server provided by Intel to analyze the live video feed from a (simulated) IP camera. 
 ms.topic: tutorial
 ms.date: 09/08/2020
 titleSuffix: Azure
 
 ---
-# Tutorial: Analyze live video by using OpenVINO™ Model Server – AI Extension from Intel 
+# Tutorial: Analyze live video by using Live Video Analytics with OpenVINO™ Model Server – AI Extension from Intel 
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 This tutorial shows you how to use the OpenVINO™ Model Server – AI Extension from Intel to analyze a live video feed from a (simulated) IP camera. You'll see how this inference server gives you access to models for detecting objects (a person, a vehicle, or a bike), and a model for classifying vehicles. A subset of the frames in the live video feed is sent to this inference server, and the results are sent to IoT Edge Hub.
 
@@ -46,7 +48,7 @@ In this quickstart, you'll use Live Video Analytics on IoT Edge along with the O
 
 This diagram shows how the signals flow in this quickstart. An [edge module](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An [RTSP source](media-graph-concept.md#rtsp-source) node pulls the video feed from this server and sends video frames to the [HTTP extension processor](media-graph-concept.md#http-extension-processor) node. 
 
-The HTTP extension node plays the role of a proxy. It  It samples the incoming video frames set by you `samplingOptions` field and also converts the video frames to the specified image type. Then it relays the image over REST to another edge module that runs AI models behind an HTTP endpoint. In this example, that edge module is the OpenVINO™ Model Server – AI Extension from Intel. The HTTP extension processor node gathers the detection results and publishes events to the [IoT Hub sink](media-graph-concept.md#iot-hub-message-sink) node. The node then sends those events to [IoT Edge Hub](../../iot-edge/iot-edge-glossary.md#iot-edge-hub).
+The HTTP extension node plays the role of a proxy. It  It samples the incoming video frames set by you `samplingOptions` field and also converts the video frames to the specified image type. Then it relays the image over REST to another edge module that runs AI models behind an HTTP endpoint. In this example, that edge module is the OpenVINO™ Model Server – AI Extension from Intel. The HTTP extension processor node gathers the detection results and publishes events to the [IoT Hub sink](media-graph-concept.md#iot-hub-message-sink) node. The node then sends those events to [IoT Edge Hub](../../iot-fundamentals/iot-glossary.md#iot-edge-hub).
 
 In this tutorial, you will:
 

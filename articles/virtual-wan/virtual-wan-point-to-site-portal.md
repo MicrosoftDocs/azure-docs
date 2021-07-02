@@ -1,13 +1,13 @@
 ---
 
 title: 'Tutorial: Use Azure Virtual WAN to create a Point-to-Site connection to Azure'
-description: In this tutorial, learn how to use Azure Virtual WAN to create a Point-to-Site VPN connection to Azure.
+description: In this tutorial, learn how to use Azure Virtual WAN to create a User VPN (point-to-site) connection to Azure.
 services: virtual-wan
 author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 03/05/2021
+ms.date: 06/23/2021
 ms.author: cherylmc
 
 ---

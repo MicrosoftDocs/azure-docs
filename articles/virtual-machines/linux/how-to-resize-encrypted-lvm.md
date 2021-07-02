@@ -33,7 +33,7 @@ This article assumes that you have:
 
 - Experience using Linux and LVM.
 
-- Experience using */dev/disk/scsi1/* paths for data disks on Azure. For more information, see [Troubleshoot Linux VM device name problems](../troubleshooting/troubleshoot-device-names-problems.md). 
+- Experience using */dev/disk/scsi1/* paths for data disks on Azure. For more information, see [Troubleshoot Linux VM device name problems](/troubleshoot/azure/virtual-machines/troubleshoot-device-names-problems). 
 
 ## Scenarios
 

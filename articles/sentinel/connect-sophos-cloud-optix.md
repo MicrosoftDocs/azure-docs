@@ -21,6 +21,8 @@ ms.author: yelevin
 > [!IMPORTANT]
 > The Sophos Cloud Optix connector is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
 Sophos Cloud Optix connector allows you to easily connect all your Sophos Cloud Optix security solution logs with your Azure Sentinel, to view dashboards, create custom alerts, and improve investigation.  This capability gives you more insight into your organization's cloud security and compliance posture and improves your cloud security operation capabilities. Integration between Sophos Cloud Optix and Azure Sentinel makes use of REST API.
 
 > [!NOTE]

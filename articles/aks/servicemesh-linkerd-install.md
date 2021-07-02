@@ -265,7 +265,7 @@ You can also follow additional scenarios using:
 <!-- LINKS - external -->
 
 [linkerd]: https://linkerd.io/
-[linkerd-cncf]: https://landscape.cncf.io/selected=linkerd
+[linkerd-cncf]: https://landscape.cncf.io/?selected=linkerd
 [linkerd-faq]: https://linkerd.io/2/faq/
 [linkerd-architecture]: https://linkerd.io/2/reference/architecture/
 [linkerd-getting-started]: https://linkerd.io/2/getting-started/

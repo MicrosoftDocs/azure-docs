@@ -4,8 +4,8 @@ titleSuffix: Azure SQL Managed Instance
 description: Learn about different ways for monitoring of Azure SQL Managed Instance management operations.
 services: sql-database
 ms.service: sql-managed-instance
-ms.subservice: operations
-ms.custom: 
+ms.subservice: deployment-configuration
+ms.custom: devx-track-azurepowershell
 ms.devlang: 
 ms.topic: how-to
 author: urosmil

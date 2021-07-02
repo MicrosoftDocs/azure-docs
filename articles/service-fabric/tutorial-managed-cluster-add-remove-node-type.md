@@ -1,11 +1,12 @@
 ---
-title: Add and remove node types of a Service Fabric managed cluster (preview)
+title: Add and remove node types of a Service Fabric managed cluster
 description: In this tutorial, learn how to add and remove node types of a Service Fabric managed cluster.
 ms.topic: tutorial
-ms.date: 09/28/2020
+ms.date: 05/10/2021 
+ms.custom: devx-track-azurepowershell
 ---
 
-# Tutorial: Add and remove node types from a Service Fabric managed cluster (preview)
+# Tutorial: Add and remove node types from a Service Fabric managed cluster
 
 In this tutorial series we will discuss:
 

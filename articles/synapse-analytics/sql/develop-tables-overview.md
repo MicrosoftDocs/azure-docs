@@ -16,7 +16,7 @@ ms.reviewer: jrasnick
 
 This document includes key concepts for designing tables with dedicated SQL pool and serverless SQL pool.  
 
-[Serverless SQL pool](on-demand-workspace-overview.md) is a query service over the data in your data lake. It doesn't have local storage for data ingestion. [Dedicated SQL pool](best-practices-sql-pool.md) represents a collection of analytic resources that are being provisioned when using Synapse SQL. The size of a dedicated SQL pool is determined by Data Warehousing Units (DWU).
+[Serverless SQL pool](on-demand-workspace-overview.md) is a query service over the data in your data lake. It doesn't have local storage for data ingestion. [Dedicated SQL pool](best-practices-dedicated-sql-pool.md) represents a collection of analytic resources that are being provisioned when using Synapse SQL. The size of a dedicated SQL pool is determined by Data Warehousing Units (DWU).
 
 The following table lists the topics that are relevant to dedicated SQL pool vs. serverless SQL pool:
 
@@ -195,7 +195,7 @@ Statistical updating doesn't happen automatically. Update statistics after a sig
 
 ## Primary key and unique key
 
-For dedicated SQL pool, PRIMARY KEY is only supported when NONCLUSTERED and NOT ENFORCED are both used.  UNIQUE constraint is only supported when NOT ENFORCED is used.  For more information, see the [SQL pool Table Constraints](../sql-data-warehouse/sql-data-warehouse-table-constraints.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) article.
+For dedicated SQL pool, PRIMARY KEY is only supported when NONCLUSTERED and NOT ENFORCED are both used.  UNIQUE constraint is only supported when NOT ENFORCED is used.  For more information, see the [dedicated SQL pool table constraints](../sql-data-warehouse/sql-data-warehouse-table-constraints.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) article.
 
 ## Commands for creating tables
 

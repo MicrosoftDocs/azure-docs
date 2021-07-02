@@ -6,7 +6,8 @@ ms.service: firewall
 services: firewall
 ms.topic: how-to
 ms.date: 02/16/2021
-ms.author: victorh
+ms.author: victorh 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Migrate to Azure Firewall Premium Preview

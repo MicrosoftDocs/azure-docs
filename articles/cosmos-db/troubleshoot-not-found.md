@@ -4,7 +4,7 @@ description: Learn how to diagnose and fix not found exceptions.
 author: j82w
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.date: 07/13/2020
+ms.date: 05/26/2021
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
@@ -32,6 +32,12 @@ There are multiple SDK client instances and the read happened before the write.
 #### Solution:
 1. The default account consistency for Azure Cosmos DB is session consistency. When an item is created or updated, the response returns a session token that can be passed between SDK instances to guarantee that the read request is reading from a replica with that change.
 1. Change the [consistency level](./consistency-levels.md) to a [stronger level](./consistency-levels.md).
+
+### Reading throughput for a container or database resource
+Using PowerShell or Azure CLI and receive *not found* error message.
+
+#### Solution:
+Throughput can be provisioned at the database level, container level, or both. If getting  a *not found* error, try reading throughput the parent database resource, or child container resource.
 
 ### Invalid partition key and ID combination
 The partition key and ID combination aren't valid.

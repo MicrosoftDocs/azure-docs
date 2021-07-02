@@ -8,7 +8,8 @@ ms.subservice: shared-image-gallery
 ms.workload: infrastructure
 ms.date: 06/30/2020
 ms.author: cynthn
-ms.reviewer: akjosh
+ms.reviewer: akjosh 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Create an image from a Managed Disk or snapshot in a Shared Image Gallery using PowerShell

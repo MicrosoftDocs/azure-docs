@@ -1,11 +1,13 @@
 ---
-title: Live Video Analytics on IoT Edge quotas and limitations - Azure  
+title: Azure Live Video Analytics on IoT Edge quotas and limitations - Azure  
 description: This article describes Live Video Analytics on IoT Edge quotas and limitations.
 ms.topic: conceptual
 ms.date: 05/22/2020 
  
 ---
-# Quotas and limitations
+# Quotas and limitations in Live Video Analytics
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 This article enumerates the quotas and limitations of the Live Video Analytics on IoT Edge module.
 

@@ -147,7 +147,7 @@ Finally, create and start Azure Database Migration task. Azure Database Migratio
 
 ### Create credential parameters for source and target
 
-Connection security credentials can be created as a [PSCredential](/dotnet/api/system.management.automation.pscredential?view=powershellsdk-1.1.0) object.
+Connection security credentials can be created as a [PSCredential](/dotnet/api/system.management.automation.pscredential) object.
 
 The following example shows the creation of *PSCredential* objects for both source and target connections providing passwords as string variables *$sourcePassword* and *$targetPassword*.
 
@@ -191,8 +191,8 @@ Use the `New-AzDataMigrationTask` cmdlet to create and start a migration task. T
 * *TaskName*. Name of task to be created. 
 * *SourceConnection*. AzDmsConnInfo object representing source SQL Server connection.
 * *TargetConnection*. AzDmsConnInfo object representing target Azure SQL Database connection.
-* *SourceCred*. [PSCredential](/dotnet/api/system.management.automation.pscredential?view=powershellsdk-1.1.0) object for connecting to source server.
-* *TargetCred*. [PSCredential](/dotnet/api/system.management.automation.pscredential?view=powershellsdk-1.1.0) object for connecting to target server.
+* *SourceCred*. [PSCredential](/dotnet/api/system.management.automation.pscredential) object for connecting to source server.
+* *TargetCred*. [PSCredential](/dotnet/api/system.management.automation.pscredential) object for connecting to target server.
 * *SelectedDatabase*. AzDataMigrationSelectedDB object representing the source and target database mapping.
 * *SchemaValidation*. (optional, switch parameter) Following the migration, performs a comparison of the schema information between source and target.
 * *DataIntegrityValidation*. (optional, switch parameter) Following the migration, performs a checksum-based data integrity validation between source and target.

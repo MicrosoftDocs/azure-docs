@@ -21,7 +21,7 @@ ms.service: digital-twins
 
 This article describes the different ways to [enable Private Link with a private endpoint for an Azure Digital Twins instance](concepts-security.md#private-network-access-with-azure-private-link-preview) (currently in preview). Configuring a private endpoint for your Azure Digital Twins instance enables you to secure your Azure Digital Twins instance and eliminate public exposure, as well as avoid data exfiltration from your [Azure Virtual Network (VNet)](../virtual-network/virtual-networks-overview.md).
 
-This article walks through the process using the [**Azure portal**](https://portal.azure.com).
+This article walks through the process using the [Azure portal](https://portal.azure.com).
 
 Here are the steps that are covered in this article: 
 1. Turn on Private Link and configure a private endpoint for an Azure Digital Twins instance.
@@ -29,7 +29,7 @@ Here are the steps that are covered in this article:
 
 ## Prerequisites
 
-Before you can set up a private endpoint, you'll need an [**Azure Virtual Network (VNet)**](../virtual-network/virtual-networks-overview.md) where the endpoint can be deployed. If you don't have a VNet already, you can follow one of the Azure Virtual Network [quickstarts](../virtual-network/quick-create-portal.md) to set this up.
+Before you can set up a private endpoint, you'll need an [Azure Virtual Network (VNet)](../virtual-network/virtual-networks-overview.md) where the endpoint can be deployed. If you don't have a VNet already, you can follow one of the [Azure Virtual Network quickstarts](../virtual-network/quick-create-portal.md) to set this up.
 
 ## Add a private endpoint for an Azure Digital Twins instance 
 
@@ -44,7 +44,7 @@ Either of these creation methods will give the same configuration options and th
 
 ### Add a private endpoint during instance creation
 
-In this section, you'll enable Private Link with a private endpoint on an Azure Digital Twins instance that is currently being created. This section focuses on the networking step of the creation process; for a complete walkthrough of creating a new Azure Digital Twins instance, see [*How-to: Set up an instance and authentication*](how-to-set-up-instance-portal.md).
+In this section, you'll enable Private Link with a private endpoint on an Azure Digital Twins instance that is currently being created. This section focuses on the networking step of the creation process; for a complete walkthrough of creating a new Azure Digital Twins instance, see [How-to: Set up an instance and authentication](how-to-set-up-instance-portal.md).
 
 The Private Link options are located in the **Networking** tab of instance setup.
 
@@ -52,7 +52,7 @@ In this tab, you can enable private endpoints by selecting the **Private endpoin
 
 This will add a section called **Private endpoint connections** where you can configure the details of your private endpoint. Select the **+ Add** button to continue.
 
-:::image type="content" source="media/how-to-enable-private-link/create-instance-networking-1.png" alt-text="Screenshot of the Azure portal showing the Networking tab of the Create Resource dialog for Azure Digital Twins. There's a highlight around the tab name, the Private endpoint option for Connectivity method, and the + Add button to create a new private endpoint connection." lightbox="media/how-to-enable-private-link/create-instance-networking-1.png":::
+:::image type="content" source="media/how-to-enable-private-link/create-instance-networking-1.png" alt-text="Screenshot of the Azure portal showing the Networking tab of a new Azure Digital Twins instance, highlighting how to create a private endpoint. The 'Add' button is highlighted." lightbox="media/how-to-enable-private-link/create-instance-networking-1.png":::
 
 This will open a page to enter the details of a new private endpoint.
 
@@ -60,15 +60,15 @@ This will open a page to enter the details of a new private endpoint.
 
 1. Fill in selections for your **Subscription** and **Resource group**. Set the **Location** to the same location as the VNet you'll be using. Choose a **Name** for the endpoint, and for **Target sub-resources** select *API*.
 
-1. Next, select the **Virtual network** and **Subnet** you'd like to use to deploy the endpoint.
+1. Next, select the **Virtual network** and **Subnet** you want to use to deploy the endpoint.
 
 1. Lastly, select whether to **Integrate with private DNS zone**. You can use the default of **Yes** or, for help with this option, you can follow the link in the portal to [learn more about private DNS integration](../private-link/private-endpoint-overview.md#dns-configuration).
 
-After filling out the configuration options, Hit **OK** to finish.
+After filling out the configuration options, select **OK** to finish.
 
-This will return you to the **Networking** tab of the Azure Digital Twins instance setup, where your new endpoint should be visible under **Private endpoint connections.
+This will return you to the **Networking** tab of the Azure Digital Twins instance setup, where your new endpoint should be visible under **Private endpoint connections**.
 
-:::image type="content" source="media/how-to-enable-private-link/create-instance-networking-2.png" alt-text="Screenshot of the Azure portal showing the Networking tab of the Create Resource dialog for Azure Digital Twins. There's a highlight around the new private endpoint connection, and the navigation buttons (Review + create, Previous, Next: Advanced)." lightbox="media/how-to-enable-private-link/create-instance-networking-2.png":::
+:::image type="content" source="media/how-to-enable-private-link/create-instance-networking-2.png" alt-text="Screenshot of the Azure portal showing the Networking tab of an Azure Digital Twins with a newly created private endpoint." lightbox="media/how-to-enable-private-link/create-instance-networking-2.png":::
 
 You can then use the bottom navigation buttons to continue with the rest of instance setup.
 
@@ -84,7 +84,7 @@ In this section, you'll enable Private Link with a private endpoint for an Azure
 
 1. Select **+ Private endpoint** to open the **Create a private endpoint** setup.
 
-    :::image type="content" source="media/how-to-enable-private-link/add-endpoint-digital-twins.png" alt-text="Screenshot of the Azure portal showing the the Networking (preview) page for an Azure Digital Twins instance. The Private endpoint connections tab is highlighted, and the + Private endpoint button is also highlighted." lightbox="media/how-to-enable-private-link/add-endpoint-digital-twins.png":::
+    :::image type="content" source="media/how-to-enable-private-link/add-endpoint-digital-twins.png" alt-text="Screenshot of the Azure portal showing the Networking page for an existing Azure Digital Twins instance, highlighting how to create private endpoints." lightbox="media/how-to-enable-private-link/add-endpoint-digital-twins.png":::
 
 1. In the **Basics** tab, enter or select the **Subscription** and **Resource group** of your project, and a **Name** and **Region** for your endpoint. The region needs to be the same as the region for the VNet you're using.
 
@@ -138,7 +138,7 @@ To disable or enable public network access in the [Azure portal](https://portal.
 
     :::row:::
         :::column:::
-            :::image type="content" source="media/how-to-enable-private-link/network-flag-portal.png" alt-text="Screenshot of the Azure portal showing the Networking (preview) page for an Azure Digital Twins instance. The Public access tab is highlighted, and the option to choose whether to allow public network access is also highlighted." lightbox="media/how-to-enable-private-link/network-flag-portal.png":::
+            :::image type="content" source="media/how-to-enable-private-link/network-flag-portal.png" alt-text="Screenshot of the Azure portal showing the Networking page for an Azure Digital Twins instance, highlighting how to toggle public access." lightbox="media/how-to-enable-private-link/network-flag-portal.png":::
         :::column-end:::
         :::column:::
         :::column-end:::
@@ -149,4 +149,4 @@ To disable or enable public network access in the [Azure portal](https://portal.
 ## Next steps
 
 Learn more about Private Link for Azure: 
-* [*What is Azure Private Link service?*](../private-link/private-link-service-overview.md)
+* [What is Azure Private Link service?](../private-link/private-link-service-overview.md)

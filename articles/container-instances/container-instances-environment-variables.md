@@ -2,7 +2,8 @@
 title: Set environment variables in container instance
 description: Learn how to set environment variables in the containers you run in Azure Container Instances
 ms.topic: article
-ms.date: 04/17/2019
+ms.date: 04/17/2019 
+ms.custom: devx-track-azurepowershell
 ---
 # Set environment variables in container instances
 
@@ -242,10 +243,10 @@ Task-based scenarios, such as batch processing a large dataset with several cont
 [aci-wordcount]: https://hub.docker.com/_/microsoft-azuredocs-aci-wordcount
 
 <!-- LINKS Internal -->
-[az-container-create]: /cli/azure/container#az-container-create
-[az-container-exec]: /cli/azure/container#az-container-exec
-[az-container-logs]: /cli/azure/container#az-container-logs
-[az-container-show]: /cli/azure/container#az-container-show
+[az-container-create]: /cli/azure/container#az_container_create
+[az-container-exec]: /cli/azure/container#az_container_exec
+[az-container-logs]: /cli/azure/container#az_container_logs
+[az-container-show]: /cli/azure/container#az_container_show
 [azure-cli-install]: /cli/azure/
 [azure-instance-log]: /powershell/module/az.containerinstance/get-azcontainerinstancelog
 [azure-powershell-install]: /powershell/azure/install-Az-ps

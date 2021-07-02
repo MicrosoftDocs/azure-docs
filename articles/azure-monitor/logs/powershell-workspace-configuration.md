@@ -4,7 +4,8 @@ description: Log Analytics workspaces in Azure Monitor store data from servers i
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 05/26/2020
+ms.date: 05/26/2020 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Create and configure a Log Analytics workspace in Azure Monitor using PowerShell
@@ -23,7 +24,7 @@ The following sample script creates a workspace with no data source configuratio
 
 ```powershell
 $ResourceGroup = "my-resource-group"
-$WorkspaceName = "log-analytics-" + (Get-Random -Maximum 99999) # workspace names need to be unique across all Azure subscriptions - Get-Random helps with this for the example code
+$WorkspaceName = "log-analytics-" + (Get-Random -Maximum 99999) # workspace names need to be unique in resource group - Get-Random helps with this for the example code
 $Location = "westeurope"
 
 # Create the resource group if needed
@@ -58,7 +59,7 @@ This script performs the following functions:
 
 ```powershell
 $ResourceGroup = "my-resource-group"
-$WorkspaceName = "log-analytics-" + (Get-Random -Maximum 99999) # workspace names need to be unique across all Azure subscriptions - Get-Random helps with this for the example code
+$WorkspaceName = "log-analytics-" + (Get-Random -Maximum 99999) # workspace names need to be unique in resource group - Get-Random helps with this for the example code
 $Location = "westeurope"
 
 # Create the resource group if needed
@@ -208,7 +209,7 @@ In the above example regexDelimiter was defined as "\\n" for newline. The log de
 ## Troubleshooting
 When you create a workspace that was deleted in the last 14 days and in [soft-delete state](../logs/delete-workspace.md#soft-delete-behavior), the operation could have different outcome depending on your workspace configuration:
 1. If you provide the same workspace name, resource group, subscription and region as in the deleted workspace, your workspace will be recovered including its data, configuration and connected agents.
-2. If you use the same workspace name, but different resource group, subscription or region, you will get an error *The workspace name 'workspace-name' is not unique*, or *conflict*. To override the soft-delete and permanently delete your workspace and create a new workspace with the same name, follow these steps to recover the workspace first and perform permanent delete:
+2. Workspace name must be unique per resource group. If you use a workspace name that is already exists, also in soft-delete in your your resource group, you will get an error *The workspace name 'workspace-name' is not unique*, or *conflict*. To override the soft-delete and permanently delete your workspace and create a new workspace with the same name, follow these steps to recover the workspace first and perform permanent delete:
    * [Recover](../logs/delete-workspace.md#recover-workspace) your workspace
    * [Permanently delete](../logs/delete-workspace.md#permanent-workspace-delete) your workspace
    * Create a new workspace using the same workspace name

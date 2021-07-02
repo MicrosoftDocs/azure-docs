@@ -5,7 +5,7 @@ description: How to configure your Metrics graph and visualize related anomalies
 services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 09/08/2020
@@ -16,7 +16,7 @@ ms.author: mbullwin
 
 Each metric in Metrics Advisor is monitored separately by a model that learns from historical data to predict future trends. Each metric has a separate model that is applied to it. In some cases however, several metrics may relate to each other, and anomalies need to be analyzed across multiple metrics. The **Metrics Graph** helps with this. 
 
-As an example, if you have different streams of telemetry in separate metrics, Metrics Advisor will monitor them separately. If anomalies in one metric cause anomalies in others, finding those relations and the root cause in your data can be helpful when addressing incidents. The metrics graph enables you to create a visual topology graph of found anomalies. 
+As an example, if you have different streams of telemetry in separate metrics, Metrics Advisor will monitor them separately. If anomalies in one metric cause anomalies in other metrics, finding those relationships and the root cause in your data can be helpful when addressing incidents. The metrics graph enables you to create a visual topology graph of found anomalies. 
 
 ## Select a metric to put the first node to the graph
 
@@ -50,5 +50,5 @@ Click into an incident within the graph and scroll down to **cross metrics analy
 ## Next steps
 
 - [Adjust anomaly detection using feedback](anomaly-feedback.md)
-- [Diagnose an incident](diagnose-incident.md).
-- [Configure metrics and fine tune detecting configuration](configure-metrics.md)
+- [Diagnose an incident](diagnose-an-incident.md).
+- [Configure metrics and fine tune detection configuration](configure-metrics.md)

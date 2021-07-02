@@ -89,17 +89,17 @@ Referencing DMVs to troubleshoot blocking has the goal of identifying the SPID (
 
 Remember to run each of these scripts in the target Azure SQL database.
 
-* The sp_who and sp_who2 commands are older commands to show all current sessions. The DMV sys.dm_exec_sessions returns more data in a result set that is easier to query and filter. You will find sys.dm_exec_sessions at the core of other queries. 
+* The sp_who and sp_who2 commands are older commands to show all current sessions. The DMV `sys.dm_exec_sessions` returns more data in a result set that is easier to query and filter. You will find `sys.dm_exec_sessions` at the core of other queries. 
 
-* If you already have a particular session identified, you can use `DBCC INPUTBUFFER(<session_id>)` to find the last statement that was submitted by a session. Similar results can be returned with the sys.dm_exec_input_buffer dynamic management function (DMF), in a result set that is easier to query and filter, providing the session_id and the request_id. For example, to return the most recent query submitted by session_id 66 and request_id 0:
+* If you already have a particular session identified, you can use `DBCC INPUTBUFFER(<session_id>)` to find the last statement that was submitted by a session. Similar results can be returned with the `sys.dm_exec_input_buffer` dynamic management function (DMF), in a result set that is easier to query and filter, providing the session_id and the request_id. For example, to return the most recent query submitted by session_id 66 and request_id 0:
 
 ```sql
 SELECT * FROM sys.dm_exec_input_buffer (66,0);
 ```
 
-* Refer to the sys.dm_exec_requests and reference the blocking_session_id column. When blocking_session_id = 0, a session is not being blocked. While sys.dm_exec_requests lists only requests currently executing, any connection (active or not) will be listed in sys.dm_exec_sessions. Build on this common join between sys.dm_exec_requests and sys.dm_exec_sessions in the next query.
+* Refer to the `blocking_session_id` column in `sys.dm_exec_requests`. When `blocking_session_id` = 0, a session is not being blocked. While `sys.dm_exec_requests` lists only requests currently executing, any connection (active or not) will be listed in `sys.dm_exec_sessions`. Build on this common join between `sys.dm_exec_requests` and `sys.dm_exec_sessions` in the next query.
 
-* Run this sample query to find the actively executing queries and their current SQL batch text or input buffer text, using the [sys.dm_exec_sql_text](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sql-text-transact-sql) or [sys.dm_exec_input_buffer](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-input-buffer-transact-sql) DMVs. If the data returned by the `text` field of sys.dm_exec_sql_text is NULL, the query is not currently executing. In that case, the `event_info` field of sys.dm_exec_input_buffer will contain the last command string passed to the SQL engine. This query can also be used to identify sessions blocking other sessions, including a list of session_ids blocked per session_id. 
+* Run this sample query to find the actively executing queries and their current SQL batch text or input buffer text, using the [sys.dm_exec_sql_text](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sql-text-transact-sql) or [sys.dm_exec_input_buffer](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-input-buffer-transact-sql) DMVs. If the data returned by the `text` field of `sys.dm_exec_sql_text` is NULL, the query is not currently executing. In that case, the `event_info` field of `sys.dm_exec_input_buffer` will contain the last command string passed to the SQL engine. This query can also be used to identify sessions blocking other sessions, including a list of session_ids blocked per session_id. 
 
 ```sql
 WITH cteBL (session_id, blocking_these) AS 
@@ -177,14 +177,14 @@ INNER JOIN sys.dm_exec_connections [s_ec] ON [s_ec].[session_id] = [s_tst].[sess
 CROSS APPLY sys.dm_exec_sql_text ([s_ec].[most_recent_sql_handle]) AS [s_est];
 ```
 
-* Reference [sys.dm_os_waiting_tasks](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) that is at the thread/task layer of SQL. This returns information about what SQL wait type the request is currently experiencing. Like sys.dm_exec_requests, only active requests are returned by sys.dm_os_waiting_tasks. 
+* Reference [sys.dm_os_waiting_tasks](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) that is at the thread/task layer of SQL. This returns information about what SQL wait type the request is currently experiencing. Like `sys.dm_exec_requests`, only active requests are returned by `sys.dm_os_waiting_tasks`. 
 
 > [!Note]
 > For much more on wait types including aggregated wait stats over time, see the DMV [sys.dm_db_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database). This DMV returns aggregate wait stats for the current database only.
 
 * Use the [sys.dm_tran_locks](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-locks-transact-sql) DMV for more granular information on what locks have been placed by queries. This DMV can return large amounts of data on a production SQL Server, and is useful for diagnosing what locks are currently held. 
 
-Due to the INNER JOIN on sys.dm_os_waiting_tasks, the following query restricts the output from sys.dm_tran_locks only to currently blocked requests, their wait status, and their locks:
+Due to the INNER JOIN on `sys.dm_os_waiting_tasks`, the following query restricts the output from `sys.dm_tran_locks` only to currently blocked requests, their wait status, and their locks:
 
 ```sql
 SELECT table_name = schema_name(o.schema_id) + '.' + o.name
@@ -238,9 +238,9 @@ By examining the previous information, you can determine the cause of most block
 
 ## Analyze blocking data 
 
-* Examine the output of the DMVs sys.dm_exec_requests and sys.dm_exec_sessions to determine the heads of the blocking chains, using blocking_these and session_id. This will most clearly identify which requests are blocked and which are blocking. Look further into the sessions that are blocked and blocking. Is there a common or root to the blocking chain? They likely share a common table, and one or more of the sessions involved in a blocking chain is performing a write operation. 
+* Examine the output of the DMVs `sys.dm_exec_requests` and `sys.dm_exec_sessions` to determine the heads of the blocking chains, using `blocking_these` and `session_id`. This will most clearly identify which requests are blocked and which are blocking. Look further into the sessions that are blocked and blocking. Is there a common or root to the blocking chain? They likely share a common table, and one or more of the sessions involved in a blocking chain is performing a write operation. 
 
-* Examine the output of the DMVs sys.dm_exec_requests and sys.dm_exec_sessions for information on the SPIDs at the head of the blocking chain. Look for the following fields: 
+* Examine the output of the DMVs `sys.dm_exec_requests` and `sys.dm_exec_sessions` for information on the SPIDs at the head of the blocking chain. Look for the following fields: 
 
     -    `sys.dm_exec_requests.status`  
     This column shows the status of a particular request. Typically, a sleeping status indicates that the SPID has completed execution and is waiting for the application to submit another query or batch. A runnable or running status indicates that the SPID is currently processing a query. The following table gives brief explanations of the various status values.
@@ -260,7 +260,7 @@ By examining the previous information, you can determine the cause of most block
     Similarly, this field tells you the number of open transactions in this request. If this value is greater than 0, the SPID is within an open transaction and may be holding locks acquired by any statement within the transaction.
 
     -   `sys.dm_exec_requests.wait_type`, `wait_time`, and `last_wait_type`  
-    If the `sys.dm_exec_requests.wait_type` is NULL, the request is not currently waiting for anything and the `last_wait_type` value indicates the last `wait_type` that the request encountered. For more information about `sys.dm_os_wait_stats` and a description of the most common wait types, see [sys.dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql). The `wait_time` value can be used to determine if the request is making progress. When a query against the sys.dm_exec_requests table returns a value in the `wait_time` column that is less than the `wait_time` value from a previous query of sys.dm_exec_requests, this indicates that the prior lock was acquired and released and is now waiting on a new lock (assuming non-zero `wait_time`). This can be verified by comparing the `wait_resource` between sys.dm_exec_requests output, which displays the resource for which the request is waiting.
+    If the `sys.dm_exec_requests.wait_type` is NULL, the request is not currently waiting for anything and the `last_wait_type` value indicates the last `wait_type` that the request encountered. For more information about `sys.dm_os_wait_stats` and a description of the most common wait types, see [sys.dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql). The `wait_time` value can be used to determine if the request is making progress. When a query against the `sys.dm_exec_requests` table returns a value in the `wait_time` column that is less than the `wait_time` value from a previous query of `sys.dm_exec_requests`, this indicates that the prior lock was acquired and released and is now waiting on a new lock (assuming non-zero `wait_time`). This can be verified by comparing the `wait_resource` between `sys.dm_exec_requests` output, which displays the resource for which the request is waiting.
 
     -   `sys.dm_exec_requests.wait_resource`
     This field indicates the resource that a blocked request is waiting on. The following table lists common `wait_resource` formats and their meaning:
@@ -269,7 +269,7 @@ By examining the previous information, you can determine the cause of most block
     |:-|:-|:-|:-|
     | Table | DatabaseID:ObjectID:IndexID | TAB: 5:261575970:1 | In this case, database ID 5 is the pubs sample database and object ID 261575970 is the titles table and 1 is the clustered index. |
     | Page | DatabaseID:FileID:PageID | PAGE: 5:1:104 | In this case, database ID 5 is pubs, file ID 1 is the primary data file, and page 104 is a page belonging to the titles table. To identify the object_id the page belongs to, use the dynamic management function [sys.dm_db_page_info](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-page-info-transact-sql), passing in the DatabaseID, FileId, PageId from the `wait_resource`. | 
-    | Key | DatabaseID:Hobt_id (Hash value for index key) | KEY: 5:72057594044284928 (3300a4f361aa) | In this case, database ID 5 is Pubs, Hobt_ID 72057594044284928 corresponds to index_id 2 for object_id 261575970 (titles table). Use the sys.partitions catalog view to associate the hobt_id to a particular index_id and object_id. There is no way to unhash the index key hash to a specific key value. |
+    | Key | DatabaseID:Hobt_id (Hash value for index key) | KEY: 5:72057594044284928 (3300a4f361aa) | In this case, database ID 5 is Pubs, Hobt_ID 72057594044284928 corresponds to index_id 2 for object_id 261575970 (titles table). Use the `sys.partitions` catalog view to associate the hobt_id to a particular `index_id` and `object_id`. There is no way to unhash the index key hash to a specific key value. |
     | Row | DatabaseID:FileID:PageID:Slot(row) | RID: 5:1:104:3 | In this case, database ID 5 is pubs, file ID 1 is the primary data file, page 104 is a page belonging to the titles table, and slot 3 indicates the row's position on the page. |
     | Compile  | DatabaseID:FileID:PageID:Slot(row) | RID: 5:1:104:3 | In this case, database ID 5 is pubs, file ID 1 is the primary data file, page 104 is a page belonging to the titles table, and slot 3 indicates the row's position on the page. |
 
@@ -307,30 +307,30 @@ By examining the previous information, you can determine the cause of most block
     , s.host_name, s.program_name, s.client_interface_name, s.login_name, s.is_user_process
     FROM sys.dm_tran_active_transactions tat 
     INNER JOIN sys.dm_tran_session_transactions tst  on tat.transaction_id = tst.transaction_id
-    INNER JOIN Sys.dm_exec_sessions s on s.session_id = tst.session_id 
+    INNER JOIN sys.dm_exec_sessions s on s.session_id = tst.session_id 
     LEFT OUTER JOIN sys.dm_exec_requests r on r.session_id = s.session_id
     CROSS APPLY sys.dm_exec_input_buffer(s.session_id, null) AS ib;
     ```
 
     -   Other columns
 
-        The remaining columns in [sys.dm_exec_sessions](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sessions-transact-sql) and [sys.dm_exec_request](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) can provide insight into the root of a problem as well. Their usefulness varies depending on the circumstances of the problem. For example, you can determine if the problem happens only from certain clients (hostname), on certain network libraries (net_library), when the last batch submitted by a SPID was `last_request_start_time` in sys.dm_exec_sessions, how long a request had been running using `start_time` in sys.dm_exec_requests, and so on.
+        The remaining columns in [sys.dm_exec_sessions](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sessions-transact-sql) and [sys.dm_exec_request](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) can provide insight into the root of a problem as well. Their usefulness varies depending on the circumstances of the problem. For example, you can determine if the problem happens only from certain clients (hostname), on certain network libraries (net_library), when the last batch submitted by a SPID was `last_request_start_time` in `sys.dm_exec_sessions`, how long a request had been running using `start_time` in `sys.dm_exec_requests`, and so on.
 
 
 ## Common blocking scenarios
 
 The table below maps common symptoms to their probable causes.  
 
-The `wait_type`, `open_transaction_count`, and `status` columns refer to information returned by [sys.dm_exec_request](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql), other columns may be returned by [sys.dm_exec_sessions](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sessions-transact-sql). The "Resolves?" column indicates whether or not the blocking will resolve on its own, or whether the session should be killed via the `KILL` command. For more information, see [KILL (Transact-SQL)](/sql/t-sql/language-elements/kill-transact-sql).
+The Waittype, Open_Tran, and Status columns refer to information returned by [sys.dm_exec_request](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql), other columns may be returned by [sys.dm_exec_sessions](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sessions-transact-sql). The "Resolves?" column indicates whether or not the blocking will resolve on its own, or whether the session should be killed via the `KILL` command. For more information, see [KILL (Transact-SQL)](/sql/t-sql/language-elements/kill-transact-sql).
 
 | Scenario | Waittype | Open_Tran | Status | Resolves? | Other Symptoms |  
 |:-|:-|:-|:-|:-|:-|--|
-| 1 | NOT NULL | >= 0 | runnable | Yes, when query finishes. | In sys.dm_exec_sessions, **reads**, **cpu_time**, and/or **memory_usage** columns will increase over time. Duration for the query will be high when completed. |
+| 1 | NOT NULL | >= 0 | runnable | Yes, when query finishes. | In `sys.dm_exec_sessions`, `reads`, `cpu_time`, and/or `memory_usage` columns will increase over time. Duration for the query will be high when completed. |
 | 2 | NULL | \>0 | sleeping | No, but SPID can be killed. | An attention signal may be seen in the Extended Event session for this SPID, indicating a query time-out or cancel has occurred. |
 | 3 | NULL | \>= 0 | runnable | No. Will not resolve until client fetches all rows or closes connection. SPID can be killed, but it may take up to 30 seconds. | If open_transaction_count = 0, and the SPID holds locks while the transaction isolation level is default (READ COMMMITTED), this is a likely cause. |  
-| 4 | Varies | \>= 0 | runnable | No. Will not resolve until client cancels queries or closes connections. SPIDs can be killed, but may take up to 30 seconds. | The **hostname** column in sys.dm_exec_sessions for the SPID at the head of a blocking chain will be the same as one of the SPID it is blocking. |  
+| 4 | Varies | \>= 0 | runnable | No. Will not resolve until client cancels queries or closes connections. SPIDs can be killed, but may take up to 30 seconds. | The `hostname` column in `sys.dm_exec_sessions` for the SPID at the head of a blocking chain will be the same as one of the SPID it is blocking. |  
 | 5 | NULL | \>0 | rollback | Yes. | An attention signal may be seen in the Extended Events session for this SPID, indicating a query time-out or cancel has occurred, or simply a rollback statement has been issued. |  
-| 6 | NULL | \>0 | sleeping | Eventually. When Windows NT determines the session is no longer active, the Azure SQL Database connection will be broken. | The `last_request_start_time` value in sys.dm_exec_sessions is much earlier than the current time. |
+| 6 | NULL | \>0 | sleeping | Eventually. When Windows NT determines the session is no longer active, the Azure SQL Database connection will be broken. | The `last_request_start_time` value in `sys.dm_exec_sessions` is much earlier than the current time. |
 
 ## Detailed blocking scenarios
 
@@ -344,7 +344,7 @@ The `wait_type`, `open_transaction_count`, and `status` columns refer to informa
 
 1.  Blocking caused by a sleeping SPID that has an uncommitted transaction
 
-    This type of blocking can often be identified by a SPID that is sleeping or awaiting a command, yet whose transaction nesting level (`@@TRANCOUNT`, `open_transaction_count` from sys.dm_exec_requests) is greater than zero. This can occur if the application experiences a query time-out, or issues a cancel without also issuing the required number of
+    This type of blocking can often be identified by a SPID that is sleeping or awaiting a command, yet whose transaction nesting level (`@@TRANCOUNT`, `open_transaction_count` from `sys.dm_exec_requests`) is greater than zero. This can occur if the application experiences a query time-out, or issues a cancel without also issuing the required number of
     ROLLBACK and/or COMMIT statements. When a SPID receives a query time-out or a cancel, it will terminate the current query and batch, but does not automatically roll back or commit the transaction. The application is responsible for this, as Azure SQL Database cannot assume that an entire transaction must be rolled back due to a single query being canceled. The query time-out or cancel will appear as an ATTENTION signal event for the SPID in the Extended Event session.
 
     To demonstrate an uncommitted explicit transaction, issue the following query:
@@ -365,7 +365,7 @@ The `wait_type`, `open_transaction_count`, and `status` columns refer to informa
 
     The output of the second query indicates that the transaction nesting level is one. All the locks acquired in the transaction are still be held until the transaction was committed or rolled back. If applications explicitly open and commit transactions, a communication or other error could leave the session and its transaction in an open state. 
 
-    Use the script earlier in this article based on sys.dm_tran_active_transactions to identify currently uncommitted transactions across the instance.
+    Use the script earlier in this article based on `sys.dm_tran_active_transactions` to identify currently uncommitted transactions across the instance.
 
     **Resolutions**:
 
@@ -394,7 +394,7 @@ The `wait_type`, `open_transaction_count`, and `status` columns refer to informa
 
 1.  Blocking caused by a session in a rollback state
 
-    A data modification query that is KILLed, or canceled outside of a user-defined transaction, will be rolled back. This can also occur as a side effect of the client network session disconnecting, or when a request is selected as the deadlock victim. This can often be identified by observing the output of sys.dm_exec_requests, which may indicate the ROLLBACK **command**, and the **percent_complete column** may show progress. 
+    A data modification query that is KILLed, or canceled outside of a user-defined transaction, will be rolled back. This can also occur as a side effect of the client network session disconnecting, or when a request is selected as the deadlock victim. This can often be identified by observing the output of `sys.dm_exec_requests`, which may indicate the ROLLBACK command, and the `percent_complete` column may show progress. 
 
     Thanks to the [Accelerated Database Recovery feature](../accelerated-database-recovery.md) introduced in 2019, lengthy rollbacks should be rare.
     
@@ -428,3 +428,4 @@ The `wait_type`, `open_transaction_count`, and `status` columns refer to informa
 * [Deliver consistent performance with Azure SQL](/learn/modules/azure-sql-performance/)
 * [Troubleshooting connectivity issues and other errors with Azure SQL Database and Azure SQL Managed Instance](troubleshoot-common-errors-issues.md)
 * [Transient Fault Handling](/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling)
+* [Configure the max degree of parallelism (MAXDOP) in Azure SQL Database](configure-max-degree-of-parallelism.md)

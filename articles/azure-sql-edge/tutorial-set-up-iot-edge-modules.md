@@ -37,12 +37,12 @@ Now, specify the container credentials in the IoT Edge module.
 
 4. Under **Container Registry Credentials**, enter the following values:
 
-   _Field_|_Value_
-   -------|-------
-   Name|Registry name
-   Address|Login server
-   User Name|Username
-   Password|Password
+   | _Field_   | _Value_       |
+   | -------   | -------       |
+   | Name      | Registry name |
+   | Address   | Login server  | 
+   | User Name | Username      | 
+   | Password  | Password      | 
   
 ## Build, push, and deploy the Data Generator Module
 

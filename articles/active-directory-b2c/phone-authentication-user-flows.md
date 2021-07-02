@@ -9,15 +9,12 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/01/2021
+ms.date: 04/22/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
 
-# Set up phone sign-up and sign-in for user flows (preview)
-
-> [!NOTE]
-> Phone sign-up and sign-in and recovery email features for user flows are in public preview.
+# Set up phone sign-up and sign-in for user flows
 
 In addition to email and username, you can enable phone number as a sign-up option tenant-wide by adding phone sign-up and sign-in to your local account identity provider. After you enable phone sign-up and sign-in for local accounts, you can add phone sign-up to your user flows.
 
@@ -28,6 +25,8 @@ Setting up phone sign-up and sign-in in a user flow involves the following steps
 - [Add phone sign-up to your user flow](#add-phone-sign-up-to-a-user-flow) to enable users to sign up for your application using their phone number.
 
 - [Enable the recovery email prompt (preview)](#enable-the-recovery-email-prompt-preview) to let users specify an email that can be used to recover their account when they don't have their phone.
+
+- [Display consent information](#enable-consent-information) to the user during the sign up or sign in flow. You can display the default consent information or customize the your own consent information.
 
 Multi-factor authentication (MFA) is disabled by default when you configure a user flow with phone sign-up. You can enable MFA in user flows with phone sign-up, but because a phone number is used as the primary identifier, email one-time passcode is the only option available for the second authentication factor.
 
@@ -135,6 +134,44 @@ After you've enabled phone sign-up and sign-in and the recovery email prompt in 
    - A user who has already signed up but hasn't provided a recovery email is asked to provide one upon signing in.
 
 4. Enter an email address and then select **Send verification code**. Verify that a code is sent to the email inbox you provided. Retrieve the code and enter it in the **Verification code** box. Then select **Verify code**.
+
+## Enable consent information
+
+We strongly suggest you include consent information in your sign-up and sign-in flow. Sample text is provided. Please refer to the Short Code Monitoring Handbook on the [CTIA website](https://www.ctia.org/programs) and consult with your own legal or compliance experts for guidance on your final text and feature configuration to meet your own compliance needs:
+>
+> *By providing your phone number, you consent to receiving a one-time passcode sent by text message to help you sign in to *&lt;insert: your application name&gt;*. Standard message and data rates may apply.*
+>
+> *&lt;insert: a link to your Privacy Statement&gt;*<br/>*&lt;insert: a link to your Terms of Service&gt;*
+
+To enable consent information
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. Select the **Directory + Subscription** icon in the portal toolbar, and then select the directory that contains your Azure AD B2C tenant.
+3. In the Azure portal, search for and select **Azure AD B2C**.
+4. In Azure AD B2C, under **Policies**, select **User flows**.
+5. Select the user flow from the list.
+6. Under **Customize**, select **Languages**.
+7. To display consent text, select **Enable language customization**.
+  
+    ![Enable language customization](./media/phone-authentication-user-flows/enable-language-customization.png)
+
+8. To customize the consent information, select a language in the list.
+9. In the language panel, select **Phone signIn page**.
+10. Select Download defaults.
+
+    ![Download default](./media/phone-authentication-user-flows/phone-sign-in-language-override.png)
+
+11. Open the downloaded JSON file. Search for the following text and customize it:
+
+    - **disclaimer_link_1_url**: Change **override** to "true" and add the URL for your privacy information.
+
+    - **disclaimer_link_2_url**: Change **override** to "true" and add the URL for your terms of use.  
+
+    - **disclaimer_msg_intro**: Change **override** to "true" and change **value** to your desired disclaimer strings.  
+
+12. Save the file. Under **Upload new overrides**, browse for the file and select it. Confirm that you see a “Successfully uploaded overrides” notification.
+
+13. Select **Phone signUp page**, and then repeat steps 10 through 12. 
 
 ## Next steps
 

@@ -405,7 +405,7 @@ This category contains the following entity:
     :::column span="2":::
       **Supported document languages**
 
-      `en`  
+      `en` , `es`, `fr`, `de`, `it`, `pt-pt`, `pt-br` 
       
    :::column-end:::
 :::row-end:::

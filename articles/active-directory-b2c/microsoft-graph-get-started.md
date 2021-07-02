@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/21/2021
+ms.date: 04/05/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -52,31 +52,38 @@ Before your scripts and applications can interact with the [Microsoft Graph API]
 1. Select **Register**.
 1. Record the **Application (client) ID** that appears on the application overview page. You use this value in a later step.
 
-### Grant API access
+## Grant API access
 
-Next, grant the registered application permissions to manipulate tenant resources through calls to the Microsoft Graph API.
+For your application to access data in Microsoft Graph, grant the registered application the relevant [application permissions](/graph/permissions-reference). The effective permissions of your application are the full level of privileges implied by the permission. For example, to *create*, *read*, *update*, and *delete* every user in your Azure AD B2C tenant, add the **User.ReadWrite.All** permission. 
+
+> [!NOTE]
+> The **User.ReadWrite.All** permission does not include the ability update user account passwords. If your application needs to update user account passwords, [grant user administrator role](#optional-grant-user-administrator-role). When granting [user administrator](../active-directory/roles/permissions-reference.md#user-administrator) role, the **User.ReadWrite.All** is not required. The user administrator role includes everything needed to manage users.
+
+You can grant your application multiple application permissions. For example, if your application also needs to manage groups in your Azure AD B2C tenant, add the **Group.ReadWrite.All** permission as well. 
 
 [!INCLUDE [active-directory-b2c-permissions-directory](../../includes/active-directory-b2c-permissions-directory.md)]
 
-### Create client secret
 
-[!INCLUDE [active-directory-b2c-client-secret](../../includes/active-directory-b2c-client-secret.md)]
+## [Optional] Grant user administrator role
 
-You now have an application that has permission to *create*, *read*, *update*, and *delete* users in your Azure AD B2C tenant. Continue to the next section to add *password update* permissions.
+If your application or script needs to update users' passwords, you need to assign the *User administrator* role to your application. The [User administrator](../active-directory/roles/permissions-reference.md#user-administrator) role has a fixed set of permissions you grant to your application. 
 
-## Enable user delete and password update
-
-The *Read and write directory data* permission does **NOT** include the ability delete users or update user account passwords.
-
-If your application or script needs to delete users or update their passwords, assign the *User administrator* role to your application:
+To add the *User administrator* role, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and use the **Directory + Subscription** filter to switch to your Azure AD B2C tenant.
 1. Search for and select **Azure AD B2C**.
 1. Under **Manage**, select **Roles and administrators**.
-1. Select the **User administrator** role.
+1. Select the **User administrator** role. 
 1. Select **Add assignments**.
-1. In the **Select** text box, enter the name of the application you registered earlier, for example, *managementapp1*. Select your application when it appears in the search results.
+1. In the **Select** text box, enter the name or the ID of the application you registered earlier, for example, *managementapp1*. When it appears in the search results, select your application.
 1. Select **Add**. It might take a few minutes to for the permissions to fully propagate.
+
+## Create client secret
+
+Your application needs a client secret to prove its identity when requesting a token. To add the client secret, follow these steps:
+
+[!INCLUDE [active-directory-b2c-client-secret](../../includes/active-directory-b2c-client-secret.md)]
+
 
 ## Next steps
 

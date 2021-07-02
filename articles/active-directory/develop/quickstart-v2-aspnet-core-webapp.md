@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Add sign-in with Microsoft to an ASP.NET Core web app | Azure"
+title: "Quickstart: Add sign-in with Microsoft Identity to an ASP.NET Core web app | Azure"
 titleSuffix: Microsoft identity platform
 description: In this quickstart, you learn how an app implements Microsoft sign-in on an ASP.NET Core web app by using OpenID Connect
 services: active-directory
@@ -79,6 +79,8 @@ In this quickstart, you download and run a code sample that demonstrates how an 
 > [!div renderon="portal" class="sxs-lookup" id="autoupdate" class="nextstepaction"]
 > [Download the code sample](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/aspnetcore3-1.zip)
 
+[!INCLUDE [active-directory-develop-path-length-tip](../../../includes/active-directory-develop-path-length-tip.md)]
+
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 3: Your app is configured and ready to run
 > We've configured your project with values of your app's properties, and it's ready to run.
@@ -94,6 +96,7 @@ In this quickstart, you download and run a code sample that demonstrates how an 
 > 1. Open the *appsettings.json* file and modify the following code:
 >
 >    ```json
+>    "Domain": "Enter the domain of your tenant, e.g. contoso.onmicrosoft.com",
 >    "ClientId": "Enter_the_Application_Id_here",
 >    "TenantId": "common",
 >    ```

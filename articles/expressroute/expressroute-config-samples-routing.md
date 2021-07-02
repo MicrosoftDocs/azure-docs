@@ -6,7 +6,7 @@ author: duongau
 
 ms.service: expressroute
 ms.topic: article
-ms.date: 03/26/2020
+ms.date: 04/27/2021
 ms.author: duau
 
 ---
@@ -48,7 +48,7 @@ This sample provides the subinterface definition for a subinterface with two VLA
 
 ```console
 interface GigabitEthernet<Interface_Number>.<Number>
- encapsulation dot1Q <s-tag> seconddot1Q <c-tag>
+ encapsulation dot1Q <s-tag> second-dot1Q <c-tag>
  ip address <IPv4_Address><Subnet_Mask>
 ```
 
@@ -107,7 +107,7 @@ You'll configure BFD in two places: one at the interface level and another at BG
 ```console
 interface GigabitEthernet<Interface_Number>.<Number>
  bfd interval 300 min_rx 300 multiplier 3
- encapsulation dot1Q <s-tag> seconddot1Q <c-tag>
+ encapsulation dot1Q <s-tag> second-dot1Q <c-tag>
  ip address <IPv4_Address><Subnet_Mask>
 
 router bgp <Customer_ASN>

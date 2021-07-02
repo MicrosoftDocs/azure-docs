@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: trkeya
 ms.author: trkeya
-ms.date: 10/01/2020
+ms.date: 05/20/2021
 ---
 
 # Customer leads from your commercial marketplace offer
@@ -39,7 +39,7 @@ Here are places where a lead is generated:
 
 ## Connect to your CRM system
 
-[!INCLUDE [Links to lead configuration for different CRM systems](./includes/connect-lead-management.md)]
+[!INCLUDE [Connect lead management](../includes/customer-leads.md)]
 
 ## Understand lead data
 

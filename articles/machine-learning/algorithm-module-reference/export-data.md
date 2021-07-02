@@ -9,7 +9,7 @@ ms.topic: reference
 
 author: likebupt
 ms.author: keli19
-ms.date: 07/28/2020
+ms.date: 03/19/2021
 ---
 # Export Data module
 
@@ -46,12 +46,19 @@ Before exporting your data, you need to first register a datastore in your Azure
 
     If it is selected, the system will execute the module again to regenerate output.
 
-1. Define the path in the datastore where the data is. The path is a relative path. The empty paths or a URL paths are not allowed.
+1. Define the path in the datastore where the data is. The path is a relative path.Take `data/testoutput` as an example, which means the input data of **Export Data** will be exported to `data/testoutput` in the datastore you set in the **Output settings** of the module.
+
+    > [!NOTE]
+    > The empty paths or **URL paths** are not allowed.
 
 
 1. For **File format**, select the format in which data should be stored.
  
 1. Submit the pipeline.
+
+## Limitations
+
+Due to datstore access limitation, if your inference pipeline contains **Export Data** module, it will be auto-removed when deploy to real-time endpoint.
 
 ## Next steps
 

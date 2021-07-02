@@ -113,4 +113,5 @@ We have partnered with [Kubos](https://www.kubos.com/) to bring Major Tom, their
 
 ## Next steps
 
-For more information on our preview, or to express interest to participate in the preview, fill the contact form [here](https://aka.ms/iaminterested), or email us at [MSAzureOrbital@microsoft.com](mailto:MSAzureOrbital@microsoft.com).
+- For more information on our preview, or to express interest to participate in the preview, fill the contact form [here](https://aka.ms/iaminterested), or email us at [MSAzureOrbital@microsoft.com](mailto:MSAzureOrbital@microsoft.com).
+- [Learn how to use Azure Orbital to communicate with your satellites - Video](https://www.youtube.com/watch?v=MqgjSBKAxIg)

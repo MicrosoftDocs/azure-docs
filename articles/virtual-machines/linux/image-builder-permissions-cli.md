@@ -18,20 +18,8 @@ To allow Azure VM Image Builder to distribute images to either the managed image
 
 You must setup permissions and privileges prior to building an image. The following sections detail how to configure possible scenarios using Azure CLI.
 
-> [!IMPORTANT]
-> Azure Image Builder is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
-
-## Register the features
-
-First, you must register for the Azure Image Builder Service. Registration grants the service permission to create, manage, and delete a staging resource group. The service also has rights to add resources the group that are required for the image build.
-
-```azurecli-interactive
-az feature register --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview
-```
 
 ## Create an Azure user-assigned managed identity
 
@@ -127,7 +115,7 @@ To simplify the replacement of values in the example, set the following variable
 ```azurecli-interactive
 # Subscription ID - You can get this using `az account show | grep id` or from the Azure portal.
 subscriptionID=<Subscription ID>
-# Resource group - For Preview, image builder will only support creating custom images in the same Resource Group as the source managed image.
+# Resource group - image builder will only support creating custom images in the same Resource Group as the source managed image.
 imageResourceGroup=<Resource group>
 identityName="aibIdentity"
 
@@ -216,7 +204,7 @@ In the Image Builder template, you need to provide the user-assigned managed ide
 
 ```json
     "type": "Microsoft.VirtualMachineImages/imageTemplates",
-    "apiVersion": "2019-05-01-preview",
+    "apiVersion": "2020-02-14",
     "location": "<Region>",
     ..
     "identity": {
@@ -235,7 +223,7 @@ Replace the following placeholder settings:
 | \<Storage account container\> | Storage account container name |
 | \<Subscription ID\> | Azure subscription |
 
-For more information using a user-assigned managed identity, see the [Create a Custom Image that will use an Azure User-Assigned Managed Identity to seemlessly access files Azure Storage](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-user-assigned-identity). The quickstart walks through how to create and configure the user-assigned managed identity to access a storage account.
+For more information using a user-assigned managed identity, see the [Create a Custom Image that will use an Azure User-Assigned Managed Identity to seemlessly access files Azure Storage](./image-builder-user-assigned-identity.md). The quickstart walks through how to create and configure the user-assigned managed identity to access a storage account.
 
 ## Next steps
 

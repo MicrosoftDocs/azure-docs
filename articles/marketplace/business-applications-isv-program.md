@@ -21,7 +21,7 @@ To enroll and take advantage of all the technical, marketing, and sales enableme
 
 ## Set up your Microsoft Partner Center account
 
-To set up and manage your account for the ISV Connect program complete the steps from the article: [Create a commercial marketplace account in Partner Center](./partner-center-portal/create-account.md). This article provides all the steps to create a new account as well as information on adding new publishers to the commercial marketplace program.
+To set up and manage your account for the ISV Connect program complete the steps from the article: [Create a commercial marketplace account in Partner Center](create-account.md). This article provides all the steps to create a new account as well as information on adding new publishers to the commercial marketplace program.
 
 > [!NOTE]
 > This step requires an *Owner* or *Manager* role in Partner Center.
@@ -33,7 +33,7 @@ Participation in this program requires you to review and accept the [Business Ap
 > [!NOTE]
 > This step requires an *Owner* or *Manager* role in Partner Center for your account to sign legal agreements.
 
-1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard).
+1. Sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2165507).
 1. Select **Settings** (gear icon) > **Account Settings**.
 1. Select **Agreements**.
 1. Select the version link and view the agreement.
@@ -46,7 +46,7 @@ Set up billing information for the Business Applications ISV Connect Program.
 > [!NOTE]
 > This step requires an *Owner* or *Manager* role in Partner Center for your account to update billing information.
 
-1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard).
+1. Sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2165507).
 1. Select **Settings** (gear icon) > **Account Settings**.
 1. Under **Organization profile**, select **Billing profile** and then the **Developer** tab.
 1. Review the primary contact and billing information that is populated from your legal entity.

@@ -11,5 +11,5 @@ Replace the `YourSubscriptionKey` and `YourServiceRegion` values with actual val
 - Navigate to the <a href="https://portal.azure.com/" target="_blank">Azure portal </a>, and open the Speech resource
 - Under the **Keys** on the left, there are two available subscription keys
     - Use either one as the `YourSubscriptionKey` value replacement
-- Under the **Overview** on the left, note the region and map it to the <a href="https://aka.ms/speech/sdkregion" target="_blank">region identifier </a>
+- Under the **Overview** on the left, note the region and map it to the <a href="/azure/cognitive-services/speech-service/regions" target="_blank">region identifier </a>
     - Use the **Region identifier** as the `YourServiceRegion` value replacement, for example: `"westus"` for **West US**

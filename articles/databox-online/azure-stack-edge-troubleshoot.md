@@ -1,18 +1,18 @@
 ---
-title: Use the Azure portal to troubleshoot Azure Stack Edge Pro | Microsoft Docs 
-description: Learn how to troubleshoot issues on your Azure Stack Edge Pro. You can run diagnostics, collect information for Support, and use logs to troubleshoot.
+title: Troubleshoot Azure Stack Edge Pro FPGA via the Azure portal 
+description: Learn how to troubleshoot issues on your Azure Stack Edge Pro FPGA. You can run diagnostics, collect information for Support, and use logs to troubleshoot.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 02/05/2021
+ms.date: 06/08/2021
 ms.author: alkohli
 ---
-# Troubleshoot your Azure Stack Edge Pro issues
+# Troubleshoot your Azure Stack Edge Pro FPGA issues
 
-This article describes how to troubleshoot issues on your Azure Stack Edge Pro. 
+This article describes how to troubleshoot issues on your Azure Stack Edge Pro FPGA. 
 
 In this article, you learn how to:
 
@@ -61,7 +61,7 @@ Any errors experienced during the upload and refresh processes are included in t
 
       ![Connect to and view share contents](media/azure-stack-edge-troubleshoot/troubleshoot-logs-1.png)
 
-2. Select the _Microsoft Azure Stack Edge Pro folder_. This folder has two subfolders:
+2. Select the _Microsoft Azure Stack Edge folder_. This folder has two subfolders:
 
     * Upload folder that has log files for upload errors.
     * Refresh folder for errors during refresh.
