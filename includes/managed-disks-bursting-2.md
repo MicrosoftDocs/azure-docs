@@ -115,7 +115,7 @@ Then the application needs to process a batched job that requires 192 MB/s. 2 MB
     - Max burst MB/s: 1,280
 - P50 OS Disk
     - Provisioned MB/s: 250 
-- 2 P10 Data Disks 
+- 2 P50 Data Disks 
     - Provisioned MB/s: 250
 
  After the initial boot up, an application is run on the VM and has a non-critical workload. This workload requires 30 MB/s that gets spread evenly across all the disks.
