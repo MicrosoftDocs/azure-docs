@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 09/16/2020
+ms.date: 07/01/2021
 ms.author: ajburnle
 ms.reviewer: 
 ms.collection: M365-identity-device-management
@@ -202,6 +202,10 @@ To change the request and approval settings for an access package, you need to o
 1. Configure lifecycle settings.
 
 1. If you are editing a policy click **Update**. If you are adding a new policy, click **Create**.
+
+## Preventing requests from users with incompatible access
+
+
 
 ## Next steps
 
