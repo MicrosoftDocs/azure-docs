@@ -53,11 +53,7 @@ This article provides information on troubleshooting no-code vision solutions in
 
     :::image type="content" source="./media/vision-solution-troubleshooting/vision-delete-device.png" alt-text="Screenshot that shows the Delete button highlighted on the IoT Edge home page.":::
 
-## Eye module troubleshooting tips
-
-The following troubleshooting tips help with some of the more common issues found in the vision AI prototyping experiences.
-
-### Check the runtime status of azureeyemodule
+## Check the runtime status of azureeyemodule
 
 If there's a problem with **WebStreamModule**, ensure that **azureeyemodule**, which handles the vision model inferencing, is running. To check the runtime status:
 
@@ -71,19 +67,20 @@ If there's a problem with **WebStreamModule**, ensure that **azureeyemodule**, w
 
     :::image type="content" source="./media/vision-solution-troubleshooting/firmware-desired-status-stopped.png" alt-text="Screenshot that shows the Module Settings configuration screen.":::
 
-### Update TelemetryIntervalNeuralNetworkMs
+## Change how often messages are sent from the azureeyemodule
 
-If you see the following count limitation error, you need to update the TelemetryIntervalNeuralNetworkMs value in the azureeyemodule module twin settings.
+Your subscription tier may cap the number of messages that can be sent from your device to IoT Hub. For instance, the Free Tier will limit the number of messages to 8,000 per day. Once that limit is reached, your azureeyemodule will stop functioning and you may receive this error:
 
 |Error message|
 |------|
-|Total number of messages on IotHub 'xxxxxxxxx' exceeded the allocated quota. Max allowed message count: '8000', current message count: 'xxxx'. Send and Receive operations are blocked for this hub until the next UTC day. Consider increasing the units for this hub to increase the quota.|
+|*Total number of messages on IotHub 'xxxxxxxxx' exceeded the allocated quota. Max allowed message count: '8000', current message count: 'xxxx'. Send and Receive operations are blocked for this hub until the next UTC day. Consider increasing the units for this hub to increase the quota.*|
 
-TelemetryIntervalNeuralNetworkMs determines how often to send messages from the neural network. Messages are sent in milliseconds. Azure subscriptions have a limited number of messages per day.
+Using the azureeyemodule module twin, it's possible change the interval rate for how often messages are sent. The value entered for the interval rate indicates the frequency that each message gets sent, in milliseconds. The larger the number the more time there is between each message. For example, if you set the interval rate to 12,000 it means one message will be sent every 12 seconds. For a model that is running for the entire day this rate factors out to 7,200 messages per day, which is under the Free Tier limit. The value that you choose depends on how responsive you need your vision model to be.
 
-The message amount is based on your subscription tier. If you find yourself locked out because you've sent too many messages, increase the amount to a higher number. An amount of 12,000 is one message every 12 seconds. This amount gives you 7,200 messages per day, which is under the 8,000-message limit for the free subscription.
+> [!NOTE]
+> Changing the message interval rate does not impact the size of each message. The message size depends on a few different factors such as the model type and the number of objects being detected in each message. As such, it is difficult to determine message size.
 
-To update your TelemetryIntervalNeuralNetworkMs value:
+Follow these steps to update the message interval:
 
 1. Sign in to the [Azure portal](https://ms.portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_Iothub=aduprod#home), and open **All resources**.
 
@@ -97,11 +94,14 @@ To update your TelemetryIntervalNeuralNetworkMs value:
 
     :::image type="content" source="./media/vision-solution-troubleshooting/module-page-inline.png" alt-text="Screenshot of a module page." lightbox= "./media/vision-solution-troubleshooting/module-page.png":::
 
-1. Scroll down to **properties**. The **Running** and **Logging** properties aren't active at this time.
+1. Scroll down to **properties**
+1. Find **TelemetryInterval** and replace it with **TelemetryIntervalNeuralNetworkMs**
 
-    :::image type="content" source="./media/vision-solution-troubleshooting/module-identity-twin-inline.png" alt-text="Screenshot of Module Identity Twin properties." lightbox= "./media/vision-solution-troubleshooting/module-identity-twin.png":::
+    :::image type="content" source="./media/vision-solution-troubleshooting/module-identity-twin-inline-02.png" alt-text="Screenshot of Module Identity Twin properties." lightbox= "./media/vision-solution-troubleshooting/module-identity-twin.png":::
 
-1. Update the **TelemetryIntervalNeuralNetworkMs** value as you want it, and select the **Save** icon.
+1. Update the **TelemetryIntervalNeuralNetworkMs** value to the needed value
+
+1. Select the **Save** icon.
 
 ## View device RTSP video stream
 
