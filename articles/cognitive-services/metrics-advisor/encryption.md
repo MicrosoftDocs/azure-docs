@@ -38,7 +38,7 @@ Metrics Advisor supports CMK and double encryption by using BYOS (bring your own
 
 - Set Active Directory Admin for newly created PG
 
-    After successfully created your Azure Database for PostgreSQL. Go to the resource page of the newly created Azure PG resource. Select 'Active Directory admin' tab and set yourself as the Admin.
+    After successfully creating your Azure Database for PostgreSQL. Go to the resource page of the newly created Azure PG resource. Select 'Active Directory admin' tab and set yourself as the Admin.
 
 
 ### Step2. Create a Metrics Advisor resource and enable Managed Identity

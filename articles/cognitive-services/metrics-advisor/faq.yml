@@ -83,14 +83,14 @@ sections:
           
           2. Limitation on maximum time series count within one metric.
 
-          There may have multiple dimensions within one metric, and each dimension may have multiple values. The maximum dimension combination for one metric should not exceed **100k**.   
-          - Metrics Advisor resource admins and data feed owners will be noticed by a hint when reached **80%** limitation at data feed detail page. 
+          They may have multiple dimensions within one metric, and each dimension may have multiple values. The maximum dimension combination for one metric should not exceed **100k**.   
+          - Metrics Advisor resource admins and data feed owners will be notified when the **80%** limitation is reached on the data feed detail page. 
           - If the metric has exceeded the limitation the data feed **will be paused** and wait for customers to take follow-up actions. It's suggested to split the data feed to multiple data feeds by using filtering. 
 
           3. Limitation on maximum data points stored in one Metrics Advisor instance
 
           Metrics Advisor counts on total data points from all data feeds that onboarded to the instance starting from the first ingestion timstamp. The maximum number of data points to be stored in one Metrics Advisor instance is **2 billion**. 
-          - Metrics Advisor resource admins and all users will be noticed by a hint when reached **80%** limitation at data feed list page and add new data feed page. 
+          - Metrics Advisor resource admins and all users will be notified when the **80%** limitation is reached on the data feed list page and the add new data feed page. 
           - If total data points has exceeded the limitation all data feeds **will be paused** and new feed onboarding **will be blocked** as well. It's suggested to delete unused data feeds or create a new Metrics Advisor resource within your subscription.
       
       - question: |
