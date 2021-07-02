@@ -8,7 +8,7 @@ ms.topic: overview
 ms.date: 04/26/2021
 ---
 
-# Quickstart: Get started with live demo
+# Quickstart: Get started with chatroom live demo
 
 The Azure Web PubSub service helps you build real-time messaging web applications using WebSockets and the publish-subscribe pattern easily. The [chatroom live demo](https://azure.github.io/azure-webpubsub/demos/clientpubsub.html) demonstrates the real-time messaging capability provided by Azure Web PubSub. With this live demo, you could easily create or join a chat group and send real-time message to a specific group. 
 
@@ -20,7 +20,7 @@ In this quickstart, learn how to get started easily with a live demo.
 
 [!INCLUDE [create-instance-portal](includes/create-instance-portal.md)]
 
-## Get started with the live demo
+## Get started with the chatroom live demo
 
 ### Get client URL with a temp access token
 
@@ -41,5 +41,28 @@ With this live demo, you could join or leave a group and send messages to the gr
 
 :::image type="content" source="media/quickstart-live-demo/paste-client-access-url.png" alt-text="Screenshot of pasting client URL with live demo.":::
 
-- Try different groups to join and different groups to send messages to, and see what messages are received.
-- You can also try to uncheck `Roles` when generating the `Client Access URL` to see what will happen when join/leave a group or send messages to a group.
+> [!NOTE]
+>  **Client Access URL** is a convenience tool provided in the portal to simplify your getting-started experience, you can also use this Client Access URL to do some quick connect test. To write your own application, we provide SDKs in 4 languages to help you generate the URL. 
+
+- Try different groups to join and different groups to send messages to, and see what messages are received. For example:
+    - Create a group and make 2 clients joining into the same group. You will see that the message could broadcast to the group members. 
+    - Make 2 clients joining into different groups. You will see that the client cannot receive message if it is not group member. 
+- You can also try to uncheck `Roles` when generating the `Client Access URL` to see what will happen when join/leave a group or send messages to a group. For example:
+    - Uncheck the `Send to Groups` permission. You will see that the client cannot send messages to the group. 
+    - Uncheck the `Join/Leave Groups` permission. You will see that the client cannot join a group. 
+
+## Next steps
+
+In this quickstart, you learned the real-time messaging capability with the chatroom live demo. Now, you could start to build your own application. 
+
+> [!div class="nextstepaction"]
+> [Quick start: publish and subscribe messages in Azure Web PubSub](https://azure.github.io/azure-webpubsub/getting-started/publish-messages/js-publish-message)
+
+> [!div class="nextstepaction"]
+> [Quick start: Create a simple chatroom with Azure Web PubSub](https://azure.github.io/azure-webpubsub/getting-started/create-a-chat-app/js-handle-events)
+
+> [!div class="nextstepaction"]
+> [Quickstart: Create a serverless simple chat application with Azure Functions and Azure Web PubSub service](./quickstart-serverless.md)
+
+> [!div class="nextstepaction"]
+> [Explore more Azure Web PubSub samples](https://github.com/Azure/azure-webpubsub/tree/main/samples)
