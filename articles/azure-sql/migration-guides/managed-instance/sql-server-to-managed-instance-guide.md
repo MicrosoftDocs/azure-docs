@@ -9,7 +9,7 @@ ms.topic: how-to
 author: mokabiru
 ms.author: mokabiru
 ms.reviewer: cawrites
-ms.date: 06/25/2021
+ms.date: 07/21/2021
 ---
 # Migration guide: SQL Server to Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
