@@ -22,7 +22,7 @@ Before you can do anything, you'll need to install the [Speech SDK for Go](../..
 
 ## Speech-to-text from microphone
 
-Use the following code sample to run speech recognition from your default device microphone. Replace the variables `subscription` and `region` with your speech key and location/region. See the [Find keys and location/region](../../../overview.md#find-keys-and-region) page to find your key-location/region pair. Running the script will start a recognition session on your default microphone and output text.
+Use the following code sample to run speech recognition from your default device microphone. Replace the variables `subscription` and `region` with your speech key and location/region. See the [Find keys and location/region](../../../overview.md#find-keys-and-locationregion) page to find your key-location/region pair. Running the script will start a recognition session on your default microphone and output text.
 
 ```go
 package main
