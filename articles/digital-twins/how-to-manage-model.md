@@ -96,7 +96,7 @@ Instead, if you want to make changes to a model—such as updating `displayName`
 There are two strategies to choose from when replacing a model:
 * [Option 1: Upload new model version](#option-1-upload-new-model-version): Upload the model, with a new version number, and update your twins to use that new model. Both the new and old versions of the model will exist in your instance until you delete one.
     - **Use this strategy when** you want to make sure twins stay valid constantly through the model transition, or you want to keep a record of what versions a model has gone through. This strategy is also a good choice if you have many models that depend on the model you want to update.
-* [Option 2: Delete old model and reupload](#option-2-delete-old-model-and-re-upload): Delete the original model and upload the new model with the same name and ID (DTMI value) in its place. Completely replaces the old model with the new one. 
+* [Option 2: Delete old model and reupload](#option-2-delete-old-model-and-reupload): Delete the original model and upload the new model with the same name and ID (DTMI value) in its place. Completely replaces the old model with the new one. 
     - **Use this strategy when** you want to remove all record of the older model. Twins will be invalid for a short time while you're transitioning them from the old model to the new one.
 
 ### Option 1: Upload new model version
