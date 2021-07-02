@@ -506,7 +506,18 @@ Msg 13807, Level 16, State 1, Line 6
 Content of directory on path 'https://.....core.windows.net/.../_delta_log/*.json' cannot be listed.
 ```
 
-Make sure that `_delta_log` folder exists (maybe you are querying plain Parquet files that are not converted to Delta Lake format). If the `_delta_log` folder exists, make sure that you have both read and list permission on the underlying Delta Lake folders.
+Make sure that `_delta_log` folder exists (maybe you are querying plain Parquet files that are not converted to Delta Lake format).
+
+If the `_delta_log` folder exists, make sure that you have both read and list permission on the underlying Delta Lake folders.
+Try to read \*.json files directly using FORMAT='CSV' (put your URI in the BULK parameter):
+
+```sql
+select top 10 * 
+from openrowset(BULK 'https://.....core.windows.net/.../_delta_log/*.json', 
+FORMAT='csv', FIELDQUOTE = '0x0b', FIELDTERMINATOR ='0x0b', ROWTERMINATOR = '0x0b') with (line varchar(max)) as logs
+```
+
+If this query fails, the caller does not have permission to read the underlying storage files. 
 
 Easiest way is to grant yourself 'Storage Blob Data Contributor' role on the storage account you're trying to query. 
 - [Visit full guide on Azure Active Directory access control for storage for more information](../../storage/common/storage-auth-aad-rbac-portal.md). 
