@@ -31,7 +31,7 @@ Before you can upload usage data, metrics, or logs you need to:
 
 The required tools include: 
 * Azure CLI (az) 
-* [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] 
+* `arcdata` extension 
 
 See [Install tools](./install-client-tools.md).
 

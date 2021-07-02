@@ -41,8 +41,8 @@ To upload billing data to Azure, the following should happen first:
 
 Run the following command to export out the billing data:
 
-```console
-azdata arc dc export -t usage -p usage.json
+```azurecli
+az arcdata dc export -t usage -p usage.json
 ```
 
 For now, the file is not encrypted so that you can see the contents. Feel free to open in a text editor and see what the contents look like.
@@ -98,8 +98,8 @@ Example of a `data` entry:
 
 Run the following command to upload the usage.json file to Azure:
 
-```console
-azdata arc dc upload -p usage.json
+```azurecli
+az arcdata dc upload -p usage.json
 ```
 
 ## View billing data in Azure portal
