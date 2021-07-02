@@ -49,7 +49,6 @@ A catalog is a container of resources and access packages. You create a catalog 
 
 1. Click **Create** to create the catalog.
 
-### Creating a catalog programmatically
 ## Create a catalog programmatically
 ### Create a catalog with Microsoft Graph
 

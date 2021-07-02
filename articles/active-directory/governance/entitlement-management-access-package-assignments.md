@@ -54,7 +54,6 @@ To use Azure AD entitlement management and assign users to access packages, you 
 
 1. To download a CSV file of the filtered list, click **Download**.
 
-### Viewing assignments programmatically
 ## View assignments programmatically
 ### View assignments with Microsoft Graph
 You can also retrieve assignments in an access package using Microsoft Graph.  A user in an appropriate role with an application that has the delegated `EntitlementManagement.Read.All` or `EntitlementManagement.ReadWrite.All` permission can call the API to [list accessPackageAssignments](/graph/api/accesspackageassignment-list?view=graph-rest-beta&preserve-view=true). While an identity governance administrator can retrieve access packages from multiple catalogs, if user is assigned only to catalog-specific delegated administrative roles, the request must supply a filter to indicate a specific access package, such as: `$filter=accessPackage/id eq 'a914b616-e04e-476b-aa37-91038f0b165b'`. An application that has the application permission `EntitlementManagement.Read.All` or `EntitlementManagement.ReadWrite.All` permission can also use this API.
@@ -108,7 +107,7 @@ In some cases, you might want to directly assign specific users to an access pac
 
     After a few moments, click **Refresh** to see the users in the Assignments list.
 
-### Directly assigning users programmatically
+## Directly assigning users programmatically
 ### Assign a user to an access package with Microsoft Graph
 You can also directly assign a user to an access package using Microsoft Graph.  A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission, or an application with that application permission, can call the API to [create an accessPackageAssignmentRequest](/graph/api/accesspackageassignmentrequest-post?view=graph-rest-beta&preserve-view=true). In this request, the value of the `requestType` property should be `AdminAdd`, and the `accessPackageAssignment` property is a structure that contains the `targetId` of the user being assigned.
 
@@ -145,7 +144,6 @@ $req = New-MgEntitlementManagementAccessPackageAssignmentRequest -AccessPackageI
 
     A notification will appear informing you that the assignment has been removed. 
 
-### Removing an assignment programmatically
 ## Remove an assignment programmatically
 ### Remove an assignment with Microsoft Graph
 You can also remove an assignment of a user to an access package using Microsoft Graph.  A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission, or an application with that application permission, can call the API to [create an accessPackageAssignmentRequest](/graph/api/accesspackageassignmentrequest-post?view=graph-rest-beta&preserve-view=true).  In this request, the value of the `requestType` property should be `AdminRemove`, and the `accessPackageAssignment` property is a structure that contains the `id` property identifying the `accessPackageAssignment` being removed.
