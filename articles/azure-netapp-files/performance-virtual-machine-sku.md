@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/30/2021
+ms.date: 07/02/2021
 ms.author: b-juche
 ---
 # Azure virtual machine SKUs best practices for Azure NetApp Files

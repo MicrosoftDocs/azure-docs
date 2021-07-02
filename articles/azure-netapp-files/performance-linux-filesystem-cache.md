@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 07/02/2021
 ms.author: b-juche
 ---
 # Linux filesystem cache best practices for Azure NetApp Files
@@ -33,7 +33,7 @@ You need to understand the following factors about filesystem cache tunables:
 These factors are controlled by four tunables. Each tunable can be tuned dynamically and persistently using `tuned` or `sysctl` in the `/etc/sysctl.conf` file. Tuning these variables improves performance for applications.  
 
 > [!NOTE]
-> Information discussed in this article was uncovered during SAS GRID and SAS Viya validation exercises. As such, the tunables are based on lessons learned from the validation exercises. 
+> Information discussed in this article was uncovered during SAS GRID and SAS Viya validation exercises. As such, the tunables are based on lessons learned from the validation exercises. Many applications will similarly benefit from tuning these parameters.
 
 ### `vm.dirty_ratio | vm.dirty_bytes` 
 

@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 07/02/2021
 ms.author: b-juche
 ---
 # Linux direct I/O best practices for Azure NetApp Files
@@ -37,7 +37,6 @@ The following are some databases that support direct I/O:
 * MySQL (InnoDB storage engine)
 * RocksDB
 * PostgreSQL
-* SQL Server for Linux (this database supports write-through, although not direct I/O itself)
 * Teradata
 
 ## Best practices 
