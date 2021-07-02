@@ -132,15 +132,6 @@ Managed identity type | All Generally Available<br>Global Azure Regions | Azure 
 | System assigned | ![Available][check] | ![Available][check] | Not available | ![Available][check] |
 | User assigned | Not available | Not available | Not available | Not available |
 
-
-### Azure Communication Services
-
-Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
-| --- | :-: | :-: | :-: | :-: |
-| System assigned | ![Available][check] | Not available | Not available | Not available |
-| User assigned | ![Available][check] | Not available | Not available | Not available |
-
-
 ### Azure Container Instances
 
 Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
@@ -284,6 +275,17 @@ Managed identity type | All Generally Available<br>Global Azure Regions | Azure 
 | User assigned | Preview | Not available | Not available | Not available |
 
 For more information, see [Use managed identities with Azure Machine Learning](../../machine-learning/how-to-use-managed-identities.md).
+
+### Azure Media Services
+
+| Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| System assigned | ![Available][check] | ![Available][check] | Not Available | ![Available][check] |
+| User assigned | Not Available  | Not Available  | Not Available  | Not Available  |
+
+Refer to the following list to configure managed identity for Azure Media Services (in regions where available):
+
+- [Azure CLI](../../media-services/latest/security-access-storage-managed-identity-cli-tutorial.md)
 
 ### Azure Policy
 
@@ -487,6 +489,14 @@ Refer to the following list to configure access to Azure Resource Manager:
 | Azure Government | `https://*.asazure.usgovcloudapi.net` | ![Available][check] |
 | Azure Germany | `https://*.asazure.cloudapi.de` | ![Available][check] |
 | Azure China 21Vianet | `https://*.asazure.chinacloudapi.cn` | ![Available][check] |
+
+### Azure Communication Services
+
+Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| System assigned | ![Available][check] | Not available | Not available | Not available |
+| User assigned | ![Available][check] | Not available | Not available | Not available |
+
 
 > [!Note]
 > Microsoft Power BI also [supports managed identities](../../stream-analytics/powerbi-output-managed-identity.md).

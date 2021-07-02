@@ -85,7 +85,7 @@ Get started with SQL Server on Azure Virtual Machines:
 
 Get answers to commonly asked questions about SQL Server VMs:
 
-* [FAQ for SQL Server on Azure Virtual Machines](frequently-asked-questions-faq.md)
+* [FAQ for SQL Server on Azure Virtual Machines](frequently-asked-questions-faq.yml)
 
 Find out more about end of support options, and extended security updates:
 

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/28/2020
+ms.date: 06/15/2021
 ms.author: jeedes
 ---
 
@@ -36,9 +36,9 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* Workplace by Facebook supports **SP** initiated SSO
-* Workplace by Facebook supports **just-in-time provisioning**
-* Workplace by Facebook supports **[automatic User Provisioning](workplacebyfacebook-provisioning-tutorial.md)**
+* Workplace by Facebook supports **SP** initiated SSO.
+* Workplace by Facebook supports **just-in-time provisioning**.
+* Workplace by Facebook supports **[automatic User Provisioning](workplacebyfacebook-provisioning-tutorial.md)**.
 * Workplace by Facebook Mobile application can now be configured with Azure AD for enabling SSO. In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 
@@ -137,19 +137,21 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
     > [!NOTE]
     > As part of the SAML authentication process, Workplace may utilize query strings of up to 2.5 kilobytes in size in order to pass parameters to Azure AD.
 
-1. On the left navigation panel, navigate to **Security** > **Authentication** tab.
+1. Navigate to **Admin Panel** > **Security** > **Authentication** tab.
 
-    ![Admin Panel](./media/workplacebyfacebook-tutorial/tutorial-workplace-by-facebook-configure01.png)
+    ![Admin Panel](./media/workplacebyfacebook-tutorial/security.png)
 
     a. Check the **Single-sign on(SSO)** option.
+
+    b. Select **SSO** as default for new users.
     
-    b. Click on **+Add new SSO Provider**.
+    c. Click on **+Add new SSO Provider**.
     > [!NOTE]
     > Make sure you check the Password login checkbox too. Admins may need this option for login while doing the certificate rollover in order to stop themselves getting locked out.
 
-1. Under **Authentication** tab, select **Single-Sign On (SSO)** and perform the following steps:
+1. In the **Single Sign-On (SSO) Setup** pop-up window, perform the following steps:
 
-    ![Authentication Tab](./media/workplacebyfacebook-tutorial/tutorial-workplace-by-facebook-configure02.png)
+    ![Authentication Tab](./media/workplacebyfacebook-tutorial/single-sign-on-setup.png)
 
     a. In the **Name of the SSO Provider**, enter the SSO instance name like Azureadsso.
 
@@ -157,7 +159,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     c. In **SAML Issuer URL** textbox, paste the value of **Azure AD Identifier**, which you have copied from Azure portal.
 
-    d. Open your **base-64 encoded certificate** in notepad downloaded from Azure portal, copy the content of it into your clipboard, and then paste it to the **SAML Certificate** textbox.
+    d. Open the downloaded **Certificate (Base64)** from the Azure portal into Notepad, copy the content of it into your clipboard, and then paste it to the **SAML Certificate** textbox.
 
     e. Copy the **Audience URL** for your instance and paste it in **Identifier (Entity ID)** textbox in **Basic SAML Configuration** section on Azure portal.
 

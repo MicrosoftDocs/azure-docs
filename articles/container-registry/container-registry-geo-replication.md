@@ -3,7 +3,7 @@ title: Geo-replicate a registry
 description: Get started creating and managing a geo-replicated Azure container registry, which enables the registry to serve multiple regions with multi-master regional replicas. Geo-replication is a feature of the Premium service tier.
 author: stevelas
 ms.topic: article
-ms.date: 06/09/2021
+ms.date: 06/28/2021
 ms.author: stevelas
 ---
 # Geo-replication in Azure Container Registry
@@ -19,8 +19,8 @@ A geo-replicated registry provides the following benefits:
 * Registry resilience if a regional outage occurs
 
 > [!NOTE]
-> If you need to maintain copies of container images in more than one Azure container registry, Azure Container Registry also supports [image import](container-registry-import-images.md). For example, in a DevOps workflow, you can import an image from a development registry to a production registry, without needing to use Docker commands.
->
+> * If you need to maintain copies of container images in more than one Azure container registry, Azure Container Registry also supports [image import](container-registry-import-images.md). For example, in a DevOps workflow, you can import an image from a development registry to a production registry, without needing to use Docker commands.
+> * If you want to move a registry to a different Azure region, instead of geo-replicating the registry, see [Manually move a container registry to another region](manual-regional-move.md).
 
 ## Example use case
 Contoso runs a public presence website located across the US, Canada, and Europe. To serve these markets with local and network-close content, Contoso runs [Azure Kubernetes Service](../aks/index.yml) (AKS) clusters in West US, East US, Canada Central, and West Europe. The website application, deployed as a Docker image, utilizes the same code and image across all regions. Content, local to that region, is retrieved from a database, which is provisioned uniquely in each region. Each regional deployment has its unique configuration for resources like the local database.
@@ -57,9 +57,6 @@ Using the geo-replication feature of Azure Container Registry, these benefits ar
 * Provide a highly available registry that is resilient to regional outages.
 
 Azure Container Registry also supports [availability zones](zone-redundancy.md) to create a resilient and high availability Azure container registry within an Azure region. The combination of availability zones for redundancy within a region, and geo-replication across multiple regions, enhances both the reliability and performance of a registry.
-
-> [!IMPORTANT]
-> A geo-replicated registry can become unavailable if certain outages occur in the registry's home region - that is, the region where the registry was originally deployed.
 
 ## Configure geo-replication
 
@@ -99,6 +96,13 @@ ACR begins syncing images across the configured replicas. Once complete, the por
 * To manage workflows that depend on push updates to a geo-replicated registry, we recommend that you configure [webhooks](container-registry-webhook.md) to respond to the push events. You can set up regional webhooks within a geo-replicated registry to track push events as they complete across the geo-replicated regions.
 * To serve blobs representing content layers, Azure Container Registry uses data endpoints. You can enable [dedicated data endpoints](container-registry-firewall-access-rules.md#enable-dedicated-data-endpoints) for your registry in each of your registry's geo-replicated regions. These endpoints allow configuration of tightly scoped firewall access rules. For troubleshooting purposes, you can optionally [disable routing to a replication](#temporarily-disable-routing-to-replication) while maintaining replicated data.
 * If you configure a [private link](container-registry-private-link.md) for your registry using private endpoints in a virtual network, dedicated data endpoints in each of the geo-replicated regions are enabled by default. 
+
+## Considerations for high availability
+
+* For high availability and resiliency, we recommend creating a registry in a region that supports enabling [zone redundancy](zone-redundancy.md). Enabling zone redundancy in each replica region is also recommended.
+* If an outage occurs in the registry's home region (the region where it was created) or one of its replica regions, a geo-replicated registry remains available for data plane operations such as pushing or pulling container images. 
+* If the registry's home region becomes unavailable, you may be unable to carry out registry management operations including configuring network rules, enabling availability zones, and managing replicas.
+* To plan for high availablity of a geo-replicated registry encrypted with a [customer-managed key](container-registry-customer-managed-keys.md) stored in an Azure key vault, review the guidance for key vault [failover and redundancy](../key-vault/general/disaster-recovery-guidance.md).
 
 ## Delete a replica
 

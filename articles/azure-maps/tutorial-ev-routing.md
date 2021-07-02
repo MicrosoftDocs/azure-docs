@@ -328,7 +328,7 @@ routeData = {
 
 ## Visualize the route
 
-To help visualize the route, you first upload the route data as a geojson object to Azure Maps Data service . To do so, use the Azure Maps [Data Upload API](/rest/api/maps/data%20v2/uploadpreview). Then, call the rendering service, [Get Map Image API](/rest/api/maps/render/getmapimage), to render the route on the map, and visualize it.
+To help visualize the route, you first upload the route data as a geojson object to Azure Maps Data service . To do so, use the Azure Maps [Data Upload API](/rest/api/maps/data-v2/upload-preview). Then, call the rendering service, [Get Map Image API](/rest/api/maps/render/getmapimage), to render the route on the map, and visualize it.
 
 To get an image for the rendered route on the map, run the following script:
 
@@ -385,7 +385,7 @@ To explore the Azure Maps APIs that are used in this tutorial, see:
 
 * [Get Route Range](/rest/api/maps/route/getrouterange)
 * [Post Search Inside Geometry](/rest/api/maps/search/postsearchinsidegeometry)
-* [Data Upload](/rest/api/maps/data%20v2/uploadpreview)
+* [Data Upload](/rest/api/maps/data-v2/upload-preview)
 * [Render - Get Map Image](/rest/api/maps/render/getmapimage)
 * [Post Route Matrix](/rest/api/maps/route/postroutematrix)
 * [Get Route Directions](/rest/api/maps/route/getroutedirections)

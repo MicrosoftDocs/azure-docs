@@ -14,7 +14,7 @@ ms.custom:
 
 # Quickstart: Use Azure Service Bus queues with Java to send and receive messages
 
-[!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
+[!INCLUDE [service-bus-selector-queues](./includes/service-bus-selector-queues.md)]
 In this tutorial, you learn how to create Java applications to send messages to and receive messages from an Azure Service Bus queue. 
 
 > [!WARNING]

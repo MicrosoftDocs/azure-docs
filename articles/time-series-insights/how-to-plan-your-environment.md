@@ -1,9 +1,10 @@
-﻿---
+---
 title: 'Plan your Gen2 environment - Azure Time Series Insights | Microsoft Docs'
 description: Best practices to configure, manage, plan, and deploy your Azure Time Series Insights Gen2 environment.
-author: deepakpalled
-ms.author: dpalled
-manager: diviso
+author: tedvilutis
+ms.author: tvilutis
+manager: cnovak
+ms.reviewer: orspodek
 ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
