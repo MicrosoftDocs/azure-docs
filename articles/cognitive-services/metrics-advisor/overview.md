@@ -82,7 +82,7 @@ Metrics Advisor will keep at most **10,000** time intervals ([what is an interva
 | 60(=hourly) | 416.67 |
 | 1440(=daily)|10000.00|
 
-There’re also further limitations, please refer to [FAQ](faq.yml#data-retention-&-limitation) for more details. 
+There’re also further limitations, please refer to [FAQ](faq.yml#what-are-the-data-retention-and-limitations-of-metrics-advisor-) for more details. 
 
 ## Next steps
 
