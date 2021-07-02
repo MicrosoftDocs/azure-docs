@@ -49,9 +49,20 @@ A catalog is a container of resources and access packages. You create a catalog 
 
 1. Click **Create** to create the catalog.
 
-### Creating a catalog programmatically
+## Create a catalog programmatically
+### Create a catalog with Microsoft Graph
 
 You can also create a catalog using Microsoft Graph.  A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission, or an application with that application permission, can call the API to [create an accessPackageCatalog](/graph/api/accesspackagecatalog-post?view=graph-rest-beta&preserve-view=true).
+
+### Create a catalog  with PowerShell
+
+You can create a catalog in PowerShell with the `New-MgEntitlementManagementAccessPackageCatalog` cmdlet from the [Microsoft Graph PowerShell cmdlets for Identity Governance](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.Governance/) module version 1.6.0 or later.
+
+```powershell
+Connect-MgGraph -Scopes "EntitlementManagement.ReadWrite.All"
+Select-MgProfile -Name "beta"
+$catalog = New-MgEntitlementManagementAccessPackageCatalog -DisplayName "Marketing"
+```
 
 ## Add resources to a catalog
 

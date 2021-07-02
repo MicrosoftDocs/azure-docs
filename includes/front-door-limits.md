@@ -66,7 +66,7 @@
 ##### Front Door to application back-end
 * If the response is a chunked response, a 200 is returned if or when the first chunk is received.
 * After the HTTP request is forwarded to the back end, Front Door waits for 30 seconds for the first packet from the back end. Then it returns a 503 error to the client. This value is configurable via the field sendRecvTimeoutSeconds in the API.
-    * For caching scenarios, this timeout is not configurable and so, if a request is cached and it takes more than 30 seconds for the first packet from Front Door or from the backend, then a 504 error is returned to the client. 
+    * If a request is cached and it takes more than 30 seconds for the first packet from Front Door or from the backend, then a 504 error is returned to the client. 
 * After the first packet is received from the back end, Front Door waits for 30 seconds in an idle timeout. Then it returns a 503 error to the client. This timeout value is not configurable.
 * Front Door to the back-end TCP session timeout is 90 seconds.
 
