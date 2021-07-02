@@ -133,7 +133,7 @@ This section gives an overview of the code required to sign in users. This overv
 The *Microsoft.AspNetCore.Authentication* middleware uses a `Startup` class that's run when the hosting process starts:
 
 
- :::code language="csharp" source="~/sample-active-directory-aspnetcore-webapp-openidconnect-v2/Startup.cs" range="30-44" highlight="3,4":::
+ :::code language="csharp" source="~/sample-active-directory-aspnetcore-webapp-openidconnect-v2/Startup.cs" id="Configure_service" highlight="3,4":::
 
 
 The `AddAuthentication()` method configures the service to add cookie-based authentication. This authentication is used in browser scenarios and to set the challenge to OpenID Connect.
@@ -156,14 +156,6 @@ The `Configure()` method contains two important methods, `app.UseAuthentication(
 You can protect a controller or controller methods by using the `[Authorize]` attribute. This attribute restricts access to the controller or methods by allowing only authenticated users. An authentication challenge can then be started to access the controller if the user isn't authenticated.
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
-
-
-### Named snippet test
-
-This is for test only:
-
- :::code language="csharp" source="~/sample-active-directory-aspnetcore-webapp-openidconnect-v2/Startup.cs" id="Configure_service":::
-
 
 ## Next steps
 
