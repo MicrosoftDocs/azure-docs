@@ -17,6 +17,7 @@ Learn about important updates in the commercial marketplace program of Partner C
 | Category | Description | Date |
 | ------------ | ------------- | ------------- |
 | Customer engagement | Publishers can now respond to user reviews on Azure Marketplace or AppSource. To learn more, see [Ratings & Reviews analytics dashboard in Partner Center](/azure/marketplace/ratings-reviews). | 2021-06- 03 |
+|||
 
 ## Tax updates
 
@@ -26,6 +27,7 @@ Learn about important updates in the commercial marketplace program of Partner C
 | Taxation | Updated [tax details page](/partner-center/tax-details-marketplace) country list to include the following: <ul><li>Argentina</li><li>Bulgaria</li><li>Hong Kong SAR</li><li>Korea (South)</li><li>Pakistan</li><li>Palestinian Authority</li><li>Panama</li><li>Paraguay</li><li>Peru</li><li>Philippines</li><li>Saint Kitts and Nevis</li><li>Senegal</li><li>Sri Lanka</li><li>Tajikistan</li><li>Tanzania</li><li>Thailand</li><li>Trinidad and Tobago</li><li>Tunisia</li><li>Turkmenistan</li><li>Uganda</li><li>Uzbekistan</li><li>Zimbabwe</li></ul> | 2021-07-01 |
 | Taxation | Nigeria moved from the "shared publisher/developer-managed countries" list to the “end-customer taxation with differences in Marketplaces".  | 2021-07-01 |
 | Payouts | Added commercial marketplace payout scenarios to the [tax details page](/partner-center/tax-details-marketplace). | 2021-04-26 |
+|||
 
 ## Documentation updates
 
@@ -37,3 +39,4 @@ Learn about important updates in the commercial marketplace program of Partner C
 | API guidance | This topic gives publishers a single convenient location to find recent changes to the commercial marketplace, including updates to certification policy, changes to tax rules, and more. To learn more, see [Align your business with our e-commerce platform](/azure/marketplace/marketplace-apis-guide). | 2021-05-13 |
 | Policy | The [Microsoft Publisher Agreement](/legal/marketplace/msft-publisher-agreement) has been updated. To see what’s changed, see [Change history for Microsoft Publisher Agreement](/legal/marketplace/mpa-change-history). | 2021-04-16 |
 | Offers | Microsoft 365 independent software vendors (ISVs) can now link their software as a service (SaaS) offer to their related Teams apps, Office add-ins (WXPO), and SharePoint SPFx solutions in Partner Center. SaaS ISVs can also declare if their SaaS offer is integrated with Microsoft Graph API. To learn more, see [Test and deploy Microsoft 365 Apps by partners in the Integrated apps portal](/microsoft-365/admin/manage/test-and-deploy-microsoft-365-apps). | 2021-04-08 |
+|||
