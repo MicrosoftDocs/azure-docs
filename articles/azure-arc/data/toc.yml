@@ -26,6 +26,8 @@
       items:
       - name: Install client tools
         href: install-client-tools.md
+      - name: Install arcdata extension (Azure CLI)
+        href: install-arcdata-extension.md
     - name: Create data controller
       items:
         - name: Indirect connectivity mode
@@ -35,7 +37,7 @@
           - name: Portal
             href: create-data-controller-resource-in-azure-portal.md
           - name: Azure Data CLI (azdata)
-            href: create-data-controller-using-azdata.md
+            href: create-data-controller-using-cli.md
           - name: Kubernetes tools
             href: create-data-controller-using-kubernetes-native-tools.md
           - name: Apply SCC (OpenShift)

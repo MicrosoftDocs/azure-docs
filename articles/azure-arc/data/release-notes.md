@@ -24,7 +24,7 @@ This preview release is published July 8, 2021.
 
 #### New Azure CLI extension for data controller and Azure Arc-enabled SQL Managed Instance
 
-This release introduces the `arcdata` extension to the Azure CLI. To add the extension, run the following commmand: 
+This release introduces the `arcdata` extension to the Azure CLI. To add the extension, run the following command: 
 
 ```azurecli
 az extension add --name arcdata 
