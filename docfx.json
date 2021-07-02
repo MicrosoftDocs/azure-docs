@@ -826,7 +826,7 @@
       },
       "monikerRange": {
         "articles/iot-edge/**/*.md": ">=iotedge-2018-06",
-        "articles/healthcare-apis/dicom/**": "healthcare-apis"
+        "articles/healthcare-apis/dicom/**": "healthcareapi-1.0.0"
       },
       "recommendations": {
         "articles/cognitive-services/Translator/**/*.md": false
