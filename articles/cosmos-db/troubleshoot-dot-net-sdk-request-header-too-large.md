@@ -31,6 +31,8 @@ A 400 bad request most likely occurs because the session token is too large. If 
 Restart your client application to reset all the session tokens. Eventually, the session token will grow back to the previous size that caused the issue. To avoid this issue completely, use the solution in the next section.
 
 #### Solution:
+> [!IMPORTANT]
+> Upgrade to at least .NET v3.20.1 and v2.15.0 which contains optimizations to scope the session token which will reduce it size and help avoid the header from being to large. 
 1. Follow the guidance in the [.NET v3](performance-tips-dotnet-sdk-v3-sql.md) or [.NET v2](performance-tips.md) performance tips articles. Convert the application to use the direct connection mode with the Transmission Control Protocol (TCP). The direct connection mode with the TCP protocol doesn't have the header size restriction like the HTTP protocol, so it avoids this issue. Make sure to use the latest version of the SDK, which has a fix for query operations when the service interop isn't available.
 1. If the direct connection mode with the TCP protocol isn't an option for your workload, mitigate it by changing the [client consistency level](how-to-manage-consistency.md). The session token is only used for session consistency, which is the default consistency level for Azure Cosmos DB. Other consistency levels don't use the session token.
 
