@@ -213,7 +213,7 @@ When the command completes, it outputs a JSON object that contains different con
     
     If the `az` command is not recognized, be sure you have the Azure CLI installed as described in [Set up your initial environment](#1-set-up-your-initial-environment).
     
-    The [az postgres flexible-server create](/cli/azure/postgres/flexible-server?view=azure-cli-latest#az_postgres_flexible_server_create) command performs the following actions, which take a few minutes:
+    The [az postgres flexible-server create](/cli/azure/postgres/flexible-server#az_postgres_flexible_server_create) command performs the following actions, which take a few minutes:
     
     - Create a default resource group if there's not a cached name already.
     - Create a PostgreSQL Flexible Server:
