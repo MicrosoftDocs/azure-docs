@@ -73,7 +73,7 @@ Before deploying Zone to Zone Disaster Recovery for your VMs, it is important to
 |Managed disks    |    Supported    |
 |Customer-managed keys    |    Supported    |
 |Proximity placement groups    |    Supported    |
-|Backup interoperability    |    File level backup and restore are supported. Disk and VM level backup and restore and not supported.    |
+|Backup interoperability    |    File level backup and restore are supported. Disk and VM level backup and restore are not supported.    |
 |Hot add/remove    |    Disks can be added after enabling zone to zone replication. Removal of disks after enabling zone to zone replication is not supported.    |	
 
 ## Set up Site Recovery Zone to Zone Disaster Recovery
