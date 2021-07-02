@@ -842,6 +842,12 @@ Gets the year value of a date.
 
 ## Aggregate functions
 The following functions are only available in aggregate, pivot, unpivot, and window transformations.
+
+___
+### <code>approxDistinctCount</code>
+<code><b>approxDistinctCount(<i>&lt;value1&gt;</i> : any, [ <i>&lt;value2&gt;</i> : double ]) => long</b></code><br/><br/>
+Gets the approximate aggregate count of distinct values for a column. The optional second parameter is to control the estimation error.
+* ``approxDistinctCount(ProductID, .05) => long``  
 ___
 ### <code>avg</code>
 <code><b>avg(<i>&lt;value1&gt;</i> : number) => number</b></code><br/><br/>
@@ -1057,6 +1063,12 @@ Array functions perform transformations on data structures that are arrays. Thes
 * ```#index``` represents the current array index, along with array index numbers ```#index2, #index3 ...```
 * ```#item``` represents the current element value in the array
 
+### <code>at</code>
+<code><b>at(<i>&lt;value1&gt;</i> : array/map, <i>&lt;value2&gt;</i> : integer/key type) => array</b></code><br/><br/>
+Finds the element at an array index. The index is 1-based. Out of bounds index results in a null value. Finds a value in a map given a key. If the key is not found it returns null.
+*	``at(['bojjus', 'gunchus'], 1) => 'bojjus'``
+*	``at(['bojjus' -> 'gunchus', 'appa' -> 'ammi'], 'bojjus') => 'gunchus'``
+___
 ### <code>array</code>
 <code><b>array([<i>&lt;value1&gt;</i> : any], ...) => array</b></code><br/><br/>
 Creates an array of items. All items should be of the same type. If no items are specified, an empty string array is the default. Same as a [] creation operator.  
