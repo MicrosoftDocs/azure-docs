@@ -13,7 +13,6 @@ title: Frequently asked questions about Confidential Computing Nodes on Azure Ku
 summary: |
   This article addresses frequent questions about Intel SGX based confidential computing nodes on Azure Kubernetes Service (AKS). If you have any further questions, email **acconaks@microsoft.com**.
   
-
 sections:
   - name: Product
     questions:
@@ -63,7 +62,7 @@ sections:
           - No Windows Nodes Support or Windows Containers Support
           - EPC Memory based Horizontal Pod Autoscaling is not supported. CPU and regular memory-based scaling is supported.
           - Dev Spaces on AKS for confidential apps are not currently supported   
-       
+ 
           
       - question: Can I provision AKS with DCSv2 Node Pools through Azure portal? 
         answer: |
@@ -74,8 +73,7 @@ sections:
         answer: |
           18.04 on Gen 2. 
           
-   
-
+  
   - name: Development & Deploy
     questions:
       - question: Can I bring my existing containerized applications and run it on AKS with Azure Confidential Computing?
